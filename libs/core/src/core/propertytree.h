@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_PROPERTYTREE_H
-#define EUPHORIA_PROPERTYTREE_H
+#pragma once
 
 #include <string>
 #include <map>
@@ -9,78 +8,66 @@
 
 namespace euphoria::core
 {
-    enum class ValueType
+    enum class value_type
     {
-        Int,
-        Float,
-        Vec3f,
-        Point3f,
-        Struct
+        int_type,
+        float_type,
+        vec3f_type,
+        struct_type
     };
 
-    struct Value
+    struct value
     {
-        explicit Value(ValueType vt) : type(vt) {}
+        explicit value(value_type vt) : type(vt) {}
 
-        virtual ~Value() = default;
+        virtual ~value() = default;
 
-        Value(const Value&) = delete;
-        Value(Value&&) = delete;
-        void operator=(const Value&) = delete;
-        void operator=(Value&&) = delete;
+        value(const value&) = delete;
+        value(value&&) = delete;
+        void operator=(const value&) = delete;
+        void operator=(value&&) = delete;
 
-        const ValueType type;
+        const value_type type;
     };
 
-    struct ValueInt : public Value
+    struct value_int : public value
     {
-        explicit ValueInt(int i);
+        explicit value_int(int i);
         int value;
 
         [[nodiscard]] static int&
-        Cast(Value* value);
+        cast(core::value* value);
     };
 
-    struct ValueFloat : public Value
+    struct value_float : public value
     {
-        explicit ValueFloat(float f);
+        explicit value_float(float f);
         float value;
 
         [[nodiscard]] static float&
-        Cast(Value* value);
+        cast(core::value* value);
     };
 
-    struct ValueVec3f : public Value
+    struct value_vec3f : public value
     {
-        explicit ValueVec3f(const vec3f& v);
+        explicit value_vec3f(const vec3f& v);
         vec3f value;
 
         [[nodiscard]] static vec3f&
-        Cast(Value* value);
+        cast(core::value* value);
     };
 
-    struct ValuePoint3f : public Value
+    struct property_tree : public value
     {
-        explicit ValuePoint3f(const vec3f& v);
-        vec3f value;
-
-        [[nodiscard]] static vec3f&
-        Cast(Value* value);
-    };
-
-    struct PropertyTree : public Value
-    {
-        PropertyTree();
+        property_tree();
 
         void
-        Set(const std::string& name, std::shared_ptr<Value> value);
+        set(const std::string& name, std::shared_ptr<value> value);
 
-        std::shared_ptr<Value>
-        GetOrNull(const std::string& name);
+        std::shared_ptr<value>
+        get_or_null(const std::string& name);
 
-        std::map<std::string, std::shared_ptr<Value>> properties;
+        std::map<std::string, std::shared_ptr<value>> properties;
     };
 
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_PROPERTYTREE_H
+}

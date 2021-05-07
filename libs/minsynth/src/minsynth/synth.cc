@@ -21,7 +21,7 @@
 namespace euphoria::minsynth
 {
     // todo(Gustav): get a better number here
-    constexpr float pi = core::Pi();
+    constexpr float pi = core::pi;
 
 
     LOG_SPECIFY_DEFAULT_LOGGER("minsynth.synth")
@@ -803,7 +803,7 @@ namespace euphoria::minsynth
     float
     ScalerEffect::OnWave(float wave)
     {
-        float w = core::Abs(wave);
+        float w = core::abs(wave);
         const auto negative = wave < 0;
         for(int i = 0; i < times; i += 1)
         {

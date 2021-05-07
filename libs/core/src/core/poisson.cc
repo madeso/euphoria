@@ -18,14 +18,14 @@ namespace euphoria::core
             a.bottom < p.y - r;
     }
 
-    poisson_worker::poisson_worker(const rectf& aarea, Random* arandom, float ar, float bs, int ak)
+    poisson_worker::poisson_worker(const rectf& aarea, random* arandom, float ar, float bs, int ak)
         : area(aarea)
-        , random(arandom)
+        , rand(arandom)
         , r(ar)
         , bounds_check(bs)
         , k(ak)
-        , w(r / Sqrt(2))
-        , grid(table<int>::from_width_height(Floori(area.get_width()/w), Floori(area.get_height()/w), -1))
+        , w(r / sqrt(2))
+        , grid(table<int>::from_width_height(floor_to_int(area.get_width()/w), floor_to_int(area.get_height()/w), -1))
     {
         auto p = random_point();
         if(bounds_check > 0)
@@ -51,12 +51,12 @@ namespace euphoria::core
 
     vec2f
     poisson_worker::random_point() const
-    { return area.get_random_point(random); }
+    { return area.get_random_point(rand); }
 
 
     vec2i
     poisson_worker::point_to_index(const vec2f& p) const
-    { return vec2i{ Floori(p.x/w), Floori(p.y/w) }; }
+    { return vec2i{ floor_to_int(p.x/w), floor_to_int(p.y/w) }; }
 
 
     bool
@@ -72,7 +72,7 @@ namespace euphoria::core
                 const auto neighbour_sample_index = grid(neighbour_pos.x, neighbour_pos.y);
                 if(neighbour_sample_index == -1) { continue; }
                 const auto d2 = vec2f::from_to(samples[neighbour_sample_index], potential_sample).get_length_squared();
-                if(d2 <= Square(r))
+                if(d2 <= square(r))
                 {
                     return false;
                 }
@@ -90,8 +90,8 @@ namespace euphoria::core
 
         for(int try_index = 0; try_index<k; try_index +=1)
         {
-            const auto unit = create_random_unit(random);
-            const auto random_range = random->NextRange(r, 2*r);
+            const auto unit = create_random_unit(rand);
+            const auto random_range = get_next_range(rand, r, 2*r);
             const auto sample = base_sample + unit * random_range;
             const auto sample_pos = point_to_index(sample);
 
@@ -135,7 +135,7 @@ namespace euphoria::core
             return std::nullopt;
         }
 
-        const auto active_index = random->NextRange(active.size());
+        const auto active_index = get_next_range(rand, active.size());
 
         const auto [placed, sample] = try_place(active_index);
         if(placed)
@@ -153,7 +153,7 @@ namespace euphoria::core
 
 
     std::vector<vec2f>
-    poisson_sample(const rectf& area, Random* random, float r, float bs, int k)
+    poisson_sample(const rectf& area, random* random, float r, float bs, int k)
     {
         auto worker = poisson_worker{area, random, r, bs, k};
         while(!worker.is_done())

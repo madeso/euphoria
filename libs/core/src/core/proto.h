@@ -1,5 +1,4 @@
-#ifndef SPACETYPER_PROTO_H_
-#define SPACETYPER_PROTO_H_
+#pragma once
 
 #include <string>
 #include "rapidjson/document.h"
@@ -13,7 +12,7 @@ namespace euphoria::core
     }
 
     std::string
-    LoadProtoJson_Internal
+    read_file_or_get_error_message
     (
         vfs::FileSystem* fs,
         rapidjson::Document* doc,
@@ -21,17 +20,18 @@ namespace euphoria::core
     );
 
     std::string
-    ParseJsonSource(const std::string& source, rapidjson::Document* doc);
+    read_source_or_get_error_message(const std::string& source, rapidjson::Document* doc);
 
     // return error message or empty
     template <typename T>
     std::string
-    LoadProtoJson(vfs::FileSystem* fs, T* message, const vfs::FilePath& file_name)
+    read_json_to_gaf_struct_or_get_error_message(vfs::FileSystem* fs, T* message, const vfs::FilePath& file_name)
     {
         rapidjson::Document doc;
-        const std::string   r = LoadProtoJson_Internal(fs, &doc, file_name);
+        const std::string r = read_file_or_get_error_message(fs, &doc, file_name);
         if(r.empty())
         {
+            // assume there is a gaf function for the struct we are using...
             return ReadFromJsonValue(message, doc, "");
         }
         else
@@ -41,6 +41,4 @@ namespace euphoria::core
     }
 
 
-}  // namespace euphoria::core
-
-#endif  // SPACETYPER_PROTO_H_
+}

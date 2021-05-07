@@ -7,7 +7,7 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 
     struct angle
     {
@@ -42,21 +42,21 @@ namespace euphoria::core
         [[nodiscard]] constexpr static angle
         from_percent_of_360(float percent)
         {
-            return angle::from_radians(percent * Pi() * 2.0f);
+            return angle::from_radians(percent * pi * 2.0f);
         }
 
 
         [[nodiscard]] constexpr static angle
         OneTurn()
         {
-            return angle::from_radians(Pi() * 2.0f);
+            return angle::from_radians(pi * 2.0f);
         }
 
 
         [[nodiscard]] constexpr static angle
         Quarter()
         {
-            return angle::from_radians(Pi() / 2.0f);
+            return angle::from_radians(pi / 2.0f);
         }
 
 
@@ -70,19 +70,19 @@ namespace euphoria::core
         [[nodiscard]] constexpr float
         InPercentOf360() const
         {
-            return in_radians() / (Pi() * 2.0f);
+            return in_radians() / (pi * 2.0f);
         }
 
 
         [[nodiscard]] constexpr static angle
         from_percent_of_180(float percent)
         {
-            return angle::from_radians(percent * Pi());
+            return angle::from_radians(percent * pi);
         }
 
 
         [[nodiscard]] static angle
-        Random(::euphoria::core::Random* random);
+        Random(::euphoria::core::random* random);
 
 
         [[nodiscard]] angle
@@ -116,13 +116,13 @@ namespace euphoria::core
         [[nodiscard]] static constexpr float
         radian_to_degrees(float radians)
         {
-            return (180.0f / Pi()) * radians;
+            return (180.0f / pi) * radians;
         }
 
         [[nodiscard]] static constexpr float
         degrees_to_radian(float degrees)
         {
-            return Pi() / 180.0f * degrees;
+            return pi / 180.0f * degrees;
         }
 
         constexpr explicit angle(float r) : radians(r) {}

@@ -28,7 +28,7 @@ void AddSpiral(dumper* dump, int number_of_steps, float number_of_spins, float h
 int
 main(int, char*[])
 {
-    Random rand;
+    random rand;
 
     auto pal = CreateShuffleBag(palettes::color_blind_10().colors, 2);
 

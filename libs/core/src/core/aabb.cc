@@ -28,18 +28,18 @@ namespace euphoria::core
 
 
     vec3f
-    Min(const vec3f& lhs, const vec3f& rhs)
+    min(const vec3f& lhs, const vec3f& rhs)
     {
-#define M(var) Min(lhs.var, rhs.var)
+#define M(var) core::min(lhs.var, rhs.var)
         return vec3f {M(x), M(y), M(z)};
 #undef M
     }
 
 
     vec3f
-    Max(const vec3f& lhs, const vec3f& rhs)
+    max(const vec3f& lhs, const vec3f& rhs)
     {
-#define M(var) Max(lhs.var, rhs.var)
+#define M(var) core::max(lhs.var, rhs.var)
         return vec3f {M(x), M(y), M(z)};
 #undef M
     }
@@ -49,8 +49,8 @@ namespace euphoria::core
     aabb::extend(const vec3f& vec)
     {
         ASSERT(is_valid());
-        min = Min(min, vec);
-        max = Max(max, vec);
+        min = core::min(min, vec);
+        max = core::max(max, vec);
     }
 
 
@@ -58,8 +58,8 @@ namespace euphoria::core
     aabb::extend(const aabb& aabb)
     {
         ASSERT(is_valid());
-        min = Min(min, aabb.min);
-        max = Max(max, aabb.max);
+        min = core::min(min, aabb.min);
+        max = core::max(max, aabb.max);
     }
 
 
@@ -113,11 +113,11 @@ namespace euphoria::core
 
 
     vec3f
-    aabb::get_random_point(Random* random) const
+    aabb::get_random_point(random* rand) const
     {
-        const auto x = random->Next(MakeRange(min.x, max.x));
-        const auto y = random->Next(MakeRange(min.y, max.y));
-        const auto z = random->Next(MakeRange(min.z, max.z));
+        const auto x = get_next_in_range(rand, MakeRange(min.x, max.x));
+        const auto y = get_next_in_range(rand, MakeRange(min.y, max.y));
+        const auto z = get_next_in_range(rand, MakeRange(min.z, max.z));
 
         return vec3f {x, y, z};
     }

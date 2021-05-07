@@ -43,7 +43,7 @@ main(int argc, char* argv[])
     parser.on_complete([&]
     {
         tracery::grammar grammar;
-        auto random = euphoria::core::Random{};
+        auto random = euphoria::core::random{};
 
         grammar.register_english();
 

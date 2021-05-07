@@ -96,14 +96,14 @@ main(int argc, char** argv)
     image.setup_no_alpha_support(256, 256);
     const auto wi = whole_image(image);
     clear(&image, {color::red});
-    Random random {42};
+    random rand {42};
 
     for(int i = 0; i < 20; i += 1)
     {
-        const rgb  color = crgb(palettes::dawnbringer().get_random_color(&random));
-        const auto pos = wi.get_random_point(&random);
-        const auto outer = random.NextRange(55.0f, 100.0f);
-        const auto inner = random.Next(MakeRange(50.0f));
+        const rgb  color = crgb(palettes::dawnbringer().get_random_color(&rand));
+        const auto pos = wi.get_random_point(&rand);
+        const auto outer = get_next_range(&rand, 55.0f, 100.0f);
+        const auto inner = get_next_in_range(&rand, MakeRange(50.0f));
         draw_circle(&image, color, pos, outer, 10, inner);
     }
     draw_line_antialiased(&image, color::black, wi.get_top_left(), wi.get_bottom_right());
@@ -189,23 +189,23 @@ main(int argc, char** argv)
 
     for(int i = 0; i < 20; ++i)
     {
-        auto actor = std::make_shared<Actor>(random.NextBool() ? box1 : box2);
+        auto actor = std::make_shared<Actor>(rand.get_next_bool() ? box1 : box2);
         world.AddActor(actor);
 
         CubeAnimation anim;
         anim.actor = actor;
-        anim.from = quatf::from_random(&random);
-        anim.to = quatf::from_random(&random);
-        anim.rotation_speed = random.NextRange(0.5f, 1.0f);
-        anim.move_speed = random.NextRange(0.5f, 1.0f);
-        anim.timer = random.NextFloat01();
+        anim.from = quatf::from_random(&rand);
+        anim.to = quatf::from_random(&rand);
+        anim.rotation_speed = get_next_range(&rand, 0.5f, 1.0f);
+        anim.move_speed = get_next_range(&rand, 0.5f, 1.0f);
+        anim.timer = rand.get_next_float01();
 
 
         // generate a position not too close to the center
         vec3f position = vec3f::zero();
         do
         {
-            position = box_extents.get_random_point(&random);
+            position = box_extents.get_random_point(&rand);
         } while(position.get_length() < 1.4f);
 
         actor->SetPosition(position);
@@ -343,9 +343,9 @@ main(int argc, char** argv)
                     count += 1;
                     anim.timer -= 1.0f;
                     anim.from = anim.to;
-                    anim.to = quatf::from_random(&random);
-                    anim.rotation_speed = random.NextRange(0.3f, 1.0f);
-                    anim.move_speed = random.NextRange(0.2f, 3.0f);
+                    anim.to = quatf::from_random(&rand);
+                    anim.rotation_speed = get_next_range(&rand, 0.3f, 1.0f);
+                    anim.move_speed = get_next_range(&rand, 0.2f, 3.0f);
                 }
                 ASSERT(count < 2);
                 quatf q = quatf::slerp_shortway(anim.from, anim.timer, anim.to);

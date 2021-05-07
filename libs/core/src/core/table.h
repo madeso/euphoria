@@ -189,7 +189,7 @@ namespace euphoria::core
         {
             ASSERTX
             (
-                IsWithinInclusivei(0, x, width - 1) && IsWithinInclusivei(0, y, height - 1),
+                is_within_inclusive_as_int(0, x, width - 1) && is_within_inclusive_as_int(0, y, height - 1),
                 x, width,
                 y, height
             );

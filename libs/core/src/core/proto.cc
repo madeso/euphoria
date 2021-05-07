@@ -16,7 +16,7 @@
 namespace euphoria::core
 {
     std::string
-    LoadProtoJson_Internal
+    read_file_or_get_error_message
     (
         vfs::FileSystem*     fs,
         rapidjson::Document* doc,
@@ -32,11 +32,11 @@ namespace euphoria::core
                          << fs->GetRootsAsString();
         }
 
-        return ParseJsonSource(source, doc);
+        return read_source_or_get_error_message(source, doc);
     }
 
     std::string
-    ParseJsonSource(const std::string& source, rapidjson::Document* doc)
+    read_source_or_get_error_message(const std::string& source, rapidjson::Document* doc)
     {
         // todo(Gustav): look up insitu parsing
         // todo(Gustav): look upo json/sjson parsing options

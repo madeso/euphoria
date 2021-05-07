@@ -14,7 +14,7 @@ namespace euphoria::render
 {
     void
     ConvertLinesToIndexBuffer(
-            const std::vector<core::line>& lines,
+            const std::vector<core::lines::line>& lines,
             IndexBuffer* buffer)
     {
         std::vector<unsigned int> data;

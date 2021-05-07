@@ -211,7 +211,7 @@ namespace euphoria::engine
             };
 
             auto math_table         = duk->lua["Math"].get_or_create<sol::table>();
-            math_table["NewRandom"] = [&]() { return std::make_shared<core::Random>(); };
+            math_table["NewRandom"] = [&]() { return std::make_shared<core::random>(); };
 
             auto templates_table    = duk->lua["Templates"].get_or_create<sol::table>();
             templates_table["Find"] = [&](const std::string& name)
@@ -330,14 +330,14 @@ namespace euphoria::engine
             rect_type["GetHeight"] = &core::rectf::get_height;
             rect_type["GetWidth"] = &core::rectf::get_width;
 
-            auto random_type = duk->lua.new_usertype<core::Random>("Random");
-            random_type["NextFloat01"] = &core::Random::NextFloat01;
-            random_type["NextRangeFloat"] = [](core::Random& r, float f) -> float
+            auto random_type = duk->lua.new_usertype<core::random>("Random");
+            random_type["NextFloat01"] = &core::random::get_next_float01;
+            random_type["NextRangeFloat"] = [](core::random& r, float f) -> float
             {
-                return r.NextRange(f);
+                return get_next_range(&r, f);
             };
-            random_type["NextBool"] = &core::Random::NextBool;
-            random_type["NextPoint2"] = [](core::Random& r, core::rectf& rect) -> core::vec2f
+            random_type["NextBool"] = &core::random::get_next_bool;
+            random_type["NextPoint2"] = [](core::random& r, core::rectf& rect) -> core::vec2f
             {
                 return rect.get_random_point(&r);
             };
@@ -407,6 +407,6 @@ namespace euphoria::engine
     }
 }
 
-TYPEID_SETUP_TYPE(euphoria::core::Random);
+TYPEID_SETUP_TYPE(euphoria::core::random);
 TYPEID_SETUP_TYPE(euphoria::engine::ObjectTemplate);
 TYPEID_SETUP_TYPE(euphoria::core::rect<float>);

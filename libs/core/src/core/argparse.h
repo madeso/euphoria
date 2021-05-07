@@ -526,10 +526,10 @@ namespace euphoria::core::argparse
                     const std::string base = Str()
                         << '\'' << value << "' is not accepted for '"
                         << argument_name << '\'';
-                    const auto error = parsed.Error();
-                    const std::string message = error.empty()
+                    const auto parsed_error = parsed.Error();
+                    const std::string message = parsed_error.empty()
                         ? base
-                        : (Str() << base << ", " << error)
+                        : (Str() << base << ", " << parsed_error)
                         ;
                     print_parse_error(runner, caller, message);
 

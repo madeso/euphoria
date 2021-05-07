@@ -14,7 +14,7 @@ TEST_CASE("nlp-line", "[nlp]")
 {
     SECTION("simple parse")
     {
-        const auto result = ParseLine("Hello world");
+        const auto result = parse_line("Hello world");
         REQUIRE(result);
         const auto list = *result;
         REQUIRE(StringEq(list, {"Hello", "world"}));
@@ -22,7 +22,7 @@ TEST_CASE("nlp-line", "[nlp]")
 
     SECTION("to string")
     {
-        REQUIRE(StringEq("Hello world", LineToString({"Hello", "world"})));
+        REQUIRE(StringEq("Hello world", line_to_string({"Hello", "world"})));
     }
 }
 

@@ -17,14 +17,14 @@ void
 PrintRandomNumbers
 (
     const std::string& name,
-    Random* random,
+    random* random,
     int count,
     int small_count
 )
 {
     std::cout << name << ": ";
 
-    auto rng = TGenerator{random->NextInteger()};
+    auto rng = TGenerator{random->get_next_integer32()};
     auto container = std::vector<float>{};
     float sum = 0.0f;
     for(int i=0; i<count; i+=1)
@@ -50,7 +50,7 @@ struct Main
 {
     int count = 100;
     int small_count = 10;
-    Random random = Random{};
+    random rand = random{};
 
     template<typename TGenerator>
     void
@@ -59,7 +59,7 @@ struct Main
         PrintRandomNumbers<TGenerator>
         (
             name,
-            &random,
+            &rand,
             count,
             small_count
         );
@@ -72,7 +72,7 @@ struct Main
         std::cout << name << ":\n";
         for(int i=0; i<total_ints; i+=1)
         {
-            const auto t = f(&random);
+            const auto t = f(&rand);
             const auto bs = std::bitset<bits>(t);
             std::cout << bs << "\n";
         }
@@ -87,8 +87,8 @@ struct Main
         Print<xorshift64>("xorshift64");
 
         const int int_count = 10;
-        PrintInts<32>("u32", int_count, [](Random* r) { return r->NextInteger();});
-        PrintInts<64>("u64", int_count, [](Random* r) { return r->NextInteger64();});
+        PrintInts<32>("u32", int_count, [](random* r) { return r->get_next_integer32();});
+        PrintInts<64>("u64", int_count, [](random* r) { return r->get_next_integer64();});
     }
 };
 

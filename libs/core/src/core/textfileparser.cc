@@ -172,15 +172,15 @@ namespace euphoria::core
         bool
         IsIdentChar(char c, bool first_char)
         {
-            if(IsWithinInclusivei('a', c, 'z'))
+            if(is_within_inclusive_as_int('a', c, 'z'))
             {
                 return true;
             }
-            if(IsWithinInclusivei('A', c, 'Z'))
+            if(is_within_inclusive_as_int('A', c, 'Z'))
             {
                 return true;
             }
-            if(IsWithinInclusivei('0', c, '9'))
+            if(is_within_inclusive_as_int('0', c, '9'))
             {
                 return !first_char;
             }

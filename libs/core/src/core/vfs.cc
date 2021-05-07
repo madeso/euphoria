@@ -294,7 +294,7 @@ namespace euphoria::core::vfs
     void
     FileSystemRootFolder::AddRoot(FileSystem* fs)
     {
-        const std::string folder = GetCurrentDirectory();
+        const std::string folder = get_current_directory();
         return FileSystemRootFolder::AddRoot(fs, folder);
     }
 
@@ -303,7 +303,7 @@ namespace euphoria::core::vfs
     {
         const auto real_path
                 = CombineFolderAndPath(folder_, path);
-        const auto found = ListDirectory(real_path);
+        const auto found = list_directory(real_path);
 
         FileList r;
 
@@ -316,7 +316,7 @@ namespace euphoria::core::vfs
             for(const auto& d: found.directories)
             {
                 auto f = d;
-                if(!EndsWith(f, '/'))
+                if(!ends_with(f, '/'))
                 {
                     f += +"/";
                 }

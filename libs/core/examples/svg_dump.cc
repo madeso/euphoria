@@ -37,7 +37,7 @@ MakeStar(const vec2f& origo, float radius, const angle& rotation, int number_of_
 int
 main(int, char*[])
 {
-    Random rand;
+    random rand;
 
     auto pal = CreateShuffleBag(palettes::color_blind_10().colors, 2);
 
@@ -45,12 +45,12 @@ main(int, char*[])
 
     for(int i=0; i<30; i+=1)
     {
-        const auto center = rand.PointOnUnitCircle_CenterFocused()*200.0f;
-        const auto radius = rand.Next(Range{3.0f, 30.0f});
-        const auto p = rand.Next(Range{4, 10});
-        const auto inner = rand.Next(Range{0.3f, 0.75f});
+        const auto center = PointOnUnitCircle_CenterFocused(&rand)*200.0f;
+        const auto radius = get_next_in_range(&rand, Range{3.0f, 30.0f});
+        const auto p = get_next_in_range(&rand, Range{4, 10});
+        const auto inner = get_next_in_range(&rand, Range{0.3f, 0.75f});
         const auto fill = pal.Next(&rand);
-        const auto rotation = angle::from_percent_of_360(rand.NextFloat01());
+        const auto rotation = angle::from_percent_of_360(rand.get_next_float01());
         svg << MakeStar(center, radius, rotation, p, inner).close().fill(fill)
             // << Text(center, Str{} << p << " / " << std::setprecision( 2 ) << inner)
             ;

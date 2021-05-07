@@ -82,7 +82,7 @@ namespace euphoria::core
         rectf
         BoundingRect(const std::vector<vec2f>& poly)
         {
-            const auto [min, max] = FindMinMax<vec2f>
+            const auto [min, max] = find_min_max<vec2f>
             (
                 poly,
                 [](const auto& lhs, const auto& rhs)
@@ -182,17 +182,17 @@ namespace euphoria::core
     )
     {
         ASSERT(image);
-        const int left = Max(0, Floori(center.x - radius - softness));
-        const int right = Min
+        const int left = max(0, floor_to_int(center.x - radius - softness));
+        const int right = min
         (
             image->width,
-            Ceili(center.x + radius + softness)
+            ceil_to_int(center.x + radius + softness)
         );
-        const int top = Max(0, Floori(center.y - radius - softness));
-        const int bottom = Min
+        const int top = max(0, floor_to_int(center.y - radius - softness));
+        const int bottom = min
         (
             image->height,
-            Ceili(center.y + radius + softness)
+            ceil_to_int(center.y + radius + softness)
         );
 
         // color modes
@@ -369,7 +369,7 @@ namespace euphoria::core
         // reference:
         // https://en.wikipedia.org/wiki/Xiaolin_Wu%27s_line_algorithm
 
-        auto ipart = [&](float x) -> int { return Floori(x); };
+        auto ipart = [&](float x) -> int { return floor_to_int(x); };
         auto round = [&](float x) -> int { return ipart(x + 0.5f); };
         auto fpart = [&](float x) -> float { return x - std::floor(x); };
         auto rfpart = [&](float x) -> float { return 1.0f - fpart(x); };
@@ -377,8 +377,8 @@ namespace euphoria::core
         auto plot = [&](int x, int y, float c)
         {
             // plot the pixel at (x, y) with brightness c (where 0 ≤ c ≤ 1)
-            const bool valid_x = IsWithinInclusivei(0, x, image->width - 1);
-            const bool valid_y = IsWithinInclusivei(0, y, image->height - 1);
+            const bool valid_x = is_within_inclusive_as_int(0, x, image->width - 1);
+            const bool valid_y = is_within_inclusive_as_int(0, y, image->height - 1);
             if(valid_x && valid_y)
             {
                 const rgb paint_color = rgb_transform::Transform
@@ -400,7 +400,7 @@ namespace euphoria::core
 
         using std::swap;
 
-        auto steep = Abs(y1 - y0) > Abs(x1 - x0);
+        auto steep = abs(y1 - y0) > abs(x1 - x0);
 
         if(steep)
         {
@@ -596,7 +596,7 @@ namespace euphoria::core
         const rgbai& color
     )
     {
-        const auto [minf, maxf] = FindMinMax<vec2f, std::vector<vec2f> >
+        const auto [minf, maxf] = find_min_max<vec2f, std::vector<vec2f> >
         (
             {a, b, c},
             [](const vec2f& lhs, const vec2f& rhs) -> vec2f
@@ -616,11 +616,11 @@ namespace euphoria::core
         {
             for(int x=min.x; x<=max.x; x+=1)
             {
-                const bool valid_x = IsWithinInclusivei
+                const bool valid_x = is_within_inclusive_as_int
                 (
                     0, x, image->width - 1
                 );
-                const bool valid_y = IsWithinInclusivei
+                const bool valid_y = is_within_inclusive_as_int
                 (
                     0, y, image->height - 1
                 );
@@ -659,10 +659,10 @@ namespace euphoria::core
         // also generalize it so we can have arrows in dvg/dummper code too
         const vec2f arrowPoint = to;
 
-        const auto arrowLength = Sqrt(Square(Abs(from.x - to.x)) +
-                                Square(Abs(from.y - to.y)));
+        const auto arrowLength = sqrt(square(abs(from.x - to.x)) +
+                                square(abs(from.y - to.y)));
 
-        const auto arrowAngle = atan2(Abs(from.y - to.y),Abs(from.x - to.x));
+        const auto arrowAngle = atan2(abs(from.y - to.y),abs(from.x - to.x));
         const auto angleB = atan2((3 * size), (arrowLength - (3 * size)));
         const auto secondaryLength = (3 * size)/sin(angleB);
 

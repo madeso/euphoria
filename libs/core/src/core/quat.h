@@ -44,7 +44,7 @@ namespace euphoria::core
 
 
         [[nodiscard]] static self
-        from_random(Random* random)
+        from_random(random* random)
         {
             const auto axis = create_random_unit3(random);
             const auto angle = angle::Random(random);
@@ -65,8 +65,8 @@ namespace euphoria::core
         {
             const T cos_a = w;
             const auto angle = acos(cos_a) * 2;
-            const T sin_a = DefaultIfCloseToZero<T>(
-                    Sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
+            const T sin_a = get_default_if_close_to_zero<T>(
+                    sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
             // todo(Gustav): do we need to normalize here?
             return axis_angle::right_hand_around(
                     (get_vec_part() / sin_a).get_normalized(), angle);
@@ -119,16 +119,16 @@ namespace euphoria::core
         get_identity() const
         {
             const T l2 = get_length_squared();
-            if(IsEqual(l2, 0)) { return identity(); }
-            else if(IsEqual(l2, 1)) { return get_conjugate(); }
-            else { return quat(w / Sqrt(l2), -get_vec_part()); }
+            if(is_equal(l2, 0)) { return identity(); }
+            else if(is_equal(l2, 1)) { return get_conjugate(); }
+            else { return quat(w / sqrt(l2), -get_vec_part()); }
         }
 
 
         T
         get_length() const
         {
-            return Sqrt(get_length_squared());
+            return sqrt(get_length_squared());
         }
 
 
@@ -143,7 +143,7 @@ namespace euphoria::core
         normalize()
         {
             const T l = get_length();
-            if(IsZero(l))
+            if(is_zero(l))
             {
                 *this = identity();
             }
@@ -242,14 +242,14 @@ namespace euphoria::core
             // Calculate angle between them.
             const float cosHalfTheta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
             // if qa=qb or qa=-qb then theta = 0 and we can return qa
-            if(Abs(cosHalfTheta) >= 1.0)
+            if(abs(cosHalfTheta) >= 1.0)
             {
                 return qa;
             }
             // Calculate temporary values.
             const auto halfTheta = acos(cosHalfTheta);
             const auto sinHalfTheta = sqrt(1.0f - cosHalfTheta * cosHalfTheta);
-            if(Abs(sinHalfTheta) < 0.001f)
+            if(abs(sinHalfTheta) < 0.001f)
             {
                 // if theta = 180 degrees then result is not fully defined
                 // we could rotate around any axis normal to qa or qb
@@ -353,11 +353,11 @@ namespace euphoria::core
         const vec in = unit::in();
         float dot_value = dot(in, dir);
 
-        if (Abs(dot_value - (-1.0f)) < 0.000001f)
+        if (abs(dot_value - (-1.0f)) < 0.000001f)
         {
             return self(3.1415926535897932f, up);
         }
-        if (Abs(dot_value - (1.0f)) < 0.000001f)
+        if (abs(dot_value - (1.0f)) < 0.000001f)
         {
             return identity();
         }

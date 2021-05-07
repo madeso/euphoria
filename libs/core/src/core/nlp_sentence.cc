@@ -1,7 +1,8 @@
-#include "core/nlp_sentance.h"
+#include "core/nlp_sentence.h"
 
 #include <sstream>
 #include <iostream>
+#include <string_view>
 
 #include "core/stringutils.h"
 
@@ -11,30 +12,30 @@ namespace euphoria::core
 
 
 bool
-IsCharLower(char c)
+is_char_lower(char c)
 {
     return 'a' <= c && c <= 'z';
 }
 
 
 bool
-IsCharUpper(char c)
+is_char_upper(char c)
 {
     return 'A' <= c && c <= 'Z';
 }
 
 
 bool
-IsWordChar(char c)
+is_word_char(char c)
 {
     // ' is using in words like can't
     // - is used in words like right-handed
-    return IsCharUpper(c) || IsCharLower(c) || IsNumber(c) || c == '\'' || c == '-';
+    return is_char_upper(c) || is_char_lower(c) || IsNumber(c) || c == '\'' || c == '-';
 }
 
 
 bool
-IsWhitespace(char c)
+is_whitespace(char c)
 {
     switch(c)
     {
@@ -48,7 +49,7 @@ IsWhitespace(char c)
 
 
 bool
-IsEndOfSentance(char c)
+is_end_of_sentence(char c)
 {
     switch(c)
     {
@@ -62,32 +63,32 @@ IsEndOfSentance(char c)
 
 
 bool
-IsCommaLike(char c)
+is_comma_like(char c)
 {
-    const std::string SPECIAL_WORDS = ",;:\"[]()=";
-    return SPECIAL_WORDS.find(c) != std::string::npos;
+    constexpr std::string_view special_words = ",;:\"[]()=";
+    return special_words.find(c) != std::string::npos;
 }
 
 
 int
-CharCode(char c)
+get_char_code(char c)
 {
     return static_cast<int>(static_cast<unsigned char>(c));
 }
 
 
-struct Parser
+struct sentence_parser
 {
     bool ok = true;
     std::string buffer;
-    Sentance words;
-    OnSentance on_sentance;
+    text_sentence words;
+    on_sentence on_sentence;
 
     int line = 1;
     int ch = 0;
 
     void
-    AddWord()
+    add_word()
     {
         if(!buffer.empty())
         {
@@ -97,17 +98,17 @@ struct Parser
     }
 
     void
-    UnknownCharacter(char c)
+    on_unknown_character(char c)
     {
         std::cout << "Unknown character(" << line << ":" << ch << "): " << c
-                  << " (" << CharCode(c) << ")\n";
+                  << " (" << get_char_code(c) << ")\n";
         ok = false;
     }
 
     void
-    Feed(char c)
+    feed(char c)
     {
-        if(CharCode(c) >= 187)
+        if(get_char_code(c) >= 187)
         {
             return;
         }
@@ -122,57 +123,57 @@ struct Parser
             ch += 1;
         }
 
-        if(IsWordChar(c))
+        if(is_word_char(c))
         {
             buffer += c;
             return;
         }
 
-        if(IsWhitespace(c))
+        if(is_whitespace(c))
         {
-            AddWord();
+            add_word();
             return;
         }
 
-        if(IsCommaLike(c))
+        if(is_comma_like(c))
         {
-            AddWord();
+            add_word();
             words.push_back(std::string(1, c));
             return;
         }
 
-        if(IsEndOfSentance(c))
+        if(is_end_of_sentence(c))
         {
-            AddWord();
+            add_word();
             words.push_back(std::string(1, c));
-            on_sentance(words);
-            words = Sentance {};
+            on_sentence(words);
+            words = text_sentence {};
             return;
         }
 
-        UnknownCharacter(c);
+        on_unknown_character(c);
     }
 
     void
-    OnComplete()
+    on_complete()
     {
         if(words.empty() == false)
         {
-            AddWord();
-            on_sentance(words);
-            words = Sentance {};
+            add_word();
+            on_sentence(words);
+            words = text_sentence {};
         }
     }
 };
 
 
 bool
-ParseSentances(std::istream& data, OnSentance on_sentance)
+parse_sentences(std::istream& data, on_sentence on_sentence)
 {
     std::string line;
 
-    Parser parser;
-    parser.on_sentance = on_sentance;
+    sentence_parser parser;
+    parser.on_sentence = on_sentence;
 
     while(std::getline(data, line))
     {
@@ -183,9 +184,9 @@ ParseSentances(std::istream& data, OnSentance on_sentance)
 
         for(char c: line)
         {
-            parser.Feed(c);
+            parser.feed(c);
         }
-        parser.Feed('\n');
+        parser.feed('\n');
 
         if(!parser.ok)
         {
@@ -193,14 +194,14 @@ ParseSentances(std::istream& data, OnSentance on_sentance)
         }
     }
 
-    parser.OnComplete();
+    parser.on_complete();
 
     return parser.ok;
 }
 
 
 std::string
-SentanceToString(const Sentance& s)
+sentence_to_string(const text_sentence& s)
 {
     std::ostringstream ss;
     bool first = true;
@@ -213,7 +214,7 @@ SentanceToString(const Sentance& s)
         }
         else
         {
-            if(IsCommaLike(w[0]) || IsEndOfSentance(w[0]))
+            if(is_comma_like(w[0]) || is_end_of_sentence(w[0]))
             {
             }
             else

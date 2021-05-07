@@ -35,16 +35,16 @@ namespace euphoria::core
     std::string_view
     get_cp437(int c)
     {
-        ASSERTX(IsWithinInclusivei(0, c, 255), c);
+        ASSERTX(is_within_inclusive_as_int(0, c, 255), c);
         return CODE_PAGE[c];
     }
 
     std::string_view
-    get_random_cp437_in_utf8(Random* random)
+    get_random_cp437_in_utf8(random* random)
     {
         while(true)
         {
-            const auto c = random->NextRange(256);
+            const auto c = get_next_range(random, 256);
             if(c == 0x00) { continue; } // not NULL
             if(c == 0x20) { continue; } // neither Space
             if(c == 0xFF) { continue; } // neither NBSP

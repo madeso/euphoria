@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_CORE_ORBITCONTROLLER_H
-#define EUPHORIA_CORE_ORBITCONTROLLER_H
+#pragma once
+
 
 #include "core/vec3.h"
 #include "core/quat.h"
@@ -7,29 +7,29 @@
 
 namespace euphoria::core
 {
-    struct OrbitController
+    struct orbit_controller
     {
-        OrbitController();
+        orbit_controller();
 
 
         [[nodiscard]] quatf
-        GetRotation() const;
+        get_rotation() const;
 
 
         [[nodiscard]] vec3f
-        GetCameraPosition() const;
+        get_camera_position() const;
 
 
         void
-        Pan(float dx, float dy);
+        on_pan_input(float dx, float dy);
 
 
         void
-        Rotate(float dx, float dy);
+        on_rotate_input(float dx, float dy);
 
 
         void
-        Zoom(float z);
+        on_zoom_input(float z);
 
 
         vec3f center;
@@ -47,4 +47,3 @@ namespace euphoria::core
     };
 }
 
-#endif  // EUPHORIA_CORE_ORBITCONTROLLER_H

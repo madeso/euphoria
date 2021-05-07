@@ -21,6 +21,6 @@ namespace euphoria::core
     float
     Sensitivity::GetValueWithSign() const
     {
-        return value * Sign(inverted);
+        return value * get_sign(inverted);
     }
 }

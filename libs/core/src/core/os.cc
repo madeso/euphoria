@@ -31,7 +31,7 @@
 namespace euphoria::core
 {
     std::string
-    GetCurrentDirectory()
+    get_current_directory()
     {
         char current_directory[FILENAME_MAX];
 
@@ -52,8 +52,8 @@ namespace euphoria::core
 
 #ifdef _MSC_VER
 
-    DirectoryList
-    ListDirectory(const std::string& path)
+    directory_listing
+    list_directory(const std::string& path)
     {
         const std::string search_path = Str() << path << "*.*";
         WIN32_FIND_DATA   fd;
@@ -62,7 +62,7 @@ namespace euphoria::core
 
         if(hFind != INVALID_HANDLE_VALUE)
         {
-            DirectoryList ret;
+            directory_listing ret;
             ret.valid = true;
 
             do
@@ -84,14 +84,14 @@ namespace euphoria::core
         }
         else
         {
-            DirectoryList ret;
+            directory_listing ret;
             ret.valid = false;
             return ret;
         }
     }
 #else
-    DirectoryList
-    ListDirectory(const std::string& path)
+    directory_listing
+    list_directory(const std::string& path)
     {
         struct dirent* ent = nullptr;
 
@@ -135,7 +135,7 @@ namespace euphoria::core
 
     // todo(Gustav): move to stringutils
     bool
-    EndsWith(const std::string& str, char c)
+    ends_with(const std::string& str, char c)
     {
         const auto l = str.length();
 
@@ -148,28 +148,28 @@ namespace euphoria::core
     }
 
     std::string
-    JoinPath(const std::string& left, const std::string& right)
+    join_path(const std::string& left, const std::string& right)
     {
-        if(EndsWith(left, PATH_SEPARATOR))
+        if(ends_with(left, path_separator))
         {
             return left + right;
         }
         else
         {
-            return left + PATH_SEPARATOR + right;
+            return left + path_separator + right;
         }
     }
 
     std::string
-    GetExtension(const std::string& path)
+    get_extension(const std::string& path)
     {
         return LastStrings(path, '.').second;
     }
 
     std::string
-    GetFileNameIncludingExtension(const std::string& path)
+    get_file_name_including_extension(const std::string& path)
     {
-        const auto r = LastStrings(path, PATH_SEPARATOR).second;
+        const auto r = LastStrings(path, path_separator).second;
         if(r.empty())
         {
             return r;
@@ -182,9 +182,9 @@ namespace euphoria::core
     }
 
     std::string
-    GetFileNameWithoutExtension(const std::string& path)
+    get_file_name_without_extension(const std::string& path)
     {
-        return LastStrings(GetFileNameIncludingExtension(path), '.').first;
+        return LastStrings(get_file_name_including_extension(path), '.').first;
     }
 
-}  // namespace euphoria::core
+}

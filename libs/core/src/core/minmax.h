@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_CORE_MINMAX_H
-#define EUPHORIA_CORE_MINMAX_H
+#pragma once
+
 
 #include <tuple>
 
@@ -16,7 +16,7 @@ namespace euphoria::core
         typename TExtract
     >
     std::pair<std::array<T, TCount>, std::array<T, TCount>>
-    FindMinMaxRanges
+    find_min_max_ranges
     (
         const TContainer& ts,
         TExtract extract
@@ -52,7 +52,7 @@ namespace euphoria::core
         typename TExtract
     >
     Range<T>
-    FindMinMaxRange
+    find_min_max_range
     (
         const TContainer& ts,
         TExtract extract
@@ -83,7 +83,7 @@ namespace euphoria::core
         typename TMaxFunction
     >
     std::tuple<T, T>
-    FindMinMax
+    find_min_max
     (
         const TContainer& ts,
         TMinFunction min_function,
@@ -107,4 +107,3 @@ namespace euphoria::core
     }
 }
 
-#endif  // EUPHORIA_CORE_MINMAX_H

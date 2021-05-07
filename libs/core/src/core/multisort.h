@@ -1,5 +1,5 @@
-#ifndef CORE_MULTISORT_H
-#define CORE_MULTISORT_H
+#pragma once
+
 
 #include <vector>
 #include <string>
@@ -12,51 +12,51 @@
 
 namespace euphoria::core
 {
-    enum class SortStyle
+    enum class sort_style
     {
-        Ascending,
-        Descending
+        ascending,
+        descending
     };
 
     template <typename T>
-    struct Sortable
+    struct sortable
     {
-        Sortable() = default;
-        virtual ~Sortable() = default;
+        sortable() = default;
+        virtual ~sortable() = default;
 
-        Sortable(const Sortable<T>&) = delete;
-        Sortable(Sortable<T>&&) = delete;
-        void operator=(const Sortable<T>&) = delete;
-        void operator=(Sortable<T>&&) = delete;
+        sortable(const sortable<T>&) = delete;
+        sortable(sortable<T>&&) = delete;
+        void operator=(const sortable<T>&) = delete;
+        void operator=(sortable<T>&&) = delete;
 
-        virtual int Sort(const T& lhs, const T& rhs) = 0;
+        virtual int sort(const T& lhs, const T& rhs) = 0;
     };
 
     template <typename T>
-    using SortableList = std::vector<std::shared_ptr<Sortable<T>>>;
+    using sortable_list = std::vector<std::shared_ptr<sortable<T>>>;
 
     template <typename T, typename Value, typename SortFunc>
-    struct SortAction : public Sortable<T>
+    struct sort_action : public sortable<T>
     {
         Value T::*member;
-        SortStyle sort_style;
+        sort_style sort_style;
         SortFunc  sort_func;
 
-        SortAction(Value T::*m, SortStyle s, SortFunc f)
+        sort_action(Value T::*m, core::sort_style s, SortFunc f)
             : member(m), sort_style(s), sort_func(f)
         {}
 
         int
-        Sort(const T& lhs, const T& rhs) override
+        sort(const T& lhs, const T& rhs) override
         {
             const int result = sort_func(lhs.*member, rhs.*member);
-            return sort_style == SortStyle::Ascending ? result : -result;
+            return sort_style == sort_style::ascending ? result : -result;
         }
     };
 
     template <typename T>
     int
-    DefaultSortFunc(T lhs, T rhs)
+    default_sort_func(T lhs, T rhs)
     {
         if(lhs == rhs)
         {
@@ -67,18 +67,18 @@ namespace euphoria::core
 
     // todo(Gustav): this seems weird, replace with single argument? TableGeneration needs Self?
     template <typename T, typename Self>
-    struct SortBuilder
+    struct sort_builder
     {
-        SortableList<T> sort_order;
+        sortable_list<T> sort_order;
         bool stable_sort = false;
 
         template <typename SortFunc, typename Value>
         Self&
-        Sort(Value T::*member,
+        sort(Value T::*member,
              SortFunc  sort_func,
-             SortStyle sort_style = SortStyle::Ascending)
+             sort_style sort_style = sort_style::ascending)
         {
-            auto o = std::make_shared<SortAction<T, Value, SortFunc>>(
+            auto o = std::make_shared<sort_action<T, Value, SortFunc>>(
                     member, sort_style, sort_func);
             sort_order.emplace_back(o);
             return static_cast<Self&>(*this);
@@ -86,13 +86,13 @@ namespace euphoria::core
 
         template <typename Value>
         Self&
-        Sort(Value T::*member, SortStyle sort_style = SortStyle::Ascending)
+        sort(Value T::*member, sort_style sort_style = sort_style::ascending)
         {
-            return Sort(member, &DefaultSortFunc<Value>, sort_style);
+            return sort(member, &default_sort_func<Value>, sort_style);
         }
 
         Self&
-        UseStableSort()
+        use_stable_sort()
         {
             stable_sort = true;
             return *this;
@@ -101,9 +101,11 @@ namespace euphoria::core
 
     template <typename T, typename Self>
     std::vector<size_t>
-    GetSortedIndices(
-            const std::vector<T>&       data,
-            const SortBuilder<T, Self>& builder)
+    get_sorted_indices
+    (
+        const std::vector<T>& data,
+        const sort_builder<T, Self>& builder
+    )
     {
         std::vector<size_t> r(data.size());
         std::iota(std::begin(r), std::end(r), 0);
@@ -115,7 +117,7 @@ namespace euphoria::core
                 = [&data, &builder](size_t lhs, size_t rhs) -> int {
             for(const auto& so: builder.sort_order)
             {
-                const auto result = so->Sort(data[lhs], data[rhs]);
+                const auto result = so->sort(data[lhs], data[rhs]);
                 if(result != 0)
                 {
                     return -result;
@@ -130,11 +132,10 @@ namespace euphoria::core
         }
         else
         {
-            QuickSort(&r, sort_function);
+            quicksort(&r, sort_function);
         }
         return r;
     }
 
-}  // namespace euphoria::core
+}
 
-#endif  // CORE_MULTISORT_H

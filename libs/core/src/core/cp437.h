@@ -7,13 +7,13 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 
     std::string_view
     get_cp437(int c);
 
     std::string_view
-    get_random_cp437_in_utf8(Random* random);
+    get_random_cp437_in_utf8(random* random);
 }
 
 #endif  // EUPHORIA_CORE_CP437_H

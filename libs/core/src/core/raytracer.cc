@@ -133,9 +133,9 @@ namespace euphoria::core::raytracer
     }
 
 
-    vec3f RandomInUnitSphere(Random* random)
+    vec3f RandomInUnitSphere(random* random)
     {
-        return create_random_unit3(random) * random->NextFloat01();
+        return create_random_unit3(random) * random->get_next_float01();
     }
 
 
@@ -153,7 +153,7 @@ namespace euphoria::core::raytracer
         (
             const unit_ray3f& /*ray*/,
             const HitResult& hit,
-            Random* random
+            random* random
         ) override
         {
             const auto target = hit.position + hit.normal + RandomInUnitSphere(random);
@@ -193,7 +193,7 @@ namespace euphoria::core::raytracer
         (
             const unit_ray3f& ray,
             const HitResult& hit,
-            Random* random
+            random* random
         ) override
         {
             const auto reflected = Reflect
@@ -239,7 +239,7 @@ namespace euphoria::core::raytracer
         const auto discriminant = 1.0f - ni*ni*(1.0f-dt*dt);
         if (discriminant > 0)
         {
-            return ni * (uv - normal * dt) - normal * Sqrt(discriminant);
+            return ni * (uv - normal * dt) - normal * sqrt(discriminant);
         }
         else
         {
@@ -251,7 +251,7 @@ namespace euphoria::core::raytracer
     float
     FresnelFactor(float cosine, float ref_idx)
     {
-        const float r0 = Square
+        const float r0 = square
         (
             (1-ref_idx) / (1+ref_idx)
         );
@@ -279,7 +279,7 @@ namespace euphoria::core::raytracer
         (
             const unit_ray3f& ray,
             const HitResult& hit,
-            Random* random
+            random* random
         ) override
         {
             const auto dr = dot(ray.dir, hit.normal);
@@ -297,7 +297,7 @@ namespace euphoria::core::raytracer
                     : -dr
                     ;
                 const auto reflection_probability = FresnelFactor(cosine, refractive_index);
-                if( random->NextFloat01() >= reflection_probability )
+                if( random->get_next_float01() >= reflection_probability )
                 {
                     return ScatterResult
                     {
@@ -376,7 +376,7 @@ namespace euphoria::core::raytracer
     (
         const Scene& scene,
         const unit_ray3f& ray,
-        Random* random,
+        random* random,
         int depth
     )
     {
@@ -463,7 +463,7 @@ namespace euphoria::core::raytracer
     rgb
     Gamma2CorrectColor(rgb color)
     {
-        return {Sqrt(color.r), Sqrt(color.g), Sqrt(color.b)};
+        return {sqrt(color.r), sqrt(color.g), sqrt(color.b)};
     }
 
     void
@@ -471,7 +471,7 @@ namespace euphoria::core::raytracer
     {
         image& img = *aimage;
 
-        auto random = Random{};
+        auto rand = random{};
         const auto aspect_ratio = static_cast<float>(img.width) / static_cast<float>(img.height);
         const auto camera = Camera::Create(angle::from_degrees(90), aspect_ratio);
 
@@ -483,10 +483,10 @@ namespace euphoria::core::raytracer
                 rgb color = color::black;
                 for(int sample = 0; sample < number_of_samples; sample += 1)
                 {
-                    const auto u = (static_cast<float>(x) + random.NextFloat01()) / static_cast<float>(img.width);
-                    const auto v = (static_cast<float>(y) + random.NextFloat01()) / static_cast<float>(img.height);
+                    const auto u = (static_cast<float>(x) + rand.get_next_float01()) / static_cast<float>(img.width);
+                    const auto v = (static_cast<float>(y) + rand.get_next_float01()) / static_cast<float>(img.height);
                     const auto ray = camera.GetRay(u, v);
-                    const auto sample_color = GetColor(scene, ray, &random, 0);
+                    const auto sample_color = GetColor(scene, ray, &rand, 0);
                     color += sample_color;
                 }
                 color = color/static_cast<float>(number_of_samples);

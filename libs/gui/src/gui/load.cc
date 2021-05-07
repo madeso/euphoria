@@ -340,7 +340,7 @@ namespace euphoria::gui
     )
     {
         ::gui::File f;
-        const std::string load_result = core::LoadProtoJson(fs, &f, path);
+        const std::string load_result = core::read_json_to_gaf_struct_or_get_error_message(fs, &f, path);
         if(false == load_result.empty())
         {
             LOG_ERROR("Failed to load gui from {0}: {1}", path, load_result);

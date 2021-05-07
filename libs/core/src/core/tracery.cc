@@ -48,7 +48,7 @@ namespace euphoria::core::tracery
 
     struct generator_argument
     {
-        core::Random* generator = nullptr;
+        core::random* generator = nullptr;
         const tracery::grammar* grammar = nullptr;
         std::map<std::string, std::string> overridden_rules;
     };
@@ -423,7 +423,7 @@ namespace euphoria::core::tracery
         ASSERT(gen);
         ASSERTX(ruleset.empty() == false, key);
 
-        return gen->generator->Next(ruleset).flatten(gen);
+        return get_random_item_in_vector(gen->generator, ruleset).flatten(gen);
     }
 
 
@@ -608,7 +608,7 @@ namespace euphoria::core::tracery
     grammar::load_from_string(const std::string& data)
     {
         rapidjson::Document doc;
-        const auto parse_error = ParseJsonSource(data, &doc);
+        const auto parse_error = read_source_or_get_error_message(data, &doc);
         if(parse_error.empty() == false)
         {
             return result(result::json_parse) << parse_error;
@@ -668,7 +668,7 @@ namespace euphoria::core::tracery
     }
 
     result
-    grammar::flatten(core::Random* random, const std::string& rule_code) const
+    grammar::flatten(core::random* random, const std::string& rule_code) const
     {
         generator_argument generator;
         generator.grammar = this;

@@ -146,7 +146,7 @@ namespace euphoria::render
         core::loaded_font fontchars;
         font::Root font_root;
 
-        std::string error = core::LoadProtoJson(fs, &font_root, font_file);
+        std::string error = core::read_json_to_gaf_struct_or_get_error_message(fs, &font_root, font_file);
         if(!error.empty())
         {
             LOG_ERROR("Failed to load {0}: {1}", font_file, error);

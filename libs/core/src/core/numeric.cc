@@ -10,14 +10,14 @@
 namespace euphoria::core
 {
     bool
-    IsEqual(float lhs, float rhs)
+    is_equal(float lhs, float rhs)
     {
-        return IsZero(lhs - rhs);
+        return is_zero(lhs - rhs);
     }
     
 
     bool
-    IsZero(float r)
+    is_zero(float r)
     {
         const float epsilon = 0.0001f;
         return is_within(MakeRange(-epsilon, epsilon), r);
@@ -25,43 +25,43 @@ namespace euphoria::core
 
 
     float
-    ZeroOrValue(float r)
+    zero_or_value(float r)
     {
-        if(IsZero(r)) { return 0; }
+        if(is_zero(r)) { return 0; }
         else { return r; }
     }
 
 
     float
-    Floor(float v)
+    floor(float v)
     {
         return std::floor(v);
     }
 
 
     float
-    Ceil(float v)
+    ceil(float v)
     {
         return std::ceil(v);
     }
 
 
     int
-    Floori(float v)
+    floor_to_int(float v)
     {
         return std::floor(v);
     }
 
 
     int
-    Ceili(float v)
+    ceil_to_int(float v)
     {
         return std::ceil(v);
     }
 
 
     int
-    Sign(float r)
+    get_sign(float r)
     {
         if(r >= 0.0f) { return 1; }
         else { return -1; }
@@ -69,7 +69,7 @@ namespace euphoria::core
 
 
     int
-    Sign(int r)
+    get_sign(int r)
     {
         if(r >= 0) { return 1; }
         else { return -1; }
@@ -77,7 +77,7 @@ namespace euphoria::core
 
 
     float
-    Sign(bool b)
+    get_sign(bool b)
     {
         if(b) { return  1.0f; }
         else  { return -1.0f; }
@@ -85,20 +85,20 @@ namespace euphoria::core
 
 
     float
-    Lerp(float f, float scale, float t)
+    lerp(float f, float scale, float t)
     {
         return f + (t - f) * scale;
     }
 
 
     float
-    Curve(float new_value, float old_value, float smoothing_value)
+    curve(float new_value, float old_value, float smoothing_value)
     {
-        const int   sign = Sign(old_value - new_value);
+        const int   sign = get_sign(old_value - new_value);
         const float slip = (old_value - new_value) / smoothing_value;
         const float val  = old_value - slip;
 
-        if(sign != Sign(val - new_value))
+        if(sign != get_sign(val - new_value))
         {
             return new_value;
         }
@@ -108,14 +108,14 @@ namespace euphoria::core
 
 
     float
-    Square(float r)
+    square(float r)
     {
         return r * r;
     }
 
 
     float
-    Sqrt(float r)
+    sqrt(float r)
     {
         ASSERTX(r >= 0 && "input must be bigger than 0", r);
         return std::sqrt(r);
@@ -123,14 +123,14 @@ namespace euphoria::core
 
 
     float
-    Log(float r)
+    log(float r)
     {
         return std::log(r);
     }
 
 
     float
-    Abs(float r)
+    abs(float r)
     {
         if(r < 0.0f)
         {
@@ -142,7 +142,7 @@ namespace euphoria::core
 
 
     float
-    Min(float lhs, float rhs)
+    min(float lhs, float rhs)
     {
         if(lhs < rhs)
         {
@@ -154,7 +154,7 @@ namespace euphoria::core
 
 
     int
-    Min(int lhs, int rhs)
+    min(int lhs, int rhs)
     {
         if(lhs < rhs)
         {
@@ -166,7 +166,7 @@ namespace euphoria::core
 
 
     float
-    Max(float lhs, float rhs)
+    max(float lhs, float rhs)
     {
         if(lhs > rhs)
         {
@@ -178,7 +178,7 @@ namespace euphoria::core
 
 
     int
-    Max(int lhs, int rhs)
+    max(int lhs, int rhs)
     {
         if(lhs > rhs)
         {
@@ -190,14 +190,14 @@ namespace euphoria::core
 
 
     float
-    Mod(float numer, float denumer)
+    mod(float numer, float denumer)
     {
         return ::fmodf(numer, denumer);
     }
 
 
     bool
-    IsWithinInclusivei(int min, int c, int max)
+    is_within_inclusive_as_int(int min, int c, int max)
     {
         return c >= min && c <= max;
     }
@@ -221,7 +221,7 @@ namespace euphoria::core
 
 
     float
-    Round(float num, float gran)
+    round(float num, float gran)
     {
         const float lower = LowerBound(num, gran);
         const float upper = UpperBound(num, gran);

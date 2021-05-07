@@ -15,7 +15,7 @@ namespace euphoria::core
         // todo(Gustav): change to use ScreenToWorld
         const auto focus = (mouse - scroll) / scale;
 
-        const float scale_factor = 1 + 0.01f * Abs(zoom);
+        const float scale_factor = 1 + 0.01f * abs(zoom);
 
         if(zoom < 0.0f)
         {

@@ -36,9 +36,9 @@ namespace euphoria::core::markov
         std::map<T, float> data;
 
         T
-        get(core::Random* rnd) const
+        get(core::random* rnd) const
         {
-            float value = rnd->NextFloat01();
+            float value = rnd->get_next_float01();
             for(auto it: data)
             {
                 if(value <= it.second)
@@ -93,7 +93,7 @@ namespace euphoria::core::markov
         size_t order;
 
         std::vector<T>
-        generate(core::Random* rnd) const
+        generate(core::random* rnd) const
         {
             std::vector<T> r;
             some<T> memory {order};

@@ -26,7 +26,7 @@ namespace euphoria::engine
     Sol*        ctx)
 {
         world::World json;
-        const auto   err = core::LoadProtoJson(fs, &json, path);
+        const auto   err = core::read_json_to_gaf_struct_or_get_error_message(fs, &json, path);
         if(!err.empty())
         {
             LOG_ERROR("Failed to load world components from {0}: {1}", path, err);

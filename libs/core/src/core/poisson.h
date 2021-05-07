@@ -10,14 +10,14 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 
     struct poisson_worker
     {
-        poisson_worker(const rectf& area, Random* random, float r, float bs, int k);
+        poisson_worker(const rectf& area, random* random, float r, float bs, int k);
 
         rectf area;
-        Random* random;
+        random* rand;
         float r;
         float bounds_check;
         int k;
@@ -44,6 +44,6 @@ namespace euphoria::core
     };
 
     // r = minimum distance
-    std::vector<vec2f> poisson_sample(const rectf& area, Random* random, float r, float bs=-1.0f, int k=30);
+    std::vector<vec2f> poisson_sample(const rectf& area, random* random, float r, float bs=-1.0f, int k=30);
 }
 

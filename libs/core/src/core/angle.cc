@@ -9,16 +9,16 @@
 namespace euphoria::core
 {
     angle
-    angle::Random(::euphoria::core::Random* random)
+    angle::Random(::euphoria::core::random* random)
     {
-        return from_percent_of_360(random->NextFloat01());
+        return from_percent_of_360(random->get_next_float01());
     }
 
 
     void
     angle::wrap()
     {
-        radians = ::euphoria::core::Wrap(MakeRange(Pi() * 2.0f), radians);
+        radians = ::euphoria::core::Wrap(MakeRange(pi * 2.0f), radians);
     }
 
 
@@ -197,6 +197,6 @@ namespace euphoria::core
     angle
     angle_transform::transform(const angle& from, float v, const angle& to)
     {
-        return angle::from_radians(Lerp(from.in_radians(), v, to.in_radians()));
+        return angle::from_radians(lerp(from.in_radians(), v, to.in_radians()));
     }
 }

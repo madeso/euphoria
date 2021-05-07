@@ -15,11 +15,11 @@ namespace euphoria::core
 
     template <typename T>
     void
-    knuth_shuffle(std::vector<T>* v, Random* r)
+    knuth_shuffle(std::vector<T>* v, random* r)
     {
         for(int i = Csizet_to_int(v->size()) - 1; i > 0; --i)
         {
-            const auto j = r->NextRange(i + 1);  // 0 ≤ j ≤ i
+            const auto j = get_next_range(r, i + 1);  // 0 ≤ j ≤ i
             if(j != i)
             {
                 std::swap((*v)[j], (*v)[i]);

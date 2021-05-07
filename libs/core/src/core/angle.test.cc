@@ -20,7 +20,7 @@ TEST_CASE("angle-constructor_degrees", "[angle]")
 TEST_CASE("angle-constructor_degrees_pi", "[angle]")
 {
     const auto a = euco::angle::from_degrees(180);
-    REQUIRE(a.in_radians() == Approx(euco::Pi()));
+    REQUIRE(a.in_radians() == Approx(euco::pi));
 }
 
 TEST_CASE("angle-zero", "[angle]")
@@ -31,7 +31,7 @@ TEST_CASE("angle-zero", "[angle]")
 
 TEST_CASE("angle-constructor_radians", "[angle]")
 {
-    const auto a = euco::angle::from_radians(euco::Pi());
+    const auto a = euco::angle::from_radians(euco::pi);
     REQUIRE(a.in_degrees() == Approx(180.0f));
 }
 
@@ -58,10 +58,10 @@ TEST_CASE("angle-wrap", "[angle]")
 TEST_CASE("angle-add", "[angle]")
 {
     auto a = euco::angle::from_degrees(90);
-    a += euco::angle::from_radians(euco::Pi() / 2.0f);
+    a += euco::angle::from_radians(euco::pi / 2.0f);
     REQUIRE(a.in_degrees() == Approx(180.0f));
     REQUIRE((euco::angle::from_degrees(90)
-             + euco::angle::from_radians(euco::Pi() / 2.0f))
+             + euco::angle::from_radians(euco::pi / 2.0f))
                     .in_degrees()
             == Approx(180.0f));
 }
@@ -69,10 +69,10 @@ TEST_CASE("angle-add", "[angle]")
 TEST_CASE("angle-sub", "[angle]")
 {
     auto a = euco::angle::from_degrees(180);
-    a -= euco::angle::from_radians(euco::Pi() / 2.0f);
+    a -= euco::angle::from_radians(euco::pi / 2.0f);
     REQUIRE(a.in_degrees() == Approx(90.0f));
     REQUIRE((euco::angle::from_degrees(180)
-             - euco::angle::from_radians(euco::Pi() / 2.0f))
+             - euco::angle::from_radians(euco::pi / 2.0f))
                     .in_degrees()
             == Approx(90.0f));
 }
@@ -101,7 +101,7 @@ TEST_CASE("angle-atan", "[angle]")
 {
     REQUIRE(euco::atan(0.0f).in_degrees() == Approx(0.0f));
     REQUIRE(euco::atan(1.0f).in_degrees() == Approx(45.0f));
-    REQUIRE(euco::atan(euco::Sqrt(3.0f)).in_degrees() == Approx(60.0f));
+    REQUIRE(euco::atan(euco::sqrt(3.0f)).in_degrees() == Approx(60.0f));
 }
 
 TEST_CASE("angle-tan", "[angle]")
@@ -111,15 +111,15 @@ TEST_CASE("angle-tan", "[angle]")
     REQUIRE(euco::tan(euco::angle::from_degrees(180.0f)) == Approx(0.0f));
     REQUIRE(euco::tan(euco::angle::from_degrees(225.0f)) == Approx(1.0f));
     REQUIRE(euco::tan(euco::angle::from_degrees(60.0f))
-            == Approx(euco::Sqrt(3.0f)));
+            == Approx(euco::sqrt(3.0f)));
 }
 
 TEST_CASE("angle-Wikipedia constants", "[angle]")
 {
     // https://en.wikipedia.org/wiki/Trigonometric_functions#Explicit_values
     // https://en.wikipedia.org/wiki/Trigonometric_constants_expressed_in_real_radicals#Table_of_some_common_angles
-    const float a = (euco::Sqrt(6.0f) - euco::Sqrt(2.0f)) / 4.0f;
-    const float b = (euco::Sqrt(2.0f) + euco::Sqrt(6.0f)) / 4.0f;
+    const float a = (euco::sqrt(6.0f) - euco::sqrt(2.0f)) / 4.0f;
+    const float b = (euco::sqrt(2.0f) + euco::sqrt(6.0f)) / 4.0f;
 
     SECTION("sin")
     {

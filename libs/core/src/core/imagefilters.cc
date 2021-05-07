@@ -29,7 +29,7 @@ namespace euphoria::core
         case grayscale::g: return Gray(c.g, c.a);
         case grayscale::b: return Gray(c.b, c.a);
         case grayscale::a: return Gray(c.a, c.a);
-        case grayscale::max: return Gray(Max(c.r, Max(c.g, c.b)), c.a);
+        case grayscale::max: return Gray(max(c.r, max(c.g, c.b)), c.a);
         case grayscale::gamma:
             {
                 const auto d = dot(crgb(c), rgb(0.22f, 0.707f, 0.071f));

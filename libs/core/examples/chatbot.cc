@@ -14,7 +14,7 @@ main()
 {
     chatbot chatbot;
 
-    const auto current_directory = GetCurrentDirectory();
+    const auto current_directory = get_current_directory();
     vfs::FileSystem file_system;
     vfs::FileSystemRootFolder::AddRoot(&file_system, current_directory);
 

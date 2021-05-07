@@ -8,7 +8,7 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 }
 
 namespace euphoria::core::generator
@@ -71,7 +71,7 @@ namespace euphoria::core::generator
     add_random_fill
     (
         rules* cell,
-        Random* random,
+        random* random,
         float random_fill = 0.5,
         fourway<border_setup_rule> border_control = fourway<border_setup_rule>
         {

@@ -220,7 +220,7 @@ namespace euphoria::core
         int last_event;
         unsigned long max_responses;
         std::vector<std::string> last_input;
-        Random random;
+        random random;
         detail::transposer transposer;
         detail::database database;
         detail::conversation_topics current_topics;

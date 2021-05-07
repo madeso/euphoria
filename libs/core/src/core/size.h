@@ -147,18 +147,18 @@ namespace euphoria::core
 
     template <typename T>
     Size<T>
-    Min(const Size<T> lhs, const Size<T> rhs)
+    min(const Size<T> lhs, const Size<T> rhs)
     {
         return Size<T>::FromWidthHeight(
-                Min(lhs.width, rhs.width), Min(lhs.height, rhs.height));
+                min(lhs.width, rhs.width), min(lhs.height, rhs.height));
     }
 
     template <typename T>
     Size<T>
-    Max(const Size<T> lhs, const Size<T> rhs)
+    max(const Size<T> lhs, const Size<T> rhs)
     {
         return Size<T>::FromWidthHeight(
-                Max(lhs.width, rhs.width), Max(lhs.height, rhs.height));
+                max(lhs.width, rhs.width), max(lhs.height, rhs.height));
     }
 
     template <typename T>

@@ -9,7 +9,7 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 }
 
 namespace euphoria::core::generator
@@ -67,7 +67,7 @@ namespace euphoria::core::generator
     struct recursive_backtracker : public algorithm
     {
         generator::maze*   maze   = nullptr;
-        Random* random = nullptr;
+        random* random = nullptr;
 
         std::stack<vec2i> stack;
         int               visited_cells = 0;
@@ -85,7 +85,7 @@ namespace euphoria::core::generator
     struct random_traversal : public algorithm
     {
         generator::maze*   maze   = nullptr;
-        Random* random = nullptr;
+        random* random = nullptr;
 
         struct entry
         {

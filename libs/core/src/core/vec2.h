@@ -11,7 +11,7 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 
     ////////////////////////////////////////////////////////////////////////////////
     /// Forward declarations
@@ -179,7 +179,7 @@ namespace euphoria::core
         [[nodiscard]] bool
         is_valid() const
         {
-            return IsEqual(get_length_squared(), 1);
+            return is_equal(get_length_squared(), 1);
         }
 
         explicit unit2(T ax, T ay) : x(ax), y(ay)
@@ -385,7 +385,7 @@ namespace euphoria::core
     using Vec2iTransform = Vec2Transform<int>;
 
     // util functions
-    unit2f create_random_unit(Random* random);
+    unit2f create_random_unit(random* random);
 
 }  // namespace euphoria::core
 

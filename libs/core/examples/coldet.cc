@@ -41,7 +41,7 @@ struct plane_demo
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
-            d.add_sphere(p, 0.1f, Abs(dist) < 0.01f ? color::yellow : (dist < 0 ? color::black : color::white));
+            d.add_sphere(p, 0.1f, euphoria::core::abs(dist) < 0.01f ? color::yellow : (dist < 0 ? color::black : color::white));
         }
     }
 
@@ -55,7 +55,7 @@ struct plane_demo
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
-            if (Abs(dist) < 0.01f) { continue; }
+            if (euphoria::core::abs(dist) < 0.01f) { continue; }
 
             const auto pp = get_closest_point(plane, p);
             d.add_arrow(ray3f::from_to(p, pp), color::black);

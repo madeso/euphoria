@@ -33,7 +33,7 @@ namespace euphoria::core
         vec3<T>
         to_vec3(T ww) const
         {
-            ASSERTX(IsEqual(w, ww), w, ww);
+            ASSERTX(is_equal(w, ww), w, ww);
             return vec3<T>(x, y, z);
         }
 

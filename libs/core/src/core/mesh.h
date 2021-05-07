@@ -114,7 +114,7 @@ namespace euphoria::core
 
     struct loaded_mesh_or_error
     {
-        mesh mesh;
+        mesh loaded_mesh;
         std::string error;
     };
 

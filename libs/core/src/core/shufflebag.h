@@ -37,9 +37,9 @@ namespace euphoria::core
         }
 
         [[nodiscard]] const T&
-        Next(Random* random)
+        Next(random* rand)
         {
-            ASSERT(random);
+            ASSERT(rand);
             ASSERT(!data_.empty());  // needs data
 
             if(cursor_ < 1)
@@ -48,7 +48,7 @@ namespace euphoria::core
                 return data_[0];
             }
 
-            const auto next_position = random->NextRange(static_cast<int>(cursor_));
+            const auto next_position = get_next_range(rand, static_cast<int>(cursor_));
 
             std::swap(data_[next_position], data_[cursor_]);
             cursor_ -= 1;

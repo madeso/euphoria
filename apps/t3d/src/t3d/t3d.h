@@ -73,7 +73,7 @@ namespace euphoria::t3d
         bool lister_window = true;
         bool preference_window = false;
 
-        core::OrbitController orbit;
+        core::orbit_controller orbit;
         bool mmb_down = false;
         bool shift_down = false;
         bool show_imgui = false;

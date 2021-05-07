@@ -32,13 +32,13 @@ namespace euphoria::core
     float
     rgb::get_length() const
     {
-        return Sqrt(get_length_squared());
+        return sqrt(get_length_squared());
     }
 
     float
     rgb::get_length_squared() const
     {
-        return Square(r) + Square(g) + Square(b);
+        return square(r) + square(g) + square(b);
     }
 
 
@@ -294,8 +294,8 @@ namespace euphoria::core
     chsl(const rgb& c)
     {
         // based on https://gist.github.com/mjackson/5311256
-        const auto max = Max(c.r, Max(c.g, c.b));
-        const auto min = Min(c.r, Min(c.g, c.b));
+        const auto max = core::max(c.r, core::max(c.g, c.b));
+        const auto min = core::min(c.r, core::min(c.g, c.b));
         const auto l = (max + min) / 2;
         // var h, s;
 
@@ -309,7 +309,7 @@ namespace euphoria::core
 
         auto cl = [](float r, float g, float b) -> Biggest {
             constexpr auto min_diff = 0.001f;
-            if(Abs(r - g) < min_diff && Abs(g - b) < min_diff)
+            if(abs(r - g) < min_diff && abs(g - b) < min_diff)
             {
                 return Biggest::Same;
             }

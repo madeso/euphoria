@@ -326,7 +326,7 @@ main(int argc, char* argv[])
 
     engine.file_system->SetWrite
     (
-        std::make_shared<vfs::FileSystemWriteFolder>(GetCurrentDirectory())
+        std::make_shared<vfs::FileSystemWriteFolder>(get_current_directory())
     );
 
     TextureCache cache {engine.file_system.get()};

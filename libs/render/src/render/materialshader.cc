@@ -169,7 +169,7 @@ namespace euphoria::render
 
         materialshader::MaterialShader file;
         const auto proto_path = path.SetExtensionCopy("json");
-        std::string error = core::LoadProtoJson
+        std::string error = core::read_json_to_gaf_struct_or_get_error_message
         (
             file_system,
             &file,

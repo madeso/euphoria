@@ -335,7 +335,7 @@ OpenOrFocusOnGenericWindow
                         T {},
                         [=](T& t) { run_function(&t); }
                 );
-                const auto err = LoadProtoJson(fs, &window->data, path);
+                const auto err = read_json_to_gaf_struct_or_get_error_message(fs, &window->data, path);
                 if(!err.empty())
                 {
                     LOG_ERROR("Failed to load: {0}", err);

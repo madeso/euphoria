@@ -37,13 +37,13 @@ struct Common
 
 
 table<int>
-GenerateDrunkenBishopTable(Random* random, const Common& common)
+GenerateDrunkenBishopTable(random* random, const Common& common)
 {
     auto hash = std::vector<int>{};
     const int times = common.big ? 8 : 4;
     for(int i=0; i<times; i+=1)
     {
-        const auto codes = to_codes(to_bytes(random->NextInteger()), true);
+        const auto codes = to_codes(to_bytes(random->get_next_integer32()), true);
         for(auto c : codes)
         {
             hash.emplace_back(c);
@@ -117,10 +117,10 @@ main(int argc, char* argv[])
             sub->add("--count", &count).set_help("The number of images");
             sub->add("--scale", &scale).set_help("The scale of the image");
             return sub->on_complete([&]{
-                auto random = Random{};
+                auto rand = random{};
                 for(int c=0; c<count; c+=1)
                 {
-                    const auto table = GenerateDrunkenBishopTable(&random, common);
+                    const auto table = GenerateDrunkenBishopTable(&rand, common);
                     const auto image = GenerateImage
                     (
                         table,
@@ -148,8 +148,8 @@ main(int argc, char* argv[])
             auto common = Common{};
             common.Add(sub);
             return sub->on_complete([&]{
-                auto random = Random{};
-                const auto table = GenerateDrunkenBishopTable(&random, common);
+                auto rand = random{};
+                const auto table = GenerateDrunkenBishopTable(&rand, common);
                 const auto strs = collapse(table, get_ssh_characters());
                 for(const auto& str: strs)
                 {

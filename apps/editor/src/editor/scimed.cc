@@ -23,7 +23,7 @@ namespace euphoria::editor
     bool
     IsCloseTo(float a, float b, float c = 3)
     {
-        return Abs(a - b) < c;
+        return core::abs(a - b) < c;
     }
 
     bool
@@ -459,8 +459,8 @@ namespace euphoria::editor
 
         // move split to new position
         auto& data = *data_ptr;
-        data[split_index] = Sign(data[split_index]) * left_size;
-        data[split_index + 1] = Sign(data[split_index + 1]) * right_size;
+        data[split_index] = get_sign(data[split_index]) * left_size;
+        data[split_index + 1] = get_sign(data[split_index + 1]) * right_size;
     }
 
 
@@ -474,7 +474,7 @@ namespace euphoria::editor
 
         const int left_abs_val = mouse - size.left;
         const int old_value = data[index];
-        const int sign = Sign(old_value);
+        const int sign = get_sign(old_value);
         const int left_val = left_abs_val * sign;
         data[index] = left_val;
 

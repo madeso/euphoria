@@ -31,15 +31,15 @@ namespace euphoria::core
     }
 
     polar_coord
-    polar_coord::create_random(::euphoria::core::Random* random)
+    polar_coord::create_random(::euphoria::core::random* random)
     {
-        const float az    = random->NextFloat01();
-        const float polar = random->NextFloat01();
+        const float az    = random->get_next_float01();
+        const float polar = random->get_next_float01();
         return {az, polar};
     }
 
     unit3f
-    create_random_unit3(Random* random)
+    create_random_unit3(random* random)
     {
         return polar_coord::create_random(random).to_unit_vector();
     }

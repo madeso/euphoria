@@ -17,7 +17,7 @@ namespace euphoria::core
     using string_table = table<std::string>;
 
     template <typename T>
-    struct table_generator : public SortBuilder<T, table_generator<T>>
+    struct table_generator : public sort_builder<T, table_generator<T>>
     {
         using converter = std::function<std::string(const T&)>;
 
@@ -35,7 +35,7 @@ namespace euphoria::core
 
             const auto s = column_titles.size();
 
-            const auto indices = GetSortedIndices(data, *this);
+            const auto indices = get_sorted_indices(data, *this);
             for(const auto index: indices)
             {
                 const auto& d = data[index];

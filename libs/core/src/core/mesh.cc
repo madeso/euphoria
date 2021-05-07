@@ -460,7 +460,7 @@ namespace euphoria::core
         )
         {
             ::mesh::Mesh json;
-            const auto error = LoadProtoJson(fs, &json, json_path);
+            const auto error = read_json_to_gaf_struct_or_get_error_message(fs, &json, json_path);
             if(!error.empty())
             {
                 // LOG_WARN("Mesh " << json_path << " failed to load: " << error);
@@ -479,7 +479,7 @@ namespace euphoria::core
             const auto json_dir = json_path.GetDirectory();
             const auto folder_path = json_dir.GetFile("folder.json");
             ::mesh::Folder folder;
-            const auto folder_error = LoadProtoJson(fs, &folder, folder_path);
+            const auto folder_error = read_json_to_gaf_struct_or_get_error_message(fs, &folder, folder_path);
             if(!folder_error.empty())
             {
                 return;
@@ -631,15 +631,15 @@ namespace euphoria::core
             }
             else
             {
-                res.mesh = convert_scene(scene, path.path);
+                res.loaded_mesh = convert_scene(scene, path.path);
                 decorate_mesh
                 (
                     fs,
-                    &res.mesh,
+                    &res.loaded_mesh,
                     path.SetExtensionCopy(path.GetExtension()+".json")
                 );
 
-                if(res.mesh.parts.empty())
+                if(res.loaded_mesh.parts.empty())
                 {
                     res.error = "No parts(faces) in mesh";
                 }

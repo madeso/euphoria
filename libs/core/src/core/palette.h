@@ -7,7 +7,7 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 
     struct palette
     {
@@ -42,7 +42,7 @@ namespace euphoria::core
          * @returns a random color
          */
         const rgbi&
-        get_random_color(Random* r) const;
+        get_random_color(random* r) const;
 
         /** Get a color based on the index.
          * The index is modulated based on the palette size, ensuring a valid color.

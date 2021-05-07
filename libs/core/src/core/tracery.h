@@ -10,7 +10,7 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 }
 
 
@@ -123,7 +123,7 @@ namespace euphoria::core::tracery
         apply_modifier(const std::string& name, const std::string& data) const;
 
         result
-        flatten(core::Random* random, const std::string& rule) const;
+        flatten(core::random* random, const std::string& rule) const;
 
         std::map<std::string, symbol> rules;
         std::map<std::string, std::shared_ptr<modifier>> modifiers;

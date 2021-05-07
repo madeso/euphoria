@@ -94,10 +94,10 @@ namespace euphoria::core::generator
 
     template <typename T>
     T
-    pop_random(std::vector<T>* vec, Random* r)
+    pop_random(std::vector<T>* vec, random* r)
     {
         ASSERT(!vec->empty());
-        const auto i = r->NextRange(vec->size());
+        const auto i = get_next_range(r, vec->size());
         T          t = (*vec)[i];
         vec->erase(vec->begin() + i);
         return t;
@@ -105,10 +105,10 @@ namespace euphoria::core::generator
 
 
     vec2i
-    random_position_on_maze(Random* random, maze* maze)
+    random_position_on_maze(random* random, maze* maze)
     {
-        return {random->NextRange(maze->get_width()),
-                random->NextRange(maze->get_height())};
+        return {get_next_range(random, maze->get_width()),
+                get_next_range(random, maze->get_height())};
     }
 
 
@@ -156,7 +156,7 @@ namespace euphoria::core::generator
         }
         else
         {
-            const dir dir = random->Next(neighbours);
+            const dir dir = get_random_item_in_vector(random, neighbours);
             auto      np  = add_step_to_maze(maze, c, dir);
             stack.push(np);
             visited_cells += 1;

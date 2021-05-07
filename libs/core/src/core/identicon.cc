@@ -89,7 +89,7 @@ namespace
 
         // build patch path
         ctx.translate(static_cast<float>(x) + offset, static_cast<float>(y) + offset);
-        ctx.rotate(static_cast<float>(turn) * Pi() / 2);
+        ctx.rotate(static_cast<float>(turn) * pi / 2);
         ctx.begin_path();
         ctx.move_to
         (

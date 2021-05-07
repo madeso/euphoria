@@ -1,4 +1,4 @@
-#include "core/nlp_sentance.h"
+#include "core/nlp_sentence.h"
 
 #include "tests/approx_equal.h"
 #include "tests/stringeq.h"
@@ -11,21 +11,21 @@ using namespace euphoria::core;
 
 namespace
 {
-    std::pair<bool, std::vector<Sentance>>
+    std::pair<bool, std::vector<text_sentence>>
     Parse(const std::string& str)
     {
-        std::vector<Sentance> list;
+        std::vector<text_sentence> list;
 
         auto ss = std::istringstream{str};
 
-        const auto result = ParseSentances(ss, [&](const Sentance& s){list.emplace_back(s);});
+        const auto result = parse_sentences(ss, [&](const text_sentence& s){list.emplace_back(s);});
 
         return {result, list};
     }
 }
 
 
-TEST_CASE("nlp-sentance", "[nlp]")
+TEST_CASE("nlp-sentence", "[nlp]")
 {
     SECTION("simple parse")
     {
@@ -46,7 +46,7 @@ TEST_CASE("nlp-sentance", "[nlp]")
 
     SECTION("to string")
     {
-        REQUIRE(StringEq("Hello world, I am dog.", SentanceToString({"Hello", "world", ",", "I", "am", "dog", "."})));
+        REQUIRE(StringEq("Hello world, I am dog.", sentence_to_string({"Hello", "world", ",", "I", "am", "dog", "."})));
     }
 }
 

@@ -5,7 +5,7 @@
 namespace euco = euphoria::core;
 
 template <typename T>
-struct SoBuCore : public euco::SortBuilder<T, SoBuCore<T>>
+struct SoBuCore : public euco::sort_builder<T, SoBuCore<T>>
 {};
 
 
@@ -21,12 +21,12 @@ namespace
 TEST_CASE("multisort-verify", "[multisort]")
 {
     auto o = SoBuCore<Data> {}
-                     .Sort(&Data::i, euco::SortStyle::Ascending)
+                     .sort(&Data::i, euco::sort_style::ascending)
                      .sort_order;
 
-    const auto same    = o[0]->Sort(Data {0, 0}, Data {0, 0});
-    const auto less    = o[0]->Sort(Data {1, 0}, Data {0, 0});
-    const auto greater = o[0]->Sort(Data {0, 0}, Data {1, 0});
+    const auto same    = o[0]->sort(Data {0, 0}, Data {0, 0});
+    const auto less    = o[0]->sort(Data {1, 0}, Data {0, 0});
+    const auto greater = o[0]->sort(Data {0, 0}, Data {1, 0});
 
     CHECK(same == 0);
     CHECK(less == -1);
@@ -45,29 +45,29 @@ TEST_CASE("multisort-test", "[multisort]")
 
     SECTION("basic sort asc")
     {
-        auto si = GetSortedIndices(
+        auto si = get_sorted_indices(
                 data,
-                SoBuCore<Data> {}.Sort(&Data::i, euco::SortStyle::Ascending));
+                SoBuCore<Data> {}.sort(&Data::i, euco::sort_style::ascending));
         const auto sorted = std::vector<size_t> {0, 2, 1};
         CHECK(si == sorted);
     }
 
     SECTION("basic sort desc")
     {
-        auto si = GetSortedIndices(
+        auto si = get_sorted_indices(
                 data,
-                SoBuCore<Data> {}.Sort(&Data::i, euco::SortStyle::Descending));
+                SoBuCore<Data> {}.sort(&Data::i, euco::sort_style::descending));
         const auto sorted = std::vector<size_t> {1, 2, 0};
         CHECK(si == sorted);
     }
 
     SECTION("handle second")
     {
-        auto si = GetSortedIndices(
+        auto si = get_sorted_indices(
                 data,
                 SoBuCore<Data> {}
-                        .Sort(&Data::j, euco::SortStyle::Ascending)
-                        .Sort(&Data::i, euco::SortStyle::Descending));
+                        .sort(&Data::j, euco::sort_style::ascending)
+                        .sort(&Data::i, euco::sort_style::descending));
         const auto sorted = std::vector<size_t> {0, 1, 2};
         CHECK(si == sorted);
     }

@@ -152,13 +152,13 @@ namespace euphoria::core
         normalize()
         {
             const T l2 = get_length_squared();
-            if(IsEqual(l2, 0))
+            if(is_equal(l2, 0))
             {
                 *this = unit::up();
             }
             else
             {
-                *this /= Sqrt(l2);
+                *this /= sqrt(l2);
             }
         }
 
@@ -185,7 +185,7 @@ namespace euphoria::core
         [[nodiscard]] bool
         is_valid() const
         {
-            return IsEqual(this->get_length_squared(), 1);
+            return is_equal(this->get_length_squared(), 1);
         }
 
         static self

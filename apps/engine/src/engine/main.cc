@@ -63,7 +63,7 @@ game::Game
 LoadGameData(vfs::FileSystem* fs)
 {
     game::Game game;
-    const auto err = LoadProtoJson(fs, &game, vfs::FilePath{"~/gamedata.json"});
+    const auto err = read_json_to_gaf_struct_or_get_error_message(fs, &game, vfs::FilePath{"~/gamedata.json"});
     if(!err.empty())
     {
         LOG_ERROR("Failed to load gamedata.json: {0}", err);
@@ -198,7 +198,7 @@ main(int argc, char* argv[])
 
     engine.file_system->SetWrite
     (
-        std::make_shared<vfs::FileSystemWriteFolder>(GetCurrentDirectory())
+        std::make_shared<vfs::FileSystemWriteFolder>(get_current_directory())
     );
 
     TextureCache cache {engine.file_system.get()};

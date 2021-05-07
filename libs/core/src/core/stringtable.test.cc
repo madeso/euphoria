@@ -56,7 +56,7 @@ TEST_CASE("stringtable-generator", "[stringtable]")
                                            [](const Person& p) -> std::string {
                                                return p.last;
                                            })
-                                   .Sort(&Person::last)
+                                   .sort(&Person::last)
                                    .to_table();
         REQUIRE(table.get_width() == 2);
         REQUIRE(table.get_height() == 5);

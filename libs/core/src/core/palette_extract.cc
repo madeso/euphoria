@@ -57,7 +57,7 @@ namespace
     {
         using Tu = std::tuple<SortRange, Range<float>>;
 
-        const auto [min_values, max_values] = FindMinMaxRanges<3, float>
+        const auto [min_values, max_values] = find_min_max_ranges<3, float>
         (
             colors,
             [](const rgbi& c) -> std::array<float, 3>

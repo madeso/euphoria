@@ -126,7 +126,7 @@ main(int argc, char** argv)
     CanvasConfig cc;
     Canvas canvas;
     image image;
-    Random random;
+    random random;
     Tool tool = Tool::Pen;
     auto palette = palettes::endesga_64();
     auto foreground = 0;

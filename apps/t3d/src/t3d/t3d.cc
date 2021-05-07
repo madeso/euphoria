@@ -144,8 +144,8 @@ namespace euphoria::t3d
             return;
         }
 
-        const auto small_step = core::Max(smallest_step, grid_data.small_step);
-        const auto size = core::Abs(grid_data.size * grid_data.small_step);
+        const auto small_step = core::max(smallest_step, grid_data.small_step);
+        const auto size = core::abs(grid_data.size * grid_data.small_step);
         const auto normal = grid_data.normal;
 
         auto def = core::lines {};
@@ -255,8 +255,8 @@ namespace euphoria::t3d
             if(mmb_down)
             {
                 const auto mm = movement.StaticCast<float>();
-                if(shift_down) { orbit.Pan(mm.x, mm.y); }
-                else { orbit.Rotate(mm.x, mm.y); }
+                if(shift_down) { orbit.on_pan_input(mm.x, mm.y); }
+                else { orbit.on_rotate_input(mm.x, mm.y); }
             }
         }
     }
@@ -329,7 +329,7 @@ namespace euphoria::t3d
         if(forward_mouse)
         {
             editor->OnScroll(core::vec2i(e.wheel.x, e.wheel.y));
-            orbit.Zoom(e.wheel.y);
+            orbit.on_zoom_input(e.wheel.y);
         }
     }
 
@@ -723,8 +723,8 @@ namespace euphoria::t3d
             ProcessImgui();
         }
 
-        camera.position = orbit.GetCameraPosition();
-        camera.rotation = orbit.GetRotation();
+        camera.position = orbit.get_camera_position();
+        camera.rotation = orbit.get_rotation();
 
         engine->init->ClearScreen(core::color::light_gray);
 

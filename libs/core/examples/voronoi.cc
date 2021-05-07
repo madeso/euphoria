@@ -21,7 +21,7 @@ i2f(int i)
     return static_cast<float>(i);
 }
 
-std::vector<vec2f> GenerateRandomPoints(int count, const rectf& size, Random* random)
+std::vector<vec2f> GenerateRandomPoints(int count, const rectf& size, random* random)
 {
     std::vector<vec2f> r;
     for(int i=0; i<count; i+=1)
@@ -43,7 +43,7 @@ enum class PointGeneration
 
 vec2f Abs(const vec2f& a)
 {
-    return {Abs(a.x), Abs(a.y)};
+    return {euphoria::core::abs(a.x), euphoria::core::abs(a.y)};
 }
 
 float euclidian_distance(const vec2f& lhs, const vec2f& rhs)
@@ -60,13 +60,13 @@ float manhattan_distance(const vec2f& lhs, const vec2f& rhs)
 float min_distance(const vec2f& lhs, const vec2f& rhs)
 {
     const auto d = Abs(lhs-rhs);
-    return Min(d.x, d.y);
+    return min(d.x, d.y);
 }
 
 float max_distance(const vec2f& lhs, const vec2f& rhs)
 {
     const auto d = Abs(lhs-rhs);
-    return Max(d.x, d.y);
+    return max(d.x, d.y);
 }
 
 float GetDistance(DistanceFunction f, const vec2f& lhs, const vec2f& rhs)
@@ -117,7 +117,7 @@ main(int argc, char* argv[])
         return *r;
     }
 
-    Random rand;
+    random rand;
 
     const auto area = rectf::from_width_height(size, size);
     const auto random_points =
@@ -142,7 +142,7 @@ main(int argc, char* argv[])
                 }
                 else
                 {
-                    return Abs(crazy_distance - dist);
+                    return euphoria::core::abs(crazy_distance - dist);
                 }
             }
         }

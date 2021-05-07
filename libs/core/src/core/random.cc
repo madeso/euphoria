@@ -25,7 +25,7 @@ better numbers than Mersenne. How can you go wrong? :)
     // http://stackoverflow.com/a/1227137
 
     u32
-    Random::TimeSeed()
+    random::generate_time_seed()
     {
         // idea from http://www.eternallyconfuzzled.com/arts/jsw_art_rand.aspx
         time_t now = time(nullptr);
@@ -42,7 +42,7 @@ better numbers than Mersenne. How can you go wrong? :)
         return seed;
     }
 
-    Random::Random(u32 seed)
+    random::random(u32 seed)
         : index(0), state {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
     {
         for(u32 i = 0; i < 16; ++i)
@@ -52,7 +52,7 @@ better numbers than Mersenne. How can you go wrong? :)
     }
 
     u32
-    Random::NextInteger()
+    random::get_next_integer32()
     {
         u32 a = state[index];
         u32 c = state[(index + 13) & 15];
@@ -68,22 +68,27 @@ better numbers than Mersenne. How can you go wrong? :)
     }
 
     u64
-    Random::NextInteger64()
+    random::get_next_integer64()
     {
-        u64 a = NextInteger();
-        u64 b = NextInteger();
-        a = a << 32;
-        return a | b;
+        const u64 a = get_next_integer32();
+        const u64 b = get_next_integer32();
+        return (a << 32) | b;
     }
 
     float
-    Random::NextFloat01()
+    random::get_next_float01()
     {
-        return static_cast<float>(NextInteger()) / static_cast<float>(std::numeric_limits<u32>::max());
+        return static_cast<float>(get_next_integer32()) / static_cast<float>(std::numeric_limits<u32>::max());
     }
 
     float
-    Random::NextGaussianFloat01()
+    random::get_next_float_range11()
+    {
+        return get_next_float01() * 2.0f - 1.0f;
+    }
+
+    float
+    random::get_next_gaussian_float01()
     {
         // gaussian source:
         // https://www.alanzucconi.com/2015/09/16/how-to-sample-from-a-gaussian-distribution/
@@ -92,60 +97,60 @@ better numbers than Mersenne. How can you go wrong? :)
         float s = 0;
         do
         {
-            v1 = Next(R11());
-            v2 = Next(R11());
+            v1 = get_next_float_range11();
+            v2 = get_next_float_range11();
             s = v1 * v1 + v2 * v2;
-        } while(s >= 1.0f || IsZero(s));
+        } while(s >= 1.0f || is_zero(s));
 
-        s = Sqrt((-2.0f * Log(s)) / s);
+        s = sqrt((-2.0f * log(s)) / s);
 
         return v1 * s;
     }
 
     float
-    Random::NextGaussian(float mean, float std_dev)
+    random::get_next_gaussian(float mean, float std_dev)
     {
-        return mean + NextGaussianFloat01() * std_dev;
+        return mean + get_next_gaussian_float01() * std_dev;
     }
 
     float
-    Random::NextGaussian(float mean, float std_dev, const Range<float>& r)
+    random::get_next_gaussian(float mean, float std_dev, const Range<float>& r)
     {
         float x = 0;
         do
         {
-            x = NextGaussian(mean, std_dev);
+            x = get_next_gaussian(mean, std_dev);
         } while(!is_within(r, x));
         return x;
     }
 
     bool
-    Random::NextBool()
+    random::get_next_bool()
     {
-        return NextFloat01() > 0.5f;
+        return get_next_float01() > 0.5f;
     }
 
     int
-    Random::NextSign()
+    random::get_next_sign()
     {
-        return NextBool() ? 1 : -1;
+        return get_next_bool() ? 1 : -1;
     }
 
     vec2f
-    Random::PointOnUnitCircle_CenterFocused()
+    PointOnUnitCircle_CenterFocused(random* r)
     {
-        const auto angle = angle::from_percent_of_360(NextFloat01());
-        const auto dist = NextFloat01() * 0.5f;
+        const auto angle = angle::from_percent_of_360(r->get_next_float01());
+        const auto dist = r->get_next_float01() * 0.5f;
 
         return vec2f {dist * cos(angle) + 0.5f, dist * sin(angle) + 0.5f};
     }
 
     vec2f
-    Random::PointOnUnitCircle_Uniform()
+    PointOnUnitCircle_Uniform(random* r)
     {
         // http://xdpixel.com/random-points-in-a-circle/
-        const auto angle = angle::from_percent_of_360(NextFloat01());
-        const auto dist = Sqrt(NextFloat01()) * 0.5f;
+        const auto angle = angle::from_percent_of_360(r->get_next_float01());
+        const auto dist = sqrt(r->get_next_float01()) * 0.5f;
 
         return vec2f {dist * cos(angle) + 0.5f, dist * sin(angle) + 0.5f};
     }

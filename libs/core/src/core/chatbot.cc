@@ -344,7 +344,7 @@ namespace euphoria::core
     {
         chat::Root root;
 
-        std::string error = LoadProtoJson(fs, &root, path);
+        std::string error = read_json_to_gaf_struct_or_get_error_message(fs, &root, path);
         if(!error.empty())
         {
             return error;
@@ -479,7 +479,7 @@ namespace euphoria::core
 
             while(!indices.empty())
             {
-                const auto index = chatbot->random.NextRange(indices.size());
+                const auto index = get_next_range(&chatbot->random, indices.size());
                 suggested = indices[index];
                 const auto& resp = chatbot->last_responses;
                 if

@@ -51,7 +51,7 @@ namespace euphoria::window
 
         auto parser = core::argparse::parser("euphoria engine");
 
-        auto current_directory = core::GetCurrentDirectory();
+        auto current_directory = core::get_current_directory();
         parser.add("-w", &current_directory)
                 .set_help("Sets the working direction if it's differnt from the current folder");
         const auto parse_result = parser.parse(args);

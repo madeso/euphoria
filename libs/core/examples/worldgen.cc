@@ -91,7 +91,7 @@ HandleMazeCommand
 )
 {
     auto output = argparse::file_output {f};
-    auto random = Random{};
+    auto rand = random{};
     auto maze = generator::maze::from_width_height(world_width, world_height);
 
     auto drawer = generator::drawer {};
@@ -104,7 +104,7 @@ HandleMazeCommand
         {
             auto g = std::make_unique<generator::recursive_backtracker>();
             g->maze = &maze;
-            g->random = &random;
+            g->random = &rand;
             drawer.tracker = g.get();
             gen = std::move(g);
         }
@@ -113,7 +113,7 @@ HandleMazeCommand
         {
             auto g = std::make_unique<generator::random_traversal>();
             g->maze = &maze;
-            g->random = &random;
+            g->random = &rand;
             drawer.traversal = g.get();
             gen = std::move(g);
         }
@@ -188,7 +188,7 @@ struct Cellwriter
     generator::world* world;
     int world_scale;
 
-    Random shuffle_random;
+    random shuffle_random;
     generator::world world_copy;
 
     explicit Cellwriter
@@ -401,7 +401,7 @@ main(int argc, char* argv[])
             bool debug = false;
             Sizei size = Sizei::FromWidthHeight(100, 70);
             std::string output = "cell.png";
-            auto random = Random {};
+            auto rand = random{};
             auto rules = generator::rules{};
 
             sub->add("--size", &size).set_help("set the size");
@@ -421,7 +421,7 @@ main(int argc, char* argv[])
                     .set_help("Change how the border is generated")
                     ;
                 return cmd->on_complete([&]{
-                    generator::add_random_fill(&rules, &random, random_fill, border_control);
+                    generator::add_random_fill(&rules, &rand, random_fill, border_control);
                     return argparse::ok;
                 });
             });

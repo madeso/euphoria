@@ -17,10 +17,10 @@ namespace euphoria::core
         rgb color;
     };
 
-    using line = std::tuple<int, int>;
 
     struct lines
     {
+        using line = std::tuple<int, int>;
         std::vector<line_point> points;
         std::vector<line> indices;
 

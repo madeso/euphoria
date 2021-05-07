@@ -32,7 +32,7 @@ namespace
         {
             const auto f = static_cast<float>(s);
             dest->push_back(f);
-            size += euphoria::core::Abs(f);
+            size += euphoria::core::abs(f);
         }
 
         if(dest->empty())
@@ -73,7 +73,7 @@ namespace euphoria::render
     {
         scalingsprite::ScalingSprite sprite;
 
-        core::LoadProtoJson
+        core::read_json_to_gaf_struct_or_get_error_message
         (
             fs,
             &sprite,
@@ -126,12 +126,12 @@ namespace euphoria::render
             float uv_current_row = 1;
 
             const auto position_next_col = position_current_col + position_cols[c];
-            const auto uv_next_col = uv_current_col + core::Abs(cols_[c]) / max_col_;
+            const auto uv_next_col = uv_current_col + core::abs(cols_[c]) / max_col_;
 
             for(unsigned int r = 0; r < rows_size; ++r)
             {
                 const auto position_next_row = position_current_row - position_rows[r];
-                const auto uv_next_row = uv_current_row - core::Abs(rows_[r]) / max_row_;
+                const auto uv_next_row = uv_current_row - core::abs(rows_[r]) / max_row_;
 
                 ASSERTX
                 (

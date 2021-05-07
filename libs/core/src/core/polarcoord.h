@@ -6,7 +6,7 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 
     // source: http://mathworld.wolfram.com/SphericalCoordinates.html
     struct polar_coord
@@ -17,14 +17,14 @@ namespace euphoria::core
         to_unit_vector() const;
 
         [[nodiscard]] static polar_coord
-        create_random(::euphoria::core::Random* random);
+        create_random(::euphoria::core::random* random);
 
         angle azimuthal;  // longitude, 0-2pi
         angle polar;  // zenith, colatitude, 0-pi
     };
 
     unit3f
-    create_random_unit3(Random* random);
+    create_random_unit3(random* random);
 
 }  // namespace euphoria::core
 

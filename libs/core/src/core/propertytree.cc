@@ -7,68 +7,54 @@ namespace euphoria::core
 {
     ////////////////////////////////////////////////////////////////////////////////
 
-    ValueInt::ValueInt(int i) : Value(ValueType::Int), value(i) {}
+    value_int::value_int(int i) : core::value(value_type::int_type), value(i) {}
 
     int&
-    ValueInt::Cast(Value* value)
+    value_int::cast(core::value* value)
     {
         ASSERT(value);
-        ASSERT(value->type == ValueType::Int);
-        return static_cast<ValueInt*>(value)->value;
+        ASSERT(value->type == value_type::int_type);
+        return static_cast<value_int*>(value)->value;
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    ValueFloat::ValueFloat(float f) : Value(ValueType::Float), value(f) {}
+    value_float::value_float(float f) : core::value(value_type::float_type), value(f) {}
 
     float&
-    ValueFloat::Cast(Value* value)
+    value_float::cast(core::value* value)
     {
         ASSERT(value);
-        ASSERT(value->type == ValueType::Float);
-        return static_cast<ValueFloat*>(value)->value;
+        ASSERT(value->type == value_type::float_type);
+        return static_cast<value_float*>(value)->value;
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    ValueVec3f::ValueVec3f(const vec3f& v) : Value(ValueType::Vec3f), value(v)
+    value_vec3f::value_vec3f(const vec3f& v) : core::value(value_type::vec3f_type), value(v)
     {}
 
     vec3f&
-    ValueVec3f::Cast(Value* value)
+    value_vec3f::cast(core::value* value)
     {
         ASSERT(value);
-        ASSERT(value->type == ValueType::Vec3f);
-        return static_cast<ValueVec3f*>(value)->value;
+        ASSERT(value->type == value_type::vec3f_type);
+        return static_cast<value_vec3f*>(value)->value;
     }
 
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    ValuePoint3f::ValuePoint3f(const vec3f& v)
-        : Value(ValueType::Point3f), value(v)
-    {}
-
-    vec3f&
-    ValuePoint3f::Cast(Value* value)
-    {
-        ASSERT(value);
-        ASSERT(value->type == ValueType::Point3f);
-        return static_cast<ValuePoint3f*>(value)->value;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-    PropertyTree::PropertyTree() : Value(ValueType::Struct) {}
+    property_tree::property_tree() : value(value_type::struct_type) {}
 
     void
-    PropertyTree::Set(const std::string& name, std::shared_ptr<Value> value)
+    property_tree::set(const std::string& name, std::shared_ptr<value> value)
     {
         properties[name] = value;
     }
 
-    std::shared_ptr<Value>
-    PropertyTree::GetOrNull(const std::string& name)
+    std::shared_ptr<value>
+    property_tree::get_or_null(const std::string& name)
     {
         auto found = properties.find(name);
         if(found == properties.end())
@@ -80,5 +66,4 @@ namespace euphoria::core
             return found->second;
         }
     }
-
-}  // namespace euphoria::core
+}

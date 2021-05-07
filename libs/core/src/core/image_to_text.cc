@@ -71,7 +71,7 @@ namespace euphoria::core
                 make_grayscale(img.get_pixel(x, y), grayscale)
             ).r;
             const auto p = 1.0f - inverted_color;
-            const auto index = Floori(p * static_cast<float>(characters.size() - 1) );
+            const auto index = floor_to_int(p * static_cast<float>(characters.size() - 1) );
             return characters[index];
         });
 

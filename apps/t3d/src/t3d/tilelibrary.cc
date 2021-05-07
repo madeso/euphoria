@@ -79,10 +79,10 @@ namespace euphoria::t3d
         auto tile  = std::make_shared<Tile>();
         tile->path = path;
         tile->name = path.GetFilenameWithoutExtension();
-        tile->aabb = loaded_mesh.mesh.calculate_aabb();
+        tile->aabb = loaded_mesh.loaded_mesh.calculate_aabb();
         tile->mesh = CompileMesh
         (
-            loaded_mesh.mesh,
+            loaded_mesh.loaded_mesh,
             shader_cache,
             texture_cache,
             // todo(Gustav): test with mesh directory iunstead of root?

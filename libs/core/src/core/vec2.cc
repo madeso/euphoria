@@ -6,7 +6,7 @@
 
 namespace euphoria::core
 {
-    unit2f create_random_unit(Random* random)
+    unit2f create_random_unit(random* random)
     {
         const auto angle = angle::Random(random);
         const auto x = cos(angle);

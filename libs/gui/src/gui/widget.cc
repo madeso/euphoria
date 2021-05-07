@@ -77,12 +77,12 @@ namespace euphoria::gui
 
         return core::Sizef::FromWidthHeight
         (
-            core::Max
+            core::max
             (
                 min.width + padding_width + margin_width,
                 layout.GetPreferredWidth()
             ),
-            core::Max
+            core::max
             (
                 min.height + padding_height + margin_height,
                 layout.GetPreferredHeight()

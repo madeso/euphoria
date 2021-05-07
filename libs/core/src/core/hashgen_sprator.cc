@@ -109,7 +109,7 @@ namespace
             const auto image_scale_float = static_cast<float>(image_scale);
             const auto table_scale_float = static_cast<float>(table_scale);
             const auto scale_factor = image_scale_float / table_scale_float;
-            return std::max(1, Floori(scale_factor));
+            return std::max(1, floor_to_int(scale_factor));
         };
 
         const auto scale = std::min
@@ -256,8 +256,8 @@ namespace
                     int y = 0;
                     do
                     {
-                        x = Floori(generator.Next() * half_side.get_width());
-                        y = Floori(generator.Next() * half_side.get_height());
+                        x = floor_to_int(generator.Next() * half_side.get_width());
+                        y = floor_to_int(generator.Next() * half_side.get_height());
                     } while(hit(x, y));
                     hit(x, y) = true;
                     half_side(x, y) = !half_side(x, y);

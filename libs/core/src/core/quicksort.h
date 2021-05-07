@@ -1,5 +1,5 @@
-#ifndef CORE_QUICKSORT_H
-#define CORE_QUICKSORT_H
+#pragma once
+
 
 #include <vector>
 
@@ -9,7 +9,7 @@ namespace euphoria::core
     // https://en.wikipedia.org/wiki/Quicksort
     template <typename T, typename SortFunc>
     int
-    Partition(SortFunc sort_func, std::vector<T>& A, int lo, int hi)
+    get_hoare_partition(SortFunc sort_func, std::vector<T>& A, int lo, int hi)
     {
         const auto pivot_index = lo + (hi - lo) / 2;
         const auto pivot       = A[pivot_index];
@@ -37,35 +37,35 @@ namespace euphoria::core
 
     template <typename T, typename SortFunc>
     void
-    QuickSortSub(SortFunc sort_func, std::vector<T>& A, int lo, int hi)
+    quicksort_implementation(SortFunc sort_func, std::vector<T>& A, int lo, int hi)
     {
         if(lo < hi)
         {
-            const auto p = Partition(sort_func, A, lo, hi);
-            QuickSortSub(sort_func, A, lo, p);
-            QuickSortSub(sort_func, A, p + 1, hi);
+            const auto p = get_hoare_partition(sort_func, A, lo, hi);
+            quicksort_implementation(sort_func, A, lo, p);
+            quicksort_implementation(sort_func, A, p + 1, hi);
         }
     }
 
     template <typename T, typename SortFunc>
     void
-    QuickSort(std::vector<T>* arr, SortFunc sort_func)
+    quicksort(std::vector<T>* arr, SortFunc sort_func)
     {
-        QuickSortSub<T, SortFunc>(sort_func, *arr, 0, arr->size() - 1);
+        quicksort_implementation<T, SortFunc>(sort_func, *arr, 0, arr->size() - 1);
     }
 
     template <typename T, typename SortFunc>
     std::vector<T>
-    QuickSort(const std::vector<T>& arr, SortFunc sort_func)
+    quicksort(const std::vector<T>& arr, SortFunc sort_func)
     {
         auto copy = arr;
-        QuickSort(&copy, sort_func);
+        quicksort(&copy, sort_func);
         return copy;
     }
 
     template <typename T>
     int
-    DefaultQuickSortFunction(const T& lhs, const T& rhs)
+    default_sort_function_for_quicksort(const T& lhs, const T& rhs)
     {
         if(lhs == rhs)
         {
@@ -76,11 +76,10 @@ namespace euphoria::core
 
     template <typename T>
     std::vector<T>
-    QuickSort(const std::vector<T>& arr)
+    quicksort(const std::vector<T>& arr)
     {
-        return QuickSort(arr, DefaultQuickSortFunction<T>);
+        return quicksort(arr, default_sort_function_for_quicksort<T>);
     }
 
-}  // namespace euphoria::core
+}
 
-#endif  // CORE_QUICKSORT_H

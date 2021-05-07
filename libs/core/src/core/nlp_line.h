@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_NLP_LINE_H
-#define EUPHORIA_CORE_NLP_LINE_H
+#pragma once
 
 #include <vector>
 #include <string>
@@ -9,17 +8,15 @@
 namespace euphoria::core
 {
 
-using Line = std::vector<std::string>;
+using text_line = std::vector<std::string>;
 
 
-std::optional<Line>
-ParseLine(const std::string& line);
+std::optional<text_line>
+parse_line(const std::string& line);
 
 
 std::string
-LineToString(const Line& s);
+line_to_string(const text_line& s);
 
 }
 
-
-#endif  // EUPHORIA_CORE_NLP_LINE_H

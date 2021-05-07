@@ -77,7 +77,7 @@ void RunMain
         number_of_images = 1;
     }
 
-    Random random;
+    random random;
 
     auto images = std::vector<image>{};
     image image;
@@ -88,7 +88,7 @@ void RunMain
         int code = -2044886870;
         if(use_random)
         {
-            code = random.NextInteger();
+            code = random.get_next_integer32();
         }
 
         switch(type)
@@ -144,7 +144,7 @@ void RunSpratorCollage
     int frames
 )
 {
-    Random random;
+    random random;
     auto sprites = std::vector<std::vector<image>>{};
 
     for(int image_index = 0; image_index < number_of_images; image_index += 1)
@@ -157,14 +157,14 @@ void RunSpratorCollage
             image_frames.emplace_back(image);
         }
 
-        const int code = random.NextInteger();
+        const int code = random.get_next_integer32();
         render_sprator(&image_frames, code, PALETTE.get_safe_index(image_index));
 
         sprites.emplace_back(image_frames);
         std::cout << "Generated collage image\n";
     }
 
-    const auto c = Max(frames-2, 0);
+    const auto c = max(frames-2, 0);
     const auto write_frames = c + c*2 + 1;
     for(int anim_index = 0; anim_index < write_frames; anim_index +=1)
     {

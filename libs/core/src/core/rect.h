@@ -301,10 +301,10 @@ namespace euphoria::core
         void
         include(const rect& o)
         {
-            left   = Min(left, o.left);
-            right  = Max(right, o.right);
-            top    = Max(top, o.top);
-            bottom = Min(bottom, o.bottom);
+            left   = min(left, o.left);
+            right  = max(right, o.right);
+            top    = max(top, o.top);
+            bottom = min(bottom, o.bottom);
         }
 
         // Returns true if the rectangle is empty (left >= right or top <= bottom)
@@ -451,10 +451,10 @@ namespace euphoria::core
         }
 
         [[nodiscard]] vec2<T>
-        get_random_point(Random* random) const
+        get_random_point(random* random) const
         {
-            const T x = random->NextRange(get_width());
-            const T y = random->NextRange(get_height());
+            const T x = get_next_range(random, get_width());
+            const T y = get_next_range(random, get_height());
             return get_position_from_bottom_left(vec2<T> {x, y});
         }
     };

@@ -38,17 +38,17 @@ namespace euphoria::core::generator
 
     struct random_fill_rule : public rule
     {
-        Random* random;
+        random* rand;
         float random_fill;
         fourway<border_setup_rule> border_control;
 
         random_fill_rule
         (
-            Random* r,
+            random* r,
             float rf,
             fourway<border_setup_rule> bc
         )
-            : random(r)
+            : rand(r)
             , random_fill(rf)
             , border_control(bc)
         {
@@ -59,7 +59,7 @@ namespace euphoria::core::generator
         {
             set_white_noise(self->world, border_control, [this]()
             {
-                return random->NextFloat01() < random_fill;
+                return rand->get_next_float01() < random_fill;
             });
         }
     };
@@ -212,7 +212,7 @@ namespace euphoria::core::generator
     add_random_fill
     (
         rules* cell,
-        Random* random,
+        random* random,
         float random_fill,
         fourway<border_setup_rule> border_control
     )

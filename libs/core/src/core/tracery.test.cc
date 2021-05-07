@@ -8,7 +8,7 @@ namespace tr = euphoria::core::tracery;
 
 TEST_CASE("tracery-all", "[tracery]")
 {
-    auto random = euphoria::core::Random{0};
+    auto random = euphoria::core::random{0};
     tr::grammar g;
     g.register_english();
 

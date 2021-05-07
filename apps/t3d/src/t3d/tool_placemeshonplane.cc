@@ -29,7 +29,7 @@ namespace euphoria::t3d
     float
     SnapTo(float val, float step)
     {
-        return core::Round(val, step);
+        return core::round(val, step);
     }
 
 

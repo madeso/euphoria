@@ -208,7 +208,7 @@ namespace euphoria::core
         bool top_to_bottom
     )
     {
-        const auto images_per_row = Cfloat_to_int(Ceil(Sqrt(images.size())));
+        const auto images_per_row = Cfloat_to_int(ceil(sqrt(images.size())));
 
         auto ret = std::vector<vec2i>{};
 
@@ -220,7 +220,7 @@ namespace euphoria::core
 
         auto new_row = [&]
         {
-            max_x = Max(max_x, x);
+            max_x = max(max_x, x);
             column = 0;
             x = padding;
             y += current_height + padding;
@@ -238,7 +238,7 @@ namespace euphoria::core
             );
 
             x += width + padding;
-            current_height = Max(current_height, height);
+            current_height = max(current_height, height);
             column += 1;
 
             if(column >= images_per_row)

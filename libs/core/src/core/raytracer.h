@@ -41,7 +41,7 @@ namespace euphoria::core
             (
                 const unit_ray3f& ray,
                 const HitResult& hit,
-                Random* random
+                random* random
             ) = 0;
         };
 

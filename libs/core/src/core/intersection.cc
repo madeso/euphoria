@@ -154,7 +154,7 @@ namespace euphoria::core
         const float den = (-s2_x * s1_y + s1_x * s2_y);
 
         // todo(Gustav): implement a check for zero for float
-        if(Abs(den) < 0.00001f)
+        if(abs(den) < 0.00001f)
         {
             return Ray2Ray2Result_Parallel();
         }
@@ -204,7 +204,7 @@ namespace euphoria::core
         const auto newNorm = (point - ray.from).get_normalized();
 
         const auto d = dot(newNorm, ray.dir);
-        return Abs(1.0f - d);
+        return abs(1.0f - d);
     }
 
     vec3f
@@ -220,7 +220,7 @@ namespace euphoria::core
 
         auto t = dot(c - a, ab.dir) / dot(ab.dir, ab.dir);
 
-        t = Max(t, 0.0f);
+        t = max(t, 0.0f);
 
         const auto d = ray.get_point(t);
         return d;
@@ -236,7 +236,7 @@ namespace euphoria::core
         const vec3f& rhs_center
     )
     {
-        return vec3f::from_to(lhs_center, rhs_center).get_length_squared() < Square(lhs.radius + rhs.radius);
+        return vec3f::from_to(lhs_center, rhs_center).get_length_squared() < square(lhs.radius + rhs.radius);
     }
 
 
@@ -248,7 +248,7 @@ namespace euphoria::core
         const vec3f& point
     )
     {
-        return vec3f::from_to(sphere_center, point).get_length_squared() < Square(sphere.radius);
+        return vec3f::from_to(sphere_center, point).get_length_squared() < square(sphere.radius);
     }
 
 
@@ -281,7 +281,7 @@ namespace euphoria::core
             return -1.0f;
         }
         else {
-            return (-b - Sqrt(discriminant) ) / (2.0f*a);
+            return (-b - sqrt(discriminant) ) / (2.0f*a);
         }
     }
 

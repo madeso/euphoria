@@ -39,7 +39,7 @@ namespace euphoria::gui
         void
         UpdateMax(T* t, T value)
         {
-            *t = core::Max(*t, value);
+            *t = core::max(*t, value);
         }
     }
 

@@ -5,7 +5,7 @@
 
 namespace euphoria::core
 {
-    struct Random;
+    struct random;
 
     struct aabb
     {
@@ -49,7 +49,7 @@ namespace euphoria::core
 
 
         [[nodiscard]] vec3f
-        get_random_point(Random* random) const;
+        get_random_point(random* rand) const;
 
 
         vec3f min;

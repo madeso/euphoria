@@ -118,8 +118,8 @@ namespace euphoria::core
         unsigned char a
     )
     {
-        ASSERTX(IsWithinInclusivei(0, x, width - 1), x, width - 1);
-        ASSERTX(IsWithinInclusivei(0, y, height - 1), y, height - 1);
+        ASSERTX(is_within_inclusive_as_int(0, x, width - 1), x, width - 1);
+        ASSERTX(is_within_inclusive_as_int(0, y, height - 1), y, height - 1);
 
         const auto base_index = get_pixel_index(x, y);
         components[base_index + 0] = r;
@@ -136,8 +136,8 @@ namespace euphoria::core
     rgbai
     image::get_pixel(int x, int y) const
     {
-        ASSERTX(IsWithinInclusivei(0, x, width - 1), x, width);
-        ASSERTX(IsWithinInclusivei(0, y, height - 1), y, height);
+        ASSERTX(is_within_inclusive_as_int(0, x, width - 1), x, width);
+        ASSERTX(is_within_inclusive_as_int(0, y, height - 1), y, height);
 
         const auto base_index = get_pixel_index(x, y);
 
@@ -239,7 +239,7 @@ namespace euphoria::core
         {
             const int iy = height - (y + 1);
 
-            ASSERTX(IsWithinInclusivei(0, iy, height - 1), iy, y, height);
+            ASSERTX(is_within_inclusive_as_int(0, iy, height - 1), iy, y, height);
             for(int x = 0; x < width; x += 1)
             {
                 const int target_index = (x + width * y) * number_of_components;

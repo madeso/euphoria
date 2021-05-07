@@ -41,6 +41,7 @@ set(app_src_math
     src/core/vec2.cc src/core/vec2.h
     src/core/vec3.h
     src/core/vec4.h
+    src/core/quat.h
 )
 
 set(app_src_cli
@@ -118,16 +119,15 @@ set(app_src
     src/core/minmax.h
     src/core/multisort.h
     src/core/nlp_line.cc src/core/nlp_line.h
-    src/core/nlp_sentance.cc src/core/nlp_sentance.h
+    src/core/nlp_sentence.cc src/core/nlp_sentence.h
     src/core/noncopyable.h
     src/core/numeric.cc src/core/numeric.h
     src/core/orbitcontroller.cc src/core/orbitcontroller.h
     src/core/os.cc src/core/os.h
     src/core/propertytree.cc src/core/propertytree.h
     src/core/proto.cc src/core/proto.h
-    src/core/quat.h
     src/core/quicksort.h
-    src/core/radix.h
+    src/core/radix_sort.h
     src/core/random.cc src/core/random.h
     src/core/rng.cc src/core/rng.h
     src/core/range.cc src/core/range.h
@@ -221,12 +221,12 @@ set(test_src
     src/core/mat4.test.cc
     src/core/multisort.test.cc
     src/core/nlp_line.test.cc
-    src/core/nlp_sentance.test.cc
+    src/core/nlp_sentence.test.cc
     src/core/numeric.test.cc
     src/core/pack.test.cc
     src/core/quat.test.cc
     src/core/quicksort.test.cc
-    src/core/radix.test.cc
+    src/core/radix_sort.test.cc
     src/core/range.test.cc
     src/core/rect.test.cc
     src/core/rgb.test.cc

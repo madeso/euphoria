@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_OS_H
-#define EUPHORIA_OS_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -8,36 +7,35 @@
 namespace euphoria::core
 {
     std::string
-    GetCurrentDirectory();
+    get_current_directory();
 
 
-    struct DirectoryList
+    struct directory_listing
     {
         std::vector<std::string> files;
         std::vector<std::string> directories;
-        bool                     valid;
+        bool valid = false;
     };
 
-    DirectoryList
-    ListDirectory(const std::string& path);
+    directory_listing
+    list_directory(const std::string& path);
 
-    const char PATH_SEPARATOR = '/';
+    constexpr char path_separator = '/';
 
     bool
-    EndsWith(const std::string& str, char c);
+    ends_with(const std::string& str, char c);
 
     std::string
-    JoinPath(const std::string& left, const std::string& right);
+    join_path(const std::string& left, const std::string& right);
 
     std::string
-    GetExtension(const std::string& path);
+    get_extension(const std::string& path);
 
     std::string
-    GetFileNameIncludingExtension(const std::string& path);
+    get_file_name_including_extension(const std::string& path);
 
     std::string
-    GetFileNameWithoutExtension(const std::string& path);
+    get_file_name_without_extension(const std::string& path);
 
-}  // namespace euphoria::core
+}
 
-#endif  // EUPHORIA_OS_H
