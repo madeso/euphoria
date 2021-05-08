@@ -98,7 +98,7 @@ namespace euphoria::core
         DIR* dir = opendir(path.c_str());
         if(dir != nullptr)
         {
-            DirectoryList ret;
+            directory_listing ret;
             ret.valid = true;
 
             /* print all the files and directories within directory */
@@ -126,7 +126,7 @@ namespace euphoria::core
         }
         else
         {
-            DirectoryList ret;
+            directory_listing ret;
             ret.valid = false;
             return ret;
         }
