@@ -147,7 +147,7 @@ namespace euphoria::editor
             {
                 if(!filter.empty())
                 {
-                    if(!EndsWith(item.name, filter))
+                    if(!ends_with(item.name, filter))
                     {
                         display = false;
                     }

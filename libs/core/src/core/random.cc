@@ -82,13 +82,7 @@ better numbers than Mersenne. How can you go wrong? :)
     }
 
     float
-    random::get_next_float_range11()
-    {
-        return get_next_float01() * 2.0f - 1.0f;
-    }
-
-    float
-    random::get_next_gaussian_float01()
+    get_random_gaussian_float01(random* rand)
     {
         // gaussian source:
         // https://www.alanzucconi.com/2015/09/16/how-to-sample-from-a-gaussian-distribution/
@@ -97,8 +91,8 @@ better numbers than Mersenne. How can you go wrong? :)
         float s = 0;
         do
         {
-            v1 = get_next_float_range11();
-            v2 = get_next_float_range11();
+            v1 = get_random_in_range(rand, r11);
+            v2 = get_random_in_range(rand, r11);
             s = v1 * v1 + v2 * v2;
         } while(s >= 1.0f || is_zero(s));
 
@@ -108,18 +102,18 @@ better numbers than Mersenne. How can you go wrong? :)
     }
 
     float
-    random::get_next_gaussian(float mean, float std_dev)
+    get_random_gaussian(random* rand, float mean, float std_dev)
     {
-        return mean + get_next_gaussian_float01() * std_dev;
+        return mean + get_random_gaussian_float01(rand) * std_dev;
     }
 
     float
-    random::get_next_gaussian(float mean, float std_dev, const Range<float>& r)
+    get_random_gaussian(random* rand, float mean, float std_dev, const range<float>& r)
     {
         float x = 0;
         do
         {
-            x = get_next_gaussian(mean, std_dev);
+            x = get_random_gaussian(rand, mean, std_dev);
         } while(!is_within(r, x));
         return x;
     }
@@ -137,7 +131,7 @@ better numbers than Mersenne. How can you go wrong? :)
     }
 
     vec2f
-    PointOnUnitCircle_CenterFocused(random* r)
+    get_random_point_on_unit_circle_center_focused(random* r)
     {
         const auto angle = angle::from_percent_of_360(r->get_next_float01());
         const auto dist = r->get_next_float01() * 0.5f;
@@ -146,7 +140,7 @@ better numbers than Mersenne. How can you go wrong? :)
     }
 
     vec2f
-    PointOnUnitCircle_Uniform(random* r)
+    get_random_point_on_unit_circle_uniform(random* r)
     {
         // http://xdpixel.com/random-points-in-a-circle/
         const auto angle = angle::from_percent_of_360(r->get_next_float01());

@@ -68,7 +68,7 @@ HandleGrid
             files.end(),
             [](const std::string& lhs, const std::string& rhs)
             {
-                return StringCompare(lhs, rhs) < 0;
+                return string_compare(lhs, rhs) < 0;
             }
         );
     }
@@ -115,7 +115,7 @@ HandlePack
         return false;
     }
 
-    const auto image_size = Sizei::FromWidthHeight
+    const auto image_size = Sizei::create_from_width_height
     (
         requested_size.width - padding,
         requested_size.height - padding
@@ -228,7 +228,7 @@ main(int argc, char* argv[])
         "pack", "pack images according to the stb rect-pack algorithm",
         [](argparse::sub_parser* sub)
         {
-            auto image_size = Sizei::FromWidthHeight(1024, 1024);
+            auto image_size = Sizei::create_from_width_height(1024, 1024);
             rgbi background_color = color::gray;
             std::string output_file = "collage.png";
             int padding = 5;

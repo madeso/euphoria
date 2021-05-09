@@ -44,7 +44,7 @@ namespace euphoria::core
     {
         while(true)
         {
-            const auto c = get_next_range(random, 256);
+            const auto c = get_random_in_range(random, 256);
             if(c == 0x00) { continue; } // not NULL
             if(c == 0x20) { continue; } // neither Space
             if(c == 0xFF) { continue; } // neither NBSP

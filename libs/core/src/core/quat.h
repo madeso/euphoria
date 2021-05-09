@@ -46,7 +46,7 @@ namespace euphoria::core
         [[nodiscard]] static self
         from_random(random* random)
         {
-            const auto axis = create_random_unit3(random);
+            const auto axis = get_random_unit3(random);
             const auto angle = angle::Random(random);
 
             return self::from_axis_angle(axis_angle::right_hand_around(axis, angle));

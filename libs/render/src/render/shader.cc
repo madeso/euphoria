@@ -122,7 +122,7 @@ namespace euphoria::render
             "{1}\n"
             "---------------------------------------------------------",
             type,
-            core::Trim(log)
+            core::trim(log)
         );
     }
 

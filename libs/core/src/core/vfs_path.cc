@@ -52,13 +52,13 @@ namespace euphoria::core::vfs
         {
             return std::nullopt;
         }
-        if(StartsWith(p, "~/") || StartsWith(p, "./"))
+        if(starts_with(p, "~/") || starts_with(p, "./"))
         {
             return FilePath{p};
         }
         else
         {
-            if(StartsWith(p, "/"))
+            if(starts_with(p, "/"))
             {
                 return FilePath{"." + p};
             }
@@ -73,13 +73,13 @@ namespace euphoria::core::vfs
     std::optional<FilePath>
     FilePath::FromDirtySource(const std::string& p)
     {
-        std::string s = Trim(p);
+        std::string s = trim(p);
         if(s.size() < 4)
         {
             return std::nullopt;
         }
         // slashes
-        s = ReplaceWithCharacter(s, "\\", '/');
+        s = replace_with_character(s, "\\", '/');
 
         // C:\style paths
         if(s.substr(1, 2) == ":/")
@@ -239,10 +239,10 @@ namespace euphoria::core::vfs
 
         return DirPath
         {
-            StringMerger{}
-                .Separator("/")
-                .StartAndEnd("", "/")
-                .Generate(dirs)
+            string_merger{}
+                .set_separator("/")
+                .set_start_and_end("", "/")
+                .merge(dirs)
         };
     }
 
@@ -288,7 +288,7 @@ namespace euphoria::core::vfs
         ASSERTX
         (
             !dirs.empty(),
-            StringMerger::Array().Generate(dirs)
+            string_mergers::array.merge(dirs)
         );
         dirs.pop_back();
         return DirPath::FromDirs(dirs);
@@ -299,7 +299,7 @@ namespace euphoria::core::vfs
     DirPath::GetDirectoryName() const
     {
         const auto dirs = SplitDirectories();
-        ASSERTX(dirs.size() > 1, StringMerger::Array().Generate(dirs));
+        ASSERTX(dirs.size() > 1, string_mergers::array.merge(dirs));
         return *dirs.rbegin();
     }
 
@@ -307,7 +307,7 @@ namespace euphoria::core::vfs
     std::vector<std::string>
     DirPath::SplitDirectories() const
     {
-        return Split(path, '/');
+        return split(path, '/');
     }
 
 

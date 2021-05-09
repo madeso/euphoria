@@ -211,8 +211,8 @@ namespace euphoria::core
                 bool blend = false;
                 float blend_factor = 1.0f;
 
-                const auto a = MakeRange(inner - softness, inner);
-                const auto b = MakeRange(radius, radius + softness);
+                const auto a = make_range(inner - softness, inner);
+                const auto b = make_range(radius, radius + softness);
 
                 if(is_within(a, sq))
                 {
@@ -224,7 +224,7 @@ namespace euphoria::core
                     blend_factor = 1.0f - to01(b, sq);
                     blend = true;
                 }
-                else if(is_within(MakeRange(inner, radius), sq))
+                else if(is_within(make_range(inner, radius), sq))
                 {
                     // full color
                 }

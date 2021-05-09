@@ -257,7 +257,7 @@ ImWidget(LayoutContainer* container)
 void
 ImWidgetGlyph(int id, euphoria::render::Glyph* gl)
 {
-    const std::string s = Str() << "glyph " << id;
+    const std::string s = string_builder() << "glyph " << id;
     if(ImGui::TreeNode(s.c_str()) == false) { return; }
 
     ImGui::PushID(id);
@@ -360,7 +360,7 @@ main(int argc, char* argv[])
     Use(&shader);
     shader.SetUniform(shader.GetUniform("image"), 0);
 
-    auto root = Root{Sizef::FromWidthHeight(window_width, window_height)};
+    auto root = Root{Sizef::create_from_width_height(window_width, window_height)};
     const auto gui_loaded = root.Load
     (
         engine.file_system.get(),
@@ -429,7 +429,7 @@ main(int argc, char* argv[])
             if(engine.HandleResize(e, &window_width, &window_height))
             {
                 viewport_handler.SetSize(window_width, window_height);
-                root.Resize(Sizef::FromWidthHeight(window_width, window_height));
+                root.Resize(Sizef::create_from_width_height(window_width, window_height));
             }
 
             if(e.type == SDL_MOUSEMOTION)

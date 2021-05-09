@@ -89,7 +89,7 @@ OpenOrFocusWindow(
         const std::string&                           title_name,
         CreateWindowFunction                         create_window_function)
 {
-    const auto found = Search(
+    const auto found = find_first(
             *windows, [&](std::shared_ptr<GenericWindow>& wind) -> bool {
                 return wind->name == title_name;
             });
@@ -221,11 +221,11 @@ OpenOrFocusTextFile(
         const vfs::FilePath& path,
         vfs::FileSystem*   fs)
 {
-    OpenOrFocusWindow(windows, Str {} << "File: " << path, [&]() {
+    OpenOrFocusWindow(windows, string_builder {} << "File: " << path, [&]() {
         std::string str;
         if(!fs->ReadFileToString(path, &str))
         {
-            str = Str {} << "Failed to open " << path;
+            str = string_builder {} << "Failed to open " << path;
         }
         return std::make_shared<TextEditorWindow>(str);
     });
@@ -281,7 +281,7 @@ OpenOrFocusScimed(
 {
     OpenOrFocusWindow(
             windows,
-            Str {} << "Scimed: " << file,
+            string_builder {} << "Scimed: " << file,
             [&]() -> std::shared_ptr<GenericWindow> {
                 auto scimed = std::make_shared<ScimedWindow>();
                 LoadFile(&scimed->scimed, tc, sc, file);
@@ -298,13 +298,13 @@ OpenOrFocusScimedEditior
 )
 {
     auto file = path;
-    if(!EndsWith(file.path, ".json"))
+    if(!ends_with(file.path, ".json"))
     {
         file = file.ExtendExtensionCopy("json");
     }
     OpenOrFocusWindow(
             windows,
-            Str {} << "Scimed editor: " << file,
+            string_builder {} << "Scimed editor: " << file,
             [&]() -> std::shared_ptr<GenericWindow> {
                 auto sprite = sc->get(file);
                 return CreateGenericWindow(sprite, [](auto sprite) {
@@ -327,7 +327,7 @@ OpenOrFocusOnGenericWindow
     OpenOrFocusWindow
     (
             windows,
-            Str {} << title << ": " << path,
+            string_builder {} << title << ": " << path,
             [=]() -> std::shared_ptr<GenericWindow>
             {
                 auto window = CreateGenericWindow
@@ -560,7 +560,7 @@ main(int argc, char** argv)
             "Open with text editor",
             [](const vfs::FilePath& file) -> bool
             {
-                return EndsWith(file.path, ".json") || EndsWith(file.path, ".js");
+                return ends_with(file.path, ".json") || ends_with(file.path, ".js");
             },
             [&](Windows* windows, const vfs::FilePath& file)
             {
@@ -728,7 +728,7 @@ main(int argc, char** argv)
         engine.init->ClearScreen(color::light_gray);
         engine.imgui->Render();
 
-        RemoveMatching
+        remove_matching
         (
             &windows,
             [](const std::shared_ptr<GenericWindow>& window)

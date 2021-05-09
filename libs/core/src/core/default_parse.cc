@@ -14,11 +14,11 @@ namespace euphoria::core::argparse
             {
                 return static_cast<std::string>
                 (
-                    Str() << '\'' << s << '\''
+                    string_builder() << '\'' << s << '\''
                 );
             });
 
-        return StringMerger::EnglishOr().Generate(quoted_names);
+        return string_mergers::english_or.merge(quoted_names);
     }
 }
 

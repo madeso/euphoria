@@ -1,81 +1,98 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 #include <vector>
-#include <map>
+#include <string_view>
 
 
 namespace euphoria::core
 {
-    struct StringMerger
+    struct string_merger
     {
-        ////////////////////////////////////////////
-        // public api
-
         [[nodiscard]] std::string
-        Generate(const std::vector<std::string>& strings) const;
+        merge(const std::vector<std::string>& strings) const;
 
 
-        ////////////////////////////////////////////
-        // Named constructors
+        constexpr string_merger&
+        set_separator(const std::string_view& the_separator, const std::string_view& the_final_separator)
+        {
+            separator = the_separator;
+            final_separator = the_final_separator;
+            return *this;
+        }
 
-        static StringMerger
-        EnglishAnd();
+        constexpr string_merger&
+        set_separator(const std::string_view& both)
+        {
+            separator = both;
+            final_separator = both;
+            return *this;
+        }
 
-        static StringMerger
-        EnglishOr();
+        constexpr string_merger&
+        set_empty(const std::string_view& v)
+        {
+            empty = v;
+            return *this;
+        }
 
-        static StringMerger
-        Array();
+        constexpr string_merger&
+        set_start_and_end(const std::string_view& both, const std::string_view& the_end)
+        {
+            start = both;
+            end = the_end;
+            return *this;
+        }
 
-        static StringMerger
-        FunctionCall();
+        constexpr string_merger&
+        set_start_and_end(const std::string_view& v)
+        {
+            start = v;
+            end = v;
+            return *this;
+        }
 
-        static StringMerger
-        Space();
+        constexpr string_merger&
+        set_before_each(const std::string_view& v)
+        {
+            before_each = v;
+            return *this;
+        }
 
-        static StringMerger
-        Comma();
+        constexpr string_merger&
+        set_after_each(const std::string_view& both)
+        {
+            after_each = both;
+            final_after_each = both;
+            return *this;
+        }
 
+        constexpr string_merger&
+        set_after_each(const std::string_view& the_after, const std::string_view& the_final)
+        {
+            after_each = the_after;
+            final_after_each = the_final;
+            return *this;
+        }
 
-        ////////////////////////////////////////////
-        // constructor functions
-
-        StringMerger&
-        Separator(const std::string& separator, const std::string& final_separator);
-
-        StringMerger&
-        Separator(const std::string& separator);
-
-        StringMerger&
-        Empty(const std::string& empty);
-
-        StringMerger&
-        StartAndEnd(const std::string& start, const std::string& end);
-
-        StringMerger&
-        StartAndEnd(const std::string& same);
-
-        StringMerger&
-        BeforeEach(const std::string& before_each);
-
-        StringMerger&
-        AfterEach(const std::string& same);
-
-        StringMerger&
-        AfterEach(const std::string& after_each, const std::string& final_after_each);
-
-
-        ////////////////////////////////////////////
-        // member variables
-        std::string separator;
-        std::string final_separator;
-        std::string empty;
-        std::string start;
-        std::string end;
-        std::string before_each;
-        std::string after_each;
-        std::string final_after_each;
+        std::string_view separator;
+        std::string_view final_separator;
+        std::string_view empty;
+        std::string_view start;
+        std::string_view end;
+        std::string_view before_each;
+        std::string_view after_each;
+        std::string_view final_after_each;
     };
 
-}  // namespace euphoria::core
+    namespace string_mergers
+    {
+        constexpr string_merger english_and = string_merger{}.set_separator(", ", " and ").set_empty("<none>");
+        constexpr string_merger english_or = string_merger{}.set_separator(", ", " or ").set_empty("<none>");
+        constexpr string_merger array = string_merger{}.set_separator(", ").set_start_and_end("[", "]");
+        constexpr string_merger function_call = string_merger{}.set_separator(", ").set_start_and_end("(", ")");
+        constexpr string_merger space = string_merger{}.set_separator(" ");
+        constexpr string_merger comma = string_merger{}.set_separator(", ");
+    }
+}
+

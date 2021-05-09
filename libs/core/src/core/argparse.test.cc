@@ -127,7 +127,7 @@ namespace
             rhs,
             [](const Message& m) -> std::string
             {
-                return Str() << m;
+                return string_builder() << m;
             },
             [](const Message& lhs, const Message& rhs) -> FalseString
             {
@@ -136,7 +136,7 @@ namespace
                 if(lhs.error == rhs.error) { return FalseString::True(); }
                 return FalseString::False
                 (
-                    Str() << "error diff: "
+                    string_builder() << "error diff: "
                     << lhs.error << " vs "
                     << rhs.error
                 );

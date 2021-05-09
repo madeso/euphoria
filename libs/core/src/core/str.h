@@ -1,5 +1,4 @@
-#ifndef CORE_STR_H
-#define CORE_STR_H
+#pragma once
 
 #include <string>
 #include <sstream>
@@ -8,7 +7,7 @@ namespace euphoria::core
 {
     /** Basic string builder.
  */
-    struct Str
+    struct string_builder
     {
         /** Generate a string.
             @see toString()
@@ -28,7 +27,7 @@ namespace euphoria::core
             @return this
             */
         template <typename Type>
-        Str&
+        string_builder&
         operator<<(const Type& t)
         {
             stream_ << t;
@@ -39,6 +38,5 @@ namespace euphoria::core
         std::ostringstream stream_;
     };
 
-}  // namespace euphoria::core
+}
 
-#endif  // CORE_STR_H

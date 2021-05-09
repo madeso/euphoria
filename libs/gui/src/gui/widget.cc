@@ -75,7 +75,7 @@ namespace euphoria::gui
         const auto margin_width = margin.left + margin.right;
         const auto margin_height = margin.top + margin.bottom;
 
-        return core::Sizef::FromWidthHeight
+        return core::Sizef::create_from_width_height
         (
             core::max
             (

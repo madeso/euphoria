@@ -159,7 +159,7 @@ struct similar_edit_distance : public similar
             existing_lines.begin(), existing_lines.end(),
             [&](const auto& line)
             {
-                const auto shortened = core::FirstChars(line, count);
+                const auto shortened = core::first_chars(line, count);
                 const int edits = core::fast_edit_distance(shortened, generated);
                 if(edits < 10)
                 {
@@ -204,7 +204,7 @@ markov_line(const std::string& file, int memory, int count, bool also_existing, 
 
             if(!also_existing)
             {
-                existing_lines->add(core::ToLower(line));
+                existing_lines->add(core::to_lower(line));
             }
             m.add(*p);
         }
@@ -218,7 +218,7 @@ markov_line(const std::string& file, int memory, int count, bool also_existing, 
     for(int i = 0; i < count+skipped; i += 1)
     {
         const auto generated = core::line_to_string(b.generate(&rnd));
-        if(!also_existing && existing_lines->is_same(core::ToLower(generated)))
+        if(!also_existing && existing_lines->is_same(core::to_lower(generated)))
         {
             skipped += 1;
 

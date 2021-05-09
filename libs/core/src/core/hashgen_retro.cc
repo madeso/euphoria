@@ -59,7 +59,7 @@ namespace
         {
             for(int x=0; x<half_size; x+=1)
             {
-                const auto filled = generator.Next() < 0.5f;
+                const auto filled = generator.get_next_float01() < 0.5f;
                 if(filled)
                 {
                     rect(vec2i{x*dx, (y+1)*dy});
@@ -79,7 +79,7 @@ namespace euphoria::core
     void
     render_retro(image* image, int code)
     {
-        render_retro_impl<xorshift32>(image, Cbit_signed_to_unsigned(code));
+        render_retro_impl<random_xorshift32>(image, Cbit_signed_to_unsigned(code));
     }
 }
 

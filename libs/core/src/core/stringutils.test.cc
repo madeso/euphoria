@@ -7,21 +7,21 @@ TEST_CASE("stringutils-laststrings", "[stringutils]")
 {
     SECTION("basic")
     {
-        const auto r = euco::LastStrings("hello.world", '.');
+        const auto r = euco::last_strings("hello.world", '.');
         CHECK(r.first == "hello");
         CHECK(r.second == ".world");
     }
 
     SECTION("last")
     {
-        const auto r = euco::LastStrings("hello.", '.');
+        const auto r = euco::last_strings("hello.", '.');
         CHECK(r.first == "hello");
         CHECK(r.second == ".");
     }
 
     SECTION("empty")
     {
-        const auto r = euco::LastStrings("hello_world", '.');
+        const auto r = euco::last_strings("hello_world", '.');
         CHECK(r.first == "hello_world");
         CHECK(r.second.empty());
     }
@@ -29,72 +29,72 @@ TEST_CASE("stringutils-laststrings", "[stringutils]")
 
 TEST_CASE("stringutils-tolower", "[stringutils]")
 {
-    CHECK("abc" == euco::ToLower("abc"));
-    CHECK("def" == euco::ToLower("DEF"));
-    CHECK("42" == euco::ToLower("42"));
-    CHECK("simple test" == euco::ToLower("simplE Test"));
+    CHECK("abc" == euco::to_lower("abc"));
+    CHECK("def" == euco::to_lower("DEF"));
+    CHECK("42" == euco::to_lower("42"));
+    CHECK("simple test" == euco::to_lower("simplE Test"));
 }
 
 TEST_CASE("stringutils-toupper", "[stringutils]")
 {
-    CHECK("ABC" == euco::ToUpper("abc"));
-    CHECK("DEF" == euco::ToUpper("DEF"));
-    CHECK("42" == euco::ToUpper("42"));
-    CHECK("SIMPLE TEST" == euco::ToUpper("simplE Test"));
+    CHECK("ABC" == euco::to_upper("abc"));
+    CHECK("DEF" == euco::to_upper("DEF"));
+    CHECK("42" == euco::to_upper("42"));
+    CHECK("SIMPLE TEST" == euco::to_upper("simplE Test"));
 }
 
 TEST_CASE("stringutils-chartostring", "[stringutils]")
 {
-    CHECK("<space>" == euco::CharToString(' '));
-    CHECK("<null>" == euco::CharToString(0));
-    CHECK("<\\n>" == euco::CharToString('\n')); // can also be \r and while newline might be true, \n is easier to recognize
-    CHECK("A" == euco::CharToString('A'));
-    CHECK("<start of heading>(0x1)" == euco::CharToString(1));
+    CHECK("<space>" == euco::char_to_string(' '));
+    CHECK("<null>" == euco::char_to_string(0));
+    CHECK("<\\n>" == euco::char_to_string('\n')); // can also be \r and while newline might be true, \n is easier to recognize
+    CHECK("A" == euco::char_to_string('A'));
+    CHECK("<start of heading>(0x1)" == euco::char_to_string(1));
 
-    CHECK("<space>(0x20)" == euco::CharToString(' ', euco::CharToStringStyle::IncludeHex));
-    CHECK("P(0x50)" == euco::CharToString('P', euco::CharToStringStyle::IncludeHex));
+    CHECK("<space>(0x20)" == euco::char_to_string(' ', euco::char_to_string_style::include_hex));
+    CHECK("P(0x50)" == euco::char_to_string('P', euco::char_to_string_style::include_hex));
 }
 
 TEST_CASE("stringutils-findfirstindexmismatch", "[stringutils]")
 {
-    CHECK(std::string::npos == euco::FindFirstIndexOfMismatch("dog", "dog"));
-    CHECK(std::string::npos == euco::FindFirstIndexOfMismatch("", ""));
-    CHECK(0 == euco::FindFirstIndexOfMismatch("a", "b"));
-    CHECK(0 == euco::FindFirstIndexOfMismatch("a", "A"));
-    CHECK(1 == euco::FindFirstIndexOfMismatch("dog", "dag"));
-    CHECK(3 == euco::FindFirstIndexOfMismatch("dog", "doggo"));
-    CHECK(3 == euco::FindFirstIndexOfMismatch("doggo", "dog"));
+    CHECK(std::string::npos == euco::find_first_index_of_mismatch("dog", "dog"));
+    CHECK(std::string::npos == euco::find_first_index_of_mismatch("", ""));
+    CHECK(0 == euco::find_first_index_of_mismatch("a", "b"));
+    CHECK(0 == euco::find_first_index_of_mismatch("a", "A"));
+    CHECK(1 == euco::find_first_index_of_mismatch("dog", "dag"));
+    CHECK(3 == euco::find_first_index_of_mismatch("dog", "doggo"));
+    CHECK(3 == euco::find_first_index_of_mismatch("doggo", "dog"));
 }
 
 TEST_CASE("stringutils-striplast", "[stringutils]")
 {
-    CHECK("hello" == euco::StripLastString("hello.world", '.'));
-    CHECK(euco::StripLastString("hello_world", '.').empty());
+    CHECK("hello" == euco::strip_last_string("hello.world", '.'));
+    CHECK(euco::strip_last_string("hello_world", '.').empty());
 }
 
 
 TEST_CASE("stringutils-strip", "[stringutils]")
 {
-    CHECK("abc" == euco::Strip("abc", " "));
-    CHECK("abc" == euco::Strip(" abc ", " "));
-    CHECK("abc" == euco::Strip(" a b c ", " "));
-    CHECK("abc" == euco::Strip(" a  b  c ", " "));
+    CHECK("abc" == euco::strip("abc", " "));
+    CHECK("abc" == euco::strip(" abc ", " "));
+    CHECK("abc" == euco::strip(" a b c ", " "));
+    CHECK("abc" == euco::strip(" a  b  c ", " "));
 }
 
 TEST_CASE("stringutils-rem", "[stringutils]")
 {
-    CHECK("abc" == euco::RemoveConsecutive("abc", " "));
-    CHECK(" abc " == euco::RemoveConsecutive(" abc ", " "));
-    CHECK(" a b c " == euco::RemoveConsecutive(" a b c ", " "));
-    CHECK(" a b c " == euco::RemoveConsecutive(" a  b  c ", " "));
+    CHECK("abc" == euco::remove_consecutive("abc", " "));
+    CHECK(" abc " == euco::remove_consecutive(" abc ", " "));
+    CHECK(" a b c " == euco::remove_consecutive(" a b c ", " "));
+    CHECK(" a b c " == euco::remove_consecutive(" a  b  c ", " "));
 }
 
 
 TEST_CASE("stringutils-default_stringsort", "[stringutils]")
 {
-    CHECK(euco::StringCompare("aaa", "bbb") < 0);
-    CHECK(euco::StringCompare("aag", "aaa") > 0);
-    CHECK(euco::StringCompare("abc", "abc") == 0);
+    CHECK(euco::string_compare("aaa", "bbb") < 0);
+    CHECK(euco::string_compare("aag", "aaa") > 0);
+    CHECK(euco::string_compare("abc", "abc") == 0);
 }
 
 TEST_CASE("stringutils-human_stringsort", "[stringutils]")
@@ -103,5 +103,5 @@ TEST_CASE("stringutils-human_stringsort", "[stringutils]")
     const auto rhs = std::string("dog 10");
 
     CHECK(lhs > rhs);
-    CHECK(euco::StringCompare(lhs, rhs) < 0);
+    CHECK(euco::string_compare(lhs, rhs) < 0);
 }

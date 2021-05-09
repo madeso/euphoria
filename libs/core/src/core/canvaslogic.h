@@ -12,7 +12,7 @@ namespace euphoria::core
         float scale  = 1;
 
         // "config"
-        Range<float> scale_range = MakeRange(0.1f, 15.0f);
+        range<float> scale_range = make_range(0.1f, 15.0f);
 
         void
         pan(const vec2f& p);

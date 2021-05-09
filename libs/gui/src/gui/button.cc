@@ -95,7 +95,7 @@ namespace euphoria::gui
     core::Sizef
     Button::CalculateMinimumSize() const
     {
-        auto size = core::Sizef::FromWidthHeight(0, 0);
+        auto size = core::Sizef::create_from_width_height(0, 0);
         if(sprite_ != nullptr)
         {
             const auto ms = sprite_->GetMinimumSize();
@@ -106,7 +106,7 @@ namespace euphoria::gui
         if(text_.HasText())
         {
             const auto extents = text_.GetText().GetExtents();
-            const auto ms = core::Sizef::FromWidthHeight
+            const auto ms = core::Sizef::create_from_width_height
             (
                 extents.get_width(),
                 extents.get_height()

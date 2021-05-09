@@ -30,7 +30,7 @@ main(int, char*[])
 {
     random rand;
 
-    auto pal = CreateShuffleBag(palettes::color_blind_10().colors, 2);
+    auto pal = create_shuffle_bag(palettes::color_blind_10().colors, 2);
 
     const auto size = 15.0f;
     auto area = aabb{vec3f{-size, -size, -size}, vec3f{size, size, size}};
@@ -38,14 +38,14 @@ main(int, char*[])
 
     for(int i=0; i<30; i+=1)
     {
-        dump.add_sphere(area.get_random_point(&rand), 1.0f, pal.Next(&rand));
+        dump.add_sphere(area.get_random_point(&rand), 1.0f, pal.get_random_item(&rand));
     }
 
-    AddSpiral(&dump, 100, 4, 5, 2.5f, pal.Next(&rand));
+    AddSpiral(&dump, 100, 4, 5, 2.5f, pal.get_random_item(&rand));
 
-    dump.add_plane(plane::from_normal_and_point(unit3f::right(), vec3f(1, 2, 3)), pal.Next(&rand));
+    dump.add_plane(plane::from_normal_and_point(unit3f::right(), vec3f(1, 2, 3)), pal.get_random_item(&rand));
 
-    dump.add_arrow(ray3f::from_to(vec3f{3, 2, 1}, vec3f{0,0,0}), pal.Next(&rand));
+    dump.add_arrow(ray3f::from_to(vec3f{3, 2, 1}, vec3f{0,0,0}), pal.get_random_item(&rand));
 
     dump.add_axis();
     dump.add_grid();

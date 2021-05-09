@@ -27,7 +27,7 @@ namespace euphoria::core
     }
 
     template<typename T>
-    Result<T>
+    result<T>
     custom_argparser_parse(const std::string& value)
     {
         return custom_argparser<T>::parse(value);

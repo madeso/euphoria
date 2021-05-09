@@ -9,14 +9,14 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct Size
+    struct size
     {
-        using Self = Size<T>;
+        using self = size<T>;
 
         T width;
         T height;
 
-        Size()
+        size()
             : width(-1)
             , height(-1)
         {
@@ -24,37 +24,37 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        Self
-        FromWidthHeight(T w, T h)
+        self
+        create_from_width_height(T w, T h)
         {
-            return Self(w, h);
+            return self(w, h);
         }
 
         [[nodiscard]]
         static
-        Self
-        FromHeightWidth(T h, T w)
+        self
+        create_from_height_width(T h, T w)
         {
-            return Self(w, h);
+            return self(w, h);
         }
 
         [[nodiscard]]
         static
-        Self
-        FromSquare(T s)
+        self
+        create_from_square(T s)
         {
-            return Self(s, s);
+            return self(s, s);
         }
 
         void
-        operator+=(const Self& rhs)
+        operator+=(const self& rhs)
         {
             width += rhs.width;
             height += rhs.height;
         }
 
         void
-        operator-=(const Self& rhs)
+        operator-=(const self& rhs)
         {
             width -= rhs.width;
             height -= rhs.height;
@@ -75,7 +75,7 @@ namespace euphoria::core
         }
 
         vec2<T>
-        CalculateCenterOffsetFor(const Self& o)
+        calculate_center_offset_for(const self& o)
         {
             const T x = (width - o.width) / 2;
             const T y = (height - o.height) / 2;
@@ -83,18 +83,18 @@ namespace euphoria::core
         }
 
     private:
-        Size(T w, T h) : width(w), height(h) {}
+        size(T w, T h) : width(w), height(h) {}
     };
 
 
     template<typename T>
-    struct custom_argparser<Size<T>>
+    struct custom_argparser<size<T>>
     {
         enum { value = 1 };
 
         static
         std::string
-        to_string(const Size<T>& s)
+        to_string(const size<T>& s)
         {
             std::ostringstream ss;
             ss << s.width << "x" << s.height;
@@ -102,26 +102,26 @@ namespace euphoria::core
         }
 
         static
-        Result<Size<T>>
+        result<size<T>>
         parse(const std::string& value)
         {
-            using R = Result<Size<T>>;
-            const auto values = Split(value, 'x');
+            using R = result<size<T>>;
+            const auto values = split(value, 'x');
             const auto xes = values.size();
             if(xes != 2)
             {
                 if(xes < 2)
                 {
-                    return R::False
+                    return R::create_error
                     (
-                        Str{} << value << " contains less than one x"
+                        string_builder{} << value << " contains less than one x"
                     );
                 }
                 else
                 {
-                    return R::False
+                    return R::create_error
                     (
-                        Str{}
+                        string_builder{}
                             << value << " contains more than one x: "
                             << (xes-1)
                     );
@@ -132,86 +132,86 @@ namespace euphoria::core
             {
                 return argparse::default_parse_function<T>
                 (
-                    Trim(values[index])
+                    trim(values[index])
                 );
             };
             const auto lhs = parse_hs(0);
             const auto rhs = parse_hs(1);
 
-            if(!lhs) { return R::False(lhs.Error()); }
-            if(!rhs) { return R::False(rhs.Error()); }
+            if(!lhs) { return R::create_error(lhs.get_error()); }
+            if(!rhs) { return R::create_error(rhs.get_error()); }
 
-            return R::True(Size<T>::FromWidthHeight(*lhs, *rhs));
+            return R::create_value(size<T>::create_from_width_height(*lhs, *rhs));
         }
     };
 
     template <typename T>
-    Size<T>
-    min(const Size<T> lhs, const Size<T> rhs)
+    size<T>
+    min(const size<T> lhs, const size<T> rhs)
     {
-        return Size<T>::FromWidthHeight(
+        return size<T>::create_from_width_height(
                 min(lhs.width, rhs.width), min(lhs.height, rhs.height));
     }
 
     template <typename T>
-    Size<T>
-    max(const Size<T> lhs, const Size<T> rhs)
+    size<T>
+    max(const size<T> lhs, const size<T> rhs)
     {
-        return Size<T>::FromWidthHeight(
+        return size<T>::create_from_width_height(
                 max(lhs.width, rhs.width), max(lhs.height, rhs.height));
     }
 
     template <typename T>
-    Size<T>
-    operator+(const Size<T>& lhs, const Size<T>& rhs)
+    size<T>
+    operator+(const size<T>& lhs, const size<T>& rhs)
     {
-        Size<T> t = lhs;
+        size<T> t = lhs;
         t += rhs;
         return t;
     }
 
     template <typename T>
-    Size<T>
-    operator-(const Size<T>& lhs, const Size<T>& rhs)
+    size<T>
+    operator-(const size<T>& lhs, const size<T>& rhs)
     {
-        Size<T> t = lhs;
+        size<T> t = lhs;
         t -= rhs;
         return t;
     }
 
     template <typename T>
-    Size<T> operator*(const Size<T>& lhs, const T& rhs)
+    size<T> operator*(const size<T>& lhs, const T& rhs)
     {
-        Size<T> t = lhs;
+        size<T> t = lhs;
         t *= rhs;
         return t;
     }
 
     template <typename T>
-    Size<T> operator*(const T& lhs, const Size<T>& rhs)
+    size<T> operator*(const T& lhs, const size<T>& rhs)
     {
-        Size<T> t = rhs;
+        size<T> t = rhs;
         t *= lhs;
         return t;
     }
 
     template <typename T>
-    Size<T>
-    operator/(const Size<T>& lhs, const T& rhs)
+    size<T>
+    operator/(const size<T>& lhs, const T& rhs)
     {
-        Size<T> t = lhs;
+        size<T> t = lhs;
         t /= rhs;
         return t;
     }
 
     template <typename S, typename T>
     S&
-    operator<<(S& s, const Size<T>& r)
+    operator<<(S& s, const size<T>& r)
     {
         s << "(" << r.width << " x " << r.height << ")";
         return s;
     }
 
-    using Sizei = Size<int>;
-    using Sizef = Size<float>;
+    using Sizei = size<int>;
+    using Sizef = size<float>;
 }

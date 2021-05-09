@@ -39,11 +39,11 @@ namespace euphoria::core
 
         float distance = 10.0f;
 
-        Sensitivity pan_dx;
-        Sensitivity pan_dy;
-        Sensitivity rotate_dx;
-        Sensitivity rotate_dy;
-        Sensitivity zoom;
+        sensitivity pan_dx;
+        sensitivity pan_dy;
+        sensitivity rotate_dx;
+        sensitivity rotate_dy;
+        sensitivity zoom;
     };
 }
 

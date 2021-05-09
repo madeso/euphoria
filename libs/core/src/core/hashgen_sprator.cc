@@ -156,7 +156,7 @@ namespace
         (
             half_side,
             fourway<border_setup_rule>{border_setup_rule::random},
-            [&]() -> bool { return generator->Next() < 0.5f; }
+            [&]() -> bool { return generator->get_next_float01() < 0.5f; }
         );
     }
 
@@ -256,8 +256,8 @@ namespace
                     int y = 0;
                     do
                     {
-                        x = floor_to_int(generator.Next() * half_side.get_width());
-                        y = floor_to_int(generator.Next() * half_side.get_height());
+                        x = floor_to_int(generator.get_next_float01() * half_side.get_width());
+                        y = floor_to_int(generator.get_next_float01() * half_side.get_height());
                     } while(hit(x, y));
                     hit(x, y) = true;
                     half_side(x, y) = !half_side(x, y);
@@ -289,7 +289,7 @@ namespace euphoria::core
         const rgbai& background_color
     )
     {
-        render_sprator_impl<xorshift32>
+        render_sprator_impl<random_xorshift32>
         (
             image,
             Cbit_signed_to_unsigned(code),
@@ -310,7 +310,7 @@ namespace euphoria::core
         const rgbai& background_color
     )
     {
-        render_sprator_impl<xorshift32>
+        render_sprator_impl<random_xorshift32>
         (
             images,
             Cbit_signed_to_unsigned(code),

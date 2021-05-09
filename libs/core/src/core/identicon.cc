@@ -134,7 +134,7 @@ namespace euphoria::core
         auto green = (code >> 21) & 31;
         auto red = (code >> 27) & 31;
 
-        const auto C = [](int i) { return static_cast<uint8_t>(KeepWithin(Range<int>{0, 255}, i)); };
+        const auto C = [](int i) { return static_cast<uint8_t>(keep_within(range<int>{0, 255}, i)); };
         auto foreColor = rgbi(C(red << 3), C(green << 3), C(blue << 3));
         auto backColor = rgbi(255, 255, 255);
 

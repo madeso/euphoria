@@ -29,7 +29,7 @@ PrintRandomNumbers
     float sum = 0.0f;
     for(int i=0; i<count; i+=1)
     {
-        const auto r = rng.Next();
+        const auto r = rng.get_next_float01();
         container.emplace_back(r);
         sum += r;
         if( i < small_count )
@@ -48,7 +48,7 @@ PrintRandomNumbers
 
 struct Main
 {
-    int count = 100;
+    int count = 1000;
     int small_count = 10;
     random rand = random{};
 
@@ -82,9 +82,9 @@ struct Main
     void
     main()
     {
-        // Print<KnuthLcg>("knuth_lcg");
-        Print<xorshift32>("xorshift32");
-        Print<xorshift64>("xorshift64");
+        Print<random_knuth_lcg>("knuth_lcg");
+        Print<random_xorshift32>("xorshift32");
+        Print<random_xorshift64>("xorshift64");
 
         const int int_count = 10;
         PrintInts<32>("u32", int_count, [](random* r) { return r->get_next_integer32();});

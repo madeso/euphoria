@@ -77,12 +77,12 @@ namespace euphoria::editor
     {
         if(data_value > 0)
         {
-            return Str {} << data_value << "px";
+            return string_builder {} << data_value << "px";
         }
         else
         {
             const auto p = (-data_value * 100.0f) / total_percentage;
-            return Str {} << std::setprecision(3) << p << "%";
+            return string_builder {} << std::setprecision(3) << p << "%";
         }
     }
 

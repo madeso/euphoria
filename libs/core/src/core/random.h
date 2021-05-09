@@ -14,10 +14,8 @@ namespace euphoria::core
     */
     struct random
     {
-        // todo(Gustav): make simpler
-        // possible suggestion, rename to RandomGenerator and have a global
-        // Random function with overloads in all files instead of here.
-        // seperate random namespace where global random functions can live?
+        // todo(Gustav): make all rng use the same simple api
+        // and template the helper functions with user user facing non-templated functions can pick the rng that is needed
 
         [[nodiscard]] static u32
         generate_time_seed();
@@ -33,18 +31,6 @@ namespace euphoria::core
         float
         get_next_float01();
 
-        float
-        get_next_float_range11();
-
-        float
-        get_next_gaussian_float01();
-
-        float
-        get_next_gaussian(float mean, float std_dev);
-
-        float
-        get_next_gaussian(float mean, float std_dev, const Range<float>& r);
-
         bool
         get_next_bool();
 
@@ -55,32 +41,40 @@ namespace euphoria::core
         u32 state[16];
     };
 
+    /*
+     All helper functions should be in the style of
+     
+     ```
+     xxx get_random_xxx(random* rand, ...);
+     ```
+    */
+
     // move to point class or a circle class?
     vec2f
-    PointOnUnitCircle_CenterFocused(random* r);
+    get_random_point_on_unit_circle_center_focused(random* r);
 
     vec2f
-    PointOnUnitCircle_Uniform(random* r);
+    get_random_point_on_unit_circle_uniform(random* r );
 
     template <typename T>
     T
-    get_next_in_range(random* rand, const Range<T>& range)
+    get_random_in_range(random* rand, const range<T>& range)
     {
         return from01(range, rand->get_next_float01());
     }
 
     template <typename T>
     T
-    get_next_range(random* rand, T min, T max)
+    get_random_in_range(random* rand, T min, T max)
     {
         return static_cast<T>(min + rand->get_next_float01() * (max - min));
     }
 
     template <typename T>
     T
-    get_next_range(random* rand, T max)
+    get_random_in_range(random* rand, T max)
     {
-        return get_next_range<T>(rand, 0, max);
+        return get_random_in_range<T>(rand, 0, max);
     }
 
     template <typename T>
@@ -93,7 +87,16 @@ namespace euphoria::core
         {
             return v[0];
         }
-        return v[get_next_range(r, size)];
+        return v[get_random_in_range(r, size)];
     }
+
+    float
+    get_random_gaussian_float01(random* rand);
+
+    float
+    get_random_gaussian(random* rand, float mean, float std_dev);
+
+    float
+    get_random_gaussian(random* rand, float mean, float std_dev, const range<float>& r);
 }
 

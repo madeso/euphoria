@@ -55,7 +55,7 @@ namespace euphoria::core
     directory_listing
     list_directory(const std::string& path)
     {
-        const std::string search_path = Str() << path << "*.*";
+        const std::string search_path = string_builder() << path << "*.*";
         WIN32_FIND_DATA   fd;
         HANDLE            hFind = ::FindFirstFile(search_path.c_str(), &fd);
 
@@ -163,13 +163,13 @@ namespace euphoria::core
     std::string
     get_extension(const std::string& path)
     {
-        return LastStrings(path, '.').second;
+        return last_strings(path, '.').second;
     }
 
     std::string
     get_file_name_including_extension(const std::string& path)
     {
-        const auto r = LastStrings(path, path_separator).second;
+        const auto r = last_strings(path, path_separator).second;
         if(r.empty())
         {
             return r;
@@ -184,7 +184,7 @@ namespace euphoria::core
     std::string
     get_file_name_without_extension(const std::string& path)
     {
-        return LastStrings(get_file_name_including_extension(path), '.').first;
+        return last_strings(get_file_name_including_extension(path), '.').first;
     }
 
 }

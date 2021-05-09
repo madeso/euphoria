@@ -21,7 +21,7 @@ namespace
         (
             lhs,
             rhs,
-            [](unsigned int f) -> std::string { return Str() << f; },
+            [](unsigned int f) -> std::string { return string_builder() << f; },
             [](unsigned int a, unsigned int b) -> FalseString
             {
                 if(a == b)
@@ -32,7 +32,7 @@ namespace
                 {
                     return FalseString::False
                     (
-                        Str() << a << " != " << b
+                        string_builder() << a << " != " << b
                     );
                 }
             }
@@ -47,7 +47,7 @@ namespace
         (
             lhs,
             rhs,
-            [](float f) -> std::string { return Str() << f; },
+            [](float f) -> std::string { return string_builder() << f; },
             [](float a, float b) -> FalseString
             {
                 if(euphoria::tests::approx(a) == b)
@@ -58,7 +58,7 @@ namespace
                 {
                     return FalseString::False
                     (
-                        Str() << a << " != " << b
+                        string_builder() << a << " != " << b
                     );
                 }
             }

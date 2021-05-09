@@ -143,7 +143,7 @@ namespace euphoria::core::vfs
             root->Describe(&ret);
         }
 
-        return StringMerger::Array().Generate(ret);
+        return string_mergers::array.merge(ret);
     }
 
     bool
@@ -216,7 +216,7 @@ namespace euphoria::core::vfs
     void
     FileSystemRootCatalog::Describe(std::vector<std::string>* strings)
     {
-        const auto keys = KeyToStringVector(catalog_);
+        const auto keys = key_to_string_vector(catalog_);
         strings->insert(strings->end(), keys.begin(), keys.end());
     }
 
@@ -257,7 +257,7 @@ namespace euphoria::core::vfs
         const std::string slash = "/";
 
         const std::string the_folder
-                = EndsWith(folder, slash) ? folder : folder + slash;
+                = ends_with(folder, slash) ? folder : folder + slash;
         return the_folder;
     }
 

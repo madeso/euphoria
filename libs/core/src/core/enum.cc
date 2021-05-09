@@ -46,11 +46,11 @@ namespace euphoria::core
         }
 
         // ASSERT(false && "Invalid index");
-        const auto values = StringMerger::EnglishOr().Generate
+        const auto values = string_mergers::english_or.merge
         (
-            MapToStringVector(name_to_value)
+            to_string_vector(name_to_value)
         );
-        const std::string invalid = Str() << "<invalid value " << v << " of "
+        const std::string invalid = string_builder() << "<invalid value " << v << " of "
                                           << values << ">";
         return invalid;
     }

@@ -27,7 +27,7 @@ namespace euphoria::core
             keynamer&
             operator()(T key, const std::string& name)
             {
-                string_to_key.insert(std::make_pair(ToLower(name), key));
+                string_to_key.insert(std::make_pair(to_lower(name), key));
                 key_to_string.insert(std::make_pair(key, name));
 
                 return *this;
@@ -54,7 +54,7 @@ namespace euphoria::core
                 {
                     return unbound_key;
                 }
-                auto r = string_to_key.find(ToLower(name));
+                auto r = string_to_key.find(to_lower(name));
                 if(r == string_to_key.end())
                 {
                     return invalid_key;

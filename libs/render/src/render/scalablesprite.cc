@@ -91,7 +91,7 @@ namespace euphoria::render
     core::Sizef
     ScalableSprite::GetMinimumSize() const
     {
-        return core::Sizef::FromWidthHeight
+        return core::Sizef::create_from_width_height
         (
             GetConstantSize(cols_),
             GetConstantSize(rows_)
@@ -105,8 +105,8 @@ namespace euphoria::render
     {
         const auto size_ = rect.get_size();
         const auto pos = rect.get_bottom_left();
-        const auto position_cols = core::PerformTableLayout(cols_, size_.width);
-        const auto position_rows = core::PerformTableLayout
+        const auto position_cols = core::perform_table_layout(cols_, size_.width);
+        const auto position_rows = core::perform_table_layout
         (
             rows_,
             size_.height

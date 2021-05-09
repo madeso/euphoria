@@ -377,7 +377,7 @@ namespace euphoria::core
                         "Unable to find {0} in mesh {1} valid names are: {2}",
                         material.name,
                         json_path,
-                        StringMerger::EnglishOr().Generate(get_keys(mesh_materials))
+                        string_mergers::english_or.merge(get_keys(mesh_materials))
                     );
                     continue;
                 }

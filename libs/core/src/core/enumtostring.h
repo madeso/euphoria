@@ -36,7 +36,7 @@ namespace euphoria::core
         add(const std::string& name, T t)
         {
             enum_to_string.insert(std::make_pair(t, name));
-            string_to_enum.insert(std::make_pair(ToLower(name), t));
+            string_to_enum.insert(std::make_pair(to_lower(name), t));
             size += 1;
             return *this;
         }
@@ -78,7 +78,7 @@ namespace euphoria::core
         [[nodiscard]] matched_enum<T>
         match(const std::string& input, size_t max_size) const
         {
-            auto found = string_to_enum.find(ToLower(input));
+            auto found = string_to_enum.find(to_lower(input));
             if(found != string_to_enum.end())
             {
                 return matched_enum<T> {true, {input}, {found->second}};

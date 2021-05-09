@@ -13,8 +13,8 @@ namespace
         if(clang != nullptr)
         {
             const auto lang = std::string(clang);
-            const auto lower = euphoria::core::ToLower(lang);
-            const auto ends = euphoria::core::EndsWith(lower, "utf-8");
+            const auto lower = euphoria::core::to_lower(lang);
+            const auto ends = euphoria::core::ends_with(lower, "utf-8");
             return ends;
         }
 

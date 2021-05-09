@@ -82,7 +82,7 @@ namespace euphoria::core::ecs
         View() const
         {
             const auto keys = get_keys(components);
-            ASSERT(Sorted(keys) == keys);
+            ASSERT(get_sorted(keys) == keys);
             return keys;
         }
     };
@@ -159,7 +159,7 @@ namespace euphoria::core::ecs
             for(const auto id: destroyed_entities)
             {
                 // todo(Gustav): postpone!
-                if(SwapBackAndEraseObject(id, &alive))
+                if(swap_back_and_erase_object(id, &alive))
                 {
                     for(const auto& entry: components)
                     {

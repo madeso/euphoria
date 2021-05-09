@@ -104,7 +104,7 @@ namespace euphoria::core
         }
 
         [[nodiscard]] static rect
-        from_width_height(const Size<T>& s)
+        from_width_height(const size<T>& s)
         {
             return from_width_height(s.width, s.height);
         }
@@ -414,22 +414,22 @@ namespace euphoria::core
         // todo(Gustav): provide a KeepWithin, WrapWithin functions
         // like is_within below
 
-        Range<T>
+        range<T>
         get_range_y() const
         {
-            return Range<T>{bottom, top};
+            return range<T>{bottom, top};
         }
 
-        Range<T>
+        range<T>
         get_range_x() const
         {
-            return Range<T>{left, right};
+            return range<T>{left, right};
         }
 
-        Size<T>
+        size<T>
         get_size() const
         {
-            return Size<T>::FromWidthHeight(get_width(), get_height());
+            return size<T>::create_from_width_height(get_width(), get_height());
         }
 
         [[nodiscard]] vec2<T>
@@ -453,8 +453,8 @@ namespace euphoria::core
         [[nodiscard]] vec2<T>
         get_random_point(random* random) const
         {
-            const T x = get_next_range(random, get_width());
-            const T y = get_next_range(random, get_height());
+            const T x = get_random_in_range(random, get_width());
+            const T y = get_random_in_range(random, get_height());
             return get_position_from_bottom_left(vec2<T> {x, y});
         }
     };
@@ -469,8 +469,8 @@ namespace euphoria::core
     [[nodiscard]] vec2<R>
     to01(const rect<T>& r, const vec2<R>& from)
     {
-        const auto x = to01(MakeRange(r.left, r.right), from.x);
-        const auto y = to01(MakeRange(r.bottom, r.top), from.y);
+        const auto x = to01(make_range(r.left, r.right), from.x);
+        const auto y = to01(make_range(r.bottom, r.top), from.y);
         return vec2<R> {x, y};
     }
 
@@ -478,8 +478,8 @@ namespace euphoria::core
     [[nodiscard]] vec2<R>
     from01(const rect<T>& r, const vec2<R>& from)
     {
-        const auto x = from01(MakeRange(r.left, r.right), from.x);
-        const auto y = from01(MakeRange(r.bottom, r.top), from.y);
+        const auto x = from01(make_range(r.left, r.right), from.x);
+        const auto y = from01(make_range(r.bottom, r.top), from.y);
         return vec2<R> {x, y};
     }
 

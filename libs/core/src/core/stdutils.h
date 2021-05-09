@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_STDUTILS_H
-#define EUPHORIA_STDUTILS_H
+#pragma once
 
 #include "core/str.h"
 #include "core/assert.h"
@@ -24,7 +23,7 @@ namespace euphoria::core
 
     template <typename K>
     std::vector<K>
-    Sorted(const std::vector<K>& k)
+    get_sorted(const std::vector<K>& k)
     {
         auto s = k;
         std::sort(s.begin(), s.end());
@@ -33,19 +32,19 @@ namespace euphoria::core
 
     template <typename K, typename V>
     std::vector<std::string>
-    KeysAsStrings(const std::map<K, V>& m)
+    get_keys_as_strings(const std::map<K, V>& m)
     {
         std::vector<std::string> strings;
         for(const auto& x: m)
         {
-            strings.push_back(Str() << x.first);
+            strings.push_back(string_builder() << x.first);
         }
         return strings;
     }
 
     template <typename T>
     bool
-    SwapBackAndEraseObject(T what, std::vector<T>* from)
+    swap_back_and_erase_object(T what, std::vector<T>* from)
     {
         ASSERT(from);
         using Vec = std::vector<T>;
@@ -66,14 +65,14 @@ namespace euphoria::core
 
     template <typename T, typename TFunc>
     void
-    RemoveMatching(std::vector<T>* v, TFunc condition)
+    remove_matching(std::vector<T>* v, TFunc condition)
     {
         v->erase(std::remove_if(v->begin(), v->end(), condition), v->end());
     }
 
     template <typename T, typename TFunc>
     typename std::vector<T>::iterator
-    Search(std::vector<T>& v, TFunc condition)
+    find_first(std::vector<T>& v, TFunc condition)
     {
         for(auto i = v.begin(); i != v.end(); i++)
         {
@@ -95,6 +94,5 @@ namespace euphoria::core
         return static_cast<typename std::underlying_type<E>::type>(e);
     }
 
-}  // namespace euphoria::core
+}
 
-#endif  // EUPHORIA_STDUTILS_H

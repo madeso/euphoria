@@ -91,11 +91,11 @@ namespace euphoria::core
                     return 0;
                 case outside_rule::mirror:
                     // todo(Gustav): implement this!
-                    nx = KeepWithin(world.get_indices().get_range_x(), x);
+                    nx = keep_within(world.get_indices().get_range_x(), x);
                     DIE("Implement this");
                     break;
                 case outside_rule::wrap:
-                    nx = Wrap(world.get_indices().get_range_x(), x);
+                    nx = wrap(world.get_indices().get_range_x(), x);
                     break;
                 default:
                     DIE("Unhandled case");
@@ -117,11 +117,11 @@ namespace euphoria::core
                     return 0;
                 case outside_rule::mirror:
                     // todo(Gustav): implement this!
-                    ny = KeepWithin(world.get_indices().get_range_y(), y);
+                    ny = keep_within(world.get_indices().get_range_y(), y);
                     DIE("Implement this");
                     break;
                 case outside_rule::wrap:
-                    ny = Wrap(world.get_indices().get_range_y(), y);
+                    ny = wrap(world.get_indices().get_range_y(), y);
                     break;
                 default:
                     DIE("Unhandled case");

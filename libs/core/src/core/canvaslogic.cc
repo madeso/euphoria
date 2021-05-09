@@ -27,7 +27,7 @@ namespace euphoria::core
             scale *= scale_factor;
         }
 
-        scale = KeepWithin(scale_range, scale);
+        scale = keep_within(scale_range, scale);
 
         // todo(Gustav): change to use WorldToScreen
         const auto new_focus = scroll + focus * scale;

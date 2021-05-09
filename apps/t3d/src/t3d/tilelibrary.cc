@@ -44,7 +44,7 @@ namespace euphoria::t3d
         ImGui::ListBoxHeader("Tiles");
         for(auto tile: tiles)
         {
-            std::string display = core::Str {}
+            std::string display = core::string_builder {}
                 << tile->name << ": "
                 << tile->aabb.get_size();
             if(ImGui::Selectable(

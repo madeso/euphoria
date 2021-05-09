@@ -14,7 +14,7 @@ namespace euphoria::core
 {
 
 std::pair<std::string, std::string>
-LastStrings(const std::string& str, char sep)
+last_strings(const std::string& str, char sep)
 {
     auto result = str.find(sep);
     if(result == std::string::npos)
@@ -29,7 +29,7 @@ LastStrings(const std::string& str, char sep)
 
 
 std::string
-FirstChars(const std::string& str, std::size_t count)
+first_chars(const std::string& str, std::size_t count)
 {
     if(str.length() < count) { return str; }
     else { return str.substr(0, count); }
@@ -37,7 +37,7 @@ FirstChars(const std::string& str, std::size_t count)
 
 
 std::string
-StripLastString(const std::string& str, char sep)
+strip_last_string(const std::string& str, char sep)
 {
     auto result = str.find(sep);
     if(result == std::string::npos)
@@ -50,28 +50,28 @@ StripLastString(const std::string& str, char sep)
 
 
 std::string
-TrimRight(const std::string& string_to_trim, const std::string& trim_characters)
+trim_right(const std::string& string_to_trim, const std::string& trim_characters)
 {
     return std::string(string_to_trim).erase(string_to_trim.find_last_not_of(trim_characters) + 1);
 }
 
 
 std::string
-TrimLeft(const std::string& string_to_trim, const std::string& trim_characters)
+trim_left(const std::string& string_to_trim, const std::string& trim_characters)
 {
     return std::string(string_to_trim).erase(0, string_to_trim.find_first_not_of(trim_characters));
 }
 
 
 std::string
-Trim(const std::string& string_to_trim, const std::string& trim_characters)
+trim(const std::string& string_to_trim, const std::string& trim_characters)
 {
-    return TrimRight(TrimLeft(string_to_trim, trim_characters), trim_characters);
+    return trim_right(trim_left(string_to_trim, trim_characters), trim_characters);
 }
 
 
 bool
-StartsWith(const std::string& string_to_test, const std::string& start)
+starts_with(const std::string& string_to_test, const std::string& start)
 {
     const std::string::size_type length = start.length();
     const std::string::size_type other_length = string_to_test.length();
@@ -85,7 +85,7 @@ StartsWith(const std::string& string_to_test, const std::string& start)
 
 
 bool
-EndsWith(const std::string& string_to_test, const std::string& end)
+ends_with(const std::string& string_to_test, const std::string& end)
 {
     const std::string::size_type length = end.length();
     const std::string::size_type other_length = string_to_test.length();
@@ -100,7 +100,7 @@ EndsWith(const std::string& string_to_test, const std::string& end)
 
 
 char
-ToLowerChar(char b)
+to_lower_char(char b)
 {
     if(b >= 'A' && b <= 'Z')
     {
@@ -113,7 +113,7 @@ ToLowerChar(char b)
 }
 
 char
-ToUpperChar(char b)
+to_upper_char(char b)
 {
     if(b >= 'a' && b <= 'z')
     {
@@ -127,32 +127,32 @@ ToUpperChar(char b)
 
 
 std::string
-ToLower(const std::string& str)
+to_lower(const std::string& str)
 {
     std::string result = str;
-    std::transform(result.begin(), result.end(), result.begin(), ToLowerChar);
+    std::transform(result.begin(), result.end(), result.begin(), to_lower_char);
     return result;
 }
 
 
 std::vector<std::string>
-ToLower(const std::vector<std::string>& str)
+to_lower(const std::vector<std::string>& str)
 {
-    return VectorToStringVector(str, [](const std::string& s) { return ToLower(s); });
+    return to_string_vector(str, [](const std::string& s) { return to_lower(s); });
 }
 
 
 std::string
-ToUpper(const std::string& str)
+to_upper(const std::string& str)
 {
     std::string result = str;
-    std::transform(result.begin(), result.end(), result.begin(), ToUpperChar);
+    std::transform(result.begin(), result.end(), result.begin(), to_upper_char);
     return result;
 }
 
 
 std::string
-CharToString(char c, CharToStringStyle style)
+char_to_string(char c, char_to_string_style style)
 {
     constexpr std::string_view smart_characters =
         "abcdefghijklmnopqrstuwxyz"
@@ -169,7 +169,7 @@ CharToString(char c, CharToStringStyle style)
     {
     case 0:
         ss << "<null>";
-        if(style == CharToStringStyle::Smart)
+        if(style == char_to_string_style::smart)
         {
             return ss.str();
         }
@@ -225,7 +225,7 @@ CharToString(char c, CharToStringStyle style)
         break;
     }
 
-    if(style == CharToStringStyle::IncludeHex || smart_characters.find(c) == std::string_view::npos)
+    if(style == char_to_string_style::include_hex || smart_characters.find(c) == std::string_view::npos)
     {
         ss << "(0x" << std::hex << static_cast<int>(c) << ")";
     }
@@ -234,7 +234,7 @@ CharToString(char c, CharToStringStyle style)
 
 
 std::string::size_type
-FindFirstIndexOfMismatch(const std::string& lhs, const std::string& rhs)
+find_first_index_of_mismatch(const std::string& lhs, const std::string& rhs)
 {
     const auto end = std::min(lhs.size(), rhs.size());
 
@@ -259,7 +259,7 @@ FindFirstIndexOfMismatch(const std::string& lhs, const std::string& rhs)
 
 
 void
-StringReplace(std::string* string, const std::string& to_find, const std::string& to_replace)
+replace_all(std::string* string, const std::string& to_find, const std::string& to_replace)
 {
     std::size_t index = string->find(to_find);
     const std::size_t find_length = to_find.length();
@@ -274,16 +274,16 @@ StringReplace(std::string* string, const std::string& to_find, const std::string
 
 
 std::string
-StringReplace(const std::string& string, const std::string& to_find, const std::string& to_replace)
+replace_all(const std::string& string, const std::string& to_find, const std::string& to_replace)
 {
     std::string temp = string;
-    StringReplace(&temp, to_find, to_replace);
+    replace_all(&temp, to_find, to_replace);
     return temp;
 }
 
 
 void
-Copy(char* dst, const std::string& src, const std::string::size_type& count)
+copy(char* dst, const std::string& src, const std::string::size_type& count)
 {
     strncpy(dst, src.c_str(), count - 1);
     dst[count - 1] = 0;
@@ -291,7 +291,7 @@ Copy(char* dst, const std::string& src, const std::string::size_type& count)
 
 
 std::string
-ReplaceWithCharacter(const std::string& string, const std::string& to_find, char to_replace)
+replace_with_character(const std::string& string, const std::string& to_find, char to_replace)
 {
     std::string s = string;
     for(char c: to_find)
@@ -303,9 +303,9 @@ ReplaceWithCharacter(const std::string& string, const std::string& to_find, char
 
 
 std::string
-RemoveFromEnd(const std::string& str, const std::string& end)
+remove_from_end(const std::string& str, const std::string& end)
 {
-    if(EndsWith(str, end))
+    if(ends_with(str, end))
     {
         const auto new_length = str.length() - end.length();
         if(new_length == 0)
@@ -321,7 +321,7 @@ RemoveFromEnd(const std::string& str, const std::string& end)
 
 
 std::string
-Strip(const std::string& str, const std::string& ch)
+strip(const std::string& str, const std::string& ch)
 {
     std::stringstream ss;
     for(const char c: str)
@@ -337,7 +337,7 @@ Strip(const std::string& str, const std::string& ch)
 
 // remove all characters in ch except the first one in a chain from str
 std::string
-RemoveConsecutive(const std::string& str, const std::string& ch)
+remove_consecutive(const std::string& str, const std::string& ch)
 {
     std::stringstream ss;
     bool skip = false;
@@ -363,7 +363,7 @@ RemoveConsecutive(const std::string& str, const std::string& ch)
 
 template <typename Out>
 void
-Split(const std::string& s, char delim, Out result)
+split(const std::string& s, char delim, Out result)
 {
     std::stringstream ss(s);
     std::string item;
@@ -375,16 +375,16 @@ Split(const std::string& s, char delim, Out result)
 
 
 std::vector<std::string>
-Split(const std::string& s, char delim)
+split(const std::string& s, char delim)
 {
     std::vector<std::string> elems;
-    Split(s, delim, std::back_inserter(elems));
+    split(s, delim, std::back_inserter(elems));
     return elems;
 }
 
 
 std::string
-OpString(bool b, const std::string& str)
+optional_string(bool b, const std::string& str)
 {
     if(b)
     {
@@ -398,21 +398,21 @@ OpString(bool b, const std::string& str)
 
 
 bool
-IsNumber(char b)
+is_number(char b)
 {
     return b >= '0' && b <= '9';
 }
 
 
 int
-ParseNumber(const char** aa)
+parse_number(const char** aa)
 {
     const char*& a = *aa;
 
     int result = *a - '0';
     ++a;
 
-    while(IsNumber(*a))
+    while(is_number(*a))
     {
         result *= 10;
         result += *a - '0';
@@ -425,7 +425,7 @@ ParseNumber(const char** aa)
 
 
 int
-StringCompare(const std::string& lhs, const std::string& rhs)
+string_compare(const std::string& lhs, const std::string& rhs)
 {
     const char* a = lhs.c_str();
     const char* b = rhs.c_str();
@@ -437,8 +437,8 @@ StringCompare(const std::string& lhs, const std::string& rhs)
     while(*a != 0 && *b != 0)
     {
         // will contain either a number or a letter
-        const int a0 = IsNumber(*a) ? ParseNumber(&a) + 256 : ToLowerChar(*a);
-        const int b0 = IsNumber(*b) ? ParseNumber(&b) + 256 : ToLowerChar(*b);
+        const int a0 = is_number(*a) ? parse_number(&a) + 256 : to_lower_char(*a);
+        const int b0 = is_number(*b) ? parse_number(&b) + 256 : to_lower_char(*b);
 
         if(a0 < b0) { return -1; }
         if(a0 > b0) { return  1; }

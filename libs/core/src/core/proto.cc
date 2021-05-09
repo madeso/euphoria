@@ -28,7 +28,7 @@ namespace euphoria::core
         const bool load_result = fs->ReadFileToString(file_name, &source);
         if(!load_result)
         {
-            return Str() << "Unable to load file " << file_name << " from "
+            return string_builder() << "Unable to load file " << file_name << " from "
                          << fs->GetRootsAsString();
         }
 
@@ -53,7 +53,7 @@ namespace euphoria::core
         if(doc->HasParseError())
         {
             // todo(Gustav): add file and parse error to error
-            return Str {} << "JSON parse error(" << stream.GetLine() << ":"
+            return string_builder {} << "JSON parse error(" << stream.GetLine() << ":"
                           << stream.GetColumn() << "): "
                           << rapidjson::GetParseError_En(doc->GetParseError());
         }

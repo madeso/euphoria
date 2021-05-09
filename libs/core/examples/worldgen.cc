@@ -305,7 +305,7 @@ struct Cellwriter
 
 struct MazeArguments
 {
-    Sizei size = Sizei::FromWidthHeight(10, 10);
+    Sizei size = Sizei::create_from_width_height(10, 10);
     std::string output = "maze.png";
 
     int cell_size = 1;
@@ -399,7 +399,7 @@ main(int argc, char* argv[])
         {
             int world_scale = 5;
             bool debug = false;
-            Sizei size = Sizei::FromWidthHeight(100, 70);
+            Sizei size = Sizei::create_from_width_height(100, 70);
             std::string output = "cell.png";
             auto rand = random{};
             auto rules = generator::rules{};

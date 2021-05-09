@@ -23,20 +23,20 @@ ceasar_cypher
 )
 {
     ASSERT(steps > 0); // todo(Gustav): ass support for negative steps
-    const auto alph = case_sensitive ? alphabet : ToLower(alphabet);
+    const auto alph = case_sensitive ? alphabet : to_lower(alphabet);
     std::ostringstream ret;
 
     for(const auto c: input)
     {
         const bool is_upper = c >= 'A' && c <= 'Z';
-        const auto fc = case_sensitive ? c : ToLowerChar(c);
+        const auto fc = case_sensitive ? c : to_lower_char(c);
 
         const auto index = alph.find(fc);
         if(index != std::string::npos)
         {
             const auto new_index = (static_cast<int>(index) + steps) % static_cast<int>(alph.size());
             const auto new_char = alph[new_index];
-            const auto transformed_char = case_sensitive == false && is_upper ? ToUpperChar(new_char) : new_char;
+            const auto transformed_char = case_sensitive == false && is_upper ? to_upper_char(new_char) : new_char;
             ret << transformed_char;
         }
         else

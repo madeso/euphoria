@@ -30,7 +30,7 @@ is_word_char(char c)
 {
     // ' is using in words like can't
     // - is used in words like right-handed
-    return is_char_upper(c) || is_char_lower(c) || IsNumber(c) || c == '\'' || c == '-';
+    return is_char_upper(c) || is_char_lower(c) || is_number(c) || c == '\'' || c == '-';
 }
 
 

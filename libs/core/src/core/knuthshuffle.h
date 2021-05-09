@@ -19,7 +19,7 @@ namespace euphoria::core
     {
         for(int i = Csizet_to_int(v->size()) - 1; i > 0; --i)
         {
-            const auto j = get_next_range(r, i + 1);  // 0 ≤ j ≤ i
+            const auto j = get_random_in_range(r, i + 1);  // 0 ≤ j ≤ i
             if(j != i)
             {
                 std::swap((*v)[j], (*v)[i]);

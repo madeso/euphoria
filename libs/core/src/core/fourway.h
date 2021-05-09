@@ -133,24 +133,24 @@ namespace euphoria::core
         }
 
         static
-        Result<fourway<T>>
+        result<fourway<T>>
         parse(const std::string& value)
         {
-            using R = Result<fourway<T>>;
+            using R = result<fourway<T>>;
             auto parse = [](const std::string& v)
             {
                 return argparse::default_parse_function<T>(v);
             };
-            const auto values = Split(value, SPLIT);
+            const auto values = split(value, SPLIT);
             switch(values.size())
             {
                 case 1:
                 {
                     const auto val = parse(values[0]);
 
-                    if(!val) { return R::False(val.Error()); }
+                    if(!val) { return R::create_error(val.get_error()); }
 
-                    return R::True(fourway<T>{*val});
+                    return R::create_value(fourway<T>{*val});
                 }
                 case 2:
                 {
@@ -160,10 +160,10 @@ namespace euphoria::core
                     const auto vert = parse(vvert);
                     const auto hor = parse(vhor);
 
-                    if(!hor) { return R::False(Str() << "invalid hor(" << vhor << "): " << hor.Error()); }
-                    if(!vert) { return R::False(Str() << "invalid vert(" << vvert << "): " << vert.Error()); }
+                    if(!hor) { return R::create_error(string_builder() << "invalid hor(" << vhor << "): " << hor.get_error()); }
+                    if(!vert) { return R::create_error(string_builder() << "invalid vert(" << vvert << "): " << vert.get_error()); }
 
-                    return R::True(fourway<T>::from_lrud(*hor, *vert));
+                    return R::create_value(fourway<T>::from_lrud(*hor, *vert));
                 }
                 case 4:
                 {
@@ -177,12 +177,12 @@ namespace euphoria::core
                     const auto down = parse(vdown);
                     const auto left = parse(vleft);
 
-                    if(!left) { return R::False(Str() << "invalid left(" << vleft << "): " << left.Error()); }
-                    if(!right) { return R::False(Str() << "invalid right(" << vright << "): " << right.Error()); }
-                    if(!up) { return R::False(Str() << "invalid up(" << vup << "): " << up.Error()); }
-                    if(!down) { return R::False(Str() << "invalid down(" << vdown << "): " << down.Error()); }
+                    if(!left) { return R::create_error(string_builder() << "invalid left(" << vleft << "): " << left.get_error()); }
+                    if(!right) { return R::create_error(string_builder() << "invalid right(" << vright << "): " << right.get_error()); }
+                    if(!up) { return R::create_error(string_builder() << "invalid up(" << vup << "): " << up.get_error()); }
+                    if(!down) { return R::create_error(string_builder() << "invalid down(" << vdown << "): " << down.get_error()); }
 
-                    return R::True(fourway<T>::from_lrud
+                    return R::create_value(fourway<T>::from_lrud
                     (
                         *left,
                         *right,
@@ -192,7 +192,7 @@ namespace euphoria::core
                 }
                 default:
                 {
-                    return R::False("wrong number of splits in fourway");
+                    return R::create_error("wrong number of splits in fourway");
                 }
             }
         }

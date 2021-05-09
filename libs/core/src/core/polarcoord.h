@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_POLARCOORD_H
-#define EUPHORIA_POLARCOORD_H
+#pragma once
 
 #include "core/angle.h"
 #include "core/vec3.h"
@@ -24,8 +23,6 @@ namespace euphoria::core
     };
 
     unit3f
-    create_random_unit3(random* random);
+    get_random_unit3(random* random);
 
-}  // namespace euphoria::core
-
-#endif  // EUPHORIA_POLARCOORD_H
+}

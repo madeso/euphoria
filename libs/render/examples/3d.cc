@@ -102,8 +102,8 @@ main(int argc, char** argv)
     {
         const rgb  color = crgb(palettes::dawnbringer().get_random_color(&rand));
         const auto pos = wi.get_random_point(&rand);
-        const auto outer = get_next_range(&rand, 55.0f, 100.0f);
-        const auto inner = get_next_in_range(&rand, MakeRange(50.0f));
+        const auto outer = get_random_in_range(&rand, 55.0f, 100.0f);
+        const auto inner = get_random_in_range(&rand, make_range(50.0f));
         draw_circle(&image, color, pos, outer, 10, inner);
     }
     draw_line_antialiased(&image, color::black, wi.get_top_left(), wi.get_bottom_right());
@@ -196,8 +196,8 @@ main(int argc, char** argv)
         anim.actor = actor;
         anim.from = quatf::from_random(&rand);
         anim.to = quatf::from_random(&rand);
-        anim.rotation_speed = get_next_range(&rand, 0.5f, 1.0f);
-        anim.move_speed = get_next_range(&rand, 0.5f, 1.0f);
+        anim.rotation_speed = get_random_in_range(&rand, 0.5f, 1.0f);
+        anim.move_speed = get_random_in_range(&rand, 0.5f, 1.0f);
         anim.timer = rand.get_next_float01();
 
 
@@ -311,9 +311,9 @@ main(int argc, char** argv)
             light_material.shininess = 10;
         }
 
-        light_position = Wrap
+        light_position = wrap
         (
-            MakeRange<float>(0, 1),
+            make_range<float>(0, 1),
             light_position + delta * 0.1f
         );
         const auto light_pc = polar_coord{light_position, light_position * 2};
@@ -344,8 +344,8 @@ main(int argc, char** argv)
                     anim.timer -= 1.0f;
                     anim.from = anim.to;
                     anim.to = quatf::from_random(&rand);
-                    anim.rotation_speed = get_next_range(&rand, 0.3f, 1.0f);
-                    anim.move_speed = get_next_range(&rand, 0.2f, 3.0f);
+                    anim.rotation_speed = get_random_in_range(&rand, 0.3f, 1.0f);
+                    anim.move_speed = get_random_in_range(&rand, 0.2f, 3.0f);
                 }
                 ASSERT(count < 2);
                 quatf q = quatf::slerp_shortway(anim.from, anim.timer, anim.to);

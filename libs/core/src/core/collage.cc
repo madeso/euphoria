@@ -21,7 +21,7 @@ namespace euphoria::core
 
         for(const auto& img: images)
         {
-            sizes.emplace_back(Sizei::FromWidthHeight
+            sizes.emplace_back(Sizei::create_from_width_height
             (
                 img.width + padding,
                 img.height + padding
@@ -102,7 +102,7 @@ namespace euphoria::core
             position += vec2i(dx, dy);
         }
 
-        return Sizei::FromWidthHeight(size.width + padding, size.height+padding);
+        return Sizei::create_from_width_height(size.width + padding, size.height+padding);
     }
 
     ////////////////////////////////////////////////////
@@ -159,7 +159,7 @@ namespace euphoria::core
             return std::nullopt;
         }
 
-        const auto image_size = Sizei::FromWidthHeight
+        const auto image_size = Sizei::create_from_width_height
         (
             requested_size.width - padding,
             requested_size.height - padding
@@ -272,7 +272,7 @@ namespace euphoria::core
             }
         }
 
-        return {ret, Sizei::FromWidthHeight(image_width, image_height)};
+        return {ret, Sizei::create_from_width_height(image_width, image_height)};
     }
 
 

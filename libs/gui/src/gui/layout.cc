@@ -62,7 +62,7 @@ namespace euphoria::gui
             UpdateMax(&height[d.GetRow()], s.height);
         }
 
-        const auto s = core::Sizef::FromWidthHeight
+        const auto s = core::Sizef::create_from_width_height
         (
             std::accumulate(width.begin(), width.end(), 0.0f),
             std::accumulate(height.begin(), height.end(), 0.0f)
@@ -78,11 +78,11 @@ namespace euphoria::gui
         std::string
         DebugVector(const std::vector<float>& float_vector)
         {
-            const auto string_vector = core::VectorToStringVector
+            const auto string_vector = core::to_string_vector
             (
                 float_vector
             );
-            return core::StringMerger::Array().Generate(string_vector);
+            return core::string_mergers::array.merge(string_vector);
         }
     }
 
@@ -216,7 +216,7 @@ namespace euphoria::gui
             UpdateMax(&height, s.height);
         }
 
-        const auto s = core::Sizef::FromWidthHeight(width, height);
+        const auto s = core::Sizef::create_from_width_height(width, height);
         LOG_INFO("Single row layout min size: {0}", s);
         return s;
     }

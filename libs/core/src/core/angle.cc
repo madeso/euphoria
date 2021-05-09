@@ -18,7 +18,7 @@ namespace euphoria::core
     void
     angle::wrap()
     {
-        radians = ::euphoria::core::Wrap(MakeRange(pi * 2.0f), radians);
+        radians = ::euphoria::core::wrap(make_range(pi * 2.0f), radians);
     }
 
 

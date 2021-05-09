@@ -97,7 +97,7 @@ namespace euphoria::core::generator
     pop_random(std::vector<T>* vec, random* r)
     {
         ASSERT(!vec->empty());
-        const auto i = get_next_range(r, vec->size());
+        const auto i = get_random_in_range(r, vec->size());
         T          t = (*vec)[i];
         vec->erase(vec->begin() + i);
         return t;
@@ -107,8 +107,8 @@ namespace euphoria::core::generator
     vec2i
     random_position_on_maze(random* random, maze* maze)
     {
-        return {get_next_range(random, maze->get_width()),
-                get_next_range(random, maze->get_height())};
+        return {get_random_in_range(random, maze->get_width()),
+                get_random_in_range(random, maze->get_height())};
     }
 
 

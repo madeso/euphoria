@@ -281,7 +281,7 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // Parsing
     [[nodiscard]]
-    Result<rgbi>
+    result<rgbi>
     crgbi(const std::string& value);
 
     template<>
@@ -299,7 +299,7 @@ namespace euphoria::core
         }
 
         static
-        Result<rgbi>
+        result<rgbi>
         parse(const std::string& value)
         {
             return crgbi(value);

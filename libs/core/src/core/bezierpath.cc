@@ -65,7 +65,7 @@ namespace euphoria::core
             return;
         }
 
-        const auto r = MakeRange(points);
+        const auto r = make_range(points);
         points[i] += delta;
 
         if(autoset_)
@@ -199,7 +199,7 @@ namespace euphoria::core
     void
     bezier_path2::auto_set_affected_control_points(int updated_anchor_index)
     {
-        const auto r = MakeRange(points);
+        const auto r = make_range(points);
         for(int i = updated_anchor_index - 3; i <= updated_anchor_index + 3;
             i += 3)
         {
@@ -241,7 +241,7 @@ namespace euphoria::core
     void
     bezier_path2::auto_set_anchor_control_points(int anchor_index)
     {
-        const auto r = MakeRange(points);
+        const auto r = make_range(points);
         const auto anchor_pos = points[anchor_index];
         auto dir = vec2f::zero();
         auto distances = std::array<float, 2> {0, 0};

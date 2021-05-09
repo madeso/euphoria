@@ -28,15 +28,15 @@ main(int argc, char* argv[])
     image image;
     image.setup_no_alpha_support(image_width, image_height);
 
-    raytracer::Scene scene;
+    raytracer::scene scene;
 
     scene.objects.push_back
     (
-        raytracer::CreateSphere
+        raytracer::create_sphere
         (
             sphere{0.5f},
             vec3f(0.0f, 0.0f, -1.0f),
-            raytracer::CreateDiffuseMaterial
+            raytracer::create_diffuse_material
             (
                 rgb(0.1f, 0.2f, 0.5f)
             )
@@ -44,11 +44,11 @@ main(int argc, char* argv[])
     );
     scene.objects.push_back
     (
-        raytracer::CreateSphere
+        raytracer::create_sphere
         (
             sphere{100.0f},
             vec3f(0.0f, -100.5f, -1.0f),
-            raytracer::CreateDiffuseMaterial
+            raytracer::create_diffuse_material
             (
                 rgb(0.8f, 0.8f, 0.0f)
             )
@@ -56,11 +56,11 @@ main(int argc, char* argv[])
     );
     scene.objects.push_back
     (
-        raytracer::CreateSphere
+        raytracer::create_sphere
         (
             sphere{0.5f},
             vec3f(1.0f, 0.0f, -1.0f),
-            raytracer::CreateMetalMaterial
+            raytracer::create_metal_material
             (
                 rgb(0.8f, 0.6f, 0.2f),
                 0.3f
@@ -69,11 +69,11 @@ main(int argc, char* argv[])
     );
     scene.objects.push_back
     (
-        raytracer::CreateSphere
+        raytracer::create_sphere
         (
             sphere{0.5f},
             vec3f(-1.0f, 0.0f, -1.0f),
-            raytracer::CreateDielectricMaterial
+            raytracer::create_dielectric_material
             (
                 rgb(1.0f, 1.0f, 1.0f),
                 1.5f
@@ -82,7 +82,7 @@ main(int argc, char* argv[])
     );
 
     const auto start = Now();
-    raytracer::Raytrace(&image, scene, number_of_samples);
+    raytracer::raytrace(&image, scene, number_of_samples);
     const auto end = Now();
     const auto seconds = SecondsBetween(start, end);
     std::cout << "Rendering took " << seconds << " seconds.\n";

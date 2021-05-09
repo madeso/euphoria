@@ -19,6 +19,6 @@ TEST_CASE("base64-decode", "[base64]")
     char        m       = *(chunk->get_data() + 0);
     char        a       = *(chunk->get_data() + 1);
     char        n       = *(chunk->get_data() + 2);
-    std::string decoded = euco::Str() << m << a << n;
+    std::string decoded = euco::string_builder() << m << a << n;
     REQUIRE(decoded == "Man");
 }

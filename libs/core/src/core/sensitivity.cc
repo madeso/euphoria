@@ -5,22 +5,22 @@
 
 namespace euphoria::core
 {
-    Sensitivity::Sensitivity(float v, bool i)
-        : value(v)
+    sensitivity::sensitivity(float v, bool i)
+        : multiplier(v)
         , inverted(i)
     { }
 
     
     bool
-    Sensitivity::IsValid() const
+    sensitivity::is_valid() const
     {
-        return value > 0.0f;
+        return multiplier > 0.0f;
     }
 
 
     float
-    Sensitivity::GetValueWithSign() const
+    sensitivity::get_multiplier_with_sign() const
     {
-        return value * get_sign(inverted);
+        return multiplier * get_sign(inverted);
     }
 }

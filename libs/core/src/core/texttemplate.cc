@@ -81,7 +81,7 @@ namespace euphoria::core
             ? file.value().path
             : "<no_file>"
         ;
-        const std::string message = Str() << file_name << ":" << line << ":"
+        const std::string message = string_builder() << file_name << ":" << line << ":"
                                           << " " << error;
         errors.push_back(message);
     }
@@ -249,7 +249,7 @@ namespace euphoria::core
                     std::nullopt,
                     0,
                     0,
-                    Str() << name_ << " is not defined"
+                    string_builder() << name_ << " is not defined"
                 );
             }
 
@@ -346,7 +346,7 @@ namespace euphoria::core
         [[nodiscard]] std::string
         to_string() const
         {
-            return Str() << LexTypeToString(type) << "(" << FirstChars(value)
+            return string_builder() << LexTypeToString(type) << "(" << FirstChars(value)
                          << ")";
         }
 
@@ -578,7 +578,7 @@ namespace euphoria::core
                 path,
                 0,
                 0,
-                Str() << "Missing filesystem, Failed to read " << path
+                string_builder() << "Missing filesystem, Failed to read " << path
             );
             return;
         }
@@ -586,7 +586,7 @@ namespace euphoria::core
         std::string content;
         if(!fs->ReadFileToString(path, &content))
         {
-            error->AddError(path, 0, 0, Str() << "Failed to open " << path);
+            error->AddError(path, 0, 0, string_builder() << "Failed to open " << path);
             return;
         }
         LexReader reader(Lexer(content, error, path));
@@ -640,7 +640,7 @@ namespace euphoria::core
             file,
             reader->GetLine(),
             reader->GetColumn(),
-            Str() << "Reading EVAL, expected IDENT but found " << lex.to_string()
+            string_builder() << "Reading EVAL, expected IDENT but found " << lex.to_string()
         );
         std::shared_ptr<TemplateNodeEval> ret{new TemplateNodeEval{"parse_error"}};
         return ret;
@@ -666,7 +666,7 @@ namespace euphoria::core
                 file,
                 reader->GetLine(),
                 reader->GetColumn(),
-                Str() << "Reading SET, expected IDENT but found " << name.to_string()
+                string_builder() << "Reading SET, expected IDENT but found " << name.to_string()
             );
             std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{"parse_error", "parse_error"}};
             return ret;
@@ -681,7 +681,7 @@ namespace euphoria::core
                 file,
                 reader->GetLine(),
                 reader->GetColumn(),
-                Str() << "Reading SET, expected STRING but found " << val.to_string()
+                string_builder() << "Reading SET, expected STRING but found " << val.to_string()
             );
             std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{name.value, "parse_error"}};
             return ret;
@@ -717,7 +717,7 @@ namespace euphoria::core
             file,
             reader->GetLine(),
             reader->GetColumn(),
-            Str() << "Reading IFDEF, expected IDENT but found " << lex.to_string()
+            string_builder() << "Reading IFDEF, expected IDENT but found " << lex.to_string()
         );
         std::shared_ptr<TemplateNodeString> dummy {
                 new TemplateNodeString {"parse_error"}};
@@ -753,7 +753,7 @@ namespace euphoria::core
                     file,
                     reader->GetLine(),
                     reader->GetColumn(),
-                    Str() << "Invalid path "
+                    string_builder() << "Invalid path "
                         << lex.value
                 );
             }
@@ -779,7 +779,7 @@ namespace euphoria::core
                     file,
                     reader->GetLine(),
                     reader->GetColumn(),
-                    Str() << "Unable to open " << file_argument.value()
+                    string_builder() << "Unable to open " << file_argument.value()
                 );
             }
 
@@ -790,7 +790,7 @@ namespace euphoria::core
             file,
             reader->GetLine(),
             reader->GetColumn(),
-            Str() << "Reading INCLUDE, expected STRING but found " << lex.to_string()
+            string_builder() << "Reading INCLUDE, expected STRING but found " << lex.to_string()
         );
         std::shared_ptr<TemplateNodeList> ret {new TemplateNodeList {}};
         return ret;
@@ -841,7 +841,7 @@ namespace euphoria::core
                     file,
                     reader->GetLine(),
                     reader->GetColumn(),
-                    Str() << "Reading LIST " << expect_end << ", Found " << reader->Peek().to_string()
+                    string_builder() << "Reading LIST " << expect_end << ", Found " << reader->Peek().to_string()
                 );
                 return;
             }
@@ -862,7 +862,7 @@ namespace euphoria::core
                     file,
                     reader->GetLine(),
                     reader->GetColumn(),
-                    Str() << "Reading LIST, expected END but found " << end.to_string()
+                    string_builder() << "Reading LIST, expected END but found " << end.to_string()
                 );
             }
         }

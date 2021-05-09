@@ -447,7 +447,7 @@ namespace euphoria::t3d
             ASSERT(actor->tile);
             ASSERT(actor->tile);
             const auto p = actor->actor->GetPosition();
-            std::string display = core::Str {}
+            std::string display = core::string_builder {}
                 << actor->tile->name
                 << " "
                 << p;
@@ -497,7 +497,7 @@ namespace euphoria::t3d
         bool dirty = false;
 
         
-        const std::string str = core::Str{} << grid_data.small_step;
+        const std::string str = core::string_builder{} << grid_data.small_step;
         constexpr auto popup_grid = "popup_grid";
         if(ImGui::Button(str.c_str()))
         {
@@ -579,13 +579,13 @@ namespace euphoria::t3d
         ImGui::InputFloat3("Position", orbit.center.get_data_ptr());
         ImGui::Spacing();
         ImGui::InputFloat("Distance", &orbit.distance);
-        auto sens = [](const char* label, core::Sensitivity* s)
+        auto sens = [](const char* label, core::sensitivity* s)
         {
             ImGui::PushID(label);
             ImGui::Checkbox("##inverted", &s->inverted);
             ImGui::PopID();
             ImGui::SameLine();
-            ImGui::DragFloat(label, &s->value, 0.1f, 0.0f);
+            ImGui::DragFloat(label, &s->multiplier, 0.1f, 0.0f);
         };
         sens("Pan dX", &orbit.pan_dx);
         sens("Pan dY", &orbit.pan_dy);

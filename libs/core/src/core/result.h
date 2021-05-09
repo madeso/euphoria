@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_CORE_RESULT_H
-#define EUPHORIA_CORE_RESULT_H
+#pragma once
+
 
 #include <optional>
 #include <string>
@@ -7,9 +7,9 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct Result
+    struct result
     {
-        using Self = Result<T>;
+        using self = result<T>;
 
         operator bool() const
         {
@@ -26,39 +26,39 @@ namespace euphoria::core
 
         [[nodiscard]]
         const T&
-        Value() const
+        get_value() const
         {
             return *value;
         }
 
         [[nodiscard]]
         const std::string&
-        Error() const
+        get_error() const
         {
             return *error;
         }
 
         [[nodiscard]]
         static
-        Self
-        True(const T& t)
+        self
+        create_value(const T& t)
         {
-            return Self{t, std::nullopt};
+            return self{t, std::nullopt};
         }
 
         [[nodiscard]]
         static
-        Self
-        False(const std::string& error = "")
+        self
+        create_error(const std::string& error = "unknown error")
         {
-            return Self{std::nullopt, error};
+            return self{std::nullopt, error};
         }
 
     private:
         std::optional<T> value;
         std::optional<std::string> error;
 
-        Result
+        result
         (
             const std::optional<T>& v,
             const std::optional<std::string>& e
@@ -69,6 +69,4 @@ namespace euphoria::core
         }
     };
 }
-
-#endif  // EUPHORIA_CORE_RESULT_H
 

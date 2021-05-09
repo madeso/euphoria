@@ -349,7 +349,7 @@ namespace euphoria::core::argparse
     template<typename T>
     using parse_function = std::function
     <
-        Result<T>
+        result<T>
         (
             const std::string& value
         )
@@ -523,13 +523,13 @@ namespace euphoria::core::argparse
                 }
                 else
                 {
-                    const std::string base = Str()
+                    const std::string base = string_builder()
                         << '\'' << value << "' is not accepted for '"
                         << argument_name << '\'';
-                    const auto parsed_error = parsed.Error();
+                    const auto parsed_error = parsed.get_error();
                     const std::string message = parsed_error.empty()
                         ? base
-                        : (Str() << base << ", " << parsed_error)
+                        : (string_builder() << base << ", " << parsed_error)
                         ;
                     print_parse_error(runner, caller, message);
 
@@ -571,13 +571,13 @@ namespace euphoria::core::argparse
                 }
                 else
                 {
-                    const std::string base = Str()
+                    const std::string base = string_builder()
                         << '\'' << value << "' is not accepted for '"
                         << argument_name << '\'';
-                    const auto error = parsed.Error();
+                    const auto error = parsed.get_error();
                     const std::string message = error.empty()
                         ? base
-                        : (Str() << base << ", " << error)
+                        : (string_builder() << base << ", " << error)
                         ;
                     print_parse_error(runner, caller, message);
 
@@ -592,7 +592,7 @@ namespace euphoria::core::argparse
             {
                 values.emplace_back(default_value_to_string(t));
             }
-            arg->default_value = StringMerger::Array().Generate(values);
+            arg->default_value = string_mergers::array.merge(values);
             return add_argument(name, arg);
         }
 

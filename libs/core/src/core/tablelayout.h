@@ -1,5 +1,5 @@
-#ifndef CORE_TABLELAYOUT_H
-#define CORE_TABLELAYOUT_H
+#pragma once
+
 
 #include "core/numeric.h"
 
@@ -19,7 +19,7 @@ namespace euphoria::core
      */
     template <typename T>
     std::vector<T>
-    PerformTableLayout(const std::vector<T>& pieces, T total_size, T zero = 0)
+    perform_table_layout(const std::vector<T>& pieces, T total_size, T zero = 0)
     {
         ASSERTX(total_size >= 0, total_size);
         ASSERT(zero <= 0);
@@ -66,6 +66,5 @@ namespace euphoria::core
         return ret;
     }
 
-}  // namespace euphoria::core
+}
 
-#endif  // CORE_TABLELAYOUT_H

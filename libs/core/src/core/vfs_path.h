@@ -9,7 +9,7 @@
 
 namespace euphoria::core
 {
-    struct Str;
+    struct string_builder;
 
     namespace vfs
     {
@@ -94,7 +94,7 @@ namespace euphoria::core
                 typename OStream,
                 typename X = std::enable_if_t
                 <
-                    !std::is_same<OStream, core::Str>::value
+                    !std::is_same<OStream, core::string_builder>::value
                 >
             >
             friend OStream& operator<<(OStream& os, const FilePath& p)
@@ -166,7 +166,7 @@ namespace euphoria::core
                 typename OStream,
                 typename X = std::enable_if_t
                 <
-                    !std::is_same<OStream, core::Str>::value
+                    !std::is_same<OStream, core::string_builder>::value
                 >
             >
             friend OStream& operator<<(OStream& os, const DirPath& p)

@@ -4,14 +4,14 @@
 
 namespace euco = euphoria::core;
 
-#define to01(min, v, max) euco::to01(euco::MakeRange(min, max), v)
-#define from01(min, v, max) euco::from01(euco::MakeRange(min, max), v)
+#define to01(min, v, max) euco::to01(euco::make_range(min, max), v)
+#define from01(min, v, max) euco::from01(euco::make_range(min, max), v)
 #define Get360Angular(min, v, max)                                             \
-    euco::Get360Angular(euco::MakeRange(min, max), v)
-#define KeepWithin(min, v, max) euco::KeepWithin(euco::MakeRange(min, max), v)
+    euco::get360_angular(euco::make_range(min, max), v)
+#define KeepWithin(min, v, max) euco::keep_within(euco::make_range(min, max), v)
 #define IsWithinInclusive(min, v, max)                                         \
-    euco::is_within(euco::MakeRange(min, max), v)
-#define Wrap(min, v, max) euco::Wrap(euco::MakeRange(min, max), v)
+    euco::is_within(euco::make_range(min, max), v)
+#define Wrap(min, v, max) euco::wrap(euco::make_range(min, max), v)
 
 TEST_CASE("num-to01", "[numeric]")
 {
@@ -29,9 +29,9 @@ TEST_CASE("num-from01", "[numeric]")
 
 TEST_CASE("num-remap", "[numeric]")
 {
-    REQUIRE(euco::RemapTo(
-                    euco::MakeRange<float>(0, 3),
-                    euco::MakeRange<float>(0, 2),
+    REQUIRE(euco::remap_to(
+                    euco::make_range<float>(0, 3),
+                    euco::make_range<float>(0, 2),
                     1.5f)
             == Approx(1.0f));
 }

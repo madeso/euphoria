@@ -91,7 +91,7 @@ namespace euphoria::core
         for(int try_index = 0; try_index<k; try_index +=1)
         {
             const auto unit = create_random_unit(rand);
-            const auto random_range = get_next_range(rand, r, 2*r);
+            const auto random_range = get_random_in_range(rand, r, 2*r);
             const auto sample = base_sample + unit * random_range;
             const auto sample_pos = point_to_index(sample);
 
@@ -135,7 +135,7 @@ namespace euphoria::core
             return std::nullopt;
         }
 
-        const auto active_index = get_next_range(rand, active.size());
+        const auto active_index = get_random_in_range(rand, active.size());
 
         const auto [placed, sample] = try_place(active_index);
         if(placed)

@@ -41,8 +41,8 @@ namespace euphoria::core
     {
         const auto movement = get_rotation().create_from_right_up_in(vec3f
         {
-            dx * pan_dx.GetValueWithSign(),
-            -dy * pan_dy.GetValueWithSign(),
+            dx * pan_dx.get_multiplier_with_sign(),
+            -dy * pan_dy.get_multiplier_with_sign(),
             0
         });
         center += movement * 0.01f;
@@ -54,23 +54,23 @@ namespace euphoria::core
     {
         horizontal_rotation += angle::from_degrees
         (
-            -dx * rotate_dx.GetValueWithSign()
+            -dx * rotate_dx.get_multiplier_with_sign()
         );
         horizontal_rotation.wrap();
 
         vertical_rotation += angle::from_degrees
         (
-            -dy * rotate_dy.GetValueWithSign()
+            -dy * rotate_dy.get_multiplier_with_sign()
         );
 
-        const auto r = MakeRange(-angle::Quarter(), angle::Quarter());
-        vertical_rotation = KeepWithin(r, vertical_rotation);
+        const auto r = make_range(-angle::Quarter(), angle::Quarter());
+        vertical_rotation = keep_within(r, vertical_rotation);
     }
 
     void
     orbit_controller::on_zoom_input(float z)
     {
-        distance = max(0.0f, distance + z * zoom.GetValueWithSign());
+        distance = max(0.0f, distance + z * zoom.get_multiplier_with_sign());
     }
 
 

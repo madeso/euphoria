@@ -334,7 +334,7 @@ namespace euphoria::engine
             random_type["NextFloat01"] = &core::random::get_next_float01;
             random_type["NextRangeFloat"] = [](core::random& r, float f) -> float
             {
-                return get_next_range(&r, f);
+                return get_random_in_range(&r, f);
             };
             random_type["NextBool"] = &core::random::get_next_bool;
             random_type["NextPoint2"] = [](core::random& r, core::rectf& rect) -> core::vec2f

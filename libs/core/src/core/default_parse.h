@@ -20,7 +20,7 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t<custom_argparser<T>::value != 0, int> = 0
     >
-    Result<T>
+    result<T>
     default_parse_function
     (
         const std::string& value
@@ -40,7 +40,7 @@ namespace euphoria::core::argparse
             int
         > = 0
     >
-    Result<T>
+    result<T>
     default_parse_function
     (
         const std::string& value
@@ -51,11 +51,11 @@ namespace euphoria::core::argparse
         stream >> t;
         if(stream.fail() || !stream.eof())
         {
-            return Result<T>::False();
+            return result<T>::create_error();
         }
         else
         {
-            return Result<T>::True(t);
+            return result<T>::create_value(t);
         }
     }
 
@@ -69,7 +69,7 @@ namespace euphoria::core::argparse
             int
         > = 0
     >
-    Result<T>
+    result<T>
     default_parse_function
     (
         const std::string& value
@@ -78,11 +78,11 @@ namespace euphoria::core::argparse
         auto matches = core::string_to_enum<T>(value);
         if (matches.single_match)
         {
-            return Result<T>::True(matches.values[0]);
+            return result<T>::create_value(matches.values[0]);
         }
         else
         {
-            return Result<T>::False(Str() << "did you mean " <<
+            return result<T>::create_error(string_builder() << "did you mean " <<
                 quote_and_combine_english_or(matches.names)
                 << '?'
             );
@@ -110,7 +110,7 @@ namespace euphoria::core::argparse
     std::optional<std::string>
     default_describe()
     {
-        const std::string r = Str() << "can be either " <<
+        const std::string r = string_builder() << "can be either " <<
             quote_and_combine_english_or
             (
                 enum_to_string<T>()

@@ -15,7 +15,7 @@ namespace
 
 
     std::vector<rgbi>
-    ExtractAllColors(const image& image)
+    extract_all_colors(const image& image)
     {
         auto ret = std::vector<rgbi>{};
         ret.reserve(ret.size() + image.height * image.width);
@@ -33,29 +33,29 @@ namespace
     }
 
 
-    enum class SortRange
+    enum class sort_range
     {
         R, G, B
     };
 
 
     float
-    GetValue(SortRange range, const rgbi& c)
+    get_value(sort_range range, const rgbi& c)
     {
         switch(range)
         {
-            case SortRange::R: return crgb(c).r;
-            case SortRange::G: return crgb(c).g;
-            case SortRange::B: return crgb(c).b;
+            case sort_range::R: return crgb(c).r;
+            case sort_range::G: return crgb(c).g;
+            case sort_range::B: return crgb(c).b;
             default: return 0;
         }
     }
 
 
-    std::tuple<SortRange, Range<float>>
-    FindGreatestSortRange(SubVec<rgbi> colors)
+    std::tuple<sort_range, range<float>>
+    find_greatest_sort_range(subvec<rgbi> colors)
     {
-        using Tu = std::tuple<SortRange, Range<float>>;
+        using Tu = std::tuple<sort_range, range<float>>;
 
         const auto [min_values, max_values] = find_min_max_ranges<3, float>
         (
@@ -64,36 +64,37 @@ namespace
             {
                 return
                 {
-                    GetValue(SortRange::R, c),
-                    GetValue(SortRange::G, c),
-                    GetValue(SortRange::B, c)
+                    get_value(sort_range::R, c),
+                    get_value(sort_range::G, c),
+                    get_value(sort_range::B, c)
                 };
             }
         );
         // init-capture due to a bug in clang/gcc/standard
         // https://www.reddit.com/r/cpp/comments/68vhir/whats_the_rationale_for_this_reference_to_local/
-        auto make = [&, miv = std::move(min_values), mav = std::move(max_values)]
-            (SortRange r, size_t i) -> Tu
-            {
-                return std::make_tuple(r, Range{miv[i], mav[i]});
-            }
-            ;
+        auto make = [&, miv = std::move(min_values), mav = std::move(max_values)] (sort_range r, size_t i) -> Tu
+        {
+            return std::make_tuple(r, range{miv[i], mav[i]});
+        };
         auto ranges = std::vector<Tu>
         {
-            make(SortRange::R, 0),
-            make(SortRange::G, 1),
-            make(SortRange::B, 2)
+            make(sort_range::R, 0),
+            make(sort_range::G, 1),
+            make(sort_range::B, 2)
         };
-        std::sort(ranges.begin(), ranges.end(), [](const Tu& lhs, const Tu& rhs)
-        {
-            return std::get<1>(lhs).GetRange() > std::get<1>(rhs).GetRange();
-        });
+        std::sort
+        (
+            ranges.begin(), ranges.end(), [](const Tu& lhs, const Tu& rhs)
+            {
+                return std::get<1>(lhs).get_distance() > std::get<1>(rhs).get_distance();
+            }
+        );
         return ranges[0];
     }
 
 
     void
-    Sort(SortRange sort_range, SubVec<rgbi> colors)
+    sort(sort_range sort_range, subvec<rgbi> colors)
     {
         auto sort = [&](std::function<float (const rgbi& c)> conv)
         {
@@ -108,22 +109,22 @@ namespace
 
         switch(sort_range)
         {
-        case SortRange::R: sort([](const rgbi& c) -> float { return c.r; }); break;
-        case SortRange::G: sort([](const rgbi& c) -> float { return c.g; }); break;
-        case SortRange::B: sort([](const rgbi& c) -> float { return c.b; }); break;
+        case sort_range::R: sort([](const rgbi& c) -> float { return c.r; }); break;
+        case sort_range::G: sort([](const rgbi& c) -> float { return c.g; }); break;
+        case sort_range::B: sort([](const rgbi& c) -> float { return c.b; }); break;
         }
     }
 
 
 
     size_t
-    FindMedianIndex(SortRange sort, SubVec<rgbi> colors, Range<float> range)
+    find_median_index(sort_range sort, subvec<rgbi> colors, range<float> range)
     {
-        const auto median = range.GetRange()/2 + range.lower_bound;
+        const auto median = range.get_distance()/2 + range.lower_bound;
         // todo(Gustav): make non-linear
         for(size_t index = 0; index<colors.size()-1; index+=1)
         {
-            if(GetValue(sort, colors[Csizet_to_int(index+1)]) >= median)
+            if(get_value(sort, colors[Csizet_to_int(index+1)]) >= median)
             {
                 return index;
             }
@@ -136,7 +137,7 @@ namespace
 
 
     std::vector<rgbi>
-    MedianCut(SubVec<rgbi> src, int depth, bool split_middle)
+    median_cut(subvec<rgbi> src, int depth, bool split_middle)
     {
         if(src.empty())
         {
@@ -158,19 +159,19 @@ namespace
             return {r};
         }
 
-        const auto [range, rrange] = FindGreatestSortRange(src);
+        const auto [range, rrange] = find_greatest_sort_range(src);
 
-        Sort(range, src);
+        sort(range, src);
 
         const auto median = split_middle
             ? src.size() / 2
-            : FindMedianIndex(range, src, rrange)
+            : find_median_index(range, src, rrange)
             ;
-        const auto left = src.Sub(0, median);
-        const auto right = src.Sub(median, src.size());
+        const auto left = src.sub(0, median);
+        const auto right = src.sub(median, src.size());
 
-        auto ret = MedianCut(left, depth - 1, split_middle);
-        const auto rhs = MedianCut(right, depth - 1, split_middle);
+        auto ret = median_cut(left, depth - 1, split_middle);
+        const auto rhs = median_cut(right, depth - 1, split_middle);
         ret.insert(ret.end(), rhs.begin(), rhs.end());
 
         return ret;
@@ -182,8 +183,8 @@ namespace euphoria::core
     std::vector<rgbi>
     median_cut(const image& image, int depth, bool middle_split)
     {
-        auto all_colors = ExtractAllColors(image);
-        auto colors = ::MedianCut(SubVec{&all_colors}, depth, middle_split);
+        auto all_colors = extract_all_colors(image);
+        auto colors = ::median_cut(subvec{&all_colors}, depth, middle_split);
         return colors;
     }
 }

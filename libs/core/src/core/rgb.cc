@@ -143,9 +143,9 @@ namespace euphoria::core
     clamp(const rgb& c)
     {
         return rgb(
-                KeepWithin(R01(), c.r),
-                KeepWithin(R01(), c.g),
-                KeepWithin(R01(), c.b));
+                keep_within(r01, c.r),
+                keep_within(r01, c.g),
+                keep_within(r01, c.b));
     }
 
 
@@ -435,7 +435,7 @@ namespace euphoria::core
         {
             hsl.s += amount;
         }
-        hsl.s = KeepWithin(R01(), hsl.s);
+        hsl.s = keep_within(r01, hsl.s);
         return hsl;
     }
 
@@ -452,7 +452,7 @@ namespace euphoria::core
         {
             hsl.s -= amount;
         }
-        hsl.s = KeepWithin(R01(), hsl.s);
+        hsl.s = keep_within(r01, hsl.s);
         return hsl;
     }
 
@@ -469,7 +469,7 @@ namespace euphoria::core
         {
             hsl.l += amount;
         }
-        hsl.l = KeepWithin(R01(), hsl.l);
+        hsl.l = keep_within(r01, hsl.l);
         return hsl;
     }
 
@@ -486,7 +486,7 @@ namespace euphoria::core
         {
             hsl.l -= amount;
         }
-        hsl.l = KeepWithin(R01(), hsl.l);
+        hsl.l = keep_within(r01, hsl.l);
         return hsl;
     }
 
@@ -508,10 +508,10 @@ namespace euphoria::core
     namespace
     {
         // parses a #fff or a #ffffff string as a color
-        Result<rgbi>
+        result<rgbi>
         ParseHashHexRgbi(const std::string& value)
         {
-            using R = Result<rgbi>;
+            using R = result<rgbi>;
 
             auto parse_rgb_hex = [&](int size) -> R
             {
@@ -532,18 +532,18 @@ namespace euphoria::core
                 const auto [b, b_value] = parse_hex(2, size);
                 if(r && r && b)
                 {
-                    return R::True({*r, *g, *b});
+                    return R::create_value({*r, *g, *b});
                 }
                 else
                 {
                     auto invalids = std::vector<std::string>{};
-                    if(!r) { invalids.emplace_back(Str{} << "red(" << r_value << ")"); }
-                    if(!g) { invalids.emplace_back(Str{} << "green(" << g_value << ")"); }
-                    if(!b) { invalids.emplace_back(Str{} << "blue(" << b_value << ")"); }
-                    return R::False
+                    if(!r) { invalids.emplace_back(string_builder{} << "red(" << r_value << ")"); }
+                    if(!g) { invalids.emplace_back(string_builder{} << "green(" << g_value << ")"); }
+                    if(!b) { invalids.emplace_back(string_builder{} << "blue(" << b_value << ")"); }
+                    return R::create_error
                     (
-                        Str() << "#color contains invalid hex for " <<
-                        StringMerger::EnglishAnd().Generate(invalids)
+                        string_builder() << "#color contains invalid hex for " <<
+                        string_mergers::english_and.merge(invalids)
                     );
                 }
             };
@@ -553,9 +553,9 @@ namespace euphoria::core
             {
             case 4: return parse_rgb_hex(1);
             case 7: return parse_rgb_hex(2);
-            default: return R::False
+            default: return R::create_error
                 (
-                    Str() << "a hexadecimal color needs to be either #abc "
+                    string_builder() << "a hexadecimal color needs to be either #abc "
                     "or #aabbcc. current count: " << (size-1)
                 );
             }
@@ -563,13 +563,13 @@ namespace euphoria::core
     }
 
     [[nodiscard]]
-    Result<rgbi>
+    result<rgbi>
     crgbi(const std::string& original_value)
     {
-        using R = Result<rgbi>;
-        const auto value = Trim(original_value);
+        using R = result<rgbi>;
+        const auto value = trim(original_value);
 
-        if(value.empty()) { return R::False("empty string is not a color");}
+        if(value.empty()) { return R::create_error("empty string is not a color");}
 
         if(value[0] == '#')
         {
@@ -578,11 +578,11 @@ namespace euphoria::core
         else
         {
             const auto match = string_to_enum<color>(value);
-            if(match.single_match) { return R::True(crgbi(match.values[0])); }
-            return R::False
+            if(match.single_match) { return R::create_value(crgbi(match.values[0])); }
+            return R::create_error
             (
-                Str() << "bad name. Hex values require a #, but it could also be either " <<
-                StringMerger::EnglishOr().Generate
+                string_builder() << "bad name. Hex values require a #, but it could also be either " <<
+                string_mergers::english_or.merge
                 (
                     match.names
                 )
@@ -598,12 +598,12 @@ namespace euphoria::core
         unsigned int
         from_string_to_hex(const std::string& str)
         {
-            auto s = Trim(str);
+            auto s = trim(str);
             ASSERT(!s.empty());
-            s = s[0] == '#' ? ToLower(s.substr(1)) : ToLower(s);
+            s = s[0] == '#' ? to_lower(s.substr(1)) : to_lower(s);
             if(s.length() == 3)
             {
-                s = Str() << s[0] << s[0] << s[1] << s[1] << s[2] << s[2];
+                s = string_builder() << s[0] << s[0] << s[1] << s[1] << s[2] << s[2];
             }
             if(s.length() != 6)
             {

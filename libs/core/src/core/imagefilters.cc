@@ -218,7 +218,7 @@ namespace euphoria::core
     change_brightness(image* image, int change)
     {
         LutTransform(image, [&](int i) {
-            return KeepWithin(MakeRange(0, 255), i + change);
+            return keep_within(make_range(0, 255), i + change);
         });
     }
 

@@ -1,18 +1,16 @@
-#ifndef EUPHORIA_CORE_SENSITIVITY_H
-#define EUPHORIA_CORE_SENSITIVITY_H
+#pragma once
 
 namespace euphoria::core
 {
-    struct Sensitivity
+    struct sensitivity
     {
-        explicit Sensitivity(float v=1.0f, bool i=false);
+        explicit sensitivity(float v=1.0f, bool i=false);
 
-        [[nodiscard]] bool IsValid() const;
-        [[nodiscard]] float GetValueWithSign() const;
+        [[nodiscard]] bool is_valid() const;
+        [[nodiscard]] float get_multiplier_with_sign() const;
 
-        float value;
+        float multiplier;
         bool inverted;
     };
 }
 
-#endif  // EUPHORIA_CORE_SENSITIVITY_H

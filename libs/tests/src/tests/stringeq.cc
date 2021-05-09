@@ -25,7 +25,7 @@ namespace euphoria::tests
     FalseString
     StringEq(const std::string& lhs, const std::string& rhs)
     {
-        const auto s = core::FindFirstIndexOfMismatch(lhs, rhs);
+        const auto s = core::find_first_index_of_mismatch(lhs, rhs);
         ASSERTX((s==std::string::npos && lhs == rhs) || (s != std::string::npos && lhs != rhs), s, lhs, rhs);
         if(s != std::string::npos )
         {
@@ -38,9 +38,9 @@ namespace euphoria::tests
                 << " vs "
                 << rhs.size();
             ss << ", first diff at " << s << " with "
-                << core::CharToString(lhs[s])
+                << core::char_to_string(lhs[s])
                 << "/"
-                << core::CharToString(rhs[s]);
+                << core::char_to_string(rhs[s]);
             ss << ", edit-distance is " << core::edit_distance(lhs, rhs);
 
             return FalseString::False(ss.str());

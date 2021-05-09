@@ -354,7 +354,7 @@ namespace euphoria::core::tracery
                         const auto c = parser.ReadChar();
                         return result(result::general_rule_parse_error)
                                << "Unknown character inside ##: "
-                               << (Str() << c);
+                               << (string_builder() << c);
                     }
                     }
                 }
@@ -442,7 +442,7 @@ namespace euphoria::core::tracery
         bool
         is_vowel(char c)
         {
-            char c2 = ToLowerChar(c);
+            char c2 = to_lower_char(c);
             return (c2 == 'a') || (c2 == 'e') || (c2 == 'i') || (c2 == 'o') || (c2 == 'u');
         }
 
@@ -473,7 +473,7 @@ namespace euphoria::core::tracery
                     }
                     else
                     {
-                        s2 += ToUpperChar(c);
+                        s2 += to_upper_char(c);
                         capNext = false;
                     }
                 }
@@ -484,7 +484,7 @@ namespace euphoria::core::tracery
         std::string
         capitalize(const std::string& s)
         {
-            char c = ToUpperChar(s[0]);
+            char c = to_upper_char(s[0]);
             std::string a = std::string(1, c);
             std::string b = s.substr(1);
             std::string cr = a + b;
@@ -496,11 +496,11 @@ namespace euphoria::core::tracery
         {
             if(s.length() > 0)
             {
-                if(ToLowerChar(s[0]) == 'u')
+                if(to_lower_char(s[0]) == 'u')
                 {
                     if(s.length() > 2)
                     {
-                        if(ToLowerChar(s[2]) == 'i')
+                        if(to_lower_char(s[2]) == 'i')
                         {
                             return "a " + s;
                         }

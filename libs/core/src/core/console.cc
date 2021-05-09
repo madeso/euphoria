@@ -16,7 +16,7 @@ namespace euphoria::core
     void
     console::register_command(const std::string& name, callback callback)
     {
-        callbacks[ToLower(name)] = callback;
+        callbacks[to_lower(name)] = callback;
     }
 
 
@@ -33,11 +33,11 @@ namespace euphoria::core
             return;
         }
         const auto name  = line[0];
-        auto       found = callbacks.find(ToLower(name));
+        auto       found = callbacks.find(to_lower(name));
         if(found == callbacks.end())
         {
             // unable to find cmd
-            print(Str {} << "Unknown command " << name);
+            print(string_builder {} << "Unknown command " << name);
             // todo(Gustav): list commands that are the closest match
             return;
         }
@@ -54,7 +54,7 @@ namespace euphoria::core
         print("Available commands:");
         for(const auto& c: callbacks)
         {
-            print(Str {} << "  " << c.first);
+            print(string_builder {} << "  " << c.first);
         }
         print("");
     }

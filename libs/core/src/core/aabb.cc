@@ -18,7 +18,7 @@ namespace euphoria::core
     {
         ASSERT(is_valid());
 #define COMP(C)                                                                \
-    const auto C = ::euphoria::core::Wrap(MakeRange(min.C, max.C), vec.C)
+    const auto C = ::euphoria::core::wrap(make_range(min.C, max.C), vec.C)
         COMP(x);
         COMP(y);
         COMP(z);
@@ -115,9 +115,9 @@ namespace euphoria::core
     vec3f
     aabb::get_random_point(random* rand) const
     {
-        const auto x = get_next_in_range(rand, MakeRange(min.x, max.x));
-        const auto y = get_next_in_range(rand, MakeRange(min.y, max.y));
-        const auto z = get_next_in_range(rand, MakeRange(min.z, max.z));
+        const auto x = get_random_in_range(rand, make_range(min.x, max.x));
+        const auto y = get_random_in_range(rand, make_range(min.y, max.y));
+        const auto z = get_random_in_range(rand, make_range(min.z, max.z));
 
         return vec3f {x, y, z};
     }

@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_SHUFFLEBAG_H
-#define EUPHORIA_SHUFFLEBAG_H
+#pragma once
+
 
 #include <vector>
 
@@ -9,22 +9,22 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct ShuffleBag
+    struct shufflebag
     {
         [[nodiscard]] unsigned long
-        GetSize() const
+        get_size() const
         {
             return data_.size();
         }
 
         void
-        Reserve(unsigned long count)
+        reserve(unsigned long count)
         {
             data_.reserve(count);
         }
 
         void
-        Add(const T& item, int amount)
+        add(const T& item, int amount)
         {
             ASSERT(amount > 0);
 
@@ -33,22 +33,22 @@ namespace euphoria::core
                 data_.push_back(item);
             }
 
-            cursor_ = GetSize() - 1;
+            cursor_ = get_size() - 1;
         }
 
         [[nodiscard]] const T&
-        Next(random* rand)
+        get_random_item(random* rand)
         {
             ASSERT(rand);
             ASSERT(!data_.empty());  // needs data
 
             if(cursor_ < 1)
             {
-                cursor_ = GetSize() - 1;
+                cursor_ = get_size() - 1;
                 return data_[0];
             }
 
-            const auto next_position = get_next_range(rand, static_cast<int>(cursor_));
+            const auto next_position = get_random_in_range(rand, static_cast<int>(cursor_));
 
             std::swap(data_[next_position], data_[cursor_]);
             cursor_ -= 1;
@@ -58,23 +58,22 @@ namespace euphoria::core
 
     private:
         std::vector<T> data_;
-        unsigned long  cursor_ = 0;
+        unsigned long cursor_ = 0;
     };
 
     template<typename T>
     [[nodiscard]]
-    constexpr ShuffleBag<T>
-    CreateShuffleBag(const std::vector<T>& items, int amount)
+    constexpr shufflebag<T>
+    create_shuffle_bag(const std::vector<T>& items, int amount)
     {
-        auto b = ShuffleBag<T>{};
-        b.Reserve(items.size() * amount);
+        auto b = shufflebag<T>{};
+        b.reserve(items.size() * amount);
         for(const auto& it: items)
         {
-            b.Add(it, amount);
+            b.add(it, amount);
         }
         return b;
     }
 
-}  // namespace euphoria::core
+}
 
-#endif  // EUPHORIA_SHUFFLEBAG_H

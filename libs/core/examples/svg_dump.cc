@@ -39,17 +39,17 @@ main(int, char*[])
 {
     random rand;
 
-    auto pal = CreateShuffleBag(palettes::color_blind_10().colors, 2);
+    auto pal = create_shuffle_bag(palettes::color_blind_10().colors, 2);
 
     auto svg = dumper{};
 
     for(int i=0; i<30; i+=1)
     {
-        const auto center = PointOnUnitCircle_CenterFocused(&rand)*200.0f;
-        const auto radius = get_next_in_range(&rand, Range{3.0f, 30.0f});
-        const auto p = get_next_in_range(&rand, Range{4, 10});
-        const auto inner = get_next_in_range(&rand, Range{0.3f, 0.75f});
-        const auto fill = pal.Next(&rand);
+        const auto center = get_random_point_on_unit_circle_center_focused(&rand)*200.0f;
+        const auto radius = get_random_in_range(&rand, range{3.0f, 30.0f});
+        const auto p = get_random_in_range(&rand, range{4, 10});
+        const auto inner = get_random_in_range(&rand, range{0.3f, 0.75f});
+        const auto fill = pal.get_random_item(&rand);
         const auto rotation = angle::from_percent_of_360(rand.get_next_float01());
         svg << MakeStar(center, radius, rotation, p, inner).close().fill(fill)
             // << Text(center, Str{} << p << " / " << std::setprecision( 2 ) << inner)

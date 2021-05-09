@@ -3,13 +3,13 @@
 
 namespace euphoria::core
 {
-    Str::operator std::string() const  // NOLINT
+    string_builder::operator std::string() const  // NOLINT
     {
         return to_string();
     }
 
     std::string
-    Str::to_string() const
+    string_builder::to_string() const
     {
         return stream_.str();
     }

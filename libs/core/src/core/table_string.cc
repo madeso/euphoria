@@ -68,7 +68,7 @@ namespace euphoria::core
                     auto column_data = ss.str();
                     if(!was_from_string && options.trim == csv_trim::trim)
                     {
-                        column_data = Trim(column_data);
+                        column_data = trim(column_data);
                     }
                     row.push_back(column_data);
                     ss.str("");
@@ -82,7 +82,7 @@ namespace euphoria::core
                         auto column_data = ss.str();
                         if(!was_from_string && options.trim == csv_trim::trim)
                         {
-                            column_data = Trim(column_data);
+                            column_data = trim(column_data);
                         }
                         row.push_back(column_data);
                     }
@@ -113,7 +113,7 @@ namespace euphoria::core
             auto column_data = ss.str();
             if(!was_from_string && options.trim == csv_trim::trim)
             {
-                column_data = Trim(column_data);
+                column_data = trim(column_data);
             }
             row.push_back(column_data);
         }
@@ -199,7 +199,7 @@ namespace euphoria::core
                 table.get_width(), row_height(table, row));
         for(int c = 0; c < table.get_width(); c += 1)
         {
-            const auto rows = Split(table(c, row), '\n');
+            const auto rows = split(table(c, row), '\n');
             for(string_table::I i = 0; i < string_table::Ci(rows.size()); i += 1)
             {
                 ret(c, i) = rows[i];

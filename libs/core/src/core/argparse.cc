@@ -60,7 +60,7 @@ namespace euphoria::core::argparse
             }
 
             constexpr auto VALID_ARGUMENT_NAME_CHARACTERS = "abcdefghijklmnopqrstuvwxyz-_0123456789";
-            const auto first_invalid_character = ToLower(str).find_first_not_of(VALID_ARGUMENT_NAME_CHARACTERS);
+            const auto first_invalid_character = to_lower(str).find_first_not_of(VALID_ARGUMENT_NAME_CHARACTERS);
             if (first_invalid_character != std::string::npos)
             {
                 return false;
@@ -71,7 +71,7 @@ namespace euphoria::core::argparse
     }
 
 
-    file_output::file_output(const std::string& o) : file(o), single(!(EndsWith(o, "/") || EndsWith(o, "\\")))
+    file_output::file_output(const std::string& o) : file(o), single(!(ends_with(o, "/") || ends_with(o, "\\")))
     {}
 
 
@@ -251,11 +251,11 @@ namespace euphoria::core::argparse
 
 
     name::name(const char* nn)
-        : names(Split(nn, ','))
+        : names(split(nn, ','))
     {
         for (auto& n : names)
         {
-            n = Trim(n);
+            n = trim(n);
         }
 
         ASSERTX(validate().empty(), validate());
@@ -473,7 +473,7 @@ namespace euphoria::core::argparse
             (
                 runner,
                 caller,
-                Str() << "missing value for '" << name << '\''
+                string_builder() << "missing value for '" << name << '\''
             );
             return argparse::error;
         }
@@ -582,7 +582,7 @@ namespace euphoria::core::argparse
             }
             else
             {
-                return ToUpper(aa.name.names[0]);
+                return to_upper(aa.name.names[0]);
             }
         };
         auto ret = std::vector<std::string>{"usage:", get_calling_name(args)};
@@ -613,7 +613,7 @@ namespace euphoria::core::argparse
             ret.emplace_back("<command> [<args>]");
         }
 
-        return StringMerger::Space().Generate(ret);
+        return string_mergers::space.merge(ret);
     }
 
     namespace
@@ -725,10 +725,10 @@ namespace euphoria::core::argparse
         auto optionals = StringTable{};
         for (auto& a : optional_argument_list)
         {
-            const auto names = StringMerger::Comma().Generate(a.name.names);
+            const auto names = string_mergers::comma.merge(a.name.names);
             const auto names_with_narg = a.argument->have_nargs() == false
                 ? names
-                : Str() << names << " " << a.argument->nargs
+                : string_builder() << names << " " << a.argument->nargs
                 ;
             std::ostringstream default_text;
             if(a.argument->default_value.empty() == false)
@@ -751,7 +751,7 @@ namespace euphoria::core::argparse
             auto sub = StringTable{};
             for(const auto& parser: group->parsers)
             {
-                const auto names = StringMerger::Comma().Generate
+                const auto names = string_mergers::comma.merge
                 (
                     parser->names.names
                 );
@@ -808,8 +808,8 @@ namespace euphoria::core::argparse
     std::string
     CreateDefaultNarg(const name& name)
     {
-        const auto n = TrimLeft(name.names[0], "-");
-        return ToUpper(n);
+        const auto n = trim_left(name.names[0], "-");
+        return to_upper(n);
     }
 
 
@@ -956,7 +956,7 @@ namespace euphoria::core::argparse
                 pos += 1
             )
             {
-                positionals.emplace_back(ToUpper(pos->name.names[0]));
+                positionals.emplace_back(to_upper(pos->name.names[0]));
             }
 
             return positionals;
@@ -1054,12 +1054,12 @@ namespace euphoria::core::argparse
                     {
                         PrintError
                         (
-                            Str() << '\'' << arg << "' was unexpected"
+                            string_builder() << '\'' << arg << "' was unexpected"
                         );
                         return argparse::error;
                     }
 
-                    const std::string invalid_command = Str()
+                    const std::string invalid_command = string_builder()
                         << "Invalid command '" << arg << "'";
                     const auto names = quote_and_combine_english_or(match.names);
 
@@ -1068,7 +1068,7 @@ namespace euphoria::core::argparse
                     // edit distance is?
                     PrintError
                     (
-                        Str() << invalid_command <<
+                        string_builder() << invalid_command <<
                         ", did you mean " << names << '?'
                     );
                     return argparse::error;
@@ -1149,7 +1149,7 @@ namespace euphoria::core::argparse
                     {
                         PrintError
                         (
-                            Str() << "unknown argument: '" << arg << '\''
+                            string_builder() << "unknown argument: '" << arg << '\''
                         );
                     }
                     else
@@ -1157,7 +1157,7 @@ namespace euphoria::core::argparse
                         const auto closest_match_name = closest_match->first;
                         PrintError
                         (
-                            Str() << "unknown argument: '" << arg <<
+                            string_builder() << "unknown argument: '" << arg <<
                             "', did you mean '" << closest_match_name << "'?"
                         );
                     }
@@ -1240,16 +1240,16 @@ namespace euphoria::core::argparse
         if (parser.HasMorePositionals())
         {
             const auto missing = parser.PositionalsLeft();
-            const auto text = StringMerger::EnglishAnd().Generate(missing);
+            const auto text = string_mergers::english_and.merge(missing);
             parser.PrintError
             (
                 missing.size() == 1 ?
                 (
-                    Str() << "Positional " << text << " was not specified."
+                    string_builder() << "Positional " << text << " was not specified."
                 )
                 :
                 (
-                    Str() << "Positionals " << text << " were not specified."
+                    string_builder() << "Positionals " << text << " were not specified."
                 )
             );
             return argparse::error;

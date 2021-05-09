@@ -152,7 +152,7 @@ namespace euphoria::core
                     args.push_back(a.value);
                 }
                 ss << "(" << argstr
-                   << ") = " << StringMerger::Array().Generate(args) << "\n";
+                   << ") = " << string_mergers::array.merge(args) << "\n";
             }
 
             const auto trace = RunBacktrace(2);

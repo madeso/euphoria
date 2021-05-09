@@ -104,7 +104,7 @@ RunMainScriptFile(Sol* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
     const bool  loaded = fs->ReadFileToString(path, &content);
     if(!loaded)
     {
-        const std::string error_message = Str() << "Unable to open " << path
+        const std::string error_message = string_builder() << "Unable to open " << path
                                                 << " for running";
         LOG_ERROR("{0}", error_message);
         return RunResult::Error(error_message);
@@ -117,7 +117,7 @@ RunMainScriptFile(Sol* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
     if(!eval.valid())
     {
         const sol::error err = eval;
-        const std::string error_message = Str() << "Failed to run " << path
+        const std::string error_message = string_builder() << "Failed to run " << path
                                                 << ": " << err.what();
         LOG_ERROR("{0}", error_message);
         return RunResult::Error(error_message);

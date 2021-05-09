@@ -31,7 +31,7 @@ namespace euphoria::core::vfs
             return memory_chunk::null();
         }
 
-        const auto color_name = ToLower(command);
+        const auto color_name = to_lower(command);
 
         const auto found_color = string_to_enum<color>(color_name);
 
@@ -42,7 +42,7 @@ namespace euphoria::core::vfs
                 "Invalid color name: {0} for path {1} closest matches are {2}",
                 color_name,
                 path,
-                StringMerger::EnglishOr().Generate(enum_to_string(found_color.values))
+                string_mergers::english_or.merge(enum_to_string(found_color.values))
             );
             return memory_chunk::null();
         }
@@ -59,7 +59,7 @@ namespace euphoria::core::vfs
     void
     FileSystemImageGenerator::Describe(std::vector<std::string>* strings)
     {
-        strings->emplace_back(Str() << base_ << "<color>");
+        strings->emplace_back(string_builder() << base_ << "<color>");
     }
 
 

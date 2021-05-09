@@ -50,7 +50,7 @@ TEST_CASE("table-section_and_rows", "[table]")
     {
         for(T::I x = 0; x < t.get_width(); ++x)
         {
-            t(x, y) = euco::Str() << x << "," << y;
+            t(x, y) = euco::string_builder() << x << "," << y;
         }
     }
 

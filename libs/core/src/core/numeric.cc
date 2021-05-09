@@ -20,7 +20,7 @@ namespace euphoria::core
     is_zero(float r)
     {
         const float epsilon = 0.0001f;
-        return is_within(MakeRange(-epsilon, epsilon), r);
+        return is_within(make_range(-epsilon, epsilon), r);
     }
 
 
