@@ -26,7 +26,7 @@ namespace euphoria::core
     };
 
 
-    using random_knuth_lcg = random_lcg<u64, 2^64, 6364136223846793005, 1442695040888963407>;
+    using random_knuth_lcg = random_lcg<u64, std::numeric_limits<u64>::max() /* 2^64 */, 6364136223846793005, 1442695040888963407>;
 
 
     // https://en.wikipedia.org/wiki/Xorshift

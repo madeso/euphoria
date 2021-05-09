@@ -39,7 +39,7 @@ namespace euphoria::core
     struct sort_action : public sortable<T>
     {
         Value T::*member;
-        sort_style sort_style;
+        core::sort_style sort_style;
         SortFunc  sort_func;
 
         sort_action(Value T::*m, core::sort_style s, SortFunc f)

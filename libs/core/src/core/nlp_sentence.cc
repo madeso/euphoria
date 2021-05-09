@@ -82,7 +82,7 @@ struct sentence_parser
     bool ok = true;
     std::string buffer;
     text_sentence words;
-    on_sentence on_sentence;
+    core::on_sentence on_sentence;
 
     int line = 1;
     int ch = 0;

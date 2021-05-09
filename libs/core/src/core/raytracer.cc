@@ -33,7 +33,7 @@ namespace euphoria::core::raytracer
     {
         core::sphere sphere;
         vec3f position;
-        std::shared_ptr<material> material;
+        std::shared_ptr<raytracer::material> material;
 
         sphere_object
         (
