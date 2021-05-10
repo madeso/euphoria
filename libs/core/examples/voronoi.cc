@@ -14,6 +14,7 @@
 #include "core/poisson.h"
 
 using namespace euphoria::core;
+namespace euco = euphoria::core;
 
 float
 i2f(int i)
@@ -21,7 +22,7 @@ i2f(int i)
     return static_cast<float>(i);
 }
 
-std::vector<vec2f> GenerateRandomPoints(int count, const rectf& size, random* random)
+std::vector<vec2f> GenerateRandomPoints(int count, const rectf& size, euco::random* random)
 {
     std::vector<vec2f> r;
     for(int i=0; i<count; i+=1)
@@ -80,7 +81,7 @@ float GetDistance(DistanceFunction f, const vec2f& lhs, const vec2f& rhs)
     }
     DIE("Unhandled distancfe function");
     return 0.0f;
-};
+}
 
 
 int
@@ -117,7 +118,7 @@ main(int argc, char* argv[])
         return *r;
     }
 
-    random rand;
+    euco::random rand;
 
     const auto area = rectf::from_width_height(size, size);
     const auto random_points =
