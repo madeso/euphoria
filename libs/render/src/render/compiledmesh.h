@@ -10,7 +10,7 @@
 
 namespace euphoria::core::vfs
 {
-    struct DirPath;
+    struct dir_path;
 }
 
 
@@ -111,7 +111,7 @@ namespace euphoria::render
         const core::mesh& mesh,
         MaterialShaderCache* shader_cache,
         TextureCache* texture_cache,
-        const core::vfs::DirPath& texture_folder,
+        const core::vfs::dir_path& texture_folder,
         const std::string& debug_name
     );
 }

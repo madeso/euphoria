@@ -11,69 +11,71 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
-    struct FilePath;
+    struct file_system;
+    struct file_path;
 }
 
 namespace euphoria::core
 {
-    struct Defines
+    struct defines
     {
-        Defines();
+        defines();
 
         [[nodiscard]] bool
-        IsDefined(const std::string& name) const;
+        is_defined(const std::string& name) const;
 
         [[nodiscard]] std::string
-        GetValue(const std::string& name) const;
+        get_value(const std::string& name) const;
 
         void
-        Undefine(const std::string& name);
+        undefine(const std::string& name);
 
         void
-        Define(const std::string& name, const std::string& value);
+        define(const std::string& name, const std::string& value);
 
         std::map<std::string, std::string> values;
     };
 
-    struct TemplateErrorList
+    struct template_error_list
     {
-        TemplateErrorList();
+        template_error_list();
 
         [[nodiscard]] bool
-        HasErrors() const;
+        has_errors() const;
 
         void
-        AddError
+        add_error
         (
-            const std::optional<vfs::FilePath>& file,
+            const std::optional<vfs::file_path>& file,
             int line,
             int column,
             const std::string& error
         );
 
         [[nodiscard]] std::string
-        GetCombinedErrors() const;
+        get_combined_errors() const;
 
         std::vector<std::string> errors;
     };
 
-    struct TemplateNodeList;
+    struct template_node_list;
 
-    struct Template
+    struct compiled_text_template
     {
-        explicit Template(const std::string& text);
-        Template(vfs::FileSystem* fs, const vfs::FilePath& path);
-        ~Template();
+        // todo(Gustav): move to a named constructor
+        explicit compiled_text_template(const std::string& text);
+        compiled_text_template(vfs::file_system* fs, const vfs::file_path& path);
 
-        NONCOPYABLE(Template);
+        ~compiled_text_template();
+
+        NONCOPYABLE(compiled_text_template);
 
         std::string
-        Evaluate(const Defines& defines);
+        evaluate(const defines& defines);
 
-        TemplateErrorList errors;
-
-        std::shared_ptr<TemplateNodeList> nodes;
+        // todo(Gustav): move errors to load and evaluate return values
+        template_error_list errors;
+        std::shared_ptr<template_node_list> nodes;
     };
 
 }

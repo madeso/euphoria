@@ -18,18 +18,18 @@ namespace euphoria::core
     std::string
     read_file_or_get_error_message
     (
-        vfs::FileSystem*     fs,
+        vfs::file_system*     fs,
         rapidjson::Document* doc,
-        const vfs::FilePath& file_name
+        const vfs::file_path& file_name
     )
     {
         std::string source;
 
-        const bool load_result = fs->ReadFileToString(file_name, &source);
+        const bool load_result = fs->read_file_to_string(file_name, &source);
         if(!load_result)
         {
             return string_builder() << "Unable to load file " << file_name << " from "
-                         << fs->GetRootsAsString();
+                         << fs->get_roots_as_string();
         }
 
         return read_source_or_get_error_message(source, doc);

@@ -37,6 +37,18 @@ first_chars(const std::string& str, std::size_t count)
 
 
 std::string
+first_chars_with_ellipsis(const std::string& str, unsigned int count)
+{
+    if (str.length() > count)
+    {
+        return str.substr(0, count) + "...";
+    }
+
+    return str;
+}
+
+
+std::string
 strip_last_string(const std::string& str, char sep)
 {
     auto result = str.find(sep);

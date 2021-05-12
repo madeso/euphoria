@@ -11,46 +11,46 @@ using namespace euphoria::core::vfs;
 namespace euco = euphoria::core;
 
 
-struct AlwaysExist : public FileSystemReadRoot
+struct AlwaysExist : public read_root
 {
 public:
     std::shared_ptr<euco::memory_chunk>
-    ReadFile(const FilePath&) override
+    read_file(const file_path&) override
     {
         // alloc some garbage
         return euco::memory_chunk::allocate(32);
     }
 
     void
-    Describe(std::vector<std::string>*) override
+    add_description(std::vector<std::string>*) override
     {}
 
-    FileList
-    ListFiles(const DirPath&) override
+    file_list
+    list_files(const dir_path&) override
     {
-        FileList ret;
+        file_list ret;
         return ret;
     }
 };
 
 
-struct NeverExist : public FileSystemReadRoot
+struct NeverExist : public read_root
 {
 public:
     std::shared_ptr<euco::memory_chunk>
-    ReadFile(const FilePath&) override
+    read_file(const file_path&) override
     {
         return euco::memory_chunk::null();
     }
 
     void
-    Describe(std::vector<std::string>*) override
+    add_description(std::vector<std::string>*) override
     {}
 
-    FileList
-    ListFiles(const DirPath&) override
+    file_list
+    list_files(const dir_path&) override
     {
-        FileList ret;
+        file_list ret;
         return ret;
     }
 };
@@ -60,37 +60,37 @@ TEST_CASE("vfs-test_basic", "[vfs]")
 {
     SECTION("always")
     {
-        FileSystem always;
-        always.AddReadRoot(std::make_shared<AlwaysExist>());
-        REQUIRE(always.ReadFile(FilePath{"~/dog"}) != nullptr);
+        file_system always;
+        always.add_read_root(std::make_shared<AlwaysExist>());
+        REQUIRE(always.read_file(file_path{"~/dog"}) != nullptr);
     }
 
     SECTION("never")
     {
-        FileSystem never;
-        never.AddReadRoot(std::make_shared<NeverExist>());
-        REQUIRE(never.ReadFile(FilePath{"~/dog"}) == nullptr);
+        file_system never;
+        never.add_read_root(std::make_shared<NeverExist>());
+        REQUIRE(never.read_file(file_path{"~/dog"}) == nullptr);
     }
 }
 
 
 TEST_CASE("vfs-test_catalog_with_null", "[vfs]")
 {
-    FileSystem fs;
-    auto catalog = FileSystemRootCatalog::AddRoot(&fs);
-    catalog->RegisterFileString(FilePath{"~/dog"}, "happy");
+    file_system fs;
+    auto catalog = read_root_catalog::create_and_add(&fs);
+    catalog->register_file_string(file_path{"~/dog"}, "happy");
 
     std::string content;
 
     SECTION("can read stored file")
     {
-        REQUIRE(fs.ReadFileToString(FilePath{"~/dog"}, &content));
+        REQUIRE(fs.read_file_to_string(file_path{"~/dog"}, &content));
         REQUIRE(content == "happy");
     }
 
     SECTION("error when trying to read missing file")
     {
-        REQUIRE_FALSE(fs.ReadFileToString(FilePath{"~/cat"}, &content));
+        REQUIRE_FALSE(fs.read_file_to_string(file_path{"~/cat"}, &content));
     }
 }
 

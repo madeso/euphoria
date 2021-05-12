@@ -4,7 +4,7 @@
 namespace euphoria::core
 {
     std::vector<std::string>
-    WordWrap
+    word_wrap
     (
         const std::string& str,
         std::function<bool (const std::string&)> measure
@@ -47,7 +47,7 @@ namespace euphoria::core
             }
             if(!fit || last == std::string::npos)
             {
-                // new doesnt fit, use last
+                // new doesn't fit, use last
                 const auto p = last == start ? first : last;
                 const auto pp = last == start && p != std::string::npos ? p+1 : p;
                 ret.emplace_back(get_string(pp));

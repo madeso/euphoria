@@ -8,8 +8,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
-    struct FilePath;
+    struct file_system;
+    struct file_path;
 }
 
 
@@ -20,13 +20,13 @@ namespace euphoria::render
 
     struct FontCache
     {
-        FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
+        FontCache(core::vfs::file_system* fs, TextureCache* cache);
         ~FontCache();
 
         NONCOPYABLE(FontCache);
 
         [[nodiscard]] std::shared_ptr<Font>
-        GetFont(const core::vfs::FilePath& path) const;
+        GetFont(const core::vfs::file_path& path) const;
 
         struct FontCachePimpl;
         std::unique_ptr<FontCachePimpl> pimp;

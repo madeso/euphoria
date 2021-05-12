@@ -3,8 +3,8 @@
 
 namespace euphoria::core
 {
-    ViewportDef
-    ViewportDef::FitWithBlackBars
+    viewport_definition
+    viewport_definition::fit_with_black_bars
     (
         float width,
         float height,
@@ -22,7 +22,7 @@ namespace euphoria::core
         ASSERTX(s > 0, s, w, h);
         const float new_width = width * s;
         const float new_height = height * s;
-        return ViewportDef
+        return viewport_definition
         {
             recti::from_width_height(new_width, new_height).set_bottom_left_to_copy
             (
@@ -44,8 +44,8 @@ namespace euphoria::core
     }
 
 
-    ViewportDef
-    ViewportDef::Extend
+    viewport_definition
+    viewport_definition::extend
     (
         float width,
         float height,
@@ -64,23 +64,23 @@ namespace euphoria::core
         if(w < h)
         {
             const auto s = DetermineExtendScale(w, height, window_height);
-            return ViewportDef {r, width, height * s};
+            return viewport_definition {r, width, height * s};
         }
         else
         {
             const auto s = DetermineExtendScale(h, width, window_width);
-            return ViewportDef {r, width * s, height};
+            return viewport_definition {r, width * s, height};
         }
     }
 
 
-    ViewportDef
-    ViewportDef::ScreenPixel(int window_width, int window_height)
+    viewport_definition
+    viewport_definition::screen_pixel(int window_width, int window_height)
     {
         ASSERTX(window_width >= 0, window_width);
         ASSERTX(window_height >= 0, window_height);
 
-        return ViewportDef
+        return viewport_definition
         {
             recti::from_width_height(window_width, window_height)
                     .set_bottom_left_to_copy(0, 0),
@@ -90,7 +90,7 @@ namespace euphoria::core
     }
 
 
-    ViewportDef::ViewportDef(const recti& screen, float w, float h)
+    viewport_definition::viewport_definition(const recti& screen, float w, float h)
         : screen_rect(screen)
         , virtual_width(w)
         , virtual_height(h)

@@ -420,13 +420,13 @@ namespace euphoria::core
     loaded_font
     get_characters_from_font
     (
-        vfs::FileSystem* file_system,
-        const vfs::FilePath& font_file,
+        vfs::file_system* file_system,
+        const vfs::file_path& font_file,
         int font_size,
         const std::string& chars
     )
     {
-        auto file_memory = file_system->ReadFile(font_file);
+        auto file_memory = file_system->read_file(font_file);
 
         if(file_memory == nullptr)
         {
@@ -465,7 +465,7 @@ namespace euphoria::core
         auto f = std::move(*loaded_face);
 
         std::vector<int> code_points;
-        Utf8ToCodepoints
+        utf8_to_codepoints
         (
             chars,
             [&](int cp){code_points.emplace_back(cp);}
@@ -549,8 +549,8 @@ namespace euphoria::core
     loaded_font
     get_characters_from_single_image
     (
-        vfs::FileSystem* fs,
-        const vfs::FilePath& image_file,
+        vfs::file_system* fs,
+        const vfs::file_path& image_file,
         const std::string& image_alias,
         float image_scale,
         float image_bearing_x,

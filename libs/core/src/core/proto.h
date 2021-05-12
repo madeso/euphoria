@@ -7,16 +7,16 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct FileSystem;
-        struct FilePath;
+        struct file_system;
+        struct file_path;
     }
 
     std::string
     read_file_or_get_error_message
     (
-        vfs::FileSystem* fs,
+        vfs::file_system* fs,
         rapidjson::Document* doc,
-        const vfs::FilePath& file_name
+        const vfs::file_path& file_name
     );
 
     std::string
@@ -25,7 +25,7 @@ namespace euphoria::core
     // return error message or empty
     template <typename T>
     std::string
-    read_json_to_gaf_struct_or_get_error_message(vfs::FileSystem* fs, T* message, const vfs::FilePath& file_name)
+    read_json_to_gaf_struct_or_get_error_message(vfs::file_system* fs, T* message, const vfs::file_path& file_name)
     {
         rapidjson::Document doc;
         const std::string r = read_file_or_get_error_message(fs, &doc, file_name);

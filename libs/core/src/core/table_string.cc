@@ -18,7 +18,7 @@ namespace euphoria::core
                       }
                       table->new_row(row);
                   };
-        auto file = TextFileParser::FromString(csv_data);
+        auto file = textfile_parser::from_string(csv_data);
 
         string_table table;
 
@@ -28,17 +28,17 @@ namespace euphoria::core
         bool                     added           = false;
         bool                     was_from_string = false;
 
-        while(file.HasMore())
+        while(file.has_more())
         {
-            const auto c = file.ReadChar();
+            const auto c = file.read_char();
             if(inside_string)
             {
                 if(c == options.str)
                 {
-                    if(file.PeekChar() == options.str)
+                    if(file.peek_char() == options.str)
                     {
                         ss << c;
-                        file.ReadChar();
+                        file.read_char();
                     }
                     else
                     {

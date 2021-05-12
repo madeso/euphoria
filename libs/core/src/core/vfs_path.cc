@@ -41,8 +41,8 @@ namespace euphoria::core::vfs
     }
 
 
-    std::optional<FilePath>
-    FilePath::FromScript(const std::string& p)
+    std::optional<file_path>
+    file_path::from_script(const std::string& p)
     {
         if(p.find('\\') != std::string::npos)
         {
@@ -54,24 +54,24 @@ namespace euphoria::core::vfs
         }
         if(starts_with(p, "~/") || starts_with(p, "./"))
         {
-            return FilePath{p};
+            return file_path{p};
         }
         else
         {
             if(starts_with(p, "/"))
             {
-                return FilePath{"." + p};
+                return file_path{"." + p};
             }
             else
             {
-                return FilePath{"./" + p};
+                return file_path{"./" + p};
             }
         }
     }
 
 
-    std::optional<FilePath>
-    FilePath::FromDirtySource(const std::string& p)
+    std::optional<file_path>
+    file_path::from_dirty_source(const std::string& p)
     {
         std::string s = trim(p);
         if(s.size() < 4)
@@ -93,12 +93,12 @@ namespace euphoria::core::vfs
         {
             s[0] = '.';
         }
-        return FromScript(s);
+        return from_script(s);
     }
 
 
-    std::optional<FilePath>
-    FilePath::FromScriptOrEmpty(const std::string& path)
+    std::optional<file_path>
+    file_path::from_script_or_empty(const std::string& path)
     {
         if(path.empty())
         {
@@ -106,13 +106,13 @@ namespace euphoria::core::vfs
         }
         else
         {
-            return FromScript(path);
+            return from_script(path);
         }
     }
 
 
-    std::tuple<DirPath, std::string>
-    FilePath::SplitDirectoriesAndFile() const
+    std::tuple<dir_path, std::string>
+    file_path::split_directories_and_file() const
     {
         const auto slash = path.rfind('/');
         ASSERTX(slash != std::string::npos, path);
@@ -128,28 +128,28 @@ namespace euphoria::core::vfs
             *dir_part.rbegin() == '/' && file_part[0] != '/',
             path, dir_part, file_part
         );
-        return {DirPath{dir_part}, file_part};
+        return {dir_path{dir_part}, file_part};
     }
 
 
-    DirPath
-    FilePath::GetDirectory() const
+    dir_path
+    file_path::get_directory() const
     {
-        return std::get<0>(SplitDirectoriesAndFile());
-    }
-
-
-    std::string
-    FilePath::GetFileWithExtension() const
-    {
-        return std::get<1>(SplitDirectoriesAndFile());
+        return std::get<0>(split_directories_and_file());
     }
 
 
     std::string
-    FilePath::GetFilenameWithoutExtension() const
+    file_path::get_file_with_extension() const
     {
-        const auto with_extension = GetFileWithExtension();
+        return std::get<1>(split_directories_and_file());
+    }
+
+
+    std::string
+    file_path::get_filename_without_extension() const
+    {
+        const auto with_extension = get_file_with_extension();
         const auto dot = with_extension.find('.', 1);
         if(dot == std::string::npos) { return with_extension; }
         return with_extension.substr(0, dot);
@@ -157,16 +157,16 @@ namespace euphoria::core::vfs
 
 
     std::string
-    FilePath::GetExtension() const
+    file_path::get_extension() const
     {
-        const auto with_extension = GetFileWithExtension();
+        const auto with_extension = get_file_with_extension();
         const auto dot = with_extension.find('.', 1);
         if(dot == std::string::npos) { return ""; }
         return with_extension.substr(dot+1);
     }
 
-    FilePath
-    FilePath::SetExtensionCopy(const std::string& ext) const
+    file_path
+    file_path::set_extension_copy(const std::string& ext) const
     {
         ASSERT(!ext.empty());
         ASSERTX(ext[0]!='.' && *ext.rbegin()!='.', ext);
@@ -175,33 +175,33 @@ namespace euphoria::core::vfs
         const auto dot = path.find('.', slash);
         if(dot == std::string::npos)
         {
-            return FilePath{path + "." + ext};
+            return file_path{path + "." + ext};
         }
         else
         {
-            return FilePath{path.substr(0, dot+1) + ext};
+            return file_path{path.substr(0, dot+1) + ext};
         }
     }
 
 
-    FilePath
-    FilePath::ExtendExtensionCopy(const std::string& ext) const
+    file_path
+    file_path::extend_extension_copy(const std::string& ext) const
     {
         ASSERT(!ext.empty());
         ASSERTX(ext[0]!='.' && *ext.rbegin()!='.', ext);
-        const auto old_ext = GetExtension();
+        const auto old_ext = get_extension();
         if(old_ext.empty())
         {
-            return SetExtensionCopy(ext);
+            return set_extension_copy(ext);
         }
         else
         {
-            return SetExtensionCopy(old_ext + "." + ext);
+            return set_extension_copy(old_ext + "." + ext);
         }
     }
 
 
-    FilePath::FilePath(const std::string& p)
+    file_path::file_path(const std::string& p)
         : path(p)
     {
         ASSERTX(path.size() > 3, path);
@@ -213,22 +213,22 @@ namespace euphoria::core::vfs
     // --------------------------------------------------------------------
 
 
-    DirPath
-    DirPath::FromRoot()
+    dir_path
+    dir_path::from_root()
     {
-        return DirPath{"~/"};
+        return dir_path{"~/"};
     }
 
 
-    DirPath
-    DirPath::FromRelative()
+    dir_path
+    dir_path::from_relative()
     {
-        return DirPath{"./"};
+        return dir_path{"./"};
     }
 
 
-    DirPath
-    DirPath::FromDirs(const std::vector<std::string>& dirs)
+    dir_path
+    dir_path::from_dirs(const std::vector<std::string>& dirs)
     {
         ASSERT(!dirs.empty());
         ASSERTX(IsValidFirstDirectory(dirs[0]), dirs[0]);
@@ -237,7 +237,7 @@ namespace euphoria::core::vfs
             ASSERTX(IsValidDirectoryName(dirs[index]), dirs[index]);
         }
 
-        return DirPath
+        return dir_path
         {
             string_merger{}
                 .set_separator("/")
@@ -247,16 +247,16 @@ namespace euphoria::core::vfs
     }
 
 
-    FilePath
-    DirPath::GetFile(const std::string& filename) const
+    file_path
+    dir_path::get_file(const std::string& filename) const
     {
         ASSERTX(IsValidFilename(filename), path, filename);
-        return FilePath{path + filename};
+        return file_path{path + filename};
     }
 
 
     bool
-    DirPath::IsRelative() const
+    dir_path::is_relative() const
     {
         ASSERT(!path.empty());
         const auto first = path[0];
@@ -266,7 +266,7 @@ namespace euphoria::core::vfs
 
 
     bool
-    DirPath::ContainsRelative() const
+    dir_path::contains_relative() const
     {
         const auto is_relative = [](const std::string& dir) -> bool
         {
@@ -276,54 +276,54 @@ namespace euphoria::core::vfs
             return false;
         };
 
-        const auto dirs = SplitDirectories();
+        const auto dirs = split_directories();
         return std::any_of(dirs.begin(), dirs.end(), is_relative);
     }
 
 
-    DirPath
-    DirPath::GetParentDirectory() const
+    dir_path
+    dir_path::get_parent_directory() const
     {
-        auto dirs = SplitDirectories();
+        auto dirs = split_directories();
         ASSERTX
         (
             !dirs.empty(),
             string_mergers::array.merge(dirs)
         );
         dirs.pop_back();
-        return DirPath::FromDirs(dirs);
+        return dir_path::from_dirs(dirs);
     }
 
 
     std::string
-    DirPath::GetDirectoryName() const
+    dir_path::get_directory_name() const
     {
-        const auto dirs = SplitDirectories();
+        const auto dirs = split_directories();
         ASSERTX(dirs.size() > 1, string_mergers::array.merge(dirs));
         return *dirs.rbegin();
     }
 
 
     std::vector<std::string>
-    DirPath::SplitDirectories() const
+    dir_path::split_directories() const
     {
         return split(path, '/');
     }
 
 
-    DirPath
-    DirPath::SingleCdCopy(const std::string& single) const
+    dir_path
+    dir_path::single_cd_copy(const std::string& single) const
     {
         ASSERTX(IsValidDirectoryName(single), single);
-        return DirPath{path + single + "/"};
+        return dir_path{path + single + "/"};
     }
 
 
-    DirPath::DirPath(const std::string& p)
+    dir_path::dir_path(const std::string& p)
         : path(p)
     {
         ASSERT(!path.empty());
-        ASSERTX(IsValidFirstDirectory(SplitDirectories()[0]), path);
+        ASSERTX(IsValidFirstDirectory(split_directories()[0]), path);
         ASSERTX(*path.rbegin() == '/', path);
     }
 
@@ -331,12 +331,12 @@ namespace euphoria::core::vfs
     // --------------------------------------------------------------------
 
 
-    std::optional<DirPath>
-    ResolveRelative(const DirPath& base)
+    std::optional<dir_path>
+    resolve_relative(const dir_path& base)
     {
-        ASSERT(!base.IsRelative());
+        ASSERT(!base.is_relative());
 
-        auto dirs = base.SplitDirectories();
+        auto dirs = base.split_directories();
         auto size = dirs.size();
 
         if(size == 1) { return base; }
@@ -366,103 +366,103 @@ namespace euphoria::core::vfs
             }
         }
 
-        return DirPath::FromDirs(dirs);
+        return dir_path::from_dirs(dirs);
     }
 
 
-    std::optional<DirPath>
-    ResolveRelative(const DirPath& base, const DirPath& root)
+    std::optional<dir_path>
+    resolve_relative(const dir_path& base, const dir_path& root)
     {
-        ASSERTX(root.IsRelative() == false, root);
+        ASSERTX(root.is_relative() == false, root);
         const auto path
-            = base.IsRelative()
-            ? Join(root, base)
+            = base.is_relative()
+            ? join(root, base)
             : base;
-        return ResolveRelative(path);
+        return resolve_relative(path);
     }
 
 
-    std::optional<FilePath>
-    ResolveRelative(const FilePath& base)
+    std::optional<file_path>
+    resolve_relative(const file_path& base)
     {
-        const auto [dir, file] = base.SplitDirectoriesAndFile();
-        const auto resolved = ResolveRelative(dir);
+        const auto [dir, file] = base.split_directories_and_file();
+        const auto resolved = resolve_relative(dir);
         if(!resolved.has_value()) { return std::nullopt; }
-        return resolved.value().GetFile(file);
+        return resolved.value().get_file(file);
     }
 
-    std::optional<FilePath>
-    ResolveRelative(const FilePath& base, const DirPath& root)
+    std::optional<file_path>
+    resolve_relative(const file_path& base, const dir_path& root)
     {
-        const auto [dir, file] = base.SplitDirectoriesAndFile();
-        const auto resolved = ResolveRelative(dir, root);
+        const auto [dir, file] = base.split_directories_and_file();
+        const auto resolved = resolve_relative(dir, root);
         if(!resolved.has_value()) { return std::nullopt; }
-        return resolved.value().GetFile(file);
+        return resolved.value().get_file(file);
     }
 
 
-    DirPath
-    Join(const DirPath& lhs, const DirPath& rhs)
+    dir_path
+    join(const dir_path& lhs, const dir_path& rhs)
     {
-        ASSERT(rhs.IsRelative());
-        const auto dirs = rhs.SplitDirectories();
+        ASSERT(rhs.is_relative());
+        const auto dirs = rhs.split_directories();
 
         auto ret = lhs;
         for(size_t index = 1; index < dirs.size(); index +=1 )
         {
-            ret = ret.SingleCdCopy(dirs[index]);
+            ret = ret.single_cd_copy(dirs[index]);
         }
 
         return ret;
     }
 
 
-    FilePath
-    Join(const DirPath& lhs, const FilePath& rhs)
+    file_path
+    join(const dir_path& lhs, const file_path& rhs)
     {
-        const auto [dir, file] = rhs.SplitDirectoriesAndFile();
-        const auto joined = Join(lhs, dir);
-        return joined.GetFile(file);
+        const auto [dir, file] = rhs.split_directories_and_file();
+        const auto joined = join(lhs, dir);
+        return joined.get_file(file);
     }
 
 
     bool
-    operator==(const DirPath& lhs, const DirPath& rhs)
-    {
-        return lhs.path == rhs.path;
-    }
-
-
-    bool
-    operator==(const FilePath& lhs, const FilePath& rhs)
+    operator==(const dir_path& lhs, const dir_path& rhs)
     {
         return lhs.path == rhs.path;
     }
 
 
     bool
-    operator!=(const DirPath& lhs, const DirPath& rhs)
+    operator==(const file_path& lhs, const file_path& rhs)
+    {
+        return lhs.path == rhs.path;
+    }
+
+
+    bool
+    operator!=(const dir_path& lhs, const dir_path& rhs)
     {
         return lhs.path != rhs.path;
     }
 
 
     bool
-    operator!=(const FilePath& lhs, const FilePath& rhs)
+    operator!=(const file_path& lhs, const file_path& rhs)
     {
         return lhs.path != rhs.path;
     }
 
 
     bool
-    operator<(const DirPath& lhs, const DirPath& rhs)
+    operator<(const dir_path& lhs, const dir_path& rhs)
     {
         return lhs.path < rhs.path;
     }
 
 
     bool
-    operator<(const FilePath& lhs, const FilePath& rhs)
+    operator<(const file_path& lhs, const file_path& rhs)
     {
         return lhs.path < rhs.path;
     }

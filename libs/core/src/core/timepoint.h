@@ -1,18 +1,15 @@
-#ifndef EUPHORIA_CORE_TIMEPOINT_H
-#define EUPHORIA_CORE_TIMEPOINT_H
+#pragma once
+
 
 #include <chrono>
 
 namespace euphoria::core
 {
-    using TimePoint = std::chrono::time_point<std::chrono::steady_clock>;
+    using time_point = std::chrono::time_point<std::chrono::steady_clock>;
 
-    TimePoint
-    Now();
+    time_point
+    time_point_now();
 
     double
-    SecondsBetween(const TimePoint& start, const TimePoint& end);
+    get_seconds_between(const time_point& start, const time_point& end);
 }
-
-#endif  // EUPHORIA_CORE_TIMEPOINT_H
-

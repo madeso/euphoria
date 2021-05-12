@@ -12,7 +12,7 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
+    struct file_system;
 }
 
 namespace euphoria::t3d
@@ -22,7 +22,7 @@ namespace euphoria::t3d
         Tile();
         ~Tile();
 
-        core::vfs::FilePath path;
+        core::vfs::file_path path;
         core::aabb  aabb;
         std::string name;
 
@@ -32,7 +32,7 @@ namespace euphoria::t3d
 
     struct TileLibrary
     {
-        TileLibrary(core::vfs::FileSystem* fs);
+        TileLibrary(core::vfs::file_system* fs);
 
 
         std::shared_ptr<Tile>
@@ -46,13 +46,13 @@ namespace euphoria::t3d
         void
         AddFile
         (
-            const core::vfs::FilePath& path,
+            const core::vfs::file_path& path,
             render::MaterialShaderCache* shader_cache,
             render::TextureCache* texture_cache
         );
 
 
-        core::vfs::FileSystem* file_system;
+        core::vfs::file_system* file_system;
         std::vector<std::shared_ptr<Tile>> tiles;
     };
 

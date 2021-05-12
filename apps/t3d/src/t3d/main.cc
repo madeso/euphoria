@@ -20,8 +20,8 @@ main(int argc, char** argv)
         return r;
     }
 
-    t3d.AddLibrary(euphoria::core::vfs::DirPath{"~/world/"});
-    t3d.AddLibrary(euphoria::core::vfs::DirPath{"~/FBX/"});
+    t3d.AddLibrary(euphoria::core::vfs::dir_path{"~/world/"});
+    t3d.AddLibrary(euphoria::core::vfs::dir_path{"~/FBX/"});
 
     while(t3d.running)
     {

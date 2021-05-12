@@ -527,7 +527,7 @@ namespace euphoria::core
         ASSERT(image);
 
         vec2i pos = start_pos;
-        Utf8ToCodepoints(text, [&](unsigned int cp)
+        utf8_to_codepoints(text, [&](unsigned int cp)
         {
             if(cp == '\n')
             {

@@ -78,7 +78,7 @@ bool PrintString
     int y = sy;
     bool status = true;
 
-    const auto r = Utf8ToCodepoints(str, [&](int codepoint)
+    const auto r = utf8_to_codepoints(str, [&](int codepoint)
     {
         status = PrintChar(dst, font, &x, y, codepoint) && status;
     });

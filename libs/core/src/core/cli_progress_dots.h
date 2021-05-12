@@ -9,7 +9,7 @@ namespace euphoria::core
      */
     struct cli_progress_dots
     {
-        TimePoint last;
+        time_point last;
         int dots_on_line = 0;
         int dots_per_line = 80;
         bool has_printed = false;

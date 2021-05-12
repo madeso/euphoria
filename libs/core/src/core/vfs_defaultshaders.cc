@@ -7,11 +7,11 @@
 namespace euphoria::core::vfs
 {
     void
-    AddDefaultShaders(FileSystem* fs, const DirPath& base)
+    add_default_shaders(file_system* fs, const dir_path& base)
     {
-        auto cat = FileSystemRootCatalog::AddRoot(fs);
-        cat->RegisterFileString(
-                base.GetFile("sprite.vert"),
+        auto cat = read_root_catalog::create_and_add(fs);
+        cat->register_file_string(
+                base.get_file("sprite.vert"),
                 R"STRING(
                 #version 330 core
 
@@ -32,8 +32,8 @@ namespace euphoria::core::vfs
                     gl_Position = projection * model * vec4(vertex.xy, 0.0, 1.0);
                 }
             )STRING");
-        cat->RegisterFileString(
-                base.GetFile("sprite.frag"),
+        cat->register_file_string(
+                base.get_file("sprite.frag"),
                 R"STRING(
                 #version 330 core
 

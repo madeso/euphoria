@@ -6,60 +6,60 @@ namespace textparser = euphoria::core::textparser;
 
 TEST_CASE("textfileparser-test", "[textparser]")
 {
-    euco::UiText parser;
+    euco::ui_text parser;
 
     SECTION("text")
     {
-        parser.CreateText("hello");
-        CHECK(textparser::VisitorDebugString::Visit(&parser) == "{text hello}");
+        parser.init_with_text("hello");
+        CHECK(textparser::visitor_debug_string::accept_all_nodes(&parser) == "{text hello}");
     }
 
     SECTION("image")
     {
-        CHECK(parser.CreateParse("@hello"));
-        CHECK(textparser::VisitorDebugString::Visit(&parser)
+        CHECK(parser.init_by_parsing_source("@hello"));
+        CHECK(textparser::visitor_debug_string::accept_all_nodes(&parser)
               == "{image hello}");
     }
 
     SECTION("begin and end")
     {
-        CHECK(parser.CreateParse("{hello}"));
-        CHECK(textparser::VisitorDebugString::Visit(&parser)
+        CHECK(parser.init_by_parsing_source("{hello}"));
+        CHECK(textparser::visitor_debug_string::accept_all_nodes(&parser)
               == "{begin}{text hello}{end}");
     }
 
     SECTION("begin begin")
     {
-        CHECK(parser.CreateParse("{{"));
-        CHECK(textparser::VisitorDebugString::Visit(&parser)
+        CHECK(parser.init_by_parsing_source("{{"));
+        CHECK(textparser::visitor_debug_string::accept_all_nodes(&parser)
               == "{begin}{begin}");
     }
 
     SECTION("begin image end")
     {
-        CHECK(parser.CreateParse("{@dog}"));
-        CHECK(textparser::VisitorDebugString::Visit(&parser)
+        CHECK(parser.init_by_parsing_source("{@dog}"));
+        CHECK(textparser::visitor_debug_string::accept_all_nodes(&parser)
               == "{begin}{image dog}{end}");
     }
 
     SECTION("example")
     {
-        CHECK(parser.CreateParse("@abort Abort"));
-        CHECK(textparser::VisitorDebugString::Visit(&parser)
+        CHECK(parser.init_by_parsing_source("@abort Abort"));
+        CHECK(textparser::visitor_debug_string::accept_all_nodes(&parser)
               == "{image abort}{text Abort}");
     }
 
     SECTION("no escape")
     {
-        CHECK(parser.CreateParse("my@email"));
-        CHECK(textparser::VisitorDebugString::Visit(&parser)
+        CHECK(parser.init_by_parsing_source("my@email"));
+        CHECK(textparser::visitor_debug_string::accept_all_nodes(&parser)
               == "{text my}{image email}");
     }
 
     SECTION("with escape")
     {
-        CHECK(parser.CreateParse("my\\@email"));
-        CHECK(textparser::VisitorDebugString::Visit(&parser)
+        CHECK(parser.init_by_parsing_source("my\\@email"));
+        CHECK(textparser::visitor_debug_string::accept_all_nodes(&parser)
               == "{text my@email}");
     }
 }

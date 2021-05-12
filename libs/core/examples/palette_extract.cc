@@ -156,14 +156,14 @@ HandleImage
         return false;
     }
 
-    const auto start = Now();
+    const auto start = time_point_now();
 
     // extract colors
     auto colors = median_cut(images[0].image, depth, middle_split);
 
-    const auto end = Now();
+    const auto end = time_point_now();
 
-    const auto seconds = SecondsBetween(start, end);
+    const auto seconds = get_seconds_between(start, end);
     std::cout << "Palette extraction took " << seconds << " seconds.\n";
 
     if(colors.empty())

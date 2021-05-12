@@ -88,8 +88,8 @@ main(int argc, char** argv)
     SET_ENUM_FROM_FILE
     (
         engine.file_system.get(),
-        vfs::FilePath{"~/texture_types.json"},
-        TextureType
+        vfs::file_path{"~/texture_types.json"},
+        texture_type
     );
 
     image image;
@@ -116,9 +116,9 @@ main(int argc, char** argv)
     draw_line_antialiased(&image, color::black, wi.get_bottom_left(), wi.get_top_right());
     // todo(Gustav): fix text drawing...
     // DrawText(&image, vec2i(0, 0), "Hello world", Color::Black, 2);
-    engine.catalog->RegisterFileData
+    engine.catalog->register_file_data
     (
-        vfs::FilePath{"~/image"},
+        vfs::file_path{"~/image"},
         image.write(image_write_format::png)
     );
 
@@ -131,8 +131,8 @@ main(int argc, char** argv)
     auto world = World {};
 
     auto box_mesh1 = meshes::create_cube(0.5f);
-    box_mesh1.materials[0].set_texture("Diffuse", vfs::FilePath{"./container2.png"});
-    box_mesh1.materials[0].set_texture("Specular", vfs::FilePath{"./container2_specular.png"});
+    box_mesh1.materials[0].set_texture("Diffuse", vfs::file_path{"./container2.png"});
+    box_mesh1.materials[0].set_texture("Specular", vfs::file_path{"./container2_specular.png"});
     box_mesh1.materials[0].ambient = color::white;  // fix ambient color on material
     box_mesh1.materials[0].specular = color::white;
     box_mesh1.materials[0].shininess = 120.0f;
@@ -141,12 +141,12 @@ main(int argc, char** argv)
         box_mesh1,
         &material_shader_cache,
         &texture_cache,
-        vfs::DirPath::FromRoot(),
+        vfs::dir_path::from_root(),
         "box1"
     );
 
     auto box_mesh2 = meshes::create_sphere(0.5f, "image");
-    box_mesh2.materials[0].set_texture("Specular", vfs::FilePath{"./img-plain/white"});
+    box_mesh2.materials[0].set_texture("Specular", vfs::file_path{"./img-plain/white"});
     box_mesh2.materials[0].ambient = color::white;  // fix ambient color on material
     box_mesh2.materials[0].specular  = color::white;
     box_mesh2.materials[0].shininess = 10.0f;
@@ -155,20 +155,20 @@ main(int argc, char** argv)
         box_mesh2,
         &material_shader_cache,
         &texture_cache,
-        vfs::DirPath::FromRoot(),
+        vfs::dir_path::from_root(),
         "box2"
     );
 
-    auto debug_texture = texture_cache.GetTexture(vfs::FilePath{"~/image"});
+    auto debug_texture = texture_cache.GetTexture(vfs::file_path{"~/image"});
 
     auto light_mesh = meshes::create_cube(0.2f);
-    light_mesh.materials[0].shader = vfs::FilePath{"~/basic_shader"};
+    light_mesh.materials[0].shader = vfs::file_path{"~/basic_shader"};
     auto light = CompileMesh
     (
         light_mesh,
         &material_shader_cache,
         &texture_cache,
-        vfs::DirPath::FromRoot(),
+        vfs::dir_path::from_root(),
         "light"
     );
     float light_position = 0.0f;

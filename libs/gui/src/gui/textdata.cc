@@ -97,12 +97,12 @@ namespace euphoria::gui
             // button assumes this is bottom left
             text_->SetAlignment(render::Align::BOTTOM_LEFT);
 
-            core::UiText text;
-            if(false == text.CreateParse(string_))
+            core::ui_text text;
+            if(false == text.init_by_parsing_source(string_))
             {
                 LOG_ERROR("Failed to parse {0}", string_);
             }
-            LOG_INFO("Loaded {0}", core::textparser::VisitorDebugString::Visit(&text));
+            LOG_INFO("Loaded {0}", core::textparser::visitor_debug_string::accept_all_nodes(&text));
             text_->SetText(text);
             text_->SetSize(size);
         }

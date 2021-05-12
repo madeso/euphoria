@@ -218,12 +218,12 @@ OpenOrFocusStyleEditor(Windows* windows)
 void
 OpenOrFocusTextFile(
         Windows*           windows,
-        const vfs::FilePath& path,
-        vfs::FileSystem*   fs)
+        const vfs::file_path& path,
+        vfs::file_system*   fs)
 {
     OpenOrFocusWindow(windows, string_builder {} << "File: " << path, [&]() {
         std::string str;
-        if(!fs->ReadFileToString(path, &str))
+        if(!fs->read_file_to_string(path, &str))
         {
             str = string_builder {} << "Failed to open " << path;
         }
@@ -233,12 +233,12 @@ OpenOrFocusTextFile(
 
 struct ScalingSpriteCache
     : public cache<
-              vfs::FilePath,
+              vfs::file_path,
               scalingsprite::ScalingSprite,
               ScalingSpriteCache>
 {
     std::shared_ptr<scalingsprite::ScalingSprite>
-    Create(const vfs::FilePath&)
+    Create(const vfs::file_path&)
     {
         // todo(Gustav): load from filename
         auto ss = std::make_shared<scalingsprite::ScalingSprite>();
@@ -252,11 +252,11 @@ LoadFile
     Scimed* scimed,
     TextureCache* cache,
     ScalingSpriteCache* scache,
-    const vfs::FilePath& path
+    const vfs::file_path& path
 )
 {
     scimed->texture = cache->GetTexture(path);
-    scimed->scaling = scache->get(path.ExtendExtensionCopy("json"));
+    scimed->scaling = scache->get(path.extend_extension_copy("json"));
 
     if(scimed->texture)
     {
@@ -275,7 +275,7 @@ LoadFile
 void
 OpenOrFocusScimed(
         Windows*            windows,
-        const vfs::FilePath&  file,
+        const vfs::file_path&  file,
         TextureCache*       tc,
         ScalingSpriteCache* sc)
 {
@@ -293,14 +293,14 @@ void
 OpenOrFocusScimedEditior
 (
     Windows* windows,
-    const vfs::FilePath&  path,
+    const vfs::file_path&  path,
     ScalingSpriteCache* sc
 )
 {
     auto file = path;
     if(!ends_with(file.path, ".json"))
     {
-        file = file.ExtendExtensionCopy("json");
+        file = file.extend_extension_copy("json");
     }
     OpenOrFocusWindow(
             windows,
@@ -318,8 +318,8 @@ void
 OpenOrFocusOnGenericWindow
 (
     Windows* windows,
-    const vfs::FilePath& path,
-    vfs::FileSystem* fs,
+    const vfs::file_path& path,
+    vfs::file_system* fs,
     const std::string& title,
     TRun run_function
 )
@@ -354,10 +354,10 @@ struct FileHandler
     virtual ~FileHandler() = default;
 
     virtual bool
-    Matches(const vfs::FilePath& path) = 0;
+    Matches(const vfs::file_path& path) = 0;
 
     virtual void
-    Open(Windows* windows, const vfs::FilePath& path) = 0;
+    Open(Windows* windows, const vfs::file_path& path) = 0;
 };
 
 template <typename TMatchFunction, typename TOpenFunction>
@@ -377,13 +377,13 @@ struct GenericFileHandler : public FileHandler
     {}
 
     bool
-    Matches(const vfs::FilePath& path) override
+    Matches(const vfs::file_path& path) override
     {
         return match_function(path);
     }
 
     void
-    Open(Windows* windows, const vfs::FilePath& path) override
+    Open(Windows* windows, const vfs::file_path& path) override
     {
         return open_function(windows, path);
     }
@@ -412,7 +412,7 @@ struct FileHandlerList
     }
 
     bool
-    Open(Windows* windows, const vfs::FilePath& path)
+    Open(Windows* windows, const vfs::file_path& path)
     {
         for(auto& handler: handlers)
         {
@@ -427,7 +427,7 @@ struct FileHandlerList
     }
 
     void
-    RunImguiSelectable(Windows* windows, const std::optional<vfs::FilePath>& path)
+    RunImguiSelectable(Windows* windows, const std::optional<vfs::file_path>& path)
     {
         // todo(Gustav): come up with a better name for this function
         for(auto& handler: handlers)
@@ -493,11 +493,11 @@ main(int argc, char** argv)
         CreateHandler
         (
             "Open with Game Data",
-            [](const vfs::FilePath& file) -> bool
+            [](const vfs::file_path& file) -> bool
             {
                 return file.path == "~/gamedata.json";
             },
-            [&](Windows* windows, const vfs::FilePath& file)
+            [&](Windows* windows, const vfs::file_path& file)
             {
                 OpenOrFocusOnGenericWindow<game::Game>
                 (
@@ -516,11 +516,11 @@ main(int argc, char** argv)
         CreateHandler
         (
             "Open with World Editor",
-            [](const vfs::FilePath& file) -> bool
+            [](const vfs::file_path& file) -> bool
             {
                 return file.path == "~/world.json";
             },
-            [&](Windows* windows, const vfs::FilePath& file)
+            [&](Windows* windows, const vfs::file_path& file)
             {
                 OpenOrFocusOnGenericWindow<world::World>
                 (
@@ -538,8 +538,8 @@ main(int argc, char** argv)
         CreateHandler
         (
             "Open with Enum Editor",
-            [](const vfs::FilePath&) -> bool { return false; },
-            [&](Windows* windows, const vfs::FilePath& file)
+            [](const vfs::file_path&) -> bool { return false; },
+            [&](Windows* windows, const vfs::file_path& file)
             {
                 OpenOrFocusOnGenericWindow<enumlist::Enumroot>
                 (
@@ -558,11 +558,11 @@ main(int argc, char** argv)
         CreateHandler
         (
             "Open with text editor",
-            [](const vfs::FilePath& file) -> bool
+            [](const vfs::file_path& file) -> bool
             {
                 return ends_with(file.path, ".json") || ends_with(file.path, ".js");
             },
-            [&](Windows* windows, const vfs::FilePath& file)
+            [&](Windows* windows, const vfs::file_path& file)
             {
                 OpenOrFocusTextFile(windows, file, engine.file_system.get());
             }
@@ -574,11 +574,11 @@ main(int argc, char** argv)
         CreateHandler
         (
             "Open with scimed editor",
-            [](const vfs::FilePath& file) -> bool
+            [](const vfs::file_path& file) -> bool
             {
-                return file.GetExtension() == "png";
+                return file.get_extension() == "png";
             },
-            [&](Windows* windows, const vfs::FilePath& file)
+            [&](Windows* windows, const vfs::file_path& file)
             {
                 OpenOrFocusScimed(windows, file, &texture_cache, &sprite_cache);
             }
@@ -590,8 +590,8 @@ main(int argc, char** argv)
         CreateHandler
         (
             "Open with auto scimed editor",
-            [](const vfs::FilePath&) -> bool { return false; },
-            [&](Windows* windows, const vfs::FilePath& file)
+            [](const vfs::file_path&) -> bool { return false; },
+            [&](Windows* windows, const vfs::file_path& file)
             {
                 OpenOrFocusScimedEditior(windows, file, &sprite_cache);
             }

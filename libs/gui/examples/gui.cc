@@ -324,9 +324,9 @@ main(int argc, char* argv[])
         return ret;
     }
 
-    engine.file_system->SetWrite
+    engine.file_system->set_write_root
     (
-        std::make_shared<vfs::FileSystemWriteFolder>(get_current_directory())
+        std::make_shared<vfs::write_root_physical_folder>(get_current_directory())
     );
 
     TextureCache cache {engine.file_system.get()};
@@ -353,7 +353,7 @@ main(int argc, char* argv[])
 
     Shader shader;
     attributes2d::PrebindShader(&shader);
-    shader.Load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
+    shader.Load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache      font_cache {engine.file_system.get(), &cache};
 
@@ -365,7 +365,7 @@ main(int argc, char* argv[])
     (
         engine.file_system.get(),
         &font_cache,
-        vfs::FilePath{"~/gui.json"},
+        vfs::file_path{"~/gui.json"},
         &cache
     );
 

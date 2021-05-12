@@ -53,11 +53,11 @@ namespace euphoria::render
     core::loaded_font
     GetCharactersFromSingleImage
     (
-        core::vfs::FileSystem* fs,
+        core::vfs::file_system* fs,
         const font::SingleImage& img
     )
     {
-        const auto image_file = core::vfs::FilePath::FromScript(img.file);
+        const auto image_file = core::vfs::file_path::from_script(img.file);
 
         if(image_file.has_value() == false)
         {
@@ -129,9 +129,9 @@ namespace euphoria::render
 
     Font::Font
     (
-        core::vfs::FileSystem* fs,
+        core::vfs::file_system* fs,
         TextureCache* cache,
-        const core::vfs::FilePath& font_file
+        const core::vfs::file_path& font_file
     )
     {
         // todo(Gustav): too long, break up
@@ -140,7 +140,7 @@ namespace euphoria::render
 
         background = cache->GetTexture
         (
-            core::vfs::FilePath{"~/img-plain/white"}
+            core::vfs::file_path{"~/img-plain/white"}
         );
 
         core::loaded_font fontchars;
@@ -157,7 +157,7 @@ namespace euphoria::render
             {
                 const font::FontFile& font = *source.font;
 
-                const auto p = core::vfs::FilePath::FromScript(font.file);
+                const auto p = core::vfs::file_path::from_script(font.file);
                 if(p.has_value() == false)
                 {
                     LOG_ERROR("Invalid path {0}", font.file);
@@ -353,7 +353,7 @@ namespace euphoria::render
     }
 
 
-    struct UiTextCompileVisitor : public core::textparser::Visitor
+    struct UiTextCompileVisitor : public core::textparser::visitor
     {
         const Font& font;
         float size;
@@ -380,9 +380,9 @@ namespace euphoria::render
 
 
         void
-        OnText(const std::string& text) override
+        on_text(const std::string& text) override
         {
-            core::Utf8ToCodepoints(text, [this](int cp)
+            core::utf8_to_codepoints(text, [this](int cp)
             {
                 AddCharIndex(cp);
             });
@@ -390,7 +390,7 @@ namespace euphoria::render
 
 
         void
-        OnImage(const std::string& image) override
+        on_image(const std::string& image) override
         {
             // todo(Gustav): handle invalud font alias
             auto found = font.private_use_aliases.find(image);
@@ -410,14 +410,14 @@ namespace euphoria::render
 
 
         void
-        OnBegin() override
+        on_begin() override
         {
             apply_highlight = true;
         }
 
 
         void
-        OnEnd() override
+        on_end() override
         {
             apply_highlight = false;
         }
@@ -469,12 +469,12 @@ namespace euphoria::render
 
 
     TextDrawCommandList
-    Font::CompileList(const core::UiText& text, float size) const
+    Font::CompileList(const core::ui_text& text, float size) const
     {
         TextDrawCommandList list;
 
         UiTextCompileVisitor vis {*this, size, &list};
-        text.Visit(&vis);
+        text.accept(&vis);
 
         return list;
     }
@@ -507,7 +507,7 @@ namespace euphoria::render
 
 
     void
-    Text::SetText(const core::UiText& str)
+    Text::SetText(const core::ui_text& str)
     {
         text_ = str;
         dirty = true;

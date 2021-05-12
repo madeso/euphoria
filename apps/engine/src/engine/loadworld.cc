@@ -18,10 +18,10 @@ namespace euphoria::engine
     void
     LoadWorld
     (
-        core::vfs::FileSystem* fs,
+        core::vfs::file_system* fs,
         core::ecs::world* world,
         DukRegistry* reg,
-        const core::vfs::FilePath& path,
+        const core::vfs::file_path& path,
         ObjectCreator* creator,
     Sol*        ctx)
 {

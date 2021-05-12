@@ -39,6 +39,9 @@ namespace euphoria::core
     std::string
     first_chars(const std::string& str, std::size_t count);
 
+    std::string
+    first_chars_with_ellipsis(const std::string& str, unsigned int count = 10);
+
 
     /** Remove characters from the right, stops at a invalid character.
     @param string_to_trim the string to remove characters from.

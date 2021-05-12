@@ -18,11 +18,11 @@ namespace euphoria::render
         MaterialShaderDefaultTexture
         (
             const core::enum_value& a_name,
-            const core::vfs::FilePath& a_path
+            const core::vfs::file_path& a_path
         );
 
         core::enum_value name;
-        core::vfs::FilePath path;
+        core::vfs::file_path path;
     };
 
     struct MaterialShaderBinding
@@ -47,8 +47,8 @@ namespace euphoria::render
         bool
         Load
         (
-            core::vfs::FileSystem* file_system,
-            const core::vfs::FilePath& path
+            core::vfs::file_system* file_system,
+            const core::vfs::file_path& path
         );
 
         void

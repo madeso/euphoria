@@ -70,7 +70,7 @@ namespace euphoria::gui
     void
     BuildLayoutContainer
     (
-        core::vfs::FileSystem* fs,
+        core::vfs::file_system* fs,
         UiState* state,
         LayoutContainer* root,
         const ::gui::LayoutContainer& c,
@@ -104,7 +104,7 @@ namespace euphoria::gui
     std::shared_ptr<Widget>
     CreateWidget
     (
-        core::vfs::FileSystem* fs,
+        core::vfs::file_system* fs,
         UiState* state,
         const ::gui::Widget& w,
         render::TextureCache* cache,
@@ -190,7 +190,7 @@ namespace euphoria::gui
     void
     BuildLayoutContainer
     (
-        core::vfs::FileSystem* fs,
+        core::vfs::file_system* fs,
         UiState* state,
         LayoutContainer* root,
         const ::gui::LayoutContainer& c,
@@ -312,12 +312,12 @@ namespace euphoria::gui
         skin->name = src.name;
         skin->font = font->GetFont
         (
-            core::vfs::FilePath::FromScript(src.font).value_or
+            core::vfs::file_path::from_script(src.font).value_or
             (
-                core::vfs::FilePath{"~/invalid_font_file"}
+                core::vfs::file_path{"~/invalid_font_file"}
             )
         );
-        skin->button_image = core::vfs::FilePath::FromScriptOrEmpty
+        skin->button_image = core::vfs::file_path::from_script_or_empty
         (
             src.button_image
         );
@@ -333,9 +333,9 @@ namespace euphoria::gui
     Load
     (
         Root* root,
-        core::vfs::FileSystem* fs,
+        core::vfs::file_system* fs,
         render::FontCache* font,
-        const core::vfs::FilePath& path,
+        const core::vfs::file_path& path,
         render::TextureCache* cache
     )
     {
@@ -349,11 +349,11 @@ namespace euphoria::gui
 
         root->cursor_image = cache->GetTexture
         (
-            core::vfs::FilePath::FromScriptOrEmpty(f.cursor_image)
+            core::vfs::file_path::from_script_or_empty(f.cursor_image)
         );
         root->hover_image = cache->GetTexture
         (
-            core::vfs::FilePath::FromScriptOrEmpty(f.hover_image)
+            core::vfs::file_path::from_script_or_empty(f.hover_image)
         );
 
         std::map<std::string, Skin*> skin_map;

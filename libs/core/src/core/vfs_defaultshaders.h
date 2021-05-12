@@ -6,5 +6,5 @@
 namespace euphoria::core::vfs
 {
     void
-    AddDefaultShaders(FileSystem* fs, const DirPath& base);
+    add_default_shaders(file_system* fs, const dir_path& base);
 }

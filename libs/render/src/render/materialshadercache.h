@@ -10,16 +10,16 @@
 namespace euphoria::render
 {
     struct MaterialShaderCache
-        : public core::cache<core::vfs::FilePath, MaterialShader, MaterialShaderCache>
+        : public core::cache<core::vfs::file_path, MaterialShader, MaterialShaderCache>
     {
     public:
-        MaterialShaderCache(core::vfs::FileSystem* fs) : fs_(fs)
+        MaterialShaderCache(core::vfs::file_system* fs) : fs_(fs)
         {
             ASSERT(fs);
         }
 
         std::shared_ptr<MaterialShader>
-        Create(const core::vfs::FilePath& path)
+        Create(const core::vfs::file_path& path)
         {
             auto ret = std::make_shared<MaterialShader>();
             ret->Load(fs_, path);
@@ -27,7 +27,7 @@ namespace euphoria::render
         }
 
     private:
-        core::vfs::FileSystem* fs_;
+        core::vfs::file_system* fs_;
     };
 
 }  // namespace euphoria::render

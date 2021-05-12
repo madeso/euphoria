@@ -22,9 +22,9 @@ namespace euphoria::gui
     bool
     Root::Load
     (
-        core::vfs::FileSystem* fs,
+        core::vfs::file_system* fs,
         render::FontCache* font,
-        const core::vfs::FilePath& path,
+        const core::vfs::file_path& path,
         render::TextureCache* cache
     )
     {

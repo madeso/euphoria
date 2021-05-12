@@ -65,8 +65,8 @@ namespace euphoria::render
 {
     ScalableSprite::ScalableSprite
     (
-        core::vfs::FileSystem* fs,
-        const core::vfs::FilePath& path,
+        core::vfs::file_system* fs,
+        const core::vfs::file_path& path,
         TextureCache* cache
     )
         : texture_(cache->GetTexture(path))
@@ -77,7 +77,7 @@ namespace euphoria::render
         (
             fs,
             &sprite,
-            path.SetExtensionCopy(path.GetExtension()+ ".json")
+            path.set_extension_copy(path.get_extension()+ ".json")
         );
 
         max_row_ = CopyData(&rows_, sprite.rows);

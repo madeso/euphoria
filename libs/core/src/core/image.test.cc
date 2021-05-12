@@ -31,18 +31,18 @@ const char* const TEST_IMAGE
 
 TEST_CASE("image-load", "[img]")
 {
-    vfs::FileSystem fs;
-    auto catalog = vfs::FileSystemRootCatalog::AddRoot(&fs);
-    catalog->RegisterFileData
+    vfs::file_system fs;
+    auto catalog = vfs::read_root_catalog::create_and_add(&fs);
+    catalog->register_file_data
     (
-        vfs::FilePath{"~/white"},
+        vfs::file_path{"~/white"},
         euco::base64::decode(TEST_IMAGE)
     );
 
     auto loaded = euco::load_image
     (
         &fs,
-        vfs::FilePath{"~/white"},
+        vfs::file_path{"~/white"},
         euco::alpha_load::Remove
     );
     REQUIRE(loaded.error.empty());

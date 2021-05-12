@@ -18,7 +18,7 @@ namespace
     {
         auto ret = T{};
 
-        const auto r = Utf8ToCodepoints(str,
+        const auto r = utf8_to_codepoints(str,
             [&](unsigned int cp) { ret.push_back(cp); }
         );
 

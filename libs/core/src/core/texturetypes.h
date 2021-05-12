@@ -1,11 +1,9 @@
-#ifndef EUPHORIA_TEXTURETYPES_H
-#define EUPHORIA_TEXTURETYPES_H
+#pragma once
+
 
 #include "core/enum.h"
 
 namespace euphoria::core
 {
-    DECLARE_ENUM_TYPE(TextureType)
+    DECLARE_ENUM_TYPE(texture_type)
 }
-
-#endif  // EUPHORIA_TEXTURETYPES_H

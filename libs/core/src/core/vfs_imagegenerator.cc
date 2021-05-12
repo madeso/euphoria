@@ -13,20 +13,20 @@ namespace euphoria::core::vfs
 
 
     void
-    FileSystemImageGenerator::AddRoot(
-            FileSystem*        fs,
-            const DirPath& base)
+    read_root_image_generator::add(
+            file_system*        fs,
+            const dir_path& base)
     {
-        auto root = std::make_shared<FileSystemImageGenerator>(base);
-        fs->AddReadRoot(root);
+        auto root = std::make_shared<read_root_image_generator>(base);
+        fs->add_read_root(root);
     }
 
 
     std::shared_ptr<memory_chunk>
-    FileSystemImageGenerator::ReadFile(const FilePath& path)
+    read_root_image_generator::read_file(const file_path& path)
     {
-        const auto [dir, command] = path.SplitDirectoriesAndFile();
-        if(dir != base_)
+        const auto [dir, command] = path.split_directories_and_file();
+        if(dir != base)
         {
             return memory_chunk::null();
         }
@@ -57,40 +57,40 @@ namespace euphoria::core::vfs
 
 
     void
-    FileSystemImageGenerator::Describe(std::vector<std::string>* strings)
+    read_root_image_generator::add_description(std::vector<std::string>* strings)
     {
-        strings->emplace_back(string_builder() << base_ << "<color>");
+        strings->emplace_back(string_builder() << base << "<color>");
     }
 
 
-    FileSystemImageGenerator::FileSystemImageGenerator(const DirPath& base)
-        : base_(base)
+    read_root_image_generator::read_root_image_generator(const dir_path& base)
+        : base(base)
     {
-        ASSERT(!base.ContainsRelative());
+        ASSERT(!base.contains_relative());
     }
 
 
-    FileList
-    FileSystemImageGenerator::ListFiles(const DirPath& path)
+    file_list
+    read_root_image_generator::list_files(const dir_path& path)
     {
-        ASSERT(!path.ContainsRelative());
+        ASSERT(!path.contains_relative());
 
-        FileList ret;
+        file_list ret;
 
-        if(base_ != DirPath::FromRoot())
+        if(base != dir_path::from_root())
         {
-            if(path == base_.GetParentDirectory())
+            if(path == base.get_parent_directory())
             {
-                ret.Add(base_.GetDirectoryName() + "/", true, false);
+                ret.add(base.get_directory_name() + "/", true, false);
             }
         }
 
-        if(path == base_)
+        if(path == base)
         {
             const auto names = enum_to_string<color>();
             for(const auto& n: names)
             {
-                ret.Add(n, true, true);
+                ret.add(n, true, true);
             }
         }
 

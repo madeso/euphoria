@@ -8,8 +8,8 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct FileSystem;
-        struct FilePath;
+        struct file_system;
+        struct file_path;
     }
 
     struct enum_value;
@@ -93,8 +93,8 @@ namespace euphoria::core
     load_enum_type
     (
         enum_type* type,
-        vfs::FileSystem* fs,
-        const vfs::FilePath& path
+        vfs::file_system* fs,
+        const vfs::file_path& path
     );
 
 

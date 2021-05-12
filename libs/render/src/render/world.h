@@ -14,7 +14,7 @@ namespace euphoria::core
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
+    struct file_system;
 }
 
 namespace euphoria::render

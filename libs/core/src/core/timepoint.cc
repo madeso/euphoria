@@ -2,14 +2,14 @@
 
 namespace euphoria::core
 {
-    TimePoint
-    Now()
+    time_point
+    time_point_now()
     {
         return std::chrono::steady_clock::now();
     }
 
     double
-    SecondsBetween(const TimePoint& start, const TimePoint& end)
+    get_seconds_between(const time_point& start, const time_point& end)
     {
         const std::chrono::duration<double> diff = end-start;
         return diff.count();

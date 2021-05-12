@@ -20,7 +20,7 @@ namespace euphoria::render
     MaterialShaderDefaultTexture::MaterialShaderDefaultTexture
     (
         const core::enum_value& a_name,
-        const core::vfs::FilePath& a_path
+        const core::vfs::file_path& a_path
     )
         : name(a_name)
         , path(a_path)
@@ -69,7 +69,7 @@ namespace euphoria::render
     (
         MaterialShader* sh,
         const materialshader::MaterialShader& file,
-        const core::vfs::FilePath& path
+        const core::vfs::file_path& path
     )
     {
         sh->hasLight = file.has_light;
@@ -77,7 +77,7 @@ namespace euphoria::render
         for(const auto& texture: file.textures)
         {
             const auto uniform = sh->shader.GetUniform(texture.uniform);
-            DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
+            DEFINE_ENUM_VALUE(core::texture_type, texture_name, texture.texture);
             LOG_INFO
             (
                 "Defining shader {0}: {1} to {2}",
@@ -90,7 +90,7 @@ namespace euphoria::render
 
         for(const auto& texture: file.default_textures)
         {
-            const auto texture_path = core::vfs::FilePath::FromScript(texture.path);
+            const auto texture_path = core::vfs::file_path::from_script(texture.path);
             if(texture_path.has_value() == false)
             {
                 LOG_WARN
@@ -102,7 +102,7 @@ namespace euphoria::render
                 );
                 continue;
             }
-            DEFINE_ENUM_VALUE(core::TextureType, texture_name, texture.texture);
+            DEFINE_ENUM_VALUE(core::texture_type, texture_name, texture.texture);
             sh->default_textures.emplace_back
             (
                 texture_name,
@@ -159,8 +159,8 @@ namespace euphoria::render
     bool
     MaterialShader::Load
     (
-        core::vfs::FileSystem* file_system,
-        const core::vfs::FilePath& path
+        core::vfs::file_system* file_system,
+        const core::vfs::file_path& path
     )
     {
         attributes3d::PrebindShader(&shader);
@@ -168,7 +168,7 @@ namespace euphoria::render
         // if (!shader_compile) { return false; }
 
         materialshader::MaterialShader file;
-        const auto proto_path = path.SetExtensionCopy("json");
+        const auto proto_path = path.set_extension_copy("json");
         std::string error = core::read_json_to_gaf_struct_or_get_error_message
         (
             file_system,

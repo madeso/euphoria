@@ -186,8 +186,8 @@ namespace euphoria::render
     void
     texture2d::load_from_file
     (
-        core::vfs::FileSystem* fs,
-        const core::vfs::FilePath& path,
+        core::vfs::file_system* fs,
+        const core::vfs::file_path& path,
         core::alpha_load alpha,
         const texture2d_load_data& data
     )

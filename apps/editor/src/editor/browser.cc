@@ -37,12 +37,12 @@ namespace euphoria::editor
         return -1;
     }
 
-    FileBrowser::FileBrowser(vfs::FileSystem* fs)
-        : current_folder(core::vfs::DirPath::FromRoot())
+    FileBrowser::FileBrowser(vfs::file_system* fs)
+        : current_folder(core::vfs::dir_path::from_root())
         , file_system(fs)
     {}
 
-    std::optional<core::vfs::FilePath>
+    std::optional<core::vfs::file_path>
     FileBrowser::GetSelectedFile()
     {
         if(selected_file >= 0 && selected_file < Csizet_to_int(files.size()))
@@ -50,7 +50,7 @@ namespace euphoria::editor
             const auto suggested = files[selected_file];
             if(suggested.is_file)
             {
-                return current_folder.GetFile(suggested.name);
+                return current_folder.get_file(suggested.name);
             }
         }
         return std::nullopt;
@@ -77,21 +77,21 @@ namespace euphoria::editor
     void
     FileBrowser::Refresh()
     {
-        files = file_system->ListFiles(current_folder);
-        if(current_folder != core::vfs::DirPath::FromRoot())
+        files = file_system->list_files(current_folder);
+        if(current_folder != core::vfs::dir_path::from_root())
         {
-            files.insert(files.begin(), vfs::ListedFile {"../", true, false});
+            files.insert(files.begin(), vfs::listed_file {"../", true, false});
         }
         // files.insert(files.begin(), f.begin(), f.end());
         selected_file = -1;
     }
 
     std::string
-    DetermineIconString(const core::vfs::ListedFile& f, bool outline = false)
+    DetermineIconString(const core::vfs::listed_file& f, bool outline = false)
     {
         if(f.is_file)
         {
-            const auto x = vfs::FilePath{"./" + f.name}.GetExtension();
+            const auto x = vfs::file_path{"./" + f.name}.get_extension();
             if(x == "png")
             {
                 return outline? ICON_MDI_FILE_IMAGE_OUTLINE : ICON_MDI_FILE_IMAGE;
@@ -191,12 +191,12 @@ namespace euphoria::editor
                     {
                         if(item.name == "../")
                         {
-                            current_folder = current_folder.GetParentDirectory();
+                            current_folder = current_folder.get_parent_directory();
                         }
                         else
                         {
-                            const auto sub_directory = core::vfs::DirPath{"./" + item.name};
-                            const auto resolved = ResolveRelative(sub_directory, current_folder);
+                            const auto sub_directory = core::vfs::dir_path{"./" + item.name};
+                            const auto resolved = resolve_relative(sub_directory, current_folder);
                             ASSERTX(resolved.has_value(), sub_directory, current_folder);
                             current_folder = resolved.value();
                         }

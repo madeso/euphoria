@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_TEXTFILEPARSER_H
-#define EUPHORIA_TEXTFILEPARSER_H
+#pragma once
 
 #include <string>
 #include <memory>
@@ -8,37 +7,37 @@ namespace euphoria::core
 {
     namespace detail
     {
-        struct TextFile
+        struct textfile
         {
-            TextFile() = default;
-            virtual ~TextFile() = default;
+            textfile() = default;
+            virtual ~textfile() = default;
 
-            TextFile(const TextFile&) = delete;
-            TextFile(TextFile&&) = delete;
-            void operator=(const TextFile&) = delete;
-            void operator=(TextFile&&) = delete;
+            textfile(const textfile&) = delete;
+            textfile(textfile&&) = delete;
+            void operator=(const textfile&) = delete;
+            void operator=(textfile&&) = delete;
 
             [[nodiscard]]
             virtual bool
-            HasMore() const = 0;
+            has_more() const = 0;
 
             // return 0 if position is beyond file
             [[nodiscard]]
             virtual char
-            Peek(int advance) = 0;
+            peek(int advance) = 0;
 
             char
-            Peek(/* advance = 1 */);
+            peek(/* advance = 1 */);
 
             [[nodiscard]]
             virtual char
-            Read() = 0;
+            read() = 0;
         };
 
-        std::shared_ptr<TextFile>
-        FromString(const std::string& str);
+        std::shared_ptr<textfile>
+        create_from_string(const std::string& str);
 
-        struct Location
+        struct location
         {
             int line = -1;
             int column = -1;
@@ -46,65 +45,64 @@ namespace euphoria::core
     }
 
     bool
-    IsIdentStart(char c);
+    is_ident_start(char c);
 
     /** Parses a text file in memory.
      */
-    struct TextFileParser
+    struct textfile_parser
     {
-        explicit TextFileParser(std::shared_ptr<detail::TextFile> afile);
+        explicit textfile_parser(std::shared_ptr<detail::textfile> afile);
 
-        static TextFileParser
-        FromString(const std::string& str);
+        static textfile_parser
+        from_string(const std::string& str);
 
         
         // advance = 0 - next char, 1-the one after that, negative values are not allowed
         char
-        PeekChar(int advance = 0);
+        peek_char(int advance = 0);
 
         // like PeekChar but returns human readable strings for some chars
         std::string
-        PeekString(int advance = 0);
+        peek_string(int advance = 0);
 
         // if peekchar(0) is c then it is read and function returns true,
         // otherwise false
         bool
-        ExpectChar(char c);
+        expect_char(char c);
 
         void
-        AdvanceChar();
+        advance_char();
 
         char
-        ReadChar();
+        read_char();
 
         std::string
-        ReadIdent();
+        read_ident();
 
         std::string
-        ReadString();
+        read_string();
 
         std::string
-        ReadToEndOfLine();
+        read_to_end_of_line();
 
         void
-        SkipSpaces(bool include_newline);
+        skip_spaces(bool include_newline);
 
         [[nodiscard]]
         bool
-        HasMore() const;
+        has_more() const;
 
         [[nodiscard]]
         int
-        GetLine() const;
+        get_line() const;
 
         [[nodiscard]]
         int
-        GetColumn() const;
+        get_column() const;
 
-        std::shared_ptr<detail::TextFile> file;
-        detail::Location location = detail::Location{ 1, 1 };
+        std::shared_ptr<detail::textfile> file;
+        detail::location location = detail::location{ 1, 1 };
     };
 
-}  // namespace euphoria::core
+}
 
-#endif  // EUPHORIA_TEXTFILEPARSER_H

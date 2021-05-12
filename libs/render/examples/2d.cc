@@ -52,9 +52,9 @@ main(int argc, char* argv[])
         return ret;
     }
 
-    engine.file_system->SetWrite
+    engine.file_system->set_write_root
     (
-        std::make_shared<vfs::FileSystemWriteFolder>(get_current_directory())
+        std::make_shared<vfs::write_root_physical_folder>(get_current_directory())
     );
 
     TextureCache cache {engine.file_system.get()};
@@ -81,7 +81,7 @@ main(int argc, char* argv[])
 
     Shader shader;
     attributes2d::PrebindShader(&shader);
-    shader.Load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
+    shader.Load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache      font_cache {engine.file_system.get(), &cache};
 
@@ -120,13 +120,13 @@ main(int argc, char* argv[])
         draw_arrow(&image, vec2f{h, 0}, vec2f{h, m}, {color::blue}, s);
         draw_arrow(&image, vec2f{0, h}, vec2f{m, h}, {color::red}, s);
 
-        engine.catalog->RegisterFileData
+        engine.catalog->register_file_data
         (
-            vfs::FilePath{"~/image"},
+            vfs::file_path{"~/image"},
             image.write(image_write_format::png)
         );
     }
-    auto arrows = cache.GetTexture(vfs::FilePath{"~/image"});
+    auto arrows = cache.GetTexture(vfs::file_path{"~/image"});
 
     engine.init->Use2d();
 

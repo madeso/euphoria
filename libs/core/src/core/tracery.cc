@@ -244,14 +244,14 @@ namespace euphoria::core::tracery
     rule::rule() = default;
 
     result
-    parse_error(TextFileParser* parser)
+    parse_error(textfile_parser* parser)
     {
         return result(result::general_rule_parse_error)
-               << parser->PeekString() << " detected but ";
+               << parser->peek_string() << " detected but ";
     }
 
     std::string
-    read_tracery_ident(TextFileParser* parser)
+    read_tracery_ident(textfile_parser* parser)
     {
         const std::string valid
                 = "abcdefghijklmnopqrstuvwxyz"
@@ -260,9 +260,9 @@ namespace euphoria::core::tracery
                   "_-+";
 
         std::ostringstream ss;
-        while(valid.find(parser->PeekChar()) != std::string::npos)
+        while(valid.find(parser->peek_char()) != std::string::npos)
         {
-            ss << parser->ReadChar();
+            ss << parser->read_char();
         }
         return ss.str();
     }
@@ -282,25 +282,25 @@ namespace euphoria::core::tracery
 #define EXPECT_CHAR(chr, err)                                                  \
     do                                                                         \
     {                                                                          \
-        if(false == parser.ExpectChar(chr))                                    \
+        if(false == parser.expect_char(chr))                                    \
         {                                                                      \
             return parse_error(&parser) << err;                                \
         }                                                                      \
     } while(false)
 
-        auto parser = TextFileParser::FromString(s);
+        auto parser = textfile_parser::from_string(s);
         std::ostringstream buffer;
-        while(parser.HasMore())
+        while(parser.has_more())
         {
-            switch(parser.PeekChar())
+            switch(parser.peek_char())
             {
             case '\\':
-                parser.ReadChar();
-                buffer << parser.ReadChar();
+                parser.read_char();
+                buffer << parser.read_char();
                 break;
 
             case '#': {
-                parser.ReadChar();
+                parser.read_char();
                 const auto text = buffer.str();
                 buffer.str("");
                 if(text.empty() == false)
@@ -308,16 +308,16 @@ namespace euphoria::core::tracery
                     add(std::make_shared<literal_string_node>(text));
                 }
                 auto n = std::make_shared<call_symbol_node>();
-                while(parser.PeekChar() == '[')
+                while(parser.peek_char() == '[')
                 {
-                    parser.ReadChar();
+                    parser.read_char();
                     const auto key_name = read_tracery_ident(&parser);
                     EMPTY_STRING(key_name, "got empty key");
 
                     EXPECT_CHAR(':', "expected : after key name");
-                    if(parser.PeekChar() == '#')
+                    if(parser.peek_char() == '#')
                     {
-                        parser.ReadChar();
+                        parser.read_char();
                         const auto symbol_name = read_tracery_ident(&parser);
                         EMPTY_STRING(symbol_name, "got empty symbol name");
                         EXPECT_CHAR('#', "expected # to end symbol name");
@@ -334,24 +334,24 @@ namespace euphoria::core::tracery
                 EMPTY_STRING(symbol_name, "Empty symbol name");
                 n->symbol = symbol_name;
                 bool run = true;
-                while(run && parser.HasMore())
+                while(run && parser.has_more())
                 {
-                    switch(parser.PeekChar())
+                    switch(parser.peek_char())
                     {
                     case '.': {
-                        parser.ReadChar();
+                        parser.read_char();
                         const auto mod = read_tracery_ident(&parser);
                         n->modifiers.push_back(mod);
                     }
                     break;
 
                     case '#':
-                        parser.ReadChar();
+                        parser.read_char();
                         run = false;
                         break;
 
                     default: {
-                        const auto c = parser.ReadChar();
+                        const auto c = parser.read_char();
                         return result(result::general_rule_parse_error)
                                << "Unknown character inside ##: "
                                << (string_builder() << c);
@@ -366,7 +366,7 @@ namespace euphoria::core::tracery
             }
             break;
 
-            default: buffer << parser.ReadChar(); break;
+            default: buffer << parser.read_char(); break;
             }
         }
 

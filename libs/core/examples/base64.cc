@@ -20,15 +20,15 @@ PrintUsage(char** argv)
 int
 RunEncode(const std::string& data)
 {
-    vfs::FileSystem file_system;
-    auto            catalog = vfs::FileSystemRootCatalog::AddRoot(&file_system);
-    vfs::FileSystemRootFolder::AddRoot(&file_system);
+    vfs::file_system file_system;
+    auto            catalog = vfs::read_root_catalog::create_and_add(&file_system);
+    vfs::read_root_physical_folder::add_current_directory(&file_system);
 
-    auto memory  = file_system.ReadFile
+    auto memory  = file_system.read_file
     (
-        vfs::FilePath::FromScript(data).value_or
+        vfs::file_path::from_script(data).value_or
         (
-            vfs::FilePath{"~/invalid_input"}
+            vfs::file_path{"~/invalid_input"}
         )
     );
     auto encoded = euphoria::core::base64::encode(memory);

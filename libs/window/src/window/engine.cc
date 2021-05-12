@@ -62,22 +62,22 @@ namespace euphoria::window
 
         LOG_INFO("Current directory: {0}", current_directory);
 
-        file_system.reset(new core::vfs::FileSystem {});
-        catalog = core::vfs::FileSystemRootCatalog::AddRoot(file_system.get());
-        core::vfs::FileSystemRootFolder::AddRoot
+        file_system.reset(new core::vfs::file_system {});
+        catalog = core::vfs::read_root_catalog::create_and_add(file_system.get());
+        core::vfs::read_root_physical_folder::add
         (
             file_system.get(),
             current_directory
         );
-        core::vfs::FileSystemImageGenerator::AddRoot
+        core::vfs::read_root_image_generator::add
         (
             file_system.get(),
-            core::vfs::DirPath{"~/img-plain/"}
+            core::vfs::dir_path{"~/img-plain/"}
         );
-        core::vfs::AddDefaultShaders
+        core::vfs::add_default_shaders
         (
             file_system.get(),
-            core::vfs::DirPath{"~/shaders/"}
+            core::vfs::dir_path{"~/shaders/"}
         );
 
         render::SetupDefaultFiles(catalog);

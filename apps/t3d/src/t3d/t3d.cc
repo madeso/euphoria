@@ -70,8 +70,8 @@ namespace euphoria::t3d
         SET_ENUM_FROM_FILE
         (
             engine->file_system.get(),
-            core::vfs::FilePath{"~/texture_types.json"},
-            core::TextureType
+            core::vfs::file_path{"~/texture_types.json"},
+            core::texture_type
         );
 
         texture_cache = std::make_shared<render::TextureCache>(engine->file_system.get());
@@ -101,7 +101,7 @@ namespace euphoria::t3d
 
 
     void
-    T3d::AddLibrary(const core::vfs::DirPath& path)
+    T3d::AddLibrary(const core::vfs::dir_path& path)
     {
         pending_files.AddDirectory(path, engine->file_system.get());
     }

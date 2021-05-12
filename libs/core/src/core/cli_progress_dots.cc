@@ -7,10 +7,10 @@ namespace euphoria::core
     void
     cli_progress_dots::update()
     {
-        const auto now = Now();
+        const auto now = time_point_now();
         if(has_printed)
         {
-            if(SecondsBetween(last, now) < 0.2f)
+            if(get_seconds_between(last, now) < 0.2f)
             {
                 return;
             }

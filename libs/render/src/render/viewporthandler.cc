@@ -12,13 +12,13 @@ namespace
 {
     namespace core = euphoria::core;
 
-    core::ViewportDef
+    core::viewport_definition
     CreateDefinition(const euphoria::render::ViewportHandler& handler)
     {
         switch(handler.type)
         {
         case euphoria::render::ViewportType::FitWithBlackBars:
-            return core::ViewportDef::FitWithBlackBars
+            return core::viewport_definition::fit_with_black_bars
             (
                 handler.virtual_width,
                 handler.virtual_height,
@@ -26,13 +26,13 @@ namespace
                 handler.window_height
             );
         case euphoria::render::ViewportType::ScreenPixel:
-            return core::ViewportDef::ScreenPixel
+            return core::viewport_definition::screen_pixel
             (
                 handler.window_width,
                 handler.window_height
             );
         case euphoria::render::ViewportType::Extend:
-            return core::ViewportDef::Extend
+            return core::viewport_definition::extend
             (
                 handler.virtual_width,
                 handler.virtual_height,
@@ -41,7 +41,7 @@ namespace
             );
         default:
             DIE("Unhandled viewport case");
-            return core::ViewportDef::ScreenPixel
+            return core::viewport_definition::screen_pixel
             (
                 handler.window_width,
                 handler.window_height
@@ -53,7 +53,7 @@ namespace
     void Apply
     (
         euphoria::render::ViewportHandler* handler,
-        const core::ViewportDef& vp,
+        const core::viewport_definition& vp,
         bool shaders_too
     )
     {
@@ -125,7 +125,7 @@ namespace euphoria::render
         Apply
         (
             this,
-            core::ViewportDef::ScreenPixel(window_width, window_height),
+            core::viewport_definition::screen_pixel(window_width, window_height),
             false
         );
 

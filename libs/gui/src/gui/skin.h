@@ -51,7 +51,7 @@ namespace euphoria::gui
 
         float text_size = 30.0f;
 
-        std::optional<core::vfs::FilePath> button_image;
+        std::optional<core::vfs::file_path> button_image;
 
         ButtonState button_idle;
         ButtonState button_hot;

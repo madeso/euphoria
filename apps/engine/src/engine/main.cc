@@ -60,10 +60,10 @@ using namespace euphoria::engine;
 
 
 game::Game
-LoadGameData(vfs::FileSystem* fs)
+LoadGameData(vfs::file_system* fs)
 {
     game::Game game;
-    const auto err = read_json_to_gaf_struct_or_get_error_message(fs, &game, vfs::FilePath{"~/gamedata.json"});
+    const auto err = read_json_to_gaf_struct_or_get_error_message(fs, &game, vfs::file_path{"~/gamedata.json"});
     if(!err.empty())
     {
         LOG_ERROR("Failed to load gamedata.json: {0}", err);
@@ -98,10 +98,10 @@ private:
 };
 
 RunResult
-RunMainScriptFile(Sol* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
+RunMainScriptFile(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
 {
     std::string content;
-    const bool  loaded = fs->ReadFileToString(path, &content);
+    const bool  loaded = fs->read_file_to_string(path, &content);
     if(!loaded)
     {
         const std::string error_message = string_builder() << "Unable to open " << path
@@ -196,9 +196,9 @@ main(int argc, char* argv[])
         return ret;
     }
 
-    engine.file_system->SetWrite
+    engine.file_system->set_write_root
     (
-        std::make_shared<vfs::FileSystemWriteFolder>(get_current_directory())
+        std::make_shared<vfs::write_root_physical_folder>(get_current_directory())
     );
 
     TextureCache cache {engine.file_system.get()};
@@ -239,7 +239,7 @@ main(int argc, char* argv[])
 
     Shader shader;
     attributes2d::PrebindShader(&shader);
-    shader.Load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
+    shader.Load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache      font_cache {engine.file_system.get(), &cache};
 
@@ -283,7 +283,7 @@ main(int argc, char* argv[])
         &camera_data
     };
     const auto error_run_main
-            = RunMainScriptFile(&duk, engine.file_system.get(), vfs::FilePath{"~/main.lua"});
+            = RunMainScriptFile(&duk, engine.file_system.get(), vfs::file_path{"~/main.lua"});
     if(!error_run_main.ok)
     {
         has_crashed          = true;
@@ -320,7 +320,7 @@ main(int argc, char* argv[])
             engine.file_system.get(),
             &world,
             &integration.Registry(),
-            vfs::FilePath{"~/world.json"},
+            vfs::file_path{"~/world.json"},
             &templates,
             &duk
         );

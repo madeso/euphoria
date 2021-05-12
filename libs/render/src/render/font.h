@@ -17,8 +17,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
-    struct FilePath;
+    struct file_system;
+    struct file_path;
 }
 
 
@@ -116,7 +116,7 @@ namespace euphoria::render
         NONCOPYABLE(Text);
 
         void
-        SetText(const core::UiText& text);
+        SetText(const core::ui_text& text);
 
         void
         SetBackground(bool use_background, float alpha = 0.5f);
@@ -153,7 +153,7 @@ namespace euphoria::render
     private:
         const Font* font_;
         float size_;
-        core::UiText text_;
+        core::ui_text text_;
         Align alignment_;
 
         bool use_background_;
@@ -173,9 +173,9 @@ namespace euphoria::render
     public:
         Font
         (
-            core::vfs::FileSystem* fs,
+            core::vfs::file_system* fs,
             TextureCache* cache,
-            const core::vfs::FilePath& font_file
+            const core::vfs::file_path& font_file
         );
 
         // todo(Gustav): expose background property and move this away from font
@@ -188,7 +188,7 @@ namespace euphoria::render
         ) const;
 
         [[nodiscard]] TextDrawCommandList
-        CompileList(const core::UiText& text, float size) const;
+        CompileList(const core::ui_text& text, float size) const;
 
         float line_height=1;
 

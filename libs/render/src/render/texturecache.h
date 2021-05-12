@@ -8,8 +8,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
-    struct FilePath;
+    struct file_system;
+    struct file_path;
 }
 
 namespace euphoria::render
@@ -18,16 +18,16 @@ namespace euphoria::render
 
     struct TextureCache
     {
-        explicit TextureCache(core::vfs::FileSystem* fs);
+        explicit TextureCache(core::vfs::file_system* fs);
         ~TextureCache();
 
         NONCOPYABLE(TextureCache);
 
         [[nodiscard]] std::shared_ptr<texture2d>
-        GetTexture(const core::vfs::FilePath& path) const;
+        GetTexture(const core::vfs::file_path& path) const;
 
         [[nodiscard]] std::shared_ptr<texture2d>
-        GetTexture(const std::optional<core::vfs::FilePath>& path) const;
+        GetTexture(const std::optional<core::vfs::file_path>& path) const;
 
         struct TextureCachePimpl;
         std::unique_ptr<TextureCachePimpl> pimp_;

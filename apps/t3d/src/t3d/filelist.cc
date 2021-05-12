@@ -12,16 +12,16 @@ namespace euphoria::t3d
     void
     FileList::AddDirectory
     (
-        const core::vfs::DirPath& directory,
-        core::vfs::FileSystem* file_system
+        const core::vfs::dir_path& directory,
+        core::vfs::file_system* file_system
     )
     {
-        auto listed_files = file_system->ListFiles(directory);
+        auto listed_files = file_system->list_files(directory);
         for(const auto& relative_file: listed_files)
         {
             if(relative_file.is_file == false) { continue; }
-            const auto file      = directory.GetFile(relative_file.name);
-            const auto my_ext = file.GetExtension();
+            const auto file      = directory.get_file(relative_file.name);
+            const auto my_ext = file.get_extension();
             const auto found_ext = std::find
             (
                 extensions.begin(),
@@ -44,7 +44,7 @@ namespace euphoria::t3d
     }
 
 
-    core::vfs::FilePath
+    core::vfs::file_path
     FileList::NextFile()
     {
         ASSERT(!files.empty());

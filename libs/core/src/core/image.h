@@ -11,8 +11,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
-    struct FilePath;
+    struct file_system;
+    struct file_path;
 }
 
 namespace euphoria::core
@@ -165,7 +165,7 @@ namespace euphoria::core
 
     // todo(Gustav): move image loading to a io library instead
     image_load_result
-    load_image(vfs::FileSystem* fs, const vfs::FilePath& path, alpha_load alpha);
+    load_image(vfs::file_system* fs, const vfs::file_path& path, alpha_load alpha);
 
 
     image_load_result

@@ -9,8 +9,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
-    struct FilePath;
+    struct file_system;
+    struct file_path;
 }
 
 namespace euphoria::core
@@ -30,8 +30,8 @@ namespace euphoria::render
     {
         ScalableSprite
         (
-            core::vfs::FileSystem* fs,
-            const core::vfs::FilePath& path,
+            core::vfs::file_system* fs,
+            const core::vfs::file_path& path,
             TextureCache* cache
         );
         ~ScalableSprite();

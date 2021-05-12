@@ -340,7 +340,7 @@ namespace euphoria::core
     }
 
     std::string
-    chatbot::load_from_file(vfs::FileSystem* fs, const vfs::FilePath& path)
+    chatbot::load_from_file(vfs::file_system* fs, const vfs::file_path& path)
     {
         chat::Root root;
 

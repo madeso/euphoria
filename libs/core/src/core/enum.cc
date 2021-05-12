@@ -177,8 +177,8 @@ namespace euphoria::core
     load_enum_type
     (
         enum_type* type,
-        vfs::FileSystem* fs,
-        const vfs::FilePath& path
+        vfs::file_system* fs,
+        const vfs::file_path& path
     )
     {
         ASSERT(type);

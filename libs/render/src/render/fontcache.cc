@@ -10,26 +10,26 @@
 namespace euphoria::render
 {
     struct FontCache::FontCachePimpl
-        : core::cache<core::vfs::FilePath, Font, FontCache::FontCachePimpl>
+        : core::cache<core::vfs::file_path, Font, FontCache::FontCachePimpl>
     {
-        explicit FontCachePimpl(core::vfs::FileSystem* fs, TextureCache* cache)
+        explicit FontCachePimpl(core::vfs::file_system* fs, TextureCache* cache)
             : fs_(fs), cache_(cache)
         {
             ASSERT(fs);
         }
 
         std::shared_ptr<Font>
-        Create(const core::vfs::FilePath& file)
+        Create(const core::vfs::file_path& file)
         {
             auto ret = std::make_shared<Font>(fs_, cache_, file);
             return ret;
         }
 
-        core::vfs::FileSystem* fs_;
+        core::vfs::file_system* fs_;
         TextureCache*          cache_;
     };
 
-    FontCache::FontCache(core::vfs::FileSystem* fs, TextureCache* cache)
+    FontCache::FontCache(core::vfs::file_system* fs, TextureCache* cache)
     {
         pimp = std::make_unique<FontCache::FontCachePimpl>(fs, cache);
     }
@@ -37,7 +37,7 @@ namespace euphoria::render
     FontCache::~FontCache() = default;
 
     std::shared_ptr<Font>
-    FontCache::GetFont(const core::vfs::FilePath& path) const
+    FontCache::GetFont(const core::vfs::file_path& path) const
     {
         return pimp->get(path);
     }

@@ -19,7 +19,7 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
+    struct file_system;
 }
 
 
@@ -59,7 +59,7 @@ namespace euphoria::render
         PreBind(const ShaderAttribute& attribute);
 
         bool
-        Load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path);
+        Load(core::vfs::file_system* fs, const core::vfs::file_path& file_path);
 
         bool
         Compile
@@ -107,7 +107,7 @@ namespace euphoria::render
         [[nodiscard]] const std::vector<ShaderAttribute>&
         GetAttributes() const;
 
-        [[nodiscard]] const core::vfs::FilePath&
+        [[nodiscard]] const core::vfs::file_path&
         GetName() const;
 
     private:
@@ -119,7 +119,7 @@ namespace euphoria::render
 
         std::vector<ShaderAttribute> bound_attributes_;
         std::vector<ShaderUniform> bound_uniforms_;
-        core::vfs::FilePath shader_name_;
+        core::vfs::file_path shader_name_;
     };
 
     void

@@ -6,68 +6,68 @@ namespace euco = euphoria::core;
 
 TEST_CASE("textfileparser-test_basic_ident", "[textfileparser]")
 {
-    auto test = euco::TextFileParser::FromString("Hello");
+    auto test = euco::textfile_parser::from_string("Hello");
 
-    REQUIRE(test.HasMore());
-    REQUIRE(test.ReadIdent() == "Hello");
-    REQUIRE_FALSE(test.HasMore());
-    REQUIRE(test.ReadIdent().empty());
-    REQUIRE_FALSE(test.HasMore());
+    REQUIRE(test.has_more());
+    REQUIRE(test.read_ident() == "Hello");
+    REQUIRE_FALSE(test.has_more());
+    REQUIRE(test.read_ident().empty());
+    REQUIRE_FALSE(test.has_more());
 }
 
 TEST_CASE("textfileparser-test_two_idents", "[textfileparser]")
 {
-    auto test = euco::TextFileParser::FromString("Hello world");
+    auto test = euco::textfile_parser::from_string("Hello world");
 
-    REQUIRE(test.HasMore());
-    REQUIRE(test.ReadIdent() == "Hello");
-    REQUIRE(test.HasMore());
-    REQUIRE(test.ReadIdent().empty());
-    test.SkipSpaces(true);
-    REQUIRE(test.ReadIdent() == "world");
-    REQUIRE_FALSE(test.HasMore());
-    REQUIRE(test.ReadIdent().empty());
-    REQUIRE_FALSE(test.HasMore());
+    REQUIRE(test.has_more());
+    REQUIRE(test.read_ident() == "Hello");
+    REQUIRE(test.has_more());
+    REQUIRE(test.read_ident().empty());
+    test.skip_spaces(true);
+    REQUIRE(test.read_ident() == "world");
+    REQUIRE_FALSE(test.has_more());
+    REQUIRE(test.read_ident().empty());
+    REQUIRE_FALSE(test.has_more());
 }
 
 TEST_CASE("textfileparser-read_string_fail", "[textfileparser]")
 {
-    auto test = euco::TextFileParser::FromString("Hello");
+    auto test = euco::textfile_parser::from_string("Hello");
 
-    REQUIRE(test.HasMore());
-    REQUIRE(test.ReadString().empty());
-    REQUIRE(test.HasMore());
-    REQUIRE(test.ReadIdent() == "Hello");
+    REQUIRE(test.has_more());
+    REQUIRE(test.read_string().empty());
+    REQUIRE(test.has_more());
+    REQUIRE(test.read_ident() == "Hello");
 }
 
 TEST_CASE("textfileparser-read_string", "[textfileparser]")
 {
-    auto test = euco::TextFileParser::FromString("\"Hello\"");
+    auto test = euco::textfile_parser::from_string("\"Hello\"");
 
-    REQUIRE(test.HasMore());
-    REQUIRE(test.ReadString() == "Hello");
-    REQUIRE_FALSE(test.HasMore());
-    REQUIRE(test.ReadString().empty());
+    REQUIRE(test.has_more());
+    REQUIRE(test.read_string() == "Hello");
+    REQUIRE_FALSE(test.has_more());
+    REQUIRE(test.read_string().empty());
 }
 
 TEST_CASE("textfileparser-read_to_eol", "[textfileparser]")
 {
-    auto test = euco::TextFileParser::FromString("hello world\nhello dog");
+    auto test = euco::textfile_parser::from_string("hello world\nhello dog");
 
-    REQUIRE(test.HasMore());
-    REQUIRE(test.ReadToEndOfLine() == "hello world");
-    REQUIRE(test.ReadIdent() == "hello");
-    REQUIRE(test.ReadToEndOfLine() == " dog");
-    REQUIRE_FALSE(test.HasMore());
+    REQUIRE(test.has_more());
+    REQUIRE(test.read_to_end_of_line() == "hello world");
+    REQUIRE(test.read_ident() == "hello");
+    REQUIRE(test.read_to_end_of_line() == " dog");
+    REQUIRE_FALSE(test.has_more());
 }
 
 TEST_CASE("textfileparser-peek_char", "[textfileparser]")
 {
-    auto test = euco::TextFileParser::FromString("abc");
+    auto test = euco::textfile_parser::from_string("abc");
 
-    REQUIRE(test.HasMore());
-    REQUIRE(test.PeekChar() == 'a');
-    REQUIRE(test.PeekChar(0) == 'a');
-    REQUIRE(test.PeekChar(1) == 'b');
-    REQUIRE(static_cast<int>(test.PeekChar(3)) == 0);
+    REQUIRE(test.has_more());
+    REQUIRE(test.peek_char() == 'a');
+    REQUIRE(test.peek_char(0) == 'a');
+    REQUIRE(test.peek_char(1) == 'b');
+    REQUIRE(static_cast<int>(test.peek_char(3)) == 0);
 }

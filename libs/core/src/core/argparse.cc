@@ -663,7 +663,7 @@ namespace euphoria::core::argparse
             auto t = StringTable{};
             for(int y=0; y<table.get_height(); y+=1)
             {
-                const auto names = WordWrap
+                const auto names = word_wrap
                 (
                     table(0, y),
                     [max_name_length](const std::string& s)
@@ -671,7 +671,7 @@ namespace euphoria::core::argparse
                         return Csizet_to_int(s.size()) <= max_name_length;
                     }
                 );
-                const auto helps = WordWrap
+                const auto helps = word_wrap
                 (
                     table(1, y),
                     [](const std::string& s)

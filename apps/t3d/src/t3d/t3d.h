@@ -91,7 +91,7 @@ namespace euphoria::t3d
 
 
         void
-        AddLibrary(const core::vfs::DirPath& path);
+        AddLibrary(const core::vfs::dir_path& path);
 
 
         void

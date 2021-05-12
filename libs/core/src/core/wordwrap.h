@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_CORE_WORDWRAP_H
-#define EUPHORIA_CORE_WORDWRAP_H
+#pragma once
+
 
 #include <string>
 #include <vector>
@@ -8,12 +8,10 @@
 namespace euphoria::core
 {
     std::vector<std::string>
-    WordWrap
+    word_wrap
     (
         const std::string& str,
         std::function<bool (const std::string&)> measure
     );
 }
-
-#endif  // EUPHORIA_CORE_WORDWRAP_H
 

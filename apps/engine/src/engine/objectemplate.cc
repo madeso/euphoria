@@ -82,7 +82,7 @@ namespace euphoria::engine
             auto ptr     = std::make_shared<SpriteComponentCreator>(components);
             ptr->texture = cache->GetTexture
             (
-                core::vfs::FilePath::FromScript(sprite.path)
+                core::vfs::file_path::from_script(sprite.path)
             );
             return ptr;
         }

@@ -16,8 +16,8 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct FileSystem;
-        struct FilePath;
+        struct file_system;
+        struct file_path;
     }
 
 
@@ -67,8 +67,8 @@ namespace euphoria::core
 
     struct material_texture
     {
-        material_texture(const vfs::FilePath& p, enum_value t);
-        vfs::FilePath path;
+        material_texture(const vfs::file_path& p, enum_value t);
+        vfs::file_path path;
         enum_value type;
     };
 
@@ -81,12 +81,12 @@ namespace euphoria::core
         set_texture
         (
             const std::string& texture_name,
-            const vfs::FilePath& texture_path
+            const vfs::file_path& texture_path
         );
 
         std::string name;
 
-        std::optional<core::vfs::FilePath> shader;
+        std::optional<core::vfs::file_path> shader;
 
         // tints
         rgb ambient;
@@ -122,7 +122,7 @@ namespace euphoria::core
     namespace meshes
     {
         loaded_mesh_or_error
-        load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path);
+        load_mesh(vfs::file_system* fs, const vfs::file_path& path);
 
         mesh
         create_cube(float size);

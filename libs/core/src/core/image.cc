@@ -316,9 +316,9 @@ namespace euphoria::core
     }  // namespace
 
     image_load_result
-    load_image(vfs::FileSystem* fs, const vfs::FilePath& path, alpha_load alpha)
+    load_image(vfs::file_system* fs, const vfs::file_path& path, alpha_load alpha)
     {
-        auto file_memory = fs->ReadFile(path);
+        auto file_memory = fs->read_file(path);
         if(file_memory == nullptr)
         {
             image_load_result result;

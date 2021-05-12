@@ -13,8 +13,8 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct FileSystem;
-        struct FileSystemRootCatalog;
+        struct file_system;
+        struct read_root_catalog;
     }  // namespace vfs
 }  // namespace euphoria::core
 
@@ -50,8 +50,8 @@ namespace euphoria::window
         HandleResize(SDL_Event e, int* width, int* height);
 
         std::unique_ptr<SdlLibrary>                       sdl;
-        std::unique_ptr<core::vfs::FileSystem>            file_system;
-        std::shared_ptr<core::vfs::FileSystemRootCatalog> catalog;
+        std::unique_ptr<core::vfs::file_system>            file_system;
+        std::shared_ptr<core::vfs::read_root_catalog> catalog;
         std::unique_ptr<SdlWindow>                        window;
         unsigned int                                      window_id;
         std::unique_ptr<SdlGlContext>                     context;

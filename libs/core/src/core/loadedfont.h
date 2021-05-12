@@ -9,8 +9,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
-    struct FilePath;
+    struct file_system;
+    struct file_path;
 }
 
 
@@ -76,8 +76,8 @@ namespace euphoria::core
     loaded_font
     get_characters_from_font
     (
-        vfs::FileSystem* file_system,
-        const vfs::FilePath& font_file,
+        vfs::file_system* file_system,
+        const vfs::file_path& font_file,
         int font_size,
         const std::string& chars
     );
@@ -94,8 +94,8 @@ namespace euphoria::core
     loaded_font
     get_characters_from_single_image
     (
-        vfs::FileSystem* fs,
-        const vfs::FilePath& image_file,
+        vfs::file_system* fs,
+        const vfs::file_path& image_file,
         const std::string& image_alias,
         float image_scale,
         float image_bearing_x,

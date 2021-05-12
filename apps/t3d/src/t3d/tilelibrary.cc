@@ -23,7 +23,7 @@ namespace euphoria::t3d
     Tile::~Tile() {}
 
 
-    TileLibrary::TileLibrary(core::vfs::FileSystem* fs) : file_system(fs) {}
+    TileLibrary::TileLibrary(core::vfs::file_system* fs) : file_system(fs) {}
 
 
     std::shared_ptr<Tile>
@@ -64,7 +64,7 @@ namespace euphoria::t3d
     void
     TileLibrary::AddFile
     (
-        const core::vfs::FilePath& path,
+        const core::vfs::file_path& path,
         render::MaterialShaderCache* shader_cache,
         render::TextureCache* texture_cache
     )
@@ -78,7 +78,7 @@ namespace euphoria::t3d
 
         auto tile  = std::make_shared<Tile>();
         tile->path = path;
-        tile->name = path.GetFilenameWithoutExtension();
+        tile->name = path.get_filename_without_extension();
         tile->aabb = loaded_mesh.loaded_mesh.calculate_aabb();
         tile->mesh = CompileMesh
         (
@@ -86,7 +86,7 @@ namespace euphoria::t3d
             shader_cache,
             texture_cache,
             // todo(Gustav): test with mesh directory iunstead of root?
-            core::vfs::DirPath::FromRoot(),
+            core::vfs::dir_path::from_root(),
             path.path
         );
         tiles.push_back(tile);

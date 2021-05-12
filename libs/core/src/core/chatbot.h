@@ -13,8 +13,8 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct FileSystem;
-        struct FilePath;
+        struct file_system;
+        struct file_path;
     }
 
     namespace detail
@@ -199,7 +199,7 @@ namespace euphoria::core
         chatbot();
 
         [[nodiscard]] std::string
-        load_from_file(vfs::FileSystem* fs, const vfs::FilePath& path);
+        load_from_file(vfs::file_system* fs, const vfs::file_path& path);
 
         [[nodiscard]] std::string
         get_response(const std::string& input);

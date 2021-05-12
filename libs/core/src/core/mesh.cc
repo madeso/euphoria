@@ -60,7 +60,7 @@ namespace euphoria::core
     }
 
 
-    material_texture::material_texture(const vfs::FilePath& p, enum_value t)
+    material_texture::material_texture(const vfs::file_path& p, enum_value t)
         : path(p)
         , type(t)
     {}
@@ -83,10 +83,10 @@ namespace euphoria::core
     material::set_texture
     (
         const std::string& texture_name,
-        const vfs::FilePath& texture_path
+        const vfs::file_path& texture_path
     )
     {
-        DEFINE_ENUM_VALUE(TextureType, texture_type, texture_name);
+        DEFINE_ENUM_VALUE(texture_type, texture_type, texture_name);
         textures.emplace_back(texture_path, texture_type);
     }
 
@@ -107,7 +107,7 @@ namespace euphoria::core
 
     namespace  // local
     {
-        DEFINE_ENUM_VALUE(TextureType, DiffuseType, "Diffuse");  // NOLINT
+        DEFINE_ENUM_VALUE(texture_type, DiffuseType, "Diffuse");  // NOLINT
     }  // namespace
 
 
@@ -171,7 +171,7 @@ namespace euphoria::core
                 {
                     aiString texture;
                     mat->GetTexture(aiTextureType_DIFFUSE, 0, &texture);
-                    auto path = core::vfs::FilePath::FromDirtySource(texture.C_Str());
+                    auto path = core::vfs::file_path::from_dirty_source(texture.C_Str());
                     if(path.has_value() == false)
                     {
                         LOG_WARN
@@ -183,7 +183,7 @@ namespace euphoria::core
                     }
                     material.textures.emplace_back
                     (
-                        path.value_or(core::vfs::FilePath{"~/image-plain/blue"}),
+                        path.value_or(core::vfs::file_path{"~/image-plain/blue"}),
                         DiffuseType
                     );
                 }
@@ -357,7 +357,7 @@ namespace euphoria::core
         decorate_mesh_materials
         (
             mesh* mesh,
-            const vfs::FilePath& json_path,
+            const vfs::file_path& json_path,
             const ::mesh::Mesh& json
         )
         {
@@ -385,7 +385,7 @@ namespace euphoria::core
                 auto* other = found->second;
                 for(const auto& src_texture: material.textures)
                 {
-                    auto path = core::vfs::FilePath::FromScript
+                    auto path = core::vfs::file_path::from_script
                     (
                         src_texture.path
                     );
@@ -420,14 +420,14 @@ namespace euphoria::core
 
 
         void
-        fix_extension(vfs::FilePath* path, const ::mesh::Folder& folder)
+        fix_extension(vfs::file_path* path, const ::mesh::Folder& folder)
         {
-            const auto ext = path->GetExtension();
+            const auto ext = path->get_extension();
             for(auto c: folder.change_extensions)
             {
                 if(ext == c.old_ext)
                 {
-                    const auto new_path = path->SetExtensionCopy(c.new_ext);
+                    const auto new_path = path->set_extension_copy(c.new_ext);
                     *path = new_path;
                     return;
                 }
@@ -436,14 +436,14 @@ namespace euphoria::core
 
 
         void
-        fix_filename(vfs::FilePath* path, const ::mesh::Folder& folder)
+        fix_filename(vfs::file_path* path, const ::mesh::Folder& folder)
         {
-            const auto [dir, file] = path->SplitDirectoriesAndFile();
+            const auto [dir, file] = path->split_directories_and_file();
             for(auto c: folder.change_filenames)
             {
                 if(file == c.old_file)
                 {
-                    const auto new_path = dir.GetFile(c.new_file);
+                    const auto new_path = dir.get_file(c.new_file);
                     *path = new_path;
                     return;
                 }
@@ -454,9 +454,9 @@ namespace euphoria::core
         void
         decorate_mesh
         (
-            vfs::FileSystem* fs,
+            vfs::file_system* fs,
             mesh* mesh,
-            const vfs::FilePath& json_path
+            const vfs::file_path& json_path
         )
         {
             ::mesh::Mesh json;
@@ -476,8 +476,8 @@ namespace euphoria::core
                 decorate_mesh_materials(mesh, json_path, json);
             }
 
-            const auto json_dir = json_path.GetDirectory();
-            const auto folder_path = json_dir.GetFile("folder.json");
+            const auto json_dir = json_path.get_directory();
+            const auto folder_path = json_dir.get_file("folder.json");
             ::mesh::Folder folder;
             const auto folder_error = read_json_to_gaf_struct_or_get_error_message(fs, &folder, folder_path);
             if(!folder_error.empty())
@@ -488,8 +488,8 @@ namespace euphoria::core
             {
                 return;
             }
-            auto dir = vfs::DirPath{folder.texture_override};
-            if(dir.IsRelative()) { dir = vfs::Join(json_dir, dir); }
+            auto dir = vfs::dir_path{folder.texture_override};
+            if(dir.is_relative()) { dir = vfs::join(json_dir, dir); }
 
             for(auto& p: mesh->parts)
             {
@@ -503,7 +503,7 @@ namespace euphoria::core
             {
                 for(auto& t: m.textures)
                 {
-                    const auto new_file = dir.GetFile(t.path.GetFileWithExtension());
+                    const auto new_file = dir.get_file(t.path.get_file_with_extension());
                     // LOG_INFO("Replacing {0} with {1}", t.path, new_file);
                     t.path = new_file;
                     fix_extension(&t.path, folder);
@@ -574,13 +574,13 @@ namespace euphoria::core
 
         struct filesystem_for_assimp : public Assimp::IOSystem
         {
-            vfs::FileSystem* file_system;
+            vfs::file_system* file_system;
 
-            filesystem_for_assimp(vfs::FileSystem* fs) : file_system(fs) {}
+            filesystem_for_assimp(vfs::file_system* fs) : file_system(fs) {}
 
             bool Exists(const char* pFile) const override
             {
-                auto content = file_system->ReadFile(vfs::FilePath{pFile});
+                auto content = file_system->read_file(vfs::file_path{pFile});
                 return content != nullptr;
             }
 
@@ -594,7 +594,7 @@ namespace euphoria::core
                 std::string mode = pMode;
                 ASSERT(mode.find('w') == std::string::npos);
                 ASSERT(mode.find('r') != std::string::npos);
-                auto content = file_system->ReadFile(vfs::FilePath{pFile});
+                auto content = file_system->read_file(vfs::file_path{pFile});
                 if(content == nullptr)
                 {
                     return nullptr;
@@ -617,7 +617,7 @@ namespace euphoria::core
 
 
         loaded_mesh_or_error
-        load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path)
+        load_mesh(vfs::file_system* fs, const vfs::file_path& path)
         {
             Assimp::Importer importer;
             importer.SetIOHandler(new filesystem_for_assimp{fs}); // NOLINT
@@ -636,7 +636,7 @@ namespace euphoria::core
                 (
                     fs,
                     &res.loaded_mesh,
-                    path.SetExtensionCopy(path.GetExtension()+".json")
+                    path.set_extension_copy(path.get_extension()+".json")
                 );
 
                 if(res.loaded_mesh.parts.empty())

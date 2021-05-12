@@ -11,25 +11,25 @@ namespace euphoria::core
     namespace detail
     {
         char
-        TextFile::Peek()
+        textfile::peek()
         {
-            return Peek(1);
+            return peek(1);
         }
 
-        struct FileString : public TextFile
+        struct textfile_string : public textfile
         {
             std::string text;
             std::size_t next_position = 0;
 
             [[nodiscard]]
             bool
-            HasMore() const override
+            has_more() const override
             {
                 return next_position < text.size();
             }
 
             char
-            Peek(int advance) override
+            peek(int advance) override
             {
                 ASSERT(advance >= 0);
                 const auto index = next_position + advance;
@@ -45,9 +45,9 @@ namespace euphoria::core
             }
 
             char
-            Read() override
+            read() override
             {
-                if (!HasMore())
+                if (!has_more())
                 {
                     return 0;
                 }
@@ -58,10 +58,10 @@ namespace euphoria::core
             }
         };
 
-        std::shared_ptr<TextFile>
-        FromString(const std::string& str)
+        std::shared_ptr<textfile>
+        create_from_string(const std::string& str)
         {
-            auto file = std::make_shared<FileString>();
+            auto file = std::make_shared<textfile_string>();
             file->text = str;
             return file;
         }
@@ -70,7 +70,7 @@ namespace euphoria::core
     namespace  // local
     {
         bool
-        IsNewline(const char c)
+        is_newline(const char c)
         {
             if(c == '\n')
             {
@@ -86,7 +86,7 @@ namespace euphoria::core
         }
 
         std::string
-            CharToString(char c)
+        char_to_string(char c)
         {
             std::ostringstream ss;
             switch (c)
@@ -99,41 +99,41 @@ namespace euphoria::core
             }
             return ss.str();
         }
-    }  // namespace
+    }
 
-    TextFileParser::TextFileParser(std::shared_ptr<detail::TextFile> afile)
+    textfile_parser::textfile_parser(std::shared_ptr<detail::textfile> afile)
         : file(afile)
     {
     }
 
-    TextFileParser
-    TextFileParser::FromString(const std::string& str)
+    textfile_parser
+    textfile_parser::from_string(const std::string& str)
     {
-        return TextFileParser{ detail::FromString(str) };
+        return textfile_parser{ detail::create_from_string(str) };
     }
 
     char
-    TextFileParser::PeekChar(int advance)
+    textfile_parser::peek_char(int advance)
     {
-        return file->Peek(advance);
+        return file->peek(advance);
     }
 
 
     std::string
-    TextFileParser::PeekString(int advance)
+    textfile_parser::peek_string(int advance)
     {
-        const auto c = PeekChar(advance);
-        return CharToString(c);
+        const auto c = peek_char(advance);
+        return char_to_string(c);
     }
 
     // if peekchar(0) is c then it is read and function returns true,
     // otherwise false
     bool
-    TextFileParser::ExpectChar(char c)
+    textfile_parser::expect_char(char c)
     {
-        if(PeekChar() == c)
+        if(peek_char() == c)
         {
-            ReadChar();
+            read_char();
             return true;
         }
         else
@@ -144,11 +144,11 @@ namespace euphoria::core
 
 
     char
-    TextFileParser::ReadChar()
+    textfile_parser::read_char()
     {
-        const char r = file->Read();
+        const char r = file->read();
 
-        if(IsNewline(r))
+        if(is_newline(r))
         {
             location.column = 1;
             location.line += 1;
@@ -162,15 +162,15 @@ namespace euphoria::core
     }
 
     void
-    TextFileParser::AdvanceChar()
+    textfile_parser::advance_char()
     {
-        ReadChar();
+        read_char();
     }
 
     namespace  // local
     {
         bool
-        IsIdentChar(char c, bool first_char)
+        is_ident_char(char c, bool first_char)
         {
             if(is_within_inclusive_as_int('a', c, 'z'))
             {
@@ -194,40 +194,40 @@ namespace euphoria::core
     }  // namespace
 
     bool
-    IsIdentStart(char c)
+    is_ident_start(char c)
     {
-        return IsIdentChar(c, true);
+        return is_ident_char(c, true);
     }
 
     std::string
-    TextFileParser::ReadIdent()
+    textfile_parser::read_ident()
     {
         std::ostringstream ss;
         bool               first = true;
-        while(IsIdentChar(PeekChar(), first))
+        while(is_ident_char(peek_char(), first))
         {
             first = false;
-            ss << ReadChar();
+            ss << read_char();
         }
         return ss.str();
     }
 
     std::string
-    TextFileParser::ReadString()
+    textfile_parser::read_string()
     {
         std::ostringstream ss;
         const char         quote = '\"';
-        if(PeekChar() != quote)
+        if(peek_char() != quote)
         {
             return "";
         }
-        AdvanceChar();  // skip " char
-        while(PeekChar() != quote)
+        advance_char();  // skip " char
+        while(peek_char() != quote)
         {
-            const char c = ReadChar();
+            const char c = read_char();
             if(c == '\\')
             {
-                const char nc = ReadChar();
+                const char nc = read_char();
                 if(nc == '\\')
                 {
                     ss << '\\';
@@ -254,7 +254,7 @@ namespace euphoria::core
                 ss << c;
             }
         }
-        const char c = ReadChar();
+        const char c = read_char();
         if(c != quote)
         {
             return "";
@@ -263,26 +263,26 @@ namespace euphoria::core
     }
 
     std::string
-    TextFileParser::ReadToEndOfLine()
+    textfile_parser::read_to_end_of_line()
     {
         std::ostringstream ss;
-        while(!IsNewline(PeekChar()))
+        while(!is_newline(peek_char()))
         {
-            const char c = ReadChar();
+            const char c = read_char();
             if(c == 0)
             {
                 return ss.str();
             }
             ss << c;
         }
-        AdvanceChar();  // skip the newline
+        advance_char();  // skip the newline
         return ss.str();
     }
 
     namespace  // local
     {
         bool
-        IsSpaceCharacter(char c, bool include_newline)
+        is_space_character(char c, bool include_newline)
         {
             switch(c)
             {
@@ -296,30 +296,31 @@ namespace euphoria::core
     }  // namespace
 
     void
-    TextFileParser::SkipSpaces(bool include_newline)
+    textfile_parser::skip_spaces(bool include_newline)
     {
-        while(IsSpaceCharacter(PeekChar(), include_newline))
+        while(is_space_character(peek_char(), include_newline))
         {
-            ReadChar();
+            read_char();
         }
     }
 
     bool
-    TextFileParser::HasMore() const
+    textfile_parser::has_more() const
     {
-        return file->HasMore();
+        return file->has_more();
     }
 
     int
-    TextFileParser::GetLine() const
+    textfile_parser::get_line() const
     {
         return location.line;
     }
 
     int
-    TextFileParser::GetColumn() const
+    textfile_parser::get_column() const
     {
         return location.column;
     }
 
-}  // namespace euphoria::core
+}
+

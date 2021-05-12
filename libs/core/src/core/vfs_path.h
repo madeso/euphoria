@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_PATH_H
-#define EUPHORIA_PATH_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -20,73 +19,73 @@ namespace euphoria::core
         // a path is case sensitive
         // a path should be lowercase, but this is not required
         // a path should only contain ascii characters but this is not required
-        // a slash (/) seperates folders or directories
+        // a slash (/) separates folders or directories
         //
-        // File spceifications
+        // File specifications
         // filename or extension cannot contain slashes (/)
         // filenames cannot contain dots (.)
         // extension is either empty, or a string like txt or tar.gz and
         //   can't start/end with a dot (.)
         //
         // Directory specifications
-        // tile (~) respresents the root folder (absolute path)
-        // a single dot (.) represesents the "current" folder (relative path)
-        // twot dots (..) represents the parent folder (relative path)
+        // tilde (~) represents the root folder (absolute path)
+        // a single dot (.) represents the "current" folder (relative path)
+        // two dots (..) represents the parent folder (relative path)
 
-        struct FilePath;
-        struct DirPath;
+        struct file_path;
+        struct dir_path;
 
 
-        struct FilePath
+        struct file_path
         {
             // apply only minor changes, return null on invalid
             static
-            std::optional<FilePath>
-            FromScript(const std::string& path);
+            std::optional<file_path>
+            from_script(const std::string& path);
 
 
             // do everything possible to convert from dirty path to valid path
             static
-            std::optional<FilePath>
-            FromDirtySource(const std::string& path);
+            std::optional<file_path>
+            from_dirty_source(const std::string& path);
 
 
             // optional or not, log if error
             static
-            std::optional<FilePath>
-            FromScriptOrEmpty(const std::string& path);
+            std::optional<file_path>
+            from_script_or_empty(const std::string& path);
 
 
-            [[nodiscard]] std::tuple<DirPath, std::string>
-            SplitDirectoriesAndFile() const;
+            [[nodiscard]] std::tuple<dir_path, std::string>
+            split_directories_and_file() const;
 
 
-            [[nodiscard]] DirPath
-            GetDirectory() const;
-
-
-            [[nodiscard]] std::string
-            GetFileWithExtension() const;
+            [[nodiscard]] dir_path
+            get_directory() const;
 
 
             [[nodiscard]] std::string
-            GetFilenameWithoutExtension() const;
+            get_file_with_extension() const;
 
 
             [[nodiscard]] std::string
-            GetExtension() const;
+            get_filename_without_extension() const;
 
 
-            [[nodiscard]] FilePath
-            SetExtensionCopy(const std::string& ext) const;
+            [[nodiscard]] std::string
+            get_extension() const;
 
 
-            [[nodiscard]] FilePath
-            ExtendExtensionCopy(const std::string& ext) const;
+            [[nodiscard]] file_path
+            set_extension_copy(const std::string& ext) const;
+
+
+            [[nodiscard]] file_path
+            extend_extension_copy(const std::string& ext) const;
 
 
             explicit
-            FilePath(const std::string& p);
+            file_path(const std::string& p);
 
 
             template
@@ -97,7 +96,7 @@ namespace euphoria::core
                     !std::is_same<OStream, core::string_builder>::value
                 >
             >
-            friend OStream& operator<<(OStream& os, const FilePath& p)
+            friend OStream& operator<<(OStream& os, const file_path& p)
             {
                 os << p.path;
                 return os;
@@ -110,55 +109,55 @@ namespace euphoria::core
         };
 
 
-        struct DirPath
+        struct dir_path
         {
             [[nodiscard]]
-            static DirPath
-            FromRoot();
+            static dir_path
+            from_root();
 
 
             [[nodiscard]]
-            static DirPath
-            FromRelative();
+            static dir_path
+            from_relative();
 
 
             [[nodiscard]]
-            static DirPath
-            FromDirs(const std::vector<std::string>& dirs);
+            static dir_path
+            from_dirs(const std::vector<std::string>& dirs);
 
 
-            [[nodiscard]] FilePath
-            GetFile(const std::string& filename) const;
-
-
-            [[nodiscard]] bool
-            IsRelative() const;
+            [[nodiscard]] file_path
+            get_file(const std::string& filename) const;
 
 
             [[nodiscard]] bool
-            ContainsRelative() const;
+            is_relative() const;
 
 
-            [[nodiscard]] DirPath
-            GetParentDirectory() const;
+            [[nodiscard]] bool
+            contains_relative() const;
+
+
+            [[nodiscard]] dir_path
+            get_parent_directory() const;
 
 
             [[nodiscard]] std::string
-            GetDirectoryName() const;
+            get_directory_name() const;
 
 
             [[nodiscard]]
             std::vector<std::string>
-            SplitDirectories() const;
+            split_directories() const;
 
 
             [[nodiscard]]
-            DirPath
-            SingleCdCopy(const std::string& single) const;
+            dir_path
+            single_cd_copy(const std::string& single) const;
 
 
             explicit
-            DirPath(const std::string& p);
+            dir_path(const std::string& p);
 
 
             template
@@ -169,7 +168,7 @@ namespace euphoria::core
                     !std::is_same<OStream, core::string_builder>::value
                 >
             >
-            friend OStream& operator<<(OStream& os, const DirPath& p)
+            friend OStream& operator<<(OStream& os, const dir_path& p)
             {
                 os << p.path;
                 return os;
@@ -181,54 +180,53 @@ namespace euphoria::core
         };
 
 
-        std::optional<DirPath>
-        ResolveRelative(const DirPath& base);
+        std::optional<dir_path>
+        resolve_relative(const dir_path& base);
 
 
-        std::optional<DirPath>
-        ResolveRelative(const DirPath& base, const DirPath& root);
+        std::optional<dir_path>
+        resolve_relative(const dir_path& base, const dir_path& root);
 
 
-        std::optional<FilePath>
-        ResolveRelative(const FilePath& base);
+        std::optional<file_path>
+        resolve_relative(const file_path& base);
 
 
-        std::optional<FilePath>
-        ResolveRelative(const FilePath& base, const DirPath& root);
+        std::optional<file_path>
+        resolve_relative(const file_path& base, const dir_path& root);
 
 
-        DirPath
-        Join(const DirPath& lhs, const DirPath& rhs);
+        dir_path
+        join(const dir_path& lhs, const dir_path& rhs);
 
 
-        FilePath
-        Join(const DirPath& lhs, const FilePath& rhs);
-
-
-        bool
-        operator==(const DirPath& lhs, const DirPath& rhs);
+        file_path
+        join(const dir_path& lhs, const file_path& rhs);
 
 
         bool
-        operator==(const FilePath& lhs, const FilePath& rhs);
+        operator==(const dir_path& lhs, const dir_path& rhs);
 
 
         bool
-        operator!=(const DirPath& lhs, const DirPath& rhs);
+        operator==(const file_path& lhs, const file_path& rhs);
 
 
         bool
-        operator!=(const FilePath& lhs, const FilePath& rhs);
+        operator!=(const dir_path& lhs, const dir_path& rhs);
 
 
         bool
-        operator<(const DirPath& lhs, const DirPath& rhs);
+        operator!=(const file_path& lhs, const file_path& rhs);
 
 
         bool
-        operator<(const FilePath& lhs, const FilePath& rhs);
+        operator<(const dir_path& lhs, const dir_path& rhs);
+
+
+        bool
+        operator<(const file_path& lhs, const file_path& rhs);
     }  // namespace vfs
 
-}  // namespace euphoria::core
+}
 
-#endif  // EUPHORIA_PATH_H

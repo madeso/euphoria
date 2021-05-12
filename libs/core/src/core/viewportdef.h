@@ -1,11 +1,11 @@
-#ifndef EUPHORIA_VIEWPORT_H
-#define EUPHORIA_VIEWPORT_H
+#pragma once
+
 
 #include "core/rect.h"
 
 namespace euphoria::core
 {
-    struct ViewportDef
+    struct viewport_definition
     {
         recti screen_rect;
 
@@ -17,8 +17,8 @@ namespace euphoria::core
          */
         [[nodiscard]]
         static
-        ViewportDef
-        FitWithBlackBars
+        viewport_definition
+        fit_with_black_bars
         (
             float width,
             float height,
@@ -26,25 +26,23 @@ namespace euphoria::core
             int window_height
         );
 
-        /** The viewports height or idth is extended to match the screen.
+        /** The viewports height or width is extended to match the screen.
          * Fits the viewport, scaling it to the max and then fits the viewport without stretching. This means that the viewport isnt the same size as requested.
          */
         [[nodiscard]]
         static
-        ViewportDef
-        Extend(float width, float height, int window_width, int window_height);
+        viewport_definition
+        extend(float width, float height, int window_width, int window_height);
 
         /** The viewport matches the screen pixel by pixel.
          */
         [[nodiscard]]
         static
-        ViewportDef
-        ScreenPixel(int window_width, int window_height);
+        viewport_definition
+        screen_pixel(int window_width, int window_height);
 
-        ViewportDef(const recti& screen, float w, float h);
+        viewport_definition(const recti& screen, float w, float h);
     };
 
 }
-
-#endif  // EUPHORIA_VIEWPORT_H
 

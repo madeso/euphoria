@@ -9,15 +9,15 @@
 namespace euphoria::render
 {
     struct TextureCache::TextureCachePimpl
-        : core::cache<core::vfs::FilePath, texture2d, TextureCache::TextureCachePimpl>
+        : core::cache<core::vfs::file_path, texture2d, TextureCache::TextureCachePimpl>
     {
-        explicit TextureCachePimpl(core::vfs::FileSystem* fs) : fs_(fs)
+        explicit TextureCachePimpl(core::vfs::file_system* fs) : fs_(fs)
         {
             ASSERT(fs);
         }
 
         [[nodiscard]] std::shared_ptr<texture2d>
-        Create(const core::vfs::FilePath& file) const
+        Create(const core::vfs::file_path& file) const
         {
             auto ret = std::make_shared<texture2d>();
             ret->load_from_file
@@ -30,11 +30,11 @@ namespace euphoria::render
             return ret;
         }
 
-        core::vfs::FileSystem* fs_;
+        core::vfs::file_system* fs_;
     };
 
 
-    TextureCache::TextureCache(core::vfs::FileSystem* fs)
+    TextureCache::TextureCache(core::vfs::file_system* fs)
     {
         pimp_ = std::make_unique<TextureCache::TextureCachePimpl>(fs);
     }
@@ -44,14 +44,14 @@ namespace euphoria::render
 
 
     std::shared_ptr<texture2d>
-    TextureCache::GetTexture(const core::vfs::FilePath& path) const
+    TextureCache::GetTexture(const core::vfs::file_path& path) const
     {
         return pimp_->get(path);
     }
 
 
     std::shared_ptr<texture2d>
-    TextureCache::GetTexture(const std::optional<core::vfs::FilePath>& path) const
+    TextureCache::GetTexture(const std::optional<core::vfs::file_path>& path) const
     {
         if(path.has_value())
         {

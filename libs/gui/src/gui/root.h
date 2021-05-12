@@ -14,8 +14,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
-    struct FilePath;
+    struct file_system;
+    struct file_path;
 }
 
 namespace euphoria::render
@@ -44,9 +44,9 @@ namespace euphoria::gui
         [[nodiscard]] bool
         Load
         (
-            core::vfs::FileSystem* fs,
+            core::vfs::file_system* fs,
             render::FontCache* font,
-            const ::euphoria::core::vfs::FilePath& path,
+            const ::euphoria::core::vfs::file_path& path,
             render::TextureCache* cache
         );
 

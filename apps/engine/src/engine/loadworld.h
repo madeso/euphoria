@@ -13,8 +13,8 @@ namespace euphoria::core::ecs
 
 namespace euphoria::core::vfs
 {
-    struct FileSystem;
-    struct FilePath;
+    struct file_system;
+    struct file_path;
 }
 
 
@@ -26,10 +26,10 @@ namespace euphoria::engine
     void
     LoadWorld
     (
-        core::vfs::FileSystem* fs,
+        core::vfs::file_system* fs,
         core::ecs::world* world,
         DukRegistry* reg,
-        const core::vfs::FilePath& path,
+        const core::vfs::file_path& path,
         ObjectCreator* creator,
         Sol* ctx
     );

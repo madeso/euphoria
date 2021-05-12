@@ -157,7 +157,7 @@ namespace euphoria::render
 
     namespace // local
     {
-        DEFINE_ENUM_VALUE(core::TextureType, DiffuseType, "Diffuse"); // NOLINT
+        DEFINE_ENUM_VALUE(core::texture_type, DiffuseType, "Diffuse"); // NOLINT
     } // namespace
 
 
@@ -236,7 +236,7 @@ namespace euphoria::render
         const core::mesh& mesh,
         MaterialShaderCache* shader_cache,
         TextureCache* texture_cache,
-        const core::vfs::DirPath& texture_folder,
+        const core::vfs::dir_path& texture_folder,
         const std::string& debug_name
     )
     {
@@ -260,14 +260,14 @@ namespace euphoria::render
             // we try to match a shader to the object
             const auto shader_name = material_src.shader.value_or
             (
-                core::vfs::FilePath("~/default_shader")
+                core::vfs::file_path("~/default_shader")
             );
             mat.shader = shader_cache->get(shader_name);
             for(const auto& texture_src: material_src.textures)
             {
-                const auto texture_path = core::vfs::ResolveRelative
+                const auto texture_path = core::vfs::resolve_relative
                 (
-                    core::vfs::FilePath{texture_src.path},
+                    core::vfs::file_path{texture_src.path},
                     texture_folder
                 );
                 if(texture_path.has_value() == false)
