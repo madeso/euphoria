@@ -27,6 +27,7 @@
 #include "window/imgui_ext.h"
 
 
+using namespace euphoria;
 using namespace euphoria::core;
 using namespace euphoria::window;
 
@@ -126,7 +127,7 @@ main(int argc, char** argv)
     CanvasConfig cc;
     Canvas canvas;
     image image;
-    random random;
+    core::random random;
     Tool tool = Tool::Pen;
     auto palette = palettes::endesga_64();
     auto foreground = 0;
@@ -202,7 +203,7 @@ main(int argc, char** argv)
             };
             toolbar_button(ICON_MDI_FORMAT_COLOR_HIGHLIGHT, Tool::Pen);
             HelpText("Pen");
-            
+
             ImGui::SameLine();
             toolbar_button(ICON_MDI_FORMAT_COLOR_FILL, Tool::Fill);
             HelpText("Fill");
@@ -259,7 +260,7 @@ main(int argc, char** argv)
                             {
                                 background = palette_index;
                             }
-                            
+
                         }
                     }
                 }
@@ -337,7 +338,7 @@ main(int argc, char** argv)
                                 FloodFill(&image, x, y, c, color);
                             }
                         }
-                        
+
                     }
                     draw_list->AddRectFilled(ps, pss, C(c));
                 });

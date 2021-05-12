@@ -11,6 +11,7 @@
 #include "core/shufflebag.h"
 #include "core/str.h"
 
+using namespace euphoria;
 using namespace euphoria::core;
 using namespace euphoria::core::dump2d;
 
@@ -37,7 +38,7 @@ MakeStar(const vec2f& origo, float radius, const angle& rotation, int number_of_
 int
 main(int, char*[])
 {
-    random rand;
+    core::random rand;
 
     auto pal = create_shuffle_bag(palettes::color_blind_10().colors, 2);
 

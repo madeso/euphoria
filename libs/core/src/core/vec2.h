@@ -1,6 +1,5 @@
 #pragma once
 
-#include <cmath>
 #include <tuple>
 
 #include "core/interpolate.h"
@@ -80,7 +79,7 @@ namespace euphoria::core
 
         self operator-() const { return self(-x, -y); }
         T get_length_squared() const { return x * x + y * y; }
-        
+
 
         explicit vec2(const unit& u) : x(u.x), y(u.y) {}
 

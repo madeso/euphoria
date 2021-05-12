@@ -149,8 +149,8 @@ namespace euphoria::render
     void
     texture2d::load_from_pixels
     (
-        int width,
-        int height,
+        int new_width,
+        int new_height,
         const unsigned char* pixel_data,
         GLuint internal_format,
         GLuint image_format,
@@ -158,6 +158,10 @@ namespace euphoria::render
     )
     {
         Use(this);
+
+        width = new_width;
+        height = new_height;
+
         glTexImage2D
         (
             GL_TEXTURE_2D,
@@ -170,9 +174,6 @@ namespace euphoria::render
             GL_UNSIGNED_BYTE,
             pixel_data
         );
-
-        width = width;
-        height = height;
 
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, C(data.wrap));
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, C(data.wrap));

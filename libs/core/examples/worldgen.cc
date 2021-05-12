@@ -17,6 +17,7 @@
 // #include "core/colorbrewer.h"
 
 
+using namespace euphoria;
 using namespace euphoria::core;
 
 
@@ -91,7 +92,7 @@ HandleMazeCommand
 )
 {
     auto output = argparse::file_output {f};
-    auto rand = random{};
+    auto rand = core::random{};
     auto maze = generator::maze::from_width_height(world_width, world_height);
 
     auto drawer = generator::drawer {};
@@ -188,7 +189,7 @@ struct Cellwriter
     generator::world* world;
     int world_scale;
 
-    random shuffle_random;
+    core::random shuffle_random;
     generator::world world_copy;
 
     explicit Cellwriter
@@ -401,7 +402,7 @@ main(int argc, char* argv[])
             bool debug = false;
             Sizei size = Sizei::create_from_width_height(100, 70);
             std::string output = "cell.png";
-            auto rand = random{};
+            auto rand = core::random{};
             auto rules = generator::rules{};
 
             sub->add("--size", &size).set_help("set the size");

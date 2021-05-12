@@ -17,6 +17,7 @@
 #include <sstream>
 #include <iomanip>
 
+using namespace euphoria;
 using namespace euphoria::core;
 
 
@@ -37,7 +38,7 @@ struct Common
 
 
 table<int>
-GenerateDrunkenBishopTable(random* random, const Common& common)
+GenerateDrunkenBishopTable(core::random* random, const Common& common)
 {
     auto hash = std::vector<int>{};
     const int times = common.big ? 8 : 4;
@@ -117,7 +118,7 @@ main(int argc, char* argv[])
             sub->add("--count", &count).set_help("The number of images");
             sub->add("--scale", &scale).set_help("The scale of the image");
             return sub->on_complete([&]{
-                auto rand = random{};
+                auto rand = core::random{};
                 for(int c=0; c<count; c+=1)
                 {
                     const auto table = GenerateDrunkenBishopTable(&rand, common);
@@ -148,7 +149,7 @@ main(int argc, char* argv[])
             auto common = Common{};
             common.Add(sub);
             return sub->on_complete([&]{
-                auto rand = random{};
+                auto rand = core::random{};
                 const auto table = GenerateDrunkenBishopTable(&rand, common);
                 const auto strs = collapse(table, get_ssh_characters());
                 for(const auto& str: strs)

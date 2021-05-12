@@ -12,6 +12,7 @@
 #include "core/collage.h"
 #include "core/palette.h"
 
+using namespace euphoria;
 using namespace euphoria::core;
 
 
@@ -77,7 +78,7 @@ void RunMain
         number_of_images = 1;
     }
 
-    random random;
+    core::random random;
 
     auto images = std::vector<image>{};
     image image;
@@ -144,7 +145,7 @@ void RunSpratorCollage
     int frames
 )
 {
-    random random;
+    core::random random;
     auto sprites = std::vector<std::vector<image>>{};
 
     for(int image_index = 0; image_index < number_of_images; image_index += 1)

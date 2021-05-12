@@ -28,7 +28,7 @@ void AddSpiral(dumper* dump, int number_of_steps, float number_of_spins, float h
 int
 main(int, char*[])
 {
-    random rand;
+    euphoria::core::random rand;
 
     auto pal = create_shuffle_bag(palettes::color_blind_10().colors, 2);
 

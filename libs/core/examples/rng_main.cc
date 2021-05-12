@@ -9,6 +9,7 @@
 #include <bitset>
 
 
+using namespace euphoria;
 using namespace euphoria::core;
 
 
@@ -17,7 +18,7 @@ void
 PrintRandomNumbers
 (
     const std::string& name,
-    random* random,
+    core::random* random,
     int count,
     int small_count
 )
@@ -50,7 +51,7 @@ struct Main
 {
     int count = 1000;
     int small_count = 10;
-    random rand = random{};
+    core::random rand = core::random{};
 
     template<typename TGenerator>
     void
@@ -87,8 +88,8 @@ struct Main
         Print<random_xorshift64>("xorshift64");
 
         const int int_count = 10;
-        PrintInts<32>("u32", int_count, [](random* r) { return r->get_next_integer32();});
-        PrintInts<64>("u64", int_count, [](random* r) { return r->get_next_integer64();});
+        PrintInts<32>("u32", int_count, [](core::random* r) { return r->get_next_integer32();});
+        PrintInts<64>("u64", int_count, [](core::random* r) { return r->get_next_integer64();});
     }
 };
 

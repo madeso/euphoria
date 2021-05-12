@@ -44,6 +44,7 @@
 #include <iostream>
 #include <memory>
 
+using namespace euphoria;
 using namespace euphoria::core;
 using namespace euphoria::render;
 using namespace euphoria::window;
@@ -84,7 +85,7 @@ main(int argc, char** argv)
     }
 
     MaterialShaderCache material_shader_cache {engine.file_system.get()};
-    
+
     SET_ENUM_FROM_FILE
     (
         engine.file_system.get(),
@@ -96,7 +97,7 @@ main(int argc, char** argv)
     image.setup_no_alpha_support(256, 256);
     const auto wi = whole_image(image);
     clear(&image, {color::red});
-    random rand {42};
+    auto rand = core::random{42};
 
     for(int i = 0; i < 20; i += 1)
     {

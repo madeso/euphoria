@@ -7,13 +7,14 @@
 #include "core/image_draw.h"
 #include "core/io.h"
 
+using namespace euphoria;
 using namespace euphoria::core;
 using namespace euphoria::core::dump2d;
 
 void
 svg_dump()
 {
-    random random;
+    core::random random;
 
     const auto area = rectf::from_width_height(100, 100);
     const auto radius = 5.0f;
@@ -34,7 +35,7 @@ svg_dump()
 void
 png_dump(int extra_images)
 {
-    random random;
+    core::random random;
 
     const auto image_size = 512;
     const float world_size = 100;

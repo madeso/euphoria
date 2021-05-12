@@ -471,7 +471,7 @@ namespace euphoria::core::raytracer
     {
         image& img = *aimage;
 
-        auto rand = random{};
+        auto rand = core::random{};
         const auto aspect_ratio = static_cast<float>(img.width) / static_cast<float>(img.height);
         const auto camera = camera::create(angle::from_degrees(90), aspect_ratio);
 
