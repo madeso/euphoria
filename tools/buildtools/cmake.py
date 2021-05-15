@@ -54,7 +54,7 @@ class CMake:
         """set cmake to make static (not shared) library"""
         self.add_argument('BUILD_SHARED_LIBS', '0')
 
-    def config(self):
+    def config(self, only_print: bool = False):
         """run cmake configure step"""
         command = ['cmake']
         for arg in self.arguments:
@@ -69,8 +69,11 @@ class CMake:
             command.append(self.generator.arch)
         core.verify_dir_exist(self.build_folder)
         if core.is_windows():
-            core.flush()
-            subprocess.check_call(command, cwd=self.build_folder)
+            if only_print:
+                print(command, flush=True)
+            else:
+                core.flush()
+                subprocess.check_call(command, cwd=self.build_folder)
         else:
             print('Configuring cmake', command, flush=True)
 

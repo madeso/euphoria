@@ -35,14 +35,18 @@ def install_dependency_sdl2(deps, root, build, generator: cmake.Generator):
         print('SDL2 build exist, not building again...', flush=True)
 
 
-def setup_freetype_dependencies(root: str, platform: args.Platform):
+def setup_freetype_dependencies(root: str, platform: args.Platform, only_print: bool):
     """set enviroment variables for the cmake find scripts for freetype"""
     obj_folder = os.path.join(root, 'objs')
 
     # is x64 the right sub folder?
     build_folder = os.path.join(obj_folder, 'vc2010', args.platform_as_string(platform))
-    os.environ["FREETYPE_DIR"] = root
-    os.environ["GTKMM_BASEPATH"] = build_folder
+    if only_print:
+        print('freetype root', root)
+        print('freetype  build', build_folder)
+    else:
+        os.environ["FREETYPE_DIR"] = root
+        os.environ["GTKMM_BASEPATH"] = build_folder
 
 
 def install_dependency_freetype(deps: str, root: str, compiler: args.Compiler,

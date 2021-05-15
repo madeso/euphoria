@@ -48,10 +48,10 @@ def run_install(compiler, platform, generator):
                                        compiler, platform)
 
 
-def run_cmake(platform, generator):
+def run_cmake(platform, generator, only_print):
     """configure the euphoria cmake project"""
-    btdeps.setup_freetype_dependencies(FREETYPE2_FOLDER, platform)
-    generate_cmake_project(generator).config()
+    btdeps.setup_freetype_dependencies(FREETYPE2_FOLDER, platform, only_print)
+    generate_cmake_project(generator).config(only_print)
 
 
 def run(args) -> str:
@@ -81,7 +81,7 @@ def on_cmd_cmake(arg):
     platform = btargs.get_platform(arg)
     generator = btstudio.visual_studio_generator(compiler, platform)
 
-    run_cmake(platform, generator)
+    run_cmake(platform, generator, arg.print)
 
 
 def on_cmd_dev(arg):
@@ -142,6 +142,7 @@ def main():
     add_options(install_parser)
 
     cmmake_parser = subparsers.add_parser('cmake')
+    cmmake_parser.add_argument('--print', action='store_true')
     cmmake_parser.set_defaults(func=on_cmd_cmake)
     add_options(cmmake_parser)
 
