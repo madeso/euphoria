@@ -2,9 +2,10 @@
 __pycache__/*
 
 # clion build folder
-cmake-build-debug
+cmake-build-*
 build
 .vscode
+.idea
 
 # vi undo files
 *.un~
