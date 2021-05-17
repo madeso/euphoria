@@ -67,7 +67,7 @@ namespace euphoria::core::palettes
 
         // tableu
         case name::tableau_10: return tableau_10();
-        case name::tableau_light_10: return TableauLight_10();
+        case name::tableau_light_10: return tableau_light_10();
         case name::tableau_medium_10: return tableau_medium_10();
         case name::tableau_20: return tableau_20();
         case name::gray_5: return gray_5();

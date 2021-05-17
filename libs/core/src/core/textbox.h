@@ -12,11 +12,11 @@ namespace euphoria::core
 {
 
     // bitmasks
-    constexpr unsigned char BIT_UP      = 1 << 0;
-    constexpr unsigned char BIT_DOWN    = 1 << 1;
-    constexpr unsigned char BIT_LEFT    = 1 << 2;
-    constexpr unsigned char BIT_RIGHT   = 1 << 3;
-    constexpr unsigned char BIT_NO_LINE = ~(BIT_UP | BIT_DOWN | BIT_LEFT | BIT_RIGHT);
+    constexpr unsigned char bit_up      = 1 << 0;
+    constexpr unsigned char bit_down    = 1 << 1;
+    constexpr unsigned char bit_left    = 1 << 2;
+    constexpr unsigned char bit_right   = 1 << 3;
+    constexpr unsigned char bit_no_line = ~(bit_up | bit_down | bit_left | bit_right);
 
     struct text_box_style
     {

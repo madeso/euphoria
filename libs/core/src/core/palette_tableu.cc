@@ -43,7 +43,7 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
 
 
         const palette&
-        TableauLight_10()
+        tableau_light_10()
         {
             // Tableau 10 Light
             static const auto p = palette {"TableauLight_10",

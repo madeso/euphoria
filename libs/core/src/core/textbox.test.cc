@@ -168,21 +168,21 @@ TEST_CASE("tb_arrows")
 {
     const auto abc_style = text_box_style::create([](char c) {
         switch(c) {
-        case BIT_LEFT:                                 return u8"a";
-        case BIT_RIGHT:                                return u8"b";
-        case BIT_LEFT | BIT_RIGHT:                     return u8"c";
-        case BIT_UP:                                   return u8"d";
-        case BIT_DOWN:                                 return u8"e";
-        case BIT_UP | BIT_DOWN:                        return u8"f";
-        case BIT_LEFT| BIT_UP:                         return u8"g";
-        case BIT_LEFT | BIT_DOWN:                      return u8"h";
-        case BIT_RIGHT | BIT_UP:                       return u8"i";
-        case BIT_RIGHT | BIT_DOWN:                     return u8"j";
-        case BIT_LEFT | BIT_RIGHT | BIT_UP:            return u8"k";
-        case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return u8"l";
-        case BIT_LEFT | BIT_UP | BIT_DOWN:             return u8"m";
-        case BIT_RIGHT | BIT_UP | BIT_DOWN:            return u8"n";
-        case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return u8"o";
+        case bit_left:                                 return u8"a";
+        case bit_right:                                return u8"b";
+        case bit_left | bit_right:                     return u8"c";
+        case bit_up:                                   return u8"d";
+        case bit_down:                                 return u8"e";
+        case bit_up | bit_down:                        return u8"f";
+        case bit_left| bit_up:                         return u8"g";
+        case bit_left | bit_down:                      return u8"h";
+        case bit_right | bit_up:                       return u8"i";
+        case bit_right | bit_down:                     return u8"j";
+        case bit_left | bit_right | bit_up:            return u8"k";
+        case bit_left | bit_right | bit_down:          return u8"l";
+        case bit_left | bit_up | bit_down:             return u8"m";
+        case bit_right | bit_up | bit_down:            return u8"n";
+        case bit_left | bit_right | bit_up | bit_down: return u8"o";
         default:
             DIE("Invalid combination");
             return "?";

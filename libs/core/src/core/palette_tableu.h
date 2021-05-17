@@ -11,7 +11,7 @@ namespace euphoria::core::palettes
     tableau_10();
 
     const palette&
-    TableauLight_10();
+    tableau_light_10();
 
     const palette&
     tableau_medium_10();

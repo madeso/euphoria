@@ -29,7 +29,7 @@ namespace
     bool
     HasChar(char c)
     {
-        return (c & euphoria::core::BIT_NO_LINE) != 0;
+        return (c & euphoria::core::bit_no_line) != 0;
     }
 
 
@@ -102,21 +102,21 @@ namespace euphoria::core
         {
             switch(c)
             {
-            case BIT_LEFT:
-            case BIT_RIGHT:
-            case BIT_LEFT | BIT_RIGHT:                     return u8"─";
-            case BIT_UP:
-            case BIT_DOWN:
-            case BIT_UP | BIT_DOWN:                        return u8"│";
-            case BIT_LEFT| BIT_UP:                         return u8"┘";
-            case BIT_LEFT | BIT_DOWN:                      return u8"┐";
-            case BIT_RIGHT | BIT_UP:                       return u8"└";
-            case BIT_RIGHT | BIT_DOWN:                     return u8"┌";
-            case BIT_LEFT | BIT_RIGHT | BIT_UP:            return u8"┴";
-            case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return u8"┬";
-            case BIT_LEFT | BIT_UP | BIT_DOWN:             return u8"┤";
-            case BIT_RIGHT | BIT_UP | BIT_DOWN:            return u8"├";
-            case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return u8"┼";
+            case bit_left:
+            case bit_right:
+            case bit_left | bit_right:                     return u8"─";
+            case bit_up:
+            case bit_down:
+            case bit_up | bit_down:                        return u8"│";
+            case bit_left| bit_up:                         return u8"┘";
+            case bit_left | bit_down:                      return u8"┐";
+            case bit_right | bit_up:                       return u8"└";
+            case bit_right | bit_down:                     return u8"┌";
+            case bit_left | bit_right | bit_up:            return u8"┴";
+            case bit_left | bit_right | bit_down:          return u8"┬";
+            case bit_left | bit_up | bit_down:             return u8"┤";
+            case bit_right | bit_up | bit_down:            return u8"├";
+            case bit_left | bit_right | bit_up | bit_down: return u8"┼";
             default:
                 DIE("Invalid combination");
                 return "X";
@@ -131,21 +131,21 @@ namespace euphoria::core
         {
             switch(c)
             {
-            case BIT_LEFT:
-            case BIT_RIGHT:
-            case BIT_LEFT | BIT_RIGHT:                     return u8"─";
-            case BIT_UP:
-            case BIT_DOWN:
-            case BIT_UP | BIT_DOWN:                        return u8"│";
-            case BIT_LEFT| BIT_UP:                         return u8"╯";
-            case BIT_LEFT | BIT_DOWN:                      return u8"╮";
-            case BIT_RIGHT | BIT_UP:                       return u8"╰";
-            case BIT_RIGHT | BIT_DOWN:                     return u8"╭";
-            case BIT_LEFT | BIT_RIGHT | BIT_UP:            return u8"┴";
-            case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return u8"┬";
-            case BIT_LEFT | BIT_UP | BIT_DOWN:             return u8"┤";
-            case BIT_RIGHT | BIT_UP | BIT_DOWN:            return u8"├";
-            case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return u8"┼";
+            case bit_left:
+            case bit_right:
+            case bit_left | bit_right:                     return u8"─";
+            case bit_up:
+            case bit_down:
+            case bit_up | bit_down:                        return u8"│";
+            case bit_left| bit_up:                         return u8"╯";
+            case bit_left | bit_down:                      return u8"╮";
+            case bit_right | bit_up:                       return u8"╰";
+            case bit_right | bit_down:                     return u8"╭";
+            case bit_left | bit_right | bit_up:            return u8"┴";
+            case bit_left | bit_right | bit_down:          return u8"┬";
+            case bit_left | bit_up | bit_down:             return u8"┤";
+            case bit_right | bit_up | bit_down:            return u8"├";
+            case bit_left | bit_right | bit_up | bit_down: return u8"┼";
             default:
                 DIE("Invalid combination");
                 return "X";
@@ -160,21 +160,21 @@ namespace euphoria::core
         {
             switch(c)
             {
-            case BIT_LEFT:
-            case BIT_RIGHT:
-            case BIT_LEFT | BIT_RIGHT:                     return u8"═";
-            case BIT_UP:
-            case BIT_DOWN:
-            case BIT_UP | BIT_DOWN:                        return u8"║";
-            case BIT_LEFT| BIT_UP:                         return u8"╝";
-            case BIT_LEFT | BIT_DOWN:                      return u8"╗";
-            case BIT_RIGHT | BIT_UP:                       return u8"╚";
-            case BIT_RIGHT | BIT_DOWN:                     return u8"╔";
-            case BIT_LEFT | BIT_RIGHT | BIT_UP:            return u8"╩";
-            case BIT_LEFT | BIT_RIGHT | BIT_DOWN:          return u8"╦";
-            case BIT_LEFT | BIT_UP | BIT_DOWN:             return u8"╣";
-            case BIT_RIGHT | BIT_UP | BIT_DOWN:            return u8"╠";
-            case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return u8"╬";
+            case bit_left:
+            case bit_right:
+            case bit_left | bit_right:                     return u8"═";
+            case bit_up:
+            case bit_down:
+            case bit_up | bit_down:                        return u8"║";
+            case bit_left| bit_up:                         return u8"╝";
+            case bit_left | bit_down:                      return u8"╗";
+            case bit_right | bit_up:                       return u8"╚";
+            case bit_right | bit_down:                     return u8"╔";
+            case bit_left | bit_right | bit_up:            return u8"╩";
+            case bit_left | bit_right | bit_down:          return u8"╦";
+            case bit_left | bit_up | bit_down:             return u8"╣";
+            case bit_right | bit_up | bit_down:            return u8"╠";
+            case bit_left | bit_right | bit_up | bit_down: return u8"╬";
             default:
                 DIE("Invalid combination");
                 return "X";
@@ -189,21 +189,21 @@ namespace euphoria::core
         {
             switch(c)
             {
-            case BIT_LEFT:
-            case BIT_RIGHT:
-            case BIT_LEFT | BIT_RIGHT:                     return "-";
-            case BIT_UP:
-            case BIT_DOWN:
-            case BIT_UP | BIT_DOWN:                        return "|";
-            case BIT_LEFT| BIT_UP:                         return "'";
-            case BIT_LEFT | BIT_DOWN:                      return ".";
-            case BIT_RIGHT | BIT_UP:                       return "`";
-            case BIT_RIGHT | BIT_DOWN:                     return ",";
-            case BIT_LEFT | BIT_RIGHT | BIT_UP:
-            case BIT_LEFT | BIT_RIGHT | BIT_DOWN:
-            case BIT_LEFT | BIT_UP | BIT_DOWN:
-            case BIT_RIGHT | BIT_UP | BIT_DOWN:
-            case BIT_LEFT | BIT_RIGHT | BIT_UP | BIT_DOWN: return "+";
+            case bit_left:
+            case bit_right:
+            case bit_left | bit_right:                     return "-";
+            case bit_up:
+            case bit_down:
+            case bit_up | bit_down:                        return "|";
+            case bit_left| bit_up:                         return "'";
+            case bit_left | bit_down:                      return ".";
+            case bit_right | bit_up:                       return "`";
+            case bit_right | bit_down:                     return ",";
+            case bit_left | bit_right | bit_up:
+            case bit_left | bit_right | bit_down:
+            case bit_left | bit_up | bit_down:
+            case bit_right | bit_up | bit_down:
+            case bit_left | bit_right | bit_up | bit_down: return "+";
             default:
                 DIE("Invalid combination");
                 return "X";
@@ -403,12 +403,12 @@ namespace euphoria::core
 
                 if(line_index>0 || bef)
                 {
-                    c |= BIT_LEFT;
+                    c |= bit_left;
                 }
 
                 if(aft || (line_index+1)<line_width)
                 {
-                    c |= BIT_RIGHT;
+                    c |= bit_right;
                 }
             });
         }
@@ -436,12 +436,12 @@ namespace euphoria::core
 
                 if(line_index>0 || bef)
                 {
-                    c |= BIT_UP;
+                    c |= bit_up;
                 }
 
                 if(aft || (line_index+1)<line_height)
                 {
-                    c |= BIT_DOWN;
+                    c |= bit_down;
                 }
             });
         }
