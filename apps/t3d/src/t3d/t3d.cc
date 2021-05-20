@@ -65,7 +65,7 @@ namespace euphoria::t3d
             return -2;
         }
 
-        material_shader_cache = std::make_shared<render::MaterialShaderCache>(engine->file_system.get());
+        material_shader_cache = std::make_shared<render::material_shader_cache>(engine->file_system.get());
         
         SET_ENUM_FROM_FILE
         (
@@ -74,11 +74,11 @@ namespace euphoria::t3d
             core::texture_type
         );
 
-        texture_cache = std::make_shared<render::TextureCache>(engine->file_system.get());
+        texture_cache = std::make_shared<render::texture_cache>(engine->file_system.get());
 
         tile_library = std::make_shared<TileLibrary>(engine->file_system.get());
 
-        world = std::make_shared<render::World>();
+        world = std::make_shared<render::world>();
 
         editor = std::make_shared<Editor>(&grid_data, world.get(), tile_library.get());
         editor->tools.PushTool(std::make_shared<NoTool>());
@@ -89,12 +89,12 @@ namespace euphoria::t3d
 
         engine->window->EnableCharEvent(!immersive_mode);
 
-        viewport_handler = std::make_shared<render::ViewportHandler>
+        viewport_handler = std::make_shared<render::viewport_handler>
         (
             engine->init.get(),
             nullptr
         );
-        viewport_handler->SetSize(width, height);
+        viewport_handler->set_size(width, height);
 
         return 0;
     }
@@ -173,9 +173,9 @@ namespace euphoria::t3d
         def.add_line(core::vec3f {-size, 0, 0}, core::vec3f {size, 0, 0}, x_color);
         def.add_line(core::vec3f {0, 0, -size}, core::vec3f {0, 0, size}, z_color);
 
-        auto compiled = Compile(material_shader_cache.get(), def);
-        grid     = std::make_shared<render::PositionedLines>(compiled);
-        world->AddActor(grid);
+        auto compiled = compile(material_shader_cache.get(), def);
+        grid     = std::make_shared<render::positioned_lines>(compiled);
+        world->add_actor(grid);
     }
 
 
@@ -186,7 +186,7 @@ namespace euphoria::t3d
         int window_height = 0;
         if(engine->HandleResize(e, &window_width, &window_height))
         {
-            viewport_handler->SetSize(window_width, window_height);
+            viewport_handler->set_size(window_width, window_height);
         }
         if(show_imgui)
         {
@@ -446,7 +446,7 @@ namespace euphoria::t3d
         {
             ASSERT(actor->tile);
             ASSERT(actor->tile);
-            const auto p = actor->actor->GetPosition();
+            const auto p = actor->actor->position;
             std::string display = core::string_builder {}
                 << actor->tile->name
                 << " "
@@ -479,7 +479,7 @@ namespace euphoria::t3d
         ImGui::Combo
         (
             "Type",
-            reinterpret_cast<int*>(&world->light.type),
+            reinterpret_cast<int*>(&world->light.light_type),
             "Directional\0Point\0Spot\0\0"
         );
         window::ImGuiColorEdit("Ambient", &world->light.ambient);
@@ -526,7 +526,7 @@ namespace euphoria::t3d
                 uimin,
                 uimax
             ) || dirty;
-            dirty = ImGui::DragInt("Lines on grid", &grid_data.size)
+            dirty = ImGui::DragInt("lines on grid", &grid_data.size)
                 || dirty;
 
             ImGui::EndPopup();
@@ -614,11 +614,11 @@ namespace euphoria::t3d
                 auto placed = std::make_shared<PlacedMesh>();
                 placed->tile = editor->selected_mesh;
                 placed->is_selected = true;
-                placed->actor = std::make_shared<render::Actor>
+                placed->actor = std::make_shared<render::actor>
                 (
                         placed->tile->mesh
                 );
-                world->AddActor(placed->actor);
+                world->add_actor(placed->actor);
                 editor->actors.emplace_back(placed);
 
                 editor->tools.PushTool
@@ -640,11 +640,11 @@ namespace euphoria::t3d
                 auto placed = std::make_shared<PlacedMesh>();
                 placed->tile = selected->tile;
                 placed->is_selected = true;
-                placed->actor = std::make_shared<render::Actor>
+                placed->actor = std::make_shared<render::actor>
                 (
                         placed->tile->mesh
                 );
-                world->AddActor(placed->actor);
+                world->add_actor(placed->actor);
                 editor->actors.emplace_back(placed);
 
                 editor->tools.PushTool
@@ -690,10 +690,10 @@ namespace euphoria::t3d
     void
     T3d::Render()
     {
-        auto viewport = viewport_handler->GetFullViewport();
-        editor->camera = camera.compile(viewport.GetAspectRatio());
+        auto viewport = viewport_handler->get_full_viewport();
+        editor->camera = camera.compile(viewport.get_aspect_ratio());
         editor->viewport = viewport;
-        world->Render(viewport, camera);
+        world->render(viewport, camera);
     }
 
 
@@ -704,7 +704,7 @@ namespace euphoria::t3d
         //  const float delta =
             timer->Update();
 
-        world->Step();
+        world->step();
         editor->tools.PerformTools();
 
         HandleEvents();
@@ -726,7 +726,7 @@ namespace euphoria::t3d
         camera.position = orbit.get_camera_position();
         camera.rotation = orbit.get_rotation();
 
-        engine->init->ClearScreen(core::color::light_gray);
+        engine->init->clear_screen(core::color::light_gray);
 
         Render();
 

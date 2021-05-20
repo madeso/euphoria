@@ -116,8 +116,8 @@ main(int argc, char** argv)
         return -1;
     }
 
-    // ViewportHandler viewport_handler;
-    // viewport_handler.SetSize(window_width, window_height);
+    // viewport_handler viewport_handler;
+    // viewport_handler.set_size(window_width, window_height);
 
 
     bool running = true;
@@ -148,7 +148,7 @@ main(int argc, char** argv)
 
             if(engine.HandleResize(e, &window_width, &window_height))
             {
-                // viewport_handler.SetSize(window_width, window_height);
+                // viewport_handler.set_size(window_width, window_height);
             }
 
             switch(e.type)
@@ -351,7 +351,7 @@ main(int argc, char** argv)
 
         // ImGui::ShowMetricsWindow();
 
-        engine.init->ClearScreen(color::light_gray);
+        engine.init->clear_screen(color::light_gray);
         engine.imgui->Render();
 
         SDL_GL_SwapWindow(engine.window->window);

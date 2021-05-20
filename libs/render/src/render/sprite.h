@@ -11,7 +11,7 @@
 namespace euphoria::render
 {
     struct texture2d;
-    struct SpriteRenderer;
+    struct sprite_renderer;
 
     struct sprite
     {
@@ -26,7 +26,7 @@ namespace euphoria::render
         get_width() const;
 
         void
-        render(SpriteRenderer* render) const;
+        render(sprite_renderer* render) const;
 
         std::shared_ptr<texture2d> texture;
         core::vec2f position;
@@ -39,7 +39,7 @@ namespace euphoria::render
 
     struct layer
     {
-        explicit layer(SpriteRenderer* render);
+        explicit layer(sprite_renderer* render);
 
         void
         add(sprite* sprite);
@@ -53,7 +53,7 @@ namespace euphoria::render
         using sprite_list = std::vector<sprite*>;
         using sprite_map = std::map<std::shared_ptr<texture2d>, sprite_list>;
 
-        SpriteRenderer* renderer;
+        sprite_renderer* renderer;
         sprite_map texture_to_sprites;
     };
 }

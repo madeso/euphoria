@@ -14,7 +14,7 @@ namespace euphoria::t3d
     Editor::Editor
     (
         Grid* agrid,
-        render::World* aworld,
+        render::world* aworld,
         TileLibrary* atile_library
     )
         : grid(agrid)
@@ -58,7 +58,7 @@ namespace euphoria::t3d
 
         for(auto a: actors)
         {
-            const auto collision = core::get_intersection(ray, a->tile->aabb.offset_copy(a->actor->GetPosition()));
+            const auto collision = core::get_intersection(ray, a->tile->aabb.offset_copy(a->actor->position));
             
             if(collision.intersected)
             {

@@ -168,9 +168,9 @@ ImWidget(const char* title, euphoria::render::texture2d* tex)
 }
 
 void
-ImWidget(euphoria::render::ScalableSprite* sprite)
+ImWidget(euphoria::render::scalable_sprite* sprite)
 {
-    ImWidget("texture", sprite->texture_.get());
+    ImWidget("texture", sprite->texture.get());
 }
 
 
@@ -255,7 +255,7 @@ ImWidget(LayoutContainer* container)
 }
 
 void
-ImWidgetGlyph(int id, euphoria::render::Glyph* gl)
+ImWidgetGlyph(int id, euphoria::render::glyph* gl)
 {
     const std::string s = string_builder() << "glyph " << id;
     if(ImGui::TreeNode(s.c_str()) == false) { return; }
@@ -272,7 +272,7 @@ ImWidgetGlyph(int id, euphoria::render::Glyph* gl)
 }
 
 void
-ImWidget(const char* title, euphoria::render::Font* font)
+ImWidget(const char* title, euphoria::render::drawable_font* font)
 {
     if(ImGui::TreeNode(title) == false) {return;}
 
@@ -329,7 +329,7 @@ main(int argc, char* argv[])
         std::make_shared<vfs::write_root_physical_folder>(get_current_directory())
     );
 
-    TextureCache cache {engine.file_system.get()};
+    texture_cache cache {engine.file_system.get()};
 
     const auto clear_color = color::blue;
 
@@ -351,14 +351,14 @@ main(int argc, char* argv[])
     }
 
 
-    Shader shader;
-    attributes2d::PrebindShader(&shader);
-    shader.Load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
-    SpriteRenderer renderer(&shader);
-    FontCache      font_cache {engine.file_system.get(), &cache};
+    shader shader;
+    attributes2d::prebind_shader(&shader);
+    shader.load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
+    sprite_renderer renderer(&shader);
+    font_cache      font_cache {engine.file_system.get(), &cache};
 
-    Use(&shader);
-    shader.SetUniform(shader.GetUniform("image"), 0);
+    use(&shader);
+    shader.set_uniform(shader.get_uniform("image"), 0);
 
     auto root = Root{Sizef::create_from_width_height(window_width, window_height)};
     const auto gui_loaded = root.Load
@@ -374,13 +374,13 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    auto viewport_handler = ViewportHandler
+    auto viewport_handler = euphoria::render::viewport_handler
     {
         engine.init.get(),
         nullptr
     };
-    viewport_handler.Add(&shader);
-    viewport_handler.SetSize(window_width, window_height);
+    viewport_handler.add(&shader);
+    viewport_handler.set_size(window_width, window_height);
 
     Uint64 now  = SDL_GetPerformanceCounter();
     Uint64 last = 0;
@@ -395,7 +395,7 @@ main(int argc, char* argv[])
     SDL_GetMouseState(&window_mouse_x, &window_mouse_y);
     bool mouse_lmb_down = false;
 
-    engine.init->Use2d();
+    engine.init->use_2d();
 
     while(running)
     {
@@ -428,7 +428,7 @@ main(int argc, char* argv[])
 
             if(engine.HandleResize(e, &window_width, &window_height))
             {
-                viewport_handler.SetSize(window_width, window_height);
+                viewport_handler.set_size(window_width, window_height);
                 root.Resize(Sizef::create_from_width_height(window_width, window_height));
             }
 
@@ -477,7 +477,7 @@ main(int argc, char* argv[])
 
         root.Step(dt);
 
-        engine.init->ClearScreen(clear_color);
+        engine.init->clear_screen(clear_color);
         root.Render(&renderer);
         if(show_imgui)
         {

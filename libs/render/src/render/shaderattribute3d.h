@@ -5,7 +5,7 @@
 
 namespace euphoria::render
 {
-    struct Shader;
+    struct shader;
 }
 
 // todo(Gustav): Refactor into a pipeline/layout structure
@@ -16,22 +16,22 @@ and the actual values are dynamically created in script.
 */
 namespace euphoria::render::attributes3d
 {
-    const ShaderAttribute&
-    Vertex();
+    const shader_attribute&
+    vertex();
 
 
-    const ShaderAttribute&
-    Normal();
+    const shader_attribute&
+    normal();
 
 
-    const ShaderAttribute&
-    TexCoord();
+    const shader_attribute&
+    tex_coord();
 
 
-    const ShaderAttribute&
-    Color();
+    const shader_attribute&
+    color();
 
 
     void
-    PrebindShader(Shader* shader);
+    prebind_shader(shader* shader);
 }

@@ -6,39 +6,28 @@
 
 namespace euphoria::render
 {
-    struct LightAttenuation
+    struct light_attenuation
     {
-        LightAttenuation();
-
-        [[nodiscard]] float
-        GetConstant() const;
-
-        [[nodiscard]] float
-        GetLinear() const;
-
-        [[nodiscard]] float
-        GetQuadratic() const;
-
-        float constant_;
-        float linear_;
-        float quadratic_;
+        float constant = 1.0f;
+        float linear = 0.09f;
+        float quadratic = 0.032f;
     };
 
 
-    struct Light
+    struct light
     {
-        Light();
+        light();
 
         // todo(Gustav): move this to a light def file and let it be specified in a editor
 
-        enum class Type : int
+        enum class type
         {
-            Directional,
-            Point,
-            Spot
+            directional,
+            point,
+            spot
         };
 
-        Type type;
+        type light_type;
         core::vec3f position;
         core::unit3f direction;
         core::rgb ambient;
@@ -47,7 +36,7 @@ namespace euphoria::render
         core::angle cutoff_angle_outer;
         core::angle cutoff_angle_inner;
 
-        LightAttenuation attenuation;
+        light_attenuation attenuation;
     };
 
 }

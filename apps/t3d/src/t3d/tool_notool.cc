@@ -27,7 +27,7 @@ namespace euphoria::t3d
         if(button != core::MouseButton::left) { return; }
         auto ray = editor->camera
                         .clip_to_world_ray(
-                                editor->viewport.ToClipCoord(editor->mouse))
+                                editor->viewport.to_clip_coord(editor->mouse))
                         .get_normalized();
         
         editor->SetAllSelected(false);

@@ -23,7 +23,7 @@ namespace euphoria::core::ecs
 
 namespace euphoria::render
 {
-    struct TextureCache;
+    struct texture_cache;
 }
 
 namespace euphoria::engine
@@ -77,7 +77,7 @@ namespace euphoria::engine
             const game::Game&     json,
             ObjectCreator*        temp,
             DukRegistry*          reg,
-            render::TextureCache* cache,
+            render::texture_cache* cache,
             Components*           components);
 }  // namespace euphoria::engine
 

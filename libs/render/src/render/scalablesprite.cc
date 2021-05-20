@@ -24,7 +24,7 @@ using namespace euphoria::convert;
 namespace
 {
     float
-    CopyData(std::vector<float>* dest, const std::vector<int>& src)
+    copy_data(std::vector<float>* dest, const std::vector<int>& src)
     {
         dest->reserve(src.size());
         float size = 0;
@@ -46,7 +46,7 @@ namespace
 
 
     float
-    GetConstantSize(const std::vector<float>& data)
+    get_constant_size(const std::vector<float>& data)
     {
         float r = 0;
         for(float f: data)
@@ -63,13 +63,13 @@ namespace
 
 namespace euphoria::render
 {
-    ScalableSprite::ScalableSprite
+    scalable_sprite::scalable_sprite
     (
         core::vfs::file_system* fs,
         const core::vfs::file_path& path,
-        TextureCache* cache
+        texture_cache* cache
     )
-        : texture_(cache->GetTexture(path))
+        : texture(cache->get_texture(path))
     {
         scalingsprite::ScalingSprite sprite;
 
@@ -80,40 +80,35 @@ namespace euphoria::render
             path.set_extension_copy(path.get_extension()+ ".json")
         );
 
-        max_row_ = CopyData(&rows_, sprite.rows);
-        max_col_ = CopyData(&cols_, sprite.cols);
+        calculated_texture_size_rows = copy_data(&rows, sprite.rows);
+        calculated_texture_size_columns = copy_data(&columns, sprite.cols);
     }
 
 
-    ScalableSprite::~ScalableSprite() = default;
+    scalable_sprite::~scalable_sprite() = default;
 
 
     core::Sizef
-    ScalableSprite::GetMinimumSize() const
+    scalable_sprite::get_minimum_size() const
     {
         return core::Sizef::create_from_width_height
         (
-            GetConstantSize(cols_),
-            GetConstantSize(rows_)
+            get_constant_size(columns),
+            get_constant_size(rows)
         );
     }
 
 
     void
-    ScalableSprite::Render(SpriteRenderer* sr, const core::rectf& rect, const core::rgba& tint
-    ) const
+    scalable_sprite::render(sprite_renderer* renderer, const core::rectf& rect, const core::rgba& tint) const
     {
         const auto size_ = rect.get_size();
         const auto pos = rect.get_bottom_left();
-        const auto position_cols = core::perform_table_layout(cols_, size_.width);
-        const auto position_rows = core::perform_table_layout
-        (
-            rows_,
-            size_.height
-        );
+        const auto position_cols = core::perform_table_layout(columns, size_.width);
+        const auto position_rows = core::perform_table_layout(rows, size_.height);
 
-        const auto cols_size = cols_.size();
-        const auto rows_size = rows_.size();
+        const auto cols_size = columns.size();
+        const auto rows_size = rows.size();
 
         ASSERT(position_rows.size() == rows_size);
         ASSERT(position_cols.size() == cols_size);
@@ -126,12 +121,12 @@ namespace euphoria::render
             float uv_current_row = 1;
 
             const auto position_next_col = position_current_col + position_cols[c];
-            const auto uv_next_col = uv_current_col + core::abs(cols_[c]) / max_col_;
+            const auto uv_next_col = uv_current_col + core::abs(columns[c]) / calculated_texture_size_columns;
 
             for(unsigned int r = 0; r < rows_size; ++r)
             {
                 const auto position_next_row = position_current_row - position_rows[r];
-                const auto uv_next_row = uv_current_row - core::abs(rows_[r]) / max_row_;
+                const auto uv_next_row = uv_current_row - core::abs(rows[r]) / calculated_texture_size_rows;
 
                 ASSERTX
                 (
@@ -160,13 +155,13 @@ namespace euphoria::render
                     uv_next_row
                 );
 
-                sr->DrawRect
+                renderer->draw_rect
                 (
-                    *texture_,
+                    *texture,
                     position_rect.offset_copy(pos),
                     uv_rect,
                     0.0_rad,
-                    core::scale2f {0, 0},
+                    core::scale2f{0, 0},
                     tint
                 );
 

@@ -28,8 +28,7 @@ namespace euphoria::core
                 }
             }
 
-            std::shared_ptr<Data> data
-                    = static_cast<Loader*>(this)->Create(key);
+            std::shared_ptr<Data> data = static_cast<Loader *>(this)->create(key);
             store.insert(std::pair<Key, std::weak_ptr<Data>>(key, data));
             return data;
         }

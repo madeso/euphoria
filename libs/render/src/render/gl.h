@@ -1,6 +1,4 @@
-#ifndef SPACETYPER_GL_H
-#define SPACETYPER_GL_H
+#pragma once
 
 #include "glad/glad.h"
 
-#endif  // SPACETYPER_GL_H

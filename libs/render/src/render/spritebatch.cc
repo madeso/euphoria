@@ -2,6 +2,7 @@
 #include "render/gl.h"
 
 #include "core/assert.h"
+#include "core/cint.h"
 
 namespace euphoria::render
 {
@@ -10,20 +11,18 @@ namespace euphoria::render
     const int Stride = 2 * 4 + 2 * 4 + 4 * 4;
 
 
-    SpriteBatch::SpriteBatch() : inside_(false), count_(0), rendercalls_(0)
+    sprite_batch::sprite_batch() : inside_(false), count_(0), rendercalls_(0)
     {
-        // the static casts are weird, but they stop clang-tidy from complaining about
-        // 'misplaced widening casts'
-        data_.reserve(static_cast<size_t>(Stride) * QuadCount);
-        index_.reserve(static_cast<size_t>(6) * QuadCount);
+        data_.reserve(core::Cint_to_sizet(Stride * QuadCount));
+        index_.reserve(core::Cint_to_sizet(6 * QuadCount));
     }
 
 
-    SpriteBatch::~SpriteBatch() = default;
+    sprite_batch::~sprite_batch() = default;
 
 
     void
-    SpriteBatch::Begin()
+    sprite_batch::begin()
     {
         ASSERT(!inside_ && "Already open, missing call to end.");
         rendercalls_ = 0;
@@ -31,7 +30,7 @@ namespace euphoria::render
 
 
     void
-    SpriteBatch::Quad
+    sprite_batch::quad
     (
         const core::vec2f& pos,
         const core::Sizef& quad,
@@ -45,7 +44,7 @@ namespace euphoria::render
 
         if((count_ + 1) >= QuadCount)
         {
-            Flush();
+            flush();
         }
 
         // add vertices
@@ -108,16 +107,16 @@ namespace euphoria::render
 
 
     void
-    SpriteBatch::End()
+    sprite_batch::end()
     {
         ASSERT(inside_ && "not open, missing begin.");
-        Flush();
+        flush();
         inside_ = false;
     }
 
 
     void
-    SpriteBatch::Flush()
+    sprite_batch::flush()
     {
         if(count_ == 0)
         {

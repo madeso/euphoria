@@ -3,11 +3,11 @@
 namespace euphoria::render
 {
     void
-    PrintAllOpenglErrors(const char* file, int line);
+    print_all_opengl_errors(const char* file, int line);
 
     void
-    SetupOpenglDebug();
+    setup_opengl_debug();
 }
 
-#define CheckOpenglError() ::euphoria::render::PrintAllOpenglErrors(__FILE__, __LINE__)
+// #define CheckOpenglError() ::euphoria::render::print_all_opengl_errors(__FILE__, __LINE__)
 

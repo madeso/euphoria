@@ -231,14 +231,14 @@ OpenOrFocusTextFile(
     });
 }
 
-struct ScalingSpriteCache
+struct scaling_sprite_cache
     : public cache<
               vfs::file_path,
               scalingsprite::ScalingSprite,
-              ScalingSpriteCache>
+              scaling_sprite_cache>
 {
     std::shared_ptr<scalingsprite::ScalingSprite>
-    Create(const vfs::file_path&)
+    create(const vfs::file_path&)
     {
         // todo(Gustav): load from filename
         auto ss = std::make_shared<scalingsprite::ScalingSprite>();
@@ -249,13 +249,13 @@ struct ScalingSpriteCache
 void
 LoadFile
 (
-    Scimed* scimed,
-    TextureCache* cache,
-    ScalingSpriteCache* scache,
-    const vfs::file_path& path
+        Scimed* scimed,
+        texture_cache* cache,
+        scaling_sprite_cache* scache,
+        const vfs::file_path& path
 )
 {
-    scimed->texture = cache->GetTexture(path);
+    scimed->texture = cache->get_texture(path);
     scimed->scaling = scache->get(path.extend_extension_copy("json"));
 
     if(scimed->texture)
@@ -276,8 +276,8 @@ void
 OpenOrFocusScimed(
         Windows*            windows,
         const vfs::file_path&  file,
-        TextureCache*       tc,
-        ScalingSpriteCache* sc)
+        texture_cache*       tc,
+        scaling_sprite_cache* sc)
 {
     OpenOrFocusWindow(
             windows,
@@ -292,9 +292,9 @@ OpenOrFocusScimed(
 void
 OpenOrFocusScimedEditior
 (
-    Windows* windows,
-    const vfs::file_path&  path,
-    ScalingSpriteCache* sc
+        Windows* windows,
+        const vfs::file_path&  path,
+        scaling_sprite_cache* sc
 )
 {
     auto file = path;
@@ -474,8 +474,8 @@ main(int argc, char** argv)
         return -1;
     }
 
-    TextureCache       texture_cache {engine.file_system.get()};
-    ScalingSpriteCache sprite_cache;
+    texture_cache       texture_cache {engine.file_system.get()};
+    scaling_sprite_cache sprite_cache;
 
     bool running = true;
 
@@ -522,13 +522,13 @@ main(int argc, char** argv)
             },
             [&](Windows* windows, const vfs::file_path& file)
             {
-                OpenOrFocusOnGenericWindow<world::World>
+                OpenOrFocusOnGenericWindow<::world::World>
                 (
                     windows,
                     file,
                     engine.file_system.get(),
                     "World",
-                    [](auto* s) { world::RunImgui(s); }
+                    [](auto* s) { ::world::RunImgui(s); }
                 );
             }
         )
@@ -598,12 +598,12 @@ main(int argc, char** argv)
         )
     );
 
-    auto viewport_handler = ViewportHandler
+    auto viewport_handler = euphoria::render::viewport_handler
     {
         engine.init.get(),
         nullptr
     };
-    viewport_handler.SetSize(window_width, window_height);
+    viewport_handler.set_size(window_width, window_height);
 
     //////////////////////////////////////////////////////////////////////////////
     // main loop
@@ -617,7 +617,7 @@ main(int argc, char** argv)
 
             if(engine.HandleResize(e, &window_width, &window_height))
             {
-                viewport_handler.SetSize(window_width, window_height);
+                viewport_handler.set_size(window_width, window_height);
             }
 
             switch(e.type)
@@ -725,7 +725,7 @@ main(int argc, char** argv)
 
         // ImGui::ShowMetricsWindow();
 
-        engine.init->ClearScreen(color::light_gray);
+        engine.init->clear_screen(color::light_gray);
         engine.imgui->Render();
 
         remove_matching

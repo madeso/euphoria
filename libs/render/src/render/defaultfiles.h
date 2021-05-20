@@ -14,6 +14,6 @@ namespace euphoria
     namespace render
     {
         void
-        SetupDefaultFiles(std::shared_ptr<core::vfs::read_root_catalog> catalog);
+        setup_default_files(std::shared_ptr<core::vfs::read_root_catalog> catalog);
     }
 }

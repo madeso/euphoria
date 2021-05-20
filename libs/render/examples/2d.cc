@@ -57,7 +57,7 @@ main(int argc, char* argv[])
         std::make_shared<vfs::write_root_physical_folder>(get_current_directory())
     );
 
-    TextureCache cache {engine.file_system.get()};
+    texture_cache cache {engine.file_system.get()};
 
     const auto clear_color = color::light_gray;
 
@@ -79,22 +79,22 @@ main(int argc, char* argv[])
     }
 
 
-    Shader shader;
-    attributes2d::PrebindShader(&shader);
-    shader.Load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
-    SpriteRenderer renderer(&shader);
-    FontCache      font_cache {engine.file_system.get(), &cache};
+    shader shader;
+    attributes2d::prebind_shader(&shader);
+    shader.load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
+    sprite_renderer renderer(&shader);
+    font_cache      font_cache {engine.file_system.get(), &cache};
 
-    Use(&shader);
-    shader.SetUniform(shader.GetUniform("image"), 0);
+    use(&shader);
+    shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto viewport_handler = ViewportHandler
+    auto viewport_handler = euphoria::render::viewport_handler
     {
         engine.init.get(),
         nullptr
     };
-    viewport_handler.Add(&shader);
-    viewport_handler.SetSize(window_width, window_height);
+    viewport_handler.add(&shader);
+    viewport_handler.set_size(window_width, window_height);
 
     Uint64 now  = SDL_GetPerformanceCounter();
     Uint64 last = 0;
@@ -126,9 +126,9 @@ main(int argc, char* argv[])
             image.write(image_write_format::png)
         );
     }
-    auto arrows = cache.GetTexture(vfs::file_path{"~/image"});
+    auto arrows = cache.get_texture(vfs::file_path{"~/image"});
 
-    engine.init->Use2d();
+    engine.init->use_2d();
 
     float sprite_width = 10;
     float sprite_height = 10;
@@ -169,7 +169,7 @@ main(int argc, char* argv[])
 
             if(engine.HandleResize(e, &window_width, &window_height))
             {
-                viewport_handler.SetSize(window_width, window_height);
+                viewport_handler.set_size(window_width, window_height);
             }
 
             if(e.type == SDL_MOUSEMOTION)
@@ -203,7 +203,7 @@ main(int argc, char* argv[])
             }
         }
 
-        engine.init->ClearScreen(clear_color);
+        engine.init->clear_screen(clear_color);
         const auto r = rectf::from_position_anchor_width_and_height
         (
             vec2f{sprite_x, sprite_y},
@@ -217,11 +217,11 @@ main(int argc, char* argv[])
                 .OffsetCopy(sprite_x, sprite_y)
             ;
         */
-        renderer.DrawSprite
-        (
-            *arrows,
-            r
-        );
+        renderer.draw_sprite
+                (
+                        *arrows,
+                        r
+                );
         if(show_imgui)
         {
             engine.imgui->Render();

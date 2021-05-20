@@ -65,8 +65,8 @@ namespace euphoria::t3d
     TileLibrary::AddFile
     (
         const core::vfs::file_path& path,
-        render::MaterialShaderCache* shader_cache,
-        render::TextureCache* texture_cache
+        render::material_shader_cache* shader_cache,
+        render::texture_cache* texture_cache
     )
     {
         const auto loaded_mesh = core::meshes::load_mesh(file_system, path);
@@ -80,15 +80,15 @@ namespace euphoria::t3d
         tile->path = path;
         tile->name = path.get_filename_without_extension();
         tile->aabb = loaded_mesh.loaded_mesh.calculate_aabb();
-        tile->mesh = CompileMesh
-        (
-            loaded_mesh.loaded_mesh,
-            shader_cache,
-            texture_cache,
-            // todo(Gustav): test with mesh directory iunstead of root?
-            core::vfs::dir_path::from_root(),
-            path.path
-        );
+        tile->mesh = compile_mesh
+                (
+                        loaded_mesh.loaded_mesh,
+                        shader_cache,
+                        texture_cache,
+                        // todo(Gustav): test with mesh directory iunstead of root?
+                        core::vfs::dir_path::from_root(),
+                        path.path
+                );
         tiles.push_back(tile);
     }
 

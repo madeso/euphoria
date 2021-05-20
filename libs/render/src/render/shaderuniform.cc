@@ -6,7 +6,7 @@
 
 namespace euphoria::render
 {
-    ShaderUniform::ShaderUniform(std::string aname, glint aid, Shader* ashader)
+    shader_uniform::shader_uniform(std::string aname, glint aid, render::shader* ashader)
         : name(std::move(aname))
         , id(aid)
         , shader(ashader)
@@ -14,24 +14,24 @@ namespace euphoria::render
     }
 
 
-    const ShaderUniform&
-    ShaderUniform::Null()
+    const shader_uniform&
+    shader_uniform::null()
     {
-        static const auto null_uniform = ShaderUniform{};
-        ASSERT(null_uniform.IsNull());
+        static const auto null_uniform = shader_uniform{};
+        ASSERT(null_uniform.is_null());
         return null_uniform;
     }
 
 
     bool
-    ShaderUniform::IsNull() const
+    shader_uniform::is_null() const
     {
         return shader == nullptr && id == 0;
     }
 
 
     bool
-    operator==(const ShaderUniform& lhs, const ShaderUniform& rhs)
+    operator==(const shader_uniform& lhs, const shader_uniform& rhs)
     {
         return
             lhs.id == rhs.id &&
@@ -39,7 +39,7 @@ namespace euphoria::render
             lhs.shader == rhs.shader;
     }
 
-    ShaderUniform::ShaderUniform()
+    shader_uniform::shader_uniform()
         : id(0)
         , shader(nullptr)
     {

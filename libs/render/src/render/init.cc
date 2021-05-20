@@ -10,13 +10,14 @@
 
 namespace euphoria::render
 {
-    Init::Init(LoaderFunction loader, Init::BlendHack blend_hack) : ok(true)
+    init::init(LoaderFunction loader, init::blend_hack blend_hack)
+        : is_ok(true)
     {
         const int glad_result = gladLoadGLLoader(loader);
         if(glad_result == 0)
         {
             LOG_ERROR("Failed to init glad, error: {0}", glad_result);
-            ok = false;
+            is_ok = false;
         }
 
         LOG_INFO("Vendor:         {0}", glGetString(GL_VENDOR));
@@ -33,7 +34,7 @@ namespace euphoria::render
         glEnable(GL_STENCIL_TEST);
         glEnable(GL_SCISSOR_TEST);  // need scissor test for the viewport clearing
 
-        if(blend_hack == Init::BlendHack::EnableHack)
+        if(blend_hack == init::blend_hack::enable_hack)
         {
             LOG_INFO("Enabled blend hack");
             // need to be enabled for shitty 2d rendering to work
@@ -46,32 +47,32 @@ namespace euphoria::render
     }
 
 
-    Init::~Init() = default;
+    init::~init() = default;
 
 
     core::mat4f
-    Init::GetOrthoProjection(float width, float height) const
+    init::get_ortho_projection(float width, float height) const
     {
-        ASSERT(ok);
+        ASSERT(is_ok);
         return core::mat4f::create_ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
     }
 
 
     void
-    Init::Use2d() const
+    init::use_2d() const
     {
-        ASSERT(ok);
+        ASSERT(is_ok);
         glDisable(GL_DEPTH_TEST);
     }
 
 
     void
-    Init::ClearScreen(const core::rgb& color) const
+    init::clear_screen(const core::rgb& color) const
     {
-        ASSERT(ok);
+        ASSERT(is_ok);
         glClearColor(color.r, color.g, color.b, 1.0f);
         // glClearStencil(0xFF);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
     }
 
-}  // namespace euphoria::render
+}

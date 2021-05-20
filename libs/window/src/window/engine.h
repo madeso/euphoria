@@ -20,7 +20,7 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    struct Init;
+    struct init;
 }
 
 namespace euphoria::window
@@ -55,7 +55,7 @@ namespace euphoria::window
         std::unique_ptr<SdlWindow>                        window;
         unsigned int                                      window_id;
         std::unique_ptr<SdlGlContext>                     context;
-        std::unique_ptr<render::Init>                     init;
+        std::unique_ptr<render::init>                     init;
         std::unique_ptr<ImguiLibrary>                     imgui;
     };
 }  // namespace euphoria::window

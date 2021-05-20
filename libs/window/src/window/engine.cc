@@ -80,7 +80,7 @@ namespace euphoria::window
             core::vfs::dir_path{"~/shaders/"}
         );
 
-        render::SetupDefaultFiles(catalog);
+        render::setup_default_files(catalog);
 
         return 0;
     }
@@ -115,18 +115,18 @@ namespace euphoria::window
             return false;
         }
 
-        init.reset(new render::Init {
+        init.reset(new render::init {
                 SDL_GL_GetProcAddress,
-                blend_hack ? render::Init::BlendHack::EnableHack
-                           : render::Init::BlendHack::NoHack});
+                blend_hack ? render::init::blend_hack::enable_hack
+                           : render::init::blend_hack::no_hack});
 
-        if(init->ok == false)
+        if(init->is_ok == false)
         {
             LOG_ERROR("Failed to create Init");
             return false;
         }
 
-        render::SetupOpenglDebug();
+        render::setup_opengl_debug();
 
         imgui.reset(new ImguiLibrary {window->window, context.get(), pref_path});
         ImGui::StyleColorsLight();

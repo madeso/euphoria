@@ -15,7 +15,7 @@ namespace euphoria::render
 {
     //////////////////////////////////////////////////////////////////////////
 
-    DrawData::DrawData()
+    draw_data::draw_data()
         : rotation(0.0_rad)
         , scale(core::scale2f(1, 1))
         , tint(core::rgba(core::color::white))
@@ -23,24 +23,24 @@ namespace euphoria::render
     }
 
 
-    DrawData&
-    DrawData::Rotation(const core::angle& r)
+    draw_data&
+    draw_data::set_rotation(const core::angle& r)
     {
         rotation = r;
         return *this;
     }
 
 
-    DrawData&
-    DrawData::Scale(const core::scale2f& s)
+    draw_data&
+    draw_data::set_scale(const core::scale2f& s)
     {
         scale = s;
         return *this;
     }
 
 
-    DrawData&
-    DrawData::Tint(const core::rgba& t)
+    draw_data&
+    draw_data::set_tint(const core::rgba& t)
     {
         tint = t;
         return *this;
@@ -50,25 +50,25 @@ namespace euphoria::render
     //////////////////////////////////////////////////////////////////////////
 
 
-    SpriteRenderer::SpriteRenderer(Shader* shader)
+    sprite_renderer::sprite_renderer(shader* shader)
         : shader_(shader)
-        , color_(shader->GetUniform("color"))
-        , model_(shader->GetUniform("model"))
-        , texture_area_(shader->GetUniform("region"))
+        , color_(shader->get_uniform("color"))
+        , model_(shader->get_uniform("model"))
+        , texture_area_(shader->get_uniform("region"))
     {
         shader_ = shader;
-        InitRenderData();
+        init_render_data();
     }
 
 
-    SpriteRenderer::~SpriteRenderer()
+    sprite_renderer::~sprite_renderer()
     {
         buffer_.reset();
     }
 
 
     void
-    SpriteRenderer::DrawRect
+    sprite_renderer::draw_rect
     (
         const texture2d& texture,
         const core::rectf& sprite_area,
@@ -78,7 +78,7 @@ namespace euphoria::render
         const core::rgba& tint_color
     )
     {
-        Use(shader_);
+        use(shader_);
 
         core::vec3f rotation_anchor_displacement
         {
@@ -108,63 +108,64 @@ namespace euphoria::render
                     sprite_area.get_height(),
                     1.0f
                 }
-            );
+            )
+            ;
 
-        shader_->SetUniform(model_, model);
-        shader_->SetUniform(color_, tint_color);
-        shader_->SetUniform(texture_area_, texture_region);
+        shader_->set_uniform(model_, model);
+        shader_->set_uniform(color_, tint_color);
+        shader_->set_uniform(texture_area_, texture_region);
 
         glActiveTexture(GL_TEXTURE0);
-        Use(&texture);
-        buffer_->Draw();
+        use(&texture);
+        buffer_->draw();
     }
 
 
     void
-    SpriteRenderer::DrawSprite
+    sprite_renderer::draw_sprite
     (
         const texture2d& texture,
         const core::rectf& position,
-        const DrawData& data
+        const draw_data& data
     )
     {
-        DrawRect
+        draw_rect
         (
             texture,
             position,
             core::rectf::from_top_left_width_height(core::vec2f{0, 1}, 1, 1),
             data.rotation,
-            core::scale2f {0.5f, 0.5f},
+            core::scale2f{0.5f, 0.5f},
             data.tint
         );
     }
 
 
     void
-    SpriteRenderer::DrawNinepatch
+    sprite_renderer::draw_ninepatch
     (
-        const ScalableSprite& ninepatch,
+        const scalable_sprite& ninepatch,
         const core::rectf& rect,
         const core::rgba& tint
     )
     {
-        ninepatch.Render(this, rect, tint);
+        ninepatch.render(this, rect, tint);
     }
 
 
     void
-    SpriteRenderer::InitRenderData()
+    sprite_renderer::init_render_data()
     {
         core::buffer_builder2d data;
 
+        core::point a(0.0f, 0.0f, 0.0f, 0.0f);
         core::point b(1.0f, 0.0f, 1.0f, 0.0f);
-        core::point a(0.0f, 1.0f, 0.0f, 1.0f);
-        core::point c(0.0f, 0.0f, 0.0f, 0.0f);
+        core::point c(0.0f, 1.0f, 0.0f, 1.0f);
         core::point d(1.0f, 1.0f, 1.0f, 1.0f);
 
-        data.add_quad(c, b, a, d);
+        data.add_quad(a, b, c, d);
 
-        buffer_ = std::make_unique<Buffer2d>(data);
+        buffer_ = std::make_unique<buffer2d>(data);
     }
 }
 

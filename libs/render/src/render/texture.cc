@@ -129,7 +129,7 @@ namespace euphoria::render
 
 
     void
-    Use(const texture_id* texture)
+    use(const texture_id* texture)
     {
         if(texture != nullptr)
         {
@@ -157,7 +157,7 @@ namespace euphoria::render
         const texture2d_load_data& data
     )
     {
-        Use(this);
+        use(this);
 
         width = new_width;
         height = new_height;

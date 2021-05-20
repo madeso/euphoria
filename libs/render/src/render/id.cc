@@ -4,13 +4,13 @@
 
 namespace euphoria::render
 {
-    Id::Id()
+    id::id()
         : id_(0)
     {
     }
 
     gluint
-    Id::GetId() const
+    id::get_id() const
     {
         return id_;
     }

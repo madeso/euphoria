@@ -2,32 +2,8 @@
 
 namespace euphoria::render
 {
-    LightAttenuation::LightAttenuation()
-        : constant_(1.0f), linear_(0.09f), quadratic_(0.032f)
-    {}
-
-    float
-    LightAttenuation::GetConstant() const
-    {
-        return constant_;
-    }
-
-    float
-    LightAttenuation::GetLinear() const
-    {
-        return linear_;
-    }
-
-    float
-    LightAttenuation::GetQuadratic() const
-    {
-        return quadratic_;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-    Light::Light()
-        : type(Type::Directional)
+    light::light()
+        : light_type(type::directional)
         , position(core::vec3f::zero())
         , direction(core::vec3f {-0.2f, -1.0f, -0.3f}.get_normalized())
         , ambient(0.3f)
@@ -35,6 +11,7 @@ namespace euphoria::render
         , specular(core::color::white)
         , cutoff_angle_outer(core::angle::from_degrees(18.0f))
         , cutoff_angle_inner(core::angle::from_degrees(13.37f))
-    {}
+    {
+    }
 
 }

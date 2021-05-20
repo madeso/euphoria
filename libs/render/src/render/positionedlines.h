@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_RENDER_POSITIONEDLINES_H
-#define EUPHORIA_RENDER_POSITIONEDLINES_H
+#pragma once
 
 #include <memory>
 
@@ -8,22 +7,19 @@
 
 namespace euphoria::render
 {
-    struct PositionedLines : public Instance
+    struct positioned_lines : public instance
     {
-        PositionedLines(const std::shared_ptr<CompiledLines>& alines);
+        positioned_lines(const std::shared_ptr<compiled_lines>& alines);
 
         void
-        Render
+        render
         (
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
             const core::vec3f& camera,
-            const Light&       light
+            const render::light& light
         ) override;
 
-        std::shared_ptr<CompiledLines> lines;
+        std::shared_ptr<compiled_lines> lines;
     };
 }
-
-#endif  // EUPHORIA_RENDER_POSITIONEDLINES_H
-

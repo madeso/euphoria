@@ -12,7 +12,7 @@
 namespace euphoria::render
 {
     struct texture2d;
-    struct TextureCache;
+    struct texture_cache;
 }
 
 

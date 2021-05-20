@@ -22,7 +22,7 @@ namespace euphoria::engine
 
         void
         draw(core::ecs::registry*      reg,
-             render::SpriteRenderer* renderer) const override
+             render::sprite_renderer* renderer) const override
         {
             const auto items = reg->get_entities_with_components(std::vector<core::ecs::component_id> {
                     components->position2, components->sprite});
@@ -32,7 +32,7 @@ namespace euphoria::engine
                         ent, components->sprite);
                 auto* pos = reg->get_component_or_null<CPosition2>(
                         ent, components->position2);
-                renderer->DrawSprite(
+                renderer->draw_sprite(
                         *sprite->texture,
                         GetSpriteRect(pos->pos, *sprite->texture));
             }

@@ -8,7 +8,7 @@
 namespace
 {
     std::string
-    SourceToString(GLenum source)
+    source_to_string(GLenum source)
     {
         switch(source)
         {
@@ -23,22 +23,22 @@ namespace
     }
 
     std::string
-    TypeToString(GLenum type)
+    type_to_string(GLenum type)
     {
         switch(type)
         {
-        case GL_DEBUG_TYPE_ERROR_ARB: return "Error"; break;
-        case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB: return "Deprecated Behaviour"; break;
-        case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB: return "Undefined Behaviour"; break;
-        case GL_DEBUG_TYPE_PORTABILITY_ARB: return "Portability"; break;
-        case GL_DEBUG_TYPE_PERFORMANCE_ARB: return "Performance"; break;
-        case GL_DEBUG_TYPE_OTHER_ARB: return "Other"; break;
+        case GL_DEBUG_TYPE_ERROR_ARB: return "Error";
+        case GL_DEBUG_TYPE_DEPRECATED_BEHAVIOR_ARB: return "Deprecated Behaviour";
+        case GL_DEBUG_TYPE_UNDEFINED_BEHAVIOR_ARB: return "Undefined Behaviour";
+        case GL_DEBUG_TYPE_PORTABILITY_ARB: return "Portability";
+        case GL_DEBUG_TYPE_PERFORMANCE_ARB: return "Performance";
+        case GL_DEBUG_TYPE_OTHER_ARB: return "Other";
         default: return "Unknown";
         }
     }
 
     std::string
-    SeverityToString(GLenum severity)
+    severity_to_string(GLenum severity)
     {
         switch(severity)
         {
@@ -55,40 +55,40 @@ namespace
 namespace euphoria::render
 {
     std::string
-    OpenglErrorToString(GLenum error_code)
+    opengl_error_to_string(GLenum error_code)
     {
         switch(error_code)
         {
-        case GL_INVALID_ENUM: return "INVALID_ENUM"; break;
-        case GL_INVALID_VALUE: return "INVALID_VALUE"; break;
-        case GL_INVALID_OPERATION: return "INVALID_OPERATION"; break;
+        case GL_INVALID_ENUM: return "INVALID_ENUM";
+        case GL_INVALID_VALUE: return "INVALID_VALUE";
+        case GL_INVALID_OPERATION: return "INVALID_OPERATION";
 #ifdef GL_STACK_OVERFLOW
-        case GL_STACK_OVERFLOW: return "STACK_OVERFLOW"; break;
+        case GL_STACK_OVERFLOW: return "STACK_OVERFLOW";
 #endif
 #ifdef GL_STACK_UNDERFLOW
-        case GL_STACK_UNDERFLOW: return "STACK_UNDERFLOW"; break;
+        case GL_STACK_UNDERFLOW: return "STACK_UNDERFLOW";
 #endif
-        case GL_OUT_OF_MEMORY: return "OUT_OF_MEMORY"; break;
-        case GL_INVALID_FRAMEBUFFER_OPERATION: return "INVALID_FRAMEBUFFER_OPERATION"; break;
-        default: return "UNKNOWN"; break;
+        case GL_OUT_OF_MEMORY: return "OUT_OF_MEMORY";
+        case GL_INVALID_FRAMEBUFFER_OPERATION: return "INVALID_FRAMEBUFFER_OPERATION";
+        default: return "UNKNOWN";
         }
     }
 
 
     void
-    PrintAllOpenglErrors(const char* file, int line)
+    print_all_opengl_errors(const char* file, int line)
     {
         GLenum error_code = 0;
         while((error_code = glGetError()) != GL_NO_ERROR)
         {
-            const std::string error = OpenglErrorToString(error_code);
+            const std::string error = opengl_error_to_string(error_code);
             LOG_ERROR("{0} | {1}({2})", error, file, line);
         }
     }
 
 
     void APIENTRY
-    OnOpenglError
+    on_opengl_error
     (
         GLenum source,
         GLenum type,
@@ -118,16 +118,16 @@ namespace euphoria::render
         LOG_ERROR
         (
             "Source {0} type: {1} Severity: {2}",
-            SourceToString(source),
-            TypeToString(type),
-            SeverityToString(severity)
+            source_to_string(source),
+            type_to_string(type),
+            severity_to_string(severity)
         );
         // ASSERT(false);
     }
 
 
     void
-    SetupOpenglDebug()
+    setup_opengl_debug()
     {
         const bool has_debug = GLAD_GL_ARB_debug_output == 1;
         if(has_debug)
@@ -135,7 +135,7 @@ namespace euphoria::render
             LOG_INFO("Enabling OpenGL debug output");
             glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
             glEnable(GL_DEBUG_OUTPUT_SYNCHRONOUS_ARB);
-            glDebugMessageCallbackARB(OnOpenglError, nullptr);
+            glDebugMessageCallbackARB(on_opengl_error, nullptr);
             glDebugMessageControlARB
             (
                 GL_DONT_CARE,

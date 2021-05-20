@@ -37,27 +37,27 @@ namespace euphoria::render
 
 
     void
-    sprite::render(SpriteRenderer* render) const
+    sprite::render(sprite_renderer* render) const
     {
-        render->DrawSprite
+        render->draw_sprite
         (
             *texture,
             core::rectf::from_position_anchor_width_and_height
             (
-                position,
-                core::scale2f {0, 0},
-                static_cast<float>(texture->width),
-                static_cast<float>(texture->height)
+                    position,
+                    core::scale2f{0, 0},
+                    static_cast<float>(texture->width),
+                    static_cast<float>(texture->height)
             ),
-            DrawData{}
-                .Rotation(rotation)
-                .Scale(scale)
-                .Tint(core::rgba(color, alpha))
+            draw_data{}
+                .set_rotation(rotation)
+                .set_scale(scale)
+                .set_tint(core::rgba(color, alpha))
         );
     }
 
 
-    layer::layer(SpriteRenderer* render)
+    layer::layer(sprite_renderer* render)
         : renderer(render)
     {
     }

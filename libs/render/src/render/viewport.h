@@ -5,21 +5,21 @@
 
 namespace euphoria::render
 {
-    struct Viewport
+    struct viewport
     {
-        Viewport(const core::recti& viewport);
+        viewport(const core::recti& r);
 
         /** Sets the gl viewport.
          */
         void
-        Activate() const;
+        activate() const;
 
         [[nodiscard]] float
-        GetAspectRatio() const;
+        get_aspect_ratio() const;
 
         [[nodiscard]] core::vec2f
-        ToClipCoord(const core::vec2i& p) const;
+        to_clip_coord(const core::vec2i& p) const;
 
-        core::recti viewport;
+        core::recti bounds;
     };
 }

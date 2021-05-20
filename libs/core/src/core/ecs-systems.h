@@ -13,7 +13,7 @@ namespace euphoria::render
     // its horrible to reference in another module,
     // but for now we only need a pointer to pass around
     // todo(Gustav): fix this by merging in more of the renderer into core?
-    struct SpriteRenderer;
+    struct sprite_renderer;
 }
 
 
@@ -89,7 +89,7 @@ namespace euphoria::core::ecs
         void operator=(component_system_sprite_drawer&&) = delete;
 
         virtual void
-        draw(registry* reg, render::SpriteRenderer* renderer) const = 0;
+        draw(registry* reg, render::sprite_renderer* renderer) const = 0;
     };
 
     template <typename TSystem>
@@ -119,7 +119,7 @@ namespace euphoria::core::ecs
     struct component_system_sprite_drawer_store : public system_store<component_system_sprite_drawer>
     {
         void
-        draw(registry* reg, render::SpriteRenderer* renderer) const;
+        draw(registry* reg, render::sprite_renderer* renderer) const;
     };
 
     struct systems
@@ -147,7 +147,7 @@ namespace euphoria::core::ecs
         update(float dt);
 
         void
-        draw(render::SpriteRenderer* renderer);
+        draw(render::sprite_renderer* renderer);
     };
 
 }

@@ -20,36 +20,36 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    struct Buffer2d;
+    struct buffer2d;
     struct texture2d;
     struct texture_id;
-    struct TextureCache;
-    struct SpriteRenderer;
+    struct texture_cache;
+    struct sprite_renderer;
 
-    struct ScalableSprite
+    struct scalable_sprite
     {
-        ScalableSprite
+        scalable_sprite
         (
-            core::vfs::file_system* fs,
-            const core::vfs::file_path& path,
-            TextureCache* cache
+                core::vfs::file_system* fs,
+                const core::vfs::file_path& path,
+                texture_cache* cache
         );
-        ~ScalableSprite();
+        ~scalable_sprite();
 
-        NONCOPYABLE(ScalableSprite);
+        NONCOPYABLE(scalable_sprite);
 
         [[nodiscard]] core::Sizef
-        GetMinimumSize() const;
+        get_minimum_size() const;
 
         void
-        Render(SpriteRenderer* sr, const core::rectf& pos, const core::rgba& tint ) const;
+        render(sprite_renderer* renderer, const core::rectf& rect, const core::rgba& tint) const;
 
-        std::shared_ptr<texture2d> texture_;
+        std::shared_ptr<texture2d> texture;
 
-        std::vector<float> cols_;
-        std::vector<float> rows_;
+        std::vector<float> columns;
+        std::vector<float> rows;
 
-        float max_col_;
-        float max_row_;
+        float calculated_texture_size_columns;
+        float calculated_texture_size_rows;
     };
 }

@@ -57,7 +57,7 @@ struct CubeAnimation
     {
     }
 
-    std::shared_ptr<Actor> actor;
+    std::shared_ptr<actor> actor;
     float timer = 0.0f;
     quatf from;
     quatf to;
@@ -84,7 +84,7 @@ main(int argc, char** argv)
         return -1;
     }
 
-    MaterialShaderCache material_shader_cache {engine.file_system.get()};
+    material_shader_cache material_shader_cache {engine.file_system.get()};
 
     SET_ENUM_FROM_FILE
     (
@@ -123,13 +123,13 @@ main(int argc, char** argv)
         image.write(image_write_format::png)
     );
 
-    TextureCache texture_cache {engine.file_system.get()};
+    texture_cache texture_cache {engine.file_system.get()};
 
     bool running = true;
 
     SdlTimer timer;
 
-    auto world = World {};
+    auto world = euphoria::render::world {};
 
     auto box_mesh1 = meshes::create_cube(0.5f);
     box_mesh1.materials[0].set_texture("Diffuse", vfs::file_path{"./container2.png"});
@@ -137,41 +137,41 @@ main(int argc, char** argv)
     box_mesh1.materials[0].ambient = color::white;  // fix ambient color on material
     box_mesh1.materials[0].specular = color::white;
     box_mesh1.materials[0].shininess = 120.0f;
-    auto box1 = CompileMesh
-    (
-        box_mesh1,
-        &material_shader_cache,
-        &texture_cache,
-        vfs::dir_path::from_root(),
-        "box1"
-    );
+    auto box1 = compile_mesh
+            (
+                    box_mesh1,
+                    &material_shader_cache,
+                    &texture_cache,
+                    vfs::dir_path::from_root(),
+                    "box1"
+            );
 
     auto box_mesh2 = meshes::create_sphere(0.5f, "image");
     box_mesh2.materials[0].set_texture("Specular", vfs::file_path{"./img-plain/white"});
     box_mesh2.materials[0].ambient = color::white;  // fix ambient color on material
     box_mesh2.materials[0].specular  = color::white;
     box_mesh2.materials[0].shininess = 10.0f;
-    auto box2 = CompileMesh
-    (
-        box_mesh2,
-        &material_shader_cache,
-        &texture_cache,
-        vfs::dir_path::from_root(),
-        "box2"
-    );
+    auto box2 = compile_mesh
+            (
+                    box_mesh2,
+                    &material_shader_cache,
+                    &texture_cache,
+                    vfs::dir_path::from_root(),
+                    "box2"
+            );
 
-    auto debug_texture = texture_cache.GetTexture(vfs::file_path{"~/image"});
+    auto debug_texture = texture_cache.get_texture(vfs::file_path{"~/image"});
 
     auto light_mesh = meshes::create_cube(0.2f);
     light_mesh.materials[0].shader = vfs::file_path{"~/basic_shader"};
-    auto light = CompileMesh
-    (
-        light_mesh,
-        &material_shader_cache,
-        &texture_cache,
-        vfs::dir_path::from_root(),
-        "light"
-    );
+    auto light = compile_mesh
+            (
+                    light_mesh,
+                    &material_shader_cache,
+                    &texture_cache,
+                    vfs::dir_path::from_root(),
+                    "light"
+            );
     float light_position = 0.0f;
 
     const float box_extent_value = 4;
@@ -190,8 +190,8 @@ main(int argc, char** argv)
 
     for(int i = 0; i < 20; ++i)
     {
-        auto actor = std::make_shared<Actor>(rand.get_next_bool() ? box1 : box2);
-        world.AddActor(actor);
+        auto actor = std::make_shared<render::actor>(rand.get_next_bool() ? box1 : box2);
+        world.add_actor(actor);
 
         CubeAnimation anim;
         anim.actor = actor;
@@ -209,15 +209,15 @@ main(int argc, char** argv)
             position = box_extents.get_random_point(&rand);
         } while(position.get_length() < 1.4f);
 
-        actor->SetPosition(position);
-        actor->SetRotation(anim.from);
+        actor->position = position;
+        actor->rotation = anim.from;
 
         animation_handler.push_back(anim);
     }
 
-    auto light_actor = std::make_shared<Actor>(light);
-    world.AddActor(light_actor);
-    light_actor->overriden_materials = light_actor->CreateOverride();
+    auto light_actor = std::make_shared<actor>(light);
+    world.add_actor(light_actor);
+    light_actor->overriden_materials = light_actor->create_override();
     ASSERT(light_actor->overriden_materials->materials.size() == 1);
     auto& light_material = light_actor->overriden_materials->materials[0];
 
@@ -241,12 +241,12 @@ main(int argc, char** argv)
     fps_controller fps;
     fps.position = vec3f(0, 0, 3);
 
-    auto viewport_handler = ViewportHandler
+    auto viewport_handler = euphoria::render::viewport_handler
     {
         engine.init.get(),
         nullptr
     };
-    viewport_handler.SetSize(width, height);
+    viewport_handler.set_size(width, height);
 
     bool paused = true;
 
@@ -270,11 +270,11 @@ main(int argc, char** argv)
             ImguiCombo
             (
                 "Type",
-                &world.light.type,
+                &world.light.light_type,
                 {
-                    {"Directional", Light::Type::Directional},
-                    {"Point", Light::Type::Point},
-                    {"Spot", Light::Type::Spot}
+                    {"Directional", light::type::directional},
+                    {"Point",       light::type::point},
+                    {"Spot",        light::type::spot}
                 }
             );
             ImGuiColorEdit("Ambient", &world.light.ambient);
@@ -319,7 +319,7 @@ main(int argc, char** argv)
         );
         const auto light_pc = polar_coord{light_position, light_position * 2};
         const auto light_pos = light_pc.to_unit_vector() * 2.0f;
-        light_actor->SetPosition(light_pos);
+        light_actor->position = light_pos;
 
         switch(light_update)
         {
@@ -350,13 +350,13 @@ main(int argc, char** argv)
                 }
                 ASSERT(count < 2);
                 quatf q = quatf::slerp_shortway(anim.from, anim.timer, anim.to);
-                anim.actor->SetRotation(q);
+                anim.actor->rotation = q;
                 const auto movement = q.in() * anim.move_speed * delta;
                 const auto new_pos  = box_extents.wrap
                 (
-                    anim.actor->GetPosition() + movement
+                    anim.actor->position + movement
                 );
-                anim.actor->SetPosition(new_pos);  // hard to see movement when everything is moving
+                anim.actor->position = new_pos;  // hard to see movement when everything is moving
             }
         }
 
@@ -372,7 +372,7 @@ main(int argc, char** argv)
                 int window_height = 600;
                 if(engine.HandleResize(e, &window_width, &window_height))
                 {
-                    viewport_handler.SetSize(window_width, window_height);
+                    viewport_handler.set_size(window_width, window_height);
                 }
             }
             switch(e.type)
@@ -427,10 +427,10 @@ main(int argc, char** argv)
         camera.position = fps.position;
         camera.rotation = fps.get_rotation();
 
-        engine.init->ClearScreen(color::black);
-        // todo(Gustav): GetFullViewport or somthing different?
+        engine.init->clear_screen(color::black);
+        // todo(Gustav): get_full_viewport or somthing different?
         // how does this handle the black bars...?
-        world.Render(viewport_handler.GetFullViewport(), camera);
+        world.render(viewport_handler.get_full_viewport(), camera);
 
         if(show_imgui)
         {

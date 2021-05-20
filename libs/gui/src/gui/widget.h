@@ -11,7 +11,7 @@
 
 namespace euphoria::render
 {
-    struct SpriteRenderer;
+    struct sprite_renderer;
 }
 
 namespace euphoria::gui
@@ -77,7 +77,7 @@ namespace euphoria::gui
 
         virtual
         void
-        Render(render::SpriteRenderer* renderer) const = 0;
+        Render(render::sprite_renderer* renderer) const = 0;
 
         virtual
         void

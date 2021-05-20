@@ -12,19 +12,19 @@
 namespace euphoria::render
 {
     // texture & shader will be handled by 2d world and sprite
-    struct SpriteBatch
+    struct sprite_batch
     {
     public:
-        SpriteBatch();
-        ~SpriteBatch();
+        sprite_batch();
+        ~sprite_batch();
 
-        NONCOPYABLE(SpriteBatch);
-
-        void
-        Begin();
+        NONCOPYABLE(sprite_batch);
 
         void
-        Quad
+        begin();
+
+        void
+        quad
         (
             const core::vec2f& pos,
             const core::Sizef& quad,
@@ -35,10 +35,10 @@ namespace euphoria::render
         );
 
         void
-        End();
+        end();
 
         void
-        Flush();
+        flush();
 
     private:
         bool inside_;

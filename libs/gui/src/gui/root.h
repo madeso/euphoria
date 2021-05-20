@@ -21,8 +21,8 @@ namespace euphoria::core::vfs
 namespace euphoria::render
 {
     struct texture2d;
-    struct FontCache;
-    struct TextureCache;
+    struct font_cache;
+    struct texture_cache;
 }
 
 namespace euphoria::gui
@@ -45,9 +45,9 @@ namespace euphoria::gui
         Load
         (
             core::vfs::file_system* fs,
-            render::FontCache* font,
+            render::font_cache* font,
             const ::euphoria::core::vfs::file_path& path,
-            render::TextureCache* cache
+            render::texture_cache* cache
         );
 
         void
@@ -60,7 +60,7 @@ namespace euphoria::gui
         Resize(const core::Sizef& new_size);
 
         void
-        Render(render::SpriteRenderer* sp) const;
+        Render(render::sprite_renderer* sp) const;
 
         std::vector<std::shared_ptr<Skin>> skins;
         core::Sizef size;

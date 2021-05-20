@@ -7,69 +7,69 @@
 
 namespace euphoria::render::attributes3d
 {
-    const ShaderAttribute&
-    Vertex()
+    const shader_attribute&
+    vertex()
     {
-        static const auto attribute = ShaderAttribute
+        static const auto attribute = shader_attribute
         {
             1,
-            ShaderAttributeType::FLOAT3,
+            shader_attribute_type::float3,
             "aPosition",
-            ShaderAttributeSource::Vertex
+            shader_attribute_source::vertex
         };
         return attribute;
     }
 
 
-    const ShaderAttribute&
-    Normal()
+    const shader_attribute&
+    normal()
     {
-        static const auto attribute = ShaderAttribute
+        static const auto attribute = shader_attribute
         {
             2,
-            ShaderAttributeType::FLOAT3,
+            shader_attribute_type::float3,
             "aNormal",
-            ShaderAttributeSource::Normal
+            shader_attribute_source::normal
         };
         return attribute;
     }
 
 
-    const ShaderAttribute&
-    TexCoord()
+    const shader_attribute&
+    tex_coord()
     {
-        static const auto attribute = ShaderAttribute
+        static const auto attribute = shader_attribute
         {
             3,
-            ShaderAttributeType::FLOAT2,
+            shader_attribute_type::float2,
             "aTexCoord",
-            ShaderAttributeSource::Uv
+            shader_attribute_source::uv
         };
         return attribute;
     }
 
 
-    const ShaderAttribute&
-    Color()
+    const shader_attribute&
+    color()
     {
-        static const auto attribute = ShaderAttribute
+        static const auto attribute = shader_attribute
         {
             4,
-            ShaderAttributeType::FLOAT3,
+            shader_attribute_type::float3,
             "aColor",
-            ShaderAttributeSource::Color
+            shader_attribute_source::color
         };
         return attribute;
     }
 
 
     void
-    PrebindShader(Shader* shader)
+    prebind_shader(shader* shader)
     {
         ASSERT(shader);
-        shader->PreBind(Vertex());
-        shader->PreBind(Normal());
-        shader->PreBind(TexCoord());
-        shader->PreBind(Color());
+        shader->pre_bind(vertex());
+        shader->pre_bind(normal());
+        shader->pre_bind(tex_coord());
+        shader->pre_bind(color());
     }
 }

@@ -23,9 +23,9 @@ namespace euphoria::gui
     Root::Load
     (
         core::vfs::file_system* fs,
-        render::FontCache* font,
+        render::font_cache* font,
         const core::vfs::file_path& path,
-        render::TextureCache* cache
+        render::texture_cache* cache
     )
     {
         const bool result = euphoria::gui::Load(this, fs, font, path, cache);
@@ -65,7 +65,7 @@ namespace euphoria::gui
 
 
     void
-    Root::Render(render::SpriteRenderer* sp) const
+    Root::Render(render::sprite_renderer* sp) const
     {
         container.Render(sp);
 
@@ -73,17 +73,17 @@ namespace euphoria::gui
 
         if(image)
         {
-            sp->DrawSprite
-            (
-                *image,
-                core::rectf::from_position_anchor_width_and_height
-                (
-                    state.mouse,
-                    core::scale2f{0, 1},
-                    core::Cint_to_float(image->width),
-                    core::Cint_to_float(image->height)
-                )
-            );
+            sp->draw_sprite
+                    (
+                            *image,
+                            core::rectf::from_position_anchor_width_and_height
+                                    (
+                                            state.mouse,
+                                            core::scale2f{0, 1},
+                                            core::Cint_to_float(image->width),
+                                            core::Cint_to_float(image->height)
+                                    )
+                    );
         }
     }
 }

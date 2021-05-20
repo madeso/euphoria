@@ -12,8 +12,8 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct TextureCache;
-    struct FontCache;
+    struct texture_cache;
+    struct font_cache;
 }
 
 namespace euphoria::gui
@@ -29,8 +29,8 @@ namespace euphoria::gui
     (
         Root* root,
         core::vfs::file_system* fs,
-        render::FontCache* font,
+        render::font_cache* font,
         const core::vfs::file_path& path,
-        render::TextureCache* cache
+        render::texture_cache* cache
     );
 }

@@ -15,20 +15,20 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct Font;
-    struct TextureCache;
+    struct drawable_font;
+    struct texture_cache;
 
-    struct FontCache
+    struct font_cache
     {
-        FontCache(core::vfs::file_system* fs, TextureCache* cache);
-        ~FontCache();
+        font_cache(core::vfs::file_system* fs, texture_cache* cache);
+        ~font_cache();
 
-        NONCOPYABLE(FontCache);
+        NONCOPYABLE(font_cache);
 
-        [[nodiscard]] std::shared_ptr<Font>
-        GetFont(const core::vfs::file_path& path) const;
+        [[nodiscard]] std::shared_ptr<drawable_font>
+        get_font(const core::vfs::file_path& path) const;
 
-        struct FontCachePimpl;
-        std::unique_ptr<FontCachePimpl> pimp;
+        struct font_cache_pimpl;
+        std::unique_ptr<font_cache_pimpl> pimp;
     };
 }

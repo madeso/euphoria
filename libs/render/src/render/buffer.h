@@ -12,78 +12,80 @@ namespace euphoria::render
     /** Stores vertices, uv, etc.
      * Represents a OpenGL Vertex Buffer Object (VBO).
      */
-    struct VertexBuffer : public Id
+    struct vertex_buffer : public id
     {
     public:
-        VertexBuffer();
-        ~VertexBuffer();
+        vertex_buffer();
+        ~vertex_buffer();
 
-        NONCOPYABLE(VertexBuffer);
+        NONCOPYABLE(vertex_buffer);
 
         void
-        SetData(const std::vector<float>& data);
+        set_data(const std::vector<float>& data);
 
         static void
-        Bind(const VertexBuffer* vbo);
+        bind(const vertex_buffer* vbo);
 
-        static const VertexBuffer*&
-        GetBound();
+        static const vertex_buffer*&
+        get_bound();
     };
 
 
-    /** Stores what the data in the VertexBuffer is and how it is laid out/used
+    /** Stores what the data in the vertex_buffer is and how it is laid out/used
      * Represents a OpenGL Vertex Array Object (VAO).
      */
-    struct PointLayout : public Id
+    struct point_layout : public id
     {
     public:
-        PointLayout();
-        ~PointLayout();
+        point_layout();
+        ~point_layout();
 
-        NONCOPYABLE(PointLayout);
+        NONCOPYABLE(point_layout);
 
         void
-        BindData(const ShaderAttribute& attribute, int stride, int offset);
+        bind_data(const shader_attribute& attribute, int stride, int offset);
 
         static void
-        Bind(const PointLayout* vao);
+        bind(const point_layout* vao);
 
-        static const PointLayout*&
-        GetBound();
+        static const point_layout*&
+        get_bound();
 
         // debug
-        std::vector<ShaderAttribute> attributes;
+        std::vector<shader_attribute> attributes;
     };
 
 
-    enum class RenderMode
-    {Lines, Triangles};
+    enum class render_mode
+    {
+        lines,
+        triangles
+    };
 
 
     /** Reuses points.
      * Represents a OpenGL Element Buffer Object (EBO).
      */
-    struct IndexBuffer : public Id
+    struct index_buffer : public id
     {
     public:
-        IndexBuffer();
-        ~IndexBuffer();
+        index_buffer();
+        ~index_buffer();
 
-        NONCOPYABLE(IndexBuffer);
+        NONCOPYABLE(index_buffer);
 
         void
-        SetData(const std::vector<unsigned int>& indices);
+        set_data(const std::vector<unsigned int>& indices);
 
         // count = the number of triangles
         void
-        Draw(RenderMode mode, int count) const;
+        draw(render_mode mode, int count) const;
 
         static void
-        Bind(const IndexBuffer* ebo);
+        bind(const index_buffer* ebo);
 
-        static const IndexBuffer*&
-        GetBound();
+        static const index_buffer*&
+        get_bound();
     };
 
-}  // namespace euphoria::render
-
+}

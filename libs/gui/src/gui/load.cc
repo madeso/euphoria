@@ -74,7 +74,7 @@ namespace euphoria::gui
         UiState* state,
         LayoutContainer* root,
         const ::gui::LayoutContainer& c,
-        render::TextureCache* cache,
+        render::texture_cache* cache,
         const std::map<std::string, Skin*>& skins
     );
 
@@ -107,7 +107,7 @@ namespace euphoria::gui
         core::vfs::file_system* fs,
         UiState* state,
         const ::gui::Widget& w,
-        render::TextureCache* cache,
+        render::texture_cache* cache,
         const std::map<std::string, Skin*>& skins
     )
     {
@@ -134,9 +134,9 @@ namespace euphoria::gui
 
                 if(skin_it->second->button_image.has_value())
                 {
-                    std::shared_ptr<render::ScalableSprite> sp
+                    std::shared_ptr<render::scalable_sprite> sp
                     {
-                        new render::ScalableSprite
+                        new render::scalable_sprite
                         {
                             fs,
                             skin->button_image.value(),
@@ -194,7 +194,7 @@ namespace euphoria::gui
         UiState* state,
         LayoutContainer* root,
         const ::gui::LayoutContainer& c,
-        render::TextureCache* cache,
+        render::texture_cache* cache,
         const std::map<std::string, Skin*>& skins
     )
     {
@@ -306,17 +306,17 @@ namespace euphoria::gui
 
 
     std::shared_ptr<Skin>
-    LoadSkin(const ::gui::Skin& src, render::FontCache* font)
+    LoadSkin(const ::gui::Skin& src, render::font_cache* font)
     {
         std::shared_ptr<Skin> skin(new Skin());
         skin->name = src.name;
-        skin->font = font->GetFont
-        (
-            core::vfs::file_path::from_script(src.font).value_or
-            (
-                core::vfs::file_path{"~/invalid_font_file"}
-            )
-        );
+        skin->font = font->get_font
+                (
+                        core::vfs::file_path::from_script(src.font).value_or
+                                (
+                                        core::vfs::file_path{"~/invalid_font_file"}
+                                )
+                );
         skin->button_image = core::vfs::file_path::from_script_or_empty
         (
             src.button_image
@@ -334,9 +334,9 @@ namespace euphoria::gui
     (
         Root* root,
         core::vfs::file_system* fs,
-        render::FontCache* font,
+        render::font_cache* font,
         const core::vfs::file_path& path,
-        render::TextureCache* cache
+        render::texture_cache* cache
     )
     {
         ::gui::File f;
@@ -347,14 +347,14 @@ namespace euphoria::gui
             return false;
         }
 
-        root->cursor_image = cache->GetTexture
-        (
-            core::vfs::file_path::from_script_or_empty(f.cursor_image)
-        );
-        root->hover_image = cache->GetTexture
-        (
-            core::vfs::file_path::from_script_or_empty(f.hover_image)
-        );
+        root->cursor_image = cache->get_texture
+                (
+                        core::vfs::file_path::from_script_or_empty(f.cursor_image)
+                );
+        root->hover_image = cache->get_texture
+                (
+                        core::vfs::file_path::from_script_or_empty(f.hover_image)
+                );
 
         std::map<std::string, Skin*> skin_map;
 

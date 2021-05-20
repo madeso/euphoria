@@ -33,7 +33,7 @@ namespace euphoria::gui
 
 
     void
-    PanelWidget::Render(render::SpriteRenderer* renderer) const
+    PanelWidget::Render(render::sprite_renderer* renderer) const
     {
         container.Render(renderer);
     }

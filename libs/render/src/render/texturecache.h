@@ -16,20 +16,20 @@ namespace euphoria::render
 {
     struct texture2d;
 
-    struct TextureCache
+    struct texture_cache
     {
-        explicit TextureCache(core::vfs::file_system* fs);
-        ~TextureCache();
+        explicit texture_cache(core::vfs::file_system* fs);
+        ~texture_cache();
 
-        NONCOPYABLE(TextureCache);
-
-        [[nodiscard]] std::shared_ptr<texture2d>
-        GetTexture(const core::vfs::file_path& path) const;
+        NONCOPYABLE(texture_cache);
 
         [[nodiscard]] std::shared_ptr<texture2d>
-        GetTexture(const std::optional<core::vfs::file_path>& path) const;
+        get_texture(const core::vfs::file_path& path) const;
 
-        struct TextureCachePimpl;
-        std::unique_ptr<TextureCachePimpl> pimp_;
+        [[nodiscard]] std::shared_ptr<texture2d>
+        get_texture(const std::optional<core::vfs::file_path>& path) const;
+
+        struct texture_cache_pimpl;
+        std::unique_ptr<texture_cache_pimpl> pimpl;
     };
 }

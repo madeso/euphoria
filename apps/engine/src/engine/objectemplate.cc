@@ -75,15 +75,15 @@ namespace euphoria::engine
         Create
         (
             const game::Sprite& sprite,
-            render::TextureCache* cache,
+            render::texture_cache* cache,
             Components* components
         )
         {
             auto ptr     = std::make_shared<SpriteComponentCreator>(components);
-            ptr->texture = cache->GetTexture
-            (
-                core::vfs::file_path::from_script(sprite.path)
-            );
+            ptr->texture = cache->get_texture
+                    (
+                            core::vfs::file_path::from_script(sprite.path)
+                    );
             return ptr;
         }
 
@@ -153,7 +153,7 @@ namespace euphoria::engine
     (
         const game::Component& comp,
         DukRegistry*           reg,
-        render::TextureCache*  cache,
+        render::texture_cache*  cache,
         Components*            components
     )
     {
@@ -200,7 +200,7 @@ namespace euphoria::engine
         ObjectTemplate* ot,
         const game::Template& ct,
         DukRegistry* reg,
-        render::TextureCache* cache,
+        render::texture_cache* cache,
         Components* components
     )
     {
@@ -250,7 +250,7 @@ namespace euphoria::engine
             const game::Game&     json,
             ObjectCreator*        temp,
             DukRegistry*          reg,
-            render::TextureCache* cache,
+            render::texture_cache* cache,
             Components*           components)
     {
         for(const auto& t: json.templates)

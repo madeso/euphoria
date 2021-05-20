@@ -8,40 +8,25 @@
 
 namespace euphoria::render
 {
-    struct Light;
+    struct light;
 
-    struct Instance
+    struct instance
     {
-        Instance();
-        virtual ~Instance() = default;
+        instance();
+        virtual ~instance() = default;
 
-        NONCOPYABLE(Instance);
-
-
-        // todo(Gustav): remove geters and setters
-
-        [[nodiscard]] const core::vec3f&
-        GetPosition() const;
-
-        [[nodiscard]] const core::quatf&
-        GetRotation() const;
-
-        void
-        SetPosition(const core::vec3f& position);
-
-        void
-        SetRotation(const core::quatf& rotation);
+        NONCOPYABLE(instance);
 
         [[nodiscard]] core::mat4f
-        GetModelMatrix() const;
+        calculate_model_matrix() const;
 
         virtual void
-        Render
+        render
         (
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
             const core::vec3f& camera,
-            const Light& light
+            const light& light
         ) = 0;
 
         bool remove_this = false;

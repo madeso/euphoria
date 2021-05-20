@@ -10,32 +10,32 @@ namespace euphoria::render
     using LoaderFunction = void* (*)(const char* name);
 
     // todo(Gustav): come up with a better name
-    struct Init
+    struct init
     {
     public:
-        enum class BlendHack
+        enum class blend_hack
         {
-            NoHack,
-            EnableHack
+            no_hack,
+            enable_hack
         };
 
-        explicit Init(LoaderFunction loader, BlendHack blend_hack = BlendHack::NoHack);
-        ~Init();
+        explicit init(LoaderFunction loader, blend_hack blend_hack = blend_hack::no_hack);
+        ~init();
 
-        NONCOPYABLE(Init);
+        NONCOPYABLE(init);
 
         [[nodiscard]] core::mat4f
-        GetOrthoProjection(float width, float height) const;
+        get_ortho_projection(float width, float height) const;
 
         // todo(Gustav): move to some better place
         void
-        Use2d() const;
+        use_2d() const;
 
         // todo(Gustav): move to some place better
         void
-        ClearScreen(const core::rgb& color) const;
+        clear_screen(const core::rgb& color) const;
 
-        bool ok;
+        bool is_ok;
     };
 
 }

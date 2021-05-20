@@ -32,10 +32,7 @@ using namespace euphoria::convert;
 
 namespace euphoria::render
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("render.font")
-
-
-    Glyph::Glyph
+    glyph::glyph
     (
         const core::rectf& sprite,
         const core::rectf& texture,
@@ -79,7 +76,7 @@ namespace euphoria::render
 
 
     std::pair<core::rectf, core::rectf>
-    ConstructCharacterRects
+    construct_character_rects
     (
         const stbrp_rect& src_rect,
         const core::loaded_glyph& src_char,
@@ -127,21 +124,21 @@ namespace euphoria::render
     ////////////////////////////////////////////////////////////////////////////////
 
 
-    Font::Font
+    drawable_font::drawable_font
     (
-        core::vfs::file_system* fs,
-        TextureCache* cache,
-        const core::vfs::file_path& font_file
+            core::vfs::file_system* fs,
+            texture_cache* cache,
+            const core::vfs::file_path& font_file
     )
     {
         // todo(Gustav): too long, break up
         const int texture_width = 512;
         const int texture_height = 512;
 
-        background = cache->GetTexture
-        (
-            core::vfs::file_path{"~/img-plain/white"}
-        );
+        background = cache->get_texture
+                (
+                        core::vfs::file_path{"~/img-plain/white"}
+                );
 
         core::loaded_font fontchars;
         font::Root font_root;
@@ -219,7 +216,7 @@ namespace euphoria::render
         stbrp_init_target(&context, texture_width, texture_height, &nodes[0], num_nodes);
         stbrp_pack_rects(&context, &packed_rects[0], num_rects);
 
-        CharDataMap map;
+        char_to_glyph_map map;
         core::image image;
         image.setup_with_alpha_support(texture_width, texture_height);
         for(int i = 0; i < num_rects; ++i)
@@ -241,17 +238,17 @@ namespace euphoria::render
                 },
                 src_char.image
             );
-            const auto sprite_and_texture_rects = ConstructCharacterRects
-            (
-                src_rect,
-                src_char,
-                texture_width,
-                texture_height
-            );
+            const auto sprite_and_texture_rects = construct_character_rects
+                    (
+                            src_rect,
+                            src_char,
+                            texture_width,
+                            texture_height
+                    );
 
-            std::shared_ptr<Glyph> dest
+            std::shared_ptr<glyph> dest
             (
-                new Glyph
+                new glyph
                 (
                     sprite_and_texture_rects.first,
                     sprite_and_texture_rects.second,
@@ -259,7 +256,7 @@ namespace euphoria::render
                     static_cast<float>(src_char.advance) / src_char.size
                 )
             );
-            map.insert(CharDataMap::value_type(dest->code_point, dest));
+            map.insert(char_to_glyph_map::value_type(dest->code_point, dest));
         }
 
         // for debug
@@ -281,26 +278,26 @@ namespace euphoria::render
 
 
     void
-    Font::DrawBackground
+    drawable_font::draw_background
     (
-        SpriteRenderer* renderer,
-        float alpha,
-        const core::rectf& where
+            sprite_renderer* renderer,
+            float alpha,
+            const core::rectf& where
     ) const
     {
-        renderer->DrawRect
-        (
-            *background,
-            where,
-            core::rectf::from_width_height(1, 1),
-            0.0_rad,
-            core::scale2f {0, 0},
-            core::rgba{core::color::black, alpha}
-        );
+        renderer->draw_rect
+                (
+                        *background,
+                        where,
+                        core::rectf::from_width_height(1, 1),
+                        0.0_rad,
+                        core::scale2f{0, 0},
+                        core::rgba{core::color::black, alpha}
+                );
     }
 
 
-    TextDrawCommand::TextDrawCommand
+    text_draw_command::text_draw_command
     (
         const texture2d* texture,
         const core::rectf& sprite_rect,
@@ -316,7 +313,7 @@ namespace euphoria::render
 
 
     void
-    TextDrawCommandList::Add
+    list_of_text_draw_commands::add
     (
         const texture2d* texture,
         const core::rectf& sprite_rect,
@@ -329,9 +326,9 @@ namespace euphoria::render
 
 
     void
-    TextDrawCommandList::Draw
+    list_of_text_draw_commands::draw
     (
-        SpriteRenderer* renderer,
+        sprite_renderer* renderer,
         const core::vec2f& start_position,
         const core::rgb& base_color,
         const core::rgb& hi_color
@@ -340,35 +337,35 @@ namespace euphoria::render
         for(const auto& cmd: commands)
         {
             const auto tint = cmd.hi ? hi_color : base_color;
-            renderer->DrawRect
+            renderer->draw_rect
             (
                 *cmd.texture,
                 cmd.sprite_rect.offset_copy(start_position),
                 cmd.texture_rect,
                 0.0_rad,
-                core::scale2f {0.5f, 0.5f},
+                core::scale2f{0.5f, 0.5f},
                 core::rgba{tint}
             );
         }
     }
 
 
-    struct UiTextCompileVisitor : public core::textparser::visitor
+    struct ui_text_compile_visitor : public core::textparser::visitor
     {
-        const Font& font;
+        const drawable_font& font;
         float size;
         bool apply_highlight;
         core::vec2f position; // todo(Gustav): rename to offset
         int last_char_index = 0;
 
         // return value
-        TextDrawCommandList* list;
+        list_of_text_draw_commands* list;
 
-        UiTextCompileVisitor
+        ui_text_compile_visitor
         (
-            const Font& f,
+            const drawable_font& f,
             float size,
-            TextDrawCommandList* list
+            list_of_text_draw_commands* list
         )
             : font(f)
             , size(size)
@@ -382,17 +379,21 @@ namespace euphoria::render
         void
         on_text(const std::string& text) override
         {
-            core::utf8_to_codepoints(text, [this](int cp)
-            {
-                AddCharIndex(cp);
-            });
+            core::utf8_to_codepoints
+            (
+                text,
+                [this](int cp)
+                {
+                    add_char_index(cp);
+                }
+            );
         }
 
 
         void
         on_image(const std::string& image) override
         {
-            // todo(Gustav): handle invalud font alias
+            // todo(Gustav): handle invalid font alias
             auto found = font.private_use_aliases.find(image);
             if(found == font.private_use_aliases.end())
             {
@@ -400,12 +401,11 @@ namespace euphoria::render
                 (
                     "Unable to find image {0}, could be {1}",
                     image,
-                    core::string_mergers::english_or
-                        .merge(core::get_keys(font.private_use_aliases))
+                    core::string_mergers::english_or.merge(core::get_keys(font.private_use_aliases))
                 );
                 return;
             }
-            AddCharIndex(found->second);
+            add_char_index(found->second);
         }
 
 
@@ -424,7 +424,7 @@ namespace euphoria::render
 
 
         void
-        AddCharIndex(int code_point)
+        add_char_index(int code_point)
         {
             if(code_point == '\n')
             {
@@ -439,9 +439,9 @@ namespace euphoria::render
                     LOG_ERROR("Failed to print '{0}'", code_point);
                     return;
                 }
-                std::shared_ptr<Glyph> ch = it->second;
+                std::shared_ptr<glyph> ch = it->second;
 
-                list->Add
+                list->add
                 (
                     font.texture_.get(),
                     ch->sprite_rect.scale_copy(size, size).offset_copy(position),
@@ -468,12 +468,12 @@ namespace euphoria::render
     };
 
 
-    TextDrawCommandList
-    Font::CompileList(const core::ui_text& text, float size) const
+    list_of_text_draw_commands
+    drawable_font::compile_list(const core::ui_text& text, float size) const
     {
-        TextDrawCommandList list;
+        list_of_text_draw_commands list;
 
-        UiTextCompileVisitor vis {*this, size, &list};
+        ui_text_compile_visitor vis {*this, size, &list};
         text.accept(&vis);
 
         return list;
@@ -481,7 +481,7 @@ namespace euphoria::render
 
 
     core::rectf
-    TextDrawCommandList::GetExtents() const
+    list_of_text_draw_commands::get_extents() const
     {
         core::rectf ret;
         for(const auto& cmd: commands)
@@ -492,10 +492,10 @@ namespace euphoria::render
     }
 
 
-    Text::Text(Font* font)
+    drawable_text::drawable_text(drawable_font* font)
         : font_(font)
         , size_(12.0f)
-        , alignment_(Align::BASELINE_LEFT)
+        , alignment_(align::baseline_left)
         , use_background_(false)
         , background_alpha_(0.0f)
         , dirty(true)
@@ -503,19 +503,19 @@ namespace euphoria::render
     }
 
 
-    Text::~Text() = default;
+    drawable_text::~drawable_text() = default;
 
 
     void
-    Text::SetText(const core::ui_text& str)
+    drawable_text::set_text(const core::ui_text& text)
     {
-        text_ = str;
+        text_ = text;
         dirty = true;
     }
 
 
     void
-    Text::SetBackground(bool use_background, float alpha)
+    drawable_text::set_background(bool use_background, float alpha)
     {
         use_background_ = use_background;
         background_alpha_ = alpha;
@@ -523,14 +523,14 @@ namespace euphoria::render
 
 
     void
-    Text::SetAlignment(Align alignment)
+    drawable_text::set_alignment(align alignment)
     {
         alignment_ = alignment;
     }
 
 
     void
-    Text::SetSize(float new_size)
+    drawable_text::set_size(float new_size)
     {
         if(size_ != new_size)
         {
@@ -541,7 +541,7 @@ namespace euphoria::render
 
 
     core::vec2f
-    GetOffset(Align alignment, const core::rectf& extent)
+    get_offset(align alignment, const core::rectf& extent)
     {
         // todo(Gustav): test this more
         const auto middle = -(extent.left + extent.right) / 2;
@@ -551,53 +551,53 @@ namespace euphoria::render
 
         switch(alignment)
         {
-        case Align::TOP_LEFT: return core::vec2f(0.0f, top);
-        case Align::TOP_CENTER: return core::vec2f(middle, top);
-        case Align::TOP_RIGHT: return core::vec2f(right, top);
-        case Align::BASELINE_LEFT: return core::vec2f(0.0f, 0.0f);
-        case Align::BASELINE_CENTER: return core::vec2f(middle, 0.0f);
-        case Align::BASELINE_RIGHT: return core::vec2f(right, 0.0f);
-        case Align::BOTTOM_LEFT: return core::vec2f(0.0f, bottom);
-        case Align::BOTTOM_CENTER: return core::vec2f(middle, bottom);
-        case Align::BOTTOM_RIGHT: return core::vec2f(right, bottom);
+        case align::top_left: return core::vec2f(0.0f, top);
+        case align::top_center: return core::vec2f(middle, top);
+        case align::top_right: return core::vec2f(right, top);
+        case align::baseline_left: return core::vec2f(0.0f, 0.0f);
+        case align::baseline_center: return core::vec2f(middle, 0.0f);
+        case align::baseline_right: return core::vec2f(right, 0.0f);
+        case align::bottom_left: return core::vec2f(0.0f, bottom);
+        case align::bottom_center: return core::vec2f(middle, bottom);
+        case align::bottom_right: return core::vec2f(right, bottom);
         default: DIE("Unhandled case"); return core::vec2f(0.0f, 0.0f);
         }
     }
 
 
     void
-    Text::Draw
+    drawable_text::draw
     (
-        SpriteRenderer* renderer,
+        sprite_renderer* renderer,
         const core::vec2f& p,
         const core::rgb& base_hi_color
     ) const
     {
-        Draw(renderer, p, base_hi_color, base_hi_color);
+        draw(renderer, p, base_hi_color, base_hi_color);
     }
 
 
     void
-    Text::Draw
+    drawable_text::draw
     (
-        SpriteRenderer* renderer,
+        sprite_renderer* renderer,
         const core::vec2f& p,
         const core::rgb& base_color,
         const core::rgb& hi_color
     ) const
     {
-        Compile();
+        compile();
         ASSERT(!dirty);
 
         if(font_ == nullptr)
         {
             return;
         }
-        const auto e = GetExtents();
-        const auto off = GetOffset(alignment_, e);
+        const auto e = get_extents();
+        const auto off = get_offset(alignment_, e);
         if(use_background_)
         {
-            font_->DrawBackground
+            font_->draw_background
             (
                 renderer,
                 background_alpha_,
@@ -605,27 +605,26 @@ namespace euphoria::render
             );
         }
 
-        commands.Draw(renderer, p + off, base_color, hi_color);
+        commands.draw(renderer, p + off, base_color, hi_color);
     }
 
 
     void
-    Text::Compile() const
+    drawable_text::compile() const
     {
         if(dirty)
         {
             dirty = false;
-            commands = font_->CompileList(text_, size_);
+            commands = font_->compile_list(text_, size_);
         }
     }
 
 
     core::rectf
-    Text::GetExtents() const
+    drawable_text::get_extents() const
     {
-        Compile();
+        compile();
         ASSERT(!dirty);
-        return commands.GetExtents();
+        return commands.get_extents();
     }
 }
-

@@ -14,37 +14,37 @@
 
 namespace euphoria::render
 {
-    struct ScalableSprite;
-    struct Buffer2d;
+    struct scalable_sprite;
+    struct buffer2d;
 
 
-    struct DrawData
+    struct draw_data
     {
-        DrawData();
+        draw_data();
         core::angle rotation;
         core::scale2f scale;
         core::rgba tint;
 
-        DrawData&
-        Rotation(const core::angle& r);
+        draw_data&
+        set_rotation(const core::angle& r);
 
-        DrawData&
-        Scale(const core::scale2f& s);
+        draw_data&
+        set_scale(const core::scale2f& s);
 
-        DrawData&
-        Tint(const core::rgba& t);
+        draw_data&
+        set_tint(const core::rgba& t);
     };
 
 
-    struct SpriteRenderer
+    struct sprite_renderer
     {
-        SpriteRenderer(Shader* shader);
-        ~SpriteRenderer();
+        sprite_renderer(render::shader* shader);
+        ~sprite_renderer();
 
-        NONCOPYABLE(SpriteRenderer);
+        NONCOPYABLE(sprite_renderer);
 
         void
-        DrawRect
+        draw_rect
         (
             const texture2d& texture,
             const core::rectf& sprite_area,
@@ -56,31 +56,31 @@ namespace euphoria::render
 
         // position is center
         void
-        DrawSprite
+        draw_sprite
         (
             const texture2d& texture,
             const core::rectf& position,
-            const DrawData& data = DrawData {}
+            const draw_data& data = draw_data{}
         );
 
         // bottom left
         void
-        DrawNinepatch
+        draw_ninepatch
         (
-            const ScalableSprite& ninepatch,
+            const scalable_sprite& ninepatch,
             const core::rectf& rect,
             const core::rgba& tint
         );
 
     private:
-        Shader* shader_;
-        ShaderUniform color_;
-        ShaderUniform model_;
-        ShaderUniform texture_area_;
-        std::unique_ptr<Buffer2d> buffer_;
+        shader* shader_;
+        shader_uniform color_;
+        shader_uniform model_;
+        shader_uniform texture_area_;
+        std::unique_ptr<buffer2d> buffer_;
 
         void
-        InitRenderData();
+        init_render_data();
     };
 
 }

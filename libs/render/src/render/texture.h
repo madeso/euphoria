@@ -69,7 +69,7 @@ namespace euphoria::render
     };
 
     void
-    Use(const texture_id* texture);
+    use(const texture_id* texture);
 
     struct texture2d : public texture_id
     {

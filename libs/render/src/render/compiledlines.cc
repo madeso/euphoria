@@ -13,9 +13,11 @@
 namespace euphoria::render
 {
     void
-    ConvertLinesToIndexBuffer(
-            const std::vector<core::lines::line>& lines,
-            IndexBuffer* buffer)
+    convert_lines_to_index_buffer
+    (
+        const std::vector<core::lines::line>& lines,
+        index_buffer* buffer
+    )
     {
         std::vector<unsigned int> data;
         data.reserve(lines.size() * 2);
@@ -25,30 +27,33 @@ namespace euphoria::render
             data.emplace_back(from);
             data.emplace_back(to);
         }
-        buffer->SetData(data);
+        buffer->set_data(data);
     }
 
 
     void
-    ConvertPointsToVertexBuffer(
-            const std::vector<core::line_point>& points,
-            const std::vector<ShaderAttribute>& attributes,
-            VertexBuffer*                       vb)
+    convert_points_to_vertex_buffer
+    (
+        const std::vector<core::line_point>& points,
+        const std::vector<shader_attribute>& attributes,
+        vertex_buffer* vb
+    )
     {
-        constexpr auto add_float3
-                = [](std::vector<float>* dst, const core::vec3f& src) {
-                      dst->emplace_back(src.x);
-                      dst->emplace_back(src.y);
-                      dst->emplace_back(src.z);
-                  };
+        constexpr auto add_float3 = [](std::vector<float>* dst, const core::vec3f& src)
+        {
+            dst->emplace_back(src.x);
+            dst->emplace_back(src.y);
+            dst->emplace_back(src.z);
+        };
         std::vector<float> data;
-        const auto         total_attributes = std::accumulate
+        const auto total_attributes = std::accumulate
         (
             attributes.begin(),
             attributes.end(),
             0,
-            [](int count, const ShaderAttribute& att) -> int {
-                return count + att.GetElementCount();
+            [](int count, const shader_attribute& att) -> int
+            {
+                return count + att.get_element_count();
             }
         );
         data.reserve(total_attributes * points.size());
@@ -58,76 +63,81 @@ namespace euphoria::render
             {
                 switch(att.source)
                 {
-                case ShaderAttributeSource::Vertex:
-                    ASSERT(att.type == ShaderAttributeType::FLOAT3);
+                case shader_attribute_source::vertex:
+                    ASSERT(att.type == shader_attribute_type::float3);
                     add_float3(&data, point.point);
                     break;
-                case ShaderAttributeSource::Color:
-                    ASSERT(att.type == ShaderAttributeType::FLOAT3);
-                    add_float3(&data, core::vec3f
-                    {
-                        point.color.r,
-                        point.color.g,
-                        point.color.b
-                    });
+                case shader_attribute_source::color:
+                    ASSERT(att.type == shader_attribute_type::float3);
+                    add_float3
+                    (
+                        &data, core::vec3f
+                        {
+                            point.color.r,
+                            point.color.g,
+                            point.color.b
+                        }
+                    );
                     break;
-                default: DIE("Unhandled case");
+                default:
+                    DIE("Unhandled case");
                 }
             }
         }
-        vb->SetData(data);
+        vb->set_data(data);
     }
 
 
     void
-    CompiledLines::Render
+    compiled_lines::render
     (
         const core::mat4f& model_matrix,
         const core::mat4f& projection_matrix,
         const core::mat4f& view_matrix,
-        const core::vec3f&
+        const core::vec3f &camera
     )
     {
-        shader->UseShader();
+        shader->use_shader();
 
         // set common constants
-        shader->SetModel(model_matrix);
-        shader->SetProjection(projection_matrix);
-        shader->SetView(view_matrix);
+        shader->set_model(model_matrix);
+        shader->set_projection(projection_matrix);
+        shader->set_view(view_matrix);
 
-        PointLayout::Bind(&config);
-        IndexBuffer::Bind(&lines);
-        lines.Draw(RenderMode::Lines, line_count);
-        IndexBuffer::Bind(nullptr);
-        PointLayout::Bind(nullptr);
+        point_layout::bind(&config);
+        index_buffer::bind(&lines);
+        lines.draw(render_mode::lines, line_count);
+        index_buffer::bind(nullptr);
+        point_layout::bind(nullptr);
     }
     
 
-    std::shared_ptr<CompiledLines>
-    Compile(MaterialShaderCache* shader_cache, const core::lines& lines)
+    std::shared_ptr<compiled_lines>
+    compile(material_shader_cache* shader_cache, const core::lines& lines)
     {
-        std::shared_ptr<CompiledLines> ret {new CompiledLines {}};
+        std::shared_ptr<compiled_lines> ret {new compiled_lines {}};
 
         ret->shader = shader_cache->get(core::vfs::file_path{"~/default_line_shader"});
 
-        PointLayout::Bind(&ret->config);
-        VertexBuffer::Bind(&ret->data);
-        IndexBuffer::Bind(&ret->lines);
+        point_layout::bind(&ret->config);
+        vertex_buffer::bind(&ret->data);
+        index_buffer::bind(&ret->lines);
 
-        const auto attributes
-                = std::vector<ShaderAttribute> {attributes3d::Vertex(),
-                                                attributes3d::Color()};
+        const auto attributes = std::vector<shader_attribute>
+        {
+            attributes3d::vertex(),
+            attributes3d::color()
+        };
 
-        ConvertPointsToVertexBuffer(
-                lines.points, attributes, &ret->data);
-        BindAttributes(attributes, &ret->config);
+        convert_points_to_vertex_buffer(lines.points, attributes, &ret->data);
+        bind_attributes(attributes, &ret->config);
 
-        ConvertLinesToIndexBuffer(lines.indices, &ret->lines);
+        convert_lines_to_index_buffer(lines.indices, &ret->lines);
         ret->line_count = core::Csizet_to_int(lines.indices.size());
 
-        IndexBuffer::Bind(nullptr);
-        VertexBuffer::Bind(nullptr);
-        PointLayout::Bind(nullptr);
+        index_buffer::bind(nullptr);
+        vertex_buffer::bind(nullptr);
+        point_layout::bind(nullptr);
 
         return ret;
     }

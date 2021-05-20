@@ -38,7 +38,7 @@ namespace euphoria::t3d
     {
         auto ray = editor->camera
                         .clip_to_world_ray(
-                                editor->viewport.ToClipCoord(editor->mouse))
+                                editor->viewport.to_clip_coord(editor->mouse))
                         .get_normalized();
 
         const auto t = core::get_intersection(ray, plane);
@@ -58,7 +58,7 @@ namespace euphoria::t3d
             p.z = SnapTo(p.z, editor->grid->small_step);
         }
 
-        actor->actor->SetPosition(p);
+        actor->actor->position = p;
     }
 
 

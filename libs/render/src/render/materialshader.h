@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_MATERIALSHADER_H
-#define EUPHORIA_MATERIALSHADER_H
+#pragma once
 
 #include <vector>
 
@@ -10,12 +9,12 @@
 
 namespace euphoria::render
 {
-    struct Light;
+    struct light;
 
-    struct MaterialShaderDefaultTexture
+    struct material_shader_default_texture
     {
     public:
-        MaterialShaderDefaultTexture
+        material_shader_default_texture
         (
             const core::enum_value& a_name,
             const core::vfs::file_path& a_path
@@ -25,88 +24,86 @@ namespace euphoria::render
         core::vfs::file_path path;
     };
 
-    struct MaterialShaderBinding
+    struct material_shader_binding
     {
-        MaterialShaderBinding
+        material_shader_binding
         (
-            ShaderUniform a_uniform,
-            const core::enum_value& a_name
+                shader_uniform a_uniform,
+                const core::enum_value& a_name
         );
 
-        ShaderUniform   uniform;
+        shader_uniform uniform;
         core::enum_value name;
     };
 
     /** Extends a regular Shader with uniform bindings for 3d rendering
      */
-    struct MaterialShader
+    struct material_shader
     {
     public:
-        MaterialShader();
+        material_shader();
 
         bool
-        Load
+        load
         (
             core::vfs::file_system* file_system,
             const core::vfs::file_path& path
         );
 
         void
-        UseShader();
+        use_shader();
 
         void
-        SetProjection(const core::mat4f& projection_data);
+        set_projection(const core::mat4f& projection_data);
 
         void
-        SetView(const core::mat4f& view_data);
+        set_view(const core::mat4f& view_data);
 
         void
-        SetModel(const core::mat4f& model_data);
+        set_model(const core::mat4f& model_data);
 
         void
-        SetupLight(const Light& light, const core::vec3f& camera);
+        setup_light(const light& light, const core::vec3f& camera);
 
         void
-        SetColors
+        set_colors
         (
             const core::rgb& ambient_data,
             const core::rgb& diffuse_data,
             const core::rgb& specular_data,
-            float            shininess_data
+            float shininess_data
         );
 
-        Shader shader;
+        shader shader;
 
         // private:
-        ShaderUniform projection;
-        ShaderUniform view;
-        ShaderUniform model;
+        shader_uniform projection;
+        shader_uniform view;
+        shader_uniform model;
 
-        ShaderUniform ambient;
-        ShaderUniform diffuse;
-        ShaderUniform specular;
-        ShaderUniform shininess;
+        shader_uniform ambient;
+        shader_uniform diffuse;
+        shader_uniform specular;
+        shader_uniform shininess;
 
-        bool          hasLight;
-        ShaderUniform lightAmbient;
-        ShaderUniform lightDiffuse;
-        ShaderUniform lightSpecular;
-        ShaderUniform lightPosition;
-        ShaderUniform lightDirection;
-        ShaderUniform lightType;
-        ShaderUniform lightAttenuationConstant;
-        ShaderUniform lightAttenuationLinear;
-        ShaderUniform lightAttenuationQuadratic;
-        ShaderUniform lightCutoffAngleOuter;
-        ShaderUniform lightCutoffAngleInner;
+        bool has_light;
+        shader_uniform light_ambient;
+        shader_uniform light_diffuse;
+        shader_uniform light_specular;
+        shader_uniform light_position;
+        shader_uniform light_direction;
+        shader_uniform light_type;
+        shader_uniform light_attenuation_constant;
+        shader_uniform light_attenuation_linear;
+        shader_uniform light_attenuation_quadratic;
+        shader_uniform light_cutoff_angle_outer;
+        shader_uniform light_cutoff_angle_inner;
 
-        ShaderUniform normalMatrix;
-        ShaderUniform viewPosition;
+        shader_uniform normal_matrix;
+        shader_uniform view_position;
 
-        std::vector<MaterialShaderBinding>        bindings;
-        std::vector<MaterialShaderDefaultTexture> default_textures;
+        std::vector<material_shader_binding> bindings;
+        std::vector<material_shader_default_texture> default_textures;
     };
 
-}  // namespace euphoria::render
-
-#endif  // EUPHORIA_MATERIALSHADER_H
+}

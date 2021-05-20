@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_RENDER_COMPILEDLINES_H
-#define EUPHORIA_RENDER_COMPILEDLINES_H
+#pragma once
 
 #include "core/vec3.h"
 #include "core/mat4.h"
@@ -15,19 +14,19 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    struct MaterialShader;
-    struct MaterialShaderCache;
+    struct material_shader;
+    struct material_shader_cache;
     
-    struct CompiledLines
+    struct compiled_lines
     {
-        VertexBuffer data;
-        PointLayout config;
-        IndexBuffer  lines;
-        int          line_count;
-        std::shared_ptr<MaterialShader> shader;
+        vertex_buffer data;
+        point_layout config;
+        index_buffer  lines;
+        int line_count;
+        std::shared_ptr<material_shader> shader;
         
         void
-        Render
+        render
         (
             const core::mat4f& model_matrix,
             const core::mat4f& projection_matrix,
@@ -37,8 +36,8 @@ namespace euphoria::render
     };
     
 
-    std::shared_ptr<CompiledLines>
-    Compile(MaterialShaderCache* shader_cache, const core::lines& lines);
+    std::shared_ptr<compiled_lines>
+    compile(material_shader_cache* shader_cache, const core::lines& lines);
 }
 
-#endif  // EUPHORIA_RENDER_COMPILEDLINES_H
+

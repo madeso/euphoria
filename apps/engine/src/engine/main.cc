@@ -127,20 +127,20 @@ RunMainScriptFile(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
 }
 
 
-ViewportType
+viewport_type
 C(game::ViewportType type)
 {
     switch(type)
     {
     case game::ViewportType::FitWithBlackBars:
-        return ViewportType::FitWithBlackBars;
+        return viewport_type::fit_with_black_bars;
     case game::ViewportType::ScreenPixel:
-        return ViewportType::ScreenPixel;
+        return viewport_type::screen_pixel;
     case game::ViewportType::Extend:
-        return ViewportType::Extend;
+        return viewport_type::extend;
     default:
         DIE("Unhandled viewport case");
-        return ViewportType::ScreenPixel;
+        return viewport_type::screen_pixel;
     }
 }
 
@@ -201,7 +201,7 @@ main(int argc, char* argv[])
         std::make_shared<vfs::write_root_physical_folder>(get_current_directory())
     );
 
-    TextureCache cache {engine.file_system.get()};
+    texture_cache cache {engine.file_system.get()};
 
     game::Game gamedata = LoadGameData(engine.file_system.get());
     const auto clear_color = GetColor(gamedata.clear_color);
@@ -237,13 +237,13 @@ main(int argc, char* argv[])
         input.Add(std::make_shared<BoundVar>(bind.name, key));
     }
 
-    Shader shader;
-    attributes2d::PrebindShader(&shader);
-    shader.Load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
-    SpriteRenderer renderer(&shader);
-    FontCache      font_cache {engine.file_system.get(), &cache};
+    shader shader;
+    attributes2d::prebind_shader(&shader);
+    shader.load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
+    sprite_renderer renderer(&shader);
+    font_cache      font_cache {engine.file_system.get(), &cache};
 
-    // Sprite player(cache.GetTexture("player.png"));
+    // Sprite player(cache.get_texture("player.png"));
     // objects.Add(&player);
 
     Sol duk;
@@ -298,20 +298,20 @@ main(int argc, char* argv[])
         &components
     );
 
-    Use(&shader);
-    shader.SetUniform(shader.GetUniform("image"), 0);
+    use(&shader);
+    shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto viewport_handler = ViewportHandler
+    auto viewport_handler = euphoria::render::viewport_handler
     {
         engine.init.get(),
         &camera_data.screen
     };
-    viewport_handler.Add(&shader);
+    viewport_handler.add(&shader);
     viewport_handler.type = C(gamedata.viewport.type);
     viewport_handler.virtual_width = gamedata.viewport.width;
     viewport_handler.virtual_height = gamedata.viewport.height;
 
-    viewport_handler.SetSize(window_width, window_height);
+    viewport_handler.set_size(window_width, window_height);
 
     try
     {
@@ -344,7 +344,7 @@ main(int argc, char* argv[])
 
     integration.BindKeys(&duk, input);
 
-    engine.init->Use2d();
+    engine.init->use_2d();
 
     while(running)
     {
@@ -377,7 +377,7 @@ main(int argc, char* argv[])
             }
             if(engine.HandleResize(e, &window_width, &window_height))
             {
-                viewport_handler.SetSize(window_width, window_height);
+                viewport_handler.set_size(window_width, window_height);
             }
 
             if(has_crashed)
@@ -428,7 +428,7 @@ main(int argc, char* argv[])
             integration.BindKeys(&duk, input);
         }
 
-        viewport_handler.ClearBlack();
+        viewport_handler.clear_black();
 
         if(has_crashed)
         {
@@ -436,7 +436,7 @@ main(int argc, char* argv[])
             // nothing much is required just a better overflow detection
             // when rendering the error, perhaps making the error more visible
             // though clicking around and debugging might be useful...
-            engine.init->ClearScreen(color::cornflower_blue);
+            engine.init->clear_screen(color::cornflower_blue);
 
             if(BeginFixedOverlay(ImguiCorner::Center, "Crashed"))
             {
@@ -450,7 +450,7 @@ main(int argc, char* argv[])
         }
         else
         {
-            engine.init->ClearScreen(clear_color);
+            engine.init->clear_screen(clear_color);
             world.draw(&renderer);
         }
 

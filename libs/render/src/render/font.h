@@ -24,14 +24,14 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct SpriteRenderer;
-    struct TextureCache;
+    struct sprite_renderer;
+    struct texture_cache;
 
     // todo(Gustav): seperate rendering and the rest and move to core
 
-    struct Glyph
+    struct glyph
     {
-        Glyph
+        glyph
         (
             const core::rectf& sprite,
             const core::rectf& texture,
@@ -45,32 +45,32 @@ namespace euphoria::render
         float advance;
     };
 
-    using CharDataMap = std::map<int, std::shared_ptr<Glyph>>;
+    using char_to_glyph_map = std::map<int, std::shared_ptr<glyph>>;
 
-    struct Font;
+    struct drawable_font;
 
-    enum class Align
+    enum class align
     {
-        TOP_LEFT,
-        TOP_CENTER,
-        TOP_RIGHT,
-        BASELINE_LEFT,
-        BASELINE_CENTER,
-        BASELINE_RIGHT,
-        BOTTOM_LEFT,
-        BOTTOM_CENTER,
-        BOTTOM_RIGHT
+        top_left,
+        top_center,
+        top_right,
+        baseline_left,
+        baseline_center,
+        baseline_right,
+        bottom_left,
+        bottom_center,
+        bottom_right
     };
 
 
-    struct TextDrawCommand
+    struct text_draw_command
     {
         const texture2d* texture;
         core::rectf sprite_rect;
         core::rectf texture_rect;
         bool hi;
 
-        TextDrawCommand
+        text_draw_command
         (
             const texture2d* texture,
             const core::rectf& sprite_rect,
@@ -80,12 +80,12 @@ namespace euphoria::render
     };
 
 
-    struct TextDrawCommandList
+    struct list_of_text_draw_commands
     {
-        std::vector<TextDrawCommand> commands;
+        std::vector<text_draw_command> commands;
 
         void
-        Add
+        add
         (
             const texture2d* texture,
             const core::rectf& sprite_rect,
@@ -94,108 +94,108 @@ namespace euphoria::render
         );
 
         void
-        Draw
+        draw
         (
-            SpriteRenderer* renderer,
-            const core::vec2f& start_position,
-            const core::rgb& base_color,
-            const core::rgb& hi_color
+                sprite_renderer* renderer,
+                const core::vec2f& start_position,
+                const core::rgb& base_color,
+                const core::rgb& hi_color
         );
 
         [[nodiscard]] core::rectf
-        GetExtents() const;
+        get_extents() const;
     };
 
 
-    struct Text
+    struct drawable_text
     {
     public:
-        explicit Text(Font* font);
-        ~Text();
+        explicit drawable_text(drawable_font* font);
+        ~drawable_text();
 
-        NONCOPYABLE(Text);
-
-        void
-        SetText(const core::ui_text& text);
+        NONCOPYABLE(drawable_text);
 
         void
-        SetBackground(bool use_background, float alpha = 0.5f);
+        set_text(const core::ui_text& text);
 
         void
-        SetAlignment(Align alignment);
+        set_background(bool use_background, float alpha = 0.5f);
 
         void
-        SetSize(float new_size);
+        set_alignment(align alignment);
 
         void
-        Draw
+        set_size(float new_size);
+
+        void
+        draw
         (
-            SpriteRenderer* renderer,
-            const core::vec2f& p,
-            const core::rgb& base_hi_color
+                sprite_renderer* renderer,
+                const core::vec2f& p,
+                const core::rgb& base_hi_color
         ) const;
 
         void
-        Draw
+        draw
         (
-            SpriteRenderer* renderer,
-            const core::vec2f& p,
-            const core::rgb& base_color,
-            const core::rgb& hi_color
+                sprite_renderer* renderer,
+                const core::vec2f& p,
+                const core::rgb& base_color,
+                const core::rgb& hi_color
         ) const;
 
         core::rectf
-        GetExtents() const;
+        get_extents() const;
 
         void
-        Compile() const;
+        compile() const;
 
     private:
-        const Font* font_;
+        const drawable_font* font_;
         float size_;
         core::ui_text text_;
-        Align alignment_;
+        align alignment_;
 
         bool use_background_;
         float background_alpha_;
 
         // updated in Compile function
         mutable bool dirty;
-        mutable TextDrawCommandList commands;
+        mutable list_of_text_draw_commands commands;
     };
 
 
-    struct UiTextCompileVisitor;
+    struct ui_text_compile_visitor;
 
 
-    struct Font
+    struct drawable_font
     {
     public:
-        Font
+        drawable_font
         (
-            core::vfs::file_system* fs,
-            TextureCache* cache,
-            const core::vfs::file_path& font_file
+                core::vfs::file_system* fs,
+                texture_cache* cache,
+                const core::vfs::file_path& font_file
         );
 
         // todo(Gustav): expose background property and move this away from font
         void
-        DrawBackground
+        draw_background
         (
-            SpriteRenderer* renderer,
-            float alpha,
-            const core::rectf& where
+                sprite_renderer* renderer,
+                float alpha,
+                const core::rectf& where
         ) const;
 
-        [[nodiscard]] TextDrawCommandList
-        CompileList(const core::ui_text& text, float size) const;
+        [[nodiscard]] list_of_text_draw_commands
+        compile_list(const core::ui_text& text, float size) const;
 
         float line_height=1;
 
-        friend UiTextCompileVisitor;
+        friend ui_text_compile_visitor;
         std::unique_ptr<texture2d> texture_;
         std::shared_ptr<texture2d> background;
-        CharDataMap chars_;
+        char_to_glyph_map chars_;
         core::kerning_map kerning_;
         std::map<std::string, int> private_use_aliases;
     };

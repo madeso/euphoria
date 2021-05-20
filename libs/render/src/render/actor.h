@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_ACTOR_H
-#define EUPHORIA_ACTOR_H
+#pragma once
 
 #include <memory>
 
@@ -13,33 +12,32 @@
 
 namespace euphoria::render
 {
-    struct MaterialOverride
+    struct material_override
     {
-        std::vector<CompiledMeshMaterial> materials;
+        std::vector<compiled_mesh_material> materials;
     };
 
-    struct Actor : public Instance
+    struct actor : public instance
     {
-        Actor(const std::shared_ptr<CompiledMesh>& mesh);
+        actor(const std::shared_ptr<compiled_mesh>& mesh);
 
         void
-        Render
+        render
         (
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
             const core::vec3f& camera,
-            const Light&       light
+            const light&       light
         ) override;
 
 
-        std::shared_ptr<MaterialOverride>
-        CreateOverride();
+        [[nodiscard]] std::shared_ptr<material_override>
+        create_override() const;
 
 
-        std::shared_ptr<CompiledMesh> mesh_;
-        std::shared_ptr<MaterialOverride> overriden_materials;
+        std::shared_ptr<compiled_mesh> mesh_;
+        std::shared_ptr<material_override> overriden_materials;
     };
 
-}  // namespace euphoria::render
+}
 
-#endif  // EUPHORIA_ACTOR_H

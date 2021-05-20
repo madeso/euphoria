@@ -19,7 +19,7 @@ namespace euphoria::gui
 
 
     void
-    TextData::SetFont(std::shared_ptr<render::Font> font)
+    TextData::SetFont(std::shared_ptr<render::drawable_font> font)
     {
         font_ = font;
         text_.reset();
@@ -27,7 +27,7 @@ namespace euphoria::gui
     }
 
 
-    const render::Font&
+    const render::drawable_font&
     TextData::GetFont() const
     {
         ASSERT(font_);
@@ -57,7 +57,7 @@ namespace euphoria::gui
     }
 
 
-    const render::Text&
+    const render::drawable_text&
     TextData::GetText() const
     {
         ASSERT(text_);
@@ -65,7 +65,7 @@ namespace euphoria::gui
     }
 
 
-    render::Text&
+    render::drawable_text&
     TextData::GetText()
     {
         ASSERT(text_);
@@ -79,7 +79,7 @@ namespace euphoria::gui
         this->size = new_size;
         if(HasText())
         {
-            GetText().SetSize(new_size);
+            GetText().set_size(new_size);
         }
     }
 
@@ -89,13 +89,13 @@ namespace euphoria::gui
     {
         if(text_ == nullptr && font_ != nullptr)
         {
-            text_ = std::make_shared<render::Text>(font_.get());
+            text_ = std::make_shared<render::drawable_text>(font_.get());
         }
 
         if(text_ != nullptr)
         {
             // button assumes this is bottom left
-            text_->SetAlignment(render::Align::BOTTOM_LEFT);
+            text_->set_alignment(render::align::bottom_left);
 
             core::ui_text text;
             if(false == text.init_by_parsing_source(string_))
@@ -103,8 +103,8 @@ namespace euphoria::gui
                 LOG_ERROR("Failed to parse {0}", string_);
             }
             LOG_INFO("Loaded {0}", core::textparser::visitor_debug_string::accept_all_nodes(&text));
-            text_->SetText(text);
-            text_->SetSize(size);
+            text_->set_text(text);
+            text_->set_size(size);
         }
     }
 }

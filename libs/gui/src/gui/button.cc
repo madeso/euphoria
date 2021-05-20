@@ -98,14 +98,14 @@ namespace euphoria::gui
         auto size = core::Sizef::create_from_width_height(0, 0);
         if(sprite_ != nullptr)
         {
-            const auto ms = sprite_->GetMinimumSize();
+            const auto ms = sprite_->get_minimum_size();
             size.width = (size.width + ms.width);
             size.height = (size.height + ms.height);
         }
 
         if(text_.HasText())
         {
-            const auto extents = text_.GetText().GetExtents();
+            const auto extents = text_.GetText().get_extents();
             const auto ms = core::Sizef::create_from_width_height
             (
                 extents.get_width(),
@@ -120,7 +120,7 @@ namespace euphoria::gui
 
 
     void
-    Button::Render(render::SpriteRenderer* renderer) const
+    Button::Render(render::sprite_renderer* renderer) const
     {
         if(skin_ != nullptr)
         {
@@ -135,23 +135,23 @@ namespace euphoria::gui
                 );
                 ASSERTX(scaled.get_width() > 0, scaled.get_width());
                 ASSERTX(scaled.get_height() > 0, scaled.get_height());
-                renderer->DrawNinepatch
-                (
-                    *sprite_,
-                    scaled.offset_copy(position_displacement_.GetValue()),
-                    image_color_.GetValue()
-                );
+                renderer->draw_ninepatch
+                        (
+                                *sprite_,
+                                scaled.offset_copy(position_displacement_.GetValue()),
+                                image_color_.GetValue()
+                        );
             }
 
             if(text_.HasText())
             {
-                const auto ex = text_.GetText().GetExtents();
+                const auto ex = text_.GetText().get_extents();
                 // todo(Gustav): render text at client rect center
 
                 const auto base = ex.center_inside_other(GetClientRect());
                 const auto base_pos = base.get_bottom_left();
                 const auto p = base_pos + position_displacement_.GetValue();
-                text_.GetText().Draw(renderer, p, text_color_.GetValue());
+                text_.GetText().draw(renderer, p, text_color_.GetValue());
             }
         }
     }
@@ -172,7 +172,7 @@ namespace euphoria::gui
 
 
     void
-    Button::SetSprite(std::shared_ptr<render::ScalableSprite> sprite)
+    Button::SetSprite(std::shared_ptr<render::scalable_sprite> sprite)
     {
         sprite_ = sprite;
     }

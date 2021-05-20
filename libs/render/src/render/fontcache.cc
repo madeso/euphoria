@@ -9,35 +9,36 @@
 
 namespace euphoria::render
 {
-    struct FontCache::FontCachePimpl
-        : core::cache<core::vfs::file_path, Font, FontCache::FontCachePimpl>
+    struct font_cache::font_cache_pimpl
+        : core::cache<core::vfs::file_path, drawable_font, font_cache::font_cache_pimpl>
     {
-        explicit FontCachePimpl(core::vfs::file_system* fs, TextureCache* cache)
-            : fs_(fs), cache_(cache)
+        explicit font_cache_pimpl(core::vfs::file_system* fs, texture_cache* cache)
+            : fs_(fs)
+            , cache_(cache)
         {
             ASSERT(fs);
         }
 
-        std::shared_ptr<Font>
-        Create(const core::vfs::file_path& file)
+        std::shared_ptr<drawable_font>
+        create(const core::vfs::file_path& file)
         {
-            auto ret = std::make_shared<Font>(fs_, cache_, file);
+            auto ret = std::make_shared<drawable_font>(fs_, cache_, file);
             return ret;
         }
 
         core::vfs::file_system* fs_;
-        TextureCache*          cache_;
+        texture_cache* cache_;
     };
 
-    FontCache::FontCache(core::vfs::file_system* fs, TextureCache* cache)
+    font_cache::font_cache(core::vfs::file_system* fs, texture_cache* cache)
     {
-        pimp = std::make_unique<FontCache::FontCachePimpl>(fs, cache);
+        pimp = std::make_unique<font_cache::font_cache_pimpl>(fs, cache);
     }
 
-    FontCache::~FontCache() = default;
+    font_cache::~font_cache() = default;
 
-    std::shared_ptr<Font>
-    FontCache::GetFont(const core::vfs::file_path& path) const
+    std::shared_ptr<drawable_font>
+    font_cache::get_font(const core::vfs::file_path& path) const
     {
         return pimp->get(path);
     }

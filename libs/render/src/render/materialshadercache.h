@@ -1,6 +1,4 @@
-
-#ifndef EUPHORIA_MATERIALSHADERCACHE_H
-#define EUPHORIA_MATERIALSHADERCACHE_H
+#pragma once
 
 #include "core/cache.h"
 #include "core/vfs_path.h"
@@ -9,27 +7,23 @@
 
 namespace euphoria::render
 {
-    struct MaterialShaderCache
-        : public core::cache<core::vfs::file_path, MaterialShader, MaterialShaderCache>
+    struct material_shader_cache
+        : core::cache<core::vfs::file_path, material_shader, material_shader_cache>
     {
-    public:
-        MaterialShaderCache(core::vfs::file_system* fs) : fs_(fs)
+        material_shader_cache(core::vfs::file_system* fs) : file_system(fs)
         {
             ASSERT(fs);
         }
 
-        std::shared_ptr<MaterialShader>
-        Create(const core::vfs::file_path& path)
+        [[nodiscard]] std::shared_ptr<material_shader>
+        create(const core::vfs::file_path& path) const
         {
-            auto ret = std::make_shared<MaterialShader>();
-            ret->Load(fs_, path);
+            auto ret = std::make_shared<material_shader>();
+            ret->load(file_system, path);
             return ret;
         }
 
-    private:
-        core::vfs::file_system* fs_;
+        core::vfs::file_system* file_system;
     };
 
-}  // namespace euphoria::render
-
-#endif  // EUPHORIA_MATERIALSHADERCACHE_H
+}

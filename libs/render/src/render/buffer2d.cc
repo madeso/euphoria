@@ -8,34 +8,34 @@
 
 namespace euphoria::render
 {
-    Buffer2d::Buffer2d(const core::buffer_builder2d& bb)
+    buffer2d::buffer2d(const core::buffer_builder2d& bb)
         : index_count(core::Csizet_to_int(bb.tris.size()))
     {
-        PointLayout::Bind(&vao);
-        VertexBuffer::Bind(&vbo);
+        point_layout::bind(&vao);
+        vertex_buffer::bind(&vbo);
 
-        vbo.SetData(bb.data);
+        vbo.set_data(bb.data);
 
-        IndexBuffer::Bind(&ebo);
-        ebo.SetData(bb.tris);
+        index_buffer::bind(&ebo);
+        ebo.set_data(bb.tris);
 
-        vao.BindData(attributes2d::Vertex(), sizeof(float) * 4, 0);
+        vao.bind_data(attributes2d::vertex(), sizeof(float) * 4, 0);
 
-        PointLayout::Bind(nullptr);
+        point_layout::bind(nullptr);
 
-        IndexBuffer::Bind(nullptr);
-        VertexBuffer::Bind(nullptr);
+        index_buffer::bind(nullptr);
+        vertex_buffer::bind(nullptr);
     }
 
 
     void
-    Buffer2d::Draw() const
+    buffer2d::draw() const
     {
-        IndexBuffer::Bind(&ebo);
-        PointLayout::Bind(&vao);
-        ebo.Draw(RenderMode::Triangles, index_count);
-        PointLayout::Bind(nullptr);
-        IndexBuffer::Bind(nullptr);
+        index_buffer::bind(&ebo);
+        point_layout::bind(&vao);
+        ebo.draw(render_mode::triangles, index_count);
+        point_layout::bind(nullptr);
+        index_buffer::bind(nullptr);
     }
 
 }

@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_ATTRIBUTEBINDER_H
-#define EUPHORIA_ATTRIBUTEBINDER_H
+#pragma once
 
 #include "render/shaderattribute.h"
 
@@ -7,12 +6,13 @@
 
 namespace euphoria::render
 {
-    struct PointLayout;
+    struct point_layout;
 
     void
-    BindAttributes(
-            const std::vector<ShaderAttribute>& attributes,
-            PointLayout*                        layout);
-}  // namespace euphoria::render
+    bind_attributes
+    (
+            const std::vector<shader_attribute>& attributes,
+            point_layout* layout
+    );
+}
 
-#endif  // EUPHORIA_ATTRIBUTEBINDER_H

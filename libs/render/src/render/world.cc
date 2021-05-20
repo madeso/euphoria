@@ -12,37 +12,37 @@
 namespace euphoria::render
 {
     void
-    World::AddActor(const std::shared_ptr<Instance>& actor)
+    world::add_actor(const std::shared_ptr<instance>& actor)
     {
-        actors_.push_back(actor);
+        actors.push_back(actor);
     }
 
     void
-    World::Render(const Viewport& viewport, const core::camera3& camera)
+    world::render(const viewport& viewport, const core::camera3& camera)
     {
-        Render(camera, camera.compile(viewport.GetAspectRatio()));
+        render(camera, camera.compile(viewport.get_aspect_ratio()));
     }
 
     void
-    World::Step()
+    world::step()
     {
-        actors_.erase
+        actors.erase
         (
             std::remove_if
             (
-                actors_.begin(),
-                actors_.end(),
-                [](const std::shared_ptr<Instance>& instance)
+                actors.begin(),
+                actors.end(),
+                [](const std::shared_ptr<instance>& instance)
                 {
                     return instance->remove_this;
                 }
             ),
-            actors_.end()
+            actors.end()
         );
     }
 
     void
-    World::Render
+    world::render
     (
         const core::camera3& camera,
         const core::compiled_camera3& compiled
@@ -51,7 +51,7 @@ namespace euphoria::render
         const auto projection_matrix = compiled.projection;
         const auto view_matrix = compiled.view;
 
-        for(const auto& actor: actors_)
+        for(const auto& actor: actors)
         {
             if(actor->remove_this)
             {
@@ -67,7 +67,7 @@ namespace euphoria::render
             // http://aras-p.info/blog/2014/01/16/rough-sorting-by-depth/
             // useful?
             // https://gamedev.stackexchange.com/questions/45626/how-to-organize-rendering
-            actor->Render(projection_matrix, view_matrix, camera.position, light);
+            actor->render(projection_matrix, view_matrix, camera.position, light);
         }
     }
 

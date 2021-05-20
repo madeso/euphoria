@@ -26,7 +26,7 @@ namespace euphoria::t3d
         core::aabb  aabb;
         std::string name;
 
-        std::shared_ptr<render::CompiledMesh> mesh;
+        std::shared_ptr<render::compiled_mesh> mesh;
     };
 
 
@@ -47,8 +47,8 @@ namespace euphoria::t3d
         AddFile
         (
             const core::vfs::file_path& path,
-            render::MaterialShaderCache* shader_cache,
-            render::TextureCache* texture_cache
+            render::material_shader_cache* shader_cache,
+            render::texture_cache* texture_cache
         );
 
 

@@ -6,7 +6,7 @@
 namespace euphoria::render
 {
     void
-    SetupDefaultFiles(std::shared_ptr<core::vfs::read_root_catalog> catalog)
+    setup_default_files(std::shared_ptr<core::vfs::read_root_catalog> catalog)
     {
         catalog->register_file_string
         (

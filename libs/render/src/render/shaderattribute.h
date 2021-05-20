@@ -6,61 +6,61 @@
 
 namespace euphoria::render
 {
-    enum class ShaderAttributeType
+    enum class shader_attribute_type
     {
-        FLOAT1,
-        FLOAT2,
-        FLOAT3,
-        FLOAT4,
-        FLOAT33,
-        FLOAT44
+        float1,
+        float2,
+        float3,
+        float4,
+        float33,
+        float44
     };
 
-    enum class ShaderAttributeSource
+    enum class shader_attribute_source
     {
-        Unknown,
-        Vertex,
-        Normal,
-        Uv,
-        Color
+        unknown,
+        vertex,
+        normal,
+        uv,
+        color
     };
 
-    /** Respresents a shader attribute like vertex, normal or uv coord.
+    /** Represents a shader attribute like vertex, normal or uv coord.
      */
-    struct ShaderAttribute
+    struct shader_attribute
     {
-        // todo(Gustav): can this be maded constexpr?
-        ShaderAttribute
+        // todo(Gustav): can this be made into a constexpr?
+        shader_attribute
         (
             glint a_id,
-            ShaderAttributeType a_type,
+            shader_attribute_type a_type,
             std::string a_name,
-            ShaderAttributeSource a_source,
+            shader_attribute_source a_source,
             bool a_normalize = false
         );
 
         [[nodiscard]] int
-        GetElementCount() const;
+        get_element_count() const;
 
         [[nodiscard]] int
-        GetByteSize() const;
+        get_byte_size() const;
 
         /// the id of the attribute
         glint id;
 
         /// the type of the attribute
-        ShaderAttributeType type;
+        shader_attribute_type type;
 
         /// the name of the shader attribute
         std::string name;
 
         /// the source of the shader attribute
-        ShaderAttributeSource source;
+        shader_attribute_source source;
 
         // true if the attribute is normalized
         bool normalize;
     };
 
     bool
-    operator==(const ShaderAttribute& lhs, const ShaderAttribute& rhs);
+    operator==(const shader_attribute& lhs, const shader_attribute& rhs);
 }

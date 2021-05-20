@@ -7,23 +7,28 @@
 namespace euphoria::render
 {
     void
-    BindAttributes(
-            const std::vector<ShaderAttribute>& attributes,
-            PointLayout*                        layout)
+    bind_attributes
+    (
+            const std::vector<shader_attribute>& attributes,
+            point_layout* layout
+    )
     {
-        const int total_size = std::accumulate(
-                attributes.begin(),
-                attributes.end(),
-                0,
-                [](int value, const ShaderAttribute& att) -> int {
-                    return value + att.GetByteSize();
-                });
+        const int total_size = std::accumulate
+        (
+            attributes.begin(),
+            attributes.end(),
+            0,
+            [](int value, const shader_attribute& att) -> int
+            {
+                return value + att.get_byte_size();
+            }
+        );
 
         int stride = 0;
         for(const auto& attribute: attributes)
         {
-            layout->BindData(attribute, total_size, stride);
-            stride += attribute.GetByteSize();
+            layout->bind_data(attribute, total_size, stride);
+            stride += attribute.get_byte_size();
         }
     }
-}  // namespace euphoria::render
+}
