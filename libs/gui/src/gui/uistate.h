@@ -1,43 +1,38 @@
-#ifndef GUI_UISTATE_H
-#define GUI_UISTATE_H
+#pragma once
 
 #include "core/vec2.h"
 
 namespace euphoria::gui
 {
-    struct Widget;
+    struct widget;
 }
 
 namespace euphoria::gui
 {
-    struct UiState
+    struct ui_state
     {
-    public:
-        UiState() = default;
+        ui_state() = default;
 
         core::vec2f mouse = core::vec2f(0.0f, 0.0f);
         bool mouse_down = false;
 
-        Widget* hot = nullptr;
-        Widget* active = nullptr;
+        widget* hot = nullptr;
+        widget* active = nullptr;
         bool has_active = false;
 
         void
-        Begin();
+        begin();
 
         void
-        End();
+        end();
 
         void
-        SetHot(Widget* w);
+        set_hot(widget* w);
 
         void
-        SetActive(Widget* w);
+        set_active(widget* w);
 
         [[nodiscard]] bool
-        IsMouseDown() const;
+        is_mouse_down() const;
     };
 }
-
-#endif  // GUI_UISTATE_H
-

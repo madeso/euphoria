@@ -19,54 +19,46 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct Skin;
-    struct ButtonState;
-}
+    struct skin;
+    struct button_state;
+    struct ui_state;
 
-namespace euphoria::gui
-{
-    struct Button : public Widget
+    struct button : widget
     {
-        Button(UiState* state);
-        ~Button() override;
+         button(gui::ui_state* state);
+        ~button() override;
 
-        NONCOPYABLE(Button);
+        NONCOPYABLE(button);
 
         virtual void
-        OnClicked() = 0;
+        on_clicked() = 0;
 
         void
-        Step(float dt) override;
+        step(float dt) override;
 
-        [[nodiscard]] core::Sizef
-        CalculateMinimumSize() const override;
-
-        void
-        Render(render::sprite_renderer* renderer) const override;
+        [[nodiscard]] core::size2f
+        calculate_minimum_size() const override;
 
         void
-        Visit(Visitor* visitor) override;
-
-        TextData&
-        Text();
+        render(render::sprite_renderer* renderer) const override;
 
         void
-        SetSprite(std::shared_ptr<render::scalable_sprite> sprite);
+        visit(visitor* visitor) override;
 
         void
-        OnSize() override;
+        on_size_changed() override;
 
         void
-        SetSkin(Skin* skin);
+        set_skin(skin* new_skin);
 
-        ButtonState* last_state_;
-        std::shared_ptr<render::scalable_sprite> sprite_;
-        TextData text_;
-        Skin* skin_;
+        button_state* last_state;
+        std::shared_ptr<render::scalable_sprite> sprite;
+        text_data text;
+        skin* skin_;
 
-        core::Interpolate<float, core::FloatTransform> scale_;
-        core::Interpolate<core::rgb, core::rgb_transform> image_color_;
-        core::Interpolate<core::rgb, core::rgb_transform> text_color_;
-        core::Interpolate<core::vec2f, core::Vec2fTransform> position_displacement_;
+        core::Interpolate<float, core::FloatTransform> scale;
+        core::Interpolate<core::rgb, core::rgb_transform> image_color;
+        core::Interpolate<core::rgb, core::rgb_transform> text_color;
+        core::Interpolate<core::vec2f, core::Vec2fTransform> position_displacement;
     };
 }

@@ -7,101 +7,99 @@
 
 namespace euphoria::gui
 {
-    Widget::Widget(UiState* state)
-        : state_(state)
+    widget::widget(gui::ui_state* state)
+        : ui_state(state)
     {
     }
 
 
-    Widget::~Widget() = default;
+    widget::~widget() = default;
 
 
     bool
-    Widget::IsActive() const
+    widget::is_active() const
     {
-        return state_->active == this;
+        return ui_state->active == this;
     }
 
 
     bool
-    Widget::IsHot() const
+    widget::is_hot() const
     {
-        return state_->hot == this;
+        return ui_state->hot == this;
     }
 
 
     void
-    Widget::OnSize()
+    widget::on_size_changed()
     {
     }
 
 
     core::rectf
-    Widget::GetClientRect() const
+    widget::get_client_rect() const
     {
-        return rect_.inset_copy(
-                padding.left, padding.right, padding.top, padding.bottom);
+        return rect.inset_copy(padding.left, padding.right, padding.top, padding.bottom);
     }
 
 
     core::rectf
-    Widget::GetBackgroundRect() const
+    widget::get_background_rect() const
     {
-        return rect_;
+        return rect;
     }
 
 
     void
-    Widget::SetRect(const core::rectf& r)
+    widget::set_rect(const core::rectf& r)
     {
-        rect_ = r.inset_copy
+        rect = r.inset_copy
         (
             margin.left,
             margin.right,
             margin.top,
             margin.bottom
         );
-        LOG_INFO("Setting gui rect of '{0}' {1}", name, rect_);
-        OnSize();
+        LOG_INFO("Setting gui rect of '{0}' {1}", name, rect);
+        on_size_changed();
     }
 
 
-    core::Sizef
-    Widget::GetPreferredSize() const
+    core::size2f
+    widget::get_preferred_size() const
     {
-        const auto min = this->CalculateMinimumSize();
+        const auto min = calculate_minimum_size();
         const auto padding_width = padding.left + padding.right;
         const auto padding_height = padding.top + padding.bottom;
         const auto margin_width = margin.left + margin.right;
         const auto margin_height = margin.top + margin.bottom;
 
-        return core::Sizef::create_from_width_height
+        return core::size2f::create_from_width_height
         (
             core::max
             (
                 min.width + padding_width + margin_width,
-                layout.GetPreferredWidth()
+                layout.preferred_width
             ),
             core::max
             (
                 min.height + padding_height + margin_height,
-                layout.GetPreferredHeight()
+                layout.preferred_height
             )
         );
     }
 
 
-    const UiState&
-    Widget::GetState() const
+    const ui_state&
+    widget::get_state() const
     {
-        return *state_;
+        return *ui_state;
     }
 
 
-    UiState*
-    Widget::GetStatePtr() const
+    ui_state*
+    widget::get_state_ptr() const
     {
-        return state_;
+        return ui_state;
     }
 }
-

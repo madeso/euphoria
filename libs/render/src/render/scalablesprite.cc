@@ -88,10 +88,10 @@ namespace euphoria::render
     scalable_sprite::~scalable_sprite() = default;
 
 
-    core::Sizef
+    core::size2f
     scalable_sprite::get_minimum_size() const
     {
-        return core::Sizef::create_from_width_height
+        return core::size2f::create_from_width_height
         (
             get_constant_size(columns),
             get_constant_size(rows)

@@ -5,42 +5,42 @@
 
 namespace euphoria::gui
 {
-    Container::Container() = default;
+    container::container() = default;
 
 
-    Container::~Container() = default;
+    container::~container() = default;
 
 
     bool
-    Container::HasWidgets() const
+    container::has_any_widgets() const
     {
-        return !widgets_.empty();
+        return !widgets.empty();
     }
 
 
     void
-    Container::Add(std::shared_ptr<Widget> widget)
+    container::add(std::shared_ptr<widget> widget)
     {
-        widgets_.push_back(widget);
+        widgets.push_back(widget);
     }
 
 
     void
-    Container::Step(float dt)
+    container::step(float dt)
     {
-        for(const auto& w: widgets_)
+        for(const auto& w: widgets)
         {
-            w->Step(dt);
+            w->step(dt);
         }
     }
 
 
     void
-    Container::Render(render::sprite_renderer* renderer) const
+    container::render(render::sprite_renderer* renderer) const
     {
-        for(const std::shared_ptr<Widget>& w: widgets_)
+        for(const std::shared_ptr<widget>& w: widgets)
         {
-            w->Render(renderer);
+            w->render(renderer);
         }
     }
 }

@@ -18,19 +18,19 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct Root;
+    struct root;
 }
 
 
 namespace euphoria::gui
 {
     bool
-    Load
+    load_gui
     (
-        Root* root,
-        core::vfs::file_system* fs,
-        render::font_cache* font,
-        const core::vfs::file_path& path,
-        render::texture_cache* cache
+            root* root,
+            core::vfs::file_system* fs,
+            render::font_cache* font,
+            const core::vfs::file_path& path,
+            render::texture_cache* cache
     );
 }

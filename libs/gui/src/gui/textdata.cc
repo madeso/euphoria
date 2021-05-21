@@ -8,103 +8,96 @@
 
 namespace euphoria::gui
 {
-    TextData::TextData()
-        : font_(nullptr)
+    text_data::text_data()
+        : font(nullptr)
         , size(-1.0f)
     {
     }
 
 
-    TextData::~TextData() = default;
+    text_data::~text_data() = default;
 
 
     void
-    TextData::SetFont(std::shared_ptr<render::drawable_font> font)
+    text_data::set_font(std::shared_ptr<render::drawable_font> font)
     {
-        font_ = font;
-        text_.reset();
-        UpdateText();
+        font = font;
+        text.reset();
+        update_text();
     }
 
 
     const render::drawable_font&
-    TextData::GetFont() const
+    text_data::get_font() const
     {
-        ASSERT(font_);
-        return *font_;
+        ASSERT(font);
+        return *font;
     }
 
 
     void
-    TextData::SetString(const std::string& str)
+    text_data::update_string(const std::string& str)
     {
-        string_ = str;
-        UpdateText();
-    }
-
-
-    const std::string&
-    TextData::GetString() const
-    {
-        return string_;
+        string = str;
+        update_text();
     }
 
 
     bool
-    TextData::HasText() const
+    text_data::has_text() const
     {
-        return text_ != nullptr;
+        return text != nullptr;
     }
 
 
     const render::drawable_text&
-    TextData::GetText() const
+    text_data::get_text() const
     {
-        ASSERT(text_);
-        return *text_;
+        ASSERT(text);
+        return *text;
     }
 
 
     render::drawable_text&
-    TextData::GetText()
+    text_data::get_text()
     {
-        ASSERT(text_);
-        return *text_;
+        ASSERT(text);
+        return *text;
     }
 
 
     void
-    TextData::SetSize(float new_size)
+    text_data::set_size(float new_size)
     {
         this->size = new_size;
-        if(HasText())
+        if(has_text())
         {
-            GetText().set_size(new_size);
+            get_text().set_size(new_size);
         }
     }
 
 
     void
-    TextData::UpdateText()
+    text_data::update_text()
     {
-        if(text_ == nullptr && font_ != nullptr)
+        if(text == nullptr && font != nullptr)
         {
-            text_ = std::make_shared<render::drawable_text>(font_.get());
+            text = std::make_shared<render::drawable_text>(font.get());
         }
 
-        if(text_ != nullptr)
+        if(text != nullptr)
         {
             // button assumes this is bottom left
-            text_->set_alignment(render::align::bottom_left);
+            text->set_alignment(render::align::bottom_left);
 
-            core::ui_text text;
-            if(false == text.init_by_parsing_source(string_))
+            core::ui_text parsed;
+            if(false == parsed.init_by_parsing_source(string))
             {
-                LOG_ERROR("Failed to parse {0}", string_);
+                LOG_ERROR("Failed to parse {0}", string);
             }
-            LOG_INFO("Loaded {0}", core::textparser::visitor_debug_string::accept_all_nodes(&text));
-            text_->set_text(text);
-            text_->set_size(size);
+            LOG_INFO("Loaded {0}", core::textparser::visitor_debug_string::accept_all_nodes(&parsed));
+            text->set_text(parsed);
+            text->set_size(size);
         }
     }
 }

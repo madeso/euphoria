@@ -1,5 +1,4 @@
-#ifndef GUI_ROOT_H
-#define GUI_ROOT_H
+#pragma once
 
 #include "core/vec2.h"
 #include "core/noncopyable.h"
@@ -27,22 +26,22 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct Skin;
+    struct skin;
 }
 
 
 namespace euphoria::gui
 {
 
-    struct Root
+    struct root
     {
-        explicit Root(const core::Sizef& s);
-        ~Root();
+        explicit root(const core::size2f& s);
+        ~root();
 
-        NONCOPYABLE(Root);
+        NONCOPYABLE(root);
 
         [[nodiscard]] bool
-        Load
+        load
         (
             core::vfs::file_system* fs,
             render::font_cache* font,
@@ -51,25 +50,23 @@ namespace euphoria::gui
         );
 
         void
-        SetInputMouse(const core::vec2f& pos, bool down);
+        set_input_mouse(const core::vec2f& pos, bool down);
 
         void
-        Step(float dt);
+        step(float dt);
 
         void
-        Resize(const core::Sizef& new_size);
+        resize(const core::size2f& new_size);
 
         void
-        Render(render::sprite_renderer* sp) const;
+        render(render::sprite_renderer* sp) const;
 
-        std::vector<std::shared_ptr<Skin>> skins;
-        core::Sizef size;
-        UiState state;
-        LayoutContainer container;
+        std::vector<std::shared_ptr<skin>> skins;
+        core::size2f size;
+        ui_state state;
+        layout_container container;
         std::shared_ptr<render::texture2d> cursor_image;
         std::shared_ptr<render::texture2d> hover_image;
     };
 }
-
-#endif  // GUI_ROOT_H
 

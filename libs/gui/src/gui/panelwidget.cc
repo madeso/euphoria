@@ -5,43 +5,43 @@
 
 namespace euphoria::gui
 {
-    PanelWidget::PanelWidget(UiState* state)
-        : Widget(state)
+    panel_widget::panel_widget(gui::ui_state* state)
+        : widget(state)
     {
     }
 
 
     void
-    PanelWidget::OnSize()
+    panel_widget::on_size_changed()
     {
-        container.DoLayout(GetClientRect());
+        container.do_layout(get_client_rect());
     }
 
 
-    core::Sizef
-    PanelWidget::CalculateMinimumSize() const
+    core::size2f
+    panel_widget::calculate_minimum_size() const
     {
-        return container.CalculateMinimumArea();
-    }
-
-
-    void
-    PanelWidget::Step(float dt)
-    {
-        container.Step(dt);
+        return container.calculate_minimum_area();
     }
 
 
     void
-    PanelWidget::Render(render::sprite_renderer* renderer) const
+    panel_widget::step(float dt)
     {
-        container.Render(renderer);
+        container.step(dt);
+    }
+
+
+    void
+    panel_widget::render(render::sprite_renderer* renderer) const
+    {
+        container.render(renderer);
     }
 
     void
-    PanelWidget::Visit(Visitor* visitor)
+    panel_widget::visit(visitor* visitor)
     {
-        visitor->Visit(this);
+        visitor->visit(this);
     }
 }
 

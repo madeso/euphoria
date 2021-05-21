@@ -11,17 +11,17 @@
 
 namespace euphoria::core
 {
-    std::vector<Sizei> collect_sizes
+    std::vector<size2i> collect_sizes
     (
         const std::vector<image>& images,
         int padding
     )
     {
-        auto sizes = std::vector<Sizei>{};
+        auto sizes = std::vector<size2i>{};
 
         for(const auto& img: images)
         {
-            sizes.emplace_back(Sizei::create_from_width_height
+            sizes.emplace_back(size2i::create_from_width_height
             (
                 img.width + padding,
                 img.height + padding
@@ -37,7 +37,7 @@ namespace euphoria::core
     (
         const std::vector<vec2i>& positions,
         const std::vector<image>& images,
-        const Sizei& size,
+        const size2i& size,
         const rgbi& background_color
     )
     {
@@ -65,10 +65,10 @@ namespace euphoria::core
     }
 
 
-    Sizei
+    size2i
     pack_tight
     (
-        const Sizei& default_size,
+        const size2i& default_size,
         std::vector<vec2i>* positions,
         const std::vector<image>& images,
         int padding
@@ -102,7 +102,7 @@ namespace euphoria::core
             position += vec2i(dx, dy);
         }
 
-        return Sizei::create_from_width_height(size.width + padding, size.height+padding);
+        return size2i::create_from_width_height(size.width + padding, size.height + padding);
     }
 
     ////////////////////////////////////////////////////
@@ -111,7 +111,7 @@ namespace euphoria::core
     std::vector<vec2i>
     pack_image
     (
-        const Sizei& image_size,
+        const size2i& image_size,
         const std::vector<image>& images,
         const std::vector<std::string>& files,
         int padding
@@ -147,7 +147,7 @@ namespace euphoria::core
     (
         const std::vector<image>& images,
         const std::vector<std::string>& files,
-        const Sizei& requested_size,
+        const size2i& requested_size,
         int padding,
         rgbi background_color,
         bool should_pack_image
@@ -159,7 +159,7 @@ namespace euphoria::core
             return std::nullopt;
         }
 
-        const auto image_size = Sizei::create_from_width_height
+        const auto image_size = size2i::create_from_width_height
         (
             requested_size.width - padding,
             requested_size.height - padding
@@ -200,7 +200,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////
 
 
-    std::pair<std::vector<vec2i>, Sizei>
+    std::pair<std::vector<vec2i>, size2i>
     grid_layout
     (
         const std::vector<image>& images,
@@ -272,7 +272,7 @@ namespace euphoria::core
             }
         }
 
-        return {ret, Sizei::create_from_width_height(image_width, image_height)};
+        return {ret, size2i::create_from_width_height(image_width, image_height)};
     }
 
 

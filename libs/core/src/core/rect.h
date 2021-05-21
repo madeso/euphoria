@@ -2,7 +2,7 @@
 
 #include "core/assert.h"
 #include "core/vec2.h"
-#include "core/size.h"
+#include "core/size2.h"
 #include "core/range.h"
 #include "core/random.h"
 
@@ -104,7 +104,7 @@ namespace euphoria::core
         }
 
         [[nodiscard]] static rect
-        from_width_height(const size<T>& s)
+        from_width_height(const size2<T>& s)
         {
             return from_width_height(s.width, s.height);
         }
@@ -426,10 +426,10 @@ namespace euphoria::core
             return range<T>{left, right};
         }
 
-        size<T>
+        size2<T>
         get_size() const
         {
-            return size<T>::create_from_width_height(get_width(), get_height());
+            return size2<T>::create_from_width_height(get_width(), get_height());
         }
 
         [[nodiscard]] vec2<T>

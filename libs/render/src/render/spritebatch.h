@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "core/rect.h"
-#include "core/size.h"
+#include "core/size2.h"
 #include "core/vec2.h"
 #include "core/angle.h"
 #include "core/rgb.h"
@@ -27,7 +27,7 @@ namespace euphoria::render
         quad
         (
             const core::vec2f& pos,
-            const core::Sizef& quad,
+            const core::size2f& quad,
             const core::rectf& uv,
             const core::scale2f& center,
             const core::angle& rotation,

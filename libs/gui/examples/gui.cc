@@ -53,7 +53,7 @@ using namespace euphoria::window;
 
 // todo(Gustav): move to window/imgui_ext
 bool
-ImWidget(const char* title, Sizef* s)
+ImWidget(const char* title, size2f* s)
 {
     return ImGui::DragFloat2(title, &s->width);
 }
@@ -86,7 +86,7 @@ ImWidget(const char* title, bool* b)
 
 
 bool
-ImWidget(const char* title, euphoria::gui::Lrtb* p)
+ImWidget(const char* title, euphoria::gui::lrtb* p)
 {
     const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
     ImGui::PushID(title);
@@ -175,7 +175,7 @@ ImWidget(euphoria::render::scalable_sprite* sprite)
 
 
 bool
-ImWidget(UiState* state)
+ImWidget(ui_state* state)
 {
     ImWidget("mouse", &state->mouse);
     ImWidget("down", &state->mouse_down);
@@ -186,30 +186,30 @@ ImWidget(UiState* state)
 }
 
 void
-ImWidget(TextData* data)
+ImWidget(text_data* data)
 {
-    ImWidget("string", &data->string_);
+    ImWidget("string", &data->string);
     ImGui::DragFloat("size", &data->size);
 }
 
 bool
-ImWidget(LayoutContainer* container);
+ImWidget(layout_container* container);
 
-struct Vis : public Visitor
+struct Vis : public visitor
 {
     void
-    Visit(Button* w) override
+    visit(button* w) override
     {
-        ImWidget(w->sprite_.get());
+        ImWidget(w->sprite.get());
         if(ImGui::Button("Click"))
         {
-            w->OnClicked();
+            w->on_clicked();
         }
-        ImWidget(&w->text_);
+        ImWidget(&w->text);
     }
 
     void
-    Visit(PanelWidget* w) override
+    visit(panel_widget* w) override
     {
         ImWidget(&w->container);
     }
@@ -217,30 +217,30 @@ struct Vis : public Visitor
 
 
 bool
-ImWidget(Widget* w)
+ImWidget(widget* w)
 {
     InputText("name", &w->name);
     ImWidget("margin", &w->margin);
     ImWidget("padding", &w->padding);
-    ImWidget("rect", &w->rect_);
+    ImWidget("rect", &w->rect);
 
     if(ImGui::Button("Size"))
     {
-        w->OnSize();
+        w->on_size_changed();
     }
 
     auto vis = Vis{};
-    w->Visit(&vis);
+    w->visit(&vis);
 
     return false;
 }
 
 bool
-ImWidget(LayoutContainer* container)
+ImWidget(layout_container* container)
 {
-    for(int i=0; i<Csizet_to_int(container->widgets_.size()); i+= 1)
+    for(int i=0; i<Csizet_to_int(container->widgets.size()); i+= 1)
     {
-        auto widget = container->widgets_[i];
+        auto widget = container->widgets[i];
         if(ImGui::TreeNode(widget->name.c_str()))
         {
             ImGui::PushID(i);
@@ -288,7 +288,7 @@ ImWidget(const char* title, euphoria::render::drawable_font* font)
 }
 
 void
-ImWidget(Skin* skin)
+ImWidget(skin* skin)
 {
     if(ImGui::TreeNode(skin->name.c_str()) == false) { return; }
 
@@ -301,7 +301,7 @@ ImWidget(Skin* skin)
 
 
 void
-DebugUi(Root* root)
+DebugUi(root* root)
 {
     for(auto& skin: root->skins)
     {
@@ -360,8 +360,8 @@ main(int argc, char* argv[])
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto root = Root{Sizef::create_from_width_height(window_width, window_height)};
-    const auto gui_loaded = root.Load
+    auto root = euphoria::gui::root{size2f::create_from_width_height(window_width, window_height)};
+    const auto gui_loaded = root.load
     (
         engine.file_system.get(),
         &font_cache,
@@ -429,7 +429,7 @@ main(int argc, char* argv[])
             if(engine.HandleResize(e, &window_width, &window_height))
             {
                 viewport_handler.set_size(window_width, window_height);
-                root.Resize(Sizef::create_from_width_height(window_width, window_height));
+                root.resize(size2f::create_from_width_height(window_width, window_height));
             }
 
             if(e.type == SDL_MOUSEMOTION)
@@ -468,17 +468,18 @@ main(int argc, char* argv[])
         }
         else
         {
-            root.SetInputMouse
-            (
-                vec2f{static_cast<float>(window_mouse_x), static_cast<float>(window_height - window_mouse_y)},
-                mouse_lmb_down
-            );
+            root.set_input_mouse
+                    (
+                            vec2f{static_cast<float>(window_mouse_x),
+                                  static_cast<float>(window_height - window_mouse_y)},
+                            mouse_lmb_down
+                    );
         }
 
-        root.Step(dt);
+        root.step(dt);
 
         engine.init->clear_screen(clear_color);
-        root.Render(&renderer);
+        root.render(&renderer);
         if(show_imgui)
         {
             engine.imgui->Render();

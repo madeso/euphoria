@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/rect.h"
-#include "core/size.h"
+#include "core/size2.h"
 #include "core/noncopyable.h"
 
 #include "gui/container.h"
@@ -12,44 +12,33 @@
 
 namespace euphoria::gui
 {
-    struct Layout;
-}
+    struct layout;
 
 
-namespace euphoria::gui
-{
-    std::shared_ptr<Layout>
-    CreateTableLayout
+    std::shared_ptr<layout>
+    create_table_layout
     (
         const std::vector<bool>& expandable_rows,
         const std::vector<bool>& expandable_cols,
         float combined_padding
     );
 
-    std::shared_ptr<Layout>
-    CreateSingleRowLayout(float padding);
+    std::shared_ptr<layout>
+    create_single_row_layout(float padding);
 
-    struct LayoutContainer : public Container
+    struct layout_container : container
     {
-        LayoutContainer();
-        virtual ~LayoutContainer();
+        layout_container();
+        virtual ~layout_container();
 
-        NONCOPYABLE(LayoutContainer);
-
-        // todo(Gustav): remove
-        void
-        SetLayout(std::shared_ptr<Layout> layout);
-
-        // todo(Gustav): remove
-        [[nodiscard]] std::shared_ptr<Layout>
-        GetLayout() const;
+        NONCOPYABLE(layout_container);
 
         void
-        DoLayout(core::rectf area);
+        do_layout(core::rectf area);
 
-        [[nodiscard]] core::Sizef
-        CalculateMinimumArea() const;
+        [[nodiscard]] core::size2f
+        calculate_minimum_area() const;
 
-        std::shared_ptr<Layout> layout_;
+        std::shared_ptr<gui::layout> layout;
     };
 }

@@ -10,17 +10,17 @@
 
 namespace euphoria::gui
 {
-    Root::Root(const core::Sizef& s)
+    root::root(const core::size2f& s)
         : size(s)
     {
     }
 
 
-    Root::~Root() = default;
+    root::~root() = default;
 
 
     bool
-    Root::Load
+    root::load
     (
         core::vfs::file_system* fs,
         render::font_cache* font,
@@ -28,11 +28,11 @@ namespace euphoria::gui
         render::texture_cache* cache
     )
     {
-        const bool result = euphoria::gui::Load(this, fs, font, path, cache);
+        const bool result = euphoria::gui::load_gui(this, fs, font, path, cache);
 
         if(result)
         {
-            container.DoLayout(core::rectf::from_width_height(size));
+            container.do_layout(core::rectf::from_width_height(size));
         }
 
         return result;
@@ -40,7 +40,7 @@ namespace euphoria::gui
 
 
     void
-    Root::SetInputMouse(const core::vec2f& pos, bool down)
+    root::set_input_mouse(const core::vec2f& pos, bool down)
     {
         state.mouse = pos;
         state.mouse_down = down;
@@ -48,42 +48,42 @@ namespace euphoria::gui
 
 
     void
-    Root::Step(float dt)
+    root::step(float dt)
     {
-        state.Begin();
-        container.Step(dt);
-        state.End();
+        state.begin();
+        container.step(dt);
+        state.end();
     }
 
 
     void
-    Root::Resize(const core::Sizef& new_size)
+    root::resize(const core::size2f& new_size)
     {
         size = new_size;
-        container.DoLayout(core::rectf::from_width_height(size));
+        container.do_layout(core::rectf::from_width_height(size));
     }
 
 
     void
-    Root::Render(render::sprite_renderer* sp) const
+    root::render(render::sprite_renderer* sp) const
     {
-        container.Render(sp);
+        container.render(sp);
 
         auto image = state.hot != nullptr ? hover_image : cursor_image;
 
         if(image)
         {
             sp->draw_sprite
-                    (
-                            *image,
-                            core::rectf::from_position_anchor_width_and_height
-                                    (
-                                            state.mouse,
-                                            core::scale2f{0, 1},
-                                            core::Cint_to_float(image->width),
-                                            core::Cint_to_float(image->height)
-                                    )
-                    );
+            (
+                *image,
+                core::rectf::from_position_anchor_width_and_height
+                (
+                    state.mouse,
+                    core::scale2f{0, 1},
+                    core::Cint_to_float(image->width),
+                    core::Cint_to_float(image->height)
+                )
+            );
         }
     }
 }

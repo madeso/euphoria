@@ -4,16 +4,16 @@
 namespace euphoria::gui
 {
     void
-    UiState::Begin()
+    ui_state::begin()
     {
         hot = nullptr;
     }
 
 
     void
-    UiState::End()
+    ui_state::end()
     {
-        if(IsMouseDown() == false)
+        if(is_mouse_down() == false)
         {
             active = nullptr;
             has_active = false;
@@ -29,14 +29,14 @@ namespace euphoria::gui
 
 
     void
-    UiState::SetHot(Widget* w)
+    ui_state::set_hot(widget* w)
     {
         hot = w;
     }
 
 
     void
-    UiState::SetActive(Widget* w)
+    ui_state::set_active(widget* w)
     {
         if(has_active == false && active == nullptr)
         {
@@ -47,7 +47,7 @@ namespace euphoria::gui
 
 
     bool
-    UiState::IsMouseDown() const
+    ui_state::is_mouse_down() const
     {
         return mouse_down;
     }

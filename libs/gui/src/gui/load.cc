@@ -24,13 +24,13 @@ namespace euphoria::gui
     LOG_SPECIFY_DEFAULT_LOGGER("gui.load")
 
 
-    std::shared_ptr<Layout>
-    GetLayout(const ::gui::Layout& c)
+    std::shared_ptr<layout>
+    create_layout(const ::gui::Layout& c)
     {
         if(c.table)
         {
             LOG_INFO("Creating a table layout");
-            return CreateTableLayout
+            return create_table_layout
             (
                 c.table->expanded_rows,
                 c.table->expanded_cols,
@@ -40,26 +40,27 @@ namespace euphoria::gui
         else if(c.single_row)
         {
             LOG_INFO("Creating a single row layout");
-            return CreateSingleRowLayout(c.single_row->padding);
+            return create_single_row_layout(c.single_row->padding);
         }
         else
         {
             LOG_ERROR("Missing a layout");
-            return CreateSingleRowLayout(0);
+            return create_single_row_layout(0);
         }
     }
 
 
-    struct CmdButton : public Button
+    struct command_button : public button
     {
-        explicit CmdButton(UiState* state)
-            : Button(state)
+        explicit command_button(gui::ui_state* state)
+            : button(state)
         {
         }
 
         void
-        OnClicked() override
+        on_clicked() override
         {
+            // todo(Gustav): set up command to actually do something
             LOG_INFO("Executing cmd: {0}", cmd);
         }
 
@@ -68,31 +69,31 @@ namespace euphoria::gui
 
 
     void
-    BuildLayoutContainer
+    build_layout_container
     (
         core::vfs::file_system* fs,
-        UiState* state,
-        LayoutContainer* root,
+        ui_state* state,
+        layout_container* root,
         const ::gui::LayoutContainer& c,
         render::texture_cache* cache,
-        const std::map<std::string, Skin*>& skins
+        const std::map<std::string, skin*>& skins
     );
 
 
     void
-    SetupLayout(LayoutData* data, const ::gui::Widget& src)
+    setup_layout(layout_data* data, const ::gui::Widget& src)
     {
-        data->SetColumn(src.column);
-        data->SetRow(src.row);
-        data->SetPreferredWidth(src.preferred_width);
-        data->SetPreferredHeight(src.preferred_height);
+        data->column = src.column;
+        data->row = src.row;
+        data->preferred_width = src.preferred_width;
+        data->preferred_height = src.preferred_height;
     }
 
 
-    Lrtb
-    LrtbFromProt(const ::gui::Lrtb& lrtd)
+    lrtb
+    lrtb_from_gaf(const ::gui::Lrtb& lrtd)
     {
-        Lrtb r;
+        lrtb r;
         r.left = lrtd.left;
         r.right = lrtd.right;
         r.top = lrtd.top;
@@ -101,26 +102,26 @@ namespace euphoria::gui
     }
 
 
-    std::shared_ptr<Widget>
-    CreateWidget
+    std::shared_ptr<widget>
+    create_widget
     (
         core::vfs::file_system* fs,
-        UiState* state,
+        ui_state* state,
         const ::gui::Widget& w,
         render::texture_cache* cache,
-        const std::map<std::string, Skin*>& skins
+        const std::map<std::string, skin*>& skins
     )
     {
-        std::shared_ptr<Widget> ret;
+        std::shared_ptr<widget> ret;
 
         if(w.button)
         {
             LOG_INFO("Creating a button widget");
-            auto b = std::make_shared<CmdButton>(state);
+            auto b = std::make_shared<command_button>(state);
 
             const std::string skin_name = w.button->skin;
             const auto skin_it = skins.find(skin_name);
-            Skin* skin = nullptr;
+            skin* skin = nullptr;
 
             if(skin_it == skins.end())
             {
@@ -128,7 +129,7 @@ namespace euphoria::gui
             }
             else
             {
-                b->SetSkin(skin_it->second);
+                b->set_skin(skin_it->second);
 
                 skin = skin_it->second;
 
@@ -143,24 +144,24 @@ namespace euphoria::gui
                             cache
                         }
                     };
-                    b->SetSprite(sp);
+                    b->sprite = sp;
                 }
             }
             ret = b;
             b->cmd = w.button->command;
-            b->Text().SetString(w.button->text);
+            b->text.update_string(w.button->text);
 
             if(skin != nullptr)
             {
-                b->Text().SetFont(skin->font);
+                b->text.set_font(skin->font);
             }
         }
         else if(w.panel)
         {
             LOG_INFO("Creating a panel widget");
-            auto l = std::make_shared<PanelWidget>(state);
+            auto l = std::make_shared<panel_widget>(state);
             ret = l;
-            BuildLayoutContainer
+            build_layout_container
             (
                 fs,
                 state,
@@ -179,29 +180,29 @@ namespace euphoria::gui
 
         // load basic widget data
         ret->name = w.name;
-        ret->padding = LrtbFromProt(w.padding);
-        ret->margin = LrtbFromProt(w.margin);
+        ret->padding = lrtb_from_gaf(w.padding);
+        ret->margin = lrtb_from_gaf(w.margin);
 
-        SetupLayout(&ret->layout, w);
+        setup_layout(&ret->layout, w);
 
         return ret;
     }
 
     void
-    BuildLayoutContainer
+    build_layout_container
     (
         core::vfs::file_system* fs,
-        UiState* state,
-        LayoutContainer* root,
+        ui_state* state,
+        layout_container* root,
         const ::gui::LayoutContainer& c,
         render::texture_cache* cache,
-        const std::map<std::string, Skin*>& skins
+        const std::map<std::string, skin*>& skins
     )
     {
-        root->SetLayout(GetLayout(c.layout));
+        root->layout = create_layout(c.layout);
         for(const auto& widget: c.widgets)
         {
-            root->Add(CreateWidget(fs, state, widget, cache, skins));
+            root->add(create_widget(fs, state, widget, cache, skins));
         }
     }
 
@@ -276,10 +277,10 @@ namespace euphoria::gui
     }
 
 
-    ButtonState
-    LoadButton(const ::gui::ButtonState& src)
+    button_state
+    load_button(const ::gui::ButtonState& src)
     {
-        ButtonState ret;
+        button_state ret;
         // ret.image = src.image();
         ret.scale = src.scale;
         ret.image_color = Load(src.image_color);
@@ -305,34 +306,34 @@ namespace euphoria::gui
     }
 
 
-    std::shared_ptr<Skin>
-    LoadSkin(const ::gui::Skin& src, render::font_cache* font)
+    std::shared_ptr<skin>
+    load_skin(const ::gui::Skin& src, render::font_cache* font)
     {
-        std::shared_ptr<Skin> skin(new Skin());
+        std::shared_ptr<skin> skin(new gui::skin());
         skin->name = src.name;
         skin->font = font->get_font
-                (
-                        core::vfs::file_path::from_script(src.font).value_or
-                                (
-                                        core::vfs::file_path{"~/invalid_font_file"}
-                                )
-                );
+        (
+            core::vfs::file_path::from_script(src.font).value_or
+            (
+                core::vfs::file_path{"~/invalid_font_file"}
+            )
+        );
         skin->button_image = core::vfs::file_path::from_script_or_empty
         (
             src.button_image
         );
         skin->text_size = src.text_size;
-        skin->button_idle = LoadButton(src.button_idle);
-        skin->button_hot = LoadButton(src.button_hot);
-        skin->button_active_hot = LoadButton(src.button_active_hot);
+        skin->button_idle = load_button(src.button_idle);
+        skin->button_hot = load_button(src.button_hot);
+        skin->button_active_hot = load_button(src.button_active_hot);
         return skin;
     }
 
 
     bool
-    Load
+    load_gui
     (
-        Root* root,
+        root* root,
         core::vfs::file_system* fs,
         render::font_cache* font,
         const core::vfs::file_path& path,
@@ -348,24 +349,24 @@ namespace euphoria::gui
         }
 
         root->cursor_image = cache->get_texture
-                (
-                        core::vfs::file_path::from_script_or_empty(f.cursor_image)
-                );
+        (
+            core::vfs::file_path::from_script_or_empty(f.cursor_image)
+        );
         root->hover_image = cache->get_texture
-                (
-                        core::vfs::file_path::from_script_or_empty(f.hover_image)
-                );
+        (
+            core::vfs::file_path::from_script_or_empty(f.hover_image)
+        );
 
-        std::map<std::string, Skin*> skin_map;
+        std::map<std::string, skin*> skin_map;
 
         for(const auto& skin: f.skins)
         {
-            std::shared_ptr<Skin> skin_ptr = LoadSkin(skin, font);
+            std::shared_ptr<gui::skin> skin_ptr = load_skin(skin, font);
             skin_map.insert(std::make_pair(skin.name, skin_ptr.get()));
             root->skins.push_back(skin_ptr);
         }
 
-        BuildLayoutContainer
+        build_layout_container
         (
             fs,
             &root->state,
@@ -375,7 +376,6 @@ namespace euphoria::gui
             skin_map
         );
 
-        return root->container.HasWidgets();
+        return root->container.has_any_widgets();
     }
 }
-

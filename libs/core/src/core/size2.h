@@ -9,14 +9,14 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct size
+    struct size2
     {
-        using self = size<T>;
+        using self = size2<T>;
 
         T width;
         T height;
 
-        size()
+        size2()
             : width(-1)
             , height(-1)
         {
@@ -83,18 +83,18 @@ namespace euphoria::core
         }
 
     private:
-        size(T w, T h) : width(w), height(h) {}
+        size2(T w, T h) : width(w), height(h) {}
     };
 
 
     template<typename T>
-    struct custom_argparser<size<T>>
+    struct custom_argparser<size2<T>>
     {
         enum { value = 1 };
 
         static
         std::string
-        to_string(const size<T>& s)
+        to_string(const size2<T>& s)
         {
             std::ostringstream ss;
             ss << s.width << "x" << s.height;
@@ -102,10 +102,10 @@ namespace euphoria::core
         }
 
         static
-        result<size<T>>
+        result<size2<T>>
         parse(const std::string& value)
         {
-            using R = result<size<T>>;
+            using R = result<size2<T>>;
             const auto values = split(value, 'x');
             const auto xes = values.size();
             if(xes != 2)
@@ -141,77 +141,77 @@ namespace euphoria::core
             if(!lhs) { return R::create_error(lhs.get_error()); }
             if(!rhs) { return R::create_error(rhs.get_error()); }
 
-            return R::create_value(size<T>::create_from_width_height(*lhs, *rhs));
+            return R::create_value(size2<T>::create_from_width_height(*lhs, *rhs));
         }
     };
 
     template <typename T>
-    size<T>
-    min(const size<T> lhs, const size<T> rhs)
+    size2<T>
+    min(const size2<T> lhs, const size2<T> rhs)
     {
-        return size<T>::create_from_width_height(
+        return size2<T>::create_from_width_height(
                 min(lhs.width, rhs.width), min(lhs.height, rhs.height));
     }
 
     template <typename T>
-    size<T>
-    max(const size<T> lhs, const size<T> rhs)
+    size2<T>
+    max(const size2<T> lhs, const size2<T> rhs)
     {
-        return size<T>::create_from_width_height(
+        return size2<T>::create_from_width_height(
                 max(lhs.width, rhs.width), max(lhs.height, rhs.height));
     }
 
     template <typename T>
-    size<T>
-    operator+(const size<T>& lhs, const size<T>& rhs)
+    size2<T>
+    operator+(const size2<T>& lhs, const size2<T>& rhs)
     {
-        size<T> t = lhs;
+        size2<T> t = lhs;
         t += rhs;
         return t;
     }
 
     template <typename T>
-    size<T>
-    operator-(const size<T>& lhs, const size<T>& rhs)
+    size2<T>
+    operator-(const size2<T>& lhs, const size2<T>& rhs)
     {
-        size<T> t = lhs;
+        size2<T> t = lhs;
         t -= rhs;
         return t;
     }
 
     template <typename T>
-    size<T> operator*(const size<T>& lhs, const T& rhs)
+    size2<T> operator*(const size2<T>& lhs, const T& rhs)
     {
-        size<T> t = lhs;
+        size2<T> t = lhs;
         t *= rhs;
         return t;
     }
 
     template <typename T>
-    size<T> operator*(const T& lhs, const size<T>& rhs)
+    size2<T> operator*(const T& lhs, const size2<T>& rhs)
     {
-        size<T> t = rhs;
+        size2<T> t = rhs;
         t *= lhs;
         return t;
     }
 
     template <typename T>
-    size<T>
-    operator/(const size<T>& lhs, const T& rhs)
+    size2<T>
+    operator/(const size2<T>& lhs, const T& rhs)
     {
-        size<T> t = lhs;
+        size2<T> t = lhs;
         t /= rhs;
         return t;
     }
 
     template <typename S, typename T>
     S&
-    operator<<(S& s, const size<T>& r)
+    operator<<(S& s, const size2<T>& r)
     {
         s << "(" << r.width << " x " << r.height << ")";
         return s;
     }
 
-    using Sizei = size<int>;
-    using Sizef = size<float>;
+    using size2i = size2<int>;
+    using size2f = size2<float>;
 }

@@ -5,7 +5,7 @@
 #include <optional>
 
 #include "core/rect.h"
-#include "core/size.h"
+#include "core/size2.h"
 
 
 namespace euphoria::core
@@ -14,8 +14,8 @@ namespace euphoria::core
     std::vector<std::optional<recti>>
     pack
     (
-        const Sizei& container,
-        const std::vector<Sizei>& to_pack
+        const size2i& container,
+        const std::vector<size2i>& to_pack
     );
 }
 

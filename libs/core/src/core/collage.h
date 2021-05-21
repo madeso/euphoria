@@ -5,7 +5,7 @@
 #include <optional>
 
 #include "core/vec2.h"
-#include "core/size.h"
+#include "core/size2.h"
 
 
 namespace euphoria::core
@@ -13,7 +13,7 @@ namespace euphoria::core
     struct image;
     struct rgbi;
 
-    std::vector<Sizei> collect_sizes
+    std::vector<size2i> collect_sizes
     (
         const std::vector<image>& images,
         int padding
@@ -24,14 +24,14 @@ namespace euphoria::core
     (
         const std::vector<vec2i>& positions,
         const std::vector<image>& images,
-        const Sizei& size,
+        const size2i& size,
         const rgbi& background_color
     );
 
-    Sizei
+    size2i
     pack_tight
     (
-        const Sizei& default_size,
+        const size2i& default_size,
         std::vector<vec2i>* positions,
         const std::vector<image>& images,
         int padding
@@ -43,7 +43,7 @@ namespace euphoria::core
     std::vector<vec2i>
     pack_image
     (
-        const Sizei& image_size,
+        const size2i& image_size,
         const std::vector<image>& images,
         const std::vector<std::string>& files,
         int padding
@@ -55,7 +55,7 @@ namespace euphoria::core
     (
         const std::vector<image>& images,
         const std::vector<std::string>& files,
-        const Sizei& requested_size,
+        const size2i& requested_size,
         int padding,
         rgbi background_color,
         bool pack_image
@@ -65,7 +65,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////
 
 
-    std::pair<std::vector<vec2i>, Sizei>
+    std::pair<std::vector<vec2i>, size2i>
     grid_layout
     (
         const std::vector<image>& images,

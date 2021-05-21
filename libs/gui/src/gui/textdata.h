@@ -1,5 +1,4 @@
-#ifndef GUI_TEXTDATA_H
-#define GUI_TEXTDATA_H
+#pragma once
 
 #include "core/noncopyable.h"
 
@@ -15,47 +14,41 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct TextData
+    struct text_data
     {
-        TextData();
-        ~TextData();
+        text_data();
+        ~text_data();
 
-        NONCOPYABLE(TextData);
+        NONCOPYABLE(text_data);
 
         void
-        SetFont(std::shared_ptr<render::drawable_font> font);
+        set_font(std::shared_ptr<render::drawable_font> font);
 
         [[nodiscard]] const render::drawable_font&
-        GetFont() const;
+        get_font() const;
 
         void
-        SetString(const std::string& str);
-
-        [[nodiscard]] const std::string&
-        GetString() const;
+        update_string(const std::string& str);
 
         [[nodiscard]] bool
-        HasText() const;
+        has_text() const;
 
         [[nodiscard]] const render::drawable_text&
-        GetText() const;
+        get_text() const;
 
         render::drawable_text&
-        GetText();
+        get_text();
 
         void
-        SetSize(float size);
+        set_size(float size);
 
         void
-        UpdateText();
+        update_text();
 
 
-        std::shared_ptr<render::drawable_font> font_;
-        std::string string_;
+        std::shared_ptr<render::drawable_font> font;
+        std::string string;
         float size;
-        std::shared_ptr<render::drawable_text> text_;
+        std::shared_ptr<render::drawable_text> text;
     };
 }
-
-#endif  // GUI_TEXTDATA_H
-

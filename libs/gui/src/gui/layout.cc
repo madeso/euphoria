@@ -14,21 +14,21 @@
 
 namespace euphoria::gui
 {
-    Layout::Layout() = default;
+    layout::layout() = default;
 
 
-    Layout::~Layout() = default;
+    layout::~layout() = default;
 
 
-    TableLayout::TableLayout
+    table_layout::table_layout
     (
-            const std::vector<bool>& expandable_rows,
-            const std::vector<bool>& expandable_cols,
-            float combined_padding
+            const std::vector<bool>& er,
+            const std::vector<bool>& ec,
+            float cp
     )
-        : expandable_rows_(expandable_rows)
-        , expandable_cols_(expandable_cols)
-        , combined_padding_(combined_padding)
+        : expandable_rows(er)
+        , expandable_cols(ec)
+        , combined_padding(cp)
     {
     }
 
@@ -37,38 +37,38 @@ namespace euphoria::gui
     {
         template <typename T>
         void
-        UpdateMax(T* t, T value)
+        update_max(T* t, T value)
         {
             *t = core::max(*t, value);
         }
     }
 
 
-    core::Sizef
-    TableLayout::CalculateMinimumArea
+    core::size2f
+    table_layout::calculate_minimum_area
     (
-        const std::vector<std::shared_ptr<Widget>>& widgets
+        const std::vector<std::shared_ptr<widget>>& widgets
     ) const
     {
         // todo(Gustav): include padding
-        std::vector<float> width(expandable_cols_.size(), 0.0f);
-        std::vector<float> height(expandable_rows_.size(), 0.0f);
+        std::vector<float> width(expandable_cols.size(), 0.0f);
+        std::vector<float> height(expandable_rows.size(), 0.0f);
 
         for(const auto& w: widgets)
         {
             const auto& d = w->layout;
-            const auto& s = w->GetPreferredSize();
-            UpdateMax(&width[d.GetColumn()], s.width);
-            UpdateMax(&height[d.GetRow()], s.height);
+            const auto& s = w->get_preferred_size();
+            update_max(&width[d.column], s.width);
+            update_max(&height[d.row], s.height);
         }
 
-        const auto s = core::Sizef::create_from_width_height
+        const auto s = core::size2f::create_from_width_height
         (
             std::accumulate(width.begin(), width.end(), 0.0f),
             std::accumulate(height.begin(), height.end(), 0.0f)
         );
 
-        LOG_INFO("Calculate minumum area {0}", s);
+        LOG_INFO("Calculate minimum area {0}", s);
         return s;
     }
 
@@ -76,7 +76,7 @@ namespace euphoria::gui
     namespace
     {
         std::string
-        DebugVector(const std::vector<float>& float_vector)
+        vector_to_string(const std::vector<float>& float_vector)
         {
             const auto string_vector = core::to_string_vector
             (
@@ -87,28 +87,28 @@ namespace euphoria::gui
     }
 
     void
-    TableLayout::DoLayout
+    table_layout::do_layout
     (
-        std::vector<std::shared_ptr<Widget>>* widgets,
+        std::vector<std::shared_ptr<widget>>* widgets,
         const core::rectf& area
     ) const
     {
         LOG_INFO("Doing table layout in {0}", area);
 
         // todo(Gustav): include padding
-        std::vector<float> width(expandable_cols_.size(), 0.0f);
-        std::vector<float> height(expandable_rows_.size(), 0.0f);
+        std::vector<float> width(expandable_cols.size(), 0.0f);
+        std::vector<float> height(expandable_rows.size(), 0.0f);
 
         for(const auto& w: *widgets)
         {
             const auto& d = w->layout;
-            const auto& s = w->GetPreferredSize();
-            UpdateMax(&width[d.GetColumn()], s.width);
-            UpdateMax(&height[d.GetRow()], s.height);
+            const auto& s = w->get_preferred_size();
+            update_max(&width[d.column], s.width);
+            update_max(&height[d.row], s.height);
         }
 
-        LOG_INFO("Table widths: {0}", DebugVector(width));
-        LOG_INFO("Table heights: {0}", DebugVector(height));
+        LOG_INFO("Table widths: {0}", vector_to_string(width));
+        LOG_INFO("Table heights: {0}", vector_to_string(height));
 
         const float total_width = std::accumulate(width.begin(), width.end(), 0.0f);
         const float total_height = std::accumulate(height.begin(), height.end(), 0.0f);
@@ -120,19 +120,19 @@ namespace euphoria::gui
 
         const int expandable_rows_count = core::Csizet_to_int
         (
-            std::count(expandable_rows_.begin(), expandable_rows_.end(), true)
+            std::count(expandable_rows.begin(), expandable_rows.end(), true)
         );
         const int expandable_cols_count = core::Csizet_to_int
         (
-            std::count(expandable_cols_.begin(), expandable_cols_.end(), true)
+            std::count(expandable_cols.begin(), expandable_cols.end(), true)
         );
 
         if(expandable_rows_count != 0)
         {
             const float extra = leftover_height / core::Cint_to_float(expandable_rows_count);
-            for(unsigned int i = 0; i < expandable_rows_.size(); ++i)
+            for(unsigned int i = 0; i < expandable_rows.size(); ++i)
             {
-                if(expandable_rows_[i])
+                if(expandable_rows[i])
                 {
                     height[i] += extra;
                 }
@@ -142,9 +142,9 @@ namespace euphoria::gui
         if(expandable_cols_count != 0)
         {
             const float extra = leftover_width / core::Cint_to_float(expandable_cols_count);
-            for(unsigned int i = 0; i < expandable_cols_.size(); ++i)
+            for(unsigned int i = 0; i < expandable_cols.size(); ++i)
             {
-                if(expandable_cols_[i])
+                if(expandable_cols[i])
                 {
                     width[i] += extra;
                 }
@@ -153,7 +153,7 @@ namespace euphoria::gui
 
         for(const auto& w: *widgets)
         {
-            const LayoutData& d = w->layout;
+            const layout_data& d = w->layout;
             const auto topleft = area.get_top_left();
             float x = topleft.x;
             float y = topleft.y;
@@ -166,38 +166,38 @@ namespace euphoria::gui
                 y
             );
 
-            for(int c = 0; c < d.GetColumn(); ++c)
+            for(int c = 0; c < d.column; ++c)
             {
                 x += width[c];
             }
-            for(int r = 0; r < d.GetRow(); ++r)
+            for(int r = 0; r < d.row; ++r)
             {
                 y -= height[r];
             }
 
-            w->SetRect
+            w->set_rect
             (
                 core::rectf::from_top_left_width_height
                 (
                     core::vec2f{x, y},
-                    width[d.GetColumn()],
-                    height[d.GetRow()]
+                    width[d.column],
+                    height[d.row]
                 )
             );
         }
     }
 
 
-    SingleRowLayout::SingleRowLayout(float padding)
-        : padding_(padding)
+    single_row_layout::single_row_layout(float padding)
+        : padding(padding)
     {
     }
 
 
-    core::Sizef
-    SingleRowLayout::CalculateMinimumArea
+    core::size2f
+    single_row_layout::calculate_minimum_area
     (
-        const std::vector<std::shared_ptr<Widget>>& widgets
+        const std::vector<std::shared_ptr<widget>>& widgets
     ) const
     {
         float width = 0;
@@ -206,26 +206,26 @@ namespace euphoria::gui
 
         for(const auto& w: widgets)
         {
-            const auto& s = w->GetPreferredSize();
+            const auto& s = w->get_preferred_size();
             width += s.width;
             if(!first)
             {
-                width += padding_;
+                width += padding;
             }
             first = false;
-            UpdateMax(&height, s.height);
+            update_max(&height, s.height);
         }
 
-        const auto s = core::Sizef::create_from_width_height(width, height);
+        const auto s = core::size2f::create_from_width_height(width, height);
         LOG_INFO("Single row layout min size: {0}", s);
         return s;
     }
 
 
     void
-    SingleRowLayout::DoLayout
+    single_row_layout::do_layout
     (
-        std::vector<std::shared_ptr<Widget>>* widgets,
+        std::vector<std::shared_ptr<widget>>* widgets,
         const core::rectf& area
     ) const
     {
@@ -234,8 +234,8 @@ namespace euphoria::gui
         float x = tl.x;
         for(const auto& w: *widgets)
         {
-            const auto& s = w->GetPreferredSize();
-            w->SetRect
+            const auto& s = w->get_preferred_size();
+            w->set_rect
             (
                 core::rectf::from_top_left_width_height
                 (
@@ -244,7 +244,7 @@ namespace euphoria::gui
                     s.height
                 )
             );
-            x += s.width + padding_;
+            x += s.width + padding;
         }
     }
 }

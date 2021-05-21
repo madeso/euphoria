@@ -134,7 +134,7 @@ set(app_src
     src/core/raytracer.cc src/core/raytracer.h
     src/core/sensitivity.cc src/core/sensitivity.h
     src/core/shufflebag.h
-    src/core/size.h
+        src/core/size2.h
     src/core/stdutils.h
     src/core/str.cc src/core/str.h
     src/core/stringmerger.cc src/core/stringmerger.h

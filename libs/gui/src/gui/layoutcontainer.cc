@@ -5,17 +5,17 @@
 
 namespace euphoria::gui
 {
-    std::shared_ptr<Layout>
-    CreateTableLayout
+    std::shared_ptr<layout>
+    create_table_layout
     (
         const std::vector<bool>& expandable_rows,
         const std::vector<bool>& expandable_cols,
         float combined_padding
     )
     {
-        auto ret = std::shared_ptr<Layout>
+        auto ret = std::shared_ptr<layout>
         {
-            new TableLayout
+            new table_layout
             (
                 expandable_rows,
                 expandable_cols,
@@ -26,46 +26,32 @@ namespace euphoria::gui
     }
 
 
-    std::shared_ptr<Layout>
-    CreateSingleRowLayout(float padding)
+    std::shared_ptr<layout>
+    create_single_row_layout(float padding)
     {
-        auto ret = std::shared_ptr<Layout>{new SingleRowLayout(padding)};
+        auto ret = std::shared_ptr<layout>{new single_row_layout(padding)};
         return ret;
     }
 
 
-    LayoutContainer::LayoutContainer() = default;
+    layout_container::layout_container() = default;
 
 
-    LayoutContainer::~LayoutContainer() = default;
-
-
-    void
-    LayoutContainer::SetLayout(std::shared_ptr<Layout> layout)
-    {
-        layout_ = layout;
-    }
-
-
-    std::shared_ptr<Layout>
-    LayoutContainer::GetLayout() const
-    {
-        return layout_;
-    }
+    layout_container::~layout_container() = default;
 
 
     void
-    LayoutContainer::DoLayout(core::rectf area)
+    layout_container::do_layout(core::rectf area)
     {
-        ASSERT(layout_);
-        layout_->DoLayout(&widgets_, area);
+        ASSERT(layout);
+        layout->do_layout(&widgets, area);
     }
 
 
-    core::Sizef
-    LayoutContainer::CalculateMinimumArea() const
+    core::size2f
+    layout_container::calculate_minimum_area() const
     {
-        ASSERT(layout_);
-        return layout_->CalculateMinimumArea(widgets_);
+        ASSERT(layout);
+        return layout->calculate_minimum_area(widgets);
     }
 }

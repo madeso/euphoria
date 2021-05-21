@@ -3,7 +3,7 @@
 #include <string>
 
 #include "core/rect.h"
-#include "core/size.h"
+#include "core/size2.h"
 #include "core/noncopyable.h"
 
 #include "gui/layoutdata.h"
@@ -16,13 +16,13 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct UiState;
-    struct Visitor;
+    struct ui_state;
+    struct visitor;
 }
 
 namespace euphoria::gui
 {
-    struct Lrtb
+    struct lrtb
     {
         float left = 0.0f;
         float right = 0.0f;
@@ -31,67 +31,67 @@ namespace euphoria::gui
     };
 
 
-    struct Widget
+    struct widget
     {
         std::string name;
-        Lrtb margin;
-        Lrtb padding;
+        lrtb margin;
+        lrtb padding;
 
         explicit
-        Widget(UiState* state);
+        widget(ui_state* state);
 
         virtual
-        ~Widget();
+        ~widget();
 
-        NONCOPYABLE(Widget);
+        NONCOPYABLE(widget);
 
         [[nodiscard]] bool
-        IsActive() const;
+        is_active() const;
 
         [[nodiscard]] bool
-        IsHot() const;
+        is_hot() const;
 
         virtual
         void
-        Step(float dt) = 0;
+        step(float dt) = 0;
 
         virtual
         void
-        OnSize();
+        on_size_changed();
 
         [[nodiscard]] core::rectf
-        GetClientRect() const;
+        get_client_rect() const;
 
         [[nodiscard]] core::rectf
-        GetBackgroundRect() const;
+        get_background_rect() const;
 
         void
-        SetRect(const core::rectf& r);
+        set_rect(const core::rectf& r);
 
-        [[nodiscard]] core::Sizef
-        GetPreferredSize() const;
+        [[nodiscard]] core::size2f
+        get_preferred_size() const;
 
         [[nodiscard]] virtual
-        core::Sizef
-        CalculateMinimumSize() const = 0;
+        core::size2f
+        calculate_minimum_size() const = 0;
 
         virtual
         void
-        Render(render::sprite_renderer* renderer) const = 0;
+        render(render::sprite_renderer* renderer) const = 0;
 
         virtual
         void
-        Visit(Visitor* visitor) = 0;
+        visit(visitor* visitor) = 0;
 
-        [[nodiscard]] const UiState&
-        GetState() const;
+        [[nodiscard]] const ui_state&
+        get_state() const;
 
-        [[nodiscard]] UiState*
-        GetStatePtr() const;
+        [[nodiscard]] ui_state*
+        get_state_ptr() const;
 
-        UiState* state_;
+        ui_state* ui_state;
 
-        LayoutData layout;
-        core::rectf rect_;
+        layout_data layout;
+        core::rectf rect;
     };
 }

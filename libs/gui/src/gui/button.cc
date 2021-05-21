@@ -11,71 +11,71 @@
 
 namespace euphoria::gui
 {
-    Button::Button(UiState* state)
-        : Widget(state)
-        , last_state_(nullptr)
+    button::button(gui::ui_state* state)
+        : widget(state)
+        , last_state(nullptr)
         , skin_(nullptr)
-        , scale_(1.0f)
-        , image_color_(core::rgb(1.0f))
-        , text_color_(core::rgb(1.0f))
-        , position_displacement_(core::vec2f::zero())
+        , scale(1.0f)
+        , image_color(core::rgb(1.0f))
+        , text_color(core::rgb(1.0f))
+        , position_displacement(core::vec2f::zero())
     {
     }
 
 
-    Button::~Button() = default;
+    button::~button() = default;
 
 
     void
-    Button::Step(float dt)
+    button::step(float dt)
     {
-        if(GetBackgroundRect().contains_exclusive(GetState().mouse))
+        if(get_background_rect().contains_exclusive(get_state().mouse))
         {
-            GetStatePtr()->SetHot(this);
-            if(GetState().IsMouseDown())
+            get_state_ptr()->set_hot(this);
+            if(get_state().is_mouse_down())
             {
-                GetStatePtr()->SetActive(this);
+                get_state_ptr()->set_active(this);
             }
         }
 
-        const bool mouse_down = GetState().IsMouseDown();
-        const bool is_clicked = mouse_down == false && IsHot() && IsActive();
+        const bool mouse_down = get_state().is_mouse_down();
+        const bool is_clicked = mouse_down == false && is_hot() && is_active();
         if(is_clicked)
         {
-            OnClicked();
+            on_clicked();
         }
 
         if(skin_ != nullptr)
         {
             auto* cold_state = &skin_->button_idle;
-            auto* hot_state = IsActive()
+            auto* hot_state = is_active()
                 ? &skin_->button_active_hot
                 : &skin_->button_hot
                 ;
-            auto* state = IsHot() ? hot_state : cold_state;
+            auto* state = is_hot() ? hot_state : cold_state;
 
-            if(last_state_ != state)
+            if(last_state != state)
             {
-                last_state_ = state;
-                scale_.Clear().Add
+                last_state = state;
+                scale.Clear().Add
                 (
                     state->interpolation_size.type,
                     state->scale,
                     state->interpolation_size.time
                 );
-                image_color_.Clear().Add
+                image_color.Clear().Add
                 (
                     state->interpolation_color.type,
                     state->image_color,
                     state->interpolation_color.time
                 );
-                text_color_.Clear().Add
+                text_color.Clear().Add
                 (
                     state->interpolation_color.type,
                     state->text_color,
                     state->interpolation_color.time
                 );
-                position_displacement_.Clear().Add
+                position_displacement.Clear().Add
                 (
                     state->interpolation_position.type,
                     core::vec2f(state->dx, state->dy),
@@ -83,30 +83,30 @@ namespace euphoria::gui
                 );
             }
 
-            scale_.Update(dt);
-            image_color_.Update(dt);
-            text_color_.Update(dt);
-            position_displacement_.Update(dt);
-            text_.SetSize(skin_->text_size * scale_.GetValue());
+            scale.Update(dt);
+            image_color.Update(dt);
+            text_color.Update(dt);
+            position_displacement.Update(dt);
+            text.set_size(skin_->text_size * scale.GetValue());
         }
     }
 
 
-    core::Sizef
-    Button::CalculateMinimumSize() const
+    core::size2f
+    button::calculate_minimum_size() const
     {
-        auto size = core::Sizef::create_from_width_height(0, 0);
-        if(sprite_ != nullptr)
+        auto size = core::size2f::create_from_width_height(0, 0);
+        if(sprite != nullptr)
         {
-            const auto ms = sprite_->get_minimum_size();
+            const auto ms = sprite->get_minimum_size();
             size.width = (size.width + ms.width);
             size.height = (size.height + ms.height);
         }
 
-        if(text_.HasText())
+        if(text.has_text())
         {
-            const auto extents = text_.GetText().get_extents();
-            const auto ms = core::Sizef::create_from_width_height
+            const auto extents = text.get_text().get_extents();
+            const auto ms = core::size2f::create_from_width_height
             (
                 extents.get_width(),
                 extents.get_height()
@@ -120,77 +120,63 @@ namespace euphoria::gui
 
 
     void
-    Button::Render(render::sprite_renderer* renderer) const
+    button::render(render::sprite_renderer* renderer) const
     {
         if(skin_ != nullptr)
         {
-            if(sprite_ != nullptr)
+            if(sprite != nullptr)
             {
-                const auto rect = GetBackgroundRect();
+                const auto rect = get_background_rect();
 
-                ASSERTX(scale_.GetValue() > 0, scale_.GetValue());
+                ASSERTX(scale.GetValue() > 0, scale.GetValue());
                 const auto scaled = rect.get_scaled_around_center_copy
                 (
-                    scale_.GetValue()
+                        scale.GetValue()
                 );
                 ASSERTX(scaled.get_width() > 0, scaled.get_width());
                 ASSERTX(scaled.get_height() > 0, scaled.get_height());
                 renderer->draw_ninepatch
                         (
-                                *sprite_,
-                                scaled.offset_copy(position_displacement_.GetValue()),
-                                image_color_.GetValue()
+                                *sprite,
+                                scaled.offset_copy(position_displacement.GetValue()),
+                                image_color.GetValue()
                         );
             }
 
-            if(text_.HasText())
+            if(text.has_text())
             {
-                const auto ex = text_.GetText().get_extents();
+                const auto ex = text.get_text().get_extents();
                 // todo(Gustav): render text at client rect center
 
-                const auto base = ex.center_inside_other(GetClientRect());
+                const auto base = ex.center_inside_other(get_client_rect());
                 const auto base_pos = base.get_bottom_left();
-                const auto p = base_pos + position_displacement_.GetValue();
-                text_.GetText().draw(renderer, p, text_color_.GetValue());
+                const auto p = base_pos + position_displacement.GetValue();
+                text.get_text().draw(renderer, p, text_color.GetValue());
             }
         }
     }
 
 
     void
-    Button::Visit(Visitor* visitor)
+    button::visit(visitor* visitor)
     {
-        visitor->Visit(this);
-    }
-
-
-    TextData&
-    Button::Text()
-    {
-        return text_;
+        visitor->visit(this);
     }
 
 
     void
-    Button::SetSprite(std::shared_ptr<render::scalable_sprite> sprite)
-    {
-        sprite_ = sprite;
-    }
-
-
-    void
-    Button::OnSize()
+    button::on_size_changed()
     {
     }
 
 
     void
-    Button::SetSkin(Skin* skin)
+    button::set_skin(skin* new_skin)
     {
-        skin_ = skin;
+        skin_ = new_skin;
         if(skin_ != nullptr)
         {
-            text_.SetSize(skin_->text_size);
+            text.set_size(skin_->text_size);
         }
     }
 }
