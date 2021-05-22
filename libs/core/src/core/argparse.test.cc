@@ -92,56 +92,58 @@ namespace
     };
 
 
-    FalseString
+    false_string
     Check
     (
         const std::vector<std::string>& lhs,
         const std::vector<std::string>& rhs
     )
     {
-        return euphoria::tests::VectorEquals
-        (
-            lhs,
-            rhs,
-            [](const std::string& m) -> std::string
-            {
-                return m;
-            },
-            [](const std::string& lhs, const std::string& rhs) -> FalseString
-            {
-                return StringEq(lhs, rhs);
-            }
-        );
+        return euphoria::tests::vector_is_equal
+                (
+                        lhs,
+                        rhs,
+                        [](const std::string &m) -> std::string
+                        {
+                            return m;
+                        },
+                        [](const std::string &lhs, const std::string &rhs) -> false_string
+                        {
+                            return string_is_equal(lhs, rhs);
+                        }
+                );
     }
 
-    FalseString
+    false_string
     Check
     (
         const std::vector<Message>& lhs,
         const std::vector<Message>& rhs
     )
     {
-        return euphoria::tests::VectorEquals
-        (
-            lhs,
-            rhs,
-            [](const Message& m) -> std::string
-            {
-                return string_builder() << m;
-            },
-            [](const Message& lhs, const Message& rhs) -> FalseString
-            {
-                const auto str = StringEq(lhs.text, rhs.text);
-                if(str == false) { return str; }
-                if(lhs.error == rhs.error) { return FalseString::True(); }
-                return FalseString::False
+        return euphoria::tests::vector_is_equal
                 (
-                    string_builder() << "error diff: "
-                    << lhs.error << " vs "
-                    << rhs.error
+                        lhs,
+                        rhs,
+                        [](const Message &m) -> std::string
+                        {
+                            return string_builder() << m;
+                        },
+                        [](const Message &lhs, const Message &rhs) -> false_string
+                        {
+                            const auto str = string_is_equal(lhs.text, rhs.text);
+                            if (str == false)
+                            { return str; }
+                            if (lhs.error == rhs.error)
+                            { return false_string::create_true(); }
+                            return false_string::create_false
+                                    (
+                                            string_builder() << "error diff: "
+                                                             << lhs.error << " vs "
+                                                             << rhs.error
+                                    );
+                        }
                 );
-            }
-        );
     }
 
 

@@ -1,5 +1,4 @@
-#ifndef TESTS_APPROX_H
-#define TESTS_APPROX_H
+#pragma once
 
 #include <cmath>
 #include <sstream>
@@ -10,7 +9,7 @@
 
 namespace euphoria::tests
 {
-    struct ApproxData
+    struct approx_data
     {
         double epsilon;
         double scale;
@@ -21,7 +20,7 @@ namespace euphoria::tests
 
     template <typename T>
     bool
-    approximately_equal(const T& lhs, const T& rhs, const ApproxData& data);
+    approximately_equal(const T& lhs, const T& rhs, const approx_data& data);
 
 
     template <>
@@ -29,14 +28,14 @@ namespace euphoria::tests
     approximately_equal(
             double const&     lhs,
             double const&     rhs,
-            const ApproxData& data);
+            const approx_data& data);
 
     template <>
     bool
     approximately_equal(
             float const&      lhs,
             float const&      rhs,
-            const ApproxData& data);
+            const approx_data& data);
 
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +57,7 @@ namespace euphoria::tests
             friend bool
             operator==(T lhs, Approx<T> const& rhs)
             {
-                ApproxData data;
+                approx_data data;
                 data.epsilon = rhs.m_epsilon;
                 data.scale   = rhs.m_scale;
                 data.margin  = rhs.m_margin;
@@ -137,6 +136,4 @@ namespace euphoria::tests
     {
         return custom::Approx<T>(t);
     }
-}  // namespace euphoria::tests
-
-#endif  // TESTS_APPROX_H
+}

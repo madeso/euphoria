@@ -14,7 +14,7 @@
 
 namespace
 {
-    std::string EscapeString(const std::string& str)
+    std::string escape_string(const std::string& str)
     {
         return ::Catch::Detail::stringify(str);
     }
@@ -22,8 +22,8 @@ namespace
 
 namespace euphoria::tests
 {
-    FalseString
-    StringEq(const std::string& lhs, const std::string& rhs)
+    false_string
+    string_is_equal(const std::string& lhs, const std::string& rhs)
     {
         const auto s = core::find_first_index_of_mismatch(lhs, rhs);
         ASSERTX((s==std::string::npos && lhs == rhs) || (s != std::string::npos && lhs != rhs), s, lhs, rhs);
@@ -31,8 +31,8 @@ namespace euphoria::tests
         {
             std::ostringstream ss;
 
-            ss << "lhs: " << EscapeString(lhs) << " and "
-               << "rhs: " << EscapeString(rhs) ;
+            ss << "lhs: " << escape_string(lhs) << " and "
+               << "rhs: " << escape_string(rhs) ;
             ss << ", lengths are "
                 << lhs.size()
                 << " vs "
@@ -43,17 +43,17 @@ namespace euphoria::tests
                 << core::char_to_string(rhs[s]);
             ss << ", edit-distance is " << core::edit_distance(lhs, rhs);
 
-            return FalseString::False(ss.str());
+            return false_string::create_false(ss.str());
         }
 
-        return FalseString::True();
+        return false_string::create_true();
     }
 
 
-    FalseString
-    StringEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
+    false_string
+    string_is_equal(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
     {
-        auto size_equal = FalseString::True();
+        auto size_equal = false_string::create_true();
         if(lhs.size() != rhs.size())
         {
             std::ostringstream ss;
@@ -61,14 +61,14 @@ namespace euphoria::tests
                << lhs.size()
                << " vs "
                << rhs.size();
-            ss << VectorToString(lhs, EscapeString) << " " << VectorToString(rhs, EscapeString);
-            size_equal = FalseString::False(ss.str());
+            ss << vector_to_string(lhs, escape_string) << " " << vector_to_string(rhs, escape_string);
+            size_equal = false_string::create_false(ss.str());
         }
 
         const auto size = std::min(lhs.size(), rhs.size());
         for(size_t i =0; i < size; i+=1)
         {
-            const FalseString equals = StringEq(lhs[i], rhs[i]);
+            const false_string equals = string_is_equal(lhs[i], rhs[i]);
             if(!equals)
             {
                 std::ostringstream ss;
@@ -79,7 +79,7 @@ namespace euphoria::tests
                 }
                 else
                 {
-                    ss << VectorToString(lhs, EscapeString) << "vs" << VectorToString(rhs, EscapeString);
+                    ss << vector_to_string(lhs, escape_string) << "vs" << vector_to_string(rhs, escape_string);
                     ss << "First invalid";
                 }
 
@@ -87,7 +87,7 @@ namespace euphoria::tests
                 ss << " value at index ";
                 ss << i << ", "
                     << equals.str;
-                return FalseString::False(ss.str());
+                return false_string::create_false(ss.str());
             }
         }
 
@@ -96,6 +96,6 @@ namespace euphoria::tests
             return size_equal;
         }
 
-        return FalseString::True();
+        return false_string::create_true();
     }
-}  // namespace euphoria::tests
+}

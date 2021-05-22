@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_TESTS_VECTOR_TO_STRING_H
-#define EUPHORIA_TESTS_VECTOR_TO_STRING_H
+#pragma once
 
 #include <string>
 #include <sstream>
@@ -14,7 +13,7 @@ namespace euphoria::tests
         typename TConverter
     >
     std::string
-    VectorToString
+    vector_to_string_impl
     (
         const std::vector<T>& v,
         bool one_line,
@@ -49,9 +48,9 @@ namespace euphoria::tests
         typename TConverter
     >
     std::pair<std::string, bool>
-    VectorToStringEx(const std::vector<T>& v, TConverter converter)
+    vector_to_string_ex(const std::vector<T>& v, TConverter converter)
     {
-        const auto oneline = VectorToString(v, true, converter);
+        const auto oneline = vector_to_string_impl(v, true, converter);
         if( oneline.size() <20)
         {
             return std::make_pair(oneline, true);
@@ -60,8 +59,8 @@ namespace euphoria::tests
         {
             return std::make_pair
             (
-                VectorToString(v, false, converter),
-                false
+                    vector_to_string_impl(v, false, converter),
+                    false
             );
         }
     }
@@ -72,11 +71,8 @@ namespace euphoria::tests
         typename TConverter
     >
     std::string
-    VectorToString(const std::vector<T>& v, TConverter converter)
+    vector_to_string(const std::vector<T>& v, TConverter converter)
     {
-        return VectorToStringEx(v, converter).first;
+        return vector_to_string_ex(v, converter).first;
     }
 }
-
-#endif  // EUPHORIA_TESTS_VECTOR_TO_STRING_H
-

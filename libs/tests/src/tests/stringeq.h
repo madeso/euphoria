@@ -1,6 +1,3 @@
-#ifndef EUPHORIA_TESTS_STRINGEQ_H
-#define EUPHORIA_TESTS_STRINGEQ_H
-
 #include <vector>
 #include <string>
 
@@ -14,16 +11,14 @@ namespace euphoria::tests
     
     using namespace euphoria::tests;
     
-    CHECK(StringEq(foo(), "string"));
-    CHECK(StringEq(bar(), {"some", "strings"}));
+    CHECK(string_is_equal(foo(), "string"));
+    CHECK(string_is_equal(bar(), {"some", "strings"}));
 
     */
 
-    FalseString
-    StringEq(const std::vector<std::string> lhs, const std::vector<std::string> rhs);
+    false_string
+    string_is_equal(const std::vector<std::string> lhs, const std::vector<std::string> rhs);
 
-    FalseString
-    StringEq(const std::string& lhs, const std::string& rhs);
-}  // namespace euphoria::tests
-
-#endif  // EUPHORIA_TESTS_STRINGEQ_H
+    false_string
+    string_is_equal(const std::string& lhs, const std::string& rhs);
+}

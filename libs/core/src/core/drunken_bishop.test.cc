@@ -34,24 +34,24 @@ HexIntToString(const T& t)
 
 
 template<typename T, typename F>
-FalseString
+false_string
 CompareInts(const T& lhs, const T& rhs, F to_string)
 {
     if(lhs == rhs)
     {
-        return FalseString::True();
+        return false_string::create_true();
     }
     else
     {
         std::ostringstream ss;
         ss << to_string(lhs) << " != " << to_string(rhs);
-        return FalseString::False(ss.str());
+        return false_string::create_false(ss.str());
     }
 }
 
 
 template<typename T>
-FalseString
+false_string
 HexIntEquals
 (
     const std::vector<T>& lhs,
@@ -59,18 +59,19 @@ HexIntEquals
 )
 {
     auto to_string = [](const T& t) { return HexIntToString(t); };
-    return VectorEquals<T>
-    (
-        lhs,
-        rhs,
-        to_string,
-        [&](const T& lhs, const T& rhs){ return CompareInts(lhs, rhs, to_string); }
-    );
+    return vector_is_equal<T>
+            (
+                    lhs,
+                    rhs,
+                    to_string,
+                    [&](const T &lhs, const T &rhs)
+                    { return CompareInts(lhs, rhs, to_string); }
+            );
 }
 
 
 template<typename T>
-FalseString
+false_string
 BinIntEquals
 (
     const std::vector<T>& lhs,
@@ -78,13 +79,14 @@ BinIntEquals
 )
 {
     auto to_string = [](const T& t) { return BinIntToString(t); };
-    return VectorEquals<T>
-    (
-        lhs,
-        rhs,
-        to_string,
-        [&](const T& lhs, const T& rhs){ return CompareInts(lhs, rhs, to_string); }
-    );
+    return vector_is_equal<T>
+            (
+                    lhs,
+                    rhs,
+                    to_string,
+                    [&](const T &lhs, const T &rhs)
+                    { return CompareInts(lhs, rhs, to_string); }
+            );
 }
 
 
@@ -121,7 +123,7 @@ TEST_CASE("drunken bishop strings", "[drunken-bishop]")
         const auto table = drunken_bishop(codes, width, height);
         const auto res = collapse(table, get_ssh_characters());
 
-        return StringEq(res, correct_result);
+        return string_is_equal(res, correct_result);
     };
 
     CHECK(test({

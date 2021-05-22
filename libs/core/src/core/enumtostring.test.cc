@@ -38,16 +38,16 @@ TEST_CASE("enum2string", "[enum2string]")
 
     SECTION("no arg to_string")
     {
-        CHECK(StringEq(
+        CHECK(string_is_equal(
                 euco::enum_to_string<MyEnum>(),
-            {"X", "Cat", "ReallyLongValue"}));
+                {"X", "Cat", "ReallyLongValue"}));
     }
 
     SECTION("vector arg to_string")
     {
         const auto vec
                 = std::vector<MyEnum> {MyEnum::Cat, MyEnum::X, MyEnum::Cat};
-        CHECK(StringEq(
+        CHECK(string_is_equal(
                 euco::enum_to_string<MyEnum>(vec),
                 {"Cat", "X", "Cat"}));
     }

@@ -11,30 +11,31 @@ using namespace euphoria::tests;
 
 namespace
 {
-    FalseString
+    false_string
     Check
     (
         const std::vector<int>& lhs,
         const std::vector<int>& rhs
     )
     {
-        return euphoria::tests::VectorEquals
-        (
-            lhs,
-            rhs,
-            [](int m) -> std::string
-            {
-                return string_builder{} << m;
-            },
-            [](int lhs, int rhs) -> FalseString
-            {
-                if(lhs == rhs) { return FalseString::True(); }
-                else
-                {
-                    return FalseString::False(string_builder() << lhs << " != " << rhs);
-                }
-            }
-        );
+        return euphoria::tests::vector_is_equal
+                (
+                        lhs,
+                        rhs,
+                        [](int m) -> std::string
+                        {
+                            return string_builder{} << m;
+                        },
+                        [](int lhs, int rhs) -> false_string
+                        {
+                            if (lhs == rhs)
+                            { return false_string::create_true(); }
+                            else
+                            {
+                                return false_string::create_false(string_builder() << lhs << " != " << rhs);
+                            }
+                        }
+                );
     }
 }
 

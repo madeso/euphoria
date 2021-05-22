@@ -17,12 +17,12 @@ TEST_CASE("nlp-line", "[nlp]")
         const auto result = parse_line("Hello world");
         REQUIRE(result);
         const auto list = *result;
-        REQUIRE(StringEq(list, {"Hello", "world"}));
+        REQUIRE(string_is_equal(list, {"Hello", "world"}));
     }
 
     SECTION("to string")
     {
-        REQUIRE(StringEq("Hello world", line_to_string({"Hello", "world"})));
+        REQUIRE(string_is_equal("Hello world", line_to_string({"Hello", "world"})));
     }
 }
 

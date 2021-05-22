@@ -32,7 +32,7 @@ TEST_CASE("nlp-sentence", "[nlp]")
         const auto [result, list] = Parse("Hello world");
         REQUIRE(result);
         REQUIRE(list.size() == 1);
-        REQUIRE(StringEq(list[0], {"Hello", "world"}));
+        REQUIRE(string_is_equal(list[0], {"Hello", "world"}));
     }
 
     SECTION("advanced parse")
@@ -40,13 +40,14 @@ TEST_CASE("nlp-sentence", "[nlp]")
         const auto [result, list] = Parse("Dog is good? Lists are super-long vectors.");
         REQUIRE(result);
         REQUIRE(list.size() == 2);
-        REQUIRE(StringEq(list[0], {"Dog", "is", "good", "?"}));
-        REQUIRE(StringEq(list[1], {"Lists", "are", "super-long", "vectors", "."}));
+        REQUIRE(string_is_equal(list[0], {"Dog", "is", "good", "?"}));
+        REQUIRE(string_is_equal(list[1], {"Lists", "are", "super-long", "vectors", "."}));
     }
 
     SECTION("to string")
     {
-        REQUIRE(StringEq("Hello world, I am dog.", sentence_to_string({"Hello", "world", ",", "I", "am", "dog", "."})));
+        REQUIRE(string_is_equal("Hello world, I am dog.",
+                                sentence_to_string({"Hello", "world", ",", "I", "am", "dog", "."})));
     }
 }
 

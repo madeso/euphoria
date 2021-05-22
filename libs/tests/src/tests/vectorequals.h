@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_TESTS_VECTOREQUALS_H
-#define EUPHORIA_TESTS_VECTOREQUALS_H
+#pragma once
 
 #include <vector>
 #include <sstream>
@@ -17,11 +16,11 @@ namespace euphoria::tests
         typename T,
         // std::function<std::string (const T&)> 
         typename TToString,
-        // std::function<FalseString (const T&, const T&)> 
+        // std::function<false_string (const T&, const T&)>
         typename TCompare
     >
-    FalseString
-    VectorEquals
+    false_string
+    vector_is_equal
     (
         const std::vector<T>& lhs,
         const std::vector<T>& rhs,
@@ -29,7 +28,7 @@ namespace euphoria::tests
         TCompare Compare
     )
     {
-        auto size_equal = FalseString::True();
+        auto size_equal = false_string::create_true();
         if(lhs.size() != rhs.size())
         {
             std::ostringstream ss;
@@ -37,14 +36,14 @@ namespace euphoria::tests
                 << lhs.size()
                 << " vs "
                 << rhs.size();
-            ss << VectorToString(lhs, ToString) << " " << VectorToString(rhs, ToString);
-            size_equal = FalseString::False(ss.str());
+            ss << vector_to_string(lhs, ToString) << " " << vector_to_string(rhs, ToString);
+            size_equal = false_string::create_false(ss.str());
         }
 
         const auto size = std::min(lhs.size(), rhs.size());
         for(size_t i =0; i < size; i+=1)
         {
-            const FalseString equals = Compare(lhs[i], rhs[i]);
+            const false_string equals = Compare(lhs[i], rhs[i]);
             if(!equals)
             {
                 std::ostringstream ss;
@@ -55,11 +54,13 @@ namespace euphoria::tests
                 }
                 else
                 {
-                    const auto alhs = VectorToStringEx(lhs, ToString);
-                    const auto arhs = VectorToStringEx(rhs, ToString);
+                    const auto alhs = vector_to_string_ex(lhs, ToString);
+                    const auto arhs = vector_to_string_ex(rhs, ToString);
                     const auto same = alhs.second == arhs.second;
-                    const auto lhsstr = same || alhs.second==false? alhs.first : VectorToString(lhs, false, ToString);
-                    const auto rhsstr = same || arhs.second==false? arhs.first : VectorToString(rhs, false, ToString);
+                    const auto lhsstr = same || alhs.second==false? alhs.first : vector_to_string_impl(lhs, false,
+                                                                                                       ToString);
+                    const auto rhsstr = same || arhs.second==false? arhs.first : vector_to_string_impl(rhs, false,
+                                                                                                       ToString);
                     const auto oneliner = same && alhs.second == true;
                     const auto vs = oneliner ? " vs " : "vs";
                     if(oneliner == false) ss << "  ";
@@ -72,7 +73,7 @@ namespace euphoria::tests
                 ss << " value at index ";
                 ss << i << ", "
                     << equals.str;
-                return FalseString::False(ss.str());
+                return false_string::create_false(ss.str());
             }
         }
 
@@ -81,9 +82,6 @@ namespace euphoria::tests
             return size_equal;
         }
 
-        return FalseString::True();
+        return false_string::create_true();
     }
-    }
-
-#endif  // EUPHORIA_TESTS_VECTOREQUALS_H
-
+}

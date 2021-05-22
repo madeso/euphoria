@@ -1,5 +1,4 @@
-#ifndef TESTS_UTILS_H
-#define TESTS_UTILS_H
+#pragma once
 
 #include "catch.hpp"
 
@@ -9,4 +8,3 @@
 
 #define GENERATE_AS(T, ...) GENERATE(Catch::Generators::as<T> {}, __VA_ARGS__)
 
-#endif  // TESTS_UTILS_H

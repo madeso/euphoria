@@ -3,27 +3,27 @@
 
 namespace euphoria::tests
 {
-    FalseString FalseString::False(const std::string& text)
+    false_string false_string::create_false(const std::string& text)
     {
         return {text};
     }
 
 
-    FalseString
-    FalseString::True()
+    false_string
+    false_string::create_true()
     {
         return {""};
     }
 
 
-    FalseString::operator bool() const
+    false_string::operator bool() const
     {
         return str.empty();
     }
 
 
     std::ostream&
-    operator<<(std::ostream& s, const FalseString& f)
+    operator<<(std::ostream& s, const false_string& f)
     {
         if(f)
         {

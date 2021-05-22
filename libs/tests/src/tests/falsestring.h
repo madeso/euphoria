@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_TESTS_FALSE_STRING_H
-#define EUPHORIA_TESTS_FALSE_STRING_H
+#pragma once
 
 #include <string>
 #include <ostream>
@@ -7,13 +6,13 @@
 namespace euphoria::tests
 {
     // represents a error (false) or empty string (true)
-    struct FalseString
+    struct false_string
     {
-        static FalseString
-        False(const std::string& text);
+        static false_string
+        create_false(const std::string& text);
 
-        static FalseString
-        True();
+        static false_string
+        create_true();
 
         operator bool() const;
     
@@ -21,8 +20,5 @@ namespace euphoria::tests
     };
 
     std::ostream&
-    operator<<(std::ostream& s, const FalseString& f);
+    operator<<(std::ostream& s, const false_string& f);
 }
-
-#endif  // EUPHORIA_TESTS_FALSE_STRING_H
-

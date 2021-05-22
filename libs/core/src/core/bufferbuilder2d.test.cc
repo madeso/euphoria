@@ -9,60 +9,60 @@
 
 
 using namespace euphoria::core;
-using euphoria::tests::FalseString;
+using euphoria::tests::false_string;
 
 
 namespace
 {
-    FalseString
+    false_string
     VectorEquals(const std::vector<unsigned int> lhs, const std::vector<unsigned int>& rhs)
     {
-        return euphoria::tests::VectorEquals
-        (
-            lhs,
-            rhs,
-            [](unsigned int f) -> std::string { return string_builder() << f; },
-            [](unsigned int a, unsigned int b) -> FalseString
-            {
-                if(a == b)
-                {
-                    return FalseString::True();
-                }
-                else
-                {
-                    return FalseString::False
-                    (
-                        string_builder() << a << " != " << b
-                    );
-                }
-            }
-        );
+        return euphoria::tests::vector_is_equal
+                (
+                        lhs,
+                        rhs,
+                        [](unsigned int f) -> std::string
+                        { return string_builder() << f; },
+                        [](unsigned int a, unsigned int b) -> false_string
+                        {
+                            if (a == b)
+                            {
+                                return false_string::create_true();
+                            } else
+                            {
+                                return false_string::create_false
+                                        (
+                                                string_builder() << a << " != " << b
+                                        );
+                            }
+                        }
+                );
     }
 
 
-    FalseString
+    false_string
     VectorEquals(const std::vector<float> lhs, const std::vector<float>& rhs)
     {
-        return euphoria::tests::VectorEquals
-        (
-            lhs,
-            rhs,
-            [](float f) -> std::string { return string_builder() << f; },
-            [](float a, float b) -> FalseString
-            {
-                if(euphoria::tests::approx(a) == b)
-                {
-                    return FalseString::True();
-                }
-                else
-                {
-                    return FalseString::False
-                    (
-                        string_builder() << a << " != " << b
-                    );
-                }
-            }
-        );
+        return euphoria::tests::vector_is_equal
+                (
+                        lhs,
+                        rhs,
+                        [](float f) -> std::string
+                        { return string_builder() << f; },
+                        [](float a, float b) -> false_string
+                        {
+                            if (euphoria::tests::approx(a) == b)
+                            {
+                                return false_string::create_true();
+                            } else
+                            {
+                                return false_string::create_false
+                                        (
+                                                string_builder() << a << " != " << b
+                                        );
+                            }
+                        }
+                );
     }
 }
 

@@ -1,6 +1,3 @@
-#ifndef EUPHORIA_IMGUI_ICONS_H
-#define EUPHORIA_IMGUI_ICONS_H
+#pragma once
 
 #include "IconsMaterialDesignIcons.h"
-
-#endif  // EUPHORIA_IMGUI_ICONS_H
