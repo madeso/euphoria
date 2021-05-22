@@ -8,21 +8,24 @@ namespace euphoria::window
 {
     LOG_SPECIFY_DEFAULT_LOGGER("window")
 
-    SdlWindow::SdlWindow(
-            const std::string& title,
-            int                width,
-            int                height,
-            bool               resize)
+    sdl_window::sdl_window
+    (
+        const std::string& title,
+        int                width,
+        int                height,
+        bool               resize
+    )
         : window(nullptr)
     {
-        window = SDL_CreateWindow(
-                title.c_str(),
-                SDL_WINDOWPOS_UNDEFINED,
-                SDL_WINDOWPOS_UNDEFINED,
-                width,
-                height,
-                SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN
-                        | (resize ? SDL_WINDOW_RESIZABLE : 0));
+        window = SDL_CreateWindow
+        (
+            title.c_str(),
+            SDL_WINDOWPOS_UNDEFINED,
+            SDL_WINDOWPOS_UNDEFINED,
+            width,
+            height,
+            SDL_WINDOW_OPENGL | SDL_WINDOW_SHOWN | (resize ? SDL_WINDOW_RESIZABLE : 0)
+        );
 
         if(window == nullptr)
         {
@@ -30,13 +33,13 @@ namespace euphoria::window
         }
     }
 
-    SdlWindow::~SdlWindow()
+    sdl_window::~sdl_window()
     {
         SDL_DestroyWindow(window);
     }
 
     void
-    SdlWindow::KeepWithin(bool k)
+    sdl_window::keep_within(bool k)
     {
         // SDL_SetWindowGrab(window, k ? SDL_TRUE : SDL_FALSE);
         // SDL_ShowCursor(k ? SDL_DISABLE : SDL_ENABLE);
@@ -44,7 +47,7 @@ namespace euphoria::window
     }
 
     void
-    SdlWindow::EnableCharEvent(bool enable)
+    sdl_window::enable_char_event(bool enable)
     {
         if(enable)
         {
@@ -57,7 +60,7 @@ namespace euphoria::window
     }
 
     const core::vec2i
-    SdlWindow::GetMousePosition() const
+    sdl_window::get_mouse_position() const
     {
         core::vec2i ret {0, 0};
         int         width  = 0;
@@ -67,4 +70,4 @@ namespace euphoria::window
         ret.y = height - (ret.y + 1);
         return ret;
     }
-}  // namespace euphoria::window
+}

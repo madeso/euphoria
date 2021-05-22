@@ -1,25 +1,310 @@
 #include "window/imgui_extra.h"
 
-#include "core/assert.h"
-
-#include "imgui/imgui.h"
-
-#define _USE_MATH_DEFINES
-#include <cmath>
 #include <sstream>
 #include <iomanip>
+
+#include "imgui/imgui.h"
 #include "imgui/imgui_internal.h"
 
-namespace imgui
+#include "core/angle.h"
+#include "core/assert.h"
+#include "core/rgb.h"
+#include "core/numeric.h"
+
+#include "render/texture.h"
+
+#include "window/imgui_icons.h"
+
+
+namespace euphoria::window
 {
+    ImVec2
+    C(const core::vec2f& v)
+    {
+        return ImVec2 {v.x, v.y};
+    }
+
+
+    core::vec2f
+    C(const ImVec2& v)
+    {
+        return core::vec2f {v.x, v.y};
+    }
+}
+
+namespace euphoria::window::imgui
+{
+    bool
+    input_text(const char* label, std::string* str)
+    {
+        constexpr int size = 500;
+        char buffer[size] = { 0, };
+
+        strncpy(buffer, str->c_str(), size);
+        const bool r = ImGui::InputText(label, buffer, size);
+        if(r)
+        {
+            *str = buffer;
+        }
+
+        return r;
+    }
+
+
     void
-    AddCircleFilled(
-            ImDrawList*   draw_list,
-            const ImVec2& centre,
-            float         radius,
-            ImU32         col,
-            int           num_segments,
-            float         angle_offset)
+    help_marker(const char* desc)
+    {
+        ImGui::SameLine();
+        ImGui::TextDisabled( ICON_MDI_HELP_CIRCLE );
+        help_text(desc);
+    }
+
+
+    void
+    help_text(const char* desc)
+    {
+        if (ImGui::IsItemHovered())
+        {
+            ImGui::BeginTooltip();
+            ImGui::PushTextWrapPos(ImGui::GetFontSize() * 35.0f);
+            ImGui::TextUnformatted(desc);
+            ImGui::PopTextWrapPos();
+            ImGui::EndTooltip();
+        }
+    }
+
+
+    void
+    label(const std::string& str)
+    {
+        ImGui::Text("%s", str.c_str());
+    }
+
+
+    bool
+    angle_slider
+    (
+        const char* const name,
+        core::angle* angle,
+        const core::angle& mindeg,
+        const core::angle& maxdeg
+    )
+    {
+        ASSERT(angle);
+
+        float degrees = angle->in_degrees();
+        const auto value_was_changed = ImGui::SliderFloat
+        (
+            name,
+            &degrees,
+            mindeg.in_degrees(),
+            maxdeg.in_degrees()
+        );
+
+        if(value_was_changed)
+        {
+            *angle = core::angle::from_degrees(degrees);
+        }
+
+        return value_was_changed;
+    }
+
+
+    bool
+    toggle_button(const char* const label, bool down, const ImVec2& size)
+    {
+        if (down)
+        {
+            const auto c = ImGui::GetStyle().Colors[ImGuiCol_ButtonActive];
+            ImGui::PushStyleColor(ImGuiCol_Button, c);
+            const auto r = ImGui::Button(label, size);
+            ImGui::PopStyleColor(1);
+
+            return r;
+        }
+        else
+        {
+            return ImGui::Button(label, size);
+        }
+    }
+
+    bool
+    color_edit(const char* const name, core::rgb* c)
+    {
+        return ImGui::ColorEdit3(name, &c->r);
+    }
+
+    bool
+    color_edit(const char* const name, core::rgba* c)
+    {
+        return ImGui::ColorEdit4(name, &c->r);
+    }
+
+    bool
+    color_edit(const char* const name, core::rgbai* c)
+    {
+        auto cc = crgba(*c);
+        const auto changed = ImGui::ColorEdit4(name, &cc.r);
+        if(changed)
+        {
+            *c = crgbai(cc);
+        }
+        return changed;
+    }
+
+
+    void
+    image(render::texture2d* texture)
+    {
+        auto        tex_w  = static_cast<float>(texture->width);
+        auto        tex_h  = static_cast<float>(texture->height);
+        ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
+
+        ImVec2 tex_screen_pos = ImGui::GetCursorScreenPos();
+        ImGui::Text("%.0fx%.0f", tex_w, tex_h);
+        ImGui::Image(
+                tex_id,
+                ImVec2(tex_w, tex_h),
+                ImVec2(0, 0),
+                ImVec2(1, 1),
+                ImColor(255, 255, 255, 255),
+                ImColor(255, 255, 255, 128));
+        if(ImGui::IsItemHovered())
+        {
+            ImGui::BeginTooltip();
+            float focus_sz = 32.0f;
+            float focus_x  = ImGui::GetMousePos().x - tex_screen_pos.x
+                            - focus_sz * 0.5f;
+            if(focus_x < 0.0f)
+            {
+                focus_x = 0.0f;
+            }
+            else if(focus_x > tex_w - focus_sz)
+            {
+                focus_x = tex_w - focus_sz;
+            }
+            float focus_y = ImGui::GetMousePos().y - tex_screen_pos.y
+                            - focus_sz * 0.5f;
+            if(focus_y < 0.0f)
+            {
+                focus_y = 0.0f;
+            }
+            else if(focus_y > tex_h - focus_sz)
+            {
+                focus_y = tex_h - focus_sz;
+            }
+            ImGui::Text("Min: (%.2f, %.2f)", focus_x, focus_y);
+            ImGui::Text(
+                    "Max: (%.2f, %.2f)",
+                    focus_x + focus_sz,
+                    focus_y + focus_sz);
+            ImVec2 uv0 = ImVec2((focus_x) / tex_w, (focus_y) / tex_h);
+            ImVec2 uv1 = ImVec2(
+                    (focus_x + focus_sz) / tex_w, (focus_y + focus_sz) / tex_h);
+            ImGui::Image(
+                    tex_id,
+                    ImVec2(128, 128),
+                    uv0,
+                    uv1,
+                    ImColor(255, 255, 255, 255),
+                    ImColor(255, 255, 255, 128));
+            ImGui::EndTooltip();
+        }
+    }
+
+
+    // stolen from ShowExampleAppFixedOverlay function in imgui_demo
+    bool
+    begin_fixed_overlay
+    (
+            corner corner,
+            const std::string& title,
+            float a_distance,
+            float a_distance_y
+    )
+    {
+        const int   corner_int = static_cast<int>(corner);
+        // const float distance   = 10.0f;
+        const auto distance_x = a_distance;
+        const auto distance_y = a_distance_y > 0 ? a_distance_y : a_distance;
+        const auto size = ImGui::GetIO().DisplaySize;
+        const ImVec2 window_pos = corner == corner::center
+            ? ImVec2(size.x / 2, size.y / 2)
+            : ImVec2
+            (
+                (corner_int & 1)
+                    ? size.x - distance_x
+                    : distance_x,
+                (corner_int & 2)
+                    ? size.y - distance_y
+                    : distance_y
+            );
+        const ImVec2 window_pos_pivot = corner == corner::center
+            ? ImVec2(0.5f, 0.5f)
+            : ImVec2
+            (
+                (corner_int & 1) ? 1.0f : 0.0f,
+                (corner_int & 2) ? 1.0f : 0.0f
+            );
+        ImGui::SetNextWindowPos(window_pos, ImGuiCond_Always, window_pos_pivot);
+
+        return ImGui::Begin(
+                title.c_str(),
+                nullptr,
+                ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize
+                        | ImGuiWindowFlags_AlwaysAutoResize
+                        | ImGuiWindowFlags_NoMove
+                        | ImGuiWindowFlags_NoSavedSettings);
+    }
+
+
+    // from https://github.com/ocornut/imgui/issues/211
+    disabled::disabled()
+    {
+        // ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
+        ImGui::PushStyleVar(
+                ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);
+    }
+
+
+    disabled::~disabled()
+    {
+        // ImGui::PopItemFlag();
+        ImGui::PopStyleVar();
+    }
+
+
+    bool
+    selectable_or_disabled(bool enabled, const char* label)
+    {
+        if(enabled)
+        {
+            if(ImGui::Selectable(label))
+            {
+                return true;
+            }
+        }
+        else
+        {
+            disabled disabled;
+            ImGui::TextUnformatted(label);
+        }
+
+        return false;
+    }
+
+
+
+    void
+    add_circle_filled
+    (
+        ImDrawList*   draw_list,
+        const ImVec2& centre,
+        float         radius,
+        ImU32         col,
+        int           num_segments,
+        float         angle_offset
+    )
     {
         ASSERT(draw_list);
 
@@ -28,25 +313,29 @@ namespace imgui
         if((col & IM_COL32_A_MASK) == 0)
             return;
 
-        const float a_max = IM_PI * 2.0f * ((float)num_segments - 1.0f)
-                            / (float)num_segments;
-        draw_list->PathArcTo(
-                centre,
-                radius,
-                angle_offset,
-                a_max + angle_offset,
-                num_segments);
+        const float a_max = IM_PI * 2.0f * ((float)num_segments - 1.0f) / (float)num_segments;
+        draw_list->PathArcTo
+        (
+            centre,
+            radius,
+            angle_offset,
+            a_max + angle_offset,
+            num_segments
+        );
         draw_list->PathFillConvex(col);
     }
 
     bool
-    Knob(const char* label,
-         float*      p_value,
-         float       v_min,
-         float       v_max,
-         KnobStyle   style)
+    knob
+    (
+        const char* label,
+        float*      p_value,
+        float       v_min,
+        float       v_max,
+        knob_style   style
+    )
     {
-        constexpr auto pi = static_cast<float>(M_PI);
+        constexpr auto pi = core::pi;
         // constexpr auto  rad2deg         = 180 / pi;
         constexpr auto  pi2             = pi * 2;
         constexpr float angle_min       = pi * 0.75f;
@@ -70,11 +359,15 @@ namespace imgui
                 = ImVec2(start.x + size_outer, start.y + size_outer);
         const float line_height = ImGui::GetTextLineHeight();
 
-        ImGui::InvisibleButton(
-                label,
-                ImVec2(size_outer * 2,
-                       size_outer * 2 + line_height
-                               + imstyle.ItemInnerSpacing.y));
+        ImGui::InvisibleButton
+        (
+            label,
+            ImVec2
+            (
+                size_outer * 2,
+                size_outer * 2 + line_height + imstyle.ItemInnerSpacing.y
+            )
+       );
         const bool is_active  = ImGui::IsItemActive();
         const bool is_hovered = ImGui::IsItemHovered();
 
@@ -87,8 +380,7 @@ namespace imgui
         if(style & KS_UI_AIM)
         {
             ImVec2 direct(io.MousePos.x - center.x, io.MousePos.y - center.y);
-            const float directl
-                    = sqrtf(direct.x * direct.x + direct.y * direct.y);
+            const float directl = sqrtf(direct.x * direct.x + direct.y * direct.y);
             direct.x = direct.x / directl;
             direct.y = direct.y / directl;
 
@@ -106,8 +398,7 @@ namespace imgui
             const float input_angle_t
                     = (input_angle - angle_min) / (angle_max - angle_min);
 
-            if(is_active
-               && (io.MouseDelta.x != 0.0f || io.MouseDelta.y != 0.0f))
+            if(is_active && (io.MouseDelta.x != 0.0f || io.MouseDelta.y != 0.0f))
             {
                 *p_value = v_min + (v_max - v_min) * input_angle_t;
 
@@ -119,8 +410,7 @@ namespace imgui
         }
         else
         {
-            const auto val
-                    = style & KS_UI_DRAG_X ? io.MouseDelta.x : io.MouseDelta.y;
+            const auto val = style & KS_UI_DRAG_X ? io.MouseDelta.x : io.MouseDelta.y;
             if(is_active && val != 0.0f)
             {
                 float step = (v_max - v_min) / 200.0f;
@@ -144,9 +434,9 @@ namespace imgui
         const auto peg_color_max   = ImGui::GetColorU32(ImGuiCol_Text);
 
         // util function
-        const auto Pos = [=](float angle, float rad) -> ImVec2 {
-            return ImVec2(
-                    center.x + cosf(angle) * rad, center.y + sinf(angle) * rad);
+        const auto Pos = [=](float angle, float rad) -> ImVec2
+        {
+            return ImVec2(center.x + cosf(angle) * rad, center.y + sinf(angle) * rad);
         };
 
         // ----------------- visualization
@@ -159,50 +449,37 @@ namespace imgui
         // peg indicators
         if(style & KS_VIS_MARKERS_VISIBLE)
         {
-            const auto marker_stop
-                    = (style & KS_VIS_OFF_MARKER_HIDDEN) ? angle : angle_max;
+            const auto marker_stop = (style & KS_VIS_OFF_MARKER_HIDDEN) ? angle : angle_max;
             for(float a = angle_min; a <= marker_stop; a += angle_step)
             {
-                const auto c
-                        = style & KS_VIS_OFF_MARKER_HIDDEN
-                                  ? peg_color_off
-                                  : a <= angle ? peg_color_on : peg_color_off;
+                const auto c = style & KS_VIS_OFF_MARKER_HIDDEN
+                      ? peg_color_off
+                      : a <= angle ? peg_color_on : peg_color_off
+                      ;
                 draw_list->AddLine(Pos(a, peg_start), Pos(a, peg_end), c, 1.0f);
             }
         }
 
         if(style & KS_VIS_MAXMIN_VISIBLE)
         {
-            draw_list->AddLine(
-                    Pos(angle_max, peg_start),
-                    Pos(angle_max, peg_max_end),
-                    peg_color_max,
-                    1.0f);
-            draw_list->AddLine(
-                    Pos(angle_min, peg_start),
-                    Pos(angle_min, peg_max_end),
-                    peg_color_max,
-                    1.0f);
+            draw_list->AddLine(Pos(angle_max, peg_start), Pos(angle_max, peg_max_end), peg_color_max, 1.0f);
+            draw_list->AddLine(Pos(angle_min, peg_start), Pos(angle_min, peg_max_end), peg_color_max, 1.0f);
         }
 
         // the knob
-        AddCircleFilled(draw_list, center, knob_size, knob_color, 6, angle);
-        draw_list->AddLine(
-                Pos(angle, knob_mark_start),
-                Pos(angle, knob_mark_end),
-                indicator_color,
-                2.0f);
+        add_circle_filled(draw_list, center, knob_size, knob_color, 6, angle);
+        draw_list->AddLine(Pos(angle, knob_mark_start), Pos(angle, knob_mark_end), indicator_color, 2.0f);
 
         const bool display_value = style & KS_VIS_DISPLAY_VALUE_ON_HOVER
-                                           ? is_active || is_hovered
-                                           : is_active;
+            ? is_active || is_hovered
+            : is_active
+            ;
 
         // knob control name
-        const auto label_position = ImVec2 {
-                start.x,
-                start.y + size_outer * 2 + imstyle.ItemInnerSpacing.y / 4};
+        const auto label_position = ImVec2 {start.x, start.y + size_outer * 2 + imstyle.ItemInnerSpacing.y / 4};
 
-        const auto value_to_str = [](float f) -> std::string {
+        const auto value_to_str = [](float f) -> std::string
+        {
             std::stringstream ss;
             ss << std::fixed << std::setprecision(3) << f;
             return ss.str();
@@ -221,10 +498,14 @@ namespace imgui
         // tooltip
         if(style & KS_VIS_VALUE_AS_TOOLTIP && display_value)
         {
-            ImGui::SetNextWindowPos(
-                    ImVec2(start.x - 0,
-                           start.y - line_height - imstyle.ItemInnerSpacing.y
-                                   - imstyle.WindowPadding.y));
+            ImGui::SetNextWindowPos
+            (
+                ImVec2
+                (
+                    start.x - 0,
+                    start.y - line_height - imstyle.ItemInnerSpacing.y - imstyle.WindowPadding.y
+                )
+            );
             ImGui::BeginTooltip();
             const auto v = value_to_str(*p_value);
             ImGui::Text("%s", v.c_str());
@@ -235,25 +516,45 @@ namespace imgui
     }
 
     bool
-    CanvasBegin(const ImVec4& background_color, const char* title)
+    canvas_begin(const ImVec4& background_color, const char* title)
     {
         ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(1, 1));
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
         ImGui::PushStyleColor(ImGuiCol_ChildBg, background_color);
 
-        return ImGui::BeginChild(
-                title,
-                ImVec2(0, 0),
-                true,
-                ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoMove);
+        return ImGui::BeginChild
+        (
+            title,
+            ImVec2(0, 0),
+            true,
+            ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoMove
+        );
     }
 
     void
-    CanvasEnd()
+    canvas_end()
     {
         ImGui::EndChild();
 
         ImGui::PopStyleColor();
         ImGui::PopStyleVar(2);
     }
-}  // namespace imgui
+
+    bool
+    begin_combo(const char* label, const char* preview)
+    {
+        return ImGui::BeginCombo(label, preview);
+    }
+
+    bool
+    selectable(const char* label, bool is_selected)
+    {
+        return ImGui::Selectable(label, is_selected);
+    }
+
+    void
+    end_combo()
+    {
+        return ImGui::EndCombo();
+    }
+}

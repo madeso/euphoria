@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_ENGINE_H
-#define EUPHORIA_ENGINE_H
+#pragma once
 
 #include <memory>
 #include <string>
@@ -15,50 +14,52 @@ namespace euphoria::core
     {
         struct file_system;
         struct read_root_catalog;
-    }  // namespace vfs
-}  // namespace euphoria::core
+    }
+}
 
 namespace euphoria::render
 {
     struct init;
 }
 
+namespace euphoria::window::imgui
+{
+    struct library;
+}
+
 namespace euphoria::window
 {
-    struct SdlLibrary;
-    struct SdlWindow;
-    struct ImguiLibrary;
-    struct SdlGlContext;
-    struct ImguiLibrary;
+    struct sdl_library;
+    struct sdl_window;
+    struct sdl_gl_context;
 
-    struct Engine
+    struct engine
     {
-        Engine();
-        ~Engine();
+        engine();
+        ~engine();
 
         int
-        Setup(const core::argparse::name_and_arguments& args);
+        setup(const core::argparse::name_and_arguments& args);
 
         bool
-        CreateWindow(
-                const std::string& title,
-                int                width,
-                int                height,
-                bool               blend_hack = false);
+        create_window
+        (
+            const std::string& title,
+            int                width,
+            int                height,
+            bool               blend_hack = false
+        );
 
         bool
-        HandleResize(SDL_Event e, int* width, int* height);
+        on_resize(SDL_Event e, int* width, int* height);
 
-        std::unique_ptr<SdlLibrary>                       sdl;
+        std::unique_ptr<sdl_library>                       sdl;
         std::unique_ptr<core::vfs::file_system>            file_system;
         std::shared_ptr<core::vfs::read_root_catalog> catalog;
-        std::unique_ptr<SdlWindow>                        window;
+        std::unique_ptr<sdl_window>                        window;
         unsigned int                                      window_id;
-        std::unique_ptr<SdlGlContext>                     context;
+        std::unique_ptr<sdl_gl_context>                     context;
         std::unique_ptr<render::init>                     init;
-        std::unique_ptr<ImguiLibrary>                     imgui;
+        std::unique_ptr<imgui::library>                     imgui;
     };
-}  // namespace euphoria::window
-
-
-#endif  // EUPHORIA_ENGINE_H
+}

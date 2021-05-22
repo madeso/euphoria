@@ -1,27 +1,18 @@
-//
-// Created by gustav on 2017-08-14.
-//
-
-#ifndef EUPHORIA_TIMER_H
-#define EUPHORIA_TIMER_H
+#pragma once
 
 #include "SDL_types.h"
 
 
 namespace euphoria::window
 {
-    struct SdlTimer
+    struct sdl_timer
     {
-    public:
-        SdlTimer();
+        sdl_timer();
 
         float
-        Update();
+        update();
 
-    private:
         Uint64 current_time_;
         Uint64 last_time_;
     };
-}  // namespace euphoria::window
-
-#endif  // EUPHORIA_TIMER_H
+}

@@ -3,7 +3,7 @@
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui/imgui_internal.h"
 
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 
 using namespace euphoria::core;
 using euphoria::window::C;
@@ -11,58 +11,64 @@ using euphoria::window::C;
 namespace euphoria::window
 {
     void
-    Canvas::ShowGrid(const CanvasConfig& cc)
+    canvas::show_grid(const canvas_config& cc)
     {
         const auto  size      = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
         const float scaled_grid_size = cc.grid_size * view.scale;
 
-        for(float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x;
-            x += scaled_grid_size)
+        for(float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x; x += scaled_grid_size)
         {
-            draw_list->AddLine(
-                    ImVec2(x, 0.0f) + position,
-                    ImVec2(x, size.y) + position,
-                    cc.grid_color);
+            draw_list->AddLine
+            (
+                ImVec2(x, 0.0f) + position,
+                ImVec2(x, size.y) + position,
+                cc.grid_color
+            );
         }
 
-        for(float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y;
-            y += scaled_grid_size)
+        for(float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y; y += scaled_grid_size)
         {
-            draw_list->AddLine(
-                    ImVec2(0.0f, y) + position,
-                    ImVec2(size.x, y) + position,
-                    cc.grid_color);
+            draw_list->AddLine
+            (
+                ImVec2(0.0f, y) + position,
+                ImVec2(size.x, y) + position,
+                cc.grid_color
+            );
         }
     }
 
     void
-    Canvas::VerticalLine(float rx, ImU32 grid_color)
+    canvas::vertical_line(float rx, ImU32 grid_color)
     {
         const auto  x         = view.scroll.x + rx * view.scale;
         const auto  size      = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
-        draw_list->AddLine(
-                ImVec2(x, 0.0f) + position,
-                ImVec2(x, size.y) + position,
-                grid_color);
+        draw_list->AddLine
+        (
+            ImVec2(x, 0.0f) + position,
+            ImVec2(x, size.y) + position,
+            grid_color
+        );
     }
 
     void
-    Canvas::HorizontalLine(float ry, ImU32 grid_color)
+    canvas::horizontal_line(float ry, ImU32 grid_color)
     {
         const auto  y         = view.scroll.y + ry * view.scale;
         const auto  size      = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
-        draw_list->AddLine(
-                ImVec2(0.0f, y) + position,
-                ImVec2(size.x, y) + position,
-                grid_color);
+        draw_list->AddLine
+        (
+            ImVec2(0.0f, y) + position,
+            ImVec2(size.x, y) + position,
+            grid_color
+        );
     }
 
     void
-    Canvas::ShowRuler(float ruler_interval, ImU32 ruler_color, float length)
+    canvas::show_ruler(float ruler_interval, ImU32 ruler_color, float length)
     {
         const auto  size      = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -72,56 +78,61 @@ namespace euphoria::window
         for(float x = fmodf(view.scroll.x, scaled_grid_size); x < size.x;
             x += scaled_grid_size)
         {
-            draw_list->AddLine(
-                    ImVec2(x, 0.0f) + position,
-                    ImVec2(x, length) + position,
-                    ruler_color);
+            draw_list->AddLine
+            (
+                ImVec2(x, 0.0f) + position,
+                ImVec2(x, length) + position,
+                ruler_color
+            );
         }
 
         for(float y = fmodf(view.scroll.y, scaled_grid_size); y < size.y;
             y += scaled_grid_size)
         {
-            draw_list->AddLine(
-                    ImVec2(0.0f, y) + position,
-                    ImVec2(length, y) + position,
-                    ruler_color);
+            draw_list->AddLine
+            (
+                ImVec2(0.0f, y) + position,
+                ImVec2(length, y) + position,
+                ruler_color
+            );
         }
     }
 
     void
-    Canvas::ShowRuler(const CanvasConfig& cc)
+    canvas::show_ruler(const canvas_config& cc)
     {
-        ShowRuler(5.0f, cc.grid_color, 10.0f);
+        show_ruler(5.0f, cc.grid_color, 10.0f);
     }
 
     void
-    Canvas::Begin(const CanvasConfig& cc)
+    canvas::begin(const canvas_config& cc)
     {
         ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(1, 1));
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
         ImGui::PushStyleColor(ImGuiCol_ChildBg, cc.background_color);
 
-        ImGui::BeginChild(
-                "scrolling_region",
-                ImVec2(0, 0),
-                true,
-                ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoMove);
+        ImGui::BeginChild
+        (
+            "scrolling_region",
+            ImVec2(0, 0),
+            true,
+            ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoMove
+        );
 
         position = ImGui::GetCursorScreenPos();
     }
 
     void
-    DoCanvasScroll(Canvas* canvas)
+    do_canvas_scroll(canvas* canvas)
     {
-        if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive()
-           && ImGui::IsMouseDragging(2, 0.0f))
+        if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive() && ImGui::IsMouseDragging(2, 0.0f))
         {
             canvas->view.pan(C(ImGui::GetIO().MouseDelta));
         }
     }
 
     void
-    DoCanvasZoom(Canvas* canvas, const CanvasConfig& cc)
+    do_canvas_zoom(canvas* canvas, const canvas_config& cc)
     {
         if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive())
         {
@@ -132,10 +143,10 @@ namespace euphoria::window
     }
 
     void
-    Canvas::End(const CanvasConfig& cc)
+    canvas::end(const canvas_config& cc)
     {
-        DoCanvasScroll(this);
-        DoCanvasZoom(this, cc);
+        do_canvas_scroll(this);
+        do_canvas_zoom(this, cc);
 
         ImGui::EndChild();
 
@@ -144,26 +155,26 @@ namespace euphoria::window
     }
 
     ImVec2
-    Canvas::WorldToScreen(const ImVec2& v) const
+    canvas::world_to_screen(const ImVec2& v) const
     {
         return C(view.world_to_screen(C(v))) + position;
     }
 
     ImVec2
-    Canvas::WorldToScreenSize(const ImVec2& v) const
+    canvas::world_to_screen_size(const ImVec2& v) const
     {
         return v * view.scale;
     }
 
     ImVec2
-    Canvas::ScreenToWorld(const ImVec2& v) const
+    canvas::screen_to_world(const ImVec2& v) const
     {
         return C(view.screen_to_world(C(v - position)));
     }
 
     ImVec2
-    Canvas::GetMouse() const
+    canvas::get_mouse() const
     {
         return ImGui::GetMousePos() - position;
     }
-}  // namespace euphoria::window
+}

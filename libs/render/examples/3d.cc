@@ -31,7 +31,7 @@
 
 #include "window/imguilibrary.h"
 #include "window/timer.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
@@ -70,8 +70,8 @@ struct CubeAnimation
 int
 main(int argc, char** argv)
 {
-    Engine engine;
-    if(const auto r = engine.Setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    engine engine;
+    if(const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -79,7 +79,7 @@ main(int argc, char** argv)
     constexpr int width  = 1280;
     constexpr int height = 720;
 
-    if(!engine.CreateWindow("Euphoria 3d demo", width, height, false))
+    if(!engine.create_window("Euphoria 3d demo", width, height, false))
     {
         return -1;
     }
@@ -127,7 +127,7 @@ main(int argc, char** argv)
 
     bool running = true;
 
-    SdlTimer timer;
+    sdl_timer timer;
 
     auto world = euphoria::render::world {};
 
@@ -253,11 +253,11 @@ main(int argc, char** argv)
     while(running)
     {
         const bool  show_imgui = !capturing_mouse_movement;
-        const float delta      = timer.Update();
+        const float delta      = timer.update();
 
         if(show_imgui)
         {
-            engine.imgui->StartNewFrame();
+            engine.imgui->start_new_frame();
 
             ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
 
@@ -267,19 +267,19 @@ main(int argc, char** argv)
                 ImGuiCond_FirstUseEver
             );
             ImGui::Begin("Light");
-            ImguiCombo
-            (
-                "Type",
-                &world.light.light_type,
-                {
-                    {"Directional", light::type::directional},
-                    {"Point",       light::type::point},
-                    {"Spot",        light::type::spot}
-                }
-            );
-            ImGuiColorEdit("Ambient", &world.light.ambient);
-            ImGuiColorEdit("Diffuse", &world.light.diffuse);
-            ImGuiColorEdit("Specular", &world.light.specular);
+            imgui::combo
+                    (
+                            "Type",
+                            &world.light.light_type,
+                            {
+                                    {"Directional", light::type::directional},
+                                    {"Point",       light::type::point},
+                                    {"Spot",        light::type::spot}
+                            }
+                    );
+            imgui::color_edit("Ambient", &world.light.ambient);
+            imgui::color_edit("Diffuse", &world.light.diffuse);
+            imgui::color_edit("Specular", &world.light.specular);
             ImGui::Combo
             (
                 "Update",
@@ -287,22 +287,22 @@ main(int argc, char** argv)
                 "Do nothing\0Follow actor\0Follow camera\0\0"
             );
 
-            ImguiAngleSlider
-            (
-                "Cutoff Angle Inner",
-                &world.light.cutoff_angle_inner,
-                angle::Zero(),
-                angle::Quarter()/2
-            );
-            ImguiAngleSlider
-            (
-                "Cutoff Angle Outer",
-                &world.light.cutoff_angle_outer,
-                angle::Zero(),
-                angle::Quarter()
-            );
+            imgui::angle_slider
+                    (
+                            "Cutoff Angle Inner",
+                            &world.light.cutoff_angle_inner,
+                            angle::Zero(),
+                            angle::Quarter() / 2
+                    );
+            imgui::angle_slider
+                    (
+                            "Cutoff Angle Outer",
+                            &world.light.cutoff_angle_outer,
+                            angle::Zero(),
+                            angle::Quarter()
+                    );
 
-            ImguiImage(debug_texture.get());
+            imgui::image(debug_texture.get());
 
             ImGui::End();
 
@@ -365,12 +365,12 @@ main(int argc, char** argv)
         {
             if(show_imgui)
             {
-                engine.imgui->ProcessEvents(&e);
+                engine.imgui->process_events(&e);
             }
             {
                 int window_width = 800;
                 int window_height = 600;
-                if(engine.HandleResize(e, &window_width, &window_height))
+                if(engine.on_resize(e, &window_width, &window_height))
                 {
                     viewport_handler.set_size(window_width, window_height);
                 }
@@ -388,7 +388,7 @@ main(int argc, char** argv)
             case SDL_KEYUP: {
                 const bool down = e.type == SDL_KEYDOWN;
 
-                fps.on_key(ToKey(e.key.keysym), down);
+                fps.on_key(to_key(e.key.keysym), down);
 
                 switch(e.key.keysym.sym)
                 {
@@ -408,7 +408,7 @@ main(int argc, char** argv)
                     if(!down)
                     {
                         capturing_mouse_movement = !capturing_mouse_movement;
-                        engine.window->KeepWithin(capturing_mouse_movement);
+                        engine.window->keep_within(capturing_mouse_movement);
                     }
                     break;
                 default:
@@ -434,7 +434,7 @@ main(int argc, char** argv)
 
         if(show_imgui)
         {
-            engine.imgui->Render();
+            engine.imgui->render();
         }
 
         SDL_GL_SwapWindow(engine.window->window);

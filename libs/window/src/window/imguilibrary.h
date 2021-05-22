@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_IMGUILIBRARY_H
-#define EUPHORIA_IMGUILIBRARY_H
+#pragma once
 
 #include <string>
 
@@ -7,27 +6,28 @@
 
 namespace euphoria::window
 {
-    struct SdlGlContext;
-    
-    struct ImguiLibrary
+    struct sdl_gl_context;
+}
+
+namespace euphoria::window::imgui
+{
+    struct library
     {
     public:
-        ImguiLibrary(SDL_Window* window, SdlGlContext* context, const std::string& path);
-        ~ImguiLibrary();
+        library(SDL_Window* window, sdl_gl_context* context, const std::string& path);
+        ~library();
 
         void
-        ProcessEvents(const SDL_Event*);
+        process_events(const SDL_Event*);
 
         void
-        StartNewFrame();
+        start_new_frame();
 
         void
-        Render();
+        render();
 
     private:
         SDL_Window* window_;
         std::string path_;
     };
-}  // namespace euphoria::window
-
-#endif  // EUPHORIA_IMGUILIBRARY_H
+}

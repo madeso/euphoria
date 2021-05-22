@@ -1,23 +1,16 @@
-#ifndef EUPHORIA_SDLGLCONTEXT_H
-#define EUPHORIA_SDLGLCONTEXT_H
-
-#include "SDL_video.h"
-
+#pragma once
 
 namespace euphoria::window
 {
-    struct SdlWindow;
+    struct sdl_window;
 
-    struct SdlGlContext
+    struct sdl_gl_context
     {
     public:
-        SdlGlContext(SdlWindow* window);
+        sdl_gl_context(sdl_window* window);
 
-        ~SdlGlContext();
+        ~sdl_gl_context();
 
         void* context;
     };
-}  // namespace euphoria::window
-
-
-#endif  // EUPHORIA_SDLGLCONTEXT_H
+}

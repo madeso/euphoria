@@ -5,7 +5,7 @@
 namespace euphoria::window
 {
     core::key
-    ToKey(SDL_Keysym key)
+    to_key(SDL_Keysym key)
     {
         switch(key.sym)
         {
@@ -190,8 +190,7 @@ namespace euphoria::window
         case SDLK_KP_AMPERSAND: return core::key::keypad_ampersand;
         case SDLK_KP_DBLAMPERSAND: return core::key::keypad_double_ampersand;
         case SDLK_KP_VERTICALBAR: return core::key::keypad_vertical_bar;
-        case SDLK_KP_DBLVERTICALBAR:
-            return core::key::keypad_double_verticle_bar;
+        case SDLK_KP_DBLVERTICALBAR: return core::key::keypad_double_verticle_bar;
         case SDLK_KP_COLON: return core::key::keypad_colon;
         case SDLK_KP_HASH: return core::key::keypad_hash;
         case SDLK_KP_SPACE: return core::key::keypad_space;
@@ -253,7 +252,7 @@ namespace euphoria::window
     }
 
     core::MouseButton
-    ToKey(SDL_MouseButtonEvent mb)
+    to_key(SDL_MouseButtonEvent mb)
     {
         switch(mb.button)
         {
@@ -268,4 +267,4 @@ namespace euphoria::window
         }
     }
 
-}  // namespace euphoria::window
+}

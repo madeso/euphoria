@@ -31,7 +31,7 @@
 
 #include "window/imguilibrary.h"
 #include "window/timer.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
@@ -53,7 +53,6 @@
 #include "core/last_n.h"
 
 #include "window/imgui_extra.h"
-#include "window/timgui.h"
 
 #include "minsynth/synth.h"
 
@@ -379,7 +378,7 @@ public:
         // keyboard input
         if(ImGui::Begin("Keyboard"))
         {
-            if(imgui::CanvasBegin(ImVec4(0, 0, 0, 0.5f), "canvas_piano"))
+            if(imgui::canvas_begin(ImVec4(0, 0, 0, 0.5f), "canvas_piano"))
             {
                 const auto p = ImGui::GetCursorScreenPos();
                 constexpr float keysize = 30;
@@ -392,7 +391,7 @@ public:
                         keysize,
                         3);
             }
-            imgui::CanvasEnd();
+            imgui::canvas_end();
         }
         ImGui::End();
 
@@ -423,9 +422,10 @@ public:
 
             ImGui::SliderFloat("master", &master.volume, 0.0f, 1.0f);
 
-            imgui::Knob("Master", &master.volume, 0.0f, 1.0f);
+            imgui::knob("Master", &master.volume, 0.0f, 1.0f);
 
-            CustomDropdown("Tuning", &ttf.tuning, Tuning::Max, [](auto t) {
+            imgui::custom_dropdown("Tuning", &ttf.tuning, Tuning::Max, [](auto t)
+            {
                 return to_string(t);
             });
 
@@ -442,27 +442,30 @@ public:
                     0.0f,
                     1.0f);
 
-            CustomDropdown(
+            imgui::custom_dropdown(
                     "Oscilator",
                     &oscilator.oscilator,
                     OscilatorType::Max,
-                    [](auto t) { return to_string(t); });
+                    [](auto t)
+                    { return to_string(t); });
 
-            CustomDropdown(
+            imgui::custom_dropdown(
                     "Chord emulation",
                     &piano.chords_emulation,
                     ChordEmulation::Max,
-                    [](auto t) { return to_string(t); });
+                    [](auto t)
+                    { return to_string(t); });
 
             ImGui::InputInt("Times", &scaler.times, 1, 5);
 
             ImGui::InputInt("Arp octaves", &arp.octaves);
-            CustomDropdown("Arp mode", &arp.mode, ArpMode::MAX, [](auto t) {
+            imgui::custom_dropdown("Arp mode", &arp.mode, ArpMode::MAX, [](auto t)
+            {
                 return to_string(t);
             });
-            imgui::Knob("Update time", &arp.update_time, 0, 1);
+            imgui::knob("Update time", &arp.update_time, 0, 1);
             ImGui::SameLine();
-            imgui::Knob("Tone time", &arp.tone_time, 0, 1);
+            imgui::knob("Tone time", &arp.tone_time, 0, 1);
 
             {
                 ImGui::BeginChild("audio devices", ImVec2(0, 0), true);
@@ -504,9 +507,9 @@ public:
 int
 main(int argc, char** argv)
 {
-    Engine engine;
+    engine engine;
 
-    if (const auto r = engine.Setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    if (const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -514,7 +517,7 @@ main(int argc, char** argv)
     int window_width = 1280;
     int window_height = 720;
 
-    if(!engine.CreateWindow("Musikmaskin", window_width, window_height, true))
+    if(!engine.create_window("Musikmaskin", window_width, window_height, true))
     {
         return -1;
     }
@@ -547,9 +550,9 @@ main(int argc, char** argv)
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
-            engine.imgui->ProcessEvents(&e);
+            engine.imgui->process_events(&e);
 
-            if(engine.HandleResize(e, &window_width, &window_height))
+            if(engine.on_resize(e, &window_width, &window_height))
             {
             }
 
@@ -562,7 +565,7 @@ main(int argc, char** argv)
                 {
                     if(e.key.repeat == 0)
                     {
-                        app.OnKey(ToKey(e.key.keysym), e.type == SDL_KEYDOWN);
+                        app.OnKey(to_key(e.key.keysym), e.type == SDL_KEYDOWN);
                     }
                 }
                 break;
@@ -578,7 +581,7 @@ main(int argc, char** argv)
 
         app.Update(dt);
 
-        engine.imgui->StartNewFrame();
+        engine.imgui->start_new_frame();
 
         if(ImGui::BeginMainMenuBar())
         {
@@ -597,7 +600,7 @@ main(int argc, char** argv)
         // ImGui::End();
 
         engine.init->clear_screen(color::light_gray);
-        engine.imgui->Render();
+        engine.imgui->render();
 
         SDL_GL_SwapWindow(engine.window->window);
     }

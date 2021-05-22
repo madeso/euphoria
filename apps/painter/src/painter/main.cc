@@ -32,7 +32,7 @@
 
 #include "window/imguilibrary.h"
 #include "window/timer.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 // #include "window/fpscontroller.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
@@ -49,7 +49,7 @@
 
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui/imgui_internal.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 
 // LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
@@ -60,9 +60,9 @@ using namespace euphoria::window;
 int
 main(int argc, char** argv)
 {
-    Engine engine;
+    engine engine;
 
-    if (const auto r = engine.Setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    if (const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -71,7 +71,7 @@ main(int argc, char** argv)
     int window_width  = 1280;
     int window_height = 720;
 
-    if(!engine.CreateWindow("Painter", window_width, window_height, true))
+    if(!engine.create_window("Painter", window_width, window_height, true))
     {
         return -1;
     }
@@ -84,8 +84,8 @@ main(int argc, char** argv)
 
     //////////////////////////////////////////////////////////////////////////////
     // main loop
-    CanvasConfig cc;
-    Canvas       canvas;
+    canvas_config cc;
+    canvas       canvas;
     bezier_path2  path(vec2f(0, 0));
     int          index = -1;
 
@@ -94,9 +94,9 @@ main(int argc, char** argv)
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
-            engine.imgui->ProcessEvents(&e);
+            engine.imgui->process_events(&e);
 
-            if(engine.HandleResize(e, &window_width, &window_height))
+            if(engine.on_resize(e, &window_width, &window_height))
             {
                 // viewport_handler.set_size(window_width, window_height);
             }
@@ -110,7 +110,7 @@ main(int argc, char** argv)
             }
         }
 
-        engine.imgui->StartNewFrame();
+        engine.imgui->start_new_frame();
 
         if(ImGui::BeginMainMenuBar())
         {
@@ -138,8 +138,8 @@ main(int argc, char** argv)
                 ImGui::OpenPopup("context_menu");
             }
 
-            canvas.Begin(cc);
-            canvas.ShowGrid(cc);
+            canvas.begin(cc);
+            canvas.show_grid(cc);
 
             if(ImGui::IsMouseReleased(0))
             {
@@ -149,7 +149,7 @@ main(int argc, char** argv)
                                   const ImVec2& p, int id, ImU32 color) {
                 const auto  size      = 5.0f;
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                const auto  sp        = canvas.WorldToScreen(p);
+                const auto  sp        = canvas.world_to_screen(p);
                 const auto  me        = ImGui::GetMousePos();
                 const auto  hover
                         = vec2f::from_to(C(me), C(sp)).get_length_squared()
@@ -218,30 +218,30 @@ main(int argc, char** argv)
                 auto  s  = path.get_points_in_segment(seg);
                 auto* dl = ImGui::GetWindowDrawList();
                 dl->AddBezierCurve(
-                        canvas.WorldToScreen(C(s.a0)),
-                        canvas.WorldToScreen(C(s.c0)),
-                        canvas.WorldToScreen(C(s.c1)),
-                        canvas.WorldToScreen(C(s.a1)),
+                        canvas.world_to_screen(C(s.a0)),
+                        canvas.world_to_screen(C(s.c0)),
+                        canvas.world_to_screen(C(s.c1)),
+                        canvas.world_to_screen(C(s.a1)),
                         curve_color,
                         1);
 
                 if(!path.autoset_)
                 {
-                    line(canvas.WorldToScreen(C(s.a0)),
-                         canvas.WorldToScreen(C(s.c0)),
+                    line(canvas.world_to_screen(C(s.a0)),
+                         canvas.world_to_screen(C(s.c0)),
                          line_color);
-                    line(canvas.WorldToScreen(C(s.a1)),
-                         canvas.WorldToScreen(C(s.c1)),
+                    line(canvas.world_to_screen(C(s.a1)),
+                         canvas.world_to_screen(C(s.c1)),
                          line_color);
                 }
             }
 
-            canvas.ShowRuler(cc);
-            canvas.End(cc);
+            canvas.show_ruler(cc);
+            canvas.end(cc);
 
             if(ImGui::BeginPopup("context_menu"))
             {
-                const auto p = canvas.ScreenToWorld(
+                const auto p = canvas.screen_to_world(
                         ImGui::GetMousePosOnOpeningCurrentPopup());
                 if(ImGui::MenuItem("Add"))
                 {
@@ -265,7 +265,7 @@ main(int argc, char** argv)
         // ImGui::ShowMetricsWindow();
 
         engine.init->clear_screen(color::light_gray);
-        engine.imgui->Render();
+        engine.imgui->render();
 
         SDL_GL_SwapWindow(engine.window->window);
     }

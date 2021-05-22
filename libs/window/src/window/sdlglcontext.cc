@@ -4,14 +4,12 @@
 
 #include "window/sdlwindow.h"
 
-#include "SDL.h"
+#include "SDL_video.h"
 
 
 namespace euphoria::window
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("sdl.gl-context")
-
-    SdlGlContext::SdlGlContext(SdlWindow* window) : context(nullptr)
+    sdl_gl_context::sdl_gl_context(sdl_window* window) : context(nullptr)
     {
         context = SDL_GL_CreateContext(window->window);
         if(context == nullptr)
@@ -21,8 +19,8 @@ namespace euphoria::window
         }
     }
 
-    SdlGlContext::~SdlGlContext()
+    sdl_gl_context::~sdl_gl_context()
     {
         SDL_GL_DeleteContext(context);
     }
-}  // namespace euphoria::window
+}

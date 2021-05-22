@@ -8,7 +8,6 @@ set(app_src
     src/window/engine.cc src/window/engine.h
     src/window/fakesdlevent.h
     src/window/filesystem.cc src/window/filesystem.h
-    src/window/imgui_ext.cc src/window/imgui_ext.h
     src/window/imgui_extra.cc src/window/imgui_extra.h
     src/window/imgui_icons.h
     src/window/imguilibrary.cc src/window/imguilibrary.h
@@ -17,7 +16,6 @@ set(app_src
     src/window/sdllibrary.cc src/window/sdllibrary.h
     src/window/sdlwindow.cc src/window/sdlwindow.h
     src/window/timer.cc src/window/timer.h
-    src/window/timgui.h
 )
 set(src ${app_src})
 source_group("" FILES ${app_src})

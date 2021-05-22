@@ -4,12 +4,14 @@
 
 namespace euphoria::window
 {
-    SdlTimer::SdlTimer()
-        : current_time_(SDL_GetPerformanceCounter()), last_time_(0)
-    {}
+    sdl_timer::sdl_timer()
+        : current_time_(SDL_GetPerformanceCounter())
+        , last_time_(0)
+    {
+    }
 
     float
-    SdlTimer::Update()
+    sdl_timer::update()
     {
         last_time_     = current_time_;
         current_time_  = SDL_GetPerformanceCounter();
@@ -17,4 +19,4 @@ namespace euphoria::window
                          / SDL_GetPerformanceFrequency();
         return dt;
     }
-}  // namespace euphoria::window
+}

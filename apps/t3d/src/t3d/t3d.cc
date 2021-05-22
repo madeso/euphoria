@@ -22,7 +22,7 @@
 #include "window/imguilibrary.h"
 #include "window/imgui_icons.h"
 #include "window/key.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 
 #include "t3d/tilelibrary.h"
 #include "t3d/editor.h"
@@ -50,9 +50,9 @@ namespace euphoria::t3d
     [[nodiscard]] int
     T3d::Start(const core::argparse::name_and_arguments& args)
     {
-        engine = std::make_shared<window::Engine>();
+        engine = std::make_shared<window::engine>();
 
-        if(const auto r = engine->Setup(args); r != 0)
+        if(const auto r = engine->setup(args); r != 0)
         {
             return r;
         }
@@ -60,7 +60,7 @@ namespace euphoria::t3d
         int width  = 1280;
         int height = 720;
 
-        if(engine->CreateWindow("t3d", width, height) == false)
+        if(engine->create_window("t3d", width, height) == false)
         {
             return -2;
         }
@@ -83,11 +83,11 @@ namespace euphoria::t3d
         editor = std::make_shared<Editor>(&grid_data, world.get(), tile_library.get());
         editor->tools.PushTool(std::make_shared<NoTool>());
 
-        timer = std::make_shared<window::SdlTimer>();
+        timer = std::make_shared<window::sdl_timer>();
         
         UpdateGrid();
 
-        engine->window->EnableCharEvent(!immersive_mode);
+        engine->window->enable_char_event(!immersive_mode);
 
         viewport_handler = std::make_shared<render::viewport_handler>
         (
@@ -184,13 +184,13 @@ namespace euphoria::t3d
     {
         int window_width  = 0;
         int window_height = 0;
-        if(engine->HandleResize(e, &window_width, &window_height))
+        if(engine->on_resize(e, &window_width, &window_height))
         {
             viewport_handler->set_size(window_width, window_height);
         }
         if(show_imgui)
         {
-            engine->imgui->ProcessEvents(&e);
+            engine->imgui->process_events(&e);
         }
 
         auto&      io = ImGui::GetIO();
@@ -218,7 +218,7 @@ namespace euphoria::t3d
         }
         case SDL_KEYDOWN:
         case SDL_KEYUP: {
-            const auto key = window::ToKey(e.key.keysym);
+            const auto key = window::to_key(e.key.keysym);
             const bool down = e.type == SDL_KEYDOWN;
             OnKey(key, down, forward_keyboard);
         }
@@ -227,7 +227,7 @@ namespace euphoria::t3d
         case SDL_MOUSEBUTTONDOWN:
         case SDL_MOUSEBUTTONUP:
             {
-                const auto button = window::ToKey(e.button);
+                const auto button = window::to_key(e.button);
                 const bool down = e.type == SDL_MOUSEBUTTONDOWN;
                 OnMouseButton(button, down, forward_mouse);
             }
@@ -279,8 +279,8 @@ namespace euphoria::t3d
                 if(!down)
                 {
                     immersive_mode = !immersive_mode;
-                    engine->window->KeepWithin(immersive_mode);
-                    engine->window->EnableCharEvent(!immersive_mode);
+                    engine->window->keep_within(immersive_mode);
+                    engine->window->enable_char_event(!immersive_mode);
                 }
                 break;
             default:
@@ -363,16 +363,16 @@ namespace euphoria::t3d
 
         if(grid_window)
         {
-            window::BeginFixedOverlay(window::ImguiCorner::TopLeft, "grid overlay", 10.0f, 30.0f);
+            window::imgui::begin_fixed_overlay(window::corner::top_left, "grid overlay", 10.0f, 30.0f);
             OnGridWindow();
             ImGui::End();
         }
 
         if(pending_files.HasMoreFiles())
         {
-            window::BeginFixedOverlay(window::ImguiCorner::BottomLeft, "pending files");
+            window::imgui::begin_fixed_overlay(window::corner::bottom_left, "pending files");
             const auto frac = pending_files.index / static_cast<float>(pending_files.files.size());
-            window::ImguiLabel("Loading tiles...");
+            window::imgui::label("Loading tiles...");
             ImGui::ProgressBar(frac, ImVec2{120, 0});
             ImGui::End();
         }
@@ -482,9 +482,9 @@ namespace euphoria::t3d
             reinterpret_cast<int*>(&world->light.light_type),
             "Directional\0Point\0Spot\0\0"
         );
-        window::ImGuiColorEdit("Ambient", &world->light.ambient);
-        window::ImGuiColorEdit("Diffuse", &world->light.diffuse);
-        window::ImGuiColorEdit("Specular", &world->light.specular);
+        window::imgui::color_edit("Ambient", &world->light.ambient);
+        window::imgui::color_edit("Diffuse", &world->light.diffuse);
+        window::imgui::color_edit("Specular", &world->light.specular);
     }
 
 
@@ -562,14 +562,14 @@ namespace euphoria::t3d
     void
     T3d::OnCameraWindow()
     {
-        window::ImguiAngleSlider
+        window::imgui::angle_slider
         (
             "Horizontal",
             &orbit.horizontal_rotation,
             core::angle::Zero(),
             core::angle::OneTurn()
         );
-        window::ImguiAngleSlider
+        window::imgui::angle_slider
         (
             "Vertical",
             &orbit.vertical_rotation,
@@ -702,7 +702,7 @@ namespace euphoria::t3d
     {
         show_imgui = !immersive_mode;
         //  const float delta =
-            timer->Update();
+        timer->update();
 
         world->step();
         editor->tools.PerformTools();
@@ -719,7 +719,7 @@ namespace euphoria::t3d
 
         if(show_imgui)
         {
-            engine->imgui->StartNewFrame();
+            engine->imgui->start_new_frame();
             ProcessImgui();
         }
 
@@ -732,7 +732,7 @@ namespace euphoria::t3d
 
         if(show_imgui)
         {
-            engine->imgui->Render();
+            engine->imgui->render();
         }
 
         SDL_GL_SwapWindow(engine->window->window);
@@ -746,10 +746,10 @@ namespace euphoria::t3d
         case 0:
             return;
         case 1:
-            window::HelpText(desc);
+            window::imgui::help_text(desc);
             break;
         case 2:
-            window::HelpMarker(desc); 
+            window::imgui::help_marker(desc);
             break;
         default:
             DIE("Invalid style");

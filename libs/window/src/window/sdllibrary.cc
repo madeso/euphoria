@@ -6,10 +6,8 @@
 
 namespace euphoria::window
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("sdl")
-
     void
-    SetupSdlOpenGlAttributes()
+    setup_sdl_open_gl_attributes()
     {
         SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 4);
         SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 4);
@@ -30,12 +28,12 @@ namespace euphoria::window
         SDL_GL_SetAttribute(SDL_GL_RETAINED_BACKING, 1);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
-        SDL_GL_SetAttribute(
-                SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+        SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
     }
 
-    SdlLibrary::SdlLibrary() : ok(false)
+    sdl_library::sdl_library()
+        : ok(false)
     {
         if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0)
         {
@@ -43,12 +41,12 @@ namespace euphoria::window
             return;
         }
 
-        SetupSdlOpenGlAttributes();
+        setup_sdl_open_gl_attributes();
         ok = true;
     }
 
-    SdlLibrary::~SdlLibrary()
+    sdl_library::~sdl_library()
     {
         SDL_Quit();
     }
-}  // namespace euphoria::window
+}

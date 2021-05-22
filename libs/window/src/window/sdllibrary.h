@@ -1,16 +1,13 @@
-#ifndef EUPHORIA_SDLLIBRARY_H
-#define EUPHORIA_SDLLIBRARY_H
+#pragma once
 
 namespace euphoria::window
 {
-    struct SdlLibrary
+    struct sdl_library
     {
     public:
-        SdlLibrary();
-        ~SdlLibrary();
+        sdl_library();
+        ~sdl_library();
 
         bool ok;
     };
-}  // namespace euphoria::window
-
-#endif  // EUPHORIA_SDLLIBRARY_H
+}

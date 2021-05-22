@@ -25,7 +25,7 @@
 
 #include "window/key.h"
 #include "window/imguilibrary.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 #include "window/filesystem.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
@@ -46,8 +46,8 @@ using namespace euphoria::window;
 int
 main(int argc, char* argv[])
 {
-    Engine engine;
-    if(const auto ret = engine.Setup(argparse::name_and_arguments::extract(argc, argv)); ret != 0)
+    engine engine;
+    if(const auto ret = engine.setup(argparse::name_and_arguments::extract(argc, argv)); ret != 0)
     {
         return ret;
     }
@@ -66,13 +66,13 @@ main(int argc, char* argv[])
 
     if
     (
-        engine.CreateWindow
-        (
-            "euphoria 2d demo",
-            window_width,
-            window_height,
-            true
-        ) == false
+            engine.create_window
+                    (
+                            "euphoria 2d demo",
+                            window_width,
+                            window_height,
+                            true
+                    ) == false
     )
     {
         return -1;
@@ -145,7 +145,7 @@ main(int argc, char* argv[])
         // imgui
         if(show_imgui)
         {
-            engine.imgui->StartNewFrame();
+            engine.imgui->start_new_frame();
 
             ImGui::Begin("2d");
             ImGui::DragFloat("width", &sprite_width);
@@ -164,10 +164,10 @@ main(int argc, char* argv[])
 
             if(show_imgui)
             {
-                engine.imgui->ProcessEvents(&e);
+                engine.imgui->process_events(&e);
             }
 
-            if(engine.HandleResize(e, &window_width, &window_height))
+            if(engine.on_resize(e, &window_width, &window_height))
             {
                 viewport_handler.set_size(window_width, window_height);
             }
@@ -180,7 +180,7 @@ main(int argc, char* argv[])
             else if(e.type == SDL_KEYUP || e.type == SDL_KEYDOWN)
             {
                 const bool down = e.type == SDL_KEYDOWN;
-                const auto key = ToKey(e.key.keysym);
+                const auto key = to_key(e.key.keysym);
                 if(down && key == key::escape)
                 {
                     running = false;
@@ -224,7 +224,7 @@ main(int argc, char* argv[])
                 );
         if(show_imgui)
         {
-            engine.imgui->Render();
+            engine.imgui->render();
         }
         SDL_GL_SwapWindow(engine.window->window);
     }

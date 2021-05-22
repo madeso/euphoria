@@ -38,11 +38,11 @@ namespace euphoria::editor
         std::shared_ptr<scalingsprite::ScalingSprite> scaling;
 
         std::shared_ptr<render::texture2d> texture;
-        window::Canvas canvas;
+        window::canvas canvas;
         core::vec2i mouse_popup = core::vec2i {0, 0};
         LineHoverData hover;
 
         bool
-        Run(const window::CanvasConfig& cc, const ScimedConfig& scc);
+        Run(const window::canvas_config& cc, const ScimedConfig& scc);
     };
 }

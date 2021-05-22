@@ -5,7 +5,7 @@
 namespace euphoria::window
 {
     std::string
-    GetBasePath()
+    get_base_path()
     {
         char* base_path = SDL_GetBasePath();
         if(base_path)
@@ -21,7 +21,7 @@ namespace euphoria::window
     }
 
     std::string
-    GetPrefPath()
+    get_preference_path()
     {
         char* base_path = SDL_GetPrefPath("madeso", "euphoria demo");
         if(base_path)
@@ -35,4 +35,4 @@ namespace euphoria::window
             return "";
         }
     }
-}  // namespace euphoria::window
+}

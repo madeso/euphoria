@@ -411,7 +411,7 @@ namespace euphoria::core
             return right - left;
         }
 
-        // todo(Gustav): provide a KeepWithin, WrapWithin functions
+        // todo(Gustav): provide a keep_within, WrapWithin functions
         // like is_within below
 
         range<T>

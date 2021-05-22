@@ -8,7 +8,7 @@
 #include "core/cint.h"
 #include "core/log.h"
 
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 #include "window/imgui_icons.h"
 
 #include <optional>
@@ -124,8 +124,8 @@ namespace euphoria::editor
     bool
     FileBrowser::Run()
     {
-        window::InputText("URL", &current_folder.path);
-        window::InputText("Filter", &filter);
+        window::imgui::input_text("URL", &current_folder.path);
+        window::imgui::input_text("Filter", &filter);
         if(ImGui::ListBoxHeader("", ImVec2 {-1, -1}) == false)
         {
             return false;

@@ -32,7 +32,7 @@
 
 #include "window/imguilibrary.h"
 #include "window/timer.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
 #include "window/sdlglcontext.h"
@@ -67,7 +67,7 @@ operator+(const ImVec2& lhs, const ImVec2& rhs)
 struct StyleData
 {
     ScimedConfig scc = ScimedConfig {};
-    CanvasConfig cc  = CanvasConfig {};
+    canvas_config cc  = canvas_config {};
 };
 
 struct GenericWindow
@@ -434,11 +434,11 @@ struct FileHandlerList
         {
             if
             (
-                ImguiSelectableOrDisabled
-                (
-                    path.has_value(),
-                    handler->context_menu.c_str()
-                )
+                    imgui::selectable_or_disabled
+                    (
+                        path.has_value(),
+                        handler->context_menu.c_str()
+                    )
             )
             {
                 handler->Open(windows, path.value());
@@ -450,9 +450,9 @@ struct FileHandlerList
 int
 main(int argc, char** argv)
 {
-    Engine engine;
+    engine engine;
 
-    if (const auto r = engine.Setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    if (const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -462,13 +462,13 @@ main(int argc, char** argv)
     int window_height = 720;
 
     if(
-        !engine.CreateWindow
-        (
-            "Euphoria Editor",
-            window_width,
-            window_height,
-            true
-        )
+        !engine.create_window
+                (
+                        "Euphoria Editor",
+                        window_width,
+                        window_height,
+                        true
+                )
     )
     {
         return -1;
@@ -613,9 +613,9 @@ main(int argc, char** argv)
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
-            engine.imgui->ProcessEvents(&e);
+            engine.imgui->process_events(&e);
 
-            if(engine.HandleResize(e, &window_width, &window_height))
+            if(engine.on_resize(e, &window_width, &window_height))
             {
                 viewport_handler.set_size(window_width, window_height);
             }
@@ -629,7 +629,7 @@ main(int argc, char** argv)
             }
         }
 
-        engine.imgui->StartNewFrame();
+        engine.imgui->start_new_frame();
 
         if(ImGui::BeginMainMenuBar())
         {
@@ -726,7 +726,7 @@ main(int argc, char** argv)
         // ImGui::ShowMetricsWindow();
 
         engine.init->clear_screen(color::light_gray);
-        engine.imgui->Render();
+        engine.imgui->render();
 
         remove_matching
         (

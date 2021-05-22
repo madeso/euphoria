@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_WINDOW_KEY_H
-#define EUPHORIA_WINDOW_KEY_H
+#pragma once
 
 #include "SDL_system.h"
 #include "SDL_events.h"
@@ -9,10 +8,8 @@
 namespace euphoria::window
 {
     core::key
-    ToKey(SDL_Keysym key);
+    to_key(SDL_Keysym key);
 
     core::MouseButton
-    ToKey(SDL_MouseButtonEvent mb);
-}  // namespace euphoria::window
-
-#endif  // EUPHORIA_WINDOW_KEY_H
+    to_key(SDL_MouseButtonEvent mb);
+}

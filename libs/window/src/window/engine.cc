@@ -21,13 +21,10 @@
 
 namespace euphoria::window
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("window.engine")
+    engine::engine() = default;
 
 
-    Engine::Engine() = default;
-
-
-    Engine::~Engine()
+    engine::~engine()
     {
         imgui.reset();
         init.reset();
@@ -40,9 +37,9 @@ namespace euphoria::window
 
 
     int
-    Engine::Setup(const core::argparse::name_and_arguments& args)
+    engine::setup(const core::argparse::name_and_arguments& args)
     {
-        sdl = std::make_unique<SdlLibrary>();
+        sdl = std::make_unique<sdl_library>();
         if(sdl->ok == false)
         {
             LOG_ERROR("Failed to create SDL");
@@ -52,8 +49,10 @@ namespace euphoria::window
         auto parser = core::argparse::parser("euphoria engine");
 
         auto current_directory = core::get_current_directory();
-        parser.add("-w", &current_directory)
-                .set_help("Sets the working direction if it's differnt from the current folder");
+        parser
+            .add("-w", &current_directory)
+            .set_help("Sets the working direction if it's different from the current folder")
+            ;
         const auto parse_result = parser.parse(args);
         if(parse_result != core::argparse::ok)
         {
@@ -87,7 +86,7 @@ namespace euphoria::window
 
 
     bool
-    Engine::CreateWindow
+    engine::create_window
     (
         const std::string& title,
         int width,
@@ -95,9 +94,9 @@ namespace euphoria::window
         bool blend_hack
     )
     {
-        const auto pref_path = GetPrefPath();
+        const auto pref_path = get_preference_path();
 
-        window = std::make_unique<SdlWindow>(title, width, height, true);
+        window = std::make_unique<sdl_window>(title, width, height, true);
 
         if(window->window == nullptr)
         {
@@ -107,7 +106,7 @@ namespace euphoria::window
 
         window_id = SDL_GetWindowID(window->window);
 
-        context.reset(new SdlGlContext {window.get()});
+        context.reset(new sdl_gl_context {window.get()});
 
         if(context->context == nullptr)
         {
@@ -115,10 +114,16 @@ namespace euphoria::window
             return false;
         }
 
-        init.reset(new render::init {
+        init.reset
+        (
+            new render::init
+            {
                 SDL_GL_GetProcAddress,
-                blend_hack ? render::init::blend_hack::enable_hack
-                           : render::init::blend_hack::no_hack});
+                blend_hack
+                    ? render::init::blend_hack::enable_hack
+                   : render::init::blend_hack::no_hack
+            }
+        );
 
         if(init->is_ok == false)
         {
@@ -128,7 +133,7 @@ namespace euphoria::window
 
         render::setup_opengl_debug();
 
-        imgui.reset(new ImguiLibrary {window->window, context.get(), pref_path});
+        imgui.reset(new imgui::library{window->window, context.get(), pref_path});
         ImGui::StyleColorsLight();
 
         return true;
@@ -136,7 +141,7 @@ namespace euphoria::window
 
 
     bool
-    Engine::HandleResize(SDL_Event e, int* width, int* height)
+    engine::on_resize(SDL_Event e, int* width, int* height)
     {
         if(e.type == SDL_WINDOWEVENT)
         {
@@ -147,7 +152,8 @@ namespace euphoria::window
                 case SDL_WINDOWEVENT_SIZE_CHANGED:
                     SDL_GetWindowSize(window->window, width, height);
                     return true;
-                default: break;
+                default:
+                    break;
                 }
             }
         }
@@ -155,4 +161,4 @@ namespace euphoria::window
         return false;
     }
 
-}  // namespace euphoria::window
+}

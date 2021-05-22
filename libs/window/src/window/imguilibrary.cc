@@ -15,20 +15,21 @@
 #include "window/sdlglcontext.h"
 #include "window/imgui_icons.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("window.imguilibrary")
 
-namespace euphoria::window
+namespace euphoria::window::imgui
 {
     void
-    AddForkAwesome()
+    add_fork_awesome()
     {
         ImGuiIO& io = ImGui::GetIO();
 
         // io.Fonts->AddFontDefault();
-        io.Fonts->AddFontFromMemoryCompressedTTF(
-                NotoSansDisplay_compressed_data,
-                NotoSansDisplay_compressed_size,
-                16);
+        io.Fonts->AddFontFromMemoryCompressedTTF
+        (
+            NotoSansDisplay_compressed_data,
+            NotoSansDisplay_compressed_size,
+            16
+        );
 
         const uint64_t min_mdi = ICON_MIN_MDI;
         const uint64_t max_mdi = ICON_MAX_MDI;
@@ -51,16 +52,18 @@ namespace euphoria::window
         icons_config.PixelSnapH       = true;
         icons_config.GlyphMinAdvanceX = 13.0f;
 
-        io.Fonts->AddFontFromMemoryCompressedTTF(
-                MaterialDesignIcons_compressed_data,
-                MaterialDesignIcons_compressed_size,
-                13.0f,
-                &icons_config,
-                icons_ranges);
+        io.Fonts->AddFontFromMemoryCompressedTTF
+        (
+            MaterialDesignIcons_compressed_data,
+            MaterialDesignIcons_compressed_size,
+            13.0f,
+            &icons_config,
+            icons_ranges
+        );
     }
 
 
-    ImguiLibrary::ImguiLibrary(SDL_Window* window, SdlGlContext* context, const std::string& path)
+    library::library(SDL_Window* window, sdl_gl_context* context, const std::string& path)
         : window_(window), path_(path + "imgui.ini")
     {
         // hrm... euphoria is using #version 330 core
@@ -78,12 +81,12 @@ namespace euphoria::window
         ImGui_ImplSDL2_InitForOpenGL(window, context->context);
         ImGui_ImplOpenGL3_Init(glsl_version);
 
-        AddForkAwesome();
+        add_fork_awesome();
 
         ImGui::GetIO().IniFilename = path_.c_str();
     }
 
-    ImguiLibrary::~ImguiLibrary()
+    library::~library()
     {
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplSDL2_Shutdown();
@@ -91,13 +94,13 @@ namespace euphoria::window
     }
 
     void
-    ImguiLibrary::ProcessEvents(const SDL_Event* event)
+    library::process_events(const SDL_Event* event)
     {
         ImGui_ImplSDL2_ProcessEvent(event);
     }
 
     void
-    ImguiLibrary::StartNewFrame()
+    library::start_new_frame()
     {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame(window_);
@@ -105,11 +108,11 @@ namespace euphoria::window
     }
 
     void
-    ImguiLibrary::Render()
+    library::render()
     {
         // ImGui::ShowTestWindow();
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
     }
 
-}  // namespace euphoria::window
+}

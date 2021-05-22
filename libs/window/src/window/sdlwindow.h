@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_SDLWINDOW_H
-#define EUPHORIA_SDLWINDOW_H
+#pragma once
+
 
 #include "core/vec2.h"
 #include <string>
@@ -11,29 +11,28 @@ extern "C"
 
 namespace euphoria::window
 {
-    struct SdlWindow
+    struct sdl_window
     {
-    public:
-        SdlWindow(
-                const std::string& title,
-                int                width,
-                int                height,
-                bool               resize = false);
+        sdl_window
+        (
+            const std::string& title,
+            int                width,
+            int                height,
+            bool               resize = false
+        );
 
-        ~SdlWindow();
-
-        void
-        KeepWithin(bool k);
+        ~sdl_window();
 
         void
-        EnableCharEvent(bool enable);
+        keep_within(bool k);
+
+        void
+        enable_char_event(bool enable);
 
         // 0-(size-1)
         const core::vec2i
-        GetMousePosition() const;
+        get_mouse_position() const;
 
         SDL_Window* window;
     };
-}  // namespace euphoria::window
-
-#endif  // EUPHORIA_SDLWINDOW_H
+}

@@ -32,7 +32,7 @@
 
 #include "window/key.h"
 #include "window/imguilibrary.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 #include "window/filesystem.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
@@ -61,7 +61,7 @@ ImWidget(const char* title, size2f* s)
 void
 ImWidget(const char* title, std::string* str)
 {
-    InputText(title, str);
+    imgui::input_text(title, str);
 }
 
 bool
@@ -164,7 +164,7 @@ ImWidget(const char* title, euphoria::render::texture2d* tex)
     if(tex == nullptr) { return; }
 
     ImGui::Text("%s", title);
-    ImguiImage(tex);
+    euphoria::window::imgui::image(tex);
 }
 
 void
@@ -219,7 +219,7 @@ struct Vis : public visitor
 bool
 ImWidget(widget* w)
 {
-    InputText("name", &w->name);
+    imgui::input_text("name", &w->name);
     ImWidget("margin", &w->margin);
     ImWidget("padding", &w->padding);
     ImWidget("rect", &w->rect);
@@ -292,7 +292,7 @@ ImWidget(skin* skin)
 {
     if(ImGui::TreeNode(skin->name.c_str()) == false) { return; }
 
-    InputText("name", &skin->name);
+    imgui::input_text("name", &skin->name);
     ImWidget("font", skin->font.get());
     ImGui::DragFloat("text size", &skin->text_size);
 
@@ -318,8 +318,8 @@ DebugUi(root* root)
 int
 main(int argc, char* argv[])
 {
-    Engine engine;
-    if(const auto ret = engine.Setup(argparse::name_and_arguments::extract(argc, argv)); ret != 0)
+    engine engine;
+    if(const auto ret = engine.setup(argparse::name_and_arguments::extract(argc, argv)); ret != 0)
     {
         return ret;
     }
@@ -338,13 +338,13 @@ main(int argc, char* argv[])
 
     if
     (
-        engine.CreateWindow
-        (
-            "euphoria gui demo",
-            window_width,
-            window_height,
-            true
-        ) == false
+            engine.create_window
+                    (
+                            "euphoria gui demo",
+                            window_width,
+                            window_height,
+                            true
+                    ) == false
     )
     {
         return -1;
@@ -407,7 +407,7 @@ main(int argc, char* argv[])
         // imgui
         if(show_imgui)
         {
-            engine.imgui->StartNewFrame();
+            engine.imgui->start_new_frame();
 
             ImGui::Begin("Gui");
             DebugUi(&root);
@@ -423,10 +423,10 @@ main(int argc, char* argv[])
 
             if(show_imgui)
             {
-                engine.imgui->ProcessEvents(&e);
+                engine.imgui->process_events(&e);
             }
 
-            if(engine.HandleResize(e, &window_width, &window_height))
+            if(engine.on_resize(e, &window_width, &window_height))
             {
                 viewport_handler.set_size(window_width, window_height);
                 root.resize(size2f::create_from_width_height(window_width, window_height));
@@ -440,7 +440,7 @@ main(int argc, char* argv[])
             else if(e.type == SDL_KEYUP || e.type == SDL_KEYDOWN)
             {
                 const bool down = e.type == SDL_KEYDOWN;
-                const auto key = ToKey(e.key.keysym);
+                const auto key = to_key(e.key.keysym);
                 if(down && key == key::escape)
                 {
                     running = false;
@@ -482,7 +482,7 @@ main(int argc, char* argv[])
         root.render(&renderer);
         if(show_imgui)
         {
-            engine.imgui->Render();
+            engine.imgui->render();
         }
         SDL_GL_SwapWindow(engine.window->window);
     }

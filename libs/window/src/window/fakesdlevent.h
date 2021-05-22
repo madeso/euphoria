@@ -1,7 +1,4 @@
-#ifndef EUPHORIA_FAKESDLEVENT_H
-#define EUPHORIA_FAKESDLEVENT_H
+#pragma once
 
 struct SDL_Window;
 typedef union SDL_Event SDL_Event;
-
-#endif  // EUPHORIA_FAKESDLEVENT_H

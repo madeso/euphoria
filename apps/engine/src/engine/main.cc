@@ -27,7 +27,7 @@
 
 #include "window/key.h"
 #include "window/imguilibrary.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 #include "window/filesystem.h"
 #include "window/sdllibrary.h"
 #include "window/sdlwindow.h"
@@ -190,8 +190,8 @@ int my_exception_handler(lua_State* L, sol::optional<const std::exception&> mayb
 int
 main(int argc, char* argv[])
 {
-    Engine engine;
-    if(const auto ret = engine.Setup(argparse::name_and_arguments::extract(argc, argv)) != 0; ret != 0)
+    engine engine;
+    if(const auto ret = engine.setup(argparse::name_and_arguments::extract(argc, argv)) != 0; ret != 0)
     {
         return ret;
     }
@@ -211,13 +211,13 @@ main(int argc, char* argv[])
 
     if
     (
-        engine.CreateWindow
-        (
-            gamedata.title,
-            window_width,
-            window_height,
-            true
-        ) == false
+            engine.create_window
+                    (
+                            gamedata.title,
+                            window_width,
+                            window_height,
+                            true
+                    ) == false
     )
     {
         return -1;
@@ -353,7 +353,7 @@ main(int argc, char* argv[])
         const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
         SDL_Event e;
 
-        engine.imgui->StartNewFrame();
+        engine.imgui->start_new_frame();
 
         if(!has_crashed)
         {
@@ -375,17 +375,17 @@ main(int argc, char* argv[])
             {
                 running = false;
             }
-            if(engine.HandleResize(e, &window_width, &window_height))
+            if(engine.on_resize(e, &window_width, &window_height))
             {
                 viewport_handler.set_size(window_width, window_height);
             }
 
             if(has_crashed)
             {
-                engine.imgui->ProcessEvents(&e);
+                engine.imgui->process_events(&e);
                 if(e.type == SDL_KEYUP)
                 {
-                    const auto key = ToKey(e.key.keysym);
+                    const auto key = to_key(e.key.keysym);
                     if(key == key::escape)
                     {
                         running = false;
@@ -402,7 +402,7 @@ main(int argc, char* argv[])
                 else if(e.type == SDL_KEYUP || e.type == SDL_KEYDOWN)
                 {
                     const bool down = e.type == SDL_KEYDOWN;
-                    const auto key = ToKey(e.key.keysym);
+                    const auto key = to_key(e.key.keysym);
                     input.SetKeyState(key, down ? 1.0f : 0.0f);
                 }
                 else if(e.type == SDL_MOUSEBUTTONDOWN
@@ -438,7 +438,7 @@ main(int argc, char* argv[])
             // though clicking around and debugging might be useful...
             engine.init->clear_screen(color::cornflower_blue);
 
-            if(BeginFixedOverlay(ImguiCorner::Center, "Crashed"))
+            if(imgui::begin_fixed_overlay(corner::center, "Crashed"))
             {
                 ImGui::TextDisabled("%s", crash_message_string.c_str());
                 if(ImGui::Button("Quit"))
@@ -454,7 +454,7 @@ main(int argc, char* argv[])
             world.draw(&renderer);
         }
 
-        engine.imgui->Render();
+        engine.imgui->render();
         SDL_GL_SwapWindow(engine.window->window);
 
         world.reg.remove_entities_tagged_for_removal();

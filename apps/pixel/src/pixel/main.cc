@@ -10,7 +10,6 @@
 
 
 #include "window/imguilibrary.h"
-#include "window/imgui_ext.h"
 #include "window/imgui_extra.h"
 #include "window/imgui_icons.h"
 #include "window/sdlwindow.h"
@@ -24,7 +23,7 @@
 
 #define IMGUI_DEFINE_MATH_OPERATORS
 #include "imgui/imgui_internal.h"
-#include "window/imgui_ext.h"
+#include "window/imgui_extra.h"
 
 
 using namespace euphoria;
@@ -100,9 +99,9 @@ FloodFill(image* image, int x, int y, const rgbai& target_color, const rgbai& re
 int
 main(int argc, char** argv)
 {
-    Engine engine;
+    engine engine;
 
-    if (const auto r = engine.Setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    if (const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -111,7 +110,7 @@ main(int argc, char** argv)
     int window_width  = 1280;
     int window_height = 720;
 
-    if(!engine.CreateWindow("PixLE", window_width, window_height, true))
+    if(!engine.create_window("PixLE", window_width, window_height, true))
     {
         return -1;
     }
@@ -124,8 +123,8 @@ main(int argc, char** argv)
 
     //////////////////////////////////////////////////////////////////////////////
     // main loop
-    CanvasConfig cc;
-    Canvas canvas;
+    canvas_config cc;
+    canvas canvas;
     image image;
     core::random random;
     Tool tool = Tool::Pen;
@@ -144,9 +143,9 @@ main(int argc, char** argv)
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
-            engine.imgui->ProcessEvents(&e);
+            engine.imgui->process_events(&e);
 
-            if(engine.HandleResize(e, &window_width, &window_height))
+            if(engine.on_resize(e, &window_width, &window_height))
             {
                 // viewport_handler.set_size(window_width, window_height);
             }
@@ -160,7 +159,7 @@ main(int argc, char** argv)
             }
         }
 
-        engine.imgui->StartNewFrame();
+        engine.imgui->start_new_frame();
 
         if(ImGui::BeginMainMenuBar())
         {
@@ -196,17 +195,17 @@ main(int argc, char** argv)
         {
             auto toolbar_button = [&tool, toolbar_button_size](const char* label, Tool t)
             {
-                if(ToggleButton(label, tool == t, toolbar_button_size))
+                if(imgui::toggle_button(label, tool == t, toolbar_button_size))
                 {
                     tool = t;
                 }
             };
             toolbar_button(ICON_MDI_FORMAT_COLOR_HIGHLIGHT, Tool::Pen);
-            HelpText("Pen");
+            imgui::help_text("Pen");
 
             ImGui::SameLine();
             toolbar_button(ICON_MDI_FORMAT_COLOR_FILL, Tool::Fill);
-            HelpText("Fill");
+            imgui::help_text("Fill");
         }
         ImGui::End();
 
@@ -219,7 +218,7 @@ main(int argc, char** argv)
             const auto big_offset = 0.20f;
             const auto max_pal_size = tile_size * 5;
 
-            if(imgui::CanvasBegin(ImVec4(0.3, 0.3, 0.3, 1.0f), "palette"))
+            if(imgui::canvas_begin(ImVec4(0.3, 0.3, 0.3, 1.0f), "palette"))
             {
                 const auto p = ImGui::GetCursorScreenPos();
                 const auto size = ImGui::GetContentRegionAvail();
@@ -284,7 +283,7 @@ main(int argc, char** argv)
                     draw_list->AddRectFilled(p + foreground_pos, p + foreground_pos + bs, C(palette.get_safe_index(foreground)));
                 }
 
-                imgui::CanvasEnd();
+                imgui::canvas_end();
             }
         }
         ImGui::End();
@@ -301,8 +300,8 @@ main(int argc, char** argv)
                 const auto left_clicked = ImGui::IsMouseClicked(0);
                 const auto right_clicked = ImGui::IsMouseClicked(1);
 
-                canvas.Begin(cc);
-                canvas.ShowGrid(cc);
+                canvas.begin(cc);
+                canvas.show_grid(cc);
 
                 // draw image
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -311,8 +310,8 @@ main(int argc, char** argv)
                     const auto pixel_size = 5;
                     const auto p = ImVec2(x * pixel_size, y*pixel_size);
                     const auto s = ImVec2(pixel_size, pixel_size);
-                    const auto ps = canvas.WorldToScreen(p);
-                    const auto pss = canvas.WorldToScreen(p+s);
+                    const auto ps = canvas.world_to_screen(p);
+                    const auto pss = canvas.world_to_screen(p + s);
                     const auto m = ImGui::GetMousePos();
                     if(ps.x <= m.x && ps.y <= m.y && pss.x >= m.x && pss.y >= m.y)
                     {
@@ -343,8 +342,8 @@ main(int argc, char** argv)
                     draw_list->AddRectFilled(ps, pss, C(c));
                 });
 
-                canvas.ShowRuler(cc);
-                canvas.End(cc);
+                canvas.show_ruler(cc);
+                canvas.end(cc);
             }
         }
         ImGui::End();
@@ -352,7 +351,7 @@ main(int argc, char** argv)
         // ImGui::ShowMetricsWindow();
 
         engine.init->clear_screen(color::light_gray);
-        engine.imgui->Render();
+        engine.imgui->render();
 
         SDL_GL_SwapWindow(engine.window->window);
     }
