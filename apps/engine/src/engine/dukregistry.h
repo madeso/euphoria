@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_DUKREGISTRY_H
-#define EUPHORIA_DUKREGISTRY_H
+#pragma once
 
 #include "core/ecs-systems.h"
 #include "core/ecs.h"
@@ -15,63 +14,66 @@
 
 namespace euphoria::engine
 {
-    struct CustomArguments
+    struct custom_arguments
     {
         std::map<std::string, float> numbers;
     };
 
-    struct DukRegistry
+    struct script_registry
     {
     public:
-        DukRegistry(core::ecs::registry* r, Components* components);
+        script_registry(core::ecs::registry* r, engine::components* c);
 
-        using CreationCallback = sol::protected_function;
-
-        core::ecs::component_id
-        CreateNewId(const std::string& name, const CreationCallback& fv);
+        using creation_callback = sol::protected_function;
 
         core::ecs::component_id
-        CreateNewId(const std::string& name);
+        create_new_id(const std::string& name, const creation_callback& fv);
+
+        core::ecs::component_id
+        create_new_id(const std::string& name);
 
         bool
-        GetCustomComponentByName(const std::string& name, core::ecs::component_id* id);
+        get_custom_component_by_name(const std::string& name, core::ecs::component_id* id);
 
         std::vector<core::ecs::entity_id>
-        EntityView(const std::vector<core::ecs::component_id>& types);
+        entity_view(const std::vector<core::ecs::component_id>& types);
 
         sol::table
-        GetProperty(core::ecs::entity_id ent, core::ecs::component_id comp);
+        get_property(core::ecs::entity_id ent, core::ecs::component_id comp);
 
         void
-        SetProperty(
-                core::ecs::entity_id    ent,
-                core::ecs::component_id comp,
-                sol::table   value);
+        set_property
+        (
+            core::ecs::entity_id    ent,
+            core::ecs::component_id comp,
+            sol::table   value
+        );
 
         sol::table
-        CreateComponent(
-                core::ecs::component_id comp,
-                Sol*          ctx,
-                const CustomArguments& arguments);
+        create_component
+        (
+            core::ecs::component_id comp,
+            Sol*          ctx,
+            const custom_arguments& arguments
+        );
 
         void
-        DestroyEntity(core::ecs::entity_id id);
+        destroy_entity(core::ecs::entity_id id);
 
         template <typename T>
         T*
-        GetComponentOrNull(core::ecs::entity_id ent, core::ecs::component_id comp)
+        get_component_or_null(core::ecs::entity_id ent, core::ecs::component_id comp)
         {
             return reg->get_component_or_null<T>(ent, comp);
         }
 
-        using ScriptComponentMap = std::map<core::ecs::component_id, CreationCallback>;
+        using script_component_map = std::map<core::ecs::component_id, creation_callback>;
 
         core::ecs::registry* reg;
-        Components*        components;
-        ScriptComponentMap scriptComponents;
+        engine::components* components;
+        script_component_map scriptComponents;
     };
-}  // namespace euphoria::engine
+}
 
-TYPEID_SETUP_TYPE(euphoria::engine::CustomArguments);
+TYPEID_SETUP_TYPE(euphoria::engine::custom_arguments);
 
-#endif  // EUPHORIA_DUKREGISTRY_H

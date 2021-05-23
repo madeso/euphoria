@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_BROWSER_H
-#define EUPHORIA_BROWSER_H
+#pragma once
 
 #include <vector>
 #include <string>
@@ -10,7 +9,7 @@
 
 namespace euphoria::editor
 {
-    struct FileBrowser
+    struct file_browser
     {
         core::vfs::dir_path current_folder;
         int selected_file = -1;
@@ -18,20 +17,18 @@ namespace euphoria::editor
         std::string filter = "";
         core::vfs::file_system* file_system = nullptr;
 
-        explicit FileBrowser(core::vfs::file_system* fs);
+        explicit file_browser(core::vfs::file_system* fs);
 
         std::optional<core::vfs::file_path>
-        GetSelectedFile();
+        get_selected_file();
 
         void
-        SelectFile(const std::string& p);
+        select_file(const std::string& p);
 
         void
-        Refresh();
+        refresh();
 
         bool
-        Run();
+        run();
     };
-}  // namespace euphoria::editor
-
-#endif  // EUPHORIA_BROWSER_H
+}

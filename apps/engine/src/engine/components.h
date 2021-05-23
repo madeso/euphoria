@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_COMPONENTS_H
-#define EUPHORIA_COMPONENTS_H
+#pragma once
 
 #include <memory>
 
@@ -11,34 +10,35 @@
 
 namespace euphoria::engine
 {
-    struct CPosition2 : public core::ecs::component
+    struct component_position2 : public core::ecs::component
     {
-        CPosition2();
+        component_position2();
         core::vec2f pos;
     };
 
-    struct CSprite : public core::ecs::component
+    struct component_sprite : public core::ecs::component
     {
-        COMPONENT_CONSTRUCTOR_DEFINITION(CSprite)
+        COMPONENT_CONSTRUCTOR_DEFINITION(component_sprite)
 
         std::shared_ptr<render::texture2d> texture;
     };
 
-    struct Components
+    struct components
     {
-        Components(core::ecs::registry* reg);
+        components(core::ecs::registry* reg);
 
         core::ecs::component_id position2;
         core::ecs::component_id sprite;
     };
 
     core::rectf
-    GetSpriteRect(
-            const core::vec2f&       position,
-            const render::texture2d& texture);
-}  // namespace euphoria::engine
+    get_sprite_rect
+    (
+        const core::vec2f&       position,
+        const render::texture2d& texture
+    );
+}
 
-TYPEID_SETUP_TYPE(euphoria::engine::CPosition2);
-TYPEID_SETUP_TYPE(euphoria::engine::CSprite);
+TYPEID_SETUP_TYPE(euphoria::engine::component_position2);
+TYPEID_SETUP_TYPE(euphoria::engine::component_sprite);
 
-#endif  // EUPHORIA_COMPONENTS_H

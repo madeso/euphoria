@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_OBJECTTEMPLATE_H
-#define EUPHORIA_OBJECTTEMPLATE_H
+#pragma once
 
 #include "core/ecs-id.h"
 #include "core/sol_forward.h"
@@ -19,8 +18,6 @@ namespace euphoria::core::ecs
     struct world;
 }
 
-// struct FileSystem; // ?
-
 namespace euphoria::render
 {
     struct texture_cache;
@@ -28,57 +25,59 @@ namespace euphoria::render
 
 namespace euphoria::engine
 {
-    struct DukRegistry;
-    struct Components;
+    struct script_registry;
+    struct components;
 
-    struct ObjectCreationArgs
+    struct object_creation_arguments
     {
         core::ecs::world* world;
-        DukRegistry*      reg;
+        script_registry*      reg;
         Sol*  ctx;
         Sol*  duk;
 
-        ObjectCreationArgs(
-            core::ecs::world* aworld, DukRegistry* areg, Sol* actx, Sol* aduk);
+        object_creation_arguments
+        (
+            core::ecs::world* aworld,
+            script_registry* areg,
+            Sol* actx,
+            Sol* aduk
+        );
 };
 
-    struct ComponentCreator
+    struct component_creator
     {
-    public:
-        virtual ~ComponentCreator() = default;
+        virtual ~component_creator() = default;
+
         virtual void
-        CreateComponent(const ObjectCreationArgs& args, core::ecs::entity_id id)
-                = 0;
+        create_component(const object_creation_arguments& args, core::ecs::entity_id id) = 0;
     };
 
-    struct ObjectTemplate
+    struct object_template
     {
-    public:
         core::ecs::entity_id
-        CreateObject(const ObjectCreationArgs& args);
+        create_object(const object_creation_arguments& args);
 
-        std::vector<std::shared_ptr<ComponentCreator>> components;
+        std::vector<std::shared_ptr<component_creator>> components;
     };
 
-    struct ObjectCreator
+    struct object_creator
     {
-    public:
-        std::map<std::string, std::shared_ptr<ObjectTemplate>> templates;
+        std::map<std::string, std::shared_ptr<object_template>> templates;
 
-        ObjectTemplate*
-        FindTemplate(const std::string& name);
+        object_template*
+        find_template(const std::string& name);
     };
 
     void
-    LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp);
+    load_templates_but_only_names(const game::Game& json, object_creator* temp);
 
     void
-    LoadTemplates(
-            const game::Game&     json,
-            ObjectCreator*        temp,
-            DukRegistry*          reg,
-            render::texture_cache* cache,
-            Components*           components);
-}  // namespace euphoria::engine
-
-#endif  // EUPHORIA_OBJECTTEMPLATE_H
+    load_templates
+    (
+        const game::Game&     json,
+        object_creator*        temp,
+        script_registry*          reg,
+        render::texture_cache* cache,
+        components*           components
+    );
+}

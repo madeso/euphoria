@@ -20,7 +20,7 @@ namespace euphoria::engine
 {
 
     template<typename T>
-    std::vector<T> GetVector(const sol::table& table)
+    std::vector<T> get_vector(const sol::table& table)
     {
         std::vector<T> r;
         r.reserve(table.size());
@@ -32,7 +32,7 @@ namespace euphoria::engine
     }
 
 
-    void ReportFirstError(const sol::protected_function_result& val, Sol* ctx,const std::string& action, const std::string& where)
+    void report_first_error(const sol::protected_function_result& val, Sol* ctx, const std::string& action, const std::string& where)
     {
         if (val.valid())
         {
@@ -50,17 +50,16 @@ namespace euphoria::engine
     }
 
 
-    struct DukUpdateSystem
-        : public core::ecs::component_system
-        , public core::ecs::component_system_updater
+    struct script_update_system
+        : core::ecs::component_system
+        , core::ecs::component_system_updater
     {
-        // using UpdateFunction = std::function<void(float)>;
-        using UpdateFunction = sol::protected_function;
+        using update_function = sol::protected_function; // void(float)
 
         Sol* duk;
-        UpdateFunction func;
+        update_function func;
 
-        DukUpdateSystem(const std::string& name, Sol* d, UpdateFunction f)
+        script_update_system(const std::string& name, Sol* d, update_function f)
             : component_system(name)
             , duk(d)
             , func(f)
@@ -72,7 +71,7 @@ namespace euphoria::engine
         update(core::ecs::registry*, float dt) const override
         {
             auto result = func(dt);
-            ReportFirstError(result, duk, "update", name);
+            report_first_error(result, duk, "update", name);
         }
 
         void
@@ -83,26 +82,25 @@ namespace euphoria::engine
     };
 
 
-    struct DukInitSystem
+    struct script_init_system
         : public core::ecs::component_system
         , public core::ecs::component_system_initializer
     {
-    	// using InitFunction = std::function<void(core::ecs::EntityId)>;
-    	using InitFunction = sol::protected_function;
+    	using init_function = sol::protected_function; // void(entity_id)
     	
         core::ecs::registry* reg;
         Sol* duk;
         std::vector<core::ecs::component_id> types;
-        InitFunction func;
+        init_function func;
 
 
-        DukInitSystem
+        script_init_system
         (
             const std::string& name,
             Sol* d,
             core::ecs::registry* r,
             const std::vector<core::ecs::component_id>& t,
-            InitFunction f
+            init_function f
         )
             : component_system(name)
             , reg(r)
@@ -129,7 +127,7 @@ namespace euphoria::engine
                 }
             }
             auto result = func(entity);
-            ReportFirstError(result, duk, "init", name);
+            report_first_error(result, duk, "init", name);
         }
 
         void
@@ -140,46 +138,46 @@ namespace euphoria::engine
     };
 
 
-    struct DukSystems
+    struct script_systems
     {
         core::ecs::systems* systems;
         Sol* duk;
 
-        explicit DukSystems(core::ecs::systems* s, Sol* d)
+        explicit script_systems(core::ecs::systems* s, Sol* d)
             : systems(s)
             , duk(d)
         {
         }
 
         void
-        AddUpdate(const std::string& name, DukUpdateSystem::UpdateFunction func)
+        add_update(const std::string& name, script_update_system::update_function func)
         {
-            systems->add_and_register(std::make_shared<DukUpdateSystem>(name, duk, func));
+            systems->add_and_register(std::make_shared<script_update_system>(name, duk, func));
         }
 
         void
-        AddInit
+        add_init
         (
             const std::string& name,
             core::ecs::registry* reg,
             const std::vector<core::ecs::component_id>& types,
-            DukInitSystem::InitFunction func
+            script_init_system::init_function func
         )
         {
-            systems->add_and_register(std::make_shared<DukInitSystem>(name, duk, reg, types, func));
+            systems->add_and_register(std::make_shared<script_init_system>(name, duk, reg, types, func));
         }
     };
 
-    struct DukIntegrationPimpl
+    struct script_integration_pimpl
     {
-        DukIntegrationPimpl
+        script_integration_pimpl
         (
-            core::ecs::systems* sys,
-            core::ecs::world* world,
-            Sol* duk,
-            ObjectCreator* creator,
-            Components* components,
-            CameraData*    cam
+                core::ecs::systems* sys,
+                core::ecs::world* world,
+                Sol* duk,
+                object_creator* creator,
+                components* components,
+                camera_data*    cam
         )
             : systems(sys, duk)
             , registry(&world->reg, components)
@@ -192,12 +190,12 @@ namespace euphoria::engine
         }
 
         void
-        Integrate(Sol* duk)
+        integrate(Sol* duk)
         {
             auto systems_table         = duk->lua["Systems"].get_or_create<sol::table>();
-            systems_table["AddUpdate"] = [&](const std::string& name, sol::function func)
+            systems_table["add_update"] = [&](const std::string& name, sol::function func)
             {
-                systems.AddUpdate(name, func);
+                systems.add_update(name, func);
             };
             systems_table["OnInit"] = [&]
             (
@@ -206,8 +204,8 @@ namespace euphoria::engine
                 sol::function                   func
             )
             {
-              auto vtypes = GetVector<core::ecs::component_id>(types);
-              systems.AddInit(name, &world->reg, vtypes, func);
+                auto vtypes = get_vector<core::ecs::component_id>(types);
+                systems.add_init(name, &world->reg, vtypes, func);
             };
 
             auto math_table         = duk->lua["Math"].get_or_create<sol::table>();
@@ -216,47 +214,47 @@ namespace euphoria::engine
             auto templates_table    = duk->lua["Templates"].get_or_create<sol::table>();
             templates_table["Find"] = [&](const std::string& name)
             {
-                return creator->FindTemplate(name);
+                return creator->find_template(name);
             };
 
-            duk->lua.new_usertype<ObjectTemplate>("Template");
-            duk->lua["Template"]["Create"] = [&, duk](ObjectTemplate* t)
+            duk->lua.new_usertype<object_template>("Template");
+            duk->lua["Template"]["create"] = [&, duk](object_template* t)
             {
-                return t->CreateObject(ObjectCreationArgs{world, &registry, duk, duk});
+                return t->create_object(object_creation_arguments{world, &registry, duk, duk});
             };
 
             auto camera_table       = duk->lua["Camera"].get_or_create<sol::table>();
             camera_table["GetRect"] = [&]() { return &camera->screen; };
 
-            duk->lua.new_usertype<CustomArguments>
+            duk->lua.new_usertype<custom_arguments>
             (
-                "CustomArguments",
-                "GetNumber", [](const CustomArguments& args, const std::string& name) -> float
+                "custom_arguments",
+                "GetNumber", [](const custom_arguments& args, const std::string& name) -> float
                 {
-                      const auto f = args.numbers.find(name);
-                      if(f == args.numbers.end())
-                      {
-                            return 0;
-                      }
-                      else
-                      {
-                            return f->second;
-                      }
+                    const auto f = args.numbers.find(name);
+                    if(f == args.numbers.end())
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return f->second;
+                    }
                 }
             );
 
             auto registry_table        = duk->lua["Registry"].get_or_create<sol::table>();
             registry_table["Entities"] = [&](sol::table types)
             {
-                return registry.EntityView(GetVector<core::ecs::component_id>(types));
+                return registry.entity_view(get_vector<core::ecs::component_id>(types));
             };
             registry_table["GetSpriteId"] = [&]()
             {
                 return registry.components->sprite;
             };
-            registry_table["DestroyEntity"] = [&](core::ecs::entity_id entity)
+            registry_table["destroy_entity"] = [&](core::ecs::entity_id entity)
             {
-                registry.DestroyEntity(entity);
+                registry.destroy_entity(entity);
             };
             registry_table["GetPosition2Id"] = [&]()
             {
@@ -271,43 +269,43 @@ namespace euphoria::engine
             (
                 [&](const std::string& name, sol::function setup)
                 {
-                    return registry.CreateNewId(name, setup);
+                    return registry.create_new_id(name, setup);
                 },
                 [&](const std::string& name)
                 {
-                    return registry.CreateNewId(name);
+                    return registry.create_new_id(name);
                 }
             );
             registry_table["Get"] = [&](core::ecs::entity_id ent, core::ecs::component_id comp)
             {
-                return registry.GetProperty(ent, comp);
+                return registry.get_property(ent, comp);
             };
             registry_table["Set"] = [&](core::ecs::entity_id ent, core::ecs::component_id comp, sol::table val)
             {
-                registry.SetProperty(ent, comp, val);
+                registry.set_property(ent, comp, val);
             };
             registry_table["GetSprite"] = [&](core::ecs::component_id ent)
             {
-                return registry.GetComponentOrNull<CSprite>(ent, components->sprite);
+                return registry.get_component_or_null<component_sprite>(ent, components->sprite);
             };
             registry_table["GetPosition2"] = [&](core::ecs::component_id ent)
             {
-                return registry.GetComponentOrNull<CPosition2>(ent, components->position2);
+                return registry.get_component_or_null<component_position2>(ent, components->position2);
             };
             registry_table["GetPosition2vec"] = [&](core::ecs::component_id ent)
             {
-                auto c = registry.GetComponentOrNull<CPosition2>(ent, components->position2);
+                auto c = registry.get_component_or_null<component_position2>(ent, components->position2);
                 return c == nullptr ? nullptr : &c->pos;
             };
 
-            duk->lua.new_usertype<CPosition2>("CPosition2", "vec", &CPosition2::pos);
+            duk->lua.new_usertype<component_position2>("component_position2", "vec", &component_position2::pos);
 
-            duk->lua.new_usertype<CSprite>
+            duk->lua.new_usertype<component_sprite>
             (
-                "CSprite",
-                "GetRect", [](const CSprite& sp, const CPosition2& p)
+                "component_sprite",
+                "GetRect", [](const component_sprite& sp, const component_position2& p)
                 {
-                    return GetSpriteRect(p.pos, *sp.texture);
+                    return get_sprite_rect(p.pos, *sp.texture);
                 }
             );
 
@@ -343,29 +341,29 @@ namespace euphoria::engine
             };
         }
 
-        DukSystems systems;
-        DukRegistry registry;
-        sol::table     input;
+        script_systems systems;
+        script_registry registry;
+        sol::table input;
         core::ecs::world* world;
-        ObjectCreator* creator;
-        Components* components;
-        CameraData* camera;
+        object_creator* creator;
+        components* components;
+        camera_data* camera;
     };
 
 
-    DukIntegration::DukIntegration
+    script_integration::script_integration
     (
-        core::ecs::systems* systems,
-        core::ecs::world* reg,
-        Sol* duk,
-        ObjectCreator* creator,
-        Components* components,
-        CameraData* camera
+            core::ecs::systems* systems,
+            core::ecs::world* reg,
+            Sol* duk,
+            object_creator* creator,
+            components* components,
+            camera_data* camera
     )
     {
         pimpl.reset
         (
-            new DukIntegrationPimpl
+            new script_integration_pimpl
             (
                 systems,
                 reg,
@@ -375,25 +373,25 @@ namespace euphoria::engine
                 camera
             )
         );
-        pimpl->Integrate(duk);
+        pimpl->integrate(duk);
     }
 
 
-    DukIntegration::~DukIntegration()
+    script_integration::~script_integration()
     {
-        Clear();
+        clear();
     }
 
 
     void
-    DukIntegration::Clear()
+    script_integration::clear()
     {
         pimpl.reset();
     }
 
 
-    DukRegistry&
-    DukIntegration::Registry()
+    script_registry&
+    script_integration::get_registry()
     {
         ASSERT(pimpl);
         return pimpl->registry;
@@ -401,12 +399,12 @@ namespace euphoria::engine
 
 
     void
-    DukIntegration::BindKeys(Sol* duk, const Input& input)
+    script_integration::BindKeys(Sol* duk, const input_system& input)
     {
-        input.Set(&pimpl->input);
+        input.set(&pimpl->input);
     }
 }
 
 TYPEID_SETUP_TYPE(euphoria::core::random);
-TYPEID_SETUP_TYPE(euphoria::engine::ObjectTemplate);
+TYPEID_SETUP_TYPE(euphoria::engine::object_template);
 TYPEID_SETUP_TYPE(euphoria::core::rect<float>);

@@ -1,12 +1,9 @@
-#ifndef EUPHORIA_DUKMATHBINDINGS_H
-#define EUPHORIA_DUKMATHBINDINGS_H
+#pragma once
 
 #include "core/sol_forward.h"
 
 namespace euphoria::engine
 {
     void
-    BindMath(Sol* duk);
+    bind_math(Sol* duk);
 }
-
-#endif  // EUPHORIA_DUKMATHBINDINGS_H

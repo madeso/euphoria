@@ -1,12 +1,9 @@
-#ifndef EUPHORIA_DUKPRINT_H
-#define EUPHORIA_DUKPRINT_H
+#pragma once
 
 #include "core/sol_forward.h"
 
 namespace euphoria::engine
 {
     void
-	AddPrint(Sol* duk);
+	add_print(Sol* duk);
 }
-
-#endif  // EUPHORIA_DUKPRINT_H

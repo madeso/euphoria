@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_LOADWORLD_H
-#define EUPHORIA_LOADWORLD_H
+#pragma once
 
 #include <string>
 
@@ -20,19 +19,17 @@ namespace euphoria::core::vfs
 
 namespace euphoria::engine
 {
-    struct DukRegistry;
-    struct ObjectCreator;
+    struct script_registry;
+    struct object_creator;
 
     void
-    LoadWorld
+    load_world
     (
-        core::vfs::file_system* fs,
-        core::ecs::world* world,
-        DukRegistry* reg,
-        const core::vfs::file_path& path,
-        ObjectCreator* creator,
-        Sol* ctx
+            core::vfs::file_system* fs,
+            core::ecs::world* world,
+            script_registry* reg,
+            const core::vfs::file_path& path,
+            object_creator* creator,
+            Sol* ctx
     );
-}  // namespace euphoria::engine
-
-#endif  // EUPHORIA_LOADWORLD_H
+}

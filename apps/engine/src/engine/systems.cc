@@ -10,31 +10,44 @@
 
 namespace euphoria::engine
 {
-    struct SystemSpriteDraw
-        : public core::ecs::component_system
-        , public core::ecs::component_system_sprite_drawer
+    struct system_sprite_draw
+        : core::ecs::component_system
+        , core::ecs::component_system_sprite_drawer
     {
-        Components* components;
+        components* components;
 
-        explicit SystemSpriteDraw(Components* c)
-            : component_system("sprite draw"), components(c)
-        {}
+        explicit system_sprite_draw(engine::components* c)
+            : component_system("sprite draw")
+            , components(c)
+        {
+        }
 
         void
-        draw(core::ecs::registry*      reg,
-             render::sprite_renderer* renderer) const override
+        draw
+        (
+            core::ecs::registry*      reg,
+            render::sprite_renderer* renderer
+        ) const override
         {
-            const auto items = reg->get_entities_with_components(std::vector<core::ecs::component_id> {
-                    components->position2, components->sprite});
+            const auto items = reg->get_entities_with_components
+            (
+                std::vector<core::ecs::component_id>
+                {
+                    components->position2,
+                    components->sprite
+                }
+            );
             for(auto ent: items)
             {
-                auto* sprite = reg->get_component_or_null<CSprite>(
-                        ent, components->sprite);
-                auto* pos = reg->get_component_or_null<CPosition2>(
-                        ent, components->position2);
-                renderer->draw_sprite(
-                        *sprite->texture,
-                        GetSpriteRect(pos->pos, *sprite->texture));
+                auto* sprite = reg->get_component_or_null<component_sprite>(ent, components->sprite);
+                auto* pos = reg->get_component_or_null<component_position2>(ent, components->position2);
+                ASSERT(sprite);
+                ASSERT(pos);
+                renderer->draw_sprite
+                (
+                    *sprite->texture,
+                    get_sprite_rect(pos->pos, *sprite->texture)
+                );
             }
         }
 
@@ -47,8 +60,8 @@ namespace euphoria::engine
 
 
     void
-    AddSystems(core::ecs::systems* systems, Sol* duk, Components* components)
+    add_systems(core::ecs::systems* systems, Sol* duk, components* components)
     {
-        systems->add_and_register(std::make_shared<SystemSpriteDraw>(components));
+        systems->add_and_register(std::make_shared<system_sprite_draw>(components));
     }
-}  // namespace euphoria::engine
+}

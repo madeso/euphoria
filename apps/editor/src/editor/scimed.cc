@@ -21,25 +21,25 @@ using namespace euphoria::window;
 namespace euphoria::editor
 {
     bool
-    IsCloseTo(float a, float b, float c = 3)
+    is_close_to(float a, float b, float c = 3)
     {
         return core::abs(a - b) < c;
     }
 
     bool
-    KindaTheSame(int a, int b)
+    kinda_the_same(int a, int b)
     {
         return std::abs(a - b) < 5;
     }
 
-    using PositionClassification = std::optional<int>;
+    using position_classification = std::optional<int>;
 
     /// Extra calculated data from the corresponding data row (either row or column)
     /// in the ScalingSprite struct. Like the data, this can be viewed as the space
     /// between the dividing lines.
-    struct SpaceData
+    struct space_data
     {
-        SpaceData(int aleft, int aright, int i)
+        space_data(int aleft, int aright, int i)
             : left(aleft)
             , right(aright)
             , index(i)
@@ -54,9 +54,9 @@ namespace euphoria::editor
 
     /// The visual representation of a line, dividing or splitting a area
     /// The actual data is either the row or col array of the ScalingSprite struct
-    struct SplitData
+    struct split_data
     {
-        SplitData(int p, int mi, int ma)
+        split_data(int p, int mi, int ma)
             : position(p)
             , min_value(mi)
             , max_value(ma)
@@ -73,7 +73,7 @@ namespace euphoria::editor
 
 
     std::string
-    PixelsOrPercentageString(int data_value, int total_percentage)
+    pixels_or_percentage_string(int data_value, int total_percentage)
     {
         if(data_value > 0)
         {
@@ -88,7 +88,7 @@ namespace euphoria::editor
 
 
     int
-    GetTotalPercentage(const std::vector<int>& data)
+    get_total_percentage(const std::vector<int>& data)
     {
         int total = 0;
         for(int i: data)
@@ -102,10 +102,10 @@ namespace euphoria::editor
     }
 
 
-    std::vector<SpaceData>
-    CalculateAllSpaces(const std::vector<int>& data)
+    std::vector<space_data>
+    calculate_all_spaces(const std::vector<int>& data)
     {
-        std::vector<SpaceData> ret;
+        std::vector<space_data> ret;
         int x = 0;
 
         for(unsigned int index = 0; index < data.size(); ++index)
@@ -121,9 +121,9 @@ namespace euphoria::editor
 
 
     int
-    FindSpaceIndex(const std::vector<int>& data_ptr, int x)
+    find_space_index(const std::vector<int>& data_ptr, int x)
     {
-        const auto data = CalculateAllSpaces(data_ptr);
+        const auto data = calculate_all_spaces(data_ptr);
         int last = 0;
         int index = 0;
 
@@ -141,14 +141,14 @@ namespace euphoria::editor
     }
 
 
-    PositionClassification
-    FindSpaceIndexOrNull(const std::vector<int>& data, int y, int image_size)
+    position_classification
+    find_space_index_or_null(const std::vector<int>& data, int y, int image_size)
     {
         const bool within_image = y > 0 && y < image_size;
 
         if(within_image)
         {
-            return FindSpaceIndex(data, y);
+            return find_space_index(data, y);
         }
         else
         {
@@ -157,10 +157,10 @@ namespace euphoria::editor
     }
 
 
-    std::vector<SplitData>
-    CalculateAllSplits(const std::vector<int>& data)
+    std::vector<split_data>
+    calculate_all_splits(const std::vector<int>& data)
     {
-        std::vector<SplitData> ret;
+        std::vector<split_data> ret;
         bool has_data = false;
         int x = 0;
         int last_x = 0;
@@ -170,7 +170,7 @@ namespace euphoria::editor
             int dx = std::abs(i);
             if(has_data)
             {
-                ret.emplace_back(SplitData(x, last_x, x + dx));
+                ret.emplace_back(split_data(x, last_x, x + dx));
             }
             else
             {
@@ -185,7 +185,7 @@ namespace euphoria::editor
 
 
     void
-    DrawLine(const canvas& canvas, int x, int y, int tx, int ty, ImU32 color)
+    draw_line(const canvas& canvas, int x, int y, int tx, int ty, ImU32 color)
     {
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
         const auto from = canvas.world_to_screen(ImVec2{static_cast<float>(x), static_cast<float>(y)});
@@ -195,21 +195,21 @@ namespace euphoria::editor
 
 
     void
-    DrawAnchorDown(const canvas& canvas, int x, int y, int size, ImU32 color)
+    draw_anchor_down(const canvas& canvas, int x, int y, int size, ImU32 color)
     {
-        DrawLine(canvas, x, y, x, y + size, color);
+        draw_line(canvas, x, y, x, y + size, color);
     }
 
 
     void
-    DrawAnchorLeft(const canvas& canvas, int x, int y, int size, ImU32 color)
+    draw_anchor_left(const canvas& canvas, int x, int y, int size, ImU32 color)
     {
-        DrawLine(canvas, x, y, x + size, y, color);
+        draw_line(canvas, x, y, x + size, y, color);
     }
 
 
     bool
-    ButtonAt(const canvas& canvas, const ImVec2& p, const char* label, int id)
+    button_at(const canvas& canvas, const ImVec2& p, const char* label, int id)
     {
         const auto backup = ImGui::GetCursorPos();
         ImVec2 pp = p;
@@ -225,22 +225,20 @@ namespace euphoria::editor
 
 
     bool
-    DrawHorizontalCenteredText(const canvas& canvas, int left_p, int right_p, int y_p, const std::string& s, int id)
+    draw_horizontal_centered_text(const canvas& canvas, int left_p, int right_p, int y_p, const std::string& s, int id)
     {
         const auto size = ImGui::CalcTextSize(s.c_str());
-        const auto left = canvas.world_to_screen(
-                ImVec2{static_cast<float>(left_p), static_cast<float>(y_p)});
-        const auto right = canvas.world_to_screen(
-                ImVec2{static_cast<float>(right_p), static_cast<float>(y_p)});
+        const auto left = canvas.world_to_screen(ImVec2{static_cast<float>(left_p), static_cast<float>(y_p)});
+        const auto right = canvas.world_to_screen(ImVec2{static_cast<float>(right_p), static_cast<float>(y_p)});
         const auto y = left.y;
         auto x = left.x + (right.x - left.x) / 2 - size.x / 2;
         const auto p = ImVec2 {x, y - size.y};
-        return ButtonAt(canvas, p, s.c_str(), id);
+        return button_at(canvas, p, s.c_str(), id);
     }
 
 
     bool
-    DrawVerticalCenteredText(const canvas& canvas, int top_p, int bottom_p, int x_p, const std::string& s, int id)
+    draw_vertical_centered_text(const canvas& canvas, int top_p, int bottom_p, int x_p, const std::string& s, int id)
     {
         const auto size = ImGui::CalcTextSize(s.c_str());
         const auto top = canvas.world_to_screen(ImVec2{static_cast<float>(x_p), static_cast<float>(top_p)});
@@ -248,7 +246,7 @@ namespace euphoria::editor
         const auto x = bottom.x;
         const auto y = top.y + (bottom.y - top.y) / 2 - size.y / 2;
         const auto p = ImVec2 {x - size.x, y};
-        return ButtonAt(canvas, p, s.c_str(), id);
+        return button_at(canvas, p, s.c_str(), id);
     }
 
 
@@ -259,9 +257,9 @@ namespace euphoria::editor
         typename TButtonFunction
     >
     void
-    DrawSizerCommon
+    draw_sizer_common
     (
-        const ScimedConfig& sc,
+        const scimed_config& sc,
         std::vector<int>* data_ptr,
         int end,
         TAnchorFunction anchor_function,
@@ -270,12 +268,12 @@ namespace euphoria::editor
     )
     {
         auto& data = *data_ptr;
-        const auto spaces = CalculateAllSpaces(data);
+        const auto spaces = calculate_all_spaces(data);
         anchor_function(0, -sc.sizer_distance, sc.anchor_size);
         line_function(end, -sc.sizer_distance);
         anchor_function(end, -sc.sizer_distance, sc.anchor_size);
 
-        const int total_percentage = GetTotalPercentage(data);
+        const int total_percentage = get_total_percentage(data);
         int index = 0;
 
         for(const auto& t: spaces)
@@ -285,7 +283,7 @@ namespace euphoria::editor
                 t.left,
                 t.right,
                 -sc.sizer_text_distance,
-                PixelsOrPercentageString(data[index], total_percentage)
+                pixels_or_percentage_string(data[index], total_percentage)
             );
             if(clicked)
             {
@@ -297,52 +295,52 @@ namespace euphoria::editor
 
 
     void
-    DrawSizer
+    draw_sizer
     (
         std::shared_ptr<render::texture2d> image,
-        const Scimed& sc,
-        const ScimedConfig& scc,
+        const scimed& sc,
+        const scimed_config& scc,
         scalingsprite::ScalingSprite* sprite
     )
     {
         int sized_id = 0;
-        DrawSizerCommon
+        draw_sizer_common
         (
             scc,
             &sprite->cols,
             image->width,
             [&sc, &scc](int position, int distance, int size)
             {
-                DrawAnchorDown(sc.canvas, position, distance, size, scc.sizer_color);
+                draw_anchor_down(sc.canvas, position, distance, size, scc.sizer_color);
             },
             [&sc, &scc](int end, int distance)
             {
-                DrawLine(sc.canvas, 0, distance, end, distance, scc.sizer_color);
+                draw_line(sc.canvas, 0, distance, end, distance, scc.sizer_color);
             },
-            [&sc, &sized_id]( int left, int right, int distance, const std::string& text) -> bool
+            [&sc, &sized_id](int left, int right, int distance, const std::string &text) -> bool
             {
                 sized_id += 1;
-                return DrawHorizontalCenteredText(sc.canvas, left, right, distance, text, sized_id);
+                return draw_horizontal_centered_text(sc.canvas, left, right, distance, text, sized_id);
             }
         );
 
-        DrawSizerCommon
+        draw_sizer_common
         (
             scc,
             &sprite->rows,
             image->height,
             [&sc, &scc](int position, int distance, int size)
             {
-                DrawAnchorLeft(sc.canvas, distance, position, size, scc.sizer_color);
+                draw_anchor_left(sc.canvas, distance, position, size, scc.sizer_color);
             },
             [&sc, &scc](int end, int distance)
             {
-                DrawLine(sc.canvas, distance, 0, distance, end, scc.sizer_color);
+                draw_line(sc.canvas, distance, 0, distance, end, scc.sizer_color);
             },
-            [&sc, &sized_id](int left, int right, int distance, const std::string& text) -> bool
+            [&sc, &sized_id](int left, int right, int distance, const std::string &text) -> bool
             {
                 sized_id += 1;
-                return DrawVerticalCenteredText(sc.canvas, left, right, distance, text, sized_id);
+                return draw_vertical_centered_text(sc.canvas, left, right, distance, text, sized_id);
             }
         );
     }
@@ -350,16 +348,16 @@ namespace euphoria::editor
 
     template <typename TLineFunction, typename TCoordFunction>
     int
-    DrawSingleAxisSplits
+    draw_single_axis_splits
     (
-            const std::vector<int>& data,
-            const ImVec2& mouse,
-            canvas* canvas,
-            TLineFunction line_function,
-            TCoordFunction coord_function
+        const std::vector<int>& data,
+        const ImVec2& mouse,
+        canvas* canvas,
+        TLineFunction line_function,
+        TCoordFunction coord_function
     )
     {
-        const auto splits = CalculateAllSplits(data);
+        const auto splits = calculate_all_splits(data);
 
         int ret = -1;
 
@@ -368,10 +366,10 @@ namespace euphoria::editor
         {
             line_function(s.position);
             const auto p = canvas->world_to_screen
-                    (
-                            ImVec2{static_cast<float>(s.position), static_cast<float>(s.position)}
-                    );
-            if(IsCloseTo(coord_function(mouse), coord_function(p)))
+            (
+                ImVec2{static_cast<float>(s.position), static_cast<float>(s.position)}
+            );
+            if(is_close_to(coord_function(mouse), coord_function(p)))
             {
                 ret = i;
             }
@@ -382,13 +380,13 @@ namespace euphoria::editor
     }
 
 
-    LineHoverData
-    DrawSplits(scalingsprite::ScalingSprite* sprite, canvas* canvas, const ScimedConfig& scc)
+    line_hover_data
+    draw_splits(scalingsprite::ScalingSprite* sprite, canvas* canvas, const scimed_config& scc)
     {
         const auto mouse = ImGui::GetMousePos();
-        LineHoverData ret;
+        line_hover_data ret;
 
-        ret.vertical_index = DrawSingleAxisSplits
+        ret.vertical_index = draw_single_axis_splits
         (
             sprite->cols,
             mouse,
@@ -397,12 +395,12 @@ namespace euphoria::editor
             {
                 canvas->vertical_line(position, scc.split_color);
             },
-            [](const ImVec2& p) -> float
+            [](const ImVec2 &p) -> float
             {
                 return p.x;
             }
         );
-        ret.horizontal_index = DrawSingleAxisSplits
+        ret.horizontal_index = draw_single_axis_splits
         (
             sprite->rows,
             mouse,
@@ -411,7 +409,7 @@ namespace euphoria::editor
             {
                 canvas->horizontal_line(position, scc.split_color);
             },
-            [](const ImVec2& p) -> float
+            [](const ImVec2 &p) -> float
             {
                 return p.y;
             }
@@ -422,7 +420,7 @@ namespace euphoria::editor
 
 
     void
-    SetMouseCursorFromHover(const LineHoverData& hover)
+    set_mouse_cursor_from_hover(const line_hover_data& hover)
     {
         if(hover.horizontal_index != -1 || hover.vertical_index != -1)
         {
@@ -443,14 +441,14 @@ namespace euphoria::editor
 
 
     void
-    MoveSplit(int split_index, std::vector<int>* data_ptr, float world_position)
+    move_split(int split_index, std::vector<int>* data_ptr, float world_position)
     {
         if(split_index == -1)
         {
             return;
         }
 
-        const auto split = CalculateAllSplits(*data_ptr)[split_index];
+        const auto split = calculate_all_splits(*data_ptr)[split_index];
         const auto position = static_cast<int>(world_position);
         const auto max = std::max(split.min_value + 1, position);
         const int line_x = std::min(split.max_value - 1, max);
@@ -465,10 +463,10 @@ namespace euphoria::editor
 
 
     void
-    SplitSpaceInTwo(std::vector<int>* data_ptr, int index, int x)
+    split_space_in_two(std::vector<int>* data_ptr, int index, int x)
     {
         auto& data = *data_ptr;
-        const auto size = CalculateAllSpaces(data)[index];
+        const auto size = calculate_all_spaces(data)[index];
         const int mouse = std::min(size.right - 1, std::max(size.left + 1, x));
         ASSERT(mouse > size.left);
 
@@ -484,7 +482,7 @@ namespace euphoria::editor
 
 
     bool
-    Scimed::Run(const canvas_config& cc, const ScimedConfig& scc)
+    scimed::run(const canvas_config& cc, const scimed_config& scc)
     {
         canvas.begin(cc);
         canvas.show_grid(cc);
@@ -501,13 +499,13 @@ namespace euphoria::editor
         auto tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
         const auto pos = canvas.world_to_screen(ImVec2{0, 0});
         const auto size = canvas.world_to_screen
-                (
-                        ImVec2{static_cast<float>(texture->width), static_cast<float>(texture->height)}
-                );
+        (
+            ImVec2{static_cast<float>(texture->width), static_cast<float>(texture->height)}
+        );
         draw_list->AddImage(tex_id, pos, size);
 
-        const auto current_hover = DrawSplits(scaling.get(), &canvas, scc);
-        DrawSizer(texture, *this, scc, scaling.get());
+        const auto current_hover = draw_splits(scaling.get(), &canvas, scc);
+        draw_sizer(texture, *this, scc, scaling.get());
 
         canvas.show_ruler(cc);
         canvas.end(cc);
@@ -523,22 +521,22 @@ namespace euphoria::editor
         {
             if(ImGui::IsMouseDown(0))
             {
-                SetMouseCursorFromHover(hover);
+                set_mouse_cursor_from_hover(hover);
 
                 const auto me = canvas.screen_to_world(ImGui::GetMousePos());
 
-                MoveSplit(hover.horizontal_index, &scaling->rows, me.y);
-                MoveSplit(hover.vertical_index, &scaling->cols, me.x);
+                move_split(hover.horizontal_index, &scaling->rows, me.y);
+                move_split(hover.vertical_index, &scaling->cols, me.x);
             }
             else if(ImGui::IsItemHovered())
             {
-                SetMouseCursorFromHover(current_hover);
-                hover = LineHoverData {};
+                set_mouse_cursor_from_hover(current_hover);
+                hover = line_hover_data {};
             }
         }
         else if(ImGui::IsItemHovered())
         {
-            SetMouseCursorFromHover(current_hover);
+            set_mouse_cursor_from_hover(current_hover);
         }
 
         if(ImGui::IsItemHovered() && ImGui::IsMouseClicked(1))
@@ -550,20 +548,20 @@ namespace euphoria::editor
 
         if(ImGui::BeginPopup("asd"))
         {
-            const auto space_index_y = FindSpaceIndexOrNull(scaling->rows, mouse_popup.y, texture->height);
-            const auto space_index_x = FindSpaceIndexOrNull(scaling->cols, mouse_popup.x, texture->width);
+            const auto space_index_y = find_space_index_or_null(scaling->rows, mouse_popup.y, texture->height);
+            const auto space_index_x = find_space_index_or_null(scaling->cols, mouse_popup.x, texture->width);
 
             constexpr auto label_x = ICON_MDI_VIEW_SPLIT_HORIZONTAL " New Horizontal divider";
             constexpr auto label_y = ICON_MDI_VIEW_SPLIT_VERTICAL " New Vertical divider";
 
             if (window::imgui::selectable_or_disabled(space_index_y.has_value(), label_x))
             {
-                SplitSpaceInTwo(&scaling->rows, space_index_y.value(), mouse_popup.y);
+                split_space_in_two(&scaling->rows, space_index_y.value(), mouse_popup.y);
             }
 
             if(window::imgui::selectable_or_disabled(space_index_x.has_value(), label_y))
             {
-                SplitSpaceInTwo(&scaling->cols, space_index_x.value(), mouse_popup.x);
+                split_space_in_two(&scaling->cols, space_index_x.value(), mouse_popup.x);
             }
             ImGui::EndPopup();
         }

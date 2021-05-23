@@ -17,10 +17,10 @@ namespace euphoria::engine
 {
     ////////////////////////////////////////////////////////////////////////////////
 
-    ObjectCreationArgs::ObjectCreationArgs
+    object_creation_arguments::object_creation_arguments
     (
         core::ecs::world* aworld,
-        DukRegistry*      areg,
+        script_registry*      areg,
         Sol*     actx,
         Sol*         aduk
     )
@@ -32,89 +32,84 @@ namespace euphoria::engine
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct PositionComponentCreator : public ComponentCreator
+    struct position_component_creator : component_creator
     {
-    public:
         core::vec2f p;
-        Components* components;
+        engine::components* components;
 
-        PositionComponentCreator(const core::vec2f& pp, Components* components)
-            : p(pp), components(components)
-        {}
+        position_component_creator(const core::vec2f& pp, engine::components* components)
+            : p(pp)
+            , components(components)
+        {
+        }
 
         [[nodiscard]]
         static
-        std::shared_ptr<PositionComponentCreator>
-        Create(const game::vec2f& p, Components* components)
+        std::shared_ptr<position_component_creator>
+        create(const game::vec2f& p, engine::components* components)
         {
-            return std::make_shared<PositionComponentCreator>(
-                    core::vec2f {p.x, p.y}, components);
+            return std::make_shared<position_component_creator>(core::vec2f {p.x, p.y}, components);
         }
 
         void
-        CreateComponent(const ObjectCreationArgs& args, core::ecs::entity_id ent)
-                override
+        create_component(const object_creation_arguments& args, core::ecs::entity_id ent) override
         {
-            auto c = std::make_shared<CPosition2>();
+            auto c = std::make_shared<component_position2>();
             c->pos = p;
             args.world->reg.add_component_to_entity(ent, components->position2, c);
         }
     };
 
-    struct SpriteComponentCreator : public ComponentCreator
+    struct sprite_component_creator : public component_creator
     {
     public:
         std::shared_ptr<render::texture2d> texture;
-        Components* components;
+        components* components;
 
-        explicit SpriteComponentCreator(Components* c) : components(c) {}
+        explicit sprite_component_creator(engine::components* c) : components(c) {}
 
         [[nodiscard]]
         static
-        std::shared_ptr<SpriteComponentCreator>
-        Create
+        std::shared_ptr<sprite_component_creator>
+        create
         (
             const game::Sprite& sprite,
             render::texture_cache* cache,
-            Components* components
+            engine::components* components
         )
         {
-            auto ptr     = std::make_shared<SpriteComponentCreator>(components);
-            ptr->texture = cache->get_texture
-                    (
-                            core::vfs::file_path::from_script(sprite.path)
-                    );
+            auto ptr     = std::make_shared<sprite_component_creator>(components);
+            ptr->texture = cache->get_texture(core::vfs::file_path::from_script(sprite.path));
             return ptr;
         }
 
         void
-        CreateComponent(const ObjectCreationArgs& args, core::ecs::entity_id ent)
-                override
+        create_component(const object_creation_arguments& args, core::ecs::entity_id ent) override
         {
-            auto c     = std::make_shared<CSprite>();
+            auto c     = std::make_shared<component_sprite>();
             c->texture = texture;
             args.world->reg.add_component_to_entity(ent, components->sprite, c);
         }
     };
 
 
-    struct CustomComponentCreator : public ComponentCreator
+    struct custom_component_creator : public component_creator
     {
     public:
         core::ecs::component_id comp;
-        CustomArguments arguments;
+        custom_arguments arguments;
 
         [[nodiscard]]
         static
-        std::shared_ptr<CustomComponentCreator>
-        Create
+        std::shared_ptr<custom_component_creator>
+        create
         (
             const std::string&            name,
             core::ecs::component_id        id,
             const std::vector<game::Var>& arguments
         )
         {
-            auto ptr  = std::make_shared<CustomComponentCreator>();
+            auto ptr  = std::make_shared<custom_component_creator>();
             ptr->comp = id;
             for(const auto& a: arguments)
             {
@@ -136,11 +131,10 @@ namespace euphoria::engine
         }
 
         void
-        CreateComponent(const ObjectCreationArgs& args, core::ecs::entity_id ent)
-                override
+        create_component(const object_creation_arguments& args, core::ecs::entity_id ent) override
         {
-            auto val = args.reg->CreateComponent(comp, args.ctx, arguments);
-            args.reg->SetProperty(ent, comp, val);
+            auto val = args.reg->create_component(comp, args.ctx, arguments);
+            args.reg->set_property(ent, comp, val);
         }
     };
 
@@ -148,22 +142,22 @@ namespace euphoria::engine
     ////////////////////////////////////////////////////////////////////////////////
 
 
-    std::shared_ptr<ComponentCreator>
-    CreateCreator
+    std::shared_ptr<component_creator>
+    create_creator
     (
         const game::Component& comp,
-        DukRegistry*           reg,
+        script_registry*           reg,
         render::texture_cache*  cache,
-        Components*            components
+        components*            components
     )
     {
         if(comp.position)
         {
-            return PositionComponentCreator::Create(*comp.position, components);
+            return position_component_creator::create(*comp.position, components);
         }
         else if(comp.sprite)
         {
-            return SpriteComponentCreator::Create
+            return sprite_component_creator::create
             (
                 *comp.sprite,
                 cache,
@@ -174,9 +168,9 @@ namespace euphoria::engine
         {
             const auto& s = *comp.custom;
             core::ecs::component_id id;
-            if(reg->GetCustomComponentByName(s.name, &id))
+            if(reg->get_custom_component_by_name(s.name, &id))
             {
-                return CustomComponentCreator::Create(s.name, id, s.arguments);
+                return custom_component_creator::create(s.name, id, s.arguments);
             }
             else
             {
@@ -195,18 +189,18 @@ namespace euphoria::engine
 
 
     void
-    LoadObjectTemplate
+    load_object_template
     (
-        ObjectTemplate* ot,
+        object_template* ot,
         const game::Template& ct,
-        DukRegistry* reg,
+        script_registry* reg,
         render::texture_cache* cache,
-        Components* components
+        components* components
     )
     {
         for(const auto& comp: ct.components)
         {
-            auto c = CreateCreator(comp, reg, cache, components);
+            auto c = create_creator(comp, reg, cache, components);
             if(c != nullptr)
             {
                 ot->components.emplace_back(c);
@@ -216,12 +210,12 @@ namespace euphoria::engine
 
 
     core::ecs::entity_id
-    ObjectTemplate::CreateObject(const ObjectCreationArgs& args)
+    object_template::create_object(const object_creation_arguments& args)
     {
         auto ent = args.world->reg.create_new_entity();
         for(const auto& c: components)
         {
-            c->CreateComponent(args, ent);
+            c->create_component(args, ent);
         }
 
         // todo(Gustav): run init function here
@@ -235,27 +229,29 @@ namespace euphoria::engine
 
 
     void
-    LoadTemplatesButOnlyNames(const game::Game& json, ObjectCreator* temp)
+    load_templates_but_only_names(const game::Game& json, object_creator* temp)
     {
         for(const auto& t: json.templates)
         {
-            auto o = std::make_shared<ObjectTemplate>();
+            auto o = std::make_shared<object_template>();
             temp->templates.insert(std::make_pair(t.name, o));
         }
     }
 
 
     void
-    LoadTemplates(
-            const game::Game&     json,
-            ObjectCreator*        temp,
-            DukRegistry*          reg,
-            render::texture_cache* cache,
-            Components*           components)
+    load_templates
+    (
+        const game::Game&     json,
+        object_creator*        temp,
+        script_registry*          reg,
+        render::texture_cache* cache,
+        components*           components
+    )
     {
         for(const auto& t: json.templates)
         {
-            auto o = std::make_shared<ObjectTemplate>();
+            auto o = std::make_shared<object_template>();
 
             auto fr = temp->templates.find(t.name);
             if(fr == temp->templates.end())
@@ -267,13 +263,13 @@ namespace euphoria::engine
                 o = fr->second;
             }
 
-            LoadObjectTemplate(o.get(), t, reg, cache, components);
+            load_object_template(o.get(), t, reg, cache, components);
         }
     }
 
 
-    ObjectTemplate*
-    ObjectCreator::FindTemplate(const std::string& name)
+    object_template*
+    object_creator::find_template(const std::string& name)
     {
         auto result = templates.find(name);
         if(result == templates.end())
@@ -282,8 +278,7 @@ namespace euphoria::engine
             (
                 "Failed to find template named {0}, could be {1}.",
                 name,
-                core::string_mergers::english_or.
-                    merge(core::get_keys(templates))
+                core::string_mergers::english_or.merge(core::get_keys(templates))
             );
             return nullptr;
         }
@@ -291,5 +286,4 @@ namespace euphoria::engine
         return result->second.get();
     }
 
-    ////////////////////////////////////////////////////////////////////////////////
-}  // namespace euphoria::engine
+}

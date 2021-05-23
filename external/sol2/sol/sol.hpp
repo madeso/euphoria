@@ -25683,7 +25683,7 @@ namespace sol {
 		}
 
 		// Returns the old GC mode. Check support using the supports_gc_mode function.
-		gc_mode change_gc_mode_generational(int minor_multiplier, int major_multiplier) {
+		gc_mode change_gc_mode_generational([[maybe_unused]] int minor_multiplier, [[maybe_unused]] int major_multiplier) {
 #if SOL_LUA_VESION_I_ >= 504
 			// "What does this shit mean?"
 			// http://www.lua.org/manual/5.4/manual.html#2.5.2

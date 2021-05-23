@@ -22,7 +22,7 @@ namespace euphoria::editor
 {
     template <typename T, typename G>
     int
-    IndexOf(const std::vector<T>& ss, const G& finder)
+    index_of(const std::vector<T>& ss, const G& finder)
     {
         int index = 0;
         for(const auto& s: ss)
@@ -37,13 +37,14 @@ namespace euphoria::editor
         return -1;
     }
 
-    FileBrowser::FileBrowser(vfs::file_system* fs)
+    file_browser::file_browser(vfs::file_system* fs)
         : current_folder(core::vfs::dir_path::from_root())
         , file_system(fs)
-    {}
+    {
+    }
 
     std::optional<core::vfs::file_path>
-    FileBrowser::GetSelectedFile()
+    file_browser::get_selected_file()
     {
         if(selected_file >= 0 && selected_file < Csizet_to_int(files.size()))
         {
@@ -57,7 +58,7 @@ namespace euphoria::editor
     }
 
     void
-    FileBrowser::SelectFile(const std::string& p)
+    file_browser::select_file(const std::string& p)
     {
         LOG_INFO("Selecting file {0}", p);
         #if 0
@@ -75,7 +76,7 @@ namespace euphoria::editor
     }
 
     void
-    FileBrowser::Refresh()
+    file_browser::refresh()
     {
         files = file_system->list_files(current_folder);
         if(current_folder != core::vfs::dir_path::from_root())
@@ -87,7 +88,7 @@ namespace euphoria::editor
     }
 
     std::string
-    DetermineIconString(const core::vfs::listed_file& f, bool outline = false)
+    determine_icon_string(const core::vfs::listed_file& f, bool outline = false)
     {
         if(f.is_file)
         {
@@ -122,7 +123,7 @@ namespace euphoria::editor
     }
 
     bool
-    FileBrowser::Run()
+    file_browser::run()
     {
         window::imgui::input_text("URL", &current_folder.path);
         window::imgui::input_text("Filter", &filter);
@@ -165,7 +166,7 @@ namespace euphoria::editor
                     );
                 }
 
-                const auto icon = DetermineIconString(item);
+                const auto icon = determine_icon_string(item);
                 const auto icon_and_name = icon + item.name;
                 const auto left_clicked_item = ImGui::Selectable
                 (
@@ -200,7 +201,7 @@ namespace euphoria::editor
                             ASSERTX(resolved.has_value(), sub_directory, current_folder);
                             current_folder = resolved.value();
                         }
-                        Refresh();
+                        refresh();
                     }
                     else
                     {
@@ -215,4 +216,4 @@ namespace euphoria::editor
 
         return doubleclicked_file;
     }
-}  // namespace euphoria::editor
+}

@@ -18,13 +18,13 @@ namespace euphoria::render
 
 namespace euphoria::editor
 {
-    struct LineHoverData
+    struct line_hover_data
     {
         int vertical_index = -1;
         int horizontal_index = -1;
     };
 
-    struct ScimedConfig
+    struct scimed_config
     {
         int sizer_distance = 20;
         int sizer_text_distance = 23;
@@ -33,16 +33,16 @@ namespace euphoria::editor
         unsigned int split_color = IM_COL32(0, 255, 0, 255);
     };
 
-    struct Scimed
+    struct scimed
     {
         std::shared_ptr<scalingsprite::ScalingSprite> scaling;
 
         std::shared_ptr<render::texture2d> texture;
         window::canvas canvas;
         core::vec2i mouse_popup = core::vec2i {0, 0};
-        LineHoverData hover;
+        line_hover_data hover;
 
         bool
-        Run(const window::canvas_config& cc, const ScimedConfig& scc);
+        run(const window::canvas_config& cc, const scimed_config& scc);
     };
 }

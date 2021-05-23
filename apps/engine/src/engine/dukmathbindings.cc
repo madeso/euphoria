@@ -10,25 +10,26 @@
 namespace euphoria::engine
 {
 
-template <typename T>
-void
-BindVec2(Sol* sol, const std::string& name)
-{
-  using V = core::vec2<T>;
+    template <typename T>
+    void
+    bind_vec2(Sol* sol, const std::string& name)
+    {
+        using V = core::vec2<T>;
 
-  sol->lua.new_usertype<V>(
-      name,
-      sol::constructors<V(T, T)>(),
-        "x", &V::x,
-        "y", &V::y
-      );
+        sol->lua.new_usertype<V>
+        (
+            name,
+            sol::constructors<V(T, T)>(),
+            "x", &V::x,
+            "y", &V::y
+        );
+    }
+
+    void
+    bind_math(Sol* duk)
+    {
+        bind_vec2<float>(duk, "vec2f");
+        // bind_vec2<int>(duk, "vec2i");
+    }
+
 }
-
-void
-BindMath(Sol* duk)
-{
-  BindVec2<float>(duk, "vec2f");
-  // BindVec2<int>(duk, "vec2i");
-}
-
-}  // namespace euphoria::engine

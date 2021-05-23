@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_SYSTEMS_H
-#define EUPHORIA_SYSTEMS_H
+#pragma once
 
 #include "core/sol_forward.h"
 
@@ -11,10 +10,8 @@ namespace euphoria::core::ecs
 
 namespace euphoria::engine
 {
-    struct Components;
+    struct components;
 
 	void
-	AddSystems(core::ecs::systems* systems, Sol* duk, Components* components);
-}  // namespace euphoria::engine
-
-#endif  // EUPHORIA_SYSTEMS_H
+	add_systems(core::ecs::systems* systems, Sol* duk, components* components);
+}

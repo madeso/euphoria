@@ -6,35 +6,41 @@
 
 namespace euphoria::engine
 {
-    BoundVar::BoundVar(const std::string& n, const core::key& k)
+    bound_var::bound_var(const std::string& n, const core::key& k)
         : name(n), state(0), last_state(0), key(k)
-    {}
+    {
+    }
 
     void
-BindBoundVar(Sol* duk)
-{
-  duk->lua.new_usertype<BoundVar>(
-      "BoundVar",
-      "state",
-      sol::readonly(&BoundVar::state),
-      "last_state",
-      sol::readonly(&BoundVar::last_state));
-}
+    bind_bound_var(Sol* duk)
+    {
+        duk->lua.new_usertype<bound_var>
+        (
+            "bound_var",
+            "state",
+            sol::readonly(&bound_var::state),
+            "last_state",
+            sol::readonly(&bound_var::last_state)
+        );
+    }
 
-void
-Input::Bind(Sol* duk)
-{
-        BindBoundVar(duk);
-}
 
     void
-    Input::Add(std::shared_ptr<BoundVar> bind)
+    input_system::bind(Sol* duk)
+    {
+        bind_bound_var(duk);
+    }
+
+
+    void
+    input_system::add(std::shared_ptr<bound_var> bind)
     {
         binds.push_back(bind);
     }
 
+
     void
-    Input::SetKeyState(core::key key, float state)
+    input_system::set_key_state(core::key key, float state)
     {
         // todo(Gustav): move state to another class, and fix this loop
         for(const auto& bind: binds)
@@ -47,20 +53,20 @@ Input::Bind(Sol* duk)
     }
 
     void
-Input::Set(sol::table* container) const
-{
-  for(const auto& bind : binds)
-  {
-    (*container)[bind->name] = bind;
-  }
-}
+    input_system::set(sol::table* container) const
+    {
+        for(const auto& bind : binds)
+        {
+            (*container)[bind->name] = bind;
+        }
+    }
 
     void
-    Input::UpdateState()
+    input_system::update_state()
     {
         for(auto& bind: binds)
         {
             bind->last_state = bind->state;
         }
     }
-}  // namespace euphoria::engine
+}

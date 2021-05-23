@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_INPUT_H
-#define EUPHORIA_INPUT_H
+#pragma once
 
 #include <string>
 #include <memory>
@@ -13,14 +12,14 @@
 
 namespace euphoria::engine
 {
-    struct BoundVar
+    struct bound_var
     {
         std::string name;
         float       state;
         float       last_state;
         core::key   key;
 
-        BoundVar(const std::string& n, const core::key& k);
+        bound_var(const std::string& n, const core::key& k);
 
         // todo(Gustav): figure out how to bind keys to this property
         // todo(Gustav): figure out how to handle just pressed
@@ -30,29 +29,28 @@ namespace euphoria::engine
     
     
 
-    struct Input
+    struct input_system
     {
     public:
         static void
-        Bind(Sol* duk);
+        bind(Sol* duk);
 
         void
-        Add(std::shared_ptr<BoundVar> bind);
+        add(std::shared_ptr<bound_var> bind);
 
         void
-        SetKeyState(core::key key, float state);
+        set_key_state(core::key key, float state);
 
         void
-        Set(sol::table* container) const;
+        set(sol::table* container) const;
 
         void
-        UpdateState();
+        update_state();
 
     private:
-        std::vector<std::shared_ptr<BoundVar>> binds;
+        std::vector<std::shared_ptr<bound_var>> binds;
     };
-}  // namespace euphoria::engine
+}
 
-TYPEID_SETUP_TYPE(euphoria::engine::BoundVar);
+TYPEID_SETUP_TYPE(euphoria::engine::bound_var);
 
-#endif  // EUPHORIA_INPUT_H

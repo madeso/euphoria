@@ -60,7 +60,7 @@ using namespace euphoria::engine;
 
 
 game::Game
-LoadGameData(vfs::file_system* fs)
+load_game_data(vfs::file_system* fs)
 {
     game::Game game;
     const auto err = read_json_to_gaf_struct_or_get_error_message(fs, &game, vfs::file_path{"~/gamedata.json"});
@@ -72,33 +72,33 @@ LoadGameData(vfs::file_system* fs)
 }
 
 
-struct RunResult
+struct run_result
 {
     bool        ok;
     std::string message;
 
     [[nodiscard]]
     static
-    const RunResult
+    const run_result
     Ok()
     {
-        return RunResult {true, ""};
+        return run_result {true, ""};
     }
 
     [[nodiscard]]
     static
-    const RunResult
+    const run_result
     Error(const std::string& message)
     {
-        return RunResult {false, message};
+        return run_result {false, message};
     }
 
 private:
-    RunResult(bool b, const std::string& str) : ok(b), message(str) {}
+    run_result(bool b, const std::string& str) : ok(b), message(str) {}
 };
 
-RunResult
-RunMainScriptFile(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
+run_result
+run_main_script_file(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
 {
     std::string content;
     const bool  loaded = fs->read_file_to_string(path, &content);
@@ -107,7 +107,7 @@ RunMainScriptFile(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
         const std::string error_message = string_builder() << "Unable to open " << path
                                                 << " for running";
         LOG_ERROR("{0}", error_message);
-        return RunResult::Error(error_message);
+        return run_result::Error(error_message);
     }
     const auto eval = duk->lua.script
     (
@@ -117,13 +117,12 @@ RunMainScriptFile(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
     if(!eval.valid())
     {
         const sol::error err = eval;
-        const std::string error_message = string_builder() << "Failed to run " << path
-                                                << ": " << err.what();
+        const std::string error_message = string_builder() << "Failed to run " << path << ": " << err.what();
         LOG_ERROR("{0}", error_message);
-        return RunResult::Error(error_message);
+        return run_result::Error(error_message);
     }
 
-    return RunResult::Ok();
+    return run_result::Ok();
 }
 
 
@@ -146,7 +145,7 @@ C(game::ViewportType type)
 
 
 rgb
-GetColor(std::shared_ptr<game::Color> c)
+get_color(std::shared_ptr<game::Color> c)
 {
     if(c == nullptr)
     {
@@ -163,28 +162,18 @@ GetColor(std::shared_ptr<game::Color> c)
 }
 
 
-// engine
-int my_exception_handler(lua_State* L, sol::optional<const std::exception&> maybe_exception, sol::string_view description) {
-	// L is the lua state, which you can wrap in a state_view if necessary
-	// maybe_exception will contain exception, if it exists
-	// description will either be the what() of the exception or a description saying that we hit the general-case catch(...)
-	std::cout << "An exception occurred in a function, here's what it says ";
-	if (maybe_exception) {
-		std::cout << "(straight from the exception): ";
-		const std::exception& ex = *maybe_exception;
-		std::cout << ex.what() << std::endl;
-	}
-	else {
-		std::cout << "(from the description parameter): ";
-		std::cout.write(description.data(), description.size());
-		std::cout << std::endl;
-	}
+int custom_lua_exception_handler
+(
+    lua_State* lua_state,
+    sol::optional<const std::exception&> maybe_exception,
+    sol::string_view description
+)
+{
+    LOG_ERROR("An exception occurred in a function: {0}", description);
 
-	// you must push 1 element onto the stack to be
-	// transported through as the error object in Lua
 	// note that Lua -- and 99.5% of all Lua users and libraries -- expects a string
 	// so we push a single string (in our case, the description of the error)
-	return sol::stack::push(L, description);
+	return sol::stack::push(lua_state, description);
 }
 
 int
@@ -203,27 +192,27 @@ main(int argc, char* argv[])
 
     texture_cache cache {engine.file_system.get()};
 
-    game::Game gamedata = LoadGameData(engine.file_system.get());
-    const auto clear_color = GetColor(gamedata.clear_color);
+    game::Game gamedata = load_game_data(engine.file_system.get());
+    const auto clear_color = get_color(gamedata.clear_color);
 
     int window_width  = 800;
     int window_height = 600;
 
     if
     (
-            engine.create_window
-                    (
-                            gamedata.title,
-                            window_width,
-                            window_height,
-                            true
-                    ) == false
+        engine.create_window
+        (
+                gamedata.title,
+                window_width,
+                window_height,
+                true
+        ) == false
     )
     {
         return -1;
     }
 
-    Input input;
+    input_system input;
 
     for(const auto& bind: gamedata.binds)
     {
@@ -234,7 +223,7 @@ main(int argc, char* argv[])
             key = key::unbound;
         }
 
-        input.Add(std::make_shared<BoundVar>(bind.name, key));
+        input.add(std::make_shared<bound_var>(bind.name, key));
     }
 
     shader shader;
@@ -242,9 +231,6 @@ main(int argc, char* argv[])
     shader.load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
     sprite_renderer renderer(&shader);
     font_cache      font_cache {engine.file_system.get(), &cache};
-
-    // Sprite player(cache.get_texture("player.png"));
-    // objects.Add(&player);
 
     Sol duk;
 
@@ -259,21 +245,21 @@ main(int argc, char* argv[])
         LOG_ERROR("{0}", crash_message_string);
     };
 
-    duk.lua.set_exception_handler(&my_exception_handler);
+    duk.lua.set_exception_handler(&custom_lua_exception_handler);
     duk.lua.open_libraries(sol::lib::base, sol::lib::package);
-    AddPrint(&duk);
-    BindMath(&duk);
-    Input::Bind(&duk);
+    add_print(&duk);
+    bind_math(&duk);
+    input_system::bind(&duk);
 
     systems    systems;
     world      world {&systems};
-    Components components {&world.reg};
-    AddSystems(&systems, &duk, &components);
-    ObjectCreator templates;
-    LoadTemplatesButOnlyNames(gamedata, &templates);
-    CameraData camera_data;
+    components components {&world.reg};
+    add_systems(&systems, &duk, &components);
+    object_creator templates;
+    load_templates_but_only_names(gamedata, &templates);
+    camera_data camera_data;
 
-    auto integration = DukIntegration
+    auto integration = script_integration
     {
         &systems,
         &world,
@@ -283,17 +269,17 @@ main(int argc, char* argv[])
         &camera_data
     };
     const auto error_run_main
-            = RunMainScriptFile(&duk, engine.file_system.get(), vfs::file_path{"~/main.lua"});
+            = run_main_script_file(&duk, engine.file_system.get(), vfs::file_path{"~/main.lua"});
     if(!error_run_main.ok)
     {
         has_crashed          = true;
         crash_message_string = error_run_main.message;
     }
-    LoadTemplates
+    load_templates
     (
         gamedata,
         &templates,
-        &integration.Registry(),
+        &integration.get_registry(),
         &cache,
         &components
     );
@@ -315,11 +301,11 @@ main(int argc, char* argv[])
 
     try
     {
-        LoadWorld
+        load_world
         (
             engine.file_system.get(),
             &world,
-            &integration.Registry(),
+            &integration.get_registry(),
             vfs::file_path{"~/world.json"},
             &templates,
             &duk
@@ -367,7 +353,7 @@ main(int argc, char* argv[])
             }
         }
 
-        input.UpdateState();
+        input.update_state();
 
         while(SDL_PollEvent(&e) != 0)
         {
@@ -403,7 +389,7 @@ main(int argc, char* argv[])
                 {
                     const bool down = e.type == SDL_KEYDOWN;
                     const auto key = to_key(e.key.keysym);
-                    input.SetKeyState(key, down ? 1.0f : 0.0f);
+                    input.set_key_state(key, down ? 1.0f : 0.0f);
                 }
                 else if(e.type == SDL_MOUSEBUTTONDOWN
                         || e.type == SDL_MOUSEBUTTONUP)

@@ -7,13 +7,18 @@
 #include "core/sol.h"
 
 
-LOG_SPECIFY_DEFAULT_LOGGER("engine.duk")
-
 namespace euphoria::engine
 {
     void
-	AddPrint(Sol* sol)
+	add_print(Sol* sol)
     {
-	  sol->lua.set_function("print", [](const std::string& str) { LOG_INFO(str); });
+        sol->lua.set_function
+        (
+            "print",
+            [](const std::string& str)
+            {
+                LOG_INFO(str);
+            }
+        );
     }
-}  // namespace euphoria::engine
+}

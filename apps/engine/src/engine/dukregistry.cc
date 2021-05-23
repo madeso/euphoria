@@ -9,23 +9,27 @@ LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.registry")
 
 namespace euphoria::engine
 {
-    struct ScriptComponent : public core::ecs::component
+    struct script_component : public core::ecs::component
     {
-        COMPONENT_CONSTRUCTOR_DEFINITION(ScriptComponent)
+        COMPONENT_CONSTRUCTOR_DEFINITION(script_component)
 
         sol::table val;
     };
 
-    COMPONENT_CONSTRUCTOR_IMPLEMENTATION(ScriptComponent)
+    COMPONENT_CONSTRUCTOR_IMPLEMENTATION(script_component)
 
-    DukRegistry::DukRegistry(core::ecs::registry* r, Components* c)
-        : reg(r), components(c)
-    {}
+    script_registry::script_registry(core::ecs::registry* r, engine::components* c)
+        : reg(r)
+        , components(c)
+    {
+    }
 
     core::ecs::component_id
-    DukRegistry::CreateNewId(
-            const std::string&            name,
-            const DukRegistry::CreationCallback& fv)
+    script_registry::create_new_id
+    (
+        const std::string&            name,
+        const script_registry::creation_callback& fv
+    )
     {
         const auto id        = reg->register_new_component_type(name);
         scriptComponents[id] = fv;
@@ -33,31 +37,37 @@ namespace euphoria::engine
     }
 
     core::ecs::component_id
-        DukRegistry::CreateNewId(
-            const std::string& name)
+    script_registry::create_new_id
+    (
+        const std::string& name
+    )
     {
         const auto id = reg->register_new_component_type(name);
         return id;
     }
 
     bool
-    DukRegistry::GetCustomComponentByName(
-            const std::string&      name,
-            core::ecs::component_id* id)
+    script_registry::get_custom_component_by_name
+    (
+        const std::string&      name,
+        core::ecs::component_id* id
+    )
     {
         return reg->get_custom_component_by_name(name, id);
     }
 
     std::vector<core::ecs::entity_id>
-    DukRegistry::EntityView(const std::vector<core::ecs::component_id>& types)
+    script_registry::entity_view(const std::vector<core::ecs::component_id>& types)
     {
         return reg->get_entities_with_components(types);
     }
 
     sol::table
-    DukRegistry::GetProperty(
-            core::ecs::entity_id    ent,
-            core::ecs::component_id comp)
+    script_registry::get_property
+    (
+        core::ecs::entity_id    ent,
+        core::ecs::component_id comp
+    )
     {
         ASSERT(scriptComponents.find(comp) != scriptComponents.end());
         auto c = reg->get_component(ent, comp);
@@ -67,47 +77,53 @@ namespace euphoria::engine
         }
         else
         {
-            return static_cast<ScriptComponent*>(c.get())->val;
+            return static_cast<script_component*>(c.get())->val;
         }
     }
 
-    ScriptComponent*
-    GetScriptComponent(
-            const DukRegistry::ScriptComponentMap& scriptComponents,
-            core::ecs::registry*                     reg,
-            core::ecs::entity_id                    ent,
-            core::ecs::component_id                 comp)
+    script_component*
+    get_script_component
+    (
+        const script_registry::script_component_map& scriptComponents,
+        core::ecs::registry*                     reg,
+        core::ecs::entity_id                    ent,
+        core::ecs::component_id                 comp
+    )
     {
         // ASSERT(scriptComponents.find(comp) != scriptComponents.end());
 
         auto c = reg->get_component(ent, comp);
         if(c == nullptr)
         {
-            auto d = std::make_shared<ScriptComponent>();
+            auto d = std::make_shared<script_component>();
             reg->add_component_to_entity(ent, comp, d);
             return d.get();
         }
         else
         {
-            return static_cast<ScriptComponent*>(c.get());
+            return static_cast<script_component*>(c.get());
         }
     }
 
     void
-    DukRegistry::SetProperty(
-            core::ecs::entity_id    ent,
-            core::ecs::component_id comp,
-            sol::table   value)
+    script_registry::set_property
+    (
+        core::ecs::entity_id    ent,
+        core::ecs::component_id comp,
+        sol::table   value
+    )
     {
-        ScriptComponent* scriptComponent = GetScriptComponent(scriptComponents, reg, ent, comp);
+        script_component* scriptComponent = get_script_component(scriptComponents, reg, ent, comp);
         scriptComponent->val = value;
     }
 
     sol::table
-    DukRegistry::CreateComponent(
-            core::ecs::component_id comp,
-            Sol*          ctx,
-            const CustomArguments& arguments)
+    script_registry::create_component
+    (
+        core::ecs::component_id comp,
+        Sol*          ctx,
+        const custom_arguments& arguments
+    )
     {
         const auto name = reg->get_component_name(comp);
 
@@ -140,10 +156,10 @@ namespace euphoria::engine
     }
 
     void
-    DukRegistry::DestroyEntity(core::ecs::entity_id id)
+    script_registry::destroy_entity(core::ecs::entity_id id)
     {
         reg->destroy_entity(id);
     }
-}  // namespace euphoria::engine
+}
 
-TYPEID_SETUP_TYPE(euphoria::engine::ScriptComponent);
+TYPEID_SETUP_TYPE(euphoria::engine::script_component);

@@ -1,14 +1,11 @@
-#ifndef EUPHORIA_CAMERADATA_H
-#define EUPHORIA_CAMERADATA_H
+#pragma once
 
 #include "core/rect.h"
 
 namespace euphoria::engine
 {
-    struct CameraData
+    struct camera_data
     {
         core::rectf screen;
     };
-}  // namespace euphoria::engine
-
-#endif  // EUPHORIA_CAMERADATA_H
+}

@@ -11,23 +11,29 @@
 
 namespace euphoria::engine
 {
-    CPosition2::CPosition2() : COMPONENT_CONSTRUCTOR_ARG(CPosition2) pos(0, 0)
-    {}
+    component_position2::component_position2()
+        : COMPONENT_CONSTRUCTOR_ARG(component_position2)
+        pos(0, 0)
+    {
+    }
 
-    Components::Components(core::ecs::registry* reg)
+    components::components(core::ecs::registry* reg)
         : position2(reg->register_new_component_type("Position2"))
         , sprite(reg->register_new_component_type("Sprite"))
-    {}
+    {
+    }
 
     COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)
 
     core::rectf
-    GetSpriteRect(const core::vec2f& position, const render::texture2d& texture)
+    get_sprite_rect(const core::vec2f& position, const render::texture2d& texture)
     {
-        return core::rectf::from_position_anchor_width_and_height(
-                position,
-                core::scale2f {0.5f, 0.5f},
-                texture.width,
-                texture.height);
+        return core::rectf::from_position_anchor_width_and_height
+        (
+            position,
+            core::scale2f {0.5f, 0.5f},
+            texture.width,
+            texture.height
+        );
     }
-}  // namespace euphoria::engine
+}

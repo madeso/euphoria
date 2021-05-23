@@ -11,20 +11,19 @@
 
 #include "gaf_world.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("engine.loadworld")
-
 namespace euphoria::engine
 {
     void
-    LoadWorld
+    load_world
     (
-        core::vfs::file_system* fs,
-        core::ecs::world* world,
-        DukRegistry* reg,
-        const core::vfs::file_path& path,
-        ObjectCreator* creator,
-    Sol*        ctx)
-{
+            core::vfs::file_system* fs,
+            core::ecs::world* world,
+            script_registry* reg,
+            const core::vfs::file_path& path,
+            object_creator* creator,
+            Sol*        ctx
+    )
+    {
         world::World json;
         const auto   err = core::read_json_to_gaf_struct_or_get_error_message(fs, &json, path);
         if(!err.empty())
@@ -35,13 +34,13 @@ namespace euphoria::engine
         for(const auto& obj: json.objects)
         {
             const auto& name = obj.template_name;
-            auto*       t    = creator->FindTemplate(name);
+            auto*       t    = creator->find_template(name);
             if(t == nullptr)
             {
                 LOG_ERROR("Failed to find template named {0}", name);
                 continue;
             }
-    t->CreateObject(ObjectCreationArgs{world, reg, ctx, ctx});
+            t->create_object(object_creation_arguments{world, reg, ctx, ctx});
         }
     }
-}  // namespace euphoria::engine
+}

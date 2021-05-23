@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_DUKINTEGRATION_H
-#define EUPHORIA_DUKINTEGRATION_H
+#pragma once
 
 #include <memory>
 
@@ -13,38 +12,38 @@ namespace euphoria::core::ecs
 
 namespace euphoria::engine
 {
-    struct Input;
-    struct DukRegistry;
-    struct ObjectCreator;
-    struct DukIntegrationPimpl;
-    struct CameraData;
-    struct Components;
+    struct input_system;
+    struct script_registry;
+    struct object_creator;
+    struct script_integration_pimpl;
+    struct camera_data;
+    struct components;
 
 
-    struct DukIntegration
+    struct script_integration
     {
     public:
-        DukIntegration(
+        script_integration
+        (
                 core::ecs::systems* systems,
                 core::ecs::world*   reg,
                 Sol*           duk,
-                ObjectCreator*      creator,
-                Components*         components,
-                CameraData*         camera);
-        ~DukIntegration();
+                object_creator*      creator,
+                components*         components,
+                camera_data*         camera
+        );
+        ~script_integration();
 
         void
-        Clear();
+        clear();
 
-        DukRegistry&
-        Registry();
+        script_registry&
+        get_registry();
 
         void
-  BindKeys(Sol* duk, const Input& input);
+        BindKeys(Sol* duk, const input_system& input);
 
     private:
-        std::unique_ptr<DukIntegrationPimpl> pimpl;
+        std::unique_ptr<script_integration_pimpl> pimpl;
     };
-}  // namespace euphoria::engine
-
-#endif  // EUPHORIA_DUKINTEGRATION_H
+}

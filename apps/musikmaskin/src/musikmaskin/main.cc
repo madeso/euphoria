@@ -68,28 +68,25 @@ using namespace euphoria::core;
 using namespace euphoria::window;
 using namespace euphoria::minsynth;
 
-LOG_SPECIFY_DEFAULT_LOGGER("musikmaskin")
 
-struct AppBase
+struct application_base
 {
-    AppBase()
+    application_base()
     {
-        AppBase::SetupWindow("musik maskin");
-        SetupAudioCallbacks();
+        application_base::setup_window("musik maskin");
+        setup_audio_callbacks();
     }
 
-    NONCOPYABLE(AppBase);
+    NONCOPYABLE(application_base);
 
     static void
-    SetupWindow(const std::string&)
+    setup_window(const std::string&)
     {
-        // Setup style
         ImGui::StyleColorsDark();
-        // ImGui::StyleColorsClassic();
     }
 
     void
-    SetupAudioCallbacks()
+    setup_audio_callbacks()
     {
         SDL_AudioSpec spec;
         SDL_memset(&spec, 0, sizeof(spec));
@@ -97,7 +94,7 @@ struct AppBase
         spec.format = AUDIO_S16SYS;
         spec.channels = 1;
         spec.samples = 1024;
-        spec.callback = SDLAudioCallback;
+        spec.callback = sdl_audio_callback;
         spec.userdata = this;
 
         if(0 != SDL_OpenAudio(&spec, nullptr))
@@ -121,7 +118,7 @@ struct AppBase
     }
 
     void
-    Start() const
+    start() const
     {
         if(ok)
         {
@@ -129,7 +126,7 @@ struct AppBase
         }
     }
 
-    virtual ~AppBase()
+    virtual ~application_base()
     {
         if(audio_opened)
         {
@@ -138,19 +135,19 @@ struct AppBase
     }
 
     virtual void
-    Draw() = 0;
+    draw() = 0;
 
     virtual float
-    SynthSample(float time) = 0;
+    synth_sample(float time) = 0;
 
     void
-    OnRender()
+    on_render()
     {
-        Draw();
+        draw();
     }
 
     void
-    AudioCallback(Uint8* stream, int bytes)
+    audio_callback(Uint8* stream, int bytes)
     {
         const int len = bytes / 2;
         auto* output = reinterpret_cast<Sint16*>(stream); // NOLINT
@@ -161,7 +158,7 @@ struct AppBase
         {
             const float sample_offset = static_cast<float>(i + samples_consumed)/static_cast<float>(sample_frequency);
             const float sample_time = audio_callback_time + sample_offset;
-            auto sample = SynthSample(sample_time);
+            auto sample = synth_sample(sample_time);
             if(sample > 1)
             {
                 sample = 1;
@@ -183,10 +180,10 @@ struct AppBase
     }
 
     static void
-    SDLAudioCallback(void* userdata, Uint8* stream, int len)
+    sdl_audio_callback(void* userdata, Uint8* stream, int len)
     {
-        auto* app = static_cast<AppBase*>(userdata);
-        app->AudioCallback(stream, len);
+        auto* app = static_cast<application_base*>(userdata);
+        app->audio_callback(stream, len);
     }
 
     bool ok = true;
@@ -201,14 +198,14 @@ struct AppBase
 };
 
 
-struct MidiInputNode : public euphoria::minsynth::midi_in_node
+struct midi_input_node : public euphoria::minsynth::midi_in_node
 {
     tone_taker* tones = nullptr;
 
     std::unique_ptr<RtMidiIn> midi;
 
     static void
-    StaticCallback
+    static_callback
     (
         double deltatime,
         std::vector<unsigned char>* message,
@@ -224,12 +221,12 @@ struct MidiInputNode : public euphoria::minsynth::midi_in_node
     }
 
     void
-    Setup()
+    setup()
     {
         try
         {
             midi = std::make_unique<RtMidiIn>();
-            midi->setCallback(&StaticCallback, this);
+            midi->setCallback(&static_callback, this);
 
             if(open_virtual_port)
             {
@@ -254,14 +251,16 @@ struct MidiInputNode : public euphoria::minsynth::midi_in_node
 
 
 void
-DrawKeys(
-        const std::vector<piano_key>& piano,
-        const keyboard_layout& layout,
-        float start_x,
-        float start_y,
-        float width,
-        float height,
-        float spacing)
+draw_keys
+(
+    const std::vector<piano_key>& piano,
+    const keyboard_layout& layout,
+    float start_x,
+    float start_y,
+    float width,
+    float height,
+    float spacing
+)
 {
     ImGuiStyle& style = ImGui::GetStyle();
     ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -277,17 +276,18 @@ DrawKeys(
             const ImVec2 pos {x, y};
             const ImVec2 tone_offset {6, 8};
 
-            const auto found = std::find_if(
-                    piano.begin(), piano.end(), [=](const piano_key& p) -> bool {
-                        return p.keycode == key;
-                    });
+            const auto found = std::find_if
+            (
+                piano.begin(), piano.end(),
+                [=](const piano_key& p) -> bool
+                {
+                    return p.keycode == key;
+                }
+            );
 
-            const auto t = ImGui::ColorConvertFloat4ToU32(
-                    style.Colors[ImGuiCol_TextDisabled]);
-            const auto c = ImGui::ColorConvertFloat4ToU32(
-                    style.Colors[ImGuiCol_WindowBg]);
-            const auto tt = ImGui::ColorConvertFloat4ToU32(
-                    style.Colors[ImGuiCol_Text]);
+            const auto t = ImGui::ColorConvertFloat4ToU32(style.Colors[ImGuiCol_TextDisabled]);
+            const auto c = ImGui::ColorConvertFloat4ToU32(style.Colors[ImGuiCol_WindowBg]);
+            const auto tt = ImGui::ColorConvertFloat4ToU32(style.Colors[ImGuiCol_Text]);
 
             const auto key_text = to_string(key);
 
@@ -308,10 +308,10 @@ DrawKeys(
 }
 
 
-class App : public AppBase
+class application : public application_base
 {
 public:
-    MidiInputNode midi;
+    midi_input_node midi;
     keyboard_input_node piano;
     single_tone_node single_tone;
     arpegiator_node arp;
@@ -324,7 +324,7 @@ public:
 
     float current_time = 0;
 
-    App()
+    application()
     {
         setup_qwerty_two_octave_layout(&piano.keys, 4, -2);
 
@@ -336,7 +336,7 @@ public:
         scaler.in = &oscilator;
         master.in = &scaler;
 
-        midi.Setup();
+        midi.setup();
 
         nodes.emplace_back(&piano);
         nodes.emplace_back(&single_tone);
@@ -348,7 +348,7 @@ public:
     }
 
     void
-    Draw() override
+    draw() override
     {
         // imgui: demo window
         ImGui::ShowDemoWindow();
@@ -382,14 +382,16 @@ public:
             {
                 const auto p = ImGui::GetCursorScreenPos();
                 constexpr float keysize = 30;
-                DrawKeys(
-                        piano.keys,
-                        create_qwerty_keyboard_layout(),
-                        p.x + 10,
-                        p.y + 10,
-                        keysize,
-                        keysize,
-                        3);
+                draw_keys
+                (
+                    piano.keys,
+                    create_qwerty_keyboard_layout(),
+                    p.x + 10,
+                    p.y + 10,
+                    keysize,
+                    keysize,
+                    3
+                );
             }
             imgui::canvas_end();
         }
@@ -400,11 +402,13 @@ public:
         {
             static last_n<float> time_history(100);
             static float max_diff = 0;
-            ImGui::Text(
-                    "Tones: %d, %d alive and %d dead",
-                    oscilator.get_total_tones(),
-                    oscilator.get_alive_tones(),
-                    oscilator.get_dead_tones());
+            ImGui::Text
+            (
+                "Tones: %d, %d alive and %d dead",
+                oscilator.get_total_tones(),
+                oscilator.get_alive_tones(),
+                oscilator.get_dead_tones()
+            );
             ImGui::Text("Time: %.1f", current_time);
             ImGui::Text("Sample time: %.1f", max_sample_time);
             ImGui::Text("Max diff: %.1f", max_diff);
@@ -414,8 +418,7 @@ public:
             {
                 max_diff = f;
             }
-            ImGui::PlotLines(
-                    "Callback diff", time_history.data(), time_history.size());
+            ImGui::PlotLines("Callback diff", time_history.data(), time_history.size());
             // ImGui::Text("Callback time: %.1f", time - audio_callback_time);
 
             // horizontal line?
@@ -424,45 +427,65 @@ public:
 
             imgui::knob("Master", &master.volume, 0.0f, 1.0f);
 
-            imgui::custom_dropdown("tuning", &ttf.tuning, tuning::Max, [](auto t)
-            {
-                return to_string(t);
-            });
+            imgui::custom_dropdown
+            (
+                "tuning", &ttf.tuning, tuning::Max,
+                [](auto t)
+                {
+                    return to_string(t);
+                }
+            );
 
-            ImGui::DragFloat(
-                    "Time to start",
-                    &oscilator.envelope.time_to_start,
-                    0.01f,
-                    0.0f,
-                    1.0f);
-            ImGui::DragFloat(
-                    "Time to end",
-                    &oscilator.envelope.time_to_end,
-                    0.01f,
-                    0.0f,
-                    1.0f);
+            ImGui::DragFloat
+            (
+                "Time to start",
+                &oscilator.envelope.time_to_start,
+                0.01f,
+                0.0f,
+                1.0f
+            );
+            ImGui::DragFloat
+            (
+                "Time to end",
+                &oscilator.envelope.time_to_end,
+                0.01f,
+                0.0f,
+                1.0f
+            );
 
-            imgui::custom_dropdown(
-                    "Oscilator",
-                    &oscilator.oscilator,
-                    oscilator_type::Max,
-                    [](auto t)
-                    { return to_string(t); });
+            imgui::custom_dropdown
+            (
+                "Oscilator",
+                &oscilator.oscilator,
+                oscilator_type::Max,
+                [](auto t)
+                {
+                    return to_string(t);
+                }
+            );
 
-            imgui::custom_dropdown(
-                    "Chord emulation",
-                    &piano.chords_emulation,
-                    chord_emulation::Max,
-                    [](auto t)
-                    { return to_string(t); });
+            imgui::custom_dropdown
+            (
+                "Chord emulation",
+                &piano.chords_emulation,
+                chord_emulation::Max,
+                [](auto t)
+                {
+                    return to_string(t);
+                }
+            );
 
             ImGui::InputInt("Times", &scaler.times, 1, 5);
 
             ImGui::InputInt("Arp octaves", &arp.octaves);
-            imgui::custom_dropdown("Arp mode", &arp.mode, arp_mode::MAX, [](auto t)
-            {
-                return to_string(t);
-            });
+            imgui::custom_dropdown
+            (
+                "Arp mode", &arp.mode, arp_mode::MAX,
+                [](auto t)
+                {
+                    return to_string(t);
+                }
+            );
             imgui::knob("Update time", &arp.update_time, 0, 1);
             ImGui::SameLine();
             imgui::knob("Tone time", &arp.tone_time, 0, 1);
@@ -483,13 +506,13 @@ public:
     }
 
     float
-    SynthSample(float time) override
+    synth_sample(float time) override
     {
         return master.get_output(time);
     }
 
     void
-    Update(float dt)
+    update(float dt)
     {
         for(auto* node: nodes)
         {
@@ -498,11 +521,12 @@ public:
     }
 
     void
-    OnKey(key key, bool down)
+    on_key(key key, bool down)
     {
         piano.on_input(key, down, current_time);
     }
 };
+
 
 int
 main(int argc, char** argv)
@@ -522,8 +546,8 @@ main(int argc, char** argv)
         return -1;
     }
 
-    App app;
-    app.Start();
+    application app;
+    app.start();
 
     bool running = true;
 
@@ -539,9 +563,7 @@ main(int argc, char** argv)
         last_time = current_time;
         current_time = SDL_GetPerformanceCounter();
 
-        const auto dt
-                = (static_cast<float>(current_time - last_time)
-                   / SDL_GetPerformanceFrequency());
+        const auto dt = (static_cast<float>(current_time - last_time) / SDL_GetPerformanceFrequency());
 
         time += dt;
         app.current_time = time;
@@ -565,7 +587,7 @@ main(int argc, char** argv)
                 {
                     if(e.key.repeat == 0)
                     {
-                        app.OnKey(to_key(e.key.keysym), e.type == SDL_KEYDOWN);
+                        app.on_key(to_key(e.key.keysym), e.type == SDL_KEYDOWN);
                     }
                 }
                 break;
@@ -579,7 +601,7 @@ main(int argc, char** argv)
             }
         }
 
-        app.Update(dt);
+        app.update(dt);
 
         engine.imgui->start_new_frame();
 
@@ -596,7 +618,7 @@ main(int argc, char** argv)
         }
         ImGui::EndMainMenuBar();
 
-        app.OnRender();
+        app.on_render();
         // ImGui::End();
 
         engine.init->clear_screen(color::light_gray);
