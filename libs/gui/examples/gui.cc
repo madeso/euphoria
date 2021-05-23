@@ -42,9 +42,6 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui_internal.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("samples-gui")
-
-
 using namespace euphoria::core;
 using namespace euphoria::gui;
 using namespace euphoria::render;
@@ -53,25 +50,25 @@ using namespace euphoria::window;
 
 // todo(Gustav): move to window/imgui_ext
 bool
-ImWidget(const char* title, size2f* s)
+imgui_widget(const char* title, size2f* s)
 {
     return ImGui::DragFloat2(title, &s->width);
 }
 
 void
-ImWidget(const char* title, std::string* str)
+imgui_widget(const char* title, std::string* str)
 {
     imgui::input_text(title, str);
 }
 
 bool
-ImWidget(const char* title, vec2f* v)
+imgui_widget(const char* title, vec2f* v)
 {
     return ImGui::DragFloat2(title, &v->x);
 }
 
 bool
-ImWidget(const char* title, bool b)
+imgui_widget(const char* title, bool b)
 {
     bool bb = b;
     ImGui::Checkbox(title, &bb);
@@ -79,14 +76,14 @@ ImWidget(const char* title, bool b)
 }
 
 bool
-ImWidget(const char* title, bool* b)
+imgui_widget(const char* title, bool* b)
 {
     return ImGui::Checkbox(title, b);
 }
 
 
 bool
-ImWidget(const char* title, euphoria::gui::lrtb* p)
+imgui_widget(const char* title, euphoria::gui::lrtb* p)
 {
     const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
     ImGui::PushID(title);
@@ -122,7 +119,7 @@ ImWidget(const char* title, euphoria::gui::lrtb* p)
 }
 
 bool
-ImWidget(const char* title, rectf* r)
+imgui_widget(const char* title, rectf* r)
 {
     const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
     ImGui::PushID(title);
@@ -159,7 +156,7 @@ ImWidget(const char* title, rectf* r)
 
 
 void
-ImWidget(const char* title, euphoria::render::texture2d* tex)
+imgui_widget(const char* title, euphoria::render::texture2d* tex)
 {
     if(tex == nullptr) { return; }
 
@@ -168,75 +165,75 @@ ImWidget(const char* title, euphoria::render::texture2d* tex)
 }
 
 void
-ImWidget(euphoria::render::scalable_sprite* sprite)
+imgui_widget(euphoria::render::scalable_sprite* sprite)
 {
-    ImWidget("texture", sprite->texture.get());
+    imgui_widget("texture", sprite->texture.get());
 }
 
 
 bool
-ImWidget(ui_state* state)
+imgui_widget(ui_state* state)
 {
-    ImWidget("mouse", &state->mouse);
-    ImWidget("down", &state->mouse_down);
-    ImWidget("hot", state->hot != nullptr);
-    ImWidget("active", state->active != nullptr);
-    ImWidget("has active", &state->has_active);
+    imgui_widget("mouse", &state->mouse);
+    imgui_widget("down", &state->mouse_down);
+    imgui_widget("hot", state->hot != nullptr);
+    imgui_widget("active", state->active != nullptr);
+    imgui_widget("has active", &state->has_active);
     return false;
 }
 
 void
-ImWidget(text_data* data)
+imgui_widget(text_data* data)
 {
-    ImWidget("string", &data->string);
+    imgui_widget("string", &data->string);
     ImGui::DragFloat("size", &data->size);
 }
 
 bool
-ImWidget(layout_container* container);
+imgui_widget(layout_container* container);
 
-struct Vis : public visitor
+struct imgui_widget_visitor : public visitor
 {
     void
     visit(button* w) override
     {
-        ImWidget(w->sprite.get());
+        imgui_widget(w->sprite.get());
         if(ImGui::Button("Click"))
         {
             w->on_clicked();
         }
-        ImWidget(&w->text);
+        imgui_widget(&w->text);
     }
 
     void
     visit(panel_widget* w) override
     {
-        ImWidget(&w->container);
+        imgui_widget(&w->container);
     }
 };
 
 
 bool
-ImWidget(widget* w)
+imgui_widget(widget* w)
 {
     imgui::input_text("name", &w->name);
-    ImWidget("margin", &w->margin);
-    ImWidget("padding", &w->padding);
-    ImWidget("rect", &w->rect);
+    imgui_widget("margin", &w->margin);
+    imgui_widget("padding", &w->padding);
+    imgui_widget("rect", &w->rect);
 
     if(ImGui::Button("Size"))
     {
         w->on_size_changed();
     }
 
-    auto vis = Vis{};
+    auto vis = imgui_widget_visitor{};
     w->visit(&vis);
 
     return false;
 }
 
 bool
-ImWidget(layout_container* container)
+imgui_widget(layout_container* container)
 {
     for(int i=0; i<Csizet_to_int(container->widgets.size()); i+= 1)
     {
@@ -244,7 +241,7 @@ ImWidget(layout_container* container)
         if(ImGui::TreeNode(widget->name.c_str()))
         {
             ImGui::PushID(i);
-            ImWidget(widget.get());
+            imgui_widget(widget.get());
             ImGui::PopID();
 
             ImGui::TreePop();
@@ -255,15 +252,15 @@ ImWidget(layout_container* container)
 }
 
 void
-ImWidgetGlyph(int id, euphoria::render::glyph* gl)
+imgui_widgetGlyph(int id, euphoria::render::glyph* gl)
 {
     const std::string s = string_builder() << "glyph " << id;
     if(ImGui::TreeNode(s.c_str()) == false) { return; }
 
     ImGui::PushID(id);
 
-    ImWidget("sprite", &gl->sprite_rect);
-    ImWidget("texture", &gl->texture_rect);
+    imgui_widget("sprite", &gl->sprite_rect);
+    imgui_widget("texture", &gl->texture_rect);
     ImGui::DragFloat("advance", &gl->advance);
 
     ImGui::PopID();
@@ -272,28 +269,28 @@ ImWidgetGlyph(int id, euphoria::render::glyph* gl)
 }
 
 void
-ImWidget(const char* title, euphoria::render::drawable_font* font)
+imgui_widget(const char* title, euphoria::render::drawable_font* font)
 {
     if(ImGui::TreeNode(title) == false) {return;}
 
-    ImWidget("texture", font->texture_.get());
-    ImWidget("background", font->background.get());
+    imgui_widget("texture", font->texture_.get());
+    imgui_widget("background", font->background.get());
 
     for(auto& g: font->chars_)
     {
-        ImWidgetGlyph(g.first, g.second.get());
+        imgui_widgetGlyph(g.first, g.second.get());
     }
 
     ImGui::TreePop();
 }
 
 void
-ImWidget(skin* skin)
+imgui_widget(skin* skin)
 {
     if(ImGui::TreeNode(skin->name.c_str()) == false) { return; }
 
     imgui::input_text("name", &skin->name);
-    ImWidget("font", skin->font.get());
+    imgui_widget("font", skin->font.get());
     ImGui::DragFloat("text size", &skin->text_size);
 
     ImGui::TreePop();
@@ -301,19 +298,20 @@ ImWidget(skin* skin)
 
 
 void
-DebugUi(root* root)
+imgui_widget(root* root)
 {
     for(auto& skin: root->skins)
     {
-        ImWidget(skin.get());
+        imgui_widget(skin.get());
     }
-    ImWidget("size", &root->size);
-    ImWidget(&root->state);
-    ImWidget(&root->container);
+    imgui_widget("size", &root->size);
+    imgui_widget(&root->state);
+    imgui_widget(&root->container);
 
-    ImWidget("cursor", root->cursor_image.get());
-    ImWidget("hover", root->hover_image.get());
+    imgui_widget("cursor", root->cursor_image.get());
+    imgui_widget("hover", root->hover_image.get());
 }
+
 
 int
 main(int argc, char* argv[])
@@ -338,13 +336,13 @@ main(int argc, char* argv[])
 
     if
     (
-            engine.create_window
-                    (
-                            "euphoria gui demo",
-                            window_width,
-                            window_height,
-                            true
-                    ) == false
+        engine.create_window
+        (
+            "euphoria gui demo",
+            window_width,
+            window_height,
+            true
+        ) == false
     )
     {
         return -1;
@@ -410,7 +408,7 @@ main(int argc, char* argv[])
             engine.imgui->start_new_frame();
 
             ImGui::Begin("Gui");
-            DebugUi(&root);
+            imgui_widget(&root);
             ImGui::End();
         }
 
@@ -469,11 +467,14 @@ main(int argc, char* argv[])
         else
         {
             root.set_input_mouse
-                    (
-                            vec2f{static_cast<float>(window_mouse_x),
-                                  static_cast<float>(window_height - window_mouse_y)},
-                            mouse_lmb_down
-                    );
+            (
+                vec2f
+                {
+                    static_cast<float>(window_mouse_x),
+                    static_cast<float>(window_height - window_mouse_y)
+                },
+                mouse_lmb_down
+            );
         }
 
         root.step(dt);

@@ -49,9 +49,9 @@ using namespace euphoria::core;
 using namespace euphoria::render;
 using namespace euphoria::window;
 
-struct CubeAnimation
+struct cube_animation
 {
-    CubeAnimation()
+    cube_animation()
         : from(quatf::identity())
         , to(quatf::identity())
     {
@@ -138,13 +138,13 @@ main(int argc, char** argv)
     box_mesh1.materials[0].specular = color::white;
     box_mesh1.materials[0].shininess = 120.0f;
     auto box1 = compile_mesh
-            (
-                    box_mesh1,
-                    &material_shader_cache,
-                    &texture_cache,
-                    vfs::dir_path::from_root(),
-                    "box1"
-            );
+    (
+        box_mesh1,
+        &material_shader_cache,
+        &texture_cache,
+        vfs::dir_path::from_root(),
+        "box1"
+    );
 
     auto box_mesh2 = meshes::create_sphere(0.5f, "image");
     box_mesh2.materials[0].set_texture("Specular", vfs::file_path{"./img-plain/white"});
@@ -152,26 +152,26 @@ main(int argc, char** argv)
     box_mesh2.materials[0].specular  = color::white;
     box_mesh2.materials[0].shininess = 10.0f;
     auto box2 = compile_mesh
-            (
-                    box_mesh2,
-                    &material_shader_cache,
-                    &texture_cache,
-                    vfs::dir_path::from_root(),
-                    "box2"
-            );
+    (
+        box_mesh2,
+        &material_shader_cache,
+        &texture_cache,
+        vfs::dir_path::from_root(),
+        "box2"
+    );
 
     auto debug_texture = texture_cache.get_texture(vfs::file_path{"~/image"});
 
     auto light_mesh = meshes::create_cube(0.2f);
     light_mesh.materials[0].shader = vfs::file_path{"~/basic_shader"};
     auto light = compile_mesh
-            (
-                    light_mesh,
-                    &material_shader_cache,
-                    &texture_cache,
-                    vfs::dir_path::from_root(),
-                    "light"
-            );
+    (
+        light_mesh,
+        &material_shader_cache,
+        &texture_cache,
+        vfs::dir_path::from_root(),
+        "light"
+    );
     float light_position = 0.0f;
 
     const float box_extent_value = 4;
@@ -181,7 +181,7 @@ main(int argc, char** argv)
         vec3f{box_extent_value, box_extent_value, box_extent_value}
     };
 
-    std::vector<CubeAnimation> animation_handler;
+    std::vector<cube_animation> animation_handler;
 
     bool capturing_mouse_movement = false;
 
@@ -193,7 +193,7 @@ main(int argc, char** argv)
         auto actor = std::make_shared<render::actor>(rand.get_next_bool() ? box1 : box2);
         world.add_actor(actor);
 
-        CubeAnimation anim;
+        cube_animation anim;
         anim.actor = actor;
         anim.from = quatf::from_random(&rand);
         anim.to = quatf::from_random(&rand);
@@ -268,15 +268,15 @@ main(int argc, char** argv)
             );
             ImGui::Begin("Light");
             imgui::combo
-                    (
-                            "Type",
-                            &world.light.light_type,
-                            {
-                                    {"Directional", light::type::directional},
-                                    {"Point",       light::type::point},
-                                    {"Spot",        light::type::spot}
-                            }
-                    );
+            (
+                "Type",
+                &world.light.light_type,
+                {
+                    {"Directional", light::type::directional},
+                    {"Point",       light::type::point},
+                    {"Spot",        light::type::spot}
+                }
+            );
             imgui::color_edit("Ambient", &world.light.ambient);
             imgui::color_edit("Diffuse", &world.light.diffuse);
             imgui::color_edit("Specular", &world.light.specular);
@@ -288,19 +288,19 @@ main(int argc, char** argv)
             );
 
             imgui::angle_slider
-                    (
-                            "Cutoff Angle Inner",
-                            &world.light.cutoff_angle_inner,
-                            angle::Zero(),
-                            angle::Quarter() / 2
-                    );
+            (
+                "Cutoff Angle Inner",
+                &world.light.cutoff_angle_inner,
+                angle::Zero(),
+                angle::Quarter() / 2
+            );
             imgui::angle_slider
-                    (
-                            "Cutoff Angle Outer",
-                            &world.light.cutoff_angle_outer,
-                            angle::Zero(),
-                            angle::Quarter()
-                    );
+            (
+                "Cutoff Angle Outer",
+                &world.light.cutoff_angle_outer,
+                angle::Zero(),
+                angle::Quarter()
+            );
 
             imgui::image(debug_texture.get());
 

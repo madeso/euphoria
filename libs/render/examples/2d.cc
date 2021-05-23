@@ -66,13 +66,13 @@ main(int argc, char* argv[])
 
     if
     (
-            engine.create_window
-                    (
-                            "euphoria 2d demo",
-                            window_width,
-                            window_height,
-                            true
-                    ) == false
+        engine.create_window
+        (
+                "euphoria 2d demo",
+                window_width,
+                window_height,
+                true
+        ) == false
     )
     {
         return -1;
@@ -218,10 +218,10 @@ main(int argc, char* argv[])
             ;
         */
         renderer.draw_sprite
-                (
-                        *arrows,
-                        r
-                );
+        (
+            *arrows,
+            r
+        );
         if(show_imgui)
         {
             engine.imgui->render();
