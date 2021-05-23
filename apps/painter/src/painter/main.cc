@@ -51,11 +51,11 @@
 #include "imgui/imgui_internal.h"
 #include "window/imgui_extra.h"
 
-// LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
 using namespace euphoria::core;
 using namespace euphoria::render;
 using namespace euphoria::window;
+
 
 int
 main(int argc, char** argv)
@@ -145,8 +145,8 @@ main(int argc, char** argv)
             {
                 index = -1;
             }
-            auto handle = [&canvas, &index](
-                                  const ImVec2& p, int id, ImU32 color) {
+            auto handle = [&canvas, &index](const ImVec2& p, int id, ImU32 color)
+            {
                 const auto  size      = 5.0f;
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
                 const auto  sp        = canvas.world_to_screen(p);
@@ -173,7 +173,8 @@ main(int argc, char** argv)
                 }
                 return std::make_pair(false, vec2f(0, 0));
             };
-            auto line = [](const ImVec2& a, const ImVec2& b, ImU32 color) {
+            auto line = [](const ImVec2& a, const ImVec2& b, ImU32 color)
+            {
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
                 draw_list->PathLineTo(a);
                 draw_list->PathLineTo(b);
@@ -184,21 +185,19 @@ main(int argc, char** argv)
             const auto line_color  = IM_COL32(0, 0, 0, 255);
 
             // draw handles
-            for(size_t point_index = 0; point_index < path.points.size();
-                point_index += 1)
+            for(size_t point_index = 0; point_index < path.points.size(); point_index += 1)
             {
-                const bool is_anchor_point
-                        = bezier_path2::is_anchor_point(point_index);
+                const bool is_anchor_point = bezier_path2::is_anchor_point(point_index);
                 if(path.autoset_ && !is_anchor_point)
                 {
                     continue;
                 }
                 const ImU32 alpha = 200;
                 const ImU32 color = is_anchor_point
-                                            ? IM_COL32(20, 20, 200, alpha)
-                                            : IM_COL32(200, 20, 20, alpha);
-                auto r = handle(
-                        C(path.points[point_index]), point_index, color);
+                    ? IM_COL32(20, 20, 200, alpha)
+                    : IM_COL32(200, 20, 20, alpha)
+                    ;
+                auto r = handle(C(path.points[point_index]), point_index, color);
                 if(r.first)
                 {
                     if(ImGui::GetIO().KeyCtrl)
@@ -211,28 +210,27 @@ main(int argc, char** argv)
                     }
                 }
             }
+
             // draw bezier and link lines
             const auto tseg = path.get_number_of_segments();
             for(size_t seg = 0; seg < tseg; seg += 1)
             {
                 auto  s  = path.get_points_in_segment(seg);
                 auto* dl = ImGui::GetWindowDrawList();
-                dl->AddBezierCurve(
-                        canvas.world_to_screen(C(s.a0)),
-                        canvas.world_to_screen(C(s.c0)),
-                        canvas.world_to_screen(C(s.c1)),
-                        canvas.world_to_screen(C(s.a1)),
-                        curve_color,
-                        1);
+                dl->AddBezierCurve
+                (
+                    canvas.world_to_screen(C(s.a0)),
+                    canvas.world_to_screen(C(s.c0)),
+                    canvas.world_to_screen(C(s.c1)),
+                    canvas.world_to_screen(C(s.a1)),
+                    curve_color,
+                    1
+                );
 
                 if(!path.autoset_)
                 {
-                    line(canvas.world_to_screen(C(s.a0)),
-                         canvas.world_to_screen(C(s.c0)),
-                         line_color);
-                    line(canvas.world_to_screen(C(s.a1)),
-                         canvas.world_to_screen(C(s.c1)),
-                         line_color);
+                    line(canvas.world_to_screen(C(s.a0)), canvas.world_to_screen(C(s.c0)), line_color);
+                    line(canvas.world_to_screen(C(s.a1)), canvas.world_to_screen(C(s.c1)), line_color);
                 }
             }
 
@@ -241,8 +239,7 @@ main(int argc, char** argv)
 
             if(ImGui::BeginPopup("context_menu"))
             {
-                const auto p = canvas.screen_to_world(
-                        ImGui::GetMousePosOnOpeningCurrentPopup());
+                const auto p = canvas.screen_to_world(ImGui::GetMousePosOnOpeningCurrentPopup());
                 if(ImGui::MenuItem("Add"))
                 {
                     path.add_point(C(p));
