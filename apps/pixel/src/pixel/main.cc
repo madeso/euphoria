@@ -67,7 +67,7 @@ C(const rgbai& c)
 }
 
 
-bool IsOver(const ImVec2& min, const ImVec2& max, const ImVec2& mouse)
+bool is_over(const ImVec2& min, const ImVec2& max, const ImVec2& mouse)
 {
     const auto over_min = min.x <= mouse.x && min.y <= mouse.y;
     const auto over_max = max.x >= mouse.x && max.y >= mouse.y;
@@ -75,24 +75,25 @@ bool IsOver(const ImVec2& min, const ImVec2& max, const ImVec2& mouse)
 }
 
 
-enum class Tool
+enum class tool
 {
-    Pen, Fill
+    pen, fill
 };
 
 
 void
-FloodFill(image* image, int x, int y, const rgbai& target_color, const rgbai& replacement_color)
+flood_fill(image* image, int x, int y, const rgbai& target_color, const rgbai& replacement_color)
 {
     if(is_within(image->get_indices(), vec2i(x, y)) == false) { return; }
     if(target_color == replacement_color) { return; }
     if(image->get_pixel(x, y) != target_color) { return; }
+
     image->set_pixel(x, y, replacement_color);
 
-    FloodFill(image, x-1, y, target_color, replacement_color);
-    FloodFill(image, x+1, y, target_color, replacement_color);
-    FloodFill(image, x, y-1, target_color, replacement_color);
-    FloodFill(image, x, y+1, target_color, replacement_color);
+    flood_fill(image, x - 1, y, target_color, replacement_color);
+    flood_fill(image, x + 1, y, target_color, replacement_color);
+    flood_fill(image, x, y - 1, target_color, replacement_color);
+    flood_fill(image, x, y + 1, target_color, replacement_color);
 }
 
 
@@ -127,7 +128,7 @@ main(int argc, char** argv)
     canvas canvas;
     image image;
     core::random random;
-    Tool tool = Tool::Pen;
+    tool current_tool = tool::pen;
     auto palette = palettes::endesga_64();
     auto foreground = 0;
     auto background = 1;
@@ -193,25 +194,24 @@ main(int argc, char** argv)
         ImGui::PopStyleVar(2);
         if(show_toolbar)
         {
-            auto toolbar_button = [&tool, toolbar_button_size](const char* label, Tool t)
+            auto toolbar_button = [&current_tool, toolbar_button_size](const char* label, ::tool t)
             {
-                if(imgui::toggle_button(label, tool == t, toolbar_button_size))
+                if(imgui::toggle_button(label, current_tool == t, toolbar_button_size))
                 {
-                    tool = t;
+                    current_tool = t;
                 }
             };
-            toolbar_button(ICON_MDI_FORMAT_COLOR_HIGHLIGHT, Tool::Pen);
+            toolbar_button(ICON_MDI_FORMAT_COLOR_HIGHLIGHT, tool::pen);
             imgui::help_text("Pen");
 
             ImGui::SameLine();
-            toolbar_button(ICON_MDI_FORMAT_COLOR_FILL, Tool::Fill);
+            toolbar_button(ICON_MDI_FORMAT_COLOR_FILL, tool::fill);
             imgui::help_text("Fill");
         }
         ImGui::End();
 
         if(ImGui::Begin("Palette"))
         {
-
             const auto tile_size = 20;
             const auto spacing = 3;
             const auto big_spacing = 10;
@@ -249,7 +249,7 @@ main(int argc, char** argv)
 
                     if(!hovering && (left_clicked || right_clicked))
                     {
-                        if(IsOver(min, max, mouse))
+                        if(is_over(min, max, mouse))
                         {
                             if(left_clicked)
                             {
@@ -259,7 +259,6 @@ main(int argc, char** argv)
                             {
                                 background = palette_index;
                             }
-
                         }
                     }
                 }
@@ -315,9 +314,9 @@ main(int argc, char** argv)
                     const auto m = ImGui::GetMousePos();
                     if(ps.x <= m.x && ps.y <= m.y && pss.x >= m.x && pss.y >= m.y)
                     {
-                        switch(tool)
+                        switch(current_tool)
                         {
-                        case Tool::Pen:
+                        case tool::pen:
                             // hovering over pixel
                             if(!hovering && left_down)
                             {
@@ -330,11 +329,11 @@ main(int argc, char** argv)
                                 image.set_pixel(x, y, palette.colors[background]);
                             }
                             break;
-                        case Tool::Fill:
+                        case tool::fill:
                             if(!hovering && (left_clicked || right_clicked))
                             {
                                 const auto color = palette.colors[left_clicked ? foreground : background];
-                                FloodFill(&image, x, y, c, color);
+                                flood_fill(&image, x, y, c, color);
                             }
                         }
 
