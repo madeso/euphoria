@@ -201,9 +201,9 @@ struct AppBase
 };
 
 
-struct MidiInputNode : public euphoria::minsynth::MidiInNode
+struct MidiInputNode : public euphoria::minsynth::midi_in_node
 {
-    ToneTaker* tones = nullptr;
+    tone_taker* tones = nullptr;
 
     std::unique_ptr<RtMidiIn> midi;
 
@@ -215,11 +215,11 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
         void* user_data
     )
     {
-        auto* self = static_cast<MidiInNode*>(user_data);
+        auto* self = static_cast<midi_in_node*>(user_data);
         if(message != nullptr)
         {
-            self->Callback(static_cast<float>(deltatime), *message);
-            // self->DebugCallback(deltatime, *message);
+            self->callback(static_cast<float>(deltatime), *message);
+            // self->debug_callback(deltatime, *message);
         }
     }
 
@@ -255,8 +255,8 @@ struct MidiInputNode : public euphoria::minsynth::MidiInNode
 
 void
 DrawKeys(
-        const std::vector<PianoKey>& piano,
-        const KeyboardLayout& layout,
+        const std::vector<piano_key>& piano,
+        const keyboard_layout& layout,
         float start_x,
         float start_y,
         float width,
@@ -278,7 +278,7 @@ DrawKeys(
             const ImVec2 tone_offset {6, 8};
 
             const auto found = std::find_if(
-                    piano.begin(), piano.end(), [=](const PianoKey& p) -> bool {
+                    piano.begin(), piano.end(), [=](const piano_key& p) -> bool {
                         return p.keycode == key;
                     });
 
@@ -312,26 +312,26 @@ class App : public AppBase
 {
 public:
     MidiInputNode midi;
-    KeyboardInputNode piano;
-    SingleToneNode single_tone;
-    ArpegiatorNode arp;
-    ToneToFrequencyConverterNode ttf;
-    OscilatorNode oscilator;
-    ScalerEffect scaler;
-    VolumeNode master;
+    keyboard_input_node piano;
+    single_tone_node single_tone;
+    arpegiator_node arp;
+    tone_to_frequency_converter_node ttf;
+    oscilator_node oscilator;
+    scaler_effect scaler;
+    volume_node master;
 
-    std::vector<Node*> nodes;
+    std::vector<node*> nodes;
 
     float current_time = 0;
 
     App()
     {
-        SetupQwertyTwoOctaveLayout(&piano.keys, 4, -2);
+        setup_qwerty_two_octave_layout(&piano.keys, 4, -2);
 
         midi.tones = &ttf;
         piano.tones = &ttf;
-        arp.NextNode = &ttf;
-        single_tone.NextNode = &ttf;
+        arp.next_node = &ttf;
+        single_tone.next_node = &ttf;
         ttf.next = &oscilator;
         scaler.in = &oscilator;
         master.in = &scaler;
@@ -384,7 +384,7 @@ public:
                 constexpr float keysize = 30;
                 DrawKeys(
                         piano.keys,
-                        KeyboardLayoutQwerty(),
+                        create_qwerty_keyboard_layout(),
                         p.x + 10,
                         p.y + 10,
                         keysize,
@@ -402,9 +402,9 @@ public:
             static float max_diff = 0;
             ImGui::Text(
                     "Tones: %d, %d alive and %d dead",
-                    oscilator.GetTotalTones(),
-                    oscilator.GetAliveTones(),
-                    oscilator.GetDeadTones());
+                    oscilator.get_total_tones(),
+                    oscilator.get_alive_tones(),
+                    oscilator.get_dead_tones());
             ImGui::Text("Time: %.1f", current_time);
             ImGui::Text("Sample time: %.1f", max_sample_time);
             ImGui::Text("Max diff: %.1f", max_diff);
@@ -424,7 +424,7 @@ public:
 
             imgui::knob("Master", &master.volume, 0.0f, 1.0f);
 
-            imgui::custom_dropdown("Tuning", &ttf.tuning, Tuning::Max, [](auto t)
+            imgui::custom_dropdown("tuning", &ttf.tuning, tuning::Max, [](auto t)
             {
                 return to_string(t);
             });
@@ -445,21 +445,21 @@ public:
             imgui::custom_dropdown(
                     "Oscilator",
                     &oscilator.oscilator,
-                    OscilatorType::Max,
+                    oscilator_type::Max,
                     [](auto t)
                     { return to_string(t); });
 
             imgui::custom_dropdown(
                     "Chord emulation",
                     &piano.chords_emulation,
-                    ChordEmulation::Max,
+                    chord_emulation::Max,
                     [](auto t)
                     { return to_string(t); });
 
             ImGui::InputInt("Times", &scaler.times, 1, 5);
 
             ImGui::InputInt("Arp octaves", &arp.octaves);
-            imgui::custom_dropdown("Arp mode", &arp.mode, ArpMode::MAX, [](auto t)
+            imgui::custom_dropdown("Arp mode", &arp.mode, arp_mode::MAX, [](auto t)
             {
                 return to_string(t);
             });
@@ -485,7 +485,7 @@ public:
     float
     SynthSample(float time) override
     {
-        return master.GetOutput(time);
+        return master.get_output(time);
     }
 
     void
@@ -493,14 +493,14 @@ public:
     {
         for(auto* node: nodes)
         {
-            node->Update(dt, current_time);
+            node->update(dt, current_time);
         }
     }
 
     void
     OnKey(key key, bool down)
     {
-        piano.OnInput(key, down, current_time);
+        piano.on_input(key, down, current_time);
     }
 };
 
