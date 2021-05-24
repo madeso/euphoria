@@ -11,11 +11,11 @@
 
 namespace euphoria::t3d
 {
-    Editor::Editor
+    editor::editor
     (
-        Grid* agrid,
-        render::world* aworld,
-        TileLibrary* atile_library
+            t3d::grid* agrid,
+            render::world* aworld,
+            t3d::tile_library* atile_library
     )
         : grid(agrid)
         , world(aworld)
@@ -23,11 +23,12 @@ namespace euphoria::t3d
         , camera(core::mat4f::identity(), core::mat4f::identity())
         , viewport(core::recti::from_width_height(10, 10))
         , mouse(core::vec2i {0, 0})
-    {}
+    {
+    }
 
 
-    std::shared_ptr<PlacedMesh>
-    Editor::GetFirstSelectedOrNull()
+    std::shared_ptr<placed_mesh>
+    editor::get_first_selected_or_null()
     {
         for(auto act : actors)
         {
@@ -42,7 +43,7 @@ namespace euphoria::t3d
 
 
     void
-    Editor::SetAllSelected(bool is_selected)
+    editor::set_all_selected(bool is_selected)
     {
         for(auto actor: actors)
         {
@@ -51,10 +52,10 @@ namespace euphoria::t3d
     }
 
 
-    std::vector<std::shared_ptr<PlacedMesh>>
-    Editor::Raycast(const core::unit_ray3f& ray)
+    std::vector<std::shared_ptr<placed_mesh>>
+    editor::raycast(const core::unit_ray3f& ray)
     {
-        std::vector<std::shared_ptr<PlacedMesh>> r;
+        std::vector<std::shared_ptr<placed_mesh>> r;
 
         for(auto a: actors)
         {
@@ -72,43 +73,43 @@ namespace euphoria::t3d
 
     // current tool callbacks
     bool
-    Editor::IsBusy()
+    editor::is_busy()
     {
-        return tools.GetCurrentTool()->IsBusy(this);
+        return tools.get_current_tool()->is_busy(this);
     }
 
 
     void
-    Editor::Step()
+    editor::step()
     {
-        tools.GetCurrentTool()->Step(this);
+        tools.get_current_tool()->step(this);
     }
 
 
     void
-    Editor::OnMouse(core::MouseButton button, bool down)
+    editor::on_mouse(core::MouseButton button, bool down)
     {
-        tools.GetCurrentTool()->OnMouse(this, button, down);
+        tools.get_current_tool()->on_mouse(this, button, down);
     }
 
 
     void
-    Editor::OnKey(core::key key, bool down)
+    editor::on_key(core::key key, bool down)
     {
-        tools.GetCurrentTool()->OnKey(this, key, down);
+        tools.get_current_tool()->on_key(this, key, down);
     }
 
 
     void
-    Editor::OnScroll(const core::vec2i& scroll)
+    editor::on_scroll(const core::vec2i& scroll)
     {
-        tools.GetCurrentTool()->OnScroll(this, scroll);
+        tools.get_current_tool()->on_scroll(this, scroll);
     }
 
 
     void
-    Editor::OnEditor()
+    editor::on_editor()
     {
-        tools.GetCurrentTool()->OnEditor(this);
+        tools.get_current_tool()->on_editor(this);
     }
 }

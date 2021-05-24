@@ -1,42 +1,39 @@
-#ifndef EUPHORIA_T3D_TOOL_H
-#define EUPHORIA_T3D_TOOL_H
+#pragma once
 
 #include "core/vec2.h"
 #include "core/key.h"
 
 namespace euphoria::t3d
 {
-    struct Editor;
+    struct editor;
 
 
-    struct Tool
+    struct tool
     {
-        virtual ~Tool() = default;
+        virtual ~tool() = default;
 
 
         virtual bool
-        IsBusy(Editor* editor) = 0;
+        is_busy(t3d::editor* editor) = 0;
 
 
         virtual void
-        Step(Editor* editor) = 0;
+        step(t3d::editor* editor) = 0;
 
 
         virtual void
-        OnMouse(Editor* editor, core::MouseButton key, bool down) = 0;
+        on_mouse(t3d::editor* editor, core::MouseButton key, bool down) = 0;
         
         
         virtual void
-        OnKey(Editor* editor, core::key key, bool down) = 0;
+        on_key(t3d::editor* editor, core::key key, bool down) = 0;
         
         
         virtual void
-        OnScroll(Editor* editor, const core::vec2i& scroll) = 0;
+        on_scroll(t3d::editor* editor, const core::vec2i& scroll) = 0;
         
         
         virtual void
-        OnEditor(Editor* editor) = 0;
+        on_editor(t3d::editor* editor) = 0;
     };
 }
-
-#endif  // EUPHORIA_T3D_TOOL_H

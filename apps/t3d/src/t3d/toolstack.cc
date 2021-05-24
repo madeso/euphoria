@@ -5,74 +5,75 @@
 
 namespace euphoria::t3d
 {
-    struct ToolAction
+    struct tool_action
     {
-        virtual ~ToolAction() = default;
+        virtual ~tool_action() = default;
 
 
         virtual void
-        Act(Tools* tools) = 0;
+        act(tool_stack* tools) = 0;
     };
 
 
-    struct PushToolAction : public ToolAction
+    struct push_tool_action : public tool_action
     {
-        std::shared_ptr<Tool> new_tool;
+        std::shared_ptr<tool> new_tool;
 
 
         void
-        Act(Tools* tools) override
+        act(tool_stack* tools) override
         {
             tools->current_tool.push_back(new_tool);
         }
 
 
-        explicit PushToolAction(std::shared_ptr<Tool> anew_tool)
+        explicit push_tool_action(std::shared_ptr<tool> anew_tool)
             : new_tool(anew_tool)
-        {}
+        {
+        }
     };
 
 
-    struct PopToolAction : public ToolAction
+    struct pop_tool_action : public tool_action
     {
         void
-        Act(Tools* tools) override
+        act(tool_stack* tools) override
         {
             tools->current_tool.pop_back();
         }
     };
     
     
-    Tool*
-    Tools::GetCurrentTool()
+    tool*
+    tool_stack::get_current_tool()
     {
         ASSERT(!current_tool.empty());
-        Tool* tool = current_tool.rbegin()->get();
+        tool* tool = current_tool.rbegin()->get();
         ASSERT(tool);
         return tool;
     }
 
 
     void
-    Tools::PushTool(std::shared_ptr<Tool> new_tool)
+    tool_stack::push_tool(std::shared_ptr<tool> new_tool)
     {
-        pending_actions.push_back(std::make_shared<PushToolAction>(new_tool));
+        pending_actions.push_back(std::make_shared<push_tool_action>(new_tool));
     }
 
 
     void
-    Tools::PopTool()
+    tool_stack::pop_tool()
     {
-        pending_actions.push_back(std::make_shared<PopToolAction>());
+        pending_actions.push_back(std::make_shared<pop_tool_action>());
     }
 
 
     void
-    Tools::PerformTools()
+    tool_stack::perform_tools()
     {
         for(auto t: pending_actions)
         {
-            t->Act(this);
+            t->act(this);
         }
         pending_actions.resize(0);
     }

@@ -32,7 +32,7 @@
 
 namespace euphoria::t3d
 {
-    T3d::T3d()
+    application::application()
     {
         pending_files.extensions = std::vector<std::string>
         {
@@ -42,13 +42,13 @@ namespace euphoria::t3d
     }
 
 
-    T3d::~T3d()
+    application::~application()
     {
     }
 
 
     [[nodiscard]] int
-    T3d::Start(const core::argparse::name_and_arguments& args)
+    application::start(const core::argparse::name_and_arguments& args)
     {
         engine = std::make_shared<window::engine>();
 
@@ -76,16 +76,16 @@ namespace euphoria::t3d
 
         texture_cache = std::make_shared<render::texture_cache>(engine->file_system.get());
 
-        tile_library = std::make_shared<TileLibrary>(engine->file_system.get());
+        tile_library = std::make_shared<t3d::tile_library>(engine->file_system.get());
 
         world = std::make_shared<render::world>();
 
-        editor = std::make_shared<Editor>(&grid_data, world.get(), tile_library.get());
-        editor->tools.PushTool(std::make_shared<NoTool>());
+        editor = std::make_shared<t3d::editor>(&grid_data, world.get(), tile_library.get());
+        editor->tools.push_tool(std::make_shared<tool_no_tool>());
 
         timer = std::make_shared<window::sdl_timer>();
         
-        UpdateGrid();
+        update_grid();
 
         engine->window->enable_char_event(!immersive_mode);
 
@@ -101,14 +101,14 @@ namespace euphoria::t3d
 
 
     void
-    T3d::AddLibrary(const core::vfs::dir_path& path)
+    application::add_library(const core::vfs::dir_path& path)
     {
-        pending_files.AddDirectory(path, engine->file_system.get());
+        pending_files.add_directory(path, engine->file_system.get());
     }
 
 
     void
-    T3d::AddSingleGridLine
+    application::add_single_grid_line
     (
         core::lines& def,
         float size,
@@ -124,7 +124,7 @@ namespace euphoria::t3d
 
 
     void
-    T3d::UpdateGrid()
+    application::update_grid()
     {
         constexpr auto smallest_step = 0.01f;
         constexpr auto small_color = core::color::gray;
@@ -167,7 +167,7 @@ namespace euphoria::t3d
                     color = small_color;
                 }
             }
-            AddSingleGridLine(def, size, x, color);
+            add_single_grid_line(def, size, x, color);
         }
 
         def.add_line(core::vec3f {-size, 0, 0}, core::vec3f {size, 0, 0}, x_color);
@@ -180,7 +180,7 @@ namespace euphoria::t3d
 
 
     void
-    T3d::OnSingleEvent(const SDL_Event& e)
+    application::on_sdl_event(const SDL_Event& e)
     {
         int window_width  = 0;
         int window_height = 0;
@@ -213,14 +213,14 @@ namespace euphoria::t3d
                 e.motion.xrel,
                 e.motion.yrel
             );
-            OnMouseMovement(mouse_position, mouse_movement, forward_mouse);
+            on_mouse_movement(mouse_position, mouse_movement, forward_mouse);
             break;
         }
         case SDL_KEYDOWN:
         case SDL_KEYUP: {
             const auto key = window::to_key(e.key.keysym);
             const bool down = e.type == SDL_KEYDOWN;
-            OnKey(key, down, forward_keyboard);
+            on_key(key, down, forward_keyboard);
         }
         break;
 
@@ -229,12 +229,12 @@ namespace euphoria::t3d
             {
                 const auto button = window::to_key(e.button);
                 const bool down = e.type == SDL_MOUSEBUTTONDOWN;
-                OnMouseButton(button, down, forward_mouse);
+                on_mouse_button(button, down, forward_mouse);
             }
             break;
 
         case SDL_MOUSEWHEEL:
-            OnMouseWheel(e, forward_mouse);
+            on_mouse_wheel(e, forward_mouse);
             break;
 
 
@@ -246,7 +246,7 @@ namespace euphoria::t3d
 
 
     void
-    T3d::OnMouseMovement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse)
+    application::on_mouse_movement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse)
     {
         if(forward_mouse)
         {
@@ -263,7 +263,7 @@ namespace euphoria::t3d
 
 
     void
-    T3d::OnKey(core::key key, bool down, bool forward_keyboard)
+    application::on_key(core::key key, bool down, bool forward_keyboard)
     {
         if(forward_keyboard)
         {
@@ -286,7 +286,7 @@ namespace euphoria::t3d
             default:
                 if(forward_keyboard)
                 {
-                    editor->OnKey(key, down);
+                    editor->on_key(key, down);
                 }
                 break;
             }
@@ -305,11 +305,11 @@ namespace euphoria::t3d
 
 
     void
-    T3d::OnMouseButton(core::MouseButton button, bool down, bool forward_mouse)
+    application::on_mouse_button(core::MouseButton button, bool down, bool forward_mouse)
     {
         if(forward_mouse)
         {
-            editor->OnMouse(button, down);
+            editor->on_mouse(button, down);
         }
         
         switch(button)
@@ -324,51 +324,51 @@ namespace euphoria::t3d
 
 
     void
-    T3d::OnMouseWheel(const SDL_Event& e, bool forward_mouse)
+    application::on_mouse_wheel(const SDL_Event& e, bool forward_mouse)
     {
         if(forward_mouse)
         {
-            editor->OnScroll(core::vec2i(e.wheel.x, e.wheel.y));
+            editor->on_scroll(core::vec2i(e.wheel.x, e.wheel.y));
             orbit.on_zoom_input(e.wheel.y);
         }
     }
 
 
     void
-    T3d::HandleEvents()
+    application::handle_all_sdl_events()
     {
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
-            OnSingleEvent(e);
+            on_sdl_event(e);
         }
     }
 
 
     void
-    T3d::ProcessImgui()
+    application::process_imgui()
     {
         if(ImGui::BeginMainMenuBar())
         {
-            OnMainMenu();
+            on_main_menu();
         }
         ImGui::EndMainMenuBar();
         
-        if(enviroment_window)
+        if(environment_window)
         {
-            ImGui::Begin("Enviroment", &enviroment_window);
-            OnEnviromentWindow();
+            ImGui::Begin("Environment", &environment_window);
+            on_environment_window();
             ImGui::End();
         }
 
         if(grid_window)
         {
             window::imgui::begin_fixed_overlay(window::corner::top_left, "grid overlay", 10.0f, 30.0f);
-            OnGridWindow();
+            on_grid_window();
             ImGui::End();
         }
 
-        if(pending_files.HasMoreFiles())
+        if(pending_files.has_more_files())
         {
             window::imgui::begin_fixed_overlay(window::corner::bottom_left, "pending files");
             const auto frac = pending_files.index / static_cast<float>(pending_files.files.size());
@@ -380,35 +380,35 @@ namespace euphoria::t3d
         if(camera_window)
         {
             ImGui::Begin("Camera", &camera_window);
-            OnCameraWindow();
+            on_camera_window();
             ImGui::End();
         }
 
         if(tiles_window)
         {
             ImGui::Begin("Tiles", &tiles_window);
-            OnTileWindow();
+            on_tile_window();
             ImGui::End();
         }
 
         if(lister_window)
         {
             ImGui::Begin("Lister", &lister_window);
-            OnListerWindow();
+            on_lister_window();
             ImGui::End();
         }
 
         if(preference_window)
         {
             ImGui::Begin("Preferences", &preference_window);
-            OnPreferenceWindow();
+            on_preference_window();
             ImGui::End();
         }
     }
 
 
     void
-    T3d::OnMainMenu()
+    application::on_main_menu()
     {
         if(ImGui::BeginMenu("File"))
         {
@@ -421,7 +421,7 @@ namespace euphoria::t3d
 
         if(ImGui::BeginMenu("Window"))
         {
-            ImGui::MenuItem("Enviroment", nullptr, &enviroment_window);
+            ImGui::MenuItem("Environment", nullptr, &environment_window);
             ImGui::MenuItem("Camera", nullptr, &camera_window);
             ImGui::MenuItem("Tiles", nullptr, &tiles_window);
             ImGui::MenuItem("Grid", nullptr, &grid_window);
@@ -433,7 +433,7 @@ namespace euphoria::t3d
 
 
     void
-    T3d::OnListerWindow()
+    application::on_lister_window()
     {
         auto actors = editor->actors;
         if(actors.empty())
@@ -451,11 +451,9 @@ namespace euphoria::t3d
                 << actor->tile->name
                 << " "
                 << p;
-            if(ImGui::Selectable(
-                        display.c_str(),
-                        actor->is_selected))
+            if(ImGui::Selectable(display.c_str(), actor->is_selected))
             {
-                editor->SetAllSelected(false);
+                editor->set_all_selected(false);
                 actor->is_selected = !actor->is_selected;
             }
         }
@@ -463,18 +461,18 @@ namespace euphoria::t3d
 
         if(ImGui::Button("Select none"))
         {
-            editor->SetAllSelected(false);
+            editor->set_all_selected(false);
         }
         ImGui::SameLine();
         if(ImGui::Button("Select all"))
         {
-            editor->SetAllSelected(true);
+            editor->set_all_selected(true);
         }
     }
 
 
     void
-    T3d::OnEnviromentWindow()
+    application::on_environment_window()
     {
         ImGui::Combo
         (
@@ -489,7 +487,7 @@ namespace euphoria::t3d
 
 
     void
-    T3d::OnGridWindow()
+    application::on_grid_window()
     {
         constexpr auto uistep = 0.01f;
         constexpr auto uimin = 0.0f;
@@ -503,6 +501,7 @@ namespace euphoria::t3d
         {
             ImGui::OpenPopup(popup_grid);
         }
+
         if(ImGui::BeginPopup(popup_grid))
         {
             dirty = ImGui::DragFloat
@@ -513,11 +512,13 @@ namespace euphoria::t3d
                 uimin,
                 uimax
             ) || dirty;
+
             dirty = ImGui::DragInt
             (
                 "Major line increment",
                 &grid_data.big_step_interval
             ) || dirty;
+
             dirty = ImGui::DragFloat
             (
                 "Normal size",
@@ -526,41 +527,51 @@ namespace euphoria::t3d
                 uimin,
                 uimax
             ) || dirty;
-            dirty = ImGui::DragInt("lines on grid", &grid_data.size)
-                || dirty;
+
+            dirty = ImGui::DragInt("lines on grid", &grid_data.size) || dirty;
 
             ImGui::EndPopup();
         }
 
-        if(ImGui::Button(grid_data.visible
-            ? ICON_MDI_GRID
-            : ICON_MDI_GRID_OFF
-        ))
+        if
+        (
+            ImGui::Button
+            (
+                grid_data.visible
+                    ? ICON_MDI_GRID
+                    : ICON_MDI_GRID_OFF
+            )
+        )
         {
             grid_data.visible = !grid_data.visible;
             dirty = true;
         }
-        Help("Toggle the grid visibility.");
+        show_help("Toggle the grid visibility.");
 
-        if(ImGui::Button(grid_data.snap_enabled
-            ? ICON_MDI_AXIS_ARROW_LOCK
-            : ICON_MDI_AXIS_ARROW
-        ))
+        if
+        (
+            ImGui::Button
+            (
+                grid_data.snap_enabled
+                    ? ICON_MDI_AXIS_ARROW_LOCK
+                    : ICON_MDI_AXIS_ARROW
+            )
+        )
         {
             grid_data.snap_enabled = !grid_data.snap_enabled;
             dirty = true;
         }
-        Help("Toggle the grid snapping");
+        show_help("Toggle the grid snapping");
 
         if(dirty)
         {
-            UpdateGrid();
+            update_grid();
         }
     }
 
 
     void
-    T3d::OnCameraWindow()
+    application::on_camera_window()
     {
         window::imgui::angle_slider
         (
@@ -596,22 +607,22 @@ namespace euphoria::t3d
 
 
     void
-    T3d::OnTileWindow()
+    application::on_tile_window()
     {
         // if(!tile_library->tiles.empty())
-        if(ImGui::Button(ICON_MDI_PLUS) && !editor->IsBusy())
+        if(ImGui::Button(ICON_MDI_PLUS) && !editor->is_busy())
         {
             if(editor->selected_mesh == nullptr)
             {
-                editor->selected_mesh = tile_library->FirstTile();
+                editor->selected_mesh = tile_library->get_first_tile();
             }
 
             // todo(Gustav): add message if tile library is empty...
 
             if(editor->selected_mesh)
             {
-                editor->SetAllSelected(false);
-                auto placed = std::make_shared<PlacedMesh>();
+                editor->set_all_selected(false);
+                auto placed = std::make_shared<placed_mesh>();
                 placed->tile = editor->selected_mesh;
                 placed->is_selected = true;
                 placed->actor = std::make_shared<render::actor>
@@ -621,23 +632,23 @@ namespace euphoria::t3d
                 world->add_actor(placed->actor);
                 editor->actors.emplace_back(placed);
 
-                editor->tools.PushTool
+                editor->tools.push_tool
                 (
-                    std::make_shared<PlaceMeshOnPlane>(placed)
+                    std::make_shared<tool_place_mesh_on_a_plane>(placed)
                 );
             }
         }
-        Help("Place a new tile in the world");
+        show_help("Place a new tile in the world");
 
         ImGui::SameLine();
 
         if(ImGui::Button(ICON_MDI_PLUS_BOX_MULTIPLE))
         {
-            auto selected = editor->GetFirstSelectedOrNull();
-            if(selected != nullptr && !editor->IsBusy())
+            auto selected = editor->get_first_selected_or_null();
+            if(selected != nullptr && !editor->is_busy())
             {
-                editor->SetAllSelected(false);
-                auto placed = std::make_shared<PlacedMesh>();
+                editor->set_all_selected(false);
+                auto placed = std::make_shared<placed_mesh>();
                 placed->tile = selected->tile;
                 placed->is_selected = true;
                 placed->actor = std::make_shared<render::actor>
@@ -647,36 +658,36 @@ namespace euphoria::t3d
                 world->add_actor(placed->actor);
                 editor->actors.emplace_back(placed);
 
-                editor->tools.PushTool
+                editor->tools.push_tool
                 (
-                    std::make_shared<PlaceMeshOnPlane>(placed)
+                    std::make_shared<tool_place_mesh_on_a_plane>(placed)
                 );
             }
         }
-        Help("Duplicate the selected tile.");
+        show_help("Duplicate the selected tile.");
 
         ImGui::SameLine();
 
         if(ImGui::Button(ICON_MDI_ARROW_COLLAPSE_DOWN))
         {
-            auto placed = editor->GetFirstSelectedOrNull();
-            if(placed != nullptr && !editor->IsBusy())
+            auto placed = editor->get_first_selected_or_null();
+            if(placed != nullptr && !editor->is_busy())
             {
                 editor->selected_mesh = placed->tile;
-                editor->tools.PushTool
+                editor->tools.push_tool
                 (
-                    std::make_shared<PlaceMeshOnPlane>(placed)
+                    std::make_shared<tool_place_mesh_on_a_plane>(placed)
                 );
             }
         }
-        Help("Place or replace selected tile on a new place.");
+        show_help("Place or replace selected tile on a new place.");
 
-        editor->OnEditor();
+        editor->on_editor();
     }
 
 
     void
-    T3d::OnPreferenceWindow()
+    application::on_preference_window()
     {
         constexpr const char* const help_styles_separated_by_zeros =
             "No help\0"
@@ -688,7 +699,7 @@ namespace euphoria::t3d
 
 
     void
-    T3d::Render()
+    application::render()
     {
         auto viewport = viewport_handler->get_full_viewport();
         editor->camera = camera.compile(viewport.get_aspect_ratio());
@@ -698,29 +709,29 @@ namespace euphoria::t3d
 
 
     void
-    T3d::Frame()
+    application::on_frame()
     {
         show_imgui = !immersive_mode;
         //  const float delta =
         timer->update();
 
         world->step();
-        editor->tools.PerformTools();
+        editor->tools.perform_tools();
 
-        HandleEvents();
+        handle_all_sdl_events();
 
-        editor->Step();
+        editor->step();
 
-        if(pending_files.HasMoreFiles())
+        if(pending_files.has_more_files())
         {
-            const auto file = pending_files.NextFile();
-            tile_library->AddFile(file, material_shader_cache.get(), texture_cache.get());
+            const auto file = pending_files.get_next_file();
+            tile_library->add_file(file, material_shader_cache.get(), texture_cache.get());
         }
 
         if(show_imgui)
         {
             engine->imgui->start_new_frame();
-            ProcessImgui();
+            process_imgui();
         }
 
         camera.position = orbit.get_camera_position();
@@ -728,7 +739,7 @@ namespace euphoria::t3d
 
         engine->init->clear_screen(core::color::light_gray);
 
-        Render();
+        render();
 
         if(show_imgui)
         {
@@ -739,7 +750,7 @@ namespace euphoria::t3d
     }
 
     void
-    T3d::Help(const char* desc)
+    application::show_help(const char* desc)
     {
         switch (help_style)
         {

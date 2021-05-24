@@ -1,5 +1,4 @@
-#ifndef T3D_TILELIBRARY_H
-#define T3D_TILELIBRARY_H
+#pragma once
 
 #include "core/aabb.h"
 #include "core/vfs_path.h"
@@ -17,10 +16,10 @@ namespace euphoria::core::vfs
 
 namespace euphoria::t3d
 {
-    struct Tile
+    struct tile
     {
-        Tile();
-        ~Tile();
+        tile();
+        ~tile();
 
         core::vfs::file_path path;
         core::aabb  aabb;
@@ -30,21 +29,21 @@ namespace euphoria::t3d
     };
 
 
-    struct TileLibrary
+    struct tile_library
     {
-        TileLibrary(core::vfs::file_system* fs);
+        tile_library(core::vfs::file_system* fs);
 
 
-        std::shared_ptr<Tile>
-        FirstTile();
+        std::shared_ptr<tile>
+        get_first_tile();
 
 
         bool
-        ImGuiList(std::shared_ptr<Tile>* selected_tile);
+        run_imgui_list(std::shared_ptr<tile>* selected_tile);
 
 
         void
-        AddFile
+        add_file
         (
             const core::vfs::file_path& path,
             render::material_shader_cache* shader_cache,
@@ -53,9 +52,7 @@ namespace euphoria::t3d
 
 
         core::vfs::file_system* file_system;
-        std::vector<std::shared_ptr<Tile>> tiles;
+        std::vector<std::shared_ptr<tile>> tiles;
     };
 
-}  // namespace euphoria::t3d
-
-#endif  // T3D_TILELIBRARY_H
+}

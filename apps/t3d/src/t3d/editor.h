@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_T3D_EDITOR_H
-#define EUPHORIA_T3D_EDITOR_H
+#pragma once
 
 #include "core/key.h"
 #include "core/vec2.h"
@@ -25,77 +24,75 @@ namespace euphoria::render
 
 namespace euphoria::t3d
 {
-    struct Tile;
-    struct TileLibrary;
-    struct Grid;
+    struct tile;
+    struct tile_library;
+    struct grid;
 
 
-    struct PlacedMesh
+    struct placed_mesh
     {
         std::shared_ptr<render::actor> actor;
-        std::shared_ptr<Tile> tile;
+        std::shared_ptr<tile> tile;
         bool is_selected = false;
     };
 
 
     // todo(Gustav): Should editor and T3d structs be merged?
-    struct Editor
+    struct editor
     {
-        Grid* grid;
+        t3d::grid* grid;
         render::world*         world;
-        TileLibrary*   tile_library;
+        tile_library*   tile_library;
         core::compiled_camera3 camera;
         render::viewport       viewport;
 
         core::vec2i mouse;
-        Tools tools;
+        tool_stack tools;
 
-        std::vector<std::shared_ptr<PlacedMesh>> actors;
-        std::shared_ptr<Tile> selected_mesh;
+        std::vector<std::shared_ptr<placed_mesh>> actors;
+        std::shared_ptr<tile> selected_mesh;
 
         // todo(Gustav): move camera here so we can have camera movement
         // change so that fps control rotate focuspoint around current camera pos
 
 
-        Editor(Grid* agrid, render::world* aworld, TileLibrary* atile_library);
+        editor(t3d::grid* agrid, render::world* aworld, t3d::tile_library* atile_library);
 
 
-        std::shared_ptr<PlacedMesh>
-        GetFirstSelectedOrNull();
+        std::shared_ptr<placed_mesh>
+        get_first_selected_or_null();
 
 
         void
-        SetAllSelected(bool is_selected);
+        set_all_selected(bool is_selected);
 
 
-        std::vector<std::shared_ptr<PlacedMesh>>
-        Raycast(const core::unit_ray3f& ray);
+        std::vector<std::shared_ptr<placed_mesh>>
+        raycast(const core::unit_ray3f& ray);
 
 
         // current tool callbacks
         bool
-        IsBusy();
+        is_busy();
 
 
         void
-        Step();
+        step();
 
 
         void
-        OnMouse(core::MouseButton button, bool down);
+        on_mouse(core::MouseButton button, bool down);
 
 
         void
-        OnKey(core::key key, bool down);
+        on_key(core::key key, bool down);
 
 
         void
-        OnScroll(const core::vec2i& scroll);
+        on_scroll(const core::vec2i& scroll);
 
 
         void
-        OnEditor();
+        on_editor();
     };
 }
-
-#endif  // EUPHORIA_T3D_EDITOR_H

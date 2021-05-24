@@ -1,35 +1,32 @@
-#ifndef EUPHORIA_T3D_TOOL_NOTOOL_H
-#define EUPHORIA_T3D_TOOL_NOTOOL_H
+#pragma once
 
 #include "t3d/tool.h"
 
 namespace euphoria::t3d
 {
-    struct NoTool : public Tool
+    struct tool_no_tool : public tool
     {
         bool
-        IsBusy(Editor*) override;
+        is_busy(editor*) override;
 
 
         void
-        Step(Editor*) override;
+        step(editor*) override;
 
 
         void
-        OnMouse(Editor*, core::MouseButton, bool) override;
+        on_mouse(editor*, core::MouseButton, bool) override;
 
 
         void
-        OnKey(Editor*, core::key, bool) override;
+        on_key(editor*, core::key, bool) override;
 
 
         void
-        OnScroll(Editor*, const core::vec2i&) override;
+        on_scroll(editor*, const core::vec2i&) override;
 
 
         void
-        OnEditor(Editor*) override;
+        on_editor(editor*) override;
     };
 }
-
-#endif  // EUPHORIA_T3D_TOOL_NOTOOL_H

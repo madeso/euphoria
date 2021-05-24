@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_T3D_TOOL_PLACEMESHONPLANE_H
-#define EUPHORIA_T3D_TOOL_PLACEMESHONPLANE_H
+#pragma once
 
 #include <memory>
 
@@ -16,40 +15,38 @@ namespace euphoria::render
 
 namespace euphoria::t3d
 {
-    struct PlacedMesh;
+    struct placed_mesh;
 
-    struct PlaceMeshOnPlane : public Tool
+    struct tool_place_mesh_on_a_plane : public tool
     {
-        std::shared_ptr<PlacedMesh> actor;
+        std::shared_ptr<placed_mesh> actor;
         core::plane plane;
 
 
-        PlaceMeshOnPlane(std::shared_ptr<PlacedMesh> aactor);
+        tool_place_mesh_on_a_plane(std::shared_ptr<placed_mesh> aactor);
 
 
         bool
-        IsBusy(Editor*) override;
+        is_busy(editor*) override;
 
 
         void
-        Step(Editor* editor) override;
+        step(editor* editor) override;
 
 
         void
-        OnMouse(Editor* editor, core::MouseButton button, bool down) override;
+        on_mouse(editor* editor, core::MouseButton button, bool down) override;
 
 
         void
-        OnKey(Editor* editor, core::key key, bool down) override;
+        on_key(editor* editor, core::key key, bool down) override;
 
 
         void
-        OnScroll(Editor*, const core::vec2i&) override;
+        on_scroll(editor*, const core::vec2i&) override;
 
 
         void
-        OnEditor(Editor*) override;
+        on_editor(editor*) override;
     };
 }
-
-#endif  // EUPHORIA_T3D_TOOL_PLACEMESHONPLANE_H

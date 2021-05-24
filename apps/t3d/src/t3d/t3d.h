@@ -47,26 +47,26 @@ namespace euphoria::window
 
 namespace euphoria::t3d
 {
-    struct Editor;
-    struct TileLibrary;
+    struct editor;
+    struct tile_library;
 
-    struct T3d
+    struct application
     {
         std::shared_ptr<window::engine> engine;
         std::shared_ptr<render::viewport_handler> viewport_handler;
         std::shared_ptr<render::material_shader_cache> material_shader_cache;
         std::shared_ptr<render::texture_cache> texture_cache;
-        std::shared_ptr<TileLibrary> tile_library;
+        std::shared_ptr<tile_library> tile_library;
         std::shared_ptr<render::world> world;
         core::camera3 camera;
-        std::shared_ptr<Editor> editor;
+        std::shared_ptr<t3d::editor> editor;
         bool running = true;
         std::shared_ptr<window::sdl_timer> timer;
         bool immersive_mode = false;
         std::shared_ptr<render::positioned_lines> grid;
-        Grid grid_data;
+        t3d::grid grid_data;
 
-        bool enviroment_window = false;
+        bool environment_window = false;
         bool camera_window     = false;
         bool tiles_window      = true;
         bool grid_window      = true;
@@ -79,23 +79,23 @@ namespace euphoria::t3d
         bool show_imgui = false;
 
         int help_style = 0;
-        FileList pending_files;
+        file_list pending_files;
 
 
-        T3d();
-        ~T3d();
+        application();
+        ~application();
 
 
         [[nodiscard]] int
-        Start(const core::argparse::name_and_arguments& args);
+        start(const core::argparse::name_and_arguments& args);
 
 
         void
-        AddLibrary(const core::vfs::dir_path& path);
+        add_library(const core::vfs::dir_path& path);
 
 
         void
-        AddSingleGridLine
+        add_single_grid_line
         (
             core::lines& def,
             float size,
@@ -105,74 +105,74 @@ namespace euphoria::t3d
 
 
         void
-        UpdateGrid();
+        update_grid();
 
 
         void
-        OnSingleEvent(const SDL_Event& e);
+        on_sdl_event(const SDL_Event& e);
 
 
         void
-        OnMouseMovement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse);
+        on_mouse_movement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse);
 
 
         void
-        OnKey(core::key key, bool down, bool forward_keyboard);
+        on_key(core::key key, bool down, bool forward_keyboard);
 
 
         void
-        OnMouseButton(core::MouseButton button, bool down, bool forward_mouse);
+        on_mouse_button(core::MouseButton button, bool down, bool forward_mouse);
 
 
         void
-        OnMouseWheel(const SDL_Event& e, bool forward_mouse);
+        on_mouse_wheel(const SDL_Event& e, bool forward_mouse);
 
 
         void
-        HandleEvents();
+        handle_all_sdl_events();
 
 
         void
-        ProcessImgui();
+        process_imgui();
 
 
         void
-        OnMainMenu();
+        on_main_menu();
 
 
         void
-        OnListerWindow();
+        on_lister_window();
 
 
         void
-        OnEnviromentWindow();
+        on_environment_window();
 
 
         void
-        OnGridWindow();
+        on_grid_window();
 
 
         void
-        OnCameraWindow();
+        on_camera_window();
 
 
         void
-        OnTileWindow();
+        on_tile_window();
 
 
         void
-        OnPreferenceWindow();
+        on_preference_window();
 
 
         void
-        Render();
+        render();
 
 
         void
-        Frame();
+        on_frame();
 
         void
-        Help(const char* desc);
+        show_help(const char* desc);
     };
 }
 

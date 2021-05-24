@@ -1,35 +1,32 @@
-#ifndef EUPHORIA_T3D_TOOLSTACK_H
-#define EUPHORIA_T3D_TOOLSTACK_H
+#pragma once
 
 #include <memory>
 #include <vector>
 
 namespace euphoria::t3d
 {
-    struct Tool;
-    struct ToolAction;
+    struct tool;
+    struct tool_action;
 
-    struct Tools
+    struct tool_stack
     {
-        Tool*
-        GetCurrentTool();
+        tool*
+        get_current_tool();
 
 
         void
-        PushTool(std::shared_ptr<Tool> new_tool);
+        push_tool(std::shared_ptr<tool> new_tool);
 
 
         void
-        PopTool();
+        pop_tool();
 
 
         void
-        PerformTools();
+        perform_tools();
 
 
-        std::vector<std::shared_ptr<Tool>>       current_tool;
-        std::vector<std::shared_ptr<ToolAction>> pending_actions;
+        std::vector<std::shared_ptr<tool>>       current_tool;
+        std::vector<std::shared_ptr<tool_action>> pending_actions;
     };
 }
-
-#endif  // EUPHORIA_T3D_TOOLSTACK_H

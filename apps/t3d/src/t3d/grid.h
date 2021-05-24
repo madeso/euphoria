@@ -1,9 +1,8 @@
-#ifndef EUPHORIA_T3D_GRID_H
-#define EUPHORIA_T3D_GRID_H
+#pragma once
 
 namespace euphoria::t3d
 {
-    struct Grid
+    struct grid
     {
         bool visible = true;
         float small_step = 0.5f;
@@ -15,4 +14,3 @@ namespace euphoria::t3d
     };
 }
 
-#endif  // EUPHORIA_T3D_GRID_H
