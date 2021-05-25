@@ -7,8 +7,6 @@
 
 namespace euphoria::core::ecs
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("core.entity")
-
     ////////////////////////////////////////////////////////////////////////////////
 
     static constexpr auto     Shift       = 24;

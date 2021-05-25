@@ -49,9 +49,6 @@
 #include "gaf_game.h"
 
 
-LOG_SPECIFY_DEFAULT_LOGGER("engine")
-
-
 using namespace euphoria::core;
 using namespace euphoria::core::ecs;
 using namespace euphoria::render;

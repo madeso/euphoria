@@ -21,12 +21,12 @@
 
 namespace euphoria::core
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("core.enum")
-
-
     enum_type::enum_type(std::string name)
-        : type_name(std::move(name)), is_adding(true), next_index(1)
-    {}
+        : type_name(std::move(name))
+        , is_adding(true)
+        , next_index(1)
+    {
+    }
 
 
     enum_type::~enum_type()

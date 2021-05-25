@@ -11,7 +11,6 @@
 
 #include "gaf_game.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("engine.templates")
 
 namespace euphoria::engine
 {

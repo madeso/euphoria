@@ -51,7 +51,6 @@
 #include "gaf_world.h"
 #include "gaf_enum.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("editor")
 
 using namespace euphoria::core;
 using namespace euphoria::render;

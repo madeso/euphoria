@@ -15,8 +15,6 @@
 
 #include "core/log.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("core.identicon")
-
 
 namespace
 {

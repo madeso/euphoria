@@ -6,10 +6,6 @@
 
 namespace euphoria::core
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("core.textparser")
-
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
     namespace textparser
     {
         node_text::node_text(const std::string& t) : text(t) {}

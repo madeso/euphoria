@@ -9,9 +9,6 @@
 
 namespace euphoria::core::vfs
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("filesystem.image-generator")
-
-
     void
     read_root_image_generator::add(
             file_system*        fs,

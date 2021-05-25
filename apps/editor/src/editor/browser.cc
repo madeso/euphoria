@@ -16,8 +16,6 @@
 
 using namespace euphoria::core;
 
-LOG_SPECIFY_DEFAULT_LOGGER("editor.browser")
-
 namespace euphoria::editor
 {
     template <typename T, typename G>

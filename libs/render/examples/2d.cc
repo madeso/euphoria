@@ -35,8 +35,6 @@
 #include "imgui/imgui.h"
 #include "imgui/imgui_internal.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("samples-gui")
-
 
 using namespace euphoria::core;
 using namespace euphoria::render;

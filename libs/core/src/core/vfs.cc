@@ -12,9 +12,6 @@
 #include "core/stringutils.h"
 
 
-LOG_SPECIFY_DEFAULT_LOGGER("core.vfs")
-
-
 namespace euphoria::core::vfs
 {
     ////////////////////////////////////////////////////////////////////////////////

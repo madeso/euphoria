@@ -12,8 +12,6 @@
 
 namespace euphoria::t3d
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("tile_library")
-
     tile::tile()
         : path("~/unknown_tile")
         , aabb(core::aabb::Empty())

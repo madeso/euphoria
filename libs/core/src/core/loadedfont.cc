@@ -21,8 +21,6 @@
 
 namespace euphoria::core
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("core.font")
-
     namespace
     {
         std::string_view error_to_string(FT_Error err)

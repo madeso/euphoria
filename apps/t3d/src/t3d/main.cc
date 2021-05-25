@@ -6,8 +6,6 @@
 
 #include "SDL.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("t3d")
-
 int
 main(int argc, char** argv)
 {

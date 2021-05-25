@@ -8,9 +8,6 @@
 namespace euphoria::core
 {
 
-  // todo(Gustav): implement category
-#define LOG_SPECIFY_DEFAULT_LOGGER(NAME)                                       \
-
 #define LOG_TRACE(...) spdlog::trace(__VA_ARGS__)
 #define LOG_DEBUG(...) spdlog::debug(__VA_ARGS__)
 #define LOG_INFO(...) spdlog::info(__VA_ARGS__)

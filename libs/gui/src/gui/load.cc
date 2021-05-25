@@ -21,9 +21,6 @@
 
 namespace euphoria::gui
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("gui.load")
-
-
     std::shared_ptr<layout>
     create_layout(const ::gui::Layout& c)
     {

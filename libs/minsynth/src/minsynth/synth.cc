@@ -24,8 +24,6 @@ namespace euphoria::minsynth
     constexpr float pi = core::pi;
 
 
-    LOG_SPECIFY_DEFAULT_LOGGER("minsynth.synth")
-
     std::string
     to_string(tuning t)
     {

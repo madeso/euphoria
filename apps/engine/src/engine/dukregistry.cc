@@ -5,7 +5,6 @@
 #include "core/assert.h"
 #include "core/log.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.registry")
 
 namespace euphoria::engine
 {

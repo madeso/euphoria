@@ -14,7 +14,6 @@
 #include "engine/objectemplate.h"
 #include "engine/cameradata.h"
 
-LOG_SPECIFY_DEFAULT_LOGGER("engine.duk.integration")
 
 namespace euphoria::engine
 {

@@ -6,8 +6,6 @@
 
 namespace euphoria::window
 {
-    LOG_SPECIFY_DEFAULT_LOGGER("window")
-
     sdl_window::sdl_window
     (
         const std::string& title,
