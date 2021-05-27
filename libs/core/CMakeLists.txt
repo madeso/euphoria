@@ -42,6 +42,7 @@ set(app_src_math
     src/core/vec3.h
     src/core/vec4.h
     src/core/quat.h
+    src/core/easing.cc
 )
 
 set(app_src_cli
