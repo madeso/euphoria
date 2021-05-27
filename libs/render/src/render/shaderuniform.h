@@ -30,7 +30,7 @@ namespace euphoria::render
 
         std::string name;
         glint id;
-        shader* shader;
+        render::shader* shader;
 
     private:
         shader_uniform(); // creates a null shader

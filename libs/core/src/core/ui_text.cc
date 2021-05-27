@@ -118,7 +118,7 @@ namespace euphoria::core
 
     namespace
     {
-        enum class state
+        enum class parser_state
         {
             text,
             image
@@ -130,7 +130,7 @@ namespace euphoria::core
         {
             ui_text* nodes = nullptr;
 
-            state state = state::text;
+            parser_state state = parser_state::text;
             bool escape = false;
             std::stringstream buff;
             bool ok = true;
@@ -142,13 +142,13 @@ namespace euphoria::core
                 buff.str("");
                 switch(state)
                 {
-                case state::text:
+                case parser_state::text:
                     if(!data.empty())
                     {
                         nodes->add_text(data);
                     }
                     break;
-                case state::image:
+                case parser_state::image:
                     if(!data.empty())
                     {
                         nodes->add_image(data);
@@ -167,7 +167,7 @@ namespace euphoria::core
             {
                 switch(state)
                 {
-                case state::text:
+                case parser_state::text:
                     if(escape)
                     {
                         buff << c;
@@ -179,7 +179,7 @@ namespace euphoria::core
                         {
                         case '@':
                             close();
-                            state = state::image;
+                            state = parser_state::image;
                             break;
                         case '{':
                             close();
@@ -194,7 +194,7 @@ namespace euphoria::core
                         }
                     }
                     break;
-                case state::image:
+                case parser_state::image:
                     if(('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')
                        || c == '-' || c == '_')
                     {
@@ -203,7 +203,7 @@ namespace euphoria::core
                     else
                     {
                         close();
-                        state = state::text;
+                        state = parser_state::text;
                         if(c == ' ')
                         {
                             // nop

@@ -38,7 +38,7 @@ namespace euphoria::gui
         lrtb padding;
 
         explicit
-        widget(ui_state* state);
+        widget(gui::ui_state* state);
 
         virtual
         ~widget();
@@ -83,13 +83,13 @@ namespace euphoria::gui
         void
         visit(visitor* visitor) = 0;
 
-        [[nodiscard]] const ui_state&
+        [[nodiscard]] const gui::ui_state&
         get_state() const;
 
-        [[nodiscard]] ui_state*
+        [[nodiscard]] gui::ui_state*
         get_state_ptr() const;
 
-        ui_state* ui_state;
+        gui::ui_state* ui_state;
 
         layout_data layout;
         core::rectf rect;

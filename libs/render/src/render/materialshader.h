@@ -74,7 +74,7 @@ namespace euphoria::render
             float shininess_data
         );
 
-        shader shader;
+        render::shader shader;
 
         // private:
         shader_uniform projection;
