@@ -178,8 +178,8 @@ namespace euphoria::core
         *                     the first child alone on a separate line, but the rest of them
         *                     may get rendered horizontally.
         *
-        * @param margin  the spacing between children
-        * @param firstx  the first child offset
+        * @param margin the spacing between children
+        * @param firstx the first child offset
         *
         * Topology types:
         *
@@ -235,7 +235,7 @@ namespace euphoria::core
             std::size_t maxwidth,
             ToStringFunction&& to_string,
             ParamCountFunc&& count_children,
-            OneLinerFunc&&   oneliner_test,
+            OneLinerFunc&& oneliner_test,
             SimpleTestFunc&& simple_test,
             std::size_t margin = 4,
             std::size_t firstx = 2
@@ -334,5 +334,5 @@ namespace euphoria::core
     };
 }
 
-#endif  // EUPHORIA_CORE_TEXTBOX_H
+#endif // EUPHORIA_CORE_TEXTBOX_H
 

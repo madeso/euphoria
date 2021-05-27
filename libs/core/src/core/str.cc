@@ -3,7 +3,7 @@
 
 namespace euphoria::core
 {
-    string_builder::operator std::string() const  // NOLINT
+    string_builder::operator std::string() const // NOLINT
     {
         return to_string();
     }
@@ -14,5 +14,5 @@ namespace euphoria::core
         return stream_.str();
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 

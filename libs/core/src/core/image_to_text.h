@@ -22,12 +22,12 @@ namespace euphoria::core
     // todo(Gustav): add dithering support
     table<char>
     image_to_string_table(
-            const image&                       img,
+            const image& img,
             const std::vector<image_map_action>& map);
 
     table<char>
     image_to_string_table_exact(
-            const image&                       img,
+            const image& img,
             const std::vector<image_map_action>& map, char missing);
 
     table<char>

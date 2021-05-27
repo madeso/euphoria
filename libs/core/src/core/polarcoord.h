@@ -18,8 +18,8 @@ namespace euphoria::core
         [[nodiscard]] static polar_coord
         create_random(::euphoria::core::random* random);
 
-        angle azimuthal;  // longitude, 0-2pi
-        angle polar;  // zenith, colatitude, 0-pi
+        angle azimuthal; // longitude, 0-2pi
+        angle polar; // zenith, colatitude, 0-pi
     };
 
     unit3f

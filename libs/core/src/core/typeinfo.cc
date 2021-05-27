@@ -9,7 +9,7 @@ namespace euphoria::core
     TypeId
     GetUniqueIdOf(const std::string& name)
     {
-        static TypeId                                  new_id = 0;
+        static TypeId new_id = 0;
         static std::unordered_map<std::string, TypeId> saved;
 
         auto found = saved.find(name);
@@ -24,6 +24,6 @@ namespace euphoria::core
         return id;
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
 #endif

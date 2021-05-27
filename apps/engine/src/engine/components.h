@@ -34,7 +34,7 @@ namespace euphoria::engine
     core::rectf
     get_sprite_rect
     (
-        const core::vec2f&       position,
+        const core::vec2f& position,
         const render::texture2d& texture
     );
 }

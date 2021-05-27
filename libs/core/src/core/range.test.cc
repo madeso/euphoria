@@ -6,10 +6,10 @@ namespace euco = euphoria::core;
 
 #define to01(min, v, max) euco::to01(euco::make_range(min, max), v)
 #define from01(min, v, max) euco::from01(euco::make_range(min, max), v)
-#define Get360Angular(min, v, max)                                             \
+#define Get360Angular(min, v, max) \
     euco::get360_angular(euco::make_range(min, max), v)
 #define KeepWithin(min, v, max) euco::keep_within(euco::make_range(min, max), v)
-#define IsWithinInclusive(min, v, max)                                         \
+#define IsWithinInclusive(min, v, max) \
     euco::is_within(euco::make_range(min, max), v)
 #define Wrap(min, v, max) euco::wrap(euco::make_range(min, max), v)
 

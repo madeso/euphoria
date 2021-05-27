@@ -55,7 +55,7 @@ namespace euphoria::core
     {
         const auto children = find_children_function(item);
         const auto label = label_function(item);
-        const auto is_root = style.root_special && index  == 0;
+        const auto is_root = style.root_special && index == 0;
 
         std::string indent = a_indent;
 

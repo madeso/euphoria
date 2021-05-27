@@ -8,7 +8,7 @@ namespace euphoria::core::ecs
 {
     struct systems;
     struct world;
-}  // namespace euphoria::core::ecs
+} // namespace euphoria::core::ecs
 
 namespace euphoria::engine
 {
@@ -26,11 +26,11 @@ namespace euphoria::engine
         script_integration
         (
                 core::ecs::systems* systems,
-                core::ecs::world*   reg,
-                Sol*           duk,
-                object_creator*      creator,
-                components*         components,
-                camera_data*         camera
+                core::ecs::world* reg,
+                Sol* duk,
+                object_creator* creator,
+                components* components,
+                camera_data* camera
         );
         ~script_integration();
 

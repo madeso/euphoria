@@ -20,4 +20,4 @@ namespace euphoria::core
     };
 }
 
-#endif  // EUPHORIA_CORE_PLANE_H
+#endif // EUPHORIA_CORE_PLANE_H

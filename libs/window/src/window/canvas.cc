@@ -13,7 +13,7 @@ namespace euphoria::window
     void
     canvas::show_grid(const canvas_config& cc)
     {
-        const auto  size      = ImGui::GetWindowSize();
+        const auto size = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
         const float scaled_grid_size = cc.grid_size * view.scale;
@@ -42,8 +42,8 @@ namespace euphoria::window
     void
     canvas::vertical_line(float rx, ImU32 grid_color)
     {
-        const auto  x         = view.scroll.x + rx * view.scale;
-        const auto  size      = ImGui::GetWindowSize();
+        const auto x = view.scroll.x + rx * view.scale;
+        const auto size = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
         draw_list->AddLine
         (
@@ -56,8 +56,8 @@ namespace euphoria::window
     void
     canvas::horizontal_line(float ry, ImU32 grid_color)
     {
-        const auto  y         = view.scroll.y + ry * view.scale;
-        const auto  size      = ImGui::GetWindowSize();
+        const auto y = view.scroll.y + ry * view.scale;
+        const auto size = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
         draw_list->AddLine
         (
@@ -70,7 +70,7 @@ namespace euphoria::window
     void
     canvas::show_ruler(float ruler_interval, ImU32 ruler_color, float length)
     {
-        const auto  size      = ImGui::GetWindowSize();
+        const auto size = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
         const float scaled_grid_size = ruler_interval * view.scale;
@@ -137,7 +137,7 @@ namespace euphoria::window
         if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive())
         {
             const auto mouse = ImGui::GetIO().MousePos - canvas->position;
-            const auto zoom  = ImGui::GetIO().MouseWheel;
+            const auto zoom = ImGui::GetIO().MouseWheel;
             canvas->view.zoom(C(mouse), zoom * cc.zoom_speed);
         }
     }

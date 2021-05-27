@@ -111,8 +111,8 @@ namespace euphoria::render
 
         // todo(Gustav): get the shader names from a trusted source
         sh->projection = sh->shader.get_uniform("uProjection");
-        sh->view       = sh->shader.get_uniform("uView");
-        sh->model      = sh->shader.get_uniform("uModel");
+        sh->view = sh->shader.get_uniform("uView");
+        sh->model = sh->shader.get_uniform("uModel");
 
         if(!file.ambient.empty())
         {
@@ -133,12 +133,12 @@ namespace euphoria::render
 
         if(sh->has_light)
         {
-            sh->light_ambient   = sh->shader.get_uniform("uLight.ambient");
-            sh->light_diffuse   = sh->shader.get_uniform("uLight.diffuse");
-            sh->light_specular  = sh->shader.get_uniform("uLight.specular");
-            sh->light_position  = sh->shader.get_uniform("uLight.position");
+            sh->light_ambient = sh->shader.get_uniform("uLight.ambient");
+            sh->light_diffuse = sh->shader.get_uniform("uLight.diffuse");
+            sh->light_specular = sh->shader.get_uniform("uLight.specular");
+            sh->light_position = sh->shader.get_uniform("uLight.position");
             sh->light_direction = sh->shader.get_uniform("uLight.direction");
-            sh->light_type      = sh->shader.get_uniform("uLight.type");
+            sh->light_type = sh->shader.get_uniform("uLight.type");
             sh->light_cutoff_angle_outer = sh->shader.get_uniform("uLight.cosCutoffAngleOuter");
             sh->light_cutoff_angle_inner = sh->shader.get_uniform("uLight.cosCutoffAngleInner");
 
@@ -210,8 +210,8 @@ namespace euphoria::render
         shader.set_uniform(model, model_data);
         if(has_light)
         {
-            core::mat4f normal   = model_data;
-            const bool  inverted = normal.invert();
+            core::mat4f normal = model_data;
+            const bool inverted = normal.invert();
             ASSERT(inverted);
             normal = normal.get_transposed();
             shader.set_uniform(normal_matrix, normal.get_mat3());

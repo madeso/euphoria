@@ -151,4 +151,4 @@ namespace euphoria::core::generator
     add_fill_all_holes_rule(rules* rules, bool allow_diagonals, int holes_to_keep);
 }
 
-#endif  // CORE_GENERATOR_CELL_H
+#endif // CORE_GENERATOR_CELL_H

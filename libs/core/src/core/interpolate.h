@@ -65,7 +65,7 @@ namespace euphoria::core
         FUN(BounceOut, BounceEaseOut)
         FUN(Bounce, BounceEaseInOut)
 #undef FUN
-    }  // namespace easing
+    } // namespace easing
 
     enum class InterpolationType
     {
@@ -239,11 +239,11 @@ namespace euphoria::core
             return *this;
         }
 
-#define FUN(NAME, FUNC)                                                        \
-    This& NAME(const Type& target, float time)                                 \
-    {                                                                          \
-        AddInterpolation(easing::NAME, target, time);                          \
-        return *this;                                                          \
+#define FUN(NAME, FUNC) \
+    This& NAME(const Type& target, float time) \
+    { \
+        AddInterpolation(easing::NAME, target, time); \
+        return *this; \
     }
         // Linear interpolation (no easing)
         FUN(Linear, LinearInterpolation)
@@ -302,9 +302,9 @@ namespace euphoria::core
         This&
         Add(InterpolationType type, const Type& target, float time)
         {
-#define FUN(NAME, FUNC)                                                        \
-    case InterpolationType::NAME:                                              \
-        AddInterpolation(easing::NAME, target, time);                          \
+#define FUN(NAME, FUNC) \
+    case InterpolationType::NAME: \
+        AddInterpolation(easing::NAME, target, time); \
         return *this;
             switch(type)
             {
@@ -378,14 +378,14 @@ namespace euphoria::core
         {
             InterpolationData(const TType& t) : type(nullptr), target(t), time(0.0f) {}
 
-            EasingFunction type;  // how to interpolate
-            TType          target;  // target value
-            float          time;  // time to transition
+            EasingFunction type; // how to interpolate
+            TType target; // target value
+            float time; // time to transition
         };
-        Type value_;  // current value
+        Type value_; // current value
 
-        Type  from_;  // starting value
-        float position_in_current_interpolation_;  // goes from 0 to 1
+        Type from_; // starting value
+        float position_in_current_interpolation_; // goes from 0 to 1
         std::deque<InterpolationData<Type>> data_;
 
         void
@@ -408,4 +408,4 @@ namespace euphoria::core
     using FloatInterpolate = Interpolate<float, FloatTransform>;
 }
 
-#endif  // SPACETYPER_INTERPOLATE_H
+#endif // SPACETYPER_INTERPOLATE_H

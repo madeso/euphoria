@@ -19,21 +19,21 @@ namespace euphoria::core
 
         enum class Class
         {
-            No    = 0,
-            Yes   = 1,
+            No = 0,
+            Yes = 1,
             Maybe = 2
         };
 
-        using Blind  = std::vector<int>;
-        using Print  = std::vector<int>;
-        using Copy   = std::vector<int>;
+        using Blind = std::vector<int>;
+        using Print = std::vector<int>;
+        using Copy = std::vector<int>;
         using Screen = std::vector<int>;
 
         struct Properties
         {
-            Blind  blind;
-            Print  print;
-            Copy   copy;
+            Blind blind;
+            Print print;
+            Copy copy;
             Screen screen;
         };
 
@@ -48,17 +48,17 @@ namespace euphoria::core
         struct ColorBrewer
         {
             std::string name;
-            Map         palettes;
-            Type        type;
-            Properties  properties;
+            Map palettes;
+            Type type;
+            Properties properties;
         };
 
         struct SinglePalette
         {
-            std::string   name;
+            std::string name;
             BrewerPalette palette;
         };
-    }  // namespace colorbrewer
+    } // namespace colorbrewer
 
     namespace colorbrewer
     {
@@ -112,4 +112,4 @@ namespace euphoria::core
     }
 }
 
-#endif  // CORE_COLORBREWER_H
+#endif // CORE_COLORBREWER_H

@@ -132,7 +132,7 @@ namespace euphoria::core
 
         mesh
         create_box(float width, float height, float depth);
-    }  // namespace meshes
+    } // namespace meshes
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 

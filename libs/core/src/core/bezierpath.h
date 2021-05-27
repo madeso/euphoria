@@ -20,7 +20,7 @@ namespace euphoria::core
     // can use a tesselator function to create triangulated/convex polygons from closed paths with closed paths as holes:
     // https://github.com/memononen/libtess2
     // https://github.com/SebLague/Shape-Editor-Tool/blob/master/Shape%20Editor%20E04/Assets/Geometry/Triangulator.cs
-    //   -> https://www.geometrictools.com/Documentation/TriangulationByEarClipping.pdf
+    // -> https://www.geometrictools.com/Documentation/TriangulationByEarClipping.pdf
 
     // check if point in poly: http://geomalgorithms.com/a03-_inclusion.html
 
@@ -35,7 +35,7 @@ namespace euphoria::core
     struct bezier_path2
     {
         std::vector<vec2f> points;
-        bool               is_closed_ = false;
+        bool is_closed_ = false;
 
         // todo(Gustav): move out to a controller?
         bool autoset_ = false;
@@ -87,9 +87,9 @@ namespace euphoria::core
     struct vertex_path2
     {
         std::vector<vec2f> points;
-        bool               is_closed = false;
+        bool is_closed = false;
     };
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
-#endif  // CORE_PATH_H
+#endif // CORE_PATH_H

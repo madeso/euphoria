@@ -70,8 +70,8 @@ namespace euphoria::core
     fps_controller::update(float delta)
     {
         int forward = 0;
-        int right   = 0;
-        int up      = 0;
+        int right = 0;
+        int up = 0;
 
         if(is_forward_down)
         {
@@ -126,4 +126,4 @@ namespace euphoria::core
         return rotation * look;
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

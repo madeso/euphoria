@@ -67,9 +67,9 @@ namespace euphoria::t3d
         t3d::grid grid_data;
 
         bool environment_window = false;
-        bool camera_window     = false;
-        bool tiles_window      = true;
-        bool grid_window      = true;
+        bool camera_window = false;
+        bool tiles_window = true;
+        bool grid_window = true;
         bool lister_window = true;
         bool preference_window = false;
 
@@ -176,4 +176,4 @@ namespace euphoria::t3d
     };
 }
 
-#endif  // EUPHORIA_T3D_T3D_H
+#endif // EUPHORIA_T3D_T3D_H

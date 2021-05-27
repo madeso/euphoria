@@ -36,7 +36,7 @@ namespace euphoria::core
     compiled_camera3::clip_to_world_ray(const vec2f& p) const
     {
         const auto from = clip_to_world(vec3f {p, -1.0f});
-        const auto to   = clip_to_world(vec3f {p, 1.0f});
+        const auto to = clip_to_world(vec3f {p, 1.0f});
         return ray3f::from_to(from, to);
     }
 
@@ -68,7 +68,7 @@ namespace euphoria::core
                    * mat4f::from_translation(
                            -static_cast<vec3f>(camera.position));
         }
-    }  // namespace
+    } // namespace
 
     compiled_camera3
     camera3::compile(float aspect) const
@@ -77,4 +77,4 @@ namespace euphoria::core
                                CalculateProjectionMatrix(*this, aspect)};
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

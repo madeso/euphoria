@@ -30,4 +30,4 @@ namespace euphoria::core
     Cbit_signed_to_unsigned(s32 i);
 }
 
-#endif  // EUPHORIA_CINT_H
+#endif // EUPHORIA_CINT_H

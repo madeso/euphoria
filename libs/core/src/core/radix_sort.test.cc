@@ -20,7 +20,7 @@ struct int_type
 
 struct dummy
 {
-    int         id;
+    int id;
     std::string name;
 
     dummy(int i, const std::string& n) : id(i), name(n) {}

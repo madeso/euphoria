@@ -13,9 +13,9 @@ const unsigned int PHTHALO_GREEN = 0x123524;
 
 const unsigned int BRITISH_RACING_GREEN = 0x004225;
 
-const unsigned int RED   = 0xff0000;
+const unsigned int RED = 0xff0000;
 const unsigned int GREEN = 0x00ff00;
-const unsigned int BLUE  = 0x0000ff;
+const unsigned int BLUE = 0x0000ff;
 
 
 TEST_CASE("rgb-test_basic", "[rgb]")
@@ -97,11 +97,11 @@ TEST_CASE("rgb-hsl_convert", "[rgb]")
 
 TEST_CASE("rgb-ShadeColor", "[rgb]")
 {
-#define C(src_hex, hex, fac)                                                   \
-    CHECK(euco::rgb::from_hex(hex)                                              \
+#define C(src_hex, hex, fac) \
+    CHECK(euco::rgb::from_hex(hex) \
           == approx(euco::shade_color(euco::rgb::from_hex(src_hex), fac)))
     const auto orange = 0xf48000;
-    const auto green  = 0x3f83a3;
+    const auto green = 0x3f83a3;
     C(orange, orange, 0.0f);
     // C(orange, 0xfac080, 0.5f);
     C(orange, 0x7a4000, -0.5f);

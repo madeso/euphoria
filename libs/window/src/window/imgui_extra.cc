@@ -156,8 +156,8 @@ namespace euphoria::window::imgui
     void
     image(render::texture2d* texture)
     {
-        auto        tex_w  = static_cast<float>(texture->width);
-        auto        tex_h  = static_cast<float>(texture->height);
+        auto tex_w = static_cast<float>(texture->width);
+        auto tex_h = static_cast<float>(texture->height);
         ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
 
         ImVec2 tex_screen_pos = ImGui::GetCursorScreenPos();
@@ -173,7 +173,7 @@ namespace euphoria::window::imgui
         {
             ImGui::BeginTooltip();
             float focus_sz = 32.0f;
-            float focus_x  = ImGui::GetMousePos().x - tex_screen_pos.x
+            float focus_x = ImGui::GetMousePos().x - tex_screen_pos.x
                             - focus_sz * 0.5f;
             if(focus_x < 0.0f)
             {
@@ -223,8 +223,8 @@ namespace euphoria::window::imgui
             float a_distance_y
     )
     {
-        const int   corner_int = static_cast<int>(corner);
-        // const float distance   = 10.0f;
+        const int corner_int = static_cast<int>(corner);
+        // const float distance = 10.0f;
         const auto distance_x = a_distance;
         const auto distance_y = a_distance_y > 0 ? a_distance_y : a_distance;
         const auto size = ImGui::GetIO().DisplaySize;
@@ -298,12 +298,12 @@ namespace euphoria::window::imgui
     void
     add_circle_filled
     (
-        ImDrawList*   draw_list,
+        ImDrawList* draw_list,
         const ImVec2& centre,
-        float         radius,
-        ImU32         col,
-        int           num_segments,
-        float         angle_offset
+        float radius,
+        ImU32 col,
+        int num_segments,
+        float angle_offset
     )
     {
         ASSERT(draw_list);
@@ -329,29 +329,29 @@ namespace euphoria::window::imgui
     knob
     (
         const char* label,
-        float*      p_value,
-        float       v_min,
-        float       v_max,
-        knob_style   style
+        float* p_value,
+        float v_min,
+        float v_max,
+        knob_style style
     )
     {
         constexpr auto pi = core::pi;
-        // constexpr auto  rad2deg         = 180 / pi;
-        constexpr auto  pi2             = pi * 2;
-        constexpr float angle_min       = pi * 0.75f;
-        constexpr float angle_max       = pi * 2.25f;
-        constexpr float angle_step      = 20 * (pi / 180);
-        constexpr float size_outer      = 20;
-        constexpr float peg_max_end     = size_outer;
-        constexpr float peg_end         = 19;
-        constexpr float peg_start       = 15;
-        constexpr float knob_size       = 15;
+        // constexpr auto rad2deg = 180 / pi;
+        constexpr auto pi2 = pi * 2;
+        constexpr float angle_min = pi * 0.75f;
+        constexpr float angle_max = pi * 2.25f;
+        constexpr float angle_step = 20 * (pi / 180);
+        constexpr float size_outer = 20;
+        constexpr float peg_max_end = size_outer;
+        constexpr float peg_end = 19;
+        constexpr float peg_start = 15;
+        constexpr float knob_size = 15;
         constexpr float knob_mark_start = 15;
-        constexpr float knob_mark_end   = 8;
-        constexpr int   seg             = 16;
+        constexpr float knob_mark_end = 8;
+        constexpr int seg = 16;
 
-        ImGuiIO&    io        = ImGui::GetIO();
-        ImGuiStyle& imstyle   = ImGui::GetStyle();
+        ImGuiIO& io = ImGui::GetIO();
+        ImGuiStyle& imstyle = ImGui::GetStyle();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
 
         const ImVec2 start = ImGui::GetCursorScreenPos();
@@ -368,10 +368,10 @@ namespace euphoria::window::imgui
                 size_outer * 2 + line_height + imstyle.ItemInnerSpacing.y
             )
        );
-        const bool is_active  = ImGui::IsItemActive();
+        const bool is_active = ImGui::IsItemActive();
         const bool is_hovered = ImGui::IsItemHovered();
 
-        const float t     = (*p_value - v_min) / (v_max - v_min);
+        const float t = (*p_value - v_min) / (v_max - v_min);
         const float angle = angle_min + (angle_max - angle_min) * t;
 
         // changing value
@@ -385,9 +385,9 @@ namespace euphoria::window::imgui
             direct.y = direct.y / directl;
 
             // todo(Gustav): flip y based on x
-            const auto acos        = acosf(direct.x);
-            const auto ang         = direct.y > 0 ? pi2 - acos : acos;
-            float      input_angle = -ang;
+            const auto acos = acosf(direct.x);
+            const auto ang = direct.y > 0 ? pi2 - acos : acos;
+            float input_angle = -ang;
             input_angle += pi2;
             const bool b = input_angle < pi / 2;
             if(b)
@@ -425,13 +425,13 @@ namespace euphoria::window::imgui
         }
 
         // colors
-        const auto label_color     = ImGui::GetColorU32(ImGuiCol_Text);
-        const auto fill_color      = ImGui::GetColorU32(ImGuiCol_FrameBg);
-        const auto knob_color      = ImGui::GetColorU32(ImGuiCol_SliderGrab);
+        const auto label_color = ImGui::GetColorU32(ImGuiCol_Text);
+        const auto fill_color = ImGui::GetColorU32(ImGuiCol_FrameBg);
+        const auto knob_color = ImGui::GetColorU32(ImGuiCol_SliderGrab);
         const auto indicator_color = ImGui::GetColorU32(ImGuiCol_Text);
-        const auto peg_color_off   = ImGui::GetColorU32(ImGuiCol_TextDisabled);
-        const auto peg_color_on    = ImGui::GetColorU32(ImGuiCol_Text);
-        const auto peg_color_max   = ImGui::GetColorU32(ImGuiCol_Text);
+        const auto peg_color_off = ImGui::GetColorU32(ImGuiCol_TextDisabled);
+        const auto peg_color_on = ImGui::GetColorU32(ImGuiCol_Text);
+        const auto peg_color_max = ImGui::GetColorU32(ImGuiCol_Text);
 
         // util function
         const auto Pos = [=](float angle, float rad) -> ImVec2

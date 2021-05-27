@@ -12,7 +12,7 @@
 #include "euph_generated_config.h"
 
 #if BUILD_ENTITY_DEBUG_COMPONENT == 1
-#define COMPONENT_CONSTRUCTOR_IMPLEMENTATION(X)                                \
+#define COMPONENT_CONSTRUCTOR_IMPLEMENTATION(X) \
     X::X() : Component(TYPEID_NAME(X), TYPEID_ID(X)) {}
 #define COMPONENT_CONSTRUCTOR_ARG(X) Component(TYPEID_NAME(X), TYPEID_ID(X)),
 #define COMPONENT_CONSTRUCTOR_DEFINITION(X) X();
@@ -54,7 +54,7 @@ namespace euphoria::core::ecs
         // todo(Gustav): change to a virtual function and a hashed string struct
 #if BUILD_ENTITY_DEBUG_COMPONENT == 1
         const TypeName type_name;
-        const TypeId   type_id;
+        const TypeId type_id;
 #endif
     };
 
@@ -140,8 +140,8 @@ namespace euphoria::core::ecs
         void
         add_component_to_entity
         (
-            entity_id                   entity,
-            component_id                comp,
+            entity_id entity,
+            component_id comp,
             std::shared_ptr<component> data
         );
 

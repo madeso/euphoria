@@ -71,7 +71,7 @@ load_game_data(vfs::file_system* fs)
 
 struct run_result
 {
-    bool        ok;
+    bool ok;
     std::string message;
 
     [[nodiscard]]
@@ -98,7 +98,7 @@ run_result
 run_main_script_file(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
 {
     std::string content;
-    const bool  loaded = fs->read_file_to_string(path, &content);
+    const bool loaded = fs->read_file_to_string(path, &content);
     if(!loaded)
     {
         const std::string error_message = string_builder() << "Unable to open " << path
@@ -192,7 +192,7 @@ main(int argc, char* argv[])
     game::Game gamedata = load_game_data(engine.file_system.get());
     const auto clear_color = get_color(gamedata.clear_color);
 
-    int window_width  = 800;
+    int window_width = 800;
     int window_height = 600;
 
     if
@@ -227,7 +227,7 @@ main(int argc, char* argv[])
     attributes2d::prebind_shader(&shader);
     shader.load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
     sprite_renderer renderer(&shader);
-    font_cache      font_cache {engine.file_system.get(), &cache};
+    font_cache font_cache {engine.file_system.get(), &cache};
 
     Sol duk;
 
@@ -248,8 +248,8 @@ main(int argc, char* argv[])
     bind_math(&duk);
     input_system::bind(&duk);
 
-    systems    systems;
-    world      world {&systems};
+    systems systems;
+    world world {&systems};
     components components {&world.reg};
     add_systems(&systems, &duk, &components);
     object_creator templates;
@@ -269,7 +269,7 @@ main(int argc, char* argv[])
             = run_main_script_file(&duk, engine.file_system.get(), vfs::file_path{"~/main.lua"});
     if(!error_run_main.ok)
     {
-        has_crashed          = true;
+        has_crashed = true;
         crash_message_string = error_run_main.message;
     }
     load_templates
@@ -313,7 +313,7 @@ main(int argc, char* argv[])
         crash_on_exception(ex);
     }
 
-    Uint64 now  = SDL_GetPerformanceCounter();
+    Uint64 now = SDL_GetPerformanceCounter();
     Uint64 last = 0;
 
     SDL_StartTextInput();

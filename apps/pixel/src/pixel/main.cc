@@ -108,7 +108,7 @@ main(int argc, char** argv)
     }
 
 
-    int window_width  = 1280;
+    int window_width = 1280;
     int window_height = 720;
 
     if(!engine.create_window("PixLE", window_width, window_height, true))

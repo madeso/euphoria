@@ -12,9 +12,9 @@ namespace euphoria::core::generator
         switch(d)
         {
         case dir::south: return vec2i { 0, -1};
-        case dir::north: return vec2i { 0,  1};
-        case dir::west:  return vec2i {-1,  0};
-        case dir::east:  return vec2i { 1,  0};
+        case dir::north: return vec2i { 0, 1};
+        case dir::west: return vec2i {-1, 0};
+        case dir::east: return vec2i { 1, 0};
         default: return vec2i(0, 0);
         }
     }
@@ -67,7 +67,7 @@ namespace euphoria::core::generator
     vec2i
     add_step_to_maze(maze* maze, const vec2i& c, dir dir)
     {
-        const auto o  = dir_to_offset(dir);
+        const auto o = dir_to_offset(dir);
         const auto np = c + o;
         (*maze)(np.x, np.y)
                 |= cell::visited | dir_to_cell_path(flip_direction(dir));
@@ -98,7 +98,7 @@ namespace euphoria::core::generator
     {
         ASSERT(!vec->empty());
         const auto i = get_random_in_range(r, vec->size());
-        T          t = (*vec)[i];
+        T t = (*vec)[i];
         vec->erase(vec->begin() + i);
         return t;
     }
@@ -157,7 +157,7 @@ namespace euphoria::core::generator
         else
         {
             const dir dir = get_random_item_in_vector(random, neighbours);
-            auto      np  = add_step_to_maze(maze, c, dir);
+            auto np = add_step_to_maze(maze, c, dir);
             stack.push(np);
             visited_cells += 1;
         }
@@ -168,9 +168,9 @@ namespace euphoria::core::generator
 
     void
     add_to_frontier(
-            maze*                                maze,
+            maze* maze,
             std::vector<random_traversal::entry>* frontier,
-            const vec2i&                         p)
+            const vec2i& p)
     {
         visit(maze, p);
         for(auto d: all_dirs())
@@ -202,7 +202,7 @@ namespace euphoria::core::generator
     void
     random_traversal::work()
     {
-        auto       f  = pop_random(&frontier, random);
+        auto f = pop_random(&frontier, random);
         const auto np = f.position + dir_to_offset(f.direction);
 
         if(!can_visit_without_making_loop(maze, np))

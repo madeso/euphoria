@@ -24,8 +24,8 @@ namespace euphoria::core
         {
             auto r = ray3_aabb_result{};
             r.intersected = true;
-            r.start       = start;
-            r.end         = end;
+            r.start = start;
+            r.end = end;
             return r;
         }
     }
@@ -52,8 +52,8 @@ namespace euphoria::core
             r_invdir.z < 0 ? 1 : 0
         };
 
-        float       tmin  = (bounds[r_sign[0]].x - r.from.x) * r_invdir.x;
-        float       tmax  = (bounds[1 - r_sign[0]].x - r.from.x) * r_invdir.x;
+        float tmin = (bounds[r_sign[0]].x - r.from.x) * r_invdir.x;
+        float tmax = (bounds[1 - r_sign[0]].x - r.from.x) * r_invdir.x;
         const float tymin = (bounds[r_sign[1]].y - r.from.y) * r_invdir.y;
         const float tymax = (bounds[1 - r_sign[1]].y - r.from.y) * r_invdir.y;
 
@@ -336,10 +336,10 @@ namespace euphoria::core
         const auto s3 = B.y - A.y;
         const auto s4 = P.y - A.y;
 
-        const auto w1 = (A.x*s1 + s4*s2 - P.x*s1) / (s3*s2 - (B.x -  A.x)*s1);
+        const auto w1 = (A.x*s1 + s4*s2 - P.x*s1) / (s3*s2 - (B.x - A.x)*s1);
         const auto w2 = (s4 - w1*s3) / s1;
         return w1 >= 0 && w2 >= 0 && (w1 + w2) <= 1;
     }
 
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

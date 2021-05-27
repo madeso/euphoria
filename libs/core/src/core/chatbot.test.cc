@@ -7,17 +7,17 @@ using namespace euphoria::core::detail;
 TEST_CASE("chatbot-matches-input", "[chatbot]")
 {
     const std::string full_sentence = "cat dog fish";
-    const auto        sentence      = clean_input(full_sentence);
+    const auto sentence = clean_input(full_sentence);
 
-    const auto without_start_animal  = clean_input("dog fish");
+    const auto without_start_animal = clean_input("dog fish");
     const auto without_middle_animal = clean_input("cat fish");
-    const auto without_end_animal    = clean_input("cat dog");
-    const auto without_any_animals   = clean_input("");
+    const auto without_end_animal = clean_input("cat dog");
+    const auto without_any_animals = clean_input("");
 
-    const std::string start_animal  = "cat";
+    const std::string start_animal = "cat";
     const std::string middle_animal = "dog";
-    const std::string end_animal    = "fish";
-    const std::string non_animal    = "human";
+    const std::string end_animal = "fish";
+    const std::string non_animal = "human";
 
     SECTION("match middle")
     {

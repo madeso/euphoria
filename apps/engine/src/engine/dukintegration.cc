@@ -176,7 +176,7 @@ namespace euphoria::engine
                 Sol* duk,
                 object_creator* creator,
                 components* components,
-                camera_data*    cam
+                camera_data* cam
         )
             : systems(sys, duk)
             , registry(&world->reg, components)
@@ -191,26 +191,26 @@ namespace euphoria::engine
         void
         integrate(Sol* duk)
         {
-            auto systems_table         = duk->lua["Systems"].get_or_create<sol::table>();
+            auto systems_table = duk->lua["Systems"].get_or_create<sol::table>();
             systems_table["add_update"] = [&](const std::string& name, sol::function func)
             {
                 systems.add_update(name, func);
             };
             systems_table["OnInit"] = [&]
             (
-                const std::string&              name,
+                const std::string& name,
                 sol::table types,
-                sol::function                   func
+                sol::function func
             )
             {
                 auto vtypes = get_vector<core::ecs::component_id>(types);
                 systems.add_init(name, &world->reg, vtypes, func);
             };
 
-            auto math_table         = duk->lua["Math"].get_or_create<sol::table>();
+            auto math_table = duk->lua["Math"].get_or_create<sol::table>();
             math_table["NewRandom"] = [&]() { return std::make_shared<core::random>(); };
 
-            auto templates_table    = duk->lua["Templates"].get_or_create<sol::table>();
+            auto templates_table = duk->lua["Templates"].get_or_create<sol::table>();
             templates_table["Find"] = [&](const std::string& name)
             {
                 return creator->find_template(name);
@@ -222,7 +222,7 @@ namespace euphoria::engine
                 return t->create_object(object_creation_arguments{world, &registry, duk, duk});
             };
 
-            auto camera_table       = duk->lua["Camera"].get_or_create<sol::table>();
+            auto camera_table = duk->lua["Camera"].get_or_create<sol::table>();
             camera_table["GetRect"] = [&]() { return &camera->screen; };
 
             duk->lua.new_usertype<custom_arguments>
@@ -242,7 +242,7 @@ namespace euphoria::engine
                 }
             );
 
-            auto registry_table        = duk->lua["Registry"].get_or_create<sol::table>();
+            auto registry_table = duk->lua["Registry"].get_or_create<sol::table>();
             registry_table["Entities"] = [&](sol::table types)
             {
                 return registry.entity_view(get_vector<core::ecs::component_id>(types));

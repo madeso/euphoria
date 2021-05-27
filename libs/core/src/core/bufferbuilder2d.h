@@ -44,5 +44,5 @@ namespace euphoria::core
     };
 }
 
-#endif  // RENDER_BUFFERBUILDER2D_H
+#endif // RENDER_BUFFERBUILDER2D_H
 

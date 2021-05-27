@@ -32,7 +32,7 @@ namespace euphoria::render
         // todo(Gustav): move this to a better place
         glEnable(GL_DEPTH_TEST);
         glEnable(GL_STENCIL_TEST);
-        glEnable(GL_SCISSOR_TEST);  // need scissor test for the viewport clearing
+        glEnable(GL_SCISSOR_TEST); // need scissor test for the viewport clearing
 
         if(blend_hack == init::blend_hack::enable_hack)
         {

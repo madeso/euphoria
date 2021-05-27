@@ -37,8 +37,8 @@ namespace euphoria::core::argparse
         create_dir_if_missing() const;
 
         std::string file;
-        bool        single;
-        int         index = 0;
+        bool single;
+        int index = 0;
     };
 
 
@@ -661,4 +661,4 @@ namespace euphoria::core::argparse
     parse_from_main(parser* parser, int argc, char* argv[]);
 }
 
-#endif  // CORE_ARGPARSE_H
+#endif // CORE_ARGPARSE_H

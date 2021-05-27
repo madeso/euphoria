@@ -19,7 +19,7 @@ namespace euphoria::core
         auto ret = table<char>::from_width_height(
                 img.width, img.height, ' ');
         ret.set_all([&pal, &map, &img](int x, int y) {
-            const auto p     = img.get_pixel(x, y);
+            const auto p = img.get_pixel(x, y);
             const auto index = pal.get_index_closest(rgbi {p.r, p.g, p.b});
             return map[index].to;
         });
@@ -29,7 +29,7 @@ namespace euphoria::core
 
     table<char>
     image_to_string_table_exact(
-            const image&                       img,
+            const image& img,
             const std::vector<image_map_action>& map, char missing)
     {
         auto find_match = [&](const rgbi& c) -> char
@@ -96,4 +96,4 @@ namespace euphoria::core
         return ret;
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

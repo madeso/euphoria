@@ -23,7 +23,7 @@ namespace
     const auto patch0 = std::vector<int>{0, 4, 24, 20 };
     const auto patch1 = std::vector<int>{0, 4, 20 };
     const auto patch2 = std::vector<int>{2, 24, 20 };
-    const auto patch3 = std::vector<int>{0, 2,  20, 22 };
+    const auto patch3 = std::vector<int>{0, 2, 20, 22 };
     const auto patch4 = std::vector<int>{2, 14, 22, 10 };
     const auto patch5 = std::vector<int>{0, 14, 24, 22 };
     const auto patch6 = std::vector<int>{2, 24, 22, 13, 11, 22, 20 };

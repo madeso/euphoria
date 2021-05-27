@@ -96,8 +96,8 @@ namespace euphoria::core
             {
                 // this is a new table, the row is the new table
                 ASSERTX(height == 0, height);
-                data   = row;
-                width  = row.size();
+                data = row;
+                width = row.size();
                 height = 1;
             }
             else if(width == Ci(row.size()))
@@ -237,6 +237,6 @@ namespace euphoria::core
         return r;
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
-#endif  // CORE_STRING_TABLE_H
+#endif // CORE_STRING_TABLE_H

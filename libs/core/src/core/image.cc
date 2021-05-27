@@ -74,7 +74,7 @@ namespace euphoria::core
         height = image_height;
         has_alpha = alpha;
 
-        components.resize(0);  // clear all pixels
+        components.resize(0); // clear all pixels
         const unsigned int size = width * height * get_pixel_byte_size();
         if(default_value < 0)
         {
@@ -304,16 +304,16 @@ namespace euphoria::core
         {
             switch(ch)
             {
-            case 1: return a;  // grey
-            case 2: return b;  // grey, alpha
-            case 3: return c;  // red, green, blue
-            case 4: return d;  // red, green, blue, alpha
+            case 1: return a; // grey
+            case 2: return b; // grey, alpha
+            case 3: return c; // red, green, blue
+            case 4: return d; // red, green, blue, alpha
             default:
                 DIE("unhandled Select channel");
                 return 0;
             }
         }
-    }  // namespace
+    } // namespace
 
     image_load_result
     load_image(vfs::file_system* fs, const vfs::file_path& path, alpha_load alpha)
@@ -347,7 +347,7 @@ namespace euphoria::core
         // https://stackoverflow.com/questions/310451/should-i-use-static-cast-or-reinterpret-cast-when-casting-a-void-to-whatever
         unsigned char* data = stbi_load_from_memory
         (
-            reinterpret_cast<unsigned char*>(file_memory->get_data()),  // NOLINT
+            reinterpret_cast<unsigned char*>(file_memory->get_data()), // NOLINT
             file_memory->get_size(),
             &image_width,
             &image_height,
@@ -401,7 +401,7 @@ namespace euphoria::core
 
                 // get component values
                 const unsigned char zero = 0;
-                const unsigned char c1 = data[src_index + 0];  // NOLINT no garbage value
+                const unsigned char c1 = data[src_index + 0]; // NOLINT no garbage value
                 const unsigned char c2 = (channels <= 1) ? zero : data[src_index + 1];
                 const unsigned char c3 = (channels <= 2) ? zero : data[src_index + 2];
                 const unsigned char c4 = (channels <= 3) ? zero : data[src_index + 3];

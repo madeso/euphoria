@@ -31,9 +31,9 @@ namespace euphoria::engine
     struct object_creation_arguments
     {
         core::ecs::world* world;
-        script_registry*      reg;
-        Sol*  ctx;
-        Sol*  duk;
+        script_registry* reg;
+        Sol* ctx;
+        Sol* duk;
 
         object_creation_arguments
         (
@@ -74,10 +74,10 @@ namespace euphoria::engine
     void
     load_templates
     (
-        const game::Game&     json,
-        object_creator*        temp,
-        script_registry*          reg,
+        const game::Game& json,
+        object_creator* temp,
+        script_registry* reg,
         render::texture_cache* cache,
-        components*           components
+        components* components
     );
 }

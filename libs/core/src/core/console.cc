@@ -32,8 +32,8 @@ namespace euphoria::core
         {
             return;
         }
-        const auto name  = line[0];
-        auto       found = callbacks.find(to_lower(name));
+        const auto name = line[0];
+        auto found = callbacks.find(to_lower(name));
         if(found == callbacks.end())
         {
             // unable to find cmd
@@ -94,7 +94,7 @@ namespace euphoria::core
             default: return c;
             }
         }
-    }  // namespace
+    } // namespace
 
 
     std::vector<std::string>
@@ -102,8 +102,8 @@ namespace euphoria::core
     {
         std::vector<std::string> ret;
 
-        bool               escape = false;
-        char               current_string_character = 0;
+        bool escape = false;
+        char current_string_character = 0;
         std::ostringstream buffer;
 
         for (char c : str)
@@ -168,4 +168,4 @@ namespace euphoria::core
 
         return ret;
     }
-}  // namespace euphoria::core
+} // namespace euphoria::core

@@ -12,4 +12,4 @@ namespace euphoria::core
         return *str == 0 ? hash : fnv1a(str + 1, (hash ^ *str) * 0x100000001b3);
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

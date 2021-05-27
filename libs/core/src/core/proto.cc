@@ -18,7 +18,7 @@ namespace euphoria::core
     std::string
     read_file_or_get_error_message
     (
-        vfs::file_system*     fs,
+        vfs::file_system* fs,
         rapidjson::Document* doc,
         const vfs::file_path& file_name
     )
@@ -44,8 +44,8 @@ namespace euphoria::core
         using InputStream
                 = rapidjson::CursorStreamWrapper<rapidjson::StringStream>;
         rapidjson::StringStream ss {source.c_str()};
-        InputStream             stream {ss};
-        constexpr unsigned int  ParseFlags
+        InputStream stream {ss};
+        constexpr unsigned int ParseFlags
                 = rapidjson::kParseCommentsFlag
                   | rapidjson::kParseTrailingCommasFlag;
         doc->ParseStream<ParseFlags, rapidjson::UTF8<>, InputStream>(stream);
@@ -61,4 +61,4 @@ namespace euphoria::core
         return "";
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

@@ -94,9 +94,9 @@ namespace euphoria::core
     float
     curve(float new_value, float old_value, float smoothing_value)
     {
-        const int   sign = get_sign(old_value - new_value);
+        const int sign = get_sign(old_value - new_value);
         const float slip = (old_value - new_value) / smoothing_value;
-        const float val  = old_value - slip;
+        const float val = old_value - slip;
 
         if(sign != get_sign(val - new_value))
         {
@@ -203,7 +203,7 @@ namespace euphoria::core
     }
 
 
-    namespace  // internal
+    namespace // internal
     {
         float
         LowerBound(float num, float gran)
@@ -217,7 +217,7 @@ namespace euphoria::core
         {
             return std::ceil(num / gran) * gran;
         }
-    }  // namespace
+    } // namespace
 
 
     float
@@ -227,7 +227,7 @@ namespace euphoria::core
         const float upper = UpperBound(num, gran);
         const float percent
                 = (num - lower)
-                  / gran;  // 1.0 is upper, 0.0 is lower, 0.25 is 25% between
+                  / gran; // 1.0 is upper, 0.0 is lower, 0.25 is 25% between
         // lower and upper, moving from lower to upper
 
         if(percent >= 0.5)
@@ -237,4 +237,4 @@ namespace euphoria::core
 
         return lower;
     }
-}  // namespace euphoria::core
+} // namespace euphoria::core

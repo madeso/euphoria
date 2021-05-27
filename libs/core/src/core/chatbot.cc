@@ -38,11 +38,11 @@ namespace euphoria::core::detail
     long
     index_of_matched_input(
             const std::vector<std::string>& input,
-            const detail::input&                    keywords)
+            const detail::input& keywords)
     {
-        const auto& search      = keywords.words;
-        const auto  search_size = search.size();
-        const auto  input_size  = input.size();
+        const auto& search = keywords.words;
+        const auto search_size = search.size();
+        const auto input_size = input.size();
         if(search_size > input_size)
         {
             return -1;
@@ -194,7 +194,7 @@ namespace euphoria::core::detail
     {
         responses.emplace_back();
         response& response = *responses.rbegin();
-        response.event_id  = event_id;
+        response.event_id = event_id;
         event_id += 1;
         return response;
     }
@@ -313,7 +313,7 @@ namespace euphoria::core::detail
         {
             conversation_status::topic_entry entry;
             entry.topic = t.first;
-            entry.time  = *t.second;
+            entry.time = *t.second;
             ret.emplace_back(entry);
         }
         return ret;
@@ -352,12 +352,12 @@ namespace euphoria::core
 
         max_responses = root.max_responses;
 
-        database                  = detail::database {};
-        database.signon           = root.signon;
-        database.empty            = root.empty;
-        database.no_response      = root.no_response;
-        database.same_input       = root.same_input;
-        database.similar_input    = root.similar_input;
+        database = detail::database {};
+        database.signon = root.signon;
+        database.empty = root.empty;
+        database.no_response = root.no_response;
+        database.same_input = root.same_input;
+        database.similar_input = root.similar_input;
         database.empty_repetition = root.empty_repetition;
 
         transposer = detail::transposer {};
@@ -369,7 +369,7 @@ namespace euphoria::core
         for(const auto& r: root.responses)
         {
             detail::response& response = database.create_response();
-            response.ends_conversation  = r.ends_conversation;
+            response.ends_conversation = r.ends_conversation;
             for(const auto& topic: r.topics_required)
             {
                 response.topics_required.emplace_back(topic);
@@ -572,13 +572,13 @@ namespace euphoria::core
                 input
             );
         }
-    }  // namespace chatbot
+    } // namespace chatbot
 
     detail::conversation_status
     chatbot::get_complex_response(const std::string& dirty_input)
     {
         detail::conversation_status ret;
-        ret.input  = dirty_input;
+        ret.input = dirty_input;
         ret.topics = detail::collect_topics(current_topics);
 
         const std::vector<std::string> input = detail::clean_input(dirty_input);
@@ -587,7 +587,7 @@ namespace euphoria::core
         {
             if(last_input.empty())
             {
-                ret.section  = "empty repetition";
+                ret.section = "empty repetition";
                 ret.response = detail::SelectBasicResponse
                 (
                     this,
@@ -602,14 +602,14 @@ namespace euphoria::core
                 database.empty,
                 "empty"
             );
-            last_input  = input;
+            last_input = input;
             ret.section = "empty";
             return ret;
         }
 
         if(input == last_input)
         {
-            ret.section  = "same input";
+            ret.section = "same input";
             ret.response = detail::SelectBasicResponse
             (
                 this,
@@ -622,7 +622,7 @@ namespace euphoria::core
 
         current_topics.decrease_and_remove();
 
-        unsigned long match_length   = 0;
+        unsigned long match_length = 0;
         detail::input::location_type match_location = detail::input::lowest;
         std::string response;
 
@@ -668,7 +668,7 @@ namespace euphoria::core
                 // todo(Gustav): look into levenshtein distance
                 const bool longer_keyword = keyword.words.size() > match_length;
                 const bool same_size_but_better
-                        =  keyword.words.size() == match_length
+                        = keyword.words.size() == match_length
                         && keyword.location > match_location;
 
                 // todo add detail as to why the check failed
@@ -710,7 +710,7 @@ namespace euphoria::core
                     }
                     else
                     {
-                        match_length   = keyword.words.size();
+                        match_length = keyword.words.size();
                         match_location = keyword.location;
                         log.emplace_back
                         (
@@ -788,7 +788,7 @@ namespace euphoria::core
             return "";
         }
 
-        const auto&        last = *history.rbegin();
+        const auto& last = *history.rbegin();
         std::ostringstream ss;
 
         ss << "INPUT: " << last.input << "\n";

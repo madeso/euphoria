@@ -28,7 +28,7 @@ TEST_CASE("camera-clip2world", "[camera]")
                 {
                     const auto start = euco::vec3f {x, y, z};
                     const auto world = cc.clip_to_world(start);
-                    const auto clip  = cc.world_to_clip(world);
+                    const auto clip = cc.world_to_clip(world);
                     REQUIRE(approx(start) == clip);
                 }
             }
@@ -72,7 +72,7 @@ TEST_CASE("camera-world2clip", "[camera]")
                 for(float z : values)
                 {
                   const vec3f start = vec3f{x, y, z};
-                  const vec3f clip  = cc.WorldToClip(start);
+                  const vec3f clip = cc.WorldToClip(start);
                   CAPTURE(clip);
                   const vec3f world = cc.ClipToWorld(clip);
                   CHECK(approx(start) == world);

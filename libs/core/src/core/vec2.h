@@ -122,7 +122,7 @@ namespace euphoria::core
         std::pair<T, unit>
         get_normalized_and_length() const
         {
-            self       r = *this;
+            self r = *this;
             const auto l = r.normalize();
             return std::make_pair(l, unit {r});
         }
@@ -386,7 +386,7 @@ namespace euphoria::core
     // util functions
     unit2f create_random_unit(random* random);
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
 
 ////////////////////////////////////////////////////////////////////////////////

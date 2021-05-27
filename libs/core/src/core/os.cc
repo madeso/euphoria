@@ -56,8 +56,8 @@ namespace euphoria::core
     list_directory(const std::string& path)
     {
         const std::string search_path = string_builder() << path << "*.*";
-        WIN32_FIND_DATA   fd;
-        HANDLE            hFind = ::FindFirstFile(search_path.c_str(), &fd);
+        WIN32_FIND_DATA fd;
+        HANDLE hFind = ::FindFirstFile(search_path.c_str(), &fd);
 
 
         if(hFind != INVALID_HANDLE_VALUE)
@@ -73,7 +73,7 @@ namespace euphoria::core
                 {
                     ret.files.push_back(fd.cFileName);
                 }
-                else  // Put folders into vector
+                else // Put folders into vector
                 {
                     ret.directories.push_back(fd.cFileName);
                 }

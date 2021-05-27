@@ -16,7 +16,7 @@ namespace
         int i;
         int j;
     };
-}  // namespace
+} // namespace
 
 TEST_CASE("multisort-verify", "[multisort]")
 {
@@ -24,8 +24,8 @@ TEST_CASE("multisort-verify", "[multisort]")
                      .sort(&Data::i, euco::sort_style::ascending)
                      .sort_order;
 
-    const auto same    = o[0]->sort(Data {0, 0}, Data {0, 0});
-    const auto less    = o[0]->sort(Data {1, 0}, Data {0, 0});
+    const auto same = o[0]->sort(Data {0, 0}, Data {0, 0});
+    const auto less = o[0]->sort(Data {1, 0}, Data {0, 0});
     const auto greater = o[0]->sort(Data {0, 0}, Data {1, 0});
 
     CHECK(same == 0);

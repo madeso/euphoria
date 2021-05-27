@@ -21,10 +21,10 @@ int
 RunEncode(const std::string& data)
 {
     vfs::file_system file_system;
-    auto            catalog = vfs::read_root_catalog::create_and_add(&file_system);
+    auto catalog = vfs::read_root_catalog::create_and_add(&file_system);
     vfs::read_root_physical_folder::add_current_directory(&file_system);
 
-    auto memory  = file_system.read_file
+    auto memory = file_system.read_file
     (
         vfs::file_path::from_script(data).value_or
         (
@@ -50,7 +50,7 @@ main(int argc, char** argv)
     if(argc == 3)
     {
         const std::string command = argv[1];
-        const std::string data    = argv[2];
+        const std::string data = argv[2];
 
         if(command == "encode")
         {

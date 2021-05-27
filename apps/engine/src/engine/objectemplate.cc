@@ -19,9 +19,9 @@ namespace euphoria::engine
     object_creation_arguments::object_creation_arguments
     (
         core::ecs::world* aworld,
-        script_registry*      areg,
-        Sol*     actx,
-        Sol*         aduk
+        script_registry* areg,
+        Sol* actx,
+        Sol* aduk
     )
         : world(aworld)
         , reg(areg)
@@ -77,7 +77,7 @@ namespace euphoria::engine
             engine::components* components
         )
         {
-            auto ptr     = std::make_shared<sprite_component_creator>(components);
+            auto ptr = std::make_shared<sprite_component_creator>(components);
             ptr->texture = cache->get_texture(core::vfs::file_path::from_script(sprite.path));
             return ptr;
         }
@@ -85,7 +85,7 @@ namespace euphoria::engine
         void
         create_component(const object_creation_arguments& args, core::ecs::entity_id ent) override
         {
-            auto c     = std::make_shared<component_sprite>();
+            auto c = std::make_shared<component_sprite>();
             c->texture = texture;
             args.world->reg.add_component_to_entity(ent, components->sprite, c);
         }
@@ -103,12 +103,12 @@ namespace euphoria::engine
         std::shared_ptr<custom_component_creator>
         create
         (
-            const std::string&            name,
-            core::ecs::component_id        id,
+            const std::string& name,
+            core::ecs::component_id id,
             const std::vector<game::Var>& arguments
         )
         {
-            auto ptr  = std::make_shared<custom_component_creator>();
+            auto ptr = std::make_shared<custom_component_creator>();
             ptr->comp = id;
             for(const auto& a: arguments)
             {
@@ -145,9 +145,9 @@ namespace euphoria::engine
     create_creator
     (
         const game::Component& comp,
-        script_registry*           reg,
-        render::texture_cache*  cache,
-        components*            components
+        script_registry* reg,
+        render::texture_cache* cache,
+        components* components
     )
     {
         if(comp.position)
@@ -241,11 +241,11 @@ namespace euphoria::engine
     void
     load_templates
     (
-        const game::Game&     json,
-        object_creator*        temp,
-        script_registry*          reg,
+        const game::Game& json,
+        object_creator* temp,
+        script_registry* reg,
         render::texture_cache* cache,
-        components*           components
+        components* components
     )
     {
         for(const auto& t: json.templates)

@@ -39,15 +39,15 @@ namespace euphoria::core
         angle rotation_angle;
         angle look_angle;
 
-        bool is_left_down     = false;
-        bool is_right_down    = false;
-        bool is_forward_down  = false;
+        bool is_left_down = false;
+        bool is_right_down = false;
+        bool is_forward_down = false;
         bool is_backward_down = false;
-        bool is_up_down       = false;
-        bool is_down_down     = false;
+        bool is_up_down = false;
+        bool is_down_down = false;
 
         vec3f position;
-        float move_speed       = 3.0f;
+        float move_speed = 3.0f;
         float look_sensitivity = 0.10f;
     };
 

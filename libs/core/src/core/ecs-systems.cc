@@ -33,7 +33,7 @@ namespace euphoria::core::ecs
 
     void
     component_system_sprite_drawer_store::draw(
-            registry*                 reg,
+            registry* reg,
             render::sprite_renderer* renderer) const
     {
         for(const auto* s: systems)
@@ -67,4 +67,4 @@ namespace euphoria::core::ecs
         systems->sprite_drawer.draw(&reg, renderer);
     }
 
-}  // namespace euphoria::core::ecs
+} // namespace euphoria::core::ecs

@@ -67,7 +67,7 @@ namespace euphoria::core
         }
     }
 
-    namespace  // local
+    namespace // local
     {
         bool
         is_newline(const char c)
@@ -167,7 +167,7 @@ namespace euphoria::core
         read_char();
     }
 
-    namespace  // local
+    namespace // local
     {
         bool
         is_ident_char(char c, bool first_char)
@@ -191,7 +191,7 @@ namespace euphoria::core
 
             return false;
         }
-    }  // namespace
+    } // namespace
 
     bool
     is_ident_start(char c)
@@ -203,7 +203,7 @@ namespace euphoria::core
     textfile_parser::read_ident()
     {
         std::ostringstream ss;
-        bool               first = true;
+        bool first = true;
         while(is_ident_char(peek_char(), first))
         {
             first = false;
@@ -216,12 +216,12 @@ namespace euphoria::core
     textfile_parser::read_string()
     {
         std::ostringstream ss;
-        const char         quote = '\"';
+        const char quote = '\"';
         if(peek_char() != quote)
         {
             return "";
         }
-        advance_char();  // skip " char
+        advance_char(); // skip " char
         while(peek_char() != quote)
         {
             const char c = read_char();
@@ -275,11 +275,11 @@ namespace euphoria::core
             }
             ss << c;
         }
-        advance_char();  // skip the newline
+        advance_char(); // skip the newline
         return ss.str();
     }
 
-    namespace  // local
+    namespace // local
     {
         bool
         is_space_character(char c, bool include_newline)
@@ -293,7 +293,7 @@ namespace euphoria::core
             default: return false;
             }
         }
-    }  // namespace
+    } // namespace
 
     void
     textfile_parser::skip_spaces(bool include_newline)

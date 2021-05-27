@@ -9,9 +9,9 @@ namespace euphoria::window
     sdl_window::sdl_window
     (
         const std::string& title,
-        int                width,
-        int                height,
-        bool               resize
+        int width,
+        int height,
+        bool resize
     )
         : window(nullptr)
     {
@@ -61,8 +61,8 @@ namespace euphoria::window
     sdl_window::get_mouse_position() const
     {
         core::vec2i ret {0, 0};
-        int         width  = 0;
-        int         height = 0;
+        int width = 0;
+        int height = 0;
         SDL_GetWindowSize(window, &width, &height);
         SDL_GetMouseState(&ret.x, &ret.y);
         ret.y = height - (ret.y + 1);

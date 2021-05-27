@@ -12,9 +12,9 @@ namespace euphoria::core
     AllInside(const rectf& a, const vec2f& p, float r)
     {
         return
-            a.left   < p.x - r &&
-            a.right  > p.x + r &&
-            a.top    > p.y + r &&
+            a.left < p.x - r &&
+            a.right > p.x + r &&
+            a.top > p.y + r &&
             a.bottom < p.y - r;
     }
 

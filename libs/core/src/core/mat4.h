@@ -15,7 +15,7 @@ namespace euphoria::core
     struct mat4
     {
     private:
-        T data[16];  // col-major
+        T data[16]; // col-major
 
         mat4() = default;
 
@@ -106,7 +106,7 @@ namespace euphoria::core
         from_translation(const vec3<T>& v)
         {
             const T one = 1;
-            const T z   = 0;
+            const T z = 0;
             return from_row_major
             (
                 one, z, z, v.x,
@@ -464,7 +464,7 @@ namespace euphoria::core
         mat4<T>
         create_perspective(const angle& fov, T a, T near, T far)
         {
-            const T t  = 1 / tan(fov / 2);
+            const T t = 1 / tan(fov / 2);
             const T zm = far - near;
             const T zp = far + near;
             return from_row_major
@@ -626,7 +626,7 @@ namespace euphoria::core
     using mat4f = mat4<float>;
     using mat4i = mat4<int>;
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
-#endif  // CORE_MAT4_H
+#endif // CORE_MAT4_H
 

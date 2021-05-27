@@ -34,4 +34,4 @@ namespace euphoria::core
     }
 }
 
-#endif  // EUPHORIA_CORE_CUSTOM_PARSER_H
+#endif // EUPHORIA_CORE_CUSTOM_PARSER_H

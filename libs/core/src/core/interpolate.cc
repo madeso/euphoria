@@ -11,10 +11,10 @@ namespace euphoria::core
 
     namespace easing
     {
-#define FUN(NAME, FUNC)                                                        \
-    float NAME(float value)                                                    \
-    {                                                                          \
-        return ::FUNC(value);                                                  \
+#define FUN(NAME, FUNC) \
+    float NAME(float value) \
+    { \
+        return ::FUNC(value); \
     }
         // Linear interpolation (no easing)
         FUN(Linear, LinearInterpolation)
@@ -69,6 +69,6 @@ namespace euphoria::core
         FUN(BounceOut, BounceEaseOut)
         FUN(Bounce, BounceEaseInOut)
 #undef FUN
-    }  // namespace easing
+    } // namespace easing
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

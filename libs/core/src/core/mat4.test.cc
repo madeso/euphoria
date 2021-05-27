@@ -243,7 +243,7 @@ TEST_CASE("mat4-inverse", "[mat]")
             0.2f,
             0.6f);
 
-    auto Inv0 = Mat0;  // glm::inverse(Mat0);
+    auto Inv0 = Mat0; // glm::inverse(Mat0);
     REQUIRE(Inv0.invert());
     REQUIRE(Inv0.invert());
 
@@ -281,7 +281,7 @@ TEST_CASE("mat4-TestIn", "[mat]")
 TEST_CASE("mat4-test", "[mat]")
 {
     const euco::mat4f start = euco::mat4f::identity();
-    euco::axis_angle   aa    = euco::axis_angle::right_hand_around(
+    euco::axis_angle aa = euco::axis_angle::right_hand_around(
             euco::unit3f::up(), euco::angle::from_degrees(-90));
     const euco::vec3f toTransform(0, 0, -5);
     const euco::vec3f result(5, 0, 0);

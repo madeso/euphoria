@@ -71,13 +71,13 @@ namespace euphoria::core::dump2d
     circle::circle(const vec2f& p, float r, std::optional<rgbi> fill)
         : point(p), radius(r), fill_color(fill) {}
 
-    item::item(const dump2d::poly& p)  : poly(std::make_shared<dump2d::poly>(p)) {}
-    item::item(const dump2d::text& p)  : text(std::make_shared<dump2d::text>(p)) {}
+    item::item(const dump2d::poly& p) : poly(std::make_shared<dump2d::poly>(p)) {}
+    item::item(const dump2d::text& p) : text(std::make_shared<dump2d::text>(p)) {}
     item::item(const dump2d::group& g) : group(std::make_shared<dump2d::group>(g)) {}
     item::item(const dump2d::circle& c) : circle(std::make_shared<dump2d::circle>(c)) {}
 
-    const poly*  as_poly(const item* item)  { return item->poly?  item->poly.get()  : nullptr; }
-    const text*  as_text(const item* item)  { return item->text?  item->text.get()  : nullptr; }
+    const poly* as_poly(const item* item) { return item->poly? item->poly.get() : nullptr; }
+    const text* as_text(const item* item) { return item->text? item->text.get() : nullptr; }
     const group* as_group(const item* item) { return item->group? item->group.get() : nullptr; }
     const circle* as_circle(const item* item) { return item->circle? item->circle.get() : nullptr; }
 

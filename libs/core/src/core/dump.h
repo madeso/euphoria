@@ -70,13 +70,13 @@ namespace euphoria::core::dump2d
         explicit item(const dump2d::group& g);
         explicit item(const dump2d::circle& c);
 
-        std::shared_ptr<dump2d::poly>  poly;
-        std::shared_ptr<dump2d::text>  text;
+        std::shared_ptr<dump2d::poly> poly;
+        std::shared_ptr<dump2d::text> text;
         std::shared_ptr<dump2d::group> group;
         std::shared_ptr<dump2d::circle> circle;
     };
-    const poly*  as_poly(const item* item);
-    const text*  as_text(const item* item);
+    const poly* as_poly(const item* item);
+    const text* as_text(const item* item);
     const group* as_group(const item* item);
     const circle* as_circle(const item* item);
 

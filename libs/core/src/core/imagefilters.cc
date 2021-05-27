@@ -15,7 +15,7 @@ namespace euphoria::core
         {
             return {rgbi {g, g, g}, a};
         }
-    }  // namespace
+    } // namespace
 
 
     //
@@ -43,7 +43,7 @@ namespace euphoria::core
         case grayscale::average:
             {
                 const auto cc = crgb(c);
-                const auto g  = (cc.r + cc.g + cc.b) / 3;
+                const auto g = (cc.r + cc.g + cc.b) / 3;
                 return rgbai(crgbi(rgb(g)), c.a);
             }
 
@@ -104,13 +104,13 @@ namespace euphoria::core
 
         *image = NewImageFrom(*image, [&](int x, int y)
         {
-            auto       pixel       = image->get_pixel(x, y);
-            auto       new_color   = crgb(pixel);
+            auto pixel = image->get_pixel(x, y);
+            auto new_color = crgb(pixel);
             const auto pixel_error = errors(x, y);
             new_color.r += pixel_error.r;
             new_color.g += pixel_error.g;
             new_color.b += pixel_error.b;
-            new_color                = clamp(new_color);
+            new_color = clamp(new_color);
             const auto palette_color = palette.get_closest_color(crgbi(new_color));
 
             const auto pcf = crgb(palette_color);
@@ -181,7 +181,7 @@ namespace euphoria::core
                                                .get_length()
                                        >= r;
             const bool edge = top || left;
-            const auto c    = edge ? color::white : color::black;
+            const auto c = edge ? color::white : color::black;
             return rgbai(c, 255);
         });
     }
@@ -193,7 +193,7 @@ namespace euphoria::core
         const auto basis = Cvec3(color);
         image->filter([&](const rgbai pixel) {
             const auto check = (Cvec3(pixel) - basis).get_length() <= r;
-            const auto c     = check ? color::white : color::black;
+            const auto c = check ? color::white : color::black;
             return rgbai(c, 255);
         });
     }
@@ -244,4 +244,4 @@ namespace euphoria::core
         });
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

@@ -45,21 +45,21 @@ namespace euphoria::window
         create_window
         (
             const std::string& title,
-            int                width,
-            int                height,
-            bool               blend_hack = false
+            int width,
+            int height,
+            bool blend_hack = false
         );
 
         bool
         on_resize(SDL_Event e, int* width, int* height);
 
-        std::unique_ptr<sdl_library>                       sdl;
-        std::unique_ptr<core::vfs::file_system>            file_system;
+        std::unique_ptr<sdl_library> sdl;
+        std::unique_ptr<core::vfs::file_system> file_system;
         std::shared_ptr<core::vfs::read_root_catalog> catalog;
-        std::unique_ptr<sdl_window>                        window;
-        unsigned int                                      window_id;
-        std::unique_ptr<sdl_gl_context>                     context;
-        std::unique_ptr<render::init>                     init;
-        std::unique_ptr<imgui::library>                     imgui;
+        std::unique_ptr<sdl_window> window;
+        unsigned int window_id;
+        std::unique_ptr<sdl_gl_context> context;
+        std::unique_ptr<render::init> init;
+        std::unique_ptr<imgui::library> imgui;
     };
 }

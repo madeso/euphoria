@@ -66,4 +66,4 @@ namespace euphoria::core
 
 }
 
-#endif  // EUPHORIA_AABB_H
+#endif // EUPHORIA_AABB_H

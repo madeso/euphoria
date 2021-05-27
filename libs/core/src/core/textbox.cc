@@ -362,7 +362,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::get_width()  const
+    text_box::get_width() const
     {
         std::size_t result = 0;
 
@@ -793,21 +793,21 @@ namespace euphoria::core
                         false
                     );
                 }
-                result->put_vertical_line(cx, cy, min_y,      false,true);
+                result->put_vertical_line(cx, cy, min_y, false,true);
             }
             else if(horizontal)
             {
                 unsigned cx = x;
                 unsigned cy = y-1;
                 result->put_vertical_line(0,  1,  1 + (cy-1), true,false);
-                result->put_horizontal_line(0,  cy, 1 + (cx-0), false,false);
-                result->put_vertical_line(cx, cy, 1,          false,true);
+                result->put_horizontal_line(0, cy, 1 + (cx-0), false,false);
+                result->put_vertical_line(cx, cy, 1, false,true);
             }
             else
             {
                 unsigned cx = x-1;
                 unsigned cy = y;
-                result->put_vertical_line(0,1,  1 + (cy-1), true,false);
+                result->put_vertical_line(0,1, 1 + (cy-1), true,false);
                 result->put_horizontal_line(0,cy, 1 + (cx-0), false,true);
             }
 

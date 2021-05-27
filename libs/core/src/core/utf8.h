@@ -20,7 +20,7 @@ namespace euphoria::core
         constexpr auto mask3 = std::byte{0b11110000}; constexpr auto bit3 = std::byte{0b11100000};
         constexpr auto mask4 = std::byte{0b11111000}; constexpr auto bit4 = std::byte{0b11110000};
 
-        unsigned int bits  = 0;
+        unsigned int bits = 0;
         std::vector<std::byte> buffer;
 
         for(auto c: string)

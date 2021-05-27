@@ -25,8 +25,8 @@ namespace euphoria::core::vfs
     void
     file_list::add(const listed_file& file)
     {
-        auto&      target = file.is_file ? files : folders;
-        const auto found  = target.find(file.name);
+        auto& target = file.is_file ? files : folders;
+        const auto found = target.find(file.name);
         if(found == target.end())
         {
             target[file.name] = file;
@@ -223,7 +223,7 @@ namespace euphoria::core::vfs
         file_list r;
         for(const auto& f: catalog_)
         {
-            const auto file   = f.first;
+            const auto file = f.first;
             const auto [folder, filename] = file.split_directories_and_file();
             if(path == folder)
             {

@@ -20,7 +20,7 @@ namespace euphoria::t3d
         for(const auto& relative_file: listed_files)
         {
             if(relative_file.is_file == false) { continue; }
-            const auto file      = directory.get_file(relative_file.name);
+            const auto file = directory.get_file(relative_file.name);
             const auto my_ext = file.get_extension();
             const auto found_ext = std::find
             (

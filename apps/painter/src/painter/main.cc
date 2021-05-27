@@ -68,7 +68,7 @@ main(int argc, char** argv)
     }
 
 
-    int window_width  = 1280;
+    int window_width = 1280;
     int window_height = 720;
 
     if(!engine.create_window("Painter", window_width, window_height, true))
@@ -85,9 +85,9 @@ main(int argc, char** argv)
     //////////////////////////////////////////////////////////////////////////////
     // main loop
     canvas_config cc;
-    canvas       canvas;
-    bezier_path2  path(vec2f(0, 0));
-    int          index = -1;
+    canvas canvas;
+    bezier_path2 path(vec2f(0, 0));
+    int index = -1;
 
     while(running)
     {
@@ -147,11 +147,11 @@ main(int argc, char** argv)
             }
             auto handle = [&canvas, &index](const ImVec2& p, int id, ImU32 color)
             {
-                const auto  size      = 5.0f;
+                const auto size = 5.0f;
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                const auto  sp        = canvas.world_to_screen(p);
-                const auto  me        = ImGui::GetMousePos();
-                const auto  hover
+                const auto sp = canvas.world_to_screen(p);
+                const auto me = ImGui::GetMousePos();
+                const auto hover
                         = vec2f::from_to(C(me), C(sp)).get_length_squared()
                           < size * size;
                 if(index == -1 && hover && ImGui::IsMouseDown(0))
@@ -182,7 +182,7 @@ main(int argc, char** argv)
             };
 
             const auto curve_color = IM_COL32(0, 0, 200, 255);
-            const auto line_color  = IM_COL32(0, 0, 0, 255);
+            const auto line_color = IM_COL32(0, 0, 0, 255);
 
             // draw handles
             for(size_t point_index = 0; point_index < path.points.size(); point_index += 1)
@@ -215,7 +215,7 @@ main(int argc, char** argv)
             const auto tseg = path.get_number_of_segments();
             for(size_t seg = 0; seg < tseg; seg += 1)
             {
-                auto  s  = path.get_points_in_segment(seg);
+                auto s = path.get_points_in_segment(seg);
                 auto* dl = ImGui::GetWindowDrawList();
                 dl->AddBezierCurve
                 (

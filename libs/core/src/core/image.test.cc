@@ -13,14 +13,14 @@
 
 #include "catch.hpp"
 
-namespace vfs  = euphoria::core::vfs;
+namespace vfs = euphoria::core::vfs;
 namespace euco = euphoria::core;
 
 using namespace euphoria::tests;
 
 
 // 4x4 image without transperency
-// white  / red
+// white / red
 // green / blue
 const char* const TEST_IMAGE
         = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAABmJLR0QA/wD/"
@@ -79,7 +79,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-blue")
     {
         const auto pixel = loaded.image.get_pixel(1, 0);
-        const auto blue  = euco::rgbai {euco::rgbi {0, 0, 255}, 255};
+        const auto blue = euco::rgbai {euco::rgbi {0, 0, 255}, 255};
         REQUIRE(pixel == blue);
     }
 }
@@ -130,8 +130,8 @@ TEST_CASE("image transparent", "[img]")
 TEST_CASE("image draw", "[img]")
 {
     euco::image img;
-    const int   width  = 10;
-    const int   height = 12;
+    const int width = 10;
+    const int height = 12;
     img.setup_no_alpha_support(width, height);
 
     SECTION("draw size is image size")
@@ -143,7 +143,7 @@ TEST_CASE("image draw", "[img]")
         CHECK(size.get_height() == height);
     }
 
-    euco::rgbi  color {255, 255, 0};
+    euco::rgbi color {255, 255, 0};
     euco::rgbai colora {color, 255};
 
     SECTION("fill")

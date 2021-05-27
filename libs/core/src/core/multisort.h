@@ -40,7 +40,7 @@ namespace euphoria::core
     {
         Value T::*member;
         core::sort_style sort_style;
-        SortFunc  sort_func;
+        SortFunc sort_func;
 
         sort_action(Value T::*m, core::sort_style s, SortFunc f)
             : member(m), sort_style(s), sort_func(f)
@@ -75,7 +75,7 @@ namespace euphoria::core
         template <typename SortFunc, typename Value>
         Self&
         sort(Value T::*member,
-             SortFunc  sort_func,
+             SortFunc sort_func,
              sort_style sort_style = sort_style::ascending)
         {
             auto o = std::make_shared<sort_action<T, Value, SortFunc>>(

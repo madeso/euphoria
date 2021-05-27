@@ -28,4 +28,4 @@ namespace euphoria::core
     };
 }
 
-#endif  // CORE_LINES_H
+#endif // CORE_LINES_H

@@ -14,4 +14,4 @@ namespace euphoria::core::base64
     decode(const std::string& input);
 }
 
-#endif  // EUPHORIA_BASE64_H
+#endif // EUPHORIA_BASE64_H

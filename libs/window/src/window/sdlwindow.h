@@ -16,9 +16,9 @@ namespace euphoria::window
         sdl_window
         (
             const std::string& title,
-            int                width,
-            int                height,
-            bool               resize = false
+            int width,
+            int height,
+            bool resize = false
         );
 
         ~sdl_window();

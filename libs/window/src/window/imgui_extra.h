@@ -134,10 +134,10 @@ namespace euphoria::window::imgui
     knob
     (
         const char* label,
-        float*      p_value,
-        float       v_min,
-        float       v_max,
-        knob_style   style = KS_DEFAULT
+        float* p_value,
+        float v_min,
+        float v_max,
+        knob_style style = KS_DEFAULT
     );
 
     bool

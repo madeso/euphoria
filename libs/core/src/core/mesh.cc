@@ -105,10 +105,10 @@ namespace euphoria::core
     }
 
 
-    namespace  // local
+    namespace // local
     {
-        DEFINE_ENUM_VALUE(texture_type, DiffuseType, "Diffuse");  // NOLINT
-    }  // namespace
+        DEFINE_ENUM_VALUE(texture_type, DiffuseType, "Diffuse"); // NOLINT
+    } // namespace
 
 
     namespace
@@ -215,8 +215,8 @@ namespace euphoria::core
                 mat->Get(AI_MATKEY_COLOR_AMBIENT, ai_ambient);
                 mat->Get(AI_MATKEY_COLOR_DIFFUSE, ai_diffuse);
                 mat->Get(AI_MATKEY_COLOR_SPECULAR, ai_specular);
-                material.ambient  = C(ai_ambient);
-                material.diffuse  = C(ai_diffuse);
+                material.ambient = C(ai_ambient);
+                material.diffuse = C(ai_diffuse);
                 material.specular = C(ai_specular);
 
 
@@ -311,7 +311,7 @@ namespace euphoria::core
                 for(unsigned int meshid = 0; meshid < scene->mNumMeshes;
                     ++meshid)
                 {
-                    const aiMesh*  mesh = scene->mMeshes[meshid];
+                    const aiMesh* mesh = scene->mMeshes[meshid];
                     const mesh_part part = convert_mesh(mesh);
                     if(part.faces.empty())
                     {
@@ -512,7 +512,7 @@ namespace euphoria::core
             }
 
         }
-    }  // namespace
+    } // namespace
 
 
     namespace meshes
@@ -622,7 +622,7 @@ namespace euphoria::core
             Assimp::Importer importer;
             importer.SetIOHandler(new filesystem_for_assimp{fs}); // NOLINT
 
-            loaded_mesh_or_error   res;
+            loaded_mesh_or_error res;
 
             const aiScene* scene = importer.ReadFile(path.path, assimp_flags);
             if(scene == nullptr)

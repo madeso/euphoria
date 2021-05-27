@@ -99,4 +99,4 @@ namespace euphoria::core
 
 }
 
-#endif  // EUPHORIA_PALETTE_H
+#endif // EUPHORIA_PALETTE_H

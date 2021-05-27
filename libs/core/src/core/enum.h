@@ -54,7 +54,7 @@ namespace euphoria::core
         value_to_name_map value_to_name;
         name_to_value_map name_to_value;
 
-        bool   is_adding;
+        bool is_adding;
         size_t next_index;
     };
 
@@ -81,7 +81,7 @@ namespace euphoria::core
         
         // todo(Gustav): only have the type in debug/test builds
         enum_type* type;
-        size_t    value;
+        size_t value;
     };
 
 
@@ -99,20 +99,20 @@ namespace euphoria::core
 
 
 #define DECLARE_ENUM_TYPE(NAME) enum_type& NAME##_EnumType();
-#define IMPLEMENT_ENUM_TYPE(NAME)                                              \
-    enum_type& NAME##_EnumType()                                                \
-    {                                                                          \
-        static enum_type type {#NAME};                                          \
-        return type;                                                           \
+#define IMPLEMENT_ENUM_TYPE(NAME) \
+    enum_type& NAME##_EnumType() \
+    { \
+        static enum_type type {#NAME}; \
+        return type; \
     }
 
 
 // std::string constructor may throw
 // todo(Gustav): provide compile time option to use hashes instead
 // http://aras-p.info/blog/2016/08/09/More-Hash-Function-Tests/
-#define DEFINE_ENUM_VALUE(TYPE, NAME, STRING)                                  \
+#define DEFINE_ENUM_VALUE(TYPE, NAME, STRING) \
     const ::euphoria::core::enum_value NAME = TYPE##_EnumType().to_enum(STRING)
-#define SET_ENUM_FROM_FILE(FS, PATH, TYPE)                                     \
+#define SET_ENUM_FROM_FILE(FS, PATH, TYPE) \
     load_enum_type(&TYPE##_EnumType(), FS, PATH)
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

@@ -9,7 +9,7 @@ namespace euphoria::core
     {
         // canvas view
         vec2f scroll = vec2f {0, 0};
-        float scale  = 1;
+        float scale = 1;
 
         // "config"
         range<float> scale_range = make_range(0.1f, 15.0f);

@@ -411,4 +411,4 @@ namespace euphoria::core
     using scale3i = scale3<int>;
 }
 
-#endif  // CORE_VEC3_H
+#endif // CORE_VEC3_H

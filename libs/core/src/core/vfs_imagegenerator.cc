@@ -11,7 +11,7 @@ namespace euphoria::core::vfs
 {
     void
     read_root_image_generator::add(
-            file_system*        fs,
+            file_system* fs,
             const dir_path& base)
     {
         auto root = std::make_shared<read_root_image_generator>(base);

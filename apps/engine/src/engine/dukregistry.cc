@@ -26,11 +26,11 @@ namespace euphoria::engine
     core::ecs::component_id
     script_registry::create_new_id
     (
-        const std::string&            name,
+        const std::string& name,
         const script_registry::creation_callback& fv
     )
     {
-        const auto id        = reg->register_new_component_type(name);
+        const auto id = reg->register_new_component_type(name);
         scriptComponents[id] = fv;
         return id;
     }
@@ -48,7 +48,7 @@ namespace euphoria::engine
     bool
     script_registry::get_custom_component_by_name
     (
-        const std::string&      name,
+        const std::string& name,
         core::ecs::component_id* id
     )
     {
@@ -64,7 +64,7 @@ namespace euphoria::engine
     sol::table
     script_registry::get_property
     (
-        core::ecs::entity_id    ent,
+        core::ecs::entity_id ent,
         core::ecs::component_id comp
     )
     {
@@ -84,9 +84,9 @@ namespace euphoria::engine
     get_script_component
     (
         const script_registry::script_component_map& scriptComponents,
-        core::ecs::registry*                     reg,
-        core::ecs::entity_id                    ent,
-        core::ecs::component_id                 comp
+        core::ecs::registry* reg,
+        core::ecs::entity_id ent,
+        core::ecs::component_id comp
     )
     {
         // ASSERT(scriptComponents.find(comp) != scriptComponents.end());
@@ -107,9 +107,9 @@ namespace euphoria::engine
     void
     script_registry::set_property
     (
-        core::ecs::entity_id    ent,
+        core::ecs::entity_id ent,
         core::ecs::component_id comp,
-        sol::table   value
+        sol::table value
     )
     {
         script_component* scriptComponent = get_script_component(scriptComponents, reg, ent, comp);
@@ -120,7 +120,7 @@ namespace euphoria::engine
     script_registry::create_component
     (
         core::ecs::component_id comp,
-        Sol*          ctx,
+        Sol* ctx,
         const custom_arguments& arguments
     )
     {

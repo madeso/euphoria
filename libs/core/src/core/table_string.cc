@@ -23,10 +23,10 @@ namespace euphoria::core
         string_table table;
 
         std::vector<std::string> row;
-        std::stringstream        ss;
-        bool                     inside_string   = false;
-        bool                     added           = false;
-        bool                     was_from_string = false;
+        std::stringstream ss;
+        bool inside_string = false;
+        bool added = false;
+        bool was_from_string = false;
 
         while(file.has_more())
         {
@@ -59,9 +59,9 @@ namespace euphoria::core
                         // todo(Gustav): generate error if string contains stuff other than whitespace
                         ss.str("");
                     }
-                    inside_string   = true;
+                    inside_string = true;
                     was_from_string = true;
-                    added           = true;
+                    added = true;
                 }
                 else if(c == options.delim)
                 {
@@ -72,7 +72,7 @@ namespace euphoria::core
                     }
                     row.push_back(column_data);
                     ss.str("");
-                    added           = false;
+                    added = false;
                     was_from_string = false;
                 }
                 else if(c == '\n')
@@ -89,7 +89,7 @@ namespace euphoria::core
                     ss.str("");
                     add_row_to_table(&table, row);
                     row.resize(0);
-                    added           = false;
+                    added = false;
                     was_from_string = false;
                 }
                 else
@@ -182,7 +182,7 @@ namespace euphoria::core
     std::vector<int>
     column_widths(const string_table& table, int extra)
     {
-        const auto       number_of_cols = table.get_width();
+        const auto number_of_cols = table.get_width();
         std::vector<int> sizes(number_of_cols);
         for(string_table::I i = 0; i < number_of_cols; ++i)
         {
@@ -215,8 +215,8 @@ namespace euphoria::core
         const auto begin_str_padding = 1;
         const auto end_space_padding = 3;
 
-        const auto begin_str      = std::string(begin_str_padding, ' ');
-        const auto end_str        = std::string(end_space_padding, ' ');
+        const auto begin_str = std::string(begin_str_padding, ' ');
+        const auto end_str = std::string(end_space_padding, ' ');
         const auto number_of_cols = maintable.get_width();
         const auto number_of_rows = maintable.get_height();
 
@@ -232,7 +232,7 @@ namespace euphoria::core
                 for(string_table::I col = 0; col < number_of_cols; ++col)
                 {
                     const auto cell = begin_str + subtable(col, subrow);
-                    int        line_length = cell.length();
+                    int line_length = cell.length();
                     out << cell;
 
                     if(col != number_of_cols - 1)

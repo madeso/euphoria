@@ -24,7 +24,7 @@ namespace euphoria::core
         ASSERTX(total_size >= 0, total_size);
         ASSERT(zero <= 0);
 
-        T min_size         = 0;
+        T min_size = 0;
         T total_percentage = 0;
         for(T f: pieces)
         {
@@ -37,7 +37,7 @@ namespace euphoria::core
                 total_percentage += -f;
             }
         }
-        const T size_left   = total_size - min_size;
+        const T size_left = total_size - min_size;
         const T fixed_scale = min_size < total_size ? 1 : total_size / min_size;
 
         std::vector<T> ret;
@@ -57,7 +57,7 @@ namespace euphoria::core
                 }
                 else
                 {
-                    const T p    = (-f / total_percentage);
+                    const T p = (-f / total_percentage);
                     const T size = p * size_left;
                     ret.push_back(size);
                 }

@@ -39,7 +39,7 @@ TEST_CASE("findstring 3", "[findstring]")
                                                    "dog and cat",
                                                    "horse, cat and dog"};
 
-    const auto pets     = std::vector<std::string> {"cat", "dog"};
+    const auto pets = std::vector<std::string> {"cat", "dog"};
     const auto garfield = std::vector<std::string> {"cat", "dog", "human"};
 
     CHECK(euco::find(animals, "dog"));

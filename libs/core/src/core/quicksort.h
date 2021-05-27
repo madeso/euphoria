@@ -12,9 +12,9 @@ namespace euphoria::core
     get_hoare_partition(SortFunc sort_func, std::vector<T>& A, int lo, int hi)
     {
         const auto pivot_index = lo + (hi - lo) / 2;
-        const auto pivot       = A[pivot_index];
-        auto       i           = lo - 1;
-        auto       j           = hi + 1;
+        const auto pivot = A[pivot_index];
+        auto i = lo - 1;
+        auto j = hi + 1;
         while(true)
         {
             do

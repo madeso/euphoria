@@ -9,7 +9,7 @@ namespace
     {
         return (lhs + margin >= rhs) && (rhs + margin >= lhs);
     }
-}  // namespace
+} // namespace
 
 
 namespace euphoria::tests
@@ -17,15 +17,15 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            double const&     lhs,
-            double const&     rhs,
+            double const& lhs,
+            double const& rhs,
             const approx_data& data)
     {
-        const auto m_value   = lhs;
-        const auto other     = rhs;
+        const auto m_value = lhs;
+        const auto other = rhs;
         const auto m_epsilon = data.epsilon;
-        const auto m_margin  = data.margin;
-        const auto m_scale   = data.scale;
+        const auto m_margin = data.margin;
+        const auto m_scale = data.scale;
         // implementation:
 
         // First try with fixed margin, then compute margin based on epsilon, scale and Approx's value
@@ -40,8 +40,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            float const&      lhs,
-            float const&      rhs,
+            float const& lhs,
+            float const& rhs,
             const approx_data& data)
     {
         return approximately_equal(

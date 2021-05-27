@@ -18,7 +18,7 @@ TEST_CASE("table-empty", "[table]")
 
 TEST_CASE("table-size", "[table]")
 {
-    const auto t    = euco::table<int>::from_width_height(3, 2, 0);
+    const auto t = euco::table<int>::from_width_height(3, 2, 0);
     const auto same = euco::table<int>::from_height_width(2, 3, 0);
 
     SECTION("test sizes")
@@ -45,7 +45,7 @@ TEST_CASE("table-size", "[table]")
 TEST_CASE("table-section_and_rows", "[table]")
 {
     using T = euco::table<std::string>;
-    auto t  = T::from_width_height(3, 2, "");
+    auto t = T::from_width_height(3, 2, "");
     for(T::I y = 0; y < t.get_height(); ++y)
     {
         for(T::I x = 0; x < t.get_width(); ++x)
@@ -123,7 +123,7 @@ TEST_CASE("table-test_add", "[table]")
 
     SECTION("different array sizes")
     {
-        const int  d   = -42;
+        const int d = -42;
         const auto r1d = std::vector<int> {1};
         const auto r10 = std::vector<int> {1, d};
         const auto r12 = std::vector<int> {1, 2};

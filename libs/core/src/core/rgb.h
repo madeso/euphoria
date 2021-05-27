@@ -141,8 +141,8 @@ namespace euphoria::core
     {
         // hue, saturation, lightness
         angle h;
-        float s;  // 0-1
-        float l;  // 0-1
+        float s; // 0-1
+        float l; // 0-1
 
         // todo(Gustav): why are these angles and not a Hsl?
         static constexpr angle red = angle::from_percent_of_360(0.0f);
@@ -407,7 +407,7 @@ namespace euphoria::core
 
         unsigned int
         from_string_to_hex(const std::string& str);
-    }  // namespace colorutil
+    } // namespace colorutil
 
 
 
@@ -480,6 +480,6 @@ namespace euphoria::core
     {
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
-#endif  // CORE_RGB_H
+#endif // CORE_RGB_H

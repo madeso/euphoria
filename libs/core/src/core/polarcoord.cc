@@ -33,7 +33,7 @@ namespace euphoria::core
     polar_coord
     polar_coord::create_random(::euphoria::core::random* random)
     {
-        const float az    = random->get_next_float01();
+        const float az = random->get_next_float01();
         const float polar = random->get_next_float01();
         return {az, polar};
     }
@@ -44,4 +44,4 @@ namespace euphoria::core
         return polar_coord::create_random(random).to_unit_vector();
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

@@ -167,5 +167,5 @@ namespace euphoria::core::argparse
 }
 
 
-#endif  // EUPHORIA_CORE_DEFAULT_PARSE_H
+#endif // EUPHORIA_CORE_DEFAULT_PARSE_H
 

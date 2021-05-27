@@ -187,4 +187,4 @@ namespace euphoria::core
     );
 }
 
-#endif  // CORE_IMAGE_H
+#endif // CORE_IMAGE_H

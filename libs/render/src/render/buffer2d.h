@@ -20,8 +20,8 @@ namespace euphoria::render
     private:
         int index_count;
         vertex_buffer vbo;
-        point_layout  vao;
-        index_buffer  ebo;
+        point_layout vao;
+        index_buffer ebo;
     };
 
 }

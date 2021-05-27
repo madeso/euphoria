@@ -18,7 +18,7 @@ namespace euphoria::core
     private:
         using tuple3 = std::tuple<T, T, T>;
 
-        T data[9];  // col-major
+        T data[9]; // col-major
 
         mat3() = default;
 
@@ -372,7 +372,7 @@ namespace euphoria::core
     template <typename T>
     mat3<T> operator*(const mat3<T>& lhs, const mat3<T> rhs)
     {
-#define OP(r, c)                                                               \
+#define OP(r, c) \
     component_multiply(vec3{lhs.get_row(r)}, vec3{rhs.get_column(c)}).get_component_sum()
         return mat3<T>::from_row_major
         (
@@ -394,6 +394,6 @@ namespace euphoria::core
     using mat3f = mat3<float>;
     using mat3i = mat3<int>;
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
-#endif  // CORE_MAT3_H
+#endif // CORE_MAT3_H

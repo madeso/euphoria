@@ -70,5 +70,5 @@ namespace euphoria::core
     // todo(Gustav): add image collapse with palette
 }
 
-#endif  // EUPHORIA_CORE_DRUNKEN_BISHOP_H
+#endif // EUPHORIA_CORE_DRUNKEN_BISHOP_H
 

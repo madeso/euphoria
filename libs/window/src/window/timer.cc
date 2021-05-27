@@ -13,8 +13,8 @@ namespace euphoria::window
     float
     sdl_timer::update()
     {
-        last_time_     = current_time_;
-        current_time_  = SDL_GetPerformanceCounter();
+        last_time_ = current_time_;
+        current_time_ = SDL_GetPerformanceCounter();
         const float dt = (current_time_ - last_time_) * 1.0f
                          / SDL_GetPerformanceFrequency();
         return dt;

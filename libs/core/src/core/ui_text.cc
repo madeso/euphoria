@@ -38,7 +38,7 @@ namespace euphoria::core
                 visitor->on_end();
             }
         }
-    }  // namespace textparser
+    } // namespace textparser
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -75,7 +75,7 @@ namespace euphoria::core
             visitor->accept(&str);
             return str.ss.str();
         }
-    }  // namespace textparser
+    } // namespace textparser
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -130,10 +130,10 @@ namespace euphoria::core
         {
             ui_text* nodes = nullptr;
 
-            state             state  = state::text;
-            bool              escape = false;
+            state state = state::text;
+            bool escape = false;
             std::stringstream buff;
-            bool              ok = true;
+            bool ok = true;
 
             void
             close()
@@ -218,7 +218,7 @@ namespace euphoria::core
                 }
             }
         };
-    }  // namespace
+    } // namespace
 
     bool
     ui_text::init_by_parsing_source(const std::string& str)

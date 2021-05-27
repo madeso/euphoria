@@ -149,7 +149,7 @@ namespace euphoria::render
                         {
                             float epsilon = uLight.cosCutoffAngleInner - uLight.cosCutoffAngleOuter;
                             float intensity = clamp((theta - uLight.cosCutoffAngleOuter) / epsilon, 0.0, 1.0);
-                            diffuse  *= intensity;
+                            diffuse *= intensity;
                             specular *= intensity;
                         }
                         else

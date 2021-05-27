@@ -44,16 +44,16 @@ namespace euphoria::engine
         void
         set_property
         (
-            core::ecs::entity_id    ent,
+            core::ecs::entity_id ent,
             core::ecs::component_id comp,
-            sol::table   value
+            sol::table value
         );
 
         sol::table
         create_component
         (
             core::ecs::component_id comp,
-            Sol*          ctx,
+            Sol* ctx,
             const custom_arguments& arguments
         );
 

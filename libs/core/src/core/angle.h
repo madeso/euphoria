@@ -221,4 +221,4 @@ namespace euphoria::convert
     }
 }
 
-#endif  // CORE_ANGLE_H
+#endif // CORE_ANGLE_H

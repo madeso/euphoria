@@ -270,22 +270,22 @@ namespace euphoria::core::tracery
     result
     rule::compile(const std::string& s)
     {
-#define EMPTY_STRING(str, err)                                                 \
-    do                                                                         \
-    {                                                                          \
-        if(str.empty())                                                        \
-        {                                                                      \
-            return parse_error(&parser) << err;                                \
-        }                                                                      \
+#define EMPTY_STRING(str, err) \
+    do \
+    { \
+        if(str.empty()) \
+        { \
+            return parse_error(&parser) << err; \
+        } \
     } while(false)
 
-#define EXPECT_CHAR(chr, err)                                                  \
-    do                                                                         \
-    {                                                                          \
-        if(false == parser.expect_char(chr))                                    \
-        {                                                                      \
-            return parse_error(&parser) << err;                                \
-        }                                                                      \
+#define EXPECT_CHAR(chr, err) \
+    do \
+    { \
+        if(false == parser.expect_char(chr)) \
+        { \
+            return parse_error(&parser) << err; \
+        } \
     } while(false)
 
         auto parser = textfile_parser::from_string(s);

@@ -76,7 +76,7 @@ main(int argc, char** argv)
         return r;
     }
 
-    constexpr int width  = 1280;
+    constexpr int width = 1280;
     constexpr int height = 720;
 
     if(!engine.create_window("Euphoria 3d demo", width, height, false))
@@ -101,7 +101,7 @@ main(int argc, char** argv)
 
     for(int i = 0; i < 20; i += 1)
     {
-        const rgb  color = crgb(palettes::dawnbringer().get_random_color(&rand));
+        const rgb color = crgb(palettes::dawnbringer().get_random_color(&rand));
         const auto pos = wi.get_random_point(&rand);
         const auto outer = get_random_in_range(&rand, 55.0f, 100.0f);
         const auto inner = get_random_in_range(&rand, make_range(50.0f));
@@ -134,7 +134,7 @@ main(int argc, char** argv)
     auto box_mesh1 = meshes::create_cube(0.5f);
     box_mesh1.materials[0].set_texture("Diffuse", vfs::file_path{"./container2.png"});
     box_mesh1.materials[0].set_texture("Specular", vfs::file_path{"./container2_specular.png"});
-    box_mesh1.materials[0].ambient = color::white;  // fix ambient color on material
+    box_mesh1.materials[0].ambient = color::white; // fix ambient color on material
     box_mesh1.materials[0].specular = color::white;
     box_mesh1.materials[0].shininess = 120.0f;
     auto box1 = compile_mesh
@@ -148,8 +148,8 @@ main(int argc, char** argv)
 
     auto box_mesh2 = meshes::create_sphere(0.5f, "image");
     box_mesh2.materials[0].set_texture("Specular", vfs::file_path{"./img-plain/white"});
-    box_mesh2.materials[0].ambient = color::white;  // fix ambient color on material
-    box_mesh2.materials[0].specular  = color::white;
+    box_mesh2.materials[0].ambient = color::white; // fix ambient color on material
+    box_mesh2.materials[0].specular = color::white;
     box_mesh2.materials[0].shininess = 10.0f;
     auto box2 = compile_mesh
     (
@@ -252,8 +252,8 @@ main(int argc, char** argv)
 
     while(running)
     {
-        const bool  show_imgui = !capturing_mouse_movement;
-        const float delta      = timer.update();
+        const bool show_imgui = !capturing_mouse_movement;
+        const float delta = timer.update();
 
         if(show_imgui)
         {
@@ -273,8 +273,8 @@ main(int argc, char** argv)
                 &world.light.light_type,
                 {
                     {"Directional", light::type::directional},
-                    {"Point",       light::type::point},
-                    {"Spot",        light::type::spot}
+                    {"Point", light::type::point},
+                    {"Spot", light::type::spot}
                 }
             );
             imgui::color_edit("Ambient", &world.light.ambient);
@@ -306,9 +306,9 @@ main(int argc, char** argv)
 
             ImGui::End();
 
-            light_material.ambient   = world.light.ambient;
-            light_material.diffuse   = world.light.diffuse;
-            light_material.specular  = world.light.specular;
+            light_material.ambient = world.light.ambient;
+            light_material.diffuse = world.light.diffuse;
+            light_material.specular = world.light.specular;
             light_material.shininess = 10;
         }
 
@@ -352,11 +352,11 @@ main(int argc, char** argv)
                 quatf q = quatf::slerp_shortway(anim.from, anim.timer, anim.to);
                 anim.actor->rotation = q;
                 const auto movement = q.in() * anim.move_speed * delta;
-                const auto new_pos  = box_extents.wrap
+                const auto new_pos = box_extents.wrap
                 (
                     anim.actor->position + movement
                 );
-                anim.actor->position = new_pos;  // hard to see movement when everything is moving
+                anim.actor->position = new_pos; // hard to see movement when everything is moving
             }
         }
 

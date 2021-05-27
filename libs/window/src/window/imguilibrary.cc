@@ -40,16 +40,16 @@ namespace euphoria::window::imgui
         {
             LOG_ERROR("imgui is missing {0} icons!", (max_mdi - max_imgui));
 
-            LOG_INFO("mdi range:   {0}", (max_mdi - min_mdi));
+            LOG_INFO("mdi range: {0}", (max_mdi - min_mdi));
             LOG_INFO("imgui range: {0}", (max_imgui - min_imgui));
             LOG_INFO("Supplied range: {0}", (max_arg - min_mdi));
         }
 
 
         static const ImWchar icons_ranges[] = {ICON_MIN_MDI, max_arg, 0};
-        ImFontConfig         icons_config;
-        icons_config.MergeMode        = true;
-        icons_config.PixelSnapH       = true;
+        ImFontConfig icons_config;
+        icons_config.MergeMode = true;
+        icons_config.PixelSnapH = true;
         icons_config.GlyphMinAdvanceX = 13.0f;
 
         io.Fonts->AddFontFromMemoryCompressedTTF

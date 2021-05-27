@@ -92,6 +92,6 @@ namespace euphoria::core
     using vec4f = vec4<float>;
     using vec4i = vec4<int>;
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
-#endif  // CORE_VEC4_H
+#endif // CORE_VEC4_H

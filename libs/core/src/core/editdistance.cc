@@ -53,8 +53,8 @@ namespace euphoria::core
                 const int cost = (s_i == t_j) ? 0 : 1;
 
                 const unsigned long above = matrix[i - 1][j];
-                const unsigned long left  = matrix[i][j - 1];
-                const unsigned long diag  = matrix[i - 1][j - 1];
+                const unsigned long left = matrix[i][j - 1];
+                const unsigned long diag = matrix[i - 1][j - 1];
                 unsigned long cell = std::min(above + 1, std::min(left + 1, diag + cost));
 
                 if(i > 2 && j > 2)
@@ -118,8 +118,8 @@ namespace euphoria::core
                                                                            : 1;
 
                 const unsigned long m_min = v0[row_index] + 1;
-                const unsigned long b     = v1[row_index - 1] + 1;
-                const unsigned long c     = v0[row_index - 1] + cost;
+                const unsigned long b = v1[row_index - 1] + 1;
+                const unsigned long c = v0[row_index - 1] + cost;
 
                 v1[row_index] = std::min(std::min(m_min, b), c);
             }
@@ -130,4 +130,4 @@ namespace euphoria::core
         return v0[row_length];
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

@@ -6,8 +6,8 @@ namespace euco = euphoria::core;
 
 TEST_CASE("editdistance", "[editdistance]")
 {
-    const std::string   a        = "kitten";
-    const std::string   b        = "sitting";
+    const std::string a = "kitten";
+    const std::string b = "sitting";
     const unsigned long distance = 3;
 
     CHECK(euco::fast_edit_distance(a, b) == distance);
@@ -19,8 +19,8 @@ TEST_CASE("editdistance", "[editdistance]")
 
 TEST_CASE("editdistance2", "[editdistance]")
 {
-    const std::string   a        = "abc";
-    const std::string   b        = "abcde";
+    const std::string a = "abc";
+    const std::string b = "abcde";
     const unsigned long distance = 2;
 
     CHECK(euco::fast_edit_distance(a, b) == distance);
@@ -32,8 +32,8 @@ TEST_CASE("editdistance2", "[editdistance]")
 
 TEST_CASE("editdistance-codeproject", "[editdistance]")
 {
-    const std::string   a        = "GUMBO";
-    const std::string   b        = "GAMBOL";
+    const std::string a = "GUMBO";
+    const std::string b = "GAMBOL";
     const unsigned long distance = 2;
 
     CHECK(euco::fast_edit_distance(a, b) == distance);

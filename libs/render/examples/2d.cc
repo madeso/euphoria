@@ -59,7 +59,7 @@ main(int argc, char* argv[])
 
     const auto clear_color = color::light_gray;
 
-    int window_width  = 800;
+    int window_width = 800;
     int window_height = 600;
 
     if
@@ -81,7 +81,7 @@ main(int argc, char* argv[])
     attributes2d::prebind_shader(&shader);
     shader.load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
     sprite_renderer renderer(&shader);
-    font_cache      font_cache {engine.file_system.get(), &cache};
+    font_cache font_cache {engine.file_system.get(), &cache};
 
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
@@ -94,7 +94,7 @@ main(int argc, char* argv[])
     viewport_handler.add(&shader);
     viewport_handler.set_size(window_width, window_height);
 
-    Uint64 now  = SDL_GetPerformanceCounter();
+    Uint64 now = SDL_GetPerformanceCounter();
     Uint64 last = 0;
 
     // SDL_StartTextInput();

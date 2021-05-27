@@ -72,11 +72,11 @@ TEST_CASE("stringtable-generator", "[stringtable]")
 
 TEST_CASE("stringtable-from_csv_default", "[stringtable]")
 {
-    const auto firstcol       = std::vector<std::string> {"a", "1"};
+    const auto firstcol = std::vector<std::string> {"a", "1"};
     const auto firstcolstring = std::vector<std::string> {"a b", "1"};
-    const auto secondcol      = std::vector<std::string> {"b", "2"};
+    const auto secondcol = std::vector<std::string> {"b", "2"};
     const auto secondcolspace = std::vector<std::string> {" b ", "2"};
-    const auto ab12           = std::vector<std::string> {"ab", "12"};
+    const auto ab12 = std::vector<std::string> {"ab", "12"};
 
     SECTION("not ending with newline")
     {
@@ -149,7 +149,7 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
 
     SECTION("not ending strings single col")
     {
-        const auto table    = euco::table_from_csv("\"a b");
+        const auto table = euco::table_from_csv("\"a b");
         const auto errorcol = std::vector<std::string> {"a b"};
         REQUIRE(table.get_width() == 1);
         REQUIRE(table.get_height() == 1);
@@ -158,7 +158,7 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
 
     SECTION("not ending strings 2 cols")
     {
-        const auto table     = euco::table_from_csv("err,\"a b");
+        const auto table = euco::table_from_csv("err,\"a b");
         const auto errorcol1 = std::vector<std::string> {"err"};
         const auto errorcol2 = std::vector<std::string> {"a b"};
         REQUIRE(table.get_width() == 2);
@@ -170,7 +170,7 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
     SECTION("string with quote")
     {
         const auto table = euco::table_from_csv("\"a \"\" b\"");
-        const auto col   = std::vector<std::string> {"a \" b"};
+        const auto col = std::vector<std::string> {"a \" b"};
         REQUIRE(table.get_width() == 1);
         REQUIRE(table.get_height() == 1);
         CHECK(euco::calc_column_as_vector(table, 0) == col);
@@ -179,13 +179,13 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
 
 TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
 {
-    const auto firstcol       = std::vector<std::string> {"a", "1"};
+    const auto firstcol = std::vector<std::string> {"a", "1"};
     const auto firstcolstring = std::vector<std::string> {"a b", "1"};
-    const auto secondcol      = std::vector<std::string> {"b", "2"};
+    const auto secondcol = std::vector<std::string> {"b", "2"};
 
     euco::csv_parser_options options;
     options.delim = 'c';
-    options.str   = 's';
+    options.str = 's';
 
     SECTION("not ending with newline")
     {
@@ -216,7 +216,7 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
 
     SECTION("not ending strings single col")
     {
-        const auto table    = euco::table_from_csv("sa b", options);
+        const auto table = euco::table_from_csv("sa b", options);
         const auto errorcol = std::vector<std::string> {"a b"};
         REQUIRE(table.get_width() == 1);
         REQUIRE(table.get_height() == 1);
@@ -225,7 +225,7 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
 
     SECTION("not ending strings 2 cols")
     {
-        const auto table     = euco::table_from_csv("errcsa b", options);
+        const auto table = euco::table_from_csv("errcsa b", options);
         const auto errorcol1 = std::vector<std::string> {"err"};
         const auto errorcol2 = std::vector<std::string> {"a b"};
         REQUIRE(table.get_width() == 2);
@@ -237,7 +237,7 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     SECTION("string with quote")
     {
         const auto table = euco::table_from_csv("sa ss bs", options);
-        const auto col   = std::vector<std::string> {"a s b"};
+        const auto col = std::vector<std::string> {"a s b"};
         REQUIRE(table.get_width() == 1);
         REQUIRE(table.get_height() == 1);
         CHECK(euco::calc_column_as_vector(table, 0) == col);

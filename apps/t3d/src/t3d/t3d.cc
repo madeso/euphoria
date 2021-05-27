@@ -57,7 +57,7 @@ namespace euphoria::t3d
             return r;
         }
 
-        int width  = 1280;
+        int width = 1280;
         int height = 720;
 
         if(engine->create_window("t3d", width, height) == false)
@@ -116,8 +116,8 @@ namespace euphoria::t3d
         const core::rgb& color
     )
     {
-        def.add_line(core::vec3f {x, 0, -size},  core::vec3f {x, 0, size}, color);
-        def.add_line(core::vec3f {-size, 0, x},  core::vec3f {size, 0, x}, color);
+        def.add_line(core::vec3f {x, 0, -size}, core::vec3f {x, 0, size}, color);
+        def.add_line(core::vec3f {-size, 0, x}, core::vec3f {size, 0, x}, color);
         def.add_line(core::vec3f {-x, 0, -size}, core::vec3f {-x, 0, size}, color);
         def.add_line(core::vec3f {-size, 0, -x}, core::vec3f {size, 0, -x}, color);
     }
@@ -128,10 +128,10 @@ namespace euphoria::t3d
     {
         constexpr auto smallest_step = 0.01f;
         constexpr auto small_color = core::color::gray;
-        constexpr auto big_color   = core::color::black;
-        constexpr auto x_color     = core::color::pure_blue;
-        constexpr auto z_color     = core::color::pure_red;
-        constexpr auto y_color     = core::color::pure_yellow;
+        constexpr auto big_color = core::color::black;
+        constexpr auto x_color = core::color::pure_blue;
+        constexpr auto z_color = core::color::pure_red;
+        constexpr auto y_color = core::color::pure_yellow;
 
         if(grid)
         {
@@ -174,7 +174,7 @@ namespace euphoria::t3d
         def.add_line(core::vec3f {0, 0, -size}, core::vec3f {0, 0, size}, z_color);
 
         auto compiled = compile(material_shader_cache.get(), def);
-        grid     = std::make_shared<render::positioned_lines>(compiled);
+        grid = std::make_shared<render::positioned_lines>(compiled);
         world->add_actor(grid);
     }
 
@@ -182,7 +182,7 @@ namespace euphoria::t3d
     void
     application::on_sdl_event(const SDL_Event& e)
     {
-        int window_width  = 0;
+        int window_width = 0;
         int window_height = 0;
         if(engine->on_resize(e, &window_width, &window_height))
         {
@@ -193,7 +193,7 @@ namespace euphoria::t3d
             engine->imgui->process_events(&e);
         }
 
-        auto&      io = ImGui::GetIO();
+        auto& io = ImGui::GetIO();
         const auto forward_keyboard
                 = !(show_imgui && io.WantCaptureKeyboard);
         const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
@@ -712,7 +712,7 @@ namespace euphoria::t3d
     application::on_frame()
     {
         show_imgui = !immersive_mode;
-        //  const float delta =
+        // const float delta =
         timer->update();
 
         world->step();

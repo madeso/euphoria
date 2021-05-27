@@ -9,7 +9,7 @@ namespace euphoria::core
     void
     insertion_sort(std::vector<T>* arr, SortFunc sort_func)
     {
-        auto&      A      = *arr;
+        auto& A = *arr;
         const auto length = A.size();
 
         size_t i = 1;

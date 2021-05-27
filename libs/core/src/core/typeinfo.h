@@ -43,8 +43,8 @@ namespace euphoria::core
     void
     TYPEINFO_UselessFunction();
 }
-#define TYPEID_SETUP_TYPE(X)                                                   \
-    template <>                                                                \
+#define TYPEID_SETUP_TYPE(X) \
+    template <> \
     void euphoria::core::TYPEINFO_UselessFunction<X>()
 #endif
 
@@ -58,9 +58,9 @@ namespace euphoria::core
 
 namespace euphoria::core
 {
-    using TypeId   = std::size_t;
+    using TypeId = std::size_t;
     using TypeName = std::string;
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
 #define TYPEID_ID(X) typeid(X).hash_code()
 #define TYPEID_NAME(X) typeid(X).name()
@@ -72,14 +72,14 @@ namespace euphoria::core
 
 namespace euphoria::core
 {
-    using TypeId   = ctti::type_id_t;
+    using TypeId = ctti::type_id_t;
     using TypeName = ctti::detail::cstring;
 
 #define TYPEID_ID(X) ctti::type_id<X>()
 #define TYPEID_NAME(X) ctti::nameof<X>()
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
-#elif BUILD_TYPEINFO_IMPL_CUSTOM_HASHED == 1                                   \
+#elif BUILD_TYPEINFO_IMPL_CUSTOM_HASHED == 1 \
         || BUILD_TYPEINFO_IMPL_CUSTOM_RT == 1
 // todo(Gustav): please implement this
 
@@ -93,7 +93,7 @@ namespace euphoria::core
 namespace euphoria::core
 {
     using TypeName = std::string;
-    using TypeId   = std::uint64_t;
+    using TypeId = std::uint64_t;
 
     template <typename T>
     struct TypeNameImpl
@@ -105,15 +105,15 @@ namespace euphoria::core
         static constexpr const char* const Name = "";
     };
 
-#define TYPEID_SETUP_TYPE(X)                                                   \
-    template <>                                                                \
-    struct TypeNameImpl<X>                                                     \
-    {                                                                          \
-        enum                                                                   \
-        {                                                                      \
-            HasValue = 1                                                       \
-        };                                                                     \
-        static constexpr const char* const Name = #X;                          \
+#define TYPEID_SETUP_TYPE(X) \
+    template <> \
+    struct TypeNameImpl<X> \
+    { \
+        enum \
+        { \
+            HasValue = 1 \
+        }; \
+        static constexpr const char* const Name = #X; \
     }
 
     template <typename T>
@@ -127,7 +127,7 @@ namespace euphoria::core
     }
 
 #define TYPEID_NAME(X) GetNameOf<X>()
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
 #if BUILD_TYPEINFO_IMPL_CUSTOM_RT == 1
 namespace euphoria::core
@@ -145,4 +145,4 @@ namespace euphoria::core
 #error "Unhandled typeinfo implementation"
 #endif
 
-#endif  // EUPHORIA_TYPEINFO_H
+#endif // EUPHORIA_TYPEINFO_H

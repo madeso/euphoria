@@ -26,15 +26,15 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            double const&     lhs,
-            double const&     rhs,
+            double const& lhs,
+            double const& rhs,
             const approx_data& data);
 
     template <>
     bool
     approximately_equal(
-            float const&      lhs,
-            float const&      rhs,
+            float const& lhs,
+            float const& rhs,
             const approx_data& data);
 
 
@@ -59,8 +59,8 @@ namespace euphoria::tests
             {
                 approx_data data;
                 data.epsilon = rhs.m_epsilon;
-                data.scale   = rhs.m_scale;
-                data.margin  = rhs.m_margin;
+                data.scale = rhs.m_scale;
+                data.margin = rhs.m_margin;
                 return approximately_equal(lhs, rhs.m_value, data);
             }
 
@@ -116,9 +116,9 @@ namespace euphoria::tests
             double m_epsilon;
             double m_margin;
             double m_scale;
-            T      m_value;
+            T m_value;
         };
-    }  // namespace custom
+    } // namespace custom
 
     template <typename T>
     std::ostream&

@@ -41,10 +41,10 @@ namespace euphoria::t3d
     struct editor
     {
         t3d::grid* grid;
-        render::world*         world;
-        tile_library*   tile_library;
+        render::world* world;
+        tile_library* tile_library;
         core::compiled_camera3 camera;
-        render::viewport       viewport;
+        render::viewport viewport;
 
         core::vec2i mouse;
         tool_stack tools;

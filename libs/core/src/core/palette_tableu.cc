@@ -11,7 +11,7 @@ namespace euphoria::core
         {
             return {r, g, b};
         }
-    }  // namespace
+    } // namespace
 
     /*
 src: https://github.com/jiffyclub/palettable/blob/master/palettable/tableau/tableau.py
@@ -85,13 +85,13 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
         {
             // Tableau 20
             static const auto p = palette {
-                    "Tableau_20",     C(31, 119, 180),  C(174, 199, 232),
-                    C(255, 127, 14),  C(255, 187, 120), C(44, 160, 44),
-                    C(152, 223, 138), C(214, 39, 40),   C(255, 152, 150),
+                    "Tableau_20", C(31, 119, 180), C(174, 199, 232),
+                    C(255, 127, 14), C(255, 187, 120), C(44, 160, 44),
+                    C(152, 223, 138), C(214, 39, 40), C(255, 152, 150),
                     C(148, 103, 189), C(197, 176, 213), C(140, 86, 75),
                     C(196, 156, 148), C(227, 119, 194), C(247, 182, 210),
                     C(127, 127, 127), C(199, 199, 199), C(188, 189, 34),
-                    C(219, 219, 141), C(23, 190, 207),  C(158, 218, 229)};
+                    C(219, 219, 141), C(23, 190, 207), C(158, 218, 229)};
             return p;
         }
 
@@ -253,6 +253,6 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
                                            C(204, 201, 77)};
             return p;
         }
-    }  // namespace palette
+    } // namespace palette
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

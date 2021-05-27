@@ -17,7 +17,7 @@ namespace euphoria::core
         [[nodiscard]] int
         get_size() const;
 
-        char  operator[](int index) const;
+        char operator[](int index) const;
         char& operator[](int index);
 
         [[nodiscard]] static std::shared_ptr<memory_chunk>
@@ -49,6 +49,6 @@ namespace euphoria::core
         int position;
     };
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 
-#endif  // EUPHORIA_MEMORYCHUNK_H
+#endif // EUPHORIA_MEMORYCHUNK_H

@@ -22,7 +22,7 @@ namespace euphoria::t3d
         ~tile();
 
         core::vfs::file_path path;
-        core::aabb  aabb;
+        core::aabb aabb;
         std::string name;
 
         std::shared_ptr<render::compiled_mesh> mesh;

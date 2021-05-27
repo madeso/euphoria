@@ -10,7 +10,7 @@ namespace euphoria::core
         {
             return rgbi::from_hex(hex);
         }
-    }  // namespace
+    } // namespace
 
     namespace palettes
     {
@@ -139,7 +139,7 @@ namespace euphoria::core
         endesga_32()
         {
             static const auto p = palette {
-                    "EDG32",     C(0xBE4A2F), C(0xD77643), C(0xEAD4AA),
+                    "EDG32", C(0xBE4A2F), C(0xD77643), C(0xEAD4AA),
                     C(0xE4A672), C(0xB86F50), C(0x733E39), C(0x3E2731),
                     C(0xA22633), C(0xE43B44), C(0xF77622), C(0xFEAE34),
                     C(0xFEE761), C(0x63C74D), C(0x3E8948), C(0x265C42),
@@ -156,7 +156,7 @@ namespace euphoria::core
         endesga_36()
         {
             static const auto p = palette {
-                    "EDG36",     C(0xDBE0E7), C(0xA3ACBE), C(0x67708B),
+                    "EDG36", C(0xDBE0E7), C(0xA3ACBE), C(0x67708B),
                     C(0x4E5371), C(0x393A56), C(0x26243A), C(0x141020),
                     C(0x7BCF5C), C(0x509B4B), C(0x2E6A42), C(0x1A453B),
                     C(0x0F2738), C(0x0D2F6D), C(0x0F4DA3), C(0x0E82CE),
@@ -174,7 +174,7 @@ namespace euphoria::core
         endesga_64()
         {
             static const auto p = palette {
-                    "EDG64",     C(0xFF0040), C(0x131313), C(0x1B1B1B),
+                    "EDG64", C(0xFF0040), C(0x131313), C(0x1B1B1B),
                     C(0x272727), C(0x3D3D3D), C(0x5D5D5D), C(0x858585),
                     C(0xB4B4B4), C(0xFFFFFF), C(0xC7CFDD), C(0x92A1B9),
                     C(0x657392), C(0x424C6E), C(0x2A2F4E), C(0x1A1932),
@@ -398,7 +398,7 @@ namespace euphoria::core
         aap64()
         {
             static const auto p = palette {
-                    "AAP64",     C(0x060608), C(0x141013), C(0x3B1725),
+                    "AAP64", C(0x060608), C(0x141013), C(0x3B1725),
                     C(0x73172D), C(0xB4202A), C(0xDF3E23), C(0xFA6A0A),
                     C(0xF9A31B), C(0xFFD541), C(0xFFFC40), C(0xD6F264),
                     C(0x9CDB43), C(0x59C135), C(0x14A02E), C(0x1A7A3E),
@@ -424,37 +424,37 @@ namespace euphoria::core
         {
             static const auto p = palette {
                     "Splendor128", C(0x050403), C(0x0E0C0C), C(0x2D1B1E),
-                    C(0x612721),   C(0xB9451D), C(0xF1641F), C(0xFCA570),
-                    C(0xFFE0B7),   C(0xFFFFFF), C(0xFFF089), C(0xF8C53A),
-                    C(0xE88A36),   C(0xB05B2C), C(0x673931), C(0x271F1B),
-                    C(0x4C3D2E),   C(0x855F39), C(0xD39741), C(0xF8F644),
-                    C(0xD5DC1D),   C(0xADB834), C(0x7F8E44), C(0x586335),
-                    C(0x333C24),   C(0x181C19), C(0x293F21), C(0x477238),
-                    C(0x61A53F),   C(0x8FD032), C(0xC4F129), C(0xD0FFEA),
-                    C(0x97EDCA),   C(0x59CF93), C(0x42A459), C(0x3D6F43),
-                    C(0x27412D),   C(0x14121D), C(0x1B2447), C(0x2B4E95),
-                    C(0x2789CD),   C(0x42BFE8), C(0x73EFE8), C(0xF1F2FF),
-                    C(0xC9D4FD),   C(0x8AA1F6), C(0x4572E3), C(0x494182),
-                    C(0x7864C6),   C(0x9C8BDB), C(0xCEAAED), C(0xFAD6FF),
-                    C(0xEEB59C),   C(0xD480BB), C(0x9052BC), C(0x171516),
-                    C(0x373334),   C(0x695B59), C(0xB28B78), C(0xE2B27E),
-                    C(0xF6D896),   C(0xFCF7BE), C(0xECEBE7), C(0xCBC6C1),
-                    C(0xA69E9A),   C(0x807B7A), C(0x595757), C(0x323232),
-                    C(0x4F342F),   C(0x8C5B3E), C(0xC68556), C(0xD6A851),
-                    C(0xB47538),   C(0x724B2C), C(0x452A1B), C(0x61683A),
-                    C(0x939446),   C(0xC6B858), C(0xEFDD91), C(0xB5E7CB),
-                    C(0x86C69A),   C(0x5D9B79), C(0x486859), C(0x2C3B39),
-                    C(0x171819),   C(0x2C3438), C(0x465456), C(0x64878C),
-                    C(0x8AC4C3),   C(0xAFE9DF), C(0xDCEAEE), C(0xB8CCD8),
-                    C(0x88A3BC),   C(0x5E718E), C(0x485262), C(0x282C3C),
-                    C(0x464762),   C(0x696682), C(0x9A97B9), C(0xC5C7DD),
-                    C(0xE6E7F0),   C(0xEEE6EA), C(0xE3CDDF), C(0xBFA5C9),
-                    C(0x87738F),   C(0x564F5B), C(0x322F35), C(0x36282B),
-                    C(0x654956),   C(0x966888), C(0xC090A9), C(0xD4B8B8),
-                    C(0xEAE0DD),   C(0xF1EBDB), C(0xDDCEBF), C(0xBDA499),
-                    C(0x886E6A),   C(0x594D4D), C(0x33272A), C(0xB29476),
-                    C(0xE1BF89),   C(0xF8E398), C(0xFFE9E3), C(0xFDC9C9),
-                    C(0xF6A2A8),   C(0xE27285), C(0xB25266), C(0x64364B),
+                    C(0x612721), C(0xB9451D), C(0xF1641F), C(0xFCA570),
+                    C(0xFFE0B7), C(0xFFFFFF), C(0xFFF089), C(0xF8C53A),
+                    C(0xE88A36), C(0xB05B2C), C(0x673931), C(0x271F1B),
+                    C(0x4C3D2E), C(0x855F39), C(0xD39741), C(0xF8F644),
+                    C(0xD5DC1D), C(0xADB834), C(0x7F8E44), C(0x586335),
+                    C(0x333C24), C(0x181C19), C(0x293F21), C(0x477238),
+                    C(0x61A53F), C(0x8FD032), C(0xC4F129), C(0xD0FFEA),
+                    C(0x97EDCA), C(0x59CF93), C(0x42A459), C(0x3D6F43),
+                    C(0x27412D), C(0x14121D), C(0x1B2447), C(0x2B4E95),
+                    C(0x2789CD), C(0x42BFE8), C(0x73EFE8), C(0xF1F2FF),
+                    C(0xC9D4FD), C(0x8AA1F6), C(0x4572E3), C(0x494182),
+                    C(0x7864C6), C(0x9C8BDB), C(0xCEAAED), C(0xFAD6FF),
+                    C(0xEEB59C), C(0xD480BB), C(0x9052BC), C(0x171516),
+                    C(0x373334), C(0x695B59), C(0xB28B78), C(0xE2B27E),
+                    C(0xF6D896), C(0xFCF7BE), C(0xECEBE7), C(0xCBC6C1),
+                    C(0xA69E9A), C(0x807B7A), C(0x595757), C(0x323232),
+                    C(0x4F342F), C(0x8C5B3E), C(0xC68556), C(0xD6A851),
+                    C(0xB47538), C(0x724B2C), C(0x452A1B), C(0x61683A),
+                    C(0x939446), C(0xC6B858), C(0xEFDD91), C(0xB5E7CB),
+                    C(0x86C69A), C(0x5D9B79), C(0x486859), C(0x2C3B39),
+                    C(0x171819), C(0x2C3438), C(0x465456), C(0x64878C),
+                    C(0x8AC4C3), C(0xAFE9DF), C(0xDCEAEE), C(0xB8CCD8),
+                    C(0x88A3BC), C(0x5E718E), C(0x485262), C(0x282C3C),
+                    C(0x464762), C(0x696682), C(0x9A97B9), C(0xC5C7DD),
+                    C(0xE6E7F0), C(0xEEE6EA), C(0xE3CDDF), C(0xBFA5C9),
+                    C(0x87738F), C(0x564F5B), C(0x322F35), C(0x36282B),
+                    C(0x654956), C(0x966888), C(0xC090A9), C(0xD4B8B8),
+                    C(0xEAE0DD), C(0xF1EBDB), C(0xDDCEBF), C(0xBDA499),
+                    C(0x886E6A), C(0x594D4D), C(0x33272A), C(0xB29476),
+                    C(0xE1BF89), C(0xF8E398), C(0xFFE9E3), C(0xFDC9C9),
+                    C(0xF6A2A8), C(0xE27285), C(0xB25266), C(0x64364B),
                     C(0x2A1E23),
             };
             return p;
@@ -464,7 +464,7 @@ namespace euphoria::core
         famicube()
         {
             static const auto p = palette {
-                    "Famicube",  C(0x000000), C(0x00177D), C(0x024ACA),
+                    "Famicube", C(0x000000), C(0x00177D), C(0x024ACA),
                     C(0x0084FF), C(0x5BA8FF), C(0x98DCFF), C(0x9BA0EF),
                     C(0x6264DC), C(0x3D34A5), C(0x211640), C(0x5A1991),
                     C(0x6A31CA), C(0xA675FE), C(0xE2C9FF), C(0xFEC9ED),
@@ -484,6 +484,6 @@ namespace euphoria::core
             };
             return p;
         }
-    }  // namespace palette
+    } // namespace palette
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

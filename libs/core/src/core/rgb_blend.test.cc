@@ -26,7 +26,7 @@ TEST_CASE("rgb_blend")
 
     SECTION("1 on 0")
     {
-        CHECK(blend(A{color::green, 255}, A{color::red,   0}) == A{color::green, 255});
+        CHECK(blend(A{color::green, 255}, A{color::red, 0}) == A{color::green, 255});
     }
 
     SECTION("1 on 1 same")

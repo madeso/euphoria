@@ -72,7 +72,7 @@ struct style_data
 struct generic_window
 {
     std::string name;
-    bool        open = true;
+    bool open = true;
 
     virtual ~generic_window() = default;
 
@@ -85,8 +85,8 @@ void
 OpenOrFocusWindow
 (
     std::vector<std::shared_ptr<generic_window>>* windows,
-    const std::string&                           title_name,
-    CreateWindowFunction                         create_window_function
+    const std::string& title_name,
+    CreateWindowFunction create_window_function
 )
 {
     const auto found = find_first
@@ -100,7 +100,7 @@ OpenOrFocusWindow
 
     if(found == windows->end())
     {
-        auto the_window  = create_window_function();
+        auto the_window = create_window_function();
         the_window->name = title_name;
         windows->emplace_back(the_window);
     }
@@ -127,7 +127,7 @@ struct scimed_window : public generic_window
 template <typename TEditorFunction, typename TData>
 struct generic_editor_window : public generic_window
 {
-    TData           data;
+    TData data;
     TEditorFunction edit_function;
 
     generic_editor_window(TData d, TEditorFunction edit)
@@ -229,9 +229,9 @@ open_or_focus_style_editor(Windows* windows)
 void
 open_or_focus_text_file
 (
-    Windows*           windows,
+    Windows* windows,
     const vfs::file_path& path,
-    vfs::file_system*   fs
+    vfs::file_system* fs
 )
 {
     OpenOrFocusWindow
@@ -296,9 +296,9 @@ load_file
 void
 open_or_focus_scimed
 (
-    Windows*            windows,
-    const vfs::file_path&  file,
-    texture_cache*       tc,
+    Windows* windows,
+    const vfs::file_path& file,
+    texture_cache* tc,
     scaling_sprite_cache* sc
 )
 {
@@ -319,7 +319,7 @@ void
 open_or_focus_scimed_editior
 (
     Windows* windows,
-    const vfs::file_path&  path,
+    const vfs::file_path& path,
     scaling_sprite_cache* sc
 )
 {
@@ -401,12 +401,12 @@ template <typename TMatchFunction, typename TOpenFunction>
 struct generic_file_handler : public file_handler
 {
     TMatchFunction match_function;
-    TOpenFunction  open_function;
+    TOpenFunction open_function;
     generic_file_handler
     (
         const std::string& menu,
-        TMatchFunction     match,
-        TOpenFunction      open
+        TMatchFunction match,
+        TOpenFunction open
     )
         : file_handler(menu)
         , match_function(match)
@@ -497,7 +497,7 @@ main(int argc, char** argv)
         return r;
     }
 
-    int window_width  = 1280;
+    int window_width = 1280;
     int window_height = 720;
 
     if(
@@ -513,7 +513,7 @@ main(int argc, char** argv)
         return -1;
     }
 
-    texture_cache       texture_cache {engine.file_system.get()};
+    texture_cache texture_cache {engine.file_system.get()};
     scaling_sprite_cache sprite_cache;
 
     bool running = true;
@@ -715,12 +715,12 @@ main(int argc, char** argv)
         {
             if(ImGui::BeginCombo("test combo", "[val]"))
             {
-                // const auto wsize   = ImGui::GetWindowSize();
+                // const auto wsize = ImGui::GetWindowSize();
                 // const auto spacing = ImGui::GetItemsLineHeightWithSpacing() * 2;
                 // const auto space = ImVec2 {wsize.x - spacing, wsize.y - spacing};
                 const float small = 30;
-                const float big   = 60;
-                const auto  sizer = [=](int id) -> float {
+                const float big = 60;
+                const auto sizer = [=](int id) -> float {
                     return id == 1 ? big : small;
                 };
                 for(int yi = 0; yi < 3; yi += 1)

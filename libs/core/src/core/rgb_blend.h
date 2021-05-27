@@ -43,7 +43,7 @@ namespace euphoria::core
     // Rgb   Blend(const Rgb&   a, const Rgb&   b, float alpha, const BlendMode mode = BlendMode::Normal);
     // Rgba  Blend(const Rgba&  a, const Rgba&  b, float alpha, const BlendMode mode = BlendMode::Normal);
     // Rgbi  Blend(const Rgbi&  a, const Rgbi&  b, float alpha, const BlendMode mode = BlendMode::Normal);
-    // Rgbai Blend(const Rgbai& a, const Rgbai& b, float alpha, const BlendMode mode = BlendMode::Normal);
+    // Rgbdai Blend(const Rgbai& a, const Rgbai& b, float alpha, const BlendMode mode = BlendMode::Normal);
 }
 
-#endif  // EUPHORIA_CORE_RGB_BLEND_H
+#endif // EUPHORIA_CORE_RGB_BLEND_H

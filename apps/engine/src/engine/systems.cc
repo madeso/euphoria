@@ -25,7 +25,7 @@ namespace euphoria::engine
         void
         draw
         (
-            core::ecs::registry*      reg,
+            core::ecs::registry* reg,
             render::sprite_renderer* renderer
         ) const override
         {

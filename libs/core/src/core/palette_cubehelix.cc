@@ -38,7 +38,7 @@ namespace euphoria::core
         {
             return {r, g, b};
         }
-    }  // namespace
+    } // namespace
 
     namespace palettes
     {
@@ -244,6 +244,6 @@ namespace euphoria::core
             return p;
         }
 
-    }  // namespace palette
+    } // namespace palette
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

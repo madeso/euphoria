@@ -7,11 +7,11 @@ namespace euco = euphoria::core;
 
 TEST_CASE("stringmerger", "[stringmerger]")
 {
-    const auto empty  = std::vector<std::string> {  };
-    const auto ty     = std::vector<std::string> { "t", "y" };
-    const auto dog    = std::vector<std::string> { "dog" };
+    const auto empty = std::vector<std::string> { };
+    const auto ty = std::vector<std::string> { "t", "y" };
+    const auto dog = std::vector<std::string> { "dog" };
     const auto catdog = std::vector<std::string> { "cat", "dog" };
-    const auto abc    = std::vector<std::string> { "a", "b", "c" };
+    const auto abc = std::vector<std::string> { "a", "b", "c" };
 
     SECTION("default")
     {

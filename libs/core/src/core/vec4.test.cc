@@ -42,8 +42,8 @@ TEST_CASE("vec4-constructor_point3", "[vec4]")
 
 TEST_CASE("vec4-constructor_array", "[vec4]")
 {
-    int        arr[4] = {1, 2, 3, 4};
-    const auto v      = euco::vec4i(arr);
+    int arr[4] = {1, 2, 3, 4};
+    const auto v = euco::vec4i(arr);
     REQUIRE(v.x == 1);
     REQUIRE(v.y == 2);
     REQUIRE(v.z == 3);

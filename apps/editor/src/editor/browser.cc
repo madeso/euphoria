@@ -61,7 +61,7 @@ namespace euphoria::editor
         LOG_INFO("Selecting file {0}", p);
         #if 0
         const auto file = vfs::Path::FromFile(p);
-        current_folder  = file.GetDirectory().GetAbsolutePath();
+        current_folder = file.GetDirectory().GetAbsolutePath();
         Refresh();
         if(!p.empty())
         {
@@ -139,7 +139,7 @@ namespace euphoria::editor
         
         for(const auto& item: ff)
         {
-            const bool custom  = item.is_builtin;
+            const bool custom = item.is_builtin;
             bool display = true;
 
             if(item.is_file)

@@ -26,7 +26,7 @@ namespace euphoria::t3d
         perform_tools();
 
 
-        std::vector<std::shared_ptr<tool>>       current_tool;
+        std::vector<std::shared_ptr<tool>> current_tool;
         std::vector<std::shared_ptr<tool_action>> pending_actions;
     };
 }

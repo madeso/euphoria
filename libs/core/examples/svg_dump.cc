@@ -25,7 +25,7 @@ MakeStar(const vec2f& origo, float radius, const angle& rotation, int number_of_
     for(auto i=0; i<(number_of_points*2); i+=1)
     {
         const auto is_even = i % 2 == 0;
-        auto r =  is_even ? radius*inner_scale : radius;
+        auto r = is_even ? radius*inner_scale : radius;
         auto point_rotation = rotation + angle_step * static_cast<float>(i);
         const auto x = (r * sin(point_rotation)) + origo.x;
         const auto y = (r * cos(point_rotation)) + origo.y;

@@ -132,13 +132,13 @@ namespace euphoria::core::ecs
 
         // system references for various global callbacks
         component_system_updater_store updater;
-        component_system_initializer_store  initializer;
+        component_system_initializer_store initializer;
         component_system_sprite_drawer_store sprite_drawer;
     };
 
     struct world
     {
-        registry   reg;
+        registry reg;
         ecs::systems* systems;
 
         explicit world(ecs::systems* sys);

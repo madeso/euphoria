@@ -16,4 +16,4 @@ namespace euphoria::core
     get_random_cp437_in_utf8(random* random);
 }
 
-#endif  // EUPHORIA_CORE_CP437_H
+#endif // EUPHORIA_CORE_CP437_H

@@ -40,7 +40,7 @@ namespace euphoria::core
         get_random_item(random* rand)
         {
             ASSERT(rand);
-            ASSERT(!data_.empty());  // needs data
+            ASSERT(!data_.empty()); // needs data
 
             if(cursor_ < 1)
             {

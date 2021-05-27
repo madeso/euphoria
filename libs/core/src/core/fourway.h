@@ -200,4 +200,4 @@ namespace euphoria::core
 
 }
 
-#endif  // EUPHORIA_CORE_FOURWAY_H
+#endif // EUPHORIA_CORE_FOURWAY_H

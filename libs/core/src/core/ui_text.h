@@ -98,7 +98,7 @@ namespace euphoria::core
             static std::string
             accept_all_nodes(ui_text* visitor);
         };
-    }  // namespace textparser
+    } // namespace textparser
 
     /** Represents displayed text.
      * Format: @code @image with text and {-begin and }-end markers \ escapes @endcode

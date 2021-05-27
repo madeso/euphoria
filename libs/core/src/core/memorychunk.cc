@@ -1,6 +1,6 @@
 #include "core/memorychunk.h"
 
-#include <cstring>  // for memcpy
+#include <cstring> // for memcpy
 #include <utility>
 
 #include "core/assert.h"
@@ -87,4 +87,4 @@ namespace euphoria::core
         position += size;
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

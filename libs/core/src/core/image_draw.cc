@@ -499,7 +499,7 @@ namespace euphoria::core
     {
         for(int y=0; y<src.height; y+=1)
         {
-            for(int x=0; x<src.width;  x+=1)
+            for(int x=0; x<src.width; x+=1)
             {
                 const auto dx = p.x + x;
                 const auto dy = p.y + y;
@@ -710,5 +710,5 @@ namespace euphoria::core
     }
 
 
-}  // namespace euphoria::core
+} // namespace euphoria::core
 

@@ -20,7 +20,7 @@ namespace euphoria::core
         T right;
         T top;
         T bottom;
-        // typedef vec2<T>  vec;
+        // typedef vec2<T> vec;
 
         rect() : left(0), right(0), top(0), bottom(0) {}
 
@@ -61,13 +61,13 @@ namespace euphoria::core
 
         [[nodiscard]] static rect
         from_position_anchor_width_and_height(
-                const vec2<T>&   pos,
+                const vec2<T>& pos,
                 const scale2<T>& anchor,
-                float            width,
-                float            height)
+                float width,
+                float height)
         {
             // todo(Gustav): change anchor type to some anchor type instead
-            const T left   = pos.x - width * anchor.x;
+            const T left = pos.x - width * anchor.x;
             const T bottom = pos.y - height * anchor.y;
             return from_left_right_bottom_top(
                     left, left + width, bottom, bottom + height);
@@ -221,7 +221,7 @@ namespace euphoria::core
         rect
         get_scaled_around_center_copy(T scale) const
         {
-            const auto s  = get_size();
+            const auto s = get_size();
             const auto ns = s * scale;
             return inset_copy(
                     (s.width - ns.width) / 2, (s.height - ns.height) / 2);
@@ -301,9 +301,9 @@ namespace euphoria::core
         void
         include(const rect& o)
         {
-            left   = min(left, o.left);
-            right  = max(right, o.right);
-            top    = max(top, o.top);
+            left = min(left, o.left);
+            right = max(right, o.right);
+            top = max(top, o.top);
             bottom = min(bottom, o.bottom);
         }
 

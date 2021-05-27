@@ -184,7 +184,7 @@ namespace euphoria::core
         ASSERT(type);
 
         enumlist::Enumroot root;
-        const std::string  load_error = read_json_to_gaf_struct_or_get_error_message(fs, &root, path);
+        const std::string load_error = read_json_to_gaf_struct_or_get_error_message(fs, &root, path);
 
         std::vector<std::string> names;
 
@@ -203,4 +203,4 @@ namespace euphoria::core
         type->add_enums(names);
     }
 
-}  // namespace euphoria::core
+} // namespace euphoria::core

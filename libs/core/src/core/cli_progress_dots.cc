@@ -28,4 +28,4 @@ namespace euphoria::core
             dots_on_line = 0;
         }
     }
-}  // namespace euphoria::core
+} // namespace euphoria::core

@@ -9,9 +9,9 @@
 #define __PRETTY_FUNCTION__ __FUNCSIG__
 #define BREAK_IN_DEBUG() __debugbreak()
 #else
-#define BREAK_IN_DEBUG()                                                       \
-    do                                                                         \
-    {                                                                          \
+#define BREAK_IN_DEBUG() \
+    do \
+    { \
     } while(false)
 #endif
 
@@ -28,54 +28,54 @@
 #define IMPLEMENT_ASSERT_LIB
 
 // todo(Gustav): stb libraries and rapidjson aren't using our assert
-#define ASSERT(x)                                                              \
-    do                                                                         \
-    {                                                                          \
-        if(x)                                                                  \
-        {                                                                      \
-        }                                                                      \
-        else                                                                   \
-        {                                                                      \
-            if(::euphoria::core::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); }                                                  \
-            ::euphoria::core::assertlib::on_assert(                             \
-                    #x,                                                        \
-                    __LINE__,                                                  \
-                    __FILE__,                                                  \
-                    "",                                                        \
-                    {},                                                        \
-                    __PRETTY_FUNCTION__);      \
-        }                                                                      \
+#define ASSERT(x) \
+    do \
+    { \
+        if(x) \
+        { \
+        } \
+        else \
+        { \
+            if(::euphoria::core::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); } \
+            ::euphoria::core::assertlib::on_assert( \
+                    #x, \
+                    __LINE__, \
+                    __FILE__, \
+                    "", \
+                    {}, \
+                    __PRETTY_FUNCTION__); \
+        } \
     } while(false)
 
-#define ASSERTX(x, ...)                                                        \
-    do                                                                         \
-    {                                                                          \
-        if(x)                                                                  \
-        {                                                                      \
-        }                                                                      \
-        else                                                                   \
-        {                                                                      \
-            if(::euphoria::core::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); }                                                  \
-            ::euphoria::core::assertlib::on_assert(                             \
-                    #x,                                                        \
-                    __LINE__,                                                  \
-                    __FILE__,                                                  \
-                    #__VA_ARGS__,                                              \
-                    {__VA_ARGS__},                                             \
-                    __PRETTY_FUNCTION__);      \
-        }                                                                      \
+#define ASSERTX(x, ...) \
+    do \
+    { \
+        if(x) \
+        { \
+        } \
+        else \
+        { \
+            if(::euphoria::core::assertlib::is_throwing() == false) { BREAK_IN_DEBUG(); } \
+            ::euphoria::core::assertlib::on_assert( \
+                    #x, \
+                    __LINE__, \
+                    __FILE__, \
+                    #__VA_ARGS__, \
+                    {__VA_ARGS__}, \
+                    __PRETTY_FUNCTION__); \
+        } \
     } while(false)
 
-#define DIE(message)                                                           \
-    ::euphoria::core::assertlib::on_assert(                                     \
-            message,                                                           \
-            __LINE__,                                                          \
-            __FILE__,                                                          \
-            "",                                                                \
-            {},                                                                \
+#define DIE(message) \
+    ::euphoria::core::assertlib::on_assert( \
+            message, \
+            __LINE__, \
+            __FILE__, \
+            "", \
+            {}, \
             __PRETTY_FUNCTION__)
 
-#endif  // _MSC_VER
+#endif // _MSC_VER
 
 #ifdef IMPLEMENT_ASSERT_LIB
 
@@ -111,6 +111,6 @@ namespace euphoria::core::assertlib
         const char* function
     );
 }
-#endif  // IMPLEMENT_ASSERT_LIB
+#endif // IMPLEMENT_ASSERT_LIB
 
-#endif  // CORE_ASSERT_H
+#endif // CORE_ASSERT_H

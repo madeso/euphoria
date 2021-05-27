@@ -18,12 +18,12 @@ namespace euphoria::core::generator
     {
         enum type
         {
-            none      = 0,
+            none = 0,
             path_north = 1 << 0,
             path_south = 1 << 1,
-            path_east  = 1 << 2,
-            path_west  = 1 << 3,
-            visited   = 1 << 4
+            path_east = 1 << 2,
+            path_west = 1 << 3,
+            visited = 1 << 4
         };
     }
 
@@ -66,11 +66,11 @@ namespace euphoria::core::generator
 
     struct recursive_backtracker : public algorithm
     {
-        generator::maze*   maze   = nullptr;
+        generator::maze* maze = nullptr;
         core::random* random = nullptr;
 
         std::stack<vec2i> stack;
-        int               visited_cells = 0;
+        int visited_cells = 0;
 
         void
         setup() override;
@@ -84,13 +84,13 @@ namespace euphoria::core::generator
 
     struct random_traversal : public algorithm
     {
-        generator::maze*   maze   = nullptr;
+        generator::maze* maze = nullptr;
         core::random* random = nullptr;
 
         struct entry
         {
             vec2i position;
-            dir   direction;
+            dir direction;
         };
         std::vector<entry> frontier;
 
@@ -111,8 +111,8 @@ namespace euphoria::core::generator
         int cell_size = 3;
         int wall_size = 1;
 
-        recursive_backtracker* tracker   = nullptr;
-        random_traversal*      traversal = nullptr;
+        recursive_backtracker* tracker = nullptr;
+        random_traversal* traversal = nullptr;
 
         rgbi wall_color;
         rgbi cell_color;

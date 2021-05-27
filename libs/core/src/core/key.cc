@@ -67,8 +67,8 @@ namespace euphoria::core
 
             std::map<std::string, T> string_to_key;
             std::map<T, std::string> key_to_string;
-            const T                  invalid_key;
-            const T                  unbound_key;
+            const T invalid_key;
+            const T unbound_key;
         };
 
         const keynamer<key>&
@@ -329,7 +329,7 @@ namespace euphoria::core
             return buttons;
         }
 
-    }  // namespace
+    } // namespace
 
     std::string
     to_string(key k)

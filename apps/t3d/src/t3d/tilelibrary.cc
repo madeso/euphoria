@@ -73,7 +73,7 @@ namespace euphoria::t3d
             return;
         }
 
-        auto tile  = std::make_shared<t3d::tile>();
+        auto tile = std::make_shared<t3d::tile>();
         tile->path = path;
         tile->name = path.get_filename_without_extension();
         tile->aabb = loaded_mesh.loaded_mesh.calculate_aabb();

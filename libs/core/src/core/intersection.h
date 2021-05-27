@@ -119,13 +119,13 @@ namespace euphoria::core
         bool is_parallel;
 
         vec2f point;
-        float      u;
-        float      v;
+        float u;
+        float v;
     };
 
     struct ray3_aabb_result
     {
-        bool  intersected;
+        bool intersected;
 
         float start;
         float end;

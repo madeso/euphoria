@@ -17,7 +17,7 @@ namespace euphoria::core
     aabb::wrap(const vec3f& vec) const
     {
         ASSERT(is_valid());
-#define COMP(C)                                                                \
+#define COMP(C) \
     const auto C = ::euphoria::core::wrap(make_range(min.C, max.C), vec.C)
         COMP(x);
         COMP(y);

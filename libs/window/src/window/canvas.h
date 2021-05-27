@@ -8,16 +8,16 @@ namespace euphoria::window
 {
     struct canvas_config
     {
-        float zoom_speed       = 10;
-        float grid_size        = 64.0f;
-        ImU32 grid_color       = IM_COL32(200, 200, 200, 40);
+        float zoom_speed = 10;
+        float grid_size = 64.0f;
+        ImU32 grid_color = IM_COL32(200, 200, 200, 40);
         ImU32 background_color = IM_COL32(60, 60, 70, 200);
     };
 
     struct canvas
     {
         core::canvas_logic view;
-        ImVec2            position = ImVec2 {0, 0};
+        ImVec2 position = ImVec2 {0, 0};
 
         void
         show_grid(const canvas_config& cc);

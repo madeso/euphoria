@@ -13,8 +13,8 @@ TEST_CASE("rect-constructor_topleftwidthheight", "[rect]")
     CHECK(r.left == 1);
     CHECK(r.top == 2);
 
-    CHECK(r.right == 4);  // left: 1, width_: 3
-    CHECK(r.bottom == -2);  // top: 2, height: 4
+    CHECK(r.right == 4); // left: 1, width_: 3
+    CHECK(r.bottom == -2); // top: 2, height: 4
 
     CHECK(r.get_width() == 3);
     CHECK(r.get_height() == 4);
@@ -29,8 +29,8 @@ TEST_CASE("rect-offsetcopy", "[rect]")
     CHECK(r.left == 1);
     CHECK(r.top == 2);
 
-    CHECK(r.right == 4);  // left: 1, width_: 3
-    CHECK(r.bottom == -2);  // top: 2, height: 4
+    CHECK(r.right == 4); // left: 1, width_: 3
+    CHECK(r.bottom == -2); // top: 2, height: 4
 
     CHECK(r.get_width() == 3);
     CHECK(r.get_height() == 4);
@@ -232,14 +232,14 @@ TEST_CASE("rect-center", "[rect]")
     REQUIRE(r.get_relative_center_y_from_bottom_left() == 5);
 
     REQUIRE(r.get_absolute_center_x() == 5);
-    REQUIRE(r.get_absolute_center_y() == -2);  // at y=3 and the rect is 10
+    REQUIRE(r.get_absolute_center_y() == -2); // at y=3 and the rect is 10
 }
 
 TEST_CASE("rect-from-anchor", "[rect]")
 {
-    const int         height = 3;
-    const int         width  = 4;
-    const euco::vec2i origo  = euco::vec2i::zero();
+    const int height = 3;
+    const int width = 4;
+    const euco::vec2i origo = euco::vec2i::zero();
 
     SECTION("lower left at origo")
     {
@@ -266,9 +266,9 @@ TEST_CASE("rect-from-anchor", "[rect]")
 
 TEST_CASE("rect-from-anchor-center", "[rect]")
 {
-    const float       half_height = 3;
-    const float       half_width  = 4;
-    const euco::vec2f origo       = euco::vec2f::zero();
+    const float half_height = 3;
+    const float half_width = 4;
+    const euco::vec2f origo = euco::vec2f::zero();
 
     SECTION("lower left at origo")
     {

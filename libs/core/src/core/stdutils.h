@@ -56,7 +56,7 @@ namespace euphoria::core
         }
 
         typename Vec::iterator last = from->end();
-        --last;  // point to a valid entry
+        --last; // point to a valid entry
         std::swap(*result, *last);
         from->pop_back();
 

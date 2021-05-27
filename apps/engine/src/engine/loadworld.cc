@@ -21,11 +21,11 @@ namespace euphoria::engine
             script_registry* reg,
             const core::vfs::file_path& path,
             object_creator* creator,
-            Sol*        ctx
+            Sol* ctx
     )
     {
         world::World json;
-        const auto   err = core::read_json_to_gaf_struct_or_get_error_message(fs, &json, path);
+        const auto err = core::read_json_to_gaf_struct_or_get_error_message(fs, &json, path);
         if(!err.empty())
         {
             LOG_ERROR("Failed to load world components from {0}: {1}", path, err);
@@ -34,7 +34,7 @@ namespace euphoria::engine
         for(const auto& obj: json.objects)
         {
             const auto& name = obj.template_name;
-            auto*       t    = creator->find_template(name);
+            auto* t = creator->find_template(name);
             if(t == nullptr)
             {
                 LOG_ERROR("Failed to find template named {0}", name);

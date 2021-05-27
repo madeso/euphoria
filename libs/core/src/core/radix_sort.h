@@ -112,7 +112,7 @@ namespace euphoria::core
 
         for(auto i = size - 1; i >= 0; i-=1)
         {
-            auto index  = Bucket::get_index(IdExtractor::get_id(arr[i]), exp);
+            auto index = Bucket::get_index(IdExtractor::get_id(arr[i]), exp);
             auto target = sum[index] - 1;
             ret[target] = arr[i];
             sum[index] -= 1;
@@ -128,7 +128,7 @@ namespace euphoria::core
         const Int max_value = get_max<T, IdExtractor, Int>(*arr);
 
         for(int exp = Bucket::get_start(); Bucket::should_keep_looping(max_value, exp);
-            exp     = Bucket::get_next_value(max_value, exp))
+            exp = Bucket::get_next_value(max_value, exp))
         {
             *arr = count_sort<T, IdExtractor, Bucket, Int>(*arr, exp);
         }

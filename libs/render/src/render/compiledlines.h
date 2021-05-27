@@ -21,7 +21,7 @@ namespace euphoria::render
     {
         vertex_buffer data;
         point_layout config;
-        index_buffer  lines;
+        index_buffer lines;
         int line_count;
         std::shared_ptr<material_shader> shader;
         

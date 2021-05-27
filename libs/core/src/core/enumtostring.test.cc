@@ -54,7 +54,7 @@ TEST_CASE("enum2string", "[enum2string]")
 
     SECTION("match different cases")
     {
-        auto       name  = GENERATE_AS(std::string, "cat", "CAT", "Cat", "cAt");
+        auto name = GENERATE_AS(std::string, "cat", "CAT", "Cat", "cAt");
         const auto match = euco::string_to_enum<MyEnum>(name);
         CHECK(match.single_match);
         CHECK_THAT(match.values, CATCH_IS_VECTOR(MyEnum, MyEnum::Cat));
