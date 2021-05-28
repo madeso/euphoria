@@ -1,5 +1,5 @@
-#ifndef CORE_VEC3_H
-#define CORE_VEC3_H
+#pragma once
+
 
 #include <ostream>
 #include <tuple>
@@ -410,5 +410,3 @@ namespace euphoria::core
     using unit3i = unit3<int>;
     using scale3i = scale3<int>;
 }
-
-#endif // CORE_VEC3_H

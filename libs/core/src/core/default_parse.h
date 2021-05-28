@@ -1,6 +1,4 @@
-#ifndef EUPHORIA_CORE_DEFAULT_PARSE_H
-#define EUPHORIA_CORE_DEFAULT_PARSE_H
-
+#pragma once
 
 #include <string>
 #include <vector>
@@ -165,7 +163,3 @@ namespace euphoria::core::argparse
         return core::enum_to_string(t);
     }
 }
-
-
-#endif // EUPHORIA_CORE_DEFAULT_PARSE_H
-

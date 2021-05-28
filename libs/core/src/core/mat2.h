@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_MAT2_H
-#define EUPHORIA_CORE_MAT2_H
+#pragma once
 
 #include "core/vec2.h"
 #include "core/angle.h"
@@ -248,6 +247,3 @@ namespace euphoria::core
     using mat2f = mat2<float>;
     using mat2i = mat2<int>;
 }
-
-#endif // EUPHORIA_CORE_MAT2_H
-

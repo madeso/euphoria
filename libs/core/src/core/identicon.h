@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_IDENTICON_H
-#define EUPHORIA_CORE_IDENTICON_H
+#pragma once
 
 // converted to c++ from https://github.com/donpark/identicon/blob/master/identicon-canvas/identicon_canvas.js
 namespace euphoria::core
@@ -8,5 +7,3 @@ namespace euphoria::core
 
     void render_identicon(image* image, int code);
 }
-
-#endif // EUPHORIA_CORE_IDENTICON_H

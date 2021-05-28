@@ -1,5 +1,4 @@
-#ifndef CORE_SOLFORWARD_H
-#define CORE_SOLFORWARD_H
+#pragma once
 
 namespace sol
 {
@@ -7,4 +6,3 @@ namespace sol
 }
 struct Sol;
 
-#endif  // CORE_SOLFORWARD_H

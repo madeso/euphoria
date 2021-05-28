@@ -1,5 +1,4 @@
-#ifndef CORE_ANGLE_H
-#define CORE_ANGLE_H
+#pragma once
 
 #include <iostream>
 
@@ -220,5 +219,3 @@ namespace euphoria::convert
         return core::angle::from_radians(static_cast<float>(r));
     }
 }
-
-#endif // CORE_ANGLE_H

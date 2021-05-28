@@ -1,5 +1,4 @@
-#ifndef CORE_AXISANGLE_H
-#define CORE_AXISANGLE_H
+#pragma once
 
 #include <iostream>
 
@@ -28,6 +27,4 @@ namespace euphoria::core
     std::ostream&
     operator<<(std::ostream& stream, const axis_angle& aa);
 
-} // namespace euphoria::core
-
-#endif // CORE_AXISANGLE_H
+}

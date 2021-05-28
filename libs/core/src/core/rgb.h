@@ -1,5 +1,4 @@
-#ifndef CORE_RGB_H
-#define CORE_RGB_H
+#pragma once
 
 #include <string>
 #include <cstdint>
@@ -480,6 +479,4 @@ namespace euphoria::core
     {
     }
 
-} // namespace euphoria::core
-
-#endif // CORE_RGB_H
+}

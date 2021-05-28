@@ -1,5 +1,4 @@
-#ifndef CORE_ASSERT_H
-#define CORE_ASSERT_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -113,4 +112,3 @@ namespace euphoria::core::assertlib
 }
 #endif // IMPLEMENT_ASSERT_LIB
 
-#endif // CORE_ASSERT_H

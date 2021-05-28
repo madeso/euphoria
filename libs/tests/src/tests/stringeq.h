@@ -1,3 +1,5 @@
+#pragma once
+
 #include <vector>
 #include <string>
 
@@ -6,11 +8,11 @@
 namespace euphoria::tests
 {
     /*
-    
+
     Usage:
-    
+
     using namespace euphoria::tests;
-    
+
     CHECK(string_is_equal(foo(), "string"));
     CHECK(string_is_equal(bar(), {"some", "strings"}));
 

@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_TYPEINFO_H
-#define EUPHORIA_TYPEINFO_H
+#pragma once
 
 // typeinfo.h:
 // Exposes macros and types for basic type information of known-at-compile-time
@@ -145,4 +144,3 @@ namespace euphoria::core
 #error "Unhandled typeinfo implementation"
 #endif
 
-#endif // EUPHORIA_TYPEINFO_H

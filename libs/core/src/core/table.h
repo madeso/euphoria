@@ -1,5 +1,4 @@
-#ifndef CORE_TABLE_H
-#define CORE_TABLE_H
+#pragma once
 
 #include <vector>
 
@@ -237,6 +236,4 @@ namespace euphoria::core
         return r;
     }
 
-} // namespace euphoria::core
-
-#endif // CORE_STRING_TABLE_H
+}

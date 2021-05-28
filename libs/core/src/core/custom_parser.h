@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_CUSTOM_PARSER_H
-#define EUPHORIA_CORE_CUSTOM_PARSER_H
+#pragma once
 
 #include <string>
 
@@ -33,5 +32,3 @@ namespace euphoria::core
         return custom_argparser<T>::parse(value);
     }
 }
-
-#endif // EUPHORIA_CORE_CUSTOM_PARSER_H

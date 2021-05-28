@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_BASE64_H
-#define EUPHORIA_BASE64_H
+#pragma once
 
 #include "core/memorychunk.h"
 
@@ -13,5 +12,3 @@ namespace euphoria::core::base64
     std::shared_ptr<memory_chunk>
     decode(const std::string& input);
 }
-
-#endif // EUPHORIA_BASE64_H

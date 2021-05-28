@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_MEMORYCHUNK_H
-#define EUPHORIA_MEMORYCHUNK_H
+#pragma once
 
 #include <memory>
 #include <string>
@@ -49,6 +48,4 @@ namespace euphoria::core
         int position;
     };
 
-} // namespace euphoria::core
-
-#endif // EUPHORIA_MEMORYCHUNK_H
+}

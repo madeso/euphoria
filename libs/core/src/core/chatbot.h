@@ -1,5 +1,4 @@
-#ifndef CORE_CHATBOT_H
-#define CORE_CHATBOT_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -230,5 +229,3 @@ namespace euphoria::core
     };
 
 }
-
-#endif

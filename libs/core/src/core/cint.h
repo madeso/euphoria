@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CINT_H
-#define EUPHORIA_CINT_H
+#pragma once
 
 #include "core/ints.h"
 
@@ -29,5 +28,3 @@ namespace euphoria::core
     u32
     Cbit_signed_to_unsigned(s32 i);
 }
-
-#endif // EUPHORIA_CINT_H

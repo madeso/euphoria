@@ -1,7 +1,6 @@
 // clang-tidy: ignore
 
-#ifndef EUPHORIA_CORE_DECOMPRESS_H
-#define EUPHORIA_CORE_DECOMPRESS_H
+#pragma once
 
 namespace euphoria::core
 {
@@ -22,7 +21,7 @@ namespace euphoria::core
         static unsigned int stb_decompress_length(const unsigned char *input);
 
         unsigned int stb_decompress(unsigned char *output, const unsigned char *i, unsigned int /*length*/);
-        
+
         unsigned char *stb_barrier_out_e = nullptr, *stb_barrier_out_b = nullptr;
         const unsigned char *stb_barrier_in_b = nullptr;
         unsigned char *stb_dout = nullptr;
@@ -36,5 +35,3 @@ namespace euphoria::core
     };
 
 }
-
-#endif // EUPHORIA_CORE_DECOMPRESS_H

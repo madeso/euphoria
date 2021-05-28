@@ -1,5 +1,4 @@
-#ifndef SPACETYPER_INTERPOLATE_H
-#define SPACETYPER_INTERPOLATE_H
+#pragma once
 
 // todo(Gustav): this seems way to complicated... why is there a deque here?
 // I think we could just remove it and use a 'is tweening or not' logic
@@ -407,5 +406,3 @@ namespace euphoria::core
 
     using FloatInterpolate = Interpolate<float, FloatTransform>;
 }
-
-#endif // SPACETYPER_INTERPOLATE_H

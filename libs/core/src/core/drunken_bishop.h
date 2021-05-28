@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_DRUNKEN_BISHOP_H
-#define EUPHORIA_CORE_DRUNKEN_BISHOP_H
+#pragma once
 
 #include <vector>
 
@@ -69,6 +68,3 @@ namespace euphoria::core
 
     // todo(Gustav): add image collapse with palette
 }
-
-#endif // EUPHORIA_CORE_DRUNKEN_BISHOP_H
-

@@ -1,5 +1,4 @@
-#ifndef CORE_LINES_H
-#define CORE_LINES_H
+#pragma once
 
 #include "core/vec3.h"
 #include "core/rgb.h"
@@ -27,5 +26,3 @@ namespace euphoria::core
         void add_line(const vec3f& from, const vec3f& to, const rgb& c);
     };
 }
-
-#endif // CORE_LINES_H

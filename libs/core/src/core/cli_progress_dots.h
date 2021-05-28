@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_CLI_PROGRESS_DOTS_H
-#define EUPHORIA_CORE_CLI_PROGRESS_DOTS_H
+#pragma once
 
 #include "core/timepoint.h"
 
@@ -17,7 +16,4 @@ namespace euphoria::core
         void
         update();
     };
-} // namespace euphoria::core
-
-#endif // EUPHORIA_CORE_CLI_PROGRESS_DOTS_H
-
+}

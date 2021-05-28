@@ -1,5 +1,4 @@
-#ifndef RENDER_BUFFERBUILDER2D_H
-#define RENDER_BUFFERBUILDER2D_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -43,6 +42,3 @@ namespace euphoria::core
         std::vector<unsigned int> tris;
     };
 }
-
-#endif // RENDER_BUFFERBUILDER2D_H
-

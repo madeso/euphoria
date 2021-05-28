@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_TEXTBOX_H
-#define EUPHORIA_CORE_TEXTBOX_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -333,6 +332,3 @@ namespace euphoria::core
         text_box();
     };
 }
-
-#endif // EUPHORIA_CORE_TEXTBOX_H
-

@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_CTREE_H
-#define EUPHORIA_CORE_CTREE_H
+#pragma once
 
 #include <string>
 
@@ -19,11 +18,11 @@ namespace euphoria::core
 
     tree_style
     slash_style();
-    
+
 
     tree_style
     cross_style();
-    
+
 
     tree_style
     utf8_tree_style();
@@ -91,6 +90,3 @@ namespace euphoria::core
         }
     }
 }
-
-
-#endif // EUPHORIA_CORE_CTREE_H

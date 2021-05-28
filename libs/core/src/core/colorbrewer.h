@@ -1,5 +1,4 @@
-#ifndef CORE_COLORBREWER_H
-#define CORE_COLORBREWER_H
+#pragma once
 
 #include "core/palette.h"
 
@@ -111,5 +110,3 @@ namespace euphoria::core
 
     }
 }
-
-#endif // CORE_COLORBREWER_H

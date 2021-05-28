@@ -1,5 +1,4 @@
-#ifndef CORE_VEC4_H
-#define CORE_VEC4_H
+#pragma once
 
 #include "core/vec3.h"
 
@@ -92,6 +91,4 @@ namespace euphoria::core
     using vec4f = vec4<float>;
     using vec4i = vec4<int>;
 
-} // namespace euphoria::core
-
-#endif // CORE_VEC4_H
+}

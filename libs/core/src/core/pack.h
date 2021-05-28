@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_PACK_H
-#define EUPHORIA_CORE_PACK_H
+#pragma once
 
 #include <vector>
 #include <optional>
@@ -18,7 +17,3 @@ namespace euphoria::core
         const std::vector<size2i>& to_pack
     );
 }
-
-#endif // EUPHORIA_CORE_PACK_H
-
-

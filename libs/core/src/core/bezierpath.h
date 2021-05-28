@@ -1,5 +1,4 @@
-#ifndef CORE_PATH_H
-#define CORE_PATH_H
+#pragma once
 
 #include <vector>
 #include "core/vec2.h"
@@ -90,6 +89,4 @@ namespace euphoria::core
         bool is_closed = false;
     };
 
-} // namespace euphoria::core
-
-#endif // CORE_PATH_H
+}

@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_PALETTE_H
-#define EUPHORIA_PALETTE_H
+#pragma once
 
 #include <string>
 
@@ -98,5 +97,3 @@ namespace euphoria::core
     }
 
 }
-
-#endif // EUPHORIA_PALETTE_H

@@ -1,6 +1,4 @@
-#ifndef EUPHORIA_CORE_SPHERE_H
-#define EUPHORIA_CORE_SPHERE_H
-
+#pragma once
 
 namespace euphoria::core
 {
@@ -10,5 +8,3 @@ namespace euphoria::core
     };
 }
 
-
-#endif // EUPHORIA_CORE_SPHERE_H

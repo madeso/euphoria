@@ -1,5 +1,4 @@
-#ifndef CORE_MAT3_H
-#define CORE_MAT3_H
+#pragma once
 
 #include <vector>
 #include <tuple>
@@ -394,6 +393,4 @@ namespace euphoria::core
     using mat3f = mat3<float>;
     using mat3i = mat3<int>;
 
-} // namespace euphoria::core
-
-#endif // CORE_MAT3_H
+}

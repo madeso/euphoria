@@ -1,5 +1,4 @@
-#ifndef CORE_SOL_H
-#define CORE_SOL_H
+#pragma once
 
 #define SOL_CHECK_ARGUMENTS 1
 
@@ -13,5 +12,3 @@ struct Sol
   bool has_error = false;
   std::string error;
 };
-
-#endif  // CORE_SOL_H

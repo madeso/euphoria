@@ -1,5 +1,4 @@
-#ifndef CORE_ARGPARSE_H
-#define CORE_ARGPARSE_H
+#pragma once
 
 #include <vector>
 #include <map>
@@ -660,5 +659,3 @@ namespace euphoria::core::argparse
     int
     parse_from_main(parser* parser, int argc, char* argv[]);
 }
-
-#endif // CORE_ARGPARSE_H

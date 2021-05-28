@@ -1,5 +1,4 @@
-#ifndef CORE_IMAGE_H
-#define CORE_IMAGE_H
+#pragma once
 
 #include <string>
 #include <vector>
@@ -186,5 +185,3 @@ namespace euphoria::core
         alpha_load alpha
     );
 }
-
-#endif // CORE_IMAGE_H

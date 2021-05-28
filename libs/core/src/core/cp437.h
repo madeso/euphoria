@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_CP437_H
-#define EUPHORIA_CORE_CP437_H
+#pragma once
 
 #include <string_view>
 
@@ -15,5 +14,3 @@ namespace euphoria::core
     std::string_view
     get_random_cp437_in_utf8(random* random);
 }
-
-#endif // EUPHORIA_CORE_CP437_H

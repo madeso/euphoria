@@ -1,5 +1,5 @@
-#ifndef EUPHORIA_AABB_H
-#define EUPHORIA_AABB_H
+#pragma once
+
 
 #include "core/vec3.h"
 
@@ -65,5 +65,3 @@ namespace euphoria::core
     }
 
 }
-
-#endif // EUPHORIA_AABB_H

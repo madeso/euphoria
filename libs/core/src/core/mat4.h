@@ -1,5 +1,4 @@
-#ifndef CORE_MAT4_H
-#define CORE_MAT4_H
+#pragma once
 
 #include "core/vec3.h"
 #include "core/vec4.h"
@@ -626,7 +625,4 @@ namespace euphoria::core
     using mat4f = mat4<float>;
     using mat4i = mat4<int>;
 
-} // namespace euphoria::core
-
-#endif // CORE_MAT4_H
-
+}

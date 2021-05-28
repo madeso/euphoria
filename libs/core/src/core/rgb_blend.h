@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_RGB_BLEND_H
-#define EUPHORIA_CORE_RGB_BLEND_H
+#pragma once
 
 #include "core/rgb.h"
 
@@ -45,5 +44,3 @@ namespace euphoria::core
     // Rgbi  Blend(const Rgbi&  a, const Rgbi&  b, float alpha, const BlendMode mode = BlendMode::Normal);
     // Rgbdai Blend(const Rgbai& a, const Rgbai& b, float alpha, const BlendMode mode = BlendMode::Normal);
 }
-
-#endif // EUPHORIA_CORE_RGB_BLEND_H

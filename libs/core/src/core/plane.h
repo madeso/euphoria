@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_PLANE_H
-#define EUPHORIA_CORE_PLANE_H
+#pragma once
 
 #include "core/vec3.h"
 
@@ -19,5 +18,3 @@ namespace euphoria::core
         from_points(const vec3f& p0, const vec3f& p1, const vec3f& p2);
     };
 }
-
-#endif // EUPHORIA_CORE_PLANE_H

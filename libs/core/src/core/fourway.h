@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_CORE_FOURWAY_H
-#define EUPHORIA_CORE_FOURWAY_H
+#pragma once
 
 #include <vector>
 #include <optional>
@@ -69,7 +68,7 @@ namespace euphoria::core
         {
         }
     };
-    
+
 
     template<typename T>
     bool
@@ -199,5 +198,3 @@ namespace euphoria::core
     };
 
 }
-
-#endif // EUPHORIA_CORE_FOURWAY_H

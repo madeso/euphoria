@@ -1,5 +1,4 @@
-#ifndef CORE_GENERATOR_CELL_H
-#define CORE_GENERATOR_CELL_H
+#pragma once
 
 #include "core/fourway.h"
 #include "core/table_bool.h"
@@ -150,5 +149,3 @@ namespace euphoria::core::generator
     void
     add_fill_all_holes_rule(rules* rules, bool allow_diagonals, int holes_to_keep);
 }
-
-#endif // CORE_GENERATOR_CELL_H
