@@ -32,7 +32,7 @@ namespace euphoria::t3d
     struct placed_mesh
     {
         std::shared_ptr<render::actor> actor;
-        std::shared_ptr<tile> tile;
+        std::shared_ptr<t3d::tile> tile;
         bool is_selected = false;
     };
 
@@ -42,7 +42,7 @@ namespace euphoria::t3d
     {
         t3d::grid* grid;
         render::world* world;
-        tile_library* tile_library;
+        t3d::tile_library* tile_library;
         core::compiled_camera3 camera;
         render::viewport viewport;
 

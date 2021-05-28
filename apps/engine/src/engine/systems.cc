@@ -14,7 +14,7 @@ namespace euphoria::engine
         : core::ecs::component_system
         , core::ecs::component_system_sprite_drawer
     {
-        components* components;
+        engine::components* components;
 
         explicit system_sprite_draw(engine::components* c)
             : component_system("sprite draw")

@@ -1,5 +1,4 @@
-#ifndef EUPHORIA_T3D_T3D_H
-#define EUPHORIA_T3D_T3D_H
+#pragma once
 
 
 #include <string>
@@ -56,7 +55,7 @@ namespace euphoria::t3d
         std::shared_ptr<render::viewport_handler> viewport_handler;
         std::shared_ptr<render::material_shader_cache> material_shader_cache;
         std::shared_ptr<render::texture_cache> texture_cache;
-        std::shared_ptr<tile_library> tile_library;
+        std::shared_ptr<t3d::tile_library> tile_library;
         std::shared_ptr<render::world> world;
         core::camera3 camera;
         std::shared_ptr<t3d::editor> editor;
@@ -175,5 +174,3 @@ namespace euphoria::t3d
         show_help(const char* desc);
     };
 }
-
-#endif // EUPHORIA_T3D_T3D_H

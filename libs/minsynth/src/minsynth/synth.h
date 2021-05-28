@@ -175,7 +175,7 @@ namespace euphoria::minsynth
         : public tone_taker
         , public node
     {
-        tuning tuning = tuning::a4;
+        minsynth::tuning tuning = minsynth::tuning::a4;
 
         frequency_taker* next = nullptr;
 
@@ -335,7 +335,7 @@ namespace euphoria::minsynth
         std::map<int, live_frequency> live;
         std::vector<dead_frequency> dead;
         oscilator_type oscilator = oscilator_type::sawtooth;
-        envelope envelope;
+        minsynth::envelope envelope;
 
         [[nodiscard]] int
         get_total_tones() const;

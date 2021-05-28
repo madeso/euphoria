@@ -27,7 +27,8 @@ namespace euphoria::engine
         , reg(areg)
         , ctx(actx)
         , duk(aduk)
-    {}
+    {
+    }
 
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -63,7 +64,7 @@ namespace euphoria::engine
     {
     public:
         std::shared_ptr<render::texture2d> texture;
-        components* components;
+        engine::components* components;
 
         explicit sprite_component_creator(engine::components* c) : components(c) {}
 

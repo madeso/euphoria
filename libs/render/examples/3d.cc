@@ -57,7 +57,7 @@ struct cube_animation
     {
     }
 
-    std::shared_ptr<actor> actor;
+    std::shared_ptr<euphoria::render::actor> actor;
     float timer = 0.0f;
     quatf from;
     quatf to;

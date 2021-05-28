@@ -86,7 +86,7 @@ namespace euphoria::engine
         , public core::ecs::component_system_initializer
     {
     	using init_function = sol::protected_function; // void(entity_id)
-    	
+
         core::ecs::registry* reg;
         Sol* duk;
         std::vector<core::ecs::component_id> types;
@@ -175,15 +175,15 @@ namespace euphoria::engine
                 core::ecs::world* world,
                 Sol* duk,
                 object_creator* creator,
-                components* components,
+                engine::components* cc,
                 camera_data* cam
         )
             : systems(sys, duk)
-            , registry(&world->reg, components)
+            , registry(&world->reg, cc)
             , input(duk->lua["Input"].get_or_create<sol::table>())
             , world(world)
             , creator(creator)
-            , components(components)
+            , components(cc)
             , camera(cam)
         {
         }
@@ -345,7 +345,7 @@ namespace euphoria::engine
         sol::table input;
         core::ecs::world* world;
         object_creator* creator;
-        components* components;
+        engine::components* components;
         camera_data* camera;
     };
 
