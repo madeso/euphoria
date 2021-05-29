@@ -213,7 +213,7 @@ set(test_src
     src/core/editdistance.test.cc
     src/core/enumtostring.test.cc
     src/core/findstring.test.cc
-    src/core/fnv1a.test.cc
+    src/core/hash_fnv1a.test.cc
     src/core/image.test.cc
     data/test/test_image.png
     src/core/insertionsort.test.cc
