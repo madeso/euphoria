@@ -62,6 +62,7 @@ set(app_src_pcg
 
 set(app_src_hash
     src/core/hash.cc src/core/hash.h
+    src/core/hash.string.cc src/core/hash.string.h
     src/core/hashgen.h
     src/core/hashgen.retro.cc
     src/core/hashgen.sprator.cc
