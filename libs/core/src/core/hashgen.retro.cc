@@ -1,4 +1,4 @@
-#include "core/hashgen_retro.h"
+#include "core/hashgen.h"
 
 #include <vector>
 

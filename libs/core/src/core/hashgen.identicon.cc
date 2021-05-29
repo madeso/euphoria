@@ -1,4 +1,4 @@
-#include "core/identicon.h"
+#include "core/hashgen.h"
 
 #include <vector>
 

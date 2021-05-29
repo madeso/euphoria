@@ -62,9 +62,10 @@ set(app_src_pcg
 
 set(app_src_hash
     src/core/hash_fnv1a.cc src/core/hash_fnv1a.h
-    src/core/hashgen_retro.cc src/core/hashgen_retro.h
-    src/core/hashgen_sprator.cc src/core/hashgen_sprator.h
-    src/core/identicon.cc src/core/identicon.h
+    src/core/hashgen.h
+    src/core/hashgen.retro.cc
+    src/core/hashgen.sprator.cc
+    src/core/hashgen.identicon.cc
 )
 
 set(app_src_table

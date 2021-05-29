@@ -1,4 +1,4 @@
-#include "core/hashgen_sprator.h"
+#include "core/hashgen.h"
 
 #include <vector>
 
