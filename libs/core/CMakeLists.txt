@@ -61,7 +61,7 @@ set(app_src_pcg
 )
 
 set(app_src_hash
-    src/core/hash_fnv1a.cc src/core/hash_fnv1a.h
+    src/core/hash.cc src/core/hash.h
     src/core/hashgen.h
     src/core/hashgen.retro.cc
     src/core/hashgen.sprator.cc
@@ -214,7 +214,7 @@ set(test_src
     src/core/editdistance.test.cc
     src/core/enumtostring.test.cc
     src/core/findstring.test.cc
-    src/core/hash_fnv1a.test.cc
+    src/core/hash.test.cc
     src/core/image.test.cc
     data/test/test_image.png
     src/core/insertionsort.test.cc
