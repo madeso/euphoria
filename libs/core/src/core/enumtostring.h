@@ -3,12 +3,11 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <queue>
 #include <ostream>
 
 #include "core/assert.h"
 #include "core/stringutils.h"
-#include "core/editdistance.h"
+#include "core/editdistance.search.h"
 
 #include "magic_enum/magic_enum.hpp"
 
@@ -83,30 +82,27 @@ namespace euphoria::core
             {
                 return matched_enum<T> {true, {input}, {found->second}};
             }
-            struct match
-            {
-                std::string name;
-                T t;
-                unsigned long changes = 0;
 
-                bool
-                operator<(const match& rhs) const
+            struct match : search::match
+            {
+                T t;
+
+                match(const std::string& str, T tt, const std::string& input)
+                    : search::match(str, input)
+                    , t(tt)
                 {
-                    return changes < rhs.changes;
                 }
             };
-            std::priority_queue<match> matches;
-            for(auto entry: enum_to_string)
-            {
-                const auto t = entry.first;
-                const auto str = entry.second;
-                const auto changes = edit_distance(str, input);
-                matches.push({str, t, changes});
-                if(matches.size() > max_size)
+
+            auto matches = search::find_closest<match>
+            (
+                max_size, enum_to_string,
+                [&](const auto& entry) -> match
                 {
-                    matches.pop();
+                    return {entry.second, entry.first, input};
                 }
-            }
+            );
+
             auto ret = matched_enum<T> {};
             while(!matches.empty())
             {

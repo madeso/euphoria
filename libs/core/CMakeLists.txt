@@ -101,6 +101,7 @@ set(app_src
     src/core/ecs-systems.cc src/core/ecs-systems.h
     src/core/ecs.cc src/core/ecs.h
     src/core/editdistance.cc src/core/editdistance.h
+    src/core/editdistance.search.cc src/core/editdistance.search.h
     src/core/enum.cc src/core/enum.h
     src/core/enumtostring.h
     src/core/findstring.cc src/core/findstring.h
