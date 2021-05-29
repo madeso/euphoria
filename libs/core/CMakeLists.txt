@@ -106,7 +106,7 @@ set(app_src
     src/core/enumtostring.h
     src/core/findstring.cc src/core/findstring.h
     src/core/fpscontroller.cc src/core/fpscontroller.h
-    src/core/functional.h
+    src/core/functional.cc src/core/functional.h
     src/core/last_n.h
     src/core/id.cc src/core/id.h
     src/core/insertionsort.h
@@ -138,8 +138,8 @@ set(app_src
     src/core/raytracer.cc src/core/raytracer.h
     src/core/sensitivity.cc src/core/sensitivity.h
     src/core/shufflebag.h
-        src/core/size2.h
-    src/core/stdutils.h
+    src/core/size2.h
+    src/core/stdutils.cc src/core/stdutils.h
     src/core/str.cc src/core/str.h
     src/core/stringmerger.cc src/core/stringmerger.h
     src/core/stringutils.cc src/core/stringutils.h
