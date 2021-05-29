@@ -94,7 +94,7 @@ namespace euphoria::core
                 }
             };
 
-            auto matches = search::find_closest<match>
+            const auto matches = search::find_closest<match>
             (
                 max_size, enum_to_string,
                 [&](const auto& entry) -> match
@@ -104,11 +104,10 @@ namespace euphoria::core
             );
 
             auto ret = matched_enum<T> {};
-            while(!matches.empty())
+            for(const auto& m: matches)
             {
-                ret.names.insert(ret.names.begin(), matches.top().name);
-                ret.values.insert(ret.values.begin(), matches.top().t);
-                matches.pop();
+                ret.names.emplace_back(m.name);
+                ret.values.emplace_back(m.t);
             }
             return ret;
         }

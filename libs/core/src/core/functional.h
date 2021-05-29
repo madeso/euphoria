@@ -51,7 +51,7 @@ namespace euphoria::core
 
 
     // map: A->B for a list, Select in c#
-    template <typename F, typename T = F, typename C>
+    template <typename T, typename F = T, typename C>
     std::vector<T>
     map(const std::vector<F>& fs, C convert)
     {
@@ -152,18 +152,6 @@ namespace euphoria::core
             r = concat(r, t);
         }
         return r;
-    }
-
-    template<typename K, typename V>
-    std::vector<K>
-    get_keys(const std::map<K, V>& m)
-    {
-        auto v = std::vector<K>{};
-        for(const auto& p: m)
-        {
-            v.emplace_back(p.first);
-        }
-        return v;
     }
 }
 

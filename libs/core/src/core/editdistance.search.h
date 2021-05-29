@@ -2,6 +2,8 @@
 
 #include <string>
 #include <queue>
+#include <vector>
+#include <algorithm>
 
 #include "core/editdistance.h"
 
@@ -42,7 +44,7 @@ namespace euphoria::core::search
     };
 
     template<typename T, typename F, typename L>
-    std::priority_queue<T>
+    std::vector<T>
     find_closest(std::size_t max_size, const L& list, F&& f)
     {
         search::searcher<T> searcher;
@@ -50,6 +52,16 @@ namespace euphoria::core::search
         {
             searcher.add(f(entry), max_size);
         }
-        return searcher.matches;
+        std::vector<T> ret;
+
+        while(!searcher.matches.empty())
+        {
+            ret.emplace_back(std::move(searcher.matches.top()));
+            searcher.matches.pop();
+        }
+
+        std::reverse(ret.begin(), ret.end());
+
+        return ret;
     }
 }

@@ -12,7 +12,7 @@
 #include "core/cint.h"
 #include "core/str.h"
 #include "core/texturetypes.h"
-#include "core/functional.h"
+#include "core/stdutils.h"
 #include "core/proto.h"
 #include "core/log.h"
 #include "core/stringmerger.h"

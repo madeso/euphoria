@@ -17,7 +17,7 @@
 #include "core/noncopyable.h"
 #include "core/image.h"
 #include "core/vfs_path.h"
-#include "core/functional.h"
+#include "core/stdutils.h"
 #include "core/stringmerger.h"
 
 #include "render/texture.h"
