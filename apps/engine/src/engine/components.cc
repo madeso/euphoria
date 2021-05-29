@@ -18,8 +18,8 @@ namespace euphoria::engine
     }
 
     components::components(core::ecs::registry* reg)
-        : position2(reg->register_new_component_type("Position2"))
-        , sprite(reg->register_new_component_type("Sprite"))
+        : position2(reg->register_new_component_type("position2"))
+        , sprite(reg->register_new_component_type("sprite"))
     {
     }
 

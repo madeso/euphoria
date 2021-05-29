@@ -4,6 +4,10 @@
 
 #include "core/stdutils.h"
 #include "core/log.h"
+#include "core/stringmerger.h"
+#include "core/functional.h"
+#include "core/editdistance.search.h"
+
 
 namespace euphoria::core::ecs
 {
@@ -231,12 +235,14 @@ namespace euphoria::core::ecs
                 else
                 {
                     std::vector<entity_id> rr;
-                    std::set_intersection(
-                            v.begin(),
-                            v.end(),
-                            r.begin(),
-                            r.end(),
-                            std::back_inserter(rr));
+                    std::set_intersection
+                    (
+                        v.begin(),
+                        v.end(),
+                        r.begin(),
+                        r.end(),
+                        std::back_inserter(rr)
+                    );
                     r = rr;
                 }
             }
@@ -244,19 +250,34 @@ namespace euphoria::core::ecs
             return r;
         }
 
-        bool
-        get_custom_component_by_name(const std::string& name, component_id* id)
+        result<component_id>
+        get_custom_component_by_name(const std::string& name)
         {
-            ASSERT(id);
-            const auto found_component = name_to_component.find(name);
-            if(found_component == name_to_component.end())
+            if(const auto found_component = name_to_component.find(name); found_component == name_to_component.end())
             {
-                return false;
+                auto matches = string_mergers::english_or.merge
+                (
+                    map<std::string>
+                    (
+                        search::find_closest<search::match>
+                        (
+                            3, name_to_component,
+                            [&](const auto& entry) -> search::match
+                            {
+                                return {entry.first, name};
+                            }
+                        ),
+                        [](const search::match& m)
+                        {
+                            return m.name;
+                        }
+                    )
+                );
+                return result<component_id>::create_error(fmt::format("could be {}", matches));
             }
             else
             {
-                *id = found_component->second;
-                return true;
+                return result<component_id>::create_value(found_component->second);
             }
         }
     };
@@ -310,10 +331,10 @@ namespace euphoria::core::ecs
         return impl->get_component_name(id);
     }
 
-    bool
-    registry::get_custom_component_by_name(const std::string& name, component_id* id)
+    result<component_id>
+    registry::get_custom_component_by_name(const std::string& name)
     {
-        return impl->get_custom_component_by_name(name, id);
+        return impl->get_custom_component_by_name(name);
     }
 
     std::shared_ptr<component>

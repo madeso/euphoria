@@ -45,14 +45,13 @@ namespace euphoria::engine
         return id;
     }
 
-    bool
+    core::result<core::ecs::component_id>
     script_registry::get_custom_component_by_name
     (
-        const std::string& name,
-        core::ecs::component_id* id
+        const std::string& name
     )
     {
-        return reg->get_custom_component_by_name(name, id);
+        return reg->get_custom_component_by_name(name);
     }
 
     std::vector<core::ecs::entity_id>

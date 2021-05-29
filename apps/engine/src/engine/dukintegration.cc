@@ -180,7 +180,7 @@ namespace euphoria::engine
         )
             : systems(sys, duk)
             , registry(&world->reg, cc)
-            , input(duk->lua["Input"].get_or_create<sol::table>())
+            , input(duk->lua["input"].get_or_create<sol::table>())
             , world(world)
             , creator(creator)
             , components(cc)
@@ -191,12 +191,12 @@ namespace euphoria::engine
         void
         integrate(Sol* duk)
         {
-            auto systems_table = duk->lua["Systems"].get_or_create<sol::table>();
+            auto systems_table = duk->lua["systems"].get_or_create<sol::table>();
             systems_table["add_update"] = [&](const std::string& name, sol::function func)
             {
                 systems.add_update(name, func);
             };
-            systems_table["OnInit"] = [&]
+            systems_table["on_init"] = [&]
             (
                 const std::string& name,
                 sol::table types,
@@ -207,28 +207,28 @@ namespace euphoria::engine
                 systems.add_init(name, &world->reg, vtypes, func);
             };
 
-            auto math_table = duk->lua["Math"].get_or_create<sol::table>();
-            math_table["NewRandom"] = [&]() { return std::make_shared<core::random>(); };
+            auto math_table = duk->lua["math"].get_or_create<sol::table>();
+            math_table["new_random"] = [&]() { return std::make_shared<core::random>(); };
 
-            auto templates_table = duk->lua["Templates"].get_or_create<sol::table>();
-            templates_table["Find"] = [&](const std::string& name)
+            auto templates_table = duk->lua["templates"].get_or_create<sol::table>();
+            templates_table["find"] = [&](const std::string& name)
             {
                 return creator->find_template(name);
             };
 
-            duk->lua.new_usertype<object_template>("Template");
-            duk->lua["Template"]["create"] = [&, duk](object_template* t)
+            auto template_type = duk->lua.new_usertype<object_template>("template");
+            template_type["create"] = [&, duk](object_template* t)
             {
                 return t->create_object(object_creation_arguments{world, &registry, duk, duk});
             };
 
-            auto camera_table = duk->lua["Camera"].get_or_create<sol::table>();
-            camera_table["GetRect"] = [&]() { return &camera->screen; };
+            auto camera_table = duk->lua["camera"].get_or_create<sol::table>();
+            camera_table["get_rect"] = [&]() { return &camera->screen; };
 
             duk->lua.new_usertype<custom_arguments>
             (
                 "custom_arguments",
-                "GetNumber", [](const custom_arguments& args, const std::string& name) -> float
+                "get_number", [](const custom_arguments& args, const std::string& name) -> float
                 {
                     const auto f = args.numbers.find(name);
                     if(f == args.numbers.end())
@@ -242,12 +242,17 @@ namespace euphoria::engine
                 }
             );
 
-            auto registry_table = duk->lua["Registry"].get_or_create<sol::table>();
-            registry_table["Entities"] = [&](sol::table types)
+            auto registry_table = duk->lua["registry"].get_or_create<sol::table>();
+            registry_table["entities"] = [&](sol::table types)
             {
-                return registry.entity_view(get_vector<core::ecs::component_id>(types));
+                auto vec = get_vector<core::ecs::component_id>(types);
+                if(vec.empty())
+                {
+                    throw std::runtime_error("no entities specified");
+                }
+                return registry.entity_view(vec);
             };
-            registry_table["GetSpriteId"] = [&]()
+            registry_table["get_sprite_id"] = [&]()
             {
                 return registry.components->sprite;
             };
@@ -255,16 +260,16 @@ namespace euphoria::engine
             {
                 registry.destroy_entity(entity);
             };
-            registry_table["GetPosition2Id"] = [&]()
+            registry_table["get_position2_id"] = [&]()
             {
                 LOG_INFO("Getting position 2d");
                 return registry.components->position2;
             };
-            registry_table["GetSpriteId"] = [&]()
+            registry_table["get_sprite_id"] = [&]()
             {
                 return registry.components->sprite;
             };
-            registry_table["New"] = sol::overload
+            registry_table["create"] = sol::overload
             (
                 [&](const std::string& name, sol::function setup)
                 {
@@ -275,23 +280,23 @@ namespace euphoria::engine
                     return registry.create_new_id(name);
                 }
             );
-            registry_table["Get"] = [&](core::ecs::entity_id ent, core::ecs::component_id comp)
+            registry_table["get"] = [&](core::ecs::entity_id ent, core::ecs::component_id comp)
             {
                 return registry.get_property(ent, comp);
             };
-            registry_table["Set"] = [&](core::ecs::entity_id ent, core::ecs::component_id comp, sol::table val)
+            registry_table["set"] = [&](core::ecs::entity_id ent, core::ecs::component_id comp, sol::table val)
             {
                 registry.set_property(ent, comp, val);
             };
-            registry_table["GetSprite"] = [&](core::ecs::component_id ent)
+            registry_table["get_sprite"] = [&](core::ecs::component_id ent)
             {
                 return registry.get_component_or_null<component_sprite>(ent, components->sprite);
             };
-            registry_table["GetPosition2"] = [&](core::ecs::component_id ent)
+            registry_table["get_position2"] = [&](core::ecs::component_id ent)
             {
                 return registry.get_component_or_null<component_position2>(ent, components->position2);
             };
-            registry_table["GetPosition2vec"] = [&](core::ecs::component_id ent)
+            registry_table["get_position2_vec"] = [&](core::ecs::component_id ent)
             {
                 auto c = registry.get_component_or_null<component_position2>(ent, components->position2);
                 return c == nullptr ? nullptr : &c->pos;
@@ -302,14 +307,14 @@ namespace euphoria::engine
             duk->lua.new_usertype<component_sprite>
             (
                 "component_sprite",
-                "GetRect", [](const component_sprite& sp, const component_position2& p)
+                "get_rect", [](const component_sprite& sp, const component_position2& p)
                 {
                     return get_sprite_rect(p.pos, *sp.texture);
                 }
             );
 
-            auto rect_type = duk->lua.new_usertype<core::rectf>("Rectf", sol::no_constructor);
-            rect_type["Contains"] = sol::overload
+            auto rect_type = duk->lua.new_usertype<core::rectf>("rectf", sol::no_constructor);
+            rect_type["contains"] = sol::overload
             (
                 [](const core::rectf& r, const core::rectf& rr) -> bool
                 {
@@ -324,17 +329,17 @@ namespace euphoria::engine
                     return r.contains_exclusive(x, y);
                 }
             );
-            rect_type["GetHeight"] = &core::rectf::get_height;
-            rect_type["GetWidth"] = &core::rectf::get_width;
+            rect_type["get_height"] = &core::rectf::get_height;
+            rect_type["get_width"] = &core::rectf::get_width;
 
-            auto random_type = duk->lua.new_usertype<core::random>("Random");
-            random_type["NextFloat01"] = &core::random::get_next_float01;
-            random_type["NextRangeFloat"] = [](core::random& r, float f) -> float
+            auto random_type = duk->lua.new_usertype<core::random>("random");
+            random_type["next_float01"] = &core::random::get_next_float01;
+            random_type["next_range_float"] = [](core::random& r, float f) -> float
             {
                 return get_random_in_range(&r, f);
             };
-            random_type["NextBool"] = &core::random::get_next_bool;
-            random_type["NextPoint2"] = [](core::random& r, core::rectf& rect) -> core::vec2f
+            random_type["next_bool"] = &core::random::get_next_bool;
+            random_type["next_point2"] = [](core::random& r, core::rectf& rect) -> core::vec2f
             {
                 return rect.get_random_point(&r);
             };

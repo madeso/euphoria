@@ -167,17 +167,17 @@ namespace euphoria::engine
         else if(comp.custom)
         {
             const auto& s = *comp.custom;
-            core::ecs::component_id id;
-            if(reg->get_custom_component_by_name(s.name, &id))
+            if(const auto id = reg->get_custom_component_by_name(s.name); id)
             {
-                return custom_component_creator::create(s.name, id, s.arguments);
+                return custom_component_creator::create(s.name, *id, s.arguments);
             }
             else
             {
                 LOG_ERROR
                 (
-                    "No custom component named {0} was added.",
-                    s.name
+                    "No custom component named {0} was added: {1}",
+                    s.name,
+                    id.get_error()
                 );
                 return nullptr;
             }

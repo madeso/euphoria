@@ -2,7 +2,7 @@
 
 #include "core/ecs-systems.h"
 #include "core/ecs.h"
-
+#include "core/result.h"
 #include "core/sol.h"
 
 #include "engine/components.h"
@@ -32,8 +32,8 @@ namespace euphoria::engine
         core::ecs::component_id
         create_new_id(const std::string& name);
 
-        bool
-        get_custom_component_by_name(const std::string& name, core::ecs::component_id* id);
+        core::result<core::ecs::component_id>
+        get_custom_component_by_name(const std::string& name);
 
         std::vector<core::ecs::entity_id>
         entity_view(const std::vector<core::ecs::component_id>& types);

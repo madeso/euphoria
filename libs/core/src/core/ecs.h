@@ -8,6 +8,7 @@
 #include "core/typeinfo.h"
 #include "core/ecs-id.h"
 #include "core/assert.h"
+#include "core/result.h"
 
 #include "euph_generated_config.h"
 
@@ -130,9 +131,8 @@ namespace euphoria::core::ecs
         std::string
         get_component_name(component_id id) const;
 
-        // todo(Gustav): make it return a std::optional instead
-        bool
-        get_custom_component_by_name(const std::string& name, component_id* id);
+        result<component_id>
+        get_custom_component_by_name(const std::string& name);
 
         std::shared_ptr<component>
         get_component(entity_id entity, component_id component);
