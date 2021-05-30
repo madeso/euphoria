@@ -43,6 +43,12 @@ def get_compiler(args) -> Compiler:
     if compiler_name == 'vs2019':
         return Compiler.VS2019
 
+    # github actions installed compiler
+    if compiler_name == 'windows-2016':
+        return Compiler.VS2017
+    if compiler_name == 'windows-2019':
+        return Compiler.VS2019
+
     print('Unknown compiler: ', compiler_name, flush=True)
     return Compiler.VS2019
 
