@@ -17,7 +17,7 @@ namespace euphoria::core
         {
         }
 
-        subvec(std::vector<T>* s, size_t b, size_t e)
+        subvec(std::vector<T>* s, std::size_t b, std::size_t e)
             : source(s)
             , ibegin(b)
             , iend(e)
@@ -25,8 +25,8 @@ namespace euphoria::core
         }
 
         std::vector<T>* source;
-        size_t ibegin;
-        size_t iend;
+        std::size_t ibegin;
+        std::size_t iend;
 
         it
         begin() const
@@ -40,7 +40,7 @@ namespace euphoria::core
             return source->begin() + iend;
         }
 
-        [[nodiscard]] size_t
+        [[nodiscard]] std::size_t
         size() const
         {
             return iend - ibegin;
@@ -65,7 +65,7 @@ namespace euphoria::core
         }
 
         subvec<T>
-        sub(size_t start, size_t end)
+        sub(std::size_t start, std::size_t end)
         {
             return {source, ibegin+start, ibegin+end};
         }

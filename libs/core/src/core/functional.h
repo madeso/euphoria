@@ -20,7 +20,7 @@ namespace euphoria::core
     {
         std::vector<std::pair<A, B>> ret;
         const auto s = std::min(as.size(), bs.size());
-        for(size_t i = 0; i < s; i += 1)
+        for(std::size_t i = 0; i < s; i += 1)
         {
             ret.emplace_back(std::make_pair<A, B>(as[i], bs[i]));
         }
@@ -40,7 +40,7 @@ namespace euphoria::core
     {
         std::vector<std::pair<A, B>> ret;
         const auto s = std::max(as.size(), bs.size());
-        for(size_t i = 0; i < s; i += 1)
+        for(std::size_t i = 0; i < s; i += 1)
         {
             const A a = i < as.size() ? as[i] : da;
             const B b = i < bs.size() ? bs[i] : db;
