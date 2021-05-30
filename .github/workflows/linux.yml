@@ -15,26 +15,26 @@ jobs:
         - uses: actions/checkout@v2
 
         - name: Install Dependencies
-            run: |
+          run: |
                 sudo apt update
                 sudo apt install -y libsdl2-dev libassimp-dev
 
         - name: Create Build Environment
-            run: cmake -E make_directory ${{github.workspace}}/build
+          run: cmake -E make_directory ${{github.workspace}}/build
 
         - name: Configure
-            shell: bash
-            working-directory: ${{github.workspace}}/build
-            env:
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          env:
                 CXX: ${{matrix.cxx}}
-            run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
+          run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
         - name: Build
-            shell: bash
-            working-directory: ${{github.workspace}}/build
-            run: cmake --build . --config ${{matrix.build_type}}
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: cmake --build . --config ${{matrix.build_type}}
 
         - name: Test
-            shell: bash
-            working-directory: ${{github.workspace}}/build
-            run: ctest -C ${{matrix.build_type}}
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: ctest -C ${{matrix.build_type}}
