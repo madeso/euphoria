@@ -23,11 +23,14 @@ def list_files_in_folder(path: str, extensions: typing.Optional[typing.List[str]
                 yield os.path.join(root, file)
 
 
-def get_line_count(path: str) -> int:
+def get_line_count(path: str, discard_empty: bool) -> int:
     with open(path, 'r') as handle:
         count = 0
-        for _ in handle:
-            count += 1
+        for line in handle:
+            if discard_empty and len(line.strip()) == 0:
+                pass
+            else:
+                count += 1
         return count
 
     return -1
@@ -41,6 +44,7 @@ def main():
     parser.add_argument('files', nargs='+')
     parser.add_argument('--each', type=int, default=1)
     parser.add_argument('--show', action='store_true')
+    parser.add_argument('--include-empty', dest='discard_empty', action='store_false')
     args = parser.parse_args()
 
     stats = {}
@@ -51,7 +55,7 @@ def main():
         for file in list_files_in_folder(patt, ['.h', '.cc']):
             files += 1
 
-            count = get_line_count(file)
+            count = get_line_count(file, args.discard_empty)
 
             index = count if each <= 1 else count - (count % each)
             if index in stats:
