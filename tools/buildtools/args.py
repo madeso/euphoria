@@ -53,10 +53,10 @@ def get_platform(args) -> Platform:
     if platform == 'auto':
         return Platform.AUTO
 
-    if platform == 'win32':
+    if platform.lower() == 'win32':
         return Platform.WIN32
 
-    if platform in ['x64', 'win64']:
+    if platform.lower() in ['x64', 'win64']:
         return Platform.X64
 
     print('Unknown platform: ', platform, flush=True)
