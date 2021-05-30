@@ -16,11 +16,6 @@ jobs:
           with:
             submodules: recursive
 
-        - name: Debug
-          shell: bash
-          run: |
-                echo "${{matrix.cxx}}"
-
         - name: Install Dependencies
           run: |
                 sudo apt update
