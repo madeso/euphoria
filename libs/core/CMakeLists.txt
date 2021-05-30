@@ -260,7 +260,7 @@ source_group("" FILES ${test_src})
 source_group("main" FILES ${test_main_src})
 add_executable(core_test ${test_src} ${test_main_src})
 target_link_libraries(core_test PUBLIC core tests)
-
+catch_discover_tests(core_test)
 
 ###############################################################################
 # example projects

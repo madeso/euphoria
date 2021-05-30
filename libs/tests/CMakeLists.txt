@@ -34,3 +34,4 @@ source_group("main" FILES ${test_main_src})
 add_executable(tests_test ${test_src} ${test_main_src})
 target_link_libraries(tests_test PUBLIC tests)
 
+catch_discover_tests(tests_test)

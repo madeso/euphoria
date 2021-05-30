@@ -29,3 +29,4 @@ source_group("main" FILES ${test_main_src})
 add_executable(minsynth_test ${test_src} ${test_main_src})
 target_link_libraries(minsynth_test PUBLIC minsynth tests)
 
+catch_discover_tests(minsynth_test)
