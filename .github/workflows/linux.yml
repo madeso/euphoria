@@ -24,7 +24,7 @@ jobs:
         - name: Install Dependencies
           run: |
                 sudo apt update
-                sudo apt install -y libsdl2-dev libassimp-dev
+                sudo apt install -y libsdl2-dev libassimp-dev clang-9
 
         - name: Create Build Environment
           run: cmake -E make_directory ${{github.workspace}}/build
