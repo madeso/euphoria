@@ -2,11 +2,10 @@
 __pycache__/*
 
 # clion build folder
-cmake-build-debug
+cmake-build-*
 build
 .vscode
-
-dist/scimed-debug
+.idea
 
 # vi undo files
 *.un~
@@ -15,8 +14,13 @@ dist/scimed-debug
 *.swp
 
 # doxygenerated files
-generated-docs/
+docs/generated/html/
 
 # generated now
-.clang-tidy
+# but also great to keep around to use it without avoid generating it
+# the commited file should match the generated file
+# .clang-tidy
+
+# ignoring junk folder
+junk/
 

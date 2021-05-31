@@ -1,0 +1,7 @@
+add_subdirectory(core)
+add_subdirectory(file_types)
+add_subdirectory(gui)
+add_subdirectory(minsynth)
+add_subdirectory(render)
+add_subdirectory(tests)
+add_subdirectory(window)

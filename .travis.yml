@@ -1,11 +1,38 @@
-dist: bionic
-sudo: false
 language: cpp
+sudo: false
 
-# gcc might not work
-compiler:
-  - clang
-  - gcc
+compiler: clang
+
+matrix:
+    include:
+        - os: linux
+          dist: focal
+          compiler: gcc
+          env:
+              - CONF=release
+        - os: linux
+          dist: focal
+          compiler: gcc
+          env:
+              - CONF=debug
+              - GCOV_FLAGS='--coverage'
+          after_success:
+              - pip install --user cpp-coveralls
+              - $CXX --version
+              - /usr/bin/gcov-9 --v
+              - coveralls -h
+              - coveralls -r .. --gcov /usr/bin/gcov-9 --gcov-options '\-lp' -i libs
+        - os: linux
+          dist: focal
+          compiler: clang
+          env:
+              - CONF=release
+        - os: linux
+          dist: focal
+          compiler: clang
+          env:
+              - CONF=debug
+
 
 # Handle git submodules yourself
 git:
@@ -21,20 +48,13 @@ install:
   - if [ "$CXX" = "g++" ]; then export CXX="g++-9" CC="gcc-9"; fi
 
 
-# sources for gcc/++-9
 addons:
   apt:
     update: true
-    sources:
-      - ubuntu-toolchain-r-test
     packages:
       - libsdl2-dev
-      - libprotobuf-dev
-      - protobuf-compiler
       - libassimp-dev
-      - libwxgtk3.0-dev
-      - gcc-9
-      - g++-9
+      - lcov
 
 script:
   - $CXX --version
@@ -42,8 +62,13 @@ script:
   - mkdir build
   - cd build
   - cmake ..
-  - make VERBOSE=1
-  - ./tests/tests
-  - ./tests/tests
-  - cd ..
-  - ./scripts/clang.py tidy
+  - cmake -DCMAKE_BUILD_TYPE=$CONF -DEXTRA_FLAGS="$GCOV_FLAGS" ..
+  - cmake --build .
+  - ./libs/tests/tests_test
+  - ./libs/core/core_test
+  - ./libs/minsynth/minsynth_test
+
+# temporarily disabled
+#  - cd ..
+#  - ./scripts/clang.py tidy
+
