@@ -25,17 +25,16 @@ jobs:
           run: |
                 cmake --help
 
-        - name: Install dependencies
+        - name: Install python dependencies
           run: |
                 python.exe -m pip install requests
+
+        - name: Install cpp dependencies
+          run: |
                 python.exe ${{github.workspace}}\tools\windows.py install ${{matrix.os}} ${{matrix.platform}}
 
-        - name: Create Build Environment
-          run: cmake -E make_directory ${{github.workspace}}/build
-
         - name: Configure
-          shell: bash
-          working-directory: ${{github.workspace}}/build
+          working-directory: ${{github.workspace}}
           run: |
                 python.exe ${{github.workspace}}\tools\windows.py cmake ${{matrix.os}} ${{matrix.platform}}
 
