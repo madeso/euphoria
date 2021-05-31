@@ -36,7 +36,8 @@ jobs:
         - name: Configure
           shell: bash
           working-directory: ${{github.workspace}}/build
-          run: 'python.exe ${{github.workspace}}\tools\windows.py cmake ${{matrix.os}} ${{matrix.platform}}'
+          run: |
+                python.exe ${{github.workspace}}\tools\windows.py cmake ${{matrix.os}} ${{matrix.platform}}
 
         - name: Build
           shell: bash
