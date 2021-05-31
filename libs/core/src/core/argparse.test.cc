@@ -100,18 +100,18 @@ namespace
     )
     {
         return euphoria::tests::vector_is_equal
-                (
-                        lhs,
-                        rhs,
-                        [](const std::string &m) -> std::string
-                        {
-                            return m;
-                        },
-                        [](const std::string &lhs, const std::string &rhs) -> false_string
-                        {
-                            return string_is_equal(lhs, rhs);
-                        }
-                );
+        (
+            lhs,
+            rhs,
+            [](const std::string &m) -> std::string
+            {
+                return m;
+            },
+            [](const std::string &lhs, const std::string &rhs) -> false_string
+            {
+                return string_is_equal(lhs, rhs);
+            }
+        );
     }
 
     false_string
@@ -122,28 +122,28 @@ namespace
     )
     {
         return euphoria::tests::vector_is_equal
+        (
+            lhs,
+            rhs,
+            [](const Message &m) -> std::string
+            {
+                return string_builder() << m;
+            },
+            [](const Message &lhs, const Message &rhs) -> false_string
+            {
+                const auto str = string_is_equal(lhs.text, rhs.text);
+                if (str == false)
+                { return str; }
+                if (lhs.error == rhs.error)
+                { return false_string::create_true(); }
+                return false_string::create_false
                 (
-                        lhs,
-                        rhs,
-                        [](const Message &m) -> std::string
-                        {
-                            return string_builder() << m;
-                        },
-                        [](const Message &lhs, const Message &rhs) -> false_string
-                        {
-                            const auto str = string_is_equal(lhs.text, rhs.text);
-                            if (str == false)
-                            { return str; }
-                            if (lhs.error == rhs.error)
-                            { return false_string::create_true(); }
-                            return false_string::create_false
-                                    (
-                                            string_builder() << "error diff: "
-                                                             << lhs.error << " vs "
-                                                             << rhs.error
-                                    );
-                        }
+                    string_builder() << "error diff: "
+                                     << lhs.error << " vs "
+                                     << rhs.error
                 );
+            }
+        );
     }
 
 

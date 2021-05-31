@@ -186,7 +186,8 @@ namespace euphoria::core::detail
 
     database::database()
         : event_id(0)
-    {}
+    {
+    }
 
 
     response&
@@ -326,7 +327,7 @@ namespace euphoria::core
     namespace
     {
         detail::input::location_type
-            C(chat::Location loc)
+        C(chat::Location loc)
         {
             switch (loc)
             {
@@ -398,7 +399,8 @@ namespace euphoria::core
         , last_event(-1)
         , max_responses(5)
         , last_input(detail::clean_input("abc"))
-    {}
+    {
+    }
 
 
     std::string
@@ -678,21 +680,19 @@ namespace euphoria::core
                 (
                         string_builder()
                         << "Checking keyword "
-                        << string_merger()
-                                   .set_separator(" ")
-                                   .set_start_and_end("\"")
-                                   .merge(keyword.words)
+                        << string_merger() .set_separator(" ").set_start_and_end("\"").merge(keyword.words)
                         << " ("
-                        << string_mergers::english_or.merge(
-                                   std::vector<std::string> {
-                                           optional_string(longer_keyword, "longer"),
-                                           optional_string(
-                                                   same_size_but_better,
-                                                   "same size but better")})
+                        << string_mergers::english_or.merge
+                        (
+                            std::vector<std::string>
+                            {
+                                optional_string(longer_keyword, "longer"),
+                                optional_string(same_size_but_better, "same size but better")
+                            }
+                        )
                         << ")"
                 );
-                const bool should_check_keyword
-                        = longer_keyword || same_size_but_better;
+                const bool should_check_keyword = longer_keyword || same_size_but_better;
                 if(!should_check_keyword)
                 {
                     log.emplace_back("Wont check keyword");

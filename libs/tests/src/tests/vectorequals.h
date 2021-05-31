@@ -14,7 +14,7 @@ namespace euphoria::tests
     template
     <
         typename T,
-        // std::function<std::string (const T&)> 
+        // std::function<std::string (const T&)>
         typename TToString,
         // std::function<false_string (const T&, const T&)>
         typename TCompare
@@ -57,10 +57,8 @@ namespace euphoria::tests
                     const auto alhs = vector_to_string_ex(lhs, ToString);
                     const auto arhs = vector_to_string_ex(rhs, ToString);
                     const auto same = alhs.second == arhs.second;
-                    const auto lhsstr = same || alhs.second==false? alhs.first : vector_to_string_impl(lhs, false,
-                                                                                                       ToString);
-                    const auto rhsstr = same || arhs.second==false? arhs.first : vector_to_string_impl(rhs, false,
-                                                                                                       ToString);
+                    const auto lhsstr = same || alhs.second==false? alhs.first : vector_to_string_impl(lhs, false, ToString);
+                    const auto rhsstr = same || arhs.second==false? arhs.first : vector_to_string_impl(rhs, false, ToString);
                     const auto oneliner = same && alhs.second == true;
                     const auto vs = oneliner ? " vs " : "vs";
                     if(oneliner == false) ss << "  ";

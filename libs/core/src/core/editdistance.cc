@@ -110,12 +110,10 @@ namespace euphoria::core
         {
             v1[0] = col_index;
 
-            for(unsigned long row_index = 1; row_index <= row_length;
-                row_index++)
+            for(unsigned long row_index = 1; row_index <= row_length; row_index++)
             {
                 const int cost
-                        = the_row[row_index - 1] == the_col[col_index - 1] ? 0
-                                                                           : 1;
+                        = the_row[row_index - 1] == the_col[col_index - 1] ? 0 : 1;
 
                 const unsigned long m_min = v0[row_index] + 1;
                 const unsigned long b = v1[row_index - 1] + 1;

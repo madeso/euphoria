@@ -198,21 +198,33 @@ TEST_CASE("tb_arrows")
             box.put_char((i % 4), (i/4), static_cast<char>(i));
         }
 
-        CHECK(string_is_equal(box.to_string(ascii_style()),
-                              {
-                                      " |||",
-                                      "-'.+",
-                                      "-`,+",
-                                      "-+++"
-                              }));
+        CHECK
+        (
+            string_is_equal
+            (
+                box.to_string(ascii_style()),
+                {
+                    " |||",
+                    "-'.+",
+                    "-`,+",
+                    "-+++"
+                }
+            )
+        );
 
-        CHECK(string_is_equal(box.to_string(abc_style),
-                              {
-                                      " def",
-                                      "aghm",
-                                      "bijn",
-                                      "cklo"
-                              }));
+        CHECK
+        (
+            string_is_equal
+            (
+                box.to_string(abc_style),
+                {
+                    " def",
+                    "aghm",
+                    "bijn",
+                    "cklo"
+                }
+            )
+        );
     }
 
     SECTION("lines")
@@ -443,104 +455,162 @@ TEST_CASE("tb_create_tree_graph")
             "  1    2    3"
         };
 
-    CHECK(string_is_equal(text_box::create_tree_graph(simple_tree, 130,
-                                                      [](const T &e)
-                                                      { return e.name; },
-                                                      [](const T &e)
-                                                      {
-                                                          return std::make_pair(e.children.cbegin(), e.children.cend());
-                                                      },
-                                                      [](const T &)
-                                                      { return false; },
-                                                      [](const T &)
-                                                      { return false; }).to_string(ascii_style()),
-                          simple_three_row));
+    CHECK
+    (
+        string_is_equal
+        (
+            text_box::create_tree_graph
+            (
+                simple_tree,
+                130,
+                [](const T &e) { return e.name; },
+                [](const T &e)
+                {
+                    return std::make_pair(e.children.cbegin(), e.children.cend());
+                },
+                [](const T &) { return false; },
+                [](const T &) { return false; }
+            ).to_string(ascii_style()),
+            simple_three_row
+        )
+    );
 
-    CHECK(string_is_equal(text_box::create_tree_graph(simple_tree, 130,
-                                                      [](const T &e)
-                                                      { return e.name; },
-                                                      [](const T &e)
-                                                      {
-                                                          return std::make_pair(e.children.cbegin(), e.children.cend());
-                                                      },
-                                                      [](const T &)
-                                                      { return false; },
-                                                      [](const T &)
-                                                      { return true; }).to_string(ascii_style()),
-                          simple_three_row));
+    CHECK
+    (
+        string_is_equal
+        (
+            text_box::create_tree_graph
+            (
+                simple_tree,
+                130,
+                [](const T &e) { return e.name; },
+                [](const T &e)
+                {
+                    return std::make_pair(e.children.cbegin(), e.children.cend());
+                },
+                [](const T &) { return false; },
+                [](const T &) { return true; }
+            ).to_string(ascii_style()),
+            simple_three_row
+        )
+    );
 
 
-    CHECK(string_is_equal(text_box::create_tree_graph(simple_tree, 130,
-                                                      [](const T &e)
-                                                      { return e.name; },
-                                                      [](const T &e)
-                                                      {
-                                                          return std::make_pair(e.children.cbegin(), e.children.cend());
-                                                      },
-                                                      [](const T &)
-                                                      { return true; },
-                                                      [](const T &)
-                                                      { return false; }).to_string(ascii_style()),
-                          simple_two_row));
+    CHECK
+    (
+        string_is_equal
+        (
+            text_box::create_tree_graph
+            (
+                simple_tree,
+                130,
+                [](const T &e) { return e.name; },
+                [](const T &e)
+                {
+                    return std::make_pair(e.children.cbegin(), e.children.cend());
+                },
+                [](const T &) { return true; },
+                [](const T &) { return false; }
+            ).to_string(ascii_style()),
+            simple_two_row
+        )
+    );
 
-    CHECK(string_is_equal(text_box::create_tree_graph(simple_tree, 130,
-                                                      [](const T &e)
-                                                      { return e.name; },
-                                                      [](const T &e)
-                                                      {
-                                                          return std::make_pair(e.children.cbegin(), e.children.cend());
-                                                      },
-                                                      [](const T &)
-                                                      { return true; },
-                                                      [](const T &)
-                                                      { return true; }).to_string(ascii_style()),
-                          simple_two_row));
+    CHECK
+    (
+        string_is_equal
+        (
+            text_box::create_tree_graph
+            (
+                simple_tree,
+                130,
+                [](const T &e) { return e.name; },
+                [](const T &e)
+                {
+                    return std::make_pair(e.children.cbegin(), e.children.cend());
+                },
+                [](const T &) { return true; },
+                [](const T &) { return true; }
+            ).to_string(ascii_style()),
+simple_two_row
+)
+);
 }
 
 
 TEST_CASE("tb_tolkien")
 {
-    const auto tolkien_tree =
-        T{"Tolkien characters", {
-            T{"Heroes", {
-                T{"Humans", {
-                    T{"Aragon"},
-                    T{"Boromir"}
-                }},
-                T{"Hobbits", {
-                    T{"Frodo"},
-                    T{"Samwise"},
-                    T{"Merry"},
-                    T{"Pippin"},
-                }},
-                T{"Other", {
-                    T{"Legolas"},
-                    T{"Gandalf"},
-                    T{"Gimli"}
-                }}
-            }},
-            T{"Enemies", {
-                T{"Sauron"},
-                T{"orcs"},
-                T{"Sauruman"}
-            }}
-        }};
-    CHECK(string_is_equal(text_box::create_tree_graph(tolkien_tree, 130,
-                                                      [](const T &e)
-                                                      { return e.name; },
-                                                      [](const T &e)
-                                                      {
-                                                          return std::make_pair(e.children.cbegin(), e.children.cend());
-                                                      },
-                                                      [](const T &e)
-                                                      { return !e.children.empty(); },
-                                                      [](const T &)
-                                                      { return true; }).to_string(ascii_style()),
-                          {
-                                  "Tolkien characters",
-                                  "`-+----------------------------------------------------------------------------------.",
-                                  "  Heroes--+------------------+----------------------------------.                    Enemies--+-------+-----.",
-                                  "          Humans--+-------.  Hobbits--+------+--------+------.  Other--+--------+--------.    Sauron  orcs  Sauruman",
-                                  "                  Aragon  Boromir     Frodo  Samwise  Merry  Pippin    Legolas  Gandalf  Gimli"
-                          }));
+    const auto tolkien_tree = T
+    {
+        "Tolkien characters",
+        {
+            T
+            {
+                "Heroes",
+                {
+                    T
+                    {
+                        "Humans",
+                        {
+                            T{"Aragon"},
+                            T{"Boromir"}
+                        }
+                    },
+                    T
+                    {
+                        "Hobbits",
+                        {
+                            T{"Frodo"},
+                            T{"Samwise"},
+                            T{"Merry"},
+                            T{"Pippin"},
+                        }
+                    },
+                    T
+                    {
+                        "Other",
+                        {
+                            T{"Legolas"},
+                            T{"Gandalf"},
+                            T{"Gimli"}
+                        }
+                    }
+                }
+            },
+            T
+            {
+                "Enemies",
+                {
+                    T{"Sauron"},
+                    T{"orcs"},
+                    T{"Sauruman"}
+                }
+            }
+        }
+    };
+    CHECK
+    (
+        string_is_equal
+        (
+            text_box::create_tree_graph
+            (
+                tolkien_tree,
+                130,
+                [](const T &e) { return e.name; },
+                [](const T &e)
+                {
+                    return std::make_pair(e.children.cbegin(), e.children.cend());
+                },
+                [](const T &e) { return !e.children.empty(); },
+                [](const T &) { return true; }
+            ).to_string(ascii_style()),
+            {
+                "Tolkien characters",
+                "`-+----------------------------------------------------------------------------------.",
+                "  Heroes--+------------------+----------------------------------.                    Enemies--+-------+-----.",
+                "          Humans--+-------.  Hobbits--+------+--------+------.  Other--+--------+--------.    Sauron  orcs  Sauruman",
+                "                  Aragon  Boromir     Frodo  Samwise  Merry  Pippin    Legolas  Gandalf  Gimli"
+            }
+        )
+    );
 }
