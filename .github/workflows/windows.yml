@@ -40,7 +40,7 @@ jobs:
 
         - name: Build
           shell: bash
-          working-directory: ${{github.workspace}}/build
+          working-directory: ${{github.workspace}}/build/euph
           run: cmake --build . --config ${{matrix.build_type}}
 
         - name: Test
