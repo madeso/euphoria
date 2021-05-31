@@ -16,6 +16,11 @@ target_include_directories(stb_rect_pack
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
+add_library(stb_truetype STATIC stb_truetype.cc)
+target_include_directories(stb_truetype
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
+)
+
 add_library(range INTERFACE)
 target_include_directories(range INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/range-v3/include)
 
@@ -76,11 +81,6 @@ target_include_directories(magic_enum
 
 ################################################################
 # more complex libraries
-
-find_package(Freetype REQUIRED)
-add_library(freetype INTERFACE)
-target_include_directories(freetype INTERFACE ${FREETYPE_INCLUDE_DIRS})
-target_link_libraries(freetype INTERFACE ${FREETYPE_LIBRARIES})
 
 find_package(assimp REQUIRED)
 add_library(assimp INTERFACE)

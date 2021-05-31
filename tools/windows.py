@@ -18,7 +18,6 @@ BUILD_FOLDER = os.path.join(ROOT_FOLDER, 'build', 'euph')
 DEPENDENCY_FOLDER = os.path.join(ROOT_FOLDER, 'build', 'deps')
 SDL2_FOLDER = os.path.join(DEPENDENCY_FOLDER, 'sdl2')
 SDL2_BUILD_FOLDER = os.path.join(SDL2_FOLDER, 'cmake-build')
-FREETYPE2_FOLDER = os.path.join(DEPENDENCY_FOLDER, 'freetype')
 ASSIMP_FOLDER = os.path.join(DEPENDENCY_FOLDER, 'assimp')
 ASSIMP_INSTALL_FOLDER = os.path.join(ASSIMP_FOLDER, 'cmake-install')
 
@@ -44,13 +43,10 @@ def run_install(compiler, platform, generator):
                                      ASSIMP_INSTALL_FOLDER, generator)
     btdeps.install_dependency_sdl2(DEPENDENCY_FOLDER, SDL2_FOLDER,
                                    SDL2_BUILD_FOLDER, generator)
-    btdeps.install_dependency_freetype(DEPENDENCY_FOLDER, FREETYPE2_FOLDER,
-                                       compiler, platform)
 
 
 def run_cmake(platform, generator, only_print):
     """configure the euphoria cmake project"""
-    btdeps.setup_freetype_dependencies(FREETYPE2_FOLDER, platform, only_print)
     generate_cmake_project(generator).config(only_print)
 
 

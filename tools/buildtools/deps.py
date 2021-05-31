@@ -35,49 +35,6 @@ def install_dependency_sdl2(deps, root, build, generator: cmake.Generator):
         print('SDL2 build exist, not building again...', flush=True)
 
 
-def setup_freetype_dependencies(root: str, platform: args.Platform, only_print: bool):
-    """set enviroment variables for the cmake find scripts for freetype"""
-    obj_folder = os.path.join(root, 'objs')
-
-    # is x64 the right sub folder?
-    build_folder = os.path.join(obj_folder, 'vc2010', args.platform_as_string(platform))
-    if only_print:
-        print('freetype root', root)
-        print('freetype  build', build_folder)
-    else:
-        os.environ["FREETYPE_DIR"] = root
-        os.environ["GTKMM_BASEPATH"] = build_folder
-
-
-def install_dependency_freetype(deps: str, root: str, compiler: args.Compiler,
-                                platform: args.Platform):
-    """download and build freetype"""
-    core.print_dashes()
-    print('Installing dependency freetype2', flush=True)
-    url = 'http://download.savannah.gnu.org/releases/freetype/ft28.zip'
-    zip_file = os.path.join(deps, 'ft.zip')
-    if not core.dir_exist(root):
-        core.verify_dir_exist(root)
-        core.verify_dir_exist(deps)
-        print('downloading freetype2', flush=True)
-        core.download_file(url, zip_file)
-        core.extract_zip(zip_file, root)
-        core.move_files(os.path.join(root, 'freetype-2.8'), root)
-        sln = os.path.join(root, 'builds', 'windows', 'vc2010', 'freetype.sln')
-        visualstudio.upgrade_sln(sln, compiler)
-        #  visualstudio.change_all_projects_to_static(sln)
-        visualstudio.msbuild(sln, compiler, platform, ['freetype'])
-
-        vc2010 = os.path.join(root, 'objs', 'vc2010')
-        build_folder = os.path.join(vc2010, args.platform_as_string(platform))
-
-        old_freetype = os.path.join(build_folder, 'freetype28.lib')
-        new_freetype = os.path.join(build_folder, 'freetype.lib')
-        core.rename_file(old_freetype, new_freetype)
-    else:
-        print('Freetype build exist, not building again...', flush=True)
-
-
 def install_dependency_assimp(deps: str, root: str, install: str, generator: cmake.Generator):
     """download and build assimp"""
     core.print_dashes()

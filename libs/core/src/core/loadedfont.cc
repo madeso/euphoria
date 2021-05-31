@@ -1,9 +1,11 @@
 #include "core/loadedfont.h"
 
 #include <set>
+#include <optional>
+#include <vector>
+#include <map>
 
-#include "ft2build.h"
-#include FT_FREETYPE_H
+#include "stb_truetype.h"
 
 #include "font8x8/font8x8_basic.h"
 #include "font8x13.h"
@@ -21,231 +23,118 @@
 
 namespace euphoria::core
 {
-    namespace
+    struct font_data
     {
-        std::string_view error_to_string(FT_Error err)
+        stbtt_fontinfo font;
+        float size;
+        bool was_loaded;
+        int line_height;
+
+        std::vector<stbtt_kerningentry> kernings;
+
+        std::map<int, int> index_to_unicode;
+
+        void define_codepoint(int cp)
         {
-            #undef __FTERRORS_H__
-            #define FT_ERRORDEF( e, v, s ) case e: return s;
-            #define FT_ERROR_START_LIST switch (err) {
-            #define FT_ERROR_END_LIST }
-            #include FT_ERRORS_H
-            return "[unknown error]";
+            const int index = stbtt_FindGlyphIndex(&font, cp);
+            index_to_unicode[index] = cp;
         }
 
-
-        [[nodiscard]]
-        bool
-        is_error(FT_Error err)
+        std::optional<int> glyph_index_to_unicode(int glyph) const
         {
-            if(err == 0)
+            auto found = index_to_unicode.find(glyph);
+            if(found == index_to_unicode.end())
             {
-                return false;
-            }
-
-            LOG_ERROR("FONT Error: {1} ({0})", err, error_to_string(err));
-            return true;
-        }
-
-
-        void
-        log_error(FT_Error err)
-        {
-            if(err == 0)
-            {
-                return;
-            }
-            LOG_ERROR("FONT Error: {1} ({0})", err, error_to_string(err));
-        }
-    }
-
-
-    struct freetype_library
-    {
-        NONCOPYABLE_CONSTRUCTOR(freetype_library);
-        NONCOPYABLE_ASSIGNMENT(freetype_library);
-
-        freetype_library(freetype_library&& other) : library(other.library) {other.library = nullptr;};
-        freetype_library&
-        operator=(freetype_library&& other) {library = other.library; other.library = nullptr; return *this;};
-
-        FT_Library library;
-
-
-        explicit
-        freetype_library(FT_Library lib)
-            : library(lib)
-        {
-        }
-
-
-        [[nodiscard]]
-        static
-        std::optional<freetype_library>
-        create()
-        {
-            FT_Library library = nullptr;
-            if(is_error(FT_Init_FreeType(&library)))
-            {
-                return std::nullopt;
+                return {};
             }
             else
             {
-                return freetype_library{library};
+                return found->second;
             }
         }
 
-
-        ~freetype_library()
+        font_data(unsigned char* ttf_buffer, float s)
+            : size(s)
+            , was_loaded(stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1)
+            , line_height(0)
         {
-            if(library == nullptr )
+            if(was_loaded)
             {
-                return;
+                {
+                    const int count = stbtt_GetKerningTableLength(&font);
+                    kernings.reserve(count);
+                    stbtt_GetKerningTable(&font, kernings.data(), count);
+                }
+
+                line_height = [&]{
+                    int ascent = 0;
+                    int descent = 0;
+                    int line_gap = 0;
+                    stbtt_GetFontVMetrics(&font, &ascent, &descent, &line_gap);
+                    return ascent - descent + line_gap;
+                }();
             }
-            log_error(FT_Done_FreeType(library));
-        }
-    };
-
-
-    struct freetype_face
-    {
-        FT_Face face;
-        float size;
-
-        NONCOPYABLE_CONSTRUCTOR(freetype_face);
-        NONCOPYABLE_ASSIGNMENT(freetype_face);
-
-        freetype_face(freetype_face&& other)
-            : face(other.face)
-            , size(other.size)
-        {
-            other.face = nullptr;
-        }
-
-        freetype_face&
-        operator=(freetype_face&& other)
-        {
-            face = other.face;
-            size = other.size;
-            other.face = nullptr;
-            return *this;
-        }
-
-
-        freetype_face(FT_Face f, int s)
-            : face(f)
-            , size(static_cast<float>(s))
-        {
-        }
-
-
-        [[nodiscard]]
-        static
-        std::optional<freetype_face>
-        create
-        (
-            freetype_library* lib,
-            std::shared_ptr<memory_chunk> memory,
-            int size
-        )
-        {
-            FT_Face face = nullptr;
-
-            int face_index = 0;
-            if
-            (
-                is_error
-                (
-                    FT_New_Memory_Face
-                    (
-                        lib->library,
-                        reinterpret_cast<FT_Byte*>(memory->get_data()), // NOLINT
-                        memory->get_size(),
-                        face_index,
-                        &face
-                    )
-                )
-            )
-            {
-                LOG_ERROR("Failed to load font");
-                return std::nullopt;
-            }
-
-            if(is_error(FT_Set_Pixel_Sizes(face, 0, size)))
-            {
-                FT_Done_Face(face);
-                return std::nullopt;
-            }
-
-            return freetype_face{face, size};
         }
 
 
         [[nodiscard]] loaded_glyph
         load_glyph(int code_point) const
         {
-            const auto error = FT_Load_Char(face, code_point, FT_LOAD_RENDER);
-            if(error != 0)
-            {
-                LOG_ERROR("Failed to get char {0}", code_point);
-                return loaded_glyph();
-            }
-
-            FT_GlyphSlot slot = face->glyph;
+            int width; int height;
+            int xoffset; int yoffset;
+            const auto scale = stbtt_ScaleForPixelHeight(&font, size);
+            const auto c = static_cast<char>(code_point);
+            unsigned char *bitmap = stbtt_GetCodepointBitmap
+            (
+                &font,
+                scale,
+                scale,
+                code_point,
+                &width,
+                &height,
+                &xoffset,
+                &yoffset
+            );
 
             loaded_glyph ch;
             ch.code_point= code_point;
             ch.size = size;
-            ch.bearing_x = slot->bitmap_left;
-            ch.bearing_y = slot->bitmap_top;
+            ch.bearing_x = xoffset;
+            ch.bearing_y = yoffset;
             ch.valid = true;
-            ch.advance = slot->advance.x >> 6;
-            // pen_y += slot->advance.y >> 6;
-            if(slot->bitmap.width == 0)
+            {
+                int advance_width = 0;
+                stbtt_GetCodepointHMetrics(&font, code_point, &advance_width, nullptr);
+                ch.advance = advance_width;
+            }
+            if(width == 0 && height == 0)
             {
                 ch.image.make_invalid();
             }
             else
             {
-                const bool upside_down = slot->bitmap.pitch > 0;
-
-                ch.image.setup_with_alpha_support
-                (
-                    Cunsigned_int_to_int(slot->bitmap.width),
-                    Cunsigned_int_to_int(slot->bitmap.rows)
-                );
-                auto* buffer = slot->bitmap.buffer;
+                ch.image.setup_with_alpha_support(width, height);
 
                 for(int y = 0; y < ch.image.height; y += 1)
                 {
                     for(int x = 0; x < ch.image.width; x += 1)
                     {
-                        const int target_y = upside_down
-                            ? ch.image.height - (y + 1)
-                            : y
-                            ;
-
                         ch.image.set_pixel
                         (
-                            x,
-                            target_y,
-                            255,
-                            255,
-                            255,
-                            buffer[ch.image.width * y + x]
+                            x, y,
+                            255, 255, 255,
+                            bitmap[ch.image.width * y + x]
                         );
                     }
                 }
             }
 
+            if(bitmap)
+            {
+                stbtt_FreeBitmap(bitmap, nullptr);
+            }
+
             return ch;
-        }
-
-
-        ~freetype_face()
-        {
-            if(face == nullptr) { return; }
-            FT_Done_Face(face);
         }
     };
 
@@ -449,18 +338,13 @@ namespace euphoria::core
         const std::string& chars
     )
     {
-        auto created_lib = freetype_library::create();
-        if(created_lib.has_value() == false) { return loaded_font{}; }
-        auto lib = std::move(*created_lib);
+        auto f = font_data
+        {
+            reinterpret_cast<unsigned char*>(file_memory->get_data()),
+            Cint_to_float(font_size)
+        };
 
-        auto loaded_face = freetype_face::create
-        (
-            &lib,
-            file_memory,
-            font_size
-        );
-        if(loaded_face.has_value() == false) { return loaded_font{}; }
-        auto f = std::move(*loaded_face);
+        if(f.was_loaded == false) { return loaded_font{}; }
 
         std::vector<int> code_points;
         utf8_to_codepoints
@@ -481,62 +365,37 @@ namespace euphoria::core
             fontchars.codepoint_to_glyph[code_point] = cc;
         }
 
-        if(f.face == nullptr)
-        {
-            LOG_ERROR("Missing font face!");
-            return fontchars;
-        }
-        if(f.face->size == nullptr) { return fontchars; }
-
-        fontchars.line_height = f.face->size->metrics.height;
-
-        const FT_Long use_kerning = FT_HAS_KERNING(f.face);
+        fontchars.line_height = f.line_height;
 
         LOG_INFO
         (
             "Loaded {0} characters",
             fontchars.codepoint_to_glyph.size()
         );
-        LOG_INFO("kerning: {0}", static_cast<int>(use_kerning));
+        LOG_INFO("kerning: {0}", f.kernings.empty() == false);
 
         const float scale = 1 / static_cast<float>(font_size);
 
-        if(use_kerning != 1)
+        for(const char cp: code_points)
         {
-            return fontchars;
+            f.define_codepoint(cp);
         }
 
-        for(const char previous: code_points)
+        for(const auto& info: f.kernings)
         {
-            for(const char current: code_points)
+            const auto previous = f.glyph_index_to_unicode(info.glyph1);
+            const auto current = f.glyph_index_to_unicode(info.glyph2);
+            const int dx = info.advance;
+            if(previous && current)
             {
-                if(previous == current)
-                {
-                    continue;
-                }
-                const auto previous_index = FT_Get_Char_Index(f.face, previous);
-                const auto current_index = FT_Get_Char_Index(f.face, current);
-                FT_Vector delta {};
-                FT_Get_Kerning
+                fontchars.kerning.insert
                 (
-                    f.face,
-                    previous_index,
-                    current_index,
-                    FT_KERNING_DEFAULT,
-                    &delta
-                );
-                const int dx = delta.x >> 6;
-                if(dx != 0)
-                {
-                    fontchars.kerning.insert
+                    kerning_map::value_type
                     (
-                        kerning_map::value_type
-                        (
-                            kerning_map::key_type(previous, current),
-                            static_cast<float>(dx) * scale
-                        )
-                    );
-                }
+                        kerning_map::key_type(*previous, *current),
+                        static_cast<float>(dx) * scale
+                    )
+                );
             }
         }
 

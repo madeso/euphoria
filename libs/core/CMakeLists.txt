@@ -193,7 +193,7 @@ target_link_libraries(core
     PRIVATE
     stb_image stb_image_write stb_rect_pack crc32
     font8x8 font8x13 aheasing file_types range
-    assimp freetype
+    assimp stb_truetype
 )
 
 
