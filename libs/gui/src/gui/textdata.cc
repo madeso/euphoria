@@ -19,9 +19,9 @@ namespace euphoria::gui
 
 
     void
-    text_data::set_font(std::shared_ptr<render::drawable_font> font)
+    text_data::set_font(std::shared_ptr<render::drawable_font> new_font)
     {
-        font = font;
+        font = new_font;
         text.reset();
         update_text();
     }
