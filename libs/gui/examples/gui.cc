@@ -395,23 +395,9 @@ main(int argc, char* argv[])
 
     engine.init->use_2d();
 
-    while(running)
+    auto handle_events = [&](bool show_imgui)
     {
-        last = now;
-        now = SDL_GetPerformanceCounter();
-        const float dt = static_cast<float>(now - last) / static_cast<float>(SDL_GetPerformanceFrequency());
         SDL_Event e;
-
-        // imgui
-        if(show_imgui)
-        {
-            engine.imgui->start_new_frame();
-
-            ImGui::Begin("Gui");
-            imgui_widget(&root);
-            ImGui::End();
-        }
-
         while(SDL_PollEvent(&e) != 0)
         {
             if(e.type == SDL_QUIT)
@@ -444,8 +430,7 @@ main(int argc, char* argv[])
                     running = false;
                 }
             }
-            else if(e.type == SDL_MOUSEBUTTONDOWN
-                    || e.type == SDL_MOUSEBUTTONUP)
+            else if(e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP)
             {
                 const bool down = e.type == SDL_MOUSEBUTTONDOWN;
                 window_mouse_x = e.button.x;
@@ -460,7 +445,10 @@ main(int argc, char* argv[])
                 // const std::string& input = e.text.text;
             }
         }
+    };
 
+    auto run_update = [&](bool show_imgui, float dt)
+    {
         if(show_imgui && ImGui::GetIO().WantCaptureMouse)
         {
         }
@@ -478,7 +466,10 @@ main(int argc, char* argv[])
         }
 
         root.step(dt);
+    };
 
+    auto render_example = [&](bool show_imgui)
+    {
         engine.init->clear_screen(clear_color);
         root.render(&renderer);
         if(show_imgui)
@@ -486,6 +477,27 @@ main(int argc, char* argv[])
             engine.imgui->render();
         }
         SDL_GL_SwapWindow(engine.window->window);
+    };
+
+    while(running)
+    {
+        last = now;
+        now = SDL_GetPerformanceCounter();
+        const float dt = static_cast<float>(now - last) / static_cast<float>(SDL_GetPerformanceFrequency());
+
+        // imgui
+        if(show_imgui)
+        {
+            engine.imgui->start_new_frame();
+
+            ImGui::Begin("Gui");
+            imgui_widget(&root);
+            ImGui::End();
+        }
+
+        run_update(show_imgui, dt);
+        render_example(show_imgui);
+        handle_events(show_imgui);
     }
 
     return 0;

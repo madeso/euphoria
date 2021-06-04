@@ -250,68 +250,63 @@ main(int argc, char** argv)
 
     bool paused = true;
 
-    while(running)
+    auto run_imgui = [&]()
     {
-        const bool show_imgui = !capturing_mouse_movement;
-        const float delta = timer.update();
+        ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
 
-        if(show_imgui)
-        {
-            engine.imgui->start_new_frame();
+        ImGui::SetNextWindowSize
+        (
+            ImVec2(200, 100),
+            ImGuiCond_FirstUseEver
+        );
+        ImGui::Begin("Light");
+        imgui::combo
+        (
+            "Type",
+            &world.light.light_type,
+            {
+                {"Directional", light::type::directional},
+                {"Point", light::type::point},
+                {"Spot", light::type::spot}
+            }
+        );
+        imgui::color_edit("Ambient", &world.light.ambient);
+        imgui::color_edit("Diffuse", &world.light.diffuse);
+        imgui::color_edit("Specular", &world.light.specular);
+        ImGui::Combo
+        (
+            "Update",
+            &light_update,
+            "Do nothing\0Follow actor\0Follow camera\0\0"
+        );
 
-            ImGui::SetNextWindowPos(ImVec2(650, 20), ImGuiCond_FirstUseEver);
+        imgui::angle_slider
+        (
+            "Cutoff Angle Inner",
+            &world.light.cutoff_angle_inner,
+            angle::Zero(),
+            angle::Quarter() / 2
+        );
+        imgui::angle_slider
+        (
+            "Cutoff Angle Outer",
+            &world.light.cutoff_angle_outer,
+            angle::Zero(),
+            angle::Quarter()
+        );
 
-            ImGui::SetNextWindowSize
-            (
-                ImVec2(200, 100),
-                ImGuiCond_FirstUseEver
-            );
-            ImGui::Begin("Light");
-            imgui::combo
-            (
-                "Type",
-                &world.light.light_type,
-                {
-                    {"Directional", light::type::directional},
-                    {"Point", light::type::point},
-                    {"Spot", light::type::spot}
-                }
-            );
-            imgui::color_edit("Ambient", &world.light.ambient);
-            imgui::color_edit("Diffuse", &world.light.diffuse);
-            imgui::color_edit("Specular", &world.light.specular);
-            ImGui::Combo
-            (
-                "Update",
-                &light_update,
-                "Do nothing\0Follow actor\0Follow camera\0\0"
-            );
+        imgui::image(debug_texture.get());
 
-            imgui::angle_slider
-            (
-                "Cutoff Angle Inner",
-                &world.light.cutoff_angle_inner,
-                angle::Zero(),
-                angle::Quarter() / 2
-            );
-            imgui::angle_slider
-            (
-                "Cutoff Angle Outer",
-                &world.light.cutoff_angle_outer,
-                angle::Zero(),
-                angle::Quarter()
-            );
+        ImGui::End();
 
-            imgui::image(debug_texture.get());
+        light_material.ambient = world.light.ambient;
+        light_material.diffuse = world.light.diffuse;
+        light_material.specular = world.light.specular;
+        light_material.shininess = 10;
+    };
 
-            ImGui::End();
-
-            light_material.ambient = world.light.ambient;
-            light_material.diffuse = world.light.diffuse;
-            light_material.specular = world.light.specular;
-            light_material.shininess = 10;
-        }
-
+    auto run_update = [&](float delta)
+    {
         light_position = wrap
         (
             make_range<float>(0, 1),
@@ -360,6 +355,13 @@ main(int argc, char** argv)
             }
         }
 
+        fps.update(delta);
+        camera.position = fps.position;
+        camera.rotation = fps.get_rotation();
+    };
+
+    auto handle_events = [&](bool show_imgui)
+    {
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
@@ -422,11 +424,10 @@ main(int argc, char** argv)
                 break;
             }
         }
+    };
 
-        fps.update(delta);
-        camera.position = fps.position;
-        camera.rotation = fps.get_rotation();
-
+    auto render_demo = [&](bool show_imgui)
+    {
         engine.init->clear_screen(color::black);
         // todo(Gustav): get_full_viewport or somthing different?
         // how does this handle the black bars...?
@@ -438,6 +439,22 @@ main(int argc, char** argv)
         }
 
         SDL_GL_SwapWindow(engine.window->window);
+    };
+
+    while(running)
+    {
+        const bool show_imgui = !capturing_mouse_movement;
+        const float delta = timer.update();
+
+        if(show_imgui)
+        {
+            engine.imgui->start_new_frame();
+            run_imgui();
+        }
+
+        run_update(delta);
+        render_demo(show_imgui);
+        handle_events(show_imgui);
     }
 
     return 0;

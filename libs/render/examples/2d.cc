@@ -94,11 +94,6 @@ main(int argc, char* argv[])
     viewport_handler.add(&shader);
     viewport_handler.set_size(window_width, window_height);
 
-    Uint64 now = SDL_GetPerformanceCounter();
-    Uint64 last = 0;
-
-    // SDL_StartTextInput();
-
     bool running = true;
     constexpr bool show_imgui = true;
 
@@ -128,31 +123,14 @@ main(int argc, char* argv[])
 
     engine.init->use_2d();
 
-    float sprite_width = 10;
-    float sprite_height = 10;
+    float sprite_width = 200;
+    float sprite_height = 200;
     float sprite_x = 10;
     float sprite_y = 10;
 
-    while(running)
+    auto handle_events = [&]
     {
-        last = now;
-        now = SDL_GetPerformanceCounter();
-        //const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
         SDL_Event e;
-
-        // imgui
-        if(show_imgui)
-        {
-            engine.imgui->start_new_frame();
-
-            ImGui::Begin("2d");
-            ImGui::DragFloat("width", &sprite_width);
-            ImGui::DragFloat("height", &sprite_height);
-            ImGui::DragFloat("x", &sprite_x);
-            ImGui::DragFloat("y", &sprite_y);
-            ImGui::End();
-        }
-
         while(SDL_PollEvent(&e) != 0)
         {
             if(e.type == SDL_QUIT)
@@ -200,21 +178,18 @@ main(int argc, char* argv[])
                 // const std::string& input = e.text.text;
             }
         }
+    };
 
+    auto render = [&]
+    {
         engine.init->clear_screen(clear_color);
         const auto r = rectf::from_position_anchor_width_and_height
         (
             vec2f{sprite_x, sprite_y},
             scale2f{0.5f, 0.5f},
-            static_cast<float>(arrows->width),
-            static_cast<float>(arrows->height)
+            euphoria::core::max(0.0f, sprite_width),
+            euphoria::core::max(0.0f, sprite_height)
         );
-        /*
-        const auto sr =
-            Rectf::FromWidthHeight(sprite_width, sprite_height)
-                .OffsetCopy(sprite_x, sprite_y)
-            ;
-        */
         renderer.draw_sprite
         (
             *arrows,
@@ -225,6 +200,34 @@ main(int argc, char* argv[])
             engine.imgui->render();
         }
         SDL_GL_SwapWindow(engine.window->window);
+    };
+
+    Uint64 now = SDL_GetPerformanceCounter();
+    Uint64 last = 0;
+
+    while(running)
+    {
+
+        last = now;
+        now = SDL_GetPerformanceCounter();
+        //const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
+
+
+        // imgui
+        if(show_imgui)
+        {
+            engine.imgui->start_new_frame();
+
+            ImGui::Begin("2d");
+            ImGui::DragFloat("width", &sprite_width);
+            ImGui::DragFloat("height", &sprite_height);
+            ImGui::DragFloat("x", &sprite_x);
+            ImGui::DragFloat("y", &sprite_y);
+            ImGui::End();
+        }
+
+        render();
+        handle_events();
     }
 
     return 0;
