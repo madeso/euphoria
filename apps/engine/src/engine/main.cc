@@ -329,29 +329,9 @@ main(int argc, char* argv[])
 
     engine.init->use_2d();
 
-    while(running)
+    auto handle_events = [&]()
     {
-        last = now;
-        now = SDL_GetPerformanceCounter();
-        const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
         SDL_Event e;
-
-        engine.imgui->start_new_frame();
-
-        if(!has_crashed)
-        {
-            try
-            {
-                world.update(dt);
-            }
-            catch(const std::exception& ex)
-            {
-                crash_on_exception(ex);
-            }
-        }
-
-        input.update_state();
-
         while(SDL_PollEvent(&e) != 0)
         {
             if(e.type == SDL_QUIT)
@@ -405,6 +385,31 @@ main(int argc, char* argv[])
                 }
             }
         }
+    };
+
+    while(running)
+    {
+        last = now;
+        now = SDL_GetPerformanceCounter();
+        const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
+
+        handle_events();
+        engine.imgui->start_new_frame();
+
+        if(!has_crashed)
+        {
+            try
+            {
+                world.update(dt);
+            }
+            catch(const std::exception& ex)
+            {
+                crash_on_exception(ex);
+            }
+        }
+
+        input.update_state();
+
 
         if(has_crashed == false)
         {

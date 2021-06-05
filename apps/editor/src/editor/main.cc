@@ -656,7 +656,7 @@ main(int argc, char** argv)
     //////////////////////////////////////////////////////////////////////////////
     // main loop
 
-    while(running)
+    auto handle_events = [&]()
     {
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
@@ -676,6 +676,11 @@ main(int argc, char** argv)
                 break;
             }
         }
+    };
+
+    while(running)
+    {
+        handle_events();
 
         engine.imgui->start_new_frame();
 
