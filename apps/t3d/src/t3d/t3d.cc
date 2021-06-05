@@ -66,7 +66,7 @@ namespace euphoria::t3d
         }
 
         material_shader_cache = std::make_shared<render::material_shader_cache>(engine->file_system.get());
-        
+
         SET_ENUM_FROM_FILE
         (
             engine->file_system.get(),
@@ -84,7 +84,7 @@ namespace euphoria::t3d
         editor->tools.push_tool(std::make_shared<tool_no_tool>());
 
         timer = std::make_shared<window::sdl_timer>();
-        
+
         update_grid();
 
         engine->window->enable_char_event(!immersive_mode);
@@ -291,7 +291,7 @@ namespace euphoria::t3d
                 break;
             }
         }
-        
+
         switch(key)
         {
             case core::key::shift_left:
@@ -311,7 +311,7 @@ namespace euphoria::t3d
         {
             editor->on_mouse(button, down);
         }
-        
+
         switch(button)
         {
         case core::MouseButton::middle:
@@ -353,7 +353,7 @@ namespace euphoria::t3d
             on_main_menu();
         }
         ImGui::EndMainMenuBar();
-        
+
         if(environment_window)
         {
             ImGui::Begin("Environment", &environment_window);
@@ -441,7 +441,7 @@ namespace euphoria::t3d
             return;
         }
 
-        ImGui::ListBoxHeader("Items");
+        ImGui::BeginListBox("Items");
         for(auto actor: actors)
         {
             ASSERT(actor->tile);
@@ -457,7 +457,7 @@ namespace euphoria::t3d
                 actor->is_selected = !actor->is_selected;
             }
         }
-        ImGui::ListBoxFooter();
+        ImGui::EndListBox();
 
         if(ImGui::Button("Select none"))
         {
@@ -494,7 +494,7 @@ namespace euphoria::t3d
         constexpr auto uimax = 100.0f;
         bool dirty = false;
 
-        
+
         const std::string str = core::string_builder{} << grid_data.small_step;
         constexpr auto popup_grid = "popup_grid";
         if(ImGui::Button(str.c_str()))

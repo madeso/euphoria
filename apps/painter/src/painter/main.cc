@@ -178,7 +178,7 @@ main(int argc, char** argv)
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
                 draw_list->PathLineTo(a);
                 draw_list->PathLineTo(b);
-                draw_list->PathStroke(color, false);
+                draw_list->PathStroke(color, ImDrawFlags_None);
             };
 
             const auto curve_color = IM_COL32(0, 0, 200, 255);
@@ -217,7 +217,7 @@ main(int argc, char** argv)
             {
                 auto s = path.get_points_in_segment(seg);
                 auto* dl = ImGui::GetWindowDrawList();
-                dl->AddBezierCurve
+                dl->AddBezierCubic
                 (
                     canvas.world_to_screen(C(s.a0)),
                     canvas.world_to_screen(C(s.c0)),

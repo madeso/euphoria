@@ -117,7 +117,7 @@ namespace euphoria::editor
         {
             return outline? ICON_MDI_FOLDER_OUTLINE : ICON_MDI_FOLDER;
         }
-        
+
     }
 
     bool
@@ -125,18 +125,18 @@ namespace euphoria::editor
     {
         window::imgui::input_text("URL", &current_folder.path);
         window::imgui::input_text("Filter", &filter);
-        if(ImGui::ListBoxHeader("", ImVec2 {-1, -1}) == false)
+        if(ImGui::BeginListBox("", ImVec2 {-1, -1}) == false)
         {
             return false;
         }
 
         int index = 0;
         bool doubleclicked_file = false;
-        
+
         // if files is updated during iteration, bad things
         // will probably happen, so we iterate a copy
         const auto ff = files;
-        
+
         for(const auto& item: ff)
         {
             const bool custom = item.is_builtin;
@@ -174,7 +174,7 @@ namespace euphoria::editor
                 const auto user_clicked_right = ImGui::IsMouseClicked(1);
                 const auto mouse_hovering_item = ImGui::IsItemHovered(ImGuiHoveredFlags_AllowWhenBlockedByPopup);
                 const auto right_clicked_item = mouse_hovering_item && user_clicked_right;
-                
+
                 if(left_clicked_item || right_clicked_item)
                 {
                     selected_file = index;
@@ -209,7 +209,7 @@ namespace euphoria::editor
             }
             index += 1;
         }
-        ImGui::ListBoxFooter();
+        ImGui::EndListBox();
         // ImGui::PopItemWidth();
 
         return doubleclicked_file;

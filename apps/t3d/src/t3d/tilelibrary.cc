@@ -40,7 +40,7 @@ namespace euphoria::t3d
 
         bool tile_has_changed = false;
 
-        ImGui::ListBoxHeader("Tiles");
+        ImGui::BeginListBox("Tiles");
         for(auto tile: tiles)
         {
             std::string display = core::string_builder {}
@@ -52,7 +52,7 @@ namespace euphoria::t3d
                 tile_has_changed = true;
             }
         }
-        ImGui::ListBoxFooter();
+        ImGui::EndListBox();
 
         return tile_has_changed;
     }

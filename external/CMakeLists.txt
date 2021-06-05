@@ -125,8 +125,8 @@ target_include_directories(imgui
 target_compile_definitions(imgui
     PRIVATE
         -DIMGUI_IMPL_OPENGL_LOADER_GLAD
-    #PUBLIC
-    #    -DIMGUI_DISABLE_OBSOLETE_FUNCTIONS
+    PUBLIC
+        -DIMGUI_DISABLE_OBSOLETE_FUNCTIONS
 )
 target_link_libraries(imgui PUBLIC core sdl2 glad) # need core for assert override
 
