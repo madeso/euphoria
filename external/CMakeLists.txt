@@ -97,31 +97,37 @@ target_include_directories(sdl2 INTERFACE ${SDL2_INCLUDE_DIR})
 target_link_libraries(sdl2 INTERFACE ${SDL2_LIBRARY})
 
 add_library(imgui STATIC
-    imgui/imgui/imgui.cpp
-    imgui/imgui/imgui.h
+    imgui/imgui/imconfig.h
     imgui/imgui/imgui_demo.cpp
     imgui/imgui/imgui_draw.cpp
-    imgui/imgui/imgui_widgets.cpp
     imgui/imgui/imgui_internal.h
-    imgui/imgui/imconfig.h
+    imgui/imgui/imgui_tables.cpp
+    imgui/imgui/imgui_widgets.cpp
+    imgui/imgui/imgui.cpp
+    imgui/imgui/imgui.h
     # todo: look into how different stb libs work together
     imgui/imgui/imstb_rectpack.h
     imgui/imgui/imstb_textedit.h
     imgui/imgui/imstb_truetype.h
-    imgui/imgui/examples/imgui_impl_sdl.cpp
-    imgui/imgui/examples/imgui_impl_sdl.h
-    imgui/imgui/examples/imgui_impl_opengl3.cpp
-    imgui/imgui/examples/imgui_impl_opengl3.h
+    imgui/imgui/backends/imgui_impl_sdl.cpp
+    imgui/imgui/backends/imgui_impl_sdl.h
+    imgui/imgui/backends/imgui_impl_opengl3.cpp
+    imgui/imgui/backends/imgui_impl_opengl3.h
 )
 target_include_directories(imgui
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/examples
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/backends
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/
     # we want this to be private but we currently include the sdl loader
     # and it include imgui the 'imgui way'
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/fake/
 )
-target_compile_definitions(imgui PRIVATE -DIMGUI_IMPL_OPENGL_LOADER_GLAD)
+target_compile_definitions(imgui
+    PRIVATE
+        -DIMGUI_IMPL_OPENGL_LOADER_GLAD
+    #PUBLIC
+    #    -DIMGUI_DISABLE_OBSOLETE_FUNCTIONS
+)
 target_link_libraries(imgui PUBLIC core sdl2 glad) # need core for assert override
 
 add_library(lua STATIC
