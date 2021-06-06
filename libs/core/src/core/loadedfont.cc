@@ -105,7 +105,7 @@ namespace euphoria::core
             {
                 int advance_width = 0;
                 stbtt_GetCodepointHMetrics(&font, code_point, &advance_width, nullptr);
-                ch.advance = advance_width;
+                ch.advance = advance_width * scale;
             }
             if(width == 0 && height == 0)
             {
@@ -121,7 +121,7 @@ namespace euphoria::core
                     {
                         ch.image.set_pixel
                         (
-                            x, y,
+                            x, ch.image.height-y-1,
                             255, 255, 255,
                             bitmap[ch.image.width * y + x]
                         );
