@@ -87,6 +87,54 @@ def is_limited(real_file: str, limit: typing.List[str]) -> bool:
     return True
 
 
+def calculate_identifier(file: str, name: typing.Optional[str]) -> str:
+    return name or file.replace('/', '_').replace('.', '_').replace('-', '_').strip('_')
+
+
+def calculate_display(file: str, name: typing.Optional[str], root: str) -> str:
+    return name or os.path.relpath(file, root)
+
+
+class Graphvizer:
+    def __init__(self):
+        self.nodes = {} # id -> name
+        self.links = collections.Counter() # link with counts
+
+    def print_result(self):
+        print('digraph G')
+        print('{')
+        for ident, name in self.nodes.items():
+            print(f'{ident} [label="{name}"];')
+        print()
+        for code, count in self.links.items():
+            print(f'{code} [label="{count}"];')
+        print('}')
+        print('')
+
+    def link(self, source: str, name: typing.Optional[str], resolved: str, root: str):
+        from_node = calculate_identifier(source, name)
+        to_node = calculate_identifier(resolved, None)
+        self.links[f'{from_node} -> {to_node}'] += 1
+
+        # probably will calc more than once but who cares?
+        self.nodes[from_node] = calculate_display(source, name, root)
+        self.nodes[to_node] = calculate_display(resolved, None, root)
+
+
+def gv_work(real_file: str, name: typing.Optional[str], include_directories: typing.List[str], gv: Graphvizer, limit: typing.List[str], root: str):
+    if is_limited(real_file, limit):
+        return
+
+    for include in list_includes(real_file):
+        resolved = resolve_include_via_include_directories_or_none(include, include_directories)
+        if resolved is not None:
+            gv.link(real_file, name, resolved, root)
+            # todo(Gustav): fix name to be based on root
+            gv_work(resolved, None, include_directories, gv, limit, root)
+        else:
+            gv.link(real_file, name, include, root)
+
+
 def work(real_file: str, include_directories: typing.List[str], counter, print_files: bool, limit: typing.List[str]):
     if is_limited(real_file, limit):
         return
@@ -109,6 +157,12 @@ def print_most_common(counter, count):
         print(f'{file}: {count}')
 
 
+def all_translation_units(files: typing.List[str]) -> typing.Iterable[str]:
+    for patt in files:
+        for file in list_files_in_folder(patt, ['.cc']):
+            yield os.path.realpath(file)
+
+
 ###################################################################################################
 ## handlers
 
@@ -122,19 +176,17 @@ def handle_list(args):
 
     files = 0
 
-    for patt in args.files:
-        for file in list_files_in_folder(patt, ['.cc']):
-            files += 1
-            real_file = os.path.realpath(file)
-            file_counter = collections.Counter()
-            if real_file in compile_commands:
-                include_directories = list(get_include_directories(real_file, compile_commands))
-                work(real_file, include_directories, file_counter, args.print_files, limit)
+    for real_file in all_translation_units(args.files):
+        files += 1
+        file_counter = collections.Counter()
+        if real_file in compile_commands:
+            include_directories = list(get_include_directories(real_file, compile_commands))
+            work(real_file, include_directories, file_counter, args.print_files, limit)
 
-            if args.print_stats:
-                print_most_common(file_counter, 10)
-            total_counter.update(list(file_counter))
-            max_counter = max_counter | file_counter
+        if args.print_stats:
+            print_most_common(file_counter, 10)
+        total_counter.update(list(file_counter))
+        max_counter = max_counter | file_counter
 
     if args.print_max:
         print()
@@ -152,6 +204,21 @@ def handle_list(args):
 
     print()
     print()
+
+
+def handle_gv(args):
+    compile_commands = load_compile_commands(args.compile_commands)
+
+    limit = [os.path.realpath(f) for f in args.limit or []]
+
+    gv = Graphvizer()
+
+    for real_file in all_translation_units(args.files):
+        if real_file in compile_commands:
+            include_directories = list(get_include_directories(real_file, compile_commands))
+            gv_work(real_file, 'TU', include_directories, gv, limit, os.getcwd())
+
+    gv.print_result()
 
 ###################################################################################################
 # main
@@ -174,6 +241,12 @@ def main():
     sub.add_argument('--count', default=2, type=int, help="only print includes that are more or equal to <count>")
     sub.add_argument('--limit', nargs='+', help="limit search to theese files and folders")
     sub.set_defaults(func=handle_list)
+
+    sub = sub_parsers.add_parser('gv', help='generate a graphviz of the includes')
+    sub.add_argument('compile_commands')
+    sub.add_argument('files', nargs='+')
+    sub.add_argument('--limit', nargs='+', help="limit search to theese files and folders")
+    sub.set_defaults(func=handle_gv)
 
     args = parser.parse_args()
     if args.command_name is not None:
