@@ -211,14 +211,17 @@ def set_existing_output(root, project_build_folder, source_file, existing_output
 
 
 
-def call_clang_tidy(root, project_build_folder, source_file, name_printer):
+def call_clang_tidy(root, project_build_folder, source_file, name_printer, fix):
     """
     runs clang-tidy and returns all the text output
     """
     existing_output, took = get_existing_output(root, project_build_folder, source_file)
     if existing_output is not None:
         return existing_output, took
-    command = ['clang-tidy', '-p', project_build_folder, source_file]
+    command = ['clang-tidy', '-p', project_build_folder]
+    if fix:
+        command.append('--fix')
+    command.append(source_file)
 
     name_printer.print_name()
 
@@ -262,11 +265,11 @@ class FileStatistics:
             print(f'{len(self.data)} files')
 
 
-def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_printer):
+def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_printer, fix):
     """
     runs the clang-tidy process, printing status to terminal
     """
-    output, time_taken = call_clang_tidy(root, project_build_folder, source_file, name_printer)
+    output, time_taken = call_clang_tidy(root, project_build_folder, source_file, name_printer, fix)
     warnings = collections.Counter()
     classes = collections.Counter()
     if not short:
@@ -414,7 +417,7 @@ def handle_tidy(args):
                 if args.nop is False:
                     if not args.short:
                         print_name.print_name()
-                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats, args.short, print_name)
+                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats, args.short, print_name, args.fix)
                     if args.short and len(warnings) > 0:
                         break
                     project_counter.update(warnings)
@@ -458,6 +461,7 @@ def main():
 
     sub = sub_parsers.add_parser('tidy', help='do clang tidy on files')
     sub.add_argument('--nop', action='store_true', help="don't do anything")
+    sub.add_argument('--fix', action='store_true', help="try to fix the source")
     sub.add_argument('filter', default=None, nargs='?')
     sub.add_argument('--short', action='store_true', help="use shorter and stop after one file")
     sub.set_defaults(func=handle_tidy)
