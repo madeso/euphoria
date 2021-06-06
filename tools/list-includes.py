@@ -76,14 +76,28 @@ def resolve_include_via_include_directories_or_none(include: str, include_direct
     return None
 
 
-def work(real_file: str, include_directories: typing.List[str], counter, print_files: bool):
+def is_limited(real_file: str, limit: typing.List[str]) -> bool:
+    if len(limit) == 0:
+        return False
+
+    for l in limit:
+        if real_file.startswith(l):
+            return False
+
+    return True
+
+
+def work(real_file: str, include_directories: typing.List[str], counter, print_files: bool, limit: typing.List[str]):
+    if is_limited(real_file, limit):
+        return
+
     for include in list_includes(real_file):
         resolved = resolve_include_via_include_directories_or_none(include, include_directories)
         if resolved is not None:
             if print_files:
                 print(resolved)
             counter[resolved] += 1
-            work(resolved, include_directories, counter, print_files)
+            work(resolved, include_directories, counter, print_files, limit)
         else:
             if print_files:
                 print(f'Unable to find {include}')
@@ -94,27 +108,17 @@ def print_most_common(counter, count):
     for file, count in counter.most_common(count):
         print(f'{file}: {count}')
 
-# todo(Gustav):
-# find out who is including XXX.h and how it's included
-# generate a union graphviz file that is a union of all includes with the TU as the root
 
-def main():
-    """
-    entry point function for running the script
-    """
-    parser = argparse.ArgumentParser(description='do stuff')
-    parser.add_argument('compile_commands')
-    parser.add_argument('files', nargs='+')
-    parser.add_argument('--print', dest='print_files', action='store_true')
-    parser.add_argument('--print-stats', dest='print_stats', action='store_true')
-    parser.add_argument('--print-max', dest='print_max', action='store_true')
-    parser.add_argument('--no-list', dest='print_list', action='store_false')
-    args = parser.parse_args()
+###################################################################################################
+## handlers
 
+def handle_list(args):
     compile_commands = load_compile_commands(args.compile_commands)
 
     total_counter = collections.Counter()
     max_counter = collections.Counter()
+
+    limit = [os.path.realpath(f) for f in args.limit or []]
 
     files = 0
 
@@ -125,7 +129,7 @@ def main():
             file_counter = collections.Counter()
             if real_file in compile_commands:
                 include_directories = list(get_include_directories(real_file, compile_commands))
-                work(real_file, include_directories, file_counter, args.print_files)
+                work(real_file, include_directories, file_counter, args.print_files, limit)
 
             if args.print_stats:
                 print_most_common(file_counter, 10)
@@ -143,11 +147,39 @@ def main():
         print()
         print('Number of includes per translation unit')
         for file, count in sorted(total_counter.items(), key=lambda elem: elem[1], reverse=True):
-            if count> 1:
+            if count>= args.count:
                 print(f'{file} included in {count}/{files}')
 
     print()
     print()
+
+###################################################################################################
+# main
+
+# todo(Gustav):
+# find out who is including XXX.h and how it's included
+# generate a union graphviz file that is a union of all includes with the TU as the root
+
+def main():
+    parser = argparse.ArgumentParser(description='do stuff')
+    sub_parsers = parser.add_subparsers(dest='command_name', title='Commands', help='', metavar='<command>')
+
+    sub = sub_parsers.add_parser('list', help='list headers from files')
+    sub.add_argument('compile_commands')
+    sub.add_argument('files', nargs='+')
+    sub.add_argument('--print', dest='print_files', action='store_true')
+    sub.add_argument('--print-stats', dest='print_stats', action='store_true')
+    sub.add_argument('--print-max', dest='print_max', action='store_true')
+    sub.add_argument('--no-list', dest='print_list', action='store_false')
+    sub.add_argument('--count', default=2, type=int, help="only print includes that are more or equal to <count>")
+    sub.add_argument('--limit', nargs='+', help="limit search to theese files and folders")
+    sub.set_defaults(func=handle_list)
+
+    args = parser.parse_args()
+    if args.command_name is not None:
+        args.func(args)
+    else:
+        parser.print_help()
 
 
 ##############################################################################
