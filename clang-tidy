@@ -75,13 +75,14 @@ google-*
 # makes sense but dynamic cast is ugly
 -cppcoreguidelines-pro-type-static-cast-downcast
 
+readability-identifier-naming
+
 #################################################################################
 ## Temporarily disables to be removed later
 # temporarily: mostly in test files where it's kinda ok
 -google-build-using-namespace
 -modernize-raw-string-literal
 
--readability-identifier-naming
 
 -cppcoreguidelines-macro-usage
 
