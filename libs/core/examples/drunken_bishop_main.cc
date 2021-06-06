@@ -17,18 +17,19 @@
 #include <sstream>
 #include <iomanip>
 
+
 using namespace euphoria;
 using namespace euphoria::core;
 
 
-struct Common
+struct common
 {
     int width = 17;
     int height = 9;
     bool big = false; // 256 or 128 bit
 
     void
-    Add(argparse::parser_base* sub)
+    add(argparse::parser_base* sub)
     {
         sub->add("--width", &width).set_nargs("W").set_help("set the height");
         sub->add("--height", &height).set_nargs("H").set_help("set the width");
@@ -38,7 +39,7 @@ struct Common
 
 
 table<int>
-GenerateDrunkenBishopTable(core::random* random, const Common& common)
+generate_drunken_bishop_table(core::random* random, const ::common& common)
 {
     auto hash = std::vector<int>{};
     const int times = common.big ? 8 : 4;
@@ -55,7 +56,7 @@ GenerateDrunkenBishopTable(core::random* random, const Common& common)
 
 
 image
-GenerateImage(const table<int>& table, int scale, const palette& pal)
+generate_image(const table<int>& table, int scale, const palette& pal)
 {
     image image;
     image.setup_no_alpha_support(scale * table.get_width(), scale * table.get_height());
@@ -108,12 +109,12 @@ main(int argc, char* argv[])
         "img", "drunken bishop with img style",
         [](argparse::sub_parser* sub)
         {
-            auto common = Common{};
+            auto common = ::common{};
             int count = 1;
             int scale = 10;
             auto pal = palettes::name::cubehelix_1;
 
-            common.Add(sub);
+            common.add(sub);
             sub->add("--pal", &pal).set_help("Set the palette");
             sub->add("--count", &count).set_help("The number of images");
             sub->add("--scale", &scale).set_help("The scale of the image");
@@ -121,8 +122,8 @@ main(int argc, char* argv[])
                 auto rand = core::random{};
                 for(int c=0; c<count; c+=1)
                 {
-                    const auto table = GenerateDrunkenBishopTable(&rand, common);
-                    const auto image = GenerateImage
+                    const auto table = generate_drunken_bishop_table(&rand, common);
+                    const auto image = generate_image
                     (
                         table,
                         scale,
@@ -146,11 +147,11 @@ main(int argc, char* argv[])
         "drunken bishop with ssh like output",
         [](argparse::sub_parser* sub)
         {
-            auto common = Common{};
-            common.Add(sub);
+            auto common = ::common{};
+            common.add(sub);
             return sub->on_complete([&]{
                 auto rand = core::random{};
-                const auto table = GenerateDrunkenBishopTable(&rand, common);
+                const auto table = generate_drunken_bishop_table(&rand, common);
                 const auto strs = collapse(table, get_ssh_characters());
                 for(const auto& str: strs)
                 {
