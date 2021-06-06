@@ -6,10 +6,12 @@
 #include "core/vfs.h"
 #include "core/vfs_path.h"
 
+
 namespace vfs = euphoria::core::vfs;
 
+
 void
-PrintUsage(char** argv)
+print_usage(char** argv)
 {
     std::cout << "USAGE:\n"
               << argv[0] << " encode FILE\n"
@@ -18,7 +20,7 @@ PrintUsage(char** argv)
 }
 
 int
-RunEncode(const std::string& data)
+run_encode(const std::string& data)
 {
     vfs::file_system file_system;
     auto catalog = vfs::read_root_catalog::create_and_add(&file_system);
@@ -37,7 +39,7 @@ RunEncode(const std::string& data)
 }
 
 int
-RunDecode(const std::string&)
+run_decode(const std::string&)
 {
     std::cerr << "Not implemented yet...\n";
     return -100;
@@ -54,19 +56,19 @@ main(int argc, char** argv)
 
         if(command == "encode")
         {
-            return RunEncode(data);
+            return run_encode(data);
         }
         if(command == "decode")
         {
-            return RunDecode(data);
+            return run_decode(data);
         }
 
-        PrintUsage(argv);
+        print_usage(argv);
         return -2;
     }
     else
     {
-        PrintUsage(argv);
+        print_usage(argv);
         return -1;
     }
 }

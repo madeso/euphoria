@@ -9,7 +9,7 @@ using namespace euphoria::core;
 namespace core = euphoria::core;
 
 
-void RunRot13FromStream(std::istream& stream)
+void run_rot13_from_stream(std::istream& stream)
 {
     std::string line;
     while(std::getline(stream, line))
@@ -22,18 +22,18 @@ void RunRot13FromStream(std::istream& stream)
 }
 
 
-void RunRot13(const std::string& input)
+void run_rot13(const std::string& input)
 {
     if(input == "-")
     {
-        RunRot13FromStream(std::cin);
+        run_rot13_from_stream(std::cin);
     }
     else
     {
         std::ifstream f{input.c_str()};
         if(f.good())
         {
-            RunRot13FromStream(f);
+            run_rot13_from_stream(f);
         }
         else
         {
@@ -43,7 +43,6 @@ void RunRot13(const std::string& input)
     }
 
 }
-
 
 
 int
@@ -65,7 +64,7 @@ main(int argc, char* argv[])
 
             return sent->on_complete([&]
             {
-                RunRot13(input);
+                run_rot13(input);
                 return core::argparse::ok;
             });
         }

@@ -10,8 +10,10 @@
 #include <string>
 #include <iostream>
 
+
 using namespace euphoria::core;
 using namespace euphoria::core::dump3d;
+
 
 struct plane_demo
 {
@@ -121,17 +123,17 @@ ray_sphere()
 {
     const auto test = []
     (
-        float rayX, float rayY, float rayZ,
-        float normX, float normY, float normZ,
-        float sphereX, float sphereY, float sphereZ,
+        float ray_x, float ray_y, float ray_z,
+        float norm_x, float norm_y, float norm_z,
+        float sphere_x, float sphere_y, float sphere_z,
         float rad,
         bool res
     )
     {
         // todo(Gustav): add scene support to dumper...
-        const auto ray = ray3f(vec3f(rayX, rayY, rayZ), vec3f(normX, normY, normZ).get_normalized());
+        const auto ray = ray3f(vec3f(ray_x, ray_y, ray_z), vec3f(norm_x, norm_y, norm_z).get_normalized());
         const auto sphere = ::sphere{rad};
-        const auto sphere_center = vec3f(sphereX, sphereY, sphereZ);
+        const auto sphere_center = vec3f(sphere_x, sphere_y, sphere_z);
         const auto collision = get_intersection(ray.get_normalized(), sphere, sphere_center);
         const auto collided = collision >= 0.0f;
         if(collided != res)

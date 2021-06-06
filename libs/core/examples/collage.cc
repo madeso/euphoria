@@ -19,7 +19,7 @@ using namespace euphoria::core;
 
 
 std::vector<image>
-LoadImages(const std::vector<std::string>& files)
+load_images(const std::vector<std::string>& files)
 {
     auto images = std::vector<image>{};
 
@@ -46,9 +46,8 @@ LoadImages(const std::vector<std::string>& files)
 }
 
 
-
 bool
-HandleGrid
+handle_grid
 (
     const std::string& output_file,
     int padding,
@@ -74,7 +73,7 @@ HandleGrid
     }
 
     // load images
-    const auto images = LoadImages(files);
+    const auto images = load_images(files);
     if(images.empty())
     {
         return false;
@@ -98,7 +97,7 @@ HandleGrid
 
 
 bool
-HandlePack
+handle_pack
 (
     const std::string& output_file,
     const size2i& requested_size,
@@ -122,7 +121,7 @@ HandlePack
     );
 
     // load images
-    const auto images = LoadImages(files);
+    const auto images = load_images(files);
     if(images.empty())
     {
         return false;
@@ -205,7 +204,7 @@ main(int argc, char* argv[])
                 ;
             return sub->on_complete([&]
             {
-                const auto was_packed = HandleGrid
+                const auto was_packed = handle_grid
                 (
                     output_file,
                     padding,
@@ -266,7 +265,7 @@ main(int argc, char* argv[])
 
             return sub->on_complete([&]
             {
-                const auto was_packed = HandlePack
+                const auto was_packed = handle_pack
                 (
                     output_file,
                     image_size,
