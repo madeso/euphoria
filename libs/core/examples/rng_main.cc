@@ -15,7 +15,7 @@ using namespace euphoria::core;
 
 template<typename TGenerator>
 void
-PrintRandomNumbers
+print_random_numbers
 (
     const std::string& name,
     core::random* random,
@@ -47,7 +47,7 @@ PrintRandomNumbers
 }
 
 
-struct Main
+struct runner
 {
     int count = 1000;
     int small_count = 10;
@@ -55,9 +55,9 @@ struct Main
 
     template<typename TGenerator>
     void
-    Print(const std::string& name)
+    print(const std::string& name)
     {
-        PrintRandomNumbers<TGenerator>
+        print_random_numbers<TGenerator>
         (
             name,
             &rand,
@@ -68,7 +68,7 @@ struct Main
 
     template<int bits, typename TFunc>
     void
-    PrintInts(const std::string& name, int total_ints, TFunc f)
+    print_ints(const std::string& name, int total_ints, TFunc f)
     {
         std::cout << name << ":\n";
         for(int i=0; i<total_ints; i+=1)
@@ -83,20 +83,20 @@ struct Main
     void
     main()
     {
-        Print<random_knuth_lcg>("knuth_lcg");
-        Print<random_xorshift32>("xorshift32");
-        Print<random_xorshift64>("xorshift64");
+        print<random_knuth_lcg>("knuth_lcg");
+        print<random_xorshift32>("xorshift32");
+        print<random_xorshift64>("xorshift64");
 
         const int int_count = 10;
-        PrintInts<32>("u32", int_count, [](core::random* r) { return r->get_next_integer32();});
-        PrintInts<64>("u64", int_count, [](core::random* r) { return r->get_next_integer64();});
+        print_ints<32>("u32", int_count, [](core::random* r) { return r->get_next_integer32();});
+        print_ints<64>("u64", int_count, [](core::random* r) { return r->get_next_integer64();});
     }
 };
 
 int
 main()
 {
-    auto m = Main{};
+    auto m = runner{};
     m.main();
     return 0;
 }

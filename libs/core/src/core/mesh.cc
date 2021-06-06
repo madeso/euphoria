@@ -49,7 +49,7 @@ namespace euphoria::core
     aabb
     mesh_part::calculate_aabb() const
     {
-        aabb aabb = aabb::Empty();
+        aabb aabb = core::aabb::create_empty();
 
         for(const auto& p: points)
         {
@@ -94,7 +94,7 @@ namespace euphoria::core
     aabb
     mesh::calculate_aabb() const
     {
-        aabb aabb = aabb::Empty();
+        aabb aabb = core::aabb::create_empty();
 
         for(const auto& part: parts)
         {

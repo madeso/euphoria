@@ -14,7 +14,7 @@ namespace euphoria::t3d
 {
     tile::tile()
         : path("~/unknown_tile")
-        , aabb(core::aabb::Empty())
+        , aabb(core::aabb::create_empty())
     {
     }
 

@@ -47,7 +47,7 @@ namespace euphoria::core
         from_random(random* random)
         {
             const auto axis = get_random_unit3(random);
-            const auto angle = angle::Random(random);
+            const auto angle = angle::random(random);
 
             return self::from_axis_angle(axis_angle::right_hand_around(axis, angle));
         }

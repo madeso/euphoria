@@ -7,69 +7,107 @@
 
 using namespace euphoria::core;
 
-struct T
+struct t
 {
     std::string name;
-    std::vector<T> children;
+    std::vector<t> children;
 
-    T(const std::string& n) : name(n) {}
-    T(const std::string& n, std::initializer_list<T> t) : name(n), children(t) {}
+    t(const std::string& n) : name(n) {}
+    t(const std::string& n, std::initializer_list<t> t) : name(n), children(t) {}
 };
 
 int
 main(int, char**)
 {
-    const auto simple_tree = T("a", { T{"1"} });
+    const auto simple_tree = t{"a", { t{"1"} }};
 
-    const auto root_tree =
-        T{"Tolkien characters", {
-            T{"Heroes", {
-                T{"Humans", {
-                    T{"Aragon"},
-                    T{"Boromir"}
-                }},
-                T{"Hobbits", {
-                    T{"Frodo"},
-                    T{"Samwise"},
-                    T{"Merry"},
-                    T{"Pippin"},
-                }},
-                T{"Other", {
-                    T{"Legolas"},
-                    T{"Gandalf"},
-                    T{"Gimli"}
-                }}
-            }},
-            T{"Enemies", {
-                T{"Sauron"},
-                T{"orcs"},
-                T{"Sauruman"}
-            }}
-        }};
+    const auto root_tree = t
+    {
+        "Tolkien characters",
+        {
+            t
+            {
+                "Heroes",
+                {
+                    t
+                    {
+                        "Humans",
+                        {
+                            t{"Aragon"},
+                            t{"Boromir"}
+                        }
+                    },
+                    t
+                    {
+                        "Hobbits",
+                        {
+                            t{"Frodo"},
+                            t{"Samwise"},
+                            t{"Merry"},
+                            t{"Pippin"},
+                        }
+                    },
+                    t
+                    {
+                        "Other",
+                        {
+                            t{"Legolas"},
+                            t{"Gandalf"},
+                            t{"Gimli"}
+                        }
+                    }
+                }
+            },
+            t
+            {
+                "Enemies",
+                {
+                    t{"Sauron"},
+                    t{"orcs"},
+                    t{"Sauruman"}
+                }
+            }
+        }
+    };
 
-    const auto trees = std::vector<T>{simple_tree, root_tree};
+    const auto trees = std::vector<t>{simple_tree, root_tree};
 
     bool first = true;
 
-    for(auto t: trees)
+    for(auto tree_to_print: trees)
     {
         if(first) { first = false; }
         else { std::cout << "\n-----------------------------------------\n\n"; }
 
-        print_hierarchy(t, [](const T& t) {return t.name; }, [](const T& t) {return t.children; }, [](const std::string& s) {std::cout << s << "\n"; });
+        print_hierarchy
+        (
+            tree_to_print,
+            [](const t& tt) {return tt.name; },
+            [](const t& tt) {return tt.children; },
+            [](const std::string& s) {std::cout << s << "\n"; }
+        );
 
         std::cout << "\n-----------------------------------------\n\n";
 
         {
             auto result = text_box::create_empty();
-            result.put_box(2,0, text_box::create_tree_graph(t, 132-2,
-                [](const T& e)
-                {
-                    return e.name;
-                },
-                [](const T& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                [](const T& e) { return !e.children.empty(); }, // whether simplified horizontal layout can be used
-                [](const T& ) { return true; }));
+            result.put_box
+            (
+                2,0,
+                text_box::create_tree_graph
+                (
+                    tree_to_print,
+                    132-2,
+                    [](const t& e)
+                    {
+                        return e.name;
+                    },
+                    [](const t& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                    [](const t& e) { return !e.children.empty(); }, // whether simplified horizontal layout can be used
+                    [](const t& ) { return true; }
+                )
+            );
+
             auto strings = result.to_string();
             for(auto s: strings)
             {

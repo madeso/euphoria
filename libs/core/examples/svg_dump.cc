@@ -16,9 +16,9 @@ using namespace euphoria::core;
 using namespace euphoria::core::dump2d;
 
 poly
-MakeStar(const vec2f& origo, float radius, const angle& rotation, int number_of_points=5, float inner_scale=0.5f)
+make_star(const vec2f& origo, float radius, const angle& rotation, int number_of_points=5, float inner_scale=0.5f)
 {
-    auto angle_step = angle::OneTurn() / (static_cast<float>(number_of_points)*2.0f);
+    auto angle_step = angle::one_turn() / (static_cast<float>(number_of_points)*2.0f);
 
     auto poly = ::poly{};
 
@@ -52,7 +52,7 @@ main(int, char*[])
         const auto inner = get_random_in_range(&rand, range{0.3f, 0.75f});
         const auto fill = pal.get_random_item(&rand);
         const auto rotation = angle::from_percent_of_360(rand.get_next_float01());
-        svg << MakeStar(center, radius, rotation, p, inner).close().fill(fill)
+        svg << make_star(center, radius, rotation, p, inner).close().fill(fill)
             // << Text(center, Str{} << p << " / " << std::setprecision( 2 ) << inner)
             ;
     }

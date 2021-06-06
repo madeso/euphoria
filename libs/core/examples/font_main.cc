@@ -11,7 +11,7 @@
 using namespace euphoria::core;
 
 
-bool PrintChar
+bool print_char
 (
     text_box* dst,
     const loaded_font& font,
@@ -65,7 +65,7 @@ bool PrintChar
 }
 
 
-bool PrintString
+bool print_string
 (
     text_box* dst,
     const loaded_font& font,
@@ -80,7 +80,7 @@ bool PrintString
 
     const auto r = utf8_to_codepoints(str, [&](int codepoint)
     {
-        status = PrintChar(dst, font, &x, y, codepoint) && status;
+        status = print_char(dst, font, &x, y, codepoint) && status;
     });
 
     if(r == false)
@@ -97,22 +97,22 @@ bool PrintString
 }
 
 
-enum class FontName
+enum class font_name
 {
-    Builtin8, Builtin13, FontFile
+    builtin8, builtin13, font_file
 };
 
 
 euphoria::core::loaded_font
-GetFont
+get_font
 (
-    FontName font_name,
+    font_name font_name,
     const std::string& font_file,
     int font_size,
     const std::string& chars
 )
 {
-    if(font_name == FontName::FontFile && font_file.empty())
+    if(font_name == font_name::font_file && font_file.empty())
     {
         std::cerr << "warning: Font file requested, but no file specified!";
         return load_characters_from_builtin8();
@@ -132,7 +132,7 @@ GetFont
         }
     }
 
-    return font_name == FontName::Builtin13
+    return font_name == font_name::builtin13
         ? load_characters_from_builtin13()
         : load_characters_from_builtin8()
         ;
@@ -142,7 +142,7 @@ GetFont
 int
 main(int argc, char* argv[])
 {
-    auto font_name = FontName::Builtin8;
+    auto font_name = font_name::builtin8;
     std::string font_file;
     int size = 10;
     std::string chars = "ABCDEFGHIJKLMNOPQRSTUWXYZ!@#$%^&*()_+abcdefghijklmnopqrstuwxyz0123456789-=<>,./\\[]{};:";
@@ -160,10 +160,10 @@ main(int argc, char* argv[])
         return *r;
     }
 
-    auto font = GetFont(font_name, font_file, size, chars);
+    auto font = get_font(font_name, font_file, size, chars);
 
     auto box = text_box::create_empty();
-    const bool printed = PrintString(&box, font, 0, 0, text);
+    const bool printed = print_string(&box, font, 0, 0, text);
     // print textbox
     const auto strings = box.to_string();
     for(const auto& s: strings)

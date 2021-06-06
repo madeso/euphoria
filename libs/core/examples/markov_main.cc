@@ -18,14 +18,14 @@ namespace markov = euphoria::core::markov;
 
 
 std::vector<char>
-C(const std::string& str)
+c(const std::string& str)
 {
     return std::vector<char> {str.begin(), str.end()};
 }
 
 
 std::string
-C(const std::vector<char>& v)
+c(const std::vector<char>& v)
 {
     return std::string {v.begin(), v.end()};
 }
@@ -89,7 +89,7 @@ markov_word(const std::string& file, int memory, int count)
     while(std::getline(data, line))
     {
         if(line.empty()) { continue; }
-        m.add(C(line));
+        m.add(c(line));
     }
 
     std::cout << "\n";
@@ -97,7 +97,7 @@ markov_word(const std::string& file, int memory, int count)
 
     for(int i = 0; i < count; i += 1)
     {
-        std::cout << C(b.generate(&rnd)) << "\n";
+        std::cout << c(b.generate(&rnd)) << "\n";
     }
 }
 
@@ -128,7 +128,7 @@ struct similar_set : public similar
         return existing_lines.find(generated) != existing_lines.end();
     }
 
-    static std::unique_ptr<similar> Create()
+    static std::unique_ptr<similar> create()
     {
          return std::make_unique<similar_set>();
     }
@@ -171,7 +171,7 @@ struct similar_edit_distance : public similar
         );
     }
 
-    static std::unique_ptr<similar> Create()
+    static std::unique_ptr<similar> create()
     {
          return std::make_unique<similar_edit_distance>();
     }
@@ -192,7 +192,7 @@ markov_line(const std::string& file, int memory, int count, bool also_existing, 
         return;
     }
 
-    std::unique_ptr<similar> existing_lines = simple ? similar_set::Create() : similar_edit_distance::Create();
+    std::unique_ptr<similar> existing_lines = simple ? similar_set::create() : similar_edit_distance::create();
 
     {
         std::string line;

@@ -64,7 +64,7 @@ namespace euphoria::core
 
 
     aabb
-    aabb::Empty()
+    aabb::create_empty()
     {
         return aabb {vec3f::zero(), vec3f::zero()};
     }

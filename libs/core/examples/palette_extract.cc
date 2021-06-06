@@ -18,11 +18,11 @@
 using namespace euphoria::core;
 
 
-struct ImageAndFile
+struct image_and_file
 {
-    ImageAndFile() = default;
+    image_and_file() = default;
 
-    ImageAndFile(const std::string& f, const image& i)
+    image_and_file(const std::string& f, const image& i)
         : file(f)
         , image(i)
     {}
@@ -32,10 +32,10 @@ struct ImageAndFile
 };
 
 
-std::vector<ImageAndFile>
-LoadImages(const std::vector<std::string>& files)
+std::vector<image_and_file>
+load_images(const std::vector<std::string>& files)
 {
-    auto images = std::vector<ImageAndFile>{};
+    auto images = std::vector<image_and_file>{};
 
     for(const auto& f: files)
     {
@@ -60,9 +60,9 @@ LoadImages(const std::vector<std::string>& files)
 }
 
 
-struct ExtractedColor
+struct extracted_color
 {
-    ExtractedColor(const rgbi& r, int c)
+    extracted_color(const rgbi& r, int c)
         : color(r)
         , count(c)
     {
@@ -74,7 +74,7 @@ struct ExtractedColor
 
 
 int
-Find(std::vector<ExtractedColor>* psource, const rgbi& color, float length)
+find(std::vector<extracted_color>* psource, const rgbi& color, float length)
 {
     auto& source = *psource;
 
@@ -90,10 +90,10 @@ Find(std::vector<ExtractedColor>* psource, const rgbi& color, float length)
     return Csizet_to_int(source.size()) - 1;
 }
 
-std::vector<ExtractedColor>
-ExtractColors(const std::vector<ImageAndFile>& images, float range)
+std::vector<extracted_color>
+extract_colors(const std::vector<image_and_file>& images, float range)
 {
-    auto ret = std::vector<ExtractedColor>{};
+    auto ret = std::vector<extracted_color>{};
 
     for(const auto& img: images)
     {
@@ -101,7 +101,7 @@ ExtractColors(const std::vector<ImageAndFile>& images, float range)
         {
             for(int x=0; x<img.image.width; x+=1)
             {
-                const auto index = Find(&ret, crgbi(img.image.get_pixel(x,y)), range);
+                const auto index = find(&ret, crgbi(img.image.get_pixel(x,y)), range);
                 ret[index].count += 1;
             }
         }
@@ -111,8 +111,8 @@ ExtractColors(const std::vector<ImageAndFile>& images, float range)
 }
 
 
-std::vector<ExtractedColor>
-ExtractColors(const std::vector<ImageAndFile>& images)
+std::vector<extracted_color>
+extract_colors(const std::vector<image_and_file>& images)
 {
     std::map<int, int> colors;
     for(const auto& img: images)
@@ -129,7 +129,7 @@ ExtractColors(const std::vector<ImageAndFile>& images)
         }
     }
 
-    auto ret = std::vector<ExtractedColor>{};
+    auto ret = std::vector<extracted_color>{};
     for(const auto c: colors)
     {
         ret.emplace_back(rgbi::from_hex(c.first), c.second);
@@ -139,7 +139,7 @@ ExtractColors(const std::vector<ImageAndFile>& images)
 
 
 bool
-HandleImage
+handle_image
 (
     const std::vector<std::string>& files,
     int depth,
@@ -149,7 +149,7 @@ HandleImage
 )
 {
     // load images
-    const auto images = LoadImages(files);
+    const auto images = load_images(files);
     if(images.size() != 1)
     {
         std::cerr << "currently only one image supported...\n";
@@ -196,7 +196,7 @@ HandleImage
 
 
 bool
-HandlePrint
+handle_print
 (
     const std::vector<std::string>& files,
     int depth,
@@ -204,7 +204,7 @@ HandlePrint
 )
 {
     // load images
-    const auto images = LoadImages(files);
+    const auto images = load_images(files);
     if(images.size() != 1)
     {
         std::cerr << "currently only one image supported...\n";
@@ -274,7 +274,7 @@ main(int argc, char* argv[])
 
             return sub->on_complete([&]
             {
-                const auto was_extracted = HandlePrint
+                const auto was_extracted = handle_print
                 (
                     files, depth, middle_split
                 );
@@ -325,7 +325,7 @@ main(int argc, char* argv[])
 
             return sub->on_complete([&]
             {
-                const auto was_extracted = HandleImage
+                const auto was_extracted = handle_image
                 (
                     files,
                     depth,

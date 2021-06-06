@@ -13,7 +13,7 @@
 using namespace euphoria::core;
 using namespace euphoria::core::dump3d;
 
-void AddSpiral(dumper* dump, int number_of_steps, float number_of_spins, float height, float size, const rgbi& color)
+void add_spiral(dumper* dump, int number_of_steps, float number_of_spins, float height, float size, const rgbi& color)
 {
     std::vector<vec3f> points;
     for(int step_index=0; step_index<number_of_steps; step_index+=1)
@@ -41,7 +41,7 @@ main(int, char*[])
         dump.add_sphere(area.get_random_point(&rand), 1.0f, pal.get_random_item(&rand));
     }
 
-    AddSpiral(&dump, 100, 4, 5, 2.5f, pal.get_random_item(&rand));
+    add_spiral(&dump, 100, 4, 5, 2.5f, pal.get_random_item(&rand));
 
     dump.add_plane(plane::from_normal_and_point(unit3f::right(), vec3f(1, 2, 3)), pal.get_random_item(&rand));
 

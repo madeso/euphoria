@@ -6,14 +6,14 @@
 
 using namespace euphoria::core;
 
-enum class Type
+enum class type
 {
-    Simple,
-    Grid
+    simple,
+    grid
 };
 
 std::string
-StreamToString(std::istream& out)
+stream_to_string(std::istream& out)
 {
     std::stringstream ss;
     ss << out.rdbuf();
@@ -25,15 +25,15 @@ main(int argc, char* argv[])
 {
     std::string file;
     std::string format = ",\"";
-    Type type = Type::Simple;
+    type type = type::simple;
     csv_trim trim = csv_trim::trim;
 
     {
         auto parser = argparse::parser {"csvtool"};
 
         parser.add("-format", &format).set_help("The CSV format used");
-        parser.set_const("-simple", &type, Type::Simple);
-        parser.set_const("-grid", &type, Type::Grid);
+        parser.set_const("-simple", &type, type::simple);
+        parser.set_const("-grid", &type, type::grid);
         parser.set_const("-notrim", &trim, csv_trim::dont_trim);
         parser.add("CSV-file", &file);
         if(const auto r = parser.parse(argc, argv))
@@ -55,13 +55,13 @@ main(int argc, char* argv[])
         options.delim = format[0];
         options.str = format[1];
         options.trim = trim;
-        table = table_from_csv(StreamToString(stream), options);
+        table = table_from_csv(stream_to_string(stream), options);
     }
 
     switch(type)
     {
-    case Type::Simple: print_table_simple(std::cout, table); break;
-    case Type::Grid: print_table_grid(std::cout, table); break;
+    case type::simple: print_table_simple(std::cout, table); break;
+    case type::grid: print_table_grid(std::cout, table); break;
     }
 
     return 0;

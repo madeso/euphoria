@@ -577,15 +577,15 @@ namespace euphoria::t3d
         (
             "Horizontal",
             &orbit.horizontal_rotation,
-            core::angle::Zero(),
-            core::angle::OneTurn()
+            core::angle::zero(),
+            core::angle::one_turn()
         );
         window::imgui::angle_slider
         (
             "Vertical",
             &orbit.vertical_rotation,
-            -core::angle::Quarter(),
-            core::angle::Quarter()
+            -core::angle::quarter(),
+            core::angle::quarter()
         );
         ImGui::InputFloat3("Position", orbit.center.get_data_ptr());
         ImGui::Spacing();

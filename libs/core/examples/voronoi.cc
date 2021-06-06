@@ -22,7 +22,7 @@ i2f(int i)
     return static_cast<float>(i);
 }
 
-std::vector<vec2f> GenerateRandomPoints(int count, const rectf& size, euco::random* random)
+std::vector<vec2f> generate_random_points(int count, const rectf& size, euco::random* random)
 {
     std::vector<vec2f> r;
     for(int i=0; i<count; i+=1)
@@ -32,17 +32,17 @@ std::vector<vec2f> GenerateRandomPoints(int count, const rectf& size, euco::rand
     return r;
 }
 
-enum class DistanceFunction
+enum class distance_function
 {
-    Euclidian, Manhattan, Min, Max
+    euclidian, manhattan, min, max
 };
 
-enum class PointGeneration
+enum class point_generation
 {
-    Random, Poisson
+    random, poisson
 };
 
-vec2f Abs(const vec2f& a)
+vec2f abs(const vec2f& a)
 {
     return {euphoria::core::abs(a.x), euphoria::core::abs(a.y)};
 }
@@ -54,30 +54,30 @@ float euclidian_distance(const vec2f& lhs, const vec2f& rhs)
 
 float manhattan_distance(const vec2f& lhs, const vec2f& rhs)
 {
-    const auto d = Abs(lhs-rhs);
+    const auto d = abs(lhs-rhs);
     return d.x + d.y;
 }
 
 float min_distance(const vec2f& lhs, const vec2f& rhs)
 {
-    const auto d = Abs(lhs-rhs);
+    const auto d = abs(lhs-rhs);
     return min(d.x, d.y);
 }
 
 float max_distance(const vec2f& lhs, const vec2f& rhs)
 {
-    const auto d = Abs(lhs-rhs);
+    const auto d = abs(lhs-rhs);
     return max(d.x, d.y);
 }
 
-float GetDistance(DistanceFunction f, const vec2f& lhs, const vec2f& rhs)
+float get_distance(distance_function f, const vec2f& lhs, const vec2f& rhs)
 {
     switch(f)
     {
-        case DistanceFunction::Euclidian: return euclidian_distance(lhs, rhs);
-        case DistanceFunction::Manhattan: return manhattan_distance(lhs, rhs);
-        case DistanceFunction::Min: return min_distance(lhs, rhs);
-        case DistanceFunction::Max: return max_distance(lhs, rhs);
+        case distance_function::euclidian: return euclidian_distance(lhs, rhs);
+        case distance_function::manhattan: return manhattan_distance(lhs, rhs);
+        case distance_function::min: return min_distance(lhs, rhs);
+        case distance_function::max: return max_distance(lhs, rhs);
     }
     DIE("Unhandled distancfe function");
     return 0.0f;
@@ -89,9 +89,9 @@ main(int argc, char* argv[])
 {
     auto size = 512;
 
-    auto distance_function = DistanceFunction::Euclidian;
+    auto distance_function = distance_function::euclidian;
 
-    auto point_generation = PointGeneration::Random;
+    auto point_generation = point_generation::random;
     auto number_of_points = 30;
     auto poisson_radius = 10.0f;
     auto use_colorblind = false;
@@ -122,8 +122,8 @@ main(int argc, char* argv[])
 
     const auto area = rectf::from_width_height(size, size);
     const auto random_points =
-        point_generation == PointGeneration::Random
-        ? GenerateRandomPoints(number_of_points, area, &rand)
+        point_generation == point_generation::random
+        ? generate_random_points(number_of_points, area, &rand)
         : poisson_sample(area, &rand, poisson_radius*2, poisson_radius);
 
     auto pal = use_colorblind
@@ -136,7 +136,7 @@ main(int argc, char* argv[])
         {
             [&](const vec2f& lhs, const vec2f& rhs)
             {
-                const auto dist = GetDistance(distance_function, lhs, rhs);
+                const auto dist = get_distance(distance_function, lhs, rhs);
                 if(cos_distance)
                 {
                     return cos(angle::from_degrees(dist/crazy_distance));

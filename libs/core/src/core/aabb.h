@@ -25,7 +25,7 @@ namespace euphoria::core
 
 
         [[nodiscard]] static aabb
-        Empty();
+        create_empty();
 
 
         [[nodiscard]] vec3f

@@ -281,9 +281,9 @@ namespace euphoria::core
                                         : hsl.l + hsl.s - hsl.l * hsl.s;
             const auto p = 2.0f * hsl.l - q;
 
-            const auto r = hue2rgb(p, q, hsl.h.InPercentOf360() + 1.0f / 3.0f);
-            const auto g = hue2rgb(p, q, hsl.h.InPercentOf360());
-            const auto b = hue2rgb(p, q, hsl.h.InPercentOf360() - 1.0f / 3.0f);
+            const auto r = hue2rgb(p, q, hsl.h.in_percent_of_360() + 1.0f / 3.0f);
+            const auto g = hue2rgb(p, q, hsl.h.in_percent_of_360());
+            const auto b = hue2rgb(p, q, hsl.h.in_percent_of_360() - 1.0f / 3.0f);
             return {r, g, b};
         }
     }

@@ -21,7 +21,7 @@ using namespace euphoria;
 using namespace euphoria::core;
 
 
-struct Difference
+struct difference
 {
     int x;
     int y;
@@ -29,10 +29,10 @@ struct Difference
 };
 
 
-std::vector<Difference>
-FindDifferences(const table<bool>& src, const table<bool>& dst)
+std::vector<difference>
+find_differences(const table<bool>& src, const table<bool>& dst)
 {
-    std::vector<Difference> ret;
+    std::vector<difference> ret;
     for(int y = 0; y < src.get_height(); y += 1)
     {
         for(int x = 0; x < src.get_width(); x += 1)
@@ -50,7 +50,7 @@ FindDifferences(const table<bool>& src, const table<bool>& dst)
 
 
 void
-PrintMazeToConsole(const generator::drawer& drawer)
+print_maze_to_console(const generator::drawer& drawer)
 {
     const auto table = image_to_string_table
     (
@@ -72,17 +72,17 @@ PrintMazeToConsole(const generator::drawer& drawer)
 }
 
 
-enum class MazeAlgorithm
+enum class maze_algorithm
 {
-    RecursiveBacktracker,
-    RandomTraversal
+    recursive_backtracker,
+    random_traversal
 };
 
 
 void
-HandleMazeCommand
+handle_maze_command
 (
-    MazeAlgorithm algo,
+    maze_algorithm algo,
     int world_width,
     int world_height,
     int cell_size,
@@ -101,7 +101,7 @@ HandleMazeCommand
 
     switch(algo)
     {
-    case MazeAlgorithm::RecursiveBacktracker:
+    case maze_algorithm::recursive_backtracker:
         {
             auto g = std::make_unique<generator::recursive_backtracker>();
             g->maze = &maze;
@@ -110,7 +110,7 @@ HandleMazeCommand
             gen = std::move(g);
         }
         break;
-    case MazeAlgorithm::RandomTraversal:
+    case maze_algorithm::random_traversal:
         {
             auto g = std::make_unique<generator::random_traversal>();
             g->maze = &maze;
@@ -154,7 +154,7 @@ HandleMazeCommand
 
     if(console)
     {
-        PrintMazeToConsole(drawer);
+        print_maze_to_console(drawer);
     }
     else
     {
@@ -182,7 +182,7 @@ HandleMazeCommand
 
 
 
-struct Cellwriter
+struct cellwriter
 {
     bool debug;
     argparse::file_output output;
@@ -192,7 +192,7 @@ struct Cellwriter
     core::random shuffle_random;
     generator::world world_copy;
 
-    explicit Cellwriter
+    explicit cellwriter
     (
         bool d,
         const std::string& f,
@@ -207,7 +207,7 @@ struct Cellwriter
     }
 
     [[nodiscard]] image
-    GenerateWorldImage(const generator::world& world_or_copy) const
+    generate_world_image(const generator::world& world_or_copy) const
     {
         return draw
         (
@@ -220,39 +220,39 @@ struct Cellwriter
     }
 
     void
-    FirstState()
+    first_state()
     {
         if(!output.single)
         {
-            auto img = GenerateWorldImage(*world);
+            auto img = generate_world_image(*world);
             io::chunk_to_file(img.write(image_write_format::png), output.get_next_file());
         }
 
         world_copy = *world;
-        DrawStep();
+        draw_step();
     }
 
     void
-    Done()
+    done()
     {
         if(output.single)
         {
-            auto img = GenerateWorldImage(*world);
+            auto img = generate_world_image(*world);
             io::chunk_to_file(img.write(image_write_format::png), output.file);
         }
         else
         {
-            DrawStep();
+            draw_step();
         }
     }
 
     void
-    DrawStep()
+    draw_step()
     {
         if(output.single) { return; }
         if (debug)
         {
-            const auto img = GenerateWorldImage(*world);
+            const auto img = generate_world_image(*world);
             io::chunk_to_file
             (
                 img.write(image_write_format::png),
@@ -261,14 +261,14 @@ struct Cellwriter
         }
         else
         {
-            ShuffleDraw();
+            shuffle_draw();
         }
     }
 
     void
-    ShuffleDraw()
+    shuffle_draw()
     {
-        auto diffs = FindDifferences(*world, world_copy);
+        auto diffs = find_differences(*world, world_copy);
         knuth_shuffle(&diffs, &shuffle_random);
         const auto diffs_per_write = std::max<decltype(diffs.size())>
         (
@@ -281,7 +281,7 @@ struct Cellwriter
             world_copy(d.x, d.y) = d.new_value;
             if ((write_index % diffs_per_write) == 0)
             {
-                const auto img = GenerateWorldImage(world_copy);
+                const auto img = generate_world_image(world_copy);
                 io::chunk_to_file
                 (
                     img.write(image_write_format::png),
@@ -293,7 +293,7 @@ struct Cellwriter
 
         for (int i = 0; i < 5; i += 1)
         {
-            const auto img = GenerateWorldImage(world_copy);
+            const auto img = generate_world_image(world_copy);
             io::chunk_to_file
             (
                 img.write(image_write_format::png),
@@ -304,7 +304,7 @@ struct Cellwriter
 };
 
 
-struct MazeArguments
+struct maze_arguments
 {
     size2i size = size2i::create_from_width_height(10, 10);
     std::string output = "maze.png";
@@ -314,7 +314,7 @@ struct MazeArguments
     bool console = false;
 
     void
-    Add(argparse::parser_base* base)
+    add(argparse::parser_base* base)
     {
         base->add("--size", &size).set_help("set the size");
         base->add("-o, --output", &output).set_help("specify output");
@@ -326,7 +326,7 @@ struct MazeArguments
 };
 
 
-constexpr neighborhood_algorithm DEFAULT_ALGORITHM = neighborhood_algorithm::box;
+constexpr neighborhood_algorithm default_algorithm = neighborhood_algorithm::box;
 
 int
 main(int argc, char* argv[])
@@ -340,16 +340,16 @@ main(int argc, char* argv[])
         "maze generation using recursive backtracker algorithm",
         [&](argparse::sub_parser* sub)
         {
-            auto args = MazeArguments{};
-            args.Add(sub);
+            auto args = maze_arguments{};
+            args.add(sub);
 
             return sub->on_complete
             (
                 [&]
                 {
-                    HandleMazeCommand
+                    handle_maze_command
                     (
-                        MazeAlgorithm::RecursiveBacktracker,
+                        maze_algorithm::recursive_backtracker,
                         args.size.width,
                         args.size.height,
                         args.cell_size,
@@ -369,16 +369,16 @@ main(int argc, char* argv[])
         "maze generation using random traversal algorithm",
         [&](argparse::sub_parser* sub)
         {
-            auto args = MazeArguments{};
-            args.Add(sub);
+            auto args = maze_arguments{};
+            args.add(sub);
 
             return sub->on_complete
             (
                 [&]
                 {
-                    HandleMazeCommand
+                    handle_maze_command
                     (
-                        MazeAlgorithm::RandomTraversal,
+                        maze_algorithm::random_traversal,
                         args.size.width,
                         args.size.height,
                         args.cell_size,
@@ -432,7 +432,7 @@ main(int argc, char* argv[])
                 int times = 4;
                 int count = 5;
                 int small = 2;
-                auto algorithm = DEFAULT_ALGORITHM;
+                auto algorithm = default_algorithm;
                 bool include_self = false;
                 cmd->add("--algorithm", &algorithm).set_help("The algorithm to use");
                 cmd->set_true("-i", &include_self).set_help("also include the current cell when calculating the amount of nodes");
@@ -449,7 +449,7 @@ main(int argc, char* argv[])
                 cmd->parser_style = argparse::sub_parser_style::fallback;
                 int times = 5;
                 int count = 4;
-                auto algorithm = DEFAULT_ALGORITHM;
+                auto algorithm = default_algorithm;
                 bool include_self = false;
                 cmd->add("--algorithm", &algorithm).set_help("The algorithm to use");
                 cmd->set_true("-i", &include_self).set_help("also include the current cell when calculating the amount of nodes");
@@ -466,7 +466,7 @@ main(int argc, char* argv[])
                 int times = 2;
                 int count = 2;
                 int range = 1;
-                auto algorithm = DEFAULT_ALGORITHM;
+                auto algorithm = default_algorithm;
                 bool include_self = false;
                 cmd->add("--algorithm", &algorithm).set_help("The algorithm to use");
                 cmd->set_true("-i", &include_self).set_help("also include the current cell when calculating the amount of nodes");
@@ -495,7 +495,7 @@ main(int argc, char* argv[])
                 cmd->parser_style = argparse::sub_parser_style::fallback;
                 int times = 5;
                 int count = 4;
-                auto algorithm = DEFAULT_ALGORITHM;
+                auto algorithm = default_algorithm;
                 bool include_self = false;
                 cmd->add("--algorithm", &algorithm).set_help("The algorithm to use");
                 cmd->set_true("-i", &include_self).set_help("also include the current cell when calculating the amount of nodes");
@@ -547,16 +547,16 @@ main(int argc, char* argv[])
 
                     auto cell = generator::cellular_automata{&rules, &world, fourway{outside_rule::wall}};
 
-                    auto writer = Cellwriter{debug, output, &world, world_scale};
-                    writer.FirstState();
+                    auto writer = cellwriter{debug, output, &world, world_scale};
+                    writer.first_state();
 
                     while(cell.has_more_work())
                     {
                         cell.work();
-                        writer.DrawStep();
+                        writer.draw_step();
                     }
 
-                    writer.Done();
+                    writer.done();
 
                     return argparse::ok;
                 }

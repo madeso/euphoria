@@ -14,20 +14,20 @@ using namespace euphoria;
 using namespace euphoria::core;
 
 
-enum class HashType
+enum class hash_type
 {
-    Identicon, Retro, Sprator
+    identicon, retro, sprator
 };
 
 
-struct CommonArguments
+struct common_arguments
 {
     int image_size = 512;
     int number_of_images = 10;
     bool use_random = true;
-    HashType type = HashType::Identicon;
+    hash_type type = hash_type::identicon;
 
-    explicit CommonArguments(argparse::parser_base* base)
+    explicit common_arguments(argparse::parser_base* base)
     {
         base->add("--size", &image_size).set_help("image size");
         base->add("--count", &number_of_images).set_help("The number of images to generate");
@@ -37,37 +37,14 @@ struct CommonArguments
 };
 
 
-const auto PALETTE = palette
-{
-    "",
-    color::red,
-    color::white,
-    color::blue,
-
-    color::light_green,
-    color::yellow,
-    color::light_blue,
-
-    color::pink,
-    color::orange,
-    color::tan,
-
-    color::brown,
-    color::green,
-    color::purple,
-    color::cornflower_blue,
-    color::cyan
-};
-
-
-
-void RunMain
+void run_main
 (
     int image_size,
     int number_of_images,
     bool use_random,
-    HashType type,
-    bool collage
+    hash_type type,
+    bool collage,
+    const euphoria::core::palette& palette
 )
 {
     if(use_random==false && number_of_images > 1)
@@ -92,14 +69,14 @@ void RunMain
 
         switch(type)
         {
-        case HashType::Identicon:
+        case hash_type::identicon:
             render_identicon(&image, code);
             break;
-        case HashType::Retro:
+        case hash_type::retro:
             render_retro(&image, code);
             break;
-        case HashType::Sprator:
-            render_sprator(&image, code, PALETTE.get_safe_index(i));
+        case hash_type::sprator:
+            render_sprator(&image, code, palette.get_safe_index(i));
             break;
         default:
             DIE("Unhandled type");
@@ -136,11 +113,12 @@ void RunMain
 }
 
 
-void RunSpratorCollage
+void run_sprator_collage
 (
     int image_size,
     int number_of_images,
-    int frames
+    int frames,
+    const euphoria::core::palette& palette
 )
 {
     core::random random;
@@ -157,7 +135,7 @@ void RunSpratorCollage
         }
 
         const int code = random.get_next_integer32();
-        render_sprator(&image_frames, code, PALETTE.get_safe_index(image_index));
+        render_sprator(&image_frames, code, palette.get_safe_index(image_index));
 
         sprites.emplace_back(image_frames);
         std::cout << "Generated collage image\n";
@@ -191,26 +169,49 @@ void RunSpratorCollage
 int
 main(int argc, char* argv[])
 {
+    const auto palette = euphoria::core::palette
+    {
+        "",
+        color::red,
+        color::white,
+        color::blue,
+
+        color::light_green,
+        color::yellow,
+        color::light_blue,
+
+        color::pink,
+        color::orange,
+        color::tan,
+
+        color::brown,
+        color::green,
+        color::purple,
+        color::cornflower_blue,
+        color::cyan
+    };
+
     auto parser = argparse::parser {"identicon test"};
     auto subs = parser.add_sub_parsers();
 
     subs->add
     (
         "singles", "write many images",
-        [](argparse::sub_parser* sub)
+        [&palette](argparse::sub_parser* sub)
         {
-            auto arguments = CommonArguments{sub};
+            auto arguments = common_arguments{sub};
             return sub->on_complete
             (
                 [&]
                 {
-                    RunMain
+                    run_main
                     (
                         arguments.image_size,
                         arguments.number_of_images,
                         arguments.use_random,
                         arguments.type,
-                        false
+                        false,
+                        palette
                     );
                     return argparse::ok;
                 }
@@ -220,20 +221,21 @@ main(int argc, char* argv[])
     subs->add
     (
         "collage", "write collage",
-        [](argparse::sub_parser* sub)
+        [&palette](argparse::sub_parser* sub)
         {
-            auto arguments = CommonArguments{sub};
+            auto arguments = common_arguments{sub};
             return sub->on_complete
             (
                 [&]
                 {
-                    RunMain
+                    run_main
                     (
                         arguments.image_size,
                         arguments.number_of_images,
                         arguments.use_random,
                         arguments.type,
-                        true
+                        true,
+                        palette
                     );
                     return argparse::ok;
                 }
@@ -243,7 +245,7 @@ main(int argc, char* argv[])
     subs->add
     (
         "sprator", "write sprator collage",
-        [](argparse::sub_parser* sub)
+        [&palette](argparse::sub_parser* sub)
         {
             int image_size = 100;
             int number_of_images = 9;
@@ -257,11 +259,12 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    RunSpratorCollage
+                    run_sprator_collage
                     (
                         image_size,
                         number_of_images,
-                        frames
+                        frames,
+                        palette
                     );
                     return argparse::ok;
                 }

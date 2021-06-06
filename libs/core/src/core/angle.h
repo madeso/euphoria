@@ -46,28 +46,28 @@ namespace euphoria::core
 
 
         [[nodiscard]] constexpr static angle
-        OneTurn()
+        one_turn()
         {
             return angle::from_radians(pi * 2.0f);
         }
 
 
         [[nodiscard]] constexpr static angle
-        Quarter()
+        quarter()
         {
             return angle::from_radians(pi / 2.0f);
         }
 
 
         [[nodiscard]] constexpr static angle
-        Zero()
+        zero()
         {
             return angle::from_radians(0.0f);
         }
 
 
         [[nodiscard]] constexpr float
-        InPercentOf360() const
+        in_percent_of_360() const
         {
             return in_radians() / (pi * 2.0f);
         }
@@ -81,7 +81,7 @@ namespace euphoria::core
 
 
         [[nodiscard]] static angle
-        Random(::euphoria::core::random* random);
+        random(::euphoria::core::random* random);
 
 
         [[nodiscard]] angle
