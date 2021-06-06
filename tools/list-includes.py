@@ -16,6 +16,7 @@ import sys
 import json
 import typing
 import statistics
+import itertools
 
 
 class CompileCommand:
@@ -95,19 +96,48 @@ def calculate_display(file: str, name: typing.Optional[str], root: str) -> str:
     return name or os.path.relpath(file, root)
 
 
+def get_group(relative_file: str) -> str:
+    b = relative_file.split('/')
+    if len(b) == 1:
+        return ''
+    r = b[1] if b[0] in ['libs', 'external'] else b[0]
+    if r == '..':
+        return ''
+    return r
+
+
+def get_grouped(items):
+    keyfun = lambda item: get_group(item[1])
+    return itertools.groupby(sorted(items, key=keyfun), key=keyfun)
+
+
 class Graphvizer:
     def __init__(self):
         self.nodes = {} # id -> name
         self.links = collections.Counter() # link with counts
 
-    def print_result(self):
+    def print_result(self, group: bool, is_cluster: bool):
         print('digraph G')
         print('{')
-        for ident, name in self.nodes.items():
-            print(f'{ident} [label="{name}"];')
+        grouped = get_grouped(self.nodes.items()) if group else [('', self.nodes.items())]
+        for group_title, items in grouped:
+            has_group = group_title != ''
+            indent = '    ' if has_group else ''
+
+            if has_group:
+                cluster_prefix = 'cluster_' if is_cluster else ''
+                print(f'subgraph {cluster_prefix}{group_title}')
+                print('{')
+
+            for identifier, name in items:
+                print(f'{indent}{identifier} [label="{name}"];')
+
+            if has_group:
+                print('}')
         print()
         for code, count in self.links.items():
             print(f'{code} [label="{count}"];')
+
         print('}')
         print('')
 
@@ -218,7 +248,7 @@ def handle_gv(args):
             include_directories = list(get_include_directories(real_file, compile_commands))
             gv_work(real_file, 'TU', include_directories, gv, limit, os.getcwd())
 
-    gv.print_result()
+    gv.print_result(args.group or args.cluster, args.cluster)
 
 ###################################################################################################
 # main
@@ -246,6 +276,8 @@ def main():
     sub.add_argument('compile_commands')
     sub.add_argument('files', nargs='+')
     sub.add_argument('--limit', nargs='+', help="limit search to theese files and folders")
+    sub.add_argument('--group', action='store_true', help="group output")
+    sub.add_argument('--cluster', action='store_true', help="group output into clusters")
     sub.set_defaults(func=handle_gv)
 
     args = parser.parse_args()
