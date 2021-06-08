@@ -239,12 +239,12 @@ namespace euphoria::render
                 src_char.image
             );
             const auto sprite_and_texture_rects = construct_character_rects
-                    (
-                            src_rect,
-                            src_char,
-                            texture_width,
-                            texture_height
-                    );
+            (
+                src_rect,
+                src_char,
+                texture_width,
+                texture_height
+            );
 
             std::shared_ptr<glyph> dest
             (
@@ -280,20 +280,20 @@ namespace euphoria::render
     void
     drawable_font::draw_background
     (
-            sprite_renderer* renderer,
-            float alpha,
-            const core::rectf& where
+        sprite_renderer* renderer,
+        float alpha,
+        const core::rectf& where
     ) const
     {
         renderer->draw_rect
-                (
-                        *background,
-                        where,
-                        core::rectf::from_width_height(1, 1),
-                        0.0_rad,
-                        core::scale2f{0, 0},
-                        core::rgba{core::color::black, alpha}
-                );
+        (
+            *background,
+            where,
+            core::rectf::from_width_height(1, 1),
+            0.0_rad,
+            core::scale2f{0, 0},
+            core::rgba{core::color::black, alpha}
+        );
     }
 
 
