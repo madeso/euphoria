@@ -6,10 +6,10 @@ set(app_src
     data/material_design_icons.ttf
     src/window/canvas.cc src/window/canvas.h
     src/window/engine.cc src/window/engine.h
-    src/window/fakesdlevent.h
+    src/window/fakesdlevent.h src/window/fakesdlevent.cc
     src/window/filesystem.cc src/window/filesystem.h
     src/window/imgui_extra.cc src/window/imgui_extra.h
-    src/window/imgui_icons.h
+    src/window/imgui_icons.h src/window/imgui_icons.cc
     src/window/imguilibrary.cc src/window/imguilibrary.h
     src/window/key.cc src/window/key.h
     src/window/sdlglcontext.cc src/window/sdlglcontext.h

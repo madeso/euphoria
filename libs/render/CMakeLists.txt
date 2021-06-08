@@ -12,14 +12,14 @@ set(app_src
     src/render/defaultfiles.cc src/render/defaultfiles.h
     src/render/fontcache.cc src/render/fontcache.h
     src/render/font.cc src/render/font.h
-    src/render/gl.h
-    src/render/gltypes.h
+    src/render/gl.h src/render/gl.cc
+    src/render/gltypes.h src/render/gltypes.cc
     src/render/id.cc src/render/id.h
     src/render/init.cc src/render/init.h
     src/render/instance.cc src/render/instance.h
     src/render/light.cc src/render/light.h
     src/render/materialshader.cc src/render/materialshader.h
-    src/render/materialshadercache.h
+    src/render/materialshadercache.h src/render/materialshadercache.cc
     src/render/positionedlines.cc src/render/positionedlines.h
     src/render/scalablesprite.cc src/render/scalablesprite.h
     src/render/shader.cc src/render/shader.h

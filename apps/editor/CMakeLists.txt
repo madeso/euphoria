@@ -2,11 +2,9 @@
 # editor project
 
 set(src
-    src/editor/browser.cc
-    src/editor/browser.h
+    src/editor/browser.cc src/editor/browser.h
     src/editor/main.cc
-    src/editor/scimed.cc
-    src/editor/scimed.h
+    src/editor/scimed.cc src/editor/scimed.h
 )
 source_group("" FILES ${src})
 

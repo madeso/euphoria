@@ -2,8 +2,7 @@
 # minsynth project
 
 set(src
-    src/minsynth/synth.cc
-    src/minsynth/synth.h
+    src/minsynth/synth.cc src/minsynth/synth.h
 )
 source_group("" FILES ${src})
 

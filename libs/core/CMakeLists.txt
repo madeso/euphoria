@@ -34,14 +34,14 @@ set(app_src_math
     src/core/poisson.cc src/core/poisson.h
     src/core/polarcoord.cc src/core/polarcoord.h
     src/core/ray.cc src/core/ray.h
-    src/core/rect.h
+    src/core/rect.cc src/core/rect.h
     src/core/rgb.cc src/core/rgb.h
     src/core/rgb_blend.cc src/core/rgb_blend.h
     src/core/sphere.cc src/core/sphere.h
     src/core/vec2.cc src/core/vec2.h
-    src/core/vec3.h
-    src/core/vec4.h
-    src/core/quat.h
+    src/core/vec3.cc src/core/vec3.h
+    src/core/vec4.cc src/core/vec4.h
+    src/core/quat.cc src/core/quat.h
     src/core/easing.cc
 )
 
@@ -64,16 +64,16 @@ set(app_src_hash
     src/core/hash.cc src/core/hash.h
     src/core/hash.string.cc src/core/hash.string.h
     src/core/hashgen.h
-    src/core/hashgen.retro.cc
-    src/core/hashgen.sprator.cc
-    src/core/hashgen.identicon.cc
+        src/core/hashgen.retro.cc
+        src/core/hashgen.sprator.cc
+        src/core/hashgen.identicon.cc
 )
 
 set(app_src_table
     src/core/fourway.cc src/core/fourway.h
     src/core/table_string.cc src/core/table_string.h
     src/core/table_bool.cc src/core/table_bool.h
-    src/core/table.h
+    src/core/table.cc src/core/table.h
 )
 
 set(app_src
@@ -83,76 +83,76 @@ set(app_src
     src/core/argparse.cc src/core/argparse.h
     src/core/assert.cc src/core/assert.h
     src/core/base64.cc src/core/base64.h
-    src/core/bitfield.h
+    src/core/bitfield.cc src/core/bitfield.h
     src/core/bufferbuilder2d.cc src/core/bufferbuilder2d.h
-    src/core/cache.h
+    src/core/cache.cc src/core/cache.h
     src/core/camera3.cc src/core/camera3.h
     src/core/canvaslogic.cc src/core/canvaslogic.h
     src/core/chatbot.cc src/core/chatbot.h
     src/core/cint.cc src/core/cint.h
-    src/core/closestpoint.h
+    src/core/closestpoint.cc src/core/closestpoint.h
     src/core/console.cc src/core/console.h
     src/core/cypher.cc src/core/cypher.h
     src/core/crc32.cc src/core/crc32.h
     src/core/decompress.cc src/core/decompress.h
     src/core/datetime.cc src/core/datetime.h
     src/core/dump.cc src/core/dump.h
-    src/core/ecs-id.h
+    src/core/ecs-id.cc src/core/ecs-id.h
     src/core/ecs-systems.cc src/core/ecs-systems.h
     src/core/ecs.cc src/core/ecs.h
     src/core/editdistance.cc src/core/editdistance.h
     src/core/editdistance.search.cc src/core/editdistance.search.h
     src/core/enum.cc src/core/enum.h
-    src/core/enumtostring.h
+    src/core/enumtostring.cc src/core/enumtostring.h
     src/core/findstring.cc src/core/findstring.h
     src/core/fpscontroller.cc src/core/fpscontroller.h
     src/core/functional.cc src/core/functional.h
-    src/core/last_n.h
+    src/core/last_n.cc src/core/last_n.h
     src/core/id.cc src/core/id.h
-    src/core/insertionsort.h
+    src/core/insertionsort.cc src/core/insertionsort.h
     src/core/interpolate.cc src/core/interpolate.h
     src/core/intersection.cc src/core/intersection.h
-    src/core/ints.h
+    src/core/ints.cc src/core/ints.h
     src/core/io.cc src/core/io.h
     src/core/key.cc src/core/key.h
-    src/core/knuthshuffle.h
+    src/core/knuthshuffle.cc src/core/knuthshuffle.h
     src/core/loadedfont.cc src/core/loadedfont.h
     src/core/log.cc src/core/log.h
     src/core/memorychunk.cc src/core/memorychunk.h
     src/core/mesh.cc src/core/mesh.h
-    src/core/minmax.h
-    src/core/multisort.h
+    src/core/minmax.cc src/core/minmax.h
+    src/core/multisort.cc src/core/multisort.h
     src/core/nlp_line.cc src/core/nlp_line.h
     src/core/nlp_sentence.cc src/core/nlp_sentence.h
-    src/core/noncopyable.h
+    src/core/noncopyable.cc src/core/noncopyable.h
     src/core/numeric.cc src/core/numeric.h
     src/core/orbitcontroller.cc src/core/orbitcontroller.h
     src/core/os.cc src/core/os.h
     src/core/propertytree.cc src/core/propertytree.h
     src/core/proto.cc src/core/proto.h
-    src/core/quicksort.h
-    src/core/radix_sort.h
+    src/core/quicksort.cc src/core/quicksort.h
+    src/core/radix_sort.cc src/core/radix_sort.h
     src/core/random.cc src/core/random.h
     src/core/rng.cc src/core/rng.h
     src/core/range.cc src/core/range.h
     src/core/raytracer.cc src/core/raytracer.h
     src/core/sensitivity.cc src/core/sensitivity.h
-    src/core/shufflebag.h
-    src/core/size2.h
+    src/core/shufflebag.cc src/core/shufflebag.h
+    src/core/size2.cc src/core/size2.h
     src/core/stdutils.cc src/core/stdutils.h
     src/core/str.cc src/core/str.h
     src/core/stringmerger.cc src/core/stringmerger.h
     src/core/stringutils.cc src/core/stringutils.h
     src/core/subvec.cc src/core/subvec.h
-    src/core/tablelayout.h
+    src/core/tablelayout.cc src/core/tablelayout.h
     src/core/textfileparser.cc src/core/textfileparser.h
     src/core/texttemplate.cc src/core/texttemplate.h
     src/core/texturetypes.cc src/core/texturetypes.h
     src/core/timepoint.cc src/core/timepoint.h
     src/core/typeinfo.cc src/core/typeinfo.h
     src/core/ui_text.cc src/core/ui_text.h
-    src/core/undef_windows.h
-    src/core/utf8.h
+    src/core/undef_windows.cc src/core/undef_windows.h
+    src/core/utf8.cc src/core/utf8.h
     src/core/vfs.cc src/core/vfs.h
     src/core/vfs_defaultshaders.cc src/core/vfs_defaultshaders.h
     src/core/vfs_imagegenerator.cc src/core/vfs_imagegenerator.h
