@@ -574,7 +574,7 @@ namespace euphoria::core
                 input
             );
         }
-    } // namespace chatbot
+    }
 
     detail::conversation_status
     chatbot::get_complex_response(const std::string& dirty_input)

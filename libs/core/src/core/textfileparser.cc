@@ -67,7 +67,7 @@ namespace euphoria::core
         }
     }
 
-    namespace // local
+    namespace
     {
         bool
         is_newline(const char c)
@@ -167,7 +167,7 @@ namespace euphoria::core
         read_char();
     }
 
-    namespace // local
+    namespace
     {
         bool
         is_ident_char(char c, bool first_char)
@@ -191,7 +191,7 @@ namespace euphoria::core
 
             return false;
         }
-    } // namespace
+    }
 
     bool
     is_ident_start(char c)
@@ -279,7 +279,7 @@ namespace euphoria::core
         return ss.str();
     }
 
-    namespace // local
+    namespace
     {
         bool
         is_space_character(char c, bool include_newline)
@@ -293,7 +293,7 @@ namespace euphoria::core
             default: return false;
             }
         }
-    } // namespace
+    }
 
     void
     textfile_parser::skip_spaces(bool include_newline)

@@ -64,7 +64,7 @@ namespace euphoria::core
         FUN(BounceOut, BounceEaseOut)
         FUN(Bounce, BounceEaseInOut)
 #undef FUN
-    } // namespace easing
+    }
 
     enum class InterpolationType
     {

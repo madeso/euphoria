@@ -236,7 +236,7 @@ namespace euphoria::minsynth
             ss << name << octave;
             return ss.str();
         }
-    } // namespace
+    }
 
     piano_key::piano_key(int st, core::key kc, const std::string& n, int octave)
         : semitone(st)
@@ -783,7 +783,7 @@ namespace euphoria::minsynth
                 to->push_back(t);
             }
         }
-    } // namespace
+    }
 
 
     float

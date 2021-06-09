@@ -180,7 +180,7 @@ namespace euphoria::core
         return &components[0];
     }
 
-    namespace // local
+    namespace
     {
         void
         DetermineImageSize(void* context, void* /*unused*/, int size)
@@ -313,7 +313,7 @@ namespace euphoria::core
                 return 0;
             }
         }
-    } // namespace
+    }
 
     image_load_result
     load_image(vfs::file_system* fs, const vfs::file_path& path, alpha_load alpha)

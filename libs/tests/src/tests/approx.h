@@ -118,7 +118,7 @@ namespace euphoria::tests
             double m_scale;
             T m_value;
         };
-    } // namespace custom
+    }
 
     template <typename T>
     std::ostream&

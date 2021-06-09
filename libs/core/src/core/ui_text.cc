@@ -38,7 +38,7 @@ namespace euphoria::core
                 visitor->on_end();
             }
         }
-    } // namespace textparser
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -75,7 +75,7 @@ namespace euphoria::core
             visitor->accept(&str);
             return str.ss.str();
         }
-    } // namespace textparser
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -218,7 +218,7 @@ namespace euphoria::core
                 }
             }
         };
-    } // namespace
+    }
 
     bool
     ui_text::init_by_parsing_source(const std::string& str)

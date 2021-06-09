@@ -12,7 +12,7 @@
 #include "core/undef_windows.h"
 
 
-namespace // local
+namespace
 {
     euphoria::render::gluint
     C(euphoria::render::texture_wrap v)

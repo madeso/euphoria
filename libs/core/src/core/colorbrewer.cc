@@ -2759,5 +2759,5 @@ namespace euphoria::core
         }
 
 
-    } // namespace colorbrewer
-} // namespace euphoria::core
+    }
+}

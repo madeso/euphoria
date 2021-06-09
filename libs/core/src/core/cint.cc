@@ -60,5 +60,5 @@ namespace euphoria::core
         c.s = i;
         return c.u;
     }
-} // namespace euphoria::core
+}
 

@@ -8,7 +8,7 @@ namespace euphoria::core::ecs
 {
     struct systems;
     struct world;
-} // namespace euphoria::core::ecs
+}
 
 namespace euphoria::engine
 {

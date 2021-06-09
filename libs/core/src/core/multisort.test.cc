@@ -16,7 +16,8 @@ namespace
         int i;
         int j;
     };
-} // namespace
+}
+
 
 TEST_CASE("multisort-verify", "[multisort]")
 {

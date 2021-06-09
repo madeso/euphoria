@@ -126,4 +126,4 @@ namespace euphoria::core
         return rotation * look;
     }
 
-} // namespace euphoria::core
+}

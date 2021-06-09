@@ -342,4 +342,4 @@ namespace euphoria::core
     }
 
 
-} // namespace euphoria::core
+}

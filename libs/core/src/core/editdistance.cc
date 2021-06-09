@@ -128,4 +128,4 @@ namespace euphoria::core
         return v0[row_length];
     }
 
-} // namespace euphoria::core
+}

@@ -14,5 +14,5 @@ namespace euphoria::core
         return stream_.str();
     }
 
-} // namespace euphoria::core
+}
 

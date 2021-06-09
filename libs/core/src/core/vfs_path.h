@@ -226,7 +226,7 @@ namespace euphoria::core
 
         bool
         operator<(const file_path& lhs, const file_path& rhs);
-    } // namespace vfs
+    }
 
 }
 

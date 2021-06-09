@@ -105,10 +105,10 @@ namespace euphoria::core
     }
 
 
-    namespace // local
+    namespace
     {
         DEFINE_ENUM_VALUE(texture_type, DiffuseType, "Diffuse"); // NOLINT
-    } // namespace
+    }
 
 
     namespace
@@ -512,7 +512,7 @@ namespace euphoria::core
             }
 
         }
-    } // namespace
+    }
 
 
     namespace meshes

@@ -203,4 +203,4 @@ namespace euphoria::core
         type->add_enums(names);
     }
 
-} // namespace euphoria::core
+}

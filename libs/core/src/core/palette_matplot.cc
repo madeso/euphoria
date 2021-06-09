@@ -28,7 +28,7 @@ namespace euphoria::core
         {
             return {r, g, b};
         }
-    } // namespace
+    }
 
     namespace palettes
     {
@@ -400,6 +400,6 @@ namespace euphoria::core
                     C(251, 231, 35), C(253, 231, 37)};
             return p;
         }
-    } // namespace palette
+    }
 
-} // namespace euphoria::core
+}

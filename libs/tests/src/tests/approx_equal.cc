@@ -106,4 +106,4 @@ namespace euphoria::tests
         return a || inv;
     }
 
-} // namespace euphoria::tests
+}

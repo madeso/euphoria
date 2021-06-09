@@ -22,4 +22,4 @@ namespace euphoria::core
     {
         return stream << "(" << aa.axis << " " << aa.angle << ")";
     }
-} // namespace euphoria::core
+}

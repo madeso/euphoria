@@ -44,4 +44,4 @@ namespace euphoria::core
         return polar_coord::create_random(random).to_unit_vector();
     }
 
-} // namespace euphoria::core
+}

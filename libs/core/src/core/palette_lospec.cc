@@ -10,7 +10,7 @@ namespace euphoria::core
         {
             return rgbi::from_hex(hex);
         }
-    } // namespace
+    }
 
     namespace palettes
     {
@@ -484,6 +484,6 @@ namespace euphoria::core
             };
             return p;
         }
-    } // namespace palette
+    }
 
-} // namespace euphoria::core
+}

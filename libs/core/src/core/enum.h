@@ -78,7 +78,7 @@ namespace euphoria::core
 
         bool
         operator<(const enum_value& other) const;
-        
+
         // todo(Gustav): only have the type in debug/test builds
         enum_type* type;
         size_t value;
@@ -115,4 +115,4 @@ namespace euphoria::core
 #define SET_ENUM_FROM_FILE(FS, PATH, TYPE) \
     load_enum_type(&TYPE##_EnumType(), FS, PATH)
 
-} // namespace euphoria::core
+}

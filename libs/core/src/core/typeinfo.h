@@ -59,7 +59,7 @@ namespace euphoria::core
 {
     using TypeId = std::size_t;
     using TypeName = std::string;
-} // namespace euphoria::core
+}
 
 #define TYPEID_ID(X) typeid(X).hash_code()
 #define TYPEID_NAME(X) typeid(X).name()
@@ -76,7 +76,7 @@ namespace euphoria::core
 
 #define TYPEID_ID(X) ctti::type_id<X>()
 #define TYPEID_NAME(X) ctti::nameof<X>()
-} // namespace euphoria::core
+}
 
 #elif BUILD_TYPEINFO_IMPL_CUSTOM_HASHED == 1 \
         || BUILD_TYPEINFO_IMPL_CUSTOM_RT == 1
@@ -126,7 +126,7 @@ namespace euphoria::core
     }
 
 #define TYPEID_NAME(X) GetNameOf<X>()
-} // namespace euphoria::core
+}
 
 #if BUILD_TYPEINFO_IMPL_CUSTOM_RT == 1
 namespace euphoria::core

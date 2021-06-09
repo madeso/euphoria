@@ -15,7 +15,7 @@ namespace euphoria::core
         {
             return {rgbi {g, g, g}, a};
         }
-    } // namespace
+    }
 
 
     //
@@ -244,4 +244,4 @@ namespace euphoria::core
         });
     }
 
-} // namespace euphoria::core
+}

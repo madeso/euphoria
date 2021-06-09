@@ -92,7 +92,7 @@ namespace
         o << p.i << ":" << p.name;
         return o;
     }
-} // namespace
+}
 
 
 TEST_CASE("insertionsort-default_sort", "[insertionsort]")

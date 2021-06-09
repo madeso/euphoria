@@ -386,7 +386,7 @@ namespace euphoria::core
     // util functions
     unit2f create_random_unit(random* random);
 
-} // namespace euphoria::core
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -406,7 +406,7 @@ namespace euphoria::core
 
         unsigned int
         from_string_to_hex(const std::string& str);
-    } // namespace colorutil
+    }
 
 
 

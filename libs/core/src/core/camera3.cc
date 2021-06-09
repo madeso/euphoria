@@ -68,7 +68,7 @@ namespace euphoria::core
                    * mat4f::from_translation(
                            -static_cast<vec3f>(camera.position));
         }
-    } // namespace
+    }
 
     compiled_camera3
     camera3::compile(float aspect) const
@@ -77,4 +77,4 @@ namespace euphoria::core
                                CalculateProjectionMatrix(*this, aspect)};
     }
 
-} // namespace euphoria::core
+}

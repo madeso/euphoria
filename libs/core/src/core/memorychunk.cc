@@ -87,4 +87,4 @@ namespace euphoria::core
         position += size;
     }
 
-} // namespace euphoria::core
+}

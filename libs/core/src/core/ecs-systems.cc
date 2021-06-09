@@ -67,4 +67,4 @@ namespace euphoria::core::ecs
         systems->sprite_drawer.draw(&reg, renderer);
     }
 
-} // namespace euphoria::core::ecs
+}

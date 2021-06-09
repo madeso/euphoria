@@ -94,7 +94,7 @@ namespace euphoria::core
             default: return c;
             }
         }
-    } // namespace
+    }
 
 
     std::vector<std::string>
@@ -168,4 +168,4 @@ namespace euphoria::core
 
         return ret;
     }
-} // namespace euphoria::core
+}

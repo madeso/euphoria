@@ -9,7 +9,7 @@ namespace
     {
         return (lhs + margin >= rhs) && (rhs + margin >= lhs);
     }
-} // namespace
+}
 
 
 namespace euphoria::tests

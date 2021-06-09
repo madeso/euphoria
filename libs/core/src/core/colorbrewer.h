@@ -57,7 +57,7 @@ namespace euphoria::core
             std::string name;
             BrewerPalette palette;
         };
-    } // namespace colorbrewer
+    }
 
     namespace colorbrewer
     {

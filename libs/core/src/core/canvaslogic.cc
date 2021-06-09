@@ -45,4 +45,4 @@ namespace euphoria::core
     {
         return (p - scroll) / scale;
     }
-} // namespace euphoria::core
+}

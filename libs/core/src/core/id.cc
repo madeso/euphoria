@@ -41,11 +41,12 @@ namespace euphoria::core
             ASSERT(generator);
             return generator->generate();
         }
-    } // namespace
+    }
 
     id::id(id_generator* generator)
         : value_(generate_id(generator)), generator_(generator)
-    {}
+    {
+    }
 
     const id&
     id::Invalid()
@@ -82,4 +83,4 @@ namespace euphoria::core
         return value_;
     }
 
-} // namespace euphoria::core
+}

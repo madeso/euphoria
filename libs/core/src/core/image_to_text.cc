@@ -96,4 +96,4 @@ namespace euphoria::core
         return ret;
     }
 
-} // namespace euphoria::core
+}

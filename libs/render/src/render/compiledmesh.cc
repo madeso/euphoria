@@ -151,10 +151,10 @@ namespace euphoria::render
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    namespace // local
+    namespace
     {
         DEFINE_ENUM_VALUE(core::texture_type, DiffuseType, "Diffuse"); // NOLINT
-    } // namespace
+    }
 
 
     void

@@ -329,7 +329,7 @@ namespace euphoria::core
             return buttons;
         }
 
-    } // namespace
+    }
 
     std::string
     to_string(key k)

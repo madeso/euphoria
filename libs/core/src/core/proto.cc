@@ -61,4 +61,4 @@ namespace euphoria::core
         return "";
     }
 
-} // namespace euphoria::core
+}

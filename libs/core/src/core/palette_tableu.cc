@@ -11,16 +11,16 @@ namespace euphoria::core
         {
             return {r, g, b};
         }
-    } // namespace
+    }
 
     /*
-src: https://github.com/jiffyclub/palettable/blob/master/palettable/tableau/tableau.py
+    src: https://github.com/jiffyclub/palettable/blob/master/palettable/tableau/tableau.py
 
-Color palettes derived from Tableau: http://www.tableausoftware.com/
-See also:
-http://kb.tableausoftware.com/articles/knowledgebase/creating-custom-color-palettes
-http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colors.html
-*/
+    Color palettes derived from Tableau: http://www.tableausoftware.com/
+    See also:
+    http://kb.tableausoftware.com/articles/knowledgebase/creating-custom-color-palettes
+    http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colors.html
+    */
     namespace palettes
     {
         const palette&
@@ -253,6 +253,6 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
                                            C(204, 201, 77)};
             return p;
         }
-    } // namespace palette
+    }
 
-} // namespace euphoria::core
+}

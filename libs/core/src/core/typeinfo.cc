@@ -24,6 +24,6 @@ namespace euphoria::core
         return id;
     }
 
-} // namespace euphoria::core
+}
 
 #endif

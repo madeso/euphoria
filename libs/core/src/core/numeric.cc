@@ -14,7 +14,7 @@ namespace euphoria::core
     {
         return is_zero(lhs - rhs);
     }
-    
+
 
     bool
     is_zero(float r)
@@ -217,7 +217,7 @@ namespace euphoria::core
         {
             return std::ceil(num / gran) * gran;
         }
-    } // namespace
+    }
 
 
     float
@@ -237,4 +237,4 @@ namespace euphoria::core
 
         return lower;
     }
-} // namespace euphoria::core
+}
