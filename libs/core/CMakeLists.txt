@@ -187,13 +187,21 @@ target_include_directories(core
 )
 target_link_libraries(core
     PUBLIC
-    magic_enum
-    spdlog
-    rapidjson
+        magic_enum
+        spdlog
+        rapidjson
     PRIVATE
-    stb_image stb_image_write stb_rect_pack crc32
-    font8x8 font8x13 aheasing file_types range
-    assimp stb_truetype
+        stb_image
+        stb_image_write
+        stb_rect_pack
+        crc32
+        font8x8
+        font8x13
+        aheasing
+        file_types
+        range
+        assimp
+        stb_truetype
 )
 
 
