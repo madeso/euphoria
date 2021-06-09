@@ -126,9 +126,10 @@ main(int argc, char* argv[])
         ? generate_random_points(number_of_points, area, &rand)
         : poisson_sample(area, &rand, poisson_radius*2, poisson_radius);
 
+    const auto rainbow = dynamic_palette::create_rainbow(random_points.size());
     auto pal = use_colorblind
         ? palettes::color_blind_10()
-        : palette::create_rainbow(random_points.size());
+        : rainbow.to_palette();
     image image;
     image.setup_no_alpha_support(size, size);
 

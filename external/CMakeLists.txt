@@ -21,6 +21,7 @@ target_include_directories(stb_truetype
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
+# todo(Gustav): remove once we update to c++20
 add_library(range INTERFACE)
 target_include_directories(range INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/range-v3/include)
 

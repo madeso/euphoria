@@ -190,6 +190,7 @@ target_link_libraries(core
         magic_enum
         spdlog
         rapidjson
+        range
     PRIVATE
         stb_image
         stb_image_write
@@ -199,7 +200,6 @@ target_link_libraries(core
         font8x13
         aheasing
         file_types
-        range
         assimp
         stb_truetype
 )

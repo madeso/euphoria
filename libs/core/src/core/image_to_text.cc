@@ -10,19 +10,27 @@ namespace euphoria::core
     table<char>
     image_to_string_table(const image& img, const std::vector<image_map_action>& map)
     {
-        auto pal = palette::create_empty("");
+        auto pal = dynamic_palette::create_empty("");
         for(const auto m: map)
         {
             pal.colors.push_back(m.from_color);
         }
 
-        auto ret = table<char>::from_width_height(
-                img.width, img.height, ' ');
-        ret.set_all([&pal, &map, &img](int x, int y) {
-            const auto p = img.get_pixel(x, y);
-            const auto index = pal.get_index_closest(rgbi {p.r, p.g, p.b});
-            return map[index].to;
-        });
+        auto ret = table<char>::from_width_height
+        (
+            img.width,
+            img.height,
+            ' '
+        );
+        ret.set_all
+        (
+            [&pal, &map, &img](int x, int y)
+            {
+                const auto p = img.get_pixel(x, y);
+                const auto index = pal.to_palette().get_index_closest(rgbi {p.r, p.g, p.b});
+                return map[index].to;
+            }
+        );
 
         return ret;
     }

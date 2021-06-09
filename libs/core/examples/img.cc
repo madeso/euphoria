@@ -83,7 +83,7 @@ main(int argc, char* argv[])
                     return argparse::ok;
                 }
             );
-            
+
         }
     );
 
@@ -104,7 +104,7 @@ main(int argc, char* argv[])
                     return argparse::ok;
                 }
             );
-            
+
         }
     );
 
@@ -133,7 +133,7 @@ main(int argc, char* argv[])
                 [&]
                 {
                     auto colors = median_cut(image, depth, middle_split);
-                    const auto& pal = palette{"", colors};
+                    const auto& pal = palette{"", colors, 0};
 
                     if(dither)
                     {

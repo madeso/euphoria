@@ -172,23 +172,26 @@ main(int argc, char* argv[])
     const auto palette = euphoria::core::palette
     {
         "",
-        color::red,
-        color::white,
-        color::blue,
+        std::array
+        {
+            rgbi{color::red},
+            rgbi{color::white},
+            rgbi{color::blue},
 
-        color::light_green,
-        color::yellow,
-        color::light_blue,
+            rgbi{color::light_green},
+            rgbi{color::yellow},
+            rgbi{color::light_blue},
 
-        color::pink,
-        color::orange,
-        color::tan,
+            rgbi{color::pink},
+            rgbi{color::orange},
+            rgbi{color::tan},
 
-        color::brown,
-        color::green,
-        color::purple,
-        color::cornflower_blue,
-        color::cyan
+            rgbi{color::brown},
+            rgbi{color::green},
+            rgbi{color::purple},
+            rgbi{color::cornflower_blue},
+            rgbi{color::cyan}
+        }
     };
 
     auto parser = argparse::parser {"identicon test"};

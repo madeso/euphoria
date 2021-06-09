@@ -21,21 +21,6 @@ namespace euphoria::core
         }
     }
 
-
-    palette::palette(const std::string& n, const std::vector<rgbi>& c)
-        : name(n)
-        , colors(c)
-    {
-    }
-
-
-    palette
-    palette::create_empty(const std::string& name)
-    {
-        return palette{name};
-    }
-
-
     const rgbi&
     palette::get_random_color(random* r) const
     {
@@ -78,9 +63,31 @@ namespace euphoria::core
         return index_best;
     }
 
+    ///////////////////////////////////////////////////////////////////////////
 
     palette
-    palette::create_rainbow(int count, float saturation, float lightness)
+    dynamic_palette::to_palette() const
+    {
+        return {name, colors, 42};
+    }
+
+
+    dynamic_palette::dynamic_palette(const std::string& n, const std::vector<rgbi>& c)
+        : name(n)
+        , colors(c)
+    {
+    }
+
+
+    dynamic_palette
+    dynamic_palette::create_empty(const std::string& name)
+    {
+        return dynamic_palette{name};
+    }
+
+
+    dynamic_palette
+    dynamic_palette::create_rainbow(int count, float saturation, float lightness)
     {
         return create_rainbow
         (
@@ -96,8 +103,8 @@ namespace euphoria::core
     }
 
 
-    palette
-    palette::create_rainbow
+    dynamic_palette
+    dynamic_palette::create_rainbow
     (
         int count,
         const angle& from,
@@ -108,7 +115,7 @@ namespace euphoria::core
     {
         ASSERT(count > 1);
 
-        auto pal = palette::create_empty("Rainbow");
+        auto pal = dynamic_palette::create_empty("Rainbow");
 
         for(int i = 0; i < count; i += 1)
         {
@@ -129,7 +136,7 @@ namespace euphoria::core
     }
 
 
-    palette::palette(const std::string& n)
+    dynamic_palette::dynamic_palette(const std::string& n)
         : name(n)
     {
     }
@@ -155,72 +162,69 @@ namespace euphoria::core
             static const auto p = palette
             {
                 "dawnbringer",
-                C(0x140C1C),
-                C(0x442434),
-                C(0x30346D),
-                C(0x4E4A4E),
-                C(0x854C30),
-                C(0x346524),
-                C(0xD04648),
-                C(0x757161),
-                C(0x597DCE),
-                C(0xD27D2C),
-                C(0x8595A1),
-                C(0x6DAA2C),
-                C(0xD2AA99),
-                C(0x6DC2CA),
-                C(0xDAD45E),
-                C(0xDEEED6),
+                std::array
+                {
+                    C(0x140C1C),
+                    C(0x442434),
+                    C(0x30346D),
+                    C(0x4E4A4E),
+                    C(0x854C30),
+                    C(0x346524),
+                    C(0xD04648),
+                    C(0x757161),
+                    C(0x597DCE),
+                    C(0xD27D2C),
+                    C(0x8595A1),
+                    C(0x6DAA2C),
+                    C(0xD2AA99),
+                    C(0x6DC2CA),
+                    C(0xDAD45E),
+                    C(0xDEEED6),
+                }
             };
             return p;
         }
-
-
-        palette
-        BuildNamedColors()
-        {
-            auto p = palette
-            {
-                "named",
-                color::white,
-                color::light_gray,
-                color::gray,
-                color::dark_gray,
-                color::black,
-                color::red,
-                color::pure_red,
-                color::blue,
-                color::pure_blue,
-                color::light_blue,
-                color::normal_blue,
-                color::cornflower_blue,
-                color::green,
-                color::pure_green,
-                color::light_green,
-                color::yellow,
-                color::pure_yellow,
-                color::orange,
-                color::pure_orange,
-                color::brown,
-                color::pure_brown,
-                color::purple,
-                color::pure_purple,
-                color::pink,
-                color::pure_pink,
-                color::pure_beige,
-                color::tan,
-                color::pure_tan,
-                color::cyan,
-                color::pure_cyan,
-            };
-            return p;
-        }
-
 
         const palette&
         named_colors()
         {
-            static const auto p = BuildNamedColors();
+            static const auto p = palette
+            {
+                "named",
+                std::array
+                {
+                    rgbi{color::white},
+                    rgbi{color::light_gray},
+                    rgbi{color::gray},
+                    rgbi{color::dark_gray},
+                    rgbi{color::black},
+                    rgbi{color::red},
+                    rgbi{color::pure_red},
+                    rgbi{color::blue},
+                    rgbi{color::pure_blue},
+                    rgbi{color::light_blue},
+                    rgbi{color::normal_blue},
+                    rgbi{color::cornflower_blue},
+                    rgbi{color::green},
+                    rgbi{color::pure_green},
+                    rgbi{color::light_green},
+                    rgbi{color::yellow},
+                    rgbi{color::pure_yellow},
+                    rgbi{color::orange},
+                    rgbi{color::pure_orange},
+                    rgbi{color::brown},
+                    rgbi{color::pure_brown},
+                    rgbi{color::purple},
+                    rgbi{color::pure_purple},
+                    rgbi{color::pink},
+                    rgbi{color::pure_pink},
+                    rgbi{color::pure_beige},
+                    rgbi{color::tan},
+                    rgbi{color::pure_tan},
+                    rgbi{color::cyan},
+                    rgbi{color::pure_cyan}
+                }
+            };
             return p;
         }
     }

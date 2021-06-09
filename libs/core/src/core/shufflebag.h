@@ -2,6 +2,7 @@
 
 
 #include <vector>
+#include "range/v3/view/span.hpp"
 
 #include "core/assert.h"
 #include "core/random.h"
@@ -61,10 +62,11 @@ namespace euphoria::core
         unsigned long cursor_ = 0;
     };
 
+
     template<typename T>
     [[nodiscard]]
     constexpr shufflebag<T>
-    create_shuffle_bag(const std::vector<T>& items, int amount)
+    create_shuffle_bag(const ranges::span<const T>& items, int amount)
     {
         auto b = shufflebag<T>{};
         b.reserve(items.size() * amount);
@@ -73,6 +75,15 @@ namespace euphoria::core
             b.add(it, amount);
         }
         return b;
+    }
+
+
+    template<typename T>
+    [[nodiscard]]
+    constexpr shufflebag<T>
+    create_shuffle_bag(const std::vector<T>& items, int amount)
+    {
+        return create_shuffle_bag(ranges::span<T>{items.begin(), items.end()}, amount);
     }
 
 }

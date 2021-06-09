@@ -1,12 +1,14 @@
 #pragma once
 
 #include <vector>
+#include "range/v3/view/span.hpp"
 
 #include "core/assert.h"
 
 #include "core/ints.h"
 #include "core/vec2.h"
 #include "core/range.h"
+
 
 namespace euphoria::core
 {
@@ -43,7 +45,7 @@ namespace euphoria::core
 
     /*
      All helper functions should be in the style of
-     
+
      ```
      xxx get_random_xxx(random* rand, ...);
      ```
@@ -80,6 +82,19 @@ namespace euphoria::core
     template <typename T>
     const T&
     get_random_item_in_vector(random* r, const std::vector<T>& v)
+    {
+        const auto size = v.size();
+        ASSERT(size > 0);
+        if (size == 1)
+        {
+            return v[0];
+        }
+        return v[get_random_in_range(r, size)];
+    }
+
+    template <typename T>
+    const T&
+    get_random_item_in_vector(random* r, const ranges::span<T>& v)
     {
         const auto size = v.size();
         ASSERT(size > 0);
