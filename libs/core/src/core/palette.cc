@@ -68,7 +68,7 @@ namespace euphoria::core
     palette
     dynamic_palette::to_palette() const
     {
-        return {name, colors, 42};
+        return {name, colors};
     }
 
 

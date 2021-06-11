@@ -13,19 +13,14 @@ namespace euphoria::core
 
     struct palette
     {
+        // todo(Gustav): what is name used for? can we remove it and use a tostring on the palette_all enum?
+        // also does this represent a display name or a lookup name? both?
+        /** the name of the palette */
         std::string_view name;
 
-        /** list of the colors */
         ranges::span<const rgbi> colors;
 
-        template <std::size_t size>
-        constexpr palette(const std::string_view& n, const std::array<rgbi, size>& c)
-            : name(n)
-            , colors(c)
-        {
-        }
-
-        constexpr palette(const std::string_view& n, const ranges::span<const rgbi>& c, int)
+        constexpr palette(const std::string_view& n, const ranges::span<const rgbi>& c)
             : name(n)
             , colors(c)
         {
@@ -58,11 +53,49 @@ namespace euphoria::core
         // that needs to determine a color
     };
 
+
+    template<std::size_t size>
+    struct static_palette
+    {
+        std::string_view name;
+        std::array<const rgbi, size> colors;
+        palette pal;
+
+        constexpr static_palette
+        (
+            std::string_view n,
+            const std::array<const rgbi, size>& c
+        )
+            : name(n), colors(c), pal{n, colors}
+        {
+        }
+
+        constexpr const palette& operator*() const
+        {
+            return pal;
+        }
+
+        // not used: but here to complete the pointer aesthetic
+        // constexpr const palette* operator->() const
+        // {
+        //     return &pal;
+        // }
+    };
+
+
+    template <typename... T>
+    constexpr static_palette<sizeof...(T)>
+    make_static_palette
+    (
+        const std::string_view& name,
+        T... colors
+    )
+    {
+        return {name, {colors...}};
+    }
+
     struct dynamic_palette
     {
-        // todo(Gustav): what is name used for? can we remove it and use a tostring on the palette_all enum?
-        // also does this represent a display name or a lookup name? both?
-        /** the name of the palette */
         std::string name;
 
         /** list of the colors */

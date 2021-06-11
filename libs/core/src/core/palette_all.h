@@ -80,7 +80,7 @@ namespace euphoria::core::palettes
         green_orange_12
     };
 
-    const palette&
+    palette
     get_palette(name palette_name);
 
     constexpr std::array PaletteNames

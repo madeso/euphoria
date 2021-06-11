@@ -129,7 +129,7 @@ main(int argc, char** argv)
     image image;
     core::random random;
     tool current_tool = tool::pen;
-    auto palette = palettes::endesga_64();
+    auto palette = *palettes::endesga_64;
     auto foreground = 0;
     auto background = 1;
 

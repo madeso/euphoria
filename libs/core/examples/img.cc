@@ -133,7 +133,7 @@ main(int argc, char* argv[])
                 [&]
                 {
                     auto colors = median_cut(image, depth, middle_split);
-                    const auto& pal = palette{"", colors, 0};
+                    const auto pal = palette{"", colors};
 
                     if(dither)
                     {
