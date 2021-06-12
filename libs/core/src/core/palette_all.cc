@@ -55,10 +55,10 @@ namespace euphoria::core::palettes
         case name::famicube: return *famicube;
 
         // matplot
-        case name::magma: return magma();
-        case name::inferno: return inferno();
-        case name::plasma: return plasma();
-        case name::viridis: return viridis();
+        case name::magma: return *magma;
+        case name::inferno: return *inferno;
+        case name::plasma: return *plasma;
+        case name::viridis: return *viridis;
 
         // mycarta
         case name::cube1: return cube_1();
