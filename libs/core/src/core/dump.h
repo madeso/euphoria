@@ -29,6 +29,7 @@ namespace euphoria::core::dump2d
         rgbi stroke_color = color::black;
         std::optional<rgbi> fill_color;
         bool is_closed = false;
+        float stroke_width = 1.0f;
         std::vector<int> stroke;
 
         poly& set_stroke(const std::vector<int>& new_stroke);

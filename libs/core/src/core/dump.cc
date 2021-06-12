@@ -155,18 +155,25 @@ namespace euphoria::core::dump2d
             writer->file << ToHtmlOrNone(poly->fill_color);
             writer->file << ";stroke:";
             writer->file << ToHtml(poly->stroke_color);
-            writer->file << ";stroke-width:1\"";
-            if(!poly->stroke.empty())
+            if(poly->stroke_width <= 0.0f)
             {
-                writer->file << " stroke-dasharray=\"";
-                {bool first = true;
-                for(const auto d: poly->stroke)
+                writer->file << ";stroke-width:0\"";
+            }
+            else
+            {
+                writer->file << ";stroke-width:1\"";
+                if(!poly->stroke.empty())
                 {
-                    if(first) { first = false; }
-                    else { writer->file << ","; }
-                    writer->file << d;
-                }}
-                writer->file << "\"";
+                    writer->file << " stroke-dasharray=\"";
+                    {bool first = true;
+                    for(const auto d: poly->stroke)
+                    {
+                        if(first) { first = false; }
+                        else { writer->file << ","; }
+                        writer->file << d;
+                    }}
+                    writer->file << "\"";
+                }
             }
             writer->file << "/>\n";
         }
@@ -313,6 +320,7 @@ namespace euphoria::core::dump2d
         const auto size = r.first;
         const auto offset = r.second;
         const auto scale = std::min(static_cast<float>(width-space*2) / size.x, static_cast<float>(height-space*2) / size.y);
+
         const auto dx = offset.x * scale;
         const auto dy = offset.y * scale;
         const auto px = [=](float x) -> float { return static_cast<float>(space) + dx + x * scale; };
