@@ -12,7 +12,7 @@ namespace euphoria::core::palettes
     }
 }
 
-namespace euphoria::core::palettes
+namespace euphoria::core::palettes::lospec
 {
     // collected by https://github.com/peterhellberg/gfx/blob/master/palettes.go
 

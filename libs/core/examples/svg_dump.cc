@@ -40,7 +40,7 @@ main(int, char*[])
 {
     core::random rand;
 
-    auto pal = create_shuffle_bag(palettes::color_blind_10().colors, 2);
+    auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
 
     auto svg = dumper{};
 

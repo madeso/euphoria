@@ -75,11 +75,10 @@ namespace euphoria::core
             return pal;
         }
 
-        // not used: but here to complete the pointer aesthetic
-        // constexpr const palette* operator->() const
-        // {
-        //     return &pal;
-        // }
+        constexpr const palette* operator->() const
+        {
+            return &pal;
+        }
     };
 
 

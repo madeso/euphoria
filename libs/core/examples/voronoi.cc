@@ -128,7 +128,7 @@ main(int argc, char* argv[])
 
     const auto rainbow = dynamic_palette::create_rainbow(random_points.size());
     auto pal = use_colorblind
-        ? palettes::color_blind_10()
+        ? *palettes::tableau::color_blind_10
         : rainbow.to_palette();
     image image;
     image.setup_no_alpha_support(size, size);

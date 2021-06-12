@@ -30,7 +30,7 @@ main(int, char*[])
 {
     euphoria::core::random rand;
 
-    auto pal = create_shuffle_bag(palettes::color_blind_10().colors, 2);
+    auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
 
     const auto size = 15.0f;
     auto area = aabb{vec3f{-size, -size, -size}, vec3f{size, size, size}};

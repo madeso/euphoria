@@ -1,48 +1,227 @@
 #pragma once
 
-namespace euphoria::core
+#include "core/palette.h"
+
+
+/*
+src: https://github.com/jiffyclub/palettable/blob/master/palettable/tableau/tableau.py
+
+Color palettes derived from Tableau: http://www.tableausoftware.com/
+See also:
+http://kb.tableausoftware.com/articles/knowledgebase/creating-custom-color-palettes
+http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colors.html
+*/
+
+namespace euphoria::core::palettes::tableau
 {
-    struct palette;
-}
+    constexpr rgbi
+    C(unsigned char r, unsigned char g, unsigned char b)
+    {
+        return {r, g, b};
+    }
 
-namespace euphoria::core::palettes
-{
-    const palette&
-    tableau_10();
+    constexpr auto tableau_10 = make_static_palette
+    (
+        // Tableau 10
+        "Tableau_10",
+        C(31, 119, 180),
+        C(255, 127, 14),
+        C(44, 160, 44),
+        C(214, 39, 40),
+        C(148, 103, 189),
+        C(140, 86, 75),
+        C(227, 119, 194),
+        C(127, 127, 127),
+        C(188, 189, 34),
+        C(23, 190, 207)
+    );
 
-    const palette&
-    tableau_light_10();
 
-    const palette&
-    tableau_medium_10();
+    constexpr auto tableau_light_10 = make_static_palette
+    (
+        // Tableau 10 Light
+        "TableauLight_10",
+        C(174, 199, 232),
+        C(255, 187, 120),
+        C(152, 223, 138),
+        C(255, 152, 150),
+        C(197, 176, 213),
+        C(196, 156, 148),
+        C(247, 182, 210),
+        C(199, 199, 199),
+        C(219, 219, 141),
+        C(158, 218, 229)
+    );
 
-    const palette&
-    tableau_20();
 
-    const palette&
-    gray_5();
+    constexpr auto tableau_medium_10 = make_static_palette
+    (
+        // Tableau 10 Medium
+        "TableauMedium_10",
+        C(114, 158, 206),
+        C(255, 158, 74),
+        C(103, 191, 92),
+        C(237, 102, 93),
+        C(173, 139, 201),
+        C(168, 120, 110),
+        C(237, 151, 202),
+        C(162, 162, 162),
+        C(205, 204, 93),
+        C(109, 204, 218)
+    );
 
-    const palette&
-    color_blind_10();
 
-    const palette&
-    traffic_light_9();
+    constexpr auto tableau_20 = make_static_palette
+    (
+        // Tableau 20
+        "Tableau_20",
+        C(31, 119, 180), C(174, 199, 232),
+        C(255, 127, 14), C(255, 187, 120), C(44, 160, 44),
+        C(152, 223, 138), C(214, 39, 40), C(255, 152, 150),
+        C(148, 103, 189), C(197, 176, 213), C(140, 86, 75),
+        C(196, 156, 148), C(227, 119, 194), C(247, 182, 210),
+        C(127, 127, 127), C(199, 199, 199), C(188, 189, 34),
+        C(219, 219, 141), C(23, 190, 207), C(158, 218, 229)
+    );
 
-    const palette&
-    purple_gray_6();
 
-    const palette&
-    purple_gray_12();
+    constexpr auto gray_5 = make_static_palette
+    (
+        // Gray 5
+        "Gray_5",
+        C(96, 99, 106),
+        C(165, 172, 175),
+        C(65, 68, 81),
+        C(143, 135, 130),
+        C(207, 207, 207)
+    );
 
-    const palette&
-    blue_red_6();
 
-    const palette&
-    blue_red_12();
+    constexpr auto color_blind_10 = make_static_palette
+    (
+        // Color Blind 10
+        "ColorBlind_10",
+        C(0, 107, 164),
+        C(255, 128, 14),
+        C(171, 171, 171),
+        C(89, 89, 89),
+        C(95, 158, 209),
+        C(200, 82, 0),
+        C(137, 137, 137),
+        C(162, 200, 236),
+        C(255, 188, 121),
+        C(207, 207, 207)
+    );
 
-    const palette&
-    green_orange_6();
 
-    const palette&
-    green_orange_12();
+    constexpr auto traffic_light_9 = make_static_palette
+    (
+        // Traffic Light 9
+        "TrafficLight_9",
+        C(177, 3, 24),
+        C(219, 161, 58),
+        C(48, 147, 67),
+        C(216, 37, 38),
+        C(255, 193, 86),
+        C(105, 183, 100),
+        C(242, 108, 100),
+        C(255, 221, 113),
+        C(159, 205, 153)
+    );
+
+
+    constexpr auto purple_gray_6 = make_static_palette
+    (
+        // Purple-Gray 6
+        "PurpleGray_6",
+        C(123, 102, 210),
+        C(220, 95, 189),
+        C(148, 145, 123),
+        C(153, 86, 136),
+        C(208, 152, 238),
+        C(215, 213, 197)
+    );
+
+
+    constexpr auto purple_gray_12 = make_static_palette
+    (
+        // Purple-Gray 12
+        "PurpleGray_12",
+        C(123, 102, 210),
+        C(166, 153, 232),
+        C(220, 95, 189),
+        C(255, 192, 218),
+        C(95, 90, 65),
+        C(180, 177, 155),
+        C(153, 86, 136),
+        C(216, 152, 186),
+        C(171, 106, 213),
+        C(208, 152, 238),
+        C(139, 124, 110),
+        C(219, 212, 197)
+    );
+
+
+    constexpr auto blue_red_6 = make_static_palette
+    (
+        // Blue-Red 6
+        "BlueRed_6",
+        C(44, 105, 176),
+        C(240, 39, 32),
+        C(172, 97, 60),
+        C(107, 163, 214),
+        C(234, 107, 115),
+        C(233, 195, 155)
+    );
+
+
+    constexpr auto blue_red_12 = make_static_palette
+    (
+        // Blue-Red 12
+        "BlueRed_12",
+        C(44, 105, 176),
+        C(181, 200, 226),
+        C(240, 39, 32),
+        C(255, 182, 176),
+        C(172, 97, 60),
+        C(233, 195, 155),
+        C(107, 163, 214),
+        C(181, 223, 253),
+        C(172, 135, 99),
+        C(221, 201, 180),
+        C(189, 10, 54),
+        C(244, 115, 122)
+    );
+
+
+    constexpr auto green_orange_6 = make_static_palette
+    (
+        // Green-Orange 6
+        "GreenOrange_6",
+        C(50, 162, 81),
+        C(255, 127, 15),
+        C(60, 183, 204),
+        C(255, 217, 74),
+        C(57, 115, 124),
+        C(184, 90, 13)
+    );
+
+
+    constexpr auto green_orange_12 = make_static_palette
+    (
+        // Green-Orange 12
+        "GreenOrange_12",
+        C(50, 162, 81),
+        C(172, 217, 141),
+        C(255, 127, 15),
+        C(255, 185, 119),
+        C(60, 183, 204),
+        C(152, 217, 228),
+        C(184, 90, 13),
+        C(255, 217, 74),
+        C(57, 115, 124),
+        C(134, 180, 169),
+        C(130, 133, 59),
+        C(204, 201, 77)
+    );
 }
