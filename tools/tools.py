@@ -19,7 +19,9 @@ import json
 import typing
 import statistics
 import itertools
+
 import compile_commands as cc
+import cmake
 
 
 HEADER_FILES = ['.h', '.hpp', '.hxx']
@@ -317,6 +319,19 @@ def handle_gv(args):
 
 
 
+def handle_missing_in_cmake(args):
+    compile_commands_arg = cc.get_argument_or_none(args)
+    if compile_commands_arg is None:
+        return
+    build_root = os.path.dirname(compile_commands_arg)
+
+    c = collections.Counter()
+    for cmd in cmake.list_commands(build_root):
+        c[cmd.cmd.lower()] += 1
+
+    print_most_common(c, 5)
+
+
 def handle_line_count(args):
     stats = {}
     files = 0
@@ -391,6 +406,10 @@ def main():
     sub = sub_parsers.add_parser('missing-pragma-once', help='find headers with missing include guards')
     sub.add_argument('files', nargs='+')
     sub.set_defaults(func=handle_missing_include_guards)
+
+    sub = sub_parsers.add_parser('missing-in-cmake', help='find files that existis on disk but missing in cmake')
+    cc.add_argument(sub)
+    sub.set_defaults(func=handle_missing_in_cmake)
 
     args = parser.parse_args()
     if args.command_name is not None:
