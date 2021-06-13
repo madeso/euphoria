@@ -14,6 +14,7 @@ import json
 import typing
 import statistics
 from timeit import default_timer as timer
+import compile_commands as cc
 
 
 HEADER_SIZE = 65
@@ -53,19 +54,6 @@ def print_header(project_name, header_character='-'):
     print(header_character * HEADER_SIZE)
     print(start+project+right)
     print(header_character * HEADER_SIZE)
-
-
-def find_build_root(root):
-    """
-    Find the build folder containing the compile_commands file or None
-    """
-    for relative_build in ['build', 'build/debug-clang']:
-        build = os.path.join(root, relative_build)
-        compile_commands_json = os.path.join(build, 'compile_commands.json')
-        if os.path.isfile(compile_commands_json):
-            return build
-
-    return None
 
 
 def list_files_in_folder(path, extensions):
@@ -318,7 +306,7 @@ def print_warning_counter(project_counter, project):
 def handle_list(args):
     root = os.getcwd()
 
-    project_build_folder = find_build_root(root)
+    project_build_folder = cc.find_build_root(root)
     if project_build_folder is None:
         print('unable to find build folder')
         return
@@ -343,7 +331,7 @@ def handle_format(args):
     """
     root = os.getcwd()
 
-    project_build_folder = find_build_root(root)
+    project_build_folder = cc.find_build_root(root)
     if project_build_folder is None:
         print('unable to find build folder')
         return
@@ -386,7 +374,7 @@ def handle_tidy(args):
     callback function called when running clang.py tidy
     """
     root = os.getcwd()
-    project_build_folder = find_build_root(root)
+    project_build_folder = cc.find_build_root(root)
     if project_build_folder is None:
         print('unable to find build folder')
         return

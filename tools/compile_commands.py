@@ -41,3 +41,14 @@ def load_compile_commands(path: str) -> typing.Dict[str, CompileCommand]:
         return r
 
 
+def find_build_root(root):
+    """
+    Find the build folder containing the compile_commands file or None
+    """
+    for relative_build in ['build', 'build/debug-clang']:
+        build = os.path.join(root, relative_build)
+        compile_commands_json = os.path.join(build, 'compile_commands.json')
+        if os.path.isfile(compile_commands_json):
+            return build
+
+    return None
