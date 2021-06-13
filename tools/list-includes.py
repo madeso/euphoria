@@ -17,33 +17,10 @@ import json
 import typing
 import statistics
 import itertools
+import compile_commands as cc
 
 
-class CompileCommand:
-    def __init__(self, directory: str, command: str):
-        self.directory = directory
-        self.command = command
-
-    def get_relative_includes(self) -> typing.Iterable[str]:
-        # shitty comamndline parser... beware
-        commands = self.command.split(' ')
-        for c in commands:
-            if c.startswith('-I'):
-                yield c[2:]
-
-
-def load_compile_commands(path: str) -> typing.Dict[str, CompileCommand]:
-    with open(path, 'r') as handle:
-        store = json.load(handle)
-
-        r = {}
-        for entry in store:
-            r[entry['file']] = CompileCommand(entry['directory'], entry['command'])
-
-        return r
-
-
-def get_include_directories(path: str, cc: typing.Dict[str, CompileCommand]) -> typing.Iterable[str]:
+def get_include_directories(path: str, cc: typing.Dict[str, cc.CompileCommand]) -> typing.Iterable[str]:
     c = cc[path]
     for relative_include in c.get_relative_includes():
         yield os.path.normpath(os.path.join(c.directory, relative_include))
@@ -197,7 +174,7 @@ def all_translation_units(files: typing.List[str]) -> typing.Iterable[str]:
 ## handlers
 
 def handle_list(args):
-    compile_commands = load_compile_commands(args.compile_commands)
+    compile_commands = cc.load_compile_commands(args.compile_commands)
 
     total_counter = collections.Counter()
     max_counter = collections.Counter()

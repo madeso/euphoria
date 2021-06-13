@@ -6,6 +6,7 @@ cmake-build-*
 build
 .vscode
 .idea
+__pycache__
 
 # vi undo files
 *.un~
