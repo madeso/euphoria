@@ -255,7 +255,7 @@ class FileStatistics:
             print(f'{len(self.data)} files')
 
 
-def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_printer, fix):
+def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_printer, fix, printable_file):
     """
     runs the clang-tidy process, printing status to terminal
     """
@@ -264,7 +264,7 @@ def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_p
     classes = collections.Counter()
     if not short:
         print(f'took {time_taken:.2f}s')
-    stats.add(source_file, time_taken)
+    stats.add(printable_file, time_taken)
     print_empty = False
     for line in output.split('\n'):
         if 'warnings generated' in line:
@@ -275,7 +275,7 @@ def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_p
             pass
         else:
             if 'warning: ' in line:
-                warnings[source_file] += 1
+                warnings[printable_file] += 1
                 tidy_class = CLANG_TIDY_WARNING_CLASS.search(line)
                 if tidy_class is not None:
                     classes[tidy_class.group(1)] += 1
@@ -288,7 +288,7 @@ def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_p
                 print(line)
     # print('{} warnings.'.format(total(warnings)))
     if not short:
-        print_warning_counter(classes, source_file)
+        print_warning_counter(classes, printable_file)
         print()
     return warnings, classes
 
@@ -385,6 +385,7 @@ def handle_tidy(args):
 
     total_counter = collections.Counter()
     total_classes = collections.Counter()
+    warnings_per_file = {}
 
     data = extract_data_from_root(root, SOURCE_FILES + HEADER_FILES if args.headers else SOURCE_FILES)
     stats = FileStatistics()
@@ -396,10 +397,11 @@ def handle_tidy(args):
             project_counter = collections.Counter()
             # source_files = list_source_files(root, project)
             for source_file in source_files:
+                printable_file = os.path.relpath(source_file, root)
                 if args.filter is not None:
                     if args.filter not in source_file:
                         continue
-                print_name = NamePrinter(os.path.relpath(source_file, root))
+                print_name = NamePrinter(printable_file)
                 if first_file:
                     if not args.short:
                         print_header(project)
@@ -407,12 +409,17 @@ def handle_tidy(args):
                 if args.nop is False:
                     if not args.short:
                         print_name.print_name()
-                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats, args.short, print_name, args.fix)
+                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats, args.short, print_name, args.fix, printable_file)
                     if args.short and len(warnings) > 0:
                         break
                     project_counter.update(warnings)
                     total_counter.update(warnings)
                     total_classes.update(classes)
+                    for k in classes.keys():
+                        if k in warnings_per_file:
+                            warnings_per_file[k].append(printable_file)
+                        else:
+                            warnings_per_file[k] = [printable_file]
                 else:
                     print_name.print_name()
 
@@ -430,6 +437,16 @@ def handle_tidy(args):
         print_warning_counter(total_counter, 'total')
         print()
         print_warning_counter(total_classes, 'classes')
+        print()
+        print('-' * 80)
+        print()
+        for k,v in warnings_per_file.items():
+            print(f'{k}:')
+            for f in v:
+                print(f'  {f}')
+            print()
+
+        print('-' * 80)
         print()
         stats.print_data()
 
@@ -454,6 +471,7 @@ def main():
     sub.add_argument('--fix', action='store_true', help="try to fix the source")
     sub.add_argument('filter', default=None, nargs='?')
     sub.add_argument('--short', action='store_true', help="use shorter and stop after one file")
+    sub.add_argument('--list', action='store_true', help="also list files in the summary")
     sub.add_argument('--no-headers', dest='headers', action='store_false', help="don't tidy headers")
     sub.set_defaults(func=handle_tidy)
 
