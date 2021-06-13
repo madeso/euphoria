@@ -39,4 +39,4 @@ jobs:
         - name: Test
           shell: bash
           working-directory: ${{github.workspace}}
-          run: ./tools/clang.py tidy --no-headers
+          run: ./tools/clang.py tidy --no-headers --list
