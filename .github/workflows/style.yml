@@ -1,4 +1,4 @@
-name: linux
+name: style
 
 on: [push, pull_request]
 
