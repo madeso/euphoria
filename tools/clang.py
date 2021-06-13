@@ -450,6 +450,11 @@ def handle_tidy(args):
         print()
         stats.print_data()
 
+    if len(total_counter) > 0:
+        sys.exit(-1)
+    else:
+        sys.exit(0)
+
 
 ##############################################################################
 
