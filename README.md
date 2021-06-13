@@ -1,7 +1,7 @@
 ![euphoria logo](data/branding/euphoria-logo-1280.png)
 
-[![Build Status](https://travis-ci.org/madeso/euphoria.svg?branch=master)](https://travis-ci.org/madeso/euphoria)
-[![Build status](https://ci.appveyor.com/api/projects/status/vmq6ojb3xx01pwhk/branch/master?svg=true)](https://ci.appveyor.com/project/madeso/euphoria/branch/master)
+[![windows](https://github.com/madeso/euphoria/workflows/windows/badge.svg?branch=master)](https://github.com/madeso/euphoria/actions?query=workflow%3Awindows)
+[![linux](https://github.com/madeso/euphoria/workflows/linux/badge.svg?branch=master)](https://github.com/madeso/euphoria/actions?query=workflow%3Alinux)
 [![Coverage Status](https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master)](https://coveralls.io/github/madeso/euphoria?branch=master)
 
 Euphoria is a data-driven "game engine". It's in quotes because
