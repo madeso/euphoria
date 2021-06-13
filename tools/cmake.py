@@ -45,12 +45,18 @@ def merge_folder_and_file(folder: str, file: str) -> str:
     return os.path.normpath(os.path.join(folder, file))
 
 
+def list_all_files(folder: str, args: typing.List[str]) -> typing.Iterable[str]:
+    for a in args:
+        for f in a.split(';'):
+            yield merge_folder_and_file(folder, f)
+
+
 def list_files_in_cmake_library(cmake: CmakeJson) -> typing.Iterable[str]:
     args = cmake.args[1:]
     if args[0] in ['STATIC']:
         args = args[1:]
     folder = os.path.dirname(cmake.file)
-    return (merge_folder_and_file(folder, f) for f in args[0].split(';'))
+    return list_all_files(folder, args)
 
 
 def list_files_in_cmake_executable(cmake: CmakeJson) -> typing.Iterable[str]:
@@ -58,5 +64,5 @@ def list_files_in_cmake_executable(cmake: CmakeJson) -> typing.Iterable[str]:
     while args[0] in ['WIN32', 'MACOSX_BUNDLE']:
         args = args[1:]
     folder = os.path.dirname(cmake.file)
-    return (merge_folder_and_file(folder, f) for f in args[0].split(';'))
+    return list_all_files(folder, args)
 
