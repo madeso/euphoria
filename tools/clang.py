@@ -20,7 +20,9 @@ import compile_commands as cc
 HEADER_SIZE = 65
 HEADER_SPACING = 1
 HEADER_START = 3
-SOURCE_FILES = ['.cc', '.h']
+
+HEADER_FILES = ['.h', '.hpp', '.hxx']
+SOURCE_FILES = ['.cc', '.cpp', '.cxx', '.inl']
 
 CLANG_TIDY_WARNING_CLASS = re.compile(r'\[(\w+(-\w+)+)\]')
 
@@ -97,8 +99,8 @@ def sort_and_map_files(root, iterator_files):
     return ret
 
 
-def extract_data_from_root(root):
-    return sort_and_map_files(root, list_files_in_folder(root, SOURCE_FILES))
+def extract_data_from_root(root, files):
+    return sort_and_map_files(root, list_files_in_folder(root, files))
 
 def clang_tidy_root(root):
     return os.path.join(root, 'clang-tidy')
@@ -336,7 +338,7 @@ def handle_format(args):
         print('unable to find build folder')
         return
 
-    data = extract_data_from_root(root)
+    data = extract_data_from_root(root, SOURCE_FILES + HEADER_FILES)
 
     for project, source_files in data.items():
         print_header(project)
@@ -384,7 +386,7 @@ def handle_tidy(args):
     total_counter = collections.Counter()
     total_classes = collections.Counter()
 
-    data = extract_data_from_root(root)
+    data = extract_data_from_root(root, SOURCE_FILES + HEADER_FILES if args.headers else SOURCE_FILES)
     stats = FileStatistics()
 
 
@@ -452,6 +454,7 @@ def main():
     sub.add_argument('--fix', action='store_true', help="try to fix the source")
     sub.add_argument('filter', default=None, nargs='?')
     sub.add_argument('--short', action='store_true', help="use shorter and stop after one file")
+    sub.add_argument('--no-headers', dest='headers', action='store_false', help="don't tidy headers")
     sub.set_defaults(func=handle_tidy)
 
     sub = sub_parsers.add_parser('format', help='do clang format on files')
