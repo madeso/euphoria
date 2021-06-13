@@ -202,8 +202,31 @@ def get_max_indent(path: str, discard_empty: bool) -> int:
     return -1
 
 
+def contains_pragma_once(path: str) -> bool:
+    with open(path, 'r') as handle:
+        for line in handle:
+            if '#pragma once' in line:
+                return True
+
+    return False
+
+
 ###################################################################################################
 ## handlers
+
+def handle_missing_include_guards(args):
+    count = 0
+    files = 0
+
+    for patt in args.files:
+        for file in list_files_in_folder(patt, ['.h']):
+            files += 1
+            if not contains_pragma_once(file):
+                print(file)
+                count += 1
+
+    print(f'Found {count} in {files} files.')
+
 
 def handle_list_indents(args):
     stats = {}
@@ -322,6 +345,9 @@ def handle_line_count(args):
 
 
 
+###################################################################################################
+
+
 def main():
     """
     entry point function for running the script
@@ -361,6 +387,10 @@ def main():
     sub.add_argument('--show', action='store_true')
     sub.add_argument('--include-empty', dest='discard_empty', action='store_false')
     sub.set_defaults(func=handle_list_indents)
+
+    sub = sub_parsers.add_parser('missing-pragma-once', help='find headers with missing include guards')
+    sub.add_argument('files', nargs='+')
+    sub.set_defaults(func=handle_missing_include_guards)
 
     args = parser.parse_args()
     if args.command_name is not None:
