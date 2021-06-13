@@ -318,18 +318,56 @@ def handle_gv(args):
     gv.print_result(args.group or args.cluster, args.cluster)
 
 
+def file_is_in_folder(file: str, folder: str) -> bool:
+    return os.path.commonprefix([folder, file]) == folder
+
+
+def merge_folder_and_file(folder: str, file: str) -> str:
+    return os.path.normpath(os.path.join(folder, file))
+
+
+def list_files_in_cmake_library(cmake: cmake.CmakeJson) -> typing.Iterable[str]:
+    args = cmake.args[1:]
+    if args[0] in ['STATIC']:
+        args = args[1:]
+    folder = os.path.dirname(cmake.file)
+    return (merge_folder_and_file(folder, f) for f in args[0].split(';'))
+
+
+def list_files_in_cmake_executable(cmake: cmake.CmakeJson) -> typing.Iterable[str]:
+    args = cmake.args[1:]
+    while args[0] in ['WIN32', 'MACOSX_BUNDLE']:
+        args = args[1:]
+    folder = os.path.dirname(cmake.file)
+    return (merge_folder_and_file(folder, f) for f in args[0].split(';'))
+
 
 def handle_missing_in_cmake(args):
+    bases = [os.path.realpath(f) for f in args.files]
+
     compile_commands_arg = cc.get_argument_or_none(args)
     if compile_commands_arg is None:
         return
     build_root = os.path.dirname(compile_commands_arg)
 
-    c = collections.Counter()
-    for cmd in cmake.list_commands(build_root):
-        c[cmd.cmd.lower()] += 1
+    paths = set()
 
-    print_most_common(c, 5)
+    for cmd in cmake.list_commands(build_root):
+        if any(file_is_in_folder(cmd.file, b) for b in bases):
+            if cmd.cmd.lower() == 'add_library':
+                paths = paths | set(list_files_in_cmake_library(cmd))
+            if cmd.cmd.lower() == 'add_executable':
+                paths = paths | set(list_files_in_cmake_executable(cmd))
+
+    count = 0
+    for patt in args.files:
+        for file in list_files_in_folder(patt, HEADER_FILES + SOURCE_FILES):
+            resolved = os.path.abspath(file)
+            if resolved not in paths:
+                print(resolved)
+                count += 1
+
+    print(f'Found {count} files not referenced in cmake')
 
 
 def handle_line_count(args):
@@ -408,6 +446,7 @@ def main():
     sub.set_defaults(func=handle_missing_include_guards)
 
     sub = sub_parsers.add_parser('missing-in-cmake', help='find files that existis on disk but missing in cmake')
+    sub.add_argument('files', nargs='+')
     cc.add_argument(sub)
     sub.set_defaults(func=handle_missing_in_cmake)
 
