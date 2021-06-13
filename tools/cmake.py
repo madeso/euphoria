@@ -41,3 +41,22 @@ def list_commands(build_root) -> typing.Iterable[CmakeJson]:
             pass
 
 
+def merge_folder_and_file(folder: str, file: str) -> str:
+    return os.path.normpath(os.path.join(folder, file))
+
+
+def list_files_in_cmake_library(cmake: CmakeJson) -> typing.Iterable[str]:
+    args = cmake.args[1:]
+    if args[0] in ['STATIC']:
+        args = args[1:]
+    folder = os.path.dirname(cmake.file)
+    return (merge_folder_and_file(folder, f) for f in args[0].split(';'))
+
+
+def list_files_in_cmake_executable(cmake: CmakeJson) -> typing.Iterable[str]:
+    args = cmake.args[1:]
+    while args[0] in ['WIN32', 'MACOSX_BUNDLE']:
+        args = args[1:]
+    folder = os.path.dirname(cmake.file)
+    return (merge_folder_and_file(folder, f) for f in args[0].split(';'))
+

@@ -213,6 +213,11 @@ def contains_pragma_once(path: str) -> bool:
     return False
 
 
+def file_is_in_folder(file: str, folder: str) -> bool:
+    return os.path.commonprefix([folder, file]) == folder
+
+
+
 ###################################################################################################
 ## handlers
 
@@ -318,30 +323,6 @@ def handle_gv(args):
     gv.print_result(args.group or args.cluster, args.cluster)
 
 
-def file_is_in_folder(file: str, folder: str) -> bool:
-    return os.path.commonprefix([folder, file]) == folder
-
-
-def merge_folder_and_file(folder: str, file: str) -> str:
-    return os.path.normpath(os.path.join(folder, file))
-
-
-def list_files_in_cmake_library(cmake: cmake.CmakeJson) -> typing.Iterable[str]:
-    args = cmake.args[1:]
-    if args[0] in ['STATIC']:
-        args = args[1:]
-    folder = os.path.dirname(cmake.file)
-    return (merge_folder_and_file(folder, f) for f in args[0].split(';'))
-
-
-def list_files_in_cmake_executable(cmake: cmake.CmakeJson) -> typing.Iterable[str]:
-    args = cmake.args[1:]
-    while args[0] in ['WIN32', 'MACOSX_BUNDLE']:
-        args = args[1:]
-    folder = os.path.dirname(cmake.file)
-    return (merge_folder_and_file(folder, f) for f in args[0].split(';'))
-
-
 def handle_missing_in_cmake(args):
     bases = [os.path.realpath(f) for f in args.files]
 
@@ -355,9 +336,9 @@ def handle_missing_in_cmake(args):
     for cmd in cmake.list_commands(build_root):
         if any(file_is_in_folder(cmd.file, b) for b in bases):
             if cmd.cmd.lower() == 'add_library':
-                paths = paths | set(list_files_in_cmake_library(cmd))
+                paths = paths | set(cmake.list_files_in_cmake_library(cmd))
             if cmd.cmd.lower() == 'add_executable':
-                paths = paths | set(list_files_in_cmake_executable(cmd))
+                paths = paths | set(cmake.list_files_in_cmake_executable(cmd))
 
     count = 0
     for patt in args.files:
