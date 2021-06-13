@@ -34,7 +34,7 @@ jobs:
         - name: Build
           shell: bash
           working-directory: ${{github.workspace}}/build
-          run: time cmake --build . --config ${{matrix.build_type}} -- file_types
+          run: time cmake --build . --config ${{matrix.build_type}}
 
         - name: Test
           shell: bash
