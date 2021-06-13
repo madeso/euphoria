@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-list line counts
+various smaller tools for investigating code health and getting statistics
 """
 
 import argparse
@@ -13,6 +13,10 @@ import sys
 import json
 import typing
 import statistics
+
+
+HEADER_FILES = ['.h', '.hpp', '.hxx']
+SOURCE_FILES = ['.cc', '.cpp', '.cxx', '.inl']
 
 
 def list_files_in_folder(path: str, extensions: typing.Optional[typing.List[str]]):
@@ -36,23 +40,13 @@ def get_line_count(path: str, discard_empty: bool) -> int:
     return -1
 
 
-def main():
-    """
-    entry point function for running the script
-    """
-    parser = argparse.ArgumentParser(description='do stuff')
-    parser.add_argument('files', nargs='+')
-    parser.add_argument('--each', type=int, default=1)
-    parser.add_argument('--show', action='store_true')
-    parser.add_argument('--include-empty', dest='discard_empty', action='store_false')
-    args = parser.parse_args()
-
+def handle_line_count(args):
     stats = {}
     files = 0
     each = args.each
 
     for patt in args.files:
-        for file in list_files_in_folder(patt, ['.h', '.cc']):
+        for file in list_files_in_folder(patt, HEADER_FILES + SOURCE_FILES):
             files += 1
 
             count = get_line_count(file, args.discard_empty)
@@ -71,6 +65,28 @@ def main():
             print(f'{count_str}: {files}')
         else:
             print(f'{count_str}: {c}')
+
+
+
+def main():
+    """
+    entry point function for running the script
+    """
+    parser = argparse.ArgumentParser(description='investigate code health and random statistics')
+    sub_parsers = parser.add_subparsers(dest='command_name', title='Commands', help='', metavar='<command>')
+
+    sub = sub_parsers.add_parser('line-count', help='list line counts')
+    sub.add_argument('files', nargs='+', help='files or folders to look in')
+    sub.add_argument('--each', type=int, default=1)
+    sub.add_argument('--show', action='store_true')
+    sub.add_argument('--include-empty', dest='discard_empty', action='store_false')
+    sub.set_defaults(func=handle_line_count)
+
+    args = parser.parse_args()
+    if args.command_name is not None:
+        args.func(args)
+    else:
+        parser.print_help()
 
 
 ##############################################################################
