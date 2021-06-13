@@ -1,0 +1,1 @@
+#include "tests/vectorequals.h"

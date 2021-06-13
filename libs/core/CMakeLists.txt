@@ -139,6 +139,8 @@ set(app_src
     src/core/sensitivity.cc src/core/sensitivity.h
     src/core/shufflebag.cc src/core/shufflebag.h
     src/core/size2.cc src/core/size2.h
+    src/core/sol_forward.cc src/core/sol_forward.h
+    src/core/sol.cc src/core/sol.h
     src/core/stdutils.cc src/core/stdutils.h
     src/core/str.cc src/core/str.h
     src/core/stringmerger.cc src/core/stringmerger.h
@@ -191,6 +193,7 @@ target_link_libraries(core
         spdlog
         rapidjson
         range
+        lua
     PRIVATE
         stb_image
         stb_image_write

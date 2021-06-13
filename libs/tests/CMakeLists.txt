@@ -6,8 +6,9 @@ set(src
     src/tests/approx_equal.cc src/tests/approx_equal.h
     src/tests/stringeq.cc src/tests/stringeq.h
     src/tests/falsestring.cc src/tests/falsestring.h
-    src/tests/utils.h src/tests/utils.cc
-    src/tests/vectortostring.h src/tests/vectortostring.cc
+    src/tests/utils.cc src/tests/utils.h
+    src/tests/vectortostring.cc src/tests/vectortostring.h
+    src/tests/vectorequals.cc src/tests/vectorequals.h
 )
 source_group("" FILES ${src})
 
