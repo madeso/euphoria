@@ -1,33 +1,18 @@
 #include "core/mat4.h"
 #include "core/random.h"
-#include "core/shufflebag.h"
-#include "core/mat4.h"
-#include "core/axisangle.h"
-#include "core/aabb.h"
-#include "core/texturetypes.h"
 #include "core/vfs.h"
 #include "core/vfs_imagegenerator.h"
-#include "core/vfs_path.h"
-#include "core/os.h"
-#include "core/range.h"
-#include "core/camera3.h"
 #include "core/stringutils.h"
 #include "core/stdutils.h"
 #include "core/proto.h"
 #include "core/log.h"
-#include "core/fpscontroller.h"
 
 #include "render/init.h"
-#include "render/debuggl.h"
 #include "render/materialshader.h"
-#include "render/compiledmesh.h"
 #include "render/texturecache.h"
-#include "render/shaderattribute3d.h"
 #include "render/texture.h"
-#include "render/world.h"
 #include "render/viewport.h"
 #include "render/materialshadercache.h"
-#include "render/defaultfiles.h"
 #include "render/viewporthandler.h"
 
 #include "window/imguilibrary.h"
@@ -42,9 +27,7 @@
 #include "editor/browser.h"
 #include "editor/scimed.h"
 
-#include "imgui/imgui.h"
 #include "SDL.h"
-#include <iostream>
 #include <memory>
 
 #include "gaf_game.h"
@@ -272,12 +255,12 @@ load_file
 (
     scimed* scimed,
     texture_cache* cache,
-    scaling_sprite_cache* scache,
+    scaling_sprite_cache* shader_cache,
     const vfs::file_path& path
 )
 {
     scimed->texture = cache->get_texture(path);
-    scimed->scaling = scache->get(path.extend_extension_copy("json"));
+    scimed->scaling = shader_cache->get(path.extend_extension_copy("json"));
 
     if(scimed->texture)
     {
@@ -316,7 +299,7 @@ open_or_focus_scimed
 }
 
 void
-open_or_focus_scimed_editior
+open_or_focus_scimed_editor
 (
     Windows* windows,
     const vfs::file_path& path,
@@ -641,7 +624,7 @@ main(int argc, char** argv)
             { return false; },
             [&](Windows *windows, const vfs::file_path &file)
             {
-                open_or_focus_scimed_editior(windows, file, &sprite_cache);
+                open_or_focus_scimed_editor(windows, file, &sprite_cache);
             }
         )
     );
@@ -720,9 +703,6 @@ main(int argc, char** argv)
         {
             if(ImGui::BeginCombo("test combo", "[val]"))
             {
-                // const auto wsize = ImGui::GetWindowSize();
-                // const auto spacing = ImGui::GetItemsLineHeightWithSpacing() * 2;
-                // const auto space = ImVec2 {wsize.x - spacing, wsize.y - spacing};
                 const float small = 30;
                 const float big = 60;
                 const auto sizer = [=](int id) -> float {
