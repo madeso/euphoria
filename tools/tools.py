@@ -323,6 +323,49 @@ def handle_gv(args):
     gv.print_result(args.group or args.cluster, args.cluster)
 
 
+def handle_list_no_project_folder(args):
+    bases = [os.path.realpath(f) for f in args.files]
+
+    compile_commands_arg = cc.get_argument_or_none(args)
+    if compile_commands_arg is None:
+        return
+    build_root = os.path.dirname(compile_commands_arg)
+
+    projects = set()
+    projects_with_folders = set()
+    files = {}
+
+    for cmd in cmake.list_commands(build_root):
+        if any(file_is_in_folder(cmd.file, b) for b in bases):
+            if cmd.cmd.lower() in ['add_library', 'add_executable']:
+                project_name = cmd.args[0]
+                if cmd.args[1] not in ['INTERFACE']: # skip interface libraries
+                    projects = projects | set([project_name])
+                    files[project_name] = cmd.file
+            if cmd.cmd.lower() == 'set_target_properties':
+                # set_target_properties(core PROPERTIES FOLDER "Libraries")
+                if cmd.args[1] == 'PROPERTIES' and cmd.args[2] == 'FOLDER':
+                    projects_with_folders = projects_with_folders | set([cmd.args[0]])
+
+    sort_on_cmake = lambda x: x[1]
+    missing = projects - projects_with_folders
+    total_missing = len(missing)
+    missing = sorted(((m, files[m]) for m in missing), key=sort_on_cmake)
+
+    missing_files = 0
+
+    for cmake_file, files in itertools.groupby(missing, sort_on_cmake):
+        missing_files += 1
+        print(os.path.relpath(cmake_file))
+        sorted_files = sorted((f[0] for f in files))
+        for f in sorted_files:
+            print(f'    {f}')
+        if len(sorted_files) > 1:
+            print(f'    = {len(sorted_files)} projects')
+        print()
+    print(f'Total: {total_missing} projects in {missing_files} files')
+
+
 def handle_missing_in_cmake(args):
     bases = [os.path.realpath(f) for f in args.files]
 
@@ -430,6 +473,11 @@ def main():
     sub.add_argument('files', nargs='+')
     cc.add_argument(sub)
     sub.set_defaults(func=handle_missing_in_cmake)
+
+    sub = sub_parsers.add_parser('list-no-project-folders', help='find projects that have not set the solution folder')
+    sub.add_argument('files', nargs='+')
+    cc.add_argument(sub)
+    sub.set_defaults(func=handle_list_no_project_folder)
 
     args = parser.parse_args()
     if args.command_name is not None:
