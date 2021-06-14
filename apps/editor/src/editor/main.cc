@@ -65,7 +65,7 @@ struct generic_window
 
 template <typename CreateWindowFunction>
 void
-OpenOrFocusWindow
+open_or_focus_window
 (
     std::vector<std::shared_ptr<generic_window>>* windows,
     const std::string& title_name,
@@ -198,7 +198,7 @@ using Windows = std::vector<std::shared_ptr<generic_window>>;
 void
 open_or_focus_style_editor(Windows* windows)
 {
-    OpenOrFocusWindow
+    open_or_focus_window
     (
         windows,
         "Style editor",
@@ -217,7 +217,7 @@ open_or_focus_text_file
     vfs::file_system* fs
 )
 {
-    OpenOrFocusWindow
+    open_or_focus_window
     (
         windows,
         string_builder {} << "File: " << path,
@@ -285,7 +285,7 @@ open_or_focus_scimed
     scaling_sprite_cache* sc
 )
 {
-    OpenOrFocusWindow
+    open_or_focus_window
     (
         windows,
         string_builder {} << "scimed: " << file,
@@ -311,7 +311,7 @@ open_or_focus_scimed_editor
     {
         file = file.extend_extension_copy("json");
     }
-    OpenOrFocusWindow
+    open_or_focus_window
     (
         windows,
         string_builder {} << "scimed editor: " << file,
@@ -337,7 +337,7 @@ open_or_focus_on_generic_window
     TRun run_function
 )
 {
-    OpenOrFocusWindow
+    open_or_focus_window
     (
         windows,
         string_builder {} << title << ": " << path,
