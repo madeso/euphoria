@@ -46,19 +46,20 @@ include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 
 add_library(window STATIC ${src})
+set_target_properties(window PROPERTIES FOLDER "Libraries")
 target_include_directories(window
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(window
     PUBLIC
-    icon_font_cpp_headers
+        icon_font_cpp_headers
     PRIVATE
-    core
-    render
-    imgui
-    icon_font_cpp_headers
-    sdl2
-    glad
+        core
+        render
+        imgui
+        icon_font_cpp_headers
+        sdl2
+        glad
 )
 

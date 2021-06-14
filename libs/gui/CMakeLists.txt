@@ -19,6 +19,7 @@ set(src
 source_group("" FILES ${src})
 
 add_library(gui STATIC ${src})
+set_target_properties(gui PROPERTIES FOLDER "Libraries")
 target_include_directories(gui
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src
@@ -37,5 +38,6 @@ file(GLOB all_examples_src examples/*.cc)
 source_group("" FILES ${all_examples_src})
 
 add_executable(examples-gui WIN32 MACOSX_BUNDLE examples/gui.cc)
+set_target_properties(examples-gui PROPERTIES FOLDER "Examples/GUI")
 target_link_libraries(examples-gui core gui render window imgui sdl2)
 

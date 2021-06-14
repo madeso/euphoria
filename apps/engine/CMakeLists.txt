@@ -17,6 +17,7 @@ set(src
 source_group("" FILES ${src})
 
 add_executable(engine MACOSX_BUNDLE ${src})
+set_target_properties(engine PROPERTIES FOLDER "Applications")
 target_include_directories(engine
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src

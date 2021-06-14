@@ -16,6 +16,7 @@ set(src
 source_group("" FILES ${src})
 
 add_executable(t3d WIN32 MACOSX_BUNDLE ${src})
+set_target_properties(t3d PROPERTIES FOLDER "Applications")
 target_include_directories(t3d
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src

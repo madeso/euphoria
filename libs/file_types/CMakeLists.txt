@@ -16,11 +16,13 @@ GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
 add_library(file_types STATIC
     ${PROTO_SRCS} ${PROTO_HDRS}
 )
+set_target_properties(file_types PROPERTIES FOLDER "Libraries")
 target_include_directories(file_types
-    PUBLIC ${CMAKE_CURRENT_BINARY_DIR}
+    PUBLIC
+        ${CMAKE_CURRENT_BINARY_DIR}
 )
 target_link_libraries(file_types
     PRIVATE
-    rapidjson
+        rapidjson
 )
 

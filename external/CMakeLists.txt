@@ -2,21 +2,25 @@
 # header only libraries
 
 add_library(stb_image STATIC stb_image.cc)
+set_target_properties(stb_image PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_image
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
 add_library(stb_image_write STATIC stb_image_write.cc)
+set_target_properties(stb_image_write PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_image_write
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
 add_library(stb_rect_pack STATIC stb_rect_pack.cc)
+set_target_properties(stb_rect_pack PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_rect_pack
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
 add_library(stb_truetype STATIC stb_truetype.cc)
+set_target_properties(stb_truetype PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_truetype
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
@@ -38,6 +42,7 @@ add_library(aheasing STATIC
     aheasing/aheasing/easing.c
     aheasing/aheasing/easing.h
 )
+set_target_properties(aheasing PROPERTIES FOLDER "Dependencies")
 target_include_directories(aheasing
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/aheasing
 )
@@ -46,6 +51,7 @@ add_library(crc32 STATIC
     crc32/crc32/crc32.c
     crc32/crc32/crc32.h
 )
+set_target_properties(crc32 PROPERTIES FOLDER "Dependencies")
 target_include_directories(crc32
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/crc32
 )
@@ -54,6 +60,7 @@ add_library(glad STATIC
     glad/src/glad.c
     glad/include/glad/glad.h
 )
+set_target_properties(glad PROPERTIES FOLDER "Dependencies")
 target_include_directories(glad
     PUBLIC glad/include
 )
@@ -115,6 +122,7 @@ add_library(imgui STATIC
     imgui/imgui/backends/imgui_impl_opengl3.cpp
     imgui/imgui/backends/imgui_impl_opengl3.h
 )
+set_target_properties(imgui PROPERTIES FOLDER "Dependencies")
 target_include_directories(imgui
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/backends
@@ -166,6 +174,7 @@ add_library(lua STATIC
     lua/src/lvm.c
     lua/src/lzio.c
 )
+set_target_properties(lua PROPERTIES FOLDER "Dependencies")
 target_include_directories(lua
     PUBLIC
         sol2

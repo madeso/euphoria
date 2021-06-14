@@ -40,6 +40,7 @@ set(src ${app_src})
 source_group("" FILES ${app_src})
 
 add_library(render STATIC ${src})
+set_target_properties(render PROPERTIES FOLDER "Libraries")
 target_include_directories(render
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src
@@ -62,6 +63,8 @@ source_group("" FILES ${all_examples_src})
 
 add_executable(examples-3d WIN32 MACOSX_BUNDLE examples/3d.cc)
 target_link_libraries(examples-3d core render window imgui sdl2)
+set_target_properties(examples-3d PROPERTIES FOLDER "Examples/Render")
 
 add_executable(examples-2d WIN32 MACOSX_BUNDLE examples/2d.cc)
+set_target_properties(examples-2d PROPERTIES FOLDER "Examples/Render")
 target_link_libraries(examples-2d core render window imgui sdl2)

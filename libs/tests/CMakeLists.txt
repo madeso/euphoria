@@ -13,6 +13,7 @@ set(src
 source_group("" FILES ${src})
 
 add_library(tests STATIC ${src})
+set_target_properties(tests PROPERTIES FOLDER "Libraries")
 target_include_directories(tests
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src
@@ -33,6 +34,7 @@ set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
 source_group("main" FILES ${test_main_src})
 add_executable(tests_test ${test_src} ${test_main_src})
+set_target_properties(tests_test PROPERTIES FOLDER "Tests")
 target_link_libraries(tests_test PUBLIC tests)
 
 catch_discover_tests(tests_test)

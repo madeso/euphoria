@@ -7,6 +7,7 @@ set(src
 source_group("" FILES ${src})
 
 add_executable(painter WIN32 MACOSX_BUNDLE ${src})
+set_target_properties(painter PROPERTIES FOLDER "Applications")
 target_include_directories(painter
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src

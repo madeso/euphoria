@@ -23,6 +23,7 @@ set(src ${src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
 
 
 add_executable(editor WIN32 MACOSX_BUNDLE ${src})
+set_target_properties(editor PROPERTIES FOLDER "Applications")
 target_include_directories(editor
     PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/src
