@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.15.0)
-set_property(GLOBAL PROPERTY USE_FOLDERS OFF)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "_cmake")
 project(euphoria)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)

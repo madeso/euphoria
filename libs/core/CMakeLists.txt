@@ -170,6 +170,8 @@ source_group("cli" FILES ${app_src_cli})
 source_group("pcg" FILES ${app_src_pcg})
 source_group("hash" FILES ${app_src_hash})
 source_group("table" FILES ${app_src_table})
+source_group("_cmake/rules" REGULAR_EXPRESSION "\\.rule$")
+source_group("_cmake/" FILES CMakeLists.txt) # is this the correct way to move CMakeLists to a _cmake folder?
 
 set(src
     ${app_src}
@@ -207,6 +209,7 @@ target_link_libraries(core
         stb_truetype
 )
 
+set_target_properties(core PROPERTIES FOLDER "Libraries")
 
 ###############################################################################
 # test project
@@ -270,6 +273,7 @@ set(test_main_src test/main.cc)
 source_group("" FILES ${test_src})
 source_group("main" FILES ${test_main_src})
 add_executable(core_test ${test_src} ${test_main_src})
+set_target_properties(core_test PROPERTIES FOLDER "Test")
 target_link_libraries(core_test PUBLIC core tests)
 catch_discover_tests(core_test)
 
