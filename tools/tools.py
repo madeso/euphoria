@@ -334,6 +334,7 @@ def handle_list_no_project_folder(args):
     projects = set()
     projects_with_folders = set()
     files = {}
+    project_folders = collections.Counter()
 
     for cmd in cmake.list_commands(build_root):
         if any(file_is_in_folder(cmd.file, b) for b in bases):
@@ -346,6 +347,7 @@ def handle_list_no_project_folder(args):
                 # set_target_properties(core PROPERTIES FOLDER "Libraries")
                 if cmd.args[1] == 'PROPERTIES' and cmd.args[2] == 'FOLDER':
                     projects_with_folders = projects_with_folders | set([cmd.args[0]])
+                    project_folders.update([cmd.args[3]])
 
     sort_on_cmake = lambda x: x[1]
     missing = projects - projects_with_folders
@@ -363,7 +365,8 @@ def handle_list_no_project_folder(args):
         if len(sorted_files) > 1:
             print(f'    = {len(sorted_files)} projects')
         print()
-    print(f'Total: {total_missing} projects in {missing_files} files')
+    print(f'Found missing: {total_missing} projects in {missing_files} files')
+    print_most_common(project_folders, 10)
 
 
 def handle_missing_in_cmake(args):
