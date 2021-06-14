@@ -570,14 +570,14 @@ main(int argc, char** argv)
             {
                 open_or_focus_on_generic_window<enumlist::Enumroot>
                 (
-                        windows,
-                        file,
-                        engine.file_system.get(),
-                        "Enums",
-                        [](auto *s)
-                        {
-                            enumlist::RunImgui(s);
-                        }
+                    windows,
+                    file,
+                    engine.file_system.get(),
+                    "Enums",
+                    [](auto* s)
+                    {
+                        enumlist::RunImgui(s);
+                    }
                 );
             }
         )
@@ -585,34 +585,34 @@ main(int argc, char** argv)
 
     file_types.add
     (
-            create_handler
-            (
-                "Open with text editor",
-                [](const vfs::file_path &file) -> bool
-                {
-                    return ends_with(file.path, ".json") || ends_with(file.path, ".js");
-                },
-                [&](Windows *windows, const vfs::file_path &file)
-                {
-                    open_or_focus_text_file(windows, file, engine.file_system.get());
-                }
-            )
+        create_handler
+        (
+            "Open with text editor",
+            [](const vfs::file_path &file) -> bool
+            {
+                return ends_with(file.path, ".json") || ends_with(file.path, ".js");
+            },
+            [&](Windows *windows, const vfs::file_path &file)
+            {
+                open_or_focus_text_file(windows, file, engine.file_system.get());
+            }
+        )
     );
 
     file_types.add
     (
-            create_handler
-            (
-                "Open with scimed editor",
-                [](const vfs::file_path &file) -> bool
-                {
-                    return file.get_extension() == "png";
-                },
-                [&](Windows *windows, const vfs::file_path &file)
-                {
-                    open_or_focus_scimed(windows, file, &texture_cache, &sprite_cache);
-                }
-            )
+        create_handler
+        (
+            "Open with scimed editor",
+            [](const vfs::file_path &file) -> bool
+            {
+                return file.get_extension() == "png";
+            },
+            [&](Windows *windows, const vfs::file_path &file)
+            {
+                open_or_focus_scimed(windows, file, &texture_cache, &sprite_cache);
+            }
+        )
     );
 
     file_types.add
