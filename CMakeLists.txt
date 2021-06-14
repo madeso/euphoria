@@ -50,6 +50,11 @@ include(external/catch/Catch.cmake)
 
 enable_testing()
 
+set_target_properties(Continuous PROPERTIES FOLDER "_cmake/tests")
+set_target_properties(Experimental PROPERTIES FOLDER "_cmake/tests")
+set_target_properties(Nightly PROPERTIES FOLDER "_cmake/tests")
+set_target_properties(NightlyMemoryCheck PROPERTIES FOLDER "_cmake/tests")
+
 
 # compiler flags
 if(${MSVC})
