@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15.0)
+cmake_minimum_required(VERSION 3.20.0)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "_cmake")
 project(euphoria)
@@ -114,6 +114,8 @@ add_executable(binary_to_compressed_c external/imgui/imgui/misc/fonts/binary_to_
 set_target_properties(binary_to_compressed_c PROPERTIES FOLDER "Build")
 
 set(file_types_folder ${CMAKE_CURRENT_SOURCE_DIR}/libs/file_types/src/file_types)
+
+include(tools/cmake/generate-header-test.cmake)
 
 add_subdirectory(external)
 add_subdirectory(libs)
