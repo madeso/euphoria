@@ -14,7 +14,7 @@ namespace euphoria::editor
         core::vfs::dir_path current_folder;
         int selected_file = -1;
         std::vector<core::vfs::listed_file> files;
-        std::string filter = "";
+        std::string filter;
         core::vfs::file_system* file_system = nullptr;
 
         explicit file_browser(core::vfs::file_system* fs);

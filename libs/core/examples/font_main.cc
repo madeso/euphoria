@@ -17,7 +17,7 @@ bool print_char
     const loaded_font& font,
     int* sx,
     int sy,
-    unsigned int codepoint
+    int codepoint
 )
 {
     const auto glyph_index = font.codepoint_to_glyph.find(codepoint);
