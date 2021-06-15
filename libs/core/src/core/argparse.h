@@ -19,7 +19,7 @@ namespace euphoria::core::argparse
     struct parser_base;
 
     // enum to catch adding arguments during parsing in a callback
-    enum class ParserState
+    enum class state
     {
         adding, parsing
     };
@@ -446,7 +446,7 @@ namespace euphoria::core::argparse
         std::vector<std::shared_ptr<sub_parser_group>> subparser_groups;
 
         std::optional<complete_function> on_complete_function;
-        ParserState parser_state = ParserState::adding;
+        state parser_state = state::adding;
         sub_parser_style parser_style = sub_parser_style::inherit;
 
         explicit parser_base(const std::string& d);

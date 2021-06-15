@@ -818,7 +818,7 @@ namespace euphoria::core::argparse
     {
         ASSERT
         (
-            parser_state == ParserState::adding &&
+                parser_state == state::adding &&
             "It looks like you are adding argument during parsing... "
             "are you using the wrong parser in a OnComplete?"
         );
@@ -873,7 +873,7 @@ namespace euphoria::core::argparse
     std::shared_ptr<sub_parser_group>
     parser_base::add_sub_parsers(const std::string& name)
     {
-        ASSERT(parser_state == ParserState::adding);
+        ASSERT(parser_state == state::adding);
         auto group = std::make_shared<sub_parser_group>(name, this);
         subparser_groups.emplace_back(group);
         return group;
@@ -1225,7 +1225,7 @@ namespace euphoria::core::argparse
     parse_result
     parser_base::parse_args(runner* runner)
     {
-        parser_state = ParserState::parsing;
+        parser_state = state::parsing;
         auto parser = ArgumentParser{this, runner};
 
         while (runner->arguments->has_more())
