@@ -15,7 +15,7 @@ using namespace euphoria::tests;
 namespace
 {
     name_and_arguments
-    MakeArguments(const std::vector<std::string>& args)
+    make_arguments(const std::vector<std::string>& args)
     {
         return name_and_arguments{ "app", args };
     }
@@ -175,13 +175,13 @@ TEST_CASE("argparse", "[argparse]")
     {
         SECTION("empty parser is ok")
         {
-            const auto res = parser.parse(MakeArguments({}));
+            const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
         }
 
         SECTION("print help")
         {
-            const auto res = parser.parse(MakeArguments({ "-h" }));
+            const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
             CHECK(Check(output->messages,
             {
@@ -194,7 +194,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("positional error")
         {
-            const auto res = parser.parse(MakeArguments({ "dog" }));
+            const auto res = parser.parse(make_arguments({"dog" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -205,7 +205,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("optional error")
         {
-            const auto res = parser.parse(MakeArguments({ "--cat" }));
+            const auto res = parser.parse(make_arguments({"--cat" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -225,21 +225,21 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty parser is ok")
         {
-            const auto res = parser.parse(MakeArguments({}));
+            const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
             CHECK(var == "default");
         }
 
         SECTION("function called")
         {
-            const auto res = parser.parse(MakeArguments({ "-f" }));
+            const auto res = parser.parse(make_arguments({"-f" }));
             CHECK(res == argparse::ok);
             CHECK(var == "called");
         }
 
         SECTION("print help")
         {
-            const auto res = parser.parse(MakeArguments({ "-h" }));
+            const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
             CHECK(Check(output->messages,
             {
@@ -253,7 +253,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("call function but die anyway")
         {
-            const auto res = parser.parse(MakeArguments({ "-f", "dog" }));
+            const auto res = parser.parse(make_arguments({"-f", "dog" }));
             CHECK(res == argparse::error);
             CHECK(var == "called");
             CHECK(Check(output->messages,
@@ -271,21 +271,21 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty parser is ok")
         {
-            const auto res = parser.parse(MakeArguments({}));
+            const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
             CHECK(value == 0);
         }
 
         SECTION("parse 42")
         {
-            const auto res = parser.parse(MakeArguments({ "-f", "42" }));
+            const auto res = parser.parse(make_arguments({"-f", "42" }));
             CHECK(res == argparse::ok);
             CHECK(value == 42);
         }
 
         SECTION("print help")
         {
-            const auto res = parser.parse(MakeArguments({ "-h" }));
+            const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
             CHECK(Check(output->messages,
             {
@@ -299,7 +299,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("missing value")
         {
-            const auto res = parser.parse(MakeArguments({ "-f" }));
+            const auto res = parser.parse(make_arguments({"-f" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -310,7 +310,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("string is not a int")
         {
-            const auto res = parser.parse(MakeArguments({ "-f", "dog" }));
+            const auto res = parser.parse(make_arguments({"-f", "dog" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -327,21 +327,21 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty parser is ok")
         {
-            const auto res = parser.parse(MakeArguments({}));
+            const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
             CHECK(value == "default");
         }
 
         SECTION("parse dog")
         {
-            const auto res = parser.parse(MakeArguments({ "-f", "dog" }));
+            const auto res = parser.parse(make_arguments({"-f", "dog" }));
             CHECK(res == argparse::ok);
             CHECK(value == "dog");
         }
 
         SECTION("print help")
         {
-            const auto res = parser.parse(MakeArguments({ "-h" }));
+            const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
             CHECK(Check(output->messages,
             {
@@ -355,7 +355,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("missing value")
         {
-            const auto res = parser.parse(MakeArguments({ "-f" }));
+            const auto res = parser.parse(make_arguments({"-f" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -373,21 +373,21 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty parser is ok")
         {
-            const auto res = parser.parse(MakeArguments({}));
+            const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
             CHECK(value == Animal::Dog);
         }
 
         SECTION("parse cat")
         {
-            const auto res = parser.parse(MakeArguments({ "-f", "cat" }));
+            const auto res = parser.parse(make_arguments({"-f", "cat" }));
             CHECK(res == argparse::ok);
             CHECK(value == Animal::Cat);
         }
 
         SECTION("print help")
         {
-            const auto res = parser.parse(MakeArguments({ "-h" }));
+            const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
             CHECK(Check(output->messages,
             {
@@ -402,7 +402,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("parse missing")
         {
-            const auto res = parser.parse(MakeArguments({ "-f" }));
+            const auto res = parser.parse(make_arguments({"-f" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -413,7 +413,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("parse mouse")
         {
-            const auto res = parser.parse(MakeArguments({ "-f", "mouse" }));
+            const auto res = parser.parse(make_arguments({"-f", "mouse" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -430,28 +430,28 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty parser is ok")
         {
-            const auto res = parser.parse(MakeArguments({}));
+            const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
             CHECK(value == Animal::Dog);
         }
 
         SECTION("short name")
         {
-            const auto res = parser.parse(MakeArguments({ "-a", "cat" }));
+            const auto res = parser.parse(make_arguments({"-a", "cat" }));
             CHECK(res == argparse::ok);
             CHECK(value == Animal::Cat);
         }
 
         SECTION("long name")
         {
-            const auto res = parser.parse(MakeArguments({ "--animal", "bird" }));
+            const auto res = parser.parse(make_arguments({"--animal", "bird" }));
             CHECK(res == argparse::ok);
             CHECK(value == Animal::Bird);
         }
 
         SECTION("print help")
         {
-            const auto res = parser.parse(MakeArguments({ "-h" }));
+            const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
             CHECK(Check(output->messages,
             {
@@ -466,7 +466,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("--animal cookie error")
         {
-            const auto res = parser.parse(MakeArguments({ "--animal", "cookie" }));
+            const auto res = parser.parse(make_arguments({"--animal", "cookie" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -476,7 +476,7 @@ TEST_CASE("argparse", "[argparse]")
         }
         SECTION("-a cake error")
         {
-            const auto res = parser.parse(MakeArguments({ "-a", "cookie" }));
+            const auto res = parser.parse(make_arguments({"-a", "cookie" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -495,7 +495,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("positional missing = error")
         {
-            const auto res = parser.parse(MakeArguments({}));
+            const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::error);
             CHECK(value == "default");
             CHECK(Check(output->messages,
@@ -507,7 +507,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("parse 42")
         {
-            const auto res = parser.parse(MakeArguments({ "dog" }));
+            const auto res = parser.parse(make_arguments({"dog" }));
             CHECK(res == argparse::ok);
             CHECK(value == "dog");
         }
@@ -525,7 +525,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("parse single")
         {
-            const auto res = parser.parse(MakeArguments({ "dog" }));
+            const auto res = parser.parse(make_arguments({"dog" }));
             CHECK(res == argparse::ok);
             CHECK(a == 42);
             CHECK(b == 42);
@@ -537,7 +537,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("parse many")
         {
-            const auto res = parser.parse(MakeArguments({ "dog", "cat"}));
+            const auto res = parser.parse(make_arguments({"dog", "cat"}));
             CHECK(res == argparse::ok);
             CHECK(a == 42);
             CHECK(b == 42);
@@ -549,7 +549,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("set single short argument")
         {
-            const auto res = parser.parse(MakeArguments({ "-a", "5", "dog" }));
+            const auto res = parser.parse(make_arguments({"-a", "5", "dog" }));
             CHECK(res == argparse::ok);
             CHECK(a == 5);
             CHECK(b == 42);
@@ -561,7 +561,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("set single long argument")
         {
-            const auto res = parser.parse(MakeArguments({ "--alpha", "7", "dog" }));
+            const auto res = parser.parse(make_arguments({"--alpha", "7", "dog" }));
             CHECK(res == argparse::ok);
             CHECK(a == 7);
             CHECK(b == 42);
@@ -573,7 +573,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("set many argument")
         {
-            const auto res = parser.parse(MakeArguments({ "-a", "5", "-b", "3", "dog" }));
+            const auto res = parser.parse(make_arguments({"-a", "5", "-b", "3", "dog" }));
             CHECK(res == argparse::ok);
             CHECK(a == 5);
             CHECK(b == 3);
@@ -611,7 +611,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("empty subparser = error")
         {
-            const auto res = parser.parse(MakeArguments({}));
+            const auto res = parser.parse(make_arguments({}));
             INFO(output->messages);
             CHECK(res == argparse::error);
             CHECK(a == "default");
@@ -627,7 +627,7 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse
             (
-                MakeArguments
+                    make_arguments
                 ({
                     "a"
                 })
@@ -642,7 +642,7 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse
             (
-                MakeArguments
+                    make_arguments
                 ({
                     "a", "-s", "cat"
                 })
@@ -657,7 +657,7 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse
             (
-                MakeArguments
+                    make_arguments
                 ({
                     "b"
                 })
@@ -670,7 +670,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("subcommand help")
         {
-            const auto res = parser.parse(MakeArguments({ "-h" }));
+            const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
             CHECK(Check(output->messages,
             {
@@ -687,7 +687,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("bad subcommand")
         {
-            const auto res = parser.parse(MakeArguments({ "cat" }));
+            const auto res = parser.parse(make_arguments({"cat" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -697,7 +697,7 @@ TEST_CASE("argparse", "[argparse]")
         }
         SECTION("invalid optional for root")
         {
-            const auto res = parser.parse(MakeArguments({ "-f", "dog" }));
+            const auto res = parser.parse(make_arguments({"-f", "dog" }));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -735,7 +735,7 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse
             (
-                MakeArguments
+                    make_arguments
                 ({
                     "add", "dog"
                 })
@@ -749,7 +749,7 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse
             (
-                MakeArguments
+                    make_arguments
                 ({
                     "add", "cat",
                     "double"
@@ -762,7 +762,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("print help")
         {
-            const auto res = parser.parse(MakeArguments({ "-h" }));
+            const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
             CHECK(Check(output->messages,
             {
@@ -779,7 +779,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("add and error")
         {
-            const auto res = parser.parse(MakeArguments({ "add", "dog", "dog" }));
+            const auto res = parser.parse(make_arguments({"add", "dog", "dog" }));
             CHECK(res == argparse::error);
             CHECK(data == "dog");
             CHECK(Check(output->messages,
@@ -827,7 +827,7 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse
             (
-                MakeArguments
+                    make_arguments
                 ({
                     "pretty", "please", "add", "dog"
                 })
@@ -839,7 +839,7 @@ TEST_CASE("argparse", "[argparse]")
         SECTION("twice")
         {
             const auto arguments =
-                MakeArguments
+                make_arguments
                 ({
                     "pretty", "please", "add", "cat",
                     "please", "double"
@@ -856,7 +856,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("print help")
         {
-            const auto res = parser.parse(MakeArguments({ "-h" }));
+            const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
             CHECK(Check(output->messages,
             {
@@ -872,7 +872,7 @@ TEST_CASE("argparse", "[argparse]")
 
         SECTION("error but no add")
         {
-            const auto res = parser.parse(MakeArguments({ "pretty", "dog" }));
+            const auto res = parser.parse(make_arguments({"pretty", "dog" }));
             CHECK(res == argparse::error);
             REQUIRE(data.empty());
             CHECK(Check(output->messages,
@@ -895,7 +895,7 @@ TEST_CASE("argparse_error", "[argparse]")
     {
         SECTION("one positional")
         {
-            const auto res = parser.parse(MakeArguments({"dog"}));
+            const auto res = parser.parse(make_arguments({"dog"}));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -905,7 +905,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
         SECTION("many positionals")
         {
-            const auto res = parser.parse(MakeArguments({"cat", "dog"}));
+            const auto res = parser.parse(make_arguments({"cat", "dog"}));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -915,7 +915,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
         SECTION("optional 1 dash")
         {
-            const auto res = parser.parse(MakeArguments({"-o"}));
+            const auto res = parser.parse(make_arguments({"-o"}));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -925,7 +925,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
         SECTION("optional 2 dashes")
         {
-            const auto res = parser.parse(MakeArguments({"--make-cool"}));
+            const auto res = parser.parse(make_arguments({"--make-cool"}));
             CHECK(res == argparse::error);
             CHECK(Check(output->messages,
             {
@@ -943,21 +943,21 @@ TEST_CASE("argparse_error", "[argparse]")
 
         SECTION("one value")
         {
-            const auto res = parser.parse(MakeArguments({"4"}));
+            const auto res = parser.parse(make_arguments({"4"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF{4});
         }
         SECTION("two values")
         {
-            const auto res = parser.parse(MakeArguments({"4/2"}));
+            const auto res = parser.parse(make_arguments({"4/2"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF::from_lrud(2, 4));
         }
         SECTION("all values")
         {
-            const auto res = parser.parse(MakeArguments({"1/2/3/4"}));
+            const auto res = parser.parse(make_arguments({"1/2/3/4"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF::from_lrud(4, 2, 1, 3));
@@ -972,14 +972,14 @@ TEST_CASE("argparse_error", "[argparse]")
 
         SECTION("one value")
         {
-            const auto res = parser.parse(MakeArguments({"cat"}));
+            const auto res = parser.parse(make_arguments({"cat"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF{Animal::Cat});
         }
         SECTION("two values")
         {
-            const auto res = parser.parse(MakeArguments({"cat/none"}));
+            const auto res = parser.parse(make_arguments({"cat/none"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
             CHECK(ff == FF::from_lrud(Animal::None, Animal::Cat));
@@ -1002,7 +1002,7 @@ TEST_CASE("argparse_error", "[argparse]")
 
         SECTION("one positional")
         {
-            const auto res = parser.parse(MakeArguments({"a", "dog"}));
+            const auto res = parser.parse(make_arguments({"a", "dog"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(Check(output->messages,
@@ -1013,7 +1013,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
         SECTION("many positionals")
         {
-            const auto res = parser.parse(MakeArguments({"a", "cat", "dog"}));
+            const auto res = parser.parse(make_arguments({"a", "cat", "dog"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(Check(output->messages,
@@ -1024,7 +1024,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
         SECTION("optional 1 dash")
         {
-            const auto res = parser.parse(MakeArguments({"a", "-o"}));
+            const auto res = parser.parse(make_arguments({"a", "-o"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(Check(output->messages,
@@ -1035,7 +1035,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
         SECTION("optional 2 dashes")
         {
-            const auto res = parser.parse(MakeArguments({"a", "--make-cool"}));
+            const auto res = parser.parse(make_arguments({"a", "--make-cool"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(Check(output->messages,
@@ -1062,7 +1062,7 @@ TEST_CASE("argparse_error", "[argparse]")
 
         SECTION("one positional")
         {
-            const auto res = parser.parse(MakeArguments({"a", "dog"}));
+            const auto res = parser.parse(make_arguments({"a", "dog"}));
             CHECK(res == argparse::error);
             CHECK(completed);
             CHECK(Check(output->messages,
@@ -1073,7 +1073,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
         SECTION("many positionals")
         {
-            const auto res = parser.parse(MakeArguments({"a", "cat", "dog"}));
+            const auto res = parser.parse(make_arguments({"a", "cat", "dog"}));
             CHECK(res == argparse::error);
             CHECK(completed);
             CHECK(Check(output->messages,
@@ -1084,7 +1084,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
         SECTION("optional 1 dash")
         {
-            const auto res = parser.parse(MakeArguments({"a", "-o"}));
+            const auto res = parser.parse(make_arguments({"a", "-o"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(Check(output->messages,
@@ -1095,7 +1095,7 @@ TEST_CASE("argparse_error", "[argparse]")
         }
         SECTION("optional 2 dashes")
         {
-            const auto res = parser.parse(MakeArguments({"a", "--make-cool"}));
+            const auto res = parser.parse(make_arguments({"a", "--make-cool"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(Check(output->messages,

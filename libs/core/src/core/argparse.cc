@@ -46,21 +46,21 @@ namespace euphoria::core::argparse
     namespace
     {
         bool
-        IsOptionalArgument(const std::string& name)
+        is_optional_argument(const std::string& name)
         {
             return name[0] == '-';
         }
 
         bool
-        IsValidArgumentName(const std::string& str)
+        is_valid_argument(const std::string& str)
         {
             if (str.empty())
             {
                 return false;
             }
 
-            constexpr auto VALID_ARGUMENT_NAME_CHARACTERS = "abcdefghijklmnopqrstuvwxyz-_0123456789";
-            const auto first_invalid_character = to_lower(str).find_first_not_of(VALID_ARGUMENT_NAME_CHARACTERS);
+            constexpr auto valid_argument_name_characters = "abcdefghijklmnopqrstuvwxyz-_0123456789";
+            const auto first_invalid_character = to_lower(str).find_first_not_of(valid_argument_name_characters);
             if (first_invalid_character != std::string::npos)
             {
                 return false;
@@ -270,12 +270,12 @@ namespace euphoria::core::argparse
         {
             for (const auto& n : names)
             {
-                if (IsOptionalArgument(n) == false)
+                if (is_optional_argument(n) == false)
                 {
                     return "arguments are optional but '" + n + "' is not";
                 }
 
-                if (IsValidArgumentName(n) == false)
+                if (is_valid_argument(n) == false)
                 {
                     return "optional arguments '" + n + "' is not considered valid";
                 }
@@ -284,7 +284,7 @@ namespace euphoria::core::argparse
         else
         {
             const auto n = names[0];
-            if (IsValidArgumentName(n) == false)
+            if (is_valid_argument(n) == false)
             {
                 return "positional arguments '" + n + "' is not considered valid";
             }
@@ -307,7 +307,7 @@ namespace euphoria::core::argparse
             return true;
         }
 
-        return IsOptionalArgument(names[0]);
+        return is_optional_argument(names[0]);
     }
 
 
@@ -618,10 +618,10 @@ namespace euphoria::core::argparse
 
     namespace
     {
-        // msvc and clang disagrees on whetering capturing
-        // constexpr in lambas is necessary or not
-        constexpr int MAX_NAME_LENGTH = 20;
-        constexpr int MAX_HELP_LENGTH = 80;
+        // msvc and clang disagrees on if capturing
+        // constexpr in lambdas is necessary or not
+        constexpr int global_max_name_length = 20;
+        constexpr int global_max_help_length = 80;
     }
 
     void
@@ -654,7 +654,7 @@ namespace euphoria::core::argparse
                     max_name_length,
                     Csizet_to_int(name.length())
                 ),
-                MAX_NAME_LENGTH
+                global_max_name_length
             );
         };
 
@@ -676,7 +676,7 @@ namespace euphoria::core::argparse
                     table(1, y),
                     [](const std::string& s)
                     {
-                        return s.size() <= MAX_HELP_LENGTH;
+                        return s.size() <= global_max_help_length;
                     }
                 );
                 const auto rows = zip_longest(names, helps);
@@ -687,8 +687,8 @@ namespace euphoria::core::argparse
             }
             for(int y=0; y<t.get_height(); y+=1)
             {
-                constexpr auto INDENT = "  ";
-                constexpr auto SPACE = "  ";
+                constexpr auto indent = "  ";
+                constexpr auto space = "  ";
 
                 const auto name = t(0, y);
                 const auto help = t(1, y);
@@ -696,14 +696,14 @@ namespace euphoria::core::argparse
                 const auto name_length = Csizet_to_int(name.length());
                 if(name_length > max_name_length)
                 {
-                    printer->print_info(INDENT + name);
+                    printer->print_info(indent + name);
                     const auto extra_space = std::string(max_name_length, ' ');
-                    printer->print_info(INDENT + extra_space + SPACE + help);
+                    printer->print_info(indent + extra_space + space + help);
                 }
                 else
                 {
                     const auto extra_space = std::string(max_name_length - name_length, ' ');
-                    printer->print_info(INDENT + name + extra_space + SPACE + help);
+                    printer->print_info(indent + name + extra_space + space + help);
                 }
             }
         };
@@ -806,7 +806,7 @@ namespace euphoria::core::argparse
 
 
     std::string
-    CreateDefaultNarg(const name& name)
+    create_default_nargs(const name& name)
     {
         const auto n = trim_left(name.names[0], "-");
         return to_upper(n);
@@ -822,7 +822,7 @@ namespace euphoria::core::argparse
             "It looks like you are adding argument during parsing... "
             "are you using the wrong parser in a OnComplete?"
         );
-        argument->nargs = CreateDefaultNarg(name);
+        argument->nargs = create_default_nargs(name);
         if (name.is_optional())
         {
             for (const auto& n : name.names)
@@ -897,7 +897,7 @@ namespace euphoria::core::argparse
 
     namespace
     {
-        struct ArgumentParser
+        struct argument_parser
         {
             parser_base* base = nullptr;
             argparse::runner* runner = nullptr;
@@ -905,33 +905,33 @@ namespace euphoria::core::argparse
             bool found_subparser = false;
 
             [[nodiscard]] bool
-            HasMorePositionals() const;
+            has_more_positionals() const;
 
             [[nodiscard]] std::vector<std::string>
-            PositionalsLeft() const;
+            get_positionals_left() const;
 
             void
-            PrintError(const std::string& error_message) const;
+            print_error(const std::string& error_message) const;
 
             [[nodiscard]] std::optional<parse_result>
-            TryParseImportantOptional() const;
+            try_parse_important_optional() const;
 
             std::optional<parse_result>
-            ParseOnePositional();
+            parse_one_positional();
 
             std::optional<parse_result>
-            ParseSubCommand(const std::string& arg);
+            parse_sub_command(const std::string& arg);
 
             std::optional<parse_result>
-            ParseOneOptional();
+            parse_one_optional();
 
             std::optional<parse_result>
-            ParseOneArg();
+            parse_one_arg();
         };
 
 
         bool
-        ArgumentParser::HasMorePositionals() const
+        argument_parser::has_more_positionals() const
         {
             const auto positionals_size = Csizet_to_int
             (
@@ -942,9 +942,9 @@ namespace euphoria::core::argparse
 
 
         std::vector<std::string>
-        ArgumentParser::PositionalsLeft() const
+        argument_parser::get_positionals_left() const
         {
-            if(HasMorePositionals() == false) { return {}; }
+            if(has_more_positionals() == false) { return {}; }
 
             std::vector<std::string> positionals;
 
@@ -964,14 +964,14 @@ namespace euphoria::core::argparse
 
 
         void
-        ArgumentParser::PrintError(const std::string& error_message) const
+        argument_parser::print_error(const std::string& error_message) const
         {
             print_parse_error(runner, base, error_message);
         }
 
 
         std::optional<parse_result>
-        ArgumentParser::TryParseImportantOptional() const
+        argument_parser::try_parse_important_optional() const
         {
             // first, peek at the next commandline argument
             // and check for optionals that are allowed before positionals
@@ -997,7 +997,7 @@ namespace euphoria::core::argparse
         }
 
         std::optional<parse_result>
-        ArgumentParser::ParseOnePositional()
+        argument_parser::parse_one_positional()
         {
             auto match = base->positional_argument_list[positional_index];
             auto arg_parse_result = match.argument->parse_arguments
@@ -1016,7 +1016,7 @@ namespace euphoria::core::argparse
         }
 
         sub_parser_style
-        GetParserStyle(parser_base* base, bool from_self=true)
+        get_parser_style(parser_base* base, bool from_self=true)
         {
             if(base == nullptr)
             {
@@ -1031,7 +1031,7 @@ namespace euphoria::core::argparse
 
             if(base->parser_style == sub_parser_style::inherit)
             {
-                return GetParserStyle(parent, false);
+                return get_parser_style(parent, false);
             }
             else
             {
@@ -1041,18 +1041,18 @@ namespace euphoria::core::argparse
 
 
         std::optional<parse_result>
-        ArgumentParser::ParseSubCommand(const std::string& arg)
+        argument_parser::parse_sub_command(const std::string& arg)
         {
             auto match = base->subparsers.match(arg, 3);
             if(match.single_match == false)
             {
                 // todo(Gustav): check if this accepts invalid and
                 // calls on_complete() on invalid input
-                if(GetParserStyle(base) == sub_parser_style::greedy)
+                if(get_parser_style(base) == sub_parser_style::greedy)
                 {
                     if(match.names.empty())
                     {
-                        PrintError
+                        print_error
                         (
                             string_builder() << '\'' << arg << "' was unexpected"
                         );
@@ -1066,7 +1066,7 @@ namespace euphoria::core::argparse
                     // todo(Gustav): switch between 'did you mean' and
                     // 'could be either' depending on how big the
                     // edit distance is?
-                    PrintError
+                    print_error
                     (
                         string_builder() << invalid_command <<
                         ", did you mean " << names << '?'
@@ -1104,7 +1104,7 @@ namespace euphoria::core::argparse
             if
             (
                 subresult == argparse::ok &&
-                GetParserStyle(base) == sub_parser_style::greedy
+                        get_parser_style(base) == sub_parser_style::greedy
             )
             {
                 // continue here
@@ -1117,10 +1117,10 @@ namespace euphoria::core::argparse
         }
 
         std::optional<parse_result>
-        ArgumentParser::ParseOneOptional()
+        argument_parser::parse_one_optional()
         {
             const auto arg = runner->arguments->read();
-            if(IsOptionalArgument(arg))
+            if(is_optional_argument(arg))
             {
                 auto match = base->find_argument(arg);
                 if (match == nullptr)
@@ -1147,7 +1147,7 @@ namespace euphoria::core::argparse
                     // it's actually a unknown argument, not a 'invalid' one
                     if(closest_match == base->optional_arguments.end())
                     {
-                        PrintError
+                        print_error
                         (
                             string_builder() << "unknown argument: '" << arg << '\''
                         );
@@ -1155,7 +1155,7 @@ namespace euphoria::core::argparse
                     else
                     {
                         const auto closest_match_name = closest_match->first;
-                        PrintError
+                        print_error
                         (
                             string_builder() << "unknown argument: '" << arg <<
                             "', did you mean '" << closest_match_name << "'?"
@@ -1182,19 +1182,19 @@ namespace euphoria::core::argparse
                 // arg doesn't look like a optional argument
                 // hence it must be a sub command
                 // or it's a error
-                return ParseSubCommand(arg);
+                return parse_sub_command(arg);
             }
         }
 
 
         std::optional<parse_result>
-        ArgumentParser::ParseOneArg()
+        argument_parser::parse_one_arg()
         {
-            if (HasMorePositionals())
+            if (has_more_positionals())
             {
                 // null from tryparse = the parsed optional wasnt important
                 // null from this = abort this parsing and return to parent
-                auto opt = TryParseImportantOptional();
+                auto opt = try_parse_important_optional();
                 if(opt.has_value())
                 {
                     if(*opt == argparse::ok)
@@ -1211,13 +1211,13 @@ namespace euphoria::core::argparse
                 else
                 {
                     // not important optional... parse a positional
-                    return ParseOnePositional();
+                    return parse_one_positional();
                 }
             }
             else
             {
                 // no more positionals... then it can ob ly be optionals
-                return ParseOneOptional();
+                return parse_one_optional();
             }
         }
     }
@@ -1226,22 +1226,22 @@ namespace euphoria::core::argparse
     parser_base::parse_args(runner* runner)
     {
         parser_state = state::parsing;
-        auto parser = ArgumentParser{this, runner};
+        auto parser = argument_parser{this, runner};
 
         while (runner->arguments->has_more())
         {
-            auto r = parser.ParseOneArg();
+            auto r = parser.parse_one_arg();
             if(r)
             {
                 return *r;
             }
         }
 
-        if (parser.HasMorePositionals())
+        if (parser.has_more_positionals())
         {
-            const auto missing = parser.PositionalsLeft();
+            const auto missing = parser.get_positionals_left();
             const auto text = string_mergers::english_and.merge(missing);
-            parser.PrintError
+            parser.print_error
             (
                 missing.size() == 1 ?
                 (
@@ -1259,7 +1259,7 @@ namespace euphoria::core::argparse
         // should handle required subparser, but doesn't
         if(subparsers.size != 0 && parser.found_subparser == false)
         {
-            parser.PrintError("no subparser specified");
+            parser.print_error("no subparser specified");
             return argparse::error;
         }
 

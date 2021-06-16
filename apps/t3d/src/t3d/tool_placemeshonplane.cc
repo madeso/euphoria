@@ -27,7 +27,7 @@ namespace euphoria::t3d
 
 
     float
-    SnapTo(float val, float step)
+    snap_to(float val, float step)
     {
         return core::round(val, step);
     }
@@ -54,8 +54,8 @@ namespace euphoria::t3d
 
         if(editor->grid->snap_enabled)
         {
-            p.x = SnapTo(p.x, editor->grid->small_step);
-            p.z = SnapTo(p.z, editor->grid->small_step);
+            p.x = snap_to(p.x, editor->grid->small_step);
+            p.z = snap_to(p.z, editor->grid->small_step);
         }
 
         actor->actor->position = p;

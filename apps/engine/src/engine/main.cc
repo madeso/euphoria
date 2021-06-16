@@ -77,7 +77,7 @@ struct run_result
     [[nodiscard]]
     static
     const run_result
-    Ok()
+    create_ok()
     {
         return run_result {true, ""};
     }
@@ -85,7 +85,7 @@ struct run_result
     [[nodiscard]]
     static
     const run_result
-    Error(const std::string& message)
+    create_error(const std::string& message)
     {
         return run_result {false, message};
     }
@@ -104,7 +104,7 @@ run_main_script_file(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
         const std::string error_message = string_builder() << "Unable to open " << path
                                                 << " for running";
         LOG_ERROR("{0}", error_message);
-        return run_result::Error(error_message);
+        return run_result::create_error(error_message);
     }
     const auto eval = duk->lua.script
     (
@@ -116,10 +116,10 @@ run_main_script_file(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
         const sol::error err = eval;
         const std::string error_message = string_builder() << "Failed to run " << path << ": " << err.what();
         LOG_ERROR("{0}", error_message);
-        return run_result::Error(error_message);
+        return run_result::create_error(error_message);
     }
 
-    return run_result::Ok();
+    return run_result::create_ok();
 }
 
 
@@ -325,7 +325,7 @@ main(int argc, char* argv[])
     SDL_GetMouseState(&window_mouse_x, &window_mouse_y);
     bool mouse_lmb_down = false;
 
-    integration.BindKeys(&duk, input);
+    integration.bind_keys(&duk, input);
 
     engine.init->use_2d();
 
@@ -413,7 +413,7 @@ main(int argc, char* argv[])
 
         if(has_crashed == false)
         {
-            integration.BindKeys(&duk, input);
+            integration.bind_keys(&duk, input);
         }
 
         viewport_handler.clear_black();

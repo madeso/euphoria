@@ -31,7 +31,7 @@ namespace euphoria::engine
     )
     {
         const auto id = reg->register_new_component_type(name);
-        scriptComponents[id] = fv;
+        script_components[id] = fv;
         return id;
     }
 
@@ -67,7 +67,7 @@ namespace euphoria::engine
         core::ecs::component_id comp
     )
     {
-        ASSERT(scriptComponents.find(comp) != scriptComponents.end());
+        ASSERT(script_components.find(comp) != script_components.end());
         auto c = reg->get_component(ent, comp);
         if(c == nullptr)
         {
@@ -80,16 +80,8 @@ namespace euphoria::engine
     }
 
     script_component*
-    get_script_component
-    (
-        const script_registry::script_component_map& scriptComponents,
-        core::ecs::registry* reg,
-        core::ecs::entity_id ent,
-        core::ecs::component_id comp
-    )
+    get_script_component(core::ecs::registry *reg, core::ecs::entity_id ent, core::ecs::component_id comp)
     {
-        // ASSERT(scriptComponents.find(comp) != scriptComponents.end());
-
         auto c = reg->get_component(ent, comp);
         if(c == nullptr)
         {
@@ -111,8 +103,8 @@ namespace euphoria::engine
         sol::table value
     )
     {
-        script_component* scriptComponent = get_script_component(scriptComponents, reg, ent, comp);
-        scriptComponent->val = value;
+        script_component* component = get_script_component(reg, ent, comp);
+        component->val = value;
     }
 
     sol::table
@@ -125,8 +117,8 @@ namespace euphoria::engine
     {
         const auto name = reg->get_component_name(comp);
 
-        auto res = scriptComponents.find(comp);
-        if(res == scriptComponents.end())
+        auto res = script_components.find(comp);
+        if(res == script_components.end())
         {
             // no custom function, use use a empty table...?
             // or perhaps use null?

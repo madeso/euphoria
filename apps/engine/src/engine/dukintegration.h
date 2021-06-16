@@ -41,7 +41,7 @@ namespace euphoria::engine
         get_registry();
 
         void
-        BindKeys(Sol* duk, const input_system& input);
+        bind_keys(Sol* duk, const input_system& input);
 
     private:
         std::unique_ptr<script_integration_pimpl> pimpl;

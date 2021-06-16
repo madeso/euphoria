@@ -71,7 +71,7 @@ namespace euphoria::engine
 
         core::ecs::registry* reg;
         engine::components* components;
-        script_component_map scriptComponents;
+        script_component_map script_components;
     };
 }
 

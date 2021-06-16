@@ -403,7 +403,7 @@ namespace euphoria::engine
 
 
     void
-    script_integration::BindKeys(Sol* duk, const input_system& input)
+    script_integration::bind_keys(Sol* duk, const input_system& input)
     {
         input.set(&pimpl->input);
     }
