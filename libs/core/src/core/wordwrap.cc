@@ -30,7 +30,7 @@ namespace euphoria::core
             }
         };
 
-        while(true)
+        for(int bulldog=0; bulldog<50; bulldog+=1)
         {
             if(last == std::string::npos)
             {
