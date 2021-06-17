@@ -37,7 +37,7 @@ namespace euphoria::core
     namespace
     {
         bool
-        IsCcw
+        is_ccw
         (
             const std::vector<float>& data,
             unsigned int a,
@@ -73,7 +73,7 @@ namespace euphoria::core
             c < (data.size() / 4),
             a, b, c, data.size()/4
         );
-        ASSERTX(IsCcw(data, a, b, c), a, b, c);
+        ASSERTX(is_ccw(data, a, b, c), a, b, c);
         tris.push_back(a);
         tris.push_back(b);
         tris.push_back(c);

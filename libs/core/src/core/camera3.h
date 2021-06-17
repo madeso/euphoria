@@ -12,7 +12,7 @@ namespace euphoria::core
     struct compiled_camera3
     {
     public:
-        compiled_camera3(const mat4f& view_, const mat4f& projection_);
+        compiled_camera3(const mat4f& v, const mat4f& p);
 
         [[nodiscard]]
         vec3f

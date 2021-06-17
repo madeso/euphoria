@@ -103,10 +103,10 @@ namespace euphoria::core
             operator()(const std::string& response, const std::string& topic);
 
             response_builder&
-            Topic(const std::string& topic);
+            add_topic(const std::string& topic);
 
             response_builder&
-            EndConversation();
+            end_conversation();
         };
 
 

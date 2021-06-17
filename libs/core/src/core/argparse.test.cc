@@ -21,12 +21,12 @@ namespace
     }
 
 
-    struct Message
+    struct message
     {
         bool error;
         std::string text;
 
-        Message(bool e, const std::string& t)
+        message(bool e, const std::string& t)
             : error(e)
             , text(t)
         {
@@ -34,15 +34,15 @@ namespace
     };
 
 
-    Message
-    Inf(const std::string& text)
+    message
+    create_info(const std::string& text)
     {
         return {false, text};
     }
 
 
-    Message
-    Err(const std::string& text)
+    message
+    create_error(const std::string& text)
     {
         return {true, text};
     }
@@ -66,7 +66,7 @@ namespace
 
 
     std::ostream&
-    operator<<(std::ostream& o, const Message& m)
+    operator<<(std::ostream& o, const message& m)
     {
         o << (m.error?"ERR":"INF");
         o << " " << m.text;
@@ -74,9 +74,9 @@ namespace
     }
 
 
-    struct TestPrinter : public printer
+    struct test_printer : public printer
     {
-        std::vector<Message> messages;
+        std::vector<message> messages;
 
         void
         print_error(const std::string& line) override
@@ -93,7 +93,7 @@ namespace
 
 
     false_string
-    Check
+    check
     (
         const std::vector<std::string>& lhs,
         const std::vector<std::string>& rhs
@@ -115,21 +115,21 @@ namespace
     }
 
     false_string
-    Check
+    check
     (
-        const std::vector<Message>& lhs,
-        const std::vector<Message>& rhs
+        const std::vector<message>& lhs,
+        const std::vector<message>& rhs
     )
     {
         return euphoria::tests::vector_is_equal
         (
             lhs,
             rhs,
-            [](const Message &m) -> std::string
+            [](const message &m) -> std::string
             {
                 return string_builder() << m;
             },
-            [](const Message &lhs, const Message &rhs) -> false_string
+            [](const message &lhs, const message &rhs) -> false_string
             {
                 const auto str = string_is_equal(lhs.text, rhs.text);
                 if (str == false)
@@ -149,14 +149,14 @@ namespace
 
 
 
-    enum class Animal
+    enum class animal
     {
-        Cat, Dog, Bird, None
+        cat, dog, bird, none
     };
 
 
     std::ostream&
-    operator<<(std::ostream& o, const Animal& m)
+    operator<<(std::ostream& o, const animal& m)
     {
         o << euphoria::core::enum_to_string(m);
         return o;
@@ -167,7 +167,7 @@ namespace
 TEST_CASE("argparse", "[argparse]")
 {
     auto parser = argparse::parser{};
-    auto output = std::make_shared<TestPrinter>();
+    auto output = std::make_shared<test_printer>();
     parser.printer = output;
 
 
@@ -183,12 +183,12 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h]"),
-                Inf(""),
-                Inf("optional arguments:"),
-                Inf("  -h, --help  show this help message and exit")
+                create_info("usage: app [-h]"),
+                create_info(""),
+                create_info("optional arguments:"),
+                create_info("  -h, --help  show this help message and exit")
             }));
         }
 
@@ -196,10 +196,10 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"dog" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h]"),
-                Err("'dog' was unexpected")
+                create_info("usage: app [-h]"),
+                create_error("'dog' was unexpected")
             }));
         }
 
@@ -207,10 +207,10 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"--cat" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h]"),
-                Err("unknown argument: '--cat', did you mean '--help'?")
+                create_info("usage: app [-h]"),
+                create_error("unknown argument: '--cat', did you mean '--help'?")
             }));
         }
     }
@@ -241,13 +241,13 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f]"),
-                Inf(""),
-                Inf("optional arguments:"),
-                Inf("  -h, --help  show this help message and exit"),
-                Inf("  -f          call function")
+                create_info("usage: app [-h] [-f]"),
+                create_info(""),
+                create_info("optional arguments:"),
+                create_info("  -h, --help  show this help message and exit"),
+                create_info("  -f          call function")
             }));
         }
 
@@ -256,10 +256,10 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.parse(make_arguments({"-f", "dog" }));
             CHECK(res == argparse::error);
             CHECK(var == "called");
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f]"),
-                Err("'dog' was unexpected")
+                create_info("usage: app [-h] [-f]"),
+                create_error("'dog' was unexpected")
             }));
         }
     }
@@ -287,13 +287,13 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f F]"),
-                Inf(""),
-                Inf("optional arguments:"),
-                Inf("  -h, --help  show this help message and exit"),
-                Inf("  -f F        a int (default: 0)")
+                create_info("usage: app [-h] [-f F]"),
+                create_info(""),
+                create_info("optional arguments:"),
+                create_info("  -h, --help  show this help message and exit"),
+                create_info("  -f F        a int (default: 0)")
             }));
         }
 
@@ -301,10 +301,10 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-f" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f F]"),
-                Err("missing value for '-f'")
+                create_info("usage: app [-h] [-f F]"),
+                create_error("missing value for '-f'")
             }));
         }
 
@@ -312,10 +312,10 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-f", "dog" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f F]"),
-                Err("'dog' is not accepted for '-f'")
+                create_info("usage: app [-h] [-f F]"),
+                create_error("'dog' is not accepted for '-f'")
             }));
         }
     }
@@ -343,13 +343,13 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f F]"),
-                Inf(""),
-                Inf("optional arguments:"),
-                Inf("  -h, --help  show this help message and exit"),
-                Inf("  -f F        some string (default: default)")
+                create_info("usage: app [-h] [-f F]"),
+                create_info(""),
+                create_info("optional arguments:"),
+                create_info("  -h, --help  show this help message and exit"),
+                create_info("  -f F        some string (default: default)")
             }));
         }
 
@@ -357,10 +357,10 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-f" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f F]"),
-                Err("missing value for '-f'")
+                create_info("usage: app [-h] [-f F]"),
+                create_error("missing value for '-f'")
             }));
         }
     }
@@ -368,35 +368,35 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("optional enum")
     {
-        Animal value = Animal::Dog;
+        animal value = animal::dog;
         parser.add("-f", &value).set_help("some animal");
 
         SECTION("empty parser is ok")
         {
             const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
-            CHECK(value == Animal::Dog);
+            CHECK(value == animal::dog);
         }
 
         SECTION("parse cat")
         {
             const auto res = parser.parse(make_arguments({"-f", "cat" }));
             CHECK(res == argparse::ok);
-            CHECK(value == Animal::Cat);
+            CHECK(value == animal::cat);
         }
 
         SECTION("print help")
         {
             const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f F]"),
-                Inf(""),
-                Inf("optional arguments:"),
-                Inf("  -h, --help  show this help message and exit"),
-                Inf("  -f F        some animal (default: Dog)"),
-                Inf("              can be either 'Cat', 'Dog', 'Bird' or 'None'")
+                create_info("usage: app [-h] [-f F]"),
+                create_info(""),
+                create_info("optional arguments:"),
+                create_info("  -h, --help  show this help message and exit"),
+                create_info("  -f F        some animal (default: dog)"),
+                create_info("              can be either 'cat', 'dog', 'bird' or 'none'")
             }));
         }
 
@@ -404,10 +404,10 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-f" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f F]"),
-                Err("missing value for '-f'")
+                create_info("usage: app [-h] [-f F]"),
+                create_error("missing value for '-f'")
             }));
         }
 
@@ -415,52 +415,52 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-f", "mouse" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-f F]"),
-                Err("'mouse' is not accepted for '-f', did you mean 'None', 'Dog', 'Bird' or 'Cat'?")
+                create_info("usage: app [-h] [-f F]"),
+                create_error("'mouse' is not accepted for '-f', did you mean 'none', 'dog', 'bird' or 'cat'?")
             }));
         }
     }
 
     SECTION("multi optional names")
     {
-        Animal value = Animal::Dog;
+        animal value = animal::dog;
         parser.add("-a, --animal", &value).set_help("set the animal");
 
         SECTION("empty parser is ok")
         {
             const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
-            CHECK(value == Animal::Dog);
+            CHECK(value == animal::dog);
         }
 
         SECTION("short name")
         {
             const auto res = parser.parse(make_arguments({"-a", "cat" }));
             CHECK(res == argparse::ok);
-            CHECK(value == Animal::Cat);
+            CHECK(value == animal::cat);
         }
 
         SECTION("long name")
         {
             const auto res = parser.parse(make_arguments({"--animal", "bird" }));
             CHECK(res == argparse::ok);
-            CHECK(value == Animal::Bird);
+            CHECK(value == animal::bird);
         }
 
         SECTION("print help")
         {
             const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
-            CHECK(Check(output->messages,
+            CHECK(check(output->messages,
             {
-                Inf("usage: app [-h] [-a A]"),
-                Inf(""),
-                Inf("optional arguments:"),
-                Inf("  -h, --help      show this help message and exit"),
-                Inf("  -a, --animal A  set the animal (default: Dog)"),
-                Inf("                  can be either 'Cat', 'Dog', 'Bird' or 'None'")
+                create_info("usage: app [-h] [-a A]"),
+                create_info(""),
+                create_info("optional arguments:"),
+                create_info("  -h, --help      show this help message and exit"),
+                create_info("  -a, --animal A  set the animal (default: dog)"),
+                create_info("                  can be either 'cat', 'dog', 'bird' or 'none'")
             }));
         }
 
@@ -468,20 +468,20 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"--animal", "cookie" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] [-a A]"),
-                Err("'cookie' is not accepted for '--animal', did you mean 'None', 'Dog', 'Bird' or 'Cat'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] [-a A]"),
+                    create_error("'cookie' is not accepted for '--animal', did you mean 'none', 'dog', 'cat' or 'bird'?")
             }));
         }
         SECTION("-a cake error")
         {
             const auto res = parser.parse(make_arguments({"-a", "cookie" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] [-a A]"),
-                Err("'cookie' is not accepted for '-a', did you mean 'None', 'Dog', 'Bird' or 'Cat'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] [-a A]"),
+                    create_error("'cookie' is not accepted for '-a', did you mean 'none', 'dog', 'cat' or 'bird'?")
             }));
         }
     }
@@ -498,10 +498,10 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::error);
             CHECK(value == "default");
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] F"),
-                Err("Positional F was not specified.")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] F"),
+                    create_error("Positional F was not specified.")
             }));
         }
 
@@ -529,8 +529,8 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == argparse::ok);
             CHECK(a == 42);
             CHECK(b == 42);
-            CHECK(Check(files,
-            {
+            CHECK(check(files,
+                        {
                 "dog"
             }));
         }
@@ -541,8 +541,8 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == argparse::ok);
             CHECK(a == 42);
             CHECK(b == 42);
-            CHECK(Check(files,
-            {
+            CHECK(check(files,
+                        {
                 "dog", "cat"
             }));
         }
@@ -553,8 +553,8 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == argparse::ok);
             CHECK(a == 5);
             CHECK(b == 42);
-            CHECK(Check(files,
-            {
+            CHECK(check(files,
+                        {
                 "dog"
             }));
         }
@@ -565,8 +565,8 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == argparse::ok);
             CHECK(a == 7);
             CHECK(b == 42);
-            CHECK(Check(files,
-            {
+            CHECK(check(files,
+                        {
                 "dog"
             }));
         }
@@ -577,8 +577,8 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == argparse::ok);
             CHECK(a == 5);
             CHECK(b == 3);
-            CHECK(Check(files,
-            {
+            CHECK(check(files,
+                        {
                 "dog"
             }));
         }
@@ -616,10 +616,10 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == argparse::error);
             CHECK(a == "default");
             CHECK(b == "default");
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] <command> [<args>]"),
-                Err("no subparser specified")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] <command> [<args>]"),
+                    create_error("no subparser specified")
             }));
         }
 
@@ -672,16 +672,16 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] <command> [<args>]"),
-                Inf(""),
-                Inf("optional arguments:"),
-                Inf("  -h, --help  show this help message and exit"),
-                Inf(""),
-                Inf("commands:"),
-                Inf("  a           do awesome stuff"),
-                Inf("  b           do boring stuff"),
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] <command> [<args>]"),
+                    create_info(""),
+                    create_info("optional arguments:"),
+                    create_info("  -h, --help  show this help message and exit"),
+                    create_info(""),
+                    create_info("commands:"),
+                    create_info("  a           do awesome stuff"),
+                    create_info("  b           do boring stuff"),
             }));
         }
 
@@ -689,20 +689,20 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"cat" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] <command> [<args>]"),
-                Err("Invalid command 'cat', did you mean 'a' or 'b'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] <command> [<args>]"),
+                    create_error("Invalid command 'cat', did you mean 'a' or 'b'?")
             }));
         }
         SECTION("invalid optional for root")
         {
             const auto res = parser.parse(make_arguments({"-f", "dog" }));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] <command> [<args>]"),
-                Err("unknown argument: '-f', did you mean '-h'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] <command> [<args>]"),
+                    create_error("unknown argument: '-f', did you mean '-h'?")
             }));
         }
     }
@@ -764,16 +764,16 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] <command> [<args>]"),
-                Inf(""),
-                Inf("optional arguments:"),
-                Inf("  -h, --help  show this help message and exit"),
-                Inf(""),
-                Inf("commands:"),
-                Inf("  add         add something"),
-                Inf("  double      double the content"),
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] <command> [<args>]"),
+                    create_info(""),
+                    create_info("optional arguments:"),
+                    create_info("  -h, --help  show this help message and exit"),
+                    create_info(""),
+                    create_info("commands:"),
+                    create_info("  add         add something"),
+                    create_info("  double      double the content"),
             }));
         }
 
@@ -782,10 +782,10 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.parse(make_arguments({"add", "dog", "dog" }));
             CHECK(res == argparse::error);
             CHECK(data == "dog");
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] <command> [<args>]"),
-                Err("Invalid command 'dog', did you mean 'add' or 'double'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] <command> [<args>]"),
+                    create_error("Invalid command 'dog', did you mean 'add' or 'double'?")
             }));
         }
     }
@@ -858,15 +858,15 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"-h" }));
             CHECK(res == argparse::quit);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] <command> [<args>]"),
-                Inf(""),
-                Inf("optional arguments:"),
-                Inf("  -h, --help  show this help message and exit"),
-                Inf(""),
-                Inf("commands:"),
-                Inf("  pretty      be kind"),
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] <command> [<args>]"),
+                    create_info(""),
+                    create_info("optional arguments:"),
+                    create_info("  -h, --help  show this help message and exit"),
+                    create_info(""),
+                    create_info("commands:"),
+                    create_info("  pretty      be kind"),
             }));
         }
 
@@ -875,10 +875,10 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.parse(make_arguments({"pretty", "dog" }));
             CHECK(res == argparse::error);
             REQUIRE(data.empty());
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app pretty [-h] <command> [<args>]"),
-                Err("Invalid command 'dog', did you mean 'please'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app pretty [-h] <command> [<args>]"),
+                    create_error("Invalid command 'dog', did you mean 'please'?")
             }));
         }
     }
@@ -888,7 +888,7 @@ TEST_CASE("argparse", "[argparse]")
 TEST_CASE("argparse_error", "[argparse]")
 {
     auto parser = argparse::parser{};
-    auto output = std::make_shared<TestPrinter>();
+    auto output = std::make_shared<test_printer>();
     parser.printer = output;
 
     SECTION("default")
@@ -897,40 +897,40 @@ TEST_CASE("argparse_error", "[argparse]")
         {
             const auto res = parser.parse(make_arguments({"dog"}));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h]"),
-                Err("'dog' was unexpected")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h]"),
+                    create_error("'dog' was unexpected")
             }));
         }
         SECTION("many positionals")
         {
             const auto res = parser.parse(make_arguments({"cat", "dog"}));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h]"),
-                Err("'cat' was unexpected")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h]"),
+                    create_error("'cat' was unexpected")
             }));
         }
         SECTION("optional 1 dash")
         {
             const auto res = parser.parse(make_arguments({"-o"}));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h]"),
-                Err("unknown argument: '-o', did you mean '-h'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h]"),
+                    create_error("unknown argument: '-o', did you mean '-h'?")
             }));
         }
         SECTION("optional 2 dashes")
         {
             const auto res = parser.parse(make_arguments({"--make-cool"}));
             CHECK(res == argparse::error);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h]"),
-                Err("unknown argument: '--make-cool', did you mean '--help'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h]"),
+                    create_error("unknown argument: '--make-cool', did you mean '--help'?")
             }));
         }
     }
@@ -966,8 +966,8 @@ TEST_CASE("argparse_error", "[argparse]")
 
     SECTION("fourway test enum")
     {
-        using FF = fourway<Animal>;
-        auto ff = FF{Animal::None};
+        using FF = fourway<animal>;
+        auto ff = FF{animal::none};
         parser.add("f", &ff);
 
         SECTION("one value")
@@ -975,14 +975,14 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"cat"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
-            CHECK(ff == FF{Animal::Cat});
+            CHECK(ff == FF{animal::cat});
         }
         SECTION("two values")
         {
             const auto res = parser.parse(make_arguments({"cat/none"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
-            CHECK(ff == FF::from_lrud(Animal::None, Animal::Cat));
+            CHECK(ff == FF::from_lrud(animal::none, animal::cat));
         }
     }
 
@@ -1005,10 +1005,10 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"a", "dog"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app a [-h]"),
-                Err("'dog' was unexpected")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app a [-h]"),
+                    create_error("'dog' was unexpected")
             }));
         }
         SECTION("many positionals")
@@ -1016,10 +1016,10 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"a", "cat", "dog"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app a [-h]"),
-                Err("'cat' was unexpected")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app a [-h]"),
+                    create_error("'cat' was unexpected")
             }));
         }
         SECTION("optional 1 dash")
@@ -1027,10 +1027,10 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"a", "-o"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app a [-h]"),
-                Err("unknown argument: '-o', did you mean '-h'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app a [-h]"),
+                    create_error("unknown argument: '-o', did you mean '-h'?")
             }));
         }
         SECTION("optional 2 dashes")
@@ -1038,10 +1038,10 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"a", "--make-cool"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app a [-h]"),
-                Err("unknown argument: '--make-cool', did you mean '--help'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app a [-h]"),
+                    create_error("unknown argument: '--make-cool', did you mean '--help'?")
             }));
         }
     }
@@ -1065,10 +1065,10 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"a", "dog"}));
             CHECK(res == argparse::error);
             CHECK(completed);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] <command> [<args>]"),
-                Err("Invalid command 'dog', did you mean 'a'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] <command> [<args>]"),
+                    create_error("Invalid command 'dog', did you mean 'a'?")
             }));
         }
         SECTION("many positionals")
@@ -1076,10 +1076,10 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"a", "cat", "dog"}));
             CHECK(res == argparse::error);
             CHECK(completed);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app [-h] <command> [<args>]"),
-                Err("Invalid command 'cat', did you mean 'a'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app [-h] <command> [<args>]"),
+                    create_error("Invalid command 'cat', did you mean 'a'?")
             }));
         }
         SECTION("optional 1 dash")
@@ -1087,10 +1087,10 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"a", "-o"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app a [-h]"),
-                Err("unknown argument: '-o', did you mean '-h'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app a [-h]"),
+                    create_error("unknown argument: '-o', did you mean '-h'?")
             }));
         }
         SECTION("optional 2 dashes")
@@ -1098,10 +1098,10 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"a", "--make-cool"}));
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
-            CHECK(Check(output->messages,
-            {
-                Inf("usage: app a [-h]"),
-                Err("unknown argument: '--make-cool', did you mean '--help'?")
+            CHECK(check(output->messages,
+                        {
+                    create_info("usage: app a [-h]"),
+                    create_error("unknown argument: '--make-cool', did you mean '--help'?")
             }));
         }
     }

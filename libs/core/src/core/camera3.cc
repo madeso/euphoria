@@ -4,14 +4,12 @@
 
 namespace euphoria::core
 {
-    compiled_camera3::compiled_camera3(const mat4f& view_, const mat4f& projection_)
-        : view(view_)
-        , projection(projection_)
-        , combined(view_ * projection_)
-        , combined_inverted(projection_ * view_)
+    compiled_camera3::compiled_camera3(const mat4f& v, const mat4f& p)
+        : view(v)
+        , projection(p)
+        , combined(v * p)
+        , combined_inverted((p * v).get_inverted())
     {
-        const bool was_inverted = combined_inverted.invert();
-        ASSERT(was_inverted);
     }
 
     vec3f
@@ -51,30 +49,31 @@ namespace euphoria::core
     namespace
     {
         mat4f
-        CalculateProjectionMatrix(const camera3& camera, float aspect)
+        calculate_projection_matrix(const camera3& camera, float aspect)
         {
-            const mat4f projection_matrix = mat4f::create_perspective(
-                    angle::from_degrees(camera.fov),
-                    aspect,
-                    camera.near,
-                    camera.far);
+            const mat4f projection_matrix = mat4f::create_perspective
+            (
+                angle::from_degrees(camera.fov),
+                aspect,
+                camera.near,
+                camera.far
+            );
             return projection_matrix;
         }
 
         mat4f
-        CalculateViewMatrix(const camera3& camera)
+        calculate_view_matrix(const camera3& camera)
         {
-            return camera.rotation.get_conjugate().to_mat4()
-                   * mat4f::from_translation(
-                           -static_cast<vec3f>(camera.position));
+            const auto rotation = camera.rotation.get_conjugate().to_mat4();
+            const auto translation = mat4f::from_translation(-static_cast<vec3f>(camera.position));
+            return rotation * translation;
         }
     }
 
     compiled_camera3
     camera3::compile(float aspect) const
     {
-        return compiled_camera3 {CalculateViewMatrix(*this),
-                               CalculateProjectionMatrix(*this, aspect)};
+        return compiled_camera3 {calculate_view_matrix(*this), calculate_projection_matrix(*this, aspect)};
     }
 
 }

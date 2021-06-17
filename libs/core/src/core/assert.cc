@@ -110,7 +110,7 @@ namespace euphoria::core
     namespace assertlib
     {
         bool&
-        ShouldThrow()
+        should_throw_variable()
         {
             static bool ShouldThrow = false;
             return ShouldThrow;
@@ -119,13 +119,13 @@ namespace euphoria::core
         void
         start_throwing()
         {
-            ShouldThrow() = true;
+            should_throw_variable() = true;
         }
 
         bool
         is_throwing()
         {
-            return ShouldThrow();
+            return should_throw_variable();
         }
 
         void
@@ -165,7 +165,7 @@ namespace euphoria::core
                 }
             }
 
-            if(ShouldThrow())
+            if(should_throw_variable())
             {
                 throw ss.str();
             }

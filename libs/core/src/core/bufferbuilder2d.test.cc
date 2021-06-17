@@ -15,54 +15,54 @@ using euphoria::tests::false_string;
 namespace
 {
     false_string
-    VectorEquals(const std::vector<unsigned int> lhs, const std::vector<unsigned int>& rhs)
+    vector_is_same(const std::vector<unsigned int> lhs, const std::vector<unsigned int>& rhs)
     {
         return euphoria::tests::vector_is_equal
-                (
-                        lhs,
-                        rhs,
-                        [](unsigned int f) -> std::string
-                        { return string_builder() << f; },
-                        [](unsigned int a, unsigned int b) -> false_string
-                        {
-                            if (a == b)
-                            {
-                                return false_string::create_true();
-                            } else
-                            {
-                                return false_string::create_false
-                                        (
-                                                string_builder() << a << " != " << b
-                                        );
-                            }
-                        }
-                );
+        (
+            lhs,
+            rhs,
+            [](unsigned int f) -> std::string
+            { return string_builder() << f; },
+            [](unsigned int a, unsigned int b) -> false_string
+            {
+                if (a == b)
+                {
+                    return false_string::create_true();
+                } else
+                {
+                    return false_string::create_false
+                    (
+                        string_builder() << a << " != " << b
+                    );
+                }
+            }
+        );
     }
 
 
     false_string
-    VectorEquals(const std::vector<float> lhs, const std::vector<float>& rhs)
+    vector_is_same(const std::vector<float> lhs, const std::vector<float>& rhs)
     {
         return euphoria::tests::vector_is_equal
-                (
-                        lhs,
-                        rhs,
-                        [](float f) -> std::string
-                        { return string_builder() << f; },
-                        [](float a, float b) -> false_string
-                        {
-                            if (euphoria::tests::approx(a) == b)
-                            {
-                                return false_string::create_true();
-                            } else
-                            {
-                                return false_string::create_false
-                                        (
-                                                string_builder() << a << " != " << b
-                                        );
-                            }
-                        }
-                );
+        (
+            lhs,
+            rhs,
+            [](float f) -> std::string
+            { return string_builder() << f; },
+            [](float a, float b) -> false_string
+            {
+                if (euphoria::tests::approx(a) == b)
+                {
+                    return false_string::create_true();
+                } else
+                {
+                    return false_string::create_false
+                    (
+                        string_builder() << a << " != " << b
+                    );
+                }
+            }
+        );
     }
 }
 
@@ -79,7 +79,7 @@ TEST_CASE("bufferbuilder2d-add-points", "[bufferbuilder2d]")
     auto bb = buffer_builder2d{};
     bb.add_vertex({0.0f, 1.0f, 2.0f, 3.0f});
     bb.add_vertex({55.0f, 20.0f, 0.0f, -2.0f});
-    CHECK(VectorEquals(bb.data, {0.0f, 1.0f, 2.0f, 3.0f, 55.0f, 20.0f, 0.0f, -2.0f}));
+    CHECK(vector_is_same(bb.data, {0.0f, 1.0f, 2.0f, 3.0f, 55.0f, 20.0f, 0.0f, -2.0f}));
     CHECK(bb.tris.empty());
 }
 
@@ -93,7 +93,7 @@ TEST_CASE("bufferbuilder2d-triangles", "[bufferbuilder2d]")
     SECTION("ok - ccw")
     {
         bb.add_triangle(0, 1, 2);
-        CHECK(VectorEquals(bb.tris, {0, 1, 2}));
+        CHECK(vector_is_same(bb.tris, {0, 1, 2}));
     }
     SECTION("bad - cw")
     {

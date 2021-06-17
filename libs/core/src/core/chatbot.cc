@@ -169,7 +169,7 @@ namespace euphoria::core::detail
 
 
     response_builder&
-    response_builder::Topic(const std::string& topic)
+    response_builder::add_topic(const std::string& topic)
     {
         this->response->topics_required.push_back(topic);
         return *this;
@@ -177,7 +177,7 @@ namespace euphoria::core::detail
 
 
     response_builder&
-    response_builder::EndConversation()
+    response_builder::end_conversation()
     {
         this->response->ends_conversation = true;
         return *this;
@@ -415,7 +415,7 @@ namespace euphoria::core
     namespace detail
     {
         std::vector<std::string>
-        Transpose
+        transpose
         (
             const transposer& transposer,
             const std::vector<std::string>& input
@@ -432,7 +432,7 @@ namespace euphoria::core
 
 
         std::string
-        TransposeKeywords
+        transpose_keywords
         (
             const std::string& selected_response,
             const transposer& transposer,
@@ -449,7 +449,7 @@ namespace euphoria::core
             // todo remove keywords from input
             const std::string cleaned_input = string_mergers::space.merge
             (
-                Transpose(transposer, remove_from(clean_input(input), keywords))
+                    transpose(transposer, remove_from(clean_input(input), keywords))
             );
             const std::string transposed_response = replace_all
             (
@@ -463,7 +463,7 @@ namespace euphoria::core
 
         template <typename T>
         unsigned long
-        SelectBasicResponseIndex
+        select_basic_response_index
         (
             chatbot* chatbot,
             const std::vector<T>& responses,
@@ -515,7 +515,7 @@ namespace euphoria::core
         }
 
         std::string
-        SelectBasicResponse
+        select_basic_response
         (
             chatbot* chatbot,
             const std::vector<std::string>& responses,
@@ -527,7 +527,7 @@ namespace euphoria::core
                 LOG_ERROR("Empty basic response for {0}", name);
                 return "";
             }
-            const auto suggested = SelectBasicResponseIndex<std::string>
+            const auto suggested = select_basic_response_index<std::string>
             (
                 chatbot,
                 responses,
@@ -540,7 +540,7 @@ namespace euphoria::core
         }
 
         std::string
-        SelectResponse
+        select_response
         (
             chatbot* chatbot,
             const std::vector<detail::single_response>& responses,
@@ -549,8 +549,7 @@ namespace euphoria::core
         )
         {
             // todo(Gustav): we dont need a string vector for this, right?
-            const auto index = SelectBasicResponseIndex
-                <detail::single_response>
+            const auto index = select_basic_response_index<detail::single_response>
             (
                 chatbot,
                 responses,
@@ -566,7 +565,7 @@ namespace euphoria::core
             {
                 chatbot->current_topics.add(topic);
             }
-            return TransposeKeywords
+            return transpose_keywords
             (
                 suggested.to_say,
                 chatbot->transposer,
@@ -590,7 +589,7 @@ namespace euphoria::core
             if(last_input.empty())
             {
                 ret.section = "empty repetition";
-                ret.response = detail::SelectBasicResponse
+                ret.response = detail::select_basic_response
                 (
                     this,
                     database.empty_repetition,
@@ -598,7 +597,7 @@ namespace euphoria::core
                 );
                 return ret;
             }
-            ret.response = detail::SelectBasicResponse
+            ret.response = detail::select_basic_response
             (
                 this,
                 database.empty,
@@ -612,7 +611,7 @@ namespace euphoria::core
         if(input == last_input)
         {
             ret.section = "same input";
-            ret.response = detail::SelectBasicResponse
+            ret.response = detail::select_basic_response
             (
                 this,
                 database.same_input,
@@ -721,7 +720,7 @@ namespace euphoria::core
                         if(last_event == resp.event_id)
                         {
                             log.emplace_back("Same event as last time");
-                            response = detail::SelectBasicResponse
+                            response = detail::select_basic_response
                             (
                                 this,
                                 database.similar_input,
@@ -731,7 +730,7 @@ namespace euphoria::core
                         else
                         {
                             log.emplace_back("Selecting new response");
-                            response = SelectResponse
+                            response = select_response
                             (
                                 this,
                                 resp.responses,
@@ -757,7 +756,7 @@ namespace euphoria::core
         {
             ret.section = "empty response";
             missing_input.emplace_back(dirty_input);
-            ret.response = detail::SelectBasicResponse
+            ret.response = detail::select_basic_response
             (
                 this,
                 database.no_response,
@@ -776,7 +775,7 @@ namespace euphoria::core
     std::string
     chatbot::get_sign_on_message()
     {
-        return detail::SelectBasicResponse(this, database.signon, "signon");
+        return detail::select_basic_response(this, database.signon, "signon");
     }
 
     std::string

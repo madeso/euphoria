@@ -13,7 +13,7 @@ namespace euphoria::core::base64
 {
     namespace
     {
-        constexpr std::string_view CODES = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+        constexpr std::string_view codes = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
     }
 
     std::string
@@ -25,29 +25,29 @@ namespace euphoria::core::base64
         for(int i = 0; i < in.get_size(); i += 3)
         {
             int b = (in[i] & 0xFC) >> 2;
-            out << CODES[b];
+            out << codes[b];
             b = (in[i] & 0x03) << 4;
             if(i + 1 < in.get_size())
             {
                 b |= (in[i + 1] & 0xF0) >> 4;
-                out << CODES[b];
+                out << codes[b];
                 b = (in[i + 1] & 0x0F) << 2;
                 if(i + 2 < in.get_size())
                 {
                     b |= (in[i + 2] & 0xC0) >> 6;
-                    out << CODES[b];
+                    out << codes[b];
                     b = in[i + 2] & 0x3F;
-                    out << CODES[b];
+                    out << codes[b];
                 }
                 else
                 {
-                    out << CODES[b];
+                    out << codes[b];
                     out << '=';
                 }
             }
             else
             {
-                out << CODES[b];
+                out << codes[b];
                 out << "==";
             }
         }
@@ -76,10 +76,10 @@ namespace euphoria::core::base64
                 // This could be made faster (but more complicated) by precomputing these index locations.
                 const auto b = std::array<size_t, 4>
                 {
-                    CODES.find(input[Cint_to_sizet(i)]),
-                    CODES.find(input[Cint_to_sizet(i + 1)]),
-                    CODES.find(input[Cint_to_sizet(i + 2)]),
-                    CODES.find(input[Cint_to_sizet(i + 3)])
+                        codes.find(input[Cint_to_sizet(i)]),
+                        codes.find(input[Cint_to_sizet(i + 1)]),
+                        codes.find(input[Cint_to_sizet(i + 2)]),
+                        codes.find(input[Cint_to_sizet(i + 3)])
                 };
                 decoded[j++] = static_cast<char>((b[0] << 2) | (b[1] >> 4));
                 if(b[2] < 64)
