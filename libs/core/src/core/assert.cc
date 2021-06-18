@@ -21,7 +21,7 @@ namespace euphoria::core
     namespace
     {
         std::vector<std::string>
-        RunBacktrace(int)
+        run_backtrace(int)
         {
             return {};
         }
@@ -34,7 +34,7 @@ namespace euphoria::core
         // http://stackoverflow.com/questions/19190273/how-to-print-call-stack-in-c-c-more-beautifully
 
         std::string
-        Demangle(const char* const symbol)
+        demangle_symbol(const char* const symbol)
         {
             const std::unique_ptr<char, decltype(&std::free)> demangled
             (
@@ -50,7 +50,7 @@ namespace euphoria::core
         }
 
         std::vector<std::string>
-        RunBacktrace(int skip)
+        run_backtrace(int skip)
         {
             // todo replace hardcoded limit?
             void* addresses[256];
@@ -93,7 +93,7 @@ namespace euphoria::core
                 {
                     ss << std::string(symbol, ++begin - symbol);
                     *end++ = '\0';
-                    ss << Demangle(begin) << '+' << end;
+                    ss << demangle_symbol(begin) << '+' << end;
                 }
                 else
                 {
@@ -155,7 +155,7 @@ namespace euphoria::core
                    << ") = " << string_mergers::array.merge(args) << "\n";
             }
 
-            const auto trace = RunBacktrace(2);
+            const auto trace = run_backtrace(2);
             if(!trace.empty())
             {
                 ss << "Backtrace:\n";
