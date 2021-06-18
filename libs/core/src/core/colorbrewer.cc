@@ -24,33 +24,33 @@ namespace euphoria::core
 
     namespace colorbrewer
     {
-        const std::vector<ColorBrewer>&
-        All()
+        const std::vector<colorbrewer>&
+        get_all_palettes()
         {
-            static const std::vector<ColorBrewer> all =
+            static const std::vector<colorbrewer> all =
             {
                 /*** Diverging ***/
-                Spectral(), RdYlGn(), RdBu(), PiYG(), PRGn(), RdYlBu(),
-                BrBG(), RdGy(), PuOr(),
+                palette_diverging_spectral(), palette_diverging_rd_yl_gn(), palette_diverging_rd_bu(), palette_diverging_pi_y_g(), palette_diverging_p_r_gn(), palette_diverging_rd_yl_bu(),
+                palette_diverging_br_b_g(), palette_diverging_rd_gy(), palette_diverging_pu_or(),
 
                 /*** Qualitative ***/
-                Set2(), Accent(), Set1(), Set3(), Dark2(), Paired(),
-                Pastel2(), Pastel1(),
+                palette_qualitative_set2(), palette_qualitative_accent(), palette_qualitative_set1(), palette_qualitative_set3(), palette_qualitative_dark2(), palette_qualitative_paired(),
+                palette_qualitative_pastel2(), palette_qualitative_pastel1(),
 
                 /*** Sequential ***/
-                OrRd(), PuBu(), BuPu(), Oranges(), BuGn(), YlOrBr(), YlGn(),
-                Reds(), RdPu(), Greens(), YlGnBu(), Purples(), GnBu(), Greys(),
-                YlOrRd(), PuRd(), Blues(), PuBuGn()
+                palette_sequential_or_rd(), palette_sequential_pu_bu(), palette_sequential_bu_pu(), palette_sequential_oranges(), palette_sequential_bu_gn(), palette_sequential_yl_or_br(), palette_sequential_yl_gn(),
+                palette_sequential_reds(), palette_sequential_rd_pu(), palette_sequential_greens(), palette_sequential_yl_gn_bu(), palette_sequential_purples(), palette_sequential_gn_bu(), palette_sequential_greys(),
+                palette_sequential_yl_or_rd(), palette_sequential_pu_rd(), palette_sequential_blues(), palette_sequential_pu_bu_gn()
             };
             return all;
         }
 
-        std::vector<SinglePalette>
-        Find(Type* type, int* size)
+        std::vector<single_palette>
+        find_palette(brewer_type* type, int* size)
         {
             // todo(Gustav): implement better search
-            std::vector<SinglePalette> r;
-            for(const auto& br: All())
+            std::vector<single_palette> r;
+            for(const auto& br: get_all_palettes())
             {
                 if(type != nullptr)
                 {
@@ -64,14 +64,14 @@ namespace euphoria::core
                     auto found = br.palettes.find(*size);
                     if(found != br.palettes.end())
                     {
-                        r.push_back(SinglePalette {br.name, found->second});
+                        r.push_back(single_palette {br.name, found->second});
                     }
                 }
                 else
                 {
                     for(const auto& p: br.palettes)
                     {
-                        r.push_back(SinglePalette {br.name, p.second});
+                        r.push_back(single_palette {br.name, p.second});
                     }
                 }
             }
@@ -79,17 +79,17 @@ namespace euphoria::core
         }
 
         /*** Diverging ***/
-        const ColorBrewer&
-        Spectral()
+        const colorbrewer&
+        palette_diverging_spectral()
         {
-            static const ColorBrewer cb = ColorBrewer
+            static const colorbrewer cb = colorbrewer
             {
-                "Spectral",
-                Map
+                    "Spectral",
+                    size_to_palette_mapp
                 {
                     {
                         3,
-                        BrewerPalette
+                        brewer_palette
                         {
                             palette
                             {
@@ -105,7 +105,7 @@ namespace euphoria::core
                     },
                     {
                         4,
-                        BrewerPalette
+                        brewer_palette
                         {
                             palette
                             {
@@ -122,7 +122,7 @@ namespace euphoria::core
                     },
                     {
                         5,
-                        BrewerPalette
+                        brewer_palette
                         {
                             palette
                             {
@@ -140,7 +140,7 @@ namespace euphoria::core
                     },
                     {
                         6,
-                        BrewerPalette
+                        brewer_palette
                         {
                             palette
                             {
@@ -159,7 +159,7 @@ namespace euphoria::core
                     },
                     {
                         7,
-                        BrewerPalette
+                        brewer_palette
                         {
                             palette
                             {
@@ -179,7 +179,7 @@ namespace euphoria::core
                     },
                     {
                         8,
-                        BrewerPalette
+                        brewer_palette
                         {
                             palette
                             {
@@ -200,7 +200,7 @@ namespace euphoria::core
                     },
                     {
                         9,
-                        BrewerPalette
+                        brewer_palette
                         {
                             palette
                             {
@@ -222,7 +222,7 @@ namespace euphoria::core
                     },
                     {
                         10,
-                        BrewerPalette
+                        brewer_palette
                         {
                             palette
                             {
@@ -245,7 +245,7 @@ namespace euphoria::core
                     },
                     {
                         11,
-                        BrewerPalette
+                        brewer_palette
                         {
                             palette
                             {
@@ -268,27 +268,27 @@ namespace euphoria::core
                         }
                     }
                 },
-                Type::div,
-                Properties
+                    brewer_type::div,
+                    properties
                 {
-                    Blind {2, 2, 2, 0, 0, 0, 0, 0, 0},
-                    Print {1, 1, 1, 0, 0, 0, 0, 0, 0},
-                    Copy {1, 1, 1, 0, 0, 0, 0, 0, 0},
-                    Screen {1, 1, 2, 0, 0, 0, 0, 0, 0}
+                        blind_properties {2, 2, 2, 0, 0, 0, 0, 0, 0},
+                        print_properties {1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        copy_properties {1, 1, 1, 0, 0, 0, 0, 0, 0},
+                        screen_properties {1, 1, 2, 0, 0, 0, 0, 0, 0}
                 }
             };
             return cb;
         }
 
-        const ColorBrewer&
-        RdYlGn()
+        const colorbrewer&
+        palette_diverging_rd_yl_gn()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "RdYlGn",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -305,7 +305,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -323,7 +323,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -342,7 +342,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -362,7 +362,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -383,7 +383,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -405,7 +405,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -428,7 +428,7 @@ namespace euphoria::core
 
 {
     10,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -452,7 +452,7 @@ namespace euphoria::core
 
 {
     11,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -474,23 +474,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::div,
-                    Properties {Blind {2, 2, 2, 0, 0, 0, 0, 0, 0},
-                                Print {1, 1, 1, 2, 0, 0, 0, 0, 0},
-                                Copy {0},
-                                Screen {1, 1, 1, 0, 0, 0, 0, 0, 0}}};
+                    brewer_type::div,
+                    properties {blind_properties {2, 2, 2, 0, 0, 0, 0, 0, 0},
+                                print_properties {1, 1, 1, 2, 0, 0, 0, 0, 0},
+                                copy_properties {0},
+                                screen_properties {1, 1, 1, 0, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        RdBu()
+        const colorbrewer&
+        palette_diverging_rd_bu()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "RdBu",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -507,7 +507,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -525,7 +525,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -544,7 +544,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -564,7 +564,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -585,7 +585,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -607,7 +607,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -630,7 +630,7 @@ namespace euphoria::core
 
 {
     10,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -654,7 +654,7 @@ namespace euphoria::core
 
 {
     11,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -676,23 +676,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::div,
-                    Properties {Blind {1},
-                                Print {1, 1, 1, 1, 0, 0, 0, 0, 0},
-                                Copy {0},
-                                Screen {1, 1, 1, 0, 0, 0, 0, 0, 0}}};
+                    brewer_type::div,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 1, 1, 0, 0, 0, 0, 0},
+                                copy_properties {0},
+                                screen_properties {1, 1, 1, 0, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        PiYG()
+        const colorbrewer&
+        palette_diverging_pi_y_g()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "PiYG",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -709,7 +709,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -727,7 +727,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -746,7 +746,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -766,7 +766,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -787,7 +787,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -809,7 +809,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -832,7 +832,7 @@ namespace euphoria::core
 
 {
     10,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -856,7 +856,7 @@ namespace euphoria::core
 
 {
     11,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -878,23 +878,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::div,
-                    Properties {Blind {1},
-                                Print {1, 1, 2, 0, 0, 0, 0, 0, 0},
-                                Copy {0},
-                                Screen {1, 1, 2, 0, 0, 0, 0, 0, 0}}};
+                    brewer_type::div,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 2, 0, 0, 0, 0, 0, 0},
+                                copy_properties {0},
+                                screen_properties {1, 1, 2, 0, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        PRGn()
+        const colorbrewer&
+        palette_diverging_p_r_gn()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "PRGn",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -911,7 +911,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -929,7 +929,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -948,7 +948,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -968,7 +968,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -989,7 +989,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1011,7 +1011,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1034,7 +1034,7 @@ namespace euphoria::core
 
 {
     10,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1058,7 +1058,7 @@ namespace euphoria::core
 
 {
     11,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1080,23 +1080,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::div,
-                    Properties {Blind {1},
-                                Print {1, 1, 1, 1, 0, 0, 0, 0, 0},
-                                Copy {0},
-                                Screen {1, 1, 2, 2, 0, 0, 0, 0, 0}}};
+                    brewer_type::div,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 1, 1, 0, 0, 0, 0, 0},
+                                copy_properties {0},
+                                screen_properties {1, 1, 2, 2, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        RdYlBu()
+        const colorbrewer&
+        palette_diverging_rd_yl_bu()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "RdYlBu",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1113,7 +1113,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1131,7 +1131,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1150,7 +1150,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1170,7 +1170,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1191,7 +1191,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1213,7 +1213,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1236,7 +1236,7 @@ namespace euphoria::core
 
 {
     10,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1260,7 +1260,7 @@ namespace euphoria::core
 
 {
     11,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1282,23 +1282,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::div,
-                    Properties {Blind {1},
-                                Print {1, 1, 1, 1, 2, 0, 0, 0, 0},
-                                Copy {0},
-                                Screen {1, 1, 1, 2, 0, 0, 0, 0, 0}}};
+                    brewer_type::div,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 1, 1, 2, 0, 0, 0, 0},
+                                copy_properties {0},
+                                screen_properties {1, 1, 1, 2, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        BrBG()
+        const colorbrewer&
+        palette_diverging_br_b_g()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "BrBG",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1315,7 +1315,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1333,7 +1333,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1352,7 +1352,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1372,7 +1372,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1393,7 +1393,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1415,7 +1415,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1438,7 +1438,7 @@ namespace euphoria::core
 
 {
     10,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1462,7 +1462,7 @@ namespace euphoria::core
 
 {
     11,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1484,23 +1484,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::div,
-                    Properties {Blind {1},
-                                Print {1, 1, 1, 1, 0, 0, 0, 0, 0},
-                                Copy {0},
-                                Screen {1, 1, 1, 1, 0, 0, 0, 0, 0}}};
+                    brewer_type::div,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 1, 1, 0, 0, 0, 0, 0},
+                                copy_properties {0},
+                                screen_properties {1, 1, 1, 1, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        RdGy()
+        const colorbrewer&
+        palette_diverging_rd_gy()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "RdGy",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1517,7 +1517,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1535,7 +1535,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1554,7 +1554,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1574,7 +1574,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1595,7 +1595,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1617,7 +1617,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1640,7 +1640,7 @@ namespace euphoria::core
 
 {
     10,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1664,7 +1664,7 @@ namespace euphoria::core
 
 {
     11,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1686,23 +1686,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::div,
-                    Properties {Blind {2},
-                                Print {1, 1, 1, 2, 0, 0, 0, 0, 0},
-                                Copy {0},
-                                Screen {1, 1, 2, 0, 0, 0, 0, 0, 0}}};
+                    brewer_type::div,
+                    properties {blind_properties {2},
+                                print_properties {1, 1, 1, 2, 0, 0, 0, 0, 0},
+                                copy_properties {0},
+                                screen_properties {1, 1, 2, 0, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        PuOr()
+        const colorbrewer&
+        palette_diverging_pu_or()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "PuOr",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1719,7 +1719,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1737,7 +1737,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1756,7 +1756,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1776,7 +1776,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1797,7 +1797,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1819,7 +1819,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1842,7 +1842,7 @@ namespace euphoria::core
 
 {
     10,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1866,7 +1866,7 @@ namespace euphoria::core
 
 {
     11,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -1888,26 +1888,26 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::div,
-                    Properties {Blind {1},
-                                Print {1, 1, 2, 2, 0, 0, 0, 0, 0},
-                                Copy {1, 1, 0, 0, 0, 0, 0, 0, 0},
-                                Screen {1, 1, 1, 1, 0, 0, 0, 0, 0}}};
+                    brewer_type::div,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 2, 2, 0, 0, 0, 0, 0},
+                                copy_properties {1, 1, 0, 0, 0, 0, 0, 0, 0},
+                                screen_properties {1, 1, 1, 1, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
 
         /*** Qualitative ***/
-        const ColorBrewer&
-        Set2()
+        const colorbrewer&
+        palette_qualitative_set2()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Set2",
-                    Map {
+                    size_to_palette_mapp {
 
                     {
                         3,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -1924,7 +1924,7 @@ namespace euphoria::core
 
                 {
                     4,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -1942,7 +1942,7 @@ namespace euphoria::core
 
             {
                 5,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -1961,7 +1961,7 @@ namespace euphoria::core
 
         {
             6,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -1981,7 +1981,7 @@ namespace euphoria::core
 
     {
         7,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2002,7 +2002,7 @@ namespace euphoria::core
 
 {
     8,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2022,23 +2022,23 @@ namespace euphoria::core
                              }
                             },
                     },
-                    Type::qual,
-                    Properties {Blind {1, 2, 2, 2, 0, 0, 0},
-                                Print {1, 1, 1, 2, 2, 2},
-                                Copy {0},
-                                Screen {1, 1, 2, 2, 2, 2}}};
+                    brewer_type::qual,
+                    properties {blind_properties {1, 2, 2, 2, 0, 0, 0},
+                                print_properties {1, 1, 1, 2, 2, 2},
+                                copy_properties {0},
+                                screen_properties {1, 1, 2, 2, 2, 2}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Accent()
+        const colorbrewer&
+        palette_qualitative_accent()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Accent",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2055,7 +2055,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2073,7 +2073,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2092,7 +2092,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2112,7 +2112,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2133,7 +2133,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2152,23 +2152,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::qual,
-                    Properties {Blind {2, 0, 0, 0, 0, 0, 0},
-                                Print {1, 1, 2, 2, 2, 2},
-                                Copy {0},
-                                Screen {1, 1, 1, 2, 2, 2}}};
+                    brewer_type::qual,
+                    properties {blind_properties {2, 0, 0, 0, 0, 0, 0},
+                                print_properties {1, 1, 2, 2, 2, 2},
+                                copy_properties {0},
+                                screen_properties {1, 1, 1, 2, 2, 2}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Set1()
+        const colorbrewer&
+        palette_qualitative_set1()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Set1",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2185,7 +2185,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2203,7 +2203,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2222,7 +2222,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2242,7 +2242,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2263,7 +2263,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2285,7 +2285,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2305,20 +2305,20 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::qual,
-                    Properties {Blind {2}, Print {1}, Copy {0}, Screen {1}}};
+                    brewer_type::qual,
+                    properties {blind_properties {2}, print_properties {1}, copy_properties {0}, screen_properties {1}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Set3()
+        const colorbrewer&
+        palette_qualitative_set3()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Set3",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2335,7 +2335,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2353,7 +2353,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2372,7 +2372,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2392,7 +2392,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2413,7 +2413,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2435,7 +2435,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2458,7 +2458,7 @@ namespace euphoria::core
 
 {
     10,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2482,7 +2482,7 @@ namespace euphoria::core
 
 {
     11,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2507,7 +2507,7 @@ namespace euphoria::core
 
 {
     12,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2530,23 +2530,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::qual,
-                    Properties {Blind {2, 2, 0, 0, 0, 0, 0, 0, 0, 0},
-                                Print {1, 1, 1, 1, 1, 1, 2, 0, 0, 0},
-                                Copy {1, 2, 2, 2, 2, 2, 2, 0, 0, 0},
-                                Screen {1, 1, 1, 2, 2, 2, 0, 0, 0, 0}}};
+                    brewer_type::qual,
+                    properties {blind_properties {2, 2, 0, 0, 0, 0, 0, 0, 0, 0},
+                                print_properties {1, 1, 1, 1, 1, 1, 2, 0, 0, 0},
+                                copy_properties {1, 2, 2, 2, 2, 2, 2, 0, 0, 0},
+                                screen_properties {1, 1, 1, 2, 2, 2, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Dark2()
+        const colorbrewer&
+        palette_qualitative_dark2()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Dark2",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2563,7 +2563,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2581,7 +2581,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2600,7 +2600,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2620,7 +2620,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2641,7 +2641,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2660,24 +2660,24 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::qual,
-                    Properties {Blind {1, 2, 2, 2, 0, 0},
-                                Print {1},
-                                Copy {0},
-                                Screen {1}}};
+                    brewer_type::qual,
+                    properties {blind_properties {1, 2, 2, 2, 0, 0},
+                                print_properties {1},
+                                copy_properties {0},
+                                screen_properties {1}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Paired()
+        const colorbrewer&
+        palette_qualitative_paired()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Paired",
-                    Map {
+                    size_to_palette_mapp {
 
                     {
                         3,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2694,7 +2694,7 @@ namespace euphoria::core
 
                 {
                     4,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2712,7 +2712,7 @@ namespace euphoria::core
 
             {
                 5,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2731,7 +2731,7 @@ namespace euphoria::core
 
         {
             6,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2751,7 +2751,7 @@ namespace euphoria::core
 
     {
         7,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2772,7 +2772,7 @@ namespace euphoria::core
 
 {
     8,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2794,7 +2794,7 @@ namespace euphoria::core
 
 {
     9,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2817,7 +2817,7 @@ namespace euphoria::core
 
 {
     10,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2841,7 +2841,7 @@ namespace euphoria::core
 
 {
     11,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2866,7 +2866,7 @@ namespace euphoria::core
 
 {
     12,
-                             BrewerPalette
+                             brewer_palette
                              {
                                  palette
                                  {
@@ -2890,23 +2890,23 @@ namespace euphoria::core
                              }
                             },
                     },
-                    Type::qual,
-                    Properties {Blind {1, 1, 2, 2, 2, 2, 0, 0, 0},
-                                Print {1, 1, 1, 1, 1, 2, 2, 2, 2},
-                                Copy {0},
-                                Screen {1, 1, 1, 1, 1, 1, 1, 1, 2}}};
+                    brewer_type::qual,
+                    properties {blind_properties {1, 1, 2, 2, 2, 2, 0, 0, 0},
+                                print_properties {1, 1, 1, 1, 1, 2, 2, 2, 2},
+                                copy_properties {0},
+                                screen_properties {1, 1, 1, 1, 1, 1, 1, 1, 2}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Pastel2()
+        const colorbrewer&
+        palette_qualitative_pastel2()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Pastel2",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2923,7 +2923,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2941,7 +2941,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2960,7 +2960,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -2980,7 +2980,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3001,7 +3001,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3020,23 +3020,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::qual,
-                    Properties {Blind {2, 0, 0, 0, 0, 0},
-                                Print {2, 0, 0, 0, 0, 0},
-                                Copy {0},
-                                Screen {2, 2, 0, 0, 0, 0}}};
+                    brewer_type::qual,
+                    properties {blind_properties {2, 0, 0, 0, 0, 0},
+                                print_properties {2, 0, 0, 0, 0, 0},
+                                copy_properties {0},
+                                screen_properties {2, 2, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Pastel1()
+        const colorbrewer&
+        palette_qualitative_pastel1()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Pastel1",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3053,7 +3053,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3071,7 +3071,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3090,7 +3090,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3110,7 +3110,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3131,7 +3131,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3153,7 +3153,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3173,25 +3173,25 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::qual,
-                    Properties {Blind {2, 0, 0, 0, 0, 0, 0},
-                                Print {2, 2, 2, 0, 0, 0, 0},
-                                Copy {0},
-                                Screen {2, 2, 2, 2, 0, 0, 0}}};
+                    brewer_type::qual,
+                    properties {blind_properties {2, 0, 0, 0, 0, 0, 0},
+                                print_properties {2, 2, 2, 0, 0, 0, 0},
+                                copy_properties {0},
+                                screen_properties {2, 2, 2, 2, 0, 0, 0}}};
             return cb;
         }
 
 
         /*** Sequential ***/
-        const ColorBrewer&
-        OrRd()
+        const colorbrewer&
+        palette_sequential_or_rd()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "OrRd",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3208,7 +3208,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3226,7 +3226,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3245,7 +3245,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3265,7 +3265,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3286,7 +3286,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3308,7 +3308,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3328,23 +3328,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 0, 0, 0, 0, 0},
-                                Copy {1, 1, 2, 0, 0, 0, 0},
-                                Screen {1, 1, 1, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 0, 0, 0, 0, 0},
+                                copy_properties {1, 1, 2, 0, 0, 0, 0},
+                                screen_properties {1, 1, 1, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        PuBu()
+        const colorbrewer&
+        palette_sequential_pu_bu()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "PuBu",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3361,7 +3361,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3379,7 +3379,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3398,7 +3398,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3418,7 +3418,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3439,7 +3439,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3461,7 +3461,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3481,23 +3481,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 2, 2, 0, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 1, 2, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 2, 2, 0, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 1, 2, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        BuPu()
+        const colorbrewer&
+        palette_sequential_bu_pu()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "BuPu",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3514,7 +3514,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3532,7 +3532,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3551,7 +3551,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3571,7 +3571,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3592,7 +3592,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3614,7 +3614,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3634,23 +3634,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 2, 2, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 1, 1, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 2, 2, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 1, 1, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Oranges()
+        const colorbrewer&
+        palette_sequential_oranges()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Oranges",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3667,7 +3667,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3685,7 +3685,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3704,7 +3704,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3724,7 +3724,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3745,7 +3745,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3767,7 +3767,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3787,23 +3787,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 2, 0, 0, 0, 0, 0},
-                                Copy {1, 2, 2, 0, 0, 0, 0},
-                                Screen {1, 1, 1, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 2, 0, 0, 0, 0, 0},
+                                copy_properties {1, 2, 2, 0, 0, 0, 0},
+                                screen_properties {1, 1, 1, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        BuGn()
+        const colorbrewer&
+        palette_sequential_bu_gn()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "BuGn",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3820,7 +3820,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3838,7 +3838,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3857,7 +3857,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3877,7 +3877,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3898,7 +3898,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3920,7 +3920,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3940,23 +3940,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 2, 0, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 2, 0, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 2, 0, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 2, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        YlOrBr()
+        const colorbrewer&
+        palette_sequential_yl_or_br()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "YlOrBr",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3973,7 +3973,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -3991,7 +3991,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4010,7 +4010,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4030,7 +4030,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4051,7 +4051,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4073,7 +4073,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4093,23 +4093,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 2, 0, 0, 0, 0},
-                                Copy {1, 2, 2, 0, 0, 0, 0},
-                                Screen {1, 2, 0, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 2, 0, 0, 0, 0},
+                                copy_properties {1, 2, 2, 0, 0, 0, 0},
+                                screen_properties {1, 2, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        YlGn()
+        const colorbrewer&
+        palette_sequential_yl_gn()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "YlGn",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4126,7 +4126,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4144,7 +4144,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4163,7 +4163,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4183,7 +4183,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4204,7 +4204,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4226,7 +4226,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4246,23 +4246,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 1, 0, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 1, 1, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 1, 0, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 1, 1, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Reds()
+        const colorbrewer&
+        palette_sequential_reds()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Reds",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4279,7 +4279,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4297,7 +4297,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4316,7 +4316,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4336,7 +4336,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4357,7 +4357,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4379,7 +4379,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4399,23 +4399,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 2, 2, 0, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 2, 0, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 2, 2, 0, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 2, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        RdPu()
+        const colorbrewer&
+        palette_sequential_rd_pu()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "RdPu",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4432,7 +4432,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4450,7 +4450,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4469,7 +4469,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4489,7 +4489,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4510,7 +4510,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4532,7 +4532,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4552,23 +4552,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 1, 2, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 1, 1, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 1, 2, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 1, 1, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Greens()
+        const colorbrewer&
+        palette_sequential_greens()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Greens",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4585,7 +4585,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4603,7 +4603,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4622,7 +4622,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4642,7 +4642,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4663,7 +4663,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4685,7 +4685,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4705,23 +4705,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 0, 0, 0, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 2, 0, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 0, 0, 0, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 2, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        YlGnBu()
+        const colorbrewer&
+        palette_sequential_yl_gn_bu()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "YlGnBu",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4738,7 +4738,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4756,7 +4756,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4775,7 +4775,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4795,7 +4795,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4816,7 +4816,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4838,7 +4838,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4858,23 +4858,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 1, 2, 2, 2, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 1, 2, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 1, 2, 2, 2, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 1, 2, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Purples()
+        const colorbrewer&
+        palette_sequential_purples()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Purples",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4891,7 +4891,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4909,7 +4909,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4928,7 +4928,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4948,7 +4948,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4969,7 +4969,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -4991,7 +4991,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5011,23 +5011,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 0, 0, 0, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 0, 0, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 0, 0, 0, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 0, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        GnBu()
+        const colorbrewer&
+        palette_sequential_gn_bu()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "GnBu",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5044,7 +5044,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5062,7 +5062,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5081,7 +5081,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5101,7 +5101,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5122,7 +5122,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5144,7 +5144,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5164,23 +5164,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 1, 2, 2, 2, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 1, 2, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 1, 2, 2, 2, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 1, 2, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Greys()
+        const colorbrewer&
+        palette_sequential_greys()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Greys",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5197,7 +5197,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5215,7 +5215,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5234,7 +5234,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5254,7 +5254,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5275,7 +5275,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5297,7 +5297,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5317,23 +5317,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 2, 0, 0, 0, 0},
-                                Copy {1, 0, 0, 0, 0, 0, 0},
-                                Screen {1, 2, 0, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 2, 0, 0, 0, 0},
+                                copy_properties {1, 0, 0, 0, 0, 0, 0},
+                                screen_properties {1, 2, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        YlOrRd()
+        const colorbrewer&
+        palette_sequential_yl_or_rd()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "YlOrRd",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5350,7 +5350,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5368,7 +5368,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5387,7 +5387,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5407,7 +5407,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5428,7 +5428,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5450,7 +5450,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5470,23 +5470,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 2, 2, 0, 0, 0},
-                                Copy {1, 2, 2, 0, 0, 0, 0},
-                                Screen {1, 2, 2, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 2, 2, 0, 0, 0},
+                                copy_properties {1, 2, 2, 0, 0, 0, 0},
+                                screen_properties {1, 2, 2, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        PuRd()
+        const colorbrewer&
+        palette_sequential_pu_rd()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "PuRd",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5503,7 +5503,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5521,7 +5521,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5540,7 +5540,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5560,7 +5560,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5581,7 +5581,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5603,7 +5603,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5623,23 +5623,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 1, 1, 0, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 1, 1, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 1, 1, 0, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 1, 1, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        Blues()
+        const colorbrewer&
+        palette_sequential_blues()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "Blues",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5656,7 +5656,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5674,7 +5674,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5693,7 +5693,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5713,7 +5713,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5734,7 +5734,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5756,7 +5756,7 @@ namespace euphoria::core
 
 {
     9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5776,23 +5776,23 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 2, 0, 0, 0, 0, 0},
-                                Copy {1, 0, 0, 0, 0, 0, 0},
-                                Screen {1, 2, 0, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 2, 0, 0, 0, 0, 0},
+                                copy_properties {1, 0, 0, 0, 0, 0, 0},
+                                screen_properties {1, 2, 0, 0, 0, 0, 0}}};
             return cb;
         }
 
-        const ColorBrewer&
-        PuBuGn()
+        const colorbrewer&
+        palette_sequential_pu_bu_gn()
         {
-            static const ColorBrewer cb = ColorBrewer {
+            static const colorbrewer cb = colorbrewer {
                     "PuBuGn",
-                    Map {
+                    size_to_palette_mapp {
                     {
                         3,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5809,7 +5809,7 @@ namespace euphoria::core
 
                 {
                     4,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5827,7 +5827,7 @@ namespace euphoria::core
 
             {
                 5,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5846,7 +5846,7 @@ namespace euphoria::core
 
         {
             6,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5866,7 +5866,7 @@ namespace euphoria::core
 
     {
         7,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5887,7 +5887,7 @@ namespace euphoria::core
 
 {
     8,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5909,7 +5909,7 @@ namespace euphoria::core
 
                     {
                         9,
-                          BrewerPalette
+                          brewer_palette
                           {
                               palette
                               {
@@ -5929,11 +5929,11 @@ namespace euphoria::core
                               }
                           }
                          }},
-                    Type::seq,
-                    Properties {Blind {1},
-                                Print {1, 2, 2, 0, 0, 0, 0},
-                                Copy {1, 2, 0, 0, 0, 0, 0},
-                                Screen {1, 1, 2, 0, 0, 0, 0}}};
+                    brewer_type::seq,
+                    properties {blind_properties {1},
+                                print_properties {1, 2, 2, 0, 0, 0, 0},
+                                copy_properties {1, 2, 0, 0, 0, 0, 0},
+                                screen_properties {1, 1, 2, 0, 0, 0, 0}}};
             return cb;
         }
 
