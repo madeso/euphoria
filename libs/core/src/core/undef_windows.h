@@ -85,3 +85,7 @@
 #ifdef CreateFile
 #undef CreateFile
 #endif
+
+#ifdef DeleteFile
+#undef DeleteFile
+#endif
