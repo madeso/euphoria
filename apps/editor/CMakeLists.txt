@@ -30,10 +30,12 @@ target_include_directories(editor
 )
 target_link_libraries(editor
     PRIVATE
-    core
-    render
-    window
-    sdl2
-    imgui
+        project_options
+        project_warnings
+        core
+        render
+        window
+        sdl2
+        imgui
 )
 

@@ -55,6 +55,8 @@ target_link_libraries(window
     PUBLIC
         icon_font_cpp_headers
     PRIVATE
+        project_options
+        project_warnings
         core
         render
         imgui

@@ -22,3 +22,5 @@ https://github.com/nardi/rbkey-midi
 https://github.com/fakebitpolytechnic/cheapmidi/tree/master/midicode-rasp-pi
 http://www.gunook.com/wireless-midi-fur-rock-band-keytar/
 
+
+design inspiration? https://github.com/sophiekoonin/virtualpiano

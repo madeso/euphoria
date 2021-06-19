@@ -14,7 +14,8 @@ GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
     src/file_types/game.gaf
 )
 add_library(file_types STATIC
-    ${PROTO_SRCS} ${PROTO_HDRS}
+    ${PROTO_SRCS}
+    ${PROTO_HDRS}
 )
 set_target_properties(file_types PROPERTIES FOLDER "Libraries")
 target_include_directories(file_types

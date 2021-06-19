@@ -19,8 +19,11 @@ target_include_directories(tests
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(tests
-    core
-    catch
+    PRIVATE
+        project_options
+        project_warnings
+        core
+        catch
 )
 
 
@@ -35,6 +38,11 @@ source_group("" FILES ${test_src})
 source_group("main" FILES ${test_main_src})
 add_executable(tests_test ${test_src} ${test_main_src})
 set_target_properties(tests_test PROPERTIES FOLDER "Tests")
-target_link_libraries(tests_test PUBLIC tests)
+target_link_libraries(tests_test
+    PRIVATE
+        project_options
+        project_warnings
+        tests
+)
 
 catch_discover_tests(tests_test)

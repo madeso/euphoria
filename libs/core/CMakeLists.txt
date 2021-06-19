@@ -185,7 +185,7 @@ set(src
 add_library(core STATIC ${src})
 target_include_directories(core
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(core
     PUBLIC
@@ -195,6 +195,8 @@ target_link_libraries(core
         range
         lua
     PRIVATE
+        project_options
+        project_warnings
         stb_image
         stb_image_write
         stb_rect_pack
@@ -276,7 +278,7 @@ source_group("" FILES ${test_src})
 source_group("main" FILES ${test_main_src})
 add_executable(core_test ${test_src} ${test_main_src})
 set_target_properties(core_test PROPERTIES FOLDER "Tests")
-target_link_libraries(core_test PUBLIC core tests)
+target_link_libraries(core_test PRIVATE project_options project_warnings core tests)
 catch_discover_tests(core_test)
 
 ###############################################################################
@@ -289,35 +291,35 @@ source_group("" FILES ${all_examples_src})
 
 add_executable(palextract examples/palette_extract.cc)
 set_target_properties(palextract PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(palextract core)
+target_link_libraries(palextract PRIVATE project_options project_warnings core)
 
 add_executable(collage examples/collage.cc)
 set_target_properties(collage PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(collage core)
+target_link_libraries(collage PRIVATE project_options project_warnings core)
 
 add_executable(tabletool examples/tabletool.cc)
 set_target_properties(tabletool PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(tabletool core)
+target_link_libraries(tabletool PRIVATE project_options project_warnings core)
 
 add_executable(base64 examples/base64.cc)
 set_target_properties(base64 PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(base64 core)
+target_link_libraries(base64 PRIVATE project_options project_warnings core)
 
 add_executable(markov examples/markov_main.cc)
 set_target_properties(markov PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(markov core)
+target_link_libraries(markov PRIVATE project_options project_warnings core)
 
 add_executable(tracery examples/tracery.cc)
 set_target_properties(tracery PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(tracery core)
+target_link_libraries(tracery PRIVATE project_options project_warnings core)
 
 add_executable(raytracer examples/raytracer_main.cc)
 set_target_properties(raytracer PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(raytracer core)
+target_link_libraries(raytracer PRIVATE project_options project_warnings core)
 
 add_executable(cypher examples/cypher_main.cc)
 set_target_properties(cypher PROPERTIES FOLDER "Examples/Useful")
-target_link_libraries(cypher core)
+target_link_libraries(cypher PRIVATE project_options project_warnings core)
 
 
 # examples applications that serve no purpose other than
@@ -325,65 +327,65 @@ target_link_libraries(cypher core)
 
 add_executable(examples-drunken-bishop examples/drunken_bishop_main.cc)
 set_target_properties(examples-drunken-bishop PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-drunken-bishop core)
+target_link_libraries(examples-drunken-bishop PRIVATE project_options project_warnings core)
 
 add_executable(examples-rng examples/rng_main.cc)
 set_target_properties(examples-rng PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-rng core)
+target_link_libraries(examples-rng PRIVATE project_options project_warnings core)
 
 add_executable(examples-font examples/font_main.cc)
 set_target_properties(examples-font PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-font core)
+target_link_libraries(examples-font PRIVATE project_options project_warnings core)
 
 add_executable(examples-palette examples/palette_main.cc)
 set_target_properties(examples-palette PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-palette core)
+target_link_libraries(examples-palette PRIVATE project_options project_warnings core)
 
 add_executable(examples-chatbot examples/chatbot.cc)
 set_target_properties(examples-chatbot PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-chatbot core)
+target_link_libraries(examples-chatbot PRIVATE project_options project_warnings core)
 
 add_executable(examples-coldet examples/coldet.cc)
 set_target_properties(examples-coldet PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-coldet core)
+target_link_libraries(examples-coldet PRIVATE project_options project_warnings core)
 
 add_executable(examples-draw-test examples/draw_test.cc)
 set_target_properties(examples-draw-test PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-draw-test core)
+target_link_libraries(examples-draw-test PRIVATE project_options project_warnings core)
 
 add_executable(examples-img examples/img.cc)
 set_target_properties(examples-img PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-img core)
+target_link_libraries(examples-img PRIVATE project_options project_warnings core)
 
 add_executable(examples-poisson-test examples/poisson_test.cc)
 set_target_properties(examples-poisson-test PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-poisson-test core)
+target_link_libraries(examples-poisson-test PRIVATE project_options project_warnings core)
 
 add_executable(examples-svg-dump examples/svg_dump.cc)
 set_target_properties(examples-svg-dump PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-svg-dump core)
+target_link_libraries(examples-svg-dump PRIVATE project_options project_warnings core)
 
 add_executable(examples-three-dump examples/three_dump.cc)
 set_target_properties(examples-three-dump PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-three-dump core)
+target_link_libraries(examples-three-dump PRIVATE project_options project_warnings core)
 
 add_executable(examples-identicon examples/identicon_main.cc)
 set_target_properties(examples-identicon PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-identicon core)
+target_link_libraries(examples-identicon PRIVATE project_options project_warnings core)
 
 add_executable(examples-canvas examples/canvas_main.cc)
 set_target_properties(examples-canvas PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-canvas core)
+target_link_libraries(examples-canvas PRIVATE project_options project_warnings core)
 
 add_executable(examples-tree examples/tree.cc)
 set_target_properties(examples-tree PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-tree core)
+target_link_libraries(examples-tree PRIVATE project_options project_warnings core)
 
 add_executable(examples-worldgen examples/worldgen.cc)
 set_target_properties(examples-worldgen PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-worldgen core)
+target_link_libraries(examples-worldgen PRIVATE project_options project_warnings core)
 
 add_executable(examples-voronoi examples/voronoi.cc)
 set_target_properties(examples-voronoi PROPERTIES FOLDER "Examples/Core")
-target_link_libraries(examples-voronoi core)
+target_link_libraries(examples-voronoi PRIVATE project_options project_warnings core)
 

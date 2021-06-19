@@ -22,12 +22,15 @@ add_library(gui STATIC ${src})
 set_target_properties(gui PROPERTIES FOLDER "Libraries")
 target_include_directories(gui
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(gui
-    core
-    render
-    file_types
+    PRIVATE
+        project_options
+        project_warnings
+        core
+        render
+        file_types
 )
 
 
@@ -39,5 +42,15 @@ source_group("" FILES ${all_examples_src})
 
 add_executable(examples-gui WIN32 MACOSX_BUNDLE examples/gui.cc)
 set_target_properties(examples-gui PROPERTIES FOLDER "Examples/GUI")
-target_link_libraries(examples-gui core gui render window imgui sdl2)
+target_link_libraries(examples-gui
+    PRIVATE
+        project_options
+        project_warnings
+        core
+        gui
+        render
+        window
+        imgui
+        sdl2
+)
 

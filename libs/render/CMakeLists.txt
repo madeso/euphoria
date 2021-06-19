@@ -47,11 +47,13 @@ target_include_directories(render
 )
 target_link_libraries(render
     PRIVATE
-    core
-    glad
-    opengl
-    file_types
-    stb_rect_pack
+        project_options
+        project_warnings
+        core
+        glad
+        opengl
+        file_types
+        stb_rect_pack
 )
 
 
@@ -62,9 +64,26 @@ file(GLOB all_examples_src examples/*.cc)
 source_group("" FILES ${all_examples_src})
 
 add_executable(examples-3d WIN32 MACOSX_BUNDLE examples/3d.cc)
-target_link_libraries(examples-3d core render window imgui sdl2)
 set_target_properties(examples-3d PROPERTIES FOLDER "Examples/Render")
+target_link_libraries(examples-3d
+    PRIVATE
+        project_options
+        project_warningscore
+        render
+        window
+        imgui
+        sdl2
+)
 
 add_executable(examples-2d WIN32 MACOSX_BUNDLE examples/2d.cc)
 set_target_properties(examples-2d PROPERTIES FOLDER "Examples/Render")
-target_link_libraries(examples-2d core render window imgui sdl2)
+target_link_libraries(examples-2d
+    PRIVATE
+        project_options
+        project_warnings
+        core
+        render
+        window
+        imgui
+        sdl2
+)

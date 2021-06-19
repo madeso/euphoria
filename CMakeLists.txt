@@ -1,17 +1,23 @@
 cmake_minimum_required(VERSION 3.20.0)
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "_cmake")
-project(euphoria)
+project(euphoria C CXX)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake/modules")
+include(tools/cmake/standard_project_settings.cmake)
+include(tools/cmake/compiler_warnings.cmake)
+
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_library(project_options INTERFACE)
+target_compile_features(project_options INTERFACE cxx_std_17)
+
+add_library(project_warnings INTERFACE)
+set_project_warnings(project_warnings)
 
 source_group("_cmake/rules" REGULAR_EXPRESSION "\\.rule$")
 source_group("_cmake" REGULAR_EXPRESSION "CMakeLists\.txt") # is this the correct way to move CMakeLists to a _cmake folder?
 
-set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake/modules")
 
 option(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
 set(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
@@ -82,24 +88,6 @@ if(NOT BUILD_TYPEINFO_IMPL_RTTI)
     endif()
 endif()
 
-# enable all warnings
-if(MSVC)
-    add_compile_options(/W4)
-else()
-    add_compile_options(-Wall -Wextra -Wpedantic)
-    add_compile_options(-Wshadow)
-    add_compile_options(-Wnon-virtual-dtor)
-    # add_compile_options(-Wold-style-cast) # todo...
-    add_compile_options(-Wcast-align)
-    add_compile_options(-Wunused)
-    add_compile_options(-Woverloaded-virtual)
-    #add_compile_options(-Wconversion)
-    #add_compile_options(-Wsign-conversion)
-    add_compile_options(-Wformat=2)
-    # add_compile_options(-Wlifetime)
-
-    add_compile_options(-Wno-error=deprecated)
-endif()
 
 if(BUILD_TYPEINFO_IMPL_CTTI)
     include_directories(SYSTEM external/ctti/include)

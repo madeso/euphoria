@@ -24,12 +24,14 @@ target_include_directories(engine
 )
 target_link_libraries(engine
     PRIVATE
-    core
-    render
-    window
-    lua
-    imgui
-    sdl2
-    file_types
+        project_options
+        project_warnings
+        core
+        render
+        window
+        lua
+        imgui
+        sdl2
+        file_types
 )
 

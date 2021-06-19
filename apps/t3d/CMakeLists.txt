@@ -22,10 +22,13 @@ target_include_directories(t3d
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(t3d
-    core
-    render
-    window
-    imgui
-    sdl2
+    PRIVATE
+        project_options
+        project_warnings
+        core
+        render
+        window
+        imgui
+        sdl2
 )
 

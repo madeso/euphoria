@@ -13,7 +13,10 @@ target_include_directories(minsynth
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(minsynth
-    core
+    PRIVATE
+        project_options
+        project_warnings
+        core
 )
 
 
@@ -28,6 +31,12 @@ source_group("" FILES ${test_src})
 source_group("main" FILES ${test_main_src})
 add_executable(minsynth_test ${test_src} ${test_main_src})
 set_target_properties(minsynth_test PROPERTIES FOLDER "Tests")
-target_link_libraries(minsynth_test PUBLIC minsynth tests)
+target_link_libraries(minsynth_test
+    PRIVATE
+        project_options
+        project_warnings
+        minsynth
+        tests
+)
 
 catch_discover_tests(minsynth_test)

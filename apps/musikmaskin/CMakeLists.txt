@@ -24,11 +24,14 @@ target_include_directories(musikmaskin
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(musikmaskin
-    core
-    minsynth
-    render
-    window
-    imgui
-    sdl2
+    PRIVATE
+        project_options
+        project_warnings
+        core
+        minsynth
+        render
+        window
+        imgui
+        sdl2
 )
 
