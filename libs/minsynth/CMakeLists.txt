@@ -13,10 +13,11 @@ target_include_directories(minsynth
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(minsynth
+    PUBLIC
+        core
     PRIVATE
         project_options
         project_warnings
-        core
 )
 
 

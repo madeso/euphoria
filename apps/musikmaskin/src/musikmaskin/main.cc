@@ -409,9 +409,9 @@ public:
                 oscilator.get_alive_tones(),
                 oscilator.get_dead_tones()
             );
-            ImGui::Text("Time: %.1f", current_time);
-            ImGui::Text("Sample time: %.1f", max_sample_time);
-            ImGui::Text("Max diff: %.1f", max_diff);
+            imgui::label(fmt::format("Time: {.1f}", current_time));
+            imgui::label(fmt::format("Sample time: {.1f}", max_sample_time));
+            imgui::label(fmt::format("Max diff: {.1f}", max_diff));
             const auto f = current_time - audio_callback_time;
             time_history.push(f);
             if(f > max_diff)

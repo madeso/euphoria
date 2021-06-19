@@ -11,9 +11,9 @@ namespace euphoria::tests
 {
     struct approx_data
     {
-        double epsilon;
-        double scale;
-        double margin;
+        float epsilon;
+        float scale;
+        float margin;
     };
 
     // https://groups.google.com/forum/#!topic/catch-forum/03HhdvUzIhg
@@ -22,13 +22,6 @@ namespace euphoria::tests
     bool
     approximately_equal(const T& lhs, const T& rhs, const approx_data& data);
 
-
-    template <>
-    bool
-    approximately_equal(
-            double const& lhs,
-            double const& rhs,
-            const approx_data& data);
 
     template <>
     bool
@@ -83,21 +76,21 @@ namespace euphoria::tests
             }
 
             Approx&
-            epsilon(double newEpsilon)
+            epsilon(float newEpsilon)
             {
                 m_epsilon = newEpsilon;
                 return *this;
             }
 
             Approx&
-            margin(double newMargin)
+            margin(float newMargin)
             {
                 m_margin = newMargin;
                 return *this;
             }
 
             Approx&
-            scale(double newScale)
+            scale(float newScale)
             {
                 m_scale = newScale;
                 return *this;
@@ -113,9 +106,9 @@ namespace euphoria::tests
             }
 
         private:
-            double m_epsilon;
-            double m_margin;
-            double m_scale;
+            float m_epsilon;
+            float m_margin;
+            float m_scale;
             T m_value;
         };
     }

@@ -150,8 +150,8 @@ namespace euphoria::core
 
         // NewCol function??? probably less useful than insert functions
 
-        // todo(Gustav): insert before/after row/col
-        // todo(Gustav): remove row/col
+        // todo(Gustav): add insert before/after row/col
+        // todo(Gustav): add remove row/col
 
 
         T

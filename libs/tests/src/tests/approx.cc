@@ -5,7 +5,7 @@ namespace
     // Performs equivalent check of std::fabs(lhs - rhs) <= margin
     // But without the subtraction to allow for INFINITY in comparison
     bool
-    margin_comparison(double lhs, double rhs, double margin)
+    margin_comparison(float lhs, float rhs, float margin)
     {
         return (lhs + margin >= rhs) && (rhs + margin >= lhs);
     }
@@ -17,8 +17,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            double const& lhs,
-            double const& rhs,
+            float const& lhs,
+            float const& rhs,
             const approx_data& data)
     {
         const auto m_value = lhs;
@@ -35,16 +35,5 @@ namespace euphoria::tests
                        m_value,
                        other,
                        m_epsilon * (m_scale + std::fabs(m_value)));
-    }
-
-    template <>
-    bool
-    approximately_equal(
-            float const& lhs,
-            float const& rhs,
-            const approx_data& data)
-    {
-        return approximately_equal(
-                static_cast<double>(lhs), static_cast<double>(rhs), data);
     }
 }

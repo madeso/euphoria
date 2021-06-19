@@ -33,5 +33,6 @@ target_link_libraries(musikmaskin
         window
         imgui
         sdl2
+        fmt
 )
 

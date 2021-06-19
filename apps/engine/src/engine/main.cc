@@ -162,7 +162,8 @@ get_color(std::shared_ptr<game::Color> c)
 int custom_lua_exception_handler
 (
     lua_State* lua_state,
-    sol::optional<const std::exception&> maybe_exception,
+    // todo(Gustav): remove argument
+    sol::optional<const std::exception&>,
     sol::string_view description
 )
 {

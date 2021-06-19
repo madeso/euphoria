@@ -19,11 +19,12 @@ target_include_directories(tests
     ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(tests
+    PUBLIC
+        catch
     PRIVATE
         project_options
         project_warnings
         core
-        catch
 )
 
 
@@ -43,6 +44,7 @@ target_link_libraries(tests_test
         project_options
         project_warnings
         tests
+        core
 )
 
 catch_discover_tests(tests_test)

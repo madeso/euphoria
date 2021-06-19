@@ -60,8 +60,9 @@ namespace euphoria::engine
 
 
     void
-    add_systems(core::ecs::systems* systems, Sol* duk, components* components)
+    add_systems(core::ecs::systems* systems, Sol*, components* components)
     {
+        // todo(Gustav): remove argument
         systems->add_and_register(std::make_shared<system_sprite_draw>(components));
     }
 }

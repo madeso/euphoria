@@ -2,8 +2,7 @@
 
 #include <string>
 
-// todo(Gustav): remove these
-// use core/filesystem functions instead
+// todo(Gustav): remove these and use core/filesystem functions instead
 
 
 namespace euphoria::window

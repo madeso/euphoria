@@ -68,7 +68,8 @@ set_target_properties(examples-3d PROPERTIES FOLDER "Examples/Render")
 target_link_libraries(examples-3d
     PRIVATE
         project_options
-        project_warningscore
+        project_warnings
+        core
         render
         window
         imgui

@@ -60,6 +60,7 @@ target_link_libraries(window
         core
         render
         imgui
+        fmt
         icon_font_cpp_headers
         sdl2
         glad
