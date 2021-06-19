@@ -27,7 +27,7 @@ TEST_CASE("test wordwrap", "[wordwrap]")
 
 TEST_CASE("test measure always returning false", "[wordwrap]")
 {
-    auto measure = [](const std::string& str) { return false; };
+    auto measure = [](const std::string&) { return false; };
 
     CHECK(string_is_equal(word_wrap("", measure), { "" }));
     CHECK(string_is_equal(word_wrap("aaa bb", measure), { "aaa", "bb" }));

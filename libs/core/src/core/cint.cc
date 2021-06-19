@@ -52,6 +52,14 @@ namespace euphoria::core
         return static_cast<size_t>(i);
     }
 
+    u8
+    c_int_to_u8(unsigned int i)
+    {
+        ASSERTX(i >= 0, i);
+        ASSERTX(i <255, i);
+        return static_cast<u8>(i);
+    }
+
 
     u32
     c_bit_signed_to_unsigned(s32 i)

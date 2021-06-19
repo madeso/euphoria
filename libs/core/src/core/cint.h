@@ -25,6 +25,9 @@ namespace euphoria::core
     size_t
     c_int_to_sizet(int i);
 
+    u8
+    c_int_to_u8(unsigned int i);
+
     u32
     c_bit_signed_to_unsigned(s32 i);
 }

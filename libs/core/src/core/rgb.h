@@ -1,8 +1,8 @@
 #pragma once
 
 #include <string>
-#include <cstdint>
 
+#include "core/cint.h"
 #include "core/colors.h"
 #include "core/angle.h"
 #include "core/default_parse.h"
@@ -313,30 +313,30 @@ namespace euphoria::core
     {
         // internal function, exposed for unit tests
         constexpr
-        std::uint8_t
+        u8
         get_component(unsigned int i, unsigned int steps)
         {
             const auto bit_steps = 8 * steps;
-            const auto value = ((i >> bit_steps) & 0xff);
-            return value;
+            const auto value = static_cast<int>((i >> bit_steps) & 0xff);
+            return static_cast<u8>(value);
         }
 
         constexpr
-        std::uint8_t
+        u8
         get_red(unsigned int rgb)
         {
             return get_component(rgb, 2);
         }
 
         constexpr
-        std::uint8_t
+        u8
         get_green(unsigned int rgb)
         {
             return get_component(rgb, 1);
         }
 
         constexpr
-        std::uint8_t
+        u8
         get_blue(unsigned int rgb)
         {
             return get_component(rgb, 0);
@@ -350,10 +350,10 @@ namespace euphoria::core
         }
 
         constexpr
-        std::uint8_t
+        u8
         to_unsigned_char(float f)
         {
-            return static_cast<std::uint8_t>(f * 255.0f);
+            return static_cast<u8>(static_cast<int>(f * 255.0f));
         }
 
         constexpr
