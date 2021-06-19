@@ -49,11 +49,11 @@ namespace euphoria::core
     }
 
     const id&
-    id::Invalid()
+    id::invalid_value()
     {
-        static id InvalidValue;
-        ASSERT(!InvalidValue.is_valid());
-        return InvalidValue;
+        static id the_invalid_value;
+        ASSERT(!the_invalid_value.is_valid());
+        return the_invalid_value;
     }
 
     id::~id()

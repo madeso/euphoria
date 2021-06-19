@@ -97,7 +97,7 @@ namespace euphoria::minsynth
 
 
     std::string
-    MidiEventToString(midi_event e);
+    midi_event_to_string(midi_event e);
 
     std::string
     to_string(arp_mode mode);

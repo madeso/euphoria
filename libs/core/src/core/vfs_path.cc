@@ -12,7 +12,7 @@ namespace euphoria::core::vfs
     namespace
     {
         bool
-        IsValidDirectoryName(const std::string& dir)
+        is_valid_directory_name(const std::string& dir)
         {
             if(dir.empty()) { return false; }
             if(dir == ".") { return true; }
@@ -23,7 +23,7 @@ namespace euphoria::core::vfs
         }
 
         bool
-        IsValidFirstDirectory(const std::string& dir)
+        is_valid_first_directory(const std::string& dir)
         {
             if(dir == "~") { return true; }
             if(dir == ".") { return true; }
@@ -31,7 +31,7 @@ namespace euphoria::core::vfs
         }
 
         bool
-        IsValidFilename(const std::string& file)
+        is_valid_filename(const std::string& file)
         {
             if(file.empty()) { return false; }
             if(file.find('/') != std::string::npos) { return false; }
@@ -231,10 +231,10 @@ namespace euphoria::core::vfs
     dir_path::from_dirs(const std::vector<std::string>& dirs)
     {
         ASSERT(!dirs.empty());
-        ASSERTX(IsValidFirstDirectory(dirs[0]), dirs[0]);
+        ASSERTX(is_valid_first_directory(dirs[0]), dirs[0]);
         for(std::size_t index=1; index<dirs.size(); index +=1)
         {
-            ASSERTX(IsValidDirectoryName(dirs[index]), dirs[index]);
+            ASSERTX(is_valid_directory_name(dirs[index]), dirs[index]);
         }
 
         return dir_path
@@ -250,7 +250,7 @@ namespace euphoria::core::vfs
     file_path
     dir_path::get_file(const std::string& filename) const
     {
-        ASSERTX(IsValidFilename(filename), path, filename);
+        ASSERTX(is_valid_filename(filename), path, filename);
         return file_path{path + filename};
     }
 
@@ -314,7 +314,7 @@ namespace euphoria::core::vfs
     dir_path
     dir_path::single_cd_copy(const std::string& single) const
     {
-        ASSERTX(IsValidDirectoryName(single), single);
+        ASSERTX(is_valid_directory_name(single), single);
         return dir_path{path + single + "/"};
     }
 
@@ -323,7 +323,7 @@ namespace euphoria::core::vfs
         : path(p)
     {
         ASSERT(!path.empty());
-        ASSERTX(IsValidFirstDirectory(split_directories()[0]), path);
+        ASSERTX(is_valid_first_directory(split_directories()[0]), path);
         ASSERTX(*path.rbegin() == '/', path);
     }
 

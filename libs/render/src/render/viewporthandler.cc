@@ -13,7 +13,7 @@ namespace
     namespace core = euphoria::core;
 
     core::viewport_definition
-    CreateDefinition(const euphoria::render::viewport_handler& handler)
+    create_definition(const euphoria::render::viewport_handler& handler)
     {
         switch(handler.type)
         {
@@ -50,7 +50,7 @@ namespace
     }
 
 
-    void Apply
+    void apply_viewport
     (
         euphoria::render::viewport_handler* handler,
         const core::viewport_definition& vp,
@@ -111,9 +111,9 @@ namespace euphoria::render
         window_width = width;
         window_height = height;
 
-        const auto vp = CreateDefinition(*this);
+        const auto vp = create_definition(*this);
 
-        Apply(this, vp, true);
+        apply_viewport(this, vp, true);
     }
 
 
@@ -122,7 +122,7 @@ namespace euphoria::render
     {
         if(type != viewport_type::fit_with_black_bars) { return; }
 
-        Apply
+        apply_viewport
         (
             this,
             core::viewport_definition::screen_pixel(window_width, window_height),
@@ -131,11 +131,11 @@ namespace euphoria::render
 
         init->clear_screen(core::color::black);
 
-        Apply
+        apply_viewport
         (
-            this,
-            CreateDefinition(*this),
-            false
+                this,
+                create_definition(*this),
+                false
         );
     }
 

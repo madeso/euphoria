@@ -36,7 +36,7 @@ namespace euphoria::core
 
 
     float
-    DetermineExtendScale(float scale, float height, int window_height)
+    determine_extend_scale(float scale, float height, int window_height)
     {
         const auto scaled_height = height * scale;
         const auto s = static_cast<float>(window_height) / scaled_height;
@@ -63,12 +63,12 @@ namespace euphoria::core
                                .set_bottom_left_to_copy(0, 0);
         if(w < h)
         {
-            const auto s = DetermineExtendScale(w, height, window_height);
+            const auto s = determine_extend_scale(w, height, window_height);
             return viewport_definition {r, width, height * s};
         }
         else
         {
-            const auto s = DetermineExtendScale(h, width, window_width);
+            const auto s = determine_extend_scale(h, width, window_width);
             return viewport_definition {r, width * s, height};
         }
     }

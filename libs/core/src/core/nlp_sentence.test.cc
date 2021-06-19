@@ -12,7 +12,7 @@ using namespace euphoria::core;
 namespace
 {
     std::pair<bool, std::vector<text_sentence>>
-    Parse(const std::string& str)
+    parse_to_sentence(const std::string& str)
     {
         std::vector<text_sentence> list;
 
@@ -29,7 +29,7 @@ TEST_CASE("nlp-sentence", "[nlp]")
 {
     SECTION("simple parse")
     {
-        const auto [result, list] = Parse("Hello world");
+        const auto [result, list] = parse_to_sentence("Hello world");
         REQUIRE(result);
         REQUIRE(list.size() == 1);
         REQUIRE(string_is_equal(list[0], {"Hello", "world"}));
@@ -37,7 +37,7 @@ TEST_CASE("nlp-sentence", "[nlp]")
 
     SECTION("advanced parse")
     {
-        const auto [result, list] = Parse("Dog is good? Lists are super-long vectors.");
+        const auto [result, list] = parse_to_sentence("Dog is good? Lists are super-long vectors.");
         REQUIRE(result);
         REQUIRE(list.size() == 2);
         REQUIRE(string_is_equal(list[0], {"Dog", "is", "good", "?"}));

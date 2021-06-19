@@ -38,7 +38,7 @@ namespace euphoria::core
         NONCOPYABLE(id);
 
         [[nodiscard]] static const id&
-        Invalid();
+        invalid_value();
 
         ~id();
 

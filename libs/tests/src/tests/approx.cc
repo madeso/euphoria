@@ -5,7 +5,7 @@ namespace
     // Performs equivalent check of std::fabs(lhs - rhs) <= margin
     // But without the subtraction to allow for INFINITY in comparison
     bool
-    marginComparison(double lhs, double rhs, double margin)
+    margin_comparison(double lhs, double rhs, double margin)
     {
         return (lhs + margin >= rhs) && (rhs + margin >= lhs);
     }
@@ -30,8 +30,8 @@ namespace euphoria::tests
 
         // First try with fixed margin, then compute margin based on epsilon, scale and Approx's value
         // Thanks to Richard Harris for his help refining the scaled margin value
-        return marginComparison(m_value, other, m_margin)
-               || marginComparison(
+        return margin_comparison(m_value, other, m_margin)
+               || margin_comparison(
                        m_value,
                        other,
                        m_epsilon * (m_scale + std::fabs(m_value)));

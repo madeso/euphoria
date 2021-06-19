@@ -183,7 +183,7 @@ namespace euphoria::core
     namespace
     {
         void
-        DetermineImageSize(void* context, void* /*unused*/, int size)
+        determine_image_size(void* context, void* /*unused*/, int size)
         {
             ASSERT(size >= 0);
             auto* total_size = static_cast<int*>(context);
@@ -191,7 +191,7 @@ namespace euphoria::core
         }
 
         void
-        WriteToMemoryChunkFile(void* context, void* data, int size)
+        write_memorychunk_to_file(void* context, void* data, int size)
         {
             ASSERT(size >= 0);
             auto* file = static_cast<memory_chunk_file*>(context);
@@ -200,7 +200,7 @@ namespace euphoria::core
     }
 
     int
-    WriteImageData
+    write_image_data
     (
         stbi_write_func* func,
         void* context,
@@ -252,16 +252,16 @@ namespace euphoria::core
         }
 
         int size = 0;
-        int size_result = WriteImageData
+        int size_result = write_image_data
         (
-            DetermineImageSize,
-            &size,
-            width,
-            height,
-            number_of_components,
-            &pixels[0],
-            format,
-            jpeg_quality
+                determine_image_size,
+                &size,
+                width,
+                height,
+                number_of_components,
+                &pixels[0],
+                format,
+                jpeg_quality
         );
         if(size_result == 0)
         {
@@ -270,16 +270,16 @@ namespace euphoria::core
 
         ASSERT(size > 0);
         memory_chunk_file file {memory_chunk::allocate(size)};
-        int write_result = WriteImageData
+        int write_result = write_image_data
         (
-            WriteToMemoryChunkFile,
-            &file,
-            width,
-            height,
-            number_of_components,
-            &pixels[0],
-            format,
-            jpeg_quality
+                write_memorychunk_to_file,
+                &file,
+                width,
+                height,
+                number_of_components,
+                &pixels[0],
+                format,
+                jpeg_quality
         );
         if(write_result == 0)
         {
@@ -289,31 +289,6 @@ namespace euphoria::core
         return file.data;
     }
 
-
-    namespace
-    {
-        unsigned char
-        Select
-        (
-            int ch,
-            unsigned char a,
-            unsigned char b,
-            unsigned char c,
-            unsigned char d
-        )
-        {
-            switch(ch)
-            {
-            case 1: return a; // grey
-            case 2: return b; // grey, alpha
-            case 3: return c; // red, green, blue
-            case 4: return d; // red, green, blue, alpha
-            default:
-                DIE("unhandled Select channel");
-                return 0;
-            }
-        }
-    }
 
     image_load_result
     load_image(vfs::file_system* fs, const vfs::file_path& path, alpha_load alpha)
@@ -406,11 +381,32 @@ namespace euphoria::core
                 const unsigned char c3 = (channels <= 2) ? zero : data[src_index + 2];
                 const unsigned char c4 = (channels <= 3) ? zero : data[src_index + 3];
 
-                // Gray, Gray+alpha, RGB, RGB+alpha:     gr   gra  rgb  rgba
-                const unsigned char r = c1;  //          c1   c1   c1    c1
-                const unsigned char g = Select(channels, c1, c1, c2, c2);
-                const unsigned char b = Select(channels, c1, c1, c3, c3);
-                const unsigned char a = Select(channels, 255, c2, 255, c4);
+                auto get_color_from_channel = []
+                (
+                        int channel,
+                        unsigned char a,
+                        unsigned char b,
+                        unsigned char c,
+                        unsigned char d
+                ) -> unsigned char
+                {
+                    switch(channel)
+                    {
+                        case 1: return a; // grey
+                        case 2: return b; // grey, alpha
+                        case 3: return c; // red, green, blue
+                        case 4: return d; // red, green, blue, alpha
+                        default:
+                            DIE("unhandled Select channel");
+                            return 0;
+                    }
+                };
+
+                // Gray, Gray+alpha, RGB, RGB+alpha:                     gr   gra  rgb  rgba
+                const unsigned char r = c1;  //                          c1   c1   c1   c1
+                const unsigned char g = get_color_from_channel(channels, c1,  c1,  c2,  c2);
+                const unsigned char b = get_color_from_channel(channels, c1,  c1,  c3,  c3);
+                const unsigned char a = get_color_from_channel(channels, 255, c2,  255, c4);
 
                 result.image.set_pixel(x, image_height - (y + 1), r, g, b, a);
             }

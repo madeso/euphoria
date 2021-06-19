@@ -7,14 +7,14 @@
 namespace euphoria::render
 {
     // vertex + uv + color
-    const int QuadCount = 10;
-    const int Stride = 2 * 4 + 2 * 4 + 4 * 4;
+    constexpr int quad_cont = 10;
+    constexpr int stride = 2 * 4 + 2 * 4 + 4 * 4;
 
 
     sprite_batch::sprite_batch() : inside_(false), count_(0), rendercalls_(0)
     {
-        data_.reserve(core::Cint_to_sizet(Stride * QuadCount));
-        index_.reserve(core::Cint_to_sizet(6 * QuadCount));
+        data_.reserve(core::Cint_to_sizet(stride * quad_cont));
+        index_.reserve(core::Cint_to_sizet(6 * quad_cont));
     }
 
 
@@ -42,7 +42,7 @@ namespace euphoria::render
     {
         ASSERT(inside_ && "batch need to be open");
 
-        if((count_ + 1) >= QuadCount)
+        if((count_ + 1) >= quad_cont)
         {
             flush();
         }

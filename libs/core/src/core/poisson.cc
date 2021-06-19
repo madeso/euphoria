@@ -9,7 +9,7 @@ namespace euphoria::core
     // todo(Gustav): verify samples is inside rect and considers the offset of the rect
 
     bool
-    AllInside(const rectf& a, const vec2f& p, float r)
+    is_all_inside(const rectf& a, const vec2f& p, float r)
     {
         return
             a.left < p.x - r &&
@@ -32,7 +32,7 @@ namespace euphoria::core
         {
             for(int i=0; i<k; i+=1)
             {
-                if(AllInside(area, p, bounds_check))
+                if(is_all_inside(area, p, bounds_check))
                 {
                     break;
                 }
@@ -99,7 +99,7 @@ namespace euphoria::core
 
             if(bounds_check > 0)
             {
-                if(!AllInside(area, sample, bounds_check)){ continue;}
+                if(!is_all_inside(area, sample, bounds_check)){ continue;}
             }
 
             if(can_place_at(sample, sample_pos))

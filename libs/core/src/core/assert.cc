@@ -112,8 +112,8 @@ namespace euphoria::core
         bool&
         should_throw_variable()
         {
-            static bool ShouldThrow = false;
-            return ShouldThrow;
+            static bool should_throw = false;
+            return should_throw;
         }
 
         void

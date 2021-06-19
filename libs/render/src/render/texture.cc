@@ -15,7 +15,7 @@
 namespace
 {
     euphoria::render::gluint
-    C(euphoria::render::texture_wrap v)
+    con(euphoria::render::texture_wrap v)
     {
         switch(v)
         {
@@ -30,7 +30,7 @@ namespace
 
 
     euphoria::render::gluint
-    C(euphoria::render::filter_magnification v)
+    con(euphoria::render::filter_magnification v)
     {
         switch(v)
         {
@@ -45,7 +45,7 @@ namespace
 
 
     euphoria::render::gluint
-    C(euphoria::render::filter_minification v)
+    con(euphoria::render::filter_minification v)
     {
         switch(v)
         {
@@ -175,10 +175,10 @@ namespace euphoria::render
             pixel_data
         );
 
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, C(data.wrap));
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, C(data.wrap));
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, C(data.minification));
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, C(data.magnification));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, con(data.wrap));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, con(data.wrap));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, con(data.minification));
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, con(data.magnification));
 
         glBindTexture(GL_TEXTURE_2D, 0);
     }

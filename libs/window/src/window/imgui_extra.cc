@@ -19,14 +19,14 @@
 namespace euphoria::window
 {
     ImVec2
-    C(const core::vec2f& v)
+    con(const core::vec2f& v)
     {
         return ImVec2 {v.x, v.y};
     }
 
 
     core::vec2f
-    C(const ImVec2& v)
+    con(const ImVec2& v)
     {
         return core::vec2f {v.x, v.y};
     }
@@ -434,7 +434,7 @@ namespace euphoria::window::imgui
         const auto peg_color_max = ImGui::GetColorU32(ImGuiCol_Text);
 
         // util function
-        const auto Pos = [=](float angle, float rad) -> ImVec2
+        const auto calculate_position = [=](float angle, float rad) -> ImVec2
         {
             return ImVec2(center.x + cosf(angle) * rad, center.y + sinf(angle) * rad);
         };
@@ -456,19 +456,19 @@ namespace euphoria::window::imgui
                       ? peg_color_off
                       : a <= angle ? peg_color_on : peg_color_off
                       ;
-                draw_list->AddLine(Pos(a, peg_start), Pos(a, peg_end), c, 1.0f);
+                draw_list->AddLine(calculate_position(a, peg_start), calculate_position(a, peg_end), c, 1.0f);
             }
         }
 
         if(style & KS_VIS_MAXMIN_VISIBLE)
         {
-            draw_list->AddLine(Pos(angle_max, peg_start), Pos(angle_max, peg_max_end), peg_color_max, 1.0f);
-            draw_list->AddLine(Pos(angle_min, peg_start), Pos(angle_min, peg_max_end), peg_color_max, 1.0f);
+            draw_list->AddLine(calculate_position(angle_max, peg_start), calculate_position(angle_max, peg_max_end), peg_color_max, 1.0f);
+            draw_list->AddLine(calculate_position(angle_min, peg_start), calculate_position(angle_min, peg_max_end), peg_color_max, 1.0f);
         }
 
         // the knob
         add_circle_filled(draw_list, center, knob_size, knob_color, 6, angle);
-        draw_list->AddLine(Pos(angle, knob_mark_start), Pos(angle, knob_mark_end), indicator_color, 2.0f);
+        draw_list->AddLine(calculate_position(angle, knob_mark_start), calculate_position(angle, knob_mark_end), indicator_color, 2.0f);
 
         const bool display_value = style & KS_VIS_DISPLAY_VALUE_ON_HOVER
             ? is_active || is_hovered

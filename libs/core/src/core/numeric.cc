@@ -206,14 +206,14 @@ namespace euphoria::core
     namespace // internal
     {
         float
-        LowerBound(float num, float gran)
+        get_lower_bound(float num, float gran)
         {
             return std::floor(num / gran) * gran;
         }
 
 
         float
-        UpperBound(float num, float gran)
+        get_upper_bound(float num, float gran)
         {
             return std::ceil(num / gran) * gran;
         }
@@ -223,8 +223,8 @@ namespace euphoria::core
     float
     round(float num, float gran)
     {
-        const float lower = LowerBound(num, gran);
-        const float upper = UpperBound(num, gran);
+        const float lower = get_lower_bound(num, gran);
+        const float upper = get_upper_bound(num, gran);
         const float percent
                 = (num - lower)
                   / gran; // 1.0 is upper, 0.0 is lower, 0.25 is 25% between

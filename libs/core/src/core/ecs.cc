@@ -13,9 +13,9 @@ namespace euphoria::core::ecs
 {
     ////////////////////////////////////////////////////////////////////////////////
 
-    static constexpr auto Shift = 24;
-    static constexpr entity_id EntityMask = 0x00FFFFFF;
-    static constexpr entity_id VersionMask = 0xFF000000;
+    static constexpr auto version_shift_amount = 24;
+    static constexpr entity_id entity_bit_mask = 0x00FFFFFF;
+    static constexpr entity_id version_bit_mask = 0xFF000000;
 
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -28,34 +28,34 @@ namespace euphoria::core::ecs
     entity_id
     get_value(entity_id id)
     {
-        return id & EntityMask;
+        return id & entity_bit_mask;
     }
 
     entity_version
     get_version(entity_version id)
     {
-        return static_cast<entity_version>(id & VersionMask) >> Shift;
+        return static_cast<entity_version>(id & version_bit_mask) >> version_shift_amount;
     }
 
     entity_id
     get_id(entity_id id, entity_version version)
     {
-        const entity_id masked_id = id & EntityMask;
-        const entity_id masked_version = (version << Shift) & VersionMask;
+        const entity_id masked_id = id & entity_bit_mask;
+        const entity_id masked_version = (version << version_shift_amount) & version_bit_mask;
         return masked_id | masked_version;
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct ComponentList
+    struct component_list
     {
         std::string name;
         std::map<entity_id, std::shared_ptr<component>> components;
 
-        explicit ComponentList(const std::string& n) : name(n) {}
+        explicit component_list(const std::string& n) : name(n) {}
 
         std::shared_ptr<component>
-        GetComponent(entity_id entity)
+        get_component(entity_id entity)
         {
             auto found = components.find(entity);
             if(found != components.end())
@@ -69,19 +69,19 @@ namespace euphoria::core::ecs
         }
 
         void
-        AddComponent(entity_id entity, std::shared_ptr<component> data)
+        add_component(entity_id entity, std::shared_ptr<component> data)
         {
             components[entity] = data;
         }
 
         void
-        RemoveComponent(entity_id entity)
+        remove_component(entity_id entity)
         {
             components.erase(entity);
         }
 
         [[nodiscard]] std::vector<entity_id>
-        View() const
+        get_components() const
         {
             const auto keys = get_keys(components);
             ASSERT(get_sorted(keys) == keys);
@@ -165,7 +165,7 @@ namespace euphoria::core::ecs
                 {
                     for(const auto& entry: components)
                     {
-                        entry.second->RemoveComponent(id);
+                        entry.second->remove_component(id);
                     }
                     free_entities.emplace_back(id);
                 }
@@ -174,7 +174,7 @@ namespace euphoria::core::ecs
         }
 
         component_id next_component_id = 0;
-        std::map<component_id, std::shared_ptr<ComponentList>> components;
+        std::map<component_id, std::shared_ptr<component_list>> components;
         std::map<std::string, component_id> name_to_component;
 
         component_id
@@ -182,7 +182,7 @@ namespace euphoria::core::ecs
         {
             const auto ret = next_component_id;
             next_component_id += 1;
-            components[ret] = std::make_shared<ComponentList>(name);
+            components[ret] = std::make_shared<component_list>(name);
             name_to_component[name] = ret;
 
             return ret;
@@ -205,7 +205,7 @@ namespace euphoria::core::ecs
         std::shared_ptr<component>
         get_component(entity_id entity, component_id id)
         {
-            return components[id]->GetComponent(entity);
+            return components[id]->get_component(entity);
         }
 
         void
@@ -214,7 +214,7 @@ namespace euphoria::core::ecs
                 component_id id,
                 std::shared_ptr<component> data)
         {
-            components[id]->AddComponent(entity, data);
+            components[id]->add_component(entity, data);
         }
 
 
@@ -226,7 +226,7 @@ namespace euphoria::core::ecs
             std::vector<entity_id> r;
             for(const auto c: component_list)
             {
-                const auto v = components[c]->View();
+                const auto v = components[c]->get_components();
                 if(first)
                 {
                     r = v;

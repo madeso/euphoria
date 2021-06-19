@@ -7,45 +7,42 @@
 namespace euco = euphoria::core;
 using namespace euphoria::tests;
 
-const unsigned int DARKSLATE_GREY = 0x2f4f4f;
-
-const unsigned int PHTHALO_GREEN = 0x123524;
-
-const unsigned int BRITISH_RACING_GREEN = 0x004225;
-
-const unsigned int RED = 0xff0000;
-const unsigned int GREEN = 0x00ff00;
-const unsigned int BLUE = 0x0000ff;
+constexpr unsigned int darkslate_grey = 0x2f4f4f;
+constexpr unsigned int phtalo_green = 0x123524;
+constexpr unsigned int british_racing_green = 0x004225;
+const unsigned int color_red = 0xff0000;
+const unsigned int color_green = 0x00ff00;
+const unsigned int color_blue = 0x0000ff;
 
 
 TEST_CASE("rgb-test_basic", "[rgb]")
 {
-    REQUIRE(euco::colorutil::get_red(RED) == 255);
-    REQUIRE(euco::colorutil::get_green(RED) == 0);
-    REQUIRE(euco::colorutil::get_blue(RED) == 0);
+    REQUIRE(euco::colorutil::get_red(color_red) == 255);
+    REQUIRE(euco::colorutil::get_green(color_red) == 0);
+    REQUIRE(euco::colorutil::get_blue(color_red) == 0);
 
-    REQUIRE(euco::colorutil::get_red(GREEN) == 0);
-    REQUIRE(euco::colorutil::get_green(GREEN) == 255);
-    REQUIRE(euco::colorutil::get_blue(GREEN) == 0);
+    REQUIRE(euco::colorutil::get_red(color_green) == 0);
+    REQUIRE(euco::colorutil::get_green(color_green) == 255);
+    REQUIRE(euco::colorutil::get_blue(color_green) == 0);
 
-    REQUIRE(euco::colorutil::get_red(BLUE) == 0);
-    REQUIRE(euco::colorutil::get_green(BLUE) == 0);
-    REQUIRE(euco::colorutil::get_blue(BLUE) == 255);
+    REQUIRE(euco::colorutil::get_red(color_blue) == 0);
+    REQUIRE(euco::colorutil::get_green(color_blue) == 0);
+    REQUIRE(euco::colorutil::get_blue(color_blue) == 255);
 }
 
 TEST_CASE("rgb-get_component_works", "[rgb]")
 {
-    REQUIRE(euco::colorutil::get_red(DARKSLATE_GREY) == 47);
-    REQUIRE(euco::colorutil::get_green(DARKSLATE_GREY) == 79);
-    REQUIRE(euco::colorutil::get_blue(DARKSLATE_GREY) == 79);
+    REQUIRE(euco::colorutil::get_red(darkslate_grey) == 47);
+    REQUIRE(euco::colorutil::get_green(darkslate_grey) == 79);
+    REQUIRE(euco::colorutil::get_blue(darkslate_grey) == 79);
 
-    REQUIRE(euco::colorutil::get_red(PHTHALO_GREEN) == 18);
-    REQUIRE(euco::colorutil::get_green(PHTHALO_GREEN) == 53);
-    REQUIRE(euco::colorutil::get_blue(PHTHALO_GREEN) == 36);
+    REQUIRE(euco::colorutil::get_red(phtalo_green) == 18);
+    REQUIRE(euco::colorutil::get_green(phtalo_green) == 53);
+    REQUIRE(euco::colorutil::get_blue(phtalo_green) == 36);
 
-    REQUIRE(euco::colorutil::get_red(BRITISH_RACING_GREEN) == 0);
-    REQUIRE(euco::colorutil::get_green(BRITISH_RACING_GREEN) == 66);
-    REQUIRE(euco::colorutil::get_blue(BRITISH_RACING_GREEN) == 37);
+    REQUIRE(euco::colorutil::get_red(british_racing_green) == 0);
+    REQUIRE(euco::colorutil::get_green(british_racing_green) == 66);
+    REQUIRE(euco::colorutil::get_blue(british_racing_green) == 37);
 }
 
 TEST_CASE("rgb_colors", "[rgb]")

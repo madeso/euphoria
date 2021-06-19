@@ -35,7 +35,7 @@ namespace
 
     enum class sort_range
     {
-        R, G, B
+        r, g, b
     };
 
 
@@ -44,9 +44,9 @@ namespace
     {
         switch(range)
         {
-            case sort_range::R: return crgb(c).r;
-            case sort_range::G: return crgb(c).g;
-            case sort_range::B: return crgb(c).b;
+            case sort_range::r: return crgb(c).r;
+            case sort_range::g: return crgb(c).g;
+            case sort_range::b: return crgb(c).b;
             default: return 0;
         }
     }
@@ -64,9 +64,9 @@ namespace
             {
                 return
                 {
-                    get_value(sort_range::R, c),
-                    get_value(sort_range::G, c),
-                    get_value(sort_range::B, c)
+                    get_value(sort_range::r, c),
+                    get_value(sort_range::g, c),
+                    get_value(sort_range::b, c)
                 };
             }
         );
@@ -78,9 +78,9 @@ namespace
         };
         auto ranges = std::vector<Tu>
         {
-            make(sort_range::R, 0),
-            make(sort_range::G, 1),
-            make(sort_range::B, 2)
+            make(sort_range::r, 0),
+            make(sort_range::g, 1),
+            make(sort_range::b, 2)
         };
         std::sort
         (
@@ -109,9 +109,9 @@ namespace
 
         switch(sort_range)
         {
-        case sort_range::R: sort([](const rgbi& c) -> float { return c.r; }); break;
-        case sort_range::G: sort([](const rgbi& c) -> float { return c.g; }); break;
-        case sort_range::B: sort([](const rgbi& c) -> float { return c.b; }); break;
+        case sort_range::r: sort([](const rgbi& c) -> float { return c.r; }); break;
+        case sort_range::g: sort([](const rgbi& c) -> float { return c.g; }); break;
+        case sort_range::b: sort([](const rgbi& c) -> float { return c.b; }); break;
         }
     }
 

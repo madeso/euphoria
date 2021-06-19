@@ -204,13 +204,13 @@ namespace euphoria::gui
     }
 
     core::rgb
-    Load(const ::gui::Rgb& src)
+    load(const ::gui::Rgb& src)
     {
         return core::rgb(src.r, src.g, src.b);
     }
 
     core::InterpolationType
-    Load(::gui::InterpolationType t)
+    load(::gui::InterpolationType t)
     {
         switch(t)
         {
@@ -280,24 +280,24 @@ namespace euphoria::gui
         button_state ret;
         // ret.image = src.image();
         ret.scale = src.scale;
-        ret.image_color = Load(src.image_color);
-        ret.text_color = Load(src.text_color);
+        ret.image_color = load(src.image_color);
+        ret.text_color = load(src.text_color);
         ret.dx = src.dx;
         ret.dy = src.dy;
         ret.interpolation_color =
         {
-            Load(src.interpolate_color),
-            src.interpolate_color_time
+                load(src.interpolate_color),
+                src.interpolate_color_time
         };
         ret.interpolation_size =
         {
-            Load(src.interpolate_size),
-            src.interpolate_size_time
+                load(src.interpolate_size),
+                src.interpolate_size_time
         };
         ret.interpolation_position =
         {
-            Load(src.interpolate_position),
-            src.interpolate_position_time
+                load(src.interpolate_position),
+                src.interpolate_position_time
         };
         return ret;
     }

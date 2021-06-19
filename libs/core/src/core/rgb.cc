@@ -299,33 +299,33 @@ namespace euphoria::core
         const auto l = (max + min) / 2;
         // var h, s;
 
-        enum class Biggest
+        enum class biggest_value
         {
-            Red,
-            Green,
-            Blue,
+            r,
+            g,
+            b,
             Same
         };
 
-        auto cl = [](float r, float g, float b) -> Biggest {
+        const auto cl = [](float r, float g, float b) -> biggest_value {
             constexpr auto min_diff = 0.001f;
             if(abs(r - g) < min_diff && abs(g - b) < min_diff)
             {
-                return Biggest::Same;
+                return biggest_value::Same;
             }
             if(r >= g && r >= b)
             {
-                return Biggest::Red;
+                return biggest_value::r;
             }
             if(g >= r && g >= b)
             {
-                return Biggest::Green;
+                return biggest_value::g;
             }
             ASSERTX(b >= r && b >= g, r, g, b);
-            return Biggest::Blue;
+            return biggest_value::b;
         }(c.r, c.g, c.b);
 
-        if(cl == Biggest::Same)
+        if(cl == biggest_value::Same)
         {
             return {angle::from_radians(0), 0, l}; // achromatic
         }
@@ -334,16 +334,16 @@ namespace euphoria::core
             const auto d = max - min;
             const auto s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
 
-            float h = 0;
-            switch(cl)
+            const float h = [cl, &c, d]() -> float
             {
-            case Biggest::Red: h = (c.g - c.b) / d + (c.g < c.b ? 6.0f : 0.0f); break;
-            case Biggest::Green: h = (c.b - c.r) / d + 2; break;
-            case Biggest::Blue: h = (c.r - c.g) / d + 4; break;
-            default: h = 0; break;
-            }
-
-            h /= 6;
+                switch(cl)
+                {
+                case biggest_value::r: return (c.g - c.b) / d + (c.g < c.b ? 6.0f : 0.0f);
+                case biggest_value::g: return (c.b - c.r) / d + 2;
+                case biggest_value::b: return (c.r - c.g) / d + 4;
+                default: DIE("Unreachable"); return 0.0f;
+                }
+            }() / 6;
             return {angle::from_percent_of_360(h), s, l};
         }
     }
@@ -509,7 +509,7 @@ namespace euphoria::core
     {
         // parses a #fff or a #ffffff string as a color
         result<rgbi>
-        ParseHashHexRgbi(const std::string& value)
+        parse_hash_hex_rgbi(const std::string& value)
         {
             using R = result<rgbi>;
 
@@ -573,7 +573,7 @@ namespace euphoria::core
 
         if(value[0] == '#')
         {
-            return ParseHashHexRgbi(value);
+            return parse_hash_hex_rgbi(value);
         }
         else
         {

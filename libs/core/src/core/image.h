@@ -170,7 +170,7 @@ namespace euphoria::core
     image_load_result
     load_image
     (
-        std::shared_ptr<memory_chunk> memory,
+        std::shared_ptr<memory_chunk> channel,
         const std::string& path,
         alpha_load alpha
     );

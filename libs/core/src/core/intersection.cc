@@ -10,7 +10,7 @@ namespace euphoria::core
     namespace
     {
         ray3_aabb_result
-        Ray3AabbResult_False()
+        ray3_aabb_result_false()
         {
             auto r = ray3_aabb_result{};
             r.intersected = false;
@@ -20,7 +20,7 @@ namespace euphoria::core
 
 
         ray3_aabb_result
-        Ray3AabbResult_True(float start, float end)
+        ray3_aabb_result_true(float start, float end)
         {
             auto r = ray3_aabb_result{};
             r.intersected = true;
@@ -59,7 +59,7 @@ namespace euphoria::core
 
         if((tmin > tymax) || (tymin > tmax))
         {
-            return Ray3AabbResult_False();
+            return ray3_aabb_result_false();
         }
         if(tymin > tmin)
         {
@@ -75,7 +75,7 @@ namespace euphoria::core
 
         if((tmin > tzmax) || (tzmin > tmax))
         {
-            return Ray3AabbResult_False();
+            return ray3_aabb_result_false();
         }
 
         if(tzmin > tmin)
@@ -87,7 +87,7 @@ namespace euphoria::core
             tmax = tzmax;
         }
 
-        return Ray3AabbResult_True(tmin, tmax);
+        return ray3_aabb_result_true(tmin, tmax);
     }
 
 
@@ -105,19 +105,19 @@ namespace euphoria::core
     namespace
     {
         ray2_ray2_result
-        Ray2Ray2Result_Parallel()
+        ray2_ray2_result_parallel()
         {
             return {false, true, vec2f::zero(), -1.0f, -1.0f};
         }
 
         ray2_ray2_result
-        Ray2Ray2Result_NoCollision()
+        ray2_ray2_result_no_collision()
         {
             return {false, false, vec2f::zero(), -1.0f, -1.0f};
         }
 
         ray2_ray2_result
-        Ray2Ray2Result_Collided(const vec2f& p, float a, float b)
+        ray2_ray2_result_collided(const vec2f& p, float a, float b)
         {
             return {false, true, p, a, b};
         }
@@ -156,7 +156,7 @@ namespace euphoria::core
         // todo(Gustav): implement a check for zero for float
         if(abs(den) < 0.00001f)
         {
-            return Ray2Ray2Result_Parallel();
+            return ray2_ray2_result_parallel();
         }
 
         const float s = (-s1_y * (p0_x - p2_x) + s1_x * (p0_y - p2_y)) / den;
@@ -166,10 +166,10 @@ namespace euphoria::core
         {
             const float x = p0_x + (t * s1_x);
             const float y = p0_y + (t * s1_y);
-            return Ray2Ray2Result_Collided(vec2f(x, y), s, t);
+            return ray2_ray2_result_collided(vec2f(x, y), s, t);
         }
 
-        return Ray2Ray2Result_NoCollision();
+        return ray2_ray2_result_no_collision();
     }
 
     float
@@ -325,18 +325,18 @@ namespace euphoria::core
     bool
     is_point_in_triangle
     (
-        const vec2f& A,
-        const vec2f& B,
-        const vec2f& C,
-        const vec2f& P
+        const vec2f& a,
+        const vec2f& b,
+        const vec2f& c,
+        const vec2f& p
     )
     {
-        const auto s1 = C.y - A.y;
-        const auto s2 = C.x - A.x;
-        const auto s3 = B.y - A.y;
-        const auto s4 = P.y - A.y;
+        const auto s1 = c.y - a.y;
+        const auto s2 = c.x - a.x;
+        const auto s3 = b.y - a.y;
+        const auto s4 = p.y - a.y;
 
-        const auto w1 = (A.x*s1 + s4*s2 - P.x*s1) / (s3*s2 - (B.x - A.x)*s1);
+        const auto w1 = (a.x * s1 + s4 * s2 - p.x * s1) / (s3 * s2 - (b.x - a.x) * s1);
         const auto w2 = (s4 - w1*s3) / s1;
         return w1 >= 0 && w2 >= 0 && (w1 + w2) <= 1;
     }

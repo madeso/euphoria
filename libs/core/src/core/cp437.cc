@@ -8,7 +8,7 @@
 
 namespace
 {
-    constexpr std::array<std::string_view, 256> CODE_PAGE =
+    constexpr std::array<std::string_view, 256> code_page =
     {
   //        _0        _1       _2      _3     _4     _5      _6      _7     _8     _9     _A    _B      _C     _D     _E      _F
 /*0_*/   u8"NULL", u8"☺", u8"☻",  u8"♥", u8"♦", u8"♣", u8"♠", u8"•", u8"◘", u8"○", u8"◙", u8"♂", u8"♀", u8"♪", u8"♫", u8"☼",
@@ -36,7 +36,7 @@ namespace euphoria::core
     get_cp437(int c)
     {
         ASSERTX(is_within_inclusive_as_int(0, c, 255), c);
-        return CODE_PAGE[c];
+        return code_page[c];
     }
 
     std::string_view

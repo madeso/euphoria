@@ -11,7 +11,7 @@ namespace euphoria::core
     namespace
     {
         rgbai
-        Gray(unsigned char g, unsigned char a)
+        make_gray(unsigned char g, unsigned char a)
         {
             return {rgbi {g, g, g}, a};
         }
@@ -25,11 +25,11 @@ namespace euphoria::core
     {
         switch(grayscale)
         {
-        case grayscale::r: return Gray(c.r, c.a);
-        case grayscale::g: return Gray(c.g, c.a);
-        case grayscale::b: return Gray(c.b, c.a);
-        case grayscale::a: return Gray(c.a, c.a);
-        case grayscale::max: return Gray(max(c.r, max(c.g, c.b)), c.a);
+        case grayscale::r: return make_gray(c.r, c.a);
+        case grayscale::g: return make_gray(c.g, c.a);
+        case grayscale::b: return make_gray(c.b, c.a);
+        case grayscale::a: return make_gray(c.a, c.a);
+        case grayscale::max: return make_gray(max(c.r, max(c.g, c.b)), c.a);
         case grayscale::gamma:
             {
                 const auto d = dot(crgb(c), rgb(0.22f, 0.707f, 0.071f));
@@ -48,7 +48,7 @@ namespace euphoria::core
             }
 
         default:
-            return Gray(c.a, c.a);
+            return make_gray(c.a, c.a);
         }
     }
 
@@ -75,7 +75,7 @@ namespace euphoria::core
 
     template <typename C>
     [[nodiscard]] image
-    NewImageFrom(const image& image_source, C callback)
+    create_new_image_from(const image& image_source, C callback)
     {
         image ret;
         if(image_source.has_alpha)
@@ -102,7 +102,7 @@ namespace euphoria::core
         auto errors = table<Error>::from_width_height(image->width, image->height);
         const auto errors_range = errors.get_indices();
 
-        *image = NewImageFrom(*image, [&](int x, int y)
+        *image = create_new_image_from(*image, [&](int x, int y)
         {
             auto pixel = image->get_pixel(x, y);
             auto new_color = crgb(pixel);
@@ -167,7 +167,7 @@ namespace euphoria::core
     void
     edge_detection(image* image, float r)
     {
-        *image = NewImageFrom(*image, [&](int x, int y) {
+        *image = create_new_image_from(*image, [&](int x, int y) {
             const auto pixel = Cvec3(image->get_pixel(x, y));
             const auto top
                     = y == image->height - 1
@@ -200,7 +200,7 @@ namespace euphoria::core
 
     template <typename C>
     void
-    LutTransform(image* image, C c)
+    run_lut_transform(image* image, C c)
     {
         std::vector<unsigned char> lut;
         lut.reserve(256);
@@ -217,7 +217,7 @@ namespace euphoria::core
     void
     change_brightness(image* image, int change)
     {
-        LutTransform(image, [&](int i) {
+        run_lut_transform(image, [&](int i) {
             return keep_within(make_range(0, 255), i + change);
         });
     }
@@ -226,7 +226,7 @@ namespace euphoria::core
     change_contrast(image* image, const angle& contrast)
     {
         const auto tc = tan(contrast);
-        LutTransform(image, [&](int i) {
+        run_lut_transform(image, [&](int i) {
             const auto a = 128.0f + 128.0f * tc;
             const auto b = 128.0f - 128.0f * tc;
             if(i < a && b < i)

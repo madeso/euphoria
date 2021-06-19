@@ -106,12 +106,12 @@ namespace euphoria::render
         }
 
         // only display the first 10
-        static int ErrorCount = 0;
-        if(ErrorCount > 10)
+        static int error_count = 0;
+        if(error_count > 10)
         {
             return;
         }
-        ++ErrorCount;
+        ++error_count;
 
         LOG_ERROR("---------------");
         LOG_ERROR("Debug message ({0}): {1}", id, message);

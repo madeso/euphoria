@@ -237,19 +237,19 @@ namespace euphoria::core::vfs
     ////////////////////////////////////////////////////////////////////////////////
 
     std::string
-    CombineFolderAndPath(const std::string& folder, const file_path& path)
+    combine_folder_and_path(const std::string& folder, const file_path& path)
     {
         return folder + path.path.substr(2);
     }
 
     std::string
-    CombineFolderAndPath(const std::string& folder, const dir_path& path)
+    combine_folder_and_path(const std::string& folder, const dir_path& path)
     {
         return folder + path.path.substr(2);
     }
 
     std::string
-    MakeSureEndsWithSlash(const std::string& folder)
+    make_sure_folder_ends_with_slash(const std::string& folder)
     {
         const std::string slash = "/";
 
@@ -267,7 +267,7 @@ namespace euphoria::core::vfs
     std::shared_ptr<memory_chunk>
     read_root_physical_folder::read_file(const file_path& path)
     {
-        const std::string& full_path = CombineFolderAndPath(folder, path);
+        const std::string& full_path = combine_folder_and_path(folder, path);
         return io::file_to_chunk(full_path);
     }
 
@@ -282,8 +282,7 @@ namespace euphoria::core::vfs
     {
         ASSERT(fs);
 
-        auto catalog = std::make_shared<read_root_physical_folder>(
-                MakeSureEndsWithSlash(folder));
+        auto catalog = std::make_shared<read_root_physical_folder>(make_sure_folder_ends_with_slash(folder));
 
         fs->add_read_root(catalog);
     }
@@ -299,7 +298,7 @@ namespace euphoria::core::vfs
     read_root_physical_folder::list_files(const dir_path& path)
     {
         const auto real_path
-                = CombineFolderAndPath(folder, path);
+                = combine_folder_and_path(folder, path);
         const auto found = list_directory(real_path);
 
         file_list r;
@@ -327,7 +326,7 @@ namespace euphoria::core::vfs
     ////////////////////////////////////////////////////////////////////////////////
 
     write_root_physical_folder::write_root_physical_folder(const std::string& f)
-        : folder(MakeSureEndsWithSlash(f))
+        : folder(make_sure_folder_ends_with_slash(f))
     {}
 
     void
@@ -337,7 +336,7 @@ namespace euphoria::core::vfs
         std::shared_ptr<memory_chunk> data
     )
     {
-        const auto full_path = CombineFolderAndPath(folder, path);
+        const auto full_path = combine_folder_and_path(folder, path);
         io::chunk_to_file(data, full_path);
     }
 

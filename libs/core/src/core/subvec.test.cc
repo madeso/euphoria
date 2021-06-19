@@ -12,30 +12,30 @@ using namespace euphoria::tests;
 namespace
 {
     false_string
-    Check
+    is_equal
     (
         const std::vector<int>& lhs,
         const std::vector<int>& rhs
     )
     {
         return euphoria::tests::vector_is_equal
-                (
-                        lhs,
-                        rhs,
-                        [](int m) -> std::string
-                        {
-                            return string_builder{} << m;
-                        },
-                        [](int lhs, int rhs) -> false_string
-                        {
-                            if (lhs == rhs)
-                            { return false_string::create_true(); }
-                            else
-                            {
-                                return false_string::create_false(string_builder() << lhs << " != " << rhs);
-                            }
-                        }
-                );
+        (
+            lhs,
+            rhs,
+            [](int m) -> std::string
+            {
+                return string_builder{} << m;
+            },
+            [](int lhs, int rhs) -> false_string
+            {
+                if (lhs == rhs)
+                { return false_string::create_true(); }
+                else
+                {
+                    return false_string::create_false(string_builder() << lhs << " != " << rhs);
+                }
+            }
+        );
     }
 }
 
@@ -51,7 +51,7 @@ TEST_CASE("subec", "[subvec]")
         CHECK(sub.size() == 6);
         CHECK(sub[0] == 1);
         CHECK(sub[2] == 3);
-        CHECK(Check(vec, {1, 2, 3, 4, 5, 6}));
+        CHECK(is_equal(vec, {1, 2, 3, 4, 5, 6}));
     }
 
     SECTION("empty")
@@ -61,7 +61,7 @@ TEST_CASE("subec", "[subvec]")
 
         CHECK(vec.empty());
         CHECK(sub.size() == 0); // NOLINT
-        CHECK(Check(vec, {}));
+        CHECK(is_equal(vec, {}));
     }
 
     SECTION("sort")
@@ -76,7 +76,7 @@ TEST_CASE("subec", "[subvec]")
 
         CHECK_FALSE(vec.empty());
         CHECK(sub.size() == 6);
-        CHECK(Check(vec, {1, 2, 3, 4, 5, 6}));
+        CHECK(is_equal(vec, {1, 2, 3, 4, 5, 6}));
     }
 
     SECTION("sub left")
@@ -101,7 +101,7 @@ TEST_CASE("subec", "[subvec]")
 
         CHECK_FALSE(vec.empty());
         CHECK(sub.size() == 6);
-        CHECK(Check(vec, {1, 2, 3, 6, 5, 4}));
+        CHECK(is_equal(vec, {1, 2, 3, 6, 5, 4}));
     }
 
     SECTION("sub right")
@@ -126,7 +126,7 @@ TEST_CASE("subec", "[subvec]")
 
         CHECK_FALSE(vec.empty());
         CHECK(sub.size() == 6);
-        CHECK(Check(vec, {3, 2, 1, 4, 5, 6}));
+        CHECK(is_equal(vec, {3, 2, 1, 4, 5, 6}));
     }
 }
 

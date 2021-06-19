@@ -40,10 +40,10 @@ namespace euphoria::window
     };
 
     ImVec2
-    C(const core::vec2f &v);
+    con(const core::vec2f &v);
 
     core::vec2f
-    C(const ImVec2 &v);
+    con(const ImVec2 &v);
 }
 
 namespace euphoria::window::imgui

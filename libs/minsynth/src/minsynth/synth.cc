@@ -79,7 +79,7 @@ namespace euphoria::minsynth
 
 
     std::string
-    MidiEventToString(midi_event e)
+    midi_event_to_string(midi_event e)
     {
         switch(e)
         {
@@ -139,7 +139,7 @@ namespace euphoria::minsynth
         }
 
         [[nodiscard]] constexpr float
-        GetFrequency(int halfstep, float octave_base_frequency) const
+        get_frequency(int halfstep, float octave_base_frequency) const
         {
             float freq = octave_base_frequency;
 
@@ -174,7 +174,7 @@ namespace euphoria::minsynth
     template_tone_to_frequency(int tone, float base_frequency)
     {
         const static auto converter = tone_to_frequency_converter<TonesPerOctave>();
-        return converter.GetFrequency(tone, base_frequency);
+        return converter.get_frequency(tone, base_frequency);
     }
 
     float
@@ -276,9 +276,9 @@ namespace euphoria::minsynth
 
                 LOG_INFO
                 (
-                    "STAT ({0}) {1}",
-                    static_cast<unsigned int>(channel),
-                    MidiEventToString(static_cast<midi_event>(message))
+                "STAT ({0}) {1}",
+                static_cast<unsigned int>(channel),
+                midi_event_to_string(static_cast<midi_event>(message))
                 );
             }
             else
@@ -350,7 +350,7 @@ namespace euphoria::minsynth
             break;
         }
 
-        default: LOG_ERROR("todo: handle {0}", MidiEventToString(event)); return;
+        default: LOG_ERROR("todo: handle {0}", midi_event_to_string(event)); return;
         }
     }
 
@@ -819,7 +819,7 @@ namespace euphoria::minsynth
 
 
     std::vector<piano_key>
-    OneOctaveOfPianoKeys
+    build_one_cctave_of_piano_keys
     (
         int octave,
         int semitone_offset,
@@ -884,7 +884,7 @@ namespace euphoria::minsynth
         int start_col
     )
     {
-        const auto K = [&](int x, int y) -> core::key
+        const auto key = [&](int x, int y) -> core::key
         {
             const auto wy = start_row - y + 1;
             if(wy < 0 || wy > core::Csizet_to_int(k.size()))
@@ -899,24 +899,24 @@ namespace euphoria::minsynth
             }
             return r[wx];
         };
-        const auto W = K;
-        const auto B = K;
+        const auto white_key = key;
+        const auto black_key = key;
 
         insert
         (
             keys,
-            OneOctaveOfPianoKeys
+            build_one_cctave_of_piano_keys
             (
                 base_octave + octave,
                 octave * 12,
                 // first 3 white
-                W(0, 0), W(1, 0), W(2, 0),
+                white_key(0, 0), white_key(1, 0), white_key(2, 0),
                 // second 4
-                W(3, 0), W(4, 0), W(5, 0), W(6, 0),
+                white_key(3, 0), white_key(4, 0), white_key(5, 0), white_key(6, 0),
                 // first 2 black
-                B(1, 1), B(2, 1),
+                black_key(1, 1), black_key(2, 1),
                 // second 3
-                B(4, 1), B(5, 1), B(6, 1)
+                black_key(4, 1), black_key(5, 1), black_key(6, 1)
             )
         );
     }

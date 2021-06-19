@@ -106,13 +106,14 @@ namespace euphoria::core
     // point inside 2d geoms
 
     bool
-    is_point_in_triangle(const vec2f& A, const vec2f& B, const vec2f& C, const vec2f& P);
+    is_point_in_triangle(const vec2f& a, const vec2f& b, const vec2f& c, const vec2f& p);
 
 
 
     ///////////////////////////////////////////////////////////////////////////
     // collision results
 
+    // todo(Gustav): replace with std::optional?
     struct ray2_ray2_result
     {
         bool collision;
@@ -123,6 +124,7 @@ namespace euphoria::core
         float v;
     };
 
+    // todo(Gustav): replace with std::optional?
     struct ray3_aabb_result
     {
         bool intersected;

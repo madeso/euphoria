@@ -457,24 +457,24 @@ namespace euphoria::core::tracery
         capitalize_all(const std::string& s)
         {
             std::string s2;
-            bool capNext = true;
+            bool capitalize_next = true;
             for(char c: s)
             {
                 if(!is_alpha_num(c))
                 {
-                    capNext = true;
+                    capitalize_next = true;
                     s2 += c;
                 }
                 else
                 {
-                    if(!capNext)
+                    if(!capitalize_next)
                     {
                         s2 += c;
                     }
                     else
                     {
                         s2 += to_upper_char(c);
-                        capNext = false;
+                        capitalize_next = false;
                     }
                 }
             }
@@ -618,14 +618,14 @@ namespace euphoria::core::tracery
             itr != doc.MemberEnd();
             ++itr)
         {
-            const std::string ruleName = itr->name.GetString();
-            symbol rule {ruleName};
+            const std::string name_of_rule = itr->name.GetString();
+            symbol rule {name_of_rule};
             result r = from_json(&rule, itr->value);
             if(r == false)
             {
                 return r;
             }
-            rules.insert(std::make_pair(ruleName, rule));
+            rules.insert(std::make_pair(name_of_rule, rule));
         }
 
         return result(result::no_error);

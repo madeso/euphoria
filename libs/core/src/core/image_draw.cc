@@ -80,7 +80,7 @@ namespace euphoria::core
     namespace
     {
         rectf
-        BoundingRect(const std::vector<vec2f>& poly)
+        calculate_bounding_rect(const std::vector<vec2f>& poly)
         {
             const auto [min, max] = find_min_max<vec2f>
             (
@@ -107,7 +107,7 @@ namespace euphoria::core
         }
 
         bool
-        RayIntersectsSegment(const vec2f& u, const vec2f& a, const vec2f& b)
+        does_ray_intersect_segment(const vec2f& u, const vec2f& a, const vec2f& b)
         {
             // todo(Gustav): move to math
             return
@@ -117,7 +117,7 @@ namespace euphoria::core
         }
 
         bool
-        PointInPoly(const vec2f& p, const std::vector<vec2f>& poly)
+        point_is_in_poly(const vec2f& p, const std::vector<vec2f>& poly)
         {
             // todo(Gustav): make pretty and move to custom struct
             if(poly.size() < 3)
@@ -126,12 +126,12 @@ namespace euphoria::core
             }
 
             auto a = poly[0];
-            auto in = RayIntersectsSegment(p, *poly.rbegin(), a);
+            auto in = does_ray_intersect_segment(p, *poly.rbegin(), a);
 
             for(auto i = poly.begin() + 1; i != poly.end(); ++i)
             {
                 const auto b = *i;
-                if(RayIntersectsSegment(p, a, b))
+                if(does_ray_intersect_segment(p, a, b))
                 {
                     in = !in;
                 }
@@ -147,7 +147,7 @@ namespace euphoria::core
     {
         ASSERT(image);
 
-        const auto rect = BoundingRect(poly);
+        const auto rect = calculate_bounding_rect(poly);
         const int left = rect.get_top_left().x;
         const int right = rect.get_top_right().x;
         const int top = rect.get_top_left().y;
@@ -162,7 +162,7 @@ namespace euphoria::core
             {
                 if(x < 0 || x >= image->width) { continue; }
 
-                if(PointInPoly(vec2f(x, y), poly))
+                if(point_is_in_poly(vec2f(x, y), poly))
                 {
                     image->set_pixel(x, y, color);
                 }
@@ -280,18 +280,18 @@ namespace euphoria::core
                 dy = -dy;
             }
 
-            auto D = 2*dy - dx;
+            auto difference = 2 * dy - dx;
             auto y = y0;
 
             for(int x=x0; x<x1; x+=1)
             {
                 plot(x,y);
-                if(D > 0)
+                if(difference > 0)
                 {
                     y = y + yi;
-                    D = D - 2*dx;
+                    difference = difference - 2 * dx;
                 }
-                D = D + 2*dy;
+                difference = difference + 2 * dy;
             }
         };
 
@@ -305,18 +305,18 @@ namespace euphoria::core
                 xi = -1;
                 dx = -dx;
             }
-            int D = 2*dx - dy;
+            int difference = 2 * dx - dy;
             int x = x0;
 
             for(int y=y0; y<y1; y+=1)
             {
                 plot(x,y);
-                if(D > 0)
+                if(difference > 0)
                 {
                     x = x + xi;
-                    D = D - 2*dy;
+                    difference = difference - 2 * dy;
                 }
-                D = D + 2*dx;
+                difference = difference + 2 * dx;
             }
         };
 
@@ -478,18 +478,18 @@ namespace euphoria::core
         }
     }
 
-    rgba Tint(const rgba& c, const rgb& tint)
+    rgba tint_color(const rgba& c, const rgb& tint)
     {
         return {{c.r * tint.r, c.g * tint.g, c.b * tint.b}, c.a};
     }
 
-    rgbai Tint(const rgbai& c, const rgbai& tint)
+    rgbai tint_color(const rgbai& c, const rgbai& tint)
     {
-        return crgbai(Tint(crgba(c), crgb(tint)));
+        return crgbai(tint_color(crgba(c), crgb(tint)));
     }
 
     void
-    SimpleImageBlend
+    simple_image_blend
     (
         image* dst,
         const vec2i& p,
@@ -507,7 +507,7 @@ namespace euphoria::core
                 if(dy >= dst->height) { continue; }
                 const auto dst_color = dst->get_pixel(dx, dy);
                 const auto src_color = src.get_pixel(x, y);
-                const auto tinted_color = Tint(src_color, tint);
+                const auto tinted_color = tint_color(src_color, tint);
                 const auto result_color = blend(tinted_color, dst_color);
                 dst->set_pixel(dx, dy, result_color);
             }
@@ -541,7 +541,7 @@ namespace euphoria::core
                 if(glyph_found != font.codepoint_to_glyph.end())
                 {
                     const auto& glyph = glyph_found->second;
-                    SimpleImageBlend(image, pos, glyph.image, color);
+                    simple_image_blend(image, pos, glyph.image, color);
                     pos.x += glyph.advance;
                 }
             }
@@ -587,7 +587,7 @@ namespace euphoria::core
 
 
     void
-    FillTriangle
+    fill_triangle
     (
         image* image,
         const vec2f& a,
@@ -657,42 +657,42 @@ namespace euphoria::core
         // todo(Gustav): this is too complicated, and hard to customize, different pointy arrows that ain't 90 degrees
         // there must be a better way to do it
         // also generalize it so we can have arrows in dvg/dummper code too
-        const vec2f arrowPoint = to;
+        const vec2f arrow_point = to;
 
-        const auto arrowLength = sqrt(square(abs(from.x - to.x)) +
-                                square(abs(from.y - to.y)));
+        const auto arrow_length = sqrt(square(abs(from.x - to.x)) +
+                                       square(abs(from.y - to.y)));
 
-        const auto arrowAngle = atan2(abs(from.y - to.y),abs(from.x - to.x));
-        const auto angleB = atan2((3 * size), (arrowLength - (3 * size)));
-        const auto secondaryLength = (3 * size)/sin(angleB);
+        const auto arrow_angle = atan2(abs(from.y - to.y), abs(from.x - to.x));
+        const auto angle_b = atan2((3 * size), (arrow_length - (3 * size)));
+        const auto secondary_length = (3 * size) / sin(angle_b);
 
-        auto angleC = angle::from_degrees(90) - arrowAngle - angleB;
+        auto angle_c = angle::from_degrees(90) - arrow_angle - angle_b;
         const auto arrow_point_left_x = from.x > to.x
-            ? from.x - (sin(angleC) * secondaryLength)
-            : (sin(angleC) * secondaryLength) + from.x
+            ? from.x - (sin(angle_c) * secondary_length)
+            : (sin(angle_c) * secondary_length) + from.x
             ;
         const auto arrow_point_left_y = from.y > to.y
-            ? from.y - (cos(angleC) * secondaryLength)
-            : (cos(angleC) * secondaryLength) + from.y
+            ? from.y - (cos(angle_c) * secondary_length)
+            : (cos(angle_c) * secondary_length) + from.y
             ;
-        const auto arrowPointLeft = vec2f
+        const auto arrow_point_left = vec2f
         {
             arrow_point_left_x,
             arrow_point_left_y
         };
 
         //move to the right point
-        angleC = arrowAngle - angleB;
+        angle_c = arrow_angle - angle_b;
 
         const auto arrow_point_right_x = from.x > to.x
-            ? from.x - (cos(angleC) * secondaryLength)
-            : (cos(angleC) * secondaryLength) + from.x
+            ? from.x - (cos(angle_c) * secondary_length)
+            : (cos(angle_c) * secondary_length) + from.x
             ;
         const auto arrow_point_right_y = from.y > to.y
-            ? from.y - (sin(angleC) * secondaryLength)
-            : (sin(angleC) * secondaryLength) + from.y
+            ? from.y - (sin(angle_c) * secondary_length)
+            : (sin(angle_c) * secondary_length) + from.y
             ;
-        const auto arrowPointRight = vec2f
+        const auto arrow_point_right = vec2f
         {
             arrow_point_right_x,
             arrow_point_right_y
@@ -706,7 +706,7 @@ namespace euphoria::core
         // DrawLineAntialiased(image, rgb(color), arrowPoint, arrowPointRight);
         // DrawLineAntialiased(image, rgb(color), arrowPointLeft, arrowPointRight);
 
-        FillTriangle(image, arrowPointLeft, arrowPoint, arrowPointRight, color);
+        fill_triangle(image, arrow_point_left, arrow_point, arrow_point_right, color);
     }
 
 

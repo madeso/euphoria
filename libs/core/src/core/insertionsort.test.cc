@@ -69,25 +69,25 @@ TEST_CASE("insertionsort-100", "[insertionsort]")
 
 namespace
 {
-    struct P
+    struct test_data
     {
         std::string name;
         int i;
 
         bool
-        operator<(const P& p) const
+        operator<(const test_data& p) const
         {
             return name < p.name;
         }
 
         bool
-        operator==(const P& p) const
+        operator==(const test_data& p) const
         {
             return name == p.name && i == p.i;
         }
     };
     std::ostream&
-    operator<<(std::ostream& o, const P& p)
+    operator<<(std::ostream& o, const test_data& p)
     {
         o << p.i << ":" << p.name;
         return o;
@@ -97,24 +97,28 @@ namespace
 
 TEST_CASE("insertionsort-default_sort", "[insertionsort]")
 {
-    const auto dog = P {"dog", 3};
-    const auto cat = P {"cat", 42};
-    const auto human = P {"human", 1};
-    const auto sorted = euco::insertion_sort(std::vector<P> {dog, cat, human});
-    const auto expected = std::vector<P> {cat, dog, human};
+    const auto dog = test_data {"dog", 3};
+    const auto cat = test_data {"cat", 42};
+    const auto human = test_data {"human", 1};
+    const auto sorted = euco::insertion_sort(std::vector<test_data> {dog, cat, human});
+    const auto expected = std::vector<test_data> {cat, dog, human};
     CHECK(sorted == expected);
 }
 
 TEST_CASE("insertionsort-custom_sort", "[insertionsort]")
 {
-    const auto dog = P {"dog", 3};
-    const auto cat = P {"cat", 42};
-    const auto human = P {"human", 1};
-    const auto sorted = euco::insertion_sort(
-            std::vector<P> {dog, cat, human}, [](const P& lhs, const P& rhs) {
-                return euco::default_insertion_sort(lhs.i, rhs.i);
-            });
-    const auto expected = std::vector<P> {human, dog, cat};
+    const auto dog = test_data {"dog", 3};
+    const auto cat = test_data {"cat", 42};
+    const auto human = test_data {"human", 1};
+    const auto sorted = euco::insertion_sort
+    (
+        std::vector<test_data> {dog, cat, human},
+        [](const test_data& lhs, const test_data& rhs)
+        {
+            return euco::default_insertion_sort(lhs.i, rhs.i);
+        }
+    );
+    const auto expected = std::vector<test_data> {human, dog, cat};
     CHECK(sorted == expected);
 }
 

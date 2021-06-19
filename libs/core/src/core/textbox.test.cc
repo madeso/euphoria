@@ -7,7 +7,7 @@
 #include <vector>
 #include <string>
 
-constexpr bool PRINT_HEX = false;
+constexpr bool print_hex = false;
 
 using namespace euphoria::core;
 using namespace euphoria::tests;
@@ -24,7 +24,7 @@ namespace std
             else { s << ", "; }
             s << '"' << st << '"';
 
-            if constexpr (PRINT_HEX)
+            if constexpr (print_hex)
             {
                 s << "(";
                 bool f = true;
@@ -50,7 +50,7 @@ namespace std
 
 namespace
 {
-    std::pair<size_t, size_t> S(size_t a, size_t b)
+    std::pair<size_t, size_t> create_size(size_t a, size_t b)
     {
         return {a, b};
     }
@@ -62,7 +62,7 @@ TEST_CASE("tb_print")
 
     SECTION("empty")
     {
-        CHECK(box.get_size() == S(0,0));
+        CHECK(box.get_size() == create_size(0, 0));
         CHECK(string_is_equal(box.to_string(ascii_style()), {}));
     }
 
@@ -72,7 +72,7 @@ TEST_CASE("tb_print")
         {
             box.put_char(0, 0, 'x');
 
-            CHECK(box.get_size() == S(1,1));
+            CHECK(box.get_size() == create_size(1, 1));
             CHECK(string_is_equal(box.to_string(ascii_style()), {"x"}));
         }
 
@@ -80,7 +80,7 @@ TEST_CASE("tb_print")
         {
             box.put_char(2, 1, 'x');
 
-            CHECK(box.get_size() == S(3,2));
+            CHECK(box.get_size() == create_size(3, 2));
             CHECK(string_is_equal(box.to_string(ascii_style()), {"", "  x"}));
         }
     }
@@ -91,7 +91,7 @@ TEST_CASE("tb_print")
         {
             box.mod_char(0, 0, [](char& c){c = 'd';});
 
-            CHECK(box.get_size() == S(1,1));
+            CHECK(box.get_size() == create_size(1, 1));
             CHECK(string_is_equal(box.to_string(ascii_style()), {"d"}));
         }
 
@@ -99,7 +99,7 @@ TEST_CASE("tb_print")
         {
             box.mod_char(2, 1, [](char& c){c = 'd';});
 
-            CHECK(box.get_size() == S(3,2));
+            CHECK(box.get_size() == create_size(3, 2));
             CHECK(string_is_equal(box.to_string(ascii_style()), {"", "  d"}));
         }
     }
@@ -110,7 +110,7 @@ TEST_CASE("tb_print")
         {
             box.put_string(0, 0, "dog");
 
-            CHECK(box.get_size() == S(3,1));
+            CHECK(box.get_size() == create_size(3, 1));
             CHECK(string_is_equal(box.to_string(ascii_style()), {"dog"}));
         }
 
@@ -118,7 +118,7 @@ TEST_CASE("tb_print")
         {
             box.put_string(1, 1, "dog");
 
-            CHECK(box.get_size() == S(4,2));
+            CHECK(box.get_size() == create_size(4, 2));
             CHECK(string_is_equal(box.to_string(ascii_style()), {"", " dog"}));
         }
 
@@ -127,7 +127,7 @@ TEST_CASE("tb_print")
             box.put_string(0, 0, "doggo");
             box.put_string(1, 0, "dog");
 
-            CHECK(box.get_size() == S(5,1));
+            CHECK(box.get_size() == create_size(5, 1));
             CHECK(string_is_equal(box.to_string(ascii_style()), {"ddogo"}));
         }
     }
@@ -140,7 +140,7 @@ TEST_CASE("tb_print")
         {
             box.trim();
 
-            CHECK(box.get_size() == S(0,0));
+            CHECK(box.get_size() == create_size(0, 0));
             CHECK(string_is_equal(box.to_string(ascii_style()), {}));
         }
 
@@ -149,7 +149,7 @@ TEST_CASE("tb_print")
             box = text_box::create_from_strings({"", "  a"});
             box.trim();
 
-            CHECK(box.get_size() == S(3,2));
+            CHECK(box.get_size() == create_size(3, 2));
             CHECK(string_is_equal(box.to_string(ascii_style()), {"", "  a"}));
         }
 
@@ -158,7 +158,7 @@ TEST_CASE("tb_print")
             box = text_box::create_from_strings({"    ", "  a ", ""});
             box.trim();
 
-            CHECK(box.get_size() == S(3,2));
+            CHECK(box.get_size() == create_size(3, 2));
             CHECK(string_is_equal(box.to_string(ascii_style()), {"", "  a"}));
         }
     }
@@ -233,7 +233,7 @@ TEST_CASE("tb_arrows")
         {
             box.put_horizontal_line(0, 0, 3, false, false);
 
-            CHECK(box.get_size() == S(3,1));
+            CHECK(box.get_size() == create_size(3, 1));
             CHECK(string_is_equal(box.to_string(abc_style), {"bca"}));
         }
 
@@ -241,7 +241,7 @@ TEST_CASE("tb_arrows")
         {
             box.put_horizontal_line(0, 0, 3, false, true);
 
-            CHECK(box.get_size() == S(3,1));
+            CHECK(box.get_size() == create_size(3, 1));
             CHECK(string_is_equal(box.to_string(abc_style), {"bcc"}));
         }
 
@@ -249,7 +249,7 @@ TEST_CASE("tb_arrows")
         {
             box.put_horizontal_line(0, 0, 3, true, false);
 
-            CHECK(box.get_size() == S(3,1));
+            CHECK(box.get_size() == create_size(3, 1));
             CHECK(string_is_equal(box.to_string(abc_style), {"cca"}));
         }
 
@@ -257,7 +257,7 @@ TEST_CASE("tb_arrows")
         {
             box.put_horizontal_line(0, 0, 3, true, true);
 
-            CHECK(box.get_size() == S(3,1));
+            CHECK(box.get_size() == create_size(3, 1));
             CHECK(string_is_equal(box.to_string(abc_style), {"ccc"}));
         }
 
@@ -265,7 +265,7 @@ TEST_CASE("tb_arrows")
         {
             box.put_vertical_line(0, 0, 3, false, false);
 
-            CHECK(box.get_size() == S(1,3));
+            CHECK(box.get_size() == create_size(1, 3));
             CHECK(string_is_equal(box.to_string(abc_style), {"e", "f", "d"}));
         }
 
@@ -273,7 +273,7 @@ TEST_CASE("tb_arrows")
         {
             box.put_vertical_line(0, 0, 3, false, true);
 
-            CHECK(box.get_size() == S(1,3));
+            CHECK(box.get_size() == create_size(1, 3));
             CHECK(string_is_equal(box.to_string(abc_style), {"e", "f", "f"}));
         }
 
@@ -281,7 +281,7 @@ TEST_CASE("tb_arrows")
         {
             box.put_vertical_line(0, 0, 3, true, false);
 
-            CHECK(box.get_size() == S(1,3));
+            CHECK(box.get_size() == create_size(1, 3));
             CHECK(string_is_equal(box.to_string(abc_style), {"f", "f", "d"}));
         }
 
@@ -289,7 +289,7 @@ TEST_CASE("tb_arrows")
         {
             box.put_vertical_line(0, 0, 3, true, true);
 
-            CHECK(box.get_size() == S(1,3));
+            CHECK(box.get_size() == create_size(1, 3));
             CHECK(string_is_equal(box.to_string(abc_style), {"f", "f", "f"}));
         }
     }
@@ -429,19 +429,19 @@ TEST_CASE("tb_box")
 
 namespace
 {
-    struct T
+    struct node
     {
         std::string name;
-        std::vector<T> children;
+        std::vector<node> children;
 
-        T(const std::string& n) : name(n) {}
-        T(const std::string& n, std::initializer_list<T> t) : name(n), children(t) {}
+        node(const std::string& n) : name(n) {}
+        node(const std::string& n, std::initializer_list<node> t) : name(n), children(t) {}
     };
 }
 
 TEST_CASE("tb_create_tree_graph")
 {
-    const auto simple_tree = T("a", { T{"1"}, T{"2"}, T{"3"} });
+    const auto simple_tree = node("a", {node{"1"}, node{"2"}, node{"3"} });
 
     const auto simple_two_row = std::vector<std::string>
         {
@@ -463,13 +463,13 @@ TEST_CASE("tb_create_tree_graph")
             (
                 simple_tree,
                 130,
-                [](const T &e) { return e.name; },
-                [](const T &e)
+                [](const node &e) { return e.name; },
+                [](const node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const T &) { return false; },
-                [](const T &) { return false; }
+                [](const node &) { return false; },
+                [](const node &) { return false; }
             ).to_string(ascii_style()),
             simple_three_row
         )
@@ -483,13 +483,13 @@ TEST_CASE("tb_create_tree_graph")
             (
                 simple_tree,
                 130,
-                [](const T &e) { return e.name; },
-                [](const T &e)
+                [](const node &e) { return e.name; },
+                [](const node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const T &) { return false; },
-                [](const T &) { return true; }
+                [](const node &) { return false; },
+                [](const node &) { return true; }
             ).to_string(ascii_style()),
             simple_three_row
         )
@@ -504,13 +504,13 @@ TEST_CASE("tb_create_tree_graph")
             (
                 simple_tree,
                 130,
-                [](const T &e) { return e.name; },
-                [](const T &e)
+                [](const node &e) { return e.name; },
+                [](const node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const T &) { return true; },
-                [](const T &) { return false; }
+                [](const node &) { return true; },
+                [](const node &) { return false; }
             ).to_string(ascii_style()),
             simple_two_row
         )
@@ -524,13 +524,13 @@ TEST_CASE("tb_create_tree_graph")
             (
                 simple_tree,
                 130,
-                [](const T &e) { return e.name; },
-                [](const T &e)
+                [](const node &e) { return e.name; },
+                [](const node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const T &) { return true; },
-                [](const T &) { return true; }
+                [](const node &) { return true; },
+                [](const node &) { return true; }
             ).to_string(ascii_style()),
 simple_two_row
 )
@@ -540,50 +540,50 @@ simple_two_row
 
 TEST_CASE("tb_tolkien")
 {
-    const auto tolkien_tree = T
+    const auto tolkien_tree = node
     {
         "Tolkien characters",
         {
-            T
+                node
             {
                 "Heroes",
                 {
-                    T
+                        node
                     {
                         "Humans",
                         {
-                            T{"Aragon"},
-                            T{"Boromir"}
+                                node{"Aragon"},
+                                node{"Boromir"}
                         }
                     },
-                    T
+                        node
                     {
                         "Hobbits",
                         {
-                            T{"Frodo"},
-                            T{"Samwise"},
-                            T{"Merry"},
-                            T{"Pippin"},
+                                node{"Frodo"},
+                                node{"Samwise"},
+                                node{"Merry"},
+                                node{"Pippin"},
                         }
                     },
-                    T
+                        node
                     {
                         "Other",
                         {
-                            T{"Legolas"},
-                            T{"Gandalf"},
-                            T{"Gimli"}
+                                node{"Legolas"},
+                                node{"Gandalf"},
+                                node{"Gimli"}
                         }
                     }
                 }
             },
-            T
+                node
             {
                 "Enemies",
                 {
-                    T{"Sauron"},
-                    T{"orcs"},
-                    T{"Sauruman"}
+                        node{"Sauron"},
+                        node{"orcs"},
+                        node{"Sauruman"}
                 }
             }
         }
@@ -596,13 +596,13 @@ TEST_CASE("tb_tolkien")
             (
                 tolkien_tree,
                 130,
-                [](const T &e) { return e.name; },
-                [](const T &e)
+                [](const node &e) { return e.name; },
+                [](const node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const T &e) { return !e.children.empty(); },
-                [](const T &) { return true; }
+                [](const node &e) { return !e.children.empty(); },
+                [](const node &) { return true; }
             ).to_string(ascii_style()),
             {
                 "Tolkien characters",

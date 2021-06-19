@@ -42,8 +42,8 @@ namespace euphoria::render
     const vertex_buffer*&
     vertex_buffer::get_bound()
     {
-        static const vertex_buffer* Vbo = nullptr;
-        return Vbo;
+        static const vertex_buffer* vbo = nullptr;
+        return vbo;
     }
 
 
@@ -65,7 +65,7 @@ namespace euphoria::render
     namespace
     {
         GLenum
-        GetOpenGLType(shader_attribute_type type)
+        con(shader_attribute_type type)
         {
             switch(type)
             {
@@ -90,12 +90,12 @@ namespace euphoria::render
         // and not a actual pointer
         glVertexAttribPointer
         (
-            attribute.id,
-            attribute.get_element_count(),
-            GetOpenGLType(attribute.type),
+                attribute.id,
+                attribute.get_element_count(),
+                con(attribute.type),
             attribute.normalize ? GL_TRUE : GL_FALSE,
-            stride,
-            reinterpret_cast<GLvoid*>(offset) // NOLINT
+                stride,
+                reinterpret_cast<GLvoid*>(offset) // NOLINT
         );
         glEnableVertexAttribArray(attribute.id);
 
@@ -115,8 +115,8 @@ namespace euphoria::render
     const point_layout*&
     point_layout::get_bound()
     {
-        static const point_layout* Vao = nullptr;
-        return Vao;
+        static const point_layout* vao = nullptr;
+        return vao;
     }
 
 
@@ -200,7 +200,7 @@ namespace euphoria::render
     const index_buffer*&
     index_buffer::get_bound()
     {
-        static const index_buffer* Ebo = nullptr;
-        return Ebo;
+        static const index_buffer* ebo = nullptr;
+        return ebo;
     }
 }

@@ -349,8 +349,8 @@ namespace euphoria::core
         }
 
 
-        const char* const FileFormatNff = "nff";
-        const char* const FileFormatObj = "obj";
+        constexpr char const* const file_format_nff = "nff";
+        constexpr char const* const file_format_obj = "obj";
 
 
         void
@@ -545,13 +545,13 @@ namespace euphoria::core
                 return 0;
             }
 
-            aiReturn Seek(size_t pOffset, aiOrigin pOrigin) override
+            aiReturn Seek(size_t offset, aiOrigin origin) override
             {
-                switch(pOrigin)
+                switch(origin)
                 {
-                    case aiOrigin_SET: index = pOffset; return aiReturn_SUCCESS;
-                    case aiOrigin_CUR: index += pOffset; return aiReturn_SUCCESS;
-                    case aiOrigin_END: DIE("end seek with unsinged int?"); return aiReturn_FAILURE;
+                    case aiOrigin_SET: index = offset; return aiReturn_SUCCESS;
+                    case aiOrigin_CUR: index += offset; return aiReturn_SUCCESS;
+                    case aiOrigin_END: DIE("end seek with unsigned int?"); return aiReturn_FAILURE;
                     default: DIE("unknown seek"); return aiReturn_FAILURE;
                 }
             }
@@ -578,9 +578,9 @@ namespace euphoria::core
 
             filesystem_for_assimp(vfs::file_system* fs) : file_system(fs) {}
 
-            bool Exists(const char* pFile) const override
+            bool Exists(const char* file) const override
             {
-                auto content = file_system->read_file(vfs::file_path{pFile});
+                auto content = file_system->read_file(vfs::file_path{file});
                 return content != nullptr;
             }
 
@@ -589,12 +589,12 @@ namespace euphoria::core
                 return '/';
             }
 
-            Assimp::IOStream* Open(const char* pFile, const char* pMode) override
+            Assimp::IOStream* Open(const char* file, const char* mode_cstr) override
             {
-                std::string mode = pMode;
+                const std::string mode = mode_cstr;
                 ASSERT(mode.find('w') == std::string::npos);
                 ASSERT(mode.find('r') != std::string::npos);
-                auto content = file_system->read_file(vfs::file_path{pFile});
+                auto content = file_system->read_file(vfs::file_path{file});
                 if(content == nullptr)
                 {
                     return nullptr;
@@ -604,9 +604,9 @@ namespace euphoria::core
                 return data;
             }
 
-            void Close(Assimp::IOStream* pFile) override
+            void Close(Assimp::IOStream* file) override
             {
-                delete pFile; // NOLINT
+                delete file; // NOLINT
             }
 
             bool DeleteFile( const std::string& ) OPTIONAL_OVERRIDE
@@ -660,7 +660,7 @@ namespace euphoria::core
         {
             std::ostringstream ss;
             ss << "shader " << texture << std::endl << "s 0 0 0 " << size;
-            return load_from_string(ss.str(), FileFormatNff);
+            return load_from_string(ss.str(), file_format_nff);
         }
 
 
@@ -692,7 +692,7 @@ namespace euphoria::core
                << "f 4/1 8/2 7/3 3/4" << std::endl
                << "f 5/1 6/2 2/3 1/4" << std::endl;
 
-            auto box = load_from_string(ss.str(), FileFormatObj);
+            auto box = load_from_string(ss.str(), file_format_obj);
             return box;
         }
     }

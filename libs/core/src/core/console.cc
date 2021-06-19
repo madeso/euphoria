@@ -63,7 +63,7 @@ namespace euphoria::core
     namespace
     {
         bool
-            IsSpace(char c)
+        is_space(char c)
         {
             switch (c)
             {
@@ -74,7 +74,7 @@ namespace euphoria::core
         }
 
         bool
-            IsQuote(char c)
+        is_quote(char c)
         {
             switch (c)
             {
@@ -85,7 +85,7 @@ namespace euphoria::core
         }
 
         char
-            HandleEscapeCharacter(char c)
+        handle_escape_character(char c)
         {
             switch (c)
             {
@@ -110,7 +110,7 @@ namespace euphoria::core
         {
             if (escape)
             {
-                buffer << HandleEscapeCharacter(c);
+                buffer << handle_escape_character(c);
                 escape = false;
             }
             else
@@ -137,9 +137,9 @@ namespace euphoria::core
                     else
                     {
                         // not within string
-                        if (IsQuote(c) || IsSpace(c))
+                        if (is_quote(c) || is_space(c))
                         {
-                            if (IsQuote(c))
+                            if (is_quote(c))
                             {
                                 current_string_character = c;
                             }

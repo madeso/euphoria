@@ -11,7 +11,7 @@ namespace euphoria::core
     namespace
     {
         float
-        Diff(const rgbi& lhs, const rgbi& rhs)
+        get_distance_squared(const rgbi& lhs, const rgbi& rhs)
         {
             return
                 square(static_cast<float>(lhs.r - rhs.r)) +
@@ -46,13 +46,13 @@ namespace euphoria::core
     palette::get_index_closest(const rgbi& c) const
     {
         ASSERT(!colors.empty());
-        auto diff_best = Diff(c, colors[0]);
+        auto diff_best = get_distance_squared(c, colors[0]);
 
         unsigned int index_best = 0;
         const auto size = colors.size();
         for(unsigned int index = 1; index < size; index += 1)
         {
-            const auto diff = Diff(c, colors[index]);
+            const auto diff = get_distance_squared(c, colors[index]);
             if(diff < diff_best)
             {
                 diff_best = diff;

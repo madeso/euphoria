@@ -6,7 +6,7 @@
 
 namespace
 {
-    bool TerminalSupportUtf8()
+    bool is_terminal_supporting_utf8()
     {
         const auto* clang = std::getenv("LANG");
 
@@ -63,7 +63,7 @@ tree_style cross_style()
 
 tree_style determine_style()
 {
-    if(TerminalSupportUtf8())
+    if(is_terminal_supporting_utf8())
     {
         return utf8_tree_style();
     }

@@ -14,7 +14,7 @@ using namespace euphoria::tests;
 
 
 std::string
-BinIntToString(u8 t)
+int_to_binary_string_representation(u8 t)
 {
     std::ostringstream ss;
     std::bitset<2> x(t);
@@ -25,7 +25,7 @@ BinIntToString(u8 t)
 
 template<typename T>
 std::string
-HexIntToString(const T& t)
+int_to_hex_string_representation(const T& t)
 {
     std::ostringstream ss;
     ss << std::hex << static_cast<int>(t);
@@ -35,7 +35,7 @@ HexIntToString(const T& t)
 
 template<typename T, typename F>
 false_string
-CompareInts(const T& lhs, const T& rhs, F to_string)
+compare_ints(const T& lhs, const T& rhs, F to_string)
 {
     if(lhs == rhs)
     {
@@ -52,57 +52,57 @@ CompareInts(const T& lhs, const T& rhs, F to_string)
 
 template<typename T>
 false_string
-HexIntEquals
+int_equals_hex
 (
     const std::vector<T>& lhs,
     const std::vector<T>& rhs
 )
 {
-    auto to_string = [](const T& t) { return HexIntToString(t); };
+    auto to_string = [](const T& t) { return int_to_hex_string_representation(t); };
     return vector_is_equal<T>
-            (
-                    lhs,
-                    rhs,
-                    to_string,
-                    [&](const T &lhs, const T &rhs)
-                    { return CompareInts(lhs, rhs, to_string); }
-            );
+    (
+        lhs,
+        rhs,
+        to_string,
+        [&](const T &lhs, const T &rhs)
+        { return compare_ints(lhs, rhs, to_string); }
+    );
 }
 
 
 template<typename T>
 false_string
-BinIntEquals
+int_equals_bin
 (
     const std::vector<T>& lhs,
     const std::vector<T>& rhs
 )
 {
-    auto to_string = [](const T& t) { return BinIntToString(t); };
+    auto to_string = [](const T& t) { return int_to_binary_string_representation(t); };
     return vector_is_equal<T>
-            (
-                    lhs,
-                    rhs,
-                    to_string,
-                    [&](const T &lhs, const T &rhs)
-                    { return CompareInts(lhs, rhs, to_string); }
-            );
+    (
+        lhs,
+        rhs,
+        to_string,
+        [&](const T &lhs, const T &rhs)
+        { return compare_ints(lhs, rhs, to_string); }
+    );
 }
 
 
 TEST_CASE("drunken bishop 0", "[drunken-bishop]")
 {
-    CHECK(HexIntEquals(to_bytes(static_cast<u32>(0)), {0x00, 0x00, 0x00, 0x00}));
-    CHECK(HexIntEquals(to_bytes(static_cast<u32>(1)), {0x00, 0x00, 0x00, 0x01}));
-    CHECK(HexIntEquals(to_bytes(static_cast<u32>(42)), {0x00, 0x00, 0x00, 0x2A}));
-    CHECK(HexIntEquals(to_bytes(static_cast<u32>(1337)), {0x00, 0x00, 0x05, 0x39}));
-    CHECK(HexIntEquals(to_bytes(std::numeric_limits<u32>::max()), {0xFF, 0xFF, 0xFF, 0xFF}));
+    CHECK(int_equals_hex(to_bytes(static_cast<u32>(0)), {0x00, 0x00, 0x00, 0x00}));
+    CHECK(int_equals_hex(to_bytes(static_cast<u32>(1)), {0x00, 0x00, 0x00, 0x01}));
+    CHECK(int_equals_hex(to_bytes(static_cast<u32>(42)), {0x00, 0x00, 0x00, 0x2A}));
+    CHECK(int_equals_hex(to_bytes(static_cast<u32>(1337)), {0x00, 0x00, 0x05, 0x39}));
+    CHECK(int_equals_hex(to_bytes(std::numeric_limits<u32>::max()), {0xFF, 0xFF, 0xFF, 0xFF}));
 
-    CHECK(BinIntEquals(to_codes(0x00, true), {0b00, 0b00, 0b00, 0b00}));
-    CHECK(BinIntEquals(to_codes(0x01, true), {0b00, 0b00, 0b00, 0b01}));
-    CHECK(BinIntEquals(to_codes(0xFF, true), {0b11, 0b11, 0b11, 0b11}));
-    CHECK(BinIntEquals(to_codes(0x29, true), {0b00, 0b10, 0b10, 0b01}));
-    CHECK(BinIntEquals(to_codes(0x4D, true), {0b01, 0b00, 0b11, 0b01}));
+    CHECK(int_equals_bin(to_codes(0x00, true), {0b00, 0b00, 0b00, 0b00}));
+    CHECK(int_equals_bin(to_codes(0x01, true), {0b00, 0b00, 0b00, 0b01}));
+    CHECK(int_equals_bin(to_codes(0xFF, true), {0b11, 0b11, 0b11, 0b11}));
+    CHECK(int_equals_bin(to_codes(0x29, true), {0b00, 0b10, 0b10, 0b01}));
+    CHECK(int_equals_bin(to_codes(0x4D, true), {0b01, 0b00, 0b11, 0b01}));
 }
 
 

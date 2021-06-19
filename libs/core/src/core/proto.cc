@@ -45,10 +45,10 @@ namespace euphoria::core
                 = rapidjson::CursorStreamWrapper<rapidjson::StringStream>;
         rapidjson::StringStream ss {source.c_str()};
         InputStream stream {ss};
-        constexpr unsigned int ParseFlags
+        constexpr unsigned int parse_flags
                 = rapidjson::kParseCommentsFlag
                   | rapidjson::kParseTrailingCommasFlag;
-        doc->ParseStream<ParseFlags, rapidjson::UTF8<>, InputStream>(stream);
+        doc->ParseStream<parse_flags, rapidjson::UTF8<>, InputStream>(stream);
 
         if(doc->HasParseError())
         {

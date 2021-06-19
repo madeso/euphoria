@@ -48,7 +48,7 @@ namespace euphoria::render
 
 
     core::loaded_font
-    GetCharactersFromSingleImage
+    get_characters_from_single_image
     (
         core::vfs::file_system* fs,
         const font::SingleImage& img
@@ -175,7 +175,7 @@ namespace euphoria::render
             if(source.image)
             {
                 const font::SingleImage& image = *source.image;
-                const auto image_font = GetCharactersFromSingleImage(fs, image);
+                const auto image_font = get_characters_from_single_image(fs, image);
                 fontchars.combine_with(image_font);
             }
             if(source.builtin8)

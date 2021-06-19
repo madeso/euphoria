@@ -152,7 +152,7 @@ main(int argc, char** argv)
                 const auto sp = canvas.world_to_screen(p);
                 const auto me = ImGui::GetMousePos();
                 const auto hover
-                        = vec2f::from_to(C(me), C(sp)).get_length_squared()
+                        = vec2f::from_to(con(me), con(sp)).get_length_squared()
                           < size * size;
                 if(index == -1 && hover && ImGui::IsMouseDown(0))
                 {
@@ -197,7 +197,7 @@ main(int argc, char** argv)
                     ? IM_COL32(20, 20, 200, alpha)
                     : IM_COL32(200, 20, 20, alpha)
                     ;
-                auto r = handle(C(path.points[point_index]), point_index, color);
+                auto r = handle(con(path.points[point_index]), point_index, color);
                 if(r.first)
                 {
                     if(ImGui::GetIO().KeyCtrl)
@@ -219,18 +219,18 @@ main(int argc, char** argv)
                 auto* dl = ImGui::GetWindowDrawList();
                 dl->AddBezierCubic
                 (
-                    canvas.world_to_screen(C(s.a0)),
-                    canvas.world_to_screen(C(s.c0)),
-                    canvas.world_to_screen(C(s.c1)),
-                    canvas.world_to_screen(C(s.a1)),
+                    canvas.world_to_screen(con(s.a0)),
+                    canvas.world_to_screen(con(s.c0)),
+                    canvas.world_to_screen(con(s.c1)),
+                    canvas.world_to_screen(con(s.a1)),
                     curve_color,
                     1
                 );
 
                 if(!path.autoset_)
                 {
-                    line(canvas.world_to_screen(C(s.a0)), canvas.world_to_screen(C(s.c0)), line_color);
-                    line(canvas.world_to_screen(C(s.a1)), canvas.world_to_screen(C(s.c1)), line_color);
+                    line(canvas.world_to_screen(con(s.a0)), canvas.world_to_screen(con(s.c0)), line_color);
+                    line(canvas.world_to_screen(con(s.a1)), canvas.world_to_screen(con(s.c1)), line_color);
                 }
             }
 
@@ -242,7 +242,7 @@ main(int argc, char** argv)
                 const auto p = canvas.screen_to_world(ImGui::GetMousePosOnOpeningCurrentPopup());
                 if(ImGui::MenuItem("Add"))
                 {
-                    path.add_point(C(p));
+                    path.add_point(con(p));
                 }
                 auto ic = path.is_closed_;
                 if(ImGui::Checkbox("Is closed", &ic))

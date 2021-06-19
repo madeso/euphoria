@@ -365,7 +365,7 @@ namespace euphoria::render
     {
         shader_name_ = file_path;
 
-        const auto LoadPath = [](core::vfs::file_system* fs, const core::vfs::file_path& path) -> std::string
+        const auto load_path = [](core::vfs::file_system* fs, const core::vfs::file_path& path) -> std::string
         {
             // todo(Gustav): replace with a template instead of basic string
             std::string content;
@@ -377,9 +377,9 @@ namespace euphoria::render
             return content;
         };
 
-        auto vert = LoadPath(fs, file_path.set_extension_copy("vert"));
-        auto frag = LoadPath(fs, file_path.set_extension_copy("frag"));
-        auto geom = LoadPath(fs, file_path.set_extension_copy("geom"));
+        auto vert = load_path(fs, file_path.set_extension_copy("vert"));
+        auto frag = load_path(fs, file_path.set_extension_copy("frag"));
+        auto geom = load_path(fs, file_path.set_extension_copy("geom"));
 
         bool loaded_files = true;
 

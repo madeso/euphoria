@@ -102,10 +102,10 @@ namespace euphoria::render
     void
     scalable_sprite::render(sprite_renderer* renderer, const core::rectf& rect, const core::rgba& tint) const
     {
-        const auto size_ = rect.get_size();
+        const auto size = rect.get_size();
         const auto pos = rect.get_bottom_left();
-        const auto position_cols = core::perform_table_layout(columns, size_.width);
-        const auto position_rows = core::perform_table_layout(rows, size_.height);
+        const auto position_cols = core::perform_table_layout(columns, size.width);
+        const auto position_rows = core::perform_table_layout(rows, size.height);
 
         const auto cols_size = columns.size();
         const auto rows_size = rows.size();
@@ -117,7 +117,7 @@ namespace euphoria::render
         float uv_current_col = 0;
         for(unsigned int c = 0; c < cols_size; ++c)
         {
-            float position_current_row = size_.height;
+            float position_current_row = size.height;
             float uv_current_row = 1;
 
             const auto position_next_col = position_current_col + position_cols[c];

@@ -64,7 +64,7 @@ namespace euphoria::render
     }
 
     void
-    PostBuild
+    post_build
     (
         material_shader* sh,
         const materialshader::MaterialShader& file,
@@ -181,7 +181,7 @@ namespace euphoria::render
             // todo(Gustav): set default shader names
         }
 
-        PostBuild(this, file, path);
+        post_build(this, file, path);
 
         return shader_compile;
     }

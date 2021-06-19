@@ -10,7 +10,7 @@
 namespace
 {
     bool
-    TerminalSupportUtf8()
+    is_terminal_supporting_utf8()
     {
         const char* clang = std::getenv("LANG");
 
@@ -27,14 +27,14 @@ namespace
 
 
     bool
-    HasChar(char c)
+    has_char(char c)
     {
         return (c & euphoria::core::bit_no_line) != 0;
     }
 
 
     bool
-    IsEmpty(char c)
+    is_emtpy(char c)
     {
         return c ==' ' || c == 0;
     }
@@ -78,7 +78,7 @@ namespace euphoria::core
     text_box_style
     terminal_style()
     {
-        if(TerminalSupportUtf8())
+        if(is_terminal_supporting_utf8())
         {
             // return Utf8StraightStyle();
             return utf8_rounded_style();
@@ -299,16 +299,16 @@ namespace euphoria::core
 
                 ASSERT(x < data[y].size());
 
-                if(!IsEmpty(source_texel))
+                if(!is_emtpy(source_texel))
                 {
                     char& target = data[y][x];
-                    if( IsEmpty(target) || HasChar(source_texel))
+                    if(is_emtpy(target) || has_char(source_texel))
                     {
                         target = source_texel;
                     }
                     else
                     {
-                        if( HasChar(target) )
+                        if( has_char(target) )
                         {
                             target = 0;
                         }
@@ -340,7 +340,7 @@ namespace euphoria::core
         for(auto& s: data)
         {
             std::size_t end = s.size();
-            while(end > 0 && IsEmpty(s[end-1]))
+            while(end > 0 && is_emtpy(s[end - 1]))
             {
                 end-=1;
             }
@@ -396,7 +396,7 @@ namespace euphoria::core
         {
             mod_char(x+line_index, y, [&](char& c)
             {
-                if( HasChar(c) )
+                if( has_char(c) )
                 {
                     c = 0;
                 }
@@ -429,7 +429,7 @@ namespace euphoria::core
         {
             mod_char(x, y+line_index, [&](char& c)
             {
-                if( HasChar(c) )
+                if( has_char(c) )
                 {
                     c = 0;
                 }
@@ -554,7 +554,7 @@ namespace euphoria::core
         const std::string& line = data[y];
 
         std::size_t result = 0;
-        while(result < line.size() && IsEmpty(line[result]))
+        while(result < line.size() && is_emtpy(line[result]))
         {
             result+=1;
         }
@@ -579,7 +579,7 @@ namespace euphoria::core
         while
         (
             position != 0 &&
-            (position-1 >= line.size() || IsEmpty(line[position-1]))
+            (position-1 >= line.size() || is_emtpy(line[position - 1]))
         )
         {
             position-=1;
@@ -601,7 +601,7 @@ namespace euphoria::core
         while
         (
             position != 0 &&
-            (x >= data[position-1].size() || IsEmpty(data[position-1][x]))
+            (x >= data[position-1].size() || is_emtpy(data[position - 1][x]))
         )
         {
             position-=1;
@@ -622,7 +622,7 @@ namespace euphoria::core
         while
         (
             result < max &&
-            (x >= data[result].size() || IsEmpty(data[result][x]))
+            (x >= data[result].size() || is_emtpy(data[result][x]))
         )
         {
             result+=1;

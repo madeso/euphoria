@@ -1,4 +1,4 @@
-#include "core/table_bool.h"
+    #include "core/table_bool.h"
 
 #include "core/image_draw.h"
 #include "core/assert.h"
@@ -42,7 +42,7 @@ namespace euphoria::core
     namespace
     {
         int
-        CountSingleWall
+        count_single_walls
         (
             const bool_table& world,
             fourway<outside_rule> outside_rule,
@@ -161,7 +161,7 @@ namespace euphoria::core
                 const auto manhattan_distance = std::abs(x-cx) + std::abs(y-cy);
                 if(manhattan_distance > step) { continue; }
 
-                walls += CountSingleWall
+                walls += count_single_walls
                 (
                     world,
                     outside_rule,
@@ -193,7 +193,7 @@ namespace euphoria::core
 
         auto calc_walls = [&](int x, int y)
         {
-            walls += CountSingleWall
+            walls += count_single_walls
             (
                 world,
                 outside_rule,
@@ -234,7 +234,7 @@ namespace euphoria::core
         {
             for (int x = cx - step; x <= cx + step; x += 1)
             {
-                walls += CountSingleWall
+                walls += count_single_walls
                 (
                     world,
                     outside_rule,

@@ -252,7 +252,7 @@ imgui_widget(layout_container* container)
 }
 
 void
-imgui_widgetGlyph(int id, euphoria::render::glyph* gl)
+imgui_widget(int id, euphoria::render::glyph* gl)
 {
     const std::string s = string_builder() << "glyph " << id;
     if(ImGui::TreeNode(s.c_str()) == false) { return; }
@@ -278,7 +278,7 @@ imgui_widget(const char* title, euphoria::render::drawable_font* font)
 
     for(auto& g: font->chars_)
     {
-        imgui_widgetGlyph(g.first, g.second.get());
+        imgui_widget(g.first, g.second.get());
     }
 
     ImGui::TreePop();

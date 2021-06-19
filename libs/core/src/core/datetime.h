@@ -84,12 +84,12 @@ namespace euphoria::core
     struct date_time
     {
     public:
-        static date_time FromDate(int year, core::month month, int day, time_zone timezone = time_zone::local);
-        static date_time FromDateTime(int year, core::month month, int day, int hour, int minute, int second, time_zone timezone = time_zone::local);
-        static date_time CurrentTime(time_zone timezone = time_zone::local);
+        static date_time create_from_date(int year, core::month month, int day, time_zone timezone = time_zone::local);
+        static date_time create_from_date_and_time(int year, core::month month, int day, int hour, int minute, int second, time_zone timezone = time_zone::local);
+        static date_time create_from_current_time(time_zone timezone = time_zone::local);
 
         [[nodiscard]] std::string to_string(const std::string& format) const;
-        [[nodiscard]] std::string DebugString() const;
+        [[nodiscard]] std::string to_debug_string() const;
 
         void set_seconds(int seconds);
         void set_minutes(int minutes);

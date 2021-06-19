@@ -22,7 +22,7 @@ using namespace euphoria::tests;
 // 4x4 image without transperency
 // white / red
 // green / blue
-const char* const TEST_IMAGE
+const char* const base64_encoded_test_image
         = "iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAIAAAD91JpzAAAABmJLR0QA/wD/"
           "AP+"
           "gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4QgdFSAdb6CP5AAAABVJREFUCNcFw"
@@ -36,7 +36,7 @@ TEST_CASE("image-load", "[img]")
     catalog->register_file_data
     (
         vfs::file_path{"~/white"},
-        euco::base64::decode(TEST_IMAGE)
+        euco::base64::decode(base64_encoded_test_image)
     );
 
     auto loaded = euco::load_image

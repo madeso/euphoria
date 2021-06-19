@@ -225,27 +225,17 @@ TEST_CASE("mat4-mat3", "[mat]")
 
 TEST_CASE("mat4-inverse", "[mat]")
 {
-    const auto Mat0 = euco::mat4f::from_col_major(
-            0.6f,
-            0.2f,
-            0.3f,
-            0.4f,
-            0.2f,
-            0.7f,
-            0.5f,
-            0.3f,
-            0.3f,
-            0.5f,
-            0.7f,
-            0.2f,
-            0.4f,
-            0.3f,
-            0.2f,
-            0.6f);
+    const auto m0 = euco::mat4f::from_col_major
+    (
+        0.6f, 0.2f, 0.3f, 0.4f,
+        0.2f, 0.7f, 0.5f, 0.3f,
+        0.3f, 0.5f, 0.7f, 0.2f,
+        0.4f, 0.3f, 0.2f, 0.6f
+    );
 
-    auto Inv0 = Mat0; // glm::inverse(Mat0);
-    REQUIRE(Inv0.invert());
-    REQUIRE(Inv0.invert());
+    auto inv0 = m0; // glm::inverse(Mat0);
+    REQUIRE(inv0.invert());
+    REQUIRE(inv0.invert());
 
     // EXPECT_EQ(Mat0, Inv0);
 }
@@ -283,12 +273,12 @@ TEST_CASE("mat4-test", "[mat]")
     const euco::mat4f start = euco::mat4f::identity();
     euco::axis_angle aa = euco::axis_angle::right_hand_around(
             euco::unit3f::up(), euco::angle::from_degrees(-90));
-    const euco::vec3f toTransform(0, 0, -5);
+    const euco::vec3f to_transform(0, 0, -5);
     const euco::vec3f result(5, 0, 0);
 
     SECTION("TestRotationAxisAngle")
     {
-        const auto r = start.rotate(aa).get_transform_point(toTransform);
+        const auto r = start.rotate(aa).get_transform_point(to_transform);
         REQUIRE(r == approx(result));
     }
 }

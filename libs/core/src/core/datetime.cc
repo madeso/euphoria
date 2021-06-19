@@ -316,21 +316,21 @@ namespace euphoria::core
 
 
     date_time
-    date_time::FromDate(int year, core::month month, int day, time_zone timezone)
+    date_time::create_from_date(int year, core::month month, int day, time_zone timezone)
     {
         return date_time(timezone, struct_tm_wrapper(year, month, day));
     }
 
 
     date_time
-    date_time::FromDateTime(int year, core::month month, int day, int hour, int minute, int second, time_zone timezone)
+    date_time::create_from_date_and_time(int year, core::month month, int day, int hour, int minute, int second, time_zone timezone)
     {
         return date_time(timezone, struct_tm_wrapper(year, month, day, hour, minute, second));
     }
 
 
     date_time
-    date_time::CurrentTime(time_zone timezone)
+    date_time::create_from_current_time(time_zone timezone)
     {
         return date_time(timezone, time_t_wrapper::from_current_time());
     }
@@ -344,7 +344,7 @@ namespace euphoria::core
 
 
     std::string
-    date_time::DebugString() const
+    date_time::to_debug_string() const
     {
         return as_struct().to_debug_string();
     }

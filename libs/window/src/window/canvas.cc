@@ -6,7 +6,7 @@
 #include "window/imgui_extra.h"
 
 using namespace euphoria::core;
-using euphoria::window::C;
+using euphoria::window::con;
 
 namespace euphoria::window
 {
@@ -127,7 +127,7 @@ namespace euphoria::window
     {
         if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive() && ImGui::IsMouseDragging(2, 0.0f))
         {
-            canvas->view.pan(C(ImGui::GetIO().MouseDelta));
+            canvas->view.pan(con(ImGui::GetIO().MouseDelta));
         }
     }
 
@@ -138,7 +138,7 @@ namespace euphoria::window
         {
             const auto mouse = ImGui::GetIO().MousePos - canvas->position;
             const auto zoom = ImGui::GetIO().MouseWheel;
-            canvas->view.zoom(C(mouse), zoom * cc.zoom_speed);
+            canvas->view.zoom(con(mouse), zoom * cc.zoom_speed);
         }
     }
 
@@ -157,7 +157,7 @@ namespace euphoria::window
     ImVec2
     canvas::world_to_screen(const ImVec2& v) const
     {
-        return C(view.world_to_screen(C(v))) + position;
+        return con(view.world_to_screen(con(v))) + position;
     }
 
     ImVec2
@@ -169,7 +169,7 @@ namespace euphoria::window
     ImVec2
     canvas::screen_to_world(const ImVec2& v) const
     {
-        return C(view.screen_to_world(C(v - position)));
+        return con(view.screen_to_world(con(v - position)));
     }
 
     ImVec2
