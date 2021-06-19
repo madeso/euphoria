@@ -181,7 +181,7 @@ namespace euphoria::core
             return;
         }
 
-        ASSERT(0 && "unhandled dst value switch");
+        DIE("unhandled dst value switch");
     }
 
 
@@ -487,7 +487,7 @@ namespace euphoria::core
             return time_t_wrapper::from_local_time(s);
         }
 
-        ASSERT(false && "Invalid timezone");
+        DIE("Invalid timezone");
         return time_t_wrapper::from_gmt(s);
     }
 
@@ -517,7 +517,7 @@ namespace euphoria::core
             return time_.to_local_time();
         }
 
-        ASSERT(false && "Invalid timezone");
+        DIE("Invalid timezone");
         return time_.to_gmt();
     }
 

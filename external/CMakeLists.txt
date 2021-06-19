@@ -139,7 +139,14 @@ target_compile_definitions(imgui
     PUBLIC
         -DIMGUI_DISABLE_OBSOLETE_FUNCTIONS
 )
-target_link_libraries(imgui PUBLIC core sdl2 glad) # need core for assert override
+target_link_libraries(imgui
+    PUBLIC
+        sdl2
+        glad
+        # need core and project_options for assert override
+        core
+        project_options
+)
 
 add_library(lua STATIC
     lua/src/lapi.c
