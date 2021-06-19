@@ -26,7 +26,7 @@ namespace euphoria::core
 
 
         // return -1 if no matches are found
-        long
+        int
         index_of_matched_input
         (
             const std::vector<std::string>& input,
