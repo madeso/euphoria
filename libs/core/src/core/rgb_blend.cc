@@ -281,9 +281,9 @@ namespace euphoria::core
 
         template<typename TF>
         uint8
-        channel_blend_alpha_f(uint8 top, uint8 bottom, float factor, TF F)
+        channel_blend_alpha_f(uint8 top, uint8 bottom, float factor, TF f)
         {
-            return channel_blend_alpha(F(top, bottom), bottom, factor);
+            return channel_blend_alpha(f(top, bottom), bottom, factor);
         }
 
 
