@@ -83,7 +83,6 @@ namespace euphoria::core
             int width; int height;
             int xoffset; int yoffset;
             const auto scale = stbtt_ScaleForPixelHeight(&font, size);
-            const auto c = static_cast<char>(code_point);
             unsigned char *bitmap = stbtt_GetCodepointBitmap
             (
                 &font,

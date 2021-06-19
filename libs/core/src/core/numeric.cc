@@ -225,12 +225,11 @@ namespace euphoria::core
     {
         const float lower = get_lower_bound(num, gran);
         const float upper = get_upper_bound(num, gran);
-        const float percent
-                = (num - lower)
-                  / gran; // 1.0 is upper, 0.0 is lower, 0.25 is 25% between
+        const float percent = (num - lower) / gran;
+        // 1.0 is upper, 0.0 is lower, 0.25 is 25% between
         // lower and upper, moving from lower to upper
 
-        if(percent >= 0.5)
+        if(percent >= 0.5f)
         {
             return upper;
         }

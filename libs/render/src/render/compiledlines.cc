@@ -94,7 +94,8 @@ namespace euphoria::render
         const core::mat4f& model_matrix,
         const core::mat4f& projection_matrix,
         const core::mat4f& view_matrix,
-        const core::vec3f &camera
+        // todo(Gustav): remove this argument?
+        const core::vec3f&
     )
     {
         shader->use_shader();
@@ -110,7 +111,7 @@ namespace euphoria::render
         index_buffer::bind(nullptr);
         point_layout::bind(nullptr);
     }
-    
+
 
     std::shared_ptr<compiled_lines>
     compile(material_shader_cache* shader_cache, const core::lines& lines)

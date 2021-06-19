@@ -332,7 +332,7 @@ namespace euphoria::core
         else
         {
             const auto d = max - min;
-            const auto s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+            const auto s = l > 0.5f ? d / (2 - max - min) : d / (max + min);
 
             const float h = [cl, &c, d]() -> float
             {

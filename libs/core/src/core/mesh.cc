@@ -21,8 +21,6 @@
 #include "gaf_mesh.h"
 
 
-#define OPTIONAL_OVERRIDE
-
 namespace euphoria::core
 {
     mesh_point::mesh_point
@@ -609,7 +607,7 @@ namespace euphoria::core
                 delete file; // NOLINT
             }
 
-            bool DeleteFile( const std::string& ) OPTIONAL_OVERRIDE
+            bool DeleteFile( const std::string& ) override
             {
                 return false;
             }

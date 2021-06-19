@@ -8,10 +8,10 @@ namespace euphoria::core
         return std::chrono::steady_clock::now();
     }
 
-    double
+    float
     get_seconds_between(const time_point& start, const time_point& end)
     {
-        const std::chrono::duration<double> diff = end-start;
+        const std::chrono::duration<float> diff = end-start;
         return diff.count();
     }
 }

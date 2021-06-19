@@ -10,6 +10,6 @@ namespace euphoria::core
     time_point
     time_point_now();
 
-    double
+    float
     get_seconds_between(const time_point& start, const time_point& end);
 }

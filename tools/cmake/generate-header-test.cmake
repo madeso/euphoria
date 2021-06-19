@@ -5,17 +5,17 @@
 #
 #   Generate a project that includes each header file seperatly
 #   Purpose: to test public and private include paths for a library
-#  
+#
 #   Usage:
-#     
+#
 #     add_library(my_library ${src})
-#       
+#
 #     generate_header_test(my_library
 #         INCLUDE_BASE "${CMAKE_CURRENT_SOURCE_DIR}/src"
 #         FILES ${src}
 #     )
-#  
-#   
+#
+#
 function(generate_header_test LIBRARY)
     set(options)
     set(oneValueArgs INCLUDE_BASE)
@@ -39,7 +39,7 @@ function(generate_header_test LIBRARY)
             set(src ${src} ${output_file})
         endif()
     endforeach()
-    
+
     source_group("tests" FILES ${src})
 
     set(output_file "${CMAKE_CURRENT_BINARY_DIR}/include_test/main.cc")
@@ -48,7 +48,7 @@ function(generate_header_test LIBRARY)
     set(src ${src} ${output_file})
 
     add_executable(${target_name} ${src})
-    target_link_libraries(${target_name} PRIVATE ${LIBRARY})
+    target_link_libraries(${target_name} PRIVATE project_options project_warnings ${LIBRARY})
     set_target_properties(${target_name} PROPERTIES FOLDER "Tests/Headers")
     # message(STATUS "relative include is ${ARG_INCLUDE_BASE}")
     # message(STATUS "source for ${target_name} is ${src}")
