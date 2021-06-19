@@ -6,22 +6,23 @@
 
 #include "core/assert.h"
 #include "core/random.h"
+#include "core/cint.h"
 
 namespace euphoria::core
 {
     template <typename T>
     struct shufflebag
     {
-        [[nodiscard]] unsigned long
+        [[nodiscard]] int
         get_size() const
         {
-            return data_.size();
+            return c_sizet_to_int(data_.size());
         }
 
         void
-        reserve(unsigned long count)
+        reserve(int count)
         {
-            data_.reserve(count);
+            data_.reserve(c_int_to_sizet(count));
         }
 
         void

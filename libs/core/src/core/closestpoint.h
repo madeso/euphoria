@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <tuple>
+#include <optional>
 
 #include "core/assert.h"
 
@@ -33,22 +34,21 @@ namespace euphoria::core
         [[nodiscard]] Data
         find_closest(const Vec& v)
         {
+            struct d { Data data; DistanceType distance; };
             ASSERT(!points.empty());
-            bool first = true;
-            Data closest;
-            DistanceType closest_dist;
+            
+            std::optional<d> result;
             for(const auto& [vec, data]: points)
             {
                 const auto this_dist = distance_function(v, vec);
-                if(first || closest_dist > this_dist)
+                if(result.has_value() == false || result->distance > this_dist)
                 {
-                    closest = data;
-                    closest_dist = this_dist;
+                    result = {data, this_dist};
                 }
-                first = false;
             }
 
-            return closest;
+            ASSERT(result.has_value());
+            return result->data;
         }
     };
 }

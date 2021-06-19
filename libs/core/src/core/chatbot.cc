@@ -10,6 +10,7 @@
 #include "core/findstring.h"
 #include "core/proto.h"
 #include "core/log.h"
+#include "core/cint.h"
 
 #include "gaf_chatbot.h"
 
@@ -35,14 +36,16 @@ namespace euphoria::core::detail
         );
     }
 
-    long
-    index_of_matched_input(
-            const std::vector<std::string>& input,
-            const detail::input& keywords)
+    int
+    index_of_matched_input
+    (
+        const std::vector<std::string>& input,
+        const detail::input& keywords
+    )
     {
         const auto& search = keywords.words;
-        const auto search_size = search.size();
-        const auto input_size = input.size();
+        const auto search_size = c_sizet_to_int(search.size());
+        const auto input_size = c_sizet_to_int(input.size());
         if(search_size > input_size)
         {
             return -1;
@@ -56,7 +59,7 @@ namespace euphoria::core::detail
         const auto start_index
             = keywords.location == input::at_end
             ? input_size - search_size
-            : decltype(input_size) {0};
+            : 0;
         const auto end_index
             = keywords.location == input::at_start
             ? search_size - 1
@@ -72,13 +75,13 @@ namespace euphoria::core::detail
             bool is_match = true;
             for
             (
-                auto search_index = decltype(search_size) {0};
+                auto search_index = 0;
                 search_index < search_size;
                 search_index += 1
             )
             {
-                const auto& input_data = input[input_index + search_index];
-                const auto& search_data = search[search_index];
+                const auto& input_data = input[c_int_to_sizet(input_index + search_index)];
+                const auto& search_data = search[c_int_to_sizet(search_index)];
                 if(input_data != search_data)
                 {
                     is_match = false;

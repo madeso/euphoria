@@ -126,10 +126,10 @@ namespace euphoria::gui
         {
             if(sprite != nullptr)
             {
-                const auto rect = get_background_rect();
+                const auto background_rect = get_background_rect();
 
                 ASSERTX(scale.GetValue() > 0, scale.GetValue());
-                const auto scaled = rect.get_scaled_around_center_copy
+                const auto scaled = background_rect.get_scaled_around_center_copy
                 (
                         scale.GetValue()
                 );

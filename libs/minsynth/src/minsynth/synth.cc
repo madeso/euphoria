@@ -689,13 +689,13 @@ namespace euphoria::minsynth
     int
     oscilator_node::get_alive_tones() const
     {
-        return live.size();
+        return core::c_sizet_to_int(live.size());
     }
 
     int
     oscilator_node::get_dead_tones() const
     {
-        return dead.size();
+        return core::c_sizet_to_int(dead.size());
     }
 
     void

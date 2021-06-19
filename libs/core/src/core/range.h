@@ -65,8 +65,7 @@ namespace euphoria::core
     T
     from01(const range<T>& range, float value)
     {
-        return value * (range.upper_bound - range.lower_bound)
-               + range.lower_bound;
+        return value * (range.upper_bound - range.lower_bound) + range.lower_bound;
     }
 
     template <typename T>
