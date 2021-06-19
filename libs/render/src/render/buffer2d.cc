@@ -9,7 +9,7 @@
 namespace euphoria::render
 {
     buffer2d::buffer2d(const core::buffer_builder2d& bb)
-        : index_count(core::Csizet_to_int(bb.tris.size()))
+        : index_count(core::c_sizet_to_int(bb.tris.size()))
     {
         point_layout::bind(&vao);
         vertex_buffer::bind(&vbo);

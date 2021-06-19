@@ -17,7 +17,7 @@ namespace euphoria::core
         [[nodiscard]] static constexpr I
         Ci(size_t t)
         {
-            return Csizet_to_int(t);
+            return c_sizet_to_int(t);
         }
 
         table() = default;

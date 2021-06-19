@@ -340,8 +340,8 @@ namespace euphoria::core
     {
         auto f = font_data
         {
-            reinterpret_cast<unsigned char*>(file_memory->get_data()),
-            Cint_to_float(font_size)
+                reinterpret_cast<unsigned char*>(file_memory->get_data()),
+                c_int_to_float(font_size)
         };
 
         if(f.was_loaded == false) { return loaded_font{}; }
@@ -456,9 +456,9 @@ namespace euphoria::core
         const auto s = 1 / image_scale;
         loaded_glyph glyph;
         glyph.size = s * static_cast<float>(image.height);
-        glyph.bearing_y = Cfloat_to_int(s * static_cast<float>(image.height) + image_bearing_y);
-        glyph.bearing_x = Cfloat_to_int(image_bearing_x);
-        glyph.advance = Cfloat_to_int(s * static_cast<float>(image.width) + image_advance);
+        glyph.bearing_y = c_float_to_int(s * static_cast<float>(image.height) + image_bearing_y);
+        glyph.bearing_x = c_float_to_int(image_bearing_x);
+        glyph.advance = c_float_to_int(s * static_cast<float>(image.width) + image_advance);
         glyph.code_point= font.generate_new_index_from_private_use(image_alias);
         // todo(Gustav): add ability to clip image
         glyph.image = image;

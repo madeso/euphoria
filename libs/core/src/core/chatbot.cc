@@ -327,7 +327,7 @@ namespace euphoria::core
     namespace
     {
         detail::input::location_type
-        C(chat::Location loc)
+        con(chat::Location loc)
         {
             switch (loc)
             {
@@ -386,7 +386,7 @@ namespace euphoria::core
             }
             for(const auto& i: r.inputs)
             {
-                response.inputs.emplace_back(i.input, C(i.location));
+                response.inputs.emplace_back(i.input, con(i.location));
             }
         }
 

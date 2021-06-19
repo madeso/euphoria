@@ -83,7 +83,7 @@ namespace euphoria::core::generator
             const auto regions = find_empty_regions(world, allow_diagonals);
             for(const auto& re: regions)
             {
-                if( Csizet_to_int(re.size()) < min_count)
+                if(c_sizet_to_int(re.size()) < min_count)
                 {
                     for(const auto& p: re)
                     {
@@ -196,7 +196,7 @@ namespace euphoria::core::generator
     bool
     cellular_automata::has_more_work() const
     {
-        return iteration < Csizet_to_int(rules->rules.size());
+        return iteration < c_sizet_to_int(rules->rules.size());
     }
 
 

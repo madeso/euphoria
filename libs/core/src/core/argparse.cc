@@ -173,7 +173,7 @@ namespace euphoria::core::argparse
     bool
     argument_reader::has_more() const
     {
-        return next_position < Csizet_to_int(arguments.arguments.size());
+        return next_position < c_sizet_to_int(arguments.arguments.size());
     }
 
 
@@ -651,8 +651,8 @@ namespace euphoria::core::argparse
             (
                 std::max
                 (
-                    max_name_length,
-                    Csizet_to_int(name.length())
+                        max_name_length,
+                        c_sizet_to_int(name.length())
                 ),
                 global_max_name_length
             );
@@ -668,7 +668,7 @@ namespace euphoria::core::argparse
                     table(0, y),
                     [max_name_length](const std::string& s)
                     {
-                        return Csizet_to_int(s.size()) <= max_name_length;
+                        return c_sizet_to_int(s.size()) <= max_name_length;
                     }
                 );
                 const auto helps = word_wrap
@@ -693,7 +693,7 @@ namespace euphoria::core::argparse
                 const auto name = t(0, y);
                 const auto help = t(1, y);
 
-                const auto name_length = Csizet_to_int(name.length());
+                const auto name_length = c_sizet_to_int(name.length());
                 if(name_length > max_name_length)
                 {
                     printer->print_info(indent + name);
@@ -933,7 +933,7 @@ namespace euphoria::core::argparse
         bool
         argument_parser::has_more_positionals() const
         {
-            const auto positionals_size = Csizet_to_int
+            const auto positionals_size = c_sizet_to_int
             (
                 base->positional_argument_list.size()
             );

@@ -8,7 +8,7 @@
 namespace euphoria::core
 {
     int
-    Csizet_to_int(size_t t)
+    c_sizet_to_int(size_t t)
     {
         ASSERTX(t <= static_cast<size_t>(std::numeric_limits<int>::max()), t);
         return static_cast<int>(t);
@@ -16,21 +16,21 @@ namespace euphoria::core
 
 
     int
-    Cfloat_to_int(float f)
+    c_float_to_int(float f)
     {
         return static_cast<int>(f);
     }
 
 
     float
-    Cint_to_float(int i)
+    c_int_to_float(int i)
     {
         return static_cast<float>(i);
     }
 
 
     int
-    Cunsigned_int_to_int(unsigned int i)
+    c_unsigned_int_to_int(unsigned int i)
     {
         ASSERTX(i <= static_cast<unsigned int>(std::numeric_limits<int>::max()), i);
         return static_cast<int>(i);
@@ -38,7 +38,7 @@ namespace euphoria::core
 
 
     unsigned int
-    Cint_to_unsigned_int(int i)
+    c_int_to_unsigned_int(int i)
     {
         ASSERTX(i >= 0, i);
         return static_cast<unsigned int>(i);
@@ -46,7 +46,7 @@ namespace euphoria::core
 
 
     size_t
-    Cint_to_sizet(int i)
+    c_int_to_sizet(int i)
     {
         ASSERTX(i >= 0, i);
         return static_cast<size_t>(i);
@@ -54,7 +54,7 @@ namespace euphoria::core
 
 
     u32
-    Cbit_signed_to_unsigned(s32 i)
+    c_bit_signed_to_unsigned(s32 i)
     {
         union { s32 s; u32 u; } c = {};
         c.s = i;

@@ -201,9 +201,9 @@ namespace euphoria::core
         const vec3f& point
     )
     {
-        const auto newNorm = (point - ray.from).get_normalized();
+        const auto new_normalized = (point - ray.from).get_normalized();
 
-        const auto d = dot(newNorm, ray.dir);
+        const auto d = dot(new_normalized, ray.dir);
         return abs(1.0f - d);
     }
 

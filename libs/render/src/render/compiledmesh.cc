@@ -219,9 +219,9 @@ namespace euphoria::render
         data.reserve(faces.size() * 3);
         for(const auto& f: faces)
         {
-            data.emplace_back(core::Cint_to_unsigned_int(f.a));
-            data.emplace_back(core::Cint_to_unsigned_int(f.b));
-            data.emplace_back(core::Cint_to_unsigned_int(f.c));
+            data.emplace_back(core::c_int_to_unsigned_int(f.a));
+            data.emplace_back(core::c_int_to_unsigned_int(f.b));
+            data.emplace_back(core::c_int_to_unsigned_int(f.c));
         }
         b->set_data(data);
     }
@@ -333,7 +333,7 @@ namespace euphoria::render
             bind_attributes(attributes, &part->config);
 
             convert_tris_to_index_buffer(part_src.faces, &part->tris);
-            part->tri_count = core::Csizet_to_int(part_src.faces.size());
+            part->tri_count = core::c_sizet_to_int(part_src.faces.size());
 
             index_buffer::bind(nullptr);
             vertex_buffer::bind(nullptr);

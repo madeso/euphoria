@@ -46,7 +46,7 @@ namespace euphoria::core
 
         uint8 c_u8(float f)
         {
-            const auto i = Cfloat_to_int(f);
+            const auto i = c_float_to_int(f);
             return c_u8(i);
         }
 
@@ -257,7 +257,7 @@ namespace euphoria::core
         }
 
 
-        uint8 ChannelBlend_Glow(uint8 top, uint8 bottom)
+        uint8 channel_blend_glow(uint8 top, uint8 bottom)
         {
             return channel_blend_reflect(bottom, top);
         }
@@ -385,7 +385,7 @@ namespace euphoria::core
                 case blend_mode::pin_light   : return blend(top, bottom, channel_blend_pin_light   );
                 case blend_mode::hard_mix    : return blend(top, bottom, channel_blend_hard_mix    );
                 case blend_mode::reflect     : return blend(top, bottom, channel_blend_reflect     );
-                case blend_mode::glow        : return blend(top, bottom, ChannelBlend_Glow         );
+                case blend_mode::glow        : return blend(top, bottom, channel_blend_glow         );
                 case blend_mode::phoenix     : return blend(top, bottom, channel_blend_phoenix     );
                 default:
                     DIE("unhandled blend case");

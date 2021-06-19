@@ -13,8 +13,8 @@ namespace euphoria::render
 
     sprite_batch::sprite_batch() : inside_(false), count_(0), rendercalls_(0)
     {
-        data_.reserve(core::Cint_to_sizet(stride * quad_cont));
-        index_.reserve(core::Cint_to_sizet(6 * quad_cont));
+        data_.reserve(core::c_int_to_sizet(stride * quad_cont));
+        index_.reserve(core::c_int_to_sizet(6 * quad_cont));
     }
 
 

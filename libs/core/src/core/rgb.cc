@@ -304,14 +304,14 @@ namespace euphoria::core
             r,
             g,
             b,
-            Same
+            same
         };
 
         const auto cl = [](float r, float g, float b) -> biggest_value {
             constexpr auto min_diff = 0.001f;
             if(abs(r - g) < min_diff && abs(g - b) < min_diff)
             {
-                return biggest_value::Same;
+                return biggest_value::same;
             }
             if(r >= g && r >= b)
             {
@@ -325,7 +325,7 @@ namespace euphoria::core
             return biggest_value::b;
         }(c.r, c.g, c.b);
 
-        if(cl == biggest_value::Same)
+        if(cl == biggest_value::same)
         {
             return {angle::from_radians(0), 0, l}; // achromatic
         }

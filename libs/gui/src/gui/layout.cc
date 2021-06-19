@@ -118,18 +118,18 @@ namespace euphoria::gui
         const float leftover_width = area.get_width() - total_width;
         const float leftover_height = area.get_height() - total_height;
 
-        const int expandable_rows_count = core::Csizet_to_int
+        const int expandable_rows_count = core::c_sizet_to_int
         (
             std::count(expandable_rows.begin(), expandable_rows.end(), true)
         );
-        const int expandable_cols_count = core::Csizet_to_int
+        const int expandable_cols_count = core::c_sizet_to_int
         (
             std::count(expandable_cols.begin(), expandable_cols.end(), true)
         );
 
         if(expandable_rows_count != 0)
         {
-            const float extra = leftover_height / core::Cint_to_float(expandable_rows_count);
+            const float extra = leftover_height / core::c_int_to_float(expandable_rows_count);
             for(unsigned int i = 0; i < expandable_rows.size(); ++i)
             {
                 if(expandable_rows[i])
@@ -141,7 +141,7 @@ namespace euphoria::gui
 
         if(expandable_cols_count != 0)
         {
-            const float extra = leftover_width / core::Cint_to_float(expandable_cols_count);
+            const float extra = leftover_width / core::c_int_to_float(expandable_cols_count);
             for(unsigned int i = 0; i < expandable_cols.size(); ++i)
             {
                 if(expandable_cols[i])

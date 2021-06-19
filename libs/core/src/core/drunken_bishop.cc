@@ -180,8 +180,8 @@ namespace euphoria::core
                     0,
                     std::min
                     (
-                        table(x,y),
-                        Csizet_to_int(characters.size())
+                            table(x,y),
+                            c_sizet_to_int(characters.size())
                     )
                 );
                 r += characters[v];

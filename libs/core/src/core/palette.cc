@@ -147,7 +147,7 @@ namespace euphoria::core
     namespace
     {
         rgbi
-        C(unsigned int hex)
+        hex(unsigned int hex)
         {
             return rgbi::from_hex(hex);
         }
@@ -164,22 +164,22 @@ namespace euphoria::core
                 "dawnbringer",
                 std::array
                 {
-                    C(0x140C1C),
-                    C(0x442434),
-                    C(0x30346D),
-                    C(0x4E4A4E),
-                    C(0x854C30),
-                    C(0x346524),
-                    C(0xD04648),
-                    C(0x757161),
-                    C(0x597DCE),
-                    C(0xD27D2C),
-                    C(0x8595A1),
-                    C(0x6DAA2C),
-                    C(0xD2AA99),
-                    C(0x6DC2CA),
-                    C(0xDAD45E),
-                    C(0xDEEED6),
+                        hex(0x140C1C),
+                        hex(0x442434),
+                        hex(0x30346D),
+                        hex(0x4E4A4E),
+                        hex(0x854C30),
+                        hex(0x346524),
+                        hex(0xD04648),
+                        hex(0x757161),
+                        hex(0x597DCE),
+                        hex(0xD27D2C),
+                        hex(0x8595A1),
+                        hex(0x6DAA2C),
+                        hex(0xD2AA99),
+                        hex(0x6DC2CA),
+                        hex(0xDAD45E),
+                        hex(0xDEEED6),
                 }
             };
             return p;

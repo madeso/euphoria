@@ -33,7 +33,7 @@ namespace euphoria::core
         [[nodiscard]] int
         size() const
         {
-            return Csizet_to_int(d.size());
+            return c_sizet_to_int(d.size());
         }
 
         std::vector<T> d;

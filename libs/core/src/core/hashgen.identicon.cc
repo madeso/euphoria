@@ -132,8 +132,8 @@ namespace euphoria::core
         auto green = (code >> 21) & 31;
         auto red = (code >> 27) & 31;
 
-        const auto C = [](int i) { return static_cast<uint8_t>(keep_within(range<int>{0, 255}, i)); };
-        auto foreground_color = rgbi(C(red << 3), C(green << 3), C(blue << 3));
+        const auto con = [](int i) { return static_cast<uint8_t>(keep_within(range<int>{0, 255}, i)); };
+        auto foreground_color = rgbi(con(red << 3), con(green << 3), con(blue << 3));
         auto background_color = rgbi(255, 255, 255);
 
         // middle patch

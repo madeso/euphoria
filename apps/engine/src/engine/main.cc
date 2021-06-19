@@ -124,7 +124,7 @@ run_main_script_file(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
 
 
 viewport_type
-C(game::ViewportType type)
+con(game::ViewportType type)
 {
     switch(type)
     {
@@ -290,7 +290,7 @@ main(int argc, char* argv[])
         &camera_data.screen
     };
     viewport_handler.add(&shader);
-    viewport_handler.type = C(gamedata.viewport.type);
+    viewport_handler.type = con(gamedata.viewport.type);
     viewport_handler.virtual_width = gamedata.viewport.width;
     viewport_handler.virtual_height = gamedata.viewport.height;
 

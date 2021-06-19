@@ -61,7 +61,7 @@ Sprite animations
 
 
 ImU32
-C(const rgbai& c)
+con(const rgbai& c)
 {
     return IM_COL32(c.r, c.g, c.b, c.a);
 }
@@ -233,7 +233,7 @@ main(int argc, char** argv)
                 auto x = 0.0f;
                 auto y = 0.0f;
 
-                for(int palette_index=0; palette_index<Csizet_to_int(palette.colors.size()); palette_index+=1)
+                for(int palette_index=0; palette_index < c_sizet_to_int(palette.colors.size()); palette_index+=1)
                 {
                     if(x + tile_size > size.x)
                     {
@@ -244,7 +244,7 @@ main(int argc, char** argv)
                     const auto min = p + ImVec2(x, y);
                     const auto max = min + ImVec2(tile_size, tile_size);
 
-                    draw_list->AddRectFilled(min, max, C(palette.colors[palette_index]));
+                    draw_list->AddRectFilled(min, max, con(palette.colors[palette_index]));
                     x += tile_size + spacing;
 
                     if(!hovering && (left_clicked || right_clicked))
@@ -278,8 +278,8 @@ main(int argc, char** argv)
                     );
 
                     const auto background_pos = foreground_pos + bs * big_offset;
-                    draw_list->AddRectFilled(p + background_pos, p + background_pos + bs, C(palette.get_safe_index(background)));
-                    draw_list->AddRectFilled(p + foreground_pos, p + foreground_pos + bs, C(palette.get_safe_index(foreground)));
+                    draw_list->AddRectFilled(p + background_pos, p + background_pos + bs, con(palette.get_safe_index(background)));
+                    draw_list->AddRectFilled(p + foreground_pos, p + foreground_pos + bs, con(palette.get_safe_index(foreground)));
                 }
 
                 imgui::canvas_end();
@@ -338,7 +338,7 @@ main(int argc, char** argv)
                         }
 
                     }
-                    draw_list->AddRectFilled(ps, pss, C(c));
+                    draw_list->AddRectFilled(ps, pss, con(c));
                 });
 
                 canvas.show_ruler(cc);

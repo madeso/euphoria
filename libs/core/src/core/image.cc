@@ -427,7 +427,7 @@ namespace euphoria::core
     {
         auto dec = decompressor{};
         const unsigned int decompressed_size = decompressor::stb_decompress_length(static_cast<const unsigned char*>(compressed_data));
-        auto decompressed = memory_chunk::allocate(Cunsigned_int_to_int(decompressed_size));
+        auto decompressed = memory_chunk::allocate(c_unsigned_int_to_int(decompressed_size));
         const auto len = dec.stb_decompress
         (
             reinterpret_cast<unsigned char*>(decompressed->get_data()), // NOLINT

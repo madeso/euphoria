@@ -146,7 +146,7 @@ namespace euphoria::core
 
 
         rgb
-        C(const aiColor3D c)
+        con(const aiColor3D c)
         {
             return rgb {c.r, c.g, c.b};
         }
@@ -215,9 +215,9 @@ namespace euphoria::core
                 mat->Get(AI_MATKEY_COLOR_AMBIENT, ai_ambient);
                 mat->Get(AI_MATKEY_COLOR_DIFFUSE, ai_diffuse);
                 mat->Get(AI_MATKEY_COLOR_SPECULAR, ai_specular);
-                material.ambient = C(ai_ambient);
-                material.diffuse = C(ai_diffuse);
-                material.specular = C(ai_specular);
+                material.ambient = con(ai_ambient);
+                material.diffuse = con(ai_diffuse);
+                material.specular = con(ai_specular);
 
 
                 int u = 0;
@@ -247,9 +247,9 @@ namespace euphoria::core
                 ASSERTX(face.mNumIndices == 3, face.mNumIndices);
                 part->faces.emplace_back
                 (
-                    Cunsigned_int_to_int(face.mIndices[0]),
-                    Cunsigned_int_to_int(face.mIndices[1]),
-                    Cunsigned_int_to_int(face.mIndices[2])
+                        c_unsigned_int_to_int(face.mIndices[0]),
+                        c_unsigned_int_to_int(face.mIndices[1]),
+                        c_unsigned_int_to_int(face.mIndices[2])
                 );
             }
         }
@@ -528,7 +528,7 @@ namespace euphoria::core
                 size_t objects_read = 0;
                 for(size_t i =0; i<count; i+=1)
                 {
-                    if(Csizet_to_int(index + size) > content->get_size())
+                    if(c_sizet_to_int(index + size) > content->get_size())
                     {
                         return objects_read;
                     }

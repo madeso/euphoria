@@ -66,7 +66,7 @@ png_dump(int extra_images)
         for
         (
             int i=0;
-            i < Csizet_to_int(worker.samples.size());
+            i < c_sizet_to_int(worker.samples.size());
             i += 1
         )
         {

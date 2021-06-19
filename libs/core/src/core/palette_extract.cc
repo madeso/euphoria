@@ -124,7 +124,7 @@ namespace
         // todo(Gustav): make non-linear
         for(size_t index = 0; index<colors.size()-1; index+=1)
         {
-            if(get_value(sort, colors[Csizet_to_int(index+1)]) >= median)
+            if(get_value(sort, colors[c_sizet_to_int(index + 1)]) >= median)
             {
                 return index;
             }

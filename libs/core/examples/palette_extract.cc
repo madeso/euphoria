@@ -78,7 +78,7 @@ find(std::vector<extracted_color>* psource, const rgbi& color, float length)
 {
     auto& source = *psource;
 
-    for(int i=0; i<Csizet_to_int(source.size()); i+=1)
+    for(int i=0; i < c_sizet_to_int(source.size()); i+=1)
     {
         if((crgb(source[i].color) - crgb(color)).get_length()*255 < length)
         {
@@ -87,7 +87,7 @@ find(std::vector<extracted_color>* psource, const rgbi& color, float length)
     }
 
     source.emplace_back(color, 0);
-    return Csizet_to_int(source.size()) - 1;
+    return c_sizet_to_int(source.size()) - 1;
 }
 
 std::vector<extracted_color>
@@ -172,11 +172,11 @@ handle_image
     }
 
     image image;
-    image.setup_no_alpha_support(image_size * Csizet_to_int(colors.size()), image_size);
+    image.setup_no_alpha_support(image_size * c_sizet_to_int(colors.size()), image_size);
     for
     (
         int i = 0;
-        i < Csizet_to_int(colors.size());
+        i < c_sizet_to_int(colors.size());
         i += 1
     )
     {

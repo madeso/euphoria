@@ -24,7 +24,7 @@ namespace euphoria::core
         std::vector<vec2f> path;
 
         [[nodiscard]] vec2f
-        C(const vec2f& v) const;
+        transform_position(const vec2f& v) const;
 
         canvas(image* i);
 

@@ -17,7 +17,7 @@ namespace euphoria::core
     void
     knuth_shuffle(std::vector<T>* v, random* r)
     {
-        for(int i = Csizet_to_int(v->size()) - 1; i > 0; --i)
+        for(int i = c_sizet_to_int(v->size()) - 1; i > 0; --i)
         {
             const auto j = get_random_in_range(r, i + 1); // 0 ≤ j ≤ i
             if(j != i)

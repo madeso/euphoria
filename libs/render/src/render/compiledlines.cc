@@ -133,7 +133,7 @@ namespace euphoria::render
         bind_attributes(attributes, &ret->config);
 
         convert_lines_to_index_buffer(lines.indices, &ret->lines);
-        ret->line_count = core::Csizet_to_int(lines.indices.size());
+        ret->line_count = core::c_sizet_to_int(lines.indices.size());
 
         index_buffer::bind(nullptr);
         vertex_buffer::bind(nullptr);

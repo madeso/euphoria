@@ -208,7 +208,7 @@ namespace euphoria::core
         bool top_to_bottom
     )
     {
-        const auto images_per_row = Cfloat_to_int(ceil(sqrt(images.size())));
+        const auto images_per_row = c_float_to_int(ceil(sqrt(images.size())));
 
         auto ret = std::vector<vec2i>{};
 

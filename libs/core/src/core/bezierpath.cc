@@ -39,7 +39,7 @@ namespace euphoria::core
 
         if(autoset_)
         {
-            auto_set_affected_control_points(Csizet_to_int(points.size()) - 1);
+            auto_set_affected_control_points(c_sizet_to_int(points.size()) - 1);
         }
     }
 
@@ -112,7 +112,7 @@ namespace euphoria::core
         return {
                 points[b + 0], // anchor
                 points[b + 1], // ^ control
-                points[Cint_to_sizet(loop_index(Csizet_to_int(b) + 3))], // anchor
+                points[c_int_to_sizet(loop_index(c_sizet_to_int(b) + 3))], // anchor
                 points[b + 2] // ^ control
         };
     }
@@ -144,7 +144,7 @@ namespace euphoria::core
             if(autoset_)
             {
                 auto_set_anchor_control_points(0);
-                auto_set_anchor_control_points(Cint_to_sizet(Csizet_to_int(points.size()) - 3));
+                auto_set_anchor_control_points(c_int_to_sizet(c_sizet_to_int(points.size()) - 3));
             }
         }
         else
@@ -216,7 +216,7 @@ namespace euphoria::core
     void
     bezier_path2::auto_set_all_control_points()
     {
-        for(int i = 0; i < Csizet_to_int(points.size()); i += 3)
+        for(int i = 0; i < c_sizet_to_int(points.size()); i += 3)
         {
             auto_set_anchor_control_points(i);
         }
@@ -253,7 +253,7 @@ namespace euphoria::core
             {
                 auto offset = (vec2f::from_to(anchor_pos, points[loop_index(index)])).get_normalized_and_length();
                 dir += offset.second.vec() * scale;
-                distances[Cint_to_sizet(dist_index)] = offset.first * static_cast<float>(scale);
+                distances[c_int_to_sizet(dist_index)] = offset.first * static_cast<float>(scale);
             }
         };
         f(1, 0);

@@ -15,7 +15,7 @@
 namespace euphoria::core
 {
     vec2f
-    canvas::C(const vec2f& v) const
+    canvas::transform_position(const vec2f& v) const
     {
         const auto vv = transform * vec3f {v, 1};
         return vec2f {vv.x, static_cast<float>(target_image->height) - vv.y};
@@ -73,7 +73,7 @@ namespace euphoria::core
     {
         ASSERT(building_path);
         ASSERT(path.empty());
-        path.push_back(C(vec2f(x, y)));
+        path.push_back(transform_position(vec2f(x, y)));
     }
 
     void
@@ -82,9 +82,9 @@ namespace euphoria::core
         ASSERT(building_path);
         if(path.empty())
         {
-            path.push_back(C(vec2f::zero()));
+            path.push_back(transform_position(vec2f::zero()));
         }
-        path.push_back(C(vec2f(dx, dy)));
+        path.push_back(transform_position(vec2f(dx, dy)));
     }
 
     void

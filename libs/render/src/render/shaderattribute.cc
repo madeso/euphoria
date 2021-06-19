@@ -52,7 +52,7 @@ namespace euphoria::render
         case shader_attribute_type::float4:
         case shader_attribute_type::float33:
         case shader_attribute_type::float44:
-            return core::Csizet_to_int(sizeof(float)) * get_element_count();
+            return core::c_sizet_to_int(sizeof(float)) * get_element_count();
         default:
             DIE("Unhandled shader type"); return 0;
         }

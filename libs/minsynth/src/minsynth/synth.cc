@@ -613,7 +613,7 @@ namespace euphoria::minsynth
                 tones.insert(tones.begin(), tt.begin(), tt.end());
                 break;
             }
-            index = index % core::Csizet_to_int(tones.size());
+            index = index % core::c_sizet_to_int(tones.size());
         }
     }
 
@@ -683,7 +683,7 @@ namespace euphoria::minsynth
     int
     oscilator_node::get_total_tones() const
     {
-        return core::Csizet_to_int(live.size() + dead.size());
+        return core::c_sizet_to_int(live.size() + dead.size());
     }
 
     int
@@ -887,13 +887,13 @@ namespace euphoria::minsynth
         const auto key = [&](int x, int y) -> core::key
         {
             const auto wy = start_row - y + 1;
-            if(wy < 0 || wy > core::Csizet_to_int(k.size()))
+            if(wy < 0 || wy > core::c_sizet_to_int(k.size()))
             {
                 return core::key::unbound;
             }
             const auto& r = k[wy];
             const auto wx = start_col + x;
-            if(wx < 0 || wx > core::Csizet_to_int(r.size()))
+            if(wx < 0 || wx > core::c_sizet_to_int(r.size()))
             {
                 return core::key::unbound;
             }

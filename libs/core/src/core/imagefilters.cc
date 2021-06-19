@@ -93,13 +93,13 @@ namespace euphoria::core
     void
     match_palette_dither(image* image, const palette& palette)
     {
-        struct Error
+        struct color_error
         {
             float r = 0;
             float g = 0;
             float b = 0;
         };
-        auto errors = table<Error>::from_width_height(image->width, image->height);
+        auto errors = table<color_error>::from_width_height(image->width, image->height);
         const auto errors_range = errors.get_indices();
 
         *image = create_new_image_from(*image, [&](int x, int y)
@@ -114,7 +114,7 @@ namespace euphoria::core
             const auto palette_color = palette.get_closest_color(crgbi(new_color));
 
             const auto pcf = crgb(palette_color);
-            const auto error = Error
+            const auto error = color_error
             {
                 new_color.r - pcf.r,
                 new_color.g - pcf.g,
@@ -147,37 +147,37 @@ namespace euphoria::core
     }
 
     vec3f
-    Cvec3(const rgb f)
+    c_vec3(const rgb f)
     {
         return {f.r, f.g, f.b};
     }
 
     vec3f
-    Cvec3(const rgbi c)
+    c_vec3(const rgbi c)
     {
-        return Cvec3(crgb(c));
+        return c_vec3(crgb(c));
     }
 
     vec3f
-    Cvec3(const rgbai c)
+    c_vec3(const rgbai c)
     {
-        return Cvec3(crgb(c));
+        return c_vec3(crgb(c));
     }
 
     void
     edge_detection(image* image, float r)
     {
         *image = create_new_image_from(*image, [&](int x, int y) {
-            const auto pixel = Cvec3(image->get_pixel(x, y));
+            const auto pixel = c_vec3(image->get_pixel(x, y));
             const auto top
                     = y == image->height - 1
                               ? false
-                              : (pixel - Cvec3(image->get_pixel(x, y + 1)))
+                              : (pixel - c_vec3(image->get_pixel(x, y + 1)))
                                                 .get_length()
                                         >= r;
             const auto left
                     = x == 0 ? false
-                             : (pixel - Cvec3(image->get_pixel(x - 1, y)))
+                             : (pixel - c_vec3(image->get_pixel(x - 1, y)))
                                                .get_length()
                                        >= r;
             const bool edge = top || left;
@@ -190,9 +190,9 @@ namespace euphoria::core
     void
     color_detection(image* image, rgb color, float r)
     {
-        const auto basis = Cvec3(color);
+        const auto basis = c_vec3(color);
         image->filter([&](const rgbai pixel) {
-            const auto check = (Cvec3(pixel) - basis).get_length() <= r;
+            const auto check = (c_vec3(pixel) - basis).get_length() <= r;
             const auto c = check ? color::white : color::black;
             return rgbai(c, 255);
         });

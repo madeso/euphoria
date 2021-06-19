@@ -291,11 +291,11 @@ namespace euphoria::core
     {
         render_sprator_impl<random_xorshift32>
         (
-            image,
-            Cbit_signed_to_unsigned(code),
-            foreground_color,
-            border_color_arg,
-            background_color
+                image,
+                c_bit_signed_to_unsigned(code),
+                foreground_color,
+                border_color_arg,
+                background_color
         );
     }
 
@@ -312,11 +312,11 @@ namespace euphoria::core
     {
         render_sprator_impl<random_xorshift32>
         (
-            images,
-            Cbit_signed_to_unsigned(code),
-            foreground_color,
-            border_color_arg,
-            background_color
+                images,
+                c_bit_signed_to_unsigned(code),
+                foreground_color,
+                border_color_arg,
+                background_color
         );
     }
 }

@@ -64,22 +64,22 @@ namespace euphoria::core::base64
             auto asize = (input.length() * 3) / 4;
             auto found = input.find('=') != std::string::npos;
             auto bsize = found ? (input.length() - input.find('=')) : 0;
-            int size = Csizet_to_int(asize) - Csizet_to_int(bsize);
+            int size = c_sizet_to_int(asize) - c_sizet_to_int(bsize);
 
             ASSERT(size > 0);
 
             auto ret = memory_chunk::allocate(size);
             memory_chunk& decoded = *ret;
             int j = 0;
-            for(int i = 0; i < Csizet_to_int(input.size()); i += 4)
+            for(int i = 0; i < c_sizet_to_int(input.size()); i += 4)
             {
                 // This could be made faster (but more complicated) by precomputing these index locations.
                 const auto b = std::array<size_t, 4>
                 {
-                        codes.find(input[Cint_to_sizet(i)]),
-                        codes.find(input[Cint_to_sizet(i + 1)]),
-                        codes.find(input[Cint_to_sizet(i + 2)]),
-                        codes.find(input[Cint_to_sizet(i + 3)])
+                        codes.find(input[c_int_to_sizet(i)]),
+                        codes.find(input[c_int_to_sizet(i + 1)]),
+                        codes.find(input[c_int_to_sizet(i + 2)]),
+                        codes.find(input[c_int_to_sizet(i + 3)])
                 };
                 decoded[j++] = static_cast<char>((b[0] << 2) | (b[1] >> 4));
                 if(b[2] < 64)

@@ -34,12 +34,12 @@ write_palettes_to_files(int image_size)
         const auto pal = palettes::get_palette(palette_name);
 
         image image;
-        image.setup_no_alpha_support(image_size * Csizet_to_int(pal.colors.size()), image_size);
+        image.setup_no_alpha_support(image_size * c_sizet_to_int(pal.colors.size()), image_size);
 
         for
         (
             int i = 0;
-            i < Csizet_to_int(pal.colors.size());
+            i < c_sizet_to_int(pal.colors.size());
             i += 1
         )
         {
@@ -98,7 +98,7 @@ write_palettes_to_single_svg(const std::string& path, float height, bool border)
         for
         (
             int i = 0;
-            i < Csizet_to_int(pal.colors.size());
+            i < c_sizet_to_int(pal.colors.size());
             i += 1
         )
         {

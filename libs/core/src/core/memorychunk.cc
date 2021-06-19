@@ -67,7 +67,7 @@ namespace euphoria::core
     {
         auto file = memory_chunk::allocate
         (
-            Csizet_to_int(content.length() + 1)
+                c_sizet_to_int(content.length() + 1)
         );
         copy_to_memory(file.get(), &content[0]);
         return file;

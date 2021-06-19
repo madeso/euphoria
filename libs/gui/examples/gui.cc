@@ -235,7 +235,7 @@ imgui_widget(widget* w)
 bool
 imgui_widget(layout_container* container)
 {
-    for(int i=0; i<Csizet_to_int(container->widgets.size()); i+= 1)
+    for(int i=0; i < c_sizet_to_int(container->widgets.size()); i+= 1)
     {
         auto widget = container->widgets[i];
         if(ImGui::TreeNode(widget->name.c_str()))

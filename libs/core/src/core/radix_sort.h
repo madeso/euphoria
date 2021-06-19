@@ -89,7 +89,7 @@ namespace euphoria::core
     std::vector<T>
     count_sort(const std::vector<T>& arr, int exp)
     {
-        const int size = Csizet_to_int(arr.size());
+        const int size = c_sizet_to_int(arr.size());
 
         int sum[Bucket::count] = {0,};
 

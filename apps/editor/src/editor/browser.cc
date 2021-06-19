@@ -44,7 +44,7 @@ namespace euphoria::editor
     std::optional<core::vfs::file_path>
     file_browser::get_selected_file()
     {
-        if(selected_file >= 0 && selected_file < Csizet_to_int(files.size()))
+        if(selected_file >= 0 && selected_file < c_sizet_to_int(files.size()))
         {
             const auto suggested = files[selected_file];
             if(suggested.is_file)
