@@ -49,7 +49,7 @@ namespace euphoria::core
             std::string name;
             size_to_palette_mapp palettes;
             brewer_type type;
-            properties properties;
+            properties props;
         };
 
         struct single_palette
