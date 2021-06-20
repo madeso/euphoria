@@ -11,6 +11,9 @@ namespace euphoria::core
 {
 
 
+namespace
+{
+
 bool
 is_char_lower(char c)
 {
@@ -165,7 +168,7 @@ struct sentence_parser
         }
     }
 };
-
+}
 
 bool
 parse_sentences(std::istream& data, on_sentence on_sentence)

@@ -1,72 +1,100 @@
 #include "core/wordwrap.h"
 
+#include <optional>
+
+#include "core/stringutils.h"
+
 
 namespace euphoria::core
 {
-    std::vector<std::string>
-    word_wrap
-    (
-        const std::string& str,
-        std::function<bool (const std::string&)> fit
-    )
+
+// word_wrap is currently based on https://stackoverflow.com/a/17635
+
+namespace
+{
+
+    bool
+    is_whitespace(char c)
     {
-        using I = std::string::size_type;
-        if(fit(str)) { return {str}; }
+        return kSpaceCharacters.find(c) != std::string::npos;
+    }
 
-        auto ret = std::vector<std::string>{};
+    const std::string splitChars = kSpaceCharacters;
 
-        I start = 0;
-        I last = 0;
-
-        auto get_string = [&str, &start](I end)
+    std::vector<std::string>
+    explode(const std::string& str)
+    {
+        std::vector<std::string> parts;
+        int startIndex = 0;
+        while (true)
         {
-            if(end == std::string::npos)
+            int index = str.find_first_of(splitChars, startIndex);
+
+            if (index == -1)
             {
-                return str.substr(start);
+                parts.emplace_back(str.substr(startIndex));
+                return parts;
+            }
+
+            auto word = str.substr(startIndex, index - startIndex);
+            char nextChar = str.substr(index, 1)[0];
+            if (is_whitespace(nextChar))
+            {
+                parts.emplace_back(word);
+                parts.emplace_back(std::string(1, nextChar));
             }
             else
             {
-                return str.substr(start, end - (start+1));
+                parts.emplace_back(word + nextChar);
             }
-        };
 
-        for(int watchdog=0; watchdog<50; watchdog+=1)
-        {
-            if(last == std::string::npos)
-            {
-                return ret;
-            }
-            const auto first = str.find(' ', last);
-            const auto s = get_string(first);
-
-            if(fit(s))
-            {
-                // fit.. continue
-                last = (first != std::string::npos) ? first+1 : first;
-            }
-            if(!fit(s) || last == std::string::npos)
-            {
-                // new doesn't fit, use last
-                const auto p = last == start ? first : last;
-                const auto pp = last == start && p != std::string::npos ? p+1 : p;
-                ret.emplace_back(get_string(pp));
-                if(p == std::string::npos)
-                {
-                    return ret;
-                }
-                if(last == start)
-                {
-                    start = p+1;
-                    last = p;
-                }
-                else
-                {
-                    start = p;
-                }
-            }
+            startIndex = index + 1;
         }
-
-        return ret;
     }
+
+}
+
+std::vector<std::string>
+word_wrap
+(
+    const std::string& str,
+    std::function<bool (const std::string&)> fit
+)
+{
+    auto words = explode(str);
+
+    auto lines = std::vector<std::string>{};
+    std::optional<std::string> current_line;
+
+    auto add_current_line = [&]()
+    {
+        if(current_line)
+        {
+            const auto t = trim(*current_line, " \t");
+            if(t.empty() == false)
+            {
+                lines.emplace_back(trim(t));
+            }
+            current_line = {};
+        }
+    };
+
+    for(const auto& word: words)
+    {
+        if (fit(current_line.value_or("") + word) == false)
+        {
+            add_current_line();
+        }
+        current_line = current_line.value_or("") + word;
+    }
+
+    add_current_line();
+    if(lines.empty())
+    {
+        lines.emplace_back("");
+    }
+    return lines;
+}
+
 }
 

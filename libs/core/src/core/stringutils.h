@@ -233,6 +233,10 @@ namespace euphoria::core
     split(const std::string& string, char delim);
 
 
+    std::vector<std::string>
+    split_on_spaces(const std::string& string);
+
+
     std::string
     optional_string(bool b, const std::string& str);
 

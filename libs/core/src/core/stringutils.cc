@@ -395,6 +395,18 @@ split(const std::string& s, char delim)
 }
 
 
+std::vector<std::string>
+split_on_spaces(const std::string& string)
+{
+    std::istringstream iss(string);
+    return std::vector<std::string>
+    (
+        std::istream_iterator<std::string>{iss},
+        std::istream_iterator<std::string>()
+    );
+}
+
+
 std::string
 optional_string(bool b, const std::string& str)
 {
