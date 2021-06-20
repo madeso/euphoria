@@ -7,11 +7,11 @@ namespace euphoria::core
     word_wrap
     (
         const std::string& str,
-        std::function<bool (const std::string&)> measure
+        std::function<bool (const std::string&)> fit
     )
     {
         using I = std::string::size_type;
-        if(measure(str)) { return {str}; }
+        if(fit(str)) { return {str}; }
 
         auto ret = std::vector<std::string>{};
 
@@ -38,14 +38,13 @@ namespace euphoria::core
             }
             const auto first = str.find(' ', last);
             const auto s = get_string(first);
-            const auto fit = measure(s);
 
-            if(fit)
+            if(fit(s))
             {
                 // fit.. continue
                 last = (first != std::string::npos) ? first+1 : first;
             }
-            if(!fit || last == std::string::npos)
+            if(!fit(s) || last == std::string::npos)
             {
                 // new doesn't fit, use last
                 const auto p = last == start ? first : last;
