@@ -1,10 +1,9 @@
 #include "engine/dukmathbindings.h"
 
 #include <string>
-#include <core/sol.h>
 
+#include "core/cint.h"
 #include "core/vec2.h"
-
 #include "core/sol.h"
 
 namespace euphoria::engine
@@ -16,12 +15,34 @@ namespace euphoria::engine
     {
         using V = core::vec2<T>;
 
-        sol->lua.new_usertype<V>
+        sol::usertype<V> t = sol->lua.new_usertype<V>
         (
             name,
-            sol::constructors<V(T, T)>(),
-            "x", &V::x,
-            "y", &V::y
+            sol::constructors<V(T, T)>()
+        );
+
+        t["x"] = sol::property
+        (
+            [](const V& v) -> double
+            {
+                return core::c_float_to_double(v.x);
+            },
+            [](V& v, double x)
+            {
+                v.x = core::c_double_to_float(x);
+            }
+        );
+
+        t["y"] = sol::property
+        (
+            [](const V& v) -> double
+            {
+                return core::c_float_to_double(v.y);
+            },
+            [](V& v, double y)
+            {
+                v.y = core::c_double_to_float(y);
+            }
         );
     }
 
