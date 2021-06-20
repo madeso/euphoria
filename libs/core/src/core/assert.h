@@ -80,12 +80,12 @@
 
 namespace euphoria::core::assertlib
 {
-    struct AssertValueArg
+    struct assert_argument_value
     {
         std::string value;
 
         template <typename T>
-        AssertValueArg(const T& t)
+        assert_argument_value(const T& t)
         {
             std::ostringstream ss;
             ss << t;
@@ -106,7 +106,7 @@ namespace euphoria::core::assertlib
         int line,
         const char* file,
         const char* argstr,
-        const std::vector<AssertValueArg>& arguments,
+        const std::vector<assert_argument_value>& arguments,
         const char* function
     );
 }

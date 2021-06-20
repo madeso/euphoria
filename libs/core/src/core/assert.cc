@@ -135,7 +135,7 @@ namespace euphoria::core
             int line,
             const char* const file,
             const char* const argstr,
-            const std::vector<AssertValueArg>& arguments,
+            const std::vector<assert_argument_value>& arguments,
             const char* function
         )
         {
