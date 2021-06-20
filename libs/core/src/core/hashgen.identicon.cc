@@ -12,7 +12,7 @@
 #include "core/mat3.h"
 #include "core/image_draw.h"
 #include "core/image_canvas.h"
-
+#include "core/cint.h"
 #include "core/log.h"
 
 
@@ -68,7 +68,7 @@ namespace
         const rgbi& foreground_color,
         const rgbi& background_color
     ) {
-        patch %= patch_types.size();
+        patch %= c_sizet_to_int(patch_types.size());
         turn %= 4;
         if (patch == 15)
         {
@@ -119,22 +119,23 @@ namespace euphoria::core
     {
         ASSERT(image);
         ASSERT(image->width == image->height);
-        auto patch_size = image->height / 3;
-        auto middle_type = center_patch_types[code & 3];
-        auto middle_invert = ((code >> 2) & 1) != 0;
-        auto corner_type = (code >> 3) & 15;
-        auto corner_invert = ((code >> 7) & 1) != 0;
-        auto corner_turn = (code >> 8) & 3;
-        auto side_type = (code >> 10) & 15;
-        auto side_invert = ((code >> 14) & 1) != 0;
-        auto side_turn = (code >> 15) & 3;
-        auto blue = (code >> 16) & 31;
-        auto green = (code >> 21) & 31;
-        auto red = (code >> 27) & 31;
+        const auto patch_size = image->height / 3;
+        const auto middle_type = center_patch_types[code & 3];
+        const bool middle_invert = ((code >> 2) & 1) != 0;
+        const bool corner_invert = ((code >> 7) & 1) != 0;
+        const bool side_invert = ((code >> 14) & 1) != 0;
+        const int corner_type = c_unsigned_int_to_int((code >> 3) & 15);
+        const int side_type = c_unsigned_int_to_int((code >> 10) & 15);
+        const int blue = c_unsigned_int_to_int((code >> 16) & 31);
+        const int green = c_unsigned_int_to_int((code >> 21) & 31);
+        const int red = c_unsigned_int_to_int((code >> 27) & 31);
 
-        const auto con = [](int i) { return static_cast<uint8_t>(keep_within(range<int>{0, 255}, i)); };
-        auto foreground_color = rgbi(con(red << 3), con(green << 3), con(blue << 3));
-        auto background_color = rgbi(255, 255, 255);
+        int corner_turn = c_unsigned_int_to_int((code >> 8) & 3);
+        int side_turn = c_unsigned_int_to_int((code >> 15) & 3);
+
+        const auto con = [](int i) -> u8 { return c_int_to_u8(keep_within(range<int>{0, 255}, i)); };
+        const auto foreground_color = rgbi{con(red << 3), con(green << 3), con(blue << 3)};
+        const auto background_color = rgbi{255, 255, 255};
 
         // middle patch
         render_identicon_patch(image, patch_size, patch_size, patch_size, middle_type, 0, middle_invert, foreground_color, background_color);

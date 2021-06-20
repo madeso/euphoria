@@ -188,7 +188,7 @@ namespace euphoria::core::ecs
             return ret;
         }
 
-        std::string
+        [[nodiscard]] std::string
         get_component_name(component_id id) const
         {
             auto found = components.find(id);

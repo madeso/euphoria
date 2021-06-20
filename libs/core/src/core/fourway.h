@@ -110,12 +110,11 @@ namespace euphoria::core
       Either all, ver/hor or up/right/down/left
     */
     template<typename T>
-    struct custom_argparser
-    <fourway<T>>
+    struct custom_argparser<fourway<T>>
     {
         enum { value = 1 };
 
-        static constexpr char SPLIT = '/';
+        static constexpr char separator = '/';
 
         static
         std::string
@@ -123,9 +122,9 @@ namespace euphoria::core
         {
             std::ostringstream ss;
             ss
-                << argparse::default_value_to_string(fw.up) << SPLIT
-                << argparse::default_value_to_string(fw.right) << SPLIT
-                << argparse::default_value_to_string(fw.down) << SPLIT
+                << argparse::default_value_to_string(fw.up) << separator
+                << argparse::default_value_to_string(fw.right) << separator
+                << argparse::default_value_to_string(fw.down) << separator
                 << argparse::default_value_to_string(fw.left)
                 ;
             return ss.str();
@@ -140,7 +139,7 @@ namespace euphoria::core
             {
                 return argparse::default_parse_function<T>(v);
             };
-            const auto values = split(value, SPLIT);
+            const auto values = split(value, separator);
             switch(values.size())
             {
                 case 1:

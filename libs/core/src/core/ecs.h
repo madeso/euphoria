@@ -128,7 +128,7 @@ namespace euphoria::core::ecs
         component_id
         register_new_component_type(const std::string& name);
 
-        std::string
+        [[nodiscard]] std::string
         get_component_name(component_id id) const;
 
         result<component_id>

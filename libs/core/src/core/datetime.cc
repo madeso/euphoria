@@ -1,13 +1,16 @@
 #include "core/datetime.h"
 
-#include "core/assert.h"
-
 #include <vector>
 #include <cstring>
+
+#include "core/assert.h"
+#include "core/cint.h"
+
 
 #ifdef _WIN32
 #define timegm _mkgmtime
 #endif
+
 
 namespace euphoria::core
 {
@@ -280,27 +283,35 @@ namespace euphoria::core
     tm_yday  int   days since January 1      0 - 365
     */
 
-    uint64_t date_time_to_int64(const time_t_wrapper& dt)
+    u64 date_time_to_int64(const time_t_wrapper& dt)
     {
         const auto diff = time_t_wrapper::get_difference
         (
             time_t_wrapper::from_gmt(struct_tm_wrapper(1970, month::january , 1, 0, 0, 0)),
             dt
         );
-        return static_cast<uint64_t>(diff);
+        return static_cast<u64>(diff);
     }
 
 
-    time_t_wrapper int64_to_date_time(uint64_t i)
+    time_t_wrapper int64_to_date_time(u64 total_seconds)
     {
-        const uint64_t minutes = (i - (i % 60)) / 60;
-        const int actual_seconds = static_cast<int>(i % 60);
-        const uint64_t hours = (minutes - (minutes % 60)) / 60;
-        const int acutal_minutes = static_cast<int>(minutes % 60);
+        const int actual_seconds = c_u64_to_int(total_seconds % 60);
+        const u64 total_minutes = (total_seconds - (total_seconds % 60)) / 60;
+        const u64 total_hours = (total_minutes - (total_minutes % 60)) / 60;
+        const int acutal_minutes = c_u64_to_int(total_minutes % 60);
 
         return time_t_wrapper::from_gmt
         (
-            struct_tm_wrapper(1970, month::january, 1, hours, acutal_minutes, actual_seconds)
+            struct_tm_wrapper
+            (
+                1970,
+                month::january,
+                1,
+                c_u64_to_int(total_hours),
+                acutal_minutes,
+                actual_seconds
+            )
         );
     }
 

@@ -4,6 +4,9 @@
 #include <string>
 #include <cstdint>
 
+#include "core/ints.h"
+
+
 namespace euphoria::core
 {
     struct time_t_wrapper;
@@ -82,6 +85,8 @@ namespace euphoria::core
     struct date_time
     {
     public:
+        date_time() = delete;
+
         static date_time create_from_date(int year, core::month month, int day, time_zone timezone = time_zone::local);
         static date_time create_from_date_and_time(int year, core::month month, int day, int hour, int minute, int second, time_zone timezone = time_zone::local);
         static date_time create_from_current_time(time_zone timezone = time_zone::local);
@@ -109,7 +114,6 @@ namespace euphoria::core
         [[nodiscard]] time_t_wrapper get_time() const;
 
     private:
-        date_time() = delete;
         date_time(time_zone timezone, const struct_tm_wrapper& time);
         date_time(time_zone timezone, const time_t_wrapper& time);
 

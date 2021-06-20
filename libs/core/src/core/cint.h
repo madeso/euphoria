@@ -27,6 +27,10 @@ namespace euphoria::core
     c_int_to_u8(unsigned int i);
 
 
+    int
+    c_u64_to_int(u64 u);
+
+
     constexpr int
     c_float_to_int(float f)
     {
