@@ -283,7 +283,7 @@ namespace euphoria::core
     render_sprator
     (
         image* image,
-        int code,
+        u32 code,
         const rgbai& foreground_color,
         std::optional<rgbai> border_color_arg,
         const rgbai& background_color
@@ -292,7 +292,7 @@ namespace euphoria::core
         render_sprator_impl<random_xorshift32>
         (
                 image,
-                c_bit_signed_to_unsigned(code),
+                code,
                 foreground_color,
                 border_color_arg,
                 background_color
@@ -304,7 +304,7 @@ namespace euphoria::core
     render_sprator
     (
         std::vector<image>* images,
-        int code,
+        u32 code,
         const rgbai& foreground_color,
         std::optional<rgbai> border_color_arg,
         const rgbai& background_color
@@ -313,7 +313,7 @@ namespace euphoria::core
         render_sprator_impl<random_xorshift32>
         (
                 images,
-                c_bit_signed_to_unsigned(code),
+                code,
                 foreground_color,
                 border_color_arg,
                 background_color
