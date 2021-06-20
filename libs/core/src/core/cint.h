@@ -10,10 +10,34 @@ namespace euphoria::core
     int
     c_sizet_to_int(size_t t);
 
+
+    int
+    c_unsigned_int_to_int(unsigned int i);
+
+
+    unsigned int
+    c_int_to_unsigned_int(int i);
+
+
+    size_t
+    c_int_to_sizet(int i);
+
+
+    u8
+    c_int_to_u8(unsigned int i);
+
+
     constexpr int
     c_float_to_int(float f)
     {
         return static_cast<int>(f);
+    }
+
+
+    constexpr float
+    c_sizet_to_float(std::size_t f)
+    {
+        return static_cast<float>(f);
     }
 
 
@@ -23,17 +47,6 @@ namespace euphoria::core
         return static_cast<float>(i);
     }
 
-    int
-    c_unsigned_int_to_int(unsigned int i);
-
-    unsigned int
-    c_int_to_unsigned_int(int i);
-
-    size_t
-    c_int_to_sizet(int i);
-
-    u8
-    c_int_to_u8(unsigned int i);
 
     constexpr u32
     c_bit_signed_to_unsigned(s32 i)
@@ -43,11 +56,13 @@ namespace euphoria::core
         return c.u;
     }
 
+
     constexpr double
     c_float_to_double(float f)
     {
         return static_cast<double>(f);
     }
+
 
     constexpr float
     c_double_to_float(double f)

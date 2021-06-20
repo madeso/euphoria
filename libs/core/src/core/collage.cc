@@ -7,6 +7,7 @@
 #include "core/image_draw.h"
 #include "core/pack.h"
 #include "core/cint.h"
+#include "core/numeric.h"
 
 
 namespace euphoria::core
@@ -208,7 +209,19 @@ namespace euphoria::core
         bool top_to_bottom
     )
     {
-        const auto images_per_row = c_float_to_int(ceil(sqrt(images.size())));
+        const auto images_per_row = c_float_to_int
+        (
+            ceil
+            (
+                sqrt
+                (
+                    c_sizet_to_float
+                    (
+                        images.size()
+                    )
+                )
+            )
+        );
 
         auto ret = std::vector<vec2i>{};
 

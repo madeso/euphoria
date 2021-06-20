@@ -108,11 +108,11 @@ namespace euphoria::core
     bezier_seg2
     bezier_path2::get_points_in_segment(size_t i) const
     {
-        const auto b = i * 3;
+        const size_t b = i * 3;
         return {
                 points[b + 0], // anchor
                 points[b + 1], // ^ control
-                points[c_int_to_sizet(loop_index(c_sizet_to_int(b) + 3))], // anchor
+                points[loop_index(c_sizet_to_int(b) + 3)], // anchor
                 points[b + 2] // ^ control
         };
     }
@@ -144,7 +144,7 @@ namespace euphoria::core
             if(autoset_)
             {
                 auto_set_anchor_control_points(0);
-                auto_set_anchor_control_points(c_int_to_sizet(c_sizet_to_int(points.size()) - 3));
+                auto_set_anchor_control_points(c_sizet_to_int(points.size()) - 3);
             }
         }
         else
@@ -205,7 +205,7 @@ namespace euphoria::core
         {
             if(is_closed_ || is_within(r, i))
             {
-                auto_set_anchor_control_points(loop_index(i));
+                auto_set_anchor_control_points(c_sizet_to_int(loop_index(i)));
             }
         }
 

@@ -84,7 +84,7 @@ namespace euphoria::core
             Yellow is the color between orange and green on the spectrum of visible
             light. It is evoked by light with a dominant wavelength of roughly 570–590 nm.
             It is a primary color in subtractive color systems, used in painting or
-            color printing. 
+            color printing.
         */
         yellow,
         pure_yellow,
@@ -106,7 +106,7 @@ namespace euphoria::core
             painting, brown is made by combining red, black, and yellow, or red,
             yellow, and blue. In the RGB color model used to project colors onto
             television screens and computer monitors, brown is made by combining
-            red and green, in specific proportions. 
+            red and green, in specific proportions.
         */
         brown,
         pure_brown,
@@ -117,7 +117,7 @@ namespace euphoria::core
             but unlike violet, which is a spectral color with its own wavelength on the
             visible spectrum of light, purple is a secondary color made by combining
             red and blue. The complementary color of purple in the RYB color model
-            is yellow. 
+            is yellow.
         */
         purple,
         pure_purple,
@@ -149,11 +149,9 @@ namespace euphoria::core
 
         /*
             Cyan is a greenish-blue color. It is evoked by light with a predominant wavelength
-            of between 490–520 nm, between the wavelengths of green and blue. 
+            of between 490–520 nm, between the wavelengths of green and blue.
         */
         cyan,
-        pure_cyan,
-
-        MAX_VALUE
+        pure_cyan
     };
 }

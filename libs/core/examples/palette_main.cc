@@ -103,7 +103,8 @@ write_palettes_to_single_svg(const std::string& path, float height, bool border)
         )
         {
             const auto s = border ? ss : size-spacing*2;
-            d << create_box(vec2f{x + s * i, y}, size, height, pal.colors[i], border);
+            const auto box_position = vec2f{x + s * euphoria::core::c_int_to_float(i), y};
+            d << create_box(box_position, size, height, pal.colors[i], border);
         }
 
         y += height + spacing;

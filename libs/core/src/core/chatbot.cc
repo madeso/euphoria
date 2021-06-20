@@ -478,9 +478,9 @@ namespace euphoria::core
                 LOG_ERROR("Empty response.");
                 return 0;
             }
-            std::vector<unsigned long> indices(responses.size(), 0);
+            std::vector<std::size_t> indices(responses.size(), 0);
             std::iota(indices.begin(), indices.end(), 0);
-            unsigned long suggested = 0;
+            size_t suggested = 0;
 
             while(!indices.empty())
             {
@@ -497,7 +497,7 @@ namespace euphoria::core
                     ) != resp.end()
                 )
                 {
-                    indices.erase(indices.begin() + index);
+                    indices.erase(std::next(indices.begin(), c_sizet_to_int(index)));
                 }
                 else
                 {
