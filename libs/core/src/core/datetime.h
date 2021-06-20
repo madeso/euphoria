@@ -10,7 +10,7 @@ namespace euphoria::core
     struct struct_tm_wrapper;
 
     enum class month {
-        JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER
+        january, february, march, april, may, june, july, august, september, october, november, december
     };
 
     struct time_t_wrapper
@@ -39,7 +39,6 @@ namespace euphoria::core
     protected:
         friend struct time_t_wrapper;
         explicit struct_tm_wrapper(struct tm time);
-        [[nodiscard]] struct tm time() const;
 
     public:
         struct_tm_wrapper(int year, core::month month, int day);
@@ -65,8 +64,7 @@ namespace euphoria::core
         [[nodiscard]] std::string to_string(const std::string& format) const;
         [[nodiscard]] std::string to_debug_string() const;
 
-    private:
-        struct tm time_;
+        struct tm time;
     };
 
     // unix date time format, 64 bit
@@ -111,15 +109,15 @@ namespace euphoria::core
         [[nodiscard]] time_t_wrapper get_time() const;
 
     private:
-        date_time();
+        date_time() = delete;
         date_time(time_zone timezone, const struct_tm_wrapper& time);
         date_time(time_zone timezone, const time_t_wrapper& time);
 
         [[nodiscard]] struct_tm_wrapper as_struct() const;
         void update_time(const struct_tm_wrapper& s);
 
-        time_zone timezone_;
-        time_t_wrapper time_;
+        time_zone timezone;
+        time_t_wrapper time;
     };
 
 }

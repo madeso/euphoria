@@ -22,7 +22,7 @@ namespace euphoria::core
     month
     int_to_month(int m)
     {
-        ASSERT(m >= month_to_int(month::JANUARY) && m <= month_to_int(month::DECEMBER));
+        ASSERT(m >= month_to_int(month::january) && m <= month_to_int(month::december));
         return static_cast<month>(m);
     }
 
@@ -39,7 +39,7 @@ namespace euphoria::core
     time_t_wrapper
     time_t_wrapper::from_local_time(const struct_tm_wrapper& dt)
     {
-        struct tm tt = dt.time();
+        struct tm tt = dt.time;
         return time_t_wrapper(mktime(&tt));
     }
 
@@ -48,7 +48,7 @@ namespace euphoria::core
     time_t_wrapper::from_gmt(const struct_tm_wrapper& dt)
     {
         // http://stackoverflow.com/questions/283166/easy-way-to-convert-a-struct-tm-expressed-in-utc-to-time-t-type
-        struct tm tt = dt.time();
+        struct tm tt = dt.time;
         return time_t_wrapper(timegm(&tt));
     }
 
@@ -83,23 +83,16 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
 
 
-    struct_tm_wrapper::struct_tm_wrapper(struct tm time)
-        : time_(time)
+    struct_tm_wrapper::struct_tm_wrapper(struct tm t)
+        : time(t)
     {
-    }
-
-
-    struct tm
-    struct_tm_wrapper::time() const
-    {
-        return time_;
     }
 
 
     struct_tm_wrapper::struct_tm_wrapper(int year, month month, int day)
-        : time_()
+        : time()
     {
-        std::memset(&time_, 0, sizeof(struct tm));
+        std::memset(&time, 0, sizeof(struct tm));
         set_year(year);
         set_month(month);
         set_day_of_moth(day);
@@ -110,9 +103,9 @@ namespace euphoria::core
 
 
     struct_tm_wrapper::struct_tm_wrapper(int year, month month, int day, int hour, int minute, int second, bool dst)
-        : time_()
+        : time()
     {
-        memset(&time_, 0, sizeof(struct tm));
+        memset(&time, 0, sizeof(struct tm));
         set_year(year);
         set_month(month);
         set_day_of_moth(day);
@@ -126,42 +119,42 @@ namespace euphoria::core
     void
     struct_tm_wrapper::set_seconds(int seconds)
     {
-        time_.tm_sec = seconds;
+        time.tm_sec = seconds;
     }
 
 
     void
     struct_tm_wrapper::set_minutes(int minutes)
     {
-        time_.tm_min = minutes;
+        time.tm_min = minutes;
     }
 
 
     void
     struct_tm_wrapper::set_hour(int hour)
     {
-        time_.tm_hour = hour;
+        time.tm_hour = hour;
     }
 
 
     void
     struct_tm_wrapper::set_day_of_moth(int day_of_moth)
     {
-        time_.tm_mday = day_of_moth;
+        time.tm_mday = day_of_moth;
     }
 
 
     void
     struct_tm_wrapper::set_month(month month)
     {
-        time_.tm_mon = month_to_int(month);
+        time.tm_mon = month_to_int(month);
     }
 
 
     void
     struct_tm_wrapper::set_year(int year)
     {
-        time_.tm_year = year - 1900;
+        time.tm_year = year - 1900;
     }
 
 
@@ -171,13 +164,13 @@ namespace euphoria::core
         switch (dst)
         {
         case dst_info::in_effect:
-            time_.tm_isdst = 1;
+            time.tm_isdst = 1;
             return;
         case dst_info::not_in_effect:
-            time_.tm_isdst = 0;
+            time.tm_isdst = 0;
             return;
         case dst_info::info_unavailable:
-            time_.tm_isdst = -1;
+            time.tm_isdst = -1;
             return;
         }
 
@@ -188,51 +181,51 @@ namespace euphoria::core
     int
     struct_tm_wrapper::get_seconds() const
     {
-        return time_.tm_sec;
+        return time.tm_sec;
     }
 
 
     int
     struct_tm_wrapper::get_minutes() const
     {
-        return time_.tm_min;
+        return time.tm_min;
     }
 
 
     int struct_tm_wrapper::get_hour() const
     {
-        return time_.tm_hour;
+        return time.tm_hour;
     }
 
 
     int
     struct_tm_wrapper::get_day_of_moth() const
     {
-        return time_.tm_mday;
+        return time.tm_mday;
     }
 
 
     month
     struct_tm_wrapper::get_month() const
     {
-        return int_to_month(time_.tm_mon);
+        return int_to_month(time.tm_mon);
     }
 
 
     int struct_tm_wrapper::get_year() const
     {
-        return time_.tm_year + 1900;
+        return time.tm_year + 1900;
     }
 
 
     dst_info
     struct_tm_wrapper::get_dst() const
     {
-        if (time_.tm_isdst == 0)
+        if (time.tm_isdst == 0)
         {
             return dst_info::not_in_effect;
         }
-        else if (time_.tm_isdst > 0)
+        else if (time.tm_isdst > 0)
         {
             return dst_info::in_effect;
         }
@@ -253,7 +246,7 @@ namespace euphoria::core
             const size_t string_length = base_size * i;
             ret.resize(string_length);
 
-            const auto characters_written = strftime(&ret[0], string_length, format.c_str(), &time_);
+            const auto characters_written = strftime(&ret[0], string_length, format.c_str(), &time);
 
             if (characters_written != 0)
             {
@@ -291,7 +284,7 @@ namespace euphoria::core
     {
         const auto diff = time_t_wrapper::get_difference
         (
-            time_t_wrapper::from_gmt(struct_tm_wrapper(1970, month::JANUARY ,1, 0, 0, 0)),
+            time_t_wrapper::from_gmt(struct_tm_wrapper(1970, month::january , 1, 0, 0, 0)),
             dt
         );
         return static_cast<uint64_t>(diff);
@@ -307,7 +300,7 @@ namespace euphoria::core
 
         return time_t_wrapper::from_gmt
         (
-            struct_tm_wrapper(1970, month::JANUARY, 1, hours, acutal_minutes, actual_seconds)
+            struct_tm_wrapper(1970, month::january, 1, hours, acutal_minutes, actual_seconds)
         );
     }
 
@@ -465,14 +458,14 @@ namespace euphoria::core
     time_zone
     date_time::get_timezone() const
     {
-        return timezone_;
+        return timezone;
     }
 
 
     time_t_wrapper
     date_time::get_time() const
     {
-        return time_;
+        return time;
     }
 
 
@@ -493,15 +486,15 @@ namespace euphoria::core
 
 
     date_time::date_time(time_zone timezone, const struct_tm_wrapper& time)
-        : timezone_(timezone)
-        , time_(to_time_t_wrapper(time, timezone))
+        : timezone(timezone)
+        , time(to_time_t_wrapper(time, timezone))
     {
     }
 
 
     date_time::date_time(time_zone timezone, const time_t_wrapper& time)
-        : timezone_(timezone)
-        , time_(time)
+        : timezone(timezone)
+        , time(time)
     {
     }
 
@@ -509,22 +502,22 @@ namespace euphoria::core
     struct_tm_wrapper
     date_time::as_struct() const
     {
-        switch (timezone_)
+        switch (timezone)
         {
         case time_zone::gmt:
-            return time_.to_gmt();
+            return time.to_gmt();
         case time_zone::local:
-            return time_.to_local_time();
+            return time.to_local_time();
         }
 
         DIE("Invalid timezone");
-        return time_.to_gmt();
+        return time.to_gmt();
     }
 
 
     void date_time::update_time(const struct_tm_wrapper& s)
     {
-        time_ = to_time_t_wrapper(s, timezone_);
+        time = to_time_t_wrapper(s, timezone);
     }
 
 
