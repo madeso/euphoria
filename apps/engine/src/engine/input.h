@@ -15,8 +15,8 @@ namespace euphoria::engine
     struct bound_var
     {
         std::string name;
-        double state;
-        double last_state;
+        float state;
+        float last_state;
         core::key key;
 
         bound_var(const std::string& n, const core::key& k);

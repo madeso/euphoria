@@ -18,9 +18,15 @@ namespace euphoria::engine
         (
             "bound_var",
             "state",
-            sol::readonly(&bound_var::state),
+            sol::property
+            (
+                [](const bound_var& v) -> double { return core::c_float_to_double(v.state); }
+            ),
             "last_state",
-            sol::readonly(&bound_var::last_state)
+            sol::property
+            (
+                [](const bound_var& v) -> double { return core::c_float_to_double(v.last_state); }
+            )
         );
     }
 
@@ -47,7 +53,7 @@ namespace euphoria::engine
         {
             if(bind->key == key)
             {
-                bind->state = core::c_float_to_double(state);
+                bind->state = state;
             }
         }
     }
