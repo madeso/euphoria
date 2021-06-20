@@ -162,7 +162,6 @@ get_color(std::shared_ptr<game::Color> c)
 int custom_lua_exception_handler
 (
     lua_State* lua_state,
-    // todo(Gustav): remove argument
     sol::optional<const std::exception&>,
     sol::string_view description
 )
@@ -252,7 +251,7 @@ main(int argc, char* argv[])
     systems systems;
     world world {&systems};
     components components {&world.reg};
-    add_systems(&systems, &duk, &components);
+    add_systems(&systems, &components);
     object_creator templates;
     load_templates_but_only_names(gamedata, &templates);
     camera_data camera_data;
@@ -326,7 +325,7 @@ main(int argc, char* argv[])
     SDL_GetMouseState(&window_mouse_x, &window_mouse_y);
     bool mouse_lmb_down = false;
 
-    integration.bind_keys(&duk, input);
+    integration.bind_keys(input);
 
     engine.init->use_2d();
 
@@ -414,7 +413,7 @@ main(int argc, char* argv[])
 
         if(has_crashed == false)
         {
-            integration.bind_keys(&duk, input);
+            integration.bind_keys(input);
         }
 
         viewport_handler.clear_black();

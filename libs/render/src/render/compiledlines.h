@@ -30,8 +30,7 @@ namespace euphoria::render
         (
             const core::mat4f& model_matrix,
             const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera
+            const core::mat4f& view_matrix
         );
     };
     

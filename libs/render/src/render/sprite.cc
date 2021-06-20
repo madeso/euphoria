@@ -44,10 +44,10 @@ namespace euphoria::render
             *texture,
             core::rectf::from_position_anchor_width_and_height
             (
-                    position,
-                    core::scale2f{0, 0},
-                    static_cast<float>(texture->width),
-                    static_cast<float>(texture->height)
+                position,
+                core::scale2f{0, 0},
+                static_cast<float>(texture->width),
+                static_cast<float>(texture->height)
             ),
             draw_data{}
                 .set_rotation(rotation)

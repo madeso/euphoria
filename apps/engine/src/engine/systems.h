@@ -13,5 +13,5 @@ namespace euphoria::engine
     struct components;
 
 	void
-	add_systems(core::ecs::systems* systems, Sol* duk, components* components);
+	add_systems(core::ecs::systems* sys, components* comps);
 }

@@ -24,19 +24,23 @@ namespace euphoria::render
     }
 
     void
-    actor::render(
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
-            const core::vec3f& camera,
-            const light& light)
+    actor::render
+    (
+        const core::mat4f& projection_matrix,
+        const core::mat4f& view_matrix,
+        const core::vec3f& camera,
+        const light& light
+    )
     {
-        mesh_->render(
-                calculate_model_matrix(),
-                projection_matrix,
-                view_matrix,
-                camera,
-                light,
-                overriden_materials);
+        mesh_->render
+        (
+            calculate_model_matrix(),
+            projection_matrix,
+            view_matrix,
+            camera,
+            light,
+            overriden_materials
+        );
     }
 
 }

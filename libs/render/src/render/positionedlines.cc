@@ -18,7 +18,7 @@ namespace euphoria::render
     (
         const core::mat4f& projection_matrix,
         const core::mat4f& view_matrix,
-        const core::vec3f& camera,
+        const core::vec3f&,
         const light&
     )
     {
@@ -26,8 +26,7 @@ namespace euphoria::render
         (
             calculate_model_matrix(),
             projection_matrix,
-            view_matrix,
-            camera
+            view_matrix
         );
     }
 }

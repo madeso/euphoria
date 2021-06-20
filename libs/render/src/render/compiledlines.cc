@@ -93,9 +93,7 @@ namespace euphoria::render
     (
         const core::mat4f& model_matrix,
         const core::mat4f& projection_matrix,
-        const core::mat4f& view_matrix,
-        // todo(Gustav): remove argument?
-        const core::vec3f&
+        const core::mat4f& view_matrix
     )
     {
         shader->use_shader();

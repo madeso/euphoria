@@ -171,12 +171,12 @@ namespace euphoria::engine
     {
         script_integration_pimpl
         (
-                core::ecs::systems* sys,
-                core::ecs::world* world,
-                Sol* duk,
-                object_creator* creator,
-                engine::components* cc,
-                camera_data* cam
+            core::ecs::systems* sys,
+            core::ecs::world* world,
+            Sol* duk,
+            object_creator* creator,
+            engine::components* cc,
+            camera_data* cam
         )
             : systems(sys, duk)
             , registry(&world->reg, cc)
@@ -403,7 +403,7 @@ namespace euphoria::engine
 
 
     void
-    script_integration::bind_keys(Sol* duk, const input_system& input)
+    script_integration::bind_keys(const input_system &input)
     {
         input.set(&pimpl->input);
     }

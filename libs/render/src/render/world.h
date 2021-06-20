@@ -41,8 +41,11 @@ namespace euphoria::render
         step();
 
         void
-        render(const core::camera3& camera,
-               const core::compiled_camera3& compiled);
+        render
+        (
+            const core::camera3& camera,
+            const core::compiled_camera3& compiled
+        );
 
         std::vector<std::shared_ptr<instance>> actors;
     };
