@@ -8314,8 +8314,8 @@ namespace sol {
 		}
 
 		template <typename U>
-		static auto get(U&& value) {
-			return std::addressof(detail::deref(value));
+		static auto get(U&& value_arg) {
+			return std::addressof(detail::deref(value_arg));
 		}
 	};
 
@@ -18833,7 +18833,7 @@ namespace sol {
 
 		namespace stack_detail {
 			template <typename Function, typename Handler>
-			bool check_function_pointer(lua_State* L, int index, Handler&& handler, record& tracking) noexcept {
+			bool check_function_pointer([[maybe_unused]] lua_State* L, [[maybe_unused]] int index, [[maybe_unused]] Handler&& handler, [[maybe_unused]] record& tracking) noexcept {
 #if SOL_IS_ON(SOL_GET_FUNCTION_POINTER_UNSAFE_I_)
 				tracking.use(1);
 				bool success = lua_iscfunction(L, index) == 1;
@@ -18855,7 +18855,7 @@ namespace sol {
 			}
 
 			template <typename Function>
-			Function* get_function_pointer(lua_State* L, int index, record& tracking) noexcept {
+			Function* get_function_pointer([[maybe_unused]] lua_State* L, [[maybe_unused]] int index, [[maybe_unused]] record& tracking) noexcept {
 #if SOL_IS_ON(SOL_GET_FUNCTION_POINTER_UNSAFE_I_)
 				tracking.use(1);
 				auto udata = stack::stack_detail::get_as_upvalues_using_function<Function*>(L, index);
