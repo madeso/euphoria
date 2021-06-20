@@ -1,7 +1,7 @@
 #include "engine/input.h"
 
 #include "core/assert.h"
-
+#include "core/cint.h"
 #include "core/sol.h"
 
 namespace euphoria::engine
@@ -47,7 +47,7 @@ namespace euphoria::engine
         {
             if(bind->key == key)
             {
-                bind->state = state;
+                bind->state = core::c_float_to_double(state);
             }
         }
     }

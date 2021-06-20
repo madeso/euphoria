@@ -16,20 +16,6 @@ namespace euphoria::core
 
 
     int
-    c_float_to_int(float f)
-    {
-        return static_cast<int>(f);
-    }
-
-
-    float
-    c_int_to_float(int i)
-    {
-        return static_cast<float>(i);
-    }
-
-
-    int
     c_unsigned_int_to_int(unsigned int i)
     {
         ASSERTX(i <= static_cast<unsigned int>(std::numeric_limits<int>::max()), i);
@@ -58,15 +44,6 @@ namespace euphoria::core
         ASSERTX(i >= 0, i);
         ASSERTX(i <255, i);
         return static_cast<u8>(i);
-    }
-
-
-    u32
-    c_bit_signed_to_unsigned(s32 i)
-    {
-        union { s32 s; u32 u; } c = {};
-        c.s = i;
-        return c.u;
     }
 }
 

@@ -7,6 +7,7 @@
 #include "core/random.h"
 #include "core/log.h"
 #include "core/sol.h"
+#include "core/cint.h"
 
 #include "engine/components.h"
 #include "engine/input.h"
@@ -53,7 +54,7 @@ namespace euphoria::engine
         : core::ecs::component_system
         , core::ecs::component_system_updater
     {
-        using update_function = sol::protected_function; // void(float)
+        using update_function = sol::protected_function; // void(double)
 
         Sol* duk;
         update_function func;
@@ -69,7 +70,7 @@ namespace euphoria::engine
         void
         update(core::ecs::registry*, float dt) const override
         {
-            auto result = func(dt);
+            auto result = func(core::c_float_to_double(dt));
             report_first_error(result, duk, "update", name);
         }
 
@@ -228,16 +229,16 @@ namespace euphoria::engine
             duk->lua.new_usertype<custom_arguments>
             (
                 "custom_arguments",
-                "get_number", [](const custom_arguments& args, const std::string& name) -> float
+                "get_number", [](const custom_arguments& args, const std::string& name) -> double
                 {
                     const auto f = args.numbers.find(name);
                     if(f == args.numbers.end())
                     {
-                        return 0;
+                        return 0.0;
                     }
                     else
                     {
-                        return f->second;
+                        return core::c_float_to_double(f->second);
                     }
                 }
             );
@@ -324,19 +325,19 @@ namespace euphoria::engine
                 {
                     return r.contains_exclusive(p);
                 },
-                [](const core::rectf& r, float x, float y) -> bool
+                [](const core::rectf& r, double x, double y) -> bool
                 {
-                    return r.contains_exclusive(x, y);
+                    return r.contains_exclusive(core::c_double_to_float(x), core::c_double_to_float(y));
                 }
             );
-            rect_type["get_height"] = &core::rectf::get_height;
-            rect_type["get_width"] = &core::rectf::get_width;
+            rect_type["get_height"] = [](const core::rectf& r) -> double { return core::c_float_to_double(r.get_height()); };
+            rect_type["get_width"] = [](const core::rectf& r) -> double { return core::c_float_to_double(r.get_width()); };
 
             auto random_type = duk->lua.new_usertype<core::random>("random");
-            random_type["next_float01"] = &core::random::get_next_float01;
-            random_type["next_range_float"] = [](core::random& r, float f) -> float
+            random_type["next_float01"] = [](core::random& r) -> double { return core::c_float_to_double(r.get_next_float01()); };
+            random_type["next_range_float"] = [](core::random& r, double f) -> double
             {
-                return get_random_in_range(&r, f);
+                return core::c_float_to_double(get_random_in_range(&r, core::c_double_to_float(f)));
             };
             random_type["next_bool"] = &core::random::get_next_bool;
             random_type["next_point2"] = [](core::random& r, core::rectf& rect) -> core::vec2f
@@ -357,12 +358,12 @@ namespace euphoria::engine
 
     script_integration::script_integration
     (
-            core::ecs::systems* systems,
-            core::ecs::world* reg,
-            Sol* duk,
-            object_creator* creator,
-            components* components,
-            camera_data* camera
+        core::ecs::systems* systems,
+        core::ecs::world* reg,
+        Sol* duk,
+        object_creator* creator,
+        components* components,
+        camera_data* camera
     )
     {
         pimpl.reset

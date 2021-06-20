@@ -15,8 +15,8 @@ namespace euphoria::engine
     struct bound_var
     {
         std::string name;
-        float state;
-        float last_state;
+        double state;
+        double last_state;
         core::key key;
 
         bound_var(const std::string& n, const core::key& k);
@@ -26,8 +26,8 @@ namespace euphoria::engine
         // todo(Gustav): figure out how to handle player characters
         // todo(Gustav): figure out how to handle inputs other than keyboard
     };
-    
-    
+
+
 
     struct input_system
     {
