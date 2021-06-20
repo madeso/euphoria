@@ -45,7 +45,7 @@ generate_drunken_bishop_table(core::random* random, const ::common& common)
     const int times = common.big ? 8 : 4;
     for(int i=0; i<times; i+=1)
     {
-        const auto codes = to_codes(to_bytes(random->get_next_integer32()), true);
+        const auto codes = to_codes(to_bytes(random->get_next_u32()), true);
         for(auto c : codes)
         {
             hash.emplace_back(c);

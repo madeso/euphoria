@@ -52,7 +52,7 @@ better numbers than Mersenne. How can you go wrong? :)
     }
 
     u32
-    random::get_next_integer32()
+    random::get_next_u32()
     {
         u32 a = state[index];
         u32 c = state[(index + 13) & 15];
@@ -68,17 +68,17 @@ better numbers than Mersenne. How can you go wrong? :)
     }
 
     u64
-    random::get_next_integer64()
+    random::get_next_u64()
     {
-        const u64 a = get_next_integer32();
-        const u64 b = get_next_integer32();
+        const u64 a = get_next_u32();
+        const u64 b = get_next_u32();
         return (a << 32) | b;
     }
 
     float
     random::get_next_float01()
     {
-        return static_cast<float>(get_next_integer32()) / static_cast<float>(std::numeric_limits<u32>::max());
+        return static_cast<float>(get_next_u32()) / static_cast<float>(std::numeric_limits<u32>::max());
     }
 
     float

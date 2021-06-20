@@ -25,7 +25,7 @@ print_random_numbers
 {
     std::cout << name << ": ";
 
-    auto rng = TGenerator{random->get_next_integer32()};
+    auto rng = TGenerator{random->get_next_u32()};
     auto container = std::vector<float>{};
     float sum = 0.0f;
     for(int i=0; i<count; i+=1)
@@ -88,8 +88,8 @@ struct runner
         print<random_xorshift64>("xorshift64");
 
         const int int_count = 10;
-        print_ints<32>("u32", int_count, [](core::random* r) { return r->get_next_integer32();});
-        print_ints<64>("u64", int_count, [](core::random* r) { return r->get_next_integer64();});
+        print_ints<32>("u32", int_count, [](core::random* r) { return r->get_next_u32();});
+        print_ints<64>("u64", int_count, [](core::random* r) { return r->get_next_u64();});
     }
 };
 

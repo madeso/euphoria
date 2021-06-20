@@ -64,7 +64,7 @@ void run_main
         int code = -2044886870;
         if(use_random)
         {
-            code = random.get_next_integer32();
+            code = random.get_next_u32();
         }
 
         switch(type)
@@ -134,7 +134,7 @@ void run_sprator_collage
             image_frames.emplace_back(image);
         }
 
-        const int code = random.get_next_integer32();
+        const int code = random.get_next_u32();
         render_sprator(&image_frames, code, palette.get_safe_index(image_index));
 
         sprites.emplace_back(image_frames);

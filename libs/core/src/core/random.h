@@ -25,10 +25,10 @@ namespace euphoria::core
         explicit random(u32 seed = generate_time_seed());
 
         u32
-        get_next_integer32();
+        get_next_u32();
 
         u64
-        get_next_integer64();
+        get_next_u64();
 
         float
         get_next_float01();
