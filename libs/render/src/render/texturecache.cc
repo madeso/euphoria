@@ -24,7 +24,7 @@ namespace euphoria::render
             (
                 fs_,
                 file,
-                core::alpha_load::Keep,
+                core::alpha_load::keep,
                 texture2d_load_data{}
             );
             return ret;

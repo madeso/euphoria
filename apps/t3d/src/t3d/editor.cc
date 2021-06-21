@@ -87,7 +87,7 @@ namespace euphoria::t3d
 
 
     void
-    editor::on_mouse(core::MouseButton button, bool down)
+    editor::on_mouse(core::mouse_button button, bool down)
     {
         tools.get_current_tool()->on_mouse(this, button, down);
     }

@@ -340,7 +340,7 @@ namespace euphoria::core
         }
 
         bool has_alpha = false;
-        if(alpha == alpha_load::Keep)
+        if(alpha == alpha_load::keep)
         {
             has_alpha = channels == 2 || channels == 4;
         }

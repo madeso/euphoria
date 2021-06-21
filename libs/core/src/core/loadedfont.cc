@@ -418,7 +418,7 @@ namespace euphoria::core
         (
             fs,
             image_file,
-            alpha_load::Keep
+            alpha_load::keep
         );
 
         if(loaded.error.empty() == false)

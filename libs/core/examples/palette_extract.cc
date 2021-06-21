@@ -45,7 +45,7 @@ load_images(const std::vector<std::string>& files)
             std::cerr << "failed to read image file " << f << "\n";
             return {};
         }
-        auto loaded_image = load_image(chunk, f, alpha_load::Keep);
+        auto loaded_image = load_image(chunk, f, alpha_load::keep);
         if(loaded_image.error.empty() == false)
         {
             std::cerr << "failed to read image data " <<

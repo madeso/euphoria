@@ -157,8 +157,8 @@ namespace euphoria::core
 
     enum class alpha_load
     {
-        Remove,
-        Keep
+        remove,
+        keep
     };
 
 

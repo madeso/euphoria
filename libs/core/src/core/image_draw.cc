@@ -568,7 +568,7 @@ namespace euphoria::core
                 const auto dest_y = position.y + y;
                 if
                 (
-                    clip == pixels_outside::Discard &&
+                    clip == pixels_outside::discard &&
                     is_within(dest_image->get_indices(), vec2i(dest_x, dest_y)) == false
                 )
                 {

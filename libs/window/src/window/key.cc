@@ -251,19 +251,19 @@ namespace euphoria::window
         }
     }
 
-    core::MouseButton
+    core::mouse_button
     to_key(SDL_MouseButtonEvent mb)
     {
         switch(mb.button)
         {
-        case SDL_BUTTON_LEFT: return core::MouseButton::left;
-        case SDL_BUTTON_MIDDLE: return core::MouseButton::middle;
-        case SDL_BUTTON_RIGHT: return core::MouseButton::right;
-        case SDL_BUTTON_X1: return core::MouseButton::x1;
-        case SDL_BUTTON_X2: return core::MouseButton::x2;
+        case SDL_BUTTON_LEFT: return core::mouse_button::left;
+        case SDL_BUTTON_MIDDLE: return core::mouse_button::middle;
+        case SDL_BUTTON_RIGHT: return core::mouse_button::right;
+        case SDL_BUTTON_X1: return core::mouse_button::x1;
+        case SDL_BUTTON_X2: return core::mouse_button::x2;
         default:
             ASSERTX(false && "Invalid mouse button", mb.button);
-            return core::MouseButton::invalid;
+            return core::mouse_button::invalid;
         }
     }
 

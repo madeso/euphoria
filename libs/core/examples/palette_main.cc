@@ -18,7 +18,7 @@ using namespace euphoria::core;
 void
 print_palette_names()
 {
-    for (auto palette_name : palettes::PaletteNames)
+    for (auto palette_name : palettes::palette_names)
     {
         const auto pal = palettes::get_palette(palette_name);
         std::cout << pal.name << "\n";
@@ -29,7 +29,7 @@ print_palette_names()
 void
 write_palettes_to_files(int image_size)
 {
-    for (auto palette_name : palettes::PaletteNames)
+    for (auto palette_name : palettes::palette_names)
     {
         const auto pal = palettes::get_palette(palette_name);
 
@@ -91,7 +91,7 @@ write_palettes_to_single_svg(const std::string& path, float height, bool border)
     constexpr float x = 0.0f;
     float y = 0;
 
-    for (auto palette_name : palettes::PaletteNames)
+    for (auto palette_name : palettes::palette_names)
     {
         const auto pal = palettes::get_palette(palette_name);
 

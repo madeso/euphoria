@@ -80,8 +80,8 @@ namespace euphoria::core
 
     enum class pixels_outside
     {
-        Assert,
-        Discard
+        assert,
+        discard
     };
 
     void
@@ -96,7 +96,7 @@ namespace euphoria::core
         // how to blend
         blend_mode blend = blend_mode::normal,
         // how to handle pixels that fall outside
-        pixels_outside clip = pixels_outside::Assert
+        pixels_outside clip = pixels_outside::assert
     );
 
     void

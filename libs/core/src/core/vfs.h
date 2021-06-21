@@ -147,7 +147,7 @@ namespace euphoria::core::vfs
         list_files(const dir_path& path) override;
 
     private:
-        std::map<file_path, std::shared_ptr<memory_chunk>> catalog_;
+        std::map<file_path, std::shared_ptr<memory_chunk>> catalog;
     };
 
     struct read_root_physical_folder : read_root

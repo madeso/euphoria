@@ -185,7 +185,7 @@ namespace euphoria::core::vfs
         const std::shared_ptr<memory_chunk>& content
     )
     {
-        catalog_.insert(std::make_pair(path, content));
+        catalog.insert(std::make_pair(path, content));
     }
 
     std::shared_ptr<read_root_catalog>
@@ -200,9 +200,9 @@ namespace euphoria::core::vfs
     std::shared_ptr<memory_chunk>
     read_root_catalog::read_file(const file_path& path)
     {
-        const auto found = catalog_.find(path);
+        const auto found = catalog.find(path);
 
-        if(found == catalog_.end())
+        if(found == catalog.end())
         {
             return memory_chunk::null();
         }
@@ -213,7 +213,7 @@ namespace euphoria::core::vfs
     void
     read_root_catalog::add_description(std::vector<std::string>* strings)
     {
-        const auto keys = key_to_string_vector(catalog_);
+        const auto keys = key_to_string_vector(catalog);
         strings->insert(strings->end(), keys.begin(), keys.end());
     }
 
@@ -221,7 +221,7 @@ namespace euphoria::core::vfs
     read_root_catalog::list_files(const dir_path& path)
     {
         file_list r;
-        for(const auto& f: catalog_)
+        for(const auto& f: catalog)
         {
             const auto file = f.first;
             const auto [folder, filename] = file.split_directories_and_file();

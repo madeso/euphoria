@@ -213,7 +213,7 @@ namespace euphoria::render
     {
         GLuint internal_format = GL_RGB;
         GLuint image_format = GL_RGB;
-        if(image.has_alpha && alpha == core::alpha_load::Keep)
+        if(image.has_alpha && alpha == core::alpha_load::keep)
         {
             internal_format = GL_RGBA;
             image_format = GL_RGBA;

@@ -16,13 +16,13 @@ namespace euphoria::core
         [[nodiscard]] int
         get_size() const
         {
-            return c_sizet_to_int(data_.size());
+            return c_sizet_to_int(data.size());
         }
 
         void
         reserve(int count)
         {
-            data_.reserve(c_int_to_sizet(count));
+            data.reserve(c_int_to_sizet(count));
         }
 
         void
@@ -32,35 +32,35 @@ namespace euphoria::core
 
             for(int i = 0; i < amount; i++)
             {
-                data_.push_back(item);
+                data.push_back(item);
             }
 
-            cursor_ = get_size() - 1;
+            cursor = get_size() - 1;
         }
 
         [[nodiscard]] const T&
         get_random_item(random* rand)
         {
             ASSERT(rand);
-            ASSERT(!data_.empty()); // needs data
+            ASSERT(!data.empty()); // needs data
 
-            if(cursor_ < 1)
+            if(cursor < 1)
             {
-                cursor_ = get_size() - 1;
-                return data_[0];
+                cursor = get_size() - 1;
+                return data[0];
             }
 
-            const auto next_position = get_random_in_range(rand, static_cast<int>(cursor_));
+            const auto next_position = get_random_in_range(rand, static_cast<int>(cursor));
 
-            std::swap(data_[next_position], data_[cursor_]);
-            cursor_ -= 1;
+            std::swap(data[next_position], data[cursor]);
+            cursor -= 1;
 
-            return data_[cursor_ + 1];
+            return data[cursor + 1];
         }
 
     private:
-        std::vector<T> data_;
-        unsigned long cursor_ = 0;
+        std::vector<T> data;
+        unsigned long cursor = 0;
     };
 
 

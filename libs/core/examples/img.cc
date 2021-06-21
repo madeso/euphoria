@@ -45,7 +45,7 @@ main(int argc, char* argv[])
                             ;
                         return argparse::error;
                     }
-                    auto ret = load_image(file, input, alpha_load::Keep);
+                    auto ret = load_image(file, input, alpha_load::keep);
                     if(!ret.error.empty())
                     {
                         std::cerr << ret.error << "\n";

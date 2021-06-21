@@ -43,7 +43,7 @@ TEST_CASE("image-load", "[img]")
     (
         &fs,
         vfs::file_path{"~/white"},
-        euco::alpha_load::Remove
+        euco::alpha_load::remove
     );
     REQUIRE(loaded.error.empty());
     REQUIRE_FALSE(loaded.image.has_alpha);
@@ -187,7 +187,7 @@ TEST_CASE("image draw", "[img]")
         CHECK_FALSE(img.get_pixel(width-1, 0) == colora);
         CHECK_FALSE(img.get_pixel(width-1, height-1) == colora);
 
-        paste_image(&img, euco::vec2i(-width, -height), big, euco::blend_mode::normal, euco::pixels_outside::Discard);
+        paste_image(&img, euco::vec2i(-width, -height), big, euco::blend_mode::normal, euco::pixels_outside::discard);
 
         CHECK(img.get_pixel(5, 5) == colora);
         CHECK(img.get_pixel(0, 0) == colora);

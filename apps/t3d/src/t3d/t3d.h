@@ -120,7 +120,7 @@ namespace euphoria::t3d
 
 
         void
-        on_mouse_button(core::MouseButton button, bool down, bool forward_mouse);
+        on_mouse_button(core::mouse_button button, bool down, bool forward_mouse);
 
 
         void

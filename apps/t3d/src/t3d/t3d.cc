@@ -305,7 +305,7 @@ namespace euphoria::t3d
 
 
     void
-    application::on_mouse_button(core::MouseButton button, bool down, bool forward_mouse)
+    application::on_mouse_button(core::mouse_button button, bool down, bool forward_mouse)
     {
         if(forward_mouse)
         {
@@ -314,7 +314,7 @@ namespace euphoria::t3d
 
         switch(button)
         {
-        case core::MouseButton::middle:
+        case core::mouse_button::middle:
             mmb_down = down;
             break;
         default:

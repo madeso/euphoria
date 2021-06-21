@@ -25,8 +25,8 @@ namespace euphoria::core
         rect() : left(0), right(0), top(0), bottom(0) {}
 
     private:
-        rect(T aleft, T aright, T atop, T abottom)
-            : left(aleft), right(aright), top(atop), bottom(abottom)
+        rect(T left_side, T right_side, T top_side, T bottom_side)
+            : left(left_side), right(right_side), top(top_side), bottom(bottom_side)
         {}
 
     public:
@@ -44,19 +44,19 @@ namespace euphoria::core
         }
 
         [[nodiscard]] static rect
-        from_left_right_bottom_top(T aleft, T aright, T abottom, T atop)
+        from_left_right_bottom_top(T left_side, T right_side, T bottom_side, T top_side)
         {
-            ASSERTX(aleft <= aright, aleft, aright);
-            ASSERTX(atop >= abottom, atop, abottom);
-            return rect(aleft, aright, atop, abottom);
+            ASSERTX(left_side <= right_side, left_side, right_side);
+            ASSERTX(top_side >= bottom_side, top_side, bottom_side);
+            return rect(left_side, right_side, top_side, bottom_side);
         }
 
         [[nodiscard]] static rect
-        from_left_right_top_bottom(T aleft, T aright, T atop, T abottom)
+        from_left_right_top_bottom(T left_side, T right_side, T top_side, T bottom_side)
         {
-            ASSERTX(aleft <= aright, aleft, aright);
-            ASSERTX(atop >= abottom, atop, abottom);
-            return rect(aleft, aright, atop, abottom);
+            ASSERTX(left_side <= right_side, left_side, right_side);
+            ASSERTX(top_side >= bottom_side, top_side, bottom_side);
+            return rect(left_side, right_side, top_side, bottom_side);
         }
 
         [[nodiscard]] static rect
@@ -363,26 +363,26 @@ namespace euphoria::core
         }
 
         void
-        offset_to(T newLeft, T newTop)
+        offset_to(T new_left, T new_top)
         {
-            *this = set_top_left_to_copy(newTop, newLeft);
+            *this = set_top_left_to_copy(new_top, new_left);
         }
 
         rect<T>
-        set_top_left_to_copy(T newLeft, T newTop) const
+        set_top_left_to_copy(T new_left, T new_top) const
         {
             return from_top_left_width_height(
-                    vec2<T>{newLeft, newTop}, get_width(), get_height());
+                    vec2<T>{new_left, new_top}, get_width(), get_height());
         }
 
         rect<T>
         set_top_left_to_copy(const vec2<T>& v) const;
 
         rect<T>
-        set_bottom_left_to_copy(T newLeft, T newBottom) const
+        set_bottom_left_to_copy(T new_left, T new_bottom) const
         {
             return from_top_left_width_height(
-                    vec2<T>{newLeft, newBottom + get_height()}, get_width(), get_height());
+                    vec2<T>{new_left, new_bottom + get_height()}, get_width(), get_height());
         }
 
         rect<T>

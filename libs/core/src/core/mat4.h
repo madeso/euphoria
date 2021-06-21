@@ -607,16 +607,16 @@ namespace euphoria::core
     template <typename T>
     mat4<T> operator*(const mat4<T>& lhs, const mat4<T> rhs)
     {
-        const auto OP = [&lhs, &rhs](int r, int c) -> T
+        const auto op = [&lhs, &rhs](int r, int c) -> T
         {
             return component_multiply(lhs.get_row(r), rhs.get_column(c)).get_component_sum();
         };
         return mat4<T>::from_row_major
         (
-            OP(0, 0), OP(0, 1), OP(0, 2), OP(0, 3),
-            OP(1, 0), OP(1, 1), OP(1, 2), OP(1, 3),
-            OP(2, 0), OP(2, 1), OP(2, 2), OP(2, 3),
-            OP(3, 0), OP(3, 1), OP(3, 2), OP(3, 3)
+            op(0, 0), op(0, 1), op(0, 2), op(0, 3),
+            op(1, 0), op(1, 1), op(1, 2), op(1, 3),
+            op(2, 0), op(2, 1), op(2, 2), op(2, 3),
+            op(3, 0), op(3, 1), op(3, 2), op(3, 3)
         );
     }
 

@@ -83,7 +83,7 @@ namespace euphoria::core::palettes
     palette
     get_palette(name palette_name);
 
-    constexpr std::array PaletteNames
+    constexpr std::array palette_names
     {
         // standard
         name::dawnbringer,

@@ -270,8 +270,8 @@ namespace euphoria::render
         texture_ = std::make_unique<texture2d>();
         texture_->load_from_image
         (
-            image,
-            core::alpha_load::Keep, texture2d_load_data()
+                image,
+                core::alpha_load::keep, texture2d_load_data()
         );
         line_height = static_cast<float>(fontchars.line_height);
     }

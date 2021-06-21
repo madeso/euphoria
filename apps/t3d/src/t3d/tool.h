@@ -22,7 +22,7 @@ namespace euphoria::t3d
 
 
         virtual void
-        on_mouse(t3d::editor* editor, core::MouseButton key, bool down) = 0;
+        on_mouse(t3d::editor* editor, core::mouse_button key, bool down) = 0;
         
         
         virtual void

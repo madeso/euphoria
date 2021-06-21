@@ -315,16 +315,16 @@ namespace euphoria::core
             return keys;
         }
 
-        const keynamer<MouseButton>&
+        const keynamer<mouse_button>&
         all_mouse_buttons()
         {
-            static keynamer<MouseButton> buttons = keynamer<MouseButton>
-                (MouseButton::unbound, MouseButton::invalid)
-                (MouseButton::left, "left")
-                (MouseButton::middle, "middle")
-                (MouseButton::right, "right")
-                (MouseButton::x1, "x1")
-                (MouseButton::x2, "x2")
+            static keynamer<mouse_button> buttons = keynamer<mouse_button>
+                (mouse_button::unbound, mouse_button::invalid)
+                (mouse_button::left, "left")
+                (mouse_button::middle, "middle")
+                (mouse_button::right, "right")
+                (mouse_button::x1, "x1")
+                (mouse_button::x2, "x2")
                 ;
             return buttons;
         }
@@ -344,12 +344,12 @@ namespace euphoria::core
     }
 
     std::string
-    to_string(MouseButton button)
+    to_string(mouse_button button)
     {
         return all_mouse_buttons().from_key_to_string(button);
     }
 
-    MouseButton
+    mouse_button
     to_mouse_button(const std::string& button)
     {
         return all_mouse_buttons().from_string_to_key(button);

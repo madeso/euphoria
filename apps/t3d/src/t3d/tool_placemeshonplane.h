@@ -35,7 +35,7 @@ namespace euphoria::t3d
 
 
         void
-        on_mouse(editor* editor, core::MouseButton button, bool down) override;
+        on_mouse(editor* editor, core::mouse_button button, bool down) override;
 
 
         void

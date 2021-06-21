@@ -10,6 +10,6 @@ namespace euphoria::window
     core::key
     to_key(SDL_Keysym key);
 
-    core::MouseButton
+    core::mouse_button
     to_key(SDL_MouseButtonEvent mb);
 }
