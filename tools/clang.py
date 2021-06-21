@@ -213,9 +213,9 @@ def call_clang_tidy(root, project_build_folder, source_file, name_printer, fix):
         command.append('--fix')
     command.append(source_file)
 
-    name_printer.print_name()
 
     try:
+        name_printer.print_name()
         start = timer()
         output = subprocess.check_output(command, universal_newlines=True,
                                     encoding='utf8', stderr=subprocess.STDOUT)
@@ -255,17 +255,19 @@ class FileStatistics:
             print(f'{len(self.data)} files')
 
 
-def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_printer, fix, printable_file):
+def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_printer, fix, printable_file, only):
     """
     runs the clang-tidy process, printing status to terminal
     """
     output, time_taken = call_clang_tidy(root, project_build_folder, source_file, name_printer, fix)
     warnings = collections.Counter()
     classes = collections.Counter()
-    if not short:
+    if not short and len(only) == 0:
+        name_printer.print_name()
         print(f'took {time_taken:.2f}s')
     stats.add(printable_file, time_taken)
     print_empty = False
+    hidden = len(only) > 0
     for line in output.split('\n'):
         if 'warnings generated' in line:
             pass
@@ -278,16 +280,21 @@ def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_p
                 warnings[printable_file] += 1
                 tidy_class = CLANG_TIDY_WARNING_CLASS.search(line)
                 if tidy_class is not None:
-                    classes[tidy_class.group(1)] += 1
+                    warning_class = tidy_class.group(1)
+                    classes[warning_class] += 1
+                    hidden = len(only) > 0
+                    if warning_class in only:
+                        hidden = False
             if line.strip() == '':
-                if print_empty:
+                if not hidden and print_empty:
                     print()
                     print_empty = False
             else:
-                print_empty = True
-                print(line)
+                if not hidden:
+                    print_empty = True
+                    print(line)
     # print('{} warnings.'.format(total(warnings)))
-    if not short:
+    if not short and len(only) == 0:
         print_warning_counter(classes, printable_file)
         print()
     return warnings, classes
@@ -368,7 +375,7 @@ class NamePrinter:
     def print_name(self):
         if not self.printed:
             print(self.name, flush=True)
-            self.printed = False
+            self.printed = True
 
 
 def handle_tidy(args):
@@ -407,9 +414,7 @@ def handle_tidy(args):
                         print_header(project)
                     first_file = False
                 if args.nop is False:
-                    if not args.short:
-                        print_name.print_name()
-                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats, args.short, print_name, args.fix, printable_file)
+                    warnings, classes = run_clang_tidy(root, source_file, project_build_folder, stats, args.short, print_name, args.fix, printable_file, args.only)
                     if args.short and len(warnings) > 0:
                         break
                     project_counter.update(warnings)
@@ -424,15 +429,16 @@ def handle_tidy(args):
                     print_name.print_name()
 
             if not first_file and not args.short:
-                print_warning_counter(project_counter, project)
-                print()
-                print()
+                if len(args.only) == 0:
+                    print_warning_counter(project_counter, project)
+                    print()
+                    print()
     except KeyboardInterrupt:
         if not args.short:
             print()
         print()
 
-    if not args.short:
+    if not args.short and len(args.only) == 0:
         print_header('TIDY REPORT')
         print_warning_counter(total_counter, 'total')
         print()
@@ -478,6 +484,7 @@ def main():
     sub.add_argument('--short', action='store_true', help="use shorter and stop after one file")
     sub.add_argument('--list', action='store_true', help="also list files in the summary")
     sub.add_argument('--no-headers', dest='headers', action='store_false', help="don't tidy headers")
+    sub.add_argument('--only', nargs='*', default=[])
     sub.set_defaults(func=handle_tidy)
 
     sub = sub_parsers.add_parser('format', help='do clang format on files')
