@@ -22,8 +22,8 @@ namespace euphoria::core
         release(id id);
 
     private:
-        id current_;
-        std::vector<id> released_;
+        id current;
+        std::vector<id> released;
     };
 
 
@@ -52,8 +52,8 @@ namespace euphoria::core
         get_value() const;
 
     private:
-        id_generator::id value_;
-        id_generator* generator_;
+        id_generator::id value;
+        id_generator* generator;
     };
 
 }
