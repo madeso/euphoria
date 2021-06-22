@@ -49,7 +49,7 @@ namespace euphoria::core
     int
     c_u64_to_int(u64 u)
     {
-        ASSERTX(u > static_cast<u64>(std::numeric_limits<int>::max()), u);
+        ASSERTX(u < static_cast<u64>(std::numeric_limits<int>::max()), u);
         return static_cast<int>(u);
     }
 }
