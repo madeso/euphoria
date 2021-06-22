@@ -24,7 +24,7 @@ HEADER_START = 3
 HEADER_FILES = ['.h', '.hpp', '.hxx']
 SOURCE_FILES = ['.cc', '.cpp', '.cxx', '.inl']
 
-CLANG_TIDY_WARNING_CLASS = re.compile(r'\[(\w+(-\w+)+)\]')
+CLANG_TIDY_WARNING_CLASS = re.compile(r'\[(\w+([-,]\w+)+)\]')
 
 
 def file_exist(file: str) -> bool:
@@ -280,11 +280,12 @@ def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_p
                 warnings[printable_file] += 1
                 tidy_class = CLANG_TIDY_WARNING_CLASS.search(line)
                 if tidy_class is not None:
-                    warning_class = tidy_class.group(1)
-                    classes[warning_class] += 1
-                    hidden = len(only) > 0
-                    if warning_class in only:
-                        hidden = False
+                    warning_classes = tidy_class.group(1)
+                    for warning_class in warning_classes.split(','):
+                        classes[warning_class] += 1
+                        hidden = len(only) > 0
+                        if warning_class in only:
+                            hidden = False
             if line.strip() == '':
                 if not hidden and print_empty:
                     print()
