@@ -53,27 +53,28 @@ namespace euphoria::window::imgui
     enum knob_style
     {
         // interaction style
-        KS_UI_DRAG_X = 1 << 1,
-        KS_UI_DRAG_Y = 1 << 2,
-        KS_UI_AIM    = 1 << 3,
+        knob_style_ui_drag_x = 1 << 1,
+        knob_style_ui_drag_y = 1 << 2,
+        knob_style_ui_aim = 1 << 3,
 
         // purely visible stuff
-        KS_VIS_MARKERS_VISIBLE   = 1 << 5,
-        KS_VIS_MAXMIN_VISIBLE    = 1 << 6,
-        KS_VIS_OFF_MARKER_HIDDEN = 1 << 7,
-        KS_VIS_DRAW_BACKGROUND   = 1 << 8,
+        knob_style_vis_markers_visible = 1 << 5,
+        knob_style_vis_max_and_min_visible = 1 << 6,
+        knob_style_vis_off_marker_hidden = 1 << 7,
+        knob_style_vis_draw_background = 1 << 8,
 
-        KS_VIS_VALUE_AS_TOOLTIP             = 1 << 9,
-        KS_VIS_VALUE_INSTEAD_OF_CONTROLNAME = 1 << 10,
-        KS_VIS_DISPLAY_VALUE_ON_HOVER       = 1 << 11,
+        knob_style_vis_value_as_tooltip = 1 << 9,
+        knob_style_vis_value_instead_of_name = 1 << 10,
+        knob_style_vis_display_value_on_hover = 1 << 11,
 
-        KS_DEFAULT =
-              KS_UI_AIM
-            | KS_VIS_MAXMIN_VISIBLE
-            | KS_VIS_MARKERS_VISIBLE
-            | KS_VIS_OFF_MARKER_HIDDEN | KS_VIS_DRAW_BACKGROUND
-            | KS_VIS_DISPLAY_VALUE_ON_HOVER
-            | KS_VIS_VALUE_INSTEAD_OF_CONTROLNAME
+        knob_style_default =
+              knob_style_ui_aim
+            | knob_style_vis_max_and_min_visible
+            | knob_style_vis_markers_visible
+            | knob_style_vis_off_marker_hidden
+            | knob_style_vis_draw_background
+            | knob_style_vis_display_value_on_hover
+            | knob_style_vis_value_instead_of_name
     };
 
     bool
@@ -93,8 +94,8 @@ namespace euphoria::window::imgui
     (
         const char* const name,
         core::angle* angle,
-        const core::angle& mindeg,
-        const core::angle& maxdeg
+        const core::angle& min_deg,
+        const core::angle& max_deg
     );
 
     bool
@@ -137,7 +138,7 @@ namespace euphoria::window::imgui
         float* p_value,
         float v_min,
         float v_max,
-        knob_style style = KS_DEFAULT
+        knob_style style = knob_style_default
     );
 
     bool
@@ -146,7 +147,7 @@ namespace euphoria::window::imgui
     void
     canvas_end();
 
-    // wrappers over dear imgui functions to avoid exposting the whole dear imgui header
+    // wrappers over dear imgui functions to avoid exposing the whole dear imgui header
     bool
     begin_combo(const char* label, const char* preview);
 

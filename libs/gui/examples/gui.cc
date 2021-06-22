@@ -273,10 +273,10 @@ imgui_widget(const char* title, euphoria::render::drawable_font* font)
 {
     if(ImGui::TreeNode(title) == false) {return;}
 
-    imgui_widget("texture", font->texture_.get());
+    imgui_widget("texture", font->texture.get());
     imgui_widget("background", font->background.get());
 
-    for(auto& g: font->chars_)
+    for(auto& g: font->char_to_glyph)
     {
         imgui_widget(g.first, g.second.get());
     }

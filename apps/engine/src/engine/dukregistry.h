@@ -52,9 +52,9 @@ namespace euphoria::engine
         sol::table
         create_component
         (
-            core::ecs::component_id comp,
-            Sol* ctx,
-            const custom_arguments& arguments
+                core::ecs::component_id comp,
+                lua* ctx,
+                const custom_arguments& arguments
         );
 
         void

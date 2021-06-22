@@ -20,7 +20,7 @@ namespace euphoria::minsynth
         baroque,
         chorton,
         classical,
-        Max
+        max_value
     };
 
 
@@ -36,7 +36,7 @@ namespace euphoria::minsynth
         augmented7,
         augmented_major7,
         minor_major7,
-        Max
+        max_value
     };
 
 
@@ -60,7 +60,7 @@ namespace euphoria::minsynth
         up_down_exclusive,
         random,
         random_no_repeat,
-        MAX
+        max_value
     };
 
 
@@ -71,7 +71,7 @@ namespace euphoria::minsynth
         triangle,
         sawtooth,
         noise,
-        Max
+        max_value
     };
 
 

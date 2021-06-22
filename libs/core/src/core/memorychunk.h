@@ -26,9 +26,9 @@ namespace euphoria::core
         null();
 
     private:
-        explicit memory_chunk(int size);
-        std::unique_ptr<char[]> data_;
-        int size_;
+        explicit memory_chunk(int the_size);
+        std::unique_ptr<char[]> data;
+        int size;
     };
 
     void

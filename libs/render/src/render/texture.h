@@ -65,7 +65,7 @@ namespace euphoria::render
         get_id() const;
 
     private:
-        gluint id_;
+        gluint id;
     };
 
     void

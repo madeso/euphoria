@@ -11,29 +11,29 @@ namespace euphoria::core
     char*
     memory_chunk::get_data()
     {
-        return data_.get();
+        return data.get();
     }
 
     const char*
     memory_chunk::get_data() const
     {
-        return data_.get();
+        return data.get();
     }
 
     int
     memory_chunk::get_size() const
     {
-        return size_;
+        return size;
     }
 
     char memory_chunk::operator[](int index) const
     {
-        return data_[index];
+        return data[index];
     }
 
     char& memory_chunk::operator[](int index)
     {
-        return data_[index];
+        return data[index];
     }
 
     std::shared_ptr<memory_chunk>
@@ -50,10 +50,10 @@ namespace euphoria::core
         return ret;
     }
 
-    memory_chunk::memory_chunk(int size) : size_(size)
+    memory_chunk::memory_chunk(int the_size) : size(the_size)
     {
         ASSERT(size > 0);
-        data_ = std::make_unique<char[]>(size);
+        data = std::make_unique<char[]>(size);
     }
 
     void

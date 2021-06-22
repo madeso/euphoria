@@ -15,7 +15,7 @@ namespace euphoria::core
         using I = int;
 
         [[nodiscard]] static constexpr I
-        Ci(size_t t)
+        conv(size_t t)
         {
             return c_sizet_to_int(t);
         }
@@ -99,17 +99,17 @@ namespace euphoria::core
                 width = row.size();
                 height = 1;
             }
-            else if(width == Ci(row.size()))
+            else if(width == conv(row.size()))
             {
                 // the number of columns math the new new, just insert it
                 data.insert(data.end(), row.begin(), row.end());
                 height += 1;
             }
-            else if(width > Ci(row.size()))
+            else if(width > conv(row.size()))
             {
                 // new row has less columns than the table, solve by expanding the new row with empties
                 data.insert(data.end(), row.begin(), row.end());
-                for(auto i = Ci(row.size()); i < width; i += 1)
+                for(auto i = conv(row.size()); i < width; i += 1)
                 {
                     data.push_back(d);
                 }
@@ -118,7 +118,7 @@ namespace euphoria::core
             else
             {
                 // new row has more columns, solve by expanding table with empties
-                ASSERTX(width < Ci(row.size()), width, row.size());
+                ASSERTX(width < conv(row.size()), width, row.size());
                 expand_width(row.size(), d);
                 data.insert(data.end(), row.begin(), row.end());
                 height += 1;

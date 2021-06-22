@@ -14,7 +14,7 @@ namespace euphoria::window::imgui
     struct library
     {
     public:
-        library(SDL_Window* window, sdl_gl_context* context, const std::string& path);
+        library(SDL_Window* the_window, sdl_gl_context* context, const std::string& the_path);
         ~library();
 
         void
@@ -27,7 +27,7 @@ namespace euphoria::window::imgui
         render();
 
     private:
-        SDL_Window* window_;
-        std::string path_;
+        SDL_Window* sdl_window;
+        std::string path_to_imgui_ini;
     };
 }

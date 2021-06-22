@@ -5,5 +5,5 @@
 namespace euphoria::engine
 {
     void
-	add_print(Sol* duk);
+	add_print(lua* duk);
 }

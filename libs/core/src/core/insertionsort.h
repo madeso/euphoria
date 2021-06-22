@@ -7,18 +7,18 @@ namespace euphoria::core
 {
     template <typename T, typename SortFunc>
     void
-    insertion_sort(std::vector<T>* arr, SortFunc sort_func)
+    insertion_sort(std::vector<T>* pointer_to_array, SortFunc sort_func)
     {
-        auto& A = *arr;
-        const auto length = A.size();
+        auto& array = *pointer_to_array;
+        const auto length = array.size();
 
         size_t i = 1;
         while(i < length)
         {
             size_t j = i;
-            while(j > 0 && sort_func(A[j - 1], A[j]) > 0)
+            while(j > 0 && sort_func(array[j - 1], array[j]) > 0)
             {
-                std::swap(A[j], A[j - 1]);
+                std::swap(array[j], array[j - 1]);
                 j = j - 1;
             }
             i = i + 1;
@@ -27,9 +27,9 @@ namespace euphoria::core
 
     template <typename T, typename SortFunc>
     std::vector<T>
-    insertion_sort(const std::vector<T>& arr, SortFunc sort_func)
+    insertion_sort(const std::vector<T>& array, SortFunc sort_func)
     {
-        auto copy = arr;
+        auto copy = array;
         insertion_sort(&copy, sort_func);
         return copy;
     }
@@ -47,9 +47,9 @@ namespace euphoria::core
 
     template <typename T>
     std::vector<T>
-    insertion_sort(const std::vector<T>& arr)
+    insertion_sort(const std::vector<T>& array)
     {
-        return insertion_sort(arr, default_insertion_sort<T>);
+        return insertion_sort(array, default_insertion_sort<T>);
     }
 
 }

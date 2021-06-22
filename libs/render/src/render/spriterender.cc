@@ -51,19 +51,19 @@ namespace euphoria::render
 
 
     sprite_renderer::sprite_renderer(shader* shader)
-        : shader_(shader)
-        , color_(shader->get_uniform("color"))
-        , model_(shader->get_uniform("model"))
-        , texture_area_(shader->get_uniform("region"))
+        : sprite_shader(shader)
+        , color_uniform(shader->get_uniform("color"))
+        , model_uniform(shader->get_uniform("model"))
+        , region_uniform(shader->get_uniform("region"))
     {
-        shader_ = shader;
+        sprite_shader = shader;
         init_render_data();
     }
 
 
     sprite_renderer::~sprite_renderer()
     {
-        buffer_.reset();
+        single_quad_buffer.reset();
     }
 
 
@@ -78,7 +78,7 @@ namespace euphoria::render
         const core::rgba& tint_color
     )
     {
-        use(shader_);
+        use(sprite_shader);
 
         core::vec3f rotation_anchor_displacement
         {
@@ -111,13 +111,13 @@ namespace euphoria::render
             )
             ;
 
-        shader_->set_uniform(model_, model);
-        shader_->set_uniform(color_, tint_color);
-        shader_->set_uniform(texture_area_, texture_region);
+        sprite_shader->set_uniform(model_uniform, model);
+        sprite_shader->set_uniform(color_uniform, tint_color);
+        sprite_shader->set_uniform(region_uniform, texture_region);
 
         glActiveTexture(GL_TEXTURE0);
         use(&texture);
-        buffer_->draw();
+        single_quad_buffer->draw();
     }
 
 
@@ -165,7 +165,7 @@ namespace euphoria::render
 
         data.add_quad(a, b, c, d);
 
-        buffer_ = std::make_unique<buffer2d>(data);
+        single_quad_buffer = std::make_unique<buffer2d>(data);
     }
 }
 

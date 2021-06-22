@@ -41,11 +41,11 @@ namespace euphoria::render
         flush();
 
     private:
-        bool inside_;
-        int count_;
-        int rendercalls_;
-        std::vector<float> data_;
-        std::vector<int> index_;
+        bool is_inside;
+        int current_quad_count;
+        int number_of_render_calls;
+        std::vector<float> vertex_data;
+        std::vector<int> quad_indices;
     };
 
 }

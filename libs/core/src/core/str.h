@@ -30,12 +30,12 @@ namespace euphoria::core
         string_builder&
         operator<<(const Type& t)
         {
-            stream_ << t;
+            stream << t;
             return *this;
         }
 
     private:
-        std::ostringstream stream_;
+        std::ostringstream stream;
     };
 
 }

@@ -25,12 +25,12 @@ namespace euphoria::engine
     public:
         script_integration
         (
-            core::ecs::systems* systems,
-            core::ecs::world* reg,
-            Sol* duk,
-            object_creator* creator,
-            components* components,
-            camera_data* camera
+                core::ecs::systems* systems,
+                core::ecs::world* reg,
+                lua* duk,
+                object_creator* creator,
+                components* components,
+                camera_data* camera
         );
         ~script_integration();
 

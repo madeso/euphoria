@@ -5,5 +5,5 @@
 namespace euphoria::engine
 {
     void
-    bind_math(Sol* duk);
+    bind_math(lua* duk);
 }

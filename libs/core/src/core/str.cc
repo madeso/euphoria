@@ -11,7 +11,7 @@ namespace euphoria::core
     std::string
     string_builder::to_string() const
     {
-        return stream_.str();
+        return stream.str();
     }
 
 }

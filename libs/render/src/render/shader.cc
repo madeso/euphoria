@@ -74,19 +74,19 @@ namespace
 namespace euphoria::render
 {
     shader_id::shader_id()
-        : id_(glCreateProgram())
+        : id(glCreateProgram())
     {
     }
 
     shader_id::~shader_id()
     {
-        glDeleteProgram(id_);
+        glDeleteProgram(id);
     }
 
     GLuint
     shader_id::get_id() const
     {
-        return id_;
+        return id;
     }
 
     bool
@@ -164,7 +164,7 @@ namespace euphoria::render
     shader::pre_bind(const shader_attribute& attribute)
     {
         glBindAttribLocation(get_id(), attribute.id, attribute.name.c_str());
-        bound_attributes_.push_back(attribute);
+        bound_attributes.push_back(attribute);
     }
 
     bool
@@ -207,7 +207,7 @@ namespace euphoria::render
             glDeleteShader(geometry_shader_id);
         }
 
-        for(const auto& attribute: bound_attributes_)
+        for(const auto& attribute: bound_attributes)
         {
             const int actual_attribute_id = glGetAttribLocation(get_id(), attribute.name.c_str());
 
@@ -239,7 +239,7 @@ namespace euphoria::render
     {
         int uniform_id = glGetUniformLocation(get_id(), name.c_str());
         shader_uniform uniform(name, uniform_id, this);
-        bound_uniforms_.push_back(uniform);
+        bound_uniforms.push_back(uniform);
 
         if(uniform.id == -1)
         {
@@ -247,7 +247,7 @@ namespace euphoria::render
             (
                 "Failed to load uniform {0} from shader {1}",
                 uniform.name,
-                shader_name_
+                shader_name
             );
         }
 
@@ -356,14 +356,14 @@ namespace euphoria::render
     }
 
     shader::shader()
-        : shader_name_("~/not_loaded_shader")
+        : shader_name("~/not_loaded_shader")
     {
     }
 
     bool
     shader::load(core::vfs::file_system* fs, const core::vfs::file_path& file_path)
     {
-        shader_name_ = file_path;
+        shader_name = file_path;
 
         const auto load_path = [](core::vfs::file_system* fs, const core::vfs::file_path& path) -> std::string
         {
@@ -416,13 +416,13 @@ namespace euphoria::render
     const std::vector<shader_attribute>&
     shader::get_attributes() const
     {
-        return bound_attributes_;
+        return bound_attributes;
     }
 
     const core::vfs::file_path&
     shader::get_name() const
     {
-        return shader_name_;
+        return shader_name;
     }
 
     bool
@@ -430,18 +430,18 @@ namespace euphoria::render
     {
         const auto found = std::find
         (
-            bound_attributes_.begin(),
-            bound_attributes_.end(),
+            bound_attributes.begin(),
+            bound_attributes.end(),
             attribute
         );
-        return found != bound_attributes_.end();
+        return found != bound_attributes.end();
     }
 
     bool
     shader::has_bound_uniform(const shader_uniform& uniform) const
     {
-        const auto found = std::find(bound_uniforms_.begin(), bound_uniforms_.end(), uniform);
-        return found != bound_uniforms_.end();
+        const auto found = std::find(bound_uniforms.begin(), bound_uniforms.end(), uniform);
+        return found != bound_uniforms.end();
     }
 
     void

@@ -200,7 +200,7 @@ namespace euphoria::core
         for(int c = 0; c < table.get_width(); c += 1)
         {
             const auto rows = split(table(c, row), '\n');
-            for(string_table::I i = 0; i < string_table::Ci(rows.size()); i += 1)
+            for(string_table::I i = 0; i < string_table::conv(rows.size()); i += 1)
             {
                 ret(c, i) = rows[i];
             }

@@ -264,11 +264,11 @@ namespace euphoria::render
 
         // load pixels into texture
         private_use_aliases = fontchars.private_use_aliases;
-        kerning_ = fontchars.kerning;
-        chars_ = map;
+        kernings = fontchars.kerning;
+        char_to_glyph = map;
         texture2d_load_data load_data;
-        texture_ = std::make_unique<texture2d>();
-        texture_->load_from_image
+        texture = std::make_unique<texture2d>();
+        texture->load_from_image
         (
                 image,
                 core::alpha_load::keep, texture2d_load_data()
@@ -433,8 +433,8 @@ namespace euphoria::render
             }
             else
             {
-                auto it = font.chars_.find(code_point);
-                if(it == font.chars_.end())
+                auto it = font.char_to_glyph.find(code_point);
+                if(it == font.char_to_glyph.end())
                 {
                     LOG_ERROR("Failed to print '{0}'", code_point);
                     return;
@@ -443,13 +443,13 @@ namespace euphoria::render
 
                 list->add
                 (
-                    font.texture_.get(),
+                    font.texture.get(),
                     ch->sprite_rect.scale_copy(size, size).offset_copy(position),
                     ch->texture_rect,
                     apply_highlight
                 );
 
-                const auto kerning = font.kerning_.find
+                const auto kerning = font.kernings.find
                 (
                     std::make_pair
                     (
@@ -457,7 +457,7 @@ namespace euphoria::render
                         code_point
                     )
                 );
-                const float the_kerning = kerning == font.kerning_.end()
+                const float the_kerning = kerning == font.kernings.end()
                     ? 0.0f
                     : kerning->second
                     ;
@@ -492,13 +492,13 @@ namespace euphoria::render
     }
 
 
-    drawable_text::drawable_text(drawable_font* font)
-        : font_(font)
-        , size_(12.0f)
-        , alignment_(align::baseline_left)
-        , use_background_(false)
-        , background_alpha_(0.0f)
-        , dirty(true)
+    drawable_text::drawable_text(drawable_font* the_font)
+        : font(the_font)
+        , size(12.0f)
+        , alignment(align::baseline_left)
+        , use_background(false)
+        , background_alpha(0.0f)
+        , is_dirty(true)
     {
     }
 
@@ -507,35 +507,35 @@ namespace euphoria::render
 
 
     void
-    drawable_text::set_text(const core::ui_text& text)
+    drawable_text::set_text(const core::ui_text& new_text)
     {
-        text_ = text;
-        dirty = true;
+        text = new_text;
+        is_dirty = true;
     }
 
 
     void
-    drawable_text::set_background(bool use_background, float alpha)
+    drawable_text::set_background(bool new_use_background, float new_alpha)
     {
-        use_background_ = use_background;
-        background_alpha_ = alpha;
+        use_background = new_use_background;
+        background_alpha = new_alpha;
     }
 
 
     void
-    drawable_text::set_alignment(align alignment)
+    drawable_text::set_alignment(align new_alignment)
     {
-        alignment_ = alignment;
+        alignment = new_alignment;
     }
 
 
     void
     drawable_text::set_size(float new_size)
     {
-        if(size_ != new_size)
+        if(size != new_size)
         {
-            size_ = new_size;
-            dirty = true;
+            size = new_size;
+            is_dirty = true;
         }
     }
 
@@ -587,20 +587,20 @@ namespace euphoria::render
     ) const
     {
         compile();
-        ASSERT(!dirty);
+        ASSERT(!is_dirty);
 
-        if(font_ == nullptr)
+        if(font == nullptr)
         {
             return;
         }
         const auto e = get_extents();
-        const auto off = get_offset(alignment_, e);
-        if(use_background_)
+        const auto off = get_offset(alignment, e);
+        if(use_background)
         {
-            font_->draw_background
+            font->draw_background
             (
                 renderer,
-                background_alpha_,
+                background_alpha,
                 e.extend_copy(5.0f).offset_copy(p + off)
             );
         }
@@ -612,10 +612,10 @@ namespace euphoria::render
     void
     drawable_text::compile() const
     {
-        if(dirty)
+        if(is_dirty)
         {
-            dirty = false;
-            commands = font_->compile_list(text_, size_);
+            is_dirty = false;
+            commands = font->compile_list(text, size);
         }
     }
 
@@ -624,7 +624,7 @@ namespace euphoria::render
     drawable_text::get_extents() const
     {
         compile();
-        ASSERT(!dirty);
+        ASSERT(!is_dirty);
         return commands.get_extents();
     }
 }

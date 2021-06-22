@@ -623,12 +623,12 @@ namespace euphoria::core
     template <typename T>
     vec4<T> operator*(const mat4<T>& lhs, const vec4<T> rhs)
     {
-        const auto OP = [&lhs, &rhs](int r) -> T
+        const auto op = [&lhs, &rhs](int r) -> T
         {
             return component_multiply(lhs.get_row(r), rhs).get_component_sum();
         };
 
-        return vec4<T>(OP(0), OP(1), OP(2), OP(3));
+        return vec4<T>(op(0), op(1), op(2), op(3));
     }
 
     using mat4f = mat4<float>;

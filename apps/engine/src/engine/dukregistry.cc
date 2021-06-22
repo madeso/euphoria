@@ -110,9 +110,9 @@ namespace euphoria::engine
     sol::table
     script_registry::create_component
     (
-        core::ecs::component_id comp,
-        Sol* ctx,
-        const custom_arguments& arguments
+            core::ecs::component_id comp,
+            lua* ctx,
+            const custom_arguments& arguments
     )
     {
         const auto name = reg->get_component_name(comp);
@@ -122,7 +122,7 @@ namespace euphoria::engine
         {
             // no custom function, use use a empty table...?
             // or perhaps use null?
-            return sol::table{ctx->lua, sol::create};
+            return sol::table{ctx->state, sol::create};
         }
 
         auto val = res->second(arguments);
@@ -141,7 +141,7 @@ namespace euphoria::engine
                 ctx->has_error = true;
                 ctx->error = message;
             }
-            return sol::table{ctx->lua, sol::create};
+            return sol::table{ctx->state, sol::create};
         }
     }
 

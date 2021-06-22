@@ -95,7 +95,7 @@ private:
 };
 
 run_result
-run_main_script_file(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
+run_main_script_file(lua* duk, vfs::file_system* fs, const vfs::file_path& path)
 {
     std::string content;
     const bool loaded = fs->read_file_to_string(path, &content);
@@ -106,7 +106,7 @@ run_main_script_file(Sol* duk, vfs::file_system* fs, const vfs::file_path& path)
         LOG_ERROR("{0}", error_message);
         return run_result::create_error(error_message);
     }
-    const auto eval = duk->lua.script
+    const auto eval = duk->state.script
     (
         content,
         [](lua_State*, sol::protected_function_result pfr) { return pfr; }
@@ -229,7 +229,7 @@ main(int argc, char* argv[])
     sprite_renderer renderer(&shader);
     font_cache font_cache {engine.file_system.get(), &cache};
 
-    Sol duk;
+    lua duk;
 
     // todo(Gustav): replace with duk reference
     std::string& crash_message_string = duk.error;
@@ -242,8 +242,8 @@ main(int argc, char* argv[])
         LOG_ERROR("{0}", crash_message_string);
     };
 
-    duk.lua.set_exception_handler(&custom_lua_exception_handler);
-    duk.lua.open_libraries(sol::lib::base, sol::lib::package);
+    duk.state.set_exception_handler(&custom_lua_exception_handler);
+    duk.state.open_libraries(sol::lib::base, sol::lib::package);
     add_print(&duk);
     bind_math(&duk);
     input_system::bind(&duk);

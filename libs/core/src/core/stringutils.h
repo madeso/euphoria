@@ -24,7 +24,7 @@ namespace euphoria::core
     /** Space characters.
     @returns the space characters.
     */
-    const std::string kSpaceCharacters = " \n\r\t";
+    const std::string space_characters = " \n\r\t";
 
 
     // for a hello.dog and . gets hello
@@ -49,7 +49,7 @@ namespace euphoria::core
     @returns the trimmed string.
     */
     std::string
-    trim_right(const std::string& string_to_trim, const std::string& trim_characters = kSpaceCharacters);
+    trim_right(const std::string& string_to_trim, const std::string& trim_characters = space_characters);
 
 
     /** Remove characters from the left, stops at invalid character.
@@ -58,7 +58,7 @@ namespace euphoria::core
     @returns the trimmed string.
     */
     std::string
-    trim_left(const std::string& string_to_trim, const std::string& trim_characters = kSpaceCharacters);
+    trim_left(const std::string& string_to_trim, const std::string& trim_characters = space_characters);
 
 
     /** Remove characters from both the start and the end.
@@ -67,7 +67,7 @@ namespace euphoria::core
     @returns the trimmed string.
     */
     std::string
-    trim(const std::string& string_to_trim, const std::string& trim_characters = kSpaceCharacters);
+    trim(const std::string& string_to_trim, const std::string& trim_characters = space_characters);
 
 
     /** Tests if a string starts with another string.

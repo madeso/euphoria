@@ -24,8 +24,8 @@ namespace euphoria::tests
     (
         const std::vector<T>& lhs,
         const std::vector<T>& rhs,
-        TToString ToString,
-        TCompare Compare
+        TToString to_string_functor,
+        TCompare compare_functor
     )
     {
         auto size_equal = false_string::create_true();
@@ -36,14 +36,14 @@ namespace euphoria::tests
                 << lhs.size()
                 << " vs "
                 << rhs.size();
-            ss << vector_to_string(lhs, ToString) << " " << vector_to_string(rhs, ToString);
+            ss << vector_to_string(lhs, to_string_functor) << " " << vector_to_string(rhs, to_string_functor);
             size_equal = false_string::create_false(ss.str());
         }
 
         const auto size = std::min(lhs.size(), rhs.size());
         for(size_t i =0; i < size; i+=1)
         {
-            const false_string equals = Compare(lhs[i], rhs[i]);
+            const false_string equals = compare_functor(lhs[i], rhs[i]);
             if(!equals)
             {
                 std::ostringstream ss;
@@ -54,11 +54,11 @@ namespace euphoria::tests
                 }
                 else
                 {
-                    const auto alhs = vector_to_string_ex(lhs, ToString);
-                    const auto arhs = vector_to_string_ex(rhs, ToString);
+                    const auto alhs = vector_to_string_ex(lhs, to_string_functor);
+                    const auto arhs = vector_to_string_ex(rhs, to_string_functor);
                     const auto same = alhs.second == arhs.second;
-                    const auto lhsstr = same || alhs.second==false? alhs.first : vector_to_string_impl(lhs, false, ToString);
-                    const auto rhsstr = same || arhs.second==false? arhs.first : vector_to_string_impl(rhs, false, ToString);
+                    const auto lhsstr = same || alhs.second==false? alhs.first : vector_to_string_impl(lhs, false, to_string_functor);
+                    const auto rhsstr = same || arhs.second==false? arhs.first : vector_to_string_impl(rhs, false, to_string_functor);
                     const auto oneliner = same && alhs.second == true;
                     const auto vs = oneliner ? " vs " : "vs";
                     if(oneliner == false) ss << "  ";

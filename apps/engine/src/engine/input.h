@@ -33,7 +33,7 @@ namespace euphoria::engine
     {
     public:
         static void
-        bind(Sol* duk);
+        bind(lua* duk);
 
         void
         add(std::shared_ptr<bound_var> bind);

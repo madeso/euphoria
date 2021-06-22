@@ -21,7 +21,7 @@ namespace euphoria::engine
             script_registry* reg,
             const core::vfs::file_path& path,
             object_creator* creator,
-            Sol* ctx
+            lua* ctx
     )
     {
         world::World json;

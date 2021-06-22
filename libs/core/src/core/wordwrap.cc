@@ -16,39 +16,39 @@ namespace
     bool
     is_whitespace(char c)
     {
-        return kSpaceCharacters.find(c) != std::string::npos;
+        return space_characters.find(c) != std::string::npos;
     }
 
-    const std::string splitChars = kSpaceCharacters;
+    const std::string split_chars = space_characters;
 
     std::vector<std::string>
     explode(const std::string& str)
     {
         std::vector<std::string> parts;
-        int startIndex = 0;
+        int start_index = 0;
         while (true)
         {
-            int index = str.find_first_of(splitChars, startIndex);
+            int index = str.find_first_of(split_chars, start_index);
 
             if (index == -1)
             {
-                parts.emplace_back(str.substr(startIndex));
+                parts.emplace_back(str.substr(start_index));
                 return parts;
             }
 
-            auto word = str.substr(startIndex, index - startIndex);
-            char nextChar = str.substr(index, 1)[0];
-            if (is_whitespace(nextChar))
+            auto word = str.substr(start_index, index - start_index);
+            char next_char = str.substr(index, 1)[0];
+            if (is_whitespace(next_char))
             {
                 parts.emplace_back(word);
-                parts.emplace_back(std::string(1, nextChar));
+                parts.emplace_back(std::string(1, next_char));
             }
             else
             {
-                parts.emplace_back(word + nextChar);
+                parts.emplace_back(word + next_char);
             }
 
-            startIndex = index + 1;
+            start_index = index + 1;
         }
     }
 

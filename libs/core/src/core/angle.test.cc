@@ -5,7 +5,7 @@
 #include "tests/approx.h"
 
 // todo(Gustav): don't use horrible define to use out custom Approx
-#define APPROX ::euphoria::tests::custom::Approx<float>
+#define APPROX ::euphoria::tests::custom::approx<float>
 
 using namespace euphoria::convert;
 using namespace euphoria::tests;

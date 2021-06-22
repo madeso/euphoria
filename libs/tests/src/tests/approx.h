@@ -37,96 +37,96 @@ namespace euphoria::tests
     namespace custom
     {
         template <typename T>
-        struct Approx
+        struct approx
         {
         public:
-            explicit Approx(T value)
-                : m_epsilon(std::numeric_limits<float>::epsilon() * 100)
-                , m_margin(0.0)
-                , m_scale(1.0)
-                , m_value(value)
+            explicit approx(T value)
+                : epsilon(std::numeric_limits<float>::epsilon() * 100)
+                , margin(0.0)
+                , scale(1.0)
+                , value(value)
             {}
 
             friend bool
-            operator==(T lhs, Approx<T> const& rhs)
+            operator==(T lhs, approx<T> const& rhs)
             {
                 approx_data data;
-                data.epsilon = rhs.m_epsilon;
-                data.scale = rhs.m_scale;
-                data.margin = rhs.m_margin;
-                return approximately_equal(lhs, rhs.m_value, data);
+                data.epsilon = rhs.epsilon;
+                data.scale = rhs.scale;
+                data.margin = rhs.margin;
+                return approximately_equal(lhs, rhs.value, data);
             }
 
             friend bool
-            operator==(Approx<T> const& lhs, T rhs)
+            operator==(approx<T> const& lhs, T rhs)
             {
                 return operator==(rhs, lhs);
             }
 
             friend bool
-            operator!=(T lhs, Approx<T> const& rhs)
+            operator!=(T lhs, approx<T> const& rhs)
             {
                 return !operator==(lhs, rhs);
             }
 
             friend bool
-            operator!=(Approx<T> const& lhs, T rhs)
+            operator!=(approx<T> const& lhs, T rhs)
             {
                 return !operator==(rhs, lhs);
             }
 
-            Approx&
-            epsilon(float newEpsilon)
+            approx&
+            set_epsilon(float new_epsilon)
             {
-                m_epsilon = newEpsilon;
+                epsilon = new_epsilon;
                 return *this;
             }
 
-            Approx&
-            margin(float newMargin)
+            approx&
+            set_margin(float new_margin)
             {
-                m_margin = newMargin;
+                margin = new_margin;
                 return *this;
             }
 
-            Approx&
-            scale(float newScale)
+            approx&
+            set_scale(float new_scale)
             {
-                m_scale = newScale;
+                scale = new_scale;
                 return *this;
             }
 
             std::string
-            toString() const
+            to_string() const
             {
                 Catch::ReusableStringStream rss;
-                rss << "Approx( " << ::Catch::Detail::stringify(m_value)
+                rss << "Approx( " << ::Catch::Detail::stringify(value)
                     << " )";
                 return rss.str();
             }
 
         private:
-            float m_epsilon;
-            float m_margin;
-            float m_scale;
-            T m_value;
+            float epsilon;
+            float margin;
+            float scale;
+            T value;
         };
     }
 
     template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const custom::Approx<T>& v)
+    operator<<(std::ostream& stream, const custom::approx<T>& v)
     {
-        return stream << v.toString();
+        return stream << v.to_string();
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
 
     template <typename T>
-    custom::Approx<T>
+    custom::approx<T>
     approx(T const& t)
     {
-        return custom::Approx<T>(t);
+        return custom::approx<T>(t);
     }
 }

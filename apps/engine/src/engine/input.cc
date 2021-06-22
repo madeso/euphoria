@@ -12,9 +12,9 @@ namespace euphoria::engine
     }
 
     void
-    bind_bound_var(Sol* duk)
+    bind_bound_var(lua* duk)
     {
-        duk->lua.new_usertype<bound_var>
+        duk->state.new_usertype<bound_var>
         (
             "bound_var",
             "state",
@@ -32,7 +32,7 @@ namespace euphoria::engine
 
 
     void
-    input_system::bind(Sol* duk)
+    input_system::bind(lua* duk)
     {
         bind_bound_var(duk);
     }

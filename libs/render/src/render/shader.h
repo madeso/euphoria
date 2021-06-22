@@ -43,7 +43,7 @@ namespace euphoria::render
         get_id() const;
 
     private:
-        gluint id_;
+        gluint id;
     };
 
 
@@ -117,9 +117,9 @@ namespace euphoria::render
         [[nodiscard]] bool
         has_bound_uniform(const shader_uniform& uniform) const;
 
-        std::vector<shader_attribute> bound_attributes_;
-        std::vector<shader_uniform> bound_uniforms_;
-        core::vfs::file_path shader_name_;
+        std::vector<shader_attribute> bound_attributes;
+        std::vector<shader_uniform> bound_uniforms;
+        core::vfs::file_path shader_name;
     };
 
     void

@@ -9,10 +9,10 @@ namespace euphoria::core
     // https://en.wikipedia.org/wiki/Quicksort
     template <typename T, typename SortFunc>
     int
-    get_hoare_partition(SortFunc sort_func, std::vector<T>& A, int lo, int hi)
+    get_hoare_partition(SortFunc sort_func, std::vector<T>& array, int lo, int hi)
     {
         const auto pivot_index = lo + (hi - lo) / 2;
-        const auto pivot = A[pivot_index];
+        const auto pivot = array[pivot_index];
         auto i = lo - 1;
         auto j = hi + 1;
         while(true)
@@ -20,38 +20,38 @@ namespace euphoria::core
             do
             {
                 i += 1;
-            } while(sort_func(A[i], pivot) < 0);
+            } while(sort_func(array[i], pivot) < 0);
             do
             {
                 j -= 1;
-            } while(sort_func(A[j], pivot) > 0);
+            } while(sort_func(array[j], pivot) > 0);
 
             if(i >= j)
             {
                 return j;
             }
-            std::swap(A[i], A[j]);
+            std::swap(array[i], array[j]);
         }
     }
 
 
     template <typename T, typename SortFunc>
     void
-    quicksort_implementation(SortFunc sort_func, std::vector<T>& A, int lo, int hi)
+    quicksort_implementation(SortFunc sort_func, std::vector<T>& array, int lo, int hi)
     {
         if(lo < hi)
         {
-            const auto p = get_hoare_partition(sort_func, A, lo, hi);
-            quicksort_implementation(sort_func, A, lo, p);
-            quicksort_implementation(sort_func, A, p + 1, hi);
+            const auto p = get_hoare_partition(sort_func, array, lo, hi);
+            quicksort_implementation(sort_func, array, lo, p);
+            quicksort_implementation(sort_func, array, p + 1, hi);
         }
     }
 
     template <typename T, typename SortFunc>
     void
-    quicksort(std::vector<T>* arr, SortFunc sort_func)
+    quicksort(std::vector<T>* array, SortFunc sort_func)
     {
-        quicksort_implementation<T, SortFunc>(sort_func, *arr, 0, arr->size() - 1);
+        quicksort_implementation<T, SortFunc>(sort_func, *array, 0, array->size() - 1);
     }
 
     template <typename T, typename SortFunc>

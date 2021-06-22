@@ -32,15 +32,15 @@ namespace euphoria::engine
     {
         core::ecs::world* world;
         script_registry* reg;
-        Sol* ctx;
-        Sol* duk;
+        lua* ctx;
+        lua* duk;
 
         object_creation_arguments
         (
-            core::ecs::world* aworld,
-            script_registry* areg,
-            Sol* actx,
-            Sol* aduk
+                core::ecs::world* aworld,
+                script_registry* areg,
+                lua* actx,
+                lua* aduk
         );
 };
 

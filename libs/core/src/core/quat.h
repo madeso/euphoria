@@ -240,16 +240,16 @@ namespace euphoria::core
             // from:
             // http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/
             // Calculate angle between them.
-            const float cosHalfTheta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
+            const float cos_half_theta = qa.w * qb.w + qa.x * qb.x + qa.y * qb.y + qa.z * qb.z;
             // if qa=qb or qa=-qb then theta = 0 and we can return qa
-            if(abs(cosHalfTheta) >= 1.0f)
+            if(abs(cos_half_theta) >= 1.0f)
             {
                 return qa;
             }
             // Calculate temporary values.
-            const auto halfTheta = acos(cosHalfTheta);
-            const auto sinHalfTheta = sqrt(1.0f - cosHalfTheta * cosHalfTheta);
-            if(abs(sinHalfTheta) < 0.001f)
+            const auto half_theta = acos(cos_half_theta);
+            const auto sin_half_theta = sqrt(1.0f - cos_half_theta * cos_half_theta);
+            if(abs(sin_half_theta) < 0.001f)
             {
                 // if theta = 180 degrees then result is not fully defined
                 // we could rotate around any axis normal to qa or qb
@@ -265,9 +265,9 @@ namespace euphoria::core
                     }
                 };
             }
-            const float ratioA = sin((1 - t) * halfTheta) / sinHalfTheta;
-            const float ratioB = sin(t * halfTheta) / sinHalfTheta;
-            return qa * ratioA + qb * ratioB;
+            const float ratio_a = sin((1 - t) * half_theta) / sin_half_theta;
+            const float ratio_b = sin(t * half_theta) / sin_half_theta;
+            return qa * ratio_a + qb * ratio_b;
         }
 
 
@@ -362,10 +362,12 @@ namespace euphoria::core
             return identity();
         }
 
-        const auto rotAngle = acos(dot_value);
-        const auto rotAxis = cross(in, dir).get_normalized();
-        return self::from_axis_angle(
-            axis_angle::right_hand_around(rotAxis, rotAngle));
+        const auto rot_angle = acos(dot_value);
+        const auto rot_axis = cross(in, dir).get_normalized();
+        return self::from_axis_angle
+        (
+            axis_angle::right_hand_around(rot_axis, rot_angle)
+        );
     }
 
 

@@ -374,7 +374,7 @@ namespace euphoria::window::imgui
         // changing value
         bool value_changed = false;
 
-        if(style & KS_UI_AIM)
+        if(style & knob_style_ui_aim)
         {
             ImVec2 direct(io.MousePos.x - center.x, io.MousePos.y - center.y);
             const float directl = sqrtf(direct.x * direct.x + direct.y * direct.y);
@@ -407,7 +407,7 @@ namespace euphoria::window::imgui
         }
         else
         {
-            const auto val = style & KS_UI_DRAG_X ? io.MouseDelta.x : io.MouseDelta.y;
+            const auto val = style & knob_style_ui_drag_x ? io.MouseDelta.x : io.MouseDelta.y;
             if(is_active && val != 0.0f)
             {
                 float step = (v_max - v_min) / 200.0f;
@@ -438,18 +438,18 @@ namespace euphoria::window::imgui
 
         // ----------------- visualization
         // background
-        if(style & KS_VIS_DRAW_BACKGROUND)
+        if(style & knob_style_vis_draw_background)
         {
             draw_list->AddCircleFilled(center, size_outer, fill_color, seg);
         }
 
         // peg indicators
-        if(style & KS_VIS_MARKERS_VISIBLE)
+        if(style & knob_style_vis_markers_visible)
         {
-            const auto marker_stop = (style & KS_VIS_OFF_MARKER_HIDDEN) ? angle : angle_max;
+            const auto marker_stop = (style & knob_style_vis_off_marker_hidden) ? angle : angle_max;
             for(float a = angle_min; a <= marker_stop; a += angle_step)
             {
-                const auto c = style & KS_VIS_OFF_MARKER_HIDDEN
+                const auto c = style & knob_style_vis_off_marker_hidden
                       ? peg_color_off
                       : a <= angle ? peg_color_on : peg_color_off
                       ;
@@ -457,7 +457,7 @@ namespace euphoria::window::imgui
             }
         }
 
-        if(style & KS_VIS_MAXMIN_VISIBLE)
+        if(style & knob_style_vis_max_and_min_visible)
         {
             draw_list->AddLine(calculate_position(angle_max, peg_start), calculate_position(angle_max, peg_max_end), peg_color_max, 1.0f);
             draw_list->AddLine(calculate_position(angle_min, peg_start), calculate_position(angle_min, peg_max_end), peg_color_max, 1.0f);
@@ -467,7 +467,7 @@ namespace euphoria::window::imgui
         add_circle_filled(draw_list, center, knob_size, knob_color, 6, angle);
         draw_list->AddLine(calculate_position(angle, knob_mark_start), calculate_position(angle, knob_mark_end), indicator_color, 2.0f);
 
-        const bool display_value = style & KS_VIS_DISPLAY_VALUE_ON_HOVER
+        const bool display_value = style & knob_style_vis_display_value_on_hover
             ? is_active || is_hovered
             : is_active
             ;
@@ -482,7 +482,7 @@ namespace euphoria::window::imgui
             return ss.str();
         };
 
-        if(style & KS_VIS_VALUE_INSTEAD_OF_CONTROLNAME && display_value)
+        if(style & knob_style_vis_value_instead_of_name && display_value)
         {
             const auto v = value_to_str(*p_value);
             draw_list->AddText(label_position, label_color, v.c_str());
@@ -493,7 +493,7 @@ namespace euphoria::window::imgui
         }
 
         // tooltip
-        if(style & KS_VIS_VALUE_AS_TOOLTIP && display_value)
+        if(style & knob_style_vis_value_as_tooltip && display_value)
         {
             ImGui::SetNextWindowPos
             (

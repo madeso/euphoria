@@ -102,22 +102,22 @@ namespace euphoria::render
     }
 
 
-    texture_id::texture_id() : id_(0)
+    texture_id::texture_id() : id(0)
     {
-        glGenTextures(1, &id_);
+        glGenTextures(1, &id);
     }
 
 
     texture_id::~texture_id()
     {
-        glDeleteTextures(1, &id_);
+        glDeleteTextures(1, &id);
     }
 
 
     GLuint
     texture_id::get_id() const
     {
-        return id_;
+        return id;
     }
 
 

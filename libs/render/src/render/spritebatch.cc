@@ -11,10 +11,10 @@ namespace euphoria::render
     constexpr int stride = 2 * 4 + 2 * 4 + 4 * 4;
 
 
-    sprite_batch::sprite_batch() : inside_(false), count_(0), rendercalls_(0)
+    sprite_batch::sprite_batch() : is_inside(false), current_quad_count(0), number_of_render_calls(0)
     {
-        data_.reserve(core::c_int_to_sizet(stride * quad_cont));
-        index_.reserve(core::c_int_to_sizet(6 * quad_cont));
+        vertex_data.reserve(core::c_int_to_sizet(stride * quad_cont));
+        quad_indices.reserve(core::c_int_to_sizet(6 * quad_cont));
     }
 
 
@@ -24,8 +24,8 @@ namespace euphoria::render
     void
     sprite_batch::begin()
     {
-        ASSERT(!inside_ && "Already open, missing call to end.");
-        rendercalls_ = 0;
+        ASSERT(!is_inside && "Already open, missing call to end.");
+        number_of_render_calls = 0;
     }
 
 
@@ -40,9 +40,9 @@ namespace euphoria::render
         const core::rgba& color
     )
     {
-        ASSERT(inside_ && "batch need to be open");
+        ASSERT(is_inside && "batch need to be open");
 
-        if((count_ + 1) >= quad_cont)
+        if((current_quad_count + 1) >= quad_cont)
         {
             flush();
         }
@@ -60,72 +60,72 @@ namespace euphoria::render
         const auto lower_left = core::vec2f(left, bottom);
         const auto lower_right = core::vec2f(right, bottom);
 
-        data_.push_back(upper_left.x);
-        data_.push_back(upper_left.y);
+        vertex_data.push_back(upper_left.x);
+        vertex_data.push_back(upper_left.y);
 
-        data_.push_back(upper_right.x);
-        data_.push_back(upper_right.y);
+        vertex_data.push_back(upper_right.x);
+        vertex_data.push_back(upper_right.y);
 
-        data_.push_back(lower_right.x);
-        data_.push_back(lower_right.y);
+        vertex_data.push_back(lower_right.x);
+        vertex_data.push_back(lower_right.y);
 
-        data_.push_back(lower_left.x);
-        data_.push_back(lower_left.y);
+        vertex_data.push_back(lower_left.x);
+        vertex_data.push_back(lower_left.y);
 
         // add uv coordinate
-        data_.push_back(uv.left);
-        data_.push_back(uv.top);
-        data_.push_back(uv.right);
-        data_.push_back(uv.top);
-        data_.push_back(uv.right);
-        data_.push_back(uv.bottom);
-        data_.push_back(uv.left);
-        data_.push_back(uv.bottom);
+        vertex_data.push_back(uv.left);
+        vertex_data.push_back(uv.top);
+        vertex_data.push_back(uv.right);
+        vertex_data.push_back(uv.top);
+        vertex_data.push_back(uv.right);
+        vertex_data.push_back(uv.bottom);
+        vertex_data.push_back(uv.left);
+        vertex_data.push_back(uv.bottom);
 
         // add color
         for(int i = 0; i < 4; ++i)
         {
-            data_.push_back(color.r);
-            data_.push_back(color.g);
-            data_.push_back(color.b);
-            data_.push_back(color.a);
+            vertex_data.push_back(color.r);
+            vertex_data.push_back(color.g);
+            vertex_data.push_back(color.b);
+            vertex_data.push_back(color.a);
         }
 
         // add index
-        int start = count_ * 4;
+        int start = current_quad_count * 4;
 
-        index_.push_back(start + 0);
-        index_.push_back(start + 1);
-        index_.push_back(start + 2);
+        quad_indices.push_back(start + 0);
+        quad_indices.push_back(start + 1);
+        quad_indices.push_back(start + 2);
 
-        index_.push_back(start + 0);
-        index_.push_back(start + 2);
-        index_.push_back(start + 3);
+        quad_indices.push_back(start + 0);
+        quad_indices.push_back(start + 2);
+        quad_indices.push_back(start + 3);
 
-        count_ += 1;
+        current_quad_count += 1;
     }
 
 
     void
     sprite_batch::end()
     {
-        ASSERT(inside_ && "not open, missing begin.");
+        ASSERT(is_inside && "not open, missing begin.");
         flush();
-        inside_ = false;
+        is_inside = false;
     }
 
 
     void
     sprite_batch::flush()
     {
-        if(count_ == 0)
+        if(current_quad_count == 0)
         {
             return;
         }
         // todo(Gustav): build vbo & render vbo
         // remove all items
-        count_ = 0;
-        data_.resize(0);
-        rendercalls_ += 1;
+        current_quad_count = 0;
+        vertex_data.resize(0);
+        number_of_render_calls += 1;
     }
 }

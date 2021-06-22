@@ -18,10 +18,10 @@ namespace euphoria::engine
 
     object_creation_arguments::object_creation_arguments
     (
-        core::ecs::world* aworld,
-        script_registry* areg,
-        Sol* actx,
-        Sol* aduk
+            core::ecs::world* aworld,
+            script_registry* areg,
+            lua* actx,
+            lua* aduk
     )
         : world(aworld)
         , reg(areg)

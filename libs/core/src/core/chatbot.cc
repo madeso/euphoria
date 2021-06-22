@@ -29,7 +29,7 @@ namespace euphoria::core::detail
                 remove_consecutive
                 (
                     trim(replace_with_character(input, punctuation, ' ')),
-                    kSpaceCharacters
+                    space_characters
                 )
             ),
             ' '

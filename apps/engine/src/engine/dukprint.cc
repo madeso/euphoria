@@ -10,9 +10,9 @@
 namespace euphoria::engine
 {
     void
-	add_print(Sol* sol)
+	add_print(lua* sol)
     {
-        sol->lua.set_function
+        sol->state.set_function
         (
             "print",
             [](const std::string& str)

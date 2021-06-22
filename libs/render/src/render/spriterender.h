@@ -73,11 +73,11 @@ namespace euphoria::render
         );
 
     private:
-        shader* shader_;
-        shader_uniform color_;
-        shader_uniform model_;
-        shader_uniform texture_area_;
-        std::unique_ptr<buffer2d> buffer_;
+        shader* sprite_shader;
+        shader_uniform color_uniform;
+        shader_uniform model_uniform;
+        shader_uniform region_uniform;
+        std::unique_ptr<buffer2d> single_quad_buffer;
 
         void
         init_render_data();

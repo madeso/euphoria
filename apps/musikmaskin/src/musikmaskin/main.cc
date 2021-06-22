@@ -429,7 +429,7 @@ public:
 
             imgui::custom_dropdown
             (
-                "tuning", &ttf.tuning, tuning::Max,
+                "tuning", &ttf.tuning, tuning::max_value,
                 [](auto t)
                 {
                     return to_string(t);
@@ -457,7 +457,7 @@ public:
             (
                 "Oscilator",
                 &oscilator.oscilator,
-                oscilator_type::Max,
+                oscilator_type::max_value,
                 [](auto t)
                 {
                     return to_string(t);
@@ -468,7 +468,7 @@ public:
             (
                 "Chord emulation",
                 &piano.chords_emulation,
-                chord_emulation::Max,
+                chord_emulation::max_value,
                 [](auto t)
                 {
                     return to_string(t);
@@ -480,7 +480,7 @@ public:
             ImGui::InputInt("Arp octaves", &arp.octaves);
             imgui::custom_dropdown
             (
-                "Arp mode", &arp.mode, arp_mode::MAX,
+                "Arp mode", &arp.mode, arp_mode::max_value,
                 [](auto t)
                 {
                     return to_string(t);

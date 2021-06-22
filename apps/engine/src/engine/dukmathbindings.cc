@@ -11,11 +11,11 @@ namespace euphoria::engine
 
     template <typename T>
     void
-    bind_vec2(Sol* sol, const std::string& name)
+    bind_vec2(lua* sol, const std::string& name)
     {
         using V = core::vec2<T>;
 
-        sol::usertype<V> t = sol->lua.new_usertype<V>
+        sol::usertype<V> t = sol->state.new_usertype<V>
         (
             name,
             sol::constructors<V(T, T)>()
@@ -47,7 +47,7 @@ namespace euphoria::engine
     }
 
     void
-    bind_math(Sol* duk)
+    bind_math(lua* duk)
     {
         bind_vec2<float>(duk, "vec2f");
         // bind_vec2<int>(duk, "vec2i");

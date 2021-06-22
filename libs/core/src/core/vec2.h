@@ -209,8 +209,6 @@ namespace euphoria::core
         {
         }
 
-        [[nodiscard]] static scale2 Zero() { return {0, 0}; }
-
         using Self = scale2<T>;
 
         T x;
