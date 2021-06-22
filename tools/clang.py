@@ -378,6 +378,12 @@ class NamePrinter:
             self.printed = True
 
 
+def filter_out_file(filters, file):
+    if filters is not None:
+        return all(f not in file for f in filters)
+    return False
+
+
 def handle_tidy(args):
     """
     callback function called when running clang.py tidy
@@ -397,7 +403,6 @@ def handle_tidy(args):
     data = extract_data_from_root(root, SOURCE_FILES + HEADER_FILES if args.headers else SOURCE_FILES)
     stats = FileStatistics()
 
-
     try:
         for project, source_files in data.items():
             first_file = True
@@ -405,9 +410,8 @@ def handle_tidy(args):
             # source_files = list_source_files(root, project)
             for source_file in source_files:
                 printable_file = os.path.relpath(source_file, root)
-                if args.filter is not None:
-                    if args.filter not in source_file:
-                        continue
+                if filter_out_file(args.filter, source_file):
+                    continue
                 print_name = NamePrinter(printable_file)
                 if first_file:
                     if not args.short:
@@ -480,7 +484,7 @@ def main():
     sub = sub_parsers.add_parser('tidy', help='do clang tidy on files')
     sub.add_argument('--nop', action='store_true', help="don't do anything")
     sub.add_argument('--fix', action='store_true', help="try to fix the source")
-    sub.add_argument('filter', default=None, nargs='?')
+    sub.add_argument('filter', default=[], nargs='+')
     sub.add_argument('--short', action='store_true', help="use shorter and stop after one file")
     sub.add_argument('--list', action='store_true', help="also list files in the summary")
     sub.add_argument('--no-headers', dest='headers', action='store_false', help="don't tidy headers")
