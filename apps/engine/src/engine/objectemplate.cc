@@ -99,6 +99,11 @@ namespace euphoria::engine
         core::ecs::component_id comp;
         custom_arguments arguments;
 
+        explicit custom_component_creator(core::ecs::component_id id)
+            : comp(id)
+        {
+        }
+
         [[nodiscard]]
         static
         std::shared_ptr<custom_component_creator>
@@ -109,8 +114,7 @@ namespace euphoria::engine
             const std::vector<game::Var>& arguments
         )
         {
-            auto ptr = std::make_shared<custom_component_creator>();
-            ptr->comp = id;
+            auto ptr = std::make_shared<custom_component_creator>(id);
             for(const auto& a: arguments)
             {
                 if(a.number != nullptr)

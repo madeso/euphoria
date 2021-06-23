@@ -21,7 +21,10 @@
 
 namespace euphoria::window
 {
-    engine::engine() = default;
+    engine::engine()
+        : window_id(0)
+    {
+    }
 
 
     engine::~engine()

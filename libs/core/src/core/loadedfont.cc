@@ -54,7 +54,8 @@ namespace euphoria::core
         }
 
         font_data(unsigned char* ttf_buffer, float s)
-            : size(s)
+            : font()
+            , size(s)
             , was_loaded(stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1)
             , line_height(0)
         {

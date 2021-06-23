@@ -50,7 +50,7 @@ namespace euphoria::tests
             friend bool
             operator==(T lhs, approx<T> const& rhs)
             {
-                approx_data data;
+                auto data = approx_data{};
                 data.epsilon = rhs.epsilon;
                 data.scale = rhs.scale;
                 data.margin = rhs.margin;
