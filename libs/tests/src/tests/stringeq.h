@@ -19,7 +19,7 @@ namespace euphoria::tests
     */
 
     false_string
-    string_is_equal(const std::vector<std::string> lhs, const std::vector<std::string> rhs);
+    string_is_equal(const std::vector<std::string>& lhs, const std::vector<std::string>& rhs);
 
     false_string
     string_is_equal(const std::string& lhs, const std::string& rhs);

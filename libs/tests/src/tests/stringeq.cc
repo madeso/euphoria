@@ -51,7 +51,7 @@ namespace euphoria::tests
 
 
     false_string
-    string_is_equal(const std::vector<std::string> lhs, const std::vector<std::string> rhs)
+    string_is_equal(const std::vector<std::string>& lhs, const std::vector<std::string>& rhs)
     {
         auto size_equal = false_string::create_true();
         if(lhs.size() != rhs.size())

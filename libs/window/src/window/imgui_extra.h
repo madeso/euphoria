@@ -92,26 +92,26 @@ namespace euphoria::window::imgui
     bool
     angle_slider
     (
-        const char* const name,
+        const char* name,
         core::angle* angle,
         const core::angle& min_deg,
         const core::angle& max_deg
     );
 
     bool
-    toggle_button(const char* const label, bool down, const ImVec2& size);
+    toggle_button(const char* label, bool down, const ImVec2& size);
 
     void
     image(render::texture2d* texture);
 
     bool
-    color_edit(const char* const name, core::rgb* rgb);
+    color_edit(const char* name, core::rgb* rgb);
 
     bool
-    color_edit(const char* const name, core::rgba* rgb);
+    color_edit(const char* name, core::rgba* rgb);
 
     bool
-    color_edit(const char* const name, core::rgbai* rgb);
+    color_edit(const char* name, core::rgbai* rgb);
 
     bool
     begin_fixed_overlay

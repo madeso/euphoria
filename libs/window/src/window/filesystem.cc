@@ -11,7 +11,7 @@ namespace euphoria::window
         if(base_path)
         {
             std::string r = base_path;
-            SDL_free(base_path);
+            SDL_free(base_path);  // NOLINT sdl code so free is allowed
             return r;
         }
         else
@@ -27,7 +27,7 @@ namespace euphoria::window
         if(base_path)
         {
             std::string pref_path = base_path;
-            SDL_free(base_path);
+            SDL_free(base_path); // NOLINT sdl code so free is allowed
             return pref_path;
         }
         else

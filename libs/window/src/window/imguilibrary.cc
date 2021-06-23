@@ -33,8 +33,8 @@ namespace euphoria::window::imgui
 
         const uint64_t min_mdi = ICON_MIN_MDI;
         const uint64_t max_mdi = ICON_MAX_MDI;
-        const uint64_t min_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::min());
-        const uint64_t max_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::max());
+        const auto min_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::min());
+        const auto max_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::max());
         const auto max_arg = static_cast<ImWchar>(std::min(max_mdi, max_imgui));
         if(max_mdi > max_imgui)
         {

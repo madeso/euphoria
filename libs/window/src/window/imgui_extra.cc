@@ -85,7 +85,7 @@ namespace euphoria::window::imgui
     bool
     angle_slider
     (
-        const char* const name,
+        const char* name,
         core::angle* angle,
         const core::angle& mindeg,
         const core::angle& maxdeg
@@ -112,7 +112,7 @@ namespace euphoria::window::imgui
 
 
     bool
-    toggle_button(const char* const label, bool down, const ImVec2& size)
+    toggle_button(const char* label, bool down, const ImVec2& size)
     {
         if (down)
         {
@@ -130,19 +130,19 @@ namespace euphoria::window::imgui
     }
 
     bool
-    color_edit(const char* const name, core::rgb* c)
+    color_edit(const char* name, core::rgb* c)
     {
         return ImGui::ColorEdit3(name, &c->r);
     }
 
     bool
-    color_edit(const char* const name, core::rgba* c)
+    color_edit(const char* name, core::rgba* c)
     {
         return ImGui::ColorEdit4(name, &c->r);
     }
 
     bool
-    color_edit(const char* const name, core::rgbai* c)
+    color_edit(const char* name, core::rgbai* c)
     {
         auto cc = crgba(*c);
         const auto changed = ImGui::ColorEdit4(name, &cc.r);
@@ -159,7 +159,7 @@ namespace euphoria::window::imgui
     {
         auto tex_w = static_cast<float>(texture->width);
         auto tex_h = static_cast<float>(texture->height);
-        ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
+        auto tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
 
         ImVec2 tex_screen_pos = ImGui::GetCursorScreenPos();
         label(fmt::format("{.0f}x{.0f}", tex_w, tex_h));
