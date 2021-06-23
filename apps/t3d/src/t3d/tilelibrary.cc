@@ -19,7 +19,7 @@ namespace euphoria::t3d
     }
 
 
-    tile::~tile() {}
+    tile::~tile() = default;
 
 
     tile_library::tile_library(core::vfs::file_system* fs) : file_system(fs) {}

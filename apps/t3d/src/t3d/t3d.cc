@@ -42,9 +42,7 @@ namespace euphoria::t3d
     }
 
 
-    application::~application()
-    {
-    }
+    application::~application() = default;
 
 
     [[nodiscard]] int
