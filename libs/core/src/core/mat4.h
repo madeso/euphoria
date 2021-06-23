@@ -409,7 +409,7 @@ namespace euphoria::core
             return true;
         }
 
-        const mat4<T>
+        mat4<T>
         get_inverted() const
         {
             auto r = *this;

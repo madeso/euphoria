@@ -76,7 +76,7 @@ struct run_result
 
     [[nodiscard]]
     static
-    const run_result
+    run_result
     create_ok()
     {
         return run_result {true, ""};
@@ -84,7 +84,7 @@ struct run_result
 
     [[nodiscard]]
     static
-    const run_result
+    run_result
     create_error(const std::string& message)
     {
         return run_result {false, message};
