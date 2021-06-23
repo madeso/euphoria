@@ -68,12 +68,12 @@ namespace euphoria::core
     }
 
     void
-    id::generate(id_generator* generator)
+    id::generate(id_generator* the_generator)
     {
         ASSERT(!is_valid());
-        ASSERT(generator);
-        value = generator->generate();
-        generator = generator;
+        ASSERT(the_generator);
+        value = the_generator->generate();
+        generator = the_generator;
     }
 
     id_generator::id

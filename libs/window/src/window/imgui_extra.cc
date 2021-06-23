@@ -78,7 +78,7 @@ namespace euphoria::window::imgui
     void
     label(const std::string& str)
     {
-        ImGui::Text("%s", str.c_str());
+        ImGui::TextUnformatted(str.c_str());
     }
 
 
