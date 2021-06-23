@@ -190,7 +190,7 @@ main(int argc, char** argv)
             ;
         ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0);
         ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0);
-        const auto show_toolbar = ImGui::Begin("TOOLBAR", NULL, toolbar_flags);
+        const auto show_toolbar = ImGui::Begin("TOOLBAR", nullptr, toolbar_flags);
         ImGui::PopStyleVar(2);
         if(show_toolbar)
         {
