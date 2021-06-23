@@ -30,7 +30,7 @@ namespace euphoria::window
         enable_char_event(bool enable);
 
         // 0-(size-1)
-        const core::vec2i
+        [[nodiscard]] core::vec2i
         get_mouse_position() const;
 
         SDL_Window* window;

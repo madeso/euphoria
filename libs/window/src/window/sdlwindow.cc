@@ -57,7 +57,7 @@ namespace euphoria::window
         }
     }
 
-    const core::vec2i
+    [[nodiscard]] core::vec2i
     sdl_window::get_mouse_position() const
     {
         core::vec2i ret {0, 0};

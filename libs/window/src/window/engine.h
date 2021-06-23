@@ -8,13 +8,10 @@
 #include "window/fakesdlevent.h"
 
 
-namespace euphoria::core
+namespace euphoria::core::vfs
 {
-    namespace vfs
-    {
-        struct file_system;
-        struct read_root_catalog;
-    }
+    struct file_system;
+    struct read_root_catalog;
 }
 
 namespace euphoria::render

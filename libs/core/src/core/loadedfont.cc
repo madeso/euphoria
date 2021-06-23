@@ -40,7 +40,7 @@ namespace euphoria::core
             index_to_unicode[index] = cp;
         }
 
-        std::optional<int> glyph_index_to_unicode(int glyph) const
+        [[nodiscard]] std::optional<int> glyph_index_to_unicode(int glyph) const
         {
             auto found = index_to_unicode.find(glyph);
             if(found == index_to_unicode.end())

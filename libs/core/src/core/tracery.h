@@ -110,19 +110,19 @@ namespace euphoria::core::tracery
         void
         register_english();
 
-        result
+        [[nodiscard]] result
         load_from_string(const std::string& data);
 
-        result
+        [[nodiscard]] result
         get_string_from_symbol(const std::string& rule, generator_argument* generator) const;
 
         grammar&
         register_modifier(const std::string& name, std::shared_ptr<modifier> m);
 
-        result
+        [[nodiscard]] result
         apply_modifier(const std::string& name, const std::string& data) const;
 
-        result
+        [[nodiscard]] result
         flatten(core::random* random, const std::string& rule) const;
 
         std::map<std::string, symbol> rules;

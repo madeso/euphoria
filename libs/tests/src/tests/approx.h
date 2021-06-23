@@ -96,7 +96,7 @@ namespace euphoria::tests
                 return *this;
             }
 
-            std::string
+            [[nodiscard]] std::string
             to_string() const
             {
                 Catch::ReusableStringStream rss;

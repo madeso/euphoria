@@ -100,7 +100,7 @@ namespace euphoria::core
         /** list of the colors */
         std::vector<rgbi> colors;
 
-        palette
+        [[nodiscard]] palette
         to_palette() const;
 
         template <typename... R>

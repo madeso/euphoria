@@ -24,7 +24,7 @@ namespace euphoria::t3d
         );
 
 
-        bool
+        [[nodiscard]] bool
         has_more_files() const;
 
 

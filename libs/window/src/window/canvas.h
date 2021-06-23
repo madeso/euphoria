@@ -40,16 +40,16 @@ namespace euphoria::window
         void
         end(const canvas_config& cc);
 
-        ImVec2
+        [[nodiscard]] ImVec2
         world_to_screen(const ImVec2& v) const;
 
-        ImVec2
+        [[nodiscard]] ImVec2
         world_to_screen_size(const ImVec2& v) const;
 
-        ImVec2
+        [[nodiscard]] ImVec2
         screen_to_world(const ImVec2& v) const;
 
-        ImVec2
+        [[nodiscard]] ImVec2
         get_mouse() const;
     };
 }
