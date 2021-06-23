@@ -48,7 +48,7 @@ namespace euphoria::window
         );
 
         bool
-        on_resize(SDL_Event e, int* width, int* height);
+        on_resize(SDL_Event e, int* width, int* height) const;
 
         std::unique_ptr<sdl_library> sdl;
         std::unique_ptr<core::vfs::file_system> file_system;

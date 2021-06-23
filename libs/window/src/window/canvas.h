@@ -20,19 +20,19 @@ namespace euphoria::window
         ImVec2 position = ImVec2 {0, 0};
 
         void
-        show_grid(const canvas_config& cc);
+        show_grid(const canvas_config& cc) const;
 
         void
-        vertical_line(float rx, ImU32 grid_color);
+        vertical_line(float rx, ImU32 grid_color) const;
 
         void
-        horizontal_line(float ry, ImU32 grid_color);
+        horizontal_line(float ry, ImU32 grid_color) const;
 
         void
-        show_ruler(float ruler_interval, ImU32 ruler_color, float length);
+        show_ruler(float ruler_interval, ImU32 ruler_color, float length) const;
 
         void
-        show_ruler(const canvas_config& cc);
+        show_ruler(const canvas_config& cc) const;
 
         void
         begin(const canvas_config& cc);

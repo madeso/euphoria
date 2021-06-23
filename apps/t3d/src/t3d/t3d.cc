@@ -750,7 +750,7 @@ namespace euphoria::t3d
     }
 
     void
-    application::show_help(const char* desc)
+    application::show_help(const char* desc) const
     {
         switch (help_style)
         {

@@ -21,7 +21,6 @@ namespace euphoria::engine
 
     struct script_registry
     {
-    public:
         script_registry(core::ecs::registry* r, engine::components* c);
 
         using creation_callback = sol::protected_function;
@@ -30,13 +29,13 @@ namespace euphoria::engine
         create_new_id(const std::string& name, const creation_callback& fv);
 
         core::ecs::component_id
-        create_new_id(const std::string& name);
+        create_new_id(const std::string& name) const;
 
         core::result<core::ecs::component_id>
-        get_custom_component_by_name(const std::string& name);
+        get_custom_component_by_name(const std::string& name) const;
 
         std::vector<core::ecs::entity_id>
-        entity_view(const std::vector<core::ecs::component_id>& types);
+        entity_view(const std::vector<core::ecs::component_id>& types) const;
 
         sol::table
         get_property(core::ecs::entity_id ent, core::ecs::component_id comp);
@@ -47,7 +46,7 @@ namespace euphoria::engine
             core::ecs::entity_id ent,
             core::ecs::component_id comp,
             sol::table value
-        );
+        ) const;
 
         sol::table
         create_component
@@ -58,7 +57,7 @@ namespace euphoria::engine
         );
 
         void
-        destroy_entity(core::ecs::entity_id id);
+        destroy_entity(core::ecs::entity_id id) const;
 
         template <typename T>
         T*

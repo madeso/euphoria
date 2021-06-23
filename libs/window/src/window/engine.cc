@@ -141,7 +141,7 @@ namespace euphoria::window
 
 
     bool
-    engine::on_resize(SDL_Event e, int* width, int* height)
+    engine::on_resize(SDL_Event e, int* width, int* height) const
     {
         if(e.type == SDL_WINDOWEVENT)
         {

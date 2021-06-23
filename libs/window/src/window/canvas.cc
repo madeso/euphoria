@@ -11,7 +11,7 @@ using euphoria::window::con;
 namespace euphoria::window
 {
     void
-    canvas::show_grid(const canvas_config& cc)
+    canvas::show_grid(const canvas_config& cc) const
     {
         const auto size = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -40,7 +40,7 @@ namespace euphoria::window
     }
 
     void
-    canvas::vertical_line(float rx, ImU32 grid_color)
+    canvas::vertical_line(float rx, ImU32 grid_color) const
     {
         const auto x = view.scroll.x + rx * view.scale;
         const auto size = ImGui::GetWindowSize();
@@ -54,7 +54,7 @@ namespace euphoria::window
     }
 
     void
-    canvas::horizontal_line(float ry, ImU32 grid_color)
+    canvas::horizontal_line(float ry, ImU32 grid_color) const
     {
         const auto y = view.scroll.y + ry * view.scale;
         const auto size = ImGui::GetWindowSize();
@@ -68,7 +68,7 @@ namespace euphoria::window
     }
 
     void
-    canvas::show_ruler(float ruler_interval, ImU32 ruler_color, float length)
+    canvas::show_ruler(float ruler_interval, ImU32 ruler_color, float length) const
     {
         const auto size = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -99,7 +99,7 @@ namespace euphoria::window
     }
 
     void
-    canvas::show_ruler(const canvas_config& cc)
+    canvas::show_ruler(const canvas_config& cc) const
     {
         show_ruler(5.0f, cc.grid_color, 10.0f);
     }

@@ -40,6 +40,7 @@ namespace euphoria::engine
     (
         const std::string& name
     )
+    const
     {
         const auto id = reg->register_new_component_type(name);
         return id;
@@ -50,12 +51,13 @@ namespace euphoria::engine
     (
         const std::string& name
     )
+    const
     {
         return reg->get_custom_component_by_name(name);
     }
 
     std::vector<core::ecs::entity_id>
-    script_registry::entity_view(const std::vector<core::ecs::component_id>& types)
+    script_registry::entity_view(const std::vector<core::ecs::component_id>& types) const
     {
         return reg->get_entities_with_components(types);
     }
@@ -102,6 +104,7 @@ namespace euphoria::engine
         core::ecs::component_id comp,
         sol::table value
     )
+    const
     {
         script_component* component = get_script_component(reg, ent, comp);
         component->val = value;
@@ -146,7 +149,7 @@ namespace euphoria::engine
     }
 
     void
-    script_registry::destroy_entity(core::ecs::entity_id id)
+    script_registry::destroy_entity(core::ecs::entity_id id) const
     {
         reg->destroy_entity(id);
     }

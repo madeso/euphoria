@@ -171,6 +171,6 @@ namespace euphoria::t3d
         on_frame();
 
         void
-        show_help(const char* desc);
+        show_help(const char* desc) const;
     };
 }
