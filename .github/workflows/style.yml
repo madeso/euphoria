@@ -39,4 +39,4 @@ jobs:
         - name: Run code check
           shell: bash
           working-directory: ${{github.workspace}}
-          run: ./tools/clang.py tidy libs apps --list
+          run: time ./tools/clang.py tidy libs apps --list
