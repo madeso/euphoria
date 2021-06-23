@@ -28,13 +28,13 @@ namespace euphoria::engine
         core::ecs::component_id
         create_new_id(const std::string& name, const creation_callback& fv);
 
-        core::ecs::component_id
+        [[nodiscard]] core::ecs::component_id
         create_new_id(const std::string& name) const;
 
-        core::result<core::ecs::component_id>
+        [[nodiscard]] core::result<core::ecs::component_id>
         get_custom_component_by_name(const std::string& name) const;
 
-        std::vector<core::ecs::entity_id>
+        [[nodiscard]] std::vector<core::ecs::entity_id>
         entity_view(const std::vector<core::ecs::component_id>& types) const;
 
         sol::table
