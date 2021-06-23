@@ -81,8 +81,8 @@ namespace euphoria::core
         [[nodiscard]] loaded_glyph
         load_glyph(int code_point) const
         {
-            int width; int height;
-            int xoffset; int yoffset;
+            int width=0; int height=0;
+            int xoffset=0; int yoffset=0;
             const auto scale = stbtt_ScaleForPixelHeight(&font, size);
             unsigned char *bitmap = stbtt_GetCodepointBitmap
             (
