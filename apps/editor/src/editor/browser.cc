@@ -56,24 +56,6 @@ namespace euphoria::editor
     }
 
     void
-    file_browser::select_file(const std::string& p)
-    {
-        LOG_INFO("Selecting file {0}", p);
-        #if 0
-        const auto file = vfs::Path::FromFile(p);
-        current_folder = file.GetDirectory().GetAbsolutePath();
-        Refresh();
-        if(!p.empty())
-        {
-            selected_file
-                    = IndexOf(files, [&](const vfs::ListedFile& n) -> bool {
-                          return n.name == file.GetFileName();
-                      });
-        }
-        #endif
-    }
-
-    void
     file_browser::refresh()
     {
         files = file_system->list_files(current_folder);

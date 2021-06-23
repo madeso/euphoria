@@ -37,7 +37,7 @@ namespace euphoria::window
     }
 
     void
-    sdl_window::keep_within(bool k)
+    keep_mouse_within_window(bool k)
     {
         // SDL_SetWindowGrab(window, k ? SDL_TRUE : SDL_FALSE);
         // SDL_ShowCursor(k ? SDL_DISABLE : SDL_ENABLE);
@@ -45,7 +45,7 @@ namespace euphoria::window
     }
 
     void
-    sdl_window::enable_char_event(bool enable)
+    enable_char_event(bool enable)
     {
         if(enable)
         {

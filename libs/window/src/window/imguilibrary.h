@@ -18,16 +18,16 @@ namespace euphoria::window::imgui
         ~library();
 
         void
-        process_events(const SDL_Event*);
-
-        void
         start_new_frame();
-
-        void
-        render();
 
     private:
         SDL_Window* sdl_window;
         std::string path_to_imgui_ini;
     };
+
+    void
+    process_imgui_events(const SDL_Event*);
+
+    void
+    imgui_render();
 }

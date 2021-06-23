@@ -345,7 +345,7 @@ main(int argc, char* argv[])
 
             if(has_crashed)
             {
-                engine.imgui->process_events(&e);
+                imgui::process_imgui_events(&e);
                 if(e.type == SDL_KEYUP)
                 {
                     const auto key = to_key(e.key.keysym);
@@ -442,7 +442,7 @@ main(int argc, char* argv[])
             world.draw(&renderer);
         }
 
-        engine.imgui->render();
+        imgui::imgui_render();
         SDL_GL_SwapWindow(engine.window->window);
 
         world.reg.remove_entities_tagged_for_removal();

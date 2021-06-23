@@ -23,9 +23,6 @@ namespace euphoria::editor
         get_selected_file();
 
         void
-        select_file(const std::string& p);
-
-        void
         refresh();
 
         bool

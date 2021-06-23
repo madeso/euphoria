@@ -87,7 +87,7 @@ namespace euphoria::t3d
 
         update_grid();
 
-        engine->window->enable_char_event(!immersive_mode);
+        euphoria::window::enable_char_event(!immersive_mode);
 
         viewport_handler = std::make_shared<render::viewport_handler>
         (
@@ -108,18 +108,18 @@ namespace euphoria::t3d
 
 
     void
-    application::add_single_grid_line
+    add_single_grid_line
     (
-        core::lines& def,
+        core::lines* def,
         float size,
         float x,
         const core::rgb& color
     )
     {
-        def.add_line(core::vec3f {x, 0, -size}, core::vec3f {x, 0, size}, color);
-        def.add_line(core::vec3f {-size, 0, x}, core::vec3f {size, 0, x}, color);
-        def.add_line(core::vec3f {-x, 0, -size}, core::vec3f {-x, 0, size}, color);
-        def.add_line(core::vec3f {-size, 0, -x}, core::vec3f {size, 0, -x}, color);
+        def->add_line(core::vec3f {x, 0, -size}, core::vec3f {x, 0, size}, color);
+        def->add_line(core::vec3f {-size, 0, x}, core::vec3f {size, 0, x}, color);
+        def->add_line(core::vec3f {-x, 0, -size}, core::vec3f {-x, 0, size}, color);
+        def->add_line(core::vec3f {-size, 0, -x}, core::vec3f {size, 0, -x}, color);
     }
 
 
@@ -167,7 +167,7 @@ namespace euphoria::t3d
                     color = small_color;
                 }
             }
-            add_single_grid_line(def, size, x, color);
+            add_single_grid_line(&def, size, x, color);
         }
 
         def.add_line(core::vec3f {-size, 0, 0}, core::vec3f {size, 0, 0}, x_color);
@@ -190,7 +190,7 @@ namespace euphoria::t3d
         }
         if(show_imgui)
         {
-            engine->imgui->process_events(&e);
+            window::imgui::process_imgui_events(&e);
         }
 
         auto& io = ImGui::GetIO();
@@ -279,8 +279,8 @@ namespace euphoria::t3d
                 if(!down)
                 {
                     immersive_mode = !immersive_mode;
-                    engine->window->keep_within(immersive_mode);
-                    engine->window->enable_char_event(!immersive_mode);
+                    euphoria::window::keep_mouse_within_window(immersive_mode);
+                    euphoria::window::enable_char_event(!immersive_mode);
                 }
                 break;
             default:
@@ -743,7 +743,7 @@ namespace euphoria::t3d
 
         if(show_imgui)
         {
-            engine->imgui->render();
+            window::imgui::imgui_render();
         }
 
         SDL_GL_SwapWindow(engine->window->window);

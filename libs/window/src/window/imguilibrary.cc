@@ -21,22 +21,22 @@ namespace euphoria::window::imgui
     void
     add_fork_awesome()
     {
-        ImGuiIO& io = ImGui::GetIO();
+        ImGuiIO &io = ImGui::GetIO();
 
         // io.Fonts->AddFontDefault();
         io.Fonts->AddFontFromMemoryCompressedTTF
-        (
-            NotoSansDisplay_compressed_data,
-            NotoSansDisplay_compressed_size,
-            16
-        );
+                (
+                        NotoSansDisplay_compressed_data,
+                        NotoSansDisplay_compressed_size,
+                        16
+                );
 
         const uint64_t min_mdi = ICON_MIN_MDI;
         const uint64_t max_mdi = ICON_MAX_MDI;
         const auto min_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::min());
         const auto max_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::max());
         const auto max_arg = static_cast<ImWchar>(std::min(max_mdi, max_imgui));
-        if(max_mdi > max_imgui)
+        if (max_mdi > max_imgui)
         {
             LOG_ERROR("imgui is missing {0} icons!", (max_mdi - max_imgui));
 
@@ -53,27 +53,27 @@ namespace euphoria::window::imgui
         icons_config.GlyphMinAdvanceX = 13.0f;
 
         io.Fonts->AddFontFromMemoryCompressedTTF
-        (
-            MaterialDesignIcons_compressed_data,
-            MaterialDesignIcons_compressed_size,
-            13.0f,
-            &icons_config,
-            icons_ranges
-        );
+                (
+                        MaterialDesignIcons_compressed_data,
+                        MaterialDesignIcons_compressed_size,
+                        13.0f,
+                        &icons_config,
+                        icons_ranges
+                );
     }
 
 
-    library::library(SDL_Window* the_window, sdl_gl_context* context, const std::string& the_path)
-        : sdl_window(the_window), path_to_imgui_ini(the_path + "imgui.ini")
+    library::library(SDL_Window *the_window, sdl_gl_context *context, const std::string &the_path)
+            : sdl_window(the_window), path_to_imgui_ini(the_path + "imgui.ini")
     {
         // hrm... euphoria is using #version 330 core
         // todo(Gustav): look into this...
 #if __APPLE__
-    // GL 3.2 Core + GLSL 150
-    const char* glsl_version = "#version 150";
+        // GL 3.2 Core + GLSL 150
+        const char* glsl_version = "#version 150";
 #else
-    // GL 3.0 + GLSL 130
-    const char* glsl_version = "#version 130";
+        // GL 3.0 + GLSL 130
+        const char *glsl_version = "#version 130";
 #endif
         IMGUI_CHECKVERSION();
         ImGui::CreateContext();
@@ -94,7 +94,7 @@ namespace euphoria::window::imgui
     }
 
     void
-    library::process_events(const SDL_Event* event)
+    process_imgui_events(const SDL_Event* event)
     {
         ImGui_ImplSDL2_ProcessEvent(event);
     }
@@ -108,7 +108,7 @@ namespace euphoria::window::imgui
     }
 
     void
-    library::render()
+    imgui_render()
     {
         // ImGui::ShowTestWindow();
         ImGui::Render();

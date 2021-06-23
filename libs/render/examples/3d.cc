@@ -367,7 +367,7 @@ main(int argc, char** argv)
         {
             if(show_imgui)
             {
-                engine.imgui->process_events(&e);
+                imgui::process_imgui_events(&e);
             }
             {
                 int window_width = 800;
@@ -410,7 +410,7 @@ main(int argc, char** argv)
                     if(!down)
                     {
                         capturing_mouse_movement = !capturing_mouse_movement;
-                        engine.window->keep_within(capturing_mouse_movement);
+                        keep_mouse_within_window(capturing_mouse_movement);
                     }
                     break;
                 default:
@@ -435,7 +435,7 @@ main(int argc, char** argv)
 
         if(show_imgui)
         {
-            engine.imgui->render();
+            imgui::imgui_render();
         }
 
         SDL_GL_SwapWindow(engine.window->window);

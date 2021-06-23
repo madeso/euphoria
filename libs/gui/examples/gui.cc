@@ -407,7 +407,7 @@ main(int argc, char* argv[])
 
             if(show_imgui)
             {
-                engine.imgui->process_events(&e);
+                imgui::process_imgui_events(&e);
             }
 
             if(engine.on_resize(e, &window_width, &window_height))
@@ -474,7 +474,7 @@ main(int argc, char* argv[])
         root.render(&renderer);
         if(show_imgui)
         {
-            engine.imgui->render();
+            imgui::imgui_render();
         }
         SDL_GL_SwapWindow(engine.window->window);
     };

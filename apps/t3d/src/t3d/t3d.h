@@ -92,17 +92,6 @@ namespace euphoria::t3d
         void
         add_library(const core::vfs::dir_path& path);
 
-
-        void
-        add_single_grid_line
-        (
-            core::lines& def,
-            float size,
-            float x,
-            const core::rgb& color
-        );
-
-
         void
         update_grid();
 

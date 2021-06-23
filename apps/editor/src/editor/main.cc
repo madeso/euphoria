@@ -644,7 +644,7 @@ main(int argc, char** argv)
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
-            engine.imgui->process_events(&e);
+            imgui::process_imgui_events(&e);
 
             if(engine.on_resize(e, &window_width, &window_height))
             {
@@ -759,7 +759,7 @@ main(int argc, char** argv)
         // ImGui::ShowMetricsWindow();
 
         engine.init->clear_screen(color::light_gray);
-        engine.imgui->render();
+        imgui::imgui_render();
 
         remove_matching
         (
