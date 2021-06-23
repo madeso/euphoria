@@ -20,13 +20,6 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::vec3f const& lhs,
-            core::vec3f const& rhs,
-            const approx_data& data);
-
-    template <>
-    bool
-    approximately_equal(
             core::rgb const& lhs,
             core::rgb const& rhs,
             const approx_data& data);
