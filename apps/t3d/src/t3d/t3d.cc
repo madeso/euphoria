@@ -282,10 +282,7 @@ namespace euphoria::t3d
                 }
                 break;
             default:
-                if(forward_keyboard)
-                {
-                    editor->on_key(key, down);
-                }
+                editor->on_key(key, down);
                 break;
             }
         }
