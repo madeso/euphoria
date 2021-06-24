@@ -308,7 +308,7 @@ namespace euphoria::window::imgui
         // implementation modified from ImDrawList AddCircleFilled
 
         if((col & IM_COL32_A_MASK) == 0)
-            return;
+        { return; }
 
         const float a_max = IM_PI * 2.0f * ((float)num_segments - 1.0f) / (float)num_segments;
         draw_list->PathArcTo
@@ -399,10 +399,8 @@ namespace euphoria::window::imgui
             {
                 *p_value = v_min + (v_max - v_min) * input_angle_t;
 
-                if(*p_value < v_min)
-                    *p_value = v_min;
-                if(*p_value > v_max)
-                    *p_value = v_max;
+                if(*p_value < v_min) { *p_value = v_min; }
+                if(*p_value > v_max) { *p_value = v_max; }
             }
         }
         else
@@ -412,10 +410,8 @@ namespace euphoria::window::imgui
             {
                 float step = (v_max - v_min) / 200.0f;
                 *p_value += val * step;
-                if(*p_value < v_min)
-                    *p_value = v_min;
-                if(*p_value > v_max)
-                    *p_value = v_max;
+                if(*p_value < v_min) { *p_value = v_min; }
+                if(*p_value > v_max) { *p_value = v_max; }
 
                 value_changed = true;
             }

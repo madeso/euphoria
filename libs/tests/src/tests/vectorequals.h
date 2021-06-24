@@ -61,9 +61,9 @@ namespace euphoria::tests
                     const auto rhsstr = same || arhs.second==false? arhs.first : vector_to_string_impl(rhs, false, to_string_functor);
                     const auto oneliner = same && alhs.second == true;
                     const auto vs = oneliner ? " vs " : "vs";
-                    if(oneliner == false) ss << "  ";
+                    if(oneliner == false) { ss << "  "; }
                     ss << lhsstr << vs << rhsstr;
-                    if(oneliner) ss << " ";
+                    if(oneliner) { ss << " "; }
                     ss << "First invalid";
                 }
 

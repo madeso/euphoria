@@ -65,8 +65,7 @@ namespace euphoria::t3d
     void
     tool_place_mesh_on_a_plane::on_mouse(editor* editor, core::mouse_button button, bool down)
     {
-        if(down)
-            return;
+        if(down) { return; }
         switch(button)
         {
         case core::mouse_button::left: editor->tools.pop_tool(); break;
@@ -78,8 +77,7 @@ namespace euphoria::t3d
     void
     tool_place_mesh_on_a_plane::on_key(editor* editor, core::key key, bool down)
     {
-        if(down)
-            return;
+        if(down) { return; }
         switch(key)
         {
         case core::key::return_key: editor->tools.pop_tool(); break;

@@ -30,12 +30,12 @@ namespace euphoria::tests
         for(const auto s: v)
         {
             if(first) first = false;
-            else ss << ", " << newline;
+            else { ss << ", " << newline; }
             if(one_line == false) { ss << "  " << index << ": "; }
             ss << '\'' << converter(s) << '\'';
             index += 1;
         }
-        if(!v.empty()) ss << newline;
+        if(!v.empty()) { ss << newline; }
         ss << "}" << newline;
 
         return ss.str();

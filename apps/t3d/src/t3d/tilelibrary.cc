@@ -29,14 +29,14 @@ namespace euphoria::t3d
     tile_library::get_first_tile()
     {
         if(tiles.empty()) { return nullptr; }
-        else return tiles[0];
+        else { return tiles[0]; }
     }
 
 
     bool
     tile_library::run_imgui_list(std::shared_ptr<tile>* selected_tile)
     {
-        if(tiles.empty()) return false;
+        if(tiles.empty()) { return false; }
 
         bool tile_has_changed = false;
 
