@@ -4,6 +4,7 @@
 #include <string>
 
 #include "core/argparse.h"
+#include "core/noncopyable.h"
 
 #include "window/fakesdlevent.h"
 
@@ -34,6 +35,8 @@ namespace euphoria::window
     {
         engine();
         ~engine();
+
+        NONCOPYABLE(engine);
 
         int
         setup(const core::argparse::name_and_arguments& args);

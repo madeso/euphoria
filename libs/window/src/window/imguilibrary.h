@@ -2,7 +2,10 @@
 
 #include <string>
 
+#include "core/noncopyable.h"
+
 #include "window/fakesdlevent.h"
+
 
 namespace euphoria::window
 {
@@ -16,6 +19,8 @@ namespace euphoria::window::imgui
     public:
         library(SDL_Window* the_window, sdl_gl_context* context, const std::string& the_path);
         ~library();
+
+        NONCOPYABLE(library);
 
         void
         start_new_frame();

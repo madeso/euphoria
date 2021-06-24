@@ -1,13 +1,16 @@
 #pragma once
 
-
-#include "core/vec2.h"
 #include <string>
+
+#include "core/noncopyable.h"
+#include "core/vec2.h"
+
 
 extern "C"
 {
     struct SDL_Window;
 }
+
 
 namespace euphoria::window
 {
@@ -22,6 +25,8 @@ namespace euphoria::window
         );
 
         ~sdl_window();
+
+        NONCOPYABLE(sdl_window);
 
         // 0-(size-1)
         [[nodiscard]] core::vec2i

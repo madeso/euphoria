@@ -2,6 +2,7 @@
 
 #include "core/aabb.h"
 #include "core/vfs_path.h"
+#include "core/noncopyable.h"
 
 #include "render/compiledmesh.h"
 
@@ -20,6 +21,8 @@ namespace euphoria::t3d
     {
         tile();
         ~tile();
+
+        NONCOPYABLE(tile);
 
         core::vfs::file_path path;
         core::aabb aabb;

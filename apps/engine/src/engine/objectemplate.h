@@ -2,6 +2,7 @@
 
 #include "core/ecs-id.h"
 #include "core/sol_forward.h"
+#include "core/noncopyable.h"
 
 #include <string>
 #include <vector>
@@ -46,7 +47,10 @@ namespace euphoria::engine
 
     struct component_creator
     {
+        component_creator() = default;
         virtual ~component_creator() = default;
+
+        NONCOPYABLE(component_creator);
 
         virtual void
         create_component(const object_creation_arguments& args, core::ecs::entity_id id) = 0;

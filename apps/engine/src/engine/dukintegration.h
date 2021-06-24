@@ -3,6 +3,7 @@
 #include <memory>
 
 #include "core/sol.h"
+#include "core/noncopyable.h"
 
 namespace euphoria::core::ecs
 {
@@ -33,6 +34,8 @@ namespace euphoria::engine
                 camera_data* camera
         );
         ~script_integration();
+
+        NONCOPYABLE(script_integration);
 
         void
         clear();

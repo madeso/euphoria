@@ -8,8 +8,8 @@
 
 #include "core/vec2.h"
 #include "core/vec3.h"
+#include "core/noncopyable.h"
 
-// #include "imgui/imgui.h"
 
 namespace euphoria::core
 {
@@ -126,6 +126,8 @@ namespace euphoria::window::imgui
     {
         disabled();
         ~disabled();
+
+        NONCOPYABLE(disabled);
     };
 
     bool

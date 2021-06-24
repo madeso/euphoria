@@ -10,6 +10,7 @@
 #include "core/camera3.h"
 #include "core/orbitcontroller.h"
 #include "core/vfs_path.h"
+#include "core/noncopyable.h"
 
 #include "render/viewporthandler.h"
 
@@ -83,6 +84,8 @@ namespace euphoria::t3d
 
         application();
         ~application();
+
+        NONCOPYABLE(application);
 
 
         [[nodiscard]] int

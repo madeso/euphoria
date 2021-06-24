@@ -57,6 +57,9 @@ struct generic_window
     std::string name;
     bool open = true;
 
+    generic_window() = default;
+    NONCOPYABLE(generic_window);
+
     virtual ~generic_window() = default;
 
     virtual void
@@ -370,6 +373,8 @@ struct file_handler
         : context_menu(menu)
     {
     }
+
+    NONCOPYABLE(file_handler);
 
     virtual ~file_handler() = default;
 

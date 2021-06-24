@@ -1,5 +1,7 @@
 #pragma once
 
+#include "core/noncopyable.h"
+
 namespace euphoria::window
 {
     struct sdl_library
@@ -7,6 +9,8 @@ namespace euphoria::window
     public:
         sdl_library();
         ~sdl_library();
+
+        NONCOPYABLE(sdl_library);
 
         bool ok;
     };

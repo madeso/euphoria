@@ -1,14 +1,17 @@
 #include "t3d/toolstack.h"
 
 #include "core/assert.h"
+#include "core/noncopyable.h"
 
 
 namespace euphoria::t3d
 {
     struct tool_action
     {
+        tool_action() = default;
         virtual ~tool_action() = default;
 
+        NONCOPYABLE(tool_action);
 
         virtual void
         act(tool_stack* tools) = 0;
