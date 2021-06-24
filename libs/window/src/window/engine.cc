@@ -64,7 +64,7 @@ namespace euphoria::window
 
         LOG_INFO("Current directory: {0}", current_directory);
 
-        file_system.reset(new core::vfs::file_system {});
+        file_system = std::make_unique<core::vfs::file_system>();
         catalog = core::vfs::read_root_catalog::create_and_add(file_system.get());
         core::vfs::read_root_physical_folder::add
         (
@@ -109,7 +109,7 @@ namespace euphoria::window
 
         window_id = SDL_GetWindowID(window->window);
 
-        context.reset(new sdl_gl_context {window.get()});
+        context = std::make_unique<sdl_gl_context>(window.get());
 
         if(context->context == nullptr)
         {
@@ -117,15 +117,12 @@ namespace euphoria::window
             return false;
         }
 
-        init.reset
+        init = std::make_unique<render::init>
         (
-            new render::init
-            {
-                SDL_GL_GetProcAddress,
-                blend_hack
-                    ? render::init::blend_hack::enable_hack
-                   : render::init::blend_hack::no_hack
-            }
+            SDL_GL_GetProcAddress,
+            blend_hack
+                ? render::init::blend_hack::enable_hack
+               : render::init::blend_hack::no_hack
         );
 
         if(init->is_ok == false)
@@ -136,7 +133,7 @@ namespace euphoria::window
 
         render::setup_opengl_debug();
 
-        imgui.reset(new imgui::library{window->window, context.get(), pref_path});
+        imgui = std::make_unique<imgui::library>(window->window, context.get(), pref_path);
         ImGui::StyleColorsLight();
 
         return true;

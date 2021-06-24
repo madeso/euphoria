@@ -366,17 +366,14 @@ namespace euphoria::engine
             camera_data* camera
     )
     {
-        pimpl.reset
+        pimpl = std::make_unique<script_integration_pimpl>
         (
-            new script_integration_pimpl
-            (
-                systems,
-                reg,
-                duk,
-                creator,
-                components,
-                camera
-            )
+            systems,
+            reg,
+            duk,
+            creator,
+            components,
+            camera
         );
         pimpl->integrate(duk);
     }
