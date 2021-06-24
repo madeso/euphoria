@@ -242,7 +242,7 @@ struct scaling_sprite_cache
     >
 {
     std::shared_ptr<scalingsprite::ScalingSprite>
-    create(const vfs::file_path&)
+    create(const vfs::file_path&) // NOLINT load from filename
     {
         // todo(Gustav): load from filename
         auto ss = std::make_shared<scalingsprite::ScalingSprite>();
@@ -436,7 +436,8 @@ struct file_handler_list
     bool
     open(Windows* windows, const vfs::file_path& path)
     {
-        for(auto& handler: handlers)
+        // todo(Gustav): replace with find and action instead
+        for(auto& handler: handlers) // NOLINT
         {
             if(handler->matches(path))
             {
