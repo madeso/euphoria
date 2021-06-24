@@ -496,7 +496,7 @@ namespace euphoria::editor
         }
 
         // draw texture
-        auto tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
+        ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
         const auto pos = canvas.world_to_screen(ImVec2{0, 0});
         const auto size = canvas.world_to_screen
         (

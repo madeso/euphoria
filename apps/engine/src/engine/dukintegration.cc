@@ -299,7 +299,7 @@ namespace euphoria::engine
             };
             registry_table["get_position2_vec"] = [&](core::ecs::component_id ent)
             {
-                auto c = registry.get_component_or_null<component_position2>(ent, components->position2);
+                auto* c = registry.get_component_or_null<component_position2>(ent, components->position2);
                 return c == nullptr ? nullptr : &c->pos;
             };
 

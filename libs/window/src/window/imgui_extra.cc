@@ -159,7 +159,7 @@ namespace euphoria::window::imgui
     {
         auto tex_w = static_cast<float>(texture->width);
         auto tex_h = static_cast<float>(texture->height);
-        auto tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
+        ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
 
         ImVec2 tex_screen_pos = ImGui::GetCursorScreenPos();
         label(fmt::format("{.0f}x{.0f}", tex_w, tex_h));
