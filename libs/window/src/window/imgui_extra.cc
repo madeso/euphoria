@@ -484,7 +484,7 @@ namespace euphoria::window::imgui
             return ss.str();
         };
 
-        if((style & knob_style_vis_value_instead_of_name && display_value) != 0)
+        if((style & knob_style_vis_value_instead_of_name) != 0 && display_value)
         {
             const auto v = value_to_str(*p_value);
             draw_list->AddText(label_position, label_color, v.c_str());
@@ -495,7 +495,7 @@ namespace euphoria::window::imgui
         }
 
         // tooltip
-        if((style & knob_style_vis_value_as_tooltip && display_value) != 0)
+        if((style & knob_style_vis_value_as_tooltip) != 0 && display_value)
         {
             ImGui::SetNextWindowPos
             (
