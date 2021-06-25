@@ -29,7 +29,7 @@ namespace euphoria::tests
         int index = 0;
         for(const auto s: v)
         {
-            if(first) first = false;
+            if(first) { first = false; }
             else { ss << ", " << newline; }
             if(one_line == false) { ss << "  " << index << ": "; }
             ss << '\'' << converter(s) << '\'';
