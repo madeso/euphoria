@@ -496,7 +496,7 @@ namespace euphoria::editor
         }
 
         // draw texture
-        ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
+        ImTextureID tex_id = imgui::c_texture_to_imgui(texture.get()); // NOLINT: auto is preferred but a texture is a hidden pointer
         const auto pos = canvas.world_to_screen(ImVec2{0, 0});
         const auto size = canvas.world_to_screen
         (

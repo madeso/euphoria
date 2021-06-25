@@ -1,5 +1,7 @@
 #pragma once
 
+#include "imgui/imgui.h"
+
 #include <vector>
 #include <algorithm>
 #include <utility>
@@ -100,6 +102,11 @@ namespace euphoria::window::imgui
 
     bool
     toggle_button(const char* label, bool down, const ImVec2& size);
+
+
+    ImTextureID
+    c_texture_to_imgui(render::texture2d* texture);
+
 
     void
     image(render::texture2d* texture);

@@ -4,7 +4,6 @@
 #include <iomanip>
 #include "fmt/format.h"
 
-#include "imgui/imgui.h"
 #include "imgui/imgui_internal.h"
 
 #include "core/angle.h"
@@ -154,12 +153,19 @@ namespace euphoria::window::imgui
     }
 
 
+    ImTextureID
+    c_texture_to_imgui(render::texture2d* texture)
+    {
+        return reinterpret_cast<ImTextureID>(texture->get_id());
+    }
+
+
     void
     image(render::texture2d* texture)
     {
         auto tex_w = static_cast<float>(texture->width);
         auto tex_h = static_cast<float>(texture->height);
-        ImTextureID tex_id = reinterpret_cast<ImTextureID>(texture->get_id());
+        ImTextureID tex_id = c_texture_to_imgui(texture); // NOLINT: auto is preferred but a texture is a hidden pointer
 
         ImVec2 tex_screen_pos = ImGui::GetCursorScreenPos();
         label(fmt::format("{.0f}x{.0f}", tex_w, tex_h));
