@@ -310,7 +310,7 @@ namespace euphoria::window::imgui
         if((col & IM_COL32_A_MASK) == 0)
         { return; }
 
-        const float a_max = IM_PI * 2.0f * ((float)num_segments - 1.0f) / (float)num_segments;
+        const float a_max = IM_PI * 2.0f * (core::c_int_to_float(num_segments) - 1.0f) / core::c_int_to_float(num_segments);
         draw_list->PathArcTo
         (
             centre,
