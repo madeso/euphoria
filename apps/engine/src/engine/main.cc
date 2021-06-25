@@ -177,7 +177,7 @@ int
 main(int argc, char* argv[])
 {
     engine engine;
-    if(const auto ret = engine.setup(argparse::name_and_arguments::extract(argc, argv)) != 0; ret != 0)
+    if(const auto ret = engine.setup(argparse::name_and_arguments::extract(argc, argv)); ret != 0)
     {
         return ret;
     }

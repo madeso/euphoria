@@ -129,7 +129,7 @@ namespace euphoria::core
                 }
             }
 
-            if(bitmap)
+            if(bitmap != nullptr)
             {
                 stbtt_FreeBitmap(bitmap, nullptr);
             }

@@ -46,7 +46,7 @@ namespace euphoria::window
         if(sdl->ok == false)
         {
             LOG_ERROR("Failed to create SDL");
-            return false;
+            return -1;
         }
 
         auto parser = core::argparse::parser("euphoria engine");
