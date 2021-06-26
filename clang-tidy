@@ -89,6 +89,14 @@ readability-identifier-naming
 # unions are sometimes exactly what we want... right?
 -cppcoreguidelines-pro-type-union-access
 
+
+# false positives for all main loops (functor that changes the loop variable)
+-bugprone-infinite-loop
+
+# also detects valid cases? are all my cases valid cases?
+# https://github.com/isocpp/CppCoreGuidelines/issues/1681
+-cppcoreguidelines-pro-type-reinterpret-cast
+
 #################################################################################
 # the checks attribute ends here...
 # just regular (yaml) .clang-tidy settings from now on
