@@ -75,6 +75,9 @@ google-*
 # makes sense but dynamic cast is ugly
 -cppcoreguidelines-pro-type-static-cast-downcast
 
+# probably useful but way too chatty
+-readability-function-cognitive-complexity
+
 readability-identifier-naming
 
 #################################################################################
