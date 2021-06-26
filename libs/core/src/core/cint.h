@@ -52,6 +52,13 @@ namespace euphoria::core
     }
 
 
+    constexpr float
+    c_u64_to_float(u8 i)
+    {
+        return static_cast<float>(i);
+    }
+
+
     constexpr u32
     c_bit_signed_to_unsigned(s32 i)
     {

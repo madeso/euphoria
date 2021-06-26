@@ -81,7 +81,7 @@ namespace euphoria::editor
         }
         else
         {
-            const auto p = (-data_value * 100.0f) / total_percentage;
+            const auto p = (core::c_int_to_float(-data_value) * 100.0f) / core::c_int_to_float(total_percentage);
             return string_builder {} << std::setprecision(3) << p << "%";
         }
     }
@@ -393,7 +393,7 @@ namespace euphoria::editor
             canvas,
             [&](int position)
             {
-                canvas->vertical_line(position, scc.split_color);
+                canvas->vertical_line(core::c_int_to_float(position), scc.split_color);
             },
             [](const ImVec2 &p) -> float
             {
@@ -407,7 +407,7 @@ namespace euphoria::editor
             canvas,
             [&](int position)
             {
-                canvas->horizontal_line(position, scc.split_color);
+                canvas->horizontal_line(core::c_int_to_float(position), scc.split_color);
             },
             [](const ImVec2 &p) -> float
             {

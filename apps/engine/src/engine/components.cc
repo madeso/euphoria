@@ -4,6 +4,7 @@
 
 #include "core/ecs-systems.h"
 #include "core/vec2.h"
+#include "core/cint.h"
 
 #include "render/texture.h"
 #include "render/spriterender.h"
@@ -32,8 +33,8 @@ namespace euphoria::engine
         (
             position,
             core::scale2f {0.5f, 0.5f},
-            texture.width,
-            texture.height
+            core::c_int_to_float(texture.width),
+            core::c_int_to_float(texture.height)
         );
     }
 }

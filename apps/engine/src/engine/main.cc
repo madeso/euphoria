@@ -5,12 +5,12 @@
 #include "core/str.h"
 #include "core/interpolate.h"
 #include "core/os.h"
+#include "core/cint.h"
 #include "core/ecs-systems.h"
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/proto.h"
 #include "core/viewportdef.h"
-
 #include "core/sol.h"
 
 #include "render/debuggl.h"
@@ -391,7 +391,7 @@ main(int argc, char* argv[])
     {
         last = now;
         now = SDL_GetPerformanceCounter();
-        const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
+        const float dt = euphoria::core::c_u64_to_float(now - last) / euphoria::core::c_u64_to_float(SDL_GetPerformanceFrequency());
 
         handle_events();
         engine.imgui->start_new_frame();
