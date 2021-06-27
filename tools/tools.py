@@ -424,6 +424,22 @@ def handle_line_count(args):
             print(f'{count_str}: {c}')
 
 
+def handle_check_files(args):
+    files = 0
+    errors = 0
+
+    for patt in args.files:
+        for file in list_files_in_folder(patt, HEADER_FILES + SOURCE_FILES):
+            files += 1
+            if '-' in file:
+                errors +=1
+                print(f'file name mismatch: {file}')
+
+    print(f'Found {errors} errors in {files} files.')
+    
+    sys.exit(-1 if errors > 0 else 0)
+
+
 
 ###################################################################################################
 
@@ -481,6 +497,11 @@ def main():
     sub.add_argument('files', nargs='+')
     cc.add_argument(sub)
     sub.set_defaults(func=handle_list_no_project_folder)
+
+    sub = sub_parsers.add_parser('check-files', help="find files that doesn't match the name style")
+    sub.add_argument('files', nargs='+')
+    cc.add_argument(sub)
+    sub.set_defaults(func=handle_check_files)
 
     args = parser.parse_args()
     if args.command_name is not None:
