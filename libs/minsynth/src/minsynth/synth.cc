@@ -525,7 +525,7 @@ namespace euphoria::minsynth
             current_time_in_interval -= update_time;
             if(!tones.empty())
             {
-                const int size = tones.size();
+                const int size = core::c_sizet_to_int(tones.size());
 
                 if(mode == arp_mode::random || mode == arp_mode::random_no_repeat)
                 {

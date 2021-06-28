@@ -2,6 +2,7 @@
 
 #include <optional>
 
+#include "core/assert.h"
 #include "core/stringutils.h"
 
 
@@ -25,17 +26,18 @@ namespace
     explode(const std::string& str)
     {
         std::vector<std::string> parts;
-        int start_index = 0;
+        std::size_t start_index = 0;
         while (true)
         {
-            int index = str.find_first_of(split_chars, start_index);
+            const auto index = str.find_first_of(split_chars, start_index);
 
-            if (index == -1)
+            if (index == std::string::npos)
             {
                 parts.emplace_back(str.substr(start_index));
                 return parts;
             }
 
+            ASSERTX(index > start_index, index, start_index);
             auto word = str.substr(start_index, index - start_index);
             char next_char = str.substr(index, 1)[0];
             if (is_whitespace(next_char))

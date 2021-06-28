@@ -143,7 +143,7 @@ namespace euphoria::t3d
         }
 
         const auto small_step = core::max(smallest_step, grid_data.small_step);
-        const auto size = core::abs(grid_data.size * grid_data.small_step);
+        const auto size = core::abs(core::c_int_to_float(grid_data.size) * grid_data.small_step);
         const auto normal = grid_data.normal;
 
         auto def = core::lines {};
@@ -155,7 +155,7 @@ namespace euphoria::t3d
 
         for(int index = 0; index < grid_data.size; index += 1)
         {
-            float x = small_step * (index+1);
+            float x = small_step * core::c_int_to_float(index+1);
 
             auto color = big_color;
             if(grid_data.big_step_interval > 1)
@@ -324,7 +324,7 @@ namespace euphoria::t3d
         if(forward_mouse)
         {
             editor->on_scroll(core::vec2i(e.wheel.x, e.wheel.y));
-            orbit.on_zoom_input(e.wheel.y);
+            orbit.on_zoom_input(core::c_int_to_float(e.wheel.y));
         }
     }
 
@@ -366,7 +366,7 @@ namespace euphoria::t3d
         if(pending_files.has_more_files())
         {
             window::imgui::begin_fixed_overlay(window::corner::bottom_left, "pending files");
-            const auto frac = pending_files.index / static_cast<float>(pending_files.files.size());
+            const auto frac = core::c_sizet_to_float(pending_files.index) / core::c_sizet_to_float(pending_files.files.size());
             window::imgui::label("Loading tiles...");
             ImGui::ProgressBar(frac, ImVec2{120, 0});
             ImGui::End();

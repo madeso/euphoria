@@ -133,16 +133,16 @@ namespace euphoria::core
 
         uint8 channel_blend_soft_light(uint8 top, uint8 bottom)
         {
-            const auto magic = (top>>1)+64;
+            const int magic = (top>>1)+64;
 
             if (bottom < 128)
             {
-                const auto r = 2.0f * magic * static_cast<float>(bottom) / 255.0f;
+                const auto r = 2.0f * c_int_to_float(magic) * static_cast<float>(bottom) / 255.0f;
                 return c_u8(r);
             }
             else
             {
-                const auto r = 2.0f * (255.0f-magic) * static_cast<float>(255-bottom) / 255.0f;
+                const auto r = 2.0f * (255.0f-c_int_to_float(magic)) * static_cast<float>(255-bottom) / 255.0f;
                 return c_u8(255.0f - r);
             }
         }

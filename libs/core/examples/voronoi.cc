@@ -9,6 +9,7 @@
 #include "core/palette.h"
 #include "core/closestpoint.h"
 #include "core/rect.h"
+#include "core/cint.h"
 
 #include "core/palette_tableu.h"
 #include "core/poisson.h"
@@ -120,13 +121,13 @@ main(int argc, char* argv[])
 
     euco::random rand;
 
-    const auto area = rectf::from_width_height(size, size);
+    const auto area = rectf::from_width_height(c_sizet_to_float(size), c_sizet_to_float(size));
     const auto random_points =
         point_generation == point_generation::random
         ? generate_random_points(number_of_points, area, &rand)
         : poisson_sample(area, &rand, poisson_radius*2, poisson_radius);
 
-    const auto rainbow = dynamic_palette::create_rainbow(random_points.size());
+    const auto rainbow = dynamic_palette::create_rainbow(c_sizet_to_int(random_points.size()));
     auto pal = use_colorblind
         ? *palettes::tableau::color_blind_10
         : rainbow.to_palette();

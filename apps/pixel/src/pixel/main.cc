@@ -307,7 +307,7 @@ main(int argc, char** argv)
                 image.for_all_top_bottom([&](int x, int y, const rgbai& c)
                 {
                     const auto pixel_size = 5;
-                    const auto p = ImVec2(x * pixel_size, y*pixel_size);
+                    const auto p = ImVec2(core::c_int_to_float(x * pixel_size), core::c_int_to_float(y*pixel_size));
                     const auto s = ImVec2(pixel_size, pixel_size);
                     const auto ps = canvas.world_to_screen(p);
                     const auto pss = canvas.world_to_screen(p + s);

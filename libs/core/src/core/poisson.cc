@@ -3,6 +3,8 @@
 #include "core/numeric.h"
 #include "core/random.h"
 #include "core/assert.h"
+#include "core/cint.h"
+
 
 namespace euphoria::core
 {
@@ -109,7 +111,7 @@ namespace euphoria::core
                 ASSERT( grid(sample_pos.x, sample_pos.y) == -1);
 
                 samples.emplace_back(sample);
-                grid(sample_pos.x, sample_pos.y) = point_index;
+                grid(sample_pos.x, sample_pos.y) = c_sizet_to_int(point_index);
                 active.emplace_back(point_index);
 
                 return {true, sample};
@@ -137,7 +139,7 @@ namespace euphoria::core
 
         const auto active_index = get_random_in_range(rand, active.size());
 
-        const auto [placed, sample] = try_place(active_index);
+        const auto [placed, sample] = try_place(c_sizet_to_int(active_index));
         if(placed)
         {
             const vec2f from = samples[active[active_index]];
@@ -146,7 +148,7 @@ namespace euphoria::core
         }
         else
         {
-            active.erase(active.begin() + active_index);
+            active.erase(std::next(active.begin(), c_sizet_to_int(active_index)));
             return std::nullopt;
         }
     }

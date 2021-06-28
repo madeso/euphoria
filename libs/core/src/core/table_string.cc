@@ -3,6 +3,7 @@
 #include <algorithm>
 
 #include "core/stringutils.h"
+#include "core/cint.h"
 
 
 namespace euphoria::core
@@ -232,7 +233,7 @@ namespace euphoria::core
                 for(string_table::I col = 0; col < number_of_cols; ++col)
                 {
                     const auto cell = begin_str + subtable(col, subrow);
-                    int line_length = cell.length();
+                    auto line_length = c_sizet_to_int(cell.length());
                     out << cell;
 
                     if(col != number_of_cols - 1)

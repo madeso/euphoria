@@ -1,5 +1,7 @@
 #include "render/viewport.h"
 
+#include "core/cint.h"
+
 #include "render/gl.h"
 
 namespace euphoria::render
@@ -37,7 +39,7 @@ namespace euphoria::render
     float
     viewport::get_aspect_ratio() const
     {
-        return bounds.get_width() / static_cast<float>(bounds.get_height());
+        return core::c_int_to_float(bounds.get_width()) / core::c_int_to_float(bounds.get_height());
     }
 
 

@@ -15,6 +15,7 @@
 #include "core/proto.h"
 #include "core/log.h"
 #include "core/noncopyable.h"
+#include "core/cint.h"
 
 #include "render/init.h"
 #include "render/debuggl.h"
@@ -563,7 +564,7 @@ main(int argc, char** argv)
         last_time = current_time;
         current_time = SDL_GetPerformanceCounter();
 
-        const auto dt = (static_cast<float>(current_time - last_time) / SDL_GetPerformanceFrequency());
+        const float dt = euphoria::core::c_u64_to_float(current_time - last_time) / euphoria::core::c_u64_to_float(SDL_GetPerformanceFrequency());
 
         time += dt;
         app.current_time = time;

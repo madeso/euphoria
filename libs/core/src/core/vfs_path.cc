@@ -2,6 +2,7 @@
 
 #include <algorithm>
 
+#include "core/cint.h"
 #include "core/assert.h"
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
@@ -358,8 +359,8 @@ namespace euphoria::core::vfs
                 // drop .. and the parent folder from the path
                 dirs.erase
                 (
-                    dirs.begin() + (index-1),
-                    dirs.begin() + (index+1)
+                    std::next(dirs.begin(), c_sizet_to_int(index)-1),
+                    std::next(dirs.begin(), c_sizet_to_int(index)+1)
                 );
                 index -= 1;
                 size -= 2;

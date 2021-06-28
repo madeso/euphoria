@@ -383,7 +383,11 @@ main(int argc, char** argv)
             case SDL_MOUSEMOTION:
                 if(capturing_mouse_movement)
                 {
-                    fps.look(e.motion.xrel, e.motion.yrel);
+                    fps.look
+                    (
+                        c_int_to_float(e.motion.xrel),
+                        c_int_to_float(e.motion.yrel)
+                    );
                 }
                 break;
             case SDL_KEYDOWN:

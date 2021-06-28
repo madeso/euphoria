@@ -1,5 +1,7 @@
 #include "core/viewportdef.h"
 
+#include "core/cint.h"
+
 
 namespace euphoria::core
 {
@@ -24,10 +26,14 @@ namespace euphoria::core
         const float new_height = height * s;
         return viewport_definition
         {
-            recti::from_width_height(new_width, new_height).set_bottom_left_to_copy
+            recti::from_width_height
             (
-                (static_cast<float>(window_width) - new_width) / 2.0f,
-                (static_cast<float>(window_height) - new_height) / 2.0f
+                c_float_to_int(new_width),
+                c_float_to_int(new_height)
+            ).set_bottom_left_to_copy
+            (
+                c_float_to_int((c_int_to_float(window_width) - new_width) / 2.0f),
+                c_float_to_int((c_int_to_float(window_height) - new_height) / 2.0f)
             ),
             width,
             height

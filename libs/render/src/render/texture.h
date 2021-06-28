@@ -85,7 +85,7 @@ namespace euphoria::render
             int width,
             int height,
             const unsigned char* pixel_data,
-            gluint internal_format,
+            glint internal_format,
             gluint image_format,
             const texture2d_load_data& data
         );

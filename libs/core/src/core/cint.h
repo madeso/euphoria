@@ -31,6 +31,7 @@ namespace euphoria::core
     c_u64_to_int(u64 u);
 
 
+    // todo(Gustav): deprecate and replace with floor_to_int or ceil_to_int
     constexpr int
     c_float_to_int(float f)
     {

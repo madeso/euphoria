@@ -358,7 +358,14 @@ main(int argc, char* argv[])
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto root = euphoria::gui::root{size2f::create_from_width_height(window_width, window_height)};
+    auto root = euphoria::gui::root
+    {
+        size2f::create_from_width_height
+        (
+            c_int_to_float(window_width),
+            c_int_to_float(window_height)
+        )
+    };
     const auto gui_loaded = root.load
     (
         engine.file_system.get(),
@@ -413,7 +420,14 @@ main(int argc, char* argv[])
             if(engine.on_resize(e, &window_width, &window_height))
             {
                 viewport_handler.set_size(window_width, window_height);
-                root.resize(size2f::create_from_width_height(window_width, window_height));
+                root.resize
+                (
+                    size2f::create_from_width_height
+                    (
+                        c_int_to_float(window_width),
+                        c_int_to_float(window_height)
+                    )
+                );
             }
 
             if(e.type == SDL_MOUSEMOTION)

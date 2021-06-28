@@ -68,9 +68,9 @@ namespace euphoria::render
             image_file.value(),
             img.alias,
             img.scale,
-            img.bearing_x,
-            img.bearing_y,
-            img.advance
+            core::c_int_to_float(img.bearing_x),
+            core::c_int_to_float(img.bearing_y),
+            core::c_int_to_float(img.advance)
         );
     }
 
@@ -195,7 +195,7 @@ namespace euphoria::render
         // todo(Gustav): use core/pack.h instead
 
         // pack char textures to a single texture
-        const int num_rects = fontchars.codepoint_to_glyph.size();
+        const int num_rects = core::c_sizet_to_int(fontchars.codepoint_to_glyph.size());
         std::vector<stbrp_rect> packed_rects(num_rects);
         std::map<int, int> id_to_codepoint;
         {

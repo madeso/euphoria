@@ -1,6 +1,7 @@
 #include "core/io.h"
 
 #include "core/log.h"
+#include "core/cint.h"
 
 #include <fstream>
 
@@ -44,7 +45,7 @@ namespace euphoria::core::io
             return memory_chunk::null();
         }
 
-        auto memory = memory_chunk::allocate(length);
+        auto memory = memory_chunk::allocate(c_sizet_to_int(length));
         is.read
         (
             static_cast<char*>(static_cast<void*>(memory->get_data())),

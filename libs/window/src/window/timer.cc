@@ -2,6 +2,8 @@
 
 #include "SDL_timer.h"
 
+#include "core/cint.h"
+
 namespace euphoria::window
 {
     sdl_timer::sdl_timer()
@@ -15,8 +17,8 @@ namespace euphoria::window
     {
         last_time_ = current_time_;
         current_time_ = SDL_GetPerformanceCounter();
-        const float dt = (current_time_ - last_time_) * 1.0f
-                         / SDL_GetPerformanceFrequency();
+
+        const float dt = core::c_u64_to_float(current_time_ - last_time_) / core::c_u64_to_float(SDL_GetPerformanceFrequency());
         return dt;
     }
 }

@@ -148,10 +148,10 @@ namespace euphoria::core
         ASSERT(image);
 
         const auto rect = calculate_bounding_rect(poly);
-        const int left = rect.get_top_left().x;
-        const int right = rect.get_top_right().x;
-        const int top = rect.get_top_left().y;
-        const int bottom = rect.get_bottom_left().y;
+        const int left = c_float_to_int(rect.get_top_left().x);
+        const int right = c_float_to_int(rect.get_top_right().x);
+        const int top = c_float_to_int(rect.get_top_left().y);
+        const int bottom = c_float_to_int(rect.get_bottom_left().y);
 
         // ASSERTX(left >= 0, left);
         // ASSERTX(bottom >= 0, bottom);
@@ -162,7 +162,7 @@ namespace euphoria::core
             {
                 if(x < 0 || x >= image->width) { continue; }
 
-                if(point_is_in_poly(vec2f(x, y), poly))
+                if(point_is_in_poly(vec2f{c_int_to_float(x), c_int_to_float(y)}, poly))
                 {
                     image->set_pixel(x, y, color);
                 }
@@ -182,17 +182,17 @@ namespace euphoria::core
     )
     {
         ASSERT(image);
-        const int left = max(0, floor_to_int(center.x - radius - softness));
+        const int left = max(0, center.x - floor_to_int(radius - softness));
         const int right = min
         (
             image->width,
-            ceil_to_int(center.x + radius + softness)
+            ceil_to_int(c_int_to_float(center.x) + radius + softness)
         );
-        const int top = max(0, floor_to_int(center.y - radius - softness));
+        const int top = max(0, floor_to_int(c_int_to_float(center.y) - radius - softness));
         const int bottom = min
         (
             image->height,
-            ceil_to_int(center.y + radius + softness)
+            center.y + ceil_to_int(radius + softness)
         );
 
         // color modes
@@ -324,7 +324,7 @@ namespace euphoria::core
         const auto y0 = from.y;
         const auto x1 = to.x;
         const auto y1 = to.y;
-        if(abs(y1 - y0) < abs(x1 - x0))
+        if(std::abs(y1 - y0) < std::abs(x1 - x0))
         {
             if(x0 > x1) { plot_line_low(x1, y1, x0, y0); }
             else        { plot_line_low(x0, y0, x1, y1); }
@@ -423,7 +423,7 @@ namespace euphoria::core
 
         // handle first endpoint
         auto xend = round(x0);
-        auto yend = y0 + gradient * (xend - x0);
+        auto yend = y0 + gradient * (c_int_to_float(xend) - x0);
         auto xgap = rfpart(x0 + 0.5f);
         auto xpxl1 = xend; // this will be used in the main loop
         auto ypxl1 = ipart(yend);
@@ -441,7 +441,7 @@ namespace euphoria::core
 
         // handle second endpoint
         xend = round(x1);
-        yend = y1 + gradient * (xend - x1);
+        yend = y1 + gradient * (c_int_to_float(xend) - x1);
         xgap = fpart(x1 + 0.5f);
         auto xpxl2 = xend; //this will be used in the main loop
         auto ypxl2 = ipart(yend);
@@ -527,7 +527,7 @@ namespace euphoria::core
         ASSERT(image);
 
         vec2i pos = start_pos;
-        utf8_to_codepoints(text, [&](unsigned int cp)
+        utf8_to_codepoints(text, [&](int cp)
         {
             if(cp == '\n')
             {

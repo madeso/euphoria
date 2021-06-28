@@ -105,7 +105,7 @@ namespace euphoria::core
             {
                 int advance_width = 0;
                 stbtt_GetCodepointHMetrics(&font, code_point, &advance_width, nullptr);
-                ch.advance = advance_width * scale;
+                ch.advance = c_float_to_int(c_int_to_float(advance_width) * scale);
             }
             if(width == 0 && height == 0)
             {
@@ -354,7 +354,7 @@ namespace euphoria::core
         );
 
         loaded_font fontchars {};
-        for(char code_point: code_points)
+        for(int code_point: code_points)
         {
             loaded_glyph cc = f.load_glyph(code_point);
             if(!cc.valid)
@@ -376,7 +376,7 @@ namespace euphoria::core
 
         const float scale = 1 / static_cast<float>(font_size);
 
-        for(const char cp: code_points)
+        for(int cp: code_points)
         {
             f.define_codepoint(cp);
         }

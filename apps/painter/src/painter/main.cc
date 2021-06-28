@@ -14,6 +14,7 @@
 #include "core/stdutils.h"
 #include "core/proto.h"
 #include "core/log.h"
+#include "core/cint.h"
 
 #include "core/bezierpath.h"
 
@@ -197,7 +198,7 @@ main(int argc, char** argv)
                     ? IM_COL32(20, 20, 200, alpha)
                     : IM_COL32(200, 20, 20, alpha)
                     ;
-                auto r = handle(con(path.points[point_index]), point_index, color);
+                auto r = handle(con(path.points[point_index]), euphoria::core::c_sizet_to_int(point_index), color);
                 if(r.first)
                 {
                     if(ImGui::GetIO().KeyCtrl)
@@ -206,7 +207,7 @@ main(int argc, char** argv)
                     }
                     else
                     {
-                        path.move_point(point_index, r.second);
+                        path.move_point(euphoria::core::c_sizet_to_int(point_index), r.second);
                     }
                 }
             }

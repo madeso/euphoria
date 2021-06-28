@@ -227,13 +227,14 @@ namespace euphoria::core
     {
         const auto tc = tan(contrast);
         run_lut_transform(image, [&](int i) {
+            const auto f = c_int_to_float(i);
             const auto a = 128.0f + 128.0f * tc;
             const auto b = 128.0f - 128.0f * tc;
-            if(i < a && b < i)
+            if(f < a && b < f)
             {
-                return static_cast<int>((i - 128) / tc + 128);
+                return c_float_to_int((f - 128.0f) / tc) + 128;
             }
-            else if(i > a)
+            else if(f > a)
             {
                 return 255;
             }

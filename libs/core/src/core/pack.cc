@@ -1,5 +1,7 @@
 #include "core/pack.h"
 
+#include "core/cint.h"
+
 #include "stb_rect_pack.h"
 
 
@@ -13,7 +15,7 @@ namespace euphoria::core
     )
     {
         //init data
-        const int num_rects = to_pack.size();
+        const int num_rects = c_sizet_to_int(to_pack.size());
         auto packed_rects = std::vector<stbrp_rect>(num_rects);
         {
             int index = 0;

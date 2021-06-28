@@ -14,7 +14,7 @@
 
 namespace
 {
-    euphoria::render::gluint
+    euphoria::render::glint
     con(euphoria::render::texture_wrap v)
     {
         switch(v)
@@ -29,7 +29,7 @@ namespace
     }
 
 
-    euphoria::render::gluint
+    euphoria::render::glint
     con(euphoria::render::filter_magnification v)
     {
         switch(v)
@@ -44,7 +44,7 @@ namespace
     }
 
 
-    euphoria::render::gluint
+    euphoria::render::glint
     con(euphoria::render::filter_minification v)
     {
         switch(v)
@@ -152,7 +152,7 @@ namespace euphoria::render
         int new_width,
         int new_height,
         const unsigned char* pixel_data,
-        GLuint internal_format,
+        GLint internal_format,
         GLuint image_format,
         const texture2d_load_data& data
     )
@@ -211,7 +211,7 @@ namespace euphoria::render
         const texture2d_load_data& data
     )
     {
-        GLuint internal_format = GL_RGB;
+        GLint internal_format = GL_RGB;
         GLuint image_format = GL_RGB;
         if(image.has_alpha && alpha == core::alpha_load::keep)
         {
