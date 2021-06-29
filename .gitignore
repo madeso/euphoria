@@ -25,3 +25,6 @@ docs/generated/html/
 # ignoring junk folder
 junk/
 
+# tgit cache
+.tgit.json
+
