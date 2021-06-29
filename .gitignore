@@ -28,3 +28,4 @@ junk/
 # tgit cache
 .tgit.json
 
+node_modules/
