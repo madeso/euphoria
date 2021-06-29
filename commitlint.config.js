@@ -11,6 +11,6 @@ module.exports =
                 'editor', 'engine', 'painter', 'pixel', 't3d'
             ]
         ],
-        'type-enum': [2, 'always', ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'revert']]
+        'type-enum': [2, 'always', ['fix', 'feat', 'chore', 'docs', 'style', 'refactor', 'perf', 'test', 'revert', 'ci', 'build']]
     }
 };
