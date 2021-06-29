@@ -185,7 +185,7 @@ namespace euphoria::core::argparse
     {
         std::vector<std::string> names;
 
-        name(const char* n);
+        name(const char* nn);
 
         // return empty string if valid, return error message if not
         [[nodiscard]]
