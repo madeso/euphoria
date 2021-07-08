@@ -271,7 +271,9 @@ def run_clang_tidy(root, source_file, project_build_folder, stats, short, name_p
     for line in output.split('\n'):
         if 'warnings generated' in line:
             pass
-        elif '-header-filter' in line:
+        elif 'Use -header-filter=.* to display errors' in line:
+            pass
+        elif 'Suppressed' in line and 'NOLINT).' in line:
             pass
         elif 'Suppressed' in line and 'non-user code' in line:
             pass
