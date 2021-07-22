@@ -1,41 +1,47 @@
 {
-  "title": "Space Shooter",
-  "clear_color": {"hex": "#5E3F6B"},
-  "viewport": {
-    "type": "FitWithBlackBars",
-    "width": 800,
-    "height": 600
-  },
-  "binds":
-    [
-      {"name": "up", "key": "w"},
-      {"name": "down", "key": "s"},
-      {"name": "left", "key": "a"},
-      {"name": "right", "key": "d"},
-      {"name": "fire", "key": "space"}
-    ],
-  "templates": [
-    {"name": "player", "components": [
-      {"position": {"x": 200, "y": 40}},
-      {"sprite": {"path": "playerShip1_blue.png"}},
-      {"custom": {"name": "player", "arguments": []}}
-    ]},
-    {"name": "shot", "components": [
-      {"position": {"x": 0, "y": 0}},
-      {"sprite": {"path": "laserBlue07.png"}},
-      {"custom": {"name": "move_up", "arguments": []}},
-      {"custom": {"name": "timeout", "arguments": []}},
-      {"custom": {"name": "destroy_outside", "arguments": []}}
-    ]},
-    {"name": "starSmall", "components": [
-      {"position": {"x": 50, "y": 50}},
-      {"sprite": {"path": "starSmall.png"}},
-      {"custom": {"name": "star", "arguments": [{"name": "speed", "number": {"value": 100}}, {"name": "random_boost", "number": {"value": 50}}]}}
-    ]},
-    {"name": "starBig", "components": [
-      {"position": {"x": 50, "y": 50}},
-      {"sprite": {"path": "starBig.png"}},
-      {"custom": {"name": "star", "arguments": [{"name": "speed", "number": {"value": 50}}, {"name": "random_boost", "number": {"value": 25}}]}}
-    ]}
-  ]
+    "title": "Space Shooter",
+    "clear_color": {"hex": "#5E3F6B"},
+    "viewport": {
+        "type": "FitWithBlackBars",
+        "width": 800,
+        "height": 600
+    },
+    "binds":
+        [
+            {"name": "up", "key": "w"},
+            {"name": "down", "key": "s"},
+            {"name": "left", "key": "a"},
+            {"name": "right", "key": "d"},
+            {"name": "fire", "key": "space"}
+        ],
+    "templates": [
+        {"name": "player", "components": [
+            {"position": {"x": 200, "y": 40}},
+            {"sprite": {"path": "playerShip1_blue.png"}},
+            {"custom": {"name": "player", "arguments": []}}
+        ]},
+        {"name": "shot", "components": [
+            {"position": {"x": 0, "y": 0}},
+            {"sprite": {"path": "laserBlue07.png"}},
+            {"custom": {"name": "move_up", "arguments": []}},
+            {"custom": {"name": "timeout", "arguments": []}},
+            {"custom": {"name": "destroy_outside", "arguments": []}}
+        ]},
+        {"name": "starSmall", "components": [
+            {"position": {"x": 50, "y": 50}},
+            {"sprite": {"path": "starSmall.png"}},
+            {"custom": {"name": "star", "arguments": [
+                {"name": "speed", "number": {"value": 100}},
+                {"name": "random_boost", "number": {"value": 50}}
+            ]}}
+        ]},
+        {"name": "starBig", "components": [
+            {"position": {"x": 50, "y": 50}},
+            {"sprite": {"path": "starBig.png"}},
+            {"custom": {"name": "star", "arguments": [
+                {"name": "speed", "number": {"value": 50}},
+                {"name": "random_boost", "number": {"value": 25}}
+            ]}}
+        ]}
+    ]
 }
