@@ -303,7 +303,21 @@ namespace euphoria::engine
                 return c == nullptr ? nullptr : &c->pos;
             };
 
-            duk->state.new_usertype<component_position2>("component_position2", "vec", &component_position2::pos);
+            duk->state.new_usertype<component_position2>
+            (
+                "component_position2",
+                "vec", sol::property
+                (
+                    [](const component_position2& p)
+                    {
+                        return p.pos;
+                    },
+                    [](component_position2& p, const core::vec2f& np)
+                    {
+                        p.pos = np;
+                    }
+                )
+            );
 
             duk->state.new_usertype<component_sprite>
             (
