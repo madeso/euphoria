@@ -54,7 +54,7 @@ namespace euphoria::core
 
 
     constexpr float
-    c_u64_to_float(u8 i)
+    c_u64_to_float(u64 i)
     {
         return static_cast<float>(i);
     }
