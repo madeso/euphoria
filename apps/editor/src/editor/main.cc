@@ -34,6 +34,15 @@
 #include "gaf_world.h"
 #include "gaf_enum.h"
 
+#include "gaf_imgui_game.h"
+#include "gaf_imgui_world.h"
+#include "gaf_imgui_enum.h"
+#include "gaf_imgui_scalingsprite.h"
+
+#include "gaf_rapidjson_game.h"
+#include "gaf_rapidjson_world.h"
+#include "gaf_rapidjson_enum.h"
+
 
 using namespace euphoria::core;
 using namespace euphoria::render;

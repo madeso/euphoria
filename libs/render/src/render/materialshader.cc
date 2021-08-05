@@ -10,6 +10,7 @@
 #include "render/light.h"
 
 #include "gaf_materialshader.h"
+#include "gaf_rapidjson_materialshader.h"
 
 namespace euphoria::render
 {

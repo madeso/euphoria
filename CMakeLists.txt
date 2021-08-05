@@ -49,7 +49,6 @@ SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${EXTRA_FLAGS}")
 
 set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/tools/osx-bundle.plist")
 set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/tools/gaf_options.txt)
-include(${CMAKE_CURRENT_SOURCE_DIR}/external/gaf/gaf.cmake)
 
 include(CTest)
 include(external/catch/Catch.cmake)

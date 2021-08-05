@@ -19,6 +19,7 @@
 #include "core/vfs.h"
 
 #include "gaf_mesh.h"
+#include "gaf_rapidjson_mesh.h"
 
 
 namespace euphoria::core

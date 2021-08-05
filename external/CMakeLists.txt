@@ -1,4 +1,5 @@
 add_subdirectory(fmt-7.1.1)
+add_subdirectory(gaf)
 set_target_properties(fmt PROPERTIES FOLDER "Dependencies")
 
 ################################################################

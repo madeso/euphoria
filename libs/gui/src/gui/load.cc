@@ -15,6 +15,7 @@
 #include "gui/root.h"
 
 #include "gaf_gui.h"
+#include "gaf_rapidjson_gui.h"
 
 #include <iostream>
 #include <map>

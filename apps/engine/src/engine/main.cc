@@ -47,7 +47,7 @@
 #include "imgui/imgui.h"
 
 #include "gaf_game.h"
-
+#include "gaf_rapidjson_game.h"
 
 using namespace euphoria::core;
 using namespace euphoria::core::ecs;

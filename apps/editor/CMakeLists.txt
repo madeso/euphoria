@@ -11,15 +11,17 @@ source_group("" FILES ${src})
 # file_types is only plain gaf
 # when gaf suppors several outputs, link with a file_types_imgui library instead
 include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
-SET(Gaf_CUSTOM_PREFIX gaf_)
-SET(Gaf_INCLUDE_IMGUI Yes)
-GAF_GENERATE_CPP(SPRITE_PROTO_SRCS SPRITE_PROTO_HDRS
-    ${file_types_folder}/scalingsprite.gaf
-    ${file_types_folder}/game.gaf
-    ${file_types_folder}/world.gaf
-    ${file_types_folder}/enum.gaf
+GAF_GENERATE_CPP(
+    IMGUI
+    SOURCES generated_sources
+    HEADERS generated_headers
+    FILES
+        ${file_types_folder}/scalingsprite.gaf
+        ${file_types_folder}/game.gaf
+        ${file_types_folder}/world.gaf
+        ${file_types_folder}/enum.gaf
 )
-set(src ${src} ${SPRITE_PROTO_SRCS} ${SPRITE_PROTO_HDRS})
+set(src ${src} ${generated_sources} ${generated_headers})
 
 
 add_executable(editor WIN32 MACOSX_BUNDLE ${src})
@@ -37,5 +39,6 @@ target_link_libraries(editor
         window
         sdl2
         imgui
+        file_types
 )
 

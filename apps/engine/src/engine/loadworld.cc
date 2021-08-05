@@ -10,6 +10,7 @@
 #include "engine/objectemplate.h"
 
 #include "gaf_world.h"
+#include "gaf_rapidjson_world.h"
 
 namespace euphoria::engine
 {

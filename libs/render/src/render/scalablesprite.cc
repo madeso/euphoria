@@ -15,7 +15,7 @@
 #include "render/spriterender.h"
 
 #include "gaf_scalingsprite.h"
-
+#include "gaf_rapidjson_scalingsprite.h"
 
 using namespace euphoria::convert;
 

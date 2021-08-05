@@ -1,8 +1,7 @@
 ###############################################################################
 # file_types project
 
-SET(Gaf_CUSTOM_PREFIX gaf_)
-GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
+set(all_gafs
     src/file_types/enum.gaf
     src/file_types/mesh.gaf
     src/file_types/chatbot.gaf
@@ -13,10 +12,38 @@ GAF_GENERATE_CPP(PROTO_SRCS PROTO_HDRS
     src/file_types/world.gaf
     src/file_types/game.gaf
 )
-add_library(file_types STATIC
-    ${PROTO_SRCS}
-    ${PROTO_HDRS}
+
+set(generated_files)
+
+
+GAF_GENERATE_CPP(
+    SOURCES generated_sources
+    HEADERS generated_headers
+    FILES
+        ${all_gafs}
 )
+set(generated_files
+    ${generated_files}
+    ${generated_sources}
+    ${generated_headers}
+)
+
+
+GAF_GENERATE_CPP(
+    RAPIDJSON
+    SOURCES generated_sources
+    HEADERS generated_headers
+    FILES
+        ${all_gafs}
+)
+set(generated_files
+    ${generated_files}
+    ${generated_sources}
+    ${generated_headers}
+)
+
+
+add_library(file_types STATIC ${generated_files})
 set_target_properties(file_types PROPERTIES FOLDER "Libraries")
 target_include_directories(file_types
     PUBLIC
