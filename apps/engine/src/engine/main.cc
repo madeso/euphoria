@@ -199,10 +199,10 @@ main(int argc, char* argv[])
     (
         engine.create_window
         (
-                gamedata.title,
-                window_width,
-                window_height,
-                true
+            gamedata.title,
+            window_width,
+            window_height,
+            true
         ) == false
     )
     {
