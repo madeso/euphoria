@@ -7,14 +7,14 @@
 
 #include "core/random.h"
 
-// json parsing
-#include "rapidjson/document.h"
-
 #include "core/assert.h"
 #include "core/textfileparser.h"
 #include "core/str.h"
 #include "core/proto.h"
 #include "core/stringutils.h"
+
+#include "gaf_tracery.h"
+#include "gaf_rapidjson_tracery.h"
 
 namespace euphoria::core::tracery
 {
@@ -54,41 +54,23 @@ namespace euphoria::core::tracery
     };
 
     result
-    parse_json(symbol* rule, const rapidjson::Value& value)
+    parse_json(symbol* rule, const ::tracery::Rule& value)
     {
-        if(value.IsString())
+        for(const auto& v: value.text)
         {
-            return rule->add_rule(value.GetString());
-        }
-        else if(value.IsArray())
-        {
-            for(const auto& v: value.GetArray())
+            result r = rule->add_rule(v);
+            if(r == false)
             {
-                if(v.IsString())
-                {
-                    result r = rule->add_rule(v.GetString());
-                    if(r == false)
-                    {
-                        return r;
-                    }
-                }
-                else
-                {
-                    return result(result::invalid_json);
-                }
+                return r;
             }
+        }
 
-            return result(result::no_error);
-        }
-        else
-        {
-            return result(result::invalid_json);
-        }
+        return result::no_error;
     }
 
 
     result
-    from_json(symbol* rule, const rapidjson::Value& value)
+    from_json(symbol* rule, const ::tracery::Rule& value)
     {
         auto r = parse_json(rule, value);
         if(r == false)
@@ -614,18 +596,22 @@ namespace euphoria::core::tracery
             return result(result::json_parse) << parse_error;
         }
 
-        for(rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
-            itr != doc.MemberEnd();
-            ++itr)
+        ::tracery::Tracery message;
+        const auto loaded_json_error = ReadFromJsonValue(&message, doc, "");
+        if(loaded_json_error.empty() == false)
         {
-            const std::string name_of_rule = itr->name.GetString();
-            symbol rule {name_of_rule};
-            result r = from_json(&rule, itr->value);
-            if(r == false)
+            return result(result::json_parse) << loaded_json_error;
+        }
+
+        for(const auto& json_rule: message.rule)
+        {
+            auto rule = symbol{json_rule.name};
+            const auto rule_loaded = from_json(&rule, json_rule);
+            if(rule_loaded == false)
             {
-                return r;
+                return rule_loaded;
             }
-            rules.insert(std::make_pair(name_of_rule, rule));
+            rules.insert(std::make_pair(json_rule.name, rule));
         }
 
         return result(result::no_error);

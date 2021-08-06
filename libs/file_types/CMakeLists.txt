@@ -11,6 +11,7 @@ set(all_gafs
     src/file_types/gui.gaf
     src/file_types/world.gaf
     src/file_types/game.gaf
+    src/file_types/tracery.gaf
 )
 
 set(generated_files)

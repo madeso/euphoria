@@ -1,5 +1,8 @@
 {
-    "animal": ["panda","fox","capybara","iguana"],
-    "emotion": ["sad","happy","angry","jealous"],
-    "origin":["I am #emotion.a# #animal#."]
+    "rule":
+    [
+        {"name": "animal", "text": ["panda","fox","capybara","iguana"]},
+        {"name": "emotion", "text": ["sad","happy","angry","jealous"]},
+        {"name": "origin", "text": ["I am #emotion.a# #animal#."]}
+    ]
 }
