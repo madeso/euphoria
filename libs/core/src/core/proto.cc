@@ -7,6 +7,9 @@
 #include "core/str.h"
 #include "core/vfs_path.h"
 #include "core/log.h"
+#include "core/editdistance.search.h"
+#include "core/stringmerger.h"
+#include "core/functional.h"
 
 #include <fstream>
 
@@ -97,9 +100,25 @@ namespace euphoria::core
 
     
     std::string
-    could_be_callback(const std::string& v, const std::vector<std::string>& vv)
+    could_be_callback(const std::string& invalid_value, const std::vector<std::string>& possible_values)
     {
-        return gaf::could_be_fun_all(v, vv);
+        constexpr std::size_t max_items = 3;
+        const auto values = map<std::string>
+        (
+            search::find_closest<search::match>
+            (
+                max_items, possible_values,
+                [&](const auto& value) -> search::match
+                {
+                    return {value, invalid_value};
+                }
+            ),
+            [](const search::match& m)
+            {
+                return m.name;
+            }
+        );
+        return string_mergers::english_or.merge(values);
     }
 
     read_error_file_missing::read_error_file_missing(const std::string& p, const std::string& e)
