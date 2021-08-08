@@ -3,40 +3,48 @@
     <viewport
         type="FitWithBlackBars"
         width="800"
-        height="60" />
+        height="600" />
     
-    <bings key="up" key="w" />
-    <bings key="down" key="s" />
-    <bings key="left" key="a" />
-    <bings key="right" key="d" />
-    <bings key="fire" key="space" />
+    <binds name="up" key="w" />
+    <binds name="down" key="s" />
+    <binds name="left" key="a" />
+    <binds name="right" key="d" />
+    <binds name="fire" key="space" />
+
+    <!-- todo(Gustav): allow xml element to be overriden in gaf so we can have singular items and/or to be a children under a single plural element-->
+    <!-- todo(Gustav): allow components oneoff to break out of components element container -->
+    <!-- todo(Gustav): allow arguments name attribute to be placed in element name -->
     
     <templates name="player">
-        <position x="200" y="40"/>
-        <sprite path="playerShip1_blue.png" />
-        <custom name="player"/>
+        <components><position x="200" y="40"/></components>
+        <components><sprite path="playerShip1_blue.png" /></components>
+        <components><custom name="player"/></components>
     </templates>
     <templates name="shot">
-        <position x="0" y="0"/>
-        <sprite path="laserBlue07.png" />
-        <custom name="move_up" />
-        <custom name="timeout" />
-        <custom name="destroy_outside" />
+        <components><position x="0" y="0"/></components>
+        <components><sprite path="laserBlue07.png" /></components>
+        <components><custom name="move_up" /></components>
+        <components><custom name="timeout" /></components>
+        <components><custom name="destroy_outside" /></components>
     </templates>
     <templates name="starSmall">
-        <position x="50" y="50" />
-        <sprite path="starSmall.png"/>
-        <custom name="star">
-            <speed><number value="100"/></speed>
-            <random_boost><number value="50"/></random_boost>
-        </custom>
+        <components><position x="50" y="50" /></components>
+        <components><sprite path="starSmall.png"/></components>
+        <components>
+            <custom name="star">
+                <arguments name="speed"><number value="100"/></arguments>
+                <arguments name="random_boost"><number value="50"/></arguments>
+            </custom>
+        </components>
     </templates>
     <templates name="starBig">
-        <position x="50" y="50" />
-        <sprite path="starBig.png" />
-        <custom name="star">
-            <speed><number value="50"/></speed>
-            <random_boost><number value="20"/></random_boost>
-        </custom>
+        <components><position x="50" y="50" /></components>
+        <components><sprite path="starBig.png" /></components>
+        <components>
+            <custom name="star">
+                <arguments name="speed"><number value="50"/></arguments>
+                <arguments name="random_boost"><number value="20"/></arguments>
+            </custom>
+        </components>
     </templates>
 </game>
