@@ -1,5 +1,6 @@
 #include "SDL.h"
 #include <iostream>
+#include <optional>
 
 #include "core/log.h"
 #include "core/str.h"
@@ -56,7 +57,7 @@ using namespace euphoria::window;
 using namespace euphoria::engine;
 
 
-game::Game
+std::optional<game::Game>
 load_game_data(vfs::file_system* fs)
 {
     game::Game game;
@@ -64,6 +65,7 @@ load_game_data(vfs::file_system* fs)
     if(!err.empty())
     {
         LOG_ERROR("Failed to load gamedata.json: {0}", err);
+        return std::nullopt;
     }
     return game;
 }
@@ -189,7 +191,12 @@ main(int argc, char* argv[])
 
     texture_cache cache {engine.file_system.get()};
 
-    game::Game gamedata = load_game_data(engine.file_system.get());
+    auto loaded_gamedata = load_game_data(engine.file_system.get());
+    if(loaded_gamedata.has_value() == false)
+    {
+        return -1;
+    }
+    game::Game gamedata = *loaded_gamedata;
     const auto clear_color = get_color(gamedata.clear_color);
 
     int window_width = 800;
