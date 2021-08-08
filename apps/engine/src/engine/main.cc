@@ -60,14 +60,10 @@ using namespace euphoria::engine;
 std::optional<game::Game>
 load_game_data(vfs::file_system* fs)
 {
-    game::Game game;
-    const auto err = read_json_to_gaf_struct_or_get_error_message(fs, &game, vfs::file_path{"~/gamedata.xml"});
-    if(!err.empty())
-    {
-        LOG_ERROR("Failed to load gamedata.xml: {0}", err);
-        return std::nullopt;
-    }
-    return game;
+    return get_optional_and_log_errors
+    (
+        read_xml_file_to_gaf_struct<::game::Game>(fs, vfs::file_path{"~/gamedata.xml"}, ::game::ReadXmlElementGame)
+    );
 }
 
 

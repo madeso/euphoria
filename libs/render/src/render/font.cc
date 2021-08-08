@@ -126,9 +126,9 @@ namespace euphoria::render
 
     drawable_font::drawable_font
     (
-            core::vfs::file_system* fs,
-            texture_cache* cache,
-            const core::vfs::file_path& font_file
+        core::vfs::file_system* fs,
+        texture_cache* cache,
+        const core::vfs::file_path& font_file
     )
     {
         // todo(Gustav): too long, break up
@@ -136,18 +136,19 @@ namespace euphoria::render
         const int texture_height = 512;
 
         background = cache->get_texture
-                (
-                        core::vfs::file_path{"~/img-plain/white"}
-                );
+        (
+            core::vfs::file_path{"~/img-plain/white"}
+        );
 
         core::loaded_font fontchars;
-        font::Root font_root;
 
-        std::string error = core::read_json_to_gaf_struct_or_get_error_message(fs, &font_root, font_file);
-        if(!error.empty())
-        {
-            LOG_ERROR("Failed to load {0}: {1}", font_file, error);
-        }
+        const auto font_root = core::get_default_but_log_errors
+        (
+            core::read_xml_file_to_gaf_struct<font::Root>(fs, font_file, font::ReadXmlElementRoot)
+        );
+
+        // todo(Gustav): handle error better
+        
         for(const auto& source: font_root.sources)
         {
             if(source.font)

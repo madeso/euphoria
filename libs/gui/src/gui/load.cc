@@ -338,13 +338,17 @@ namespace euphoria::gui
         render::texture_cache* cache
     )
     {
-        ::gui::File f;
-        const std::string load_result = core::read_json_to_gaf_struct_or_get_error_message(fs, &f, path);
-        if(false == load_result.empty())
+        const auto loaded = core::get_optional_and_log_errors
+        (
+            core::read_xml_file_to_gaf_struct<::gui::File>(fs, path, ::gui::ReadXmlElementFile)
+        );
+        
+        if(loaded.has_value() == false)
         {
-            LOG_ERROR("Failed to load gui from {0}: {1}", path, load_result);
             return false;
         }
+
+        const auto& f = *loaded;
 
         root->cursor_image = cache->get_texture
         (

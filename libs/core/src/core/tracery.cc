@@ -588,14 +588,24 @@ namespace euphoria::core::tracery
     }
 
     result
-    grammar::load_from_string(const std::string& data)
+    grammar::load_from_string(const std::string& filename, const std::string& data)
     {
-        ::tracery::Tracery message;
-        const auto loaded_json_error = read_xml_source_to_gaf_struct_or_get_error_message(data, &message);
-        if(loaded_json_error.empty() == false)
+        const auto loaded = get_optional_and_log_errors
+        (
+            read_xml_source_to_gaf_struct<::tracery::Tracery>(filename, data, ::tracery::ReadXmlElementTracery)
+        );
+        if(loaded.has_value() == false)
         {
-            return result(result::json_parse) << loaded_json_error;
+            // todo(Gustav): handle logging error better...
+            return result(result::json_parse) << "unable to load file";
         }
+        const auto& message = *loaded;
+        // ::tracery::Tracery message;
+        // const auto loaded_json_error = read_xml_source_to_gaf_struct_or_get_error_message(data, &message);
+        // if(loaded_json_error.empty() == false)
+        // {
+        //     return result(result::json_parse) << loaded_json_error;
+        // }
 
         for(const auto& json_rule: message.rule)
         {

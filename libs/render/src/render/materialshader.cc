@@ -163,24 +163,12 @@ namespace euphoria::render
         const bool shader_compile = shader.load(file_system, path);
         // if (!shader_compile) { return false; }
 
-        materialshader::MaterialShader file;
         const auto proto_path = path.set_extension_copy("json");
-        std::string error = core::read_json_to_gaf_struct_or_get_error_message
+        const auto file = core::get_default_but_log_errors
         (
-            file_system,
-            &file,
-            proto_path
+            core::read_xml_file_to_gaf_struct<materialshader::MaterialShader>(file_system, proto_path, materialshader::ReadXmlElementMaterialShader)
         );
-        if(!error.empty())
-        {
-            LOG_ERROR
-            (
-                "Failed to load material shader json {0}: {1}",
-                path,
-                error
-            );
-            // todo(Gustav): set default shader names
-        }
+        // todo(Gustav): set default shader names if file failed to
 
         post_build(this, file, path);
 

@@ -458,12 +458,10 @@ namespace euphoria::core
             const vfs::file_path& json_path
         )
         {
-            ::mesh::Mesh json;
-            const auto error = read_json_to_gaf_struct_or_get_error_message(fs, &json, json_path);
-            if(!error.empty())
-            {
-                // LOG_WARN("Mesh " << json_path << " failed to load: " << error);
-            }
+            const auto json = get_default_ignore_missing_but_log_errors
+            (
+                read_xml_file_to_gaf_struct<::mesh::Mesh>(fs, json_path, ::mesh::ReadXmlElementMesh)
+            );
 
             if(json.diffuse_and_ambient_are_same)
             {
@@ -477,12 +475,16 @@ namespace euphoria::core
 
             const auto json_dir = json_path.get_directory();
             const auto folder_path = json_dir.get_file("folder.xml");
-            ::mesh::Folder folder;
-            const auto folder_error = read_json_to_gaf_struct_or_get_error_message(fs, &folder, folder_path);
-            if(!folder_error.empty())
+
+            auto folder_loaded = get_optional_and_log_errors_allow_missing
+            (
+                read_xml_file_to_gaf_struct<::mesh::Folder>(fs, folder_path, ::mesh::ReadXmlElementFolder)
+            );
+            if(folder_loaded.has_value() == false)
             {
                 return;
             }
+            const auto& folder = *folder_loaded;
             if(folder.texture_override.empty())
             {
                 return;

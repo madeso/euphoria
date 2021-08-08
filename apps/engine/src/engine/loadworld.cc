@@ -25,12 +25,10 @@ namespace euphoria::engine
             lua* ctx
     )
     {
-        world::World json;
-        const auto err = core::read_json_to_gaf_struct_or_get_error_message(fs, &json, path);
-        if(!err.empty())
-        {
-            LOG_ERROR("Failed to load world components from {0}: {1}", path, err);
-        }
+        const auto json = core::get_default_but_log_errors
+        (
+            core::read_xml_file_to_gaf_struct<world::World>(fs, path, world::ReadXmlElementWorld)
+        );
 
         for(const auto& obj: json.objects)
         {

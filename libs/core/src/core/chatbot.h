@@ -5,6 +5,7 @@
 #include <map>
 #include <memory>
 #include <deque>
+#include <optional>
 
 #include "core/random.h"
 
@@ -197,7 +198,9 @@ namespace euphoria::core
     {
         chatbot();
 
-        [[nodiscard]] std::string
+        [[nodiscard]]
+        static
+        std::optional<chatbot>
         load_from_file(vfs::file_system* fs, const vfs::file_path& path);
 
         [[nodiscard]] std::string

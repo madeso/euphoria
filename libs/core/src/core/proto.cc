@@ -6,37 +6,48 @@
 #include "core/vfs.h"
 #include "core/str.h"
 #include "core/vfs_path.h"
-
-#include "gaf/lib_pugixml.h"
+#include "core/log.h"
 
 #include <fstream>
 
 namespace euphoria::core
 {
     std::string
-    read_file_or_get_error_message
+    get_string_from_path(const vfs::file_path& p)
+    {
+        return string_builder() << p;
+    }
+
+    std::string
+    get_string_from_path_for_debugging(vfs::file_system* fs, const vfs::file_path& p)
+    {
+        // todo(Gustav): walk vfs tree to display what part of the file exists
+        // For example:
+        //     ~/folder/dir/file.txt is requested
+        //     dir/file.txt is missing in ~/folder/
+        //     or
+        //     ~/folder/[dir/file.txt] exists...
+        return string_builder() << p << " roots: "<< fs->get_roots_as_string();
+    }
+
+    std::optional<std::string>
+    get_file_contents_or_null
     (
         vfs::file_system* fs,
-        pugi::xml_document* doc,
         const vfs::file_path& file_name
     )
     {
         std::string source;
+        const bool file_loaded = fs->read_file_to_string(file_name, &source);
 
-        const bool load_result = fs->read_file_to_string(file_name, &source);
-        if(!load_result)
+        if(file_loaded)
         {
-            return string_builder() << "Unable to load file " << file_name << " from "
-                         << fs->get_roots_as_string();
+            return source;
         }
-
-        return read_source_or_get_error_message(source, doc);
-    }
-
-    std::string
-    could_be(const std::string& v, const std::vector<std::string>& vv)
-    {
-        return gaf::could_be_fun_all(v, vv);
+        else
+        {
+            return std::nullopt;
+        }
     }
 
     struct Location
@@ -65,24 +76,67 @@ namespace euphoria::core
         return r;
     }
 
-    std::string
+    std::optional<std::string>
     read_source_or_get_error_message(const std::string& source, pugi::xml_document* doc)
     {
-        // todo(Gustav): look up insitu parsing
-        // todo(Gustav): look upo json/sjson parsing options
+        // todo(Gustav): look up insitu & sax parsing
 
         const auto result = doc->load_buffer(source.data(), source.length());
 
         if(result.status != pugi::status_ok)
         {
             const auto location = get_location_from_offset(source, result.offset);
-            // todo(Gustav): add file and parse error to error
+            // todo(Gustav): make the source offset string better looking, like a compiler error with a "here: ^~~~~~~" text
             return string_builder {}
                 << "XML error: " << result.description() << "\n"
                 << "Error offset: (" << location.line << ":" << location.offset << ") (error at [..." << source.substr(result.offset, 10) << "]";
         }
 
-        return "";
+        return std::nullopt;
     }
 
+    
+    std::string
+    could_be_callback(const std::string& v, const std::vector<std::string>& vv)
+    {
+        return gaf::could_be_fun_all(v, vv);
+    }
+
+    std::string
+    missing_callback(const std::vector<std::string>& vv)
+    {
+        return gaf::missing_fun_all(vv);
+    }
+    
+
+    read_error_file_missing::read_error_file_missing(const std::string& p, const std::string& e)
+        : path_to_file(p)
+        , error_for_debugging(e)
+    {
+    }
+
+    read_error_file_error::read_error_file_error(const std::string& p)
+        : path_to_file(p)
+    {
+    }
+
+    read_error_file_error::read_error_file_error(const std::string& p, const std::vector<std::string>& e)
+        : path_to_file(p)
+        , errors(e)
+    {
+    }
+
+    void log_read_error(const read_error_file_missing& missing)
+    {
+        LOG_ERROR("Missing file {0}: {1}", missing.path_to_file, missing.error_for_debugging);
+    }
+
+    void log_read_error(const read_error_file_error& error)
+    {
+        for(const auto err: error.errors)
+        {
+            LOG_ERROR("{0}: {1}", error.path_to_file, err);
+        }
+        LOG_ERROR("{0} error(s) found in {1}", error.errors.size(), error.path_to_file);
+    }
 }

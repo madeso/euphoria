@@ -184,23 +184,18 @@ namespace euphoria::core
     {
         ASSERT(type);
 
-        enumlist::Enumroot root;
-        const std::string load_error = read_json_to_gaf_struct_or_get_error_message(fs, &root, path);
+        const auto root = get_default_but_log_errors
+        (
+            read_xml_file_to_gaf_struct<enumlist::Enumroot>(fs, path, enumlist::ReadXmlElementEnumroot)
+        );
+
+        // todo(Gustav): handle enum errors better...
 
         std::vector<std::string> names;
-
-        if(!load_error.empty())
+        for(const auto& name: root.name)
         {
-            LOG_ERROR("Failed to load enums {0}: {1}", path, load_error);
+            names.push_back(name);
         }
-        else
-        {
-            for(const auto& name: root.name)
-            {
-                names.push_back(name);
-            }
-        }
-
         type->add_enums(names);
     }
 

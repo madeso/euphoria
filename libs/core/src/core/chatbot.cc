@@ -344,36 +344,38 @@ namespace euphoria::core
         }
     }
 
-    std::string
+    std::optional<chatbot>
     chatbot::load_from_file(vfs::file_system* fs, const vfs::file_path& path)
     {
-        chat::Root root;
-
-        std::string error = read_json_to_gaf_struct_or_get_error_message(fs, &root, path);
-        if(!error.empty())
+        const auto loaded = get_optional_and_log_errors
+        (
+            read_xml_file_to_gaf_struct<chat::Root>(fs, path, chat::ReadXmlElementRoot)
+        );
+        if(loaded.has_value() == false)
         {
-            return error;
+            return std::nullopt;
         }
 
-        max_responses = root.max_responses;
+        const auto& root = *loaded;
+        chatbot self;
 
-        database = detail::database {};
-        database.signon = root.signon;
-        database.empty = root.empty;
-        database.no_response = root.no_response;
-        database.same_input = root.same_input;
-        database.similar_input = root.similar_input;
-        database.empty_repetition = root.empty_repetition;
+        self.max_responses = root.max_responses;
 
-        transposer = detail::transposer {};
+        self.database.signon = root.signon;
+        self.database.empty = root.empty;
+        self.database.no_response = root.no_response;
+        self.database.same_input = root.same_input;
+        self.database.similar_input = root.similar_input;
+        self.database.empty_repetition = root.empty_repetition;
+
         for(const auto& t: root.transposes)
         {
-            transposer.add(t.from, t.to);
+            self.transposer.add(t.from, t.to);
         }
 
         for(const auto& r: root.responses)
         {
-            detail::response& response = database.create_response();
+            detail::response& response = self.database.create_response();
             response.ends_conversation = r.ends_conversation;
             for(const auto& topic: r.topics_required)
             {
@@ -394,7 +396,7 @@ namespace euphoria::core
             }
         }
 
-        return "";
+        return self;
     }
 
 

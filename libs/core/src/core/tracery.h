@@ -111,7 +111,7 @@ namespace euphoria::core::tracery
         register_english();
 
         [[nodiscard]] result
-        load_from_string(const std::string& data);
+        load_from_string(const std::string& filename, const std::string& data);
 
         [[nodiscard]] result
         get_string_from_symbol(const std::string& rule, generator_argument* generator) const;

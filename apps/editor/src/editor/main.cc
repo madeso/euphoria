@@ -338,7 +338,7 @@ open_or_focus_scimed_editor
     );
 }
 
-template <typename T, typename TRun>
+template <typename T, typename TRun, typename TReadXmlFunction>
 void
 open_or_focus_on_generic_window
 (
@@ -346,6 +346,7 @@ open_or_focus_on_generic_window
     const vfs::file_path& path,
     vfs::file_system* fs,
     const std::string& title,
+    TReadXmlFunction read_xml,
     TRun run_function
 )
 {
@@ -363,11 +364,11 @@ open_or_focus_on_generic_window
                     run_function(&t);
                 }
             );
-            const auto err = read_json_to_gaf_struct_or_get_error_message(fs, &window->data, path);
-            if(!err.empty())
-            {
-                LOG_ERROR("Failed to load: {0}", err);
-            }
+            // todo(Gustav): don't open window if loading failed...
+            window->data = core::get_default_but_log_errors
+            (
+                core::read_xml_file_to_gaf_struct<T>(fs, path, read_xml)
+            );
             return window;
         }
     );
@@ -542,6 +543,7 @@ main(int argc, char** argv)
                     file,
                     engine.file_system.get(),
                     "Game",
+                    game::ReadXmlElementGame,
                     [](auto *s)
                     { game::RunImgui(s); }
                 );
@@ -566,6 +568,7 @@ main(int argc, char** argv)
                     file,
                     engine.file_system.get(),
                     "World",
+                    world::ReadXmlElementWorld,
                     [](auto *s)
                     {
                         ::world::RunImgui(s);
@@ -589,6 +592,7 @@ main(int argc, char** argv)
                     file,
                     engine.file_system.get(),
                     "Enums",
+                    enumlist::ReadXmlElementEnumList,
                     [](auto* s)
                     {
                         enumlist::RunImgui(s);
