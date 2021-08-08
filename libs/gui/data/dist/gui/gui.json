@@ -4,7 +4,7 @@
     "skins": [
         {
             "name": "default",
-            "font": "guifont.json",
+            "font": "guifont.xml",
             "button_image": "gui/glassPanel_projection.png",
             "text_size": 30,
             "button_idle": {

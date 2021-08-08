@@ -48,7 +48,7 @@
 #include "imgui/imgui.h"
 
 #include "gaf_game.h"
-#include "gaf_rapidjson_game.h"
+#include "gaf_pugixml_game.h"
 
 using namespace euphoria::core;
 using namespace euphoria::core::ecs;
@@ -61,10 +61,10 @@ std::optional<game::Game>
 load_game_data(vfs::file_system* fs)
 {
     game::Game game;
-    const auto err = read_json_to_gaf_struct_or_get_error_message(fs, &game, vfs::file_path{"~/gamedata.json"});
+    const auto err = read_json_to_gaf_struct_or_get_error_message(fs, &game, vfs::file_path{"~/gamedata.xml"});
     if(!err.empty())
     {
-        LOG_ERROR("Failed to load gamedata.json: {0}", err);
+        LOG_ERROR("Failed to load gamedata.xml: {0}", err);
         return std::nullopt;
     }
     return game;
@@ -310,7 +310,7 @@ main(int argc, char* argv[])
             engine.file_system.get(),
             &world,
             &integration.get_registry(),
-            vfs::file_path{"~/world.json"},
+            vfs::file_path{"~/world.xml"},
             &templates,
             &duk
         );

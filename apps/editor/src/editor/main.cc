@@ -39,9 +39,9 @@
 #include "gaf_imgui_enum.h"
 #include "gaf_imgui_scalingsprite.h"
 
-#include "gaf_rapidjson_game.h"
-#include "gaf_rapidjson_world.h"
-#include "gaf_rapidjson_enum.h"
+#include "gaf_pugixml_game.h"
+#include "gaf_pugixml_world.h"
+#include "gaf_pugixml_enum.h"
 
 
 using namespace euphoria::core;
@@ -319,9 +319,9 @@ open_or_focus_scimed_editor
 )
 {
     auto file = path;
-    if(!ends_with(file.path, ".json"))
+    if(!ends_with(file.path, ".xml"))
     {
-        file = file.extend_extension_copy("json");
+        file = file.extend_extension_copy("xml");
     }
     open_or_focus_window
     (
@@ -532,7 +532,7 @@ main(int argc, char** argv)
             "Open with Game Data",
             [](const vfs::file_path &file) -> bool
             {
-                return file.path == "~/gamedata.json";
+                return file.path == "~/gamedata.xml";
             },
             [&](Windows *windows, const vfs::file_path &file)
             {
@@ -556,7 +556,7 @@ main(int argc, char** argv)
             "Open with World Editor",
             [](const vfs::file_path &file) -> bool
             {
-                return file.path == "~/world.json";
+                return file.path == "~/world.xml";
             },
             [&](Windows *windows, const vfs::file_path &file)
             {
@@ -605,7 +605,7 @@ main(int argc, char** argv)
             "Open with text editor",
             [](const vfs::file_path &file) -> bool
             {
-                return ends_with(file.path, ".json") || ends_with(file.path, ".js");
+                return ends_with(file.path, ".xml") || ends_with(file.path, ".js");
             },
             [&](Windows *windows, const vfs::file_path &file)
             {

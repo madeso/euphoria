@@ -19,7 +19,7 @@
 #include "core/vfs.h"
 
 #include "gaf_mesh.h"
-#include "gaf_rapidjson_mesh.h"
+#include "gaf_pugixml_mesh.h"
 
 
 namespace euphoria::core
@@ -476,7 +476,7 @@ namespace euphoria::core
             }
 
             const auto json_dir = json_path.get_directory();
-            const auto folder_path = json_dir.get_file("folder.json");
+            const auto folder_path = json_dir.get_file("folder.xml");
             ::mesh::Folder folder;
             const auto folder_error = read_json_to_gaf_struct_or_get_error_message(fs, &folder, folder_path);
             if(!folder_error.empty())
@@ -635,7 +635,7 @@ namespace euphoria::core
                 (
                     fs,
                     &res.loaded_mesh,
-                    path.set_extension_copy(path.get_extension()+".json")
+                    path.set_extension_copy(path.get_extension()+".xml")
                 );
 
                 if(res.loaded_mesh.parts.empty())

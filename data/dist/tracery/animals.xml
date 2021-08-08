@@ -1,0 +1,19 @@
+<tracery>
+    <rule name="animal">
+        <text>panda</text>
+        <text>fox</text>
+        <text>capybara</text>
+        <text>iguana</text>
+    </rule>
+    
+    <rule name="emotion">
+        <text>sad</text>
+        <text>happy</text>
+        <text>angry</text>
+        <text>jealous</text>
+    </rule>
+
+    <rule name="origin">
+        <text>I am #emotion.a# #animal#.</text>
+    </rule>
+</tracery>

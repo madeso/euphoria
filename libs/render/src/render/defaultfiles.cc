@@ -10,7 +10,7 @@ namespace euphoria::render
     {
         catalog->register_file_string
         (
-            core::vfs::file_path{"~/texture_types.json"},
+            core::vfs::file_path{"~/texture_types.xml"},
             R"json(
                 {
                     "name":
@@ -24,7 +24,7 @@ namespace euphoria::render
 
         catalog->register_file_string
         (
-            core::vfs::file_path{"~/default_shader.json"},
+            core::vfs::file_path{"~/default_shader.xml"},
             R"json(
                 {
                     "has_light": true,
@@ -184,7 +184,7 @@ namespace euphoria::render
         // basic_shader
         catalog->register_file_string
         (
-            core::vfs::file_path{"~/basic_shader.json"},
+            core::vfs::file_path{"~/basic_shader.xml"},
             R"json(
                 {
                     "diffuse": "uDiffuse",
@@ -232,7 +232,7 @@ namespace euphoria::render
         // default_line_shader
         catalog->register_file_string
         (
-            core::vfs::file_path{"~/default_line_shader.json"},
+            core::vfs::file_path{"~/default_line_shader.xml"},
             R"json(
                 {
                     "has_light": false,

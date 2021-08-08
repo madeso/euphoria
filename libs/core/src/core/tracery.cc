@@ -14,7 +14,8 @@
 #include "core/stringutils.h"
 
 #include "gaf_tracery.h"
-#include "gaf_rapidjson_tracery.h"
+#include "gaf_pugixml_tracery.h"
+
 
 namespace euphoria::core::tracery
 {
@@ -589,15 +590,8 @@ namespace euphoria::core::tracery
     result
     grammar::load_from_string(const std::string& data)
     {
-        rapidjson::Document doc;
-        const auto parse_error = read_source_or_get_error_message(data, &doc);
-        if(parse_error.empty() == false)
-        {
-            return result(result::json_parse) << parse_error;
-        }
-
         ::tracery::Tracery message;
-        const auto loaded_json_error = ReadFromJsonValue(&message, doc, "");
+        const auto loaded_json_error = read_xml_source_to_gaf_struct_or_get_error_message(data, &message);
         if(loaded_json_error.empty() == false)
         {
             return result(result::json_parse) << loaded_json_error;

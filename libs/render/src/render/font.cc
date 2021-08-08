@@ -25,7 +25,7 @@
 #include "render/texturecache.h"
 
 #include "gaf_font.h"
-#include "gaf_rapidjson_font.h"
+#include "gaf_pugixml_font.h"
 
 using namespace euphoria::convert;
 

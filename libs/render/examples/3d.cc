@@ -89,7 +89,7 @@ main(int argc, char** argv)
     SET_ENUM_FROM_FILE
     (
         engine.file_system.get(),
-        vfs::file_path{"~/texture_types.json"},
+        vfs::file_path{"~/texture_types.xml"},
         texture_type
     );
 

@@ -18,7 +18,7 @@
 #include <cassert>
 
 #include "gaf_enum.h"
-#include "gaf_rapidjson_enum.h"
+#include "gaf_pugixml_enum.h"
 
 namespace euphoria::core
 {

@@ -15,7 +15,7 @@
 #include "render/spriterender.h"
 
 #include "gaf_scalingsprite.h"
-#include "gaf_rapidjson_scalingsprite.h"
+#include "gaf_pugixml_scalingsprite.h"
 
 using namespace euphoria::convert;
 
@@ -77,7 +77,7 @@ namespace euphoria::render
         (
             fs,
             &sprite,
-            path.set_extension_copy(path.get_extension()+ ".json")
+            path.set_extension_copy(path.get_extension()+ ".xml")
         );
 
         calculated_texture_size_rows = copy_data(&rows, sprite.rows);

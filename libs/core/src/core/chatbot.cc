@@ -13,7 +13,7 @@
 #include "core/cint.h"
 
 #include "gaf_chatbot.h"
-#include "gaf_rapidjson_chatbot.h"
+#include "gaf_pugixml_chatbot.h"
 
 
 namespace euphoria::core::detail

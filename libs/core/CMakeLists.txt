@@ -191,7 +191,7 @@ target_link_libraries(core
     PUBLIC
         magic_enum
         spdlog
-        rapidjson
+        pugixml
         range
         lua
     PRIVATE

@@ -1,0 +1,16 @@
+<world>
+    <objects template_name="starBig" />
+    <objects template_name="starBig" />
+    <objects template_name="starBig" />
+    <objects template_name="starBig" />
+    <objects template_name="starBig" />
+    <objects template_name="starBig" />
+    <objects template_name="starBig" />
+    <objects template_name="starSmall" />
+    <objects template_name="starSmall" />
+    <objects template_name="starSmall" />
+    <objects template_name="starSmall" />
+    <objects template_name="starSmall" />
+    <objects template_name="starSmall" />
+    <objects template_name="player" />
+</world>

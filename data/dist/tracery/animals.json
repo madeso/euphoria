@@ -1,8 +1,0 @@
-{
-    "rule":
-    [
-        {"name": "animal", "text": ["panda","fox","capybara","iguana"]},
-        {"name": "emotion", "text": ["sad","happy","angry","jealous"]},
-        {"name": "origin", "text": ["I am #emotion.a# #animal#."]}
-    ]
-}

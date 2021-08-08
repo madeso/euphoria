@@ -31,7 +31,7 @@ set(generated_files
 
 
 GAF_GENERATE_CPP(
-    RAPIDJSON
+    PUGIXML
     SOURCES generated_sources
     HEADERS generated_headers
     FILES
@@ -51,7 +51,11 @@ target_include_directories(file_types
         ${CMAKE_CURRENT_BINARY_DIR}
 )
 target_link_libraries(file_types
+    PUBLIC
+        pugixml
+        libgaf_xml
     PRIVATE
-        rapidjson
+        project_options
+        project_warnings
 )
 
