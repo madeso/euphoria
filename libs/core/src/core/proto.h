@@ -36,9 +36,6 @@ namespace euphoria::core
     std::string
     could_be_callback(const std::string& v, const std::vector<std::string>& vv);
 
-    std::string
-    missing_callback(const std::vector<std::string>& vv);
-
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
@@ -193,8 +190,7 @@ namespace euphoria::core
             (
                 &errors,
                 doc.document_element(),
-                could_be_callback,
-                missing_callback
+                could_be_callback
             );
             if(errors.empty() == false)
             {

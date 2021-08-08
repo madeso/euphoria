@@ -102,13 +102,6 @@ namespace euphoria::core
         return gaf::could_be_fun_all(v, vv);
     }
 
-    std::string
-    missing_callback(const std::vector<std::string>& vv)
-    {
-        return gaf::missing_fun_all(vv);
-    }
-    
-
     read_error_file_missing::read_error_file_missing(const std::string& p, const std::string& e)
         : path_to_file(p)
         , error_for_debugging(e)
@@ -133,7 +126,7 @@ namespace euphoria::core
 
     void log_read_error(const read_error_file_error& error)
     {
-        for(const auto err: error.errors)
+        for(const auto& err: error.errors)
         {
             LOG_ERROR("{0}: {1}", error.path_to_file, err);
         }
