@@ -19,26 +19,6 @@ namespace euphoria::core
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
-    // Helper functions
-
-    std::string
-    get_string_from_path(const vfs::file_path& p);
-
-    std::string
-    get_string_from_path_for_debugging(vfs::file_system* fs, const vfs::file_path& p);
-
-    std::optional<std::string>
-    get_file_contents_or_null(vfs::file_system* fs, const vfs::file_path& file_name);
-
-    std::optional<std::string>
-    read_source_or_get_error_message(const std::string& source, pugi::xml_document* doc);
-
-    std::string
-    could_be_callback(const std::string& v, const std::vector<std::string>& vv);
-
-
-
-    ///////////////////////////////////////////////////////////////////////////////////////////////
     // Result types
 
     struct read_error_file_missing
@@ -58,17 +38,36 @@ namespace euphoria::core
         std::vector<std::string> errors;
     };
 
-    void log_read_error(const read_error_file_missing&);
-    void log_read_error(const read_error_file_error&);
-
     template<typename T>
     using read_result = std::variant<T, read_error_file_missing, read_error_file_error>;
 
 
 
     ///////////////////////////////////////////////////////////////////////////////////////////////
-    // Usage helpers
+    // Helper functions
 
+    std::string
+    get_string_from_path(const vfs::file_path& p);
+
+    std::string
+    get_string_from_path_for_debugging(vfs::file_system* fs, const vfs::file_path& p);
+
+    std::optional<std::string>
+    get_file_contents_or_null(vfs::file_system* fs, const vfs::file_path& file_name);
+
+    std::optional<std::string>
+    read_source_or_get_error_message(const std::string& source, pugi::xml_document* doc);
+
+    std::string
+    could_be_callback(const std::string& v, const std::vector<std::string>& vv);
+
+    void
+    log_read_error(const read_error_file_missing&);
+
+    void
+    log_read_error(const read_error_file_error&);
+
+    
     template<typename> inline constexpr bool always_false_v = false;
 
     template<typename T>
@@ -106,6 +105,11 @@ namespace euphoria::core
             result
         );
     }
+
+
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    // Usage helpers
 
     // log all errors, only return when file loaded
     template<typename T>
