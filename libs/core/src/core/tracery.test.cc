@@ -8,13 +8,14 @@ namespace tr = euphoria::core::tracery;
 
 TEST_CASE("tracery-all", "[tracery]")
 {
+    const std::string test_file = "test-file";
     auto random = euphoria::core::random{0};
     tr::grammar g;
     g.register_english();
 
     SECTION("empty json")
     {
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
             }
         )");
@@ -27,7 +28,7 @@ TEST_CASE("tracery-all", "[tracery]")
 
     SECTION("flatten single rule")
     {
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
                 "dog": "doggo"
             }
@@ -43,7 +44,7 @@ TEST_CASE("tracery-all", "[tracery]")
     {
         // need double backslashes to escape \ and
         // to actually enter a \ into the json string
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
                 "esc": "\\#"
             }
@@ -59,7 +60,7 @@ TEST_CASE("tracery-all", "[tracery]")
     {
         // need double backslashes to escape \ and
         // to actually enter a \ into the json string
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
                 "esc": "#dog"
             }
@@ -69,7 +70,7 @@ TEST_CASE("tracery-all", "[tracery]")
 
     SECTION("rule call rule")
     {
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
                 "dog": "doggo",
                 "animal": "#dog#"
@@ -84,7 +85,7 @@ TEST_CASE("tracery-all", "[tracery]")
 
     SECTION("weird name rules")
     {
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
                 "animal-dog": "doggo",
                 "animal": "#animal-dog#"
@@ -99,7 +100,7 @@ TEST_CASE("tracery-all", "[tracery]")
 
     SECTION("func a")
     {
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
                 "dog": "dog",
                 "animal": "#dog.a#"
@@ -115,7 +116,7 @@ TEST_CASE("tracery-all", "[tracery]")
 
     SECTION("func s")
     {
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
                 "dog": "dog",
                 "animal": "#dog.s#"
@@ -130,7 +131,7 @@ TEST_CASE("tracery-all", "[tracery]")
 
     SECTION("push rules")
     {
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
                 "dog": "dog",
                 "name": ["dog"],
@@ -147,7 +148,7 @@ TEST_CASE("tracery-all", "[tracery]")
 
     SECTION("advanced push")
     {
-        const auto loaded = g.load_from_string(R"(
+        const auto loaded = g.load_from_string(test_file, R"(
             {
                 "origin":"I love #[animal:#cat#]say# and #[animal:POP]say#",
                 "say":"#animal.s#",

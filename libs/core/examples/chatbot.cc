@@ -12,18 +12,19 @@ using namespace euphoria::core;
 int
 main()
 {
-    chatbot chatbot;
 
     const auto current_directory = get_current_directory();
     vfs::file_system file_system;
     vfs::read_root_physical_folder::add(&file_system, current_directory);
 
-    const auto error = chatbot.load_from_file(&file_system, vfs::file_path{"~/chatbot.xml"});
-    if(!error.empty())
+    const auto loaded_chatbot = chatbot::load_from_file(&file_system, vfs::file_path{"~/chatbot.xml"});
+    if(!loaded_chatbot)
     {
-        std::cerr << "Failed to load chatbot: " << error << "\n";
+        std::cerr << "Failed to load chatbot\n";
         return -2;
     }
+
+    auto chatbot = std::move(*loaded_chatbot);
 
     std::string input;
     console cmdline;

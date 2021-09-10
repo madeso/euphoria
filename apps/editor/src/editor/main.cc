@@ -592,7 +592,7 @@ main(int argc, char** argv)
                     file,
                     engine.file_system.get(),
                     "Enums",
-                    enumlist::ReadXmlElementEnumList,
+                    enumlist::ReadXmlElementEnumroot,
                     [](auto* s)
                     {
                         enumlist::RunImgui(s);

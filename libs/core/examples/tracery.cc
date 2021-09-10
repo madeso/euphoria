@@ -23,7 +23,7 @@ load_from_file(tracery::grammar* grammar, const std::string& file)
         std::istreambuf_iterator<char>(t),
         std::istreambuf_iterator<char>()
     );
-    return grammar->load_from_string(data);
+    return grammar->load_from_string(file, data);
 }
 
 int
