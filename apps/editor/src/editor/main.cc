@@ -365,9 +365,9 @@ open_or_focus_on_generic_window
                 }
             );
             // todo(Gustav): don't open window if loading failed...
-            window->data = core::get_default_but_log_errors
+            window->data = euphoria::core::get_default_but_log_errors
             (
-                core::read_xml_file_to_gaf_struct<T>(fs, path, read_xml)
+                euphoria::core::read_xml_file_to_gaf_struct<T>(fs, path, read_xml)
             );
             return window;
         }
