@@ -191,7 +191,7 @@ target_link_libraries(core
     PUBLIC
         magic_enum
         spdlog
-        pugixml
+        libgaf_xml
         range
         lua
     PRIVATE
