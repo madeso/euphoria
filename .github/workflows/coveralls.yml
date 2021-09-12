@@ -35,14 +35,14 @@ jobs:
         - name: Build
           shell: bash
           working-directory: ${{github.workspace}}/build
-          run: |
-                time cmake --build . --config ${{matrix.build_type}}
-                ls
+          run: time cmake --build . --config ${{matrix.build_type}}
 
         - name: Test
           shell: bash
           working-directory: ${{github.workspace}}/build
-          run: ctest -C ${{matrix.build_type}}
+          run: |
+                ctest -C ${{matrix.build_type}}
+                ls
 
         - name: Coveralls
           uses: coverallsapp/github-action@master
