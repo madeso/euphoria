@@ -36,8 +36,11 @@ if(GENERATE_COVERAGE)
     endif()
 
     # is -fprofile-generate needed?
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
-    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
+    target_compile_options(project_options " -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
+    target_link_libraries(project_options  "-lgcov --coverage")
+    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
+    # set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
+    # set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
 endif()
 
 set(OpenGL_GL_PREFERENCE "GLVND")
