@@ -21,7 +21,24 @@ source_group("_cmake" REGULAR_EXPRESSION "CMakeLists\.txt") # is this the correc
 
 option(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
 set(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
-set(EXTRA_FLAGS "" CACHE STRING "extra flags to both compile and link")
+option(GENERATE_COVERAGE "generate code coverage information" OFF)
+
+
+if(GENERATE_COVERAGE)
+    # inspired by https://github.com/JoakimSoderberg/coveralls-cmake
+    if(NOT (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
+        AND (NOT "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang"))
+        message(FATAL_ERROR "Coveralls: Compiler ${CMAKE_C_COMPILER_ID} is not GNU gcc! Aborting... You can set this on the command line using CC=/usr/bin/gcc CXX=/usr/bin/g++ cmake <options> ..")
+    endif()
+
+    if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
+        message(FATAL_ERROR "Coveralls: Code coverage results with an optimised (non-Debug) build may be misleading! Add -DCMAKE_BUILD_TYPE=Debug")
+    endif()
+
+    # is -fprofile-generate needed?
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
+    set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
+endif()
 
 set(OpenGL_GL_PREFERENCE "GLVND")
 
@@ -42,10 +59,6 @@ elseif(BUILD_TYPEINFO_IMPL STREQUAL "custom_rt")
 else()
     message(STATUS "Invalid build status: ${BUILD_TYPEINFO_IMPL}")
 endif()
-
-
-SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${EXTRA_FLAGS}")
-SET(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${EXTRA_FLAGS}")
 
 set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/tools/osx-bundle.plist")
 set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/tools/gaf_options.txt)
