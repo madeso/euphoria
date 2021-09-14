@@ -28,16 +28,16 @@ if(GENERATE_COVERAGE)
     # inspired by https://github.com/JoakimSoderberg/coveralls-cmake
     if(NOT (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
         AND (NOT "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang"))
-        message(FATAL_ERROR "Coveralls: Compiler ${CMAKE_C_COMPILER_ID} is not GNU gcc! Aborting... You can set this on the command line using CC=/usr/bin/gcc CXX=/usr/bin/g++ cmake <options> ..")
+        message(FATAL_ERROR "Compiler ${CMAKE_C_COMPILER_ID} is not GNU gcc! Aborting... You can set this on the command line using CC=/usr/bin/gcc CXX=/usr/bin/g++ cmake <options> ..")
     endif()
 
     if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-        message(FATAL_ERROR "Coveralls: Code coverage results with an optimised (non-Debug) build may be misleading! Add -DCMAKE_BUILD_TYPE=Debug")
+        message(FATAL_ERROR "Code coverage results with an optimised (non-Debug) build may be misleading! Add -DCMAKE_BUILD_TYPE=Debug")
     endif()
 
     # is -fprofile-generate needed?
-    target_compile_options(project_options " -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
-    target_link_libraries(project_options  "-lgcov --coverage")
+    target_compile_options(project_options INTERFACE " -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
+    target_link_libraries(project_options  INTERFACE "-lgcov --coverage")
     # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
     # set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
     # set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
