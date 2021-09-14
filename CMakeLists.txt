@@ -35,8 +35,12 @@ if(GENERATE_COVERAGE)
         message(FATAL_ERROR "Code coverage results with an optimised (non-Debug) build may be misleading! Add -DCMAKE_BUILD_TYPE=Debug")
     endif()
 
+    target_compile_options(project_options INTERFACE "-fprofile-arcs")
+    target_compile_options(project_options INTERFACE "-ftest-coverage")
+    target_compile_options(project_options INTERFACE "-fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage")
+    
     # is -fprofile-generate needed?
-    target_compile_options(project_options INTERFACE " -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
+    target_compile_options(project_options INTERFACE "-fprofile-generate")
     target_link_libraries(project_options  INTERFACE "-lgcov --coverage")
     # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
     # set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
