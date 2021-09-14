@@ -38,10 +38,12 @@ if(GENERATE_COVERAGE)
     target_compile_options(project_options INTERFACE "-fprofile-arcs")
     target_compile_options(project_options INTERFACE "-ftest-coverage")
     target_compile_options(project_options INTERFACE "-fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage")
-    
+
     # is -fprofile-generate needed?
     target_compile_options(project_options INTERFACE "-fprofile-generate")
-    target_link_libraries(project_options  INTERFACE "-lgcov --coverage")
+    
+    target_link_libraries(project_options  INTERFACE "-lgcov")
+    target_link_libraries(project_options  INTERFACE "--coverage")
     # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
     # set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
     # set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
