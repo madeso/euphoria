@@ -33,7 +33,8 @@ namespace euphoria::core
         : vertex(a_vertex)
         , normal(a_normal)
         , uv(a_uv)
-    {}
+    {
+    }
 
 
     mesh_face::mesh_face(int a_a, int a_b, int a_c)
@@ -43,7 +44,12 @@ namespace euphoria::core
     {
     }
 
-    mesh_part::mesh_part() : material(0) {}
+
+    mesh_part::mesh_part()
+        : material(0)
+    {
+    }
+
 
     aabb
     mesh_part::calculate_aabb() const
@@ -62,7 +68,8 @@ namespace euphoria::core
     material_texture::material_texture(const vfs::file_path& p, enum_value t)
         : path(p)
         , type(t)
-    {}
+    {
+    }
 
 
     material::material()
@@ -75,7 +82,8 @@ namespace euphoria::core
         , alpha(1.0f)
         , wrap_s(wrap_mode::repeat)
         , wrap_t(wrap_mode::repeat)
-    {}
+    {
+    }
 
 
     void
@@ -127,7 +135,9 @@ namespace euphoria::core
                 | aiProcess_JoinIdenticalVertices
                 | aiProcess_ValidateDataStructure
                 | aiProcess_GenSmoothNormals
-                | aiProcess_FindInvalidData;
+                | aiProcess_FindInvalidData
+                ;
+
 
         wrap_mode
         get_texture_wrapping_mode(const int mode)
@@ -136,8 +146,7 @@ namespace euphoria::core
             {
             case aiTextureMapMode_Wrap: return wrap_mode::repeat;
             case aiTextureMapMode_Clamp: return wrap_mode::clamp_to_edge;
-            case aiTextureMapMode_Decal:
-                throw "Unsupported texture wrapping mode: decal";
+            case aiTextureMapMode_Decal: throw "Unsupported texture wrapping mode: decal";
             case aiTextureMapMode_Mirror: return wrap_mode::mirror_repeat;
             default: throw "Unhandled texture wrapping mode";
             }
@@ -154,9 +163,12 @@ namespace euphoria::core
         void
         add_materials(mesh* ret, const aiScene* scene)
         {
-            for(unsigned int material_id = 0;
+            for
+            (
+                unsigned int material_id = 0;
                 material_id < scene->mNumMaterials;
-                ++material_id)
+                material_id += 1
+            )
             {
                 const aiMaterial* mat = scene->mMaterials[material_id];
 
@@ -191,12 +203,8 @@ namespace euphoria::core
                 mat->Get(AI_MATKEY_NAME, ai_name);
                 material.name = ai_name.C_Str();
 
-                const bool got_shininess
-                        = aiReturn_SUCCESS
-                          == mat->Get(AI_MATKEY_SHININESS, material.shininess);
-                const bool got_alpha
-                        = aiReturn_SUCCESS
-                          == mat->Get(AI_MATKEY_OPACITY, material.alpha);
+                const bool got_shininess = aiReturn_SUCCESS == mat->Get(AI_MATKEY_SHININESS, material.shininess);
+                const bool got_alpha = aiReturn_SUCCESS == mat->Get(AI_MATKEY_OPACITY, material.alpha);
 
                 if(!got_shininess)
                 {
@@ -218,7 +226,6 @@ namespace euphoria::core
                 material.diffuse = con(ai_diffuse);
                 material.specular = con(ai_specular);
 
-
                 int u = 0;
                 int v = 0;
                 mat->Get(AI_MATKEY_MAPPINGMODE_U(aiTextureType_DIFFUSE, 0), u);
@@ -236,7 +243,7 @@ namespace euphoria::core
         void
         add_faces(mesh_part* part, const aiMesh* mesh)
         {
-            for(unsigned int face_id = 0; face_id < mesh->mNumFaces; ++face_id)
+            for(unsigned int face_id = 0; face_id < mesh->mNumFaces; face_id += 1)
             {
                 const aiFace& face = mesh->mFaces[face_id];
                 if(face.mNumIndices<3)
@@ -257,7 +264,7 @@ namespace euphoria::core
         void
         add_points(mesh_part* part, const aiMesh* mesh)
         {
-            for(unsigned int index = 0; index < mesh->mNumVertices; ++index)
+            for(unsigned int index = 0; index < mesh->mNumVertices; index += 1)
             {
                 const aiVector3D& vertex = mesh->mVertices[index];
                 const aiVector3D& normal = mesh->mNormals[index];
@@ -273,9 +280,10 @@ namespace euphoria::core
                 (
                     mesh_point
                     {
-                        vec3f {vertex.x, vertex.y, vertex.z},
-                        vec3f {normal.x, normal.y, normal.z},
-                        vec2f {u, v}}
+                        vec3f{vertex.x, vertex.y, vertex.z},
+                        vec3f{normal.x, normal.y, normal.z},
+                        vec2f{u, v}
+                    }
                 );
             }
         }
@@ -307,8 +315,7 @@ namespace euphoria::core
             {
                 add_materials(&ret, scene);
 
-                for(unsigned int meshid = 0; meshid < scene->mNumMeshes;
-                    ++meshid)
+                for(unsigned int meshid = 0; meshid < scene->mNumMeshes; meshid += 1)
                 {
                     const aiMesh* mesh = scene->mMeshes[meshid];
                     const mesh_part part = convert_mesh(mesh);
@@ -338,8 +345,13 @@ namespace euphoria::core
         {
             Assimp::Importer importer;
 
-            const aiScene* scene = importer.ReadFileFromMemory(
-                    nff.c_str(), nff.length() + 1, assimp_flags, format.c_str());
+            const aiScene* scene = importer.ReadFileFromMemory
+            (
+                nff.c_str(),
+                nff.length() + 1,
+                assimp_flags,
+                format.c_str()
+            );
             if(scene == nullptr)
             {
                 throw std::string {importer.GetErrorString()};
@@ -478,7 +490,12 @@ namespace euphoria::core
 
             auto folder_loaded = get_optional_and_log_errors_allow_missing
             (
-                read_xml_file_to_gaf_struct<::mesh::Folder>(fs, folder_path, ::mesh::ReadXmlElementFolder)
+                read_xml_file_to_gaf_struct<::mesh::Folder>
+                (
+                    fs,
+                    folder_path,
+                    ::mesh::ReadXmlElementFolder
+                )
             );
             if(folder_loaded.has_value() == false)
             {
@@ -660,7 +677,10 @@ namespace euphoria::core
         create_sphere(float size, const std::string& texture)
         {
             std::ostringstream ss;
-            ss << "shader " << texture << std::endl << "s 0 0 0 " << size;
+            ss
+                << "shader " << texture << std::endl
+                << "s 0 0 0 " << size
+                ;
             return load_from_string(ss.str(), file_format_nff);
         }
 
@@ -672,29 +692,32 @@ namespace euphoria::core
             const float y = height / 2;
             const float z = depth / 2;
             std::ostringstream ss;
-            ss << "v " << -x << " " << " " << -y << " " << -z << std::endl
-               << "v " << -x << " " << " " << -y << " " << z << std::endl
-               << "v " << -x << " " << " " << y << " " << -z << std::endl
-               << "v " << -x << " " << " " << y << " " << z << std::endl
-               << "v " << x << " " << " " << -y << " " << -z << std::endl
-               << "v " << x << " " << " " << -y << " " << z << std::endl
-               << "v " << x << " " << " " << y << " " << -z << std::endl
-               << "v " << x << " " << " " << y << " " << z << std::endl
-               << "" << std::endl
-               << "vt 0 0" << std::endl
-               << "vt 0 1" << std::endl
-               << "vt 1 1" << std::endl
-               << "vt 1 0" << std::endl
-               << "" << std::endl
-               << "f 3/1 7/2 5/3 1/4" << std::endl
-               << "f 6/1 8/2 4/3 2/4" << std::endl
-               << "f 2/1 4/2 3/3 1/4" << std::endl
-               << "f 7/1 8/2 6/3 5/4" << std::endl
-               << "f 4/1 8/2 7/3 3/4" << std::endl
-               << "f 5/1 6/2 2/3 1/4" << std::endl;
+            ss
+                << "v " << -x << " " << " " << -y << " " << -z << std::endl
+                << "v " << -x << " " << " " << -y << " " << z << std::endl
+                << "v " << -x << " " << " " << y << " " << -z << std::endl
+                << "v " << -x << " " << " " << y << " " << z << std::endl
+                << "v " << x << " " << " " << -y << " " << -z << std::endl
+                << "v " << x << " " << " " << -y << " " << z << std::endl
+                << "v " << x << " " << " " << y << " " << -z << std::endl
+                << "v " << x << " " << " " << y << " " << z << std::endl
+                << "" << std::endl
+                << "vt 0 0" << std::endl
+                << "vt 0 1" << std::endl
+                << "vt 1 1" << std::endl
+                << "vt 1 0" << std::endl
+                << "" << std::endl
+                << "f 3/1 7/2 5/3 1/4" << std::endl
+                << "f 6/1 8/2 4/3 2/4" << std::endl
+                << "f 2/1 4/2 3/3 1/4" << std::endl
+                << "f 7/1 8/2 6/3 5/4" << std::endl
+                << "f 4/1 8/2 7/3 3/4" << std::endl
+                << "f 5/1 6/2 2/3 1/4" << std::endl
+                ;
 
             auto box = load_from_string(ss.str(), file_format_obj);
             return box;
         }
     }
 }
+

@@ -62,7 +62,12 @@ load_game_data(vfs::file_system* fs)
 {
     return get_optional_and_log_errors
     (
-        read_xml_file_to_gaf_struct<::game::Game>(fs, vfs::file_path{"~/gamedata.xml"}, ::game::ReadXmlElementGame)
+        read_xml_file_to_gaf_struct<::game::Game>
+        (
+            fs,
+            vfs::file_path{"~/gamedata.xml"},
+            ::game::ReadXmlElementGame
+        )
     );
 }
 
