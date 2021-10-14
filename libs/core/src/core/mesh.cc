@@ -678,7 +678,7 @@ namespace euphoria::core
         {
             std::ostringstream ss;
             ss
-                << "shader " << texture << std::endl
+                << "shader " << texture << "\n"
                 << "s 0 0 0 " << size
                 ;
             return load_from_string(ss.str(), file_format_nff);
@@ -693,26 +693,26 @@ namespace euphoria::core
             const float z = depth / 2;
             std::ostringstream ss;
             ss
-                << "v " << -x << " " << " " << -y << " " << -z << std::endl
-                << "v " << -x << " " << " " << -y << " " << z << std::endl
-                << "v " << -x << " " << " " << y << " " << -z << std::endl
-                << "v " << -x << " " << " " << y << " " << z << std::endl
-                << "v " << x << " " << " " << -y << " " << -z << std::endl
-                << "v " << x << " " << " " << -y << " " << z << std::endl
-                << "v " << x << " " << " " << y << " " << -z << std::endl
-                << "v " << x << " " << " " << y << " " << z << std::endl
-                << "" << std::endl
-                << "vt 0 0" << std::endl
-                << "vt 0 1" << std::endl
-                << "vt 1 1" << std::endl
-                << "vt 1 0" << std::endl
-                << "" << std::endl
-                << "f 3/1 7/2 5/3 1/4" << std::endl
-                << "f 6/1 8/2 4/3 2/4" << std::endl
-                << "f 2/1 4/2 3/3 1/4" << std::endl
-                << "f 7/1 8/2 6/3 5/4" << std::endl
-                << "f 4/1 8/2 7/3 3/4" << std::endl
-                << "f 5/1 6/2 2/3 1/4" << std::endl
+                << "v " << -x << " " << " " << -y << " " << -z << "\n"
+                << "v " << -x << " " << " " << -y << " " << z << "\n"
+                << "v " << -x << " " << " " << y << " " << -z << "\n"
+                << "v " << -x << " " << " " << y << " " << z << "\n"
+                << "v " << x << " " << " " << -y << " " << -z << "\n"
+                << "v " << x << " " << " " << -y << " " << z << "\n"
+                << "v " << x << " " << " " << y << " " << -z << "\n"
+                << "v " << x << " " << " " << y << " " << z << "\n"
+                << "" << "\n"
+                << "vt 0 0" << "\n"
+                << "vt 0 1" << "\n"
+                << "vt 1 1" << "\n"
+                << "vt 1 0" << "\n"
+                << "" << "\n"
+                << "f 3/1 7/2 5/3 1/4" << "\n"
+                << "f 6/1 8/2 4/3 2/4" << "\n"
+                << "f 2/1 4/2 3/3 1/4" << "\n"
+                << "f 7/1 8/2 6/3 5/4" << "\n"
+                << "f 4/1 8/2 7/3 3/4" << "\n"
+                << "f 5/1 6/2 2/3 1/4" << "\n"
                 ;
 
             auto box = load_from_string(ss.str(), file_format_obj);
