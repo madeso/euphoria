@@ -139,9 +139,9 @@ namespace euphoria::core
     struct hsl
     {
         // hue, saturation, lightness
-        angle h;
-        float s; // 0-1
-        float l; // 0-1
+        angle h; // the most noticeable color that stands out to your eye
+        float s; // the "brilliance" (0-1)
+        float l; // the light or darkness (0-1)
 
         // todo(Gustav): why are these angles and not a Hsl?
         static constexpr angle red = angle::from_percent_of_360(0.0f);
