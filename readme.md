@@ -13,4 +13,5 @@ Euphoria is under heavy development, not ready for prime time, and the final pro
 
 The folder structure should follow the [pitchfork layout](https://github.com/vector-of-bool/pitchfork).
 
-All names should follow `snake_case`, both for variables, members, functions and files. The only exception are C++ macros that should follow `SHOUTING_SNAKE_CASE` and C++ template arguments that should follow `PascalCase`. Convertion functions should either be named `con` is the convertion is obvious, otherwise the should be named `c_foobar` where `foobar` describes the conversion, casts are discouraged tothe point of being forbidden outside of the 'convertion functions'.
+All names should follow `snake_case`, both for variables, members, functions and files. The only exception are C++ macros that should follow `SHOUTING_SNAKE_CASE` and structs & template arguments that should follow `PascalCase`. Convertion functions should either be named `con` if the convertion is obvious, otherwise it should be named `c_foobar` where `foobar` describes the conversion, casts are discouraged to the point of being forbidden outside of the 'convertion functions'.
+
