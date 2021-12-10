@@ -9,6 +9,13 @@ include(tools/cmake/compiler_warnings.cmake)
 
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# enable building on all cores
+# https://blog.kitware.com/cmake-building-with-all-your-cores/
+if(${MSVC})
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /MP")
+endif()
+
 add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_17)
 
