@@ -16,16 +16,16 @@ namespace euphoria::core
       Generic version of a CSS like padding type.
     */
     template<typename T>
-    struct fourway
+    struct Lrud
     {
-        using self = fourway<T>;
+        using self = Lrud<T>;
 
         T left;
         T right;
         T up;
         T down;
 
-        explicit fourway(const T& t)
+        explicit Lrud(const T& t)
             : left(t)
             , right(t)
             , up(t)
@@ -54,7 +54,7 @@ namespace euphoria::core
         }
 
     private:
-        fourway
+        Lrud
         (
             const T& l,
             const T& r,
@@ -72,7 +72,7 @@ namespace euphoria::core
 
     template<typename T>
     bool
-    operator==(const fourway<T>& lhs, const fourway<T>& rhs)
+    operator==(const Lrud<T>& lhs, const Lrud<T>& rhs)
     {
         return
             lhs.left == rhs.left &&
@@ -85,7 +85,7 @@ namespace euphoria::core
 
     template<typename T>
     bool
-    operator!=(const fourway<T>& lhs, const fourway<T>& rhs)
+    operator!=(const Lrud<T>& lhs, const Lrud<T>& rhs)
     {
         return !(lhs == rhs);
     }
@@ -93,7 +93,7 @@ namespace euphoria::core
 
     template<typename T>
     std::ostream&
-    operator<<(std::ostream& s, const fourway<T>& fw)
+    operator<<(std::ostream& s, const Lrud<T>& fw)
     {
         s << "("
           << fw.up << " "
@@ -110,7 +110,7 @@ namespace euphoria::core
       Either all, ver/hor or up/right/down/left
     */
     template<typename T>
-    struct custom_argparser<fourway<T>>
+    struct CustomArgparser<Lrud<T>>
     {
         enum { value = 1 };
 
@@ -118,7 +118,7 @@ namespace euphoria::core
 
         static
         std::string
-        to_string(const fourway<T>& fw)
+        to_string(const Lrud<T>& fw)
         {
             std::ostringstream ss;
             ss
@@ -131,10 +131,10 @@ namespace euphoria::core
         }
 
         static
-        result<fourway<T>>
+        Result<Lrud<T>>
         parse(const std::string& value)
         {
-            using R = result<fourway<T>>;
+            using R = Result<Lrud<T>>;
             auto parse = [](const std::string& v)
             {
                 return argparse::default_parse_function<T>(v);
@@ -148,7 +148,7 @@ namespace euphoria::core
 
                     if(!val) { return R::create_error(val.get_error()); }
 
-                    return R::create_value(fourway<T>{*val});
+                    return R::create_value(Lrud<T>{*val});
                 }
                 case 2:
                 {
@@ -158,10 +158,10 @@ namespace euphoria::core
                     const auto vert = parse(vvert);
                     const auto hor = parse(vhor);
 
-                    if(!hor) { return R::create_error(string_builder() << "invalid hor(" << vhor << "): " << hor.get_error()); }
-                    if(!vert) { return R::create_error(string_builder() << "invalid vert(" << vvert << "): " << vert.get_error()); }
+                    if(!hor) { return R::create_error(StringBuilder() << "invalid hor(" << vhor << "): " << hor.get_error()); }
+                    if(!vert) { return R::create_error(StringBuilder() << "invalid vert(" << vvert << "): " << vert.get_error()); }
 
-                    return R::create_value(fourway<T>::from_lrud(*hor, *vert));
+                    return R::create_value(Lrud<T>::from_lrud(*hor, *vert));
                 }
                 case 4:
                 {
@@ -175,12 +175,12 @@ namespace euphoria::core
                     const auto down = parse(vdown);
                     const auto left = parse(vleft);
 
-                    if(!left) { return R::create_error(string_builder() << "invalid left(" << vleft << "): " << left.get_error()); }
-                    if(!right) { return R::create_error(string_builder() << "invalid right(" << vright << "): " << right.get_error()); }
-                    if(!up) { return R::create_error(string_builder() << "invalid up(" << vup << "): " << up.get_error()); }
-                    if(!down) { return R::create_error(string_builder() << "invalid down(" << vdown << "): " << down.get_error()); }
+                    if(!left) { return R::create_error(StringBuilder() << "invalid left(" << vleft << "): " << left.get_error()); }
+                    if(!right) { return R::create_error(StringBuilder() << "invalid right(" << vright << "): " << right.get_error()); }
+                    if(!up) { return R::create_error(StringBuilder() << "invalid up(" << vup << "): " << up.get_error()); }
+                    if(!down) { return R::create_error(StringBuilder() << "invalid down(" << vdown << "): " << down.get_error()); }
 
-                    return R::create_value(fourway<T>::from_lrud
+                    return R::create_value(Lrud<T>::from_lrud
                     (
                         *left,
                         *right,

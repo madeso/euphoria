@@ -238,7 +238,7 @@ namespace euphoria::minsynth
         }
     }
 
-    piano_key::piano_key(int st, core::key kc, const std::string& n, int octave)
+    piano_key::piano_key(int st, core::Key kc, const std::string& n, int octave)
         : semitone(st)
         , keycode(kc)
         , name(name_and_octave(n, octave))
@@ -386,7 +386,7 @@ namespace euphoria::minsynth
     }
 
     void
-    keyboard_input_node::on_input(core::key input, bool was_pressed, float time)
+    keyboard_input_node::on_input(core::Key input, bool was_pressed, float time)
     {
         if(tones == nullptr)
         {
@@ -395,7 +395,7 @@ namespace euphoria::minsynth
 
         for(auto& key: keys)
         {
-            if(key.keycode != core::key::unbound && input == key.keycode)
+            if(key.keycode != core::Key::unbound && input == key.keycode)
             {
                 if(was_pressed)
                 {
@@ -443,7 +443,7 @@ namespace euphoria::minsynth
             }
         }
 
-        if(input == core::key::shift_left || input == core::key::shift_right)
+        if(input == core::Key::shift_left || input == core::Key::shift_right)
         {
             octave_shift = was_pressed;
         }
@@ -621,7 +621,7 @@ namespace euphoria::minsynth
     float
     run_oscilator(float frequency, float time, oscilator_type osc)
     {
-        const float sine = core::sin( core::angle::from_percent_of_360(frequency) * time);
+        const float sine = core::sin( core::Angle::from_percent_of_360(frequency) * time);
         switch(osc)
         {
         case oscilator_type::sine: return sine;
@@ -823,18 +823,18 @@ namespace euphoria::minsynth
     (
         int octave,
         int semitone_offset,
-        core::key c,
-        core::key d,
-        core::key e,
-        core::key f,
-        core::key g,
-        core::key a,
-        core::key b,
-        core::key c_sharp,
-        core::key d_sharp,
-        core::key f_sharp,
-        core::key g_sharp,
-        core::key a_sharp
+        core::Key c,
+        core::Key d,
+        core::Key e,
+        core::Key f,
+        core::Key g,
+        core::Key a,
+        core::Key b,
+        core::Key c_sharp,
+        core::Key d_sharp,
+        core::Key f_sharp,
+        core::Key g_sharp,
+        core::Key a_sharp
     )
     {
         return
@@ -859,7 +859,7 @@ namespace euphoria::minsynth
     const keyboard_layout&
     create_qwerty_keyboard_layout()
     {
-        using K = euphoria::core::key;
+        using K = euphoria::core::Key;
 
         static const keyboard_layout k =
         {
@@ -884,18 +884,18 @@ namespace euphoria::minsynth
         int start_col
     )
     {
-        const auto key = [&](int x, int y) -> core::key
+        const auto key = [&](int x, int y) -> core::Key
         {
             const auto wy = start_row - y + 1;
             if(wy < 0 || wy > core::c_sizet_to_int(k.size()))
             {
-                return core::key::unbound;
+                return core::Key::unbound;
             }
             const auto& r = k[wy];
             const auto wx = start_col + x;
             if(wx < 0 || wx > core::c_sizet_to_int(r.size()))
             {
-                return core::key::unbound;
+                return core::Key::unbound;
             }
             return r[wx];
         };

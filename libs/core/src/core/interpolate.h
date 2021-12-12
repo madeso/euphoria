@@ -74,45 +74,45 @@ namespace euphoria::core
 
         // Quadratic easing; p^2
         FUN(QuadIn, QuadraticEaseIn) FUN(QuadOut, QuadraticEaseOut)
-                FUN(Quad, QuadraticEaseInOut)
+        FUN(Quad, QuadraticEaseInOut)
 
         // Cubic easing; p^3
         FUN(CubicIn, CubicEaseIn) FUN(CubicOut, CubicEaseOut)
-                FUN(Cubic, CubicEaseInOut)
+        FUN(Cubic, CubicEaseInOut)
 
         // Quartic easing; p^4
         FUN(QuartIn, QuarticEaseIn) FUN(QuartOut, QuarticEaseOut)
-                FUN(Quart, QuarticEaseInOut)
+        FUN(Quart, QuarticEaseInOut)
 
         // Quintic easing; p^5
         FUN(QuintIn, QuinticEaseIn) FUN(QuintOut, QuinticEaseOut)
-                FUN(Quint, QuinticEaseInOut)
+        FUN(Quint, QuinticEaseInOut)
 
         // Sine wave easing; sin(p * PI/2)
         FUN(SineIn, SineEaseIn) FUN(SineOut, SineEaseOut)
-                FUN(Sine, SineEaseInOut)
+        FUN(Sine, SineEaseInOut)
 
         // Circular easing; sqrt(1 - p^2)
         FUN(CircIn, CircularEaseIn) FUN(CircOut, CircularEaseOut)
-                FUN(Circ, CircularEaseInOut)
+        FUN(Circ, CircularEaseInOut)
 
         // Exponential easing, base 2
         FUN(ExpIn, ExponentialEaseIn) FUN(ExpOut, ExponentialEaseOut)
-                FUN(Exp, ExponentialEaseInOut)
+        FUN(Exp, ExponentialEaseInOut)
 
         // Exponentially-damped sine wave easing
         FUN(ElasticIn, ElasticEaseIn) FUN(ElasticOut, ElasticEaseOut)
-                FUN(Elastic, ElasticEaseInOut)
+        FUN(Elastic, ElasticEaseInOut)
 
         // Overshooting cubic easing;
         FUN(BackIn, BackEaseIn) FUN(BackOut, BackEaseOut)
-                FUN(Back, BackEaseInOut)
+        FUN(Back, BackEaseInOut)
 
         // Exponentially-decaying bounce easing
         FUN(BounceIn, BounceEaseIn) FUN(BounceOut, BounceEaseOut)
-                FUN(Bounce, BounceEaseInOut)
+        FUN(Bounce, BounceEaseInOut)
 #undef FUN
-                        INVALID
+        INVALID
     };
 
     struct FloatTransform
@@ -239,11 +239,12 @@ namespace euphoria::core
         }
 
 #define FUN(NAME, FUNC) \
-    This& NAME(const Type& target, float time) \
-    { \
-        AddInterpolation(easing::NAME, target, time); \
-        return *this; \
-    }
+        This& NAME(const Type& target, float time) \
+        { \
+            AddInterpolation(easing::NAME, target, time); \
+            return *this; \
+        }
+
         // Linear interpolation (no easing)
         FUN(Linear, LinearInterpolation)
 
@@ -362,7 +363,8 @@ namespace euphoria::core
 #undef FUN
 
             case InterpolationType::INVALID:
-            default: DIE("Unhandled case");
+            default:
+                DIE("Unhandled case");
             }
             // ignore invalid interpolation type
             return *this;

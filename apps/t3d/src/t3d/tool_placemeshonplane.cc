@@ -15,7 +15,7 @@ namespace euphoria::t3d
 {
     tool_place_mesh_on_a_plane::tool_place_mesh_on_a_plane(std::shared_ptr<placed_mesh> aactor)
         : actor(aactor)
-        , plane(core::plane::from_normal_and_point(core::unit3f::up(), core::vec3f::zero()))
+        , plane(core::Plane::from_normal_and_point(core::Unit3f::up(), core::Vec3f::zero()))
     {}
 
 
@@ -63,31 +63,31 @@ namespace euphoria::t3d
 
 
     void
-    tool_place_mesh_on_a_plane::on_mouse(editor* editor, core::mouse_button button, bool down)
+    tool_place_mesh_on_a_plane::on_mouse(editor* editor, core::MouseButton button, bool down)
     {
         if(down) { return; }
         switch(button)
         {
-        case core::mouse_button::left: editor->tools.pop_tool(); break;
+        case core::MouseButton::left: editor->tools.pop_tool(); break;
         default: break;
         }
     }
 
 
     void
-    tool_place_mesh_on_a_plane::on_key(editor* editor, core::key key, bool down)
+    tool_place_mesh_on_a_plane::on_key(editor* editor, core::Key key, bool down)
     {
         if(down) { return; }
         switch(key)
         {
-        case core::key::return_key: editor->tools.pop_tool(); break;
+        case core::Key::return_key: editor->tools.pop_tool(); break;
         default: break;
         }
     }
 
 
     void
-    tool_place_mesh_on_a_plane::on_scroll(editor*, const core::vec2i&)
+    tool_place_mesh_on_a_plane::on_scroll(editor*, const core::Vec2i&)
     {}
 
 

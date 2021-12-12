@@ -16,7 +16,7 @@ namespace euphoria::window
 
     struct canvas
     {
-        core::canvas_logic view;
+        core::CanvasLogic view;
         ImVec2 position = ImVec2 {0, 0};
 
         void

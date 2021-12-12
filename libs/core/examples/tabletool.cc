@@ -26,15 +26,15 @@ main(int argc, char* argv[])
     std::string file;
     std::string format = ",\"";
     type type = type::simple;
-    csv_trim trim = csv_trim::trim;
+    CsvTrim trim = CsvTrim::trim;
 
     {
-        auto parser = argparse::parser {"csvtool"};
+        auto parser = argparse::Parser {"csvtool"};
 
         parser.add("-format", &format).set_help("The CSV format used");
         parser.set_const("-simple", &type, type::simple);
         parser.set_const("-grid", &type, type::grid);
-        parser.set_const("-notrim", &trim, csv_trim::dont_trim);
+        parser.set_const("-notrim", &trim, CsvTrim::dont_trim);
         parser.add("CSV-file", &file);
         if(const auto r = parser.parse(argc, argv))
         {
@@ -43,7 +43,7 @@ main(int argc, char* argv[])
     }
 
     
-    table<std::string> table;
+    Table<std::string> table;
     {
         std::ifstream stream {file};
         if(!stream)
@@ -51,7 +51,7 @@ main(int argc, char* argv[])
             std::cerr << "Failed to load " << file << "\n";
             return -1;
         }
-        csv_parser_options options;
+        CsvParserOptions options;
         options.delim = format[0];
         options.str = format[1];
         options.trim = trim;

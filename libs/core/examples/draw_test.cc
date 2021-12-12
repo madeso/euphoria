@@ -10,7 +10,7 @@ using namespace euphoria::core;
 int
 main(int, char*[])
 {
-    std::array<image, 4> images;
+    std::array<Image, 4> images;
 
     constexpr int width = 200;
     constexpr int height = 200;
@@ -18,14 +18,14 @@ main(int, char*[])
     for(auto& image : images)
     {
         image.setup_no_alpha_support(width, height);
-        clear(&image, {color::white});
+        clear(&image, {NamedColor::white});
     }
 
-    const auto center = vec2i(width/2, height/2);
+    const auto center = Vec2i(width/2, height/2);
 
     for(auto& image : images)
     {
-        draw_circle(&image, color::red, center, static_cast<float>(width)/2.0f);
+        draw_circle(&image, NamedColor::red, center, static_cast<float>(width)/2.0f);
     }
 
     constexpr int offset = 20;
@@ -36,9 +36,9 @@ main(int, char*[])
 
     auto draw = [&]
         (
-            const color color,
-            const vec2i& from,
-            const vec2i& to
+            const NamedColor color,
+            const Vec2i& from,
+            const Vec2i& to
         )
     {
         draw_line_antialiased(&(images[0]), color, from, to);
@@ -48,21 +48,21 @@ main(int, char*[])
         draw_line_fast(&(images[3]), {color}, to, from);
     };
 
-    draw(color::pure_blue, center, center + vec2i{center.x, offset});
-    draw(color::pure_yellow, center, center - vec2i{center.x, offset});
+    draw(NamedColor::pure_blue, center, center + Vec2i{center.x, offset});
+    draw(NamedColor::pure_yellow, center, center - Vec2i{center.x, offset});
 
-    draw(color::pure_pink, center, center + vec2i{offset, center.y});
-    draw(color::pure_brown, center, center - vec2i{offset, center.y});
+    draw(NamedColor::pure_pink, center, center + Vec2i{offset, center.y});
+    draw(NamedColor::pure_brown, center, center - Vec2i{offset, center.y});
 
-    image composite;
+    Image composite;
     composite.setup_no_alpha_support(width * 2, height * 2);
     for(int i=0; i<4; i+=1)
     {
-        const auto p = vec2i{i%2 * width, i/2 * height};
+        const auto p = Vec2i{i%2 * width, i/2 * height};
         paste_image(&composite, p, images[i]);
     }
 
-    io::chunk_to_file(composite.write(image_write_format::png), "draw.png");
+    io::chunk_to_file(composite.write(ImageWriteFormat::png), "draw.png");
 
     return 0;
 }

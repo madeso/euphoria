@@ -15,7 +15,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct matched_enum
+    struct MatchedEnum
     {
         bool single_match = false;
         std::vector<std::string> names;
@@ -23,7 +23,7 @@ namespace euphoria::core
     };
 
     template <typename T>
-    struct enum_to_string_implementation
+    struct EnumToStringImplementation
     {
         std::map<T, std::string> enum_to_string;
         std::map<std::string, T> string_to_enum;
@@ -31,7 +31,7 @@ namespace euphoria::core
         int size = 0;
 
         // todo(Gustav): replace with initializer list?
-        enum_to_string_implementation<T>&
+        EnumToStringImplementation<T>&
         add(const std::string& name, T t)
         {
             enum_to_string.insert(std::make_pair(t, name));
@@ -74,21 +74,21 @@ namespace euphoria::core
             return ret;
         }
 
-        [[nodiscard]] matched_enum<T>
+        [[nodiscard]] MatchedEnum<T>
         match(const std::string& input, size_t max_size) const
         {
             auto found = string_to_enum.find(to_lower(input));
             if(found != string_to_enum.end())
             {
-                return matched_enum<T> {true, {input}, {found->second}};
+                return MatchedEnum<T> {true, {input}, {found->second}};
             }
 
-            struct match : search::match
+            struct match : search::Match
             {
                 T t;
 
                 match(const std::string& str, T tt, const std::string& input)
-                    : search::match(str, input)
+                    : search::Match(str, input)
                     , t(tt)
                 {
                 }
@@ -103,7 +103,7 @@ namespace euphoria::core
                 }
             );
 
-            auto ret = matched_enum<T> {};
+            auto ret = MatchedEnum<T> {};
             for(const auto& m: matches)
             {
                 ret.names.emplace_back(m.name);
@@ -121,12 +121,12 @@ namespace euphoria::core
     }
 
     template<typename T>
-    [[nodiscard]] enum_to_string_implementation<T>
+    [[nodiscard]] EnumToStringImplementation<T>
     get_enum_to_string_implementation_from_enum()
     {
         const auto values = magic_enum::enum_values<T>();
 
-        enum_to_string_implementation<T> r;
+        EnumToStringImplementation<T> r;
         for (const auto v : values)
         {
             r.add(enum_to_string(v), v);
@@ -137,7 +137,7 @@ namespace euphoria::core
 
 
     template <typename T>
-    matched_enum<T>
+    MatchedEnum<T>
     string_to_enum(const std::string& input, size_t max_size = 5)
     {
         return get_enum_to_string_implementation_from_enum<T>().match(input, max_size);

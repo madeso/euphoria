@@ -30,7 +30,7 @@ struct difference
 
 
 std::vector<difference>
-find_differences(const table<bool>& src, const table<bool>& dst)
+find_differences(const Table<bool>& src, const Table<bool>& dst)
 {
     std::vector<difference> ret;
     for(int y = 0; y < src.get_height(); y += 1)
@@ -50,7 +50,7 @@ find_differences(const table<bool>& src, const table<bool>& dst)
 
 
 void
-print_maze_to_console(const generator::drawer& drawer)
+print_maze_to_console(const generator::Drawer& drawer)
 {
     const auto table = image_to_string_table
     (
@@ -91,19 +91,19 @@ handle_maze_command
     bool console
 )
 {
-    auto output = argparse::file_output {f};
-    auto rand = core::random{};
-    auto maze = generator::maze::from_width_height(world_width, world_height);
+    auto output = argparse::FileOutput {f};
+    auto rand = core::Random{};
+    auto maze = generator::Maze::from_width_height(world_width, world_height);
 
-    auto drawer = generator::drawer {};
+    auto drawer = generator::Drawer {};
 
-    std::unique_ptr<generator::algorithm> gen;
+    std::unique_ptr<generator::Algorithm> gen;
 
     switch(algo)
     {
     case maze_algorithm::recursive_backtracker:
         {
-            auto g = std::make_unique<generator::recursive_backtracker>();
+            auto g = std::make_unique<generator::RecursiveBacktracker>();
             g->maze = &maze;
             g->random = &rand;
             drawer.tracker = g.get();
@@ -112,7 +112,7 @@ handle_maze_command
         break;
     case maze_algorithm::random_traversal:
         {
-            auto g = std::make_unique<generator::random_traversal>();
+            auto g = std::make_unique<generator::RandomTraversal>();
             g->maze = &maze;
             g->random = &rand;
             drawer.traversal = g.get();
@@ -136,7 +136,7 @@ handle_maze_command
             drawer.draw();
             io::chunk_to_file
             (
-                drawer.image.write(image_write_format::png),
+                drawer.image.write(ImageWriteFormat::png),
                 output.get_next_file()
             );
         }
@@ -162,7 +162,7 @@ handle_maze_command
         {
             io::chunk_to_file
             (
-                drawer.image.write(image_write_format::png),
+                drawer.image.write(ImageWriteFormat::png),
                 output.file
             );
         }
@@ -172,7 +172,7 @@ handle_maze_command
             {
                 io::chunk_to_file
                 (
-                    drawer.image.write(image_write_format::png),
+                    drawer.image.write(ImageWriteFormat::png),
                     output.get_next_file()
                 );
             }
@@ -185,11 +185,11 @@ handle_maze_command
 struct cellwriter
 {
     bool debug;
-    argparse::file_output output;
+    argparse::FileOutput output;
     generator::world* world;
     int world_scale;
 
-    core::random shuffle_random;
+    core::Random shuffle_random;
     generator::world world_copy;
 
     explicit cellwriter
@@ -206,14 +206,14 @@ struct cellwriter
     {
     }
 
-    [[nodiscard]] image
+    [[nodiscard]] Image
     generate_world_image(const generator::world& world_or_copy) const
     {
         return draw
         (
             world_or_copy,
-            {color::black},
-            {color::white},
+            {NamedColor::black},
+            {NamedColor::white},
             world_scale,
             std::nullopt
         );
@@ -225,7 +225,7 @@ struct cellwriter
         if(!output.single)
         {
             auto img = generate_world_image(*world);
-            io::chunk_to_file(img.write(image_write_format::png), output.get_next_file());
+            io::chunk_to_file(img.write(ImageWriteFormat::png), output.get_next_file());
         }
 
         world_copy = *world;
@@ -238,7 +238,7 @@ struct cellwriter
         if(output.single)
         {
             auto img = generate_world_image(*world);
-            io::chunk_to_file(img.write(image_write_format::png), output.file);
+            io::chunk_to_file(img.write(ImageWriteFormat::png), output.file);
         }
         else
         {
@@ -255,7 +255,7 @@ struct cellwriter
             const auto img = generate_world_image(*world);
             io::chunk_to_file
             (
-                img.write(image_write_format::png),
+                img.write(ImageWriteFormat::png),
                 output.get_next_file()
             );
         }
@@ -284,7 +284,7 @@ struct cellwriter
                 const auto img = generate_world_image(world_copy);
                 io::chunk_to_file
                 (
-                    img.write(image_write_format::png),
+                    img.write(ImageWriteFormat::png),
                     output.get_next_file()
                 );
             }
@@ -296,7 +296,7 @@ struct cellwriter
             const auto img = generate_world_image(world_copy);
             io::chunk_to_file
             (
-                img.write(image_write_format::png),
+                img.write(ImageWriteFormat::png),
                 output.get_next_file()
             );
         }
@@ -314,7 +314,7 @@ struct maze_arguments
     bool console = false;
 
     void
-    add(argparse::parser_base* base)
+    add(argparse::ParserBase* base)
     {
         base->add("--size", &size).set_help("set the size");
         base->add("-o, --output", &output).set_help("specify output");
@@ -326,19 +326,19 @@ struct maze_arguments
 };
 
 
-constexpr neighborhood_algorithm default_algorithm = neighborhood_algorithm::box;
+constexpr NeighborhoodAlgorithm default_algorithm = NeighborhoodAlgorithm::box;
 
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::parser{"Generate worlds"};
+    auto parser = argparse::Parser{"Generate worlds"};
     auto sub = parser.add_sub_parsers();
 
     sub->add
     (
         "recursive",
         "maze generation using recursive backtracker algorithm",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             auto args = maze_arguments{};
             args.add(sub);
@@ -367,7 +367,7 @@ main(int argc, char* argv[])
     (
         "random",
         "maze generation using random traversal algorithm",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             auto args = maze_arguments{};
             args.add(sub);
@@ -396,14 +396,14 @@ main(int argc, char* argv[])
     (
         "cell",
         "world generation using cellular automata algorithm",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             int world_scale = 5;
             bool debug = false;
             size2i size = size2i::create_from_width_height(100, 70);
             std::string output = "cell.png";
-            auto rand = core::random{};
-            auto rules = generator::rules{};
+            auto rand = core::Random{};
+            auto rules = generator::Rules{};
 
             sub->add("--size", &size).set_help("set the size");
             sub->add("-o, --output", &output).set_help("specify output");
@@ -412,10 +412,10 @@ main(int argc, char* argv[])
 
             auto commands = sub->add_sub_parsers("commands");
 
-            commands->add("random", "random fill", [&](argparse::sub_parser* cmd)
+            commands->add("random", "random fill", [&](argparse::SubParser* cmd)
             {
-                cmd->parser_style = argparse::sub_parser_style::fallback;
-                fourway<border_setup_rule> border_control = fourway{border_setup_rule::always_wall};
+                cmd->parser_style = argparse::SubParserStyle::fallback;
+                Lrud<BorderSetupRule> border_control = Lrud{BorderSetupRule::always_wall};
                 float random_fill = 0.5;
                 cmd->add("--fill", &random_fill).set_help("How much to fill");
                 cmd->add("-bc", &border_control)
@@ -426,9 +426,9 @@ main(int argc, char* argv[])
                     return argparse::ok;
                 });
             });
-            commands->add("combo", "smooth map with combo rule", [&](argparse::sub_parser* cmd)
+            commands->add("combo", "smooth map with combo rule", [&](argparse::SubParser* cmd)
             {
-                cmd->parser_style = argparse::sub_parser_style::fallback;
+                cmd->parser_style = argparse::SubParserStyle::fallback;
                 int times = 4;
                 int count = 5;
                 int small = 2;
@@ -444,9 +444,9 @@ main(int argc, char* argv[])
                     return argparse::ok;
                 });
             });
-            commands->add("spiky", "smooth map with spikes", [&](argparse::sub_parser* cmd)
+            commands->add("spiky", "smooth map with spikes", [&](argparse::SubParser* cmd)
             {
-                cmd->parser_style = argparse::sub_parser_style::fallback;
+                cmd->parser_style = argparse::SubParserStyle::fallback;
                 int times = 5;
                 int count = 4;
                 auto algorithm = default_algorithm;
@@ -460,9 +460,9 @@ main(int argc, char* argv[])
                     return argparse::ok;
                 });
             });
-            commands->add("clear", "clear smaller items", [&](argparse::sub_parser* cmd)
+            commands->add("clear", "clear smaller items", [&](argparse::SubParser* cmd)
             {
-                cmd->parser_style = argparse::sub_parser_style::fallback;
+                cmd->parser_style = argparse::SubParserStyle::fallback;
                 int times = 2;
                 int count = 2;
                 int range = 1;
@@ -478,9 +478,9 @@ main(int argc, char* argv[])
                     return argparse::ok;
                 });
             });
-            commands->add("hblank", "add horizontal block", [&](argparse::sub_parser* cmd)
+            commands->add("hblank", "add horizontal block", [&](argparse::SubParser* cmd)
             {
-                cmd->parser_style = argparse::sub_parser_style::fallback;
+                cmd->parser_style = argparse::SubParserStyle::fallback;
                 int y = 6;
                 int height = 3;
                 cmd->add("-y", &y).set_help("the y where to place it");
@@ -490,9 +490,9 @@ main(int argc, char* argv[])
                     return argparse::ok;
                 });
             });
-            commands->add("smooth", "smooth map", [&](argparse::sub_parser* cmd)
+            commands->add("smooth", "smooth map", [&](argparse::SubParser* cmd)
             {
-                cmd->parser_style = argparse::sub_parser_style::fallback;
+                cmd->parser_style = argparse::SubParserStyle::fallback;
                 int times = 5;
                 int count = 4;
                 auto algorithm = default_algorithm;
@@ -506,9 +506,9 @@ main(int argc, char* argv[])
                     return argparse::ok;
                 });
             });
-            commands->add("fill", "fill small holes", [&](argparse::sub_parser* cmd)
+            commands->add("fill", "fill small holes", [&](argparse::SubParser* cmd)
             {
-                cmd->parser_style = argparse::sub_parser_style::fallback;
+                cmd->parser_style = argparse::SubParserStyle::fallback;
                 int size = 3;
                 bool allow_diagonals = true;
                 cmd->add("--size", &size).set_help("holes smaller than this are filled");
@@ -518,9 +518,9 @@ main(int argc, char* argv[])
                     return argparse::ok;
                 });
             });
-            commands->add("only", "only keep a few holes", [&](argparse::sub_parser* cmd)
+            commands->add("only", "only keep a few holes", [&](argparse::SubParser* cmd)
             {
-                cmd->parser_style = argparse::sub_parser_style::fallback;
+                cmd->parser_style = argparse::SubParserStyle::fallback;
                 int keep = 1;
                 bool allow_diagonals = true;
                 cmd->add("--keep", &keep).set_help("the number of holes to keep");
@@ -545,7 +545,7 @@ main(int argc, char* argv[])
                         return argparse::ok;
                     }
 
-                    auto cell = generator::cellular_automata{&rules, &world, fourway{outside_rule::wall}};
+                    auto cell = generator::CellularAutomata{&rules, &world, Lrud{outside_rule::wall}};
 
                     auto writer = cellwriter{debug, output, &world, world_scale};
                     writer.first_state();

@@ -19,7 +19,7 @@
 
 namespace euphoria::core::vfs
 {
-    struct file_system;
+    struct FileSystem;
 }
 
 
@@ -59,7 +59,7 @@ namespace euphoria::render
         pre_bind(const shader_attribute& attribute);
 
         bool
-        load(core::vfs::file_system* fs, const core::vfs::file_path& file_path);
+        load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path);
 
         bool
         compile
@@ -80,25 +80,25 @@ namespace euphoria::render
         set_uniform(const shader_uniform& attribute, float val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::rgb& val);
+        set_uniform(const shader_uniform& attribute, const core::Rgb& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::rgba& val);
+        set_uniform(const shader_uniform& attribute, const core::Rgba& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::vec3f& val);
+        set_uniform(const shader_uniform& attribute, const core::Vec3f& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::vec4f& val);
+        set_uniform(const shader_uniform& attribute, const core::Vec4f& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::mat3f& val);
+        set_uniform(const shader_uniform& attribute, const core::Mat3f& val);
 
         void
         set_uniform(const shader_uniform& attribute, const core::mat4f& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::rectf& val);
+        set_uniform(const shader_uniform& attribute, const core::Rectf& val);
 
         // debug
         [[nodiscard]] static const shader*
@@ -107,7 +107,7 @@ namespace euphoria::render
         [[nodiscard]] const std::vector<shader_attribute>&
         get_attributes() const;
 
-        [[nodiscard]] const core::vfs::file_path&
+        [[nodiscard]] const core::vfs::FilePath&
         get_name() const;
 
     private:
@@ -119,7 +119,7 @@ namespace euphoria::render
 
         std::vector<shader_attribute> bound_attributes;
         std::vector<shader_uniform> bound_uniforms;
-        core::vfs::file_path shader_name;
+        core::vfs::FilePath shader_name;
     };
 
     void

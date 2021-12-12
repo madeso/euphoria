@@ -58,7 +58,7 @@ namespace
 
 TEST_CASE("tb_print")
 {
-    auto box = text_box::create_empty();
+    auto box = TextBox::create_empty();
 
     SECTION("empty")
     {
@@ -146,7 +146,7 @@ TEST_CASE("tb_print")
 
         SECTION("no change")
         {
-            box = text_box::create_from_strings({"", "  a"});
+            box = TextBox::create_from_strings({"", "  a"});
             box.trim();
 
             CHECK(box.get_size() == create_size(3, 2));
@@ -155,7 +155,7 @@ TEST_CASE("tb_print")
 
         SECTION("change")
         {
-            box = text_box::create_from_strings({"    ", "  a ", ""});
+            box = TextBox::create_from_strings({"    ", "  a ", ""});
             box.trim();
 
             CHECK(box.get_size() == create_size(3, 2));
@@ -166,7 +166,7 @@ TEST_CASE("tb_print")
 
 TEST_CASE("tb_arrows")
 {
-    const auto abc_style = text_box_style::create([](char c) {
+    const auto abc_style = TextBoxStyle::create([](char c) {
         switch(c) {
         case bit_left:                                 return u8"a";
         case bit_right:                                return u8"b";
@@ -189,7 +189,7 @@ TEST_CASE("tb_arrows")
         }
     });
 
-    auto box = text_box::create_empty();
+    auto box = TextBox::create_empty();
 
     SECTION("all combos")
     {
@@ -297,11 +297,11 @@ TEST_CASE("tb_arrows")
 
 TEST_CASE("tb_line on text")
 {
-    auto text = text_box::create_empty();
+    auto text = TextBox::create_empty();
     text.put_string(1, 0, "d g");
     CHECK(string_is_equal(text.to_string(ascii_style()), {" d g"}));
 
-    auto line = text_box::create_empty();
+    auto line = TextBox::create_empty();
     line.put_horizontal_line(0, 0, 5, true, true);
     CHECK(string_is_equal(line.to_string(ascii_style()), {"-----"}));
 
@@ -322,11 +322,11 @@ TEST_CASE("tb_line on text")
 
 TEST_CASE("tb_line on line")
 {
-    auto hor = text_box::create_empty();
+    auto hor = TextBox::create_empty();
     hor.put_horizontal_line(0, 0, 1, true, true);
     CHECK(string_is_equal(hor.to_string(ascii_style()), {"-"}));
 
-    auto vert = text_box::create_empty();
+    auto vert = TextBox::create_empty();
     vert.put_vertical_line(0, 0, 1, true, true);
     CHECK(string_is_equal(vert.to_string(ascii_style()), {"|"}));
 
@@ -349,9 +349,9 @@ TEST_CASE("tb_box")
     const std::vector<std::string> x_data = {"   ", " x ", "   "};
     const std::vector<std::string> abc_data = {"abc"};
 
-    const auto empty = text_box::create_empty();
-    const auto x = text_box::create_from_strings(x_data);
-    const auto abc = text_box::create_from_strings(abc_data);
+    const auto empty = TextBox::create_empty();
+    const auto x = TextBox::create_from_strings(x_data);
+    const auto abc = TextBox::create_from_strings(abc_data);
 
     SECTION("putbox")
     {
@@ -459,7 +459,7 @@ TEST_CASE("tb_create_tree_graph")
     (
         string_is_equal
         (
-            text_box::create_tree_graph
+            TextBox::create_tree_graph
             (
                 simple_tree,
                 130,
@@ -479,7 +479,7 @@ TEST_CASE("tb_create_tree_graph")
     (
         string_is_equal
         (
-            text_box::create_tree_graph
+            TextBox::create_tree_graph
             (
                 simple_tree,
                 130,
@@ -500,7 +500,7 @@ TEST_CASE("tb_create_tree_graph")
     (
         string_is_equal
         (
-            text_box::create_tree_graph
+            TextBox::create_tree_graph
             (
                 simple_tree,
                 130,
@@ -520,7 +520,7 @@ TEST_CASE("tb_create_tree_graph")
     (
         string_is_equal
         (
-            text_box::create_tree_graph
+            TextBox::create_tree_graph
             (
                 simple_tree,
                 130,
@@ -592,7 +592,7 @@ TEST_CASE("tb_tolkien")
     (
         string_is_equal
         (
-            text_box::create_tree_graph
+            TextBox::create_tree_graph
             (
                 tolkien_tree,
                 130,

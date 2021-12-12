@@ -9,54 +9,54 @@
 
 namespace euphoria::core
 {
-    struct image;
-    struct rgbi;
+    struct Image;
+    struct Rgbi;
 
     std::vector<size2i> collect_sizes
     (
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         int padding
     );
 
-    image
+    Image
     draw_image
     (
-        const std::vector<vec2i>& positions,
-        const std::vector<image>& images,
+        const std::vector<Vec2i>& positions,
+        const std::vector<Image>& images,
         const size2i& size,
-        const rgbi& background_color
+        const Rgbi& background_color
     );
 
     size2i
     pack_tight
     (
         const size2i& default_size,
-        std::vector<vec2i>* positions,
-        const std::vector<image>& images,
+        std::vector<Vec2i>* positions,
+        const std::vector<Image>& images,
         int padding
     );
 
 
     ////////////////////////////////////////////////
 
-    std::vector<vec2i>
+    std::vector<Vec2i>
     pack_image
     (
         const size2i& image_size,
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         const std::vector<std::string>& files,
         int padding
     );
 
 
-    std::optional<image>
+    std::optional<Image>
     pack_image
     (
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         const std::vector<std::string>& files,
         const size2i& requested_size,
         int padding,
-        rgbi background_color,
+        Rgbi background_color,
         bool pack_image
     );
 
@@ -64,20 +64,20 @@ namespace euphoria::core
     ////////////////////////////////////////////////
 
 
-    std::pair<std::vector<vec2i>, size2i>
+    std::pair<std::vector<Vec2i>, size2i>
     grid_layout
     (
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         int padding,
         bool top_to_bottom
     );
 
-    image
+    Image
     grid_layout
     (
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         int padding,
-        rgbi background_color,
+        Rgbi background_color,
         bool top_to_bottom
     );
 

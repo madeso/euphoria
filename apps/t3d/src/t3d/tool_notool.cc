@@ -21,10 +21,10 @@ namespace euphoria::t3d
 
 
     void
-    tool_no_tool::on_mouse(editor* editor, core::mouse_button button, bool down)
+    tool_no_tool::on_mouse(editor* editor, core::MouseButton button, bool down)
     {
         if(down) { return; }
-        if(button != core::mouse_button::left) { return; }
+        if(button != core::MouseButton::left) { return; }
         auto ray = editor->camera
                         .clip_to_world_ray(
                                 editor->viewport.to_clip_coord(editor->mouse))
@@ -41,12 +41,12 @@ namespace euphoria::t3d
 
 
     void
-    tool_no_tool::on_key(editor*, core::key, bool)
+    tool_no_tool::on_key(editor*, core::Key, bool)
     {}
 
 
     void
-    tool_no_tool::on_scroll(editor*, const core::vec2i&)
+    tool_no_tool::on_scroll(editor*, const core::Vec2i&)
     {}
 
 

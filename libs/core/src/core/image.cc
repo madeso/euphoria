@@ -17,7 +17,7 @@
 namespace euphoria::core
 {
     void
-    image::make_invalid()
+    Image::make_invalid()
     {
         components.resize(0);
         width = 0;
@@ -29,14 +29,14 @@ namespace euphoria::core
 
 
     int
-    image::get_pixel_byte_size() const
+    Image::get_pixel_byte_size() const
     {
         return has_alpha ? 4 : 3;
     }
 
 
     void
-    image::setup_with_alpha_support
+    Image::setup_with_alpha_support
     (
         int image_width,
         int image_height,
@@ -48,7 +48,7 @@ namespace euphoria::core
 
 
     void
-    image::setup_no_alpha_support
+    Image::setup_no_alpha_support
     (
         int image_width,
         int image_height,
@@ -59,7 +59,7 @@ namespace euphoria::core
     }
 
     void
-    image::setup
+    Image::setup
     (
         int image_width,
         int image_height,
@@ -91,7 +91,7 @@ namespace euphoria::core
 
 
     int
-    image::get_pixel_index(int x, int y) const
+    Image::get_pixel_index(int x, int y) const
     {
         ASSERT(x >= 0 && x < width);
         ASSERT(y >= 0 && y < height);
@@ -101,14 +101,14 @@ namespace euphoria::core
 
 
     void
-    image::set_pixel(int x, int y, const rgbai& color)
+    Image::set_pixel(int x, int y, const Rgbai& color)
     {
         set_pixel(x, y, color.r, color.g, color.b, color.a);
     }
 
 
     void
-    image::set_pixel
+    Image::set_pixel
     (
         int x,
         int y,
@@ -133,8 +133,8 @@ namespace euphoria::core
     }
 
 
-    rgbai
-    image::get_pixel(int x, int y) const
+    Rgbai
+    Image::get_pixel(int x, int y) const
     {
         ASSERTX(is_within_inclusive_as_int(0, x, width - 1), x, width);
         ASSERTX(is_within_inclusive_as_int(0, y, height - 1), y, height);
@@ -148,26 +148,26 @@ namespace euphoria::core
         if(has_alpha)
         {
             const auto alpha = components[base_index + 3];
-            return rgbai {rgbi {red, green, blue}, alpha};
+            return Rgbai {Rgbi {red, green, blue}, alpha};
         }
         else
         {
-            return rgbi {red, green, blue};
+            return Rgbi {red, green, blue};
         }
     }
 
 
     bool
-    image::is_valid() const
+    Image::is_valid() const
     {
         return width > 0 && height > 0;
     }
 
 
-    recti
-    image::get_indices() const
+    Recti
+    Image::get_indices() const
     {
-        return recti::from_width_height
+        return Recti::from_width_height
         (
             width - 1,
             height - 1
@@ -175,7 +175,7 @@ namespace euphoria::core
     }
 
     const unsigned char*
-    image::get_pixel_data() const
+    Image::get_pixel_data() const
     {
         return &components[0];
     }
@@ -194,7 +194,7 @@ namespace euphoria::core
         write_memorychunk_to_file(void* context, void* data, int size)
         {
             ASSERT(size >= 0);
-            auto* file = static_cast<memory_chunk_file*>(context);
+            auto* file = static_cast<MemoryChunkFile*>(context);
             file->write(data, size);
         }
     }
@@ -208,19 +208,19 @@ namespace euphoria::core
         int h,
         int comp,
         const void* data,
-        image_write_format format,
+        ImageWriteFormat format,
         int jpeg_quality
     )
     {
         switch(format)
         {
-        case image_write_format::png:
+        case ImageWriteFormat::png:
             return stbi_write_png_to_func(func, context, w, h, comp, data, 0);
-        case image_write_format::bmp:
+        case ImageWriteFormat::bmp:
             return stbi_write_bmp_to_func(func, context, w, h, comp, data);
-        case image_write_format::tga:
+        case ImageWriteFormat::tga:
             return stbi_write_tga_to_func(func, context, w, h, comp, data);
-        case image_write_format::jpeg:
+        case ImageWriteFormat::jpeg:
             return stbi_write_jpg_to_func
             (
                 func, context, w, h, comp, data, jpeg_quality
@@ -229,8 +229,8 @@ namespace euphoria::core
         }
     }
 
-    std::shared_ptr<memory_chunk>
-    image::write(image_write_format format, int jpeg_quality) const
+    std::shared_ptr<MemoryChunk>
+    Image::write(ImageWriteFormat format, int jpeg_quality) const
     {
         const int number_of_components = has_alpha ? 4 : 3;
 
@@ -265,11 +265,11 @@ namespace euphoria::core
         );
         if(size_result == 0)
         {
-            return memory_chunk::null();
+            return MemoryChunk::null();
         }
 
         ASSERT(size > 0);
-        memory_chunk_file file {memory_chunk::allocate(size)};
+        MemoryChunkFile file {MemoryChunk::allocate(size)};
         int write_result = write_image_data
         (
                 write_memorychunk_to_file,
@@ -283,20 +283,20 @@ namespace euphoria::core
         );
         if(write_result == 0)
         {
-            return memory_chunk::null();
+            return MemoryChunk::null();
         }
 
         return file.data;
     }
 
 
-    image_load_result
-    load_image(vfs::file_system* fs, const vfs::file_path& path, alpha_load alpha)
+    ImageLoadResult
+    load_image(vfs::FileSystem* fs, const vfs::FilePath& path, AlphaLoad alpha)
     {
         auto file_memory = fs->read_file(path);
         if(file_memory == nullptr)
         {
-            image_load_result result;
+            ImageLoadResult result;
             result.error = "File doesnt exist";
             result.image.make_invalid();
             LOG_ERROR("Failed to open {0} File doesnt exist.", path);
@@ -306,12 +306,12 @@ namespace euphoria::core
         return load_image(file_memory, path.path, alpha);
     }
 
-    image_load_result
+    ImageLoadResult
     load_image
     (
-        std::shared_ptr<memory_chunk> file_memory,
+        std::shared_ptr<MemoryChunk> file_memory,
         const std::string& path,
-        alpha_load alpha
+        AlphaLoad alpha
     )
     {
         int channels = 0;
@@ -332,7 +332,7 @@ namespace euphoria::core
 
         if(data == nullptr)
         {
-            image_load_result result;
+            ImageLoadResult result;
             result.error = stbi_failure_reason();
             result.image.make_invalid();
             LOG_ERROR("Failed to read {0}: {1}", path, result.error);
@@ -340,7 +340,7 @@ namespace euphoria::core
         }
 
         bool has_alpha = false;
-        if(alpha == alpha_load::keep)
+        if(alpha == AlphaLoad::keep)
         {
             has_alpha = channels == 2 || channels == 4;
         }
@@ -358,7 +358,7 @@ namespace euphoria::core
             );
         }
 
-        image_load_result result;
+        ImageLoadResult result;
         if(has_alpha)
         {
             result.image.setup_with_alpha_support(image_width, image_height, -1);
@@ -416,18 +416,18 @@ namespace euphoria::core
         return result;
     }
 
-    image_load_result
+    ImageLoadResult
     load_image
     (
         void* compressed_data,
         int compressed_size,
         const std::string& path,
-        alpha_load alpha
+        AlphaLoad alpha
     )
     {
-        auto dec = decompressor{};
-        const unsigned int decompressed_size = decompressor::stb_decompress_length(static_cast<const unsigned char*>(compressed_data));
-        auto decompressed = memory_chunk::allocate(c_unsigned_int_to_int(decompressed_size));
+        auto dec = Decompressor{};
+        const unsigned int decompressed_size = Decompressor::stb_decompress_length(static_cast<const unsigned char*>(compressed_data));
+        auto decompressed = MemoryChunk::allocate(c_unsigned_int_to_int(decompressed_size));
         const auto len = dec.stb_decompress
         (
             reinterpret_cast<unsigned char*>(decompressed->get_data()), // NOLINT
@@ -436,7 +436,7 @@ namespace euphoria::core
         );
         if(len == 0)
         {
-            image_load_result result;
+            ImageLoadResult result;
             result.error = "failed to decompress before loading image";
             result.image.make_invalid();
             return result;

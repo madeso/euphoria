@@ -62,7 +62,7 @@ imgui_widget(const char* title, std::string* str)
 }
 
 bool
-imgui_widget(const char* title, vec2f* v)
+imgui_widget(const char* title, Vec2f* v)
 {
     return ImGui::DragFloat2(title, &v->x);
 }
@@ -119,7 +119,7 @@ imgui_widget(const char* title, euphoria::gui::lrtb* p)
 }
 
 bool
-imgui_widget(const char* title, rectf* r)
+imgui_widget(const char* title, Rectf* r)
 {
     const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
     ImGui::PushID(title);
@@ -254,7 +254,7 @@ imgui_widget(layout_container* container)
 void
 imgui_widget(int id, euphoria::render::glyph* gl)
 {
-    const std::string s = string_builder() << "glyph " << id;
+    const std::string s = StringBuilder() << "glyph " << id;
     if(ImGui::TreeNode(s.c_str()) == false) { return; }
 
     ImGui::PushID(id);
@@ -317,19 +317,19 @@ int
 main(int argc, char* argv[])
 {
     engine engine;
-    if(const auto ret = engine.setup(argparse::name_and_arguments::extract(argc, argv)); ret != 0)
+    if(const auto ret = engine.setup(argparse::NameAndArguments::extract(argc, argv)); ret != 0)
     {
         return ret;
     }
 
     engine.file_system->set_write_root
     (
-        std::make_shared<vfs::write_root_physical_folder>(get_current_directory())
+        std::make_shared<vfs::WriteRootPhysicalFolder>(get_current_directory())
     );
 
     texture_cache cache {engine.file_system.get()};
 
-    const auto clear_color = color::blue;
+    const auto clear_color = NamedColor::blue;
 
     int window_width = 800;
     int window_height = 600;
@@ -351,7 +351,7 @@ main(int argc, char* argv[])
 
     shader shader;
     attributes2d::prebind_shader(&shader);
-    shader.load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
+    shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
     sprite_renderer renderer(&shader);
     font_cache font_cache {engine.file_system.get(), &cache};
 
@@ -370,7 +370,7 @@ main(int argc, char* argv[])
     (
         engine.file_system.get(),
         &font_cache,
-        vfs::file_path{"~/gui.xml"},
+        vfs::FilePath{"~/gui.xml"},
         &cache
     );
 
@@ -439,7 +439,7 @@ main(int argc, char* argv[])
             {
                 const bool down = e.type == SDL_KEYDOWN;
                 const auto key = to_key(e.key.keysym);
-                if(down && key == key::escape)
+                if(down && key == Key::escape)
                 {
                     running = false;
                 }
@@ -470,7 +470,7 @@ main(int argc, char* argv[])
         {
             root.set_input_mouse
             (
-                vec2f
+                Vec2f
                 {
                     static_cast<float>(window_mouse_x),
                     static_cast<float>(window_height - window_mouse_y)

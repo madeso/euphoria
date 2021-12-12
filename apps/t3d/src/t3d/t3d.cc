@@ -46,7 +46,7 @@ namespace euphoria::t3d
 
 
     [[nodiscard]] int
-    application::start(const core::argparse::name_and_arguments& args)
+    application::start(const core::argparse::NameAndArguments& args)
     {
         engine = std::make_shared<window::engine>();
 
@@ -68,7 +68,7 @@ namespace euphoria::t3d
         SET_ENUM_FROM_FILE
         (
             engine->file_system.get(),
-            core::vfs::file_path{"~/texture_types.xml"},
+            core::vfs::FilePath{"~/texture_types.xml"},
             core::texture_type
         );
 
@@ -99,7 +99,7 @@ namespace euphoria::t3d
 
 
     void
-    application::add_library(const core::vfs::dir_path& path)
+    application::add_library(const core::vfs::DirPath& path)
     {
         pending_files.add_directory(path, engine->file_system.get());
     }
@@ -108,16 +108,16 @@ namespace euphoria::t3d
     void
     add_single_grid_line
     (
-        core::lines* def,
+        core::Lines* def,
         float size,
         float x,
-        const core::rgb& color
+        const core::Rgb& color
     )
     {
-        def->add_line(core::vec3f {x, 0, -size}, core::vec3f {x, 0, size}, color);
-        def->add_line(core::vec3f {-size, 0, x}, core::vec3f {size, 0, x}, color);
-        def->add_line(core::vec3f {-x, 0, -size}, core::vec3f {-x, 0, size}, color);
-        def->add_line(core::vec3f {-size, 0, -x}, core::vec3f {size, 0, -x}, color);
+        def->add_line(core::Vec3f {x, 0, -size}, core::Vec3f {x, 0, size}, color);
+        def->add_line(core::Vec3f {-size, 0, x}, core::Vec3f {size, 0, x}, color);
+        def->add_line(core::Vec3f {-x, 0, -size}, core::Vec3f {-x, 0, size}, color);
+        def->add_line(core::Vec3f {-size, 0, -x}, core::Vec3f {size, 0, -x}, color);
     }
 
 
@@ -125,11 +125,11 @@ namespace euphoria::t3d
     application::update_grid()
     {
         constexpr auto smallest_step = 0.01f;
-        constexpr auto small_color = core::color::gray;
-        constexpr auto big_color = core::color::black;
-        constexpr auto x_color = core::color::pure_blue;
-        constexpr auto z_color = core::color::pure_red;
-        constexpr auto y_color = core::color::pure_yellow;
+        constexpr auto small_color = core::NamedColor::gray;
+        constexpr auto big_color = core::NamedColor::black;
+        constexpr auto x_color = core::NamedColor::pure_blue;
+        constexpr auto z_color = core::NamedColor::pure_red;
+        constexpr auto y_color = core::NamedColor::pure_yellow;
 
         if(grid)
         {
@@ -146,11 +146,11 @@ namespace euphoria::t3d
         const auto size = core::abs(core::c_int_to_float(grid_data.size) * grid_data.small_step);
         const auto normal = grid_data.normal;
 
-        auto def = core::lines {};
+        auto def = core::Lines {};
 
         if(normal > 0)
         {
-            def.add_line(core::vec3f {0, 0, 0}, core::vec3f {0, normal, 0}, y_color);
+            def.add_line(core::Vec3f {0, 0, 0}, core::Vec3f {0, normal, 0}, y_color);
         }
 
         for(int index = 0; index < grid_data.size; index += 1)
@@ -168,8 +168,8 @@ namespace euphoria::t3d
             add_single_grid_line(&def, size, x, color);
         }
 
-        def.add_line(core::vec3f {-size, 0, 0}, core::vec3f {size, 0, 0}, x_color);
-        def.add_line(core::vec3f {0, 0, -size}, core::vec3f {0, 0, size}, z_color);
+        def.add_line(core::Vec3f {-size, 0, 0}, core::Vec3f {size, 0, 0}, x_color);
+        def.add_line(core::Vec3f {0, 0, -size}, core::Vec3f {0, 0, size}, z_color);
 
         auto compiled = compile(material_shader_cache.get(), def);
         grid = std::make_shared<render::positioned_lines>(compiled);
@@ -201,12 +201,12 @@ namespace euphoria::t3d
         case SDL_QUIT: running = false; break;
         case SDL_MOUSEMOTION:
         {
-            const auto mouse_position = core::vec2i
+            const auto mouse_position = core::Vec2i
             (
                 e.motion.x,
                 viewport_handler->window_height - e.motion.y
             );
-            const auto mouse_movement = core::vec2i
+            const auto mouse_movement = core::Vec2i
             (
                 e.motion.xrel,
                 e.motion.yrel
@@ -244,7 +244,7 @@ namespace euphoria::t3d
 
 
     void
-    application::on_mouse_movement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse)
+    application::on_mouse_movement(const core::Vec2i& position, const core::Vec2i& movement, bool forward_mouse)
     {
         if(forward_mouse)
         {
@@ -261,19 +261,19 @@ namespace euphoria::t3d
 
 
     void
-    application::on_key(core::key key, bool down, bool forward_keyboard)
+    application::on_key(core::Key key, bool down, bool forward_keyboard)
     {
         if(forward_keyboard)
         {
             switch(key)
             {
-            case core::key::escape:
+            case core::Key::escape:
                 if(down)
                 {
                     running = false;
                 }
                 break;
-            case core::key::tab:
+            case core::Key::tab:
                 if(!down)
                 {
                     immersive_mode = !immersive_mode;
@@ -289,8 +289,8 @@ namespace euphoria::t3d
 
         switch(key)
         {
-            case core::key::shift_left:
-            case core::key::shift_right:
+            case core::Key::shift_left:
+            case core::Key::shift_right:
                 shift_down = down;
                 break;
             default:
@@ -300,7 +300,7 @@ namespace euphoria::t3d
 
 
     void
-    application::on_mouse_button(core::mouse_button button, bool down, bool forward_mouse)
+    application::on_mouse_button(core::MouseButton button, bool down, bool forward_mouse)
     {
         if(forward_mouse)
         {
@@ -309,7 +309,7 @@ namespace euphoria::t3d
 
         switch(button)
         {
-        case core::mouse_button::middle:
+        case core::MouseButton::middle:
             mmb_down = down;
             break;
         default:
@@ -323,7 +323,7 @@ namespace euphoria::t3d
     {
         if(forward_mouse)
         {
-            editor->on_scroll(core::vec2i(e.wheel.x, e.wheel.y));
+            editor->on_scroll(core::Vec2i(e.wheel.x, e.wheel.y));
             orbit.on_zoom_input(core::c_int_to_float(e.wheel.y));
         }
     }
@@ -442,7 +442,7 @@ namespace euphoria::t3d
             ASSERT(actor->tile);
             ASSERT(actor->tile);
             const auto p = actor->actor->position;
-            std::string display = core::string_builder {}
+            std::string display = core::StringBuilder {}
                 << actor->tile->name
                 << " "
                 << p;
@@ -490,7 +490,7 @@ namespace euphoria::t3d
         bool dirty = false;
 
 
-        const std::string str = core::string_builder{} << grid_data.small_step;
+        const std::string str = core::StringBuilder{} << grid_data.small_step;
         constexpr auto popup_grid = "popup_grid";
         if(ImGui::Button(str.c_str()))
         {
@@ -572,20 +572,20 @@ namespace euphoria::t3d
         (
             "Horizontal",
             &orbit.horizontal_rotation,
-            core::angle::zero(),
-            core::angle::one_turn()
+            core::Angle::zero(),
+            core::Angle::one_turn()
         );
         window::imgui::angle_slider
         (
             "Vertical",
             &orbit.vertical_rotation,
-            -core::angle::quarter(),
-            core::angle::quarter()
+            -core::Angle::quarter(),
+            core::Angle::quarter()
         );
         ImGui::InputFloat3("Position", orbit.center.get_data_ptr());
         ImGui::Spacing();
         ImGui::InputFloat("Distance", &orbit.distance);
-        auto sens = [](const char* label, core::sensitivity* s)
+        auto sens = [](const char* label, core::Sensitivity* s)
         {
             ImGui::PushID(label);
             ImGui::Checkbox("##inverted", &s->inverted);
@@ -732,7 +732,7 @@ namespace euphoria::t3d
         camera.position = orbit.get_camera_position();
         camera.rotation = orbit.get_rotation();
 
-        engine->init->clear_screen(core::color::light_gray);
+        engine->init->clear_screen(core::NamedColor::light_gray);
 
         render();
 

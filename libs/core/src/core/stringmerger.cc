@@ -9,11 +9,11 @@
 namespace euphoria::core
 {
     std::string
-    string_merger::merge(const std::vector<std::string>& strings) const
+    StringMerger::merge(const std::vector<std::string>& strings) const
     {
         if(strings.empty())
         {
-            return string_builder() << start << empty << end;
+            return StringBuilder() << start << empty << end;
         }
 
         std::ostringstream ss;

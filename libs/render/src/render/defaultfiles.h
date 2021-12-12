@@ -7,13 +7,13 @@ namespace euphoria
 {
     namespace core::vfs
     {
-        struct read_root_catalog;
+        struct ReadRootCatalog;
     }
 
 
     namespace render
     {
         void
-        setup_default_files(std::shared_ptr<core::vfs::read_root_catalog> catalog);
+        setup_default_files(std::shared_ptr<core::vfs::ReadRootCatalog> catalog);
     }
 }

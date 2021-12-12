@@ -23,9 +23,9 @@
 namespace euphoria::render
 {
     compiled_mesh_material::compiled_mesh_material()
-        : ambient(core::color::white)
-        , diffuse(core::color::white)
-        , specular(core::color::white)
+        : ambient(core::NamedColor::white)
+        , diffuse(core::NamedColor::white)
+        , specular(core::NamedColor::white)
         , shininess(135.0f)
     {
     }
@@ -34,7 +34,7 @@ namespace euphoria::render
     void
     compiled_mesh_material::set_texture
     (
-        const core::enum_value& name,
+        const core::EnumValue& name,
         std::shared_ptr<texture2d> texture
     )
     {
@@ -52,7 +52,7 @@ namespace euphoria::render
         const core::mat4f& model_matrix,
         const core::mat4f& projection_matrix,
         const core::mat4f& view_matrix,
-        const core::vec3f& camera,
+        const core::Vec3f& camera,
         const light& light
     ) const
     {
@@ -108,7 +108,7 @@ namespace euphoria::render
     bool
     compiled_mesh_material::validate() const
     {
-        std::set<core::enum_value> shader_values;
+        std::set<core::EnumValue> shader_values;
 
         ASSERT(shader);
 
@@ -160,17 +160,17 @@ namespace euphoria::render
     void
     convert_points_to_vertex_buffer
     (
-            const std::vector<core::mesh_point>& points,
+            const std::vector<core::MeshPoint>& points,
             const std::vector<shader_attribute>& attributes,
             vertex_buffer* vb
     )
     {
-        constexpr auto add_float2 = [](std::vector<float>* dst, const core::vec2f& src)
+        constexpr auto add_float2 = [](std::vector<float>* dst, const core::Vec2f& src)
         {
             dst->emplace_back(src.x);
             dst->emplace_back(src.y);
         };
-        constexpr auto add_float3 = [](std::vector<float>* dst, const core::vec3f& src)
+        constexpr auto add_float3 = [](std::vector<float>* dst, const core::Vec3f& src)
         {
             dst->emplace_back(src.x);
             dst->emplace_back(src.y);
@@ -213,7 +213,7 @@ namespace euphoria::render
 
 
     void
-    convert_tris_to_index_buffer(const std::vector<core::mesh_face>& faces, index_buffer* b)
+    convert_tris_to_index_buffer(const std::vector<core::MeshFace>& faces, index_buffer* b)
     {
         std::vector<unsigned int> data;
         data.reserve(faces.size() * 3);
@@ -229,10 +229,10 @@ namespace euphoria::render
     std::shared_ptr<compiled_mesh>
     compile_mesh
     (
-            const core::mesh& mesh,
+            const core::Mesh& mesh,
             material_shader_cache* shader_cache,
             texture_cache* texture_cache,
-            const core::vfs::dir_path& texture_folder,
+            const core::vfs::DirPath& texture_folder,
             const std::string& debug_name
     )
     {
@@ -256,14 +256,14 @@ namespace euphoria::render
             // we try to match a shader to the object
             const auto shader_name = material_src.shader.value_or
             (
-                core::vfs::file_path("~/default_shader")
+                core::vfs::FilePath("~/default_shader")
             );
             mat.shader = shader_cache->get(shader_name);
             for(const auto& texture_src: material_src.textures)
             {
                 const auto texture_path = core::vfs::resolve_relative
                 (
-                    core::vfs::file_path{texture_src.path},
+                    core::vfs::FilePath{texture_src.path},
                     texture_folder
                 );
                 if(texture_path.has_value() == false)
@@ -360,7 +360,7 @@ namespace euphoria::render
         const core::mat4f& model_matrix,
         const core::mat4f& projection_matrix,
         const core::mat4f& view_matrix,
-        const core::vec3f& camera,
+        const core::Vec3f& camera,
         const light& light,
         const std::shared_ptr<material_override>& overridden_materials
     )

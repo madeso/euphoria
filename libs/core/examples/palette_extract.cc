@@ -22,13 +22,13 @@ struct image_and_file
 {
     image_and_file() = default;
 
-    image_and_file(const std::string& f, const image& i)
+    image_and_file(const std::string& f, const Image& i)
         : file(f)
         , image(i)
     {}
 
     std::string file;
-    ::image image;
+    ::Image image;
 };
 
 
@@ -45,7 +45,7 @@ load_images(const std::vector<std::string>& files)
             std::cerr << "failed to read image file " << f << "\n";
             return {};
         }
-        auto loaded_image = load_image(chunk, f, alpha_load::keep);
+        auto loaded_image = load_image(chunk, f, AlphaLoad::keep);
         if(loaded_image.error.empty() == false)
         {
             std::cerr << "failed to read image data " <<
@@ -62,19 +62,19 @@ load_images(const std::vector<std::string>& files)
 
 struct extracted_color
 {
-    extracted_color(const rgbi& r, int c)
+    extracted_color(const Rgbi& r, int c)
         : color(r)
         , count(c)
     {
     }
 
-    rgbi color;
+    Rgbi color;
     int count;
 };
 
 
 int
-find(std::vector<extracted_color>* psource, const rgbi& color, float length)
+find(std::vector<extracted_color>* psource, const Rgbi& color, float length)
 {
     auto& source = *psource;
 
@@ -132,7 +132,7 @@ extract_colors(const std::vector<image_and_file>& images)
     auto ret = std::vector<extracted_color>{};
     for(const auto c: colors)
     {
-        ret.emplace_back(rgbi::from_hex(c.first), c.second);
+        ret.emplace_back(Rgbi::from_hex(c.first), c.second);
     }
     return ret;
 }
@@ -159,7 +159,7 @@ handle_image
     const auto start = time_point_now();
 
     // extract colors
-    auto colors = median_cut(images[0].image, depth, middle_split);
+    auto colors = extract_palette_median_cut(images[0].image, depth, middle_split);
 
     const auto end = time_point_now();
 
@@ -171,7 +171,7 @@ handle_image
         return false;
     }
 
-    image image;
+    Image image;
     image.setup_no_alpha_support(image_size * c_sizet_to_int(colors.size()), image_size);
     for
     (
@@ -190,7 +190,7 @@ handle_image
         );
     }
 
-    io::chunk_to_file(image.write(image_write_format::png), file);
+    io::chunk_to_file(image.write(ImageWriteFormat::png), file);
     return true;
 }
 
@@ -212,13 +212,13 @@ handle_print
     }
 
     // extract colors
-    auto colors = median_cut(images[0].image, depth, middle_split);
+    auto colors = extract_palette_median_cut(images[0].image, depth, middle_split);
 
     std::sort
     (
         colors.begin(),
         colors.end(),
-        [](const rgbi& lhs, const rgbi& rhs) -> bool
+        [](const Rgbi& lhs, const Rgbi& rhs) -> bool
         {
             return crgb(lhs).calc_luminance() < crgb(rhs).calc_luminance();
         }
@@ -243,7 +243,7 @@ handle_print
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::parser
+    auto parser = argparse::Parser
     {
         "extract colors from images"
     };
@@ -252,7 +252,7 @@ main(int argc, char* argv[])
     subs->add
     (
         "print", "print all colors found in images",
-        [](argparse::sub_parser* sub)
+        [](argparse::SubParser* sub)
         {
             std::vector<std::string> files;
             int depth = 3;
@@ -291,7 +291,7 @@ main(int argc, char* argv[])
     subs->add
     (
         "image", "write all colors found in images to a palette image",
-        [](argparse::sub_parser* sub)
+        [](argparse::SubParser* sub)
         {
             int image_size = 5;
             std::string file = "pal.png";

@@ -8,11 +8,11 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct file_system;
-        struct file_path;
+        struct FileSystem;
+        struct FilePath;
     }
 
-    struct enum_value;
+    struct EnumValue;
 
     // todo(Gustav): as a compile option, use a hash instead of the string enum
     // todo(Gustav): rename to something like DynEnum to not be confused with regular enums
@@ -23,20 +23,20 @@ namespace euphoria::core
      * Advantages over hashes: type safety, catches bad spelling, no collisions and
      * perhaps faster to generate?
      */
-    struct enum_type
+    struct EnumType
     {
-        enum_type(std::string name);
-        ~enum_type();
+        EnumType(std::string name);
+        ~EnumType();
 
-        enum_type(const enum_type&) = delete;
-        enum_type(enum_type&&) = delete;
-        void operator=(const enum_type&) = delete;
-        void operator=(enum_type&&) = delete;
+        EnumType(const EnumType&) = delete;
+        EnumType(EnumType&&) = delete;
+        void operator=(const EnumType&) = delete;
+        void operator=(EnumType&&) = delete;
 
         [[nodiscard]] std::string
         to_string(size_t v) const;
 
-        [[nodiscard]] enum_value
+        [[nodiscard]] EnumValue
         to_enum(const std::string& name);
 
         void
@@ -58,9 +58,9 @@ namespace euphoria::core
         size_t next_index;
     };
 
-    struct enum_value
+    struct EnumValue
     {
-        enum_value(enum_type* t, size_t v);
+        EnumValue(EnumType* t, size_t v);
 
         // todo(Gustav): add enum_type to the parameter to verify against stored member
         // so
@@ -71,38 +71,38 @@ namespace euphoria::core
         to_value() const;
 
         bool
-        operator==(const enum_value& other) const;
+        operator==(const EnumValue& other) const;
 
         bool
-        operator!=(const enum_value& other) const;
+        operator!=(const EnumValue& other) const;
 
         bool
-        operator<(const enum_value& other) const;
+        operator<(const EnumValue& other) const;
 
         // todo(Gustav): only have the type in debug/test builds
-        enum_type* type;
+        EnumType* type;
         size_t value;
     };
 
 
     std::ostream&
-    operator<<(std::ostream& s, const enum_value& v);
+    operator<<(std::ostream& s, const EnumValue& v);
 
 
     void
     load_enum_type
     (
-        enum_type* type,
-        vfs::file_system* fs,
-        const vfs::file_path& path
+        EnumType* type,
+        vfs::FileSystem* fs,
+        const vfs::FilePath& path
     );
 
 
-#define DECLARE_ENUM_TYPE(NAME) enum_type& NAME##_EnumType();
+#define DECLARE_ENUM_TYPE(NAME) EnumType& NAME##_EnumType();
 #define IMPLEMENT_ENUM_TYPE(NAME) \
-    enum_type& NAME##_EnumType() \
+    EnumType& NAME##_EnumType() \
     { \
-        static enum_type type {#NAME}; \
+        static EnumType type {#NAME}; \
         return type; \
     }
 
@@ -111,7 +111,7 @@ namespace euphoria::core
 // todo(Gustav): provide compile time option to use hashes instead
 // http://aras-p.info/blog/2016/08/09/More-Hash-Function-Tests/
 #define DEFINE_ENUM_VALUE(TYPE, NAME, STRING) \
-    const ::euphoria::core::enum_value NAME = TYPE##_EnumType().to_enum(STRING)
+    const ::euphoria::core::EnumValue NAME = TYPE##_EnumType().to_enum(STRING)
 #define SET_ENUM_FROM_FILE(FS, PATH, TYPE) \
     load_enum_type(&TYPE##_EnumType(), FS, PATH)
 

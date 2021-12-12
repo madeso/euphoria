@@ -17,14 +17,14 @@ namespace euphoria::render
 
     draw_data::draw_data()
         : rotation(0.0_rad)
-        , scale(core::scale2f(1, 1))
-        , tint(core::rgba(core::color::white))
+        , scale(core::Scale2f(1, 1))
+        , tint(core::Rgba(core::NamedColor::white))
     {
     }
 
 
     draw_data&
-    draw_data::set_rotation(const core::angle& r)
+    draw_data::set_rotation(const core::Angle& r)
     {
         rotation = r;
         return *this;
@@ -32,7 +32,7 @@ namespace euphoria::render
 
 
     draw_data&
-    draw_data::set_scale(const core::scale2f& s)
+    draw_data::set_scale(const core::Scale2f& s)
     {
         scale = s;
         return *this;
@@ -40,7 +40,7 @@ namespace euphoria::render
 
 
     draw_data&
-    draw_data::set_tint(const core::rgba& t)
+    draw_data::set_tint(const core::Rgba& t)
     {
         tint = t;
         return *this;
@@ -71,16 +71,16 @@ namespace euphoria::render
     sprite_renderer::draw_rect
     (
         const texture2d& texture,
-        const core::rectf& sprite_area,
-        const core::rectf& texture_region,
-        const core::angle& rotation_angle,
-        const core::scale2f& rotation_anchor,
-        const core::rgba& tint_color
+        const core::Rectf& sprite_area,
+        const core::Rectf& texture_region,
+        const core::Angle& rotation_angle,
+        const core::Scale2f& rotation_anchor,
+        const core::Rgba& tint_color
     )
     {
         use(sprite_shader);
 
-        core::vec3f rotation_anchor_displacement
+        core::Vec3f rotation_anchor_displacement
         {
             -rotation_anchor.x * sprite_area.get_width(),
             (rotation_anchor.y - 1) * sprite_area.get_height(),
@@ -88,21 +88,21 @@ namespace euphoria::render
         };
 
         const core::mat4f model = core::mat4f::identity()
-            .translate(core::vec3f(sprite_area.get_bottom_left(), 0.0f))
+            .translate(core::Vec3f(sprite_area.get_bottom_left(), 0.0f))
             .translate(-rotation_anchor_displacement)
             // rotate around center
             .rotate
             (
-                core::axis_angle::right_hand_around
+                core::AxisAngle::right_hand_around
                 (
-                    core::unit3f::z_axis(), 
+                    core::Unit3f::z_axis(), 
                     rotation_angle
                 )
             )
             .translate(rotation_anchor_displacement)
             .scale
             (
-                core::scale3f
+                core::Scale3f
                 {
                     sprite_area.get_width(),
                     sprite_area.get_height(),
@@ -125,7 +125,7 @@ namespace euphoria::render
     sprite_renderer::draw_sprite
     (
         const texture2d& texture,
-        const core::rectf& position,
+        const core::Rectf& position,
         const draw_data& data
     )
     {
@@ -133,9 +133,9 @@ namespace euphoria::render
         (
             texture,
             position,
-            core::rectf::from_top_left_width_height(core::vec2f{0, 1}, 1, 1),
+            core::Rectf::from_top_left_width_height(core::Vec2f{0, 1}, 1, 1),
             data.rotation,
-            core::scale2f{0.5f, 0.5f},
+            core::Scale2f{0.5f, 0.5f},
             data.tint
         );
     }
@@ -145,8 +145,8 @@ namespace euphoria::render
     sprite_renderer::draw_ninepatch
     (
         const scalable_sprite& ninepatch,
-        const core::rectf& rect,
-        const core::rgba& tint
+        const core::Rectf& rect,
+        const core::Rgba& tint
     )
     {
         ninepatch.render(this, rect, tint);
@@ -156,12 +156,12 @@ namespace euphoria::render
     void
     sprite_renderer::init_render_data()
     {
-        core::buffer_builder2d data;
+        core::BufferBuilder2 data;
 
-        core::point a(0.0f, 0.0f, 0.0f, 0.0f);
-        core::point b(1.0f, 0.0f, 1.0f, 0.0f);
-        core::point c(0.0f, 1.0f, 0.0f, 1.0f);
-        core::point d(1.0f, 1.0f, 1.0f, 1.0f);
+        core::BufferPoint2 a(0.0f, 0.0f, 0.0f, 0.0f);
+        core::BufferPoint2 b(1.0f, 0.0f, 1.0f, 0.0f);
+        core::BufferPoint2 c(0.0f, 1.0f, 0.0f, 1.0f);
+        core::BufferPoint2 d(1.0f, 1.0f, 1.0f, 1.0f);
 
         data.add_quad(a, b, c, d);
 

@@ -11,8 +11,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct file_system;
-    struct read_root_catalog;
+    struct FileSystem;
+    struct ReadRootCatalog;
 }
 
 namespace euphoria::render
@@ -39,7 +39,7 @@ namespace euphoria::window
         NONCOPYABLE(engine);
 
         int
-        setup(const core::argparse::name_and_arguments& args);
+        setup(const core::argparse::NameAndArguments& args);
 
         bool
         create_window
@@ -54,8 +54,8 @@ namespace euphoria::window
         on_resize(SDL_Event e, int* width, int* height) const;
 
         std::unique_ptr<sdl_library> sdl;
-        std::unique_ptr<core::vfs::file_system> file_system;
-        std::shared_ptr<core::vfs::read_root_catalog> catalog;
+        std::unique_ptr<core::vfs::FileSystem> file_system;
+        std::shared_ptr<core::vfs::ReadRootCatalog> catalog;
         std::unique_ptr<sdl_window> window;
         unsigned int window_id;
         std::unique_ptr<sdl_gl_context> context;

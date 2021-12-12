@@ -8,21 +8,21 @@
 
 namespace euphoria::core
 {
-    struct point
+    struct BufferPoint2
     {
-        point(float x, float y, float u, float v);
-        point(const vec2f& p, const vec2f& u);
+        BufferPoint2(float x, float y, float u, float v);
+        BufferPoint2(const Vec2f& p, const Vec2f& u);
 
-        const vec2f pos;
-        const vec2f uv;
+        const Vec2f pos;
+        const Vec2f uv;
     };
 
-    struct buffer_builder2d
+    struct BufferBuilder2
     {
-        buffer_builder2d();
+        BufferBuilder2();
 
         void
-        add_vertex(const point& p);
+        add_vertex(const BufferPoint2& p);
 
         // ccw
         void
@@ -33,7 +33,7 @@ namespace euphoria::core
         //  |     |
         //  a --- b
         void
-        add_quad(const point& a, const point& b, const point& c, const point& d);
+        add_quad(const BufferPoint2& a, const BufferPoint2& b, const BufferPoint2& c, const BufferPoint2& d);
 
         void
         dump(const std::string& filename) const;

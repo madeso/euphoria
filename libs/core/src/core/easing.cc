@@ -12,7 +12,7 @@
 namespace euphoria::core::easing
 {
 
-enum class function
+enum class Function
 {
     linear,
     
@@ -60,17 +60,17 @@ float smooth_step(float t)
 }
 
 
-float apply(function f, float t)
+float apply(Function f, float t)
 {
     switch(f)
     {
-    case function::linear: return t;
-    case function::smooth_start2: return smooth_start<2>(t);
-    case function::smooth_start3: return smooth_start<3>(t);
-    case function::smooth_start4: return smooth_start<4>(t);
-    case function::smooth_stop2: return smooth_stop<2>(t);
-    case function::smooth_stop3: return smooth_stop<3>(t);
-    case function::smooth_stop4: return smooth_stop<4>(t);
+    case Function::linear: return t;
+    case Function::smooth_start2: return smooth_start<2>(t);
+    case Function::smooth_start3: return smooth_start<3>(t);
+    case Function::smooth_start4: return smooth_start<4>(t);
+    case Function::smooth_stop2: return smooth_stop<2>(t);
+    case Function::smooth_stop3: return smooth_stop<3>(t);
+    case Function::smooth_stop4: return smooth_stop<4>(t);
 
     default:
         DIE("Invalid case");

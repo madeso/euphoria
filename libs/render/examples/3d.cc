@@ -52,15 +52,15 @@ using namespace euphoria::window;
 struct cube_animation
 {
     cube_animation()
-        : from(quatf::identity())
-        , to(quatf::identity())
+        : from(Quatf::identity())
+        , to(Quatf::identity())
     {
     }
 
     std::shared_ptr<euphoria::render::actor> actor;
     float timer = 0.0f;
-    quatf from;
-    quatf to;
+    Quatf from;
+    Quatf to;
     float rotation_speed = 1.0f;
     float move_speed = 1.0f;
 };
@@ -71,7 +71,7 @@ int
 main(int argc, char** argv)
 {
     engine engine;
-    if(const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    if(const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -89,38 +89,38 @@ main(int argc, char** argv)
     SET_ENUM_FROM_FILE
     (
         engine.file_system.get(),
-        vfs::file_path{"~/texture_types.xml"},
+        vfs::FilePath{"~/texture_types.xml"},
         texture_type
     );
 
-    image image;
+    Image image;
     image.setup_no_alpha_support(256, 256);
     const auto wi = whole_image(image);
-    clear(&image, {color::red});
-    auto rand = core::random{42};
+    clear(&image, {NamedColor::red});
+    auto rand = core::Random{42};
 
     for(int i = 0; i < 20; i += 1)
     {
-        const rgb color = crgb(palettes::dawnbringer().get_random_color(&rand));
+        const Rgb color = crgb(palettes::dawnbringer().get_random_color(&rand));
         const auto pos = wi.get_random_point(&rand);
         const auto outer = get_random_in_range(&rand, 55.0f, 100.0f);
         const auto inner = get_random_in_range(&rand, make_range(50.0f));
         draw_circle(&image, color, pos, outer, 10, inner);
     }
-    draw_line_antialiased(&image, color::black, wi.get_top_left(), wi.get_bottom_right());
+    draw_line_antialiased(&image, NamedColor::black, wi.get_top_left(), wi.get_bottom_right());
     draw_rect
     (
         &image,
-        {color::blue},
-        recti::from_top_left_width_height(vec2i{0, 256}, 100, 25)
+        {NamedColor::blue},
+        Recti::from_top_left_width_height(Vec2i{0, 256}, 100, 25)
     );
-    draw_line_antialiased(&image, color::black, wi.get_bottom_left(), wi.get_top_right());
+    draw_line_antialiased(&image, NamedColor::black, wi.get_bottom_left(), wi.get_top_right());
     // todo(Gustav): fix text drawing...
     // DrawText(&image, vec2i(0, 0), "Hello world", Color::Black, 2);
     engine.catalog->register_file_data
     (
-        vfs::file_path{"~/image"},
-        image.write(image_write_format::png)
+        vfs::FilePath{"~/image"},
+        image.write(ImageWriteFormat::png)
     );
 
     texture_cache texture_cache {engine.file_system.get()};
@@ -132,53 +132,53 @@ main(int argc, char** argv)
     auto world = euphoria::render::world {};
 
     auto box_mesh1 = meshes::create_cube(0.5f);
-    box_mesh1.materials[0].set_texture("Diffuse", vfs::file_path{"./container2.png"});
-    box_mesh1.materials[0].set_texture("Specular", vfs::file_path{"./container2_specular.png"});
-    box_mesh1.materials[0].ambient = color::white; // fix ambient color on material
-    box_mesh1.materials[0].specular = color::white;
+    box_mesh1.materials[0].set_texture("Diffuse", vfs::FilePath{"./container2.png"});
+    box_mesh1.materials[0].set_texture("Specular", vfs::FilePath{"./container2_specular.png"});
+    box_mesh1.materials[0].ambient = NamedColor::white; // fix ambient color on material
+    box_mesh1.materials[0].specular = NamedColor::white;
     box_mesh1.materials[0].shininess = 120.0f;
     auto box1 = compile_mesh
     (
         box_mesh1,
         &material_shader_cache,
         &texture_cache,
-        vfs::dir_path::from_root(),
+        vfs::DirPath::from_root(),
         "box1"
     );
 
     auto box_mesh2 = meshes::create_sphere(0.5f, "image");
-    box_mesh2.materials[0].set_texture("Specular", vfs::file_path{"./img-plain/white"});
-    box_mesh2.materials[0].ambient = color::white; // fix ambient color on material
-    box_mesh2.materials[0].specular = color::white;
+    box_mesh2.materials[0].set_texture("Specular", vfs::FilePath{"./img-plain/white"});
+    box_mesh2.materials[0].ambient = NamedColor::white; // fix ambient color on material
+    box_mesh2.materials[0].specular = NamedColor::white;
     box_mesh2.materials[0].shininess = 10.0f;
     auto box2 = compile_mesh
     (
         box_mesh2,
         &material_shader_cache,
         &texture_cache,
-        vfs::dir_path::from_root(),
+        vfs::DirPath::from_root(),
         "box2"
     );
 
-    auto debug_texture = texture_cache.get_texture(vfs::file_path{"~/image"});
+    auto debug_texture = texture_cache.get_texture(vfs::FilePath{"~/image"});
 
     auto light_mesh = meshes::create_cube(0.2f);
-    light_mesh.materials[0].shader = vfs::file_path{"~/basic_shader"};
+    light_mesh.materials[0].shader = vfs::FilePath{"~/basic_shader"};
     auto light = compile_mesh
     (
         light_mesh,
         &material_shader_cache,
         &texture_cache,
-        vfs::dir_path::from_root(),
+        vfs::DirPath::from_root(),
         "light"
     );
     float light_position = 0.0f;
 
     const float box_extent_value = 4;
-    auto box_extents = aabb
+    auto box_extents = Aabb
     {
-        vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
-        vec3f{box_extent_value, box_extent_value, box_extent_value}
+        Vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
+        Vec3f{box_extent_value, box_extent_value, box_extent_value}
     };
 
     std::vector<cube_animation> animation_handler;
@@ -195,15 +195,15 @@ main(int argc, char** argv)
 
         cube_animation anim;
         anim.actor = actor;
-        anim.from = quatf::from_random(&rand);
-        anim.to = quatf::from_random(&rand);
+        anim.from = Quatf::from_random(&rand);
+        anim.to = Quatf::from_random(&rand);
         anim.rotation_speed = get_random_in_range(&rand, 0.5f, 1.0f);
         anim.move_speed = get_random_in_range(&rand, 0.5f, 1.0f);
         anim.timer = rand.get_next_float01();
 
 
         // generate a position not too close to the center
-        vec3f position = vec3f::zero();
+        Vec3f position = Vec3f::zero();
         do
         {
             position = box_extents.get_random_point(&rand);
@@ -235,11 +235,11 @@ main(int argc, char** argv)
   world.AddActor(dude_actor);
 #endif
 
-    camera3 camera;
-    camera.position = vec3f::zero();
+    Camera3 camera;
+    camera.position = Vec3f::zero();
 
-    fps_controller fps;
-    fps.position = vec3f(0, 0, 3);
+    FpsController fps;
+    fps.position = Vec3f(0, 0, 3);
 
     auto viewport_handler = euphoria::render::viewport_handler
     {
@@ -284,15 +284,15 @@ main(int argc, char** argv)
         (
             "Cutoff Angle Inner",
             &world.light.cutoff_angle_inner,
-            angle::zero(),
-            angle::quarter() / 2
+            Angle::zero(),
+            Angle::quarter() / 2
         );
         imgui::angle_slider
         (
             "Cutoff Angle Outer",
             &world.light.cutoff_angle_outer,
-            angle::zero(),
-            angle::quarter()
+            Angle::zero(),
+            Angle::quarter()
         );
 
         imgui::image(debug_texture.get());
@@ -312,7 +312,7 @@ main(int argc, char** argv)
             make_range<float>(0, 1),
             light_position + delta * 0.1f
         );
-        const auto light_pc = polar_coord{light_position, light_position * 2};
+        const auto light_pc = PolarCoordinate{light_position, light_position * 2};
         const auto light_pos = light_pc.to_unit_vector() * 2.0f;
         light_actor->position = light_pos;
 
@@ -339,12 +339,12 @@ main(int argc, char** argv)
                     count += 1;
                     anim.timer -= 1.0f;
                     anim.from = anim.to;
-                    anim.to = quatf::from_random(&rand);
+                    anim.to = Quatf::from_random(&rand);
                     anim.rotation_speed = get_random_in_range(&rand, 0.3f, 1.0f);
                     anim.move_speed = get_random_in_range(&rand, 0.2f, 3.0f);
                 }
                 ASSERT(count < 2);
-                quatf q = quatf::slerp_shortway(anim.from, anim.timer, anim.to);
+                Quatf q = Quatf::slerp_shortway(anim.from, anim.timer, anim.to);
                 anim.actor->rotation = q;
                 const auto movement = q.in() * anim.move_speed * delta;
                 const auto new_pos = box_extents.wrap
@@ -432,7 +432,7 @@ main(int argc, char** argv)
 
     auto render_demo = [&](bool show_imgui)
     {
-        engine.init->clear_screen(color::black);
+        engine.init->clear_screen(NamedColor::black);
         // todo(Gustav): get_full_viewport or somthing different?
         // how does this handle the black bars...?
         world.render(viewport_handler.get_full_viewport(), camera);

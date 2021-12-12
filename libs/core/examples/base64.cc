@@ -22,15 +22,15 @@ print_usage(char** argv)
 int
 run_encode(const std::string& data)
 {
-    vfs::file_system file_system;
-    auto catalog = vfs::read_root_catalog::create_and_add(&file_system);
-    vfs::read_root_physical_folder::add_current_directory(&file_system);
+    vfs::FileSystem file_system;
+    auto catalog = vfs::ReadRootCatalog::create_and_add(&file_system);
+    vfs::ReadRootPhysicalFolder::add_current_directory(&file_system);
 
     auto memory = file_system.read_file
     (
-        vfs::file_path::from_script(data).value_or
+        vfs::FilePath::from_script(data).value_or
         (
-            vfs::file_path{"~/invalid_input"}
+            vfs::FilePath{"~/invalid_input"}
         )
     );
     auto encoded = euphoria::core::base64::encode(memory);

@@ -40,7 +40,7 @@ namespace euphoria::core
     }
 
     std::string_view
-    get_random_cp437_in_utf8(random* random)
+    get_random_cp437_in_utf8(Random* random)
     {
         while(true)
         {

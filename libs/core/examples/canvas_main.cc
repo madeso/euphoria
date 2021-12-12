@@ -13,29 +13,29 @@ int
 main(int, char*[])
 {
     constexpr auto image_size = 300;
-    image image;
+    Image image;
     image.setup_no_alpha_support(image_size, image_size);
-    clear(&image, {color::yellow});
+    clear(&image, {NamedColor::yellow});
 
-    auto ctx = canvas{&image};
+    auto ctx = Canvas{&image};
 
-    ctx.fill_style = color::white;
+    ctx.fill_style = NamedColor::white;
     ctx.fill_rect(0, 0, 300, 300);
 
     // grass
-    ctx.fill_style = color::green;
+    ctx.fill_style = NamedColor::green;
     ctx.fill_rect(0, 200, 300, 100);
 
     // Wall
-    ctx.fill_style = color::gray;
+    ctx.fill_style = NamedColor::gray;
     ctx.fill_rect(75, 140, 150, 110);
 
     // Door
-    ctx.fill_style = color::black;
+    ctx.fill_style = NamedColor::black;
     ctx.fill_rect(130, 190, 40, 60);
 
     // Roof
-    ctx.fill_style = color::red;
+    ctx.fill_style = NamedColor::red;
     ctx.begin_path();
     ctx.move_to(50, 140);
     ctx.line_to(150, 60);
@@ -43,7 +43,7 @@ main(int, char*[])
     ctx.close_path();
     ctx.fill();
 
-    io::chunk_to_file(image.write(image_write_format::png), "house.png");
+    io::chunk_to_file(image.write(ImageWriteFormat::png), "house.png");
     return 0;
 }
 

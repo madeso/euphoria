@@ -38,19 +38,19 @@ namespace euphoria::core::ecs
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct component
+    struct Component
     {
 #if BUILD_ENTITY_DEBUG_COMPONENT == 1
         component(TypeName n, TypeId i);
 #else
-        component() = default;
+        Component() = default;
 #endif
-        virtual ~component() = default;
+        virtual ~Component() = default;
 
-        component(const component&) = delete;
-        component(component&&) = delete;
-        void operator=(const component&) = delete;
-        void operator=(component&&) = delete;
+        Component(const Component&) = delete;
+        Component(Component&&) = delete;
+        void operator=(const Component&) = delete;
+        void operator=(Component&&) = delete;
 
         // todo(Gustav): change to a virtual function and a hashed string struct
 #if BUILD_ENTITY_DEBUG_COMPONENT == 1
@@ -61,26 +61,26 @@ namespace euphoria::core::ecs
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct registry_entity_callback
+    struct RegistryEntityCallback
     {
-        registry_entity_callback() = default;
-        virtual ~registry_entity_callback() = default;
+        RegistryEntityCallback() = default;
+        virtual ~RegistryEntityCallback() = default;
 
-        registry_entity_callback(const registry_entity_callback&) = delete;
-        registry_entity_callback(registry_entity_callback&&) = delete;
-        void operator=(const registry_entity_callback&) = delete;
-        void operator=(registry_entity_callback&&) = delete;
+        RegistryEntityCallback(const RegistryEntityCallback&) = delete;
+        RegistryEntityCallback(RegistryEntityCallback&&) = delete;
+        void operator=(const RegistryEntityCallback&) = delete;
+        void operator=(RegistryEntityCallback&&) = delete;
 
         virtual void
         on_created(entity_id ent) = 0;
     };
 
     template <typename Func>
-    struct registry_entity_callback_function : public registry_entity_callback
+    struct RegistryEntityCallbackFunction : public RegistryEntityCallback
     {
         Func func;
 
-        explicit registry_entity_callback_function(Func f) : func(f) {}
+        explicit RegistryEntityCallbackFunction(Func f) : func(f) {}
 
         void
         on_created(entity_id ent) override
@@ -90,24 +90,24 @@ namespace euphoria::core::ecs
     };
 
     template <typename Func>
-    std::shared_ptr<registry_entity_callback>
+    std::shared_ptr<RegistryEntityCallback>
     make_registry_entity_callback(Func f)
     {
-        return std::make_shared<registry_entity_callback_function<Func>>(f);
+        return std::make_shared<RegistryEntityCallbackFunction<Func>>(f);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct registry_impl;
-    struct registry
+    struct RegistryImplementation;
+    struct Registry
     {
-        registry();
-        ~registry();
+        Registry();
+        ~Registry();
 
-        registry(const registry&) = delete;
-        registry(registry&&) = delete;
-        void operator=(const registry&) = delete;
-        void operator=(registry&&) = delete;
+        Registry(const Registry&) = delete;
+        Registry(Registry&&) = delete;
+        void operator=(const Registry&) = delete;
+        void operator=(Registry&&) = delete;
 
         entity_id
         create_new_entity();
@@ -116,7 +116,7 @@ namespace euphoria::core::ecs
         post_create(entity_id id);
 
         void
-        add_callback(std::shared_ptr<registry_entity_callback> callback);
+        add_callback(std::shared_ptr<RegistryEntityCallback> callback);
 
         [[nodiscard]] bool
         is_alive(entity_id id) const;
@@ -131,10 +131,10 @@ namespace euphoria::core::ecs
         [[nodiscard]] std::string
         get_component_name(component_id id) const;
 
-        result<component_id>
+        Result<component_id>
         get_custom_component_by_name(const std::string& name);
 
-        std::shared_ptr<component>
+        std::shared_ptr<Component>
         get_component(entity_id entity, component_id component);
 
         void
@@ -142,7 +142,7 @@ namespace euphoria::core::ecs
         (
             entity_id entity,
             component_id comp,
-            std::shared_ptr<component> data
+            std::shared_ptr<Component> data
         );
 
 
@@ -173,7 +173,7 @@ namespace euphoria::core::ecs
         remove_entities_tagged_for_removal();
 
     private:
-        std::unique_ptr<registry_impl> impl;
+        std::unique_ptr<RegistryImplementation> impl;
     };
 
     ////////////////////////////////////////////////////////////////////////////////

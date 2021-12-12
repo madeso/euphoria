@@ -18,17 +18,17 @@ using namespace euphoria::core;
 int
 main(int argc, char* argv[])
 {
-    image image;
+    Image image;
 
-    auto parser = argparse::parser {"Apply filters to images"};
-    parser.parser_style = argparse::sub_parser_style::fallback;
+    auto parser = argparse::Parser {"Apply filters to images"};
+    parser.parser_style = argparse::SubParserStyle::fallback;
 
     auto io_subs = parser.add_sub_parsers("transfer image to/from disk");
 
     io_subs->add
     (
         "open", "Load image from disk",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             std::string input;
             sub->add("input", &input).set_help("The image to apply filters to");
@@ -45,7 +45,7 @@ main(int argc, char* argv[])
                             ;
                         return argparse::error;
                     }
-                    auto ret = load_image(file, input, alpha_load::keep);
+                    auto ret = load_image(file, input, AlphaLoad::keep);
                     if(!ret.error.empty())
                     {
                         std::cerr << ret.error << "\n";
@@ -64,7 +64,7 @@ main(int argc, char* argv[])
     io_subs->add
     (
         "save", "Write image to disk",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             std::string output = "ret.png";
             sub->add("-o, --output", &output).set_help
@@ -77,7 +77,7 @@ main(int argc, char* argv[])
                 {
                     io::chunk_to_file
                     (
-                        image.write(image_write_format::png),
+                        image.write(ImageWriteFormat::png),
                         output
                     );
                     return argparse::ok;
@@ -92,9 +92,9 @@ main(int argc, char* argv[])
     filters_subs->add
     (
         "grayscale", "Apply grayscale",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
-            grayscale grayscale = grayscale::average;
+            Grayscale grayscale = Grayscale::average;
             sub->add("-g,--grayscale", &grayscale);
             return sub->on_complete
             (
@@ -111,7 +111,7 @@ main(int argc, char* argv[])
     filters_subs->add
     (
         "creduce", "Reduce the colors by calculating a new palette and swapping to it",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             auto dither = false;
             int depth = 3;
@@ -132,8 +132,8 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    auto colors = median_cut(image, depth, middle_split);
-                    const auto pal = palette{"", colors};
+                    auto colors = extract_palette_median_cut(image, depth, middle_split);
+                    const auto pal = Palette{"", colors};
 
                     if(dither)
                     {
@@ -153,7 +153,7 @@ main(int argc, char* argv[])
     filters_subs->add
     (
         "palswap", "Switch palette",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             auto palette_name = palettes::name::one_bit;
             auto dither = false;
@@ -185,7 +185,7 @@ main(int argc, char* argv[])
     filters_subs->add
     (
         "edge", "Edge detection",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             float edge_r = 0.5f;
             sub->add("-r, --range", &edge_r);
@@ -203,10 +203,10 @@ main(int argc, char* argv[])
     filters_subs->add
     (
         "color", "Detect colors",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             float edge_r = 0.5f;
-            auto color_color = color::red;
+            auto color_color = NamedColor::red;
             sub->add("-r, --range", &edge_r);
             sub->add("-c, --color", &color_color);
             return sub->on_complete
@@ -223,7 +223,7 @@ main(int argc, char* argv[])
     filters_subs->add
     (
         "bright", "Change brightness",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             int bright_c = 10;
             sub->add("-c, --change", &bright_c);
@@ -241,7 +241,7 @@ main(int argc, char* argv[])
     filters_subs->add
     (
         "contrast", "Change contrast",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             float contrast = 10;
             sub->add("-c, --change", &contrast);
@@ -249,7 +249,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    change_contrast(&image, angle::from_degrees(contrast).get_wrapped());
+                    change_contrast(&image, Angle::from_degrees(contrast).get_wrapped());
                     return argparse::ok;
                 }
             );

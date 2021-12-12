@@ -12,13 +12,13 @@ namespace
 {
     namespace core = euphoria::core;
 
-    core::viewport_definition
+    core::ViewportDefinition
     create_definition(const euphoria::render::viewport_handler& handler)
     {
         switch(handler.type)
         {
         case euphoria::render::viewport_type::fit_with_black_bars:
-            return core::viewport_definition::fit_with_black_bars
+            return core::ViewportDefinition::fit_with_black_bars
             (
                 handler.virtual_width,
                 handler.virtual_height,
@@ -26,13 +26,13 @@ namespace
                 handler.window_height
             );
         case euphoria::render::viewport_type::screen_pixel:
-            return core::viewport_definition::screen_pixel
+            return core::ViewportDefinition::screen_pixel
             (
                 handler.window_width,
                 handler.window_height
             );
         case euphoria::render::viewport_type::extend:
-            return core::viewport_definition::extend
+            return core::ViewportDefinition::extend
             (
                 handler.virtual_width,
                 handler.virtual_height,
@@ -41,7 +41,7 @@ namespace
             );
         default:
             DIE("Unhandled viewport case");
-            return core::viewport_definition::screen_pixel
+            return core::ViewportDefinition::screen_pixel
             (
                 handler.window_width,
                 handler.window_height
@@ -53,7 +53,7 @@ namespace
     void apply_viewport
     (
         euphoria::render::viewport_handler* handler,
-        const core::viewport_definition& vp,
+        const core::ViewportDefinition& vp,
         bool shaders_too
     )
     {
@@ -76,7 +76,7 @@ namespace
 
         if(handler->virtual_screen != nullptr)
         {
-            *handler->virtual_screen = core::rectf::from_width_height
+            *handler->virtual_screen = core::Rectf::from_width_height
             (
                 vp.virtual_width,
                 vp.virtual_height
@@ -91,7 +91,7 @@ namespace
 
 namespace euphoria::render
 {
-    viewport_handler::viewport_handler(render::init* i, core::rectf* s)
+    viewport_handler::viewport_handler(render::init* i, core::Rectf* s)
         : init(i)
         , virtual_screen(s)
     {
@@ -125,11 +125,11 @@ namespace euphoria::render
         apply_viewport
         (
             this,
-            core::viewport_definition::screen_pixel(window_width, window_height),
+            core::ViewportDefinition::screen_pixel(window_width, window_height),
             false
         );
 
-        init->clear_screen(core::color::black);
+        init->clear_screen(core::NamedColor::black);
 
         apply_viewport
         (
@@ -146,7 +146,7 @@ namespace euphoria::render
     {
         const auto viewport = render::viewport
         {
-            core::recti::from_width_height(window_width, window_height)
+            core::Recti::from_width_height(window_width, window_height)
                 .set_bottom_left_to_copy
                 (
                     0,

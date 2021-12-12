@@ -11,7 +11,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct shufflebag
+    struct Shufflebag
     {
         [[nodiscard]] int
         get_size() const
@@ -39,7 +39,7 @@ namespace euphoria::core
         }
 
         [[nodiscard]] const T&
-        get_random_item(random* rand)
+        get_random_item(Random* rand)
         {
             ASSERT(rand);
             ASSERT(!data.empty()); // needs data
@@ -66,10 +66,10 @@ namespace euphoria::core
 
     template<typename T>
     [[nodiscard]]
-    constexpr shufflebag<T>
+    constexpr Shufflebag<T>
     create_shuffle_bag(const ranges::span<const T>& items, int amount)
     {
-        auto b = shufflebag<T>{};
+        auto b = Shufflebag<T>{};
         b.reserve(items.size() * amount);
         for(const auto& it: items)
         {
@@ -81,7 +81,7 @@ namespace euphoria::core
 
     template<typename T>
     [[nodiscard]]
-    constexpr shufflebag<T>
+    constexpr Shufflebag<T>
     create_shuffle_bag(const std::vector<T>& items, int amount)
     {
         return create_shuffle_bag(ranges::span<T>{items.begin(), items.end()}, amount);

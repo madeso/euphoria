@@ -34,7 +34,7 @@ namespace euphoria::gui
         NONCOPYABLE(layout_container);
 
         void
-        do_layout(core::rectf area);
+        do_layout(core::Rectf area);
 
         [[nodiscard]] core::size2f
         calculate_minimum_area() const;

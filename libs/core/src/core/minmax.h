@@ -51,7 +51,7 @@ namespace euphoria::core
         typename TContainer,
         typename TExtract
     >
-    range<T>
+    Range<T>
     find_min_max_range
     (
         const TContainer& ts,

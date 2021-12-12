@@ -22,9 +22,9 @@ namespace euphoria::gui
     bool
     root::load
     (
-        core::vfs::file_system* fs,
+        core::vfs::FileSystem* fs,
         render::font_cache* font,
-        const core::vfs::file_path& path,
+        const core::vfs::FilePath& path,
         render::texture_cache* cache
     )
     {
@@ -32,7 +32,7 @@ namespace euphoria::gui
 
         if(result)
         {
-            container.do_layout(core::rectf::from_width_height(size));
+            container.do_layout(core::Rectf::from_width_height(size));
         }
 
         return result;
@@ -40,7 +40,7 @@ namespace euphoria::gui
 
 
     void
-    root::set_input_mouse(const core::vec2f& pos, bool down)
+    root::set_input_mouse(const core::Vec2f& pos, bool down)
     {
         state.mouse = pos;
         state.mouse_down = down;
@@ -60,7 +60,7 @@ namespace euphoria::gui
     root::resize(const core::size2f& new_size)
     {
         size = new_size;
-        container.do_layout(core::rectf::from_width_height(size));
+        container.do_layout(core::Rectf::from_width_height(size));
     }
 
 
@@ -76,10 +76,10 @@ namespace euphoria::gui
             sp->draw_sprite
             (
                 *image,
-                core::rectf::from_position_anchor_width_and_height
+                core::Rectf::from_position_anchor_width_and_height
                 (
                     state.mouse,
-                    core::scale2f{0, 1},
+                    core::Scale2f{0, 1},
                     core::c_int_to_float(image->width),
                     core::c_int_to_float(image->height)
                 )

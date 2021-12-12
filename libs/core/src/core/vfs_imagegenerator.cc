@@ -10,27 +10,27 @@
 namespace euphoria::core::vfs
 {
     void
-    read_root_image_generator::add(
-            file_system* fs,
-            const dir_path& base)
+    ReadRootImageGenerator::add(
+            FileSystem* fs,
+            const DirPath& base)
     {
-        auto root = std::make_shared<read_root_image_generator>(base);
+        auto root = std::make_shared<ReadRootImageGenerator>(base);
         fs->add_read_root(root);
     }
 
 
-    std::shared_ptr<memory_chunk>
-    read_root_image_generator::read_file(const file_path& path)
+    std::shared_ptr<MemoryChunk>
+    ReadRootImageGenerator::read_file(const FilePath& path)
     {
         const auto [dir, command] = path.split_directories_and_file();
         if(dir != base)
         {
-            return memory_chunk::null();
+            return MemoryChunk::null();
         }
 
         const auto color_name = to_lower(command);
 
-        const auto found_color = string_to_enum<color>(color_name);
+        const auto found_color = string_to_enum<NamedColor>(color_name);
 
         if(!found_color.single_match)
         {
@@ -41,40 +41,40 @@ namespace euphoria::core::vfs
                 path,
                 string_mergers::english_or.merge(enum_to_string(found_color.values))
             );
-            return memory_chunk::null();
+            return MemoryChunk::null();
         }
 
         const auto color = found_color.values[0];
 
-        image image;
+        Image image;
         image.setup_no_alpha_support(128, 128);
         clear(&image, {color});
-        return image.write(image_write_format::png);
+        return image.write(ImageWriteFormat::png);
     }
 
 
     void
-    read_root_image_generator::add_description(std::vector<std::string>* strings)
+    ReadRootImageGenerator::add_description(std::vector<std::string>* strings)
     {
-        strings->emplace_back(string_builder() << base << "<color>");
+        strings->emplace_back(StringBuilder() << base << "<color>");
     }
 
 
-    read_root_image_generator::read_root_image_generator(const dir_path& base)
+    ReadRootImageGenerator::ReadRootImageGenerator(const DirPath& base)
         : base(base)
     {
         ASSERT(!base.contains_relative());
     }
 
 
-    file_list
-    read_root_image_generator::list_files(const dir_path& path)
+    FileList
+    ReadRootImageGenerator::list_files(const DirPath& path)
     {
         ASSERT(!path.contains_relative());
 
-        file_list ret;
+        FileList ret;
 
-        if(base != dir_path::from_root())
+        if(base != DirPath::from_root())
         {
             if(path == base.get_parent_directory())
             {
@@ -84,7 +84,7 @@ namespace euphoria::core::vfs
 
         if(path == base)
         {
-            const auto names = enum_to_string<color>();
+            const auto names = enum_to_string<NamedColor>();
             for(const auto& n: names)
             {
                 ret.add(n, true, true);

@@ -18,11 +18,11 @@ namespace
     using namespace euphoria::core;
 
 
-    rgbai
-    calculate_border_color(rgbai base)
+    Rgbai
+    calculate_border_color(Rgbai base)
     {
         auto h = chsl(crgb(base));
-        h.h -= angle::from_degrees(15);
+        h.h -= Angle::from_degrees(15);
         h.l *= 0.4;
         return {crgbi(crgb(h)), base.a};
     }
@@ -31,18 +31,18 @@ namespace
     void
     apply_sprator_algorithm(bool_table* half_side, int number_of_steps)
     {
-        generator::rules rules;
+        generator::Rules rules;
         generator::add_complex_rules
         (
             &rules,
             number_of_steps,
-            [](bool current, const wallcounter& wc) -> std::optional<bool>
+            [](bool current, const WallCounter& wc) -> std::optional<bool>
             {
                 const auto c = wc.count
                 (
                     1,
                     false,
-                    neighborhood_algorithm::plus
+                    NeighborhoodAlgorithm::plus
                 );
                 if(current)
                 {
@@ -57,11 +57,11 @@ namespace
             }
         );
 
-        auto cell = generator::cellular_automata
+        auto cell = generator::CellularAutomata
         (
             &rules,
             half_side,
-            fourway<outside_rule>{outside_rule::empty}
+            Lrud<outside_rule>{outside_rule::empty}
         );
 
         while(cell.has_more_work()) { cell.work(); }
@@ -102,7 +102,7 @@ namespace
 
 
     int
-    calculate_scale(const image& image, const bool_table& table)
+    calculate_scale(const Image& image, const bool_table& table)
     {
         auto calculate_scale = [](int image_scale, int table_scale) -> int
         {
@@ -125,11 +125,11 @@ namespace
     void
     draw_image_with_border
     (
-        image* image,
+        Image* image,
         const bool_table& result_table,
-        const rgbai& background_color,
-        const rgbai& foreground_color,
-        const rgbai& border_color
+        const Rgbai& background_color,
+        const Rgbai& foreground_color,
+        const Rgbai& border_color
     )
     {
         clear(image, background_color);
@@ -139,9 +139,9 @@ namespace
             foreground_color,
             background_color,
             calculate_scale(*image, result_table),
-            border_settings{border_color}
+            BorderSettings{border_color}
         );
-        paste_image(image, vec2i{0, 0}, img);
+        paste_image(image, Vec2i{0, 0}, img);
     }
 
 
@@ -155,7 +155,7 @@ namespace
         set_white_noise
         (
             half_side,
-            fourway<border_setup_rule>{border_setup_rule::random},
+            Lrud<BorderSetupRule>{BorderSetupRule::random},
             [&]() -> bool { return generator->get_next_float01() < 0.5f; }
         );
     }
@@ -169,18 +169,18 @@ namespace
     void
     render_sprator_impl
     (
-        image* image,
+        Image* image,
         I code,
-        const rgbai& foreground_color,
-        const std::optional<rgbai> border_color_arg,
-        const rgbai& background_color
+        const Rgbai& foreground_color,
+        const std::optional<Rgbai> border_color_arg,
+        const Rgbai& background_color
     )
     {
         constexpr int half_width = 4;
         constexpr int height = 8;
         const int number_of_steps = 3;
         // todo(Gustav): figure out color (randomly?)
-        const rgbai border_color = border_color_arg.value_or
+        const Rgbai border_color = border_color_arg.value_or
         (
             calculate_border_color(foreground_color)
         );
@@ -211,18 +211,18 @@ namespace
     void
     render_sprator_impl
     (
-        std::vector<image>* images,
+        std::vector<Image>* images,
         I code,
-        const rgbai& foreground_color,
-        const std::optional<rgbai> border_color_arg,
-        const rgbai& background_color
+        const Rgbai& foreground_color,
+        const std::optional<Rgbai> border_color_arg,
+        const Rgbai& background_color
     )
     {
         constexpr int half_width = 4;
         constexpr int height = 8;
         const int number_of_steps = 3;
         // todo(Gustav): figure out color (randomly?)
-        const rgbai border_color = border_color_arg.value_or
+        const Rgbai border_color = border_color_arg.value_or
         (
             calculate_border_color(foreground_color)
         );
@@ -282,11 +282,11 @@ namespace euphoria::core
     void
     render_sprator
     (
-        image* image,
-        u32 code,
-        const rgbai& foreground_color,
-        std::optional<rgbai> border_color_arg,
-        const rgbai& background_color
+        Image* image,
+        U32 code,
+        const Rgbai& foreground_color,
+        std::optional<Rgbai> border_color_arg,
+        const Rgbai& background_color
     )
     {
         render_sprator_impl<random_xorshift32>
@@ -303,11 +303,11 @@ namespace euphoria::core
     void
     render_sprator
     (
-        std::vector<image>* images,
-        u32 code,
-        const rgbai& foreground_color,
-        std::optional<rgbai> border_color_arg,
-        const rgbai& background_color
+        std::vector<Image>* images,
+        U32 code,
+        const Rgbai& foreground_color,
+        std::optional<Rgbai> border_color_arg,
+        const Rgbai& background_color
     )
     {
         render_sprator_impl<random_xorshift32>

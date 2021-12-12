@@ -14,10 +14,10 @@
 
 namespace euphoria::core
 {
-    using string_table = table<std::string>;
+    using string_table = Table<std::string>;
 
     template <typename T>
-    struct table_generator : public sort_builder<T, table_generator<T>>
+    struct TableGenerator : public SortBuilder<T, TableGenerator<T>>
     {
         using converter = std::function<std::string(const T&)>;
 
@@ -25,7 +25,7 @@ namespace euphoria::core
         std::vector<converter> column_converter;
         std::vector<std::string> column_titles;
 
-        explicit table_generator(const std::vector<T>& d) : data(d) {}
+        explicit TableGenerator(const std::vector<T>& d) : data(d) {}
 
         [[nodiscard]] string_table
         to_table() const
@@ -51,7 +51,7 @@ namespace euphoria::core
             return ret;
         }
 
-        table_generator<T>&
+        TableGenerator<T>&
         add_column(const std::string& title, converter converter)
         {
             column_titles.emplace_back(title);
@@ -60,23 +60,25 @@ namespace euphoria::core
         }
     };
 
-    enum class csv_trim
+    enum class CsvTrim
     {
         trim,
         dont_trim
     };
 
-    struct csv_parser_options
+    struct CsvParserOptions
     {
         char delim = ',';
         char str = '\"';
-        csv_trim trim = csv_trim::dont_trim;
+        CsvTrim trim = CsvTrim::dont_trim;
     };
 
     string_table
-    table_from_csv(
-            const std::string& data,
-            const csv_parser_options& options = csv_parser_options());
+    table_from_csv
+    (
+        const std::string& data,
+        const CsvParserOptions& options = CsvParserOptions()
+    );
 
 
     /*

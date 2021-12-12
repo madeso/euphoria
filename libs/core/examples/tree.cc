@@ -90,11 +90,11 @@ main(int, char**)
         std::cout << "\n-----------------------------------------\n\n";
 
         {
-            auto result = text_box::create_empty();
+            auto result = TextBox::create_empty();
             result.put_box
             (
                 2,0,
-                text_box::create_tree_graph
+                TextBox::create_tree_graph
                 (
                     tree_to_print,
                     132-2,

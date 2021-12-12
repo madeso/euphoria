@@ -21,8 +21,8 @@ namespace euphoria::t3d
         , world(aworld)
         , tile_library(atile_library)
         , camera(core::mat4f::identity(), core::mat4f::identity())
-        , viewport(core::recti::from_width_height(10, 10))
-        , mouse(core::vec2i {0, 0})
+        , viewport(core::Recti::from_width_height(10, 10))
+        , mouse(core::Vec2i {0, 0})
     {
     }
 
@@ -53,7 +53,7 @@ namespace euphoria::t3d
 
 
     std::vector<std::shared_ptr<placed_mesh>>
-    editor::raycast(const core::unit_ray3f& ray)
+    editor::raycast(const core::UnitRay3f& ray)
     {
         std::vector<std::shared_ptr<placed_mesh>> r;
 
@@ -87,21 +87,21 @@ namespace euphoria::t3d
 
 
     void
-    editor::on_mouse(core::mouse_button button, bool down)
+    editor::on_mouse(core::MouseButton button, bool down)
     {
         tools.get_current_tool()->on_mouse(this, button, down);
     }
 
 
     void
-    editor::on_key(core::key key, bool down)
+    editor::on_key(core::Key key, bool down)
     {
         tools.get_current_tool()->on_key(this, key, down);
     }
 
 
     void
-    editor::on_scroll(const core::vec2i& scroll)
+    editor::on_scroll(const core::Vec2i& scroll)
     {
         tools.get_current_tool()->on_scroll(this, scroll);
     }

@@ -5,23 +5,23 @@
 
 namespace euphoria::core::vfs
 {
-    struct read_root_image_generator : read_root
+    struct ReadRootImageGenerator : ReadRoot
     {
         static void
-        add(file_system* fs, const dir_path& base);
+        add(FileSystem* fs, const DirPath& base);
 
-        std::shared_ptr<memory_chunk>
-        read_file(const file_path& path) override;
+        std::shared_ptr<MemoryChunk>
+        read_file(const FilePath& path) override;
 
         void
         add_description(std::vector<std::string>* strings) override;
 
-        explicit read_root_image_generator(const dir_path& base);
+        explicit ReadRootImageGenerator(const DirPath& base);
 
-        file_list
-        list_files(const dir_path& path) override;
+        FileList
+        list_files(const DirPath& path) override;
 
-        dir_path base;
+        DirPath base;
     };
 
 }

@@ -168,7 +168,7 @@ namespace euphoria::core
         std::vector<std::string> ret;
         for(const auto& m: map)
         {
-            const std::string str = string_builder()
+            const std::string str = StringBuilder()
                                     << "(" << m.first << ":" << m.second << ")";
             ret.emplace_back(str);
         }
@@ -183,7 +183,7 @@ namespace euphoria::core
         std::vector<std::string> ret;
         for(const auto& m: map)
         {
-            const std::string str = string_builder() << m.first;
+            const std::string str = StringBuilder() << m.first;
             ret.emplace_back(str);
         }
         return ret;
@@ -198,7 +198,7 @@ namespace euphoria::core
         ret.reserve(data.size());
         for(const auto& d: data)
         {
-            const std::string str = string_builder() << d;
+            const std::string str = StringBuilder() << d;
             ret.emplace_back(str);
         }
         return ret;

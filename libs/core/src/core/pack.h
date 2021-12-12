@@ -10,7 +10,7 @@
 namespace euphoria::core
 {
     // place from top-left to down-right
-    std::vector<std::optional<recti>>
+    std::vector<std::optional<Recti>>
     pack
     (
         const size2i& container,

@@ -10,61 +10,61 @@
 
 namespace euphoria::core
 {
-    struct ui_text;
+    struct UiText;
 
     namespace textparser
     {
-        struct visitor;
+        struct Visitor;
 
-        struct node
+        struct Node
         {
-            node() = default;
-            virtual ~node() = default;
+            Node() = default;
+            virtual ~Node() = default;
 
-            NONCOPYABLE(node);
+            NONCOPYABLE(Node);
 
             virtual void
-            accept(visitor* visitor) const = 0;
+            accept(Visitor* visitor) const = 0;
         };
 
         // todo(Gustav): move nodes to private
 
-        struct node_text : node
+        struct NodeText : Node
         {
             std::string text;
 
-            explicit node_text(const std::string& t);
+            explicit NodeText(const std::string& t);
 
             void
-            accept(visitor* visitor) const override;
+            accept(Visitor* visitor) const override;
         };
 
-        struct node_image : node
+        struct NodeImage : Node
         {
             std::string image;
 
-            explicit node_image(const std::string& t);
+            explicit NodeImage(const std::string& t);
 
             void
-            accept(visitor* visitor) const override;
+            accept(Visitor* visitor) const override;
         };
 
-        struct node_begin_or_end : node
+        struct NodeBeginOrEnd : Node
         {
             bool begin;
 
-            explicit node_begin_or_end(bool b);
+            explicit NodeBeginOrEnd(bool b);
 
             void
-            accept(visitor* visitor) const override;
+            accept(Visitor* visitor) const override;
         };
 
-        struct visitor
+        struct Visitor
         {
-            visitor() = default;
-            virtual ~visitor() = default;
+            Visitor() = default;
+            virtual ~Visitor() = default;
 
-            NONCOPYABLE(visitor);
+            NONCOPYABLE(Visitor);
 
             virtual void
             on_text(const std::string& text) = 0;
@@ -79,7 +79,7 @@ namespace euphoria::core
             on_end() = 0;
         };
 
-        struct visitor_debug_string : public visitor
+        struct VisitorDebugString : public Visitor
         {
             std::ostringstream ss;
 
@@ -96,7 +96,7 @@ namespace euphoria::core
             on_end() override;
 
             static std::string
-            accept_all_nodes(ui_text* visitor);
+            accept_all_nodes(UiText* visitor);
         };
     }
 
@@ -108,7 +108,7 @@ namespace euphoria::core
     // sprite/ninepath w/ text representing the bind this could also be useful when
     // displaying all the keybinds. needs to work out how (or if) the joystick
     // id/number also should be displayed.
-    struct ui_text
+    struct UiText
     {
         void
         clear();
@@ -131,16 +131,16 @@ namespace euphoria::core
         bool
         init_by_parsing_source(const std::string& str);
 
-        [[nodiscard]] static ui_text
+        [[nodiscard]] static UiText
         create_from_text(const std::string& str);
 
         void
-        accept(textparser::visitor* visitor);
+        accept(textparser::Visitor* visitor);
 
         void
-        accept(textparser::visitor* visitor) const;
+        accept(textparser::Visitor* visitor) const;
 
-        std::vector<std::shared_ptr<textparser::node>> nodes;
+        std::vector<std::shared_ptr<textparser::Node>> nodes;
     };
 
 }

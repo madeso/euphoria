@@ -61,7 +61,7 @@ Sprite animations
 
 
 ImU32
-con(const rgbai& c)
+con(const Rgbai& c)
 {
     return IM_COL32(c.r, c.g, c.b, c.a);
 }
@@ -82,9 +82,9 @@ enum class tool
 
 
 void
-flood_fill(image* image, int x, int y, const rgbai& target_color, const rgbai& replacement_color)
+flood_fill(Image* image, int x, int y, const Rgbai& target_color, const Rgbai& replacement_color)
 {
-    if(is_within(image->get_indices(), vec2i(x, y)) == false) { return; }
+    if(is_within(image->get_indices(), Vec2i(x, y)) == false) { return; }
     if(target_color == replacement_color) { return; }
     if(image->get_pixel(x, y) != target_color) { return; }
 
@@ -102,7 +102,7 @@ main(int argc, char** argv)
 {
     engine engine;
 
-    if (const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -126,8 +126,8 @@ main(int argc, char** argv)
     // main loop
     canvas_config cc;
     canvas canvas;
-    image image;
-    core::random random;
+    Image image;
+    core::Random random;
     tool current_tool = tool::pen;
     auto palette = *palettes::lospec::endesga_64;
     auto foreground = 0;
@@ -136,7 +136,7 @@ main(int argc, char** argv)
     image.setup_no_alpha_support(64, 64);
     image.set_all_top_bottom([&](int, int)
     {
-        return rgbai{palette.colors[background]};
+        return Rgbai{palette.colors[background]};
     });
 
     while(running)
@@ -304,7 +304,7 @@ main(int argc, char** argv)
 
                 // draw image
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                image.for_all_top_bottom([&](int x, int y, const rgbai& c)
+                image.for_all_top_bottom([&](int x, int y, const Rgbai& c)
                 {
                     const auto pixel_size = 5;
                     const auto p = ImVec2(core::c_int_to_float(x * pixel_size), core::c_int_to_float(y*pixel_size));
@@ -349,7 +349,7 @@ main(int argc, char** argv)
 
         // ImGui::ShowMetricsWindow();
 
-        engine.init->clear_screen(color::light_gray);
+        engine.init->clear_screen(NamedColor::light_gray);
         imgui::imgui_render();
 
         SDL_GL_SwapWindow(engine.window->window);

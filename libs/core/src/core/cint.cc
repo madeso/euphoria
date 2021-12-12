@@ -38,18 +38,18 @@ namespace euphoria::core
         return static_cast<size_t>(i);
     }
 
-    u8
+    U8
     c_int_to_u8(unsigned int i)
     {
         ASSERTX(i >= 0, i);
         ASSERTX(i <255, i);
-        return static_cast<u8>(i);
+        return static_cast<U8>(i);
     }
 
     int
-    c_u64_to_int(u64 u)
+    c_u64_to_int(U64 u)
     {
-        ASSERTX(u < static_cast<u64>(std::numeric_limits<int>::max()), u);
+        ASSERTX(u < static_cast<U64>(std::numeric_limits<int>::max()), u);
         return static_cast<int>(u);
     }
 }

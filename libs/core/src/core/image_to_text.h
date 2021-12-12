@@ -11,30 +11,40 @@
 
 namespace euphoria::core
 {
-    struct image;
+    struct Image;
 
-    struct image_map_action
+
+    struct ImageMapAction
     {
         char to;
-        rgbi from_color;
+        Rgbi from_color;
     };
 
+
     // todo(Gustav): add dithering support
-    table<char>
-    image_to_string_table(
-            const image& img,
-            const std::vector<image_map_action>& map);
+    Table<char>
+    image_to_string_table
+    (
+        const Image& img,
+        const std::vector<ImageMapAction>& map
+    );
 
-    table<char>
-    image_to_string_table_exact(
-            const image& img,
-            const std::vector<image_map_action>& map, char missing);
 
-    table<char>
-    image_to_string_table(const image& img, bool shorter, grayscale grayscale = grayscale::r);
+    Table<char>
+    image_to_string_table_exact
+    (
+        const Image& img,
+        const std::vector<ImageMapAction>& map, char missing
+    );
+
+
+    Table<char>
+    image_to_string_table(const Image& img, bool shorter, Grayscale grayscale = Grayscale::r);
+
 
     std::vector<std::string>
-    to_strings(const table<char>& t);
+    to_strings(const Table<char>& t);
+
 
     // todo(Gustav): add function to print image using colored unicode blocks
 }

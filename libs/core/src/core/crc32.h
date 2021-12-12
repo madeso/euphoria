@@ -2,9 +2,9 @@
 
 namespace euphoria::core
 {
-    struct memory_chunk;
+    struct MemoryChunk;
 
     unsigned long
-    calculate_crc32(const memory_chunk& chunk);
+    calculate_crc32(const MemoryChunk& chunk);
 
 }

@@ -9,7 +9,6 @@
 
 namespace euphoria::core
 {
-
     // bitmasks
     constexpr unsigned char bit_up      = 1 << 0;
     constexpr unsigned char bit_down    = 1 << 1;
@@ -17,13 +16,13 @@ namespace euphoria::core
     constexpr unsigned char bit_right   = 1 << 3;
     constexpr unsigned char bit_no_line = ~(bit_up | bit_down | bit_left | bit_right);
 
-    struct text_box_style
+    struct TextBoxStyle
     {
     private:
-        text_box_style();
+        TextBoxStyle();
 
     public:
-        static text_box_style
+        static TextBoxStyle
         create(std::function<std::string(char)> connections_func);
 
         [[nodiscard]] auto
@@ -34,19 +33,19 @@ namespace euphoria::core
     };
 
 
-    text_box_style
+    TextBoxStyle
     terminal_style();
 
-    text_box_style
+    TextBoxStyle
     utf8_straight_style();
 
-    text_box_style
+    TextBoxStyle
     utf8_rounded_style();
 
-    text_box_style
+    TextBoxStyle
     utf_8double_line_style();
 
-    text_box_style
+    TextBoxStyle
     ascii_style();
 
     /* TextBox: Abstraction for 2-dimensional text strings with linedrawing support
@@ -55,12 +54,12 @@ namespace euphoria::core
     https://gist.github.com/bisqwit/458048c60d271ab2536665cb81595c6b
     */
     // todo(Gustav): change to allow origin and negative drawing indices
-    struct text_box
+    struct TextBox
     {
-        static text_box
+        static TextBox
         create_empty();
 
-        static text_box
+        static TextBox
         create_from_strings(const std::vector<std::string>& str);
 
 
@@ -88,16 +87,16 @@ namespace euphoria::core
         void
         put_string(std::size_t x, std::size_t y, const std::string& s);
 
-        static text_box
+        static TextBox
         from_string(const std::string& s, std::size_t x=0, std::size_t y=0);
 
 
         /* Put a 2D string starting at the given coordinate */
         void
-        put_box(std::size_t x, std::size_t y, const text_box& b);
+        put_box(std::size_t x, std::size_t y, const TextBox& b);
 
-        [[nodiscard]] text_box
-        put_box_copy(std::size_t x, std::size_t y, const text_box& b) const;
+        [[nodiscard]] TextBox
+        put_box_copy(std::size_t x, std::size_t y, const TextBox& b) const;
 
         /** Draw a horizontal line.
         If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center.
@@ -130,7 +129,7 @@ namespace euphoria::core
         // General operations
 
         [[nodiscard]] std::vector<std::string>
-        to_string(const text_box_style& style = terminal_style()) const;
+        to_string(const TextBoxStyle& style = terminal_style()) const;
 
         /* Delete trailing blank from the bottom and right edges */
         void
@@ -227,7 +226,7 @@ namespace euphoria::core
             typename OneLinerFunc,
             typename SimpleTestFunc
         >
-        static text_box
+        static TextBox
         create_tree_graph
         (
             const T& e,
@@ -243,11 +242,11 @@ namespace euphoria::core
             ASSERTX(maxwidth >=16, maxwidth);
 
             const auto label = to_string(e);
-            auto result = text_box::from_string(label);
+            auto result = TextBox::from_string(label);
 
             if(auto [begin, end] = count_children(e); begin != end)
             {
-                std::vector<text_box> boxes;
+                std::vector<TextBox> boxes;
                 boxes.reserve(std::distance(begin, end));
                 for(auto i = begin; i != end; ++i)
                 {
@@ -294,13 +293,13 @@ namespace euphoria::core
         Find leftmost position where box b can be appended into *this without overlap
         */
         [[nodiscard]] std::size_t
-        get_horizontal_append_position(std::size_t y, const text_box& b) const;
+        get_horizontal_append_position(std::size_t y, const TextBox& b) const;
 
         /** Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. Guaranteed to be <= height().
         * Find topmost position where box b can be appended into *this without overlap
         */
         [[nodiscard]] std::size_t
-        get_vertical_append_position(std::size_t x, const text_box& b) const;
+        get_vertical_append_position(std::size_t x, const TextBox& b) const;
 
         [[nodiscard]] std::size_t
         find_left_padding(std::size_t y) const;
@@ -318,9 +317,9 @@ namespace euphoria::core
         static void
         sub_create_tree_graph
         (
-            text_box* result,
+            TextBox* result,
             size_t maxwidth,
-            const std::vector<text_box>& boxes,
+            const std::vector<TextBox>& boxes,
             bool oneliner_test,
             bool simple_test,
             const std::string& label,
@@ -329,6 +328,6 @@ namespace euphoria::core
         );
 
         std::vector<std::string> data;
-        text_box();
+        TextBox();
     };
 }

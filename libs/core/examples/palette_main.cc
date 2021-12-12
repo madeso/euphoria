@@ -33,7 +33,7 @@ write_palettes_to_files(int image_size)
     {
         const auto pal = palettes::get_palette(palette_name);
 
-        image image;
+        Image image;
         image.setup_no_alpha_support(image_size * c_sizet_to_int(pal.colors.size()), image_size);
 
         for
@@ -53,21 +53,21 @@ write_palettes_to_files(int image_size)
             );
         }
 
-        const std::string file = string_builder{} << "palette_" << pal.name << ".png";
+        const std::string file = StringBuilder{} << "palette_" << pal.name << ".png";
 
-        io::chunk_to_file(image.write(image_write_format::png), file);
+        io::chunk_to_file(image.write(ImageWriteFormat::png), file);
     }
 }
 
-dump2d::poly create_box(const vec2f& p, float width, float height, const rgbi& c, bool border)
+dump2d::Poly create_box(const Vec2f& p, float width, float height, const Rgbi& c, bool border)
 {
-    dump2d::poly r;
+    dump2d::Poly r;
     r.points =
     {
         p,
-        p + vec2f{width, 0},
-        p + vec2f{width, height},
-        p + vec2f{0, height}
+        p + Vec2f{width, 0},
+        p + Vec2f{width, height},
+        p + Vec2f{0, height}
     };
     r.close();
     r.fill(c);
@@ -81,7 +81,7 @@ dump2d::poly create_box(const vec2f& p, float width, float height, const rgbi& c
 void
 write_palettes_to_single_svg(const std::string& path, float height, bool border)
 {
-    auto d = dump2d::dumper{};
+    auto d = dump2d::Dumper{};
 
     constexpr float size = 10.0f;
     constexpr float spacing = 1.0f;
@@ -103,7 +103,7 @@ write_palettes_to_single_svg(const std::string& path, float height, bool border)
         )
         {
             const auto s = border ? ss : size-spacing*2;
-            const auto box_position = vec2f{x + s * euphoria::core::c_int_to_float(i), y};
+            const auto box_position = Vec2f{x + s * euphoria::core::c_int_to_float(i), y};
             d << create_box(box_position, size, height, pal.colors[i], border);
         }
 
@@ -117,14 +117,14 @@ write_palettes_to_single_svg(const std::string& path, float height, bool border)
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::parser {"euphoria palette generator"};
+    auto parser = argparse::Parser {"euphoria palette generator"};
 
     auto filters_subs = parser.add_sub_parsers();
 
     filters_subs->add
     (
         "write-many", "write each palette to a image file",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             auto image_size = 32;
             sub->add("--size", &image_size).set_help("Size of the color block");
@@ -143,7 +143,7 @@ main(int argc, char* argv[])
     filters_subs->add
     (
         "write-single", "write all palettes to a single html dump",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             bool add_border = false;
             float height = 10.0f;
@@ -166,7 +166,7 @@ main(int argc, char* argv[])
     filters_subs->add
     (
         "ls", "print all palette names",
-        [&](argparse::sub_parser* sub)
+        [&](argparse::SubParser* sub)
         {
             return sub->on_complete
             (

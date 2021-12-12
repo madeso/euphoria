@@ -7,9 +7,9 @@
 
 namespace euphoria::core
 {
-    struct image;
+    struct Image;
 
-    std::vector<rgbi>
-    median_cut(const image& image, int depth, bool middle_split);
+    std::vector<Rgbi>
+    extract_palette_median_cut(const Image& image, int depth, bool middle_split);
 }
 

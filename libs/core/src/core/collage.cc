@@ -14,7 +14,7 @@ namespace euphoria::core
 {
     std::vector<size2i> collect_sizes
     (
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         int padding
     )
     {
@@ -33,16 +33,16 @@ namespace euphoria::core
     }
 
 
-    image
+    Image
     draw_image
     (
-        const std::vector<vec2i>& positions,
-        const std::vector<image>& images,
+        const std::vector<Vec2i>& positions,
+        const std::vector<Image>& images,
         const size2i& size,
-        const rgbi& background_color
+        const Rgbi& background_color
     )
     {
-        auto composed_image = image{};
+        auto composed_image = Image{};
         composed_image.setup_with_alpha_support
         (
             size.width,
@@ -57,7 +57,7 @@ namespace euphoria::core
                 &composed_image,
                 position,
                 image,
-                blend_mode::normal,
+                BlendMode::normal,
                 pixels_outside::discard
             );
         }
@@ -70,20 +70,20 @@ namespace euphoria::core
     pack_tight
     (
         const size2i& default_size,
-        std::vector<vec2i>* positions,
-        const std::vector<image>& images,
+        std::vector<Vec2i>* positions,
+        const std::vector<Image>& images,
         int padding
     )
     {
-        std::optional<recti> bb = std::nullopt;
+        std::optional<Recti> bb = std::nullopt;
 
         for(const auto& [position, img]: ranges::views::zip(*positions, images))
         {
             const auto image_width = img.width;
             const auto image_height = img.height;
-            const auto& rect = recti::from_bottom_left_width_height
+            const auto& rect = Recti::from_bottom_left_width_height
             (
-                vec2i(position.x, position.y),
+                Vec2i(position.x, position.y),
                 image_width + padding,
                 image_height + padding
             );
@@ -100,7 +100,7 @@ namespace euphoria::core
 
         for(auto& position: *positions)
         {
-            position += vec2i(dx, dy);
+            position += Vec2i(dx, dy);
         }
 
         return size2i::create_from_width_height(size.width + padding, size.height + padding);
@@ -109,11 +109,11 @@ namespace euphoria::core
     ////////////////////////////////////////////////////
 
 
-    std::vector<vec2i>
+    std::vector<Vec2i>
     pack_image
     (
         const size2i& image_size,
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         const std::vector<std::string>& files,
         int padding
     )
@@ -121,7 +121,7 @@ namespace euphoria::core
         const auto image_sizes = collect_sizes(images, padding);
         const auto packed = pack(image_size, image_sizes);
 
-        auto ret = std::vector<vec2i>{};
+        auto ret = std::vector<Vec2i>{};
 
         int i = 0;
         for(const auto& rect: packed)
@@ -143,14 +143,14 @@ namespace euphoria::core
     }
 
 
-    std::optional<image>
+    std::optional<Image>
     pack_image
     (
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         const std::vector<std::string>& files,
         const size2i& requested_size,
         int padding,
-        rgbi background_color,
+        Rgbi background_color,
         bool should_pack_image
     )
     {
@@ -188,7 +188,7 @@ namespace euphoria::core
         // all to keep padding-sized border between the images
         for(auto& position: packed)
         {
-            position += vec2i(padding, padding);
+            position += Vec2i(padding, padding);
         }
 
         // draw new image
@@ -201,10 +201,10 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////
 
 
-    std::pair<std::vector<vec2i>, size2i>
+    std::pair<std::vector<Vec2i>, size2i>
     grid_layout
     (
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         int padding,
         bool top_to_bottom
     )
@@ -223,7 +223,7 @@ namespace euphoria::core
             )
         );
 
-        auto ret = std::vector<vec2i>{};
+        auto ret = std::vector<Vec2i>{};
 
         int x = padding;
         int y = padding;
@@ -273,7 +273,7 @@ namespace euphoria::core
         // to switch to that, and we do that by inverting it at the end
         if(top_to_bottom)
         {
-            const auto into_pointer = [](vec2i& v) -> vec2i* { return &v; };
+            const auto into_pointer = [](Vec2i& v) -> Vec2i* { return &v; };
             using namespace ranges::views;
             for
             (
@@ -289,12 +289,12 @@ namespace euphoria::core
     }
 
 
-    image
+    Image
     grid_layout
     (
-        const std::vector<image>& images,
+        const std::vector<Image>& images,
         int padding,
-        rgbi background_color,
+        Rgbi background_color,
         bool top_to_bottom
     )
     {

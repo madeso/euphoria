@@ -5,7 +5,7 @@
 
 namespace euphoria::core
 {
-    console::console()
+    VirtualConsole::VirtualConsole()
     {
         register_command("help", [this](print_function print, const args& arg) {
             this->print_help(print, arg);
@@ -14,14 +14,14 @@ namespace euphoria::core
 
 
     void
-    console::register_command(const std::string& name, callback callback)
+    VirtualConsole::register_command(const std::string& name, callback callback)
     {
         callbacks[to_lower(name)] = callback;
     }
 
 
     void
-    console::run(print_function print, const std::string& cmd)
+    VirtualConsole::run(print_function print, const std::string& cmd)
     {
         if(cmd.empty())
         {
@@ -37,7 +37,7 @@ namespace euphoria::core
         if(found == callbacks.end())
         {
             // unable to find cmd
-            print(string_builder {} << "Unknown command " << name);
+            print(StringBuilder {} << "Unknown command " << name);
             // todo(Gustav): list commands that are the closest match
             return;
         }
@@ -49,12 +49,12 @@ namespace euphoria::core
 
 
     void
-    console::print_help(console::print_function print, const args&)
+    VirtualConsole::print_help(VirtualConsole::print_function print, const args&)
     {
         print("Available commands:");
         for(const auto& c: callbacks)
         {
-            print(string_builder {} << "  " << c.first);
+            print(StringBuilder {} << "  " << c.first);
         }
         print("");
     }

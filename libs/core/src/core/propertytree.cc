@@ -7,54 +7,54 @@ namespace euphoria::core
 {
     ////////////////////////////////////////////////////////////////////////////////
 
-    value_int::value_int(int i) : core::value(value_type::int_type), value(i) {}
+    IntValue::IntValue(int i) : core::Value(ValueType::int_type), value(i) {}
 
     int&
-    value_int::cast(core::value* value)
+    IntValue::cast(core::Value* value)
     {
         ASSERT(value);
-        ASSERT(value->type == value_type::int_type);
-        return static_cast<value_int*>(value)->value;
+        ASSERT(value->type == ValueType::int_type);
+        return static_cast<IntValue*>(value)->value;
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    value_float::value_float(float f) : core::value(value_type::float_type), value(f) {}
+    FloatValue::FloatValue(float f) : core::Value(ValueType::float_type), value(f) {}
 
     float&
-    value_float::cast(core::value* value)
+    FloatValue::cast(core::Value* value)
     {
         ASSERT(value);
-        ASSERT(value->type == value_type::float_type);
-        return static_cast<value_float*>(value)->value;
+        ASSERT(value->type == ValueType::float_type);
+        return static_cast<FloatValue*>(value)->value;
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    value_vec3f::value_vec3f(const vec3f& v) : core::value(value_type::vec3f_type), value(v)
+    Vec3fValue::Vec3fValue(const Vec3f& v) : core::Value(ValueType::vec3f_type), value(v)
     {}
 
-    vec3f&
-    value_vec3f::cast(core::value* value)
+    Vec3f&
+    Vec3fValue::cast(core::Value* value)
     {
         ASSERT(value);
-        ASSERT(value->type == value_type::vec3f_type);
-        return static_cast<value_vec3f*>(value)->value;
+        ASSERT(value->type == ValueType::vec3f_type);
+        return static_cast<Vec3fValue*>(value)->value;
     }
 
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    property_tree::property_tree() : value(value_type::struct_type) {}
+    MapValue::MapValue() : Value(ValueType::map_type) {}
 
     void
-    property_tree::set(const std::string& name, std::shared_ptr<value> value)
+    MapValue::set(const std::string& name, std::shared_ptr<Value> value)
     {
         properties[name] = value;
     }
 
-    std::shared_ptr<value>
-    property_tree::get_or_null(const std::string& name)
+    std::shared_ptr<Value>
+    MapValue::get_or_null(const std::string& name)
     {
         auto found = properties.find(name);
         if(found == properties.end())

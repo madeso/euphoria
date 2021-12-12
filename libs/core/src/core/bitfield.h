@@ -6,9 +6,9 @@ namespace euphoria::core
 {
 
     template<typename T, typename I = std::underlying_type_t<T>>
-    struct bitfield
+    struct Bitfield
     {
-        bitfield()
+        Bitfield()
         : value(static_cast<T>(0))
         {}
 

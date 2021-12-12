@@ -11,12 +11,12 @@ namespace euphoria::core
     namespace detail
     {
         char
-        textfile::peek()
+        Textfile::peek()
         {
             return peek(1);
         }
 
-        struct textfile_string : public textfile
+        struct textfile_string : public Textfile
         {
             std::string text;
             std::size_t next_position = 0;
@@ -58,7 +58,7 @@ namespace euphoria::core
             }
         };
 
-        std::shared_ptr<textfile>
+        std::shared_ptr<Textfile>
         create_from_string(const std::string& str)
         {
             auto file = std::make_shared<textfile_string>();
@@ -101,26 +101,26 @@ namespace euphoria::core
         }
     }
 
-    textfile_parser::textfile_parser(std::shared_ptr<detail::textfile> afile)
+    TextfileParser::TextfileParser(std::shared_ptr<detail::Textfile> afile)
         : file(afile)
     {
     }
 
-    textfile_parser
-    textfile_parser::from_string(const std::string& str)
+    TextfileParser
+    TextfileParser::from_string(const std::string& str)
     {
-        return textfile_parser{ detail::create_from_string(str) };
+        return TextfileParser{ detail::create_from_string(str) };
     }
 
     char
-    textfile_parser::peek_char(int advance)
+    TextfileParser::peek_char(int advance)
     {
         return file->peek(advance);
     }
 
 
     std::string
-    textfile_parser::peek_string(int advance)
+    TextfileParser::peek_string(int advance)
     {
         const auto c = peek_char(advance);
         return char_to_string(c);
@@ -129,7 +129,7 @@ namespace euphoria::core
     // if peekchar(0) is c then it is read and function returns true,
     // otherwise false
     bool
-    textfile_parser::expect_char(char c)
+    TextfileParser::expect_char(char c)
     {
         if(peek_char() == c)
         {
@@ -144,7 +144,7 @@ namespace euphoria::core
 
 
     char
-    textfile_parser::read_char()
+    TextfileParser::read_char()
     {
         const char r = file->read();
 
@@ -162,7 +162,7 @@ namespace euphoria::core
     }
 
     void
-    textfile_parser::advance_char()
+    TextfileParser::advance_char()
     {
         read_char();
     }
@@ -200,7 +200,7 @@ namespace euphoria::core
     }
 
     std::string
-    textfile_parser::read_ident()
+    TextfileParser::read_ident()
     {
         std::ostringstream ss;
         bool first = true;
@@ -213,7 +213,7 @@ namespace euphoria::core
     }
 
     std::string
-    textfile_parser::read_string()
+    TextfileParser::read_string()
     {
         std::ostringstream ss;
         const char quote = '\"';
@@ -263,7 +263,7 @@ namespace euphoria::core
     }
 
     std::string
-    textfile_parser::read_to_end_of_line()
+    TextfileParser::read_to_end_of_line()
     {
         std::ostringstream ss;
         while(!is_newline(peek_char()))
@@ -296,7 +296,7 @@ namespace euphoria::core
     }
 
     void
-    textfile_parser::skip_spaces(bool include_newline)
+    TextfileParser::skip_spaces(bool include_newline)
     {
         while(is_space_character(peek_char(), include_newline))
         {
@@ -305,19 +305,19 @@ namespace euphoria::core
     }
 
     bool
-    textfile_parser::has_more() const
+    TextfileParser::has_more() const
     {
         return file->has_more();
     }
 
     int
-    textfile_parser::get_line() const
+    TextfileParser::get_line() const
     {
         return location.line;
     }
 
     int
-    textfile_parser::get_column() const
+    TextfileParser::get_column() const
     {
         return location.column;
     }

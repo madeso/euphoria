@@ -7,13 +7,13 @@
 
 namespace euphoria::core
 {
-    struct string_merger
+    struct StringMerger
     {
         [[nodiscard]] std::string
         merge(const std::vector<std::string>& strings) const;
 
 
-        constexpr string_merger&
+        constexpr StringMerger&
         set_separator(const std::string_view& the_separator, const std::string_view& the_final_separator)
         {
             separator = the_separator;
@@ -21,7 +21,7 @@ namespace euphoria::core
             return *this;
         }
 
-        constexpr string_merger&
+        constexpr StringMerger&
         set_separator(const std::string_view& both)
         {
             separator = both;
@@ -29,14 +29,14 @@ namespace euphoria::core
             return *this;
         }
 
-        constexpr string_merger&
+        constexpr StringMerger&
         set_empty(const std::string_view& v)
         {
             empty = v;
             return *this;
         }
 
-        constexpr string_merger&
+        constexpr StringMerger&
         set_start_and_end(const std::string_view& both, const std::string_view& the_end)
         {
             start = both;
@@ -44,7 +44,7 @@ namespace euphoria::core
             return *this;
         }
 
-        constexpr string_merger&
+        constexpr StringMerger&
         set_start_and_end(const std::string_view& v)
         {
             start = v;
@@ -52,14 +52,14 @@ namespace euphoria::core
             return *this;
         }
 
-        constexpr string_merger&
+        constexpr StringMerger&
         set_before_each(const std::string_view& v)
         {
             before_each = v;
             return *this;
         }
 
-        constexpr string_merger&
+        constexpr StringMerger&
         set_after_each(const std::string_view& both)
         {
             after_each = both;
@@ -67,7 +67,7 @@ namespace euphoria::core
             return *this;
         }
 
-        constexpr string_merger&
+        constexpr StringMerger&
         set_after_each(const std::string_view& the_after, const std::string_view& the_final)
         {
             after_each = the_after;
@@ -87,12 +87,12 @@ namespace euphoria::core
 
     namespace string_mergers
     {
-        constexpr string_merger english_and = string_merger{}.set_separator(", ", " and ").set_empty("<none>");
-        constexpr string_merger english_or = string_merger{}.set_separator(", ", " or ").set_empty("<none>");
-        constexpr string_merger array = string_merger{}.set_separator(", ").set_start_and_end("[", "]");
-        constexpr string_merger function_call = string_merger{}.set_separator(", ").set_start_and_end("(", ")");
-        constexpr string_merger space = string_merger{}.set_separator(" ");
-        constexpr string_merger comma = string_merger{}.set_separator(", ");
+        constexpr StringMerger english_and = StringMerger{}.set_separator(", ", " and ").set_empty("<none>");
+        constexpr StringMerger english_or = StringMerger{}.set_separator(", ", " or ").set_empty("<none>");
+        constexpr StringMerger array = StringMerger{}.set_separator(", ").set_start_and_end("[", "]");
+        constexpr StringMerger function_call = StringMerger{}.set_separator(", ").set_start_and_end("(", ")");
+        constexpr StringMerger space = StringMerger{}.set_separator(" ");
+        constexpr StringMerger comma = StringMerger{}.set_separator(", ");
     }
 }
 

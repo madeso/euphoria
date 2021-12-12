@@ -10,15 +10,15 @@
 
 namespace euphoria::core
 {
-    struct random;
+    struct Random;
 }
 
 
 namespace euphoria::core::tracery
 {
-    struct result
+    struct Result
     {
-        enum error
+        enum Error
         {
             unable_to_open_file,
             no_error,
@@ -30,12 +30,12 @@ namespace euphoria::core::tracery
             general_rule_parse_error
         };
 
-        error error_type;
+        Error error_type;
         std::vector<std::string> text;
 
-        result(error t);
+        Result(Error t);
 
-        result&
+        Result&
         operator<<(const std::string& t);
 
         operator bool() const;
@@ -45,88 +45,88 @@ namespace euphoria::core::tracery
     };
 
     std::ostream&
-    operator<<(std::ostream& o, const result& r);
+    operator<<(std::ostream& o, const Result& r);
 
     struct generator_argument;
 
 
-    struct node
+    struct Node
     {
-        node() = default;
-        virtual ~node();
+        Node() = default;
+        virtual ~Node();
 
-        NONCOPYABLE(node);
+        NONCOPYABLE(Node);
 
-        virtual result
+        virtual Result
         flatten(generator_argument* generator) const = 0;
     };
 
 
-    struct modifier
+    struct Modifier
     {
-        modifier() = default;
-        virtual ~modifier();
+        Modifier() = default;
+        virtual ~Modifier();
 
-        NONCOPYABLE(modifier);
+        NONCOPYABLE(Modifier);
 
-        virtual result
+        virtual Result
         apply_modifier(const std::string& input) = 0;
     };
 
-    struct rule
+    struct Rule
     {
-        rule();
+        Rule();
 
-        result
+        Result
         compile(const std::string& s);
 
-        result
+        Result
         flatten(generator_argument* gen) const;
 
         void
-        add(std::shared_ptr<node> p);
+        add(std::shared_ptr<Node> p);
 
-        std::vector<std::shared_ptr<node>> syntax;
+        std::vector<std::shared_ptr<Node>> syntax;
     };
 
-    struct symbol
+    struct Symbol
     {
-        explicit symbol(const std::string& k);
+        explicit Symbol(const std::string& k);
 
         std::string key;
-        std::vector<rule> ruleset;
+        std::vector<Rule> ruleset;
 
-        result
+        Result
         add_rule(const std::string& rule);
 
-        result
+        Result
         flatten(generator_argument* gen) const;
     };
 
-    struct grammar
+    struct Grammar
     {
-        grammar();
+        Grammar();
 
         void
         register_english();
 
-        [[nodiscard]] result
+        [[nodiscard]] Result
         load_from_string(const std::string& filename, const std::string& data);
 
-        [[nodiscard]] result
+        [[nodiscard]] Result
         get_string_from_symbol(const std::string& rule, generator_argument* generator) const;
 
-        grammar&
-        register_modifier(const std::string& name, std::shared_ptr<modifier> m);
+        Grammar&
+        register_modifier(const std::string& name, std::shared_ptr<Modifier> m);
 
-        [[nodiscard]] result
+        [[nodiscard]] Result
         apply_modifier(const std::string& name, const std::string& data) const;
 
-        [[nodiscard]] result
-        flatten(core::random* random, const std::string& rule) const;
+        [[nodiscard]] Result
+        flatten(core::Random* random, const std::string& rule) const;
 
-        std::map<std::string, symbol> rules;
-        std::map<std::string, std::shared_ptr<modifier>> modifiers;
+        std::map<std::string, Symbol> rules;
+        std::map<std::string, std::shared_ptr<Modifier>> modifiers;
     };
 
 }

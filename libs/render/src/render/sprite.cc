@@ -13,7 +13,7 @@ namespace euphoria::render
     sprite::sprite
     (
         std::shared_ptr<texture2d> texture,
-        const core::vec2f& position
+        const core::Vec2f& position
     )
         : texture(texture)
         , position(position)
@@ -42,17 +42,17 @@ namespace euphoria::render
         render->draw_sprite
         (
             *texture,
-            core::rectf::from_position_anchor_width_and_height
+            core::Rectf::from_position_anchor_width_and_height
             (
                 position,
-                core::scale2f{0, 0},
+                core::Scale2f{0, 0},
                 static_cast<float>(texture->width),
                 static_cast<float>(texture->height)
             ),
             draw_data{}
                 .set_rotation(rotation)
                 .set_scale(scale)
-                .set_tint(core::rgba(color, alpha))
+                .set_tint(core::Rgba(color, alpha))
         );
     }
 

@@ -58,14 +58,14 @@ using namespace euphoria::engine;
 
 
 std::optional<game::Game>
-load_game_data(vfs::file_system* fs)
+load_game_data(vfs::FileSystem* fs)
 {
     return get_optional_and_log_errors
     (
         read_xml_file_to_gaf_struct<::game::Game>
         (
             fs,
-            vfs::file_path{"~/gamedata.xml"},
+            vfs::FilePath{"~/gamedata.xml"},
             ::game::ReadXmlElementGame
         )
     );
@@ -98,13 +98,13 @@ private:
 };
 
 run_result
-run_main_script_file(lua* duk, vfs::file_system* fs, const vfs::file_path& path)
+run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
 {
     std::string content;
     const bool loaded = fs->read_file_to_string(path, &content);
     if(!loaded)
     {
-        const std::string error_message = string_builder() << "Unable to open " << path
+        const std::string error_message = StringBuilder() << "Unable to open " << path
                                                 << " for running";
         LOG_ERROR("{0}", error_message);
         return run_result::create_error(error_message);
@@ -117,7 +117,7 @@ run_main_script_file(lua* duk, vfs::file_system* fs, const vfs::file_path& path)
     if(!eval.valid())
     {
         const sol::error err = eval;
-        const std::string error_message = string_builder() << "Failed to run " << path << ": " << err.what();
+        const std::string error_message = StringBuilder() << "Failed to run " << path << ": " << err.what();
         LOG_ERROR("{0}", error_message);
         return run_result::create_error(error_message);
     }
@@ -144,21 +144,21 @@ con(game::ViewportType type)
 }
 
 
-rgb
+Rgb
 get_color(std::shared_ptr<game::Color> c)
 {
     if(c == nullptr)
     {
-        return color::gray;
+        return NamedColor::gray;
     }
 
     if(c->hex != nullptr)
     {
-        return rgb::from_hex(colorutil::from_string_to_hex(*c->hex));
+        return Rgb::from_hex(colorutil::from_string_to_hex(*c->hex));
     }
 
     LOG_ERROR("Unable to parse color");
-    return color::cornflower_blue;
+    return NamedColor::cornflower_blue;
 }
 
 
@@ -180,14 +180,14 @@ int
 main(int argc, char* argv[])
 {
     engine engine;
-    if(const auto ret = engine.setup(argparse::name_and_arguments::extract(argc, argv)); ret != 0)
+    if(const auto ret = engine.setup(argparse::NameAndArguments::extract(argc, argv)); ret != 0)
     {
         return ret;
     }
 
     engine.file_system->set_write_root
     (
-        std::make_shared<vfs::write_root_physical_folder>(get_current_directory())
+        std::make_shared<vfs::WriteRootPhysicalFolder>(get_current_directory())
     );
 
     texture_cache cache {engine.file_system.get()};
@@ -222,10 +222,10 @@ main(int argc, char* argv[])
     for(const auto& bind: gamedata.binds)
     {
         auto key = to_key(bind.key);
-        if(key == key::invalid)
+        if(key == Key::invalid)
         {
             LOG_ERROR("Invalid key: {0}", bind.key);
-            key = key::unbound;
+            key = Key::unbound;
         }
 
         input.add(std::make_shared<bound_var>(bind.name, key));
@@ -233,11 +233,11 @@ main(int argc, char* argv[])
 
     shader shader;
     attributes2d::prebind_shader(&shader);
-    shader.load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
+    shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
     sprite_renderer renderer(&shader);
     font_cache font_cache {engine.file_system.get(), &cache};
 
-    lua duk;
+    LuaState duk;
 
     // todo(Gustav): replace with duk reference
     std::string& crash_message_string = duk.error;
@@ -256,8 +256,8 @@ main(int argc, char* argv[])
     bind_math(&duk);
     input_system::bind(&duk);
 
-    systems systems;
-    world world {&systems};
+    Systems systems;
+    World world {&systems};
     components components {&world.reg};
     add_systems(&systems, &components);
     object_creator templates;
@@ -274,7 +274,7 @@ main(int argc, char* argv[])
         &camera_data
     };
     const auto error_run_main
-            = run_main_script_file(&duk, engine.file_system.get(), vfs::file_path{"~/main.lua"});
+            = run_main_script_file(&duk, engine.file_system.get(), vfs::FilePath{"~/main.lua"});
     if(!error_run_main.ok)
     {
         has_crashed = true;
@@ -311,7 +311,7 @@ main(int argc, char* argv[])
             engine.file_system.get(),
             &world,
             &integration.get_registry(),
-            vfs::file_path{"~/world.xml"},
+            vfs::FilePath{"~/world.xml"},
             &templates,
             &duk
         );
@@ -357,7 +357,7 @@ main(int argc, char* argv[])
                 if(e.type == SDL_KEYUP)
                 {
                     const auto key = to_key(e.key.keysym);
-                    if(key == key::escape)
+                    if(key == Key::escape)
                     {
                         running = false;
                     }
@@ -432,7 +432,7 @@ main(int argc, char* argv[])
             // nothing much is required just a better overflow detection
             // when rendering the error, perhaps making the error more visible
             // though clicking around and debugging might be useful...
-            engine.init->clear_screen(color::cornflower_blue);
+            engine.init->clear_screen(NamedColor::cornflower_blue);
 
             if(imgui::begin_fixed_overlay(corner::center, "Crashed"))
             {

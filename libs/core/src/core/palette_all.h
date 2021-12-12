@@ -7,7 +7,7 @@
 
 namespace euphoria::core
 {
-    struct palette;
+    struct Palette;
 }
 
 namespace euphoria::core::palettes
@@ -80,7 +80,7 @@ namespace euphoria::core::palettes
         green_orange_12
     };
 
-    palette
+    Palette
     get_palette(name palette_name);
 
     constexpr std::array palette_names

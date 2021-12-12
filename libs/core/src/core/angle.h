@@ -6,9 +6,9 @@
 
 namespace euphoria::core
 {
-    struct random;
+    struct Random;
 
-    struct angle
+    struct Angle
     {
         [[nodiscard]] constexpr float
         in_degrees() const
@@ -24,45 +24,45 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] constexpr static angle
+        [[nodiscard]] constexpr static Angle
         from_degrees(float degrees)
         {
-            return angle(degrees_to_radian(degrees));
+            return Angle(degrees_to_radian(degrees));
         }
 
 
-        [[nodiscard]] constexpr static angle
+        [[nodiscard]] constexpr static Angle
         from_radians(float radians)
         {
-            return angle(radians);
+            return Angle(radians);
         }
 
 
-        [[nodiscard]] constexpr static angle
+        [[nodiscard]] constexpr static Angle
         from_percent_of_360(float percent)
         {
-            return angle::from_radians(percent * pi * 2.0f);
+            return Angle::from_radians(percent * pi * 2.0f);
         }
 
 
-        [[nodiscard]] constexpr static angle
+        [[nodiscard]] constexpr static Angle
         one_turn()
         {
-            return angle::from_radians(pi * 2.0f);
+            return Angle::from_radians(pi * 2.0f);
         }
 
 
-        [[nodiscard]] constexpr static angle
+        [[nodiscard]] constexpr static Angle
         quarter()
         {
-            return angle::from_radians(pi / 2.0f);
+            return Angle::from_radians(pi / 2.0f);
         }
 
 
-        [[nodiscard]] constexpr static angle
+        [[nodiscard]] constexpr static Angle
         zero()
         {
-            return angle::from_radians(0.0f);
+            return Angle::from_radians(0.0f);
         }
 
 
@@ -73,18 +73,18 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] constexpr static angle
+        [[nodiscard]] constexpr static Angle
         from_percent_of_180(float percent)
         {
-            return angle::from_radians(percent * pi);
+            return Angle::from_radians(percent * pi);
         }
 
 
-        [[nodiscard]] static angle
-        random(::euphoria::core::random* random);
+        [[nodiscard]] static Angle
+        random(::euphoria::core::Random* random);
 
 
-        [[nodiscard]] angle
+        [[nodiscard]] Angle
         get_wrapped() const;
 
 
@@ -93,11 +93,11 @@ namespace euphoria::core
 
 
         void
-        operator+=(const angle& rhs);
+        operator+=(const Angle& rhs);
 
 
         void
-        operator-=(const angle& rhs);
+        operator-=(const Angle& rhs);
 
 
         void
@@ -108,7 +108,7 @@ namespace euphoria::core
         operator/=(float rhs);
 
 
-        angle
+        Angle
         operator-() const;
 
     private:
@@ -124,98 +124,98 @@ namespace euphoria::core
             return pi / 180.0f * degrees;
         }
 
-        constexpr explicit angle(float r) : radians(r) {}
+        constexpr explicit Angle(float r) : radians(r) {}
 
         float radians;
     };
 
 
     float
-    sin(const angle& ang);
+    sin(const Angle& ang);
 
 
     float
-    cos(const angle& ang);
+    cos(const Angle& ang);
 
 
     float
-    tan(const angle& ang);
+    tan(const Angle& ang);
 
 
-    angle
+    Angle
     asin(float v);
 
 
-    angle
+    Angle
     acos(float v);
 
 
-    angle
+    Angle
     atan(float v);
 
 
-    angle
+    Angle
     atan2(float y, float x);
 
 
-    angle
-    operator+(const angle& lhs, const angle& rhs);
+    Angle
+    operator+(const Angle& lhs, const Angle& rhs);
 
 
-    angle
-    operator-(const angle& lhs, const angle& rhs);
+    Angle
+    operator-(const Angle& lhs, const Angle& rhs);
 
 
-    angle
-    operator*(const angle& lhs, float rhs);
+    Angle
+    operator*(const Angle& lhs, float rhs);
 
 
-    angle
-    operator/(const angle& lhs, float rhs);
+    Angle
+    operator/(const Angle& lhs, float rhs);
 
 
-    angle
-    operator*(float rhs, const angle& lhs);
+    Angle
+    operator*(float rhs, const Angle& lhs);
 
 
     std::ostream&
-    operator<<(std::ostream& stream, const angle& a);
+    operator<<(std::ostream& stream, const Angle& a);
 
 
     bool
-    operator<(const angle& lhs, const angle& rhs);
+    operator<(const Angle& lhs, const Angle& rhs);
 
 
     bool
-    operator<=(const angle& lhs, const angle& rhs);
+    operator<=(const Angle& lhs, const Angle& rhs);
 
 
     bool
-    operator>(const angle& lhs, const angle& rhs);
+    operator>(const Angle& lhs, const Angle& rhs);
 
 
     bool
-    operator>=(const angle& lhs, const angle& rhs);
+    operator>=(const Angle& lhs, const Angle& rhs);
 
 
     struct angle_transform
     {
-        static angle
-        transform(const angle& from, float v, const angle& to);
+        static Angle
+        transform(const Angle& from, float v, const Angle& to);
     };
 }
 
 
 namespace euphoria::convert
 {
-    constexpr core::angle operator"" _deg(long double d)
+    constexpr core::Angle operator"" _deg(long double d)
     {
-        return core::angle::from_degrees(static_cast<float>(d));
+        return core::Angle::from_degrees(static_cast<float>(d));
     }
 
 
-    constexpr core::angle operator"" _rad(long double r)
+    constexpr core::Angle operator"" _rad(long double r)
     {
-        return core::angle::from_radians(static_cast<float>(r));
+        return core::Angle::from_radians(static_cast<float>(r));
     }
 }

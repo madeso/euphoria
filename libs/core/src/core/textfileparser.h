@@ -7,15 +7,15 @@ namespace euphoria::core
 {
     namespace detail
     {
-        struct textfile
+        struct Textfile
         {
-            textfile() = default;
-            virtual ~textfile() = default;
+            Textfile() = default;
+            virtual ~Textfile() = default;
 
-            textfile(const textfile&) = delete;
-            textfile(textfile&&) = delete;
-            void operator=(const textfile&) = delete;
-            void operator=(textfile&&) = delete;
+            Textfile(const Textfile&) = delete;
+            Textfile(Textfile&&) = delete;
+            void operator=(const Textfile&) = delete;
+            void operator=(Textfile&&) = delete;
 
             [[nodiscard]]
             virtual bool
@@ -34,10 +34,10 @@ namespace euphoria::core
             read() = 0;
         };
 
-        std::shared_ptr<textfile>
+        std::shared_ptr<Textfile>
         create_from_string(const std::string& str);
 
-        struct location
+        struct LocationInFile
         {
             int line = -1;
             int column = -1;
@@ -49,11 +49,11 @@ namespace euphoria::core
 
     /** Parses a text file in memory.
      */
-    struct textfile_parser
+    struct TextfileParser
     {
-        explicit textfile_parser(std::shared_ptr<detail::textfile> afile);
+        explicit TextfileParser(std::shared_ptr<detail::Textfile> afile);
 
-        static textfile_parser
+        static TextfileParser
         from_string(const std::string& str);
 
         
@@ -100,8 +100,8 @@ namespace euphoria::core
         int
         get_column() const;
 
-        std::shared_ptr<detail::textfile> file;
-        detail::location location = detail::location{ 1, 1 };
+        std::shared_ptr<detail::Textfile> file;
+        detail::LocationInFile location = detail::LocationInFile{ 1, 1 };
     };
 
 }

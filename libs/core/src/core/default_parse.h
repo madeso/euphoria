@@ -16,9 +16,9 @@ namespace euphoria::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<custom_argparser<T>::value != 0, int> = 0
+        std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
     >
-    result<T>
+    Result<T>
     default_parse_function
     (
         const std::string& value
@@ -34,11 +34,11 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == false && custom_argparser<T>::value == 0,
+            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0,
             int
         > = 0
     >
-    result<T>
+    Result<T>
     default_parse_function
     (
         const std::string& value
@@ -49,11 +49,11 @@ namespace euphoria::core::argparse
         stream >> t;
         if(stream.fail() || !stream.eof())
         {
-            return result<T>::create_error();
+            return Result<T>::create_error();
         }
         else
         {
-            return result<T>::create_value(t);
+            return Result<T>::create_value(t);
         }
     }
 
@@ -63,11 +63,11 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == true && custom_argparser<T>::value == 0,
+            std::is_enum<T>::value == true && CustomArgparser<T>::value == 0,
             int
         > = 0
     >
-    result<T>
+    Result<T>
     default_parse_function
     (
         const std::string& value
@@ -76,11 +76,11 @@ namespace euphoria::core::argparse
         auto matches = core::string_to_enum<T>(value);
         if (matches.single_match)
         {
-            return result<T>::create_value(matches.values[0]);
+            return Result<T>::create_value(matches.values[0]);
         }
         else
         {
-            return result<T>::create_error(string_builder() << "did you mean " <<
+            return Result<T>::create_error(StringBuilder() << "did you mean " <<
                 quote_and_combine_english_or(matches.names)
                 << '?'
             );
@@ -108,7 +108,7 @@ namespace euphoria::core::argparse
     std::optional<std::string>
     default_describe()
     {
-        const std::string r = string_builder() << "can be either " <<
+        const std::string r = StringBuilder() << "can be either " <<
             quote_and_combine_english_or
             (
                 enum_to_string<T>()
@@ -120,7 +120,7 @@ namespace euphoria::core::argparse
     template
     <
         typename T,
-        std::enable_if_t<custom_argparser<T>::value != 0, int> = 0
+        std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
     >
     std::string
     default_value_to_string(const T& t)
@@ -135,7 +135,7 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == false && custom_argparser<T>::value == 0,
+            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0,
             int
         > = 0
     >
@@ -153,7 +153,7 @@ namespace euphoria::core::argparse
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == true && custom_argparser<T>::value == 0,
+            std::is_enum<T>::value == true && CustomArgparser<T>::value == 0,
             int
         > = 0
     >

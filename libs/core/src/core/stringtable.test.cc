@@ -4,34 +4,37 @@
 
 namespace euco = euphoria::core;
 
-TEST_CASE("stringtable-generator", "[stringtable]")
+namespace
 {
-    struct person
+    struct Person
     {
         std::string first;
         std::string last;
     };
+}
 
-    const auto persons = std::vector<person>
+TEST_CASE("stringtable-generator", "[stringtable]")
+{
+    const auto persons = std::vector<Person>
     {
-        person {"Jerry", "Seinfeld"},
-        person {"Elaine", "Benes"},
-        person {"Cosmo", "Kramer"},
-        person {"George", "Costanza"}
+        Person {"Jerry", "Seinfeld"},
+        Person {"Elaine", "Benes"},
+        Person {"Cosmo", "Kramer"},
+        Person {"George", "Costanza"}
     };
 
     SECTION("first and last names")
     {
-        const auto table = euco::table_generator<person>(persons)
+        const auto table = euco::TableGenerator<Person>(persons)
             .add_column
             (
                "First name",
-               [](const person& p) -> std::string { return p.first; }
+               [](const Person& p) -> std::string { return p.first; }
             )
             .add_column
             (
                "Last name",
-               [](const person& p) -> std::string { return p.last; }
+               [](const Person& p) -> std::string { return p.last; }
             )
             .to_table()
             ;
@@ -47,18 +50,18 @@ TEST_CASE("stringtable-generator", "[stringtable]")
 
     SECTION("sort on last name")
     {
-        const auto table = euco::table_generator<person>(persons)
+        const auto table = euco::TableGenerator<Person>(persons)
             .add_column
             (
                 "First name",
-                [](const person& p) -> std::string { return p.first; }
+                [](const Person& p) -> std::string { return p.first; }
             )
             .add_column
             (
                 "Last name",
-                [](const person& p) -> std::string { return p.last; }
+                [](const Person& p) -> std::string { return p.last; }
             )
-            .sort(&person::last)
+            .sort(&Person::last)
             .to_table()
             ;
         REQUIRE(table.get_width() == 2);
@@ -107,8 +110,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
 
     SECTION("with spaces (trim)")
     {
-        euco::csv_parser_options options;
-        options.trim = euco::csv_trim::trim;
+        euco::CsvParserOptions options;
+        options.trim = euco::CsvTrim::trim;
 
         const auto table = euco::table_from_csv("  a  ,  b  \n  1    ,  2  ", options);
         REQUIRE(table.get_width() == 2);
@@ -128,8 +131,8 @@ TEST_CASE("stringtable-from_csv_default", "[stringtable]")
 
     SECTION("with spaces (string)")
     {
-        euco::csv_parser_options options;
-        options.trim = euco::csv_trim::trim;
+        euco::CsvParserOptions options;
+        options.trim = euco::CsvTrim::trim;
 
         const auto table = euco::table_from_csv("a,   \" b \"   \n1,2", options);
         REQUIRE(table.get_width() == 2);
@@ -183,7 +186,7 @@ TEST_CASE("stringtable-from_csv_not_default", "[stringtable]")
     const auto first_column_string = std::vector<std::string> {"a b", "1"};
     const auto second_column = std::vector<std::string> {"b", "2"};
 
-    euco::csv_parser_options options;
+    euco::CsvParserOptions options;
     options.delim = 'c';
     options.str = 's';
 

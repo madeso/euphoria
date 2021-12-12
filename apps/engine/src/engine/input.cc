@@ -6,13 +6,13 @@
 
 namespace euphoria::engine
 {
-    bound_var::bound_var(const std::string& n, const core::key& k)
+    bound_var::bound_var(const std::string& n, const core::Key& k)
         : name(n), state(0), last_state(0), key(k)
     {
     }
 
     void
-    bind_bound_var(lua* duk)
+    bind_bound_var(LuaState* duk)
     {
         duk->state.new_usertype<bound_var>
         (
@@ -32,7 +32,7 @@ namespace euphoria::engine
 
 
     void
-    input_system::bind(lua* duk)
+    input_system::bind(LuaState* duk)
     {
         bind_bound_var(duk);
     }
@@ -46,7 +46,7 @@ namespace euphoria::engine
 
 
     void
-    input_system::set_key_state(core::key key, float state)
+    input_system::set_key_state(core::Key key, float state)
     {
         // todo(Gustav): move state to another class, and fix this loop
         for(const auto& bind: binds)

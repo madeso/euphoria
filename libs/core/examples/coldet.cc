@@ -17,94 +17,94 @@ using namespace euphoria::core::dump3d;
 
 struct plane_demo
 {
-    const euphoria::core::plane plane = euphoria::core::plane::from_points
-    (vec3f(5, 6, 7), vec3f(6, 5, 4), vec3f(1, 2, 3));
-    const std::vector<vec3f> points =
+    const euphoria::core::Plane plane = euphoria::core::Plane::from_points
+    (Vec3f(5, 6, 7), Vec3f(6, 5, 4), Vec3f(1, 2, 3));
+    const std::vector<Vec3f> points =
     {
-        vec3f(0.0f, 0.0f, 0.0f),
-        vec3f(2.0f, 6.0f, 1.0f),
-        vec3f(3.0f, 1.0f, -3.0f),
-        vec3f(-2.0f, -1.0f, 2.0f),
-        vec3f(7.0f, 7.0f, -7.0f),
-        vec3f(3.0f, 2.0f, -1.0f),
-        vec3f(10.0f, 3.0f, -10.0f),
-        vec3f(2.0f, 8.0f, -7.0f),
-        vec3f(-1.632993f, 3.265986f, -1.632993f),
-        vec3f(-1.020621f, 3.265986f, -2.245366f)
+        Vec3f(0.0f, 0.0f, 0.0f),
+        Vec3f(2.0f, 6.0f, 1.0f),
+        Vec3f(3.0f, 1.0f, -3.0f),
+        Vec3f(-2.0f, -1.0f, 2.0f),
+        Vec3f(7.0f, 7.0f, -7.0f),
+        Vec3f(3.0f, 2.0f, -1.0f),
+        Vec3f(10.0f, 3.0f, -10.0f),
+        Vec3f(2.0f, 8.0f, -7.0f),
+        Vec3f(-1.632993f, 3.265986f, -1.632993f),
+        Vec3f(-1.020621f, 3.265986f, -2.245366f)
     };
 
     void
     distance_to_plane() const
     {
-        auto d = dumper{ "coldet-distance-to-plane.html" };
+        auto d = Dumper{ "coldet-distance-to-plane.html" };
 
-        d.add_plane(plane, color::white);
-        d.add_arrow(ray3f(vec3f::zero(), plane.normal), color::green);
+        d.add_plane(plane, NamedColor::white);
+        d.add_arrow(Ray3f(Vec3f::zero(), plane.normal), NamedColor::green);
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
-            d.add_sphere(p, 0.1f, euphoria::core::abs(dist) < 0.01f ? color::yellow : (dist < 0 ? color::black : color::white));
+            d.add_sphere(p, 0.1f, euphoria::core::abs(dist) < 0.01f ? NamedColor::yellow : (dist < 0 ? NamedColor::black : NamedColor::white));
         }
     }
 
     void
     point_to_plane() const
     {
-        auto d = dumper{ "coldet-point-to-plane.html" };
+        auto d = Dumper{ "coldet-point-to-plane.html" };
 
-        d.add_plane(plane, color::white);
-        d.add_arrow(ray3f(vec3f::zero(), plane.normal), color::green);
+        d.add_plane(plane, NamedColor::white);
+        d.add_arrow(Ray3f(Vec3f::zero(), plane.normal), NamedColor::green);
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
             if (euphoria::core::abs(dist) < 0.01f) { continue; }
 
             const auto pp = get_closest_point(plane, p);
-            d.add_arrow(ray3f::from_to(p, pp), color::black);
+            d.add_arrow(Ray3f::from_to(p, pp), NamedColor::black);
         }
     }
 };
 
 struct ray_demo
 {
-    const ray3f ray = {vec3f(-3, -2, -1), vec3f(3, 2, 1)};
-    const std::vector<vec3f> points =
+    const Ray3f ray = {Vec3f(-3, -2, -1), Vec3f(3, 2, 1)};
+    const std::vector<Vec3f> points =
     {
-        vec3f(-3, -2, -1),
-        vec3f(12, 8, 4),
-        vec3f(0, 0, 0),
-        vec3f(-18, -12, -6),
-        vec3f(-4, -7, -8),
-        vec3f(7, 8, 5),
-        vec3f(1, 5, -5),
-        vec3f(-6, 5, 7),
-        vec3f(1, 6, 8),
-        vec3f(-7, -10, -4),
-        vec3f(-4.5f, -3.0f, -1.5f)
+        Vec3f(-3, -2, -1),
+        Vec3f(12, 8, 4),
+        Vec3f(0, 0, 0),
+        Vec3f(-18, -12, -6),
+        Vec3f(-4, -7, -8),
+        Vec3f(7, 8, 5),
+        Vec3f(1, 5, -5),
+        Vec3f(-6, 5, 7),
+        Vec3f(1, 6, 8),
+        Vec3f(-7, -10, -4),
+        Vec3f(-4.5f, -3.0f, -1.5f)
     };
 
     void
     point_on_ray() const
     {
-        auto d = dumper{ "coldet-point-on-ray.html" };
+        auto d = Dumper{ "coldet-point-on-ray.html" };
 
         d.add_grid();
-        d.add_arrow(ray, color::black);
+        d.add_arrow(ray, NamedColor::black);
 
         for (const auto p : points)
         {
             const auto dist = get_distance_between(ray.get_normalized(), p);
-            d.add_sphere(p, 0.1f, dist < 0.001f ? color::white : color::black);
+            d.add_sphere(p, 0.1f, dist < 0.001f ? NamedColor::white : NamedColor::black);
         }
     }
 
     void
     closest_point_on_ray() const
     {
-        auto d = dumper{ "coldet-closest-point-on-ray.html" };
+        auto d = Dumper{ "coldet-closest-point-on-ray.html" };
 
         d.add_grid();
-        d.add_arrow(ray, color::black);
+        d.add_arrow(ray, NamedColor::black);
 
         for (const auto p : points)
         {
@@ -112,7 +112,7 @@ struct ray_demo
             if (dist < 0.001f) { continue; }
 
             const auto pp = get_closest_point(ray.get_normalized(), p);
-            d.add_arrow(ray3f::from_to(p, pp), color::red);
+            d.add_arrow(Ray3f::from_to(p, pp), NamedColor::red);
         }
     }
 
@@ -131,9 +131,9 @@ ray_sphere()
     )
     {
         // todo(Gustav): add scene support to dumper...
-        const auto ray = ray3f(vec3f(ray_x, ray_y, ray_z), vec3f(norm_x, norm_y, norm_z).get_normalized());
-        const auto sphere = ::sphere{rad};
-        const auto sphere_center = vec3f(sphere_x, sphere_y, sphere_z);
+        const auto ray = Ray3f(Vec3f(ray_x, ray_y, ray_z), Vec3f(norm_x, norm_y, norm_z).get_normalized());
+        const auto sphere = ::Sphere{rad};
+        const auto sphere_center = Vec3f(sphere_x, sphere_y, sphere_z);
         const auto collision = get_intersection(ray.get_normalized(), sphere, sphere_center);
         const auto collided = collision >= 0.0f;
         if(collided != res)

@@ -10,7 +10,7 @@
 
 namespace euphoria::core::palettes
 {
-    palette
+    Palette
     get_palette(name palette_name)
     {
         switch(palette_name)

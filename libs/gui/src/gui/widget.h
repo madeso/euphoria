@@ -59,14 +59,14 @@ namespace euphoria::gui
         void
         on_size_changed();
 
-        [[nodiscard]] core::rectf
+        [[nodiscard]] core::Rectf
         get_client_rect() const;
 
-        [[nodiscard]] core::rectf
+        [[nodiscard]] core::Rectf
         get_background_rect() const;
 
         void
-        set_rect(const core::rectf& r);
+        set_rect(const core::Rectf& r);
 
         [[nodiscard]] core::size2f
         get_preferred_size() const;
@@ -92,6 +92,6 @@ namespace euphoria::gui
         gui::ui_state* ui_state;
 
         layout_data layout;
-        core::rectf rect;
+        core::Rectf rect;
     };
 }

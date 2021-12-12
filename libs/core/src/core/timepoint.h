@@ -5,11 +5,11 @@
 
 namespace euphoria::core
 {
-    using time_point = std::chrono::time_point<std::chrono::steady_clock>;
+    using TimePoint = std::chrono::time_point<std::chrono::steady_clock>;
 
-    time_point
+    TimePoint
     time_point_now();
 
     float
-    get_seconds_between(const time_point& start, const time_point& end);
+    get_seconds_between(const TimePoint& start, const TimePoint& end);
 }

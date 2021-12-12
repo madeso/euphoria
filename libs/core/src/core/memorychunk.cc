@@ -9,63 +9,63 @@
 namespace euphoria::core
 {
     char*
-    memory_chunk::get_data()
+    MemoryChunk::get_data()
     {
         return data.get();
     }
 
     const char*
-    memory_chunk::get_data() const
+    MemoryChunk::get_data() const
     {
         return data.get();
     }
 
     int
-    memory_chunk::get_size() const
+    MemoryChunk::get_size() const
     {
         return size;
     }
 
-    char memory_chunk::operator[](int index) const
+    char MemoryChunk::operator[](int index) const
     {
         return data[index];
     }
 
-    char& memory_chunk::operator[](int index)
+    char& MemoryChunk::operator[](int index)
     {
         return data[index];
     }
 
-    std::shared_ptr<memory_chunk>
-    memory_chunk::allocate(int size)
+    std::shared_ptr<MemoryChunk>
+    MemoryChunk::allocate(int size)
     {
-        std::shared_ptr<memory_chunk> ret {new memory_chunk(size)};
+        std::shared_ptr<MemoryChunk> ret {new MemoryChunk(size)};
         return ret;
     }
 
-    std::shared_ptr<memory_chunk>
-    memory_chunk::null()
+    std::shared_ptr<MemoryChunk>
+    MemoryChunk::null()
     {
-        std::shared_ptr<memory_chunk> ret;
+        std::shared_ptr<MemoryChunk> ret;
         return ret;
     }
 
-    memory_chunk::memory_chunk(int the_size) : size(the_size)
+    MemoryChunk::MemoryChunk(int the_size) : size(the_size)
     {
         ASSERT(size > 0);
         data = std::make_unique<char[]>(size);
     }
 
     void
-    copy_to_memory(memory_chunk* memory, const void* src)
+    copy_to_memory(MemoryChunk* memory, const void* src)
     {
         std::memcpy(memory->get_data(), src, sizeof(char) * memory->get_size());
     }
 
-    std::shared_ptr<memory_chunk>
+    std::shared_ptr<MemoryChunk>
     create_memory_chunk_from_string(const std::string& content)
     {
-        auto file = memory_chunk::allocate
+        auto file = MemoryChunk::allocate
         (
                 c_sizet_to_int(content.length() + 1)
         );
@@ -73,14 +73,14 @@ namespace euphoria::core
         return file;
     }
 
-    memory_chunk_file::memory_chunk_file(std::shared_ptr<memory_chunk> d)
+    MemoryChunkFile::MemoryChunkFile(std::shared_ptr<MemoryChunk> d)
         : data(std::move(d))
         , position(0)
     {
     }
 
     void
-    memory_chunk_file::write(const void* src, int size)
+    MemoryChunkFile::write(const void* src, int size)
     {
         ASSERT(position + size <= data->get_size());
         std::memcpy(data->get_data() + position, src, sizeof(char) * size);

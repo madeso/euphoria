@@ -9,7 +9,7 @@ using namespace euphoria::tests;
 
 TEST_CASE("camera-clip2world", "[camera]")
 {
-    euco::camera3 camera;
+    euco::Camera3 camera;
 
     const std::vector<float> aspects {1.0f, 2.0f, 0.5f};
 
@@ -26,7 +26,7 @@ TEST_CASE("camera-clip2world", "[camera]")
             {
                 for(float z: values)
                 {
-                    const auto start = euco::vec3f {x, y, z};
+                    const auto start = euco::Vec3f {x, y, z};
                     const auto world = cc.clip_to_world(start);
                     const auto clip = cc.world_to_clip(world);
                     REQUIRE(approx(start) == clip);
@@ -58,7 +58,7 @@ TEST_CASE("camera-world2clip", "[camera]")
           {
             Camera camera;
             camera.position = vec3f{cx, cy, cz};
-            camera.rotation = quatf::FromAxisAngle(AxisAngle::RightHandAround(
+            camera.rotation = Quatf::FromAxisAngle(AxisAngle::RightHandAround(
                 vec3f::YAxis(), Angle::FromDegrees(angle)));
             const auto cc = camera.Compile(aspect);
 

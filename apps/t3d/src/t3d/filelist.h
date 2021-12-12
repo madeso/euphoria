@@ -8,7 +8,7 @@
 
 namespace euphoria::core::vfs
 {
-    struct file_system;
+    struct FileSystem;
 }
 
 
@@ -19,8 +19,8 @@ namespace euphoria::t3d
         void
         add_directory
         (
-            const core::vfs::dir_path& path,
-            core::vfs::file_system* file_system
+            const core::vfs::DirPath& path,
+            core::vfs::FileSystem* file_system
         );
 
 
@@ -28,12 +28,12 @@ namespace euphoria::t3d
         has_more_files() const;
 
 
-        core::vfs::file_path
+        core::vfs::FilePath
         get_next_file();
 
 
         std::vector<std::string> extensions;
-        std::vector<core::vfs::file_path> files;
+        std::vector<core::vfs::FilePath> files;
         std::size_t index = 0;
     };
 }

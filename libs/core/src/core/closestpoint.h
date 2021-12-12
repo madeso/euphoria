@@ -16,12 +16,12 @@ namespace euphoria::core
         typename DistanceFunctionType,
         typename DistanceType
     >
-    struct get_closest_point
+    struct ClosestPointCollector
     {
         DistanceFunctionType distance_function;
         std::vector<std::tuple<Vec, Data>> points;
 
-        get_closest_point(DistanceFunctionType a_distance_function)
+        ClosestPointCollector(DistanceFunctionType a_distance_function)
             : distance_function(a_distance_function)
         {}
 

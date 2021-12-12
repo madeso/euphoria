@@ -4,10 +4,10 @@
 
 namespace euphoria::core
 {
-    id_generator::id_generator() : current(1) {}
+    IdGenerator::IdGenerator() : current(1) {}
 
-    id_generator::id
-    id_generator::generate()
+    IdGenerator::id
+    IdGenerator::generate()
     {
         if(released.empty())
         {
@@ -24,51 +24,51 @@ namespace euphoria::core
     }
 
     void
-    id_generator::release(id_generator::id id)
+    IdGenerator::release(IdGenerator::id id)
     {
         released.push_back(id);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    id::id() : value(0), generator(nullptr) {}
+    Id::Id() : value(0), generator(nullptr) {}
 
     namespace
     {
-        id_generator::id
-        generate_id(id_generator* generator)
+        IdGenerator::id
+        generate_id(IdGenerator* generator)
         {
             ASSERT(generator);
             return generator->generate();
         }
     }
 
-    id::id(id_generator* generator)
+    Id::Id(IdGenerator* generator)
         : value(generate_id(generator)), generator(generator)
     {
     }
 
-    const id&
-    id::invalid_value()
+    const Id&
+    Id::invalid_value()
     {
-        static id the_invalid_value;
+        static Id the_invalid_value;
         ASSERT(!the_invalid_value.is_valid());
         return the_invalid_value;
     }
 
-    id::~id()
+    Id::~Id()
     {
         generator->release(value);
     }
 
     bool
-    id::is_valid() const
+    Id::is_valid() const
     {
         return value > 0 && generator != nullptr;
     }
 
     void
-    id::generate(id_generator* the_generator)
+    Id::generate(IdGenerator* the_generator)
     {
         ASSERT(!is_valid());
         ASSERT(the_generator);
@@ -76,8 +76,8 @@ namespace euphoria::core
         generator = the_generator;
     }
 
-    id_generator::id
-    id::get_value() const
+    IdGenerator::id
+    Id::get_value() const
     {
         ASSERT(is_valid());
         return value;

@@ -16,9 +16,9 @@ namespace euphoria::gui
         , last_state(nullptr)
         , skin_(nullptr)
         , scale(1.0f)
-        , image_color(core::rgb(1.0f))
-        , text_color(core::rgb(1.0f))
-        , position_displacement(core::vec2f::zero())
+        , image_color(core::Rgb(1.0f))
+        , text_color(core::Rgb(1.0f))
+        , position_displacement(core::Vec2f::zero())
     {
     }
 
@@ -78,7 +78,7 @@ namespace euphoria::gui
                 position_displacement.Clear().Add
                 (
                     state->interpolation_position.type,
-                    core::vec2f(state->dx, state->dy),
+                    core::Vec2f(state->dx, state->dy),
                     state->interpolation_position.time
                 );
             }
@@ -146,7 +146,7 @@ namespace euphoria::gui
             if(text.has_text())
             {
                 const auto ex = text.get_text().get_extents();
-                // todo(Gustav): render text at client rect center
+                // todo(Gustav): render text at client Rect center
 
                 const auto base = ex.center_inside_other(get_client_rect());
                 const auto base_pos = base.get_bottom_left();

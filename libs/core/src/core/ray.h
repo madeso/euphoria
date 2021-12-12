@@ -4,59 +4,59 @@
 
 namespace euphoria::core
 {
-    struct unit_ray3f
+    struct UnitRay3f
     {
-        unit_ray3f(const vec3f& from, const unit3f& dir);
+        UnitRay3f(const Vec3f& from, const Unit3f& dir);
 
-        [[nodiscard]] static unit_ray3f
-        from_to(const vec3f& from, const vec3f& to);
+        [[nodiscard]] static UnitRay3f
+        from_to(const Vec3f& from, const Vec3f& to);
 
-        [[nodiscard]] static unit_ray3f
-        from_direction(const unit3f& dir);
+        [[nodiscard]] static UnitRay3f
+        from_direction(const Unit3f& dir);
 
-        [[nodiscard]] vec3f
+        [[nodiscard]] Vec3f
         get_point(float at) const;
 
-        vec3f from;
-        unit3f dir;
+        Vec3f from;
+        Unit3f dir;
     };
 
 
-    struct ray2f
+    struct Ray2f
     {
-        ray2f(const vec2f& p, const vec2f& d);
+        Ray2f(const Vec2f& p, const Vec2f& d);
 
-        [[nodiscard]] static ray2f
-        from_to(const vec2f& from, const vec2f& to);
+        [[nodiscard]] static Ray2f
+        from_to(const Vec2f& from, const Vec2f& to);
 
-        [[nodiscard]] static ray2f
-        from_direction(const vec2f& direction, const vec2f& pos = vec2f::zero());
+        [[nodiscard]] static Ray2f
+        from_direction(const Vec2f& direction, const Vec2f& pos = Vec2f::zero());
 
-        [[nodiscard]] vec2f
+        [[nodiscard]] Vec2f
         get_position(float d) const;
 
-        vec2f position;
-        vec2f direction;
+        Vec2f position;
+        Vec2f direction;
     };
 
-    struct ray3f
+    struct Ray3f
     {
-        ray3f(const vec3f& from, const vec3f& dir);
+        Ray3f(const Vec3f& from, const Vec3f& dir);
 
-        [[nodiscard]] static ray3f
-        from_to(const vec3f& from, const vec3f& to);
+        [[nodiscard]] static Ray3f
+        from_to(const Vec3f& from, const Vec3f& to);
 
-        [[nodiscard]] static ray3f
-        from_direction(const vec3f& dir);
+        [[nodiscard]] static Ray3f
+        from_direction(const Vec3f& dir);
 
-        [[nodiscard]] vec3f
+        [[nodiscard]] Vec3f
         get_point(float at) const;
 
-        [[nodiscard]] unit_ray3f
+        [[nodiscard]] UnitRay3f
         get_normalized() const;
 
-        vec3f from;
-        vec3f dir;
+        Vec3f from;
+        Vec3f dir;
     };
 
 }

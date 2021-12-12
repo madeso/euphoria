@@ -8,10 +8,10 @@
 
 namespace euphoria::core
 {
-    // todo(Gustav): verify samples is inside rect and considers the offset of the rect
+    // todo(Gustav): verify samples is inside Rect and considers the offset of the Rect
 
     bool
-    is_all_inside(const rectf& a, const vec2f& p, float r)
+    is_all_inside(const Rectf& a, const Vec2f& p, float r)
     {
         return
             a.left < p.x - r &&
@@ -20,14 +20,14 @@ namespace euphoria::core
             a.bottom < p.y - r;
     }
 
-    poisson_worker::poisson_worker(const rectf& aarea, random* arandom, float ar, float bs, int ak)
+    PoissonWorker::PoissonWorker(const Rectf& aarea, Random* arandom, float ar, float bs, int ak)
         : area(aarea)
         , rand(arandom)
         , r(ar)
         , bounds_check(bs)
         , k(ak)
         , w(r / sqrt(2))
-        , grid(table<int>::from_width_height(floor_to_int(area.get_width()/w), floor_to_int(area.get_height()/w), -1))
+        , grid(Table<int>::from_width_height(floor_to_int(area.get_width()/w), floor_to_int(area.get_height()/w), -1))
     {
         auto p = random_point();
         if(bounds_check > 0)
@@ -51,29 +51,29 @@ namespace euphoria::core
     }
 
 
-    vec2f
-    poisson_worker::random_point() const
+    Vec2f
+    PoissonWorker::random_point() const
     { return area.get_random_point(rand); }
 
 
-    vec2i
-    poisson_worker::point_to_index(const vec2f& p) const
-    { return vec2i{ floor_to_int(p.x/w), floor_to_int(p.y/w) }; }
+    Vec2i
+    PoissonWorker::point_to_index(const Vec2f& p) const
+    { return Vec2i{ floor_to_int(p.x/w), floor_to_int(p.y/w) }; }
 
 
     bool
-    poisson_worker::can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos)
+    PoissonWorker::can_place_at(const Vec2f& potential_sample, const Vec2i& potential_sample_pos)
     {
         const int range = 3;
         for(int dy=-range; dy<=range; dy+=1)
         {
             for(int dx=-range; dx<=range; dx+=1)
             {
-                const auto neighbour_pos = potential_sample_pos + vec2i{dx, dy};
+                const auto neighbour_pos = potential_sample_pos + Vec2i{dx, dy};
                 if(!grid.is_inside(neighbour_pos.x, neighbour_pos.y)) { continue; }
                 const auto neighbour_sample_index = grid(neighbour_pos.x, neighbour_pos.y);
                 if(neighbour_sample_index == -1) { continue; }
-                const auto d2 = vec2f::from_to(samples[neighbour_sample_index], potential_sample).get_length_squared();
+                const auto d2 = Vec2f::from_to(samples[neighbour_sample_index], potential_sample).get_length_squared();
                 if(d2 <= square(r))
                 {
                     return false;
@@ -85,8 +85,8 @@ namespace euphoria::core
     }
 
 
-    std::tuple<bool, vec2f>
-    poisson_worker::try_place(int active_index)
+    std::tuple<bool, Vec2f>
+    PoissonWorker::try_place(int active_index)
     {
         const auto base_sample = samples[active[active_index]];
 
@@ -118,19 +118,19 @@ namespace euphoria::core
             }
         }
 
-        return {false, vec2f::zero()};
+        return {false, Vec2f::zero()};
     }
 
 
     bool
-    poisson_worker::is_done() const
+    PoissonWorker::is_done() const
     {
         return active.empty();
     }
 
 
-    std::optional<std::tuple<vec2f, vec2f>>
-    poisson_worker::step()
+    std::optional<std::tuple<Vec2f, Vec2f>>
+    PoissonWorker::step()
     {
         if(active.empty())
         {
@@ -142,8 +142,8 @@ namespace euphoria::core
         const auto [placed, sample] = try_place(c_sizet_to_int(active_index));
         if(placed)
         {
-            const vec2f from = samples[active[active_index]];
-            const vec2f to = sample; //*samples.rbegin();
+            const Vec2f from = samples[active[active_index]];
+            const Vec2f to = sample; //*samples.rbegin();
             return std::make_tuple(from, to);
         }
         else
@@ -154,10 +154,10 @@ namespace euphoria::core
     }
 
 
-    std::vector<vec2f>
-    poisson_sample(const rectf& area, random* random, float r, float bs, int k)
+    std::vector<Vec2f>
+    poisson_sample(const Rectf& area, Random* random, float r, float bs, int k)
     {
-        auto worker = poisson_worker{area, random, r, bs, k};
+        auto worker = PoissonWorker{area, random, r, bs, k};
         while(!worker.is_done())
         {
             worker.step();

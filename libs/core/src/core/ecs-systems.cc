@@ -3,18 +3,18 @@
 
 namespace euphoria::core::ecs
 {
-    component_system::component_system(const std::string& the_name)
+    ComponentSystem::ComponentSystem(const std::string& the_name)
         : name(the_name)
     {}
 
     void
-    component_system_store::add(std::shared_ptr<component_system> system)
+    ComponentSystemStore::add(std::shared_ptr<ComponentSystem> system)
     {
         systems.emplace_back(system);
     }
 
     void
-    component_system_updater_store::update(registry* reg, float dt) const
+    ComponentSystemUpdaterStore::update(Registry* reg, float dt) const
     {
         for(const auto* s: systems)
         {
@@ -23,7 +23,7 @@ namespace euphoria::core::ecs
     }
 
     void
-    component_system_initializer_store::on_add(entity_id ent) const
+    ComponentSystemInitializerStore::on_add(entity_id ent) const
     {
         for(const auto* s: systems)
         {
@@ -32,8 +32,8 @@ namespace euphoria::core::ecs
     }
 
     void
-    component_system_sprite_drawer_store::draw(
-            registry* reg,
+    ComponentSystemSpriteDrawerStore::draw(
+            Registry* reg,
             render::sprite_renderer* renderer) const
     {
         for(const auto* s: systems)
@@ -43,26 +43,26 @@ namespace euphoria::core::ecs
     }
 
     void
-    systems::add_and_register(std::shared_ptr<component_system> system)
+    Systems::add_and_register(std::shared_ptr<ComponentSystem> system)
     {
         store.add(system);
         system->register_callbacks(this);
     }
 
-    world::world(ecs::systems* sys) : systems(sys)
+    World::World(ecs::Systems* sys) : systems(sys)
     {
         reg.add_callback(make_registry_entity_callback(
                 [this](entity_id id) { this->systems->initializer.on_add(id); }));
     }
 
     void
-    world::update(float dt)
+    World::update(float dt)
     {
         systems->updater.update(&reg, dt);
     }
 
     void
-    world::draw(render::sprite_renderer* renderer)
+    World::draw(render::sprite_renderer* renderer)
     {
         systems->sprite_drawer.draw(&reg, renderer);
     }

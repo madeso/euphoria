@@ -6,8 +6,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct file_system;
-    struct file_path;
+    struct FileSystem;
+    struct FilePath;
 }
 
 namespace euphoria::render
@@ -28,9 +28,9 @@ namespace euphoria::gui
     load_gui
     (
             root* root,
-            core::vfs::file_system* fs,
+            core::vfs::FileSystem* fs,
             render::font_cache* font,
-            const core::vfs::file_path& path,
+            const core::vfs::FilePath& path,
             render::texture_cache* cache
     );
 }

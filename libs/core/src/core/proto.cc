@@ -16,13 +16,13 @@
 namespace euphoria::core
 {
     std::string
-    get_string_from_path(const vfs::file_path& p)
+    get_string_from_path(const vfs::FilePath& p)
     {
-        return string_builder() << p;
+        return StringBuilder() << p;
     }
 
     std::string
-    get_string_from_path_for_debugging(vfs::file_system* fs, const vfs::file_path& p)
+    get_string_from_path_for_debugging(vfs::FileSystem* fs, const vfs::FilePath& p)
     {
         // todo(Gustav): walk vfs tree to display what part of the file exists
         // For example:
@@ -30,14 +30,14 @@ namespace euphoria::core
         //     dir/file.txt is missing in ~/folder/
         //     or
         //     ~/folder/[dir/file.txt] exists...
-        return string_builder() << p << " roots: "<< fs->get_roots_as_string();
+        return StringBuilder() << p << " roots: "<< fs->get_roots_as_string();
     }
 
     std::optional<std::string>
     get_file_contents_or_null
     (
-        vfs::file_system* fs,
-        const vfs::file_path& file_name
+        vfs::FileSystem* fs,
+        const vfs::FilePath& file_name
     )
     {
         std::string source;
@@ -90,7 +90,7 @@ namespace euphoria::core
         {
             const auto location = get_location_from_offset(source, result.offset);
             // todo(Gustav): make the source offset string better looking, like a compiler error with a "here: ^~~~~~~" text
-            return string_builder {}
+            return StringBuilder {}
                 << "XML error: " << result.description() << "\n"
                 << "Error offset: (" << location.line << ":" << location.offset << ") (error at [..." << source.substr(result.offset, 10) << "]";
         }
@@ -105,15 +105,15 @@ namespace euphoria::core
         constexpr std::size_t max_items = 3;
         const auto values = map<std::string>
         (
-            search::find_closest<search::match>
+            search::find_closest<search::Match>
             (
                 max_items, possible_values,
-                [&](const auto& value) -> search::match
+                [&](const auto& value) -> search::Match
                 {
                     return {value, invalid_value};
                 }
             ),
-            [](const search::match& m)
+            [](const search::Match& m)
             {
                 return m.name;
             }
@@ -121,29 +121,29 @@ namespace euphoria::core
         return string_mergers::english_or.merge(values);
     }
 
-    read_error_file_missing::read_error_file_missing(const std::string& p, const std::string& e)
+    ReadErrorFileMissing::ReadErrorFileMissing(const std::string& p, const std::string& e)
         : path_to_file(p)
         , error_for_debugging(e)
     {
     }
 
-    read_error_file_error::read_error_file_error(const std::string& p)
+    ReadErrorFileError::ReadErrorFileError(const std::string& p)
         : path_to_file(p)
     {
     }
 
-    read_error_file_error::read_error_file_error(const std::string& p, const std::vector<std::string>& e)
+    ReadErrorFileError::ReadErrorFileError(const std::string& p, const std::vector<std::string>& e)
         : path_to_file(p)
         , errors(e)
     {
     }
 
-    void log_read_error(const read_error_file_missing& missing)
+    void log_read_error(const ReadErrorFileMissing& missing)
     {
         LOG_ERROR("Missing file {0}: {1}", missing.path_to_file, missing.error_for_debugging);
     }
 
-    void log_read_error(const read_error_file_error& error)
+    void log_read_error(const ReadErrorFileError& error)
     {
         for(const auto& err: error.errors)
         {

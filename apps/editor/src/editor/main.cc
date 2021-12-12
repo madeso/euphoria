@@ -225,20 +225,20 @@ void
 open_or_focus_text_file
 (
     Windows* windows,
-    const vfs::file_path& path,
-    vfs::file_system* fs
+    const vfs::FilePath& path,
+    vfs::FileSystem* fs
 )
 {
     open_or_focus_window
     (
         windows,
-        string_builder {} << "File: " << path,
+        StringBuilder {} << "File: " << path,
         [&]()
         {
             std::string str;
             if(!fs->read_file_to_string(path, &str))
             {
-                str = string_builder {} << "Failed to open " << path;
+                str = StringBuilder {} << "Failed to open " << path;
             }
             return std::make_shared<text_editor_window>(str);
         }
@@ -246,15 +246,15 @@ open_or_focus_text_file
 }
 
 struct scaling_sprite_cache
-    : cache
+    : Cache
     <
-        vfs::file_path,
+        vfs::FilePath,
         scalingsprite::ScalingSprite,
         scaling_sprite_cache
     >
 {
     std::shared_ptr<scalingsprite::ScalingSprite>
-    create(const vfs::file_path&) // NOLINT load from filename
+    create(const vfs::FilePath&) // NOLINT load from filename
     {
         // todo(Gustav): load from filename
         auto ss = std::make_shared<scalingsprite::ScalingSprite>();
@@ -268,7 +268,7 @@ load_file
     scimed* scimed,
     texture_cache* cache,
     scaling_sprite_cache* shader_cache,
-    const vfs::file_path& path
+    const vfs::FilePath& path
 )
 {
     scimed->texture = cache->get_texture(path);
@@ -292,7 +292,7 @@ void
 open_or_focus_scimed
 (
     Windows* windows,
-    const vfs::file_path& file,
+    const vfs::FilePath& file,
     texture_cache* tc,
     scaling_sprite_cache* sc
 )
@@ -300,7 +300,7 @@ open_or_focus_scimed
     open_or_focus_window
     (
         windows,
-        string_builder {} << "scimed: " << file,
+        StringBuilder {} << "scimed: " << file,
         [&]() -> std::shared_ptr<generic_window>
         {
             auto scimed = std::make_shared<scimed_window>();
@@ -314,7 +314,7 @@ void
 open_or_focus_scimed_editor
 (
     Windows* windows,
-    const vfs::file_path& path,
+    const vfs::FilePath& path,
     scaling_sprite_cache* sc
 )
 {
@@ -326,7 +326,7 @@ open_or_focus_scimed_editor
     open_or_focus_window
     (
         windows,
-        string_builder {} << "scimed editor: " << file,
+        StringBuilder {} << "scimed editor: " << file,
         [&]() -> std::shared_ptr<generic_window>
         {
             auto sprite = sc->get(file);
@@ -343,8 +343,8 @@ void
 open_or_focus_on_generic_window
 (
     Windows* windows,
-    const vfs::file_path& path,
-    vfs::file_system* fs,
+    const vfs::FilePath& path,
+    vfs::FileSystem* fs,
     const std::string& title,
     TReadXmlFunction read_xml,
     TRun run_function
@@ -353,7 +353,7 @@ open_or_focus_on_generic_window
     open_or_focus_window
     (
         windows,
-        string_builder {} << title << ": " << path,
+        StringBuilder {} << title << ": " << path,
         [=]() -> std::shared_ptr<generic_window>
         {
             auto window = create_generic_window
@@ -389,10 +389,10 @@ struct file_handler
     virtual ~file_handler() = default;
 
     virtual bool
-    matches(const vfs::file_path& path) = 0;
+    matches(const vfs::FilePath& path) = 0;
 
     virtual void
-    open(Windows* windows, const vfs::file_path& path) = 0;
+    open(Windows* windows, const vfs::FilePath& path) = 0;
 };
 
 template <typename TMatchFunction, typename TOpenFunction>
@@ -413,13 +413,13 @@ struct generic_file_handler : public file_handler
     }
 
     bool
-    matches(const vfs::file_path& path) override
+    matches(const vfs::FilePath& path) override
     {
         return match_function(path);
     }
 
     void
-    open(Windows* windows, const vfs::file_path& path) override
+    open(Windows* windows, const vfs::FilePath& path) override
     {
         return open_function(windows, path);
     }
@@ -449,7 +449,7 @@ struct file_handler_list
     }
 
     bool
-    open(Windows* windows, const vfs::file_path& path)
+    open(Windows* windows, const vfs::FilePath& path)
     {
         // todo(Gustav): replace with find and action instead
         for(auto& handler: handlers) // NOLINT
@@ -465,7 +465,7 @@ struct file_handler_list
     }
 
     void
-    run_imgui_selectable(Windows* windows, const std::optional<vfs::file_path>& path)
+    run_imgui_selectable(Windows* windows, const std::optional<vfs::FilePath>& path)
     {
         // todo(Gustav): come up with a better name for this function
         for(auto& handler: handlers)
@@ -491,7 +491,7 @@ main(int argc, char** argv)
 {
     engine engine;
 
-    if (const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -531,11 +531,11 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with Game Data",
-            [](const vfs::file_path &file) -> bool
+            [](const vfs::FilePath &file) -> bool
             {
                 return file.path == "~/gamedata.xml";
             },
-            [&](Windows *windows, const vfs::file_path &file)
+            [&](Windows *windows, const vfs::FilePath &file)
             {
                 open_or_focus_on_generic_window<game::Game>
                 (
@@ -556,11 +556,11 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with World Editor",
-            [](const vfs::file_path &file) -> bool
+            [](const vfs::FilePath &file) -> bool
             {
                 return file.path == "~/world.xml";
             },
-            [&](Windows *windows, const vfs::file_path &file)
+            [&](Windows *windows, const vfs::FilePath &file)
             {
                 open_or_focus_on_generic_window<::world::World>
                 (
@@ -582,9 +582,9 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with Enum Editor",
-            [](const vfs::file_path &) -> bool
+            [](const vfs::FilePath &) -> bool
             { return false; },
-            [&](Windows *windows, const vfs::file_path &file)
+            [&](Windows *windows, const vfs::FilePath &file)
             {
                 open_or_focus_on_generic_window<enumlist::Enumroot>
                 (
@@ -607,11 +607,11 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with text editor",
-            [](const vfs::file_path &file) -> bool
+            [](const vfs::FilePath &file) -> bool
             {
                 return ends_with(file.path, ".xml") || ends_with(file.path, ".js");
             },
-            [&](Windows *windows, const vfs::file_path &file)
+            [&](Windows *windows, const vfs::FilePath &file)
             {
                 open_or_focus_text_file(windows, file, engine.file_system.get());
             }
@@ -623,11 +623,11 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with scimed editor",
-            [](const vfs::file_path &file) -> bool
+            [](const vfs::FilePath &file) -> bool
             {
                 return file.get_extension() == "png";
             },
-            [&](Windows *windows, const vfs::file_path &file)
+            [&](Windows *windows, const vfs::FilePath &file)
             {
                 open_or_focus_scimed(windows, file, &texture_cache, &sprite_cache);
             }
@@ -639,9 +639,9 @@ main(int argc, char** argv)
         create_handler
         (
             "Open with auto scimed editor",
-            [](const vfs::file_path &) -> bool
+            [](const vfs::FilePath &) -> bool
             { return false; },
-            [&](Windows *windows, const vfs::file_path &file)
+            [&](Windows *windows, const vfs::FilePath &file)
             {
                 open_or_focus_scimed_editor(windows, file, &sprite_cache);
             }
@@ -777,7 +777,7 @@ main(int argc, char** argv)
 
         // ImGui::ShowMetricsWindow();
 
-        engine.init->clear_screen(color::light_gray);
+        engine.init->clear_screen(NamedColor::light_gray);
         imgui::imgui_render();
 
         remove_matching

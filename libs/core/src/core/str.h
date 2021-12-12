@@ -7,7 +7,7 @@ namespace euphoria::core
 {
     /** Basic string builder.
  */
-    struct string_builder
+    struct StringBuilder
     {
         /** Generate a string.
             @see toString()
@@ -27,7 +27,7 @@ namespace euphoria::core
             @return this
             */
         template <typename Type>
-        string_builder&
+        StringBuilder&
         operator<<(const Type& t)
         {
             stream << t;

@@ -11,30 +11,30 @@
 
 namespace euphoria::core
 {
-    struct loaded_font;
+    struct LoadedFont;
 
-    // get a rect encompassing the whole image
-    recti
-    whole_image(const image& image);
-
-    void
-    clear(image* image, const rgbai& color);
+    // get a Rect encompassing the whole image
+    Recti
+    whole_image(const Image& image);
 
     void
-    draw_rect(image* image, const rgbai& color, const recti& rect);
+    clear(Image* image, const Rgbai& color);
 
     void
-    draw_square(image* image, const rgbai& color, int x, int y, int size);
+    draw_rect(Image* image, const Rgbai& color, const Recti& rect);
 
     void
-    fill_poly(image* image, const rgbai& color, const std::vector<vec2f>& poly);
+    draw_square(Image* image, const Rgbai& color, int x, int y, int size);
+
+    void
+    fill_poly(Image* image, const Rgbai& color, const std::vector<Vec2f>& poly);
 
     void
     draw_circle
     (
-        image* image,
-        const rgb& color,
-        const vec2i& center,
+        Image* image,
+        const Rgb& color,
+        const Vec2i& center,
         float radius,
         float softness = 0.0f,
         float inner = -1.0f
@@ -43,39 +43,39 @@ namespace euphoria::core
     void
     draw_line_fast
     (
-        image* image,
-        const rgbai& color,
-        const vec2i& from,
-        const vec2i& to
+        Image* image,
+        const Rgbai& color,
+        const Vec2i& from,
+        const Vec2i& to
     );
 
     void
     draw_line_antialiased
     (
-        image* image,
-        const rgb& color,
-        const vec2f& from,
-        const vec2f& to
+        Image* image,
+        const Rgb& color,
+        const Vec2f& from,
+        const Vec2f& to
     );
 
     void
     draw_line_antialiased
     (
-        image* image,
-        const rgb& color,
-        const vec2i& from,
-        const vec2i& to
+        Image* image,
+        const Rgb& color,
+        const Vec2i& from,
+        const Vec2i& to
     );
 
     // position is lower left of text
     void
     draw_text
     (
-        image* image,
-        const vec2i& start_pos,
+        Image* image,
+        const Vec2i& start_pos,
         const std::string& text,
-        const rgbai& color,
-        const loaded_font& font
+        const Rgbai& color,
+        const LoadedFont& font
     );
 
     enum class pixels_outside
@@ -88,13 +88,13 @@ namespace euphoria::core
     paste_image
     (
         // destination: paste to this image
-        image* dest_image,
+        Image* dest_image,
         // bottom left
-        const vec2i& position,
+        const Vec2i& position,
         // source: paste from this image
-        const image& source_image,
+        const Image& source_image,
         // how to blend
-        blend_mode blend = blend_mode::normal,
+        BlendMode blend = BlendMode::normal,
         // how to handle pixels that fall outside
         pixels_outside clip = pixels_outside::assert
     );
@@ -102,10 +102,10 @@ namespace euphoria::core
     void
     draw_arrow
     (
-        image* image,
-        const vec2f& from,
-        const vec2f& to,
-        const rgbai& color,
+        Image* image,
+        const Vec2f& from,
+        const Vec2f& to,
+        const Rgbai& color,
         float size
     );
 

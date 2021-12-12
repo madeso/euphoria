@@ -90,7 +90,7 @@ namespace euphoria::gui
     table_layout::do_layout
     (
         std::vector<std::shared_ptr<widget>>* widgets,
-        const core::rectf& area
+        const core::Rectf& area
     ) const
     {
         LOG_INFO("Doing table layout in {0}", area);
@@ -177,9 +177,9 @@ namespace euphoria::gui
 
             w->set_rect
             (
-                core::rectf::from_top_left_width_height
+                core::Rectf::from_top_left_width_height
                 (
-                    core::vec2f{x, y},
+                    core::Vec2f{x, y},
                     width[d.column],
                     height[d.row]
                 )
@@ -226,7 +226,7 @@ namespace euphoria::gui
     single_row_layout::do_layout
     (
         std::vector<std::shared_ptr<widget>>* widgets,
-        const core::rectf& area
+        const core::Rectf& area
     ) const
     {
         LOG_INFO("Doing single row layout in {0}", area);
@@ -237,9 +237,9 @@ namespace euphoria::gui
             const auto& s = w->get_preferred_size();
             w->set_rect
             (
-                core::rectf::from_top_left_width_height
+                core::Rectf::from_top_left_width_height
                 (
-                    core::vec2f{x, tl.y},
+                    core::Vec2f{x, tl.y},
                     s.width,
                     s.height
                 )

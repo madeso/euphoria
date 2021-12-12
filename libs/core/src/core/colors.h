@@ -8,7 +8,7 @@ namespace euphoria::core
     // short descriptons/attributes from https://www.creativebloq.com/web-design/12-colours-and-emotions-they-evoke-61515112
     // longer description from wikipedia
 
-    enum class color
+    enum class NamedColor
     {
         // Clean, virtuous, healthy
         /*

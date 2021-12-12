@@ -25,15 +25,15 @@ namespace euphoria::t3d
 
 
         virtual void
-        on_mouse(t3d::editor* editor, core::mouse_button key, bool down) = 0;
+        on_mouse(t3d::editor* editor, core::MouseButton key, bool down) = 0;
         
         
         virtual void
-        on_key(t3d::editor* editor, core::key key, bool down) = 0;
+        on_key(t3d::editor* editor, core::Key key, bool down) = 0;
         
         
         virtual void
-        on_scroll(t3d::editor* editor, const core::vec2i& scroll) = 0;
+        on_scroll(t3d::editor* editor, const core::Vec2i& scroll) = 0;
         
         
         virtual void

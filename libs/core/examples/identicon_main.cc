@@ -27,7 +27,7 @@ struct common_arguments
     bool use_random = true;
     hash_type type = hash_type::identicon;
 
-    explicit common_arguments(argparse::parser_base* base)
+    explicit common_arguments(argparse::ParserBase* base)
     {
         base->add("--size", &image_size).set_help("image size");
         base->add("--count", &number_of_images).set_help("The number of images to generate");
@@ -44,7 +44,7 @@ void run_main
     bool use_random,
     hash_type type,
     bool collage,
-    const euphoria::core::palette& palette
+    const euphoria::core::Palette& palette
 )
 {
     if(use_random==false && number_of_images > 1)
@@ -53,15 +53,15 @@ void run_main
         number_of_images = 1;
     }
 
-    core::random random;
+    core::Random random;
 
-    auto images = std::vector<image>{};
-    image image;
+    auto images = std::vector<Image>{};
+    Image image;
     image.setup_with_alpha_support(image_size, image_size);
 
     for(int i = 0; i < number_of_images; i += 1)
     {
-        u32 code = 42;
+        U32 code = 42;
         if(use_random)
         {
             code = random.get_next_u32();
@@ -94,11 +94,11 @@ void run_main
         {
             if(number_of_images > 1)
             {
-                file_name = string_builder() << "identicon_" << (i + 1) << ".png";
+                file_name = StringBuilder() << "identicon_" << (i + 1) << ".png";
                 std::cout << "Writing " << file_name << "\n";
             }
 
-            io::chunk_to_file(image.write(image_write_format::png), file_name);
+            io::chunk_to_file(image.write(ImageWriteFormat::png), file_name);
         }
     }
 
@@ -106,9 +106,9 @@ void run_main
     {
         std::cout << "writing collage...\n";
         int padding = 20;
-        auto collage_image = grid_layout(images, padding, color::gray, true);
+        auto collage_image = grid_layout(images, padding, NamedColor::gray, true);
         std::string file_name = "identicon.png";
-        io::chunk_to_file(collage_image.write(image_write_format::png), file_name);
+        io::chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
     }
 }
 
@@ -118,18 +118,18 @@ void run_sprator_collage
     int image_size,
     int number_of_images,
     int frames,
-    const euphoria::core::palette& palette
+    const euphoria::core::Palette& palette
 )
 {
-    core::random random;
-    auto sprites = std::vector<std::vector<image>>{};
+    core::Random random;
+    auto sprites = std::vector<std::vector<Image>>{};
 
     for(int image_index = 0; image_index < number_of_images; image_index += 1)
     {
-        auto image_frames = std::vector<image>{};
+        auto image_frames = std::vector<Image>{};
         for(int frame_index = 0; frame_index < frames; frame_index +=1)
         {
-            image image;
+            Image image;
             image.setup_with_alpha_support(image_size, image_size);
             image_frames.emplace_back(image);
         }
@@ -147,7 +147,7 @@ void run_sprator_collage
     {
         const auto frame_index = (anim_index % 2 == 0) ? 0 : (anim_index+1) / 2;
 
-        auto images = std::vector<image>{};
+        auto images = std::vector<Image>{};
         for(int image_index = 0; image_index < number_of_images; image_index += 1)
         {
             images.emplace_back(sprites[image_index][frame_index]);
@@ -155,13 +155,13 @@ void run_sprator_collage
 
         std::cout << "writing collage...\n";
         int padding = 20;
-        auto collage_image = grid_layout(images, padding, color::gray, true);
+        auto collage_image = grid_layout(images, padding, NamedColor::gray, true);
         std::string file_name = "identicon.png";
         if(frames > 1)
         {
-            file_name = string_builder() << "identicon_" << anim_index << ".png";
+            file_name = StringBuilder() << "identicon_" << anim_index << ".png";
         }
-        io::chunk_to_file(collage_image.write(image_write_format::png), file_name);
+        io::chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
     }
 }
 
@@ -169,38 +169,38 @@ void run_sprator_collage
 int
 main(int argc, char* argv[])
 {
-    const auto palette = euphoria::core::palette
+    const auto palette = euphoria::core::Palette
     {
         "",
         std::array
         {
-            rgbi{color::red},
-            rgbi{color::white},
-            rgbi{color::blue},
+            Rgbi{NamedColor::red},
+            Rgbi{NamedColor::white},
+            Rgbi{NamedColor::blue},
 
-            rgbi{color::light_green},
-            rgbi{color::yellow},
-            rgbi{color::light_blue},
+            Rgbi{NamedColor::light_green},
+            Rgbi{NamedColor::yellow},
+            Rgbi{NamedColor::light_blue},
 
-            rgbi{color::pink},
-            rgbi{color::orange},
-            rgbi{color::tan},
+            Rgbi{NamedColor::pink},
+            Rgbi{NamedColor::orange},
+            Rgbi{NamedColor::tan},
 
-            rgbi{color::brown},
-            rgbi{color::green},
-            rgbi{color::purple},
-            rgbi{color::cornflower_blue},
-            rgbi{color::cyan}
+            Rgbi{NamedColor::brown},
+            Rgbi{NamedColor::green},
+            Rgbi{NamedColor::purple},
+            Rgbi{NamedColor::cornflower_blue},
+            Rgbi{NamedColor::cyan}
         }
     };
 
-    auto parser = argparse::parser {"identicon test"};
+    auto parser = argparse::Parser {"identicon test"};
     auto subs = parser.add_sub_parsers();
 
     subs->add
     (
         "singles", "write many images",
-        [&palette](argparse::sub_parser* sub)
+        [&palette](argparse::SubParser* sub)
         {
             auto arguments = common_arguments{sub};
             return sub->on_complete
@@ -224,7 +224,7 @@ main(int argc, char* argv[])
     subs->add
     (
         "collage", "write collage",
-        [&palette](argparse::sub_parser* sub)
+        [&palette](argparse::SubParser* sub)
         {
             auto arguments = common_arguments{sub};
             return sub->on_complete
@@ -248,7 +248,7 @@ main(int argc, char* argv[])
     subs->add
     (
         "sprator", "write sprator collage",
-        [&palette](argparse::sub_parser* sub)
+        [&palette](argparse::SubParser* sub)
         {
             int image_size = 100;
             int number_of_images = 9;

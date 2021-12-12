@@ -13,8 +13,8 @@
 
 namespace euphoria::core
 {
-    struct plane;
-    struct ray3f;
+    struct Plane;
+    struct Ray3f;
 }
 
 namespace euphoria::core::dump2d
@@ -24,62 +24,62 @@ namespace euphoria::core::dump2d
         std::vector<int> dash(int size);
     }
 
-    struct poly
+    struct Poly
     {
-        rgbi stroke_color = color::black;
-        std::optional<rgbi> fill_color;
+        Rgbi stroke_color = NamedColor::black;
+        std::optional<Rgbi> fill_color;
         bool is_closed = false;
         float stroke_width = 1.0f;
         std::vector<int> stroke;
 
-        poly& set_stroke(const std::vector<int>& new_stroke);
+        Poly& set_stroke(const std::vector<int>& new_stroke);
 
-        poly& close();
-        poly& fill(const rgbi& fill_color);
+        Poly& close();
+        Poly& fill(const Rgbi& fill_color);
 
-        std::vector<vec2f> points;
+        std::vector<Vec2f> points;
     };
 
-    struct text
+    struct Text
     {
-        vec2f point;
+        Vec2f point;
         std::string label;
-        rgbi color;
+        Rgbi color;
 
-        text(const vec2f& p, const std::string& t, const rgbi& c = color::black);
+        Text(const Vec2f& p, const std::string& t, const Rgbi& c = NamedColor::black);
     };
 
-    struct circle
+    struct Circle
     {
-        vec2f point;
+        Vec2f point;
         float radius;
-        std::optional<rgbi> line_color;
-        std::optional<rgbi> fill_color;
+        std::optional<Rgbi> line_color;
+        std::optional<Rgbi> fill_color;
 
-        circle& set_line_color(const rgbi& lc);
+        Circle& set_line_color(const Rgbi& lc);
 
-        circle(const vec2f& p, float r, std::optional<rgbi> fill = std::nullopt);
+        Circle(const Vec2f& p, float r, std::optional<Rgbi> fill = std::nullopt);
     };
 
-    struct group;
+    struct Group;
 
     // todo(Gustav): replace with std::variant
-    struct item
+    struct Item
     {
-        explicit item(const dump2d::poly& p);
-        explicit item(const dump2d::text& p);
-        explicit item(const dump2d::group& g);
-        explicit item(const dump2d::circle& c);
+        explicit Item(const dump2d::Poly& p);
+        explicit Item(const dump2d::Text& p);
+        explicit Item(const dump2d::Group& g);
+        explicit Item(const dump2d::Circle& c);
 
-        std::shared_ptr<dump2d::poly> poly;
-        std::shared_ptr<dump2d::text> text;
-        std::shared_ptr<dump2d::group> group;
-        std::shared_ptr<dump2d::circle> circle;
+        std::shared_ptr<dump2d::Poly> poly;
+        std::shared_ptr<dump2d::Text> text;
+        std::shared_ptr<dump2d::Group> group;
+        std::shared_ptr<dump2d::Circle> circle;
     };
-    const poly* as_poly(const item* item);
-    const text* as_text(const item* item);
-    const group* as_group(const item* item);
-    const circle* as_circle(const item* item);
+    const Poly* as_poly(const Item* item);
+    const Text* as_text(const Item* item);
+    const Group* as_group(const Item* item);
+    const Circle* as_circle(const Item* item);
 
     template<typename TBase>
     struct add_wrapper
@@ -87,21 +87,21 @@ namespace euphoria::core::dump2d
         template<typename TItem>
         TBase& operator<<(const TItem& sub_item)
         {
-            return static_cast<TBase*>(this)->add(item{sub_item});
+            return static_cast<TBase*>(this)->add(Item{sub_item});
         }
     };
 
-    struct group : public add_wrapper<group>
+    struct Group : public add_wrapper<Group>
     {
-        std::vector<item> items;
+        std::vector<Item> items;
 
-        group& add(const item& item);
+        Group& add(const Item& item);
     };
 
-    struct dumper : add_wrapper<dumper>
+    struct Dumper : add_wrapper<Dumper>
     {
-        rgbi canvas_color = color::white;
-        std::vector<item> items;
+        Rgbi canvas_color = NamedColor::white;
+        std::vector<Item> items;
 
         bool add_axis_when_writing = false;
         int point_size = -1;
@@ -110,16 +110,16 @@ namespace euphoria::core::dump2d
         float grid_x =-1;
         float grid_y =-1;
 
-        dumper& add_axis();
+        Dumper& add_axis();
 
-        dumper& add_grid(float xy);
+        Dumper& add_grid(float xy);
 
-        dumper& enable_points_rendering(int size=3);
+        Dumper& enable_points_rendering(int size=3);
 
-        dumper& add(const item& item);
+        Dumper& add(const Item& item);
 
         // calculate total area size and offset so that x+offset will never be lower than 0
-        [[nodiscard]] std::pair<vec2f,vec2f> calculate_size_and_offset() const;
+        [[nodiscard]] std::pair<Vec2f,Vec2f> calculate_size_and_offset() const;
 
         void write(const std::string& path, int width=1280, int height=1024, int space = 6) const;
     };
@@ -127,20 +127,20 @@ namespace euphoria::core::dump2d
 
 namespace euphoria::core::dump3d
 {
-    struct dumper
+    struct Dumper
     {
-        explicit dumper(const std::string& path);
-        ~dumper();
+        explicit Dumper(const std::string& path);
+        ~Dumper();
 
-        dumper(const dumper&) = delete;
-        dumper(dumper&&) = delete;
-        void operator=(const dumper&) = delete;
-        void operator=(dumper&&) = delete;
+        Dumper(const Dumper&) = delete;
+        Dumper(Dumper&&) = delete;
+        void operator=(const Dumper&) = delete;
+        void operator=(Dumper&&) = delete;
 
-        void add_sphere(const vec3f& p, float radius, const rgbi& color);
-        auto add_lines(const std::vector<vec3f>& lines, const rgbi& color) -> void;
-        void add_plane(const plane& plane, const rgbi& color);
-        void add_arrow(const ray3f& ray, const rgbi& color);
+        void add_sphere(const Vec3f& p, float radius, const Rgbi& color);
+        auto add_lines(const std::vector<Vec3f>& lines, const Rgbi& color) -> void;
+        void add_plane(const Plane& plane, const Rgbi& color);
+        void add_arrow(const Ray3f& ray, const Rgbi& color);
 
         void add_axis();
         void add_grid();

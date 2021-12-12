@@ -5,24 +5,24 @@
 
 namespace euphoria::core
 {
-    struct random;
+    struct Random;
 
     // source: http://mathworld.wolfram.com/SphericalCoordinates.html
-    struct polar_coord
+    struct PolarCoordinate
     {
-        polar_coord(float azimuthal01, float polar01);
+        PolarCoordinate(float azimuthal01, float polar01);
 
-        [[nodiscard]] unit3f
+        [[nodiscard]] Unit3f
         to_unit_vector() const;
 
-        [[nodiscard]] static polar_coord
-        create_random(::euphoria::core::random* random);
+        [[nodiscard]] static PolarCoordinate
+        create_random(::euphoria::core::Random* random);
 
-        angle azimuthal; // longitude, 0-2pi
-        angle polar; // zenith, colatitude, 0-pi
+        Angle azimuthal; // longitude, 0-2pi
+        Angle polar; // zenith, colatitude, 0-pi
     };
 
-    unit3f
-    get_random_unit3(random* random);
+    Unit3f
+    get_random_unit3(Random* random);
 
 }

@@ -10,13 +10,13 @@
 namespace tracery = euphoria::core::tracery;
 namespace argparse = euphoria::core::argparse;
 
-tracery::result
-load_from_file(tracery::grammar* grammar, const std::string& file)
+tracery::Result
+load_from_file(tracery::Grammar* grammar, const std::string& file)
 {
     std::ifstream t(file);
     if(t.good() == false)
     {
-        return tracery::result(tracery::result::unable_to_open_file) << file;
+        return tracery::Result(tracery::Result::unable_to_open_file) << file;
     }
     const auto data = std::string
     (
@@ -35,15 +35,15 @@ main(int argc, char* argv[])
     std::string rule = "#origin#";
     int count = 1;
 
-    auto parser = euphoria::core::argparse::parser{"Tracery-like terminal interface."};
+    auto parser = euphoria::core::argparse::Parser{"Tracery-like terminal interface."};
     parser.add("file", &file).set_help("the tracery rule file");
     parser.add("--rule", &rule).set_help("the starting to expand from");
     parser.add("--count", &count).set_help("how many times to run the rule");
 
     parser.on_complete([&]
     {
-        tracery::grammar grammar;
-        auto random = euphoria::core::random{};
+        tracery::Grammar grammar;
+        auto random = euphoria::core::Random{};
 
         grammar.register_english();
 

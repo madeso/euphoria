@@ -4,7 +4,7 @@
 
 namespace euphoria::core
 {
-    enum class mouse_button
+    enum class MouseButton
     {
         invalid,
         unbound,
@@ -16,13 +16,13 @@ namespace euphoria::core
     };
     
     std::string
-    to_string(mouse_button button);
+    to_string(MouseButton button);
     
-    mouse_button
+    MouseButton
     to_mouse_button(const std::string& button);
 
 
-    enum class key
+    enum class Key
     {
         invalid,
         unbound,
@@ -264,9 +264,9 @@ namespace euphoria::core
     };
     
     std::string
-    to_string(key k);
+    to_string(Key k);
     
-    key
+    Key
     to_key(const std::string& name);
 
 }

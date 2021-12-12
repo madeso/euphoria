@@ -9,11 +9,11 @@ namespace euphoria::core
 {
     // todo(Gustav): refactor into a better design
 
-    struct id_generator
+    struct IdGenerator
     {
         using id = int;
 
-        id_generator();
+        IdGenerator();
 
         [[nodiscard]] id
         generate();
@@ -27,33 +27,33 @@ namespace euphoria::core
     };
 
 
-    struct id
+    struct Id
     {
     private:
-        id();
+        Id();
 
     public:
-        explicit id(id_generator* generator);
+        explicit Id(IdGenerator* generator);
 
-        NONCOPYABLE(id);
+        NONCOPYABLE(Id);
 
-        [[nodiscard]] static const id&
+        [[nodiscard]] static const Id&
         invalid_value();
 
-        ~id();
+        ~Id();
 
         [[nodiscard]] bool
         is_valid() const;
 
         void
-        generate(id_generator* generator);
+        generate(IdGenerator* generator);
 
-        [[nodiscard]] id_generator::id
+        [[nodiscard]] IdGenerator::id
         get_value() const;
 
     private:
-        id_generator::id value;
-        id_generator* generator;
+        IdGenerator::id value;
+        IdGenerator* generator;
     };
 
 }

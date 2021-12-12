@@ -13,8 +13,8 @@
 
 namespace euphoria::core::vfs
 {
-    struct file_system;
-    struct file_path;
+    struct FileSystem;
+    struct FilePath;
 }
 
 namespace euphoria::render
@@ -43,14 +43,14 @@ namespace euphoria::gui
         [[nodiscard]] bool
         load
         (
-            core::vfs::file_system* fs,
+            core::vfs::FileSystem* fs,
             render::font_cache* font,
-            const ::euphoria::core::vfs::file_path& path,
+            const ::euphoria::core::vfs::FilePath& path,
             render::texture_cache* cache
         );
 
         void
-        set_input_mouse(const core::vec2f& pos, bool down);
+        set_input_mouse(const core::Vec2f& pos, bool down);
 
         void
         step(float dt);

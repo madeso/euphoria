@@ -9,9 +9,9 @@ namespace euphoria::core
 {
     // stores the "last N" values of some type, where N is configurable
     template <typename T>
-    struct last_n
+    struct LastN
     {
-        explicit last_n(std::size_t s) : max(s) {}
+        explicit LastN(std::size_t s) : max(s) {}
 
         void
         push(const T& t)

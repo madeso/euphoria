@@ -7,9 +7,9 @@
 namespace euphoria::core::vfs
 {
     void
-    add_default_shaders(file_system* fs, const dir_path& base)
+    add_default_shaders(FileSystem* fs, const DirPath& base)
     {
-        auto cat = read_root_catalog::create_and_add(fs);
+        auto cat = ReadRootCatalog::create_and_add(fs);
         cat->register_file_string(
                 base.get_file("sprite.vert"),
                 R"STRING(

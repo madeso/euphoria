@@ -7,7 +7,7 @@ namespace euphoria::render
 {
     struct viewport
     {
-        viewport(const core::recti& r);
+        viewport(const core::Recti& r);
 
         /** Sets the gl viewport.
          */
@@ -17,9 +17,9 @@ namespace euphoria::render
         [[nodiscard]] float
         get_aspect_ratio() const;
 
-        [[nodiscard]] core::vec2f
-        to_clip_coord(const core::vec2i& p) const;
+        [[nodiscard]] core::Vec2f
+        to_clip_coord(const core::Vec2i& p) const;
 
-        core::recti bounds;
+        core::Recti bounds;
     };
 }

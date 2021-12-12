@@ -15,20 +15,20 @@ namespace euphoria::core
     /// Forward declarations
 
     template <typename T>
-    struct vec3;
+    struct Vec3;
 
     template <typename T>
-    struct unit3;
+    struct Unit3;
 
     template <typename T>
-    struct scale3;
+    struct Scale3;
 
     ////////////////////////////////////////////////////////////////////////////////
 
     template <typename T>
-    struct scale3
+    struct Scale3
     {
-        using self = scale3<T>;
+        using self = Scale3<T>;
 
         T x;
         T y;
@@ -40,19 +40,19 @@ namespace euphoria::core
 
         [[nodiscard]] T get_component_sum() const { return x + y + z; }
 
-        explicit scale3(const T& a) : x(a), y(a), z(a)
+        explicit Scale3(const T& a) : x(a), y(a), z(a)
         {
         }
 
-        explicit scale3(const std::tuple<T, T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a)), z(std::get<2>(a))
+        explicit Scale3(const std::tuple<T, T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a)), z(std::get<2>(a))
         {
         }
 
-        scale3(const T& ax, const T& ay, const T& az) : x(ax), y(ay), z(az)
+        Scale3(const T& ax, const T& ay, const T& az) : x(ax), y(ay), z(az)
         {
         }
 
-        explicit scale3(const T* a) : x(a[0]), y(a[1]), z(a[2])
+        explicit Scale3(const T* a) : x(a[0]), y(a[1]), z(a[2])
         {
         }
     };
@@ -60,9 +60,9 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
     template <typename T>
-    struct vec3
+    struct Vec3
     {
-        using self = vec3<T>;
+        using Self = Vec3<T>;
 
         T x;
         T y;
@@ -74,56 +74,56 @@ namespace euphoria::core
 
         [[nodiscard]] T get_component_sum() const { return x + y + z; }
 
-        explicit vec3(const T& a) : x(a), y(a), z(a)
+        explicit Vec3(const T& a) : x(a), y(a), z(a)
         {
         }
 
-        explicit vec3(const std::tuple<T, T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a)), z(std::get<2>(a))
+        explicit Vec3(const std::tuple<T, T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a)), z(std::get<2>(a))
         {
         }
 
-        vec3(const T& ax, const T& ay, const T& az) : x(ax), y(ay), z(az)
+        Vec3(const T& ax, const T& ay, const T& az) : x(ax), y(ay), z(az)
         {
         }
 
-        explicit vec3(const T* a) : x(a[0]), y(a[1]), z(a[2])
+        explicit Vec3(const T* a) : x(a[0]), y(a[1]), z(a[2])
         {
         }
 
-        vec3(const vec2<T>& a, const T& az) : x(a.x), y(a.y), z(az)
+        Vec3(const Vec2<T>& a, const T& az) : x(a.x), y(a.y), z(az)
         {
         }
 
-        void operator+=(const vec3<T>& rhs)
+        void operator+=(const Vec3<T>& rhs)
         {
             x += rhs.x;
             y += rhs.y;
             z += rhs.z;
         }
 
-        void operator-=(const vec3<T>& rhs)
+        void operator-=(const Vec3<T>& rhs)
         {
             x -= rhs.x;
             y -= rhs.y;
             z -= rhs.z;
         }
 
-        self operator-() const { return self(-this->x, -this->y, -this->z); }
+        Self operator-() const { return Self(-this->x, -this->y, -this->z); }
 
         T get_length_squared() const { return x * x + y * y + z * z; }
 
-        using unit = unit3<T>;
+        using unit = Unit3<T>;
 
-        static self
-        from_to(const vec3<T>& from, const vec3<T>& to)
+        static Self
+        from_to(const Vec3<T>& from, const Vec3<T>& to)
         {
-            return self {to.x - from.x, to.y - from.y, to.z - from.z};
+            return Self {to.x - from.x, to.y - from.y, to.z - from.z};
         }
 
-        static self
+        static Self
         zero()
         {
-            return self {0, 0, 0};
+            return Self {0, 0, 0};
         }
 
         void
@@ -166,7 +166,7 @@ namespace euphoria::core
         [[nodiscard]] unit
         get_normalized() const
         {
-            self r = *this;
+            Self r = *this;
             r.normalize();
             return unit::to_unit(r);
         }
@@ -176,9 +176,9 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
     template <typename T>
-    struct unit3 : public vec3<T>
+    struct Unit3 : public Vec3<T>
     {
-        using self = unit3<T>;
+        using self = Unit3<T>;
 
         self operator-() const { return self(-this->x, -this->y, -this->z); }
 
@@ -249,13 +249,13 @@ namespace euphoria::core
         }
 
         static self
-        to_unit(const vec3<T>& v)
+        to_unit(const Vec3<T>& v)
         {
             return self {v.x, v.y, v.z};
         }
 
     private:
-        explicit unit3(T a, T b, T c) : vec3<T>(a, b, c)
+        explicit Unit3(T a, T b, T c) : Vec3<T>(a, b, c)
         {
             ASSERT(is_valid());
         }
@@ -266,61 +266,61 @@ namespace euphoria::core
     /// Math operators
 
     template <typename T>
-    vec3<T>
-    operator+(const vec3<T>& lhs, const vec3<T>& rhs)
+    Vec3<T>
+    operator+(const Vec3<T>& lhs, const Vec3<T>& rhs)
     {
-        vec3<T> r = lhs;
+        Vec3<T> r = lhs;
         r += rhs;
         return r;
     }
 
     template <typename T>
-    vec3<T>
-    operator-(const vec3<T>& lhs, const vec3<T>& rhs)
+    Vec3<T>
+    operator-(const Vec3<T>& lhs, const Vec3<T>& rhs)
     {
-        vec3<T> r = lhs;
+        Vec3<T> r = lhs;
         r -= rhs;
         return r;
     }
 
     template <typename T>
-    vec3<T> operator*(T lhs, const vec3<T>& rhs)
+    Vec3<T> operator*(T lhs, const Vec3<T>& rhs)
     {
-        vec3<T> r = rhs;
+        Vec3<T> r = rhs;
         r *= lhs;
         return r;
     }
 
     template <typename T>
-    vec3<T> operator*(const vec3<T>& lhs, T rhs)
+    Vec3<T> operator*(const Vec3<T>& lhs, T rhs)
     {
-        vec3<T> r = lhs;
+        Vec3<T> r = lhs;
         r *= rhs;
         return r;
     }
 
     template <typename T>
-    vec3<T>
-    operator/(const vec3<T>& lhs, T rhs)
+    Vec3<T>
+    operator/(const Vec3<T>& lhs, T rhs)
     {
-        vec3<T> r = lhs;
+        Vec3<T> r = lhs;
         r /= rhs;
         return r;
     }
 
     template <typename T>
-    vec3<T>
-    operator/(T lhs, const vec3<T>& rhs)
+    Vec3<T>
+    operator/(T lhs, const Vec3<T>& rhs)
     {
-        const vec3<T> r {lhs / rhs.x, lhs / rhs.y, lhs / rhs.z};
+        const Vec3<T> r {lhs / rhs.x, lhs / rhs.y, lhs / rhs.z};
         return r;
     }
 
     template <typename T>
-    vec3<T>
-    component_multiply(const vec3<T>& lhs, const vec3<T>& rhs)
+    Vec3<T>
+    component_multiply(const Vec3<T>& lhs, const Vec3<T>& rhs)
     {
-        return vec3<T>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
+        return Vec3<T>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
     }
 
 
@@ -328,19 +328,19 @@ namespace euphoria::core
     /// Equality operators
 
     template <typename T, typename K = std::enable_if_t<std::is_integral<T>::value>>
-    bool operator==(const vec3<T>& lhs, const vec3<T>& rhs)
+    bool operator==(const Vec3<T>& lhs, const Vec3<T>& rhs)
     {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
     }
 
     template <typename T, typename K = std::enable_if_t<std::is_integral<T>::value>>
-    bool operator==(const unit3<T>& lhs, const unit3<T>& rhs)
+    bool operator==(const Unit3<T>& lhs, const Unit3<T>& rhs)
     {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
     }
 
     template <typename T, typename K = std::enable_if_t<std::is_integral<T>::value>>
-    bool operator==(const scale3<T>& lhs, const scale3<T>& rhs)
+    bool operator==(const Scale3<T>& lhs, const Scale3<T>& rhs)
     {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
     }
@@ -351,16 +351,16 @@ namespace euphoria::core
 
     template <typename T>
     T
-    dot(const vec3<T>& lhs, const vec3<T>& rhs)
+    dot(const Vec3<T>& lhs, const Vec3<T>& rhs)
     {
         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
     }
 
     template <typename T>
-    vec3<T>
-    cross(const vec3<T>& v, const vec3<T> u)
+    Vec3<T>
+    cross(const Vec3<T>& v, const Vec3<T> u)
     {
-        return vec3<T>(
+        return Vec3<T>(
                 (v.y * u.z) - (v.z * u.y),
                 (v.z * u.x) - (v.x * u.z),
                 (v.x * u.y) - (v.y * u.x));
@@ -378,21 +378,21 @@ namespace euphoria::core
 
     template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const vec3<T>& v)
+    operator<<(std::ostream& stream, const Vec3<T>& v)
     {
         return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
     }
 
     template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const unit3<T>& v)
+    operator<<(std::ostream& stream, const Unit3<T>& v)
     {
         return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
     }
 
     template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const scale3<T>& v)
+    operator<<(std::ostream& stream, const Scale3<T>& v)
     {
         return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
     }
@@ -402,11 +402,11 @@ namespace euphoria::core
     /// Typedefs
 
 
-    using vec3f = vec3<float>;
-    using unit3f = unit3<float>;
-    using scale3f = scale3<float>;
+    using Vec3f = Vec3<float>;
+    using Unit3f = Unit3<float>;
+    using Scale3f = Scale3<float>;
 
-    using vec3i = vec3<int>;
-    using unit3i = unit3<int>;
-    using scale3i = scale3<int>;
+    using Vec3i = Vec3<int>;
+    using Unit3i = Unit3<int>;
+    using Scale3i = Scale3<int>;
 }

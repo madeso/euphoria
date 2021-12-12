@@ -27,8 +27,8 @@ namespace euphoria::gui
     {
         // std::string image;
         float scale = 0;
-        core::rgb image_color {0.0f};
-        core::rgb text_color {1.0f};
+        core::Rgb image_color {0.0f};
+        core::Rgb text_color {1.0f};
         float dx = 0;
         float dy = 0;
 
@@ -51,7 +51,7 @@ namespace euphoria::gui
 
         float text_size = 30.0f;
 
-        std::optional<core::vfs::file_path> button_image;
+        std::optional<core::vfs::FilePath> button_image;
 
         button_state button_idle;
         button_state button_hot;

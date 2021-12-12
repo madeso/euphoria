@@ -18,7 +18,7 @@ namespace euphoria::engine
     {
     }
 
-    components::components(core::ecs::registry* reg)
+    components::components(core::ecs::Registry* reg)
         : position2(reg->register_new_component_type("position2"))
         , sprite(reg->register_new_component_type("sprite"))
     {
@@ -26,13 +26,13 @@ namespace euphoria::engine
 
     COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)
 
-    core::rectf
-    get_sprite_rect(const core::vec2f& position, const render::texture2d& texture)
+    core::Rectf
+    get_sprite_rect(const core::Vec2f& position, const render::texture2d& texture)
     {
-        return core::rectf::from_position_anchor_width_and_height
+        return core::Rectf::from_position_anchor_width_and_height
         (
             position,
-            core::scale2f {0.5f, 0.5f},
+            core::Scale2f {0.5f, 0.5f},
             core::c_int_to_float(texture.width),
             core::c_int_to_float(texture.height)
         );

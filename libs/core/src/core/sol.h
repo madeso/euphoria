@@ -7,9 +7,9 @@
 
 #include "sol/sol.hpp"
 
-struct lua
+struct LuaState
 {
-  sol::state state;
-  bool has_error = false;
-  std::string error;
+    sol::state state;
+    bool has_error = false;
+    std::string error;
 };

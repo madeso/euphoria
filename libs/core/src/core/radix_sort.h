@@ -7,7 +7,7 @@
 namespace euphoria::core
 {
     template <typename Int>
-    struct bucket10_base
+    struct BucketBase10
     {
         constexpr static int count = 10;
 
@@ -37,7 +37,7 @@ namespace euphoria::core
     };
 
     template <typename Int>
-    struct bucket16_base
+    struct BucketBase16
     {
         constexpr static int count = 16;
 

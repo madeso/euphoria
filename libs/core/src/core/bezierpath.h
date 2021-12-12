@@ -23,23 +23,23 @@ namespace euphoria::core
 
     // check if point in poly: http://geomalgorithms.com/a03-_inclusion.html
 
-    struct bezier_seg2
+    struct BezierSegment2
     {
-        vec2f a0;
-        vec2f c0;
-        vec2f a1;
-        vec2f c1;
+        Vec2f a0;
+        Vec2f c0;
+        Vec2f a1;
+        Vec2f c1;
     };
 
-    struct bezier_path2
+    struct BezierPath2
     {
-        std::vector<vec2f> points;
+        std::vector<Vec2f> points;
         bool is_closed_ = false;
 
         // todo(Gustav): move out to a controller?
         bool autoset_ = false;
 
-        bezier_path2(const vec2f& center);
+        BezierPath2(const Vec2f& center);
 
         [[nodiscard]] static bool
         is_anchor_point(size_t i);
@@ -49,43 +49,51 @@ namespace euphoria::core
 
         // point functions
         void
-        add_point(const vec2f& p);
+        add_point(const Vec2f& p);
+
         void
-        move_point(int i, const vec2f& delta);
+        move_point(int i, const Vec2f& delta);
 
         // segment functions
         [[nodiscard]] size_t
         get_number_of_segments() const;
-        [[nodiscard]] bezier_seg2
+
+        [[nodiscard]] BezierSegment2
         get_points_in_segment(size_t i) const;
 
         void
         set_closed(bool is_closed);
+
         void
         toggle_closed();
 
         void
         set_auto_set_control_points(bool is_autoset);
+
         void
         toggle_auto_set_control_points();
 
         // private stuff
         [[nodiscard]] size_t
         loop_index(int i) const;
+
         void
         auto_set_affected_control_points(int updated_anchor_index);
+
         void
         auto_set_all_control_points();
+
         void
         auto_set_start_and_end_control_points();
+
         void
         auto_set_anchor_control_points(int anchor_index);
     };
 
     // todo(Gustav): merge with svg::Poly
-    struct vertex_path2
+    struct VertexPath2
     {
-        std::vector<vec2f> points;
+        std::vector<Vec2f> points;
         bool is_closed = false;
     };
 

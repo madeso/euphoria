@@ -4,31 +4,31 @@
 
 namespace euphoria::core
 {
-    orbit_controller::orbit_controller()
-        : center(vec3f::zero())
-        , horizontal_rotation(angle::from_degrees(45.0f))
-        , vertical_rotation(angle::from_degrees(45.0f))
+    OrbitController::OrbitController()
+        : center(Vec3f::zero())
+        , horizontal_rotation(Angle::from_degrees(45.0f))
+        , vertical_rotation(Angle::from_degrees(45.0f))
     {}
 
 
-    quatf
-    orbit_controller::get_rotation() const
+    Quatf
+    OrbitController::get_rotation() const
     {
         const auto hor =
-            quatf::from_axis_angle
+            Quatf::from_axis_angle
             (
-                axis_angle::right_hand_around
+                AxisAngle::right_hand_around
                 (
-                    unit3f::up(),
+                    Unit3f::up(),
                     -horizontal_rotation
                 )
             );
         const auto vert =
-            quatf::from_axis_angle
+            Quatf::from_axis_angle
             (
-                axis_angle::right_hand_around
+                AxisAngle::right_hand_around
                 (
-                    unit3f::right(),
+                    Unit3f::right(),
                     -vertical_rotation
                 )
             );
@@ -37,9 +37,9 @@ namespace euphoria::core
 
 
     void
-    orbit_controller::on_pan_input(float dx, float dy)
+    OrbitController::on_pan_input(float dx, float dy)
     {
-        const auto movement = get_rotation().create_from_right_up_in(vec3f
+        const auto movement = get_rotation().create_from_right_up_in(Vec3f
         {
             dx * pan_dx.get_multiplier_with_sign(),
             -dy * pan_dy.get_multiplier_with_sign(),
@@ -50,32 +50,32 @@ namespace euphoria::core
 
 
     void
-    orbit_controller::on_rotate_input(float dx, float dy)
+    OrbitController::on_rotate_input(float dx, float dy)
     {
-        horizontal_rotation += angle::from_degrees
+        horizontal_rotation += Angle::from_degrees
         (
             -dx * rotate_dx.get_multiplier_with_sign()
         );
         horizontal_rotation.wrap();
 
-        vertical_rotation += angle::from_degrees
+        vertical_rotation += Angle::from_degrees
         (
             -dy * rotate_dy.get_multiplier_with_sign()
         );
 
-        const auto r = make_range(-angle::quarter(), angle::quarter());
+        const auto r = make_range(-Angle::quarter(), Angle::quarter());
         vertical_rotation = keep_within(r, vertical_rotation);
     }
 
     void
-    orbit_controller::on_zoom_input(float z)
+    OrbitController::on_zoom_input(float z)
     {
         distance = max(0.0f, distance + z * zoom.get_multiplier_with_sign());
     }
 
 
-    vec3f
-    orbit_controller::get_camera_position() const
+    Vec3f
+    OrbitController::get_camera_position() const
     {
         return center - get_rotation().in() * distance;
     }

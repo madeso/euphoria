@@ -12,7 +12,7 @@ using namespace euphoria::core;
 
 TEST_CASE("fonts-", "[fonts]")
 {
-    auto font = loaded_font{};
+    auto font = LoadedFont{};
 
     SECTION("private use")
     {
@@ -28,17 +28,17 @@ TEST_CASE("fonts-", "[fonts]")
         constexpr int a_advance = 10;
         constexpr int b_advance = 20;
 
-        auto a = loaded_glyph{};
+        auto a = LoadedGlyph{};
         a.valid = true;
         a.advance = a_advance;
 
-        auto b = loaded_glyph{};
+        auto b = LoadedGlyph{};
         b.valid = true;
         b.advance = b_advance;
 
-        auto load = [](const std::string& name, const loaded_glyph& g) -> loaded_font
+        auto load = [](const std::string& name, const LoadedGlyph& g) -> LoadedFont
         {
-            auto f = loaded_font{};
+            auto f = LoadedFont{};
             const auto cp = f.generate_new_index_from_private_use(name);
             f.codepoint_to_glyph[cp] = g;
             return f;

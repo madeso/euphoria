@@ -18,10 +18,10 @@
 using namespace euphoria::core;
 
 
-std::vector<image>
+std::vector<Image>
 load_images(const std::vector<std::string>& files)
 {
-    auto images = std::vector<image>{};
+    auto images = std::vector<Image>{};
 
     for(const auto& f: files)
     {
@@ -31,7 +31,7 @@ load_images(const std::vector<std::string>& files)
             std::cerr << "failed to read " << f << "\n";
             return {};
         }
-        auto loaded_image = load_image(chunk, f, alpha_load::keep);
+        auto loaded_image = load_image(chunk, f, AlphaLoad::keep);
         if(loaded_image.error.empty() == false)
         {
             std::cerr << "failed to read image " <<
@@ -51,7 +51,7 @@ handle_grid
 (
     const std::string& output_file,
     int padding,
-    rgbi background_color,
+    Rgbi background_color,
     const std::vector<std::string>& src_files,
     bool top_to_bottom,
     bool sort_files
@@ -89,7 +89,7 @@ handle_grid
     );
 
     // save image to out
-    auto saved_chunk = composed_image.write(image_write_format::png);
+    auto saved_chunk = composed_image.write(ImageWriteFormat::png);
     io::chunk_to_file(saved_chunk, output_file);
 
     return true;
@@ -102,7 +102,7 @@ handle_pack
     const std::string& output_file,
     const size2i& requested_size,
     int padding,
-    rgbi background_color,
+    Rgbi background_color,
     bool should_pack_image,
     const std::vector<std::string>& files
 )
@@ -147,7 +147,7 @@ handle_pack
     auto composed_image = *packed;
 
     // save image to out
-    auto saved_chunk = composed_image.write(image_write_format::png);
+    auto saved_chunk = composed_image.write(ImageWriteFormat::png);
     io::chunk_to_file(saved_chunk, output_file);
 
     return true;
@@ -157,7 +157,7 @@ handle_pack
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::parser
+    auto parser = argparse::Parser
     {
         "pack smaller images into a bigger one"
     };
@@ -166,9 +166,9 @@ main(int argc, char* argv[])
     subs->add
     (
         "grid", "lay put images in a grid",
-        [](argparse::sub_parser* sub)
+        [](argparse::SubParser* sub)
         {
-            rgbi background_color = color::gray;
+            Rgbi background_color = NamedColor::gray;
             std::string output_file = "collage.png";
             int padding = 5;
             bool top_to_bottom = true;
@@ -225,10 +225,10 @@ main(int argc, char* argv[])
     subs->add
     (
         "pack", "pack images according to the stb rect-pack algorithm",
-        [](argparse::sub_parser* sub)
+        [](argparse::SubParser* sub)
         {
             auto image_size = size2i::create_from_width_height(1024, 1024);
-            rgbi background_color = color::gray;
+            Rgbi background_color = NamedColor::gray;
             std::string output_file = "collage.png";
             int padding = 5;
             bool pack_image = true;

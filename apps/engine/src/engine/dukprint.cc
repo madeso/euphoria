@@ -10,7 +10,7 @@
 namespace euphoria::engine
 {
     void
-	add_print(lua* sol)
+	add_print(LuaState* sol)
     {
         sol->state.set_function
         (

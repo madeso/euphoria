@@ -63,7 +63,7 @@ main(int argc, char** argv)
 {
     engine engine;
 
-    if (const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -87,7 +87,7 @@ main(int argc, char** argv)
     // main loop
     canvas_config cc;
     canvas canvas;
-    bezier_path2 path(vec2f(0, 0));
+    BezierPath2 path(Vec2f(0, 0));
     int index = -1;
 
     while(running)
@@ -153,7 +153,7 @@ main(int argc, char** argv)
                 const auto sp = canvas.world_to_screen(p);
                 const auto me = ImGui::GetMousePos();
                 const auto hover
-                        = vec2f::from_to(con(me), con(sp)).get_length_squared()
+                        = Vec2f::from_to(con(me), con(sp)).get_length_squared()
                           < size * size;
                 if(index == -1 && hover && ImGui::IsMouseDown(0))
                 {
@@ -169,10 +169,10 @@ main(int argc, char** argv)
                         ImGui::ResetMouseDragDelta();
                         // todo(Gustav): handle scale/zoom
                         return std::make_pair(
-                                true, vec2f(d.x, d.y) / canvas.view.scale);
+                                true, Vec2f(d.x, d.y) / canvas.view.scale);
                     }
                 }
-                return std::make_pair(false, vec2f(0, 0));
+                return std::make_pair(false, Vec2f(0, 0));
             };
             auto line = [](const ImVec2& a, const ImVec2& b, ImU32 color)
             {
@@ -188,7 +188,7 @@ main(int argc, char** argv)
             // draw handles
             for(size_t point_index = 0; point_index < path.points.size(); point_index += 1)
             {
-                const bool is_anchor_point = bezier_path2::is_anchor_point(point_index);
+                const bool is_anchor_point = BezierPath2::is_anchor_point(point_index);
                 if(path.autoset_ && !is_anchor_point)
                 {
                     continue;
@@ -262,7 +262,7 @@ main(int argc, char** argv)
 
         // ImGui::ShowMetricsWindow();
 
-        engine.init->clear_screen(color::light_gray);
+        engine.init->clear_screen(NamedColor::light_gray);
         imgui::imgui_render();
 
         SDL_GL_SwapWindow(engine.window->window);

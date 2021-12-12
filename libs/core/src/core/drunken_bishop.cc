@@ -13,35 +13,35 @@ namespace euphoria::core
 
 
     template<typename T, int total_bytes>
-    std::vector<u8>
+    std::vector<U8>
     to_bytes_generic(T hash)
     {
-        auto bytes = std::vector<u8>{};
+        auto bytes = std::vector<U8>{};
         for(int byte_index=0; byte_index<total_bytes; byte_index +=1)
         {
-            const u8 byte = hash >> (((total_bytes-1)-byte_index) * 8);
+            const U8 byte = hash >> (((total_bytes-1)-byte_index) * 8);
             bytes.emplace_back(byte);
         }
         return bytes;
     }
 
 
-    std::vector<u8>
-    to_bytes(u32 hash)
+    std::vector<U8>
+    to_bytes(U32 hash)
     {
-        return to_bytes_generic<u32, 4>(hash);
+        return to_bytes_generic<U32, 4>(hash);
     }
 
 
-    std::vector<u8>
-    to_bytes(u64 hash)
+    std::vector<U8>
+    to_bytes(U64 hash)
     {
-        return to_bytes_generic<u32, 8>(hash);
+        return to_bytes_generic<U32, 8>(hash);
     }
 
 
     std::vector<int>
-    to_codes(u8 byte, bool msb_first)
+    to_codes(U8 byte, bool msb_first)
     {
         auto codes = std::vector<int>{};
         for(int s=0; s<8; s+=2)
@@ -57,7 +57,7 @@ namespace euphoria::core
 
 
     std::vector<int>
-    to_codes(const std::vector<u8>& bytes, bool msb_first)
+    to_codes(const std::vector<U8>& bytes, bool msb_first)
     {
         auto codes = std::vector<int>{};
         for(auto byte: bytes)
@@ -72,10 +72,10 @@ namespace euphoria::core
     }
 
 
-    table<int>
+    Table<int>
     drunken_bishop
     (
-        u32 hash,
+        U32 hash,
         int width,
         int height,
         bool msb_first,
@@ -94,10 +94,10 @@ namespace euphoria::core
     }
 
 
-    table<int>
+    Table<int>
     drunken_bishop
     (
-        u64 hash,
+        U64 hash,
         int width,
         int height,
         bool msb_first,
@@ -116,7 +116,7 @@ namespace euphoria::core
     }
 
 
-    table<int>
+    Table<int>
     drunken_bishop
     (
         const std::vector<int>& codes,
@@ -126,7 +126,7 @@ namespace euphoria::core
         int starty
     )
     {
-        auto table = core::table<int>::from_width_height(width, height, 0);
+        auto table = core::Table<int>::from_width_height(width, height, 0);
         auto x = startx != -1? startx : width/2;
         auto y = starty != -1? starty : height/2;
 
@@ -163,7 +163,7 @@ namespace euphoria::core
     std::vector<std::string>
     collapse
     (
-        const table<int>& table,
+        const Table<int>& table,
         const std::vector<std::string>& characters
     )
     {

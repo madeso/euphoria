@@ -8,13 +8,13 @@
 
 namespace euphoria::core
 {
-    struct camera3;
-    struct compiled_camera3;
+    struct Camera3;
+    struct CompiledCamera3;
 }
 
 namespace euphoria::core::vfs
 {
-    struct file_system;
+    struct FileSystem;
 }
 
 namespace euphoria::render
@@ -35,7 +35,7 @@ namespace euphoria::render
         render::light light;
 
         void
-        render(const viewport& viewport, const core::camera3& camera);
+        render(const viewport& viewport, const core::Camera3& camera);
 
         void
         step();
@@ -43,8 +43,8 @@ namespace euphoria::render
         void
         render
         (
-            const core::camera3& camera,
-            const core::compiled_camera3& compiled
+            const core::Camera3& camera,
+            const core::CompiledCamera3& compiled
         );
 
         std::vector<std::shared_ptr<instance>> actors;

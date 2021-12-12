@@ -7,8 +7,8 @@
 
 namespace euphoria::core::ecs
 {
-    struct systems;
-    struct world;
+    struct Systems;
+    struct World;
 }
 
 namespace euphoria::engine
@@ -26,9 +26,9 @@ namespace euphoria::engine
     public:
         script_integration
         (
-                core::ecs::systems* systems,
-                core::ecs::world* reg,
-                lua* duk,
+                core::ecs::Systems* systems,
+                core::ecs::World* reg,
+                LuaState* duk,
                 object_creator* creator,
                 components* components,
                 camera_data* camera

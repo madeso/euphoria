@@ -7,15 +7,15 @@
 
 namespace euphoria::core
 {
-    struct hashed_string_view
+    struct HashedStringView
     {
-        constexpr hashed_string_view(const std::string_view str)
+        constexpr HashedStringView(const std::string_view str)
             : text(str)
             , hash( hash64(str) )
         {
         }
 
         const std::string_view text;
-        const u64 hash;
+        const U64 hash;
     };
 }

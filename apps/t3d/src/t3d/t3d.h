@@ -22,12 +22,12 @@
 
 namespace euphoria::core
 {
-    struct lines;
+    struct Lines;
 }
 
 namespace euphoria::core::argparse
 {
-    struct name_and_arguments;
+    struct NameAndArguments;
 }
 
 namespace euphoria::render
@@ -58,7 +58,7 @@ namespace euphoria::t3d
         std::shared_ptr<render::texture_cache> texture_cache;
         std::shared_ptr<t3d::tile_library> tile_library;
         std::shared_ptr<render::world> world;
-        core::camera3 camera;
+        core::Camera3 camera;
         std::shared_ptr<t3d::editor> editor;
         bool running = true;
         std::shared_ptr<window::sdl_timer> timer;
@@ -73,7 +73,7 @@ namespace euphoria::t3d
         bool lister_window = true;
         bool preference_window = false;
 
-        core::orbit_controller orbit;
+        core::OrbitController orbit;
         bool mmb_down = false;
         bool shift_down = false;
         bool show_imgui = false;
@@ -89,11 +89,11 @@ namespace euphoria::t3d
 
 
         [[nodiscard]] int
-        start(const core::argparse::name_and_arguments& args);
+        start(const core::argparse::NameAndArguments& args);
 
 
         void
-        add_library(const core::vfs::dir_path& path);
+        add_library(const core::vfs::DirPath& path);
 
         void
         update_grid();
@@ -104,15 +104,15 @@ namespace euphoria::t3d
 
 
         void
-        on_mouse_movement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse);
+        on_mouse_movement(const core::Vec2i& position, const core::Vec2i& movement, bool forward_mouse);
 
 
         void
-        on_key(core::key key, bool down, bool forward_keyboard);
+        on_key(core::Key key, bool down, bool forward_keyboard);
 
 
         void
-        on_mouse_button(core::mouse_button button, bool down, bool forward_mouse);
+        on_mouse_button(core::MouseButton button, bool down, bool forward_mouse);
 
 
         void

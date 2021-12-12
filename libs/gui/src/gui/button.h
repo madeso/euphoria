@@ -57,8 +57,8 @@ namespace euphoria::gui
         skin* skin_;
 
         core::Interpolate<float, core::FloatTransform> scale;
-        core::Interpolate<core::rgb, core::rgb_transform> image_color;
-        core::Interpolate<core::rgb, core::rgb_transform> text_color;
-        core::Interpolate<core::vec2f, core::Vec2fTransform> position_displacement;
+        core::Interpolate<core::Rgb, core::RgbTransform> image_color;
+        core::Interpolate<core::Rgb, core::RgbTransform> text_color;
+        core::Interpolate<core::Vec2f, core::Vec2fTransform> position_displacement;
     };
 }

@@ -77,12 +77,12 @@ namespace euphoria::editor
     {
         if(data_value > 0)
         {
-            return string_builder {} << data_value << "px";
+            return StringBuilder {} << data_value << "px";
         }
         else
         {
             const auto p = (core::c_int_to_float(-data_value) * 100.0f) / core::c_int_to_float(total_percentage);
-            return string_builder {} << std::setprecision(3) << p << "%";
+            return StringBuilder {} << std::setprecision(3) << p << "%";
         }
     }
 
@@ -543,7 +543,7 @@ namespace euphoria::editor
         {
             ImGui::OpenPopup("asd");
             const auto w = canvas.screen_to_world(ImGui::GetMousePos());
-            mouse_popup = vec2i {static_cast<int>(w.x), static_cast<int>(w.y)};
+            mouse_popup = Vec2i {static_cast<int>(w.x), static_cast<int>(w.y)};
         }
 
         if(ImGui::BeginPopup("asd"))

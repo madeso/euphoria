@@ -18,7 +18,7 @@ namespace euphoria::render
     }
 
     void
-    world::render(const viewport& viewport, const core::camera3& camera)
+    world::render(const viewport& viewport, const core::Camera3& camera)
     {
         render(camera, camera.compile(viewport.get_aspect_ratio()));
     }
@@ -44,8 +44,8 @@ namespace euphoria::render
     void
     world::render
     (
-        const core::camera3& camera,
-        const core::compiled_camera3& compiled
+        const core::Camera3& camera,
+        const core::CompiledCamera3& compiled
     )
     {
         const auto projection_matrix = compiled.projection;

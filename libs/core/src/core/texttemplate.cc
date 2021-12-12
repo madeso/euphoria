@@ -17,11 +17,11 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
 
-    defines::defines() = default;
+    Defines::Defines() = default;
 
 
     bool
-    defines::is_defined(const std::string& name) const
+    Defines::is_defined(const std::string& name) const
     {
         const auto found = values.find(name);
         return found != values.end();
@@ -29,7 +29,7 @@ namespace euphoria::core
 
 
     std::string
-    defines::get_value(const std::string& name) const
+    Defines::get_value(const std::string& name) const
     {
         const auto found = values.find(name);
         if(found == values.end())
@@ -42,14 +42,14 @@ namespace euphoria::core
 
 
     void
-    defines::undefine(const std::string& name)
+    Defines::undefine(const std::string& name)
     {
         values.erase(name);
     }
 
 
     void
-    defines::define(const std::string& name, const std::string& value)
+    Defines::define(const std::string& name, const std::string& value)
     {
         values[name] = value;
     }
@@ -58,20 +58,20 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////
 
 
-    template_error_list::template_error_list() = default;
+    TemplateErrorList::TemplateErrorList() = default;
 
 
     bool
-    template_error_list::has_errors() const
+    TemplateErrorList::has_errors() const
     {
         return !errors.empty();
     }
 
 
     void
-    template_error_list::add_error
+    TemplateErrorList::add_error
     (
-        const std::optional<vfs::file_path>& file,
+        const std::optional<vfs::FilePath>& file,
         int line,
         int /*unused*/,
         const std::string& error
@@ -82,14 +82,14 @@ namespace euphoria::core
             ? file.value().path
             : "<no_file>"
         ;
-        const std::string message = string_builder() << file_name << ":" << line << ":"
+        const std::string message = StringBuilder() << file_name << ":" << line << ":"
                                           << " " << error;
         errors.push_back(message);
     }
 
 
     std::string
-    template_error_list::get_combined_errors() const
+    TemplateErrorList::get_combined_errors() const
     {
         std::ostringstream ss;
 
@@ -105,22 +105,22 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////
 
 
-    struct template_node
+    struct TemplateNode
     {
-        template_node() = default;
-        virtual ~template_node() = default;
+        TemplateNode() = default;
+        virtual ~TemplateNode() = default;
 
-        NONCOPYABLE_CONSTRUCTOR(template_node);
-        NONCOPYABLE_ASSIGNMENT(template_node);
-        NONCOPYABLE_MOVE_CONSTRUCTOR(template_node);
-        NONCOPYABLE_MOVE_ASSIGNMENT(template_node);
+        NONCOPYABLE_CONSTRUCTOR(TemplateNode);
+        NONCOPYABLE_ASSIGNMENT(TemplateNode);
+        NONCOPYABLE_MOVE_CONSTRUCTOR(TemplateNode);
+        NONCOPYABLE_MOVE_ASSIGNMENT(TemplateNode);
 
         virtual void
         evaluate
         (
-            defines* defines,
+            Defines* defines,
             std::ostringstream* out,
-            template_error_list* error
+            TemplateErrorList* error
         ) = 0;
     };
 
@@ -128,17 +128,17 @@ namespace euphoria::core
     // ------------------------------------------------------------------------
 
 
-    struct template_node_string : template_node
+    struct TemplateNodeString : TemplateNode
     {
-        explicit template_node_string(std::string text)
+        explicit TemplateNodeString(std::string text)
             : text(std::move(text))
         {
         }
 
         void
-        evaluate(defines* /*defines*/,
+        evaluate(Defines* /*defines*/,
              std::ostringstream* out,
-             template_error_list* /*error*/) override
+             TemplateErrorList* /*error*/) override
         {
             ASSERT(out);
             *out << text;
@@ -151,14 +151,14 @@ namespace euphoria::core
     // ------------------------------------------------------------------------
 
 
-    struct template_node_list : template_node
+    struct TemplateNodeList : TemplateNode
     {
-        template_node_list() = default;
+        TemplateNodeList() = default;
 
         void
-        evaluate(defines* defines,
+        evaluate(Defines* defines,
              std::ostringstream* out,
-             template_error_list* error) override
+             TemplateErrorList* error) override
         {
             for(const auto& node: nodes)
             {
@@ -167,30 +167,30 @@ namespace euphoria::core
         }
 
         void
-        add(const std::shared_ptr<template_node>& node)
+        add(const std::shared_ptr<TemplateNode>& node)
         {
             nodes.push_back(node);
         }
 
-        std::vector<std::shared_ptr<template_node>> nodes;
+        std::vector<std::shared_ptr<TemplateNode>> nodes;
     };
 
 
     // ------------------------------------------------------------------------
 
 
-    struct template_node_scoped_list : template_node_list
+    struct TemplateNodeScopedList : TemplateNodeList
     {
-        template_node_scoped_list() = default;
+        TemplateNodeScopedList() = default;
 
         void
-        evaluate(core::defines* defines,
+        evaluate(core::Defines* defines,
              std::ostringstream* out,
-             template_error_list* error) override
+             TemplateErrorList* error) override
         {
             ASSERT(defines);
-            core::defines my_defines = *defines;
-            template_node_list::evaluate(&my_defines, out, error);
+            core::Defines my_defines = *defines;
+            TemplateNodeList::evaluate(&my_defines, out, error);
         }
     };
 
@@ -198,18 +198,18 @@ namespace euphoria::core
     // ------------------------------------------------------------------------
 
 
-    struct template_node_ifdef : template_node
+    struct TemplateNodeIfdef : TemplateNode
     {
-        template_node_ifdef(std::string name, std::shared_ptr<template_node> node)
+        TemplateNodeIfdef(std::string name, std::shared_ptr<TemplateNode> node)
             : name(std::move(name))
             , node(std::move(node))
         {
         }
 
         void
-        evaluate(defines* defines,
+        evaluate(Defines* defines,
              std::ostringstream* out,
-             template_error_list* error) override
+             TemplateErrorList* error) override
         {
             ASSERT(defines);
             if(defines->is_defined(name))
@@ -219,24 +219,24 @@ namespace euphoria::core
         }
 
         std::string name;
-        std::shared_ptr<template_node> node;
+        std::shared_ptr<TemplateNode> node;
     };
 
 
     // ------------------------------------------------------------------------
 
 
-    struct template_node_eval : template_node
+    struct TemplateNodeEval : TemplateNode
     {
-        explicit template_node_eval(std::string name)
+        explicit TemplateNodeEval(std::string name)
             : name(std::move(name))
         {
         }
 
         void
-        evaluate(defines* defines,
+        evaluate(Defines* defines,
              std::ostringstream* out,
-             template_error_list* error) override
+             TemplateErrorList* error) override
         {
             ASSERT(out);
             ASSERT(defines);
@@ -249,7 +249,7 @@ namespace euphoria::core
                     std::nullopt,
                     0,
                     0,
-                    string_builder() << name << " is not defined"
+                    StringBuilder() << name << " is not defined"
                 );
             }
 
@@ -261,18 +261,18 @@ namespace euphoria::core
 
     // ------------------------------------------------------------------------
 
-    struct template_node_set : template_node
+    struct TemplateNodeSet : TemplateNode
     {
-        template_node_set(std::string name, std::string value)
+        TemplateNodeSet(std::string name, std::string value)
             : name(std::move(name))
             , value(std::move(value))
         {
         }
 
         void
-        evaluate(defines* defines,
+        evaluate(Defines* defines,
              std::ostringstream* out,
-             template_error_list* /*error*/) override
+             TemplateErrorList* /*error*/) override
         {
             ASSERT(out);
             ASSERT(defines);
@@ -288,7 +288,7 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////
 
 
-    enum class token_type
+    enum class TokenType
     {
         text,
         if_def,
@@ -302,11 +302,11 @@ namespace euphoria::core
     };
 
     std::string
-    lex_type_to_string(token_type t)
+    lex_type_to_string(TokenType t)
     {
         switch(t)
         {
-#define CASE(V) case token_type::V: return #V
+#define CASE(V) case TokenType::V: return #V
             CASE(text);
             CASE(if_def);
             CASE(eval);
@@ -323,9 +323,9 @@ namespace euphoria::core
     }
 
 
-    struct token
+    struct Token
     {
-        token(token_type t, int l, int c, std::string v = "")
+        Token(TokenType t, int l, int c, std::string v = "")
             : type(t)
             , value(std::move(v))
             , line(l)
@@ -336,28 +336,28 @@ namespace euphoria::core
         [[nodiscard]] std::string
         to_string() const
         {
-            return string_builder() << lex_type_to_string(type) << "(" << first_chars_with_ellipsis(value) << ")";
+            return StringBuilder() << lex_type_to_string(type) << "(" << first_chars_with_ellipsis(value) << ")";
         }
 
-        token_type type;
+        TokenType type;
         std::string value;
         int line;
         int column;
     };
 
 
-    std::vector<token>
+    std::vector<Token>
     lexer
     (
         const std::string& content,
-        template_error_list* error,
-        const vfs::file_path& file
+        TemplateErrorList* error,
+        const vfs::FilePath& file
     )
     {
         ASSERT(error);
 
-        auto parser = textfile_parser::from_string(content);
-        std::vector<token> r;
+        auto parser = TextfileParser::from_string(content);
+        std::vector<Token> r;
 
         bool inside = false;
 
@@ -377,27 +377,27 @@ namespace euphoria::core
                     const std::string ident = parser.read_ident();
                     if(ident == "ifdef")
                     {
-                        r.emplace_back(token_type::if_def, line, column);
+                        r.emplace_back(TokenType::if_def, line, column);
                     }
                     else if(ident == "end")
                     {
-                        r.emplace_back(token_type::end, line, column);
+                        r.emplace_back(TokenType::end, line, column);
                     }
                     else if(ident == "eval")
                     {
-                        r.emplace_back(token_type::eval, line, column);
+                        r.emplace_back(TokenType::eval, line, column);
                     }
                     else if(ident == "set")
                     {
-                        r.emplace_back(token_type::set, line, column);
+                        r.emplace_back(TokenType::set, line, column);
                     }
                     else if(ident == "include")
                     {
-                        r.emplace_back(token_type::include, line, column);
+                        r.emplace_back(TokenType::include, line, column);
                     }
                     else
                     {
-                        r.emplace_back(token_type::ident, line, column, ident);
+                        r.emplace_back(TokenType::ident, line, column, ident);
                     }
                 }
                 else if(parser.peek_char() == '@')
@@ -405,14 +405,14 @@ namespace euphoria::core
                     const int line = parser.get_line();
                     const int column = parser.get_column();
                     parser.advance_char();
-                    r.emplace_back(token_type::eval, line, column);
+                    r.emplace_back(TokenType::eval, line, column);
                 }
                 else if(parser.peek_char() == '\"')
                 {
                     const int line = parser.get_line();
                     const int column = parser.get_column();
                     const std::string& str = parser.read_string();
-                    r.emplace_back(token_type::string, line, column, str);
+                    r.emplace_back(TokenType::string, line, column, str);
                 }
                 else if(parser.peek_char(0) == '}' && parser.peek_char(1) == '}')
                 {
@@ -440,7 +440,7 @@ namespace euphoria::core
                         buffer.str("");
                         buffer_line = parser.get_line();
                         buffer_column = parser.get_column();
-                        r.emplace_back(token_type::text, buffer_line, buffer_column, b);
+                        r.emplace_back(TokenType::text, buffer_line, buffer_column, b);
                     }
                     parser.advance_char();
                     parser.advance_char();
@@ -466,7 +466,7 @@ namespace euphoria::core
         const std::string buffer_str = buffer.str();
         if(!buffer_str.empty())
         {
-            r.emplace_back(token_type::text, buffer_line, buffer_column, buffer_str);
+            r.emplace_back(TokenType::text, buffer_line, buffer_column, buffer_str);
         }
 
         return r;
@@ -476,9 +476,9 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
 
-    struct token_reader
+    struct TokenReader
     {
-        explicit token_reader(const std::vector<token>& input)
+        explicit TokenReader(const std::vector<Token>& input)
             : tokens(input)
             , next_token_index(0)
             , size(input.size())
@@ -491,14 +491,14 @@ namespace euphoria::core
             return next_token_index < size;
         }
 
-        [[nodiscard]] const token&
+        [[nodiscard]] const Token&
         peek() const
         {
             if(has_more())
             {
                 return tokens[next_token_index];
             }
-            static const token end_of_file {token_type::end_of_file, 0, 0};
+            static const Token end_of_file {TokenType::end_of_file, 0, 0};
             return end_of_file;
         }
 
@@ -508,10 +508,10 @@ namespace euphoria::core
             next_token_index += 1;
         }
 
-        const token&
+        const Token&
         read()
         {
-            const token& lex = peek();
+            const Token& lex = peek();
             advance();
             return lex;
         }
@@ -528,7 +528,7 @@ namespace euphoria::core
             return peek().column;
         }
 
-        std::vector<token> tokens;
+        std::vector<Token> tokens;
         std::size_t next_token_index;
         std::size_t size;
     };
@@ -540,22 +540,22 @@ namespace euphoria::core
     void
     parse_template_list
     (
-        std::shared_ptr<template_node_list>* nodes,
-        token_reader* reader,
-        template_error_list* errors,
-        const vfs::file_path& file,
+        std::shared_ptr<TemplateNodeList>* nodes,
+        TokenReader* reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
         bool expect_end,
-        vfs::file_system* fs
+        vfs::FileSystem* fs
     );
 
 
     void
     load_from_filesystem_to_node_list
     (
-        vfs::file_system* fs,
-        const vfs::file_path& path,
-        template_error_list* error,
-        std::shared_ptr<template_node_list>* nodes
+        vfs::FileSystem* fs,
+        const vfs::FilePath& path,
+        TemplateErrorList* error,
+        std::shared_ptr<TemplateNodeList>* nodes
     )
     {
         if(fs == nullptr)
@@ -565,7 +565,7 @@ namespace euphoria::core
                 path,
                 0,
                 0,
-                string_builder() << "Missing filesystem, Failed to read " << path
+                StringBuilder() << "Missing filesystem, Failed to read " << path
             );
             return;
         }
@@ -573,10 +573,10 @@ namespace euphoria::core
         std::string content;
         if(!fs->read_file_to_string(path, &content))
         {
-            error->add_error(path, 0, 0, string_builder() << "Failed to open " << path);
+            error->add_error(path, 0, 0, StringBuilder() << "Failed to open " << path);
             return;
         }
-        token_reader reader(lexer(content, error, path));
+        TokenReader reader(lexer(content, error, path));
         parse_template_list(nodes, &reader, error, path, false, fs);
     }
 
@@ -584,41 +584,41 @@ namespace euphoria::core
     // ------------------------------------------------------------------------
 
 
-    std::shared_ptr<template_node_string>
+    std::shared_ptr<TemplateNodeString>
     parse_text
     (
-        token_reader* reader,
-        template_error_list* /*unused*/,
-        const vfs::file_path& /*unused*/,
-        vfs::file_system* /*unused*/
+        TokenReader* reader,
+        TemplateErrorList* /*unused*/,
+        const vfs::FilePath& /*unused*/,
+        vfs::FileSystem* /*unused*/
     )
     {
         ASSERT(reader);
-        const token& lex = reader->read();
-        ASSERT(lex.type == token_type::text);
+        const Token& lex = reader->read();
+        ASSERT(lex.type == TokenType::text);
 
 
-        std::shared_ptr<template_node_string> ret {
-                new template_node_string {lex.value}};
+        std::shared_ptr<TemplateNodeString> ret {
+                new TemplateNodeString {lex.value}};
         return ret;
     }
 
 
-    std::shared_ptr<template_node_eval>
+    std::shared_ptr<TemplateNodeEval>
     parse_eval
     (
-        token_reader* reader,
-        template_error_list* errors,
-        const vfs::file_path& file,
-        vfs::file_system* /*unused*/
+        TokenReader* reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        vfs::FileSystem* /*unused*/
     )
     {
         ASSERT(reader);
-        const token& lex = reader->read();
+        const Token& lex = reader->read();
 
-        if(lex.type == token_type::ident)
+        if(lex.type == TokenType::ident)
         {
-            std::shared_ptr<template_node_eval> ret{new template_node_eval{lex.value}};
+            std::shared_ptr<TemplateNodeEval> ret{new TemplateNodeEval{lex.value}};
             return ret;
         }
 
@@ -627,76 +627,76 @@ namespace euphoria::core
             file,
             reader->get_line(),
             reader->get_column(),
-            string_builder() << "Reading EVAL, expected IDENT but found " << lex.to_string()
+            StringBuilder() << "Reading EVAL, expected IDENT but found " << lex.to_string()
         );
-        std::shared_ptr<template_node_eval> ret{new template_node_eval{"parse_error"}};
+        std::shared_ptr<TemplateNodeEval> ret{new TemplateNodeEval{"parse_error"}};
         return ret;
     }
 
 
-    std::shared_ptr<template_node_set>
+    std::shared_ptr<TemplateNodeSet>
     parse_set
     (
-        token_reader* reader,
-        template_error_list* errors,
-        const vfs::file_path& file,
-        vfs::file_system* /*unused*/
+        TokenReader* reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        vfs::FileSystem* /*unused*/
     )
     {
         ASSERT(reader);
-        const token& name = reader->read();
+        const Token& name = reader->read();
 
-        if(name.type != token_type::ident)
+        if(name.type != TokenType::ident)
         {
             errors->add_error
             (
                 file,
                 reader->get_line(),
                 reader->get_column(),
-                string_builder() << "Reading SET, expected IDENT but found " << name.to_string()
+                StringBuilder() << "Reading SET, expected IDENT but found " << name.to_string()
             );
-            std::shared_ptr<template_node_set> ret{new template_node_set{"parse_error", "parse_error"}};
+            std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{"parse_error", "parse_error"}};
             return ret;
         }
 
-        const token& val = reader->read();
+        const Token& val = reader->read();
 
-        if(val.type != token_type::string)
+        if(val.type != TokenType::string)
         {
             errors->add_error
             (
                 file,
                 reader->get_line(),
                 reader->get_column(),
-                string_builder() << "Reading SET, expected STRING but found " << val.to_string()
+                StringBuilder() << "Reading SET, expected STRING but found " << val.to_string()
             );
-            std::shared_ptr<template_node_set> ret{new template_node_set{name.value, "parse_error"}};
+            std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{name.value, "parse_error"}};
             return ret;
         }
 
-        std::shared_ptr<template_node_set> ret {
-                new template_node_set {name.value, val.value}};
+        std::shared_ptr<TemplateNodeSet> ret {
+                new TemplateNodeSet {name.value, val.value}};
         return ret;
     }
 
 
-    std::shared_ptr<template_node_ifdef>
+    std::shared_ptr<TemplateNodeIfdef>
     parse_ifdef
     (
-        token_reader* reader,
-        template_error_list* errors,
-        const vfs::file_path& file,
-        vfs::file_system* fs
+        TokenReader* reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        vfs::FileSystem* fs
     )
     {
         ASSERT(reader);
-        const token& lex = reader->read();
+        const Token& lex = reader->read();
 
-        if(lex.type == token_type::ident)
+        if(lex.type == TokenType::ident)
         {
-            std::shared_ptr<template_node_list> children{new template_node_list{}};
+            std::shared_ptr<TemplateNodeList> children{new TemplateNodeList{}};
             parse_template_list(&children, reader, errors, file, true, fs);
-            std::shared_ptr<template_node_ifdef> ret{new template_node_ifdef {lex.value, children}};
+            std::shared_ptr<TemplateNodeIfdef> ret{new TemplateNodeIfdef {lex.value, children}};
             return ret;
         }
         errors->add_error
@@ -704,33 +704,33 @@ namespace euphoria::core
             file,
             reader->get_line(),
             reader->get_column(),
-            string_builder() << "Reading IFDEF, expected IDENT but found " << lex.to_string()
+            StringBuilder() << "Reading IFDEF, expected IDENT but found " << lex.to_string()
         );
-        std::shared_ptr<template_node_string> dummy { new template_node_string {"parse_error"}};
-        std::shared_ptr<template_node_ifdef> ret { new template_node_ifdef {"parse_error", dummy}};
+        std::shared_ptr<TemplateNodeString> dummy { new TemplateNodeString {"parse_error"}};
+        std::shared_ptr<TemplateNodeIfdef> ret { new TemplateNodeIfdef {"parse_error", dummy}};
         return ret;
     }
 
 
-    std::shared_ptr<template_node_list>
+    std::shared_ptr<TemplateNodeList>
     parse_include
     (
-        token_reader* reader,
-        template_error_list* errors,
-        const vfs::file_path& file,
-        vfs::file_system* fs
+        TokenReader* reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
+        vfs::FileSystem* fs
     )
     {
         ASSERT(reader);
-        const token& lex = reader->read();
+        const Token& lex = reader->read();
 
-        if(lex.type == token_type::string)
+        if(lex.type == TokenType::string)
         {
-            std::shared_ptr<template_node_list> ret
+            std::shared_ptr<TemplateNodeList> ret
             {
-                new template_node_scoped_list {}
+                new TemplateNodeScopedList {}
             };
-            const auto file_argument = vfs::file_path::from_script(lex.value);
+            const auto file_argument = vfs::FilePath::from_script(lex.value);
             if(file_argument.has_value() == false)
             {
                 errors->add_error
@@ -738,7 +738,7 @@ namespace euphoria::core
                     file,
                     reader->get_line(),
                     reader->get_column(),
-                    string_builder() << "Invalid path "
+                    StringBuilder() << "Invalid path "
                         << lex.value
                 );
             }
@@ -764,7 +764,7 @@ namespace euphoria::core
                     file,
                     reader->get_line(),
                     reader->get_column(),
-                    string_builder() << "Unable to open " << file_argument.value()
+                    StringBuilder() << "Unable to open " << file_argument.value()
                 );
             }
 
@@ -775,9 +775,9 @@ namespace euphoria::core
             file,
             reader->get_line(),
             reader->get_column(),
-            string_builder() << "Reading INCLUDE, expected STRING but found " << lex.to_string()
+            StringBuilder() << "Reading INCLUDE, expected STRING but found " << lex.to_string()
         );
-        std::shared_ptr<template_node_list> ret {new template_node_list {}};
+        std::shared_ptr<TemplateNodeList> ret {new TemplateNodeList {}};
         return ret;
     }
 
@@ -785,38 +785,38 @@ namespace euphoria::core
     void
     parse_template_list
     (
-        std::shared_ptr<template_node_list>* nodes,
-        token_reader* reader,
-        template_error_list* errors,
-        const vfs::file_path& file,
+        std::shared_ptr<TemplateNodeList>* nodes,
+        TokenReader* reader,
+        TemplateErrorList* errors,
+        const vfs::FilePath& file,
         bool expect_end,
-        vfs::file_system* fs
+        vfs::FileSystem* fs
     )
     {
         ASSERT(nodes);
-        std::shared_ptr<template_node_list>& list = *nodes;
+        std::shared_ptr<TemplateNodeList>& list = *nodes;
 
         ASSERT(reader);
-        while(!errors->has_errors() && reader->has_more() && (!expect_end || reader->peek().type != token_type::end))
+        while(!errors->has_errors() && reader->has_more() && (!expect_end || reader->peek().type != TokenType::end))
         {
             switch(reader->peek().type)
             {
-            case token_type::text:
+            case TokenType::text:
                 list->add(parse_text(reader, errors, file, fs));
                 break;
-            case token_type::eval:
+            case TokenType::eval:
                 reader->advance();
                 list->add(parse_eval(reader, errors, file, fs));
                 break;
-            case token_type::if_def:
+            case TokenType::if_def:
                 reader->advance();
                 list->add(parse_ifdef(reader, errors, file, fs));
                 break;
-            case token_type::set:
+            case TokenType::set:
                 reader->advance();
                 list->add(parse_set(reader, errors, file, fs));
                 break;
-            case token_type::include:
+            case TokenType::include:
                 reader->advance();
                 list->add(parse_include(reader, errors, file, fs));
                 break;
@@ -826,7 +826,7 @@ namespace euphoria::core
                     file,
                     reader->get_line(),
                     reader->get_column(),
-                    string_builder() << "Reading LIST " << expect_end << ", Found " << reader->peek().to_string()
+                    StringBuilder() << "Reading LIST " << expect_end << ", Found " << reader->peek().to_string()
                 );
                 return;
             }
@@ -840,14 +840,14 @@ namespace euphoria::core
         if(expect_end)
         {
             auto end = reader->read(); // skip end
-            if(end.type != token_type::end)
+            if(end.type != TokenType::end)
             {
                 errors->add_error
                 (
                     file,
                     reader->get_line(),
                     reader->get_column(),
-                    string_builder() << "Reading LIST, expected END but found " << end.to_string()
+                    StringBuilder() << "Reading LIST, expected END but found " << end.to_string()
                 );
             }
         }
@@ -857,28 +857,28 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////
 
 
-    compiled_text_template::compiled_text_template(const std::string& text)
-        : nodes(new template_node_list {})
+    CompiledTextTemplate::CompiledTextTemplate(const std::string& text)
+        : nodes(new TemplateNodeList {})
     {
-        const auto file = vfs::file_path{"~/from_string"};
-        token_reader reader(lexer(text, &errors, file));
+        const auto file = vfs::FilePath{"~/from_string"};
+        TokenReader reader(lexer(text, &errors, file));
         parse_template_list(&nodes, &reader, &errors, file, false, nullptr);
     }
 
 
-    compiled_text_template::compiled_text_template(vfs::file_system* fs, const vfs::file_path& path)
-        : nodes(new template_node_list {})
+    CompiledTextTemplate::CompiledTextTemplate(vfs::FileSystem* fs, const vfs::FilePath& path)
+        : nodes(new TemplateNodeList {})
     {
         ASSERT(fs);
         load_from_filesystem_to_node_list(fs, path, &errors, &nodes);
     }
 
 
-    compiled_text_template::~compiled_text_template() = default;
+    CompiledTextTemplate::~CompiledTextTemplate() = default;
 
 
     std::string
-    compiled_text_template::evaluate(const core::defines& defines)
+    CompiledTextTemplate::evaluate(const core::Defines& defines)
     {
         std::ostringstream ss;
 
@@ -889,7 +889,7 @@ namespace euphoria::core
 
         if(nodes)
         {
-            core::defines my_defines = defines;
+            core::Defines my_defines = defines;
             nodes->evaluate(&my_defines, &ss, &errors);
         }
 

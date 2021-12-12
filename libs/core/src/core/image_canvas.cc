@@ -14,47 +14,47 @@
 
 namespace euphoria::core
 {
-    vec2f
-    canvas::transform_position(const vec2f& v) const
+    Vec2f
+    Canvas::transform_position(const Vec2f& v) const
     {
-        const auto vv = transform * vec3f {v, 1};
-        return vec2f {vv.x, static_cast<float>(target_image->height) - vv.y};
+        const auto vv = transform * Vec3f {v, 1};
+        return Vec2f {vv.x, static_cast<float>(target_image->height) - vv.y};
     }
 
-    canvas::canvas(image* i)
-        : fill_style(color::black)
+    Canvas::Canvas(Image* i)
+        : fill_style(NamedColor::black)
         , target_image(i)
-        , transform(mat3f::identity())
+        , transform(Mat3f::identity())
         , building_path(false)
     {
     }
 
     void
-    canvas::fill_rect(int x, int y, int w, int h) const
+    Canvas::fill_rect(int x, int y, int w, int h) const
     {
         ASSERTX(w > 0, w);
         ASSERTX(h > 0, h);
         draw_rect(
                 target_image,
                 fill_style,
-                recti::from_top_left_width_height(vec2i{x, target_image->height - y}, w, h));
+                Recti::from_top_left_width_height(Vec2i{x, target_image->height - y}, w, h));
     }
 
     void
-    canvas::translate(float x, float y)
+    Canvas::translate(float x, float y)
     {
-        const auto m = mat3f::from_translation2d(vec2f {x, y});
+        const auto m = Mat3f::from_translation2d(Vec2f {x, y});
         transform = transform * m;
     }
 
     void
-    canvas::rotate(float r)
+    Canvas::rotate(float r)
     {
-        transform = transform * mat3f{mat2f::from_rotation(angle::from_radians(r))};
+        transform = transform * Mat3f{Mat2f::from_rotation(Angle::from_radians(r))};
     }
 
     void
-    canvas::begin_path()
+    Canvas::begin_path()
     {
         ASSERT(!building_path);
         path.resize(0);
@@ -62,33 +62,33 @@ namespace euphoria::core
     }
 
     void
-    canvas::close_path()
+    Canvas::close_path()
     {
         ASSERT(building_path);
         building_path = false;
     }
 
     void
-    canvas::move_to(float x, float y)
+    Canvas::move_to(float x, float y)
     {
         ASSERT(building_path);
         ASSERT(path.empty());
-        path.push_back(transform_position(vec2f(x, y)));
+        path.push_back(transform_position(Vec2f(x, y)));
     }
 
     void
-    canvas::line_to(float dx, float dy)
+    Canvas::line_to(float dx, float dy)
     {
         ASSERT(building_path);
         if(path.empty())
         {
-            path.push_back(transform_position(vec2f::zero()));
+            path.push_back(transform_position(Vec2f::zero()));
         }
-        path.push_back(transform_position(vec2f(dx, dy)));
+        path.push_back(transform_position(Vec2f(dx, dy)));
     }
 
     void
-    canvas::fill() const
+    Canvas::fill() const
     {
         ASSERT(!building_path);
         fill_poly(target_image, fill_style, path);

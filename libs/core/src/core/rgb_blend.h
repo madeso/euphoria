@@ -4,7 +4,7 @@
 
 namespace euphoria::core
 {
-    enum class blend_mode
+    enum class BlendMode
     {
         normal,
         lighten,
@@ -34,10 +34,10 @@ namespace euphoria::core
     };
 
     // place top onto bottom
-    rgb   blend(const rgb&   top, const rgb&   bottom, blend_mode mode = blend_mode::normal);
-    rgba  blend(const rgba&  top, const rgba&  bottom, blend_mode mode = blend_mode::normal);
-    rgbi  blend(const rgbi&  top, const rgbi&  bottom, blend_mode mode = blend_mode::normal);
-    rgbai blend(const rgbai& top, const rgbai& bottom, blend_mode mode = blend_mode::normal);
+    Rgb   blend(const Rgb&   top, const Rgb&   bottom, BlendMode mode = BlendMode::normal);
+    Rgba  blend(const Rgba&  top, const Rgba&  bottom, BlendMode mode = BlendMode::normal);
+    Rgbi  blend(const Rgbi&  top, const Rgbi&  bottom, BlendMode mode = BlendMode::normal);
+    Rgbai blend(const Rgbai& top, const Rgbai& bottom, BlendMode mode = BlendMode::normal);
 
     // Rgb   Blend(const Rgb&   a, const Rgb&   b, float alpha, const BlendMode mode = BlendMode::Normal);
     // Rgba  Blend(const Rgba&  a, const Rgba&  b, float alpha, const BlendMode mode = BlendMode::Normal);

@@ -9,22 +9,22 @@
 
 namespace euphoria::core
 {
-    struct compiled_camera3
+    struct CompiledCamera3
     {
     public:
-        compiled_camera3(const mat4f& v, const mat4f& p);
+        CompiledCamera3(const mat4f& v, const mat4f& p);
 
         [[nodiscard]]
-        vec3f
-        world_to_clip(const vec3f& in_world) const;
+        Vec3f
+        world_to_clip(const Vec3f& in_world) const;
 
         [[nodiscard]]
-        vec3f
-        clip_to_world(const vec3f& in_clip) const;
+        Vec3f
+        clip_to_world(const Vec3f& in_clip) const;
 
         [[nodiscard]]
-        ray3f
-        clip_to_world_ray(const vec2f& p) const;
+        Ray3f
+        clip_to_world_ray(const Vec2f& p) const;
 
         mat4f view;
         mat4f projection;
@@ -33,16 +33,16 @@ namespace euphoria::core
     };
 
 
-    struct camera3
+    struct Camera3
     {
-        camera3();
+        Camera3();
 
         [[nodiscard]]
-        compiled_camera3
+        CompiledCamera3
         compile(float aspect) const;
 
-        vec3f position;
-        quatf rotation;
+        Vec3f position;
+        Quatf rotation;
         float fov;
         float near;
         float far;

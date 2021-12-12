@@ -188,10 +188,10 @@ namespace euphoria::minsynth
 
     struct piano_key
     {
-        piano_key(int st, core::key kc, const std::string& n, int octave);
+        piano_key(int st, core::Key kc, const std::string& n, int octave);
 
         int semitone;
-        core::key keycode;
+        core::Key keycode;
         std::string name;
 
         bool octave_shift;
@@ -245,7 +245,7 @@ namespace euphoria::minsynth
         ) const;
 
         void
-        on_input(core::key input, bool was_pressed, float time);
+        on_input(core::Key input, bool was_pressed, float time);
     };
 
 
@@ -393,7 +393,7 @@ namespace euphoria::minsynth
     };
 
 
-    using keyboard_layout = std::vector<std::vector<core::key>>;
+    using keyboard_layout = std::vector<std::vector<core::Key>>;
 
 
     const keyboard_layout&

@@ -14,7 +14,7 @@ http://tableaufriction.blogspot.ro/2012/11/finally-you-can-use-tableau-data-colo
 
 namespace euphoria::core::palettes::tableau
 {
-    constexpr rgbi
+    constexpr Rgbi
     con(unsigned char r, unsigned char g, unsigned char b)
     {
         return {r, g, b};

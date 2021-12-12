@@ -10,7 +10,7 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct table
+    struct Table
     {
         using I = int;
 
@@ -20,18 +20,18 @@ namespace euphoria::core
             return c_sizet_to_int(t);
         }
 
-        table() = default;
+        Table() = default;
 
-        [[nodiscard]] static table
+        [[nodiscard]] static Table
         from_width_height(I width, I height, T d = T())
         {
-            return table(width, height, d);
+            return Table(width, height, d);
         }
 
-        [[nodiscard]] static table
+        [[nodiscard]] static Table
         from_height_width(I height, I width, T d = T())
         {
-            return table(width, height, d);
+            return Table(width, height, d);
         }
 
         void
@@ -64,10 +64,10 @@ namespace euphoria::core
             }
         }
 
-        [[nodiscard]] recti
+        [[nodiscard]] Recti
         get_indices() const
         {
-            return recti::from_width_height(width - 1, height - 1);
+            return Recti::from_width_height(width - 1, height - 1);
         }
 
         [[nodiscard]] bool
@@ -137,7 +137,7 @@ namespace euphoria::core
             ASSERT(width != 0);
             ASSERTX(width < new_width, width, new_width);
 
-            auto t = table<T>::from_width_height(new_width, height, d);
+            auto t = Table<T>::from_width_height(new_width, height, d);
             for(I x = 0; x < width; x += 1)
             {
                 for(I y = 0; y < height; y += 1)
@@ -196,7 +196,7 @@ namespace euphoria::core
         }
 
     private:
-        table(I c, I r, T d = T()) : data(c * r, d), width(c), height(r)
+        Table(I c, I r, T d = T()) : data(c * r, d), width(c), height(r)
         {
             ASSERTX(width >= 0 && height >= 0, width, height);
         }
@@ -209,12 +209,12 @@ namespace euphoria::core
 
     template <typename T>
     std::vector<T>
-    calc_column_as_vector(const table<T>& t, typename table<T>::I x)
+    calc_column_as_vector(const Table<T>& t, typename Table<T>::I x)
     {
         ASSERTX(x < t.get_width(), x, t.get_width());
         std::vector<T> r;
         r.reserve(t.get_height());
-        for(typename table<T>::I y = 0; y < t.get_height(); ++y)
+        for(typename Table<T>::I y = 0; y < t.get_height(); ++y)
         {
             r.emplace_back(t(x, y));
         }
@@ -223,13 +223,13 @@ namespace euphoria::core
 
     template <typename T>
     std::vector<T>
-    calc_row_as_vector(const table<T>& t, typename table<T>::I y)
+    calc_row_as_vector(const Table<T>& t, typename Table<T>::I y)
     {
         ASSERTX(y < t.get_height(), y, t.get_height());
 
         std::vector<T> r;
         r.reserve(t.get_width());
-        for(typename table<T>::I x = 0; x < t.get_width(); ++x)
+        for(typename Table<T>::I x = 0; x < t.get_width(); ++x)
         {
             r.emplace_back(t(x, y));
         }

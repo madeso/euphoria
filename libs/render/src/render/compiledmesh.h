@@ -10,7 +10,7 @@
 
 namespace euphoria::core::vfs
 {
-    struct dir_path;
+    struct DirPath;
 }
 
 
@@ -46,7 +46,7 @@ namespace euphoria::render
         void
         set_texture
         (
-            const core::enum_value& name,
+            const core::EnumValue& name,
             std::shared_ptr<texture2d> texture
         );
 
@@ -57,7 +57,7 @@ namespace euphoria::render
             const core::mat4f& model_matrix,
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
-            const core::vec3f& camera,
+            const core::Vec3f& camera,
             const light& light
         ) const;
 
@@ -75,12 +75,12 @@ namespace euphoria::render
         validate() const;
 
 
-        core::rgb ambient;
-        core::rgb diffuse;
-        core::rgb specular;
+        core::Rgb ambient;
+        core::Rgb diffuse;
+        core::Rgb specular;
         float shininess;
         std::shared_ptr<material_shader> shader;
-        std::map<core::enum_value, std::shared_ptr<texture2d>> textures;
+        std::map<core::EnumValue, std::shared_ptr<texture2d>> textures;
     };
 
 
@@ -98,7 +98,7 @@ namespace euphoria::render
             const core::mat4f& model_matrix,
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
-            const core::vec3f& camera,
+            const core::Vec3f& camera,
             const light& light,
             const std::shared_ptr<material_override>& overridden_materials
         );
@@ -108,10 +108,10 @@ namespace euphoria::render
     std::shared_ptr<compiled_mesh>
     compile_mesh
     (
-            const core::mesh& mesh,
+            const core::Mesh& mesh,
             material_shader_cache* shader_cache,
             texture_cache* texture_cache,
-            const core::vfs::dir_path& texture_folder,
+            const core::vfs::DirPath& texture_folder,
             const std::string& debug_name
     );
 }

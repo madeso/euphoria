@@ -36,14 +36,14 @@ namespace euphoria::gui
     }
 
 
-    core::rectf
+    core::Rectf
     widget::get_client_rect() const
     {
         return rect.inset_copy(padding.left, padding.right, padding.top, padding.bottom);
     }
 
 
-    core::rectf
+    core::Rectf
     widget::get_background_rect() const
     {
         return rect;
@@ -51,7 +51,7 @@ namespace euphoria::gui
 
 
     void
-    widget::set_rect(const core::rectf& r)
+    widget::set_rect(const core::Rectf& r)
     {
         rect = r.inset_copy
         (

@@ -14,7 +14,7 @@ namespace euphoria::core::argparse
             {
                 return static_cast<std::string>
                 (
-                    string_builder() << '\'' << s << '\''
+                    StringBuilder() << '\'' << s << '\''
                 );
             });
 

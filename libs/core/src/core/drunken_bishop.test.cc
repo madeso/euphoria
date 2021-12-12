@@ -14,7 +14,7 @@ using namespace euphoria::tests;
 
 
 std::string
-int_to_binary_string_representation(u8 t)
+int_to_binary_string_representation(U8 t)
 {
     std::ostringstream ss;
     std::bitset<2> x(t);
@@ -92,11 +92,11 @@ int_equals_bin
 
 TEST_CASE("drunken bishop 0", "[drunken-bishop]")
 {
-    CHECK(int_equals_hex(to_bytes(static_cast<u32>(0)), {0x00, 0x00, 0x00, 0x00}));
-    CHECK(int_equals_hex(to_bytes(static_cast<u32>(1)), {0x00, 0x00, 0x00, 0x01}));
-    CHECK(int_equals_hex(to_bytes(static_cast<u32>(42)), {0x00, 0x00, 0x00, 0x2A}));
-    CHECK(int_equals_hex(to_bytes(static_cast<u32>(1337)), {0x00, 0x00, 0x05, 0x39}));
-    CHECK(int_equals_hex(to_bytes(std::numeric_limits<u32>::max()), {0xFF, 0xFF, 0xFF, 0xFF}));
+    CHECK(int_equals_hex(to_bytes(static_cast<U32>(0)), {0x00, 0x00, 0x00, 0x00}));
+    CHECK(int_equals_hex(to_bytes(static_cast<U32>(1)), {0x00, 0x00, 0x00, 0x01}));
+    CHECK(int_equals_hex(to_bytes(static_cast<U32>(42)), {0x00, 0x00, 0x00, 0x2A}));
+    CHECK(int_equals_hex(to_bytes(static_cast<U32>(1337)), {0x00, 0x00, 0x05, 0x39}));
+    CHECK(int_equals_hex(to_bytes(std::numeric_limits<U32>::max()), {0xFF, 0xFF, 0xFF, 0xFF}));
 
     CHECK(int_equals_bin(to_codes(0x00, true), {0b00, 0b00, 0b00, 0b00}));
     CHECK(int_equals_bin(to_codes(0x01, true), {0b00, 0b00, 0b00, 0b01}));
@@ -112,7 +112,7 @@ TEST_CASE("drunken bishop strings", "[drunken-bishop]")
 {
     auto test = []
     (
-        const std::vector<u8>& bytes,
+        const std::vector<U8>& bytes,
         const std::vector<std::string> correct_result
     )
     {

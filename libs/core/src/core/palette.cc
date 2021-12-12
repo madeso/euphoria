@@ -11,7 +11,7 @@ namespace euphoria::core
     namespace
     {
         float
-        get_distance_squared(const rgbi& lhs, const rgbi& rhs)
+        get_distance_squared(const Rgbi& lhs, const Rgbi& rhs)
         {
             return
                 square(static_cast<float>(lhs.r - rhs.r)) +
@@ -21,29 +21,29 @@ namespace euphoria::core
         }
     }
 
-    const rgbi&
-    palette::get_random_color(random* r) const
+    const Rgbi&
+    Palette::get_random_color(Random* r) const
     {
         return get_random_item_in_vector(r, colors);
     }
 
 
-    const rgbi&
-    palette::get_safe_index(unsigned int i) const
+    const Rgbi&
+    Palette::get_safe_index(unsigned int i) const
     {
         return colors[i % colors.size()];
     }
 
 
-    const rgbi&
-    palette::get_closest_color(const rgbi& c) const
+    const Rgbi&
+    Palette::get_closest_color(const Rgbi& c) const
     {
         return colors[get_index_closest(c)];
     }
 
 
     unsigned int
-    palette::get_index_closest(const rgbi& c) const
+    Palette::get_index_closest(const Rgbi& c) const
     {
         ASSERT(!colors.empty());
         auto diff_best = get_distance_squared(c, colors[0]);
@@ -65,35 +65,35 @@ namespace euphoria::core
 
     ///////////////////////////////////////////////////////////////////////////
 
-    palette
-    dynamic_palette::to_palette() const
+    Palette
+    DynamicPalette::to_palette() const
     {
         return {name, colors};
     }
 
 
-    dynamic_palette::dynamic_palette(const std::string& n, const std::vector<rgbi>& c)
+    DynamicPalette::DynamicPalette(const std::string& n, const std::vector<Rgbi>& c)
         : name(n)
         , colors(c)
     {
     }
 
 
-    dynamic_palette
-    dynamic_palette::create_empty(const std::string& name)
+    DynamicPalette
+    DynamicPalette::create_empty(const std::string& name)
     {
-        return dynamic_palette{name};
+        return DynamicPalette{name};
     }
 
 
-    dynamic_palette
-    dynamic_palette::create_rainbow(int count, float saturation, float lightness)
+    DynamicPalette
+    DynamicPalette::create_rainbow(int count, float saturation, float lightness)
     {
         return create_rainbow
         (
             count,
-            angle::from_radians(0),
-            angle::from_percent_of_360
+            Angle::from_radians(0),
+            Angle::from_percent_of_360
             (
                 max(1.0f, static_cast<float>(count - 1) / static_cast<float>(count))
             ),
@@ -103,26 +103,26 @@ namespace euphoria::core
     }
 
 
-    dynamic_palette
-    dynamic_palette::create_rainbow
+    DynamicPalette
+    DynamicPalette::create_rainbow
     (
         int count,
-        const angle& from,
-        const angle& to,
+        const Angle& from,
+        const Angle& to,
         float saturation,
         float lightness
     )
     {
         ASSERT(count > 1);
 
-        auto pal = dynamic_palette::create_empty("Rainbow");
+        auto pal = DynamicPalette::create_empty("Rainbow");
 
         for(int i = 0; i < count; i += 1)
         {
             float d = static_cast<float>(i) / static_cast<float>(count - 1);
             const auto rgbf = crgb
             (
-                hsl
+                Hsl
                 {
                     angle_transform::transform(from, d, to),
                     saturation,
@@ -136,7 +136,7 @@ namespace euphoria::core
     }
 
 
-    dynamic_palette::dynamic_palette(const std::string& n)
+    DynamicPalette::DynamicPalette(const std::string& n)
         : name(n)
     {
     }
@@ -146,20 +146,20 @@ namespace euphoria::core
 
     namespace
     {
-        rgbi
+        Rgbi
         hex(unsigned int hex)
         {
-            return rgbi::from_hex(hex);
+            return Rgbi::from_hex(hex);
         }
     }
 
 
     namespace palettes
     {
-        const palette&
+        const Palette&
         dawnbringer()
         {
-            static const auto p = palette
+            static const auto p = Palette
             {
                 "dawnbringer",
                 std::array
@@ -185,44 +185,44 @@ namespace euphoria::core
             return p;
         }
 
-        const palette&
+        const Palette&
         named_colors()
         {
-            static const auto p = palette
+            static const auto p = Palette
             {
                 "named",
                 std::array
                 {
-                    rgbi{color::white},
-                    rgbi{color::light_gray},
-                    rgbi{color::gray},
-                    rgbi{color::dark_gray},
-                    rgbi{color::black},
-                    rgbi{color::red},
-                    rgbi{color::pure_red},
-                    rgbi{color::blue},
-                    rgbi{color::pure_blue},
-                    rgbi{color::light_blue},
-                    rgbi{color::normal_blue},
-                    rgbi{color::cornflower_blue},
-                    rgbi{color::green},
-                    rgbi{color::pure_green},
-                    rgbi{color::light_green},
-                    rgbi{color::yellow},
-                    rgbi{color::pure_yellow},
-                    rgbi{color::orange},
-                    rgbi{color::pure_orange},
-                    rgbi{color::brown},
-                    rgbi{color::pure_brown},
-                    rgbi{color::purple},
-                    rgbi{color::pure_purple},
-                    rgbi{color::pink},
-                    rgbi{color::pure_pink},
-                    rgbi{color::pure_beige},
-                    rgbi{color::tan},
-                    rgbi{color::pure_tan},
-                    rgbi{color::cyan},
-                    rgbi{color::pure_cyan}
+                    Rgbi{NamedColor::white},
+                    Rgbi{NamedColor::light_gray},
+                    Rgbi{NamedColor::gray},
+                    Rgbi{NamedColor::dark_gray},
+                    Rgbi{NamedColor::black},
+                    Rgbi{NamedColor::red},
+                    Rgbi{NamedColor::pure_red},
+                    Rgbi{NamedColor::blue},
+                    Rgbi{NamedColor::pure_blue},
+                    Rgbi{NamedColor::light_blue},
+                    Rgbi{NamedColor::normal_blue},
+                    Rgbi{NamedColor::cornflower_blue},
+                    Rgbi{NamedColor::green},
+                    Rgbi{NamedColor::pure_green},
+                    Rgbi{NamedColor::light_green},
+                    Rgbi{NamedColor::yellow},
+                    Rgbi{NamedColor::pure_yellow},
+                    Rgbi{NamedColor::orange},
+                    Rgbi{NamedColor::pure_orange},
+                    Rgbi{NamedColor::brown},
+                    Rgbi{NamedColor::pure_brown},
+                    Rgbi{NamedColor::purple},
+                    Rgbi{NamedColor::pure_purple},
+                    Rgbi{NamedColor::pink},
+                    Rgbi{NamedColor::pure_pink},
+                    Rgbi{NamedColor::pure_beige},
+                    Rgbi{NamedColor::tan},
+                    Rgbi{NamedColor::pure_tan},
+                    Rgbi{NamedColor::cyan},
+                    Rgbi{NamedColor::pure_cyan}
                 }
             };
             return p;

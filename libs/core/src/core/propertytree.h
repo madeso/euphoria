@@ -8,66 +8,66 @@
 
 namespace euphoria::core
 {
-    enum class value_type
+    enum class ValueType
     {
         int_type,
         float_type,
         vec3f_type,
-        struct_type
+        map_type
     };
 
-    struct value
+    struct Value
     {
-        explicit value(value_type vt) : type(vt) {}
+        explicit Value(ValueType vt) : type(vt) {}
 
-        virtual ~value() = default;
+        virtual ~Value() = default;
 
-        value(const value&) = delete;
-        value(value&&) = delete;
-        void operator=(const value&) = delete;
-        void operator=(value&&) = delete;
+        Value(const Value&) = delete;
+        Value(Value&&) = delete;
+        void operator=(const Value&) = delete;
+        void operator=(Value&&) = delete;
 
-        const value_type type;
+        const ValueType type;
     };
 
-    struct value_int : public value
+    struct IntValue : public Value
     {
-        explicit value_int(int i);
+        explicit IntValue(int i);
         int value;
 
         [[nodiscard]] static int&
-        cast(core::value* value);
+        cast(core::Value* value);
     };
 
-    struct value_float : public value
+    struct FloatValue : public Value
     {
-        explicit value_float(float f);
+        explicit FloatValue(float f);
         float value;
 
         [[nodiscard]] static float&
-        cast(core::value* value);
+        cast(core::Value* value);
     };
 
-    struct value_vec3f : public value
+    struct Vec3fValue : public Value
     {
-        explicit value_vec3f(const vec3f& v);
-        vec3f value;
+        explicit Vec3fValue(const Vec3f& v);
+        Vec3f value;
 
-        [[nodiscard]] static vec3f&
-        cast(core::value* value);
+        [[nodiscard]] static Vec3f&
+        cast(core::Value* value);
     };
 
-    struct property_tree : public value
+    struct MapValue : public Value
     {
-        property_tree();
+        MapValue();
 
         void
-        set(const std::string& name, std::shared_ptr<value> value);
+        set(const std::string& name, std::shared_ptr<Value> value);
 
-        std::shared_ptr<value>
+        std::shared_ptr<Value>
         get_or_null(const std::string& name);
 
-        std::map<std::string, std::shared_ptr<value>> properties;
+        std::map<std::string, std::shared_ptr<Value>> properties;
     };
 
 }

@@ -23,9 +23,9 @@ i2f(int i)
     return static_cast<float>(i);
 }
 
-std::vector<vec2f> generate_random_points(int count, const rectf& size, euco::random* random)
+std::vector<Vec2f> generate_random_points(int count, const Rectf& size, euco::Random* random)
 {
-    std::vector<vec2f> r;
+    std::vector<Vec2f> r;
     for(int i=0; i<count; i+=1)
     {
         r.emplace_back( size.get_random_point(random) );
@@ -43,35 +43,35 @@ enum class point_generation
     random, poisson
 };
 
-vec2f abs(const vec2f& a)
+Vec2f abs(const Vec2f& a)
 {
     return {euphoria::core::abs(a.x), euphoria::core::abs(a.y)};
 }
 
-float euclidian_distance(const vec2f& lhs, const vec2f& rhs)
+float euclidian_distance(const Vec2f& lhs, const Vec2f& rhs)
 {
     return (lhs-rhs).get_length_squared();
 }
 
-float manhattan_distance(const vec2f& lhs, const vec2f& rhs)
+float manhattan_distance(const Vec2f& lhs, const Vec2f& rhs)
 {
     const auto d = abs(lhs-rhs);
     return d.x + d.y;
 }
 
-float min_distance(const vec2f& lhs, const vec2f& rhs)
+float min_distance(const Vec2f& lhs, const Vec2f& rhs)
 {
     const auto d = abs(lhs-rhs);
     return min(d.x, d.y);
 }
 
-float max_distance(const vec2f& lhs, const vec2f& rhs)
+float max_distance(const Vec2f& lhs, const Vec2f& rhs)
 {
     const auto d = abs(lhs-rhs);
     return max(d.x, d.y);
 }
 
-float get_distance(distance_function f, const vec2f& lhs, const vec2f& rhs)
+float get_distance(distance_function f, const Vec2f& lhs, const Vec2f& rhs)
 {
     switch(f)
     {
@@ -100,7 +100,7 @@ main(int argc, char* argv[])
     auto crazy_distance = 0.0f;
     std::string output_path = "voronoi.png";
 
-    auto parser = argparse::parser {"voronoi generator"};
+    auto parser = argparse::Parser {"voronoi generator"};
 
     // todo(Gustav): change to a subparser
     parser.add("--gen", &point_generation).set_help("How to generate points");
@@ -119,29 +119,29 @@ main(int argc, char* argv[])
         return *r;
     }
 
-    euco::random rand;
+    euco::Random rand;
 
-    const auto area = rectf::from_width_height(c_sizet_to_float(size), c_sizet_to_float(size));
+    const auto area = Rectf::from_width_height(c_sizet_to_float(size), c_sizet_to_float(size));
     const auto random_points =
         point_generation == point_generation::random
         ? generate_random_points(number_of_points, area, &rand)
         : poisson_sample(area, &rand, poisson_radius*2, poisson_radius);
 
-    const auto rainbow = dynamic_palette::create_rainbow(c_sizet_to_int(random_points.size()));
+    const auto rainbow = DynamicPalette::create_rainbow(c_sizet_to_int(random_points.size()));
     auto pal = use_colorblind
         ? *palettes::tableau::color_blind_10
         : rainbow.to_palette();
-    image image;
+    Image image;
     image.setup_no_alpha_support(size, size);
 
-    auto points = get_closest_point<vec2f, int, std::function<float (const vec2f&, const vec2f&)>, float>
+    auto points = ClosestPointCollector<Vec2f, int, std::function<float (const Vec2f&, const Vec2f&)>, float>
         {
-            [&](const vec2f& lhs, const vec2f& rhs)
+            [&](const Vec2f& lhs, const Vec2f& rhs)
             {
                 const auto dist = get_distance(distance_function, lhs, rhs);
                 if(cos_distance)
                 {
-                    return cos(angle::from_degrees(dist/crazy_distance));
+                    return cos(Angle::from_degrees(dist/crazy_distance));
                 }
                 else
                 {
@@ -160,12 +160,12 @@ main(int argc, char* argv[])
     }
 
     image.set_all_bottom_top([&](int x, int y) {
-        const auto index = points.find_closest(vec2f{i2f(x), i2f(y)});
+        const auto index = points.find_closest(Vec2f{i2f(x), i2f(y)});
         return pal.get_safe_index(index);
     });
 
 
-    io::chunk_to_file(image.write(image_write_format::png), output_path);
+    io::chunk_to_file(image.write(ImageWriteFormat::png), output_path);
 
     return 0;
 }

@@ -31,19 +31,19 @@ const char* const base64_encoded_test_image
 
 TEST_CASE("image-load", "[img]")
 {
-    vfs::file_system fs;
-    auto catalog = vfs::read_root_catalog::create_and_add(&fs);
+    vfs::FileSystem fs;
+    auto catalog = vfs::ReadRootCatalog::create_and_add(&fs);
     catalog->register_file_data
     (
-        vfs::file_path{"~/white"},
+        vfs::FilePath{"~/white"},
         euco::base64::decode(base64_encoded_test_image)
     );
 
     auto loaded = euco::load_image
     (
         &fs,
-        vfs::file_path{"~/white"},
-        euco::alpha_load::remove
+        vfs::FilePath{"~/white"},
+        euco::AlphaLoad::remove
     );
     REQUIRE(loaded.error.empty());
     REQUIRE_FALSE(loaded.image.has_alpha);
@@ -55,7 +55,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-white")
     {
         const auto pixel = loaded.image.get_pixel(0, 1);
-        const auto white = euco::rgbai {euco::rgbi {255, 255, 255}, 255};
+        const auto white = euco::Rgbai {euco::Rgbi {255, 255, 255}, 255};
         REQUIRE(pixel == white);
     }
 
@@ -63,7 +63,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-red")
     {
         const auto pixel = loaded.image.get_pixel(1, 1);
-        const auto red = euco::rgbai {euco::rgbi {255, 0, 0}, 255};
+        const auto red = euco::Rgbai {euco::Rgbi {255, 0, 0}, 255};
         REQUIRE(pixel == red);
     }
 
@@ -71,7 +71,7 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-green")
     {
         const auto pixel = loaded.image.get_pixel(0, 0);
-        const auto green = euco::rgbai {euco::rgbi {0, 255, 0}, 255};
+        const auto green = euco::Rgbai {euco::Rgbi {0, 255, 0}, 255};
         REQUIRE(pixel == green);
     }
 
@@ -79,26 +79,26 @@ TEST_CASE("image-load", "[img]")
     SECTION("load-blue")
     {
         const auto pixel = loaded.image.get_pixel(1, 0);
-        const auto blue = euco::rgbai {euco::rgbi {0, 0, 255}, 255};
+        const auto blue = euco::Rgbai {euco::Rgbi {0, 0, 255}, 255};
         REQUIRE(pixel == blue);
     }
 }
 
 TEST_CASE("image solid", "[img]")
 {
-    euco::image img;
+    euco::Image img;
     img.setup_no_alpha_support(3, 3);
 
     SECTION("default-is-black")
     {
-        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
-        REQUIRE(img.get_pixel(1, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
+        REQUIRE(img.get_pixel(0, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 255));
+        REQUIRE(img.get_pixel(1, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 255));
     }
 
     SECTION("can set and get color")
     {
-        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 255));
-        euco::rgbai color {euco::rgbi {255, 255, 255}, 255};
+        REQUIRE(img.get_pixel(0, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 255));
+        euco::Rgbai color {euco::Rgbi {255, 255, 255}, 255};
         img.set_pixel(0, 0, color);
         REQUIRE(img.get_pixel(0, 0) == color);
     }
@@ -107,19 +107,19 @@ TEST_CASE("image solid", "[img]")
 
 TEST_CASE("image transparent", "[img]")
 {
-    euco::image img;
+    euco::Image img;
     img.setup_with_alpha_support(4, 4);
 
     SECTION("default-is-black")
     {
-        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
-        REQUIRE(img.get_pixel(1, 1) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
+        REQUIRE(img.get_pixel(0, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 0));
+        REQUIRE(img.get_pixel(1, 1) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 0));
     }
 
     SECTION("can set and get color")
     {
-        REQUIRE(img.get_pixel(0, 0) == euco::rgbai(euco::rgbi{0, 0, 0}, 0));
-        euco::rgbai color {euco::rgbi {255, 255, 255}, 255};
+        REQUIRE(img.get_pixel(0, 0) == euco::Rgbai(euco::Rgbi{0, 0, 0}, 0));
+        euco::Rgbai color {euco::Rgbi {255, 255, 255}, 255};
         img.set_pixel(0, 0, color);
         REQUIRE(img.get_pixel(0, 0) == color);
     }
@@ -129,7 +129,7 @@ TEST_CASE("image transparent", "[img]")
 // todo(Gustav): add paint test
 TEST_CASE("image draw", "[img]")
 {
-    euco::image img;
+    euco::Image img;
     const int width = 10;
     const int height = 12;
     img.setup_no_alpha_support(width, height);
@@ -143,8 +143,8 @@ TEST_CASE("image draw", "[img]")
         CHECK(size.get_height() == height);
     }
 
-    euco::rgbi color {255, 255, 0};
-    euco::rgbai colora {color, 255};
+    euco::Rgbi color {255, 255, 0};
+    euco::Rgbai colora {color, 255};
 
     SECTION("fill")
     {
@@ -161,7 +161,7 @@ TEST_CASE("image draw", "[img]")
     SECTION("circle")
     {
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
-        euco::draw_circle(&img, crgb(color), euco::vec2i {5, 5}, 4);
+        euco::draw_circle(&img, crgb(color), euco::Vec2i {5, 5}, 4);
         CHECK_FALSE(img.get_pixel(0, 0) == colora);
         REQUIRE(img.get_pixel(5, 5) == colora);
     }
@@ -170,14 +170,14 @@ TEST_CASE("image draw", "[img]")
     {
         CHECK_FALSE(img.get_pixel(0, 0) == colora);
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
-        euco::draw_circle(&img, crgb(color), euco::vec2i {5, 5}, 20, 0, 3);
+        euco::draw_circle(&img, crgb(color), euco::Vec2i {5, 5}, 20, 0, 3);
         CHECK_FALSE(img.get_pixel(5, 5) == colora);
         REQUIRE(img.get_pixel(0, 0) == colora);
     }
 
     SECTION("paste big with clip")
     {
-        euco::image big;
+        euco::Image big;
         big.setup_no_alpha_support(width * 3, height * 3);
         euco::clear(&big, color);
 
@@ -187,7 +187,7 @@ TEST_CASE("image draw", "[img]")
         CHECK_FALSE(img.get_pixel(width-1, 0) == colora);
         CHECK_FALSE(img.get_pixel(width-1, height-1) == colora);
 
-        paste_image(&img, euco::vec2i(-width, -height), big, euco::blend_mode::normal, euco::pixels_outside::discard);
+        paste_image(&img, euco::Vec2i(-width, -height), big, euco::BlendMode::normal, euco::pixels_outside::discard);
 
         CHECK(img.get_pixel(5, 5) == colora);
         CHECK(img.get_pixel(0, 0) == colora);
@@ -198,11 +198,11 @@ TEST_CASE("image draw", "[img]")
 
     SECTION("paste small")
     {
-        euco::image small;
+        euco::Image small;
         small.setup_no_alpha_support(2, 2);
         euco::clear(&small, color);
 
-        paste_image(&img, euco::vec2i(5, 5), small);
+        paste_image(&img, euco::Vec2i(5, 5), small);
         CHECK(img.get_pixel(5, 5) == colora);
         CHECK(img.get_pixel(6, 5) == colora);
         CHECK(img.get_pixel(5, 6) == colora);
@@ -219,23 +219,23 @@ TEST_CASE("image text")
 {
     auto draw_text = [](const std::string& text, int width, int height) -> std::vector<std::string>
     {
-        euco::image image;
+        euco::Image image;
         image.setup_no_alpha_support(width, height);
-        euco::draw_rect(&image, {euco::color::white}, euco::whole_image(image));
+        euco::draw_rect(&image, {euco::NamedColor::white}, euco::whole_image(image));
         euco::draw_text
         (
             &image,
-            euco::vec2i(0,height-8),
+            euco::Vec2i(0,height-8),
             text,
-            {euco::color::black},
+            {euco::NamedColor::black},
             euco::load_characters_from_builtin8()
         );
         const auto table = euco::image_to_string_table_exact
         (
             image,
             {
-                {'#', euco::color::black},
-                {' ', euco::color::white}
+                {'#', euco::NamedColor::black},
+                {' ', euco::NamedColor::white}
             },
             '?'
         );

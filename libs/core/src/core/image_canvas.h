@@ -8,25 +8,25 @@
 
 namespace euphoria::core
 {
-    struct image;
+    struct Image;
 
     // hacky layer between something that looks like the html 'canvas rendering context 2d' and the euphoria image drawing operations
     // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
-    struct canvas
+    struct Canvas
     {
-        rgbi fill_style;
+        Rgbi fill_style;
 
-        image* target_image;
+        Image* target_image;
 
-        mat3f transform;
+        Mat3f transform;
 
         bool building_path;
-        std::vector<vec2f> path;
+        std::vector<Vec2f> path;
 
-        [[nodiscard]] vec2f
-        transform_position(const vec2f& v) const;
+        [[nodiscard]] Vec2f
+        transform_position(const Vec2f& v) const;
 
-        canvas(image* i);
+        Canvas(Image* i);
 
         void
         fill_rect(int x, int y, int w, int h) const;

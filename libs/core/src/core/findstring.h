@@ -21,7 +21,9 @@ namespace euphoria::core
 
     // find all of the strings in any target
     bool
-    find(const std::vector<std::string>& targets,
-         const std::vector<std::string>& searches);
-
+    find
+    (
+        const std::vector<std::string>& targets,
+        const std::vector<std::string>& searches
+    );
 }

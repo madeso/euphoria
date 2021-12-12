@@ -14,18 +14,18 @@ using namespace euphoria::core::dump2d;
 void
 svg_dump()
 {
-    core::random random;
+    core::Random random;
 
-    const auto area = rectf::from_width_height(100, 100);
+    const auto area = Rectf::from_width_height(100, 100);
     const auto radius = 5.0f;
 
     const auto points = poisson_sample(area, &random, radius*2, radius);
 
-    auto svg = dumper{};
+    auto svg = Dumper{};
 
     for(auto p: points)
     {
-        svg << circle{p, radius}.set_line_color(color::black);
+        svg << Circle{p, radius}.set_line_color(NamedColor::black);
     }
     svg.add_axis();
     svg.write("poisson.html", 800, 600);
@@ -35,20 +35,20 @@ svg_dump()
 void
 png_dump(int extra_images)
 {
-    core::random random;
+    core::Random random;
 
     const auto image_size = 512;
     const float world_size = 100;
     const auto radius = 5.0f;
-    auto frames = argparse::file_output("poisson-frames/");
+    auto frames = argparse::FileOutput("poisson-frames/");
 
-    auto result = image{};
+    auto result = Image{};
     result.setup_no_alpha_support(image_size, image_size);
     frames.create_dir_if_missing();
 
-    auto worker = poisson_worker
+    auto worker = PoissonWorker
     {
-        rectf::from_width_height(world_size, world_size),
+        Rectf::from_width_height(world_size, world_size),
         &random,
         radius*2,
         radius,
@@ -57,12 +57,12 @@ png_dump(int extra_images)
 
     const auto world_to_image = image_size / world_size;
 
-    auto write_image = [&](std::optional<std::tuple<vec2f, vec2f>> line)
+    auto write_image = [&](std::optional<std::tuple<Vec2f, Vec2f>> line)
     {
         // auto svg = Dumper{};
         // svg.canvas_color = Color::Black;
 
-        clear(&result, {color::black});
+        clear(&result, {NamedColor::black});
         for
         (
             int i=0;
@@ -76,7 +76,7 @@ png_dump(int extra_images)
                 worker.active.end(),
                 i
             ) != worker.active.end();
-            const auto circle_color = is_active ? color::blue : color::white;
+            const auto circle_color = is_active ? NamedColor::blue : NamedColor::white;
             const auto cp = worker.samples[i]*world_to_image;
             const auto circle_position = (cp).StaticCast<int>();
             const auto circle_radius = radius * world_to_image;
@@ -99,11 +99,11 @@ png_dump(int extra_images)
                 &result,
                 from * world_to_image,
                 to * world_to_image,
-                {color::pure_red},
+                {NamedColor::pure_red},
                 2
             );
         }
-        io::chunk_to_file(result.write(image_write_format::png), frames.get_next_file());
+        io::chunk_to_file(result.write(ImageWriteFormat::png), frames.get_next_file());
         // svg.Write("poisson.html", 800, 600);
     };
 
@@ -140,14 +140,14 @@ png_dump(int extra_images)
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::parser {"Poisson test"};
+    auto parser = argparse::Parser {"Poisson test"};
 
     auto sub = parser.add_sub_parsers();
 
     sub->add
     (
         "svg", "generate svg file",
-        [](argparse::sub_parser* sub)
+        [](argparse::SubParser* sub)
         {
             return sub->on_complete
             (
@@ -163,7 +163,7 @@ main(int argc, char* argv[])
     sub->add
     (
         "png", "generate png file",
-        [](argparse::sub_parser* sub)
+        [](argparse::SubParser* sub)
         {
             int extra_frames = 0;
             sub->add("--extra-frames", &extra_frames);

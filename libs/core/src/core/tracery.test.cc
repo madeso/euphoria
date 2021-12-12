@@ -9,8 +9,8 @@ namespace tr = euphoria::core::tracery;
 TEST_CASE("tracery-all", "[tracery]")
 {
     const std::string test_file = "test-file";
-    auto random = euphoria::core::random{0};
-    tr::grammar g;
+    auto random = euphoria::core::Random{0};
+    tr::Grammar g;
     g.register_english();
 
     SECTION("empty json")
@@ -67,7 +67,7 @@ TEST_CASE("tracery-all", "[tracery]")
                 </rule>
             </tracery>
         )");
-        REQUIRE(loaded.error_type == tr::result::rule_eof);
+        REQUIRE(loaded.error_type == tr::Result::rule_eof);
     }
 
     SECTION("rule call rule")

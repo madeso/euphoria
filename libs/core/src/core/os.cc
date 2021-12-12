@@ -52,17 +52,17 @@ namespace euphoria::core
 
 #ifdef _MSC_VER
 
-    directory_listing
+    DirectoryListing
     list_directory(const std::string& path)
     {
-        const std::string search_path = string_builder() << path << "*.*";
+        const std::string search_path = StringBuilder() << path << "*.*";
         WIN32_FIND_DATA fd;
         HANDLE hFind = ::FindFirstFile(search_path.c_str(), &fd);
 
 
         if(hFind != INVALID_HANDLE_VALUE)
         {
-            directory_listing ret;
+            DirectoryListing ret;
             ret.valid = true;
 
             do
@@ -84,13 +84,13 @@ namespace euphoria::core
         }
         else
         {
-            directory_listing ret;
+            DirectoryListing ret;
             ret.valid = false;
             return ret;
         }
     }
 #else
-    directory_listing
+    DirectoryListing
     list_directory(const std::string& path)
     {
         struct dirent* ent = nullptr;
@@ -98,7 +98,7 @@ namespace euphoria::core
         DIR* dir = opendir(path.c_str());
         if(dir != nullptr)
         {
-            directory_listing ret;
+            DirectoryListing ret;
             ret.valid = true;
 
             /* print all the files and directories within directory */
@@ -126,7 +126,7 @@ namespace euphoria::core
         }
         else
         {
-            directory_listing ret;
+            DirectoryListing ret;
             ret.valid = false;
             return ret;
         }

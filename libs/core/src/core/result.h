@@ -7,9 +7,9 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct result
+    struct Result
     {
-        using self = result<T>;
+        using self = Result<T>;
 
         operator bool() const
         {
@@ -61,7 +61,7 @@ namespace euphoria::core
         std::optional<T> value;
         std::optional<std::string> error;
 
-        result
+        Result
         (
             const std::optional<T>& v,
             const std::optional<std::string>& e

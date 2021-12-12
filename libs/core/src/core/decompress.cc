@@ -8,12 +8,12 @@
 namespace euphoria::core
 {
 
-unsigned int decompressor::stb_decompress_length(const unsigned char *input)
+unsigned int Decompressor::stb_decompress_length(const unsigned char *input)
 {
     return (input[8] << 24) + (input[9] << 16) + (input[10] << 8) + input[11];
 }
 
-void decompressor::stb_match(const unsigned char *data, unsigned int length)
+void Decompressor::stb_match(const unsigned char *data, unsigned int length)
 {
     // INVERSE of memmove... write each byte before copying the next...
     ASSERT(stb_dout + length <= stb_barrier_out_e);
@@ -22,7 +22,7 @@ void decompressor::stb_match(const unsigned char *data, unsigned int length)
     while (length--) *stb_dout++ = *data++;
 }
 
-void decompressor::stb_lit(const unsigned char *data, unsigned int length)
+void Decompressor::stb_lit(const unsigned char *data, unsigned int length)
 {
     ASSERT(stb_dout + length <= stb_barrier_out_e);
     if (stb_dout + length > stb_barrier_out_e) { stb_dout += length; return; }
@@ -35,7 +35,7 @@ void decompressor::stb_lit(const unsigned char *data, unsigned int length)
 #define stb__in3(x)   ((i[x] << 16) + stb__in2((x)+1))
 #define stb__in4(x)   ((i[x] << 24) + stb__in3((x)+1))
 
-const unsigned char * decompressor::stb_decompress_token(const unsigned char *i)
+const unsigned char * Decompressor::stb_decompress_token(const unsigned char *i)
 {
     if (*i >= 0x20) { // use fewer if's for cases that expand small
         if (*i >= 0x80)       stb_match(stb_dout-i[1]-1, i[0] - 0x80 + 1), i += 2;
@@ -52,7 +52,7 @@ const unsigned char * decompressor::stb_decompress_token(const unsigned char *i)
     return i;
 }
 
-unsigned int decompressor::stb_adler32(unsigned int adler32, unsigned char *buffer, unsigned int buflen)
+unsigned int Decompressor::stb_adler32(unsigned int adler32, unsigned char *buffer, unsigned int buflen)
 {
     const unsigned long ADLER_MOD = 65521;
     unsigned long s1 = adler32 & 0xffff, s2 = adler32 >> 16;
@@ -83,7 +83,7 @@ unsigned int decompressor::stb_adler32(unsigned int adler32, unsigned char *buff
     return (unsigned int)(s2 << 16) + (unsigned int)s1;
 }
 
-unsigned int decompressor::stb_decompress(unsigned char *output, const unsigned char *i, unsigned int /*length*/)
+unsigned int Decompressor::stb_decompress(unsigned char *output, const unsigned char *i, unsigned int /*length*/)
 {
     unsigned int olen;
     if (stb__in4(0) != 0x57bC0000) return 0;

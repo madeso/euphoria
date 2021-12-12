@@ -9,15 +9,15 @@
 
 namespace euphoria::core::vfs
 {
-    struct file_system;
-    struct file_path;
+    struct FileSystem;
+    struct FilePath;
 }
 
 
 namespace euphoria::core
 {
     // This represents a loaded glyph not yet placed on a texture image
-    struct loaded_glyph
+    struct LoadedGlyph
     {
         //
         //              width_
@@ -39,20 +39,20 @@ namespace euphoria::core
         int bearing_x = 0;
         int bearing_y = 0;
         int advance = 0;
-        core::image image;
+        core::Image image;
         float size = 0.0f;
     };
 
 
-    using kerning_map = std::map<std::pair<int, int>, float>;
+    using KerningMap = std::map<std::pair<int, int>, float>;
 
 
     // represent a loaded font (or a part), but it not yet been converted
     // into a renderable data and texture.
-    struct loaded_font
+    struct LoadedFont
     {
-        std::map<int, loaded_glyph> codepoint_to_glyph;
-        kerning_map kerning;
+        std::map<int, LoadedGlyph> codepoint_to_glyph;
+        KerningMap kerning;
         std::map<std::string, int> private_use_aliases;
         int next_private_use = 0xE000;
         int line_height = -1;
@@ -61,41 +61,41 @@ namespace euphoria::core
         generate_new_index_from_private_use(const std::string& alias);
 
         void
-        combine_with(const loaded_font& fc);
+        combine_with(const LoadedFont& fc);
     };
 
 
-    loaded_font
+    LoadedFont
     load_characters_from_builtin8();
 
 
-    loaded_font
+    LoadedFont
     load_characters_from_builtin13();
 
 
-    loaded_font
+    LoadedFont
     get_characters_from_font
     (
-        vfs::file_system* file_system,
-        const vfs::file_path& font_file,
+        vfs::FileSystem* file_system,
+        const vfs::FilePath& font_file,
         int font_size,
         const std::string& chars
     );
 
 
-    loaded_font
+    LoadedFont
     get_characters_from_font
     (
-        std::shared_ptr<memory_chunk> file_memory,
+        std::shared_ptr<MemoryChunk> file_memory,
         int font_size,
         const std::string& chars
     );
 
-    loaded_font
+    LoadedFont
     get_characters_from_single_image
     (
-        vfs::file_system* fs,
-        const vfs::file_path& image_file,
+        vfs::FileSystem* fs,
+        const vfs::FilePath& image_file,
         const std::string& image_alias,
         float image_scale,
         float image_bearing_x,
@@ -103,10 +103,10 @@ namespace euphoria::core
         float image_advance
     );
 
-    loaded_font
+    LoadedFont
     get_characters_from_single_image
     (
-        const image& image,
+        const Image& image,
         const std::string& image_alias,
         float image_scale,
         float image_bearing_x,

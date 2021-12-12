@@ -16,8 +16,8 @@ namespace euphoria::render
 {
     material_shader_default_texture::material_shader_default_texture
     (
-        const core::enum_value& a_name,
-        const core::vfs::file_path& a_path
+        const core::EnumValue& a_name,
+        const core::vfs::FilePath& a_path
     )
         : name(a_name)
         , path(a_path)
@@ -29,7 +29,7 @@ namespace euphoria::render
     material_shader_binding::material_shader_binding
     (
         shader_uniform a_uniform,
-        const core::enum_value& a_name
+        const core::EnumValue& a_name
     )
         : uniform(std::move(a_uniform))
         , name(a_name)
@@ -69,7 +69,7 @@ namespace euphoria::render
     (
         material_shader* sh,
         const materialshader::MaterialShader& file,
-        const core::vfs::file_path& path
+        const core::vfs::FilePath& path
     )
     {
         sh->has_light = file.has_light;
@@ -90,7 +90,7 @@ namespace euphoria::render
 
         for(const auto& texture: file.default_textures)
         {
-            const auto texture_path = core::vfs::file_path::from_script(texture.path);
+            const auto texture_path = core::vfs::FilePath::from_script(texture.path);
             if(texture_path.has_value() == false)
             {
                 LOG_WARN
@@ -155,8 +155,8 @@ namespace euphoria::render
     bool
     material_shader::load
     (
-        core::vfs::file_system* file_system,
-        const core::vfs::file_path& path
+        core::vfs::FileSystem* file_system,
+        const core::vfs::FilePath& path
     )
     {
         attributes3d::prebind_shader(&shader);
@@ -208,7 +208,7 @@ namespace euphoria::render
     }
 
     void
-    material_shader::setup_light(const light& light, const core::vec3f& camera)
+    material_shader::setup_light(const light& light, const core::Vec3f& camera)
     {
         if(!has_light)
         {
@@ -235,9 +235,9 @@ namespace euphoria::render
     void
     material_shader::set_colors
     (
-        const core::rgb& ambient_data,
-        const core::rgb& diffuse_data,
-        const core::rgb& specular_data,
+        const core::Rgb& ambient_data,
+        const core::Rgb& diffuse_data,
+        const core::Rgb& specular_data,
         float shininess_data
     )
     {
@@ -255,7 +255,7 @@ namespace euphoria::render
         {
             const auto the_specular = shininess_data > 0
                 ? specular_data
-                : core::rgb {core::color::black}
+                : core::Rgb {core::NamedColor::black}
                 ;
             shader.set_uniform(specular, the_specular);
         }

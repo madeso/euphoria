@@ -69,7 +69,7 @@ namespace euphoria::gui
     void
     build_layout_container
     (
-        core::vfs::file_system* fs,
+        core::vfs::FileSystem* fs,
         ui_state* state,
         layout_container* root,
         const ::gui::LayoutContainer& c,
@@ -103,7 +103,7 @@ namespace euphoria::gui
     std::shared_ptr<widget>
     create_widget
     (
-        core::vfs::file_system* fs,
+        core::vfs::FileSystem* fs,
         ui_state* state,
         const ::gui::Widget& w,
         render::texture_cache* cache,
@@ -189,7 +189,7 @@ namespace euphoria::gui
     void
     build_layout_container
     (
-        core::vfs::file_system* fs,
+        core::vfs::FileSystem* fs,
         ui_state* state,
         layout_container* root,
         const ::gui::LayoutContainer& c,
@@ -204,10 +204,10 @@ namespace euphoria::gui
         }
     }
 
-    core::rgb
+    core::Rgb
     load(const ::gui::Rgb& src)
     {
-        return core::rgb(src.r, src.g, src.b);
+        return core::Rgb(src.r, src.g, src.b);
     }
 
     core::InterpolationType
@@ -311,12 +311,12 @@ namespace euphoria::gui
         skin->name = src.name;
         skin->font = font->get_font
         (
-            core::vfs::file_path::from_script(src.font).value_or
+            core::vfs::FilePath::from_script(src.font).value_or
             (
-                core::vfs::file_path{"~/invalid_font_file"}
+                core::vfs::FilePath{"~/invalid_font_file"}
             )
         );
-        skin->button_image = core::vfs::file_path::from_script_or_empty
+        skin->button_image = core::vfs::FilePath::from_script_or_empty
         (
             src.button_image
         );
@@ -332,9 +332,9 @@ namespace euphoria::gui
     load_gui
     (
         root* root,
-        core::vfs::file_system* fs,
+        core::vfs::FileSystem* fs,
         render::font_cache* font,
-        const core::vfs::file_path& path,
+        const core::vfs::FilePath& path,
         render::texture_cache* cache
     )
     {
@@ -352,11 +352,11 @@ namespace euphoria::gui
 
         root->cursor_image = cache->get_texture
         (
-            core::vfs::file_path::from_script_or_empty(f.cursor_image)
+            core::vfs::FilePath::from_script_or_empty(f.cursor_image)
         );
         root->hover_image = cache->get_texture
         (
-            core::vfs::file_path::from_script_or_empty(f.hover_image)
+            core::vfs::FilePath::from_script_or_empty(f.hover_image)
         );
 
         std::map<std::string, skin*> skin_map;

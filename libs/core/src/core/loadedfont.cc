@@ -23,7 +23,7 @@
 
 namespace euphoria::core
 {
-    struct font_data
+    struct FontData
     {
         stbtt_fontinfo font;
         float size;
@@ -53,7 +53,7 @@ namespace euphoria::core
             }
         }
 
-        font_data(unsigned char* ttf_buffer, float s)
+        FontData(unsigned char* ttf_buffer, float s)
             : font()
             , size(s)
             , was_loaded(stbtt_InitFont(&font, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1)
@@ -78,7 +78,7 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] loaded_glyph
+        [[nodiscard]] LoadedGlyph
         load_glyph(int code_point) const
         {
             int width=0; int height=0;
@@ -96,7 +96,7 @@ namespace euphoria::core
                 &yoffset
             );
 
-            loaded_glyph ch;
+            LoadedGlyph ch;
             ch.code_point= code_point;
             ch.size = size;
             ch.bearing_x = xoffset;
@@ -140,7 +140,7 @@ namespace euphoria::core
 
 
     int
-    loaded_font::generate_new_index_from_private_use(const std::string& alias)
+    LoadedFont::generate_new_index_from_private_use(const std::string& alias)
     {
         // detect existing private use alias!
         const auto pu = next_private_use;
@@ -151,7 +151,7 @@ namespace euphoria::core
 
 
     void
-    loaded_font::combine_with(const loaded_font& fc)
+    LoadedFont::combine_with(const LoadedFont& fc)
     {
         std::map<int, int> pus;
         for(const auto& [alias, id]: fc.private_use_aliases)
@@ -198,7 +198,7 @@ namespace euphoria::core
 
 
     template<typename Glyphs>
-    loaded_font
+    LoadedFont
     get_character_from_builtin8
     (
         const int start_codepoint,
@@ -208,7 +208,7 @@ namespace euphoria::core
     {
         ASSERTX(start_codepoint < end_codepoint, start_codepoint, end_codepoint);
         const auto number_of_glyphs = (end_codepoint+1) - start_codepoint;
-        loaded_font font;
+        LoadedFont font;
         font.line_height = 8;
 
         for
@@ -219,7 +219,7 @@ namespace euphoria::core
         )
         {
             const auto code_point = glyph_index + start_codepoint;
-            loaded_glyph glyph;
+            LoadedGlyph glyph;
             glyph.image.setup_with_alpha_support(8, 8, 0);
 
             for(int y = 0; y < 8; y += 1)
@@ -232,7 +232,7 @@ namespace euphoria::core
                     if(pixel)
                     {
                         // glyph.image.SetPixel(x, y, Color::White);
-                        draw_square(&glyph.image, {color::white}, x, y, 1);
+                        draw_square(&glyph.image, {NamedColor::white}, x, y, 1);
                     }
                 }
             }
@@ -250,15 +250,15 @@ namespace euphoria::core
     }
 
 
-    loaded_font
+    LoadedFont
     load_characters_from_builtin13()
     {
-        loaded_font font;
+        LoadedFont font;
         font.line_height = 13;
 
         for(int codepoint=32; codepoint < 127; codepoint+=1)
         {
-            loaded_glyph glyph;
+            LoadedGlyph glyph;
             glyph.image.setup_with_alpha_support(8, 13, 0);
 
             const auto glyph_index = codepoint - 32;
@@ -273,7 +273,7 @@ namespace euphoria::core
                     );
                     if(pixel)
                     {
-                        draw_square(&glyph.image, {color::white}, x, y, 1);
+                        draw_square(&glyph.image, {NamedColor::white}, x, y, 1);
                     }
                 }
             }
@@ -291,10 +291,10 @@ namespace euphoria::core
     }
 
 
-    loaded_font
+    LoadedFont
     load_characters_from_builtin8()
     {
-        loaded_font font;
+        LoadedFont font;
         // todo(Gustav): Add more characters
         font.combine_with
         (
@@ -304,11 +304,11 @@ namespace euphoria::core
     }
 
 
-    loaded_font
+    LoadedFont
     get_characters_from_font
     (
-        vfs::file_system* file_system,
-        const vfs::file_path& font_file,
+        vfs::FileSystem* file_system,
+        const vfs::FilePath& font_file,
         int font_size,
         const std::string& chars
     )
@@ -318,7 +318,7 @@ namespace euphoria::core
         if(file_memory == nullptr)
         {
             LOG_ERROR("Unable to open {0}", font_file);
-            return loaded_font{};
+            return LoadedFont{};
         }
 
         return get_characters_from_font
@@ -330,21 +330,21 @@ namespace euphoria::core
     }
 
 
-    loaded_font
+    LoadedFont
     get_characters_from_font
     (
-        std::shared_ptr<memory_chunk> file_memory,
+        std::shared_ptr<MemoryChunk> file_memory,
         int font_size,
         const std::string& chars
     )
     {
-        auto f = font_data
+        auto f = FontData
         {
                 reinterpret_cast<unsigned char*>(file_memory->get_data()),
                 c_int_to_float(font_size)
         };
 
-        if(f.was_loaded == false) { return loaded_font{}; }
+        if(f.was_loaded == false) { return LoadedFont{}; }
 
         std::vector<int> code_points;
         utf8_to_codepoints
@@ -353,10 +353,10 @@ namespace euphoria::core
             [&](int cp){code_points.emplace_back(cp);}
         );
 
-        loaded_font fontchars {};
+        LoadedFont fontchars {};
         for(int code_point: code_points)
         {
-            loaded_glyph cc = f.load_glyph(code_point);
+            LoadedGlyph cc = f.load_glyph(code_point);
             if(!cc.valid)
             {
                 LOG_INFO("Invalid codepoint {0}", code_point);
@@ -390,9 +390,9 @@ namespace euphoria::core
             {
                 fontchars.kerning.insert
                 (
-                    kerning_map::value_type
+                    KerningMap::value_type
                     (
-                        kerning_map::key_type(*previous, *current),
+                        KerningMap::key_type(*previous, *current),
                         static_cast<float>(dx) * scale
                     )
                 );
@@ -403,11 +403,11 @@ namespace euphoria::core
     }
 
 
-    loaded_font
+    LoadedFont
     get_characters_from_single_image
     (
-        vfs::file_system* fs,
-        const vfs::file_path& image_file,
+        vfs::FileSystem* fs,
+        const vfs::FilePath& image_file,
         const std::string& image_alias,
         float image_scale,
         float image_bearing_x,
@@ -419,13 +419,13 @@ namespace euphoria::core
         (
             fs,
             image_file,
-            alpha_load::keep
+            AlphaLoad::keep
         );
 
         if(loaded.error.empty() == false)
         {
             LOG_ERROR("Failed to load font image {}", image_file);
-            return loaded_font{};
+            return LoadedFont{};
         }
 
         return get_characters_from_single_image
@@ -440,10 +440,10 @@ namespace euphoria::core
     }
 
 
-    loaded_font
+    LoadedFont
     get_characters_from_single_image
     (
-        const image& image,
+        const Image& image,
         const std::string& image_alias,
         float image_scale,
         float image_bearing_x,
@@ -451,10 +451,10 @@ namespace euphoria::core
         float image_advance
     )
     {
-        loaded_font font;
+        LoadedFont font;
 
         const auto s = 1 / image_scale;
-        loaded_glyph glyph;
+        LoadedGlyph glyph;
         glyph.size = s * static_cast<float>(image.height);
         glyph.bearing_y = c_float_to_int(s * static_cast<float>(image.height) + image_bearing_y);
         glyph.bearing_x = c_float_to_int(image_bearing_x);

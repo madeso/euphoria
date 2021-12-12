@@ -11,15 +11,15 @@
 
 namespace euphoria::core::vfs
 {
-    struct file_system;
-    struct file_path;
+    struct FileSystem;
+    struct FilePath;
 }
 
 namespace euphoria::core
 {
-    struct defines
+    struct Defines
     {
-        defines();
+        Defines();
 
         [[nodiscard]] bool
         is_defined(const std::string& name) const;
@@ -36,9 +36,9 @@ namespace euphoria::core
         std::map<std::string, std::string> values;
     };
 
-    struct template_error_list
+    struct TemplateErrorList
     {
-        template_error_list();
+        TemplateErrorList();
 
         [[nodiscard]] bool
         has_errors() const;
@@ -46,7 +46,7 @@ namespace euphoria::core
         void
         add_error
         (
-            const std::optional<vfs::file_path>& file,
+            const std::optional<vfs::FilePath>& file,
             int line,
             int column,
             const std::string& error
@@ -58,24 +58,24 @@ namespace euphoria::core
         std::vector<std::string> errors;
     };
 
-    struct template_node_list;
+    struct TemplateNodeList;
 
-    struct compiled_text_template
+    struct CompiledTextTemplate
     {
         // todo(Gustav): move to a named constructor
-        explicit compiled_text_template(const std::string& text);
-        compiled_text_template(vfs::file_system* fs, const vfs::file_path& path);
+        explicit CompiledTextTemplate(const std::string& text);
+        CompiledTextTemplate(vfs::FileSystem* fs, const vfs::FilePath& path);
 
-        ~compiled_text_template();
+        ~CompiledTextTemplate();
 
-        NONCOPYABLE(compiled_text_template);
+        NONCOPYABLE(CompiledTextTemplate);
 
         std::string
-        evaluate(const defines& defines);
+        evaluate(const Defines& defines);
 
         // todo(Gustav): move errors to load and evaluate return values
-        template_error_list errors;
-        std::shared_ptr<template_node_list> nodes;
+        TemplateErrorList errors;
+        std::shared_ptr<TemplateNodeList> nodes;
     };
 
 }

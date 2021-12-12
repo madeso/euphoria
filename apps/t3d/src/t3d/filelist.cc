@@ -12,8 +12,8 @@ namespace euphoria::t3d
     void
     file_list::add_directory
     (
-        const core::vfs::dir_path& directory,
-        core::vfs::file_system* file_system
+        const core::vfs::DirPath& directory,
+        core::vfs::FileSystem* file_system
     )
     {
         auto listed_files = file_system->list_files(directory);
@@ -44,7 +44,7 @@ namespace euphoria::t3d
     }
 
 
-    core::vfs::file_path
+    core::vfs::FilePath
     file_list::get_next_file()
     {
         ASSERT(!files.empty());

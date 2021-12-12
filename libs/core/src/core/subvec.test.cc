@@ -24,7 +24,7 @@ namespace
             rhs,
             [](int m) -> std::string
             {
-                return string_builder{} << m;
+                return StringBuilder{} << m;
             },
             [](int lhs, int rhs) -> false_string
             {
@@ -32,7 +32,7 @@ namespace
                 { return false_string::create_true(); }
                 else
                 {
-                    return false_string::create_false(string_builder() << lhs << " != " << rhs);
+                    return false_string::create_false(StringBuilder() << lhs << " != " << rhs);
                 }
             }
         );
@@ -45,7 +45,7 @@ TEST_CASE("subec", "[subvec]")
     SECTION("default")
     {
         auto vec = std::vector<int>{1, 2, 3, 4, 5, 6};
-        auto sub = subvec{&vec};
+        auto sub = SubVec{&vec};
 
         CHECK_FALSE(vec.empty());
         CHECK(sub.size() == 6);
@@ -57,7 +57,7 @@ TEST_CASE("subec", "[subvec]")
     SECTION("empty")
     {
         auto vec = std::vector<int>{};
-        auto sub = subvec{&vec};
+        auto sub = SubVec{&vec};
 
         CHECK(vec.empty());
         CHECK(sub.size() == 0); // NOLINT
@@ -67,7 +67,7 @@ TEST_CASE("subec", "[subvec]")
     SECTION("sort")
     {
         auto vec = std::vector<int>{6, 5, 4, 3, 2, 1};
-        auto sub = subvec{&vec};
+        auto sub = SubVec{&vec};
 
         CHECK(sub[0] == 6);
         CHECK(sub[2] == 4);
@@ -82,7 +82,7 @@ TEST_CASE("subec", "[subvec]")
     SECTION("sub left")
     {
         auto vec = std::vector<int>{3, 2, 1, 6, 5, 4};
-        auto sub = subvec{&vec};
+        auto sub = SubVec{&vec};
 
         CHECK(sub[0] == 3);
         CHECK(sub[2] == 1);
@@ -107,7 +107,7 @@ TEST_CASE("subec", "[subvec]")
     SECTION("sub right")
     {
         auto vec = std::vector<int>{3, 2, 1, 6, 5, 4};
-        auto sub = subvec{&vec};
+        auto sub = SubVec{&vec};
 
         CHECK(sub[5] == 4);
         CHECK(sub[3] == 6);

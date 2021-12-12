@@ -187,9 +187,9 @@ namespace euphoria::render
     void
     texture2d::load_from_file
     (
-        core::vfs::file_system* fs,
-        const core::vfs::file_path& path,
-        core::alpha_load alpha,
+        core::vfs::FileSystem* fs,
+        const core::vfs::FilePath& path,
+        core::AlphaLoad alpha,
         const texture2d_load_data& data
     )
     {
@@ -206,14 +206,14 @@ namespace euphoria::render
     void
     texture2d::load_from_image
     (
-        const core::image& image,
-        core::alpha_load alpha,
+        const core::Image& image,
+        core::AlphaLoad alpha,
         const texture2d_load_data& data
     )
     {
         GLint internal_format = GL_RGB;
         GLuint image_format = GL_RGB;
-        if(image.has_alpha && alpha == core::alpha_load::keep)
+        if(image.has_alpha && alpha == core::AlphaLoad::keep)
         {
             internal_format = GL_RGBA;
             image_format = GL_RGBA;

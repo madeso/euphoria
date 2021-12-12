@@ -11,7 +11,7 @@
 
 namespace euphoria::core
 {
-    struct unit_ray3f;
+    struct UnitRay3f;
 }
 
 
@@ -43,10 +43,10 @@ namespace euphoria::t3d
         t3d::grid* grid;
         render::world* world;
         t3d::tile_library* tile_library;
-        core::compiled_camera3 camera;
+        core::CompiledCamera3 camera;
         render::viewport viewport;
 
-        core::vec2i mouse;
+        core::Vec2i mouse;
         tool_stack tools;
 
         std::vector<std::shared_ptr<placed_mesh>> actors;
@@ -68,7 +68,7 @@ namespace euphoria::t3d
 
 
         std::vector<std::shared_ptr<placed_mesh>>
-        raycast(const core::unit_ray3f& ray);
+        raycast(const core::UnitRay3f& ray);
 
 
         // current tool callbacks
@@ -81,15 +81,15 @@ namespace euphoria::t3d
 
 
         void
-        on_mouse(core::mouse_button button, bool down);
+        on_mouse(core::MouseButton button, bool down);
 
 
         void
-        on_key(core::key key, bool down);
+        on_key(core::Key key, bool down);
 
 
         void
-        on_scroll(const core::vec2i& scroll);
+        on_scroll(const core::Vec2i& scroll);
 
 
         void

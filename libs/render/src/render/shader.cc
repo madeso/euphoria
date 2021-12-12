@@ -272,7 +272,7 @@ namespace euphoria::render
     }
 
     void
-    shader::set_uniform(const shader_uniform& attribute, const core::rgb& val)
+    shader::set_uniform(const shader_uniform& attribute, const core::Rgb& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -284,7 +284,7 @@ namespace euphoria::render
     }
 
     void
-    shader::set_uniform(const shader_uniform& attribute, const core::rgba& val)
+    shader::set_uniform(const shader_uniform& attribute, const core::Rgba& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -296,7 +296,7 @@ namespace euphoria::render
     }
 
     void
-    shader::set_uniform(const shader_uniform& attribute, const core::vec3f& val)
+    shader::set_uniform(const shader_uniform& attribute, const core::Vec3f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -308,7 +308,7 @@ namespace euphoria::render
     }
 
     void
-    shader::set_uniform(const shader_uniform& attribute, const core::vec4f& val)
+    shader::set_uniform(const shader_uniform& attribute, const core::Vec4f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -320,7 +320,7 @@ namespace euphoria::render
     }
 
     void
-    shader::set_uniform(const shader_uniform& attribute, const core::mat3f& val)
+    shader::set_uniform(const shader_uniform& attribute, const core::Mat3f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -344,7 +344,7 @@ namespace euphoria::render
     }
 
     void
-    shader::set_uniform(const shader_uniform& attribute, const core::rectf& val)
+    shader::set_uniform(const shader_uniform& attribute, const core::Rectf& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -361,11 +361,11 @@ namespace euphoria::render
     }
 
     bool
-    shader::load(core::vfs::file_system* fs, const core::vfs::file_path& file_path)
+    shader::load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path)
     {
         shader_name = file_path;
 
-        const auto load_path = [](core::vfs::file_system* fs, const core::vfs::file_path& path) -> std::string
+        const auto load_path = [](core::vfs::FileSystem* fs, const core::vfs::FilePath& path) -> std::string
         {
             // todo(Gustav): replace with a template instead of basic string
             std::string content;
@@ -419,7 +419,7 @@ namespace euphoria::render
         return bound_attributes;
     }
 
-    const core::vfs::file_path&
+    const core::vfs::FilePath&
     shader::get_name() const
     {
         return shader_name;

@@ -18,10 +18,10 @@ namespace euphoria::engine
 
     object_creation_arguments::object_creation_arguments
     (
-            core::ecs::world* aworld,
+            core::ecs::World* aworld,
             script_registry* areg,
-            lua* actx,
-            lua* aduk
+            LuaState* actx,
+            LuaState* aduk
     )
         : world(aworld)
         , reg(areg)
@@ -34,10 +34,10 @@ namespace euphoria::engine
 
     struct position_component_creator : component_creator
     {
-        core::vec2f p;
+        core::Vec2f p;
         engine::components* components;
 
-        position_component_creator(const core::vec2f& pp, engine::components* components)
+        position_component_creator(const core::Vec2f& pp, engine::components* components)
             : p(pp)
             , components(components)
         {
@@ -48,7 +48,7 @@ namespace euphoria::engine
         std::shared_ptr<position_component_creator>
         create(const game::vec2f& p, engine::components* components)
         {
-            return std::make_shared<position_component_creator>(core::vec2f {p.x, p.y}, components);
+            return std::make_shared<position_component_creator>(core::Vec2f {p.x, p.y}, components);
         }
 
         void
@@ -79,7 +79,7 @@ namespace euphoria::engine
         )
         {
             auto ptr = std::make_shared<sprite_component_creator>(components);
-            ptr->texture = cache->get_texture(core::vfs::file_path::from_script(sprite.path));
+            ptr->texture = cache->get_texture(core::vfs::FilePath::from_script(sprite.path));
             return ptr;
         }
 

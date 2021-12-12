@@ -14,10 +14,10 @@ main()
 {
 
     const auto current_directory = get_current_directory();
-    vfs::file_system file_system;
-    vfs::read_root_physical_folder::add(&file_system, current_directory);
+    vfs::FileSystem file_system;
+    vfs::ReadRootPhysicalFolder::add(&file_system, current_directory);
 
-    const auto loaded_chatbot = chatbot::load_from_file(&file_system, vfs::file_path{"~/chatbot.xml"});
+    const auto loaded_chatbot = Chatbot::load_from_file(&file_system, vfs::FilePath{"~/chatbot.xml"});
     if(!loaded_chatbot)
     {
         std::cerr << "Failed to load chatbot\n";
@@ -27,15 +27,15 @@ main()
     auto chatbot = std::move(*loaded_chatbot);
 
     std::string input;
-    console cmdline;
+    VirtualConsole cmdline;
     cmdline.register_command(
             "debug",
-            [&chatbot](console::print_function, const console::args& args) {
+            [&chatbot](VirtualConsole::print_function, const VirtualConsole::args& args) {
                 std::cout << chatbot.debug_last_response(args);
                 std::cout << "\n\n";
             });
     cmdline.register_command(
-            "kill", [&chatbot](console::print_function, const console::args&) {
+            "kill", [&chatbot](VirtualConsole::print_function, const VirtualConsole::args&) {
                 chatbot.is_in_conversation = false;
                 std::cout << "Killing chatbot.\n\n";
             });

@@ -4,14 +4,14 @@
 
 namespace euphoria::core
 {
-    line_point::line_point(const vec3f& p, const rgb& c)
+    LinePoint::LinePoint(const Vec3f& p, const Rgb& c)
         : point(p)
         , color(c)
     {}
 
 
     void
-    lines::add_line(const vec3f& from, const vec3f& to, const rgb& c)
+    Lines::add_line(const Vec3f& from, const Vec3f& to, const Rgb& c)
     {
         const auto first_point_index = c_sizet_to_int(points.size());
         points.emplace_back(from, c);

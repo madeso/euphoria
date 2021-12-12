@@ -10,41 +10,41 @@ namespace euphoria::core
 {
     namespace
     {
-        rgbai
+        Rgbai
         make_gray(unsigned char g, unsigned char a)
         {
-            return {rgbi {g, g, g}, a};
+            return {Rgbi {g, g, g}, a};
         }
     }
 
 
     //
     // https://twitter.com/FreyaHolmer/status/1116502994684530688
-    rgbai
-    make_grayscale(rgbai c, grayscale grayscale)
+    Rgbai
+    make_grayscale(Rgbai c, Grayscale grayscale)
     {
         switch(grayscale)
         {
-        case grayscale::r: return make_gray(c.r, c.a);
-        case grayscale::g: return make_gray(c.g, c.a);
-        case grayscale::b: return make_gray(c.b, c.a);
-        case grayscale::a: return make_gray(c.a, c.a);
-        case grayscale::max: return make_gray(max(c.r, max(c.g, c.b)), c.a);
-        case grayscale::gamma:
+        case Grayscale::r: return make_gray(c.r, c.a);
+        case Grayscale::g: return make_gray(c.g, c.a);
+        case Grayscale::b: return make_gray(c.b, c.a);
+        case Grayscale::a: return make_gray(c.a, c.a);
+        case Grayscale::max: return make_gray(max(c.r, max(c.g, c.b)), c.a);
+        case Grayscale::gamma:
             {
-                const auto d = dot(crgb(c), rgb(0.22f, 0.707f, 0.071f));
-                return rgbai(crgbi(rgb(d)), c.a);
+                const auto d = dot(crgb(c), Rgb(0.22f, 0.707f, 0.071f));
+                return Rgbai(crgbi(Rgb(d)), c.a);
             }
-        case grayscale::linear:
+        case Grayscale::linear:
             {
-                const auto d = dot(crgb(c), rgb(0.0397f, 0.4580f, 0.0061f));
-                return rgbai(crgbi(rgb(d)), c.a);
+                const auto d = dot(crgb(c), Rgb(0.0397f, 0.4580f, 0.0061f));
+                return Rgbai(crgbi(Rgb(d)), c.a);
             }
-        case grayscale::average:
+        case Grayscale::average:
             {
                 const auto cc = crgb(c);
                 const auto g = (cc.r + cc.g + cc.b) / 3;
-                return rgbai(crgbi(rgb(g)), c.a);
+                return Rgbai(crgbi(Rgb(g)), c.a);
             }
 
         default:
@@ -54,30 +54,30 @@ namespace euphoria::core
 
 
     void
-    make_grayscale(image* image, grayscale grayscale)
+    make_grayscale(Image* image, Grayscale grayscale)
     {
-        image->filter([grayscale](const rgbai& c)
+        image->filter([grayscale](const Rgbai& c)
         {
             return make_grayscale(c, grayscale);
         });
     }
 
     void
-    match_palette(image* image, const palette& palette)
+    match_palette(Image* image, const Palette& palette)
     {
-        image->filter([&palette](const rgbai& c) {
+        image->filter([&palette](const Rgbai& c) {
             const auto cc = crgbi(c);
             const auto nc = palette.get_closest_color(cc);
 
-            return rgbai(nc, c.a);
+            return Rgbai(nc, c.a);
         });
     }
 
     template <typename C>
-    [[nodiscard]] image
-    create_new_image_from(const image& image_source, C callback)
+    [[nodiscard]] Image
+    create_new_image_from(const Image& image_source, C callback)
     {
-        image ret;
+        Image ret;
         if(image_source.has_alpha)
         {
             ret.setup_with_alpha_support(image_source.width, image_source.height, -1);
@@ -91,7 +91,7 @@ namespace euphoria::core
     }
 
     void
-    match_palette_dither(image* image, const palette& palette)
+    match_palette_dither(Image* image, const Palette& palette)
     {
         struct color_error
         {
@@ -99,7 +99,7 @@ namespace euphoria::core
             float g = 0;
             float b = 0;
         };
-        auto errors = table<color_error>::from_width_height(image->width, image->height);
+        auto errors = Table<color_error>::from_width_height(image->width, image->height);
         const auto errors_range = errors.get_indices();
 
         *image = create_new_image_from(*image, [&](int x, int y)
@@ -120,12 +120,12 @@ namespace euphoria::core
                 new_color.g - pcf.g,
                 new_color.b - pcf.b
             };
-            const auto floyd_steinberg = std::vector<std::pair<vec2i, float>>
+            const auto floyd_steinberg = std::vector<std::pair<Vec2i, float>>
             {
-                {vec2i(1, 0), 7.0f / 16.0f},
-                {vec2i(1, -1), 1.0f / 16.0f},
-                {vec2i(0, -1), 5.0f / 16.0f},
-                {vec2i(-1, -1), 3.0f / 16.0f}
+                {Vec2i(1, 0), 7.0f / 16.0f},
+                {Vec2i(1, -1), 1.0f / 16.0f},
+                {Vec2i(0, -1), 5.0f / 16.0f},
+                {Vec2i(-1, -1), 3.0f / 16.0f}
             };
 
             for(auto fs: floyd_steinberg)
@@ -142,30 +142,30 @@ namespace euphoria::core
                 }
             }
 
-            return rgbai(palette_color, pixel.a);
+            return Rgbai(palette_color, pixel.a);
         });
     }
 
-    vec3f
-    c_vec3(const rgb f)
+    Vec3f
+    c_vec3(const Rgb f)
     {
         return {f.r, f.g, f.b};
     }
 
-    vec3f
-    c_vec3(const rgbi c)
+    Vec3f
+    c_vec3(const Rgbi c)
     {
         return c_vec3(crgb(c));
     }
 
-    vec3f
-    c_vec3(const rgbai c)
+    Vec3f
+    c_vec3(const Rgbai c)
     {
         return c_vec3(crgb(c));
     }
 
     void
-    edge_detection(image* image, float r)
+    edge_detection(Image* image, float r)
     {
         *image = create_new_image_from(*image, [&](int x, int y) {
             const auto pixel = c_vec3(image->get_pixel(x, y));
@@ -181,26 +181,26 @@ namespace euphoria::core
                                                .get_length()
                                        >= r;
             const bool edge = top || left;
-            const auto c = edge ? color::white : color::black;
-            return rgbai(c, 255);
+            const auto c = edge ? NamedColor::white : NamedColor::black;
+            return Rgbai(c, 255);
         });
     }
 
 
     void
-    color_detection(image* image, rgb color, float r)
+    color_detection(Image* image, Rgb color, float r)
     {
         const auto basis = c_vec3(color);
-        image->filter([&](const rgbai pixel) {
+        image->filter([&](const Rgbai pixel) {
             const auto check = (c_vec3(pixel) - basis).get_length() <= r;
-            const auto c = check ? color::white : color::black;
-            return rgbai(c, 255);
+            const auto c = check ? NamedColor::white : NamedColor::black;
+            return Rgbai(c, 255);
         });
     }
 
     template <typename C>
     void
-    run_lut_transform(image* image, C c)
+    run_lut_transform(Image* image, C c)
     {
         std::vector<unsigned char> lut;
         lut.reserve(256);
@@ -208,14 +208,14 @@ namespace euphoria::core
         {
             lut.emplace_back(c(i));
         }
-        image->filter([&](const rgbai pixel) {
-            return rgbai(
-                    rgbi(lut[pixel.r], lut[pixel.g], lut[pixel.b]), pixel.a);
+        image->filter([&](const Rgbai pixel) {
+            return Rgbai(
+                    Rgbi(lut[pixel.r], lut[pixel.g], lut[pixel.b]), pixel.a);
         });
     }
 
     void
-    change_brightness(image* image, int change)
+    change_brightness(Image* image, int change)
     {
         run_lut_transform(image, [&](int i) {
             return keep_within(make_range(0, 255), i + change);
@@ -223,7 +223,7 @@ namespace euphoria::core
     }
 
     void
-    change_contrast(image* image, const angle& contrast)
+    change_contrast(Image* image, const Angle& contrast)
     {
         const auto tc = tan(contrast);
         run_lut_transform(image, [&](int i) {

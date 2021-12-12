@@ -35,13 +35,13 @@ namespace euphoria::editor
         return -1;
     }
 
-    file_browser::file_browser(vfs::file_system* fs)
-        : current_folder(core::vfs::dir_path::from_root())
+    file_browser::file_browser(vfs::FileSystem* fs)
+        : current_folder(core::vfs::DirPath::from_root())
         , file_system(fs)
     {
     }
 
-    std::optional<core::vfs::file_path>
+    std::optional<core::vfs::FilePath>
     file_browser::get_selected_file()
     {
         if(selected_file >= 0 && selected_file < c_sizet_to_int(files.size()))
@@ -59,20 +59,20 @@ namespace euphoria::editor
     file_browser::refresh()
     {
         files = file_system->list_files(current_folder);
-        if(current_folder != core::vfs::dir_path::from_root())
+        if(current_folder != core::vfs::DirPath::from_root())
         {
-            files.insert(files.begin(), vfs::listed_file {"../", true, false});
+            files.insert(files.begin(), vfs::ListedFile {"../", true, false});
         }
         // files.insert(files.begin(), f.begin(), f.end());
         selected_file = -1;
     }
 
     std::string
-    determine_icon_string(const core::vfs::listed_file& f, bool outline = false)
+    determine_icon_string(const core::vfs::ListedFile& f, bool outline = false)
     {
         if(f.is_file)
         {
-            const auto x = vfs::file_path{"./" + f.name}.get_extension();
+            const auto x = vfs::FilePath{"./" + f.name}.get_extension();
             if(x == "png")
             {
                 return outline? ICON_MDI_FILE_IMAGE_OUTLINE : ICON_MDI_FILE_IMAGE;
@@ -176,7 +176,7 @@ namespace euphoria::editor
                         }
                         else
                         {
-                            const auto sub_directory = core::vfs::dir_path{"./" + item.name};
+                            const auto sub_directory = core::vfs::DirPath{"./" + item.name};
                             const auto resolved = resolve_relative(sub_directory, current_folder);
                             ASSERTX(resolved.has_value(), sub_directory, current_folder);
                             current_folder = resolved.value();

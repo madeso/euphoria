@@ -11,26 +11,26 @@
 
 namespace euphoria::core::vfs
 {
-    struct file_path;
-    struct dir_path;
+    struct FilePath;
+    struct DirPath;
 
-    struct listed_file
+    struct ListedFile
     {
         std::string name;
         bool is_builtin = false;
         bool is_file = false;
 
-        listed_file() = default;
-        listed_file(const std::string& n, bool b, bool f);
+        ListedFile() = default;
+        ListedFile(const std::string& n, bool b, bool f);
     };
 
-    struct file_list
+    struct FileList
     {
-        std::map<std::string, listed_file> files;
-        std::map<std::string, listed_file> folders;
+        std::map<std::string, ListedFile> files;
+        std::map<std::string, ListedFile> folders;
 
         void
-        add(const listed_file& file);
+        add(const ListedFile& file);
 
         void
         add(const std::string& n, bool b, bool f);
@@ -38,71 +38,71 @@ namespace euphoria::core::vfs
 
     // todo(Gustav): use path class
 
-    struct read_root
+    struct ReadRoot
     {
-        read_root() = default;
-        virtual ~read_root();
+        ReadRoot() = default;
+        virtual ~ReadRoot();
 
-        read_root(const read_root&) = delete;
-        read_root(read_root&&) = delete;
-        void operator=(const read_root&) = delete;
-        void operator=(read_root&&) = delete;
+        ReadRoot(const ReadRoot&) = delete;
+        ReadRoot(ReadRoot&&) = delete;
+        void operator=(const ReadRoot&) = delete;
+        void operator=(ReadRoot&&) = delete;
 
         virtual void
         add_description(std::vector<std::string>* strings) = 0;
 
-        virtual std::shared_ptr<memory_chunk>
-        read_file(const file_path& path) = 0;
+        virtual std::shared_ptr<MemoryChunk>
+        read_file(const FilePath& path) = 0;
 
-        virtual file_list
-        list_files(const dir_path& path) = 0;
+        virtual FileList
+        list_files(const DirPath& path) = 0;
     };
 
-    struct write_root
+    struct WriteRoot
     {
-        write_root() = default;
-        virtual ~write_root();
+        WriteRoot() = default;
+        virtual ~WriteRoot();
 
-        write_root(const write_root&) = delete;
-        write_root(write_root&&) = delete;
-        void operator=(const write_root&) = delete;
-        void operator=(write_root&&) = delete;
+        WriteRoot(const WriteRoot&) = delete;
+        WriteRoot(WriteRoot&&) = delete;
+        void operator=(const WriteRoot&) = delete;
+        void operator=(WriteRoot&&) = delete;
 
         virtual void
-        write_file(const file_path& path, std::shared_ptr<memory_chunk> data) = 0;
+        write_file(const FilePath& path, std::shared_ptr<MemoryChunk> data) = 0;
     };
 
-    struct file_system
+    struct FileSystem
     {
-        file_system();
-        ~file_system();
+        FileSystem();
+        ~FileSystem();
 
-        file_system(const file_system&) = delete;
-        file_system(file_system&&) = delete;
-        void operator=(const file_system&) = delete;
-        void operator=(file_system&&) = delete;
-
-        void
-        add_read_root(const std::shared_ptr<read_root>& root);
+        FileSystem(const FileSystem&) = delete;
+        FileSystem(FileSystem&&) = delete;
+        void operator=(const FileSystem&) = delete;
+        void operator=(FileSystem&&) = delete;
 
         void
-        set_write_root(const std::shared_ptr<vfs::write_root>& root);
-
-        std::shared_ptr<memory_chunk>
-        read_file(const file_path& path);
+        add_read_root(const std::shared_ptr<ReadRoot>& root);
 
         void
-        write_file(const file_path& path, std::shared_ptr<memory_chunk> data);
+        set_write_root(const std::shared_ptr<vfs::WriteRoot>& root);
 
-        std::vector<listed_file>
-        list_files(const dir_path& path);
+        std::shared_ptr<MemoryChunk>
+        read_file(const FilePath& path);
+
+        void
+        write_file(const FilePath& path, std::shared_ptr<MemoryChunk> data);
+
+        std::vector<ListedFile>
+        list_files(const DirPath& path);
 
         std::string
         get_roots_as_string();
 
         // todo(Gustav): need to support paging too
         bool
-        read_file_to_string(const file_path& path, std::string* source);
+        read_file_to_string(const FilePath& path, std::string* source);
 
         // todo(Gustav): support different roots such as real file system, zip/container file
         // etc
@@ -110,77 +110,77 @@ namespace euphoria::core::vfs
         // todo(Gustav): support listing/enumerating files
 
 
-        std::vector<std::shared_ptr<read_root>> read_roots;
-        std::shared_ptr<vfs::write_root> write_root;
+        std::vector<std::shared_ptr<ReadRoot>> read_roots;
+        std::shared_ptr<vfs::WriteRoot> write_root;
     };
 
-    struct read_root_catalog : read_root
+    struct ReadRootCatalog : ReadRoot
     {
-        read_root_catalog();
+        ReadRootCatalog();
 
         // todo(Gustav): allow registering string_view and embedded binary chunks
 
         void
         register_file_string
         (
-            const file_path& path,
+            const FilePath& path,
             const std::string& content
         );
 
         void
         register_file_data
         (
-            const file_path& path,
-            const std::shared_ptr<memory_chunk>& content
+            const FilePath& path,
+            const std::shared_ptr<MemoryChunk>& content
         );
 
-        static std::shared_ptr<read_root_catalog>
-        create_and_add(file_system* fs);
+        static std::shared_ptr<ReadRootCatalog>
+        create_and_add(FileSystem* fs);
 
-        std::shared_ptr<memory_chunk>
-        read_file(const file_path& path) override;
+        std::shared_ptr<MemoryChunk>
+        read_file(const FilePath& path) override;
 
         void
         add_description(std::vector<std::string>* strings) override;
 
-        file_list
-        list_files(const dir_path& path) override;
+        FileList
+        list_files(const DirPath& path) override;
 
     private:
-        std::map<file_path, std::shared_ptr<memory_chunk>> catalog;
+        std::map<FilePath, std::shared_ptr<MemoryChunk>> catalog;
     };
 
-    struct read_root_physical_folder : read_root
+    struct ReadRootPhysicalFolder : ReadRoot
     {
-        explicit read_root_physical_folder(std::string folder);
+        explicit ReadRootPhysicalFolder(std::string folder);
 
-        std::shared_ptr<memory_chunk>
-        read_file(const file_path& path) override;
-
-        static void
-        add(file_system* fs, const std::string& folder);
+        std::shared_ptr<MemoryChunk>
+        read_file(const FilePath& path) override;
 
         static void
-        add_current_directory(file_system* fs);
+        add(FileSystem* fs, const std::string& folder);
+
+        static void
+        add_current_directory(FileSystem* fs);
 
         void
         add_description(std::vector<std::string>* strings) override;
 
-        file_list
-        list_files(const dir_path& path) override;
+        FileList
+        list_files(const DirPath& path) override;
         
         std::string folder;
     };
 
-    struct write_root_physical_folder : write_root
+    struct WriteRootPhysicalFolder : WriteRoot
     {
-        explicit write_root_physical_folder(const std::string& f);
+        explicit WriteRootPhysicalFolder(const std::string& f);
 
         void
         write_file
         (
-            const file_path& path,
-            std::shared_ptr<memory_chunk> data
+            const FilePath& path,
+            std::shared_ptr<MemoryChunk> data
         ) override;
 
         std::string folder;

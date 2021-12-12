@@ -15,7 +15,7 @@ namespace euphoria::render
     void
     convert_lines_to_index_buffer
     (
-        const std::vector<core::lines::line>& lines,
+        const std::vector<core::Lines::line>& lines,
         index_buffer* buffer
     )
     {
@@ -34,12 +34,12 @@ namespace euphoria::render
     void
     convert_points_to_vertex_buffer
     (
-        const std::vector<core::line_point>& points,
+        const std::vector<core::LinePoint>& points,
         const std::vector<shader_attribute>& attributes,
         vertex_buffer* vb
     )
     {
-        constexpr auto add_float3 = [](std::vector<float>* dst, const core::vec3f& src)
+        constexpr auto add_float3 = [](std::vector<float>* dst, const core::Vec3f& src)
         {
             dst->emplace_back(src.x);
             dst->emplace_back(src.y);
@@ -71,7 +71,7 @@ namespace euphoria::render
                     ASSERT(att.type == shader_attribute_type::float3);
                     add_float3
                     (
-                        &data, core::vec3f
+                        &data, core::Vec3f
                         {
                             point.color.r,
                             point.color.g,
@@ -112,11 +112,11 @@ namespace euphoria::render
 
 
     std::shared_ptr<compiled_lines>
-    compile(material_shader_cache* shader_cache, const core::lines& lines)
+    compile(material_shader_cache* shader_cache, const core::Lines& lines)
     {
         std::shared_ptr<compiled_lines> ret {new compiled_lines {}};
 
-        ret->shader = shader_cache->get(core::vfs::file_path{"~/default_line_shader"});
+        ret->shader = shader_cache->get(core::vfs::FilePath{"~/default_line_shader"});
 
         point_layout::bind(&ret->config);
         vertex_buffer::bind(&ret->data);

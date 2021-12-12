@@ -7,9 +7,9 @@
 
 namespace euphoria::core
 {
-    struct fps_controller
+    struct FpsController
     {
-        fps_controller();
+        FpsController();
 
         void
         look(float delta_rot, float delta_look);
@@ -28,16 +28,16 @@ namespace euphoria::core
         move_down(bool down);
 
         void
-        on_key(key key, bool down);
+        on_key(Key key, bool down);
 
         void
         update(float delta);
 
-        [[nodiscard]] quatf
+        [[nodiscard]] Quatf
         get_rotation() const;
 
-        angle rotation_angle;
-        angle look_angle;
+        Angle rotation_angle;
+        Angle look_angle;
 
         bool is_left_down = false;
         bool is_right_down = false;
@@ -46,7 +46,7 @@ namespace euphoria::core
         bool is_up_down = false;
         bool is_down_down = false;
 
-        vec3f position;
+        Vec3f position;
         float move_speed = 3.0f;
         float look_sensitivity = 0.10f;
     };

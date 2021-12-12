@@ -7,7 +7,7 @@ namespace euphoria::core
 {
 
 
-    enum class missing_in_alphabet
+    enum class ActionWhenMissingInAlphabet
     {
         ignore, pass_through, replace
     };
@@ -20,7 +20,7 @@ namespace euphoria::core
         int steps,
         const std::string& alphabet,
         bool case_sensitive,
-        missing_in_alphabet missing_in_alphabet,
+        ActionWhenMissingInAlphabet missing_in_alphabet,
         char invalid
     );
 

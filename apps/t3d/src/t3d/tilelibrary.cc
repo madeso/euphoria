@@ -14,7 +14,7 @@ namespace euphoria::t3d
 {
     tile::tile()
         : path("~/unknown_tile")
-        , aabb(core::aabb::create_empty())
+        , aabb(core::Aabb::create_empty())
     {
     }
 
@@ -22,7 +22,7 @@ namespace euphoria::t3d
     tile::~tile() = default;
 
 
-    tile_library::tile_library(core::vfs::file_system* fs) : file_system(fs) {}
+    tile_library::tile_library(core::vfs::FileSystem* fs) : file_system(fs) {}
 
 
     std::shared_ptr<tile>
@@ -43,7 +43,7 @@ namespace euphoria::t3d
         ImGui::BeginListBox("Tiles");
         for(auto tile: tiles)
         {
-            std::string display = core::string_builder {}
+            std::string display = core::StringBuilder {}
                 << tile->name << ": "
                 << tile->aabb.get_size();
             if(ImGui::Selectable(display.c_str(), (*selected_tile)->mesh == tile->mesh))
@@ -61,7 +61,7 @@ namespace euphoria::t3d
     void
     tile_library::add_file
     (
-        const core::vfs::file_path& path,
+        const core::vfs::FilePath& path,
         render::material_shader_cache* shader_cache,
         render::texture_cache* texture_cache
     )
@@ -83,7 +83,7 @@ namespace euphoria::t3d
             shader_cache,
             texture_cache,
             // todo(Gustav): test with mesh directory instead of root?
-            core::vfs::dir_path::from_root(),
+            core::vfs::DirPath::from_root(),
             path.path
         );
         tiles.push_back(tile);

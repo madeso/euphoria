@@ -25,9 +25,9 @@ namespace
 namespace euphoria::core
 {
 
-tree_style slash_style()
+TreeStyle slash_style()
 {
-    auto r = tree_style{};
+    auto r = TreeStyle{};
     r.t_cross = "|-";
     r.l = "\\-";
     r.down = "| ";
@@ -37,9 +37,9 @@ tree_style slash_style()
     return r;
 }
 
-tree_style utf8_tree_style()
+TreeStyle utf8_tree_style()
 {
-    auto r = tree_style{};
+    auto r = TreeStyle{};
     r.t_cross = u8"├╴";
     r.l = u8"└╴";
     r.down = u8"│ ";
@@ -49,9 +49,9 @@ tree_style utf8_tree_style()
     return r;
 }
 
-tree_style cross_style()
+TreeStyle cross_style()
 {
-    auto r = tree_style{};
+    auto r = TreeStyle{};
     r.t_cross = "+- ";
     r.l = "+- ";
     r.down = "|  ";
@@ -61,7 +61,7 @@ tree_style cross_style()
     return r;
 }
 
-tree_style determine_style()
+TreeStyle determine_style()
 {
     if(is_terminal_supporting_utf8())
     {

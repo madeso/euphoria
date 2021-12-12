@@ -47,14 +47,14 @@ namespace euphoria::core::ecs
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct component_list
+    struct ComponentList
     {
         std::string name;
-        std::map<entity_id, std::shared_ptr<component>> components;
+        std::map<entity_id, std::shared_ptr<Component>> components;
 
-        explicit component_list(const std::string& n) : name(n) {}
+        explicit ComponentList(const std::string& n) : name(n) {}
 
-        std::shared_ptr<component>
+        std::shared_ptr<Component>
         get_component(entity_id entity)
         {
             auto found = components.find(entity);
@@ -69,7 +69,7 @@ namespace euphoria::core::ecs
         }
 
         void
-        add_component(entity_id entity, std::shared_ptr<component> data)
+        add_component(entity_id entity, std::shared_ptr<Component> data)
         {
             components[entity] = data;
         }
@@ -91,7 +91,7 @@ namespace euphoria::core::ecs
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct registry_impl
+    struct RegistryImplementation
     {
         entity_id current = 0;
         std::vector<entity_id> free_entities;
@@ -116,7 +116,7 @@ namespace euphoria::core::ecs
             }
         }
 
-        std::vector<std::shared_ptr<registry_entity_callback>> callbacks;
+        std::vector<std::shared_ptr<RegistryEntityCallback>> callbacks;
 
         void
         post_create(entity_id id)
@@ -128,7 +128,7 @@ namespace euphoria::core::ecs
         }
 
         void
-        add_callback(std::shared_ptr<registry_entity_callback> callback)
+        add_callback(std::shared_ptr<RegistryEntityCallback> callback)
         {
             callbacks.emplace_back(callback);
         }
@@ -174,7 +174,7 @@ namespace euphoria::core::ecs
         }
 
         component_id next_component_id = 0;
-        std::map<component_id, std::shared_ptr<component_list>> components;
+        std::map<component_id, std::shared_ptr<ComponentList>> components;
         std::map<std::string, component_id> name_to_component;
 
         component_id
@@ -182,7 +182,7 @@ namespace euphoria::core::ecs
         {
             const auto ret = next_component_id;
             next_component_id += 1;
-            components[ret] = std::make_shared<component_list>(name);
+            components[ret] = std::make_shared<ComponentList>(name);
             name_to_component[name] = ret;
 
             return ret;
@@ -202,7 +202,7 @@ namespace euphoria::core::ecs
             }
         }
 
-        std::shared_ptr<component>
+        std::shared_ptr<Component>
         get_component(entity_id entity, component_id id)
         {
             return components[id]->get_component(entity);
@@ -212,7 +212,7 @@ namespace euphoria::core::ecs
         add_component_to_entity(
                 entity_id entity,
                 component_id id,
-                std::shared_ptr<component> data)
+                std::shared_ptr<Component> data)
         {
             components[id]->add_component(entity, data);
         }
@@ -250,7 +250,7 @@ namespace euphoria::core::ecs
             return r;
         }
 
-        result<component_id>
+        Result<component_id>
         get_custom_component_by_name(const std::string& name)
         {
             if(const auto found_component = name_to_component.find(name); found_component == name_to_component.end())
@@ -259,107 +259,107 @@ namespace euphoria::core::ecs
                 (
                     map<std::string>
                     (
-                        search::find_closest<search::match>
+                        search::find_closest<search::Match>
                         (
                             3, name_to_component,
-                            [&](const auto& entry) -> search::match
+                            [&](const auto& entry) -> search::Match
                             {
                                 return {entry.first, name};
                             }
                         ),
-                        [](const search::match& m)
+                        [](const search::Match& m)
                         {
                             return m.name;
                         }
                     )
                 );
-                return result<component_id>::create_error(fmt::format("could be {}", matches));
+                return Result<component_id>::create_error(fmt::format("could be {}", matches));
             }
             else
             {
-                return result<component_id>::create_value(found_component->second);
+                return Result<component_id>::create_value(found_component->second);
             }
         }
     };
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    registry::registry() : impl(new registry_impl {}) {}
+    Registry::Registry() : impl(new RegistryImplementation {}) {}
 
-    registry::~registry() = default;
+    Registry::~Registry() = default;
 
     entity_id
-    registry::create_new_entity()
+    Registry::create_new_entity()
     {
         return impl->create_new_entity();
     }
 
     void
-    registry::post_create(entity_id id)
+    Registry::post_create(entity_id id)
     {
         impl->post_create(id);
     }
 
     void
-    registry::add_callback(std::shared_ptr<registry_entity_callback> callback)
+    Registry::add_callback(std::shared_ptr<RegistryEntityCallback> callback)
     {
         impl->add_callback(callback);
     }
 
     bool
-    registry::is_alive(entity_id id) const
+    Registry::is_alive(entity_id id) const
     {
         return impl->is_alive(id);
     }
 
     void
-    registry::destroy_entity(entity_id id)
+    Registry::destroy_entity(entity_id id)
     {
         impl->destroy_entity(id);
     }
 
 
     component_id
-    registry::register_new_component_type(const std::string& name)
+    Registry::register_new_component_type(const std::string& name)
     {
         return impl->register_new_component_type(name);
     }
 
     std::string
-    registry::get_component_name(component_id id) const
+    Registry::get_component_name(component_id id) const
     {
         return impl->get_component_name(id);
     }
 
-    result<component_id>
-    registry::get_custom_component_by_name(const std::string& name)
+    Result<component_id>
+    Registry::get_custom_component_by_name(const std::string& name)
     {
         return impl->get_custom_component_by_name(name);
     }
 
-    std::shared_ptr<component>
-    registry::get_component(entity_id entity, component_id component)
+    std::shared_ptr<Component>
+    Registry::get_component(entity_id entity, component_id component)
     {
         return impl->get_component(entity, component);
     }
 
     void
-    registry::add_component_to_entity(
+    Registry::add_component_to_entity(
             entity_id entity,
             component_id component,
-            std::shared_ptr<ecs::component> data)
+            std::shared_ptr<ecs::Component> data)
     {
         impl->add_component_to_entity(entity, component, data);
     }
 
     std::vector<entity_id>
-    registry::get_entities_with_components(const std::vector<component_id>& components)
+    Registry::get_entities_with_components(const std::vector<component_id>& components)
     {
         return impl->get_entities_with_components(components);
     }
 
     void
-    registry::remove_entities_tagged_for_removal()
+    Registry::remove_entities_tagged_for_removal()
     {
         impl->remove_entities_tagged_for_removal();
     }

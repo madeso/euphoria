@@ -12,8 +12,8 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct file_system;
-        struct file_path;
+        struct FileSystem;
+        struct FilePath;
     }
 
 
@@ -21,25 +21,25 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////////////////////////
     // Result types
 
-    struct read_error_file_missing
+    struct ReadErrorFileMissing
     {
-        read_error_file_missing(const std::string&, const std::string&);
+        ReadErrorFileMissing(const std::string&, const std::string&);
 
         std::string path_to_file;
         std::string error_for_debugging;
     };
 
-    struct read_error_file_error
+    struct ReadErrorFileError
     {
-        explicit read_error_file_error(const std::string&);
-        read_error_file_error(const std::string&, const std::vector<std::string>&);
+        explicit ReadErrorFileError(const std::string&);
+        ReadErrorFileError(const std::string&, const std::vector<std::string>&);
 
         std::string path_to_file;
         std::vector<std::string> errors;
     };
 
     template<typename T>
-    using read_result = std::variant<T, read_error_file_missing, read_error_file_error>;
+    using read_result = std::variant<T, ReadErrorFileMissing, ReadErrorFileError>;
 
 
 
@@ -47,13 +47,13 @@ namespace euphoria::core
     // Helper functions
 
     std::string
-    get_string_from_path(const vfs::file_path& p);
+    get_string_from_path(const vfs::FilePath& p);
 
     std::string
-    get_string_from_path_for_debugging(vfs::file_system* fs, const vfs::file_path& p);
+    get_string_from_path_for_debugging(vfs::FileSystem* fs, const vfs::FilePath& p);
 
     std::optional<std::string>
-    get_file_contents_or_null(vfs::file_system* fs, const vfs::file_path& file_name);
+    get_file_contents_or_null(vfs::FileSystem* fs, const vfs::FilePath& file_name);
 
     std::optional<std::string>
     read_source_or_get_error_message(const std::string& source, pugi::xml_document* doc);
@@ -62,10 +62,10 @@ namespace euphoria::core
     could_be_callback(const std::string& v, const std::vector<std::string>& vv);
 
     void
-    log_read_error(const read_error_file_missing&);
+    log_read_error(const ReadErrorFileMissing&);
 
     void
-    log_read_error(const read_error_file_error&);
+    log_read_error(const ReadErrorFileError&);
 
     
     template<typename> inline constexpr bool always_false_v = false;
@@ -83,7 +83,7 @@ namespace euphoria::core
                 {
                     return arg;
                 }
-                else if constexpr (std::is_same_v<TArg, read_error_file_missing>)
+                else if constexpr (std::is_same_v<TArg, ReadErrorFileMissing>)
                 {
                     if(log_missing_file)
                     {
@@ -92,7 +92,7 @@ namespace euphoria::core
 
                     return std::nullopt;
                 }
-                else if constexpr (std::is_same_v<TArg, read_error_file_error>)
+                else if constexpr (std::is_same_v<TArg, ReadErrorFileError>)
                 {
                     log_read_error(arg);
                     return std::nullopt;
@@ -178,7 +178,7 @@ namespace euphoria::core
         if(error_message)
         {
             // xml parse error
-            return read_error_file_error
+            return ReadErrorFileError
             {
                 path_to_file,
                 std::vector<std::string>
@@ -198,7 +198,7 @@ namespace euphoria::core
             );
             if(errors.empty() == false)
             {
-                auto ret = read_error_file_error{path_to_file};
+                auto ret = ReadErrorFileError{path_to_file};
                 for(const auto& e: errors)
                 {
                     // todo(Gustav): handle error return better... copy first error or xpath to clipboard?
@@ -211,7 +211,7 @@ namespace euphoria::core
                 return *result;
             }
 
-            auto ret = read_error_file_error{path_to_file};
+            auto ret = ReadErrorFileError{path_to_file};
             ret.errors.emplace_back("XML ok but unknown error occured");
             return ret;
         }
@@ -221,8 +221,8 @@ namespace euphoria::core
     read_result<T>
     read_xml_file_to_gaf_struct
     (
-        vfs::file_system* fs,
-        const vfs::file_path& file_name,
+        vfs::FileSystem* fs,
+        const vfs::FilePath& file_name,
         ReadXmlElementFun read_xml_element
     )
     {
@@ -239,7 +239,7 @@ namespace euphoria::core
         }
         else
         {
-            return read_error_file_missing
+            return ReadErrorFileMissing
             {
                 get_string_from_path(file_name),
                 get_string_from_path_for_debugging(fs, file_name)

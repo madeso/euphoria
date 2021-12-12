@@ -14,20 +14,20 @@ namespace euphoria::core
 {
     /** WEL512 Random Number Generator.
     */
-    struct random
+    struct Random
     {
         // todo(Gustav): make all rng use the same simple api
         // and template the helper functions with user user facing non-templated functions can pick the rng that is needed
 
-        [[nodiscard]] static u32
+        [[nodiscard]] static U32
         generate_time_seed();
 
-        explicit random(u32 seed = generate_time_seed());
+        explicit Random(U32 seed = generate_time_seed());
 
-        u32
+        U32
         get_next_u32();
 
-        u64
+        U64
         get_next_u64();
 
         float
@@ -39,8 +39,8 @@ namespace euphoria::core
         int
         get_next_sign();
 
-        u32 index;
-        u32 state[16];
+        U32 index;
+        U32 state[16];
     };
 
     /*
@@ -52,36 +52,36 @@ namespace euphoria::core
     */
 
     // move to point class or a circle class?
-    vec2f
-    get_random_point_on_unit_circle_center_focused(random* r);
+    Vec2f
+    get_random_point_on_unit_circle_center_focused(Random* r);
 
-    vec2f
-    get_random_point_on_unit_circle_uniform(random* r );
+    Vec2f
+    get_random_point_on_unit_circle_uniform(Random* r );
 
     template <typename T>
     T
-    get_random_in_range(random* rand, const range<T>& range)
+    get_random_in_range(Random* rand, const Range<T>& range)
     {
         return from01(range, rand->get_next_float01());
     }
 
     template <typename T>
     T
-    get_random_in_range(random* rand, T min, T max)
+    get_random_in_range(Random* rand, T min, T max)
     {
         return static_cast<T>(min + rand->get_next_float01() * (max - min));
     }
 
     template <typename T>
     T
-    get_random_in_range(random* rand, T max)
+    get_random_in_range(Random* rand, T max)
     {
         return get_random_in_range<T>(rand, 0, max);
     }
 
     template <typename T>
     const T&
-    get_random_item_in_vector(random* r, const std::vector<T>& v)
+    get_random_item_in_vector(Random* r, const std::vector<T>& v)
     {
         const auto size = v.size();
         ASSERT(size > 0);
@@ -94,7 +94,7 @@ namespace euphoria::core
 
     template <typename T>
     const T&
-    get_random_item_in_vector(random* r, const ranges::span<T>& v)
+    get_random_item_in_vector(Random* r, const ranges::span<T>& v)
     {
         const auto size = v.size();
         ASSERT(size > 0);
@@ -106,12 +106,12 @@ namespace euphoria::core
     }
 
     float
-    get_random_gaussian_float01(random* rand);
+    get_random_gaussian_float01(Random* rand);
 
     float
-    get_random_gaussian(random* rand, float mean, float std_dev);
+    get_random_gaussian(Random* rand, float mean, float std_dev);
 
     float
-    get_random_gaussian(random* rand, float mean, float std_dev, const range<float>& r);
+    get_random_gaussian(Random* rand, float mean, float std_dev, const Range<float>& r);
 }
 

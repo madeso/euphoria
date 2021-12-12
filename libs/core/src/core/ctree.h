@@ -4,7 +4,7 @@
 
 namespace euphoria::core
 {
-    struct tree_style
+    struct TreeStyle
     {
         std::string_view t_cross;
         std::string_view l;
@@ -16,19 +16,19 @@ namespace euphoria::core
     };
 
 
-    tree_style
+    TreeStyle
     slash_style();
 
 
-    tree_style
+    TreeStyle
     cross_style();
 
 
-    tree_style
+    TreeStyle
     utf8_tree_style();
 
 
-    tree_style
+    TreeStyle
     determine_style();
 
 
@@ -46,7 +46,7 @@ namespace euphoria::core
         LabelFunction label_function,
         FindChildrenFunction find_children_function,
         PrintFunction print_function,
-        const tree_style& style = determine_style(),
+        const TreeStyle& style = determine_style(),
         const std::string& a_indent = "",
         int index = 0,
         bool last = true

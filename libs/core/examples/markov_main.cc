@@ -48,7 +48,7 @@ markov_sentence(const std::string& file, int memory, int count)
         return;
     }
 
-    markov::chain_builder<std::string> m {memory};
+    markov::ChainBuilder<std::string> m {memory};
     const auto parsed = core::parse_sentences
     (
         data,
@@ -60,7 +60,7 @@ markov_sentence(const std::string& file, int memory, int count)
         return;
     }
 
-    core::random rnd;
+    core::Random rnd;
     auto b = m.build();
 
     for(int i = 0; i < count; i += 1)
@@ -74,8 +74,8 @@ markov_sentence(const std::string& file, int memory, int count)
 void
 markov_word(const std::string& file, int memory, int count)
 {
-    core::random rnd;
-    markov::chain_builder<char> m {memory};
+    core::Random rnd;
+    markov::ChainBuilder<char> m {memory};
 
     std::ifstream data;
     data.open(file);
@@ -181,8 +181,8 @@ struct similar_edit_distance : public similar
 void
 markov_line(const std::string& file, int memory, int count, bool also_existing, bool simple)
 {
-    core::random rnd;
-    markov::chain_builder<std::string> m {memory};
+    core::Random rnd;
+    markov::ChainBuilder<std::string> m {memory};
 
     std::ifstream data;
     data.open(file);
@@ -248,7 +248,7 @@ markov_line(const std::string& file, int memory, int count, bool also_existing, 
 int
 main(int argc, char* argv[])
 {
-    core::argparse::parser parser {"markov tool"};
+    core::argparse::Parser parser {"markov tool"};
 
     auto sub = parser.add_sub_parsers();
 
@@ -256,7 +256,7 @@ main(int argc, char* argv[])
     (
         "sentence",
         "parses and generates sentences",
-        [&](core::argparse::sub_parser* sent)
+        [&](core::argparse::SubParser* sent)
         {
             std::string file;
             int memory = 4;
@@ -278,7 +278,7 @@ main(int argc, char* argv[])
     (
         "word",
         "parses and generates word",
-        [&](core::argparse::sub_parser* word)
+        [&](core::argparse::SubParser* word)
         {
             std::string file;
             int memory = 4;
@@ -300,7 +300,7 @@ main(int argc, char* argv[])
     (
         "line",
         "parses and generates lines",
-        [&](core::argparse::sub_parser* line_parser)
+        [&](core::argparse::SubParser* line_parser)
         {
             std::string file;
             int memory = 2;

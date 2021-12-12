@@ -18,7 +18,7 @@ void
 print_random_numbers
 (
     const std::string& name,
-    core::random* random,
+    core::Random* random,
     int count,
     int small_count
 )
@@ -51,7 +51,7 @@ struct runner
 {
     int count = 1000;
     int small_count = 10;
-    core::random rand = core::random{};
+    core::Random rand = core::Random{};
 
     template<typename TGenerator>
     void
@@ -88,8 +88,8 @@ struct runner
         print<random_xorshift64>("xorshift64");
 
         const int int_count = 10;
-        print_ints<32>("u32", int_count, [](core::random* r) { return r->get_next_u32();});
-        print_ints<64>("u64", int_count, [](core::random* r) { return r->get_next_u64();});
+        print_ints<32>("u32", int_count, [](core::Random* r) { return r->get_next_u32();});
+        print_ints<64>("u64", int_count, [](core::Random* r) { return r->get_next_u64();});
     }
 };
 

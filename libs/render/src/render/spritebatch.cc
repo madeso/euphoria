@@ -32,12 +32,12 @@ namespace euphoria::render
     void
     sprite_batch::quad
     (
-        const core::vec2f& pos,
+        const core::Vec2f& pos,
         const core::size2f& quad,
-        const core::rectf& uv,
-        const core::scale2f& center,
-        const core::angle& rotation,
-        const core::rgba& color
+        const core::Rectf& uv,
+        const core::Scale2f& center,
+        const core::Angle& rotation,
+        const core::Rgba& color
     )
     {
         ASSERT(is_inside && "batch need to be open");
@@ -55,10 +55,10 @@ namespace euphoria::render
         const float right = pos.x + (-center.x * w + w) * sy;
         const float top = pos.y + (-center.y * h) * sy;
         const float bottom = pos.y + (-center.y * h + h) * sy;
-        const auto upper_left = core::vec2f(left, top);
-        const auto upper_right = core::vec2f(right, top);
-        const auto lower_left = core::vec2f(left, bottom);
-        const auto lower_right = core::vec2f(right, bottom);
+        const auto upper_left = core::Vec2f(left, top);
+        const auto upper_right = core::Vec2f(right, top);
+        const auto lower_left = core::Vec2f(left, bottom);
+        const auto lower_right = core::Vec2f(right, bottom);
 
         vertex_data.push_back(upper_left.x);
         vertex_data.push_back(upper_left.y);

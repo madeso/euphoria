@@ -7,19 +7,19 @@ namespace euco = euphoria::core;
 
 TEST_CASE("table-empty", "[table]")
 {
-    const auto t1 = euco::table<int>::from_width_height(0, 0);
+    const auto t1 = euco::Table<int>::from_width_height(0, 0);
     CHECK(t1.get_width() == 0);
     CHECK(t1.get_height() == 0);
 
-    const auto t2 = euco::table<int> {};
+    const auto t2 = euco::Table<int> {};
     CHECK(t2.get_width() == 0);
     CHECK(t2.get_height() == 0);
 }
 
 TEST_CASE("table-size", "[table]")
 {
-    const auto t = euco::table<int>::from_width_height(3, 2, 0);
-    const auto same = euco::table<int>::from_height_width(2, 3, 0);
+    const auto t = euco::Table<int>::from_width_height(3, 2, 0);
+    const auto same = euco::Table<int>::from_height_width(2, 3, 0);
 
     SECTION("test sizes")
     {
@@ -44,13 +44,13 @@ TEST_CASE("table-size", "[table]")
 
 TEST_CASE("table-section_and_rows", "[table]")
 {
-    using T = euco::table<std::string>;
+    using T = euco::Table<std::string>;
     auto t = T::from_width_height(3, 2, "");
     for(T::I y = 0; y < t.get_height(); ++y)
     {
         for(T::I x = 0; x < t.get_width(); ++x)
         {
-            t(x, y) = euco::string_builder() << x << "," << y;
+            t(x, y) = euco::StringBuilder() << x << "," << y;
         }
     }
 
@@ -89,7 +89,7 @@ TEST_CASE("table-section_and_rows", "[table]")
 
 TEST_CASE("table-test_add", "[table]")
 {
-    auto t = euco::table<int>();
+    auto t = euco::Table<int>();
 
     REQUIRE(0 == t.get_width());
     REQUIRE(0 == t.get_height());

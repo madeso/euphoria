@@ -29,7 +29,7 @@ namespace euphoria::window
         NONCOPYABLE(sdl_window);
 
         // 0-(size-1)
-        [[nodiscard]] core::vec2i
+        [[nodiscard]] core::Vec2i
         get_mouse_position() const;
 
         SDL_Window* window;

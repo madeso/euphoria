@@ -12,16 +12,16 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct mat3
+    struct Mat3
     {
     private:
-        using tuple3 = std::tuple<T, T, T>;
+        using Tuple3 = std::tuple<T, T, T>;
 
         T data[9]; // col-major
 
-        mat3() = default;
+        Mat3() = default;
 
-        mat3
+        Mat3
         (
             T t00, T t01, T t02,
             T t10, T t11, T t12,
@@ -38,7 +38,7 @@ namespace euphoria::core
 
     public:
         explicit
-        mat3(const mat2<T>& mat)
+        Mat3(const Mat2<T>& mat)
             : data
             {
                 mat(0,0), mat(0,1), 0,
@@ -50,7 +50,7 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
+        Mat3<T>
         from_col_major
         (
             T t00, T t01, T t02,
@@ -58,7 +58,7 @@ namespace euphoria::core
             T t20, T t21, T t22
         )
         {
-            return mat3<T>
+            return Mat3<T>
             (
                 t00, t01, t02,
                 t10, t11, t12,
@@ -68,7 +68,7 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
+        Mat3<T>
         from_row_major
         (
             T t00, T t10, T t20,
@@ -76,7 +76,7 @@ namespace euphoria::core
             T t02, T t12, T t22
         )
         {
-            return mat3<T>
+            return Mat3<T>
             (
                 t00, t01, t02,
                 t10, t11, t12,
@@ -86,8 +86,8 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
-        from_major(const scale3<T>& major)
+        Mat3<T>
+        from_major(const Scale3<T>& major)
         {
             const T zero = 0;
             return from_row_major
@@ -100,16 +100,16 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
-        from_scale(const scale3<T>& scale)
+        Mat3<T>
+        from_scale(const Scale3<T>& scale)
         {
             return from_major(scale);
         }
 
         [[nodiscard]]
         static
-        mat3<T>
-        from_translation2d(const vec2<T>& t)
+        Mat3<T>
+        from_translation2d(const Vec2<T>& t)
         {
             return from_row_major
             (
@@ -121,7 +121,7 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
+        Mat3<T>
         from_scalar(T scalar)
         {
             const T z = 0;
@@ -135,8 +135,8 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
-        from_rot_x(const angle& a)
+        Mat3<T>
+        from_rot_x(const Angle& a)
         {
             const auto c = cos(a);
             const auto s = sin(a);
@@ -150,8 +150,8 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
-        from_rot_y(const angle& a)
+        Mat3<T>
+        from_rot_y(const Angle& a)
         {
             const auto c = cos(a);
             const auto s = sin(a);
@@ -165,8 +165,8 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
-        from_rot_z(const angle& a)
+        Mat3<T>
+        from_rot_z(const Angle& a)
         {
             const auto c = cos(a);
             const auto s = sin(a);
@@ -175,8 +175,8 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
-        from_axis_angle(const axis_angle aa)
+        Mat3<T>
+        from_axis_angle(const AxisAngle aa)
         {
             const T rcos = cos(aa.angle);
             const T rsin = sin(aa.angle);
@@ -185,7 +185,7 @@ namespace euphoria::core
             const auto v = aa.axis.y;
             const auto w = aa.axis.z;
 
-            return mat3<T>::from_col_major
+            return Mat3<T>::from_col_major
             (
                 rcos + u * u * (1 - rcos),
                 w * rsin + v * u * (1 - rcos),
@@ -203,47 +203,47 @@ namespace euphoria::core
 
         [[nodiscard]]
         static
-        mat3<T>
+        Mat3<T>
         identity()
         {
             return from_scalar(1);
         }
 
-        tuple3
+        Tuple3
         get_major() const
         {
-            const mat3<T>& self = *this;
-            return tuple3(self(0, 0), self(1, 1), self(2, 2));
+            const Mat3<T>& self = *this;
+            return Tuple3(self(0, 0), self(1, 1), self(2, 2));
         }
 
-        vec3<T>
+        Vec3<T>
         get_axis(int col) const
         {
-            return static_cast<vec3<T>>(get_column(col));
+            return static_cast<Vec3<T>>(get_column(col));
         }
 
-        vec3<T>
+        Vec3<T>
         get_x_axis() const
         {
             return get_axis(0);
         }
 
-        vec3<T>
+        Vec3<T>
         get_y_axis() const
         {
             return get_axis(1);
         }
 
-        vec3<T>
+        Vec3<T>
         get_z_axis() const
         {
             return get_axis(2);
         }
 
-        mat3<T>
+        Mat3<T>
         get_transposed() const
         {
-            const mat3<T>& self = *this;
+            const Mat3<T>& self = *this;
             return from_col_major
             (
                 self(0, 0), self(0, 1), self(0, 2),
@@ -253,7 +253,7 @@ namespace euphoria::core
         }
 
         void
-        operator+=(const mat3<T> rhs)
+        operator+=(const Mat3<T> rhs)
         {
 #define OP(i) data[i] += rhs.data[i]
             OP(0); OP(1); OP(2);
@@ -263,7 +263,7 @@ namespace euphoria::core
         }
 
         void
-        operator-=(const mat3<T> rhs)
+        operator-=(const Mat3<T> rhs)
         {
 #define OP(i) data[i] -= rhs.data[i]
             OP(0); OP(1); OP(2);
@@ -272,14 +272,14 @@ namespace euphoria::core
 #undef OP
         }
 
-        mat3<T>
-        rotate(const axis_angle& aa) const
+        Mat3<T>
+        rotate(const AxisAngle& aa) const
         {
             return *this * from_axis_angle(aa);
         }
 
-        mat3<T>
-        scale(const scale3<T>& scale) const
+        Mat3<T>
+        scale(const Scale3<T>& scale) const
         {
             return *this * from_scale(scale);
         }
@@ -315,22 +315,22 @@ namespace euphoria::core
             return data[col * 3 + row];
         }
 
-        tuple3
+        Tuple3
         get_column(int c) const
         {
-            return tuple3(get(0, c), get(1, c), get(2, c));
+            return Tuple3(get(0, c), get(1, c), get(2, c));
         }
 
-        tuple3
+        Tuple3
         get_row(int r) const
         {
-            return tuple3(get(r, 0), get(r, 1), get(r, 2));
+            return Tuple3(get(r, 0), get(r, 1), get(r, 2));
         }
     };
 
     template <typename T>
     bool
-    operator==(const mat3<T>& lhs, const mat3<T>& rhs)
+    operator==(const Mat3<T>& lhs, const Mat3<T>& rhs)
     {
         return
             lhs.get_column(0) == rhs.get_column(0) &&
@@ -341,7 +341,7 @@ namespace euphoria::core
 
     template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const mat3<T>& m)
+    operator<<(std::ostream& stream, const Mat3<T>& m)
     {
         return stream
             << "("
@@ -351,29 +351,29 @@ namespace euphoria::core
     }
 
     template <typename T>
-    mat3<T>
-    operator+(const mat3<T>& lhs, const mat3<T> rhs)
+    Mat3<T>
+    operator+(const Mat3<T>& lhs, const Mat3<T> rhs)
     {
-        mat3<T> t = lhs;
+        Mat3<T> t = lhs;
         t += rhs;
         return t;
     }
 
     template <typename T>
-    mat3<T>
-    operator-(const mat3<T>& lhs, const mat3<T> rhs)
+    Mat3<T>
+    operator-(const Mat3<T>& lhs, const Mat3<T> rhs)
     {
-        mat3<T> t = lhs;
+        Mat3<T> t = lhs;
         t -= rhs;
         return t;
     }
 
     template <typename T>
-    mat3<T> operator*(const mat3<T>& lhs, const mat3<T> rhs)
+    Mat3<T> operator*(const Mat3<T>& lhs, const Mat3<T> rhs)
     {
 #define OP(r, c) \
-    component_multiply(vec3{lhs.get_row(r)}, vec3{rhs.get_column(c)}).get_component_sum()
-        return mat3<T>::from_row_major
+    component_multiply(Vec3{lhs.get_row(r)}, Vec3{rhs.get_column(c)}).get_component_sum()
+        return Mat3<T>::from_row_major
         (
             OP(0, 0), OP(0, 1), OP(0, 2),
             OP(1, 0), OP(1, 1), OP(1, 2),
@@ -383,14 +383,14 @@ namespace euphoria::core
     }
 
     template <typename T>
-    vec3<T> operator*(const mat3<T>& lhs, const vec3<T> rhs)
+    Vec3<T> operator*(const Mat3<T>& lhs, const Vec3<T> rhs)
     {
-#define OP(r) component_multiply(vec3{lhs.get_row(r)}, rhs).get_component_sum()
-        return vec3<T>(OP(0), OP(1), OP(2));
+#define OP(r) component_multiply(Vec3{lhs.get_row(r)}, rhs).get_component_sum()
+        return Vec3<T>(OP(0), OP(1), OP(2));
 #undef OP
     }
 
-    using mat3f = mat3<float>;
-    using mat3i = mat3<int>;
+    using Mat3f = Mat3<float>;
+    using Mat3i = Mat3<int>;
 
 }

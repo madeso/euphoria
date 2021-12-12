@@ -47,7 +47,7 @@ TEST_CASE("rgb-get_component_works", "[rgb]")
 
 TEST_CASE("rgb_colors", "[rgb]")
 {
-    auto test = [](const euco::rgb& c_rgb, const euco::hsl& c_hsl) {
+    auto test = [](const euco::Rgb& c_rgb, const euco::Hsl& c_hsl) {
         CHECK(c_rgb == approx(euco::crgb(c_hsl)));
         CHECK(c_hsl == approx(euco::chsl(c_rgb)));
     };
@@ -56,47 +56,47 @@ TEST_CASE("rgb_colors", "[rgb]")
     // https://en.wikipedia.org/wiki/Web_colors
 
     // aqua
-    test(euco::rgb {0, 1, 1},
-         euco::hsl {euco::angle::from_degrees(180), 1, 0.5f});
+    test(euco::Rgb {0, 1, 1},
+         euco::Hsl {euco::Angle::from_degrees(180), 1, 0.5f});
 
     // gray
-    test(euco::rgb {0.5f, 0.5f, 0.5f},
-         euco::hsl {euco::angle::from_degrees(0), 0, 0.5f});
+    test(euco::Rgb {0.5f, 0.5f, 0.5f},
+         euco::Hsl {euco::Angle::from_degrees(0), 0, 0.5f});
 
     // lime
-    test(euco::rgb {0, 1, 0},
-         euco::hsl {euco::angle::from_degrees(120), 1, 0.5f});
+    test(euco::Rgb {0, 1, 0},
+         euco::Hsl {euco::Angle::from_degrees(120), 1, 0.5f});
 
     // fuchsia
-    test(euco::rgb {1, 0, 1},
-         euco::hsl {euco::angle::from_degrees(300), 1, 0.5f});
+    test(euco::Rgb {1, 0, 1},
+         euco::Hsl {euco::Angle::from_degrees(300), 1, 0.5f});
 
     // yellow
-    test(euco::rgb {1, 1, 0},
-         euco::hsl {euco::angle::from_degrees(60), 1, 0.5f});
+    test(euco::Rgb {1, 1, 0},
+         euco::Hsl {euco::Angle::from_degrees(60), 1, 0.5f});
 
     // purple
-    test(euco::rgb {0.5f, 0, 0.5f},
-         euco::hsl {euco::angle::from_degrees(300), 1, 0.25f});
+    test(euco::Rgb {0.5f, 0, 0.5f},
+         euco::Hsl {euco::Angle::from_degrees(300), 1, 0.25f});
 }
 
 TEST_CASE("rgb_convert", "[rgb]")
 {
-    const euco::rgbi blue = euco::color::blue;
+    const euco::Rgbi blue = euco::NamedColor::blue;
     REQUIRE(blue == euco::crgbi(euco::crgb(blue)));
 }
 
 TEST_CASE("rgb-hsl_convert", "[rgb]")
 {
-    const euco::rgb blue = euco::color::blue;
+    const euco::Rgb blue = euco::NamedColor::blue;
     REQUIRE(blue == approx(euco::crgb(euco::chsl(blue))));
 }
 
 TEST_CASE("rgb-ShadeColor", "[rgb]")
 {
 #define C(src_hex, hex, fac) \
-    CHECK(euco::rgb::from_hex(hex) \
-          == approx(euco::shade_color(euco::rgb::from_hex(src_hex), fac)))
+    CHECK(euco::Rgb::from_hex(hex) \
+          == approx(euco::shade_color(euco::Rgb::from_hex(src_hex), fac)))
     const auto orange = 0xf48000;
     const auto green = 0x3f83a3;
     C(orange, orange, 0.0f);

@@ -34,8 +34,8 @@ namespace euphoria::render
 {
     glyph::glyph
     (
-        const core::rectf& sprite,
-        const core::rectf& texture,
+        const core::Rectf& sprite,
+        const core::Rectf& texture,
         int ch,
         float ad
     )
@@ -47,19 +47,19 @@ namespace euphoria::render
     }
 
 
-    core::loaded_font
+    core::LoadedFont
     get_characters_from_single_image
     (
-        core::vfs::file_system* fs,
+        core::vfs::FileSystem* fs,
         const font::SingleImage& img
     )
     {
-        const auto image_file = core::vfs::file_path::from_script(img.file);
+        const auto image_file = core::vfs::FilePath::from_script(img.file);
 
         if(image_file.has_value() == false)
         {
             LOG_WARN("Invalid path {0}", img.file);
-            return core::loaded_font{};
+            return core::LoadedFont{};
         }
 
         return core::get_characters_from_single_image
@@ -75,11 +75,11 @@ namespace euphoria::render
     }
 
 
-    std::pair<core::rectf, core::rectf>
+    std::pair<core::Rectf, core::Rectf>
     construct_character_rects
     (
         const stbrp_rect& src_rect,
-        const core::loaded_glyph& src_char,
+        const core::LoadedGlyph& src_char,
         int image_width,
         int image_height
     )
@@ -101,14 +101,14 @@ namespace euphoria::render
         const auto iw = static_cast<float>(image_width);
         const auto ih = static_cast<float>(image_height);
 
-        const auto sprite = core::rectf::from_left_right_top_bottom
+        const auto sprite = core::Rectf::from_left_right_top_bottom
         (
             static_cast<float>(vert_left),
             static_cast<float>(vert_right),
             static_cast<float>(vert_top),
             static_cast<float>(vert_bottom)
         );
-        const auto texture = core::rectf::from_left_right_top_bottom
+        const auto texture = core::Rectf::from_left_right_top_bottom
         (
             static_cast<float>(uv_left) / iw,
             static_cast<float>(uv_right) / iw,
@@ -126,9 +126,9 @@ namespace euphoria::render
 
     drawable_font::drawable_font
     (
-        core::vfs::file_system* fs,
+        core::vfs::FileSystem* fs,
         texture_cache* cache,
-        const core::vfs::file_path& font_file
+        const core::vfs::FilePath& font_file
     )
     {
         // todo(Gustav): too long, break up
@@ -137,10 +137,10 @@ namespace euphoria::render
 
         background = cache->get_texture
         (
-            core::vfs::file_path{"~/img-plain/white"}
+            core::vfs::FilePath{"~/img-plain/white"}
         );
 
-        core::loaded_font fontchars;
+        core::LoadedFont fontchars;
 
         const auto font_root = core::get_default_but_log_errors
         (
@@ -155,7 +155,7 @@ namespace euphoria::render
             {
                 const font::FontFile& font = *source.font;
 
-                const auto p = core::vfs::file_path::from_script(font.file);
+                const auto p = core::vfs::FilePath::from_script(font.file);
                 if(p.has_value() == false)
                 {
                     LOG_ERROR("Invalid path {0}", font.file);
@@ -218,7 +218,7 @@ namespace euphoria::render
         stbrp_pack_rects(&context, &packed_rects[0], num_rects);
 
         char_to_glyph_map map;
-        core::image image;
+        core::Image image;
         image.setup_with_alpha_support(texture_width, texture_height);
         for(int i = 0; i < num_rects; ++i)
         {
@@ -232,7 +232,7 @@ namespace euphoria::render
             core::paste_image
             (
                 &image,
-                core::vec2i
+                core::Vec2i
                 {
                     src_rect.x + half_margin,
                     src_rect.y + half_margin
@@ -272,7 +272,7 @@ namespace euphoria::render
         texture->load_from_image
         (
                 image,
-                core::alpha_load::keep, texture2d_load_data()
+                core::AlphaLoad::keep, texture2d_load_data()
         );
         line_height = static_cast<float>(fontchars.line_height);
     }
@@ -283,17 +283,17 @@ namespace euphoria::render
     (
         sprite_renderer* renderer,
         float alpha,
-        const core::rectf& where
+        const core::Rectf& where
     ) const
     {
         renderer->draw_rect
         (
             *background,
             where,
-            core::rectf::from_width_height(1, 1),
+            core::Rectf::from_width_height(1, 1),
             0.0_rad,
-            core::scale2f{0, 0},
-            core::rgba{core::color::black, alpha}
+            core::Scale2f{0, 0},
+            core::Rgba{core::NamedColor::black, alpha}
         );
     }
 
@@ -301,8 +301,8 @@ namespace euphoria::render
     text_draw_command::text_draw_command
     (
         const texture2d* texture,
-        const core::rectf& sprite_rect,
-        const core::rectf& texture_rect,
+        const core::Rectf& sprite_rect,
+        const core::Rectf& texture_rect,
         bool hi
     )
         : texture(texture)
@@ -317,8 +317,8 @@ namespace euphoria::render
     list_of_text_draw_commands::add
     (
         const texture2d* texture,
-        const core::rectf& sprite_rect,
-        const core::rectf& texture_rect,
+        const core::Rectf& sprite_rect,
+        const core::Rectf& texture_rect,
         bool hi
     )
     {
@@ -330,9 +330,9 @@ namespace euphoria::render
     list_of_text_draw_commands::draw
     (
         sprite_renderer* renderer,
-        const core::vec2f& start_position,
-        const core::rgb& base_color,
-        const core::rgb& hi_color
+        const core::Vec2f& start_position,
+        const core::Rgb& base_color,
+        const core::Rgb& hi_color
     )
     {
         for(const auto& cmd: commands)
@@ -344,19 +344,19 @@ namespace euphoria::render
                 cmd.sprite_rect.offset_copy(start_position),
                 cmd.texture_rect,
                 0.0_rad,
-                core::scale2f{0.5f, 0.5f},
-                core::rgba{tint}
+                core::Scale2f{0.5f, 0.5f},
+                core::Rgba{tint}
             );
         }
     }
 
 
-    struct ui_text_compile_visitor : public core::textparser::visitor
+    struct ui_text_compile_visitor : public core::textparser::Visitor
     {
         const drawable_font& font;
         float size;
         bool apply_highlight;
-        core::vec2f position; // todo(Gustav): rename to offset
+        core::Vec2f position; // todo(Gustav): rename to offset
         int last_char_index = 0;
 
         // return value
@@ -470,7 +470,7 @@ namespace euphoria::render
 
 
     list_of_text_draw_commands
-    drawable_font::compile_list(const core::ui_text& text, float size) const
+    drawable_font::compile_list(const core::UiText& text, float size) const
     {
         list_of_text_draw_commands list;
 
@@ -481,10 +481,10 @@ namespace euphoria::render
     }
 
 
-    core::rectf
+    core::Rectf
     list_of_text_draw_commands::get_extents() const
     {
-        core::rectf ret;
+        core::Rectf ret;
         for(const auto& cmd: commands)
         {
             ret.include(cmd.sprite_rect);
@@ -508,7 +508,7 @@ namespace euphoria::render
 
 
     void
-    drawable_text::set_text(const core::ui_text& new_text)
+    drawable_text::set_text(const core::UiText& new_text)
     {
         text = new_text;
         is_dirty = true;
@@ -541,8 +541,8 @@ namespace euphoria::render
     }
 
 
-    core::vec2f
-    get_offset(align alignment, const core::rectf& extent)
+    core::Vec2f
+    get_offset(align alignment, const core::Rectf& extent)
     {
         // todo(Gustav): test this more
         const auto middle = -(extent.left + extent.right) / 2;
@@ -552,16 +552,16 @@ namespace euphoria::render
 
         switch(alignment)
         {
-        case align::top_left: return core::vec2f(0.0f, top);
-        case align::top_center: return core::vec2f(middle, top);
-        case align::top_right: return core::vec2f(right, top);
-        case align::baseline_left: return core::vec2f(0.0f, 0.0f);
-        case align::baseline_center: return core::vec2f(middle, 0.0f);
-        case align::baseline_right: return core::vec2f(right, 0.0f);
-        case align::bottom_left: return core::vec2f(0.0f, bottom);
-        case align::bottom_center: return core::vec2f(middle, bottom);
-        case align::bottom_right: return core::vec2f(right, bottom);
-        default: DIE("Unhandled case"); return core::vec2f(0.0f, 0.0f);
+        case align::top_left: return core::Vec2f(0.0f, top);
+        case align::top_center: return core::Vec2f(middle, top);
+        case align::top_right: return core::Vec2f(right, top);
+        case align::baseline_left: return core::Vec2f(0.0f, 0.0f);
+        case align::baseline_center: return core::Vec2f(middle, 0.0f);
+        case align::baseline_right: return core::Vec2f(right, 0.0f);
+        case align::bottom_left: return core::Vec2f(0.0f, bottom);
+        case align::bottom_center: return core::Vec2f(middle, bottom);
+        case align::bottom_right: return core::Vec2f(right, bottom);
+        default: DIE("Unhandled case"); return core::Vec2f(0.0f, 0.0f);
         }
     }
 
@@ -570,8 +570,8 @@ namespace euphoria::render
     drawable_text::draw
     (
         sprite_renderer* renderer,
-        const core::vec2f& p,
-        const core::rgb& base_hi_color
+        const core::Vec2f& p,
+        const core::Rgb& base_hi_color
     ) const
     {
         draw(renderer, p, base_hi_color, base_hi_color);
@@ -582,9 +582,9 @@ namespace euphoria::render
     drawable_text::draw
     (
         sprite_renderer* renderer,
-        const core::vec2f& p,
-        const core::rgb& base_color,
-        const core::rgb& hi_color
+        const core::Vec2f& p,
+        const core::Rgb& base_color,
+        const core::Rgb& hi_color
     ) const
     {
         compile();
@@ -621,7 +621,7 @@ namespace euphoria::render
     }
 
 
-    core::rectf
+    core::Rectf
     drawable_text::get_extents() const
     {
         compile();

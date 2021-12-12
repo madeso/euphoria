@@ -5,25 +5,25 @@
 
 namespace euphoria::core
 {
-    struct canvas_logic
+    struct CanvasLogic
     {
         // canvas view
-        vec2f scroll = vec2f {0, 0};
+        Vec2f scroll = Vec2f {0, 0};
         float scale = 1;
 
         // "config"
-        range<float> scale_range = make_range(0.1f, 15.0f);
+        Range<float> scale_range = make_range(0.1f, 15.0f);
 
         void
-        pan(const vec2f& p);
+        pan(const Vec2f& p);
 
         void
-        zoom(const vec2f& mouse, float zoom);
+        zoom(const Vec2f& mouse, float zoom);
 
-        [[nodiscard]] vec2f
-        screen_to_world(const vec2f& p) const;
+        [[nodiscard]] Vec2f
+        screen_to_world(const Vec2f& p) const;
 
-        [[nodiscard]] vec2f
-        world_to_screen(const vec2f& p) const;
+        [[nodiscard]] Vec2f
+        world_to_screen(const Vec2f& p) const;
     };
 }

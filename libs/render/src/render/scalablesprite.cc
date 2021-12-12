@@ -65,8 +65,8 @@ namespace euphoria::render
 {
     scalable_sprite::scalable_sprite
     (
-        core::vfs::file_system* fs,
-        const core::vfs::file_path& path,
+        core::vfs::FileSystem* fs,
+        const core::vfs::FilePath& path,
         texture_cache* cache
     )
         : texture(cache->get_texture(path))
@@ -97,7 +97,7 @@ namespace euphoria::render
 
 
     void
-    scalable_sprite::render(sprite_renderer* renderer, const core::rectf& rect, const core::rgba& tint) const
+    scalable_sprite::render(sprite_renderer* renderer, const core::Rectf& rect, const core::Rgba& tint) const
     {
         const auto size = rect.get_size();
         const auto pos = rect.get_bottom_left();
@@ -137,14 +137,14 @@ namespace euphoria::render
                     uv_current_row,
                     uv_next_row
                 );
-                const auto position_rect = core::rectf::from_left_right_top_bottom
+                const auto position_rect = core::Rectf::from_left_right_top_bottom
                 (
                     position_current_col,
                     position_next_col,
                     position_current_row,
                     position_next_row
                 );
-                const auto uv_rect = core::rectf::from_left_right_top_bottom
+                const auto uv_rect = core::Rectf::from_left_right_top_bottom
                 (
                     uv_current_col,
                     uv_next_col,
@@ -158,7 +158,7 @@ namespace euphoria::render
                     position_rect.offset_copy(pos),
                     uv_rect,
                     0.0_rad,
-                    core::scale2f{0, 0},
+                    core::Scale2f{0, 0},
                     tint
                 );
 

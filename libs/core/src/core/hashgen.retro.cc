@@ -23,7 +23,7 @@ namespace
     void
     render_retro_impl
     (
-        image* image,
+        Image* image,
         I code,
         int half_size = 3
     )
@@ -31,19 +31,19 @@ namespace
         const auto size = half_size * 2;
 
         // todo(Gustav): figure out color (randomly?)
-        const auto foreground_color = color::white;
-        const auto background_color = color::black;
+        const auto foreground_color = NamedColor::white;
+        const auto background_color = NamedColor::black;
 
         const auto dx = image->width / (size - 1);
         const auto dy = image->height / size;
 
-        auto rect = [&](const vec2i& top_left)
+        auto rect = [&](const Vec2i& top_left)
         {
             draw_rect
             (
                 image,
                 {foreground_color},
-                recti::from_top_left_width_height
+                Recti::from_top_left_width_height
                 (
                     top_left,
                     dx+1, dy
@@ -62,10 +62,10 @@ namespace
                 const auto filled = generator.get_next_float01() < 0.5f;
                 if(filled)
                 {
-                    rect(vec2i{x*dx, (y+1)*dy});
+                    rect(Vec2i{x*dx, (y+1)*dy});
                     if(x != half_size-1)
                     {
-                        rect(vec2i{image->width - ((x+1)*dx + 2), (y+1)*dy});
+                        rect(Vec2i{image->width - ((x+1)*dx + 2), (y+1)*dy});
                     }
                 }
             }
@@ -77,7 +77,7 @@ namespace
 namespace euphoria::core
 {
     void
-    render_retro(image* image, u32 code)
+    render_retro(Image* image, U32 code)
     {
         render_retro_impl<random_xorshift32>(image, code);
     }

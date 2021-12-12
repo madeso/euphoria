@@ -45,19 +45,19 @@ int
 main(int argc, char* argv[])
 {
     engine engine;
-    if(const auto ret = engine.setup(argparse::name_and_arguments::extract(argc, argv)); ret != 0)
+    if(const auto ret = engine.setup(argparse::NameAndArguments::extract(argc, argv)); ret != 0)
     {
         return ret;
     }
 
     engine.file_system->set_write_root
     (
-        std::make_shared<vfs::write_root_physical_folder>(get_current_directory())
+        std::make_shared<vfs::WriteRootPhysicalFolder>(get_current_directory())
     );
 
     texture_cache cache {engine.file_system.get()};
 
-    const auto clear_color = color::light_gray;
+    const auto clear_color = NamedColor::light_gray;
 
     int window_width = 800;
     int window_height = 600;
@@ -79,7 +79,7 @@ main(int argc, char* argv[])
 
     shader shader;
     attributes2d::prebind_shader(&shader);
-    shader.load(engine.file_system.get(), vfs::file_path{"~/shaders/sprite"});
+    shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
     sprite_renderer renderer(&shader);
     font_cache font_cache {engine.file_system.get(), &cache};
 
@@ -103,23 +103,23 @@ main(int argc, char* argv[])
     bool mouse_lmb_down = false;
 
     {
-        image image;
+        Image image;
         image.setup_no_alpha_support(256, 256);
         constexpr float h = 256.0f/2;
         constexpr float m = 256.0f;
         constexpr int s = 5;
 
-        clear(&image, {color::white});
-        draw_arrow(&image, vec2f{h, 0}, vec2f{h, m}, {color::blue}, s);
-        draw_arrow(&image, vec2f{0, h}, vec2f{m, h}, {color::red}, s);
+        clear(&image, {NamedColor::white});
+        draw_arrow(&image, Vec2f{h, 0}, Vec2f{h, m}, {NamedColor::blue}, s);
+        draw_arrow(&image, Vec2f{0, h}, Vec2f{m, h}, {NamedColor::red}, s);
 
         engine.catalog->register_file_data
         (
-            vfs::file_path{"~/image"},
-            image.write(image_write_format::png)
+            vfs::FilePath{"~/image"},
+            image.write(ImageWriteFormat::png)
         );
     }
-    auto arrows = cache.get_texture(vfs::file_path{"~/image"});
+    auto arrows = cache.get_texture(vfs::FilePath{"~/image"});
 
     engine.init->use_2d();
 
@@ -157,7 +157,7 @@ main(int argc, char* argv[])
             {
                 const bool down = e.type == SDL_KEYDOWN;
                 const auto key = to_key(e.key.keysym);
-                if(down && key == key::escape)
+                if(down && key == Key::escape)
                 {
                     running = false;
                 }
@@ -183,10 +183,10 @@ main(int argc, char* argv[])
     auto render = [&]
     {
         engine.init->clear_screen(clear_color);
-        const auto r = rectf::from_position_anchor_width_and_height
+        const auto r = Rectf::from_position_anchor_width_and_height
         (
-            vec2f{sprite_x, sprite_y},
-            scale2f{0.5f, 0.5f},
+            Vec2f{sprite_x, sprite_y},
+            Scale2f{0.5f, 0.5f},
             euphoria::core::max(0.0f, sprite_width),
             euphoria::core::max(0.0f, sprite_height)
         );

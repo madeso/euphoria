@@ -21,58 +21,58 @@ TEST_CASE("chatbot-matches-input", "[chatbot]")
 
     SECTION("match middle")
     {
-        const auto where = input::in_middle;
-        CHECK(index_of_matched_input(sentence, input{start_animal, where}) == 0);
-        CHECK(index_of_matched_input(sentence, input{middle_animal, where}) == 1);
-        CHECK(index_of_matched_input(sentence, input{end_animal, where}) == 2);
-        CHECK(index_of_matched_input(sentence, input{full_sentence, where}) == 0);
-        CHECK(index_of_matched_input(sentence, input{non_animal, where}) == -1);
+        const auto where = Input::in_middle;
+        CHECK(index_of_matched_input(sentence, Input{start_animal, where}) == 0);
+        CHECK(index_of_matched_input(sentence, Input{middle_animal, where}) == 1);
+        CHECK(index_of_matched_input(sentence, Input{end_animal, where}) == 2);
+        CHECK(index_of_matched_input(sentence, Input{full_sentence, where}) == 0);
+        CHECK(index_of_matched_input(sentence, Input{non_animal, where}) == -1);
     }
 
     SECTION("match start")
     {
-        const auto where = input::at_start;
-        CHECK(index_of_matched_input(sentence, input{start_animal, where}) == 0);
-        CHECK(index_of_matched_input(sentence, input{middle_animal, where})
+        const auto where = Input::at_start;
+        CHECK(index_of_matched_input(sentence, Input{start_animal, where}) == 0);
+        CHECK(index_of_matched_input(sentence, Input{middle_animal, where})
               == -1);
-        CHECK(index_of_matched_input(sentence, input{end_animal, where}) == -1);
-        CHECK(index_of_matched_input(sentence, input{full_sentence, where}) == 0);
-        CHECK(index_of_matched_input(sentence, input{non_animal, where}) == -1);
+        CHECK(index_of_matched_input(sentence, Input{end_animal, where}) == -1);
+        CHECK(index_of_matched_input(sentence, Input{full_sentence, where}) == 0);
+        CHECK(index_of_matched_input(sentence, Input{non_animal, where}) == -1);
     }
 
     SECTION("match end")
     {
-        const auto where = input::at_end;
-        CHECK(index_of_matched_input(sentence, input{start_animal, where}) == -1);
-        CHECK(index_of_matched_input(sentence, input{middle_animal, where})
+        const auto where = Input::at_end;
+        CHECK(index_of_matched_input(sentence, Input{start_animal, where}) == -1);
+        CHECK(index_of_matched_input(sentence, Input{middle_animal, where})
               == -1);
-        CHECK(index_of_matched_input(sentence, input{end_animal, where}) == 2);
-        CHECK(index_of_matched_input(sentence, input{full_sentence, where}) == 0);
-        CHECK(index_of_matched_input(sentence, input{non_animal, where}) == -1);
+        CHECK(index_of_matched_input(sentence, Input{end_animal, where}) == 2);
+        CHECK(index_of_matched_input(sentence, Input{full_sentence, where}) == 0);
+        CHECK(index_of_matched_input(sentence, Input{non_animal, where}) == -1);
     }
 
     SECTION("alone")
     {
-        const auto where = input::alone;
-        CHECK(index_of_matched_input(sentence, input{start_animal, where}) == -1);
-        CHECK(index_of_matched_input(sentence, input{middle_animal, where})
+        const auto where = Input::alone;
+        CHECK(index_of_matched_input(sentence, Input{start_animal, where}) == -1);
+        CHECK(index_of_matched_input(sentence, Input{middle_animal, where})
               == -1);
-        CHECK(index_of_matched_input(sentence, input{end_animal, where}) == -1);
-        CHECK(index_of_matched_input(sentence, input{full_sentence, where}) == 0);
-        CHECK(index_of_matched_input(sentence, input{non_animal, where}) == -1);
+        CHECK(index_of_matched_input(sentence, Input{end_animal, where}) == -1);
+        CHECK(index_of_matched_input(sentence, Input{full_sentence, where}) == 0);
+        CHECK(index_of_matched_input(sentence, Input{non_animal, where}) == -1);
     }
 
     SECTION("remove from middle")
     {
-        const auto where = input::in_middle;
-        CHECK(remove_from(sentence, input{start_animal, where})
+        const auto where = Input::in_middle;
+        CHECK(remove_from(sentence, Input{start_animal, where})
               == without_start_animal);
-        CHECK(remove_from(sentence, input{middle_animal, where})
+        CHECK(remove_from(sentence, Input{middle_animal, where})
               == without_middle_animal);
-        CHECK(remove_from(sentence, input{end_animal, where})
+        CHECK(remove_from(sentence, Input{end_animal, where})
               == without_end_animal);
-        CHECK(remove_from(sentence, input{full_sentence, where})
+        CHECK(remove_from(sentence, Input{full_sentence, where})
               == without_any_animals);
-        CHECK(remove_from(sentence, input{non_animal, where}) == sentence);
+        CHECK(remove_from(sentence, Input{non_animal, where}) == sentence);
     }
 }

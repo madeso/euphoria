@@ -7,25 +7,25 @@
 
 namespace euphoria::core
 {
-    point::point(float x, float y, float u, float v)
+    BufferPoint2::BufferPoint2(float x, float y, float u, float v)
         : pos(x, y)
         , uv(u, v)
     {
     }
 
 
-    point::point(const vec2f& p, const vec2f& u)
+    BufferPoint2::BufferPoint2(const Vec2f& p, const Vec2f& u)
         : pos(p)
         , uv(u)
     {
     }
 
 
-    buffer_builder2d::buffer_builder2d() = default;
+    BufferBuilder2::BufferBuilder2() = default;
 
 
     void
-    buffer_builder2d::add_vertex(const point& p)
+    BufferBuilder2::add_vertex(const BufferPoint2& p)
     {
         data.push_back(p.pos.x);
         data.push_back(p.pos.y);
@@ -45,13 +45,13 @@ namespace euphoria::core
             unsigned int c
         )
         {
-            const auto va = vec3f{data[a*4], data[a*4+1], 0};
-            const auto vb = vec3f{data[b*4], data[b*4+1], 0};
-            const auto vc = vec3f{data[c*4], data[c*4+1], 0};
+            const auto va = Vec3f{data[a*4], data[a*4+1], 0};
+            const auto vb = Vec3f{data[b*4], data[b*4+1], 0};
+            const auto vc = Vec3f{data[c*4], data[c*4+1], 0};
             const auto cr = cross
             (
-                vec3f::from_to(va, vb),
-                vec3f::from_to(va, vc)
+                Vec3f::from_to(va, vb),
+                Vec3f::from_to(va, vc)
             );
             return cr.z < 0;
         }
@@ -59,7 +59,7 @@ namespace euphoria::core
 
 
     void
-    buffer_builder2d::add_triangle
+    BufferBuilder2::add_triangle
     (
         unsigned int a,
         unsigned int b,
@@ -81,12 +81,12 @@ namespace euphoria::core
 
 
     void
-    buffer_builder2d::add_quad
+    BufferBuilder2::add_quad
     (
-        const point& a,
-        const point& b,
-        const point& c,
-        const point& d
+        const BufferPoint2& a,
+        const BufferPoint2& b,
+        const BufferPoint2& c,
+        const BufferPoint2& d
     )
     {
         const unsigned int ai = data.size();
@@ -105,7 +105,7 @@ namespace euphoria::core
 
 
     void
-    buffer_builder2d::dump(const std::string& filename) const
+    BufferBuilder2::dump(const std::string& filename) const
     {
         std::ofstream f(filename.c_str());
 

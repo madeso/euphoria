@@ -9,18 +9,18 @@
 
 namespace euphoria::core
 {
-    struct random;
+    struct Random;
 
-    struct palette
+    struct Palette
     {
         // todo(Gustav): what is name used for? can we remove it and use a tostring on the palette_all enum?
         // also does this represent a display name or a lookup name? both?
         /** the name of the palette */
         std::string_view name;
 
-        ranges::span<const rgbi> colors;
+        ranges::span<const Rgbi> colors;
 
-        constexpr palette(const std::string_view& n, const ranges::span<const rgbi>& c)
+        constexpr Palette(const std::string_view& n, const ranges::span<const Rgbi>& c)
             : name(n)
             , colors(c)
         {
@@ -30,22 +30,22 @@ namespace euphoria::core
          * @param r the random generator to use
          * @returns a random color
          */
-        const rgbi&
-        get_random_color(random* r) const;
+        const Rgbi&
+        get_random_color(Random* r) const;
 
         /** Get a color based on the index.
          * The index is modulated based on the palette size, ensuring a valid color.
          * @param i the index
          * @returns the color
         */
-        [[nodiscard]] const rgbi&
+        [[nodiscard]] const Rgbi&
         get_safe_index(unsigned int i) const;
 
-        [[nodiscard]] const rgbi&
-        get_closest_color(const rgbi& c) const;
+        [[nodiscard]] const Rgbi&
+        get_closest_color(const Rgbi& c) const;
 
         [[nodiscard]] unsigned int
-        get_index_closest(const rgbi& c) const;
+        get_index_closest(const Rgbi& c) const;
 
         // todo(Gustav): provide a function that takes a (void) lambda
         // returing a index, and we return a (safe) color from that index
@@ -55,27 +55,27 @@ namespace euphoria::core
 
 
     template<std::size_t size>
-    struct static_palette
+    struct StaticPalette
     {
         std::string_view name;
-        std::array<const rgbi, size> colors;
-        palette pal;
+        std::array<const Rgbi, size> colors;
+        Palette pal;
 
-        constexpr static_palette
+        constexpr StaticPalette
         (
             std::string_view n,
-            const std::array<const rgbi, size>& c
+            const std::array<const Rgbi, size>& c
         )
             : name(n), colors(c), pal{n, colors}
         {
         }
 
-        constexpr const palette& operator*() const
+        constexpr const Palette& operator*() const
         {
             return pal;
         }
 
-        constexpr const palette* operator->() const
+        constexpr const Palette* operator->() const
         {
             return &pal;
         }
@@ -83,7 +83,7 @@ namespace euphoria::core
 
 
     template <typename... T>
-    constexpr static_palette<sizeof...(T)>
+    constexpr StaticPalette<sizeof...(T)>
     make_static_palette
     (
         const std::string_view& name,
@@ -93,24 +93,24 @@ namespace euphoria::core
         return {name, {colors...}};
     }
 
-    struct dynamic_palette
+    struct DynamicPalette
     {
         std::string name;
 
         /** list of the colors */
-        std::vector<rgbi> colors;
+        std::vector<Rgbi> colors;
 
-        [[nodiscard]] palette
+        [[nodiscard]] Palette
         to_palette() const;
 
         template <typename... R>
-        dynamic_palette(const std::string& n, const rgbi& c0, const R&... c)
+        DynamicPalette(const std::string& n, const Rgbi& c0, const R&... c)
             : name(n)
             , colors {c0, c...}
         {
         }
 
-        dynamic_palette(const std::string& n, const std::vector<rgbi>& c);
+        DynamicPalette(const std::string& n, const std::vector<Rgbi>& c);
 
         /** Create a empty palette with a name.
          * @param name the name of the palette
@@ -118,40 +118,40 @@ namespace euphoria::core
          */
         [[nodiscard]]
         static
-        dynamic_palette
+        DynamicPalette
         create_empty(const std::string& name);
 
         // rainbow functions based on the r documentation https://rdrr.io/r/grDevices/palettes.html
 
         [[nodiscard]]
         static
-        dynamic_palette
+        DynamicPalette
         create_rainbow(int count, float saturation = 0.5f, float lightness = 0.5f);
 
         [[nodiscard]]
         static
-        dynamic_palette
+        DynamicPalette
         create_rainbow
         (
             int count,
-            const angle& from,
-            const angle& to,
+            const Angle& from,
+            const Angle& to,
             float saturation,
             float lightness
         );
 
     private:
-        explicit dynamic_palette(const std::string& n);
+        explicit DynamicPalette(const std::string& n);
     };
 
 
     namespace palettes
     {
         // http://pixeljoint.com/forum/forum_posts.asp?TID=12795
-        const palette&
+        const Palette&
         dawnbringer();
 
-        const palette&
+        const Palette&
         named_colors();
     }
 

@@ -44,7 +44,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
     {
         SECTION("empty constructor")
         {
-            const auto m = euco::string_merger {};
+            const auto m = euco::StringMerger {};
             CHECK(m.merge(empty).empty());
             CHECK(m.merge(ty) == "ty");
             CHECK(m.merge(abc) == "abc");
@@ -52,7 +52,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
         SECTION("set start & end to different")
         {
-            const auto m = euco::string_merger {}.set_start_and_end("X", "Y");
+            const auto m = euco::StringMerger {}.set_start_and_end("X", "Y");
             CHECK(m.merge(empty) == "XY");
             CHECK(m.merge(ty) == "XtyY");
             CHECK(m.merge(abc) == "XabcY");
@@ -60,7 +60,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
         SECTION("set start & end to same")
         {
-            const auto m = euco::string_merger {}.set_start_and_end("X");
+            const auto m = euco::StringMerger {}.set_start_and_end("X");
             CHECK(m.merge(empty) == "XX");
             CHECK(m.merge(ty) == "XtyX");
             CHECK(m.merge(abc) == "XabcX");
@@ -68,7 +68,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
         SECTION("set sep")
         {
-            const auto m = euco::string_merger {}.set_separator("X");
+            const auto m = euco::StringMerger {}.set_separator("X");
             CHECK(m.merge(empty).empty());
             CHECK(m.merge(ty) == "tXy");
             CHECK(m.merge(abc) == "aXbXc");
@@ -76,7 +76,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
         SECTION("set sep and final")
         {
-            const auto m = euco::string_merger {}.set_separator("X", "Y");
+            const auto m = euco::StringMerger {}.set_separator("X", "Y");
             CHECK(m.merge(empty).empty());
             CHECK(m.merge(ty) == "tYy");
             CHECK(m.merge(abc) == "aXbYc");
@@ -84,7 +84,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
         SECTION("set empty")
         {
-            const auto m = euco::string_merger {}.set_empty("X");
+            const auto m = euco::StringMerger {}.set_empty("X");
             CHECK(m.merge(empty) == "X");
             CHECK(m.merge(ty) == "ty");
             CHECK(m.merge(abc) == "abc");
@@ -92,7 +92,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
         SECTION("before each")
         {
-            const auto m = euco::string_merger {}.set_before_each("X");
+            const auto m = euco::StringMerger {}.set_before_each("X");
             CHECK(m.merge(empty).empty());
             CHECK(m.merge(dog) == "Xdog");
             CHECK(m.merge(ty) == "XtXy");
@@ -101,7 +101,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
         SECTION("after each")
         {
-            const auto m = euco::string_merger {}.set_after_each("X");
+            const auto m = euco::StringMerger {}.set_after_each("X");
             CHECK(m.merge(empty).empty());
             CHECK(m.merge(dog) == "dogX");
             CHECK(m.merge(ty) == "tXyX");
@@ -110,7 +110,7 @@ TEST_CASE("stringmerger", "[stringmerger]")
 
         SECTION("after each and final")
         {
-            const auto m = euco::string_merger {}.set_after_each("X", "Y");
+            const auto m = euco::StringMerger {}.set_after_each("X", "Y");
             CHECK(m.merge(empty).empty());
             CHECK(m.merge(dog) == "dogY");
             CHECK(m.merge(ty) == "tXyY");

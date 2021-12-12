@@ -10,12 +10,12 @@ namespace euphoria::core
 {
     // LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
-    bezier_path2::bezier_path2(const vec2f& center)
+    BezierPath2::BezierPath2(const Vec2f& center)
     {
-        const auto left = vec2f(-1, 0);
-        const auto right = vec2f(1, 0);
-        const auto up = vec2f(0, 1);
-        const auto down = vec2f(0, -1);
+        const auto left = Vec2f(-1, 0);
+        const auto right = Vec2f(1, 0);
+        const auto up = Vec2f(0, 1);
+        const auto down = Vec2f(0, -1);
 
         points.push_back(center + left);
         points.push_back(center + (left + up) * 0.5f);
@@ -24,14 +24,14 @@ namespace euphoria::core
     }
 
     void
-    bezier_path2::add_point(const vec2f& p)
+    BezierPath2::add_point(const Vec2f& p)
     {
         const auto p2 = points[points.size() - 2]; // control point
         const auto p3 = points[points.size() - 1]; // anchor point
 
-        const auto p4 = p3 + vec2f::from_to(p2, p3);
+        const auto p4 = p3 + Vec2f::from_to(p2, p3);
         const auto p6 = p;
-        const auto p5 = p4 + vec2f::from_to(p4, p6);
+        const auto p5 = p4 + Vec2f::from_to(p4, p6);
 
         points.push_back(p4);
         points.push_back(p5);
@@ -44,20 +44,20 @@ namespace euphoria::core
     }
 
     bool
-    bezier_path2::is_anchor_point(size_t i)
+    BezierPath2::is_anchor_point(size_t i)
     {
         return i % 3 == 0;
     }
 
     bool
-    bezier_path2::is_control_point(size_t i)
+    BezierPath2::is_control_point(size_t i)
     {
         return !is_anchor_point(i);
     }
 
 
     void
-    bezier_path2::move_point(int i, const vec2f& delta)
+    BezierPath2::move_point(int i, const Vec2f& delta)
     {
         if(autoset_ && is_control_point(i))
         {
@@ -97,16 +97,16 @@ namespace euphoria::core
                 const auto cci = loop_index(corresponding_control_index);
                 const auto ai = loop_index(anchor_index);
                 const auto distance
-                        = vec2f::from_to(points[cci], points[ai]).get_length();
+                        = Vec2f::from_to(points[cci], points[ai]).get_length();
                 const auto direction
-                        = vec2f::from_to(points[i], points[ai]).get_normalized();
+                        = Vec2f::from_to(points[i], points[ai]).get_normalized();
                 points[cci] = points[ai] + distance * direction;
             }
         }
     }
 
-    bezier_seg2
-    bezier_path2::get_points_in_segment(size_t i) const
+    BezierSegment2
+    BezierPath2::get_points_in_segment(size_t i) const
     {
         const size_t b = i * 3;
         return {
@@ -118,13 +118,13 @@ namespace euphoria::core
     }
 
     size_t
-    bezier_path2::get_number_of_segments() const
+    BezierPath2::get_number_of_segments() const
     {
         return points.size() / 3;
     }
 
     void
-    bezier_path2::set_closed(bool is_closed)
+    BezierPath2::set_closed(bool is_closed)
     {
         if(is_closed_ == is_closed)
         {
@@ -136,8 +136,8 @@ namespace euphoria::core
         if(is_closed)
         {
             // anchor control anchor (again)
-            const auto p1 = points[points.size() - 1] + vec2f::from_to(points[points.size() - 2], points[points.size() - 1]);
-            const auto p2 = points[0] + vec2f::from_to(points[1], points[0]);
+            const auto p1 = points[points.size() - 1] + Vec2f::from_to(points[points.size() - 2], points[points.size() - 1]);
+            const auto p2 = points[0] + Vec2f::from_to(points[1], points[0]);
             points.push_back(p1);
             points.push_back(p2);
 
@@ -160,14 +160,14 @@ namespace euphoria::core
     }
 
     void
-    bezier_path2::toggle_closed()
+    BezierPath2::toggle_closed()
     {
         set_closed(!is_closed_);
     }
 
 
     void
-    bezier_path2::set_auto_set_control_points(bool is_autoset)
+    BezierPath2::set_auto_set_control_points(bool is_autoset)
     {
         if(is_autoset == autoset_)
         {
@@ -183,21 +183,21 @@ namespace euphoria::core
     }
 
     void
-    bezier_path2::toggle_auto_set_control_points()
+    BezierPath2::toggle_auto_set_control_points()
     {
         set_auto_set_control_points(!autoset_);
     }
 
 
     size_t
-    bezier_path2::loop_index(int i) const
+    BezierPath2::loop_index(int i) const
     {
         const auto s = points.size();
         return (s + i) % s;
     }
 
     void
-    bezier_path2::auto_set_affected_control_points(int updated_anchor_index)
+    BezierPath2::auto_set_affected_control_points(int updated_anchor_index)
     {
         const auto r = make_range(points);
         for(int i = updated_anchor_index - 3; i <= updated_anchor_index + 3;
@@ -214,7 +214,7 @@ namespace euphoria::core
     }
 
     void
-    bezier_path2::auto_set_all_control_points()
+    BezierPath2::auto_set_all_control_points()
     {
         for(int i = 0; i < c_sizet_to_int(points.size()); i += 3)
         {
@@ -224,7 +224,7 @@ namespace euphoria::core
     }
 
     void
-    bezier_path2::auto_set_start_and_end_control_points()
+    BezierPath2::auto_set_start_and_end_control_points()
     {
         if(is_closed_)
         {
@@ -239,11 +239,11 @@ namespace euphoria::core
     }
 
     void
-    bezier_path2::auto_set_anchor_control_points(int anchor_index)
+    BezierPath2::auto_set_anchor_control_points(int anchor_index)
     {
         const auto r = make_range(points);
         const auto anchor_pos = points[anchor_index];
-        auto dir = vec2f::zero();
+        auto dir = Vec2f::zero();
         auto distances = std::array<float, 2> {0, 0};
 
         auto f = [&](int scale, int dist_index)
@@ -251,7 +251,7 @@ namespace euphoria::core
             const auto index = anchor_index - 3 * scale;
             if(is_closed_ || is_within(r, index))
             {
-                auto offset = (vec2f::from_to(anchor_pos, points[loop_index(index)])).get_normalized_and_length();
+                auto offset = (Vec2f::from_to(anchor_pos, points[loop_index(index)])).get_normalized_and_length();
                 dir += offset.second.vec() * scale;
                 distances[c_int_to_sizet(dist_index)] = offset.first * static_cast<float>(scale);
             }

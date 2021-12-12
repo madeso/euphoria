@@ -8,7 +8,7 @@
 
 namespace euphoria::engine
 {
-    struct script_component : public core::ecs::component
+    struct script_component : public core::ecs::Component
     {
         COMPONENT_CONSTRUCTOR_DEFINITION(script_component)
 
@@ -17,7 +17,7 @@ namespace euphoria::engine
 
     COMPONENT_CONSTRUCTOR_IMPLEMENTATION(script_component)
 
-    script_registry::script_registry(core::ecs::registry* r, engine::components* c)
+    script_registry::script_registry(core::ecs::Registry* r, engine::components* c)
         : reg(r)
         , components(c)
     {
@@ -46,7 +46,7 @@ namespace euphoria::engine
         return id;
     }
 
-    core::result<core::ecs::component_id>
+    core::Result<core::ecs::component_id>
     script_registry::get_custom_component_by_name
     (
         const std::string& name
@@ -82,7 +82,7 @@ namespace euphoria::engine
     }
 
     script_component*
-    get_script_component(core::ecs::registry *reg, core::ecs::entity_id ent, core::ecs::component_id comp)
+    get_script_component(core::ecs::Registry *reg, core::ecs::entity_id ent, core::ecs::component_id comp)
     {
         auto c = reg->get_component(ent, comp);
         if(c == nullptr)
@@ -114,7 +114,7 @@ namespace euphoria::engine
     script_registry::create_component
     (
             core::ecs::component_id comp,
-            lua* ctx,
+            LuaState* ctx,
             const custom_arguments& arguments
     )
     {

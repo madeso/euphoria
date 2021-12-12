@@ -6,11 +6,11 @@
 
 namespace euphoria::core
 {
-    struct random;
+    struct Random;
 
     std::string_view
     get_cp437(int c);
 
     std::string_view
-    get_random_cp437_in_utf8(random* random);
+    get_random_cp437_in_utf8(Random* random);
 }

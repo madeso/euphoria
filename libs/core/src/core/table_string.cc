@@ -9,7 +9,7 @@
 namespace euphoria::core
 {
     string_table
-    table_from_csv(const std::string& csv_data, const csv_parser_options& options)
+    table_from_csv(const std::string& csv_data, const CsvParserOptions& options)
     {
         const auto add_row_to_table
                 = [](string_table* table, const std::vector<std::string>& row) {
@@ -19,7 +19,7 @@ namespace euphoria::core
                       }
                       table->new_row(row);
                   };
-        auto file = textfile_parser::from_string(csv_data);
+        auto file = TextfileParser::from_string(csv_data);
 
         string_table table;
 
@@ -67,7 +67,7 @@ namespace euphoria::core
                 else if(c == options.delim)
                 {
                     auto column_data = ss.str();
-                    if(!was_from_string && options.trim == csv_trim::trim)
+                    if(!was_from_string && options.trim == CsvTrim::trim)
                     {
                         column_data = trim(column_data);
                     }
@@ -81,7 +81,7 @@ namespace euphoria::core
                     if(added)
                     {
                         auto column_data = ss.str();
-                        if(!was_from_string && options.trim == csv_trim::trim)
+                        if(!was_from_string && options.trim == CsvTrim::trim)
                         {
                             column_data = trim(column_data);
                         }
@@ -112,7 +112,7 @@ namespace euphoria::core
         if(added)
         {
             auto column_data = ss.str();
-            if(!was_from_string && options.trim == csv_trim::trim)
+            if(!was_from_string && options.trim == CsvTrim::trim)
             {
                 column_data = trim(column_data);
             }

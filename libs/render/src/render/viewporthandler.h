@@ -29,9 +29,9 @@ namespace euphoria::render
         float virtual_width = 800.0f;
         float virtual_height = 600.0f;
 
-        core::rectf* virtual_screen;
+        core::Rectf* virtual_screen;
 
-        viewport_handler(render::init* i, core::rectf* s);
+        viewport_handler(render::init* i, core::Rectf* s);
 
         void
         add(shader* shader);

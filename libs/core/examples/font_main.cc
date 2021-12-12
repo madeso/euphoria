@@ -13,8 +13,8 @@ using namespace euphoria::core;
 
 bool print_char
 (
-    text_box* dst,
-    const loaded_font& font,
+    TextBox* dst,
+    const LoadedFont& font,
     int* sx,
     int sy,
     int codepoint
@@ -47,7 +47,7 @@ bool print_char
 
     // todo(Gustav): ImageToStringTable might not convert corectly,
     // consider extending :)
-    const auto img = image_to_string_table(glyph.image, true, grayscale::a);
+    const auto img = image_to_string_table(glyph.image, true, Grayscale::a);
 
     for(auto y=0; y<img.get_height(); y+=1)
     {
@@ -67,8 +67,8 @@ bool print_char
 
 bool print_string
 (
-    text_box* dst,
-    const loaded_font& font,
+    TextBox* dst,
+    const LoadedFont& font,
     int sx,
     int sy,
     const std::string& str
@@ -103,7 +103,7 @@ enum class font_name
 };
 
 
-euphoria::core::loaded_font
+euphoria::core::LoadedFont
 get_font
 (
     font_name font_name,
@@ -148,7 +148,7 @@ main(int argc, char* argv[])
     std::string chars = "ABCDEFGHIJKLMNOPQRSTUWXYZ!@#$%^&*()_+abcdefghijklmnopqrstuwxyz0123456789-=<>,./\\[]{};:";
     std::string text;
 
-    auto parser = argparse::parser {"font test"};
+    auto parser = argparse::Parser {"font test"};
     parser.add("text", &text).set_help("The text to print");
     parser.add("--font", &font_name).set_help("The font to use");
     parser.add("--file", &font_file).set_help("If not empty, use this font file");
@@ -162,7 +162,7 @@ main(int argc, char* argv[])
 
     auto font = get_font(font_name, font_file, size, chars);
 
-    auto box = text_box::create_empty();
+    auto box = TextBox::create_empty();
     const bool printed = print_string(&box, font, 0, 0, text);
     // print textbox
     const auto strings = box.to_string();

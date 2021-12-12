@@ -10,26 +10,26 @@
 
 namespace euphoria::core::search
 {
-    struct match
+    struct Match
     {
         std::string name;
         unsigned long changes;
 
-        match(const std::string& str, const std::string& input)
+        Match(const std::string& str, const std::string& input)
             : name(str)
             , changes(core::edit_distance(str, input))
         {
         }
 
         bool
-        operator<(const match& rhs) const
+        operator<(const Match& rhs) const
         {
             return changes < rhs.changes;
         }
     };
 
     template<typename T>
-    struct searcher
+    struct Searcher
     {
         std::priority_queue<T> matches;
 
@@ -47,7 +47,7 @@ namespace euphoria::core::search
     std::vector<T>
     find_closest(std::size_t max_size, const L& list, F&& f)
     {
-        search::searcher<T> searcher;
+        search::Searcher<T> searcher;
         for(auto entry: list)
         {
             searcher.add(f(entry), max_size);

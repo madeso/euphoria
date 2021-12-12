@@ -8,26 +8,26 @@ namespace euphoria::core
 {
     namespace textparser
     {
-        node_text::node_text(const std::string& t) : text(t) {}
+        NodeText::NodeText(const std::string& t) : text(t) {}
 
         void
-        node_text::accept(visitor* visitor) const
+        NodeText::accept(Visitor* visitor) const
         {
             visitor->on_text(text);
         }
 
-        node_image::node_image(const std::string& t) : image(t) {}
+        NodeImage::NodeImage(const std::string& t) : image(t) {}
 
         void
-        node_image::accept(visitor* visitor) const
+        NodeImage::accept(Visitor* visitor) const
         {
             visitor->on_image(image);
         }
 
-        node_begin_or_end::node_begin_or_end(bool b) : begin(b) {}
+        NodeBeginOrEnd::NodeBeginOrEnd(bool b) : begin(b) {}
 
         void
-        node_begin_or_end::accept(visitor* visitor) const
+        NodeBeginOrEnd::accept(Visitor* visitor) const
         {
             if(begin)
             {
@@ -45,33 +45,33 @@ namespace euphoria::core
     namespace textparser
     {
         void
-        visitor_debug_string::on_text(const std::string& text)
+        VisitorDebugString::on_text(const std::string& text)
         {
             ss << "{text " << text << "}";
         }
 
         void
-        visitor_debug_string::on_image(const std::string& img)
+        VisitorDebugString::on_image(const std::string& img)
         {
             ss << "{image " << img << "}";
         }
 
         void
-        visitor_debug_string::on_begin()
+        VisitorDebugString::on_begin()
         {
             ss << "{begin}";
         }
 
         void
-        visitor_debug_string::on_end()
+        VisitorDebugString::on_end()
         {
             ss << "{end}";
         }
 
         std::string
-        visitor_debug_string::accept_all_nodes(ui_text* visitor)
+        VisitorDebugString::accept_all_nodes(UiText* visitor)
         {
-            visitor_debug_string str;
+            VisitorDebugString str;
             visitor->accept(&str);
             return str.ss.str();
         }
@@ -80,37 +80,37 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     void
-    ui_text::clear()
+    UiText::clear()
     {
         nodes.resize(0);
     }
 
     void
-    ui_text::add_text(const std::string& str)
+    UiText::add_text(const std::string& str)
     {
-        nodes.emplace_back(std::make_shared<textparser::node_text>(str));
+        nodes.emplace_back(std::make_shared<textparser::NodeText>(str));
     }
 
     void
-    ui_text::add_image(const std::string& img)
+    UiText::add_image(const std::string& img)
     {
-        nodes.emplace_back(std::make_shared<textparser::node_image>(img));
+        nodes.emplace_back(std::make_shared<textparser::NodeImage>(img));
     }
 
     void
-    ui_text::add_begin()
+    UiText::add_begin()
     {
-        nodes.emplace_back(std::make_shared<textparser::node_begin_or_end>(true));
+        nodes.emplace_back(std::make_shared<textparser::NodeBeginOrEnd>(true));
     }
 
     void
-    ui_text::add_end()
+    UiText::add_end()
     {
-        nodes.emplace_back(std::make_shared<textparser::node_begin_or_end>(false));
+        nodes.emplace_back(std::make_shared<textparser::NodeBeginOrEnd>(false));
     }
 
     void
-    ui_text::init_with_text(const std::string& str)
+    UiText::init_with_text(const std::string& str)
     {
         clear();
         add_text(str);
@@ -128,7 +128,7 @@ namespace euphoria::core
         // todo(Gustav): this parser looks shitty... improve?
         struct parser
         {
-            ui_text* nodes = nullptr;
+            UiText* nodes = nullptr;
 
             parser_state state = parser_state::text;
             bool escape = false;
@@ -221,7 +221,7 @@ namespace euphoria::core
     }
 
     bool
-    ui_text::init_by_parsing_source(const std::string& str)
+    UiText::init_by_parsing_source(const std::string& str)
     {
         nodes.resize(0);
         parser parser;
@@ -249,16 +249,16 @@ namespace euphoria::core
         return true;
     }
 
-    ui_text
-    ui_text::create_from_text(const std::string& str)
+    UiText
+    UiText::create_from_text(const std::string& str)
     {
-        ui_text text;
+        UiText text;
         text.init_with_text(str);
         return text;
     }
 
     void
-    ui_text::accept(textparser::visitor* visitor)
+    UiText::accept(textparser::Visitor* visitor)
     {
         for(auto& node: nodes)
         {
@@ -267,7 +267,7 @@ namespace euphoria::core
     }
 
     void
-    ui_text::accept(textparser::visitor* visitor) const
+    UiText::accept(textparser::Visitor* visitor) const
     {
         for(const auto& node: nodes)
         {

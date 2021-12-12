@@ -11,10 +11,10 @@ namespace euphoria::core::io
     void
     chunk_to_file
     (
-        std::shared_ptr<memory_chunk> chunk,
+        std::shared_ptr<MemoryChunk> chunk,
         const std::string& full_path
     );
 
-    std::shared_ptr<memory_chunk>
+    std::shared_ptr<MemoryChunk>
     file_to_chunk(const std::string& full_path);
 }

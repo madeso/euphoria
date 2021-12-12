@@ -15,15 +15,15 @@ namespace euphoria::t3d
 
 
         void
-        on_mouse(editor*, core::mouse_button, bool) override;
+        on_mouse(editor*, core::MouseButton, bool) override;
 
 
         void
-        on_key(editor*, core::key, bool) override;
+        on_key(editor*, core::Key, bool) override;
 
 
         void
-        on_scroll(editor*, const core::vec2i&) override;
+        on_scroll(editor*, const core::Vec2i&) override;
 
 
         void

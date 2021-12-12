@@ -401,7 +401,7 @@ public:
         // musik maskin main window
         if(ImGui::Begin("Main"))
         {
-            static last_n<float> time_history(100);
+            static LastN<float> time_history(100);
             static float max_diff = 0;
             ImGui::Text
             (
@@ -522,7 +522,7 @@ public:
     }
 
     void
-    on_key(key key, bool down)
+    on_key(Key key, bool down)
     {
         piano.on_input(key, down, current_time);
     }
@@ -534,7 +534,7 @@ main(int argc, char** argv)
 {
     engine engine;
 
-    if (const auto r = engine.setup(argparse::name_and_arguments::extract(argc, argv)); r != 0)
+    if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
     {
         return r;
     }
@@ -622,7 +622,7 @@ main(int argc, char** argv)
         app.on_render();
         // ImGui::End();
 
-        engine.init->clear_screen(color::light_gray);
+        engine.init->clear_screen(NamedColor::light_gray);
         imgui::imgui_render();
 
         SDL_GL_SwapWindow(engine.window->window);

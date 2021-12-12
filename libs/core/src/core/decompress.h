@@ -5,7 +5,7 @@
 namespace euphoria::core
 {
     // Decompress is slighly modified code from the imgui repo, only to remove the use of global variables
-    // this is manly here so we can use the handly compression tool from the imgui distro for files other than fonts
+    // this is mainly here so we can use the handly compression tool from the imgui distro for files other than fonts
     //
     // The following note is from imgui repo comment:
     //
@@ -16,7 +16,7 @@ namespace euphoria::core
     // Decompression from stb.h (public domain) by Sean Barrett https://github.com/nothings/stb/blob/master/stb.h
     //-----------------------------------------------------------------------------
 
-    struct decompressor
+    struct Decompressor
     {
         static unsigned int stb_decompress_length(const unsigned char *input);
 

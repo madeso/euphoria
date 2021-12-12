@@ -28,13 +28,13 @@ namespace euphoria::render
         };
 
         type light_type;
-        core::vec3f position;
-        core::unit3f direction;
-        core::rgb ambient;
-        core::rgb diffuse;
-        core::rgb specular;
-        core::angle cutoff_angle_outer;
-        core::angle cutoff_angle_inner;
+        core::Vec3f position;
+        core::Unit3f direction;
+        core::Rgb ambient;
+        core::Rgb diffuse;
+        core::Rgb specular;
+        core::Angle cutoff_angle_outer;
+        core::Angle cutoff_angle_inner;
 
         light_attenuation attenuation;
     };

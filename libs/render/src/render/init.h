@@ -33,7 +33,7 @@ namespace euphoria::render
 
         // todo(Gustav): move to some place better
         void
-        clear_screen(const core::rgb& color) const;
+        clear_screen(const core::Rgb& color) const;
 
         bool is_ok;
     };

@@ -6,18 +6,18 @@ namespace euphoria::core
 {
     // todo(Gustav) replace with range
     template<typename T>
-    struct subvec
+    struct SubVec
     {
         using it = typename std::vector<T>::iterator;
 
-        explicit subvec(std::vector<T>* s)
+        explicit SubVec(std::vector<T>* s)
             : source(s)
             , ibegin(0)
             , iend(s->size())
         {
         }
 
-        subvec(std::vector<T>* s, std::size_t b, std::size_t e)
+        SubVec(std::vector<T>* s, std::size_t b, std::size_t e)
             : source(s)
             , ibegin(b)
             , iend(e)
@@ -64,7 +64,7 @@ namespace euphoria::core
             return (*source)[ibegin+index];
         }
 
-        subvec<T>
+        SubVec<T>
         sub(std::size_t start, std::size_t end)
         {
             return {source, ibegin+start, ibegin+end};

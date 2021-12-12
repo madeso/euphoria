@@ -15,12 +15,12 @@ using namespace euphoria;
 using namespace euphoria::core;
 using namespace euphoria::core::dump2d;
 
-poly
-make_star(const vec2f& origo, float radius, const angle& rotation, int number_of_points=5, float inner_scale=0.5f)
+Poly
+make_star(const Vec2f& origo, float radius, const Angle& rotation, int number_of_points=5, float inner_scale=0.5f)
 {
-    auto angle_step = angle::one_turn() / (static_cast<float>(number_of_points)*2.0f);
+    auto angle_step = Angle::one_turn() / (static_cast<float>(number_of_points)*2.0f);
 
-    auto poly = ::poly{};
+    auto poly = ::Poly{};
 
     for(auto i=0; i<(number_of_points*2); i+=1)
     {
@@ -38,20 +38,20 @@ make_star(const vec2f& origo, float radius, const angle& rotation, int number_of
 int
 main(int, char*[])
 {
-    core::random rand;
+    core::Random rand;
 
     auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
 
-    auto svg = dumper{};
+    auto svg = Dumper{};
 
     for(int i=0; i<30; i+=1)
     {
         const auto center = get_random_point_on_unit_circle_center_focused(&rand)*200.0f;
-        const auto radius = get_random_in_range(&rand, range{3.0f, 30.0f});
-        const auto points = get_random_in_range(&rand, range{4, 10});
-        const auto inner = get_random_in_range(&rand, range{0.3f, 0.75f});
+        const auto radius = get_random_in_range(&rand, Range{3.0f, 30.0f});
+        const auto points = get_random_in_range(&rand, Range{4, 10});
+        const auto inner = get_random_in_range(&rand, Range{0.3f, 0.75f});
         const auto fill = pal.get_random_item(&rand);
-        const auto rotation = angle::from_percent_of_360(rand.get_next_float01());
+        const auto rotation = Angle::from_percent_of_360(rand.get_next_float01());
         svg << make_star(center, radius, rotation, points, inner).close().fill(fill)
             // << Text(center, Str{} << p << " / " << std::setprecision( 2 ) << inner)
             ;

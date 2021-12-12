@@ -22,7 +22,7 @@ namespace
             lhs,
             rhs,
             [](unsigned int f) -> std::string
-            { return string_builder() << f; },
+            { return StringBuilder() << f; },
             [](unsigned int a, unsigned int b) -> false_string
             {
                 if (a == b)
@@ -32,7 +32,7 @@ namespace
                 {
                     return false_string::create_false
                     (
-                        string_builder() << a << " != " << b
+                        StringBuilder() << a << " != " << b
                     );
                 }
             }
@@ -48,7 +48,7 @@ namespace
             lhs,
             rhs,
             [](float f) -> std::string
-            { return string_builder() << f; },
+            { return StringBuilder() << f; },
             [](float a, float b) -> false_string
             {
                 if (euphoria::tests::approx(a) == b)
@@ -58,7 +58,7 @@ namespace
                 {
                     return false_string::create_false
                     (
-                        string_builder() << a << " != " << b
+                        StringBuilder() << a << " != " << b
                     );
                 }
             }
@@ -69,14 +69,14 @@ namespace
 
 TEST_CASE("bufferbuilder2d-default-is-empty", "[bufferbuilder2d]")
 {
-    auto bb = buffer_builder2d{};
+    auto bb = BufferBuilder2{};
     CHECK(bb.data.empty());
     CHECK(bb.tris.empty());
 }
 
 TEST_CASE("bufferbuilder2d-add-points", "[bufferbuilder2d]")
 {
-    auto bb = buffer_builder2d{};
+    auto bb = BufferBuilder2{};
     bb.add_vertex({0.0f, 1.0f, 2.0f, 3.0f});
     bb.add_vertex({55.0f, 20.0f, 0.0f, -2.0f});
     CHECK(vector_is_same(bb.data, {0.0f, 1.0f, 2.0f, 3.0f, 55.0f, 20.0f, 0.0f, -2.0f}));
@@ -85,7 +85,7 @@ TEST_CASE("bufferbuilder2d-add-points", "[bufferbuilder2d]")
 
 TEST_CASE("bufferbuilder2d-triangles", "[bufferbuilder2d]")
 {
-    auto bb = buffer_builder2d{};
+    auto bb = BufferBuilder2{};
     bb.add_vertex({0.0f, 0.0f, 0.0f, 0.0f});
     bb.add_vertex({0.0f, 1.0f, 0.0f, 0.0f});
     bb.add_vertex({1.0f, 0.0f, 0.0f, 0.0f});
@@ -103,11 +103,11 @@ TEST_CASE("bufferbuilder2d-triangles", "[bufferbuilder2d]")
 
 TEST_CASE("bufferbuilder2d-quad", "[bufferbuilder2d]")
 {
-    auto bb = buffer_builder2d{};
-    const auto z = point{0.0f, 0.0f, 0.0f, 0.0f};
-    const auto x = point{1.0f, 0.0f, 0.0f, 0.0f};
-    const auto y = point{0.0f, 1.0f, 0.0f, 0.0f};
-    const auto xy = point{1.0f, 1.0f, 0.0f, 0.0f};
+    auto bb = BufferBuilder2{};
+    const auto z = BufferPoint2{0.0f, 0.0f, 0.0f, 0.0f};
+    const auto x = BufferPoint2{1.0f, 0.0f, 0.0f, 0.0f};
+    const auto y = BufferPoint2{0.0f, 1.0f, 0.0f, 0.0f};
+    const auto xy = BufferPoint2{1.0f, 1.0f, 0.0f, 0.0f};
     SECTION("bad - cw")
     {
         CHECK_THROWS(bb.add_quad(z, y, xy, x));

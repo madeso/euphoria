@@ -17,12 +17,12 @@ namespace euphoria::engine
     void
     load_world
     (
-            core::vfs::file_system* fs,
-            core::ecs::world* world,
+            core::vfs::FileSystem* fs,
+            core::ecs::World* world,
             script_registry* reg,
-            const core::vfs::file_path& path,
+            const core::vfs::FilePath& path,
             object_creator* creator,
-            lua* ctx
+            LuaState* ctx
     )
     {
         const auto json = core::get_default_but_log_errors

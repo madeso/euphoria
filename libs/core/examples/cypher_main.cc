@@ -48,7 +48,7 @@ void run_rot13(const std::string& input)
 int
 main(int argc, char* argv[])
 {
-    core::argparse::parser parser {"Cypher tool"};
+    core::argparse::Parser parser {"Cypher tool"};
 
     auto sub = parser.add_sub_parsers();
 
@@ -56,7 +56,7 @@ main(int argc, char* argv[])
     (
         "rot13",
         "runs rot13 on input",
-        [&](core::argparse::sub_parser* sent)
+        [&](core::argparse::SubParser* sent)
         {
             std::string input;
 

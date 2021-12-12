@@ -12,37 +12,37 @@
 
 namespace euphoria::core
 {
-    enum class sort_style
+    enum class SortStyle
     {
         ascending,
         descending
     };
 
     template <typename T>
-    struct sortable
+    struct Sortable
     {
-        sortable() = default;
-        virtual ~sortable() = default;
+        Sortable() = default;
+        virtual ~Sortable() = default;
 
-        sortable(const sortable<T>&) = delete;
-        sortable(sortable<T>&&) = delete;
-        void operator=(const sortable<T>&) = delete;
-        void operator=(sortable<T>&&) = delete;
+        Sortable(const Sortable<T>&) = delete;
+        Sortable(Sortable<T>&&) = delete;
+        void operator=(const Sortable<T>&) = delete;
+        void operator=(Sortable<T>&&) = delete;
 
         virtual int sort(const T& lhs, const T& rhs) = 0;
     };
 
     template <typename T>
-    using sortable_list = std::vector<std::shared_ptr<sortable<T>>>;
+    using SortableList = std::vector<std::shared_ptr<Sortable<T>>>;
 
     template <typename T, typename Value, typename SortFunc>
-    struct sort_action : public sortable<T>
+    struct SortAction : public Sortable<T>
     {
         Value T::*member;
-        core::sort_style sort_style;
+        core::SortStyle sort_style;
         SortFunc sort_func;
 
-        sort_action(Value T::*m, core::sort_style s, SortFunc f)
+        SortAction(Value T::*m, core::SortStyle s, SortFunc f)
             : member(m), sort_style(s), sort_func(f)
         {}
 
@@ -50,7 +50,7 @@ namespace euphoria::core
         sort(const T& lhs, const T& rhs) override
         {
             const int result = sort_func(lhs.*member, rhs.*member);
-            return sort_style == sort_style::ascending ? result : -result;
+            return sort_style == SortStyle::ascending ? result : -result;
         }
     };
 
@@ -67,26 +67,31 @@ namespace euphoria::core
 
     // todo(Gustav): this seems weird, replace with single argument? TableGeneration needs Self?
     template <typename T, typename Self>
-    struct sort_builder
+    struct SortBuilder
     {
-        sortable_list<T> sort_order;
+        SortableList<T> sort_order;
         bool stable_sort = false;
 
         template <typename SortFunc, typename Value>
         Self&
-        sort(Value T::*member,
-             SortFunc sort_func,
-             sort_style sort_style = sort_style::ascending)
+        sort
+        (
+            Value T::*member,
+            SortFunc sort_func,
+            SortStyle sort_style = SortStyle::ascending
+        )
         {
-            auto o = std::make_shared<sort_action<T, Value, SortFunc>>(
-                    member, sort_style, sort_func);
+            auto o = std::make_shared<SortAction<T, Value, SortFunc>>
+            (
+                member, sort_style, sort_func
+            );
             sort_order.emplace_back(o);
             return static_cast<Self&>(*this);
         }
 
         template <typename Value>
         Self&
-        sort(Value T::*member, sort_style sort_style = sort_style::ascending)
+        sort(Value T::*member, SortStyle sort_style = SortStyle::ascending)
         {
             return sort(member, &default_sort_func<Value>, sort_style);
         }
@@ -104,7 +109,7 @@ namespace euphoria::core
     get_sorted_indices
     (
         const std::vector<T>& data,
-        const sort_builder<T, Self>& builder
+        const SortBuilder<T, Self>& builder
     )
     {
         std::vector<size_t> r(data.size());
@@ -113,8 +118,8 @@ namespace euphoria::core
         {
             return r;
         }
-        const auto sort_function
-                = [&data, &builder](size_t lhs, size_t rhs) -> int {
+        const auto sort_function = [&data, &builder](size_t lhs, size_t rhs) -> int
+        {
             for(const auto& so: builder.sort_order)
             {
                 const auto result = so->sort(data[lhs], data[rhs]);

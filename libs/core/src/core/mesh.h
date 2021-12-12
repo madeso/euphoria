@@ -16,12 +16,12 @@ namespace euphoria::core
 {
     namespace vfs
     {
-        struct file_system;
-        struct file_path;
+        struct FileSystem;
+        struct FilePath;
     }
 
 
-    enum class wrap_mode
+    enum class WrapMode
     {
         repeat,
         clamp_to_edge,
@@ -29,108 +29,108 @@ namespace euphoria::core
     };
 
 
-    struct mesh_point
+    struct MeshPoint
     {
-        mesh_point
+        MeshPoint
         (
-            const vec3f& a_vertex,
-            const vec3f& a_normal,
-            const vec2f& a_uv
+            const Vec3f& a_vertex,
+            const Vec3f& a_normal,
+            const Vec2f& a_uv
         );
-        vec3f vertex;
-        vec3f normal;
-        vec2f uv;
+        Vec3f vertex;
+        Vec3f normal;
+        Vec2f uv;
     };
 
 
-    struct mesh_face
+    struct MeshFace
     {
-        mesh_face(int a_a, int a_b, int a_c);
+        MeshFace(int a_a, int a_b, int a_c);
         int a;
         int b;
         int c;
     };
 
 
-    struct mesh_part
+    struct MeshPart
     {
-        mesh_part();
+        MeshPart();
 
         unsigned int material;
-        std::vector<mesh_point> points;
-        std::vector<mesh_face> faces;
+        std::vector<MeshPoint> points;
+        std::vector<MeshFace> faces;
 
-        [[nodiscard]] aabb
+        [[nodiscard]] Aabb
         calculate_aabb() const;
     };
 
 
-    struct material_texture
+    struct MaterialTexture
     {
-        material_texture(const vfs::file_path& p, enum_value t);
-        vfs::file_path path;
-        enum_value type;
+        MaterialTexture(const vfs::FilePath& p, EnumValue t);
+        vfs::FilePath path;
+        EnumValue type;
     };
 
 
-    struct material
+    struct Material
     {
-        material();
+        Material();
 
         void
         set_texture
         (
             const std::string& texture_name,
-            const vfs::file_path& texture_path
+            const vfs::FilePath& texture_path
         );
 
         std::string name;
 
-        std::optional<core::vfs::file_path> shader;
+        std::optional<core::vfs::FilePath> shader;
 
         // tints
-        rgb ambient;
-        rgb diffuse;
-        rgb specular;
+        Rgb ambient;
+        Rgb diffuse;
+        Rgb specular;
 
         float shininess;
 
         float alpha;
-        std::vector<material_texture> textures;
-        wrap_mode wrap_s;
-        wrap_mode wrap_t;
+        std::vector<MaterialTexture> textures;
+        WrapMode wrap_s;
+        WrapMode wrap_t;
     };
 
 
-    struct mesh
+    struct Mesh
     {
-        std::vector<material> materials;
-        std::vector<mesh_part> parts;
+        std::vector<Material> materials;
+        std::vector<MeshPart> parts;
 
-        [[nodiscard]] aabb
+        [[nodiscard]] Aabb
         calculate_aabb() const;
     };
 
 
-    struct loaded_mesh_or_error
+    struct LoadedMeshOrError
     {
-        mesh loaded_mesh;
+        Mesh loaded_mesh;
         std::string error;
     };
 
 
     namespace meshes
     {
-        loaded_mesh_or_error
-        load_mesh(vfs::file_system* fs, const vfs::file_path& path);
+        LoadedMeshOrError
+        load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path);
 
-        mesh
+        Mesh
         create_cube(float size);
 
-        mesh
+        Mesh
         create_sphere(float size, const std::string& texture);
 
-        mesh
+        Mesh
         create_box(float width, float height, float depth);
     }
 

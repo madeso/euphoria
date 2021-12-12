@@ -29,7 +29,7 @@ struct common
     bool big = false; // 256 or 128 bit
 
     void
-    add(argparse::parser_base* sub)
+    add(argparse::ParserBase* sub)
     {
         sub->add("--width", &width).set_nargs("W").set_help("set the height");
         sub->add("--height", &height).set_nargs("H").set_help("set the width");
@@ -38,8 +38,8 @@ struct common
 };
 
 
-table<int>
-generate_drunken_bishop_table(core::random* random, const ::common& common)
+Table<int>
+generate_drunken_bishop_table(core::Random* random, const ::common& common)
 {
     auto hash = std::vector<int>{};
     const int times = common.big ? 8 : 4;
@@ -55,19 +55,19 @@ generate_drunken_bishop_table(core::random* random, const ::common& common)
 }
 
 
-image
-generate_image(const table<int>& table, int scale, const palette& pal)
+Image
+generate_image(const Table<int>& table, int scale, const Palette& pal)
 {
-    image image;
+    Image image;
     image.setup_no_alpha_support(scale * table.get_width(), scale * table.get_height());
 
-    auto rect = [&](const rgbi& color, const vec2i& top_left)
+    auto rect = [&](const Rgbi& color, const Vec2i& top_left)
     {
         draw_rect
         (
             &image,
             color,
-            recti::from_top_left_width_height
+            Recti::from_top_left_width_height
             (
                 top_left,
                 scale+1, scale
@@ -89,7 +89,7 @@ generate_image(const table<int>& table, int scale, const palette& pal)
                         c_sizet_to_int(pal.colors.size())
                 )
             );
-            rect(pal.colors[v], vec2i{x*scale, (y+1)*scale});
+            rect(pal.colors[v], Vec2i{x*scale, (y+1)*scale});
         }
     }
 
@@ -100,14 +100,14 @@ generate_image(const table<int>& table, int scale, const palette& pal)
 int
 main(int argc, char* argv[])
 {
-    auto parser = argparse::parser {"Drunken bishops"};
+    auto parser = argparse::Parser {"Drunken bishops"};
 
     auto subs = parser.add_sub_parsers();
 
     subs->add
     (
         "img", "drunken bishop with img style",
-        [](argparse::sub_parser* sub)
+        [](argparse::SubParser* sub)
         {
             auto common = ::common{};
             int count = 1;
@@ -119,7 +119,7 @@ main(int argc, char* argv[])
             sub->add("--count", &count).set_help("The number of images");
             sub->add("--scale", &scale).set_help("The scale of the image");
             return sub->on_complete([&]{
-                auto rand = core::random{};
+                auto rand = core::Random{};
                 for(int c=0; c<count; c+=1)
                 {
                     const auto table = generate_drunken_bishop_table(&rand, common);
@@ -131,9 +131,9 @@ main(int argc, char* argv[])
                     );
                     const std::string file_name = count == 1
                         ? std::string("bishop.png")
-                        : (string_builder() << "bishop_" << (c+1) << ".png")
+                        : (StringBuilder() << "bishop_" << (c+1) << ".png")
                         ;
-                    io::chunk_to_file(image.write(image_write_format::png), file_name);
+                    io::chunk_to_file(image.write(ImageWriteFormat::png), file_name);
                 }
 
                 return argparse::ok;
@@ -145,12 +145,12 @@ main(int argc, char* argv[])
     (
         "text",
         "drunken bishop with ssh like output",
-        [](argparse::sub_parser* sub)
+        [](argparse::SubParser* sub)
         {
             auto common = ::common{};
             common.add(sub);
             return sub->on_complete([&]{
-                auto rand = core::random{};
+                auto rand = core::Random{};
                 const auto table = generate_drunken_bishop_table(&rand, common);
                 const auto strs = collapse(table, get_ssh_characters());
                 for(const auto& str: strs)

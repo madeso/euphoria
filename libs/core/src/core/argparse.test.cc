@@ -14,19 +14,19 @@ using namespace euphoria::tests;
 
 namespace
 {
-    name_and_arguments
+    NameAndArguments
     make_arguments(const std::vector<std::string>& args)
     {
-        return name_and_arguments{ "app", args };
+        return NameAndArguments{ "app", args };
     }
 
 
-    struct message
+    struct Message
     {
         bool error;
         std::string text;
 
-        message(bool e, const std::string& t)
+        Message(bool e, const std::string& t)
             : error(e)
             , text(t)
         {
@@ -34,14 +34,14 @@ namespace
     };
 
 
-    message
+    Message
     create_info(const std::string& text)
     {
         return {false, text};
     }
 
 
-    message
+    Message
     create_error(const std::string& text)
     {
         return {true, text};
@@ -66,7 +66,7 @@ namespace
 
 
     std::ostream&
-    operator<<(std::ostream& o, const message& m)
+    operator<<(std::ostream& o, const Message& m)
     {
         o << (m.error?"ERR":"INF");
         o << " " << m.text;
@@ -74,9 +74,9 @@ namespace
     }
 
 
-    struct test_printer : public printer
+    struct test_printer : public Printer
     {
-        std::vector<message> messages;
+        std::vector<Message> messages;
 
         void
         print_error(const std::string& line) override
@@ -117,19 +117,19 @@ namespace
     false_string
     check
     (
-        const std::vector<message>& lhs,
-        const std::vector<message>& rhs
+        const std::vector<Message>& lhs,
+        const std::vector<Message>& rhs
     )
     {
         return euphoria::tests::vector_is_equal
         (
             lhs,
             rhs,
-            [](const message &m) -> std::string
+            [](const Message &m) -> std::string
             {
-                return string_builder() << m;
+                return StringBuilder() << m;
             },
-            [](const message &lhs, const message &rhs) -> false_string
+            [](const Message &lhs, const Message &rhs) -> false_string
             {
                 const auto str = string_is_equal(lhs.text, rhs.text);
                 if (str == false)
@@ -138,7 +138,7 @@ namespace
                 { return false_string::create_true(); }
                 return false_string::create_false
                 (
-                    string_builder() << "error diff: "
+                    StringBuilder() << "error diff: "
                                      << lhs.error << " vs "
                                      << rhs.error
                 );
@@ -166,7 +166,7 @@ namespace
 
 TEST_CASE("argparse", "[argparse]")
 {
-    auto parser = argparse::parser{};
+    auto parser = argparse::Parser{};
     auto output = std::make_shared<test_printer>();
     parser.printer = output;
 
@@ -591,7 +591,7 @@ TEST_CASE("argparse", "[argparse]")
 
         auto sub = parser.add_sub_parsers();
 
-        sub->add("a", "do awesome stuff", [&](sub_parser* parser)
+        sub->add("a", "do awesome stuff", [&](SubParser* parser)
         {
             std::string a_value = "dog";
             parser->add("-s", &a_value);
@@ -603,7 +603,7 @@ TEST_CASE("argparse", "[argparse]")
             });
         });
 
-        sub->add("b", "do boring stuff", [&](sub_parser*)
+        sub->add("b", "do boring stuff", [&](SubParser*)
         {
             b = "bird";
             return argparse::ok;
@@ -710,9 +710,9 @@ TEST_CASE("argparse", "[argparse]")
     SECTION("non greedy subparser/script like")
     {
         auto sub = parser.add_sub_parsers();
-        parser.parser_style = sub_parser_style::fallback;
+        parser.parser_style = SubParserStyle::fallback;
         std::string data;
-        sub->add("add", "add something", [&](sub_parser* sub)
+        sub->add("add", "add something", [&](SubParser* sub)
         {
             std::string what;
             sub->add("what", &what);
@@ -722,7 +722,7 @@ TEST_CASE("argparse", "[argparse]")
                 return argparse::ok;
             });
         });
-        sub->add("double", "double the content", [&](sub_parser* sub)
+        sub->add("double", "double the content", [&](SubParser* sub)
         {
             return sub->on_complete([&]
             {
@@ -794,13 +794,13 @@ TEST_CASE("argparse", "[argparse]")
     {
         auto sub = parser.add_sub_parsers();
         std::string data;
-        sub->add("pretty", "be kind", [&](sub_parser* pretty)
+        sub->add("pretty", "be kind", [&](SubParser* pretty)
         {
-            pretty->add_sub_parsers()->add("please", [&](sub_parser* please)
+            pretty->add_sub_parsers()->add("please", [&](SubParser* please)
             {
-                please->parser_style = sub_parser_style::fallback;
+                please->parser_style = SubParserStyle::fallback;
                 auto sub = please->add_sub_parsers();
-                sub->add("add", [&](sub_parser* sub)
+                sub->add("add", [&](SubParser* sub)
                 {
                     std::string what;
                     sub->add("what", &what);
@@ -810,7 +810,7 @@ TEST_CASE("argparse", "[argparse]")
                         return argparse::ok;
                     });
                 });
-                sub->add("double", [&](sub_parser* sub)
+                sub->add("double", [&](SubParser* sub)
                 {
                     return sub->on_complete([&]
                     {
@@ -887,7 +887,7 @@ TEST_CASE("argparse", "[argparse]")
 
 TEST_CASE("argparse_error", "[argparse]")
 {
-    auto parser = argparse::parser{};
+    auto parser = argparse::Parser{};
     auto output = std::make_shared<test_printer>();
     parser.printer = output;
 
@@ -937,7 +937,7 @@ TEST_CASE("argparse_error", "[argparse]")
 
     SECTION("fourway test int")
     {
-        using FF = fourway<int>;
+        using FF = Lrud<int>;
         auto ff = FF{0};
         parser.add("f", &ff);
 
@@ -966,7 +966,7 @@ TEST_CASE("argparse_error", "[argparse]")
 
     SECTION("fourway test enum")
     {
-        using FF = fourway<animal>;
+        using FF = Lrud<animal>;
         auto ff = FF{animal::none};
         parser.add("f", &ff);
 
@@ -990,8 +990,8 @@ TEST_CASE("argparse_error", "[argparse]")
     {
         auto sub = parser.add_sub_parsers();
         bool completed = false;
-        parser.parser_style = sub_parser_style::greedy;
-        sub->add("a", [&](sub_parser* parser)
+        parser.parser_style = SubParserStyle::greedy;
+        sub->add("a", [&](SubParser* parser)
         {
             return parser->on_complete([&]
             {
@@ -1050,8 +1050,8 @@ TEST_CASE("argparse_error", "[argparse]")
     {
         auto sub = parser.add_sub_parsers();
         bool completed = false;
-        parser.parser_style = sub_parser_style::fallback;
-        sub->add("a", [&](sub_parser* parser)
+        parser.parser_style = SubParserStyle::fallback;
+        sub->add("a", [&](SubParser* parser)
         {
             return parser->on_complete([&]
             {

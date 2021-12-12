@@ -16,7 +16,7 @@ namespace game
 
 namespace euphoria::core::ecs
 {
-    struct world;
+    struct World;
 }
 
 namespace euphoria::render
@@ -31,17 +31,17 @@ namespace euphoria::engine
 
     struct object_creation_arguments
     {
-        core::ecs::world* world;
+        core::ecs::World* world;
         script_registry* reg;
-        lua* ctx;
-        lua* duk;
+        LuaState* ctx;
+        LuaState* duk;
 
         object_creation_arguments
         (
-                core::ecs::world* aworld,
+                core::ecs::World* aworld,
                 script_registry* areg,
-                lua* actx,
-                lua* aduk
+                LuaState* actx,
+                LuaState* aduk
         );
 };
 

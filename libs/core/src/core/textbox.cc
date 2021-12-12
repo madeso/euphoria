@@ -44,7 +44,7 @@ namespace
 namespace euphoria::core
 {
     std::string
-    text_box_style::get_string(char c) const
+    TextBoxStyle::get_string(char c) const
     {
         ASSERTX(c>0, c);
         ASSERTX
@@ -57,10 +57,10 @@ namespace euphoria::core
     }
 
 
-    text_box_style
-    text_box_style::create(std::function<std::string(char)> connections_func)
+    TextBoxStyle
+    TextBoxStyle::create(std::function<std::string(char)> connections_func)
     {
-        euphoria::core::text_box_style style;
+        euphoria::core::TextBoxStyle style;
         for(char c=1; c<16; c+=1)
         {
             ASSERTX
@@ -75,7 +75,7 @@ namespace euphoria::core
     }
 
 
-    text_box_style
+    TextBoxStyle
     terminal_style()
     {
         if(is_terminal_supporting_utf8())
@@ -90,15 +90,15 @@ namespace euphoria::core
     }
 
 
-    text_box_style::text_box_style()
+    TextBoxStyle::TextBoxStyle()
     {
         connections.resize(15);
     }
 
-    text_box_style
+    TextBoxStyle
     utf8_straight_style()
     {
-        return text_box_style::create([](char c)
+        return TextBoxStyle::create([](char c)
         {
             switch(c)
             {
@@ -124,10 +124,10 @@ namespace euphoria::core
         });
     }
 
-    text_box_style
+    TextBoxStyle
     utf8_rounded_style()
     {
-        return text_box_style::create([](char c)
+        return TextBoxStyle::create([](char c)
         {
             switch(c)
             {
@@ -153,10 +153,10 @@ namespace euphoria::core
         });
     }
 
-    text_box_style
+    TextBoxStyle
     utf_8double_line_style()
     {
-        return text_box_style::create([](char c)
+        return TextBoxStyle::create([](char c)
         {
             switch(c)
             {
@@ -182,10 +182,10 @@ namespace euphoria::core
         });
     }
 
-    text_box_style
+    TextBoxStyle
     ascii_style()
     {
-        return text_box_style::create([](char c)
+        return TextBoxStyle::create([](char c)
         {
             switch(c)
             {
@@ -212,27 +212,27 @@ namespace euphoria::core
     }
 
 
-    text_box::text_box() = default;
+    TextBox::TextBox() = default;
 
 
-    text_box
-    text_box::create_empty()
+    TextBox
+    TextBox::create_empty()
     {
         return {};
     }
 
 
-    text_box
-    text_box::create_from_strings(const std::vector<std::string>& str)
+    TextBox
+    TextBox::create_from_strings(const std::vector<std::string>& str)
     {
-        text_box ret;
+        TextBox ret;
         ret.data = str;
         return ret;
     }
 
 
     void
-    text_box::put_char(std::size_t x, std::size_t y, char c)
+    TextBox::put_char(std::size_t x, std::size_t y, char c)
     {
         extend_to(x,y);
         data[y][x] = c;
@@ -240,7 +240,7 @@ namespace euphoria::core
 
 
     void
-    text_box::extend_to(std::size_t x, std::size_t y)
+    TextBox::extend_to(std::size_t x, std::size_t y)
     {
         if(y >= data.size())
         {
@@ -254,7 +254,7 @@ namespace euphoria::core
 
 
     void
-    text_box::put_string
+    TextBox::put_string
     (
         std::size_t x,
         std::size_t y,
@@ -267,8 +267,8 @@ namespace euphoria::core
         }
     }
 
-    text_box
-    text_box::from_string(const std::string& s, std::size_t x, std::size_t y)
+    TextBox
+    TextBox::from_string(const std::string& s, std::size_t x, std::size_t y)
     {
         auto tb = create_empty();
         tb.put_string(x, y, s);
@@ -277,11 +277,11 @@ namespace euphoria::core
 
 
     void
-    text_box::put_box
+    TextBox::put_box
     (
         std::size_t x_start,
         std::size_t y_start,
-        const text_box& b
+        const TextBox& b
     )
     {
         for(std::size_t p = 0; p < b.data.size(); p+=1)
@@ -320,22 +320,22 @@ namespace euphoria::core
     }
 
 
-    text_box
-    text_box::put_box_copy
+    TextBox
+    TextBox::put_box_copy
     (
         std::size_t x,
         std::size_t y,
-        const text_box& b
+        const TextBox& b
     ) const
     {
-        text_box self = *this;
+        TextBox self = *this;
         self.put_box(x, y, b);
         return self;
     }
 
 
     void
-    text_box::trim()
+    TextBox::trim()
     {
         for(auto& s: data)
         {
@@ -355,14 +355,14 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::get_height() const
+    TextBox::get_height() const
     {
         return data.size();
     }
 
 
     std::size_t
-    text_box::get_width() const
+    TextBox::get_width() const
     {
         std::size_t result = 0;
 
@@ -376,14 +376,14 @@ namespace euphoria::core
 
 
     std::pair<std::size_t, std::size_t>
-    text_box::get_size() const
+    TextBox::get_size() const
     {
         return {get_width(), get_height()};
     }
 
 
     void
-    text_box::put_horizontal_line
+    TextBox::put_horizontal_line
     (
         std::size_t x,
         std::size_t y,
@@ -416,7 +416,7 @@ namespace euphoria::core
 
 
     void
-    text_box::put_vertical_line
+    TextBox::put_vertical_line
     (
         std::size_t x,
         std::size_t y,
@@ -449,7 +449,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::get_horizontal_append_position(std::size_t y, const text_box& b) const
+    TextBox::get_horizontal_append_position(std::size_t y, const TextBox& b) const
     {
         const std::size_t my_width = get_width();
 
@@ -464,10 +464,10 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::get_vertical_append_position
+    TextBox::get_vertical_append_position
     (
         std::size_t x,
-        const text_box& b
+        const TextBox& b
     ) const
     {
         const std::size_t my_height = get_height();
@@ -483,7 +483,7 @@ namespace euphoria::core
 
 
     std::vector<std::string>
-    text_box::to_string(const text_box_style& style) const
+    TextBox::to_string(const TextBoxStyle& style) const
     {
         std::vector<std::string> ret;
         bool want_newline = true;
@@ -542,7 +542,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::find_left_padding(std::size_t y) const
+    TextBox::find_left_padding(std::size_t y) const
     {
         const std::size_t max = get_width();
 
@@ -564,7 +564,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::find_right_padding(std::size_t y) const
+    TextBox::find_right_padding(std::size_t y) const
     {
         const std::size_t max = get_width();
 
@@ -591,7 +591,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::find_bottom_padding(std::size_t x) const
+    TextBox::find_bottom_padding(std::size_t x) const
     {
         const std::size_t max = data.size();
 
@@ -614,7 +614,7 @@ namespace euphoria::core
 
 
     std::size_t
-    text_box::find_top_padding(std::size_t x) const
+    TextBox::find_top_padding(std::size_t x) const
     {
         const std::size_t max = data.size();
         std::size_t result = 0;
@@ -633,11 +633,11 @@ namespace euphoria::core
 
 
     void
-    text_box::sub_create_tree_graph
+    TextBox::sub_create_tree_graph
     (
-        text_box* result,
+        TextBox* result,
         size_t maxwidth,
-        const std::vector<text_box>& boxes,
+        const std::vector<TextBox>& boxes,
         bool consider_oneliner,
         bool consider_simple,
         const std::string& label,
@@ -665,7 +665,7 @@ namespace euphoria::core
 
         for(auto box_iterator = boxes.begin(); box_iterator != boxes.end(); box_iterator+=1)
         {
-            const text_box& current_box = *box_iterator;
+            const TextBox& current_box = *box_iterator;
             const std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
             const auto first_valid_x = result->get_horizontal_append_position(y, current_box);
             std::size_t x = first_valid_x != 0 ? first_valid_x + usemargin
@@ -705,7 +705,7 @@ namespace euphoria::core
                     // Enact horizontal placement by giving 1 row of room
                     // for the connector
                     horizontal = true;
-                    const text_box combined = current_box.put_box_copy
+                    const TextBox combined = current_box.put_box_copy
                     (
                         current_box.get_horizontal_append_position(0, next_box) + margin,
                         0,
@@ -736,7 +736,7 @@ namespace euphoria::core
                 {
                     // Check if there is room for a horizontal connector.
                     // If not, increase y
-                    const auto connector = text_box::from_string
+                    const auto connector = TextBox::from_string
                     (
                         std::string(1+x, '-')
                     );

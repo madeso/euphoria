@@ -7,16 +7,16 @@
 
 namespace euphoria::core
 {
-    struct orbit_controller
+    struct OrbitController
     {
-        orbit_controller();
+        OrbitController();
 
 
-        [[nodiscard]] quatf
+        [[nodiscard]] Quatf
         get_rotation() const;
 
 
-        [[nodiscard]] vec3f
+        [[nodiscard]] Vec3f
         get_camera_position() const;
 
 
@@ -32,18 +32,18 @@ namespace euphoria::core
         on_zoom_input(float z);
 
 
-        vec3f center;
+        Vec3f center;
 
-        angle horizontal_rotation;
-        angle vertical_rotation;
+        Angle horizontal_rotation;
+        Angle vertical_rotation;
 
         float distance = 10.0f;
 
-        sensitivity pan_dx;
-        sensitivity pan_dy;
-        sensitivity rotate_dx;
-        sensitivity rotate_dy;
-        sensitivity zoom;
+        Sensitivity pan_dx;
+        Sensitivity pan_dy;
+        Sensitivity rotate_dx;
+        Sensitivity rotate_dy;
+        Sensitivity zoom;
     };
 }
 

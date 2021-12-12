@@ -10,14 +10,14 @@ namespace euphoria::core
     get_current_directory();
 
 
-    struct directory_listing
+    struct DirectoryListing
     {
         std::vector<std::string> files;
         std::vector<std::string> directories;
         bool valid = false;
     };
 
-    directory_listing
+    DirectoryListing
     list_directory(const std::string& path);
 
     constexpr char path_separator = '/';

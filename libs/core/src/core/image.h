@@ -10,13 +10,13 @@
 
 namespace euphoria::core::vfs
 {
-    struct file_system;
-    struct file_path;
+    struct FileSystem;
+    struct FilePath;
 }
 
 namespace euphoria::core
 {
-    enum class image_write_format
+    enum class ImageWriteFormat
     {
         png,
         bmp,
@@ -25,7 +25,7 @@ namespace euphoria::core
     };
 
 
-    struct image
+    struct Image
     {
         void
         make_invalid();
@@ -54,7 +54,7 @@ namespace euphoria::core
         );
 
         void
-        set_pixel(int x, int y, const rgbai& color);
+        set_pixel(int x, int y, const Rgbai& color);
 
         void
         set_pixel
@@ -67,7 +67,7 @@ namespace euphoria::core
             unsigned char a
         );
 
-        [[nodiscard]] rgbai
+        [[nodiscard]] Rgbai
         get_pixel(int x, int y) const;
 
         template <typename Func>
@@ -122,14 +122,14 @@ namespace euphoria::core
             }
         }
 
-        [[nodiscard]] recti
+        [[nodiscard]] Recti
         get_indices() const;
 
         [[nodiscard]] const unsigned char*
         get_pixel_data() const;
 
-        [[nodiscard]] std::shared_ptr<memory_chunk>
-        write(image_write_format format, int jpeg_quality = 100) const;
+        [[nodiscard]] std::shared_ptr<MemoryChunk>
+        write(ImageWriteFormat format, int jpeg_quality = 100) const;
 
         void
         setup(int image_width, int image_height, bool alpha, int default_value);
@@ -148,14 +148,14 @@ namespace euphoria::core
     };
 
 
-    struct image_load_result
+    struct ImageLoadResult
     {
-        core::image image;
+        core::Image image;
         std::string error;
     };
 
 
-    enum class alpha_load
+    enum class AlphaLoad
     {
         remove,
         keep
@@ -163,25 +163,25 @@ namespace euphoria::core
 
 
     // todo(Gustav): move image loading to a io library instead
-    image_load_result
-    load_image(vfs::file_system* fs, const vfs::file_path& path, alpha_load alpha);
+    ImageLoadResult
+    load_image(vfs::FileSystem* fs, const vfs::FilePath& path, AlphaLoad alpha);
 
 
-    image_load_result
+    ImageLoadResult
     load_image
     (
-        std::shared_ptr<memory_chunk> channel,
+        std::shared_ptr<MemoryChunk> channel,
         const std::string& path,
-        alpha_load alpha
+        AlphaLoad alpha
     );
 
 
-    image_load_result
+    ImageLoadResult
     load_image
     (
         void* compressed_data,
         int compressed_size,
         const std::string& path,
-        alpha_load alpha
+        AlphaLoad alpha
     );
 }

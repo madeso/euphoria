@@ -5,9 +5,9 @@
 
 namespace euphoria::core
 {
-    struct viewport_definition
+    struct ViewportDefinition
     {
-        recti screen_rect;
+        Recti screen_rect;
 
         float virtual_width;
         float virtual_height;
@@ -17,7 +17,7 @@ namespace euphoria::core
          */
         [[nodiscard]]
         static
-        viewport_definition
+        ViewportDefinition
         fit_with_black_bars
         (
             float width,
@@ -31,17 +31,17 @@ namespace euphoria::core
          */
         [[nodiscard]]
         static
-        viewport_definition
+        ViewportDefinition
         extend(float width, float height, int window_width, int window_height);
 
         /** The viewport matches the screen pixel by pixel.
          */
         [[nodiscard]]
         static
-        viewport_definition
+        ViewportDefinition
         screen_pixel(int window_width, int window_height);
 
-        viewport_definition(const recti& screen, float w, float h);
+        ViewportDefinition(const Recti& screen, float w, float h);
     };
 
 }

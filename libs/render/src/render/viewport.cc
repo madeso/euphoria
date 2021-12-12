@@ -6,7 +6,7 @@
 
 namespace euphoria::render
 {
-    viewport::viewport(const core::recti& r)
+    viewport::viewport(const core::Recti& r)
         : bounds(r)
     {
     }
@@ -43,11 +43,11 @@ namespace euphoria::render
     }
 
 
-    core::vec2f
-    viewport::to_clip_coord(const core::vec2i& p) const
+    core::Vec2f
+    viewport::to_clip_coord(const core::Vec2i& p) const
     {
         const auto p01 = core::to01(bounds.StaticCast<float>(), p.StaticCast<float>());
-        const auto clip = core::from01(core::rectf::from_left_right_top_bottom(-1, 1, 1, -1), p01);
+        const auto clip = core::from01(core::Rectf::from_left_right_top_bottom(-1, 1, 1, -1), p01);
         return clip;
     }
 }

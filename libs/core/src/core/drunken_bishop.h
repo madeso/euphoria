@@ -9,24 +9,24 @@
 namespace euphoria::core
 {
     // split hash to a msb->lsb array
-    std::vector<u8>
-    to_bytes(u32 hash);
+    std::vector<U8>
+    to_bytes(U32 hash);
 
     // split hash to a msb->lsb array
-    std::vector<u8>
-    to_bytes(u64 hash);
+    std::vector<U8>
+    to_bytes(U64 hash);
 
     // split to 2-bit ints
     std::vector<int>
-    to_codes(u8 byte, bool msb_first);
+    to_codes(U8 byte, bool msb_first);
 
     std::vector<int>
-    to_codes(const std::vector<u8>& bytes, bool msb_first);
+    to_codes(const std::vector<U8>& bytes, bool msb_first);
 
-    table<int>
+    Table<int>
     drunken_bishop
     (
-        u32 hash,
+        U32 hash,
         int width,
         int height,
         bool msb_first = true,
@@ -34,10 +34,10 @@ namespace euphoria::core
         int starty = -1
     );
 
-    table<int>
+    Table<int>
     drunken_bishop
     (
-        u64 hash,
+        U64 hash,
         int width,
         int height,
         bool msb_first = true,
@@ -45,7 +45,7 @@ namespace euphoria::core
         int starty = -1
     );
 
-    table<int>
+    Table<int>
     drunken_bishop
     (
         const std::vector<int>& codes,
@@ -62,7 +62,7 @@ namespace euphoria::core
     std::vector<std::string>
     collapse
     (
-        const table<int>& table,
+        const Table<int>& table,
         const std::vector<std::string>& characters
     );
 

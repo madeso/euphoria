@@ -10,7 +10,7 @@ https://mycarta.wordpress.com/color-palettes/
 
 namespace euphoria::core::palettes::mycarta
 {
-    constexpr rgbi
+    constexpr Rgbi
     con(unsigned char r, unsigned char g, unsigned char b)
     {
         return {r, g, b};

@@ -21,7 +21,7 @@ namespace euphoria::engine
 
     struct script_registry
     {
-        script_registry(core::ecs::registry* r, engine::components* c);
+        script_registry(core::ecs::Registry* r, engine::components* c);
 
         using creation_callback = sol::protected_function;
 
@@ -31,7 +31,7 @@ namespace euphoria::engine
         [[nodiscard]] core::ecs::component_id
         create_new_id(const std::string& name) const;
 
-        [[nodiscard]] core::result<core::ecs::component_id>
+        [[nodiscard]] core::Result<core::ecs::component_id>
         get_custom_component_by_name(const std::string& name) const;
 
         [[nodiscard]] std::vector<core::ecs::entity_id>
@@ -52,7 +52,7 @@ namespace euphoria::engine
         create_component
         (
                 core::ecs::component_id comp,
-                lua* ctx,
+                LuaState* ctx,
                 const custom_arguments& arguments
         );
 
@@ -68,7 +68,7 @@ namespace euphoria::engine
 
         using script_component_map = std::map<core::ecs::component_id, creation_callback>;
 
-        core::ecs::registry* reg;
+        core::ecs::Registry* reg;
         engine::components* components;
         script_component_map script_components;
     };

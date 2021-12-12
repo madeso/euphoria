@@ -40,7 +40,7 @@ namespace euphoria::window
 
 
     int
-    engine::setup(const core::argparse::name_and_arguments& args)
+    engine::setup(const core::argparse::NameAndArguments& args)
     {
         sdl = std::make_unique<sdl_library>();
         if(sdl->ok == false)
@@ -49,7 +49,7 @@ namespace euphoria::window
             return -1;
         }
 
-        auto parser = core::argparse::parser("euphoria engine");
+        auto parser = core::argparse::Parser("euphoria engine");
 
         auto current_directory = core::get_current_directory();
         parser
@@ -64,22 +64,22 @@ namespace euphoria::window
 
         LOG_INFO("Current directory: {0}", current_directory);
 
-        file_system = std::make_unique<core::vfs::file_system>();
-        catalog = core::vfs::read_root_catalog::create_and_add(file_system.get());
-        core::vfs::read_root_physical_folder::add
+        file_system = std::make_unique<core::vfs::FileSystem>();
+        catalog = core::vfs::ReadRootCatalog::create_and_add(file_system.get());
+        core::vfs::ReadRootPhysicalFolder::add
         (
             file_system.get(),
             current_directory
         );
-        core::vfs::read_root_image_generator::add
+        core::vfs::ReadRootImageGenerator::add
         (
             file_system.get(),
-            core::vfs::dir_path{"~/img-plain/"}
+            core::vfs::DirPath{"~/img-plain/"}
         );
         core::vfs::add_default_shaders
         (
             file_system.get(),
-            core::vfs::dir_path{"~/shaders/"}
+            core::vfs::DirPath{"~/shaders/"}
         );
 
         render::setup_default_files(catalog);

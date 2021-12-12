@@ -18,7 +18,7 @@ ceasar_cypher
     int steps,
     const std::string& alphabet,
     bool case_sensitive,
-    missing_in_alphabet missing_in_alphabet,
+    ActionWhenMissingInAlphabet missing_in_alphabet,
     char invalid
 )
 {
@@ -43,12 +43,12 @@ ceasar_cypher
         {
             switch(missing_in_alphabet)
             {
-            case missing_in_alphabet::ignore:
+            case ActionWhenMissingInAlphabet::ignore:
                 continue;
-            case missing_in_alphabet::pass_through:
+            case ActionWhenMissingInAlphabet::pass_through:
                 ret << c;
                 break;
-            case missing_in_alphabet::replace:
+            case ActionWhenMissingInAlphabet::replace:
                 ret << invalid;
                 break;
             default:
@@ -63,7 +63,7 @@ ceasar_cypher
 
 std::string rot13(const std::string& input)
 {
-    return ceasar_cypher(input, 13, "abcdefghijklmnopqrstuvwxyz", false, missing_in_alphabet::pass_through, '?');
+    return ceasar_cypher(input, 13, "abcdefghijklmnopqrstuvwxyz", false, ActionWhenMissingInAlphabet::pass_through, '?');
 }
 
 

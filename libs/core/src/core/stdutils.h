@@ -37,7 +37,7 @@ namespace euphoria::core
         std::vector<std::string> strings;
         for(const auto& x: m)
         {
-            strings.push_back(string_builder() << x.first);
+            strings.push_back(StringBuilder() << x.first);
         }
         return strings;
     }

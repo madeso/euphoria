@@ -11,13 +11,13 @@
 namespace euphoria::engine
 {
     struct system_sprite_draw
-        : core::ecs::component_system
-        , core::ecs::component_system_sprite_drawer
+        : core::ecs::ComponentSystem
+        , core::ecs::ComponentSystemSpriteDrawer
     {
         engine::components* components;
 
         explicit system_sprite_draw(engine::components* c)
-            : component_system("sprite draw")
+            : ComponentSystem("sprite draw")
             , components(c)
         {
         }
@@ -25,7 +25,7 @@ namespace euphoria::engine
         void
         draw
         (
-            core::ecs::registry* reg,
+            core::ecs::Registry* reg,
             render::sprite_renderer* renderer
         ) const override
         {
@@ -52,7 +52,7 @@ namespace euphoria::engine
         }
 
         void
-        register_callbacks(core::ecs::systems* systems) override
+        register_callbacks(core::ecs::Systems* systems) override
         {
             systems->sprite_drawer.add(this);
         }
@@ -60,7 +60,7 @@ namespace euphoria::engine
 
 
     void
-    add_systems(core::ecs::systems* sys, components* comps)
+    add_systems(core::ecs::Systems* sys, components* comps)
     {
         sys->add_and_register(std::make_shared<system_sprite_draw>(comps));
     }

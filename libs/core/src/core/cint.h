@@ -23,12 +23,12 @@ namespace euphoria::core
     c_int_to_sizet(int i);
 
 
-    u8
+    U8
     c_int_to_u8(unsigned int i);
 
 
     int
-    c_u64_to_int(u64 u);
+    c_u64_to_int(U64 u);
 
 
     // todo(Gustav): deprecate and replace with floor_to_int or ceil_to_int
@@ -54,16 +54,16 @@ namespace euphoria::core
 
 
     constexpr float
-    c_u64_to_float(u64 i)
+    c_u64_to_float(U64 i)
     {
         return static_cast<float>(i);
     }
 
 
-    constexpr u32
-    c_bit_signed_to_unsigned(s32 i)
+    constexpr U32
+    c_bit_signed_to_unsigned(I32 i)
     {
-        union { s32 s; u32 u; } c = {};
+        union { I32 s; U32 u; } c = {};
         c.s = i;
         return c.u;
     }

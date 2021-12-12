@@ -9,7 +9,7 @@
 
 namespace euphoria::core
 {
-    struct random;
+    struct Random;
 }
 
 namespace euphoria::core::generator
@@ -35,7 +35,7 @@ namespace euphoria::core::generator
         west
     };
 
-    using maze = table<int>;
+    using Maze = Table<int>;
 
     // todo(Gustav): implement more generators
     // https://bost.ocks.org/mike/algorithms/#maze-generation
@@ -44,15 +44,15 @@ namespace euphoria::core::generator
     // https://gamedev.stackexchange.com/questions/153734/generate-cave-like-terrain-in-2d
     // http://www.gamasutra.com/blogs/HermanTulleken/20161005/282629/Algorithms_for_making_more_interesting_mazes.php
 
-    struct algorithm
+    struct Algorithm
     {
-        algorithm() = default;
-        virtual ~algorithm() = default;
+        Algorithm() = default;
+        virtual ~Algorithm() = default;
 
-        algorithm(const algorithm&) = delete;
-        algorithm(algorithm&&) = delete;
-        void operator=(const algorithm&) = delete;
-        void operator=(algorithm&&) = delete;
+        Algorithm(const Algorithm&) = delete;
+        Algorithm(Algorithm&&) = delete;
+        void operator=(const Algorithm&) = delete;
+        void operator=(Algorithm&&) = delete;
 
         virtual void
         setup() = 0;
@@ -64,12 +64,12 @@ namespace euphoria::core::generator
         work() = 0;
     };
 
-    struct recursive_backtracker : public algorithm
+    struct RecursiveBacktracker : public Algorithm
     {
-        generator::maze* maze = nullptr;
-        core::random* random = nullptr;
+        generator::Maze* maze = nullptr;
+        core::Random* random = nullptr;
 
-        std::stack<vec2i> stack;
+        std::stack<Vec2i> stack;
         int visited_cells = 0;
 
         void
@@ -82,14 +82,14 @@ namespace euphoria::core::generator
         work() override;
     };
 
-    struct random_traversal : public algorithm
+    struct RandomTraversal : public Algorithm
     {
-        generator::maze* maze = nullptr;
-        core::random* random = nullptr;
+        generator::Maze* maze = nullptr;
+        core::Random* random = nullptr;
 
         struct entry
         {
-            vec2i position;
+            Vec2i position;
             dir direction;
         };
         std::vector<entry> frontier;
@@ -104,28 +104,28 @@ namespace euphoria::core::generator
         work() override;
     };
 
-    struct drawer
+    struct Drawer
     {
-        generator::maze* maze = nullptr;
+        generator::Maze* maze = nullptr;
 
         int cell_size = 3;
         int wall_size = 1;
 
-        recursive_backtracker* tracker = nullptr;
-        random_traversal* traversal = nullptr;
+        RecursiveBacktracker* tracker = nullptr;
+        RandomTraversal* traversal = nullptr;
 
-        rgbi wall_color;
-        rgbi cell_color;
-        rgbi cell_visited_color;
-        rgbi unit_color;
-        rgbi corridor_color;
+        Rgbi wall_color;
+        Rgbi cell_color;
+        Rgbi cell_visited_color;
+        Rgbi unit_color;
+        Rgbi corridor_color;
 
-        [[nodiscard]] rgbi
+        [[nodiscard]] Rgbi
         calculate_cell_color(int x, int y) const;
 
-        core::image image;
+        core::Image image;
 
-        drawer();
+        Drawer();
 
         void
         draw();

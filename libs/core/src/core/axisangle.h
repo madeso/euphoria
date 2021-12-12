@@ -7,24 +7,24 @@
 
 namespace euphoria::core
 {
-    struct axis_angle
+    struct AxisAngle
     {
-        [[nodiscard]] static axis_angle
-        right_hand_around(const unit3f& axis, const core::angle& angle);
+        [[nodiscard]] static AxisAngle
+        right_hand_around(const Unit3f& axis, const core::Angle& angle);
 
         /** a unit-vector.
          */
-        unit3f axis;
+        Unit3f axis;
 
         /** rotation according to right-hand rule.
          */
-        core::angle angle;
+        core::Angle angle;
 
     private:
-        axis_angle(const unit3f& ax, const core::angle& ang);
+        AxisAngle(const Unit3f& ax, const core::Angle& ang);
     };
 
     std::ostream&
-    operator<<(std::ostream& stream, const axis_angle& aa);
+    operator<<(std::ostream& stream, const AxisAngle& aa);
 
 }

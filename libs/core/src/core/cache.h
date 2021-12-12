@@ -7,9 +7,11 @@
 namespace euphoria::core
 {
     // todo(Gustav): support hotloading
+    // todo(Gustav): rename to something better?
+    // https://stackoverflow.com/questions/288400/guidelines-for-differences-between-cache-pool-cache-pool
 
     template <typename Key, typename Data, typename Loader>
-    struct cache
+    struct Cache
     {
         std::shared_ptr<Data>
         get(const Key& key)

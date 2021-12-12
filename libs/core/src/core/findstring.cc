@@ -10,6 +10,7 @@ namespace euphoria::core
         return target.find(search) != std::string::npos;
     }
 
+
     bool
     find(const std::string& target, const std::vector<std::string>& searches)
     {
@@ -24,6 +25,7 @@ namespace euphoria::core
         );
     }
 
+
     bool
     find(const std::vector<std::string>& targets, const std::string& search)
     {
@@ -37,6 +39,7 @@ namespace euphoria::core
             }
         );
     }
+
 
     bool
     find(const std::vector<std::string>& targets,

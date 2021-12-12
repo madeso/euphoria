@@ -7,16 +7,16 @@
 
 namespace euphoria::core
 {
-    polar_coord::polar_coord(float azimuthal01, float polar01)
-        : azimuthal(angle::from_percent_of_360(azimuthal01))
-        , polar(angle::from_percent_of_180(polar01))
+    PolarCoordinate::PolarCoordinate(float azimuthal01, float polar01)
+        : azimuthal(Angle::from_percent_of_360(azimuthal01))
+        , polar(Angle::from_percent_of_180(polar01))
     {
         ASSERT(is_within(r01, azimuthal01));
-        ASSERT(is_within(range<float> {0, 2}, polar01));
+        ASSERT(is_within(Range<float> {0, 2}, polar01));
     }
 
-    unit3f
-    polar_coord::to_unit_vector() const
+    Unit3f
+    PolarCoordinate::to_unit_vector() const
     {
         const float cos_a = cos(azimuthal);
         const float sin_p = sin(polar);
@@ -27,21 +27,21 @@ namespace euphoria::core
         const float y = sin_a * sin_p;
         const float z = cos_p;
 
-        return unit3f::to_unit(x, y, z);
+        return Unit3f::to_unit(x, y, z);
     }
 
-    polar_coord
-    polar_coord::create_random(::euphoria::core::random* random)
+    PolarCoordinate
+    PolarCoordinate::create_random(::euphoria::core::Random* random)
     {
         const float az = random->get_next_float01();
         const float polar = random->get_next_float01();
         return {az, polar};
     }
 
-    unit3f
-    get_random_unit3(random* random)
+    Unit3f
+    get_random_unit3(Random* random)
     {
-        return polar_coord::create_random(random).to_unit_vector();
+        return PolarCoordinate::create_random(random).to_unit_vector();
     }
 
 }

@@ -14,110 +14,110 @@
 
 namespace euphoria::core
 {
-    struct image;
+    struct Image;
 
     namespace raytracer
     {
-        struct hit_result;
+        struct HitResult;
 
 
-        struct scatter_result
+        struct ScatterResult
         {
-            rgb attenuation;
-            unit_ray3f scattered;
+            Rgb attenuation;
+            UnitRay3f scattered;
         };
 
 
-        struct material
+        struct Material
         {
-            material() = default;
-            virtual ~material() = default;
+            Material() = default;
+            virtual ~Material() = default;
 
-            NONCOPYABLE(material);
+            NONCOPYABLE(Material);
 
-            [[nodiscard]] virtual std::optional<scatter_result>
+            [[nodiscard]] virtual std::optional<ScatterResult>
             scatter
             (
-                const unit_ray3f& ray,
-                const hit_result& hit,
-                random* random
+                const UnitRay3f& ray,
+                const HitResult& hit,
+                Random* random
             ) = 0;
         };
 
 
-        struct hit_result
+        struct HitResult
         {
-            hit_result
+            HitResult
             (
                 float aray_distance,
-                const vec3f& aposition,
-                const unit3f& anormal,
-                std::shared_ptr<raytracer::material> amaterial
+                const Vec3f& aposition,
+                const Unit3f& anormal,
+                std::shared_ptr<raytracer::Material> amaterial
             );
 
             float ray_distance;
-            vec3f position;
-            unit3f normal;
-            std::shared_ptr<raytracer::material> material;
+            Vec3f position;
+            Unit3f normal;
+            std::shared_ptr<raytracer::Material> material;
         };
 
 
-        struct object
+        struct Object
         {
-            object() = default;
-            virtual ~object() = default;
+            Object() = default;
+            virtual ~Object() = default;
 
-            NONCOPYABLE(object);
+            NONCOPYABLE(Object);
 
-            [[nodiscard]] virtual std::optional<hit_result>
-            hit(const unit_ray3f& ray, const range<float>& range) const = 0;
+            [[nodiscard]] virtual std::optional<HitResult>
+            hit(const UnitRay3f& ray, const Range<float>& range) const = 0;
         };
 
 
-        std::shared_ptr<object>
+        std::shared_ptr<Object>
         create_sphere
         (
-            const sphere& sphere,
-            const vec3f& position,
-            std::shared_ptr<material> material
+            const Sphere& sphere,
+            const Vec3f& position,
+            std::shared_ptr<Material> material
         );
 
 
-        std::shared_ptr<material>
+        std::shared_ptr<Material>
         create_diffuse_material
         (
-            const rgb& albedo
+            const Rgb& albedo
         );
 
 
-        std::shared_ptr<material>
+        std::shared_ptr<Material>
         create_metal_material
         (
-            const rgb& albedo,
+            const Rgb& albedo,
             // 0-1, 0=clear
             float fuzz
         );
 
 
-        std::shared_ptr<material>
+        std::shared_ptr<Material>
         create_dielectric_material
         (
-            const rgb& albedo,
+            const Rgb& albedo,
             float refractive_index
         );
 
 
-        struct scene
+        struct Scene
         {
-            std::vector<std::shared_ptr<object>> objects;
+            std::vector<std::shared_ptr<Object>> objects;
 
-            [[nodiscard]] std::optional<hit_result>
-            hit(const unit_ray3f& ray, const range<float>& range) const;
+            [[nodiscard]] std::optional<HitResult>
+            hit(const UnitRay3f& ray, const Range<float>& range) const;
         };
 
 
         void
-        raytrace(image* image, const raytracer::scene& scene, int number_of_samples);
+        raytrace(Image* image, const raytracer::Scene& scene, int number_of_samples);
     }
 
 }

@@ -20,7 +20,7 @@ namespace euphoria::t3d
     struct tool_place_mesh_on_a_plane : public tool
     {
         std::shared_ptr<placed_mesh> actor;
-        core::plane plane;
+        core::Plane plane;
 
 
         tool_place_mesh_on_a_plane(std::shared_ptr<placed_mesh> aactor);
@@ -35,15 +35,15 @@ namespace euphoria::t3d
 
 
         void
-        on_mouse(editor* editor, core::mouse_button button, bool down) override;
+        on_mouse(editor* editor, core::MouseButton button, bool down) override;
 
 
         void
-        on_key(editor* editor, core::key key, bool down) override;
+        on_key(editor* editor, core::Key key, bool down) override;
 
 
         void
-        on_scroll(editor*, const core::vec2i&) override;
+        on_scroll(editor*, const core::Vec2i&) override;
 
 
         void

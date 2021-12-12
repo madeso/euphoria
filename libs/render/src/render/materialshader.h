@@ -16,12 +16,12 @@ namespace euphoria::render
     public:
         material_shader_default_texture
         (
-            const core::enum_value& a_name,
-            const core::vfs::file_path& a_path
+            const core::EnumValue& a_name,
+            const core::vfs::FilePath& a_path
         );
 
-        core::enum_value name;
-        core::vfs::file_path path;
+        core::EnumValue name;
+        core::vfs::FilePath path;
     };
 
     struct material_shader_binding
@@ -29,11 +29,11 @@ namespace euphoria::render
         material_shader_binding
         (
                 shader_uniform a_uniform,
-                const core::enum_value& a_name
+                const core::EnumValue& a_name
         );
 
         shader_uniform uniform;
-        core::enum_value name;
+        core::EnumValue name;
     };
 
     /** Extends a regular Shader with uniform bindings for 3d rendering
@@ -46,8 +46,8 @@ namespace euphoria::render
         bool
         load
         (
-            core::vfs::file_system* file_system,
-            const core::vfs::file_path& path
+            core::vfs::FileSystem* file_system,
+            const core::vfs::FilePath& path
         );
 
         void
@@ -63,14 +63,14 @@ namespace euphoria::render
         set_model(const core::mat4f& model_data);
 
         void
-        setup_light(const light& light, const core::vec3f& camera);
+        setup_light(const light& light, const core::Vec3f& camera);
 
         void
         set_colors
         (
-            const core::rgb& ambient_data,
-            const core::rgb& diffuse_data,
-            const core::rgb& specular_data,
+            const core::Rgb& ambient_data,
+            const core::Rgb& diffuse_data,
+            const core::Rgb& specular_data,
             float shininess_data
         );
 

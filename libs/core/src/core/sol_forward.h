@@ -4,5 +4,6 @@ namespace sol
 {
   class state;
 }
-struct lua;
 
+
+struct LuaState;

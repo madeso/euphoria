@@ -14,10 +14,10 @@ namespace
     using namespace euphoria::core;
 
 
-    std::vector<rgbi>
-    extract_all_colors(const image& image)
+    std::vector<Rgbi>
+    extract_all_colors(const Image& image)
     {
-        auto ret = std::vector<rgbi>{};
+        auto ret = std::vector<Rgbi>{};
         ret.reserve(ret.size() + image.height * image.width);
 
         for(int y=0; y<image.height; y+=1)
@@ -40,7 +40,7 @@ namespace
 
 
     float
-    get_value(sort_range range, const rgbi& c)
+    get_value(sort_range range, const Rgbi& c)
     {
         switch(range)
         {
@@ -52,15 +52,15 @@ namespace
     }
 
 
-    std::tuple<sort_range, range<float>>
-    find_greatest_sort_range(subvec<rgbi> colors)
+    std::tuple<sort_range, Range<float>>
+    find_greatest_sort_range(SubVec<Rgbi> colors)
     {
-        using Tu = std::tuple<sort_range, range<float>>;
+        using Tu = std::tuple<sort_range, Range<float>>;
 
         const auto [min_values, max_values] = find_min_max_ranges<3, float>
         (
             colors,
-            [](const rgbi& c) -> std::array<float, 3>
+            [](const Rgbi& c) -> std::array<float, 3>
             {
                 return
                 {
@@ -74,7 +74,7 @@ namespace
         // https://www.reddit.com/r/cpp/comments/68vhir/whats_the_rationale_for_this_reference_to_local/
         auto make = [&, miv = std::move(min_values), mav = std::move(max_values)] (sort_range r, size_t i) -> Tu
         {
-            return std::make_tuple(r, range{miv[i], mav[i]});
+            return std::make_tuple(r, Range{miv[i], mav[i]});
         };
         auto ranges = std::vector<Tu>
         {
@@ -94,13 +94,13 @@ namespace
 
 
     void
-    sort(sort_range sort_range, subvec<rgbi> colors)
+    sort(sort_range sort_range, SubVec<Rgbi> colors)
     {
-        auto sort = [&](std::function<float (const rgbi& c)> conv)
+        auto sort = [&](std::function<float (const Rgbi& c)> conv)
         {
             std::sort(colors.begin(), colors.end(), [&]
             (
-                const rgbi& lhs, const rgbi& rhs)
+                const Rgbi& lhs, const Rgbi& rhs)
                 {
                     return conv(lhs) < conv(rhs);
                 }
@@ -109,16 +109,16 @@ namespace
 
         switch(sort_range)
         {
-        case sort_range::r: sort([](const rgbi& c) -> float { return c.r; }); break;
-        case sort_range::g: sort([](const rgbi& c) -> float { return c.g; }); break;
-        case sort_range::b: sort([](const rgbi& c) -> float { return c.b; }); break;
+        case sort_range::r: sort([](const Rgbi& c) -> float { return c.r; }); break;
+        case sort_range::g: sort([](const Rgbi& c) -> float { return c.g; }); break;
+        case sort_range::b: sort([](const Rgbi& c) -> float { return c.b; }); break;
         }
     }
 
 
 
     size_t
-    find_median_index(sort_range sort, subvec<rgbi> colors, range<float> range)
+    find_median_index(sort_range sort, SubVec<Rgbi> colors, Range<float> range)
     {
         const auto median = range.get_distance()/2 + range.lower_bound;
         // todo(Gustav): make non-linear
@@ -136,8 +136,8 @@ namespace
 
 
 
-    std::vector<rgbi>
-    median_cut(subvec<rgbi> src, int depth, bool split_middle)
+    std::vector<Rgbi>
+    extract_palette_median_cut(SubVec<Rgbi> src, int depth, bool split_middle)
     {
         if(src.empty())
         {
@@ -146,7 +146,7 @@ namespace
 
         if(depth <= 0 || src.size() < 2)
         {
-            auto sum = rgb{0,0,0};
+            auto sum = Rgb{0,0,0};
             float total = 0;
             for(const auto& c: src)
             {
@@ -170,8 +170,8 @@ namespace
         const auto left = src.sub(0, median);
         const auto right = src.sub(median, src.size());
 
-        auto ret = median_cut(left, depth - 1, split_middle);
-        const auto rhs = median_cut(right, depth - 1, split_middle);
+        auto ret = extract_palette_median_cut(left, depth - 1, split_middle);
+        const auto rhs = extract_palette_median_cut(right, depth - 1, split_middle);
         ret.insert(ret.end(), rhs.begin(), rhs.end());
 
         return ret;
@@ -180,11 +180,11 @@ namespace
 
 namespace euphoria::core
 {
-    std::vector<rgbi>
-    median_cut(const image& image, int depth, bool middle_split)
+    std::vector<Rgbi>
+    extract_palette_median_cut(const Image& image, int depth, bool middle_split)
     {
         auto all_colors = extract_all_colors(image);
-        auto colors = ::median_cut(subvec{&all_colors}, depth, middle_split);
+        auto colors = ::extract_palette_median_cut(SubVec{&all_colors}, depth, middle_split);
         return colors;
     }
 }

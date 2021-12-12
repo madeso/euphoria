@@ -15,10 +15,10 @@
 
 namespace euphoria::core
 {
-    struct angle;
-    struct rgb;
-    struct rgba;
-    struct rgbai;
+    struct Angle;
+    struct Rgb;
+    struct Rgba;
+    struct Rgbai;
 }
 
 namespace euphoria::render
@@ -42,9 +42,9 @@ namespace euphoria::window
     };
 
     ImVec2
-    con(const core::vec2f &v);
+    con(const core::Vec2f &v);
 
-    core::vec2f
+    core::Vec2f
     con(const ImVec2 &v);
 }
 
@@ -95,9 +95,9 @@ namespace euphoria::window::imgui
     angle_slider
     (
         const char* name,
-        core::angle* angle,
-        const core::angle& min_deg,
-        const core::angle& max_deg
+        core::Angle* angle,
+        const core::Angle& min_deg,
+        const core::Angle& max_deg
     );
 
     bool
@@ -112,13 +112,13 @@ namespace euphoria::window::imgui
     image(render::texture2d* texture);
 
     bool
-    color_edit(const char* name, core::rgb* rgb);
+    color_edit(const char* name, core::Rgb* rgb);
 
     bool
-    color_edit(const char* name, core::rgba* rgb);
+    color_edit(const char* name, core::Rgba* rgb);
 
     bool
-    color_edit(const char* name, core::rgbai* rgb);
+    color_edit(const char* name, core::Rgbai* rgb);
 
     bool
     begin_fixed_overlay

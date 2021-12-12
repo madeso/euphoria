@@ -7,16 +7,16 @@
 namespace euphoria::core
 {
     // defined elsewhere
-    struct ray2f;
-    struct ray3f;
-    struct unit_ray3f;
-    struct aabb;
-    struct sphere;
-    struct plane;
+    struct Ray2f;
+    struct Ray3f;
+    struct UnitRay3f;
+    struct Aabb;
+    struct Sphere;
+    struct Plane;
 
     // defined later
-    struct ray3_aabb_result;
-    struct ray2_ray2_result;
+    struct Ray3AabbResult;
+    struct Ray2Ray2Result;
 
 
     ///////////////////////////////////////////////////////////////////////////
@@ -25,19 +25,19 @@ namespace euphoria::core
     // --------------------------------
     // ray - aabb
 
-    ray3_aabb_result
-    get_intersection(const unit_ray3f& r, const aabb& aabb);
+    Ray3AabbResult
+    get_intersection(const UnitRay3f& r, const Aabb& aabb);
 
     float
-    get_intersection(const unit_ray3f& r, const plane& p);
+    get_intersection(const UnitRay3f& r, const Plane& p);
 
 
 
     // --------------------------------
     // ray - ray
 
-    ray2_ray2_result
-    get_intersection(const ray2f& lhs, const ray2f& rhs);
+    Ray2Ray2Result
+    get_intersection(const Ray2f& lhs, const Ray2f& rhs);
 
 
 
@@ -45,10 +45,10 @@ namespace euphoria::core
     // plane - point
 
     float
-    get_distance_between(const plane& plane, const vec3f& p);
+    get_distance_between(const Plane& plane, const Vec3f& p);
 
-    vec3f
-    get_closest_point(const plane& plane, const vec3f& p);
+    Vec3f
+    get_closest_point(const Plane& plane, const Vec3f& p);
 
 
 
@@ -56,10 +56,10 @@ namespace euphoria::core
     // ray - point
 
     float
-    get_distance_between(const unit_ray3f& ray, const vec3f& p);
+    get_distance_between(const UnitRay3f& ray, const Vec3f& p);
 
-    vec3f
-    get_closest_point(const unit_ray3f& ray, const vec3f& c);
+    Vec3f
+    get_closest_point(const UnitRay3f& ray, const Vec3f& c);
 
 
 
@@ -67,7 +67,7 @@ namespace euphoria::core
     // sphere - sphere
 
     bool
-    get_intersection(const sphere& lhs, const vec3f& lhs_center, const sphere& rhs, const vec3f& rhs_center);
+    get_intersection(const Sphere& lhs, const Vec3f& lhs_center, const Sphere& rhs, const Vec3f& rhs_center);
 
 
 
@@ -75,10 +75,10 @@ namespace euphoria::core
     // sphere - point
 
     bool
-    contains_point(const sphere& sphere, const vec3f& sphere_center, const vec3f& point);
+    contains_point(const Sphere& sphere, const Vec3f& sphere_center, const Vec3f& point);
 
-    vec3f
-    get_closest_point(const sphere& sphere, const vec3f& sphere_center, const vec3f& point);
+    Vec3f
+    get_closest_point(const Sphere& sphere, const Vec3f& sphere_center, const Vec3f& point);
 
 
 
@@ -87,7 +87,7 @@ namespace euphoria::core
 
     // returns distance along the ray where intersection occured or -1 if nothing occured
     float
-    get_intersection(const unit_ray3f& r, const sphere& sphere, const vec3f& sphere_center);
+    get_intersection(const UnitRay3f& r, const Sphere& sphere, const Vec3f& sphere_center);
 
 
 
@@ -95,10 +95,10 @@ namespace euphoria::core
     // aabb - point
 
     bool
-    contains_point(const aabb& aabb, const vec3f& point);
+    contains_point(const Aabb& aabb, const Vec3f& point);
 
-    vec3f
-    get_closest_point(const aabb& aabb, const vec3f& point);
+    Vec3f
+    get_closest_point(const Aabb& aabb, const Vec3f& point);
 
 
 
@@ -106,7 +106,7 @@ namespace euphoria::core
     // point inside 2d geoms
 
     bool
-    is_point_in_triangle(const vec2f& a, const vec2f& b, const vec2f& c, const vec2f& p);
+    is_point_in_triangle(const Vec2f& a, const Vec2f& b, const Vec2f& c, const Vec2f& p);
 
 
 
@@ -114,18 +114,18 @@ namespace euphoria::core
     // collision results
 
     // todo(Gustav): replace with std::optional?
-    struct ray2_ray2_result
+    struct Ray2Ray2Result
     {
         bool collision;
         bool is_parallel;
 
-        vec2f point;
+        Vec2f point;
         float u;
         float v;
     };
 
     // todo(Gustav): replace with std::optional?
-    struct ray3_aabb_result
+    struct Ray3AabbResult
     {
         bool intersected;
 

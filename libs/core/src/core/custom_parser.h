@@ -8,7 +8,7 @@
 namespace euphoria::core
 {
     template<typename T>
-    struct custom_argparser
+    struct CustomArgparser
     {
         enum { value = 0 };
 
@@ -22,13 +22,13 @@ namespace euphoria::core
     std::string
     custom_argparser_to_string(const T& t)
     {
-        return custom_argparser<T>::to_string(t);
+        return CustomArgparser<T>::to_string(t);
     }
 
     template<typename T>
-    result<T>
+    Result<T>
     custom_argparser_parse(const std::string& value)
     {
-        return custom_argparser<T>::parse(value);
+        return CustomArgparser<T>::parse(value);
     }
 }

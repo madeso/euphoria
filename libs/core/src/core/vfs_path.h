@@ -8,7 +8,7 @@
 
 namespace euphoria::core
 {
-    struct string_builder;
+    struct StringBuilder;
 
     namespace vfs
     {
@@ -32,35 +32,35 @@ namespace euphoria::core
         // a single dot (.) represents the "current" folder (relative path)
         // two dots (..) represents the parent folder (relative path)
 
-        struct file_path;
-        struct dir_path;
+        struct FilePath;
+        struct DirPath;
 
 
-        struct file_path
+        struct FilePath
         {
             // apply only minor changes, return null on invalid
             static
-            std::optional<file_path>
+            std::optional<FilePath>
             from_script(const std::string& path);
 
 
             // do everything possible to convert from dirty path to valid path
             static
-            std::optional<file_path>
+            std::optional<FilePath>
             from_dirty_source(const std::string& path);
 
 
             // optional or not, log if error
             static
-            std::optional<file_path>
+            std::optional<FilePath>
             from_script_or_empty(const std::string& path);
 
 
-            [[nodiscard]] std::tuple<dir_path, std::string>
+            [[nodiscard]] std::tuple<DirPath, std::string>
             split_directories_and_file() const;
 
 
-            [[nodiscard]] dir_path
+            [[nodiscard]] DirPath
             get_directory() const;
 
 
@@ -76,16 +76,16 @@ namespace euphoria::core
             get_extension() const;
 
 
-            [[nodiscard]] file_path
+            [[nodiscard]] FilePath
             set_extension_copy(const std::string& ext) const;
 
 
-            [[nodiscard]] file_path
+            [[nodiscard]] FilePath
             extend_extension_copy(const std::string& ext) const;
 
 
             explicit
-            file_path(const std::string& p);
+            FilePath(const std::string& p);
 
 
             template
@@ -93,10 +93,10 @@ namespace euphoria::core
                 typename OStream,
                 typename X = std::enable_if_t
                 <
-                    !std::is_same<OStream, core::string_builder>::value
+                    !std::is_same<OStream, core::StringBuilder>::value
                 >
             >
-            friend OStream& operator<<(OStream& os, const file_path& p)
+            friend OStream& operator<<(OStream& os, const FilePath& p)
             {
                 os << p.path;
                 return os;
@@ -109,24 +109,24 @@ namespace euphoria::core
         };
 
 
-        struct dir_path
+        struct DirPath
         {
             [[nodiscard]]
-            static dir_path
+            static DirPath
             from_root();
 
 
             [[nodiscard]]
-            static dir_path
+            static DirPath
             from_relative();
 
 
             [[nodiscard]]
-            static dir_path
+            static DirPath
             from_dirs(const std::vector<std::string>& dirs);
 
 
-            [[nodiscard]] file_path
+            [[nodiscard]] FilePath
             get_file(const std::string& filename) const;
 
 
@@ -138,7 +138,7 @@ namespace euphoria::core
             contains_relative() const;
 
 
-            [[nodiscard]] dir_path
+            [[nodiscard]] DirPath
             get_parent_directory() const;
 
 
@@ -152,12 +152,12 @@ namespace euphoria::core
 
 
             [[nodiscard]]
-            dir_path
+            DirPath
             single_cd_copy(const std::string& single) const;
 
 
             explicit
-            dir_path(const std::string& p);
+            DirPath(const std::string& p);
 
 
             template
@@ -165,10 +165,10 @@ namespace euphoria::core
                 typename OStream,
                 typename X = std::enable_if_t
                 <
-                    !std::is_same<OStream, core::string_builder>::value
+                    !std::is_same<OStream, core::StringBuilder>::value
                 >
             >
-            friend OStream& operator<<(OStream& os, const dir_path& p)
+            friend OStream& operator<<(OStream& os, const DirPath& p)
             {
                 os << p.path;
                 return os;
@@ -180,52 +180,52 @@ namespace euphoria::core
         };
 
 
-        std::optional<dir_path>
-        resolve_relative(const dir_path& base);
+        std::optional<DirPath>
+        resolve_relative(const DirPath& base);
 
 
-        std::optional<dir_path>
-        resolve_relative(const dir_path& base, const dir_path& root);
+        std::optional<DirPath>
+        resolve_relative(const DirPath& base, const DirPath& root);
 
 
-        std::optional<file_path>
-        resolve_relative(const file_path& base);
+        std::optional<FilePath>
+        resolve_relative(const FilePath& base);
 
 
-        std::optional<file_path>
-        resolve_relative(const file_path& base, const dir_path& root);
+        std::optional<FilePath>
+        resolve_relative(const FilePath& base, const DirPath& root);
 
 
-        dir_path
-        join(const dir_path& lhs, const dir_path& rhs);
+        DirPath
+        join(const DirPath& lhs, const DirPath& rhs);
 
 
-        file_path
-        join(const dir_path& lhs, const file_path& rhs);
-
-
-        bool
-        operator==(const dir_path& lhs, const dir_path& rhs);
+        FilePath
+        join(const DirPath& lhs, const FilePath& rhs);
 
 
         bool
-        operator==(const file_path& lhs, const file_path& rhs);
+        operator==(const DirPath& lhs, const DirPath& rhs);
 
 
         bool
-        operator!=(const dir_path& lhs, const dir_path& rhs);
+        operator==(const FilePath& lhs, const FilePath& rhs);
 
 
         bool
-        operator!=(const file_path& lhs, const file_path& rhs);
+        operator!=(const DirPath& lhs, const DirPath& rhs);
 
 
         bool
-        operator<(const dir_path& lhs, const dir_path& rhs);
+        operator!=(const FilePath& lhs, const FilePath& rhs);
 
 
         bool
-        operator<(const file_path& lhs, const file_path& rhs);
+        operator<(const DirPath& lhs, const DirPath& rhs);
+
+
+        bool
+        operator<(const FilePath& lhs, const FilePath& rhs);
     }
 
 }

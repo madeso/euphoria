@@ -14,8 +14,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::vec3f const& lhs,
-            core::vec3f const& rhs,
+            core::Vec3f const& lhs,
+            core::Vec3f const& rhs,
             const approx_data& data)
     {
         return vec3_approximately_equal(lhs, rhs, data);
@@ -24,8 +24,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::rgb const& lhs,
-            core::rgb const& rhs,
+            core::Rgb const& lhs,
+            core::Rgb const& rhs,
             const approx_data& data)
     {
         return approximately_equal(lhs.r, rhs.r, data)
@@ -36,8 +36,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::hsl const& lhs,
-            core::hsl const& rhs,
+            core::Hsl const& lhs,
+            core::Hsl const& rhs,
             const approx_data& data)
     {
         return approximately_equal(lhs.h.in_degrees(), rhs.h.in_degrees(), data)
@@ -48,8 +48,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::unit3f const& lhs,
-            core::unit3f const& rhs,
+            core::Unit3f const& lhs,
+            core::Unit3f const& rhs,
             const approx_data& data)
     {
         return vec3_approximately_equal(lhs, rhs, data);
@@ -58,8 +58,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::rgba const& lhs,
-            core::rgba const& rhs,
+            core::Rgba const& lhs,
+            core::Rgba const& rhs,
             const approx_data& data)
     {
         return approximately_equal(lhs.r, rhs.r, data)
@@ -72,8 +72,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::quatf const& lhs,
-            core::quatf const& rhs,
+            core::Quatf const& lhs,
+            core::Quatf const& rhs,
             const approx_data& data)
     {
         return approximately_equal(1.0f, dot(lhs, rhs), data);
@@ -82,8 +82,8 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::axis_angle const& lhs,
-            core::axis_angle const& rhs,
+            core::AxisAngle const& lhs,
+            core::AxisAngle const& rhs,
             const approx_data& data)
     {
         if(approximately_equal(

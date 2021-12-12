@@ -11,12 +11,12 @@
 namespace euphoria::core::markov
 {
     template <typename T>
-    struct some
+    struct Some
     {
         std::deque<T> value;
         size_t max;
 
-        explicit some(size_t m) : max(m) {}
+        explicit Some(size_t m) : max(m) {}
 
         void
         add(T t)
@@ -31,12 +31,12 @@ namespace euphoria::core::markov
     };
 
     template <typename T>
-    struct probability
+    struct Probability
     {
         std::map<T, float> data;
 
         T
-        get(core::random* rnd) const
+        get(core::Random* rnd) const
         {
             float value = rnd->get_next_float01();
             for(auto it: data)
@@ -53,7 +53,7 @@ namespace euphoria::core::markov
     };
 
     template <typename T>
-    struct probability_builder
+    struct ProbabilityBuilder
     {
         int total = 0;
         std::map<T, int> data;
@@ -74,10 +74,10 @@ namespace euphoria::core::markov
             }
         }
 
-        probability<T>
+        Probability<T>
         build() const
         {
-            probability<T> r;
+            Probability<T> r;
             for(auto it: data)
             {
                 r.data[it.first] = it.second / static_cast<float>(total);
@@ -87,16 +87,16 @@ namespace euphoria::core::markov
     };
 
     template <typename T>
-    struct chain
+    struct Chain
     {
-        std::map<std::deque<T>, probability<std::shared_ptr<T>>> next;
+        std::map<std::deque<T>, Probability<std::shared_ptr<T>>> next;
         size_t order;
 
         std::vector<T>
-        generate(core::random* rnd) const
+        generate(core::Random* rnd) const
         {
             std::vector<T> r;
-            some<T> memory {order};
+            Some<T> memory {order};
             while(true)
             {
                 auto found = next.find(memory.value);
@@ -114,18 +114,18 @@ namespace euphoria::core::markov
     };
 
     template <typename T>
-    struct chain_builder
+    struct ChainBuilder
     {
-        std::map<std::deque<T>, probability_builder<std::shared_ptr<T>>> next;
+        std::map<std::deque<T>, ProbabilityBuilder<std::shared_ptr<T>>> next;
         size_t order;
 
-        chain_builder(int o) : order(o) {}
+        ChainBuilder(int o) : order(o) {}
 
         void
         add(const std::vector<T>& ts)
         {
             ASSERT(!ts.empty());
-            some<T> memory {order};
+            Some<T> memory {order};
 
             for(const auto& t: ts)
             {
@@ -137,10 +137,10 @@ namespace euphoria::core::markov
             next[memory.value].add(nullptr);
         }
 
-        chain<T>
+        Chain<T>
         build() const
         {
-            chain<T> r;
+            Chain<T> r;
             r.order = order;
             for(auto n: next)
             {

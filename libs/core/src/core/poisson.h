@@ -10,40 +10,40 @@
 
 namespace euphoria::core
 {
-    struct random;
+    struct Random;
 
-    struct poisson_worker
+    struct PoissonWorker
     {
-        poisson_worker(const rectf& area, random* random, float r, float bs, int k);
+        PoissonWorker(const Rectf& area, Random* random, float r, float bs, int k);
 
-        rectf area;
-        random* rand;
+        Rectf area;
+        Random* rand;
         float r;
         float bounds_check;
         int k;
 
         float w;
-        table<int> grid;
+        Table<int> grid;
         std::vector<int> active;
-        std::vector<vec2f> samples;
+        std::vector<Vec2f> samples;
 
         [[nodiscard]] bool
         is_done() const;
 
-        std::optional<std::tuple<vec2f, vec2f>>
+        std::optional<std::tuple<Vec2f, Vec2f>>
         step();
 
-        [[nodiscard]] vec2f random_point() const;
-        [[nodiscard]] vec2i point_to_index(const vec2f& p) const;
+        [[nodiscard]] Vec2f random_point() const;
+        [[nodiscard]] Vec2i point_to_index(const Vec2f& p) const;
 
         bool
-        can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos);
+        can_place_at(const Vec2f& potential_sample, const Vec2i& potential_sample_pos);
 
-        std::tuple<bool, vec2f>
+        std::tuple<bool, Vec2f>
         try_place(int active_index);
     };
 
     // r = minimum distance
-    std::vector<vec2f> poisson_sample(const rectf& area, random* random, float r, float bs=-1.0f, int k=30);
+    std::vector<Vec2f> poisson_sample(const Rectf& area, Random* random, float r, float bs=-1.0f, int k=30);
 }
 

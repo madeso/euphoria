@@ -10,9 +10,9 @@ namespace euphoria::core
 {
     // https://en.wikipedia.org/wiki/Linear_congruential_generator
     template<typename I, I a, I c, I modulus>
-    struct random_lcg
+    struct RandomLcg
     {
-        explicit random_lcg(I s) : state(s) {}
+        explicit RandomLcg(I s) : state(s) {}
 
         I state;
 
@@ -26,14 +26,14 @@ namespace euphoria::core
     };
 
 
-    using random_knuth_lcg = random_lcg<u64, std::numeric_limits<u64>::max() /* 2^64 */, 6364136223846793005, 1442695040888963407>;
+    using random_knuth_lcg = RandomLcg<U64, std::numeric_limits<U64>::max() /* 2^64 */, 6364136223846793005, 1442695040888963407>;
 
 
     // https://en.wikipedia.org/wiki/Xorshift
     template<typename I, I a, I b, I c>
-    struct random_xorshift
+    struct RandomXorshift
     {
-        explicit random_xorshift(I s) : state(s) {}
+        explicit RandomXorshift(I s) : state(s) {}
 
         I state;
 
@@ -59,7 +59,7 @@ namespace euphoria::core
     };
 
 
-    using random_xorshift32 = random_xorshift<u32, 13, 17, 5>;
-    using random_xorshift64 = random_xorshift<u64, 13, 17, 7>;
+    using random_xorshift32 = RandomXorshift<U32, 13, 17, 5>;
+    using random_xorshift64 = RandomXorshift<U64, 13, 17, 7>;
 }
 
