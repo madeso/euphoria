@@ -5,9 +5,9 @@
 
 namespace euphoria::render
 {
-    struct viewport
+    struct Viewport
     {
-        viewport(const core::Recti& r);
+        Viewport(const core::Recti& r);
 
         /** Sets the gl viewport.
          */

@@ -9,19 +9,19 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    struct buffer2d
+    struct Buffer2d
     {
     public:
-        buffer2d(const core::BufferBuilder2& bb);
+        Buffer2d(const core::BufferBuilder2& bb);
 
         void
         draw() const;
 
     private:
         int index_count;
-        vertex_buffer vbo;
-        point_layout vao;
-        index_buffer ebo;
+        VertexBuffer vbo;
+        PointLayout vao;
+        IndexBuffer ebo;
     };
 
 }

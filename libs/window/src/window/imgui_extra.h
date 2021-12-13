@@ -23,7 +23,7 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    struct texture2d;
+    struct Texture2;
 }
 
 struct ImVec2;
@@ -105,11 +105,11 @@ namespace euphoria::window::imgui
 
 
     ImTextureID
-    c_texture_to_imgui(render::texture2d* texture);
+    c_texture_to_imgui(render::Texture2* texture);
 
 
     void
-    image(render::texture2d* texture);
+    image(render::Texture2* texture);
 
     bool
     color_edit(const char* name, core::Rgb* rgb);

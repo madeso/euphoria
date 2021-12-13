@@ -20,7 +20,7 @@ namespace euphoria::engine
     {
         COMPONENT_CONSTRUCTOR_DEFINITION(component_sprite)
 
-        std::shared_ptr<render::texture2d> texture;
+        std::shared_ptr<render::Texture2> texture;
     };
 
     struct components
@@ -35,7 +35,7 @@ namespace euphoria::engine
     get_sprite_rect
     (
         const core::Vec2f& position,
-        const render::texture2d& texture
+        const render::Texture2& texture
     );
 }
 

@@ -8,12 +8,12 @@
 
 namespace euphoria::render
 {
-    shader_attribute::shader_attribute
+    ShaderAttribute::ShaderAttribute
     (
         glint a_id,
-        shader_attribute_type a_type,
+        ShaderAttributeType a_type,
         std::string a_name,
-        shader_attribute_source a_source,
+        ShaderAttributeSource a_source,
         bool a_normalize
     )
         : id(a_id)
@@ -26,32 +26,32 @@ namespace euphoria::render
 
 
     int
-    shader_attribute::get_element_count() const
+    ShaderAttribute::get_element_count() const
     {
         switch(type)
         {
-        case shader_attribute_type::float1: return 1;
-        case shader_attribute_type::float2: return 2;
-        case shader_attribute_type::float3: return 3;
-        case shader_attribute_type::float4: return 4;
-        case shader_attribute_type::float33: return 3 * 3;
-        case shader_attribute_type::float44: return 4 * 4;
+        case ShaderAttributeType::float1: return 1;
+        case ShaderAttributeType::float2: return 2;
+        case ShaderAttributeType::float3: return 3;
+        case ShaderAttributeType::float4: return 4;
+        case ShaderAttributeType::float33: return 3 * 3;
+        case ShaderAttributeType::float44: return 4 * 4;
         default: DIE("Unhandled shader type"); return 0;
         }
     }
 
 
     int
-    shader_attribute::get_byte_size() const
+    ShaderAttribute::get_byte_size() const
     {
         switch(type)
         {
-        case shader_attribute_type::float1:
-        case shader_attribute_type::float2:
-        case shader_attribute_type::float3:
-        case shader_attribute_type::float4:
-        case shader_attribute_type::float33:
-        case shader_attribute_type::float44:
+        case ShaderAttributeType::float1:
+        case ShaderAttributeType::float2:
+        case ShaderAttributeType::float3:
+        case ShaderAttributeType::float4:
+        case ShaderAttributeType::float33:
+        case ShaderAttributeType::float44:
             return core::c_sizet_to_int(sizeof(float)) * get_element_count();
         default:
             DIE("Unhandled shader type"); return 0;
@@ -60,7 +60,7 @@ namespace euphoria::render
 
 
     bool
-    operator==(const shader_attribute& lhs, const shader_attribute& rhs)
+    operator==(const ShaderAttribute& lhs, const ShaderAttribute& rhs)
     {
         return
             lhs.name == rhs.name &&

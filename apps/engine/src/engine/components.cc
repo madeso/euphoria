@@ -27,7 +27,7 @@ namespace euphoria::engine
     COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)
 
     core::Rectf
-    get_sprite_rect(const core::Vec2f& position, const render::texture2d& texture)
+    get_sprite_rect(const core::Vec2f& position, const render::Texture2& texture)
     {
         return core::Rectf::from_position_anchor_width_and_height
         (

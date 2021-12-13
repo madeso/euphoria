@@ -4,14 +4,14 @@
 
 namespace euphoria::render
 {
-    struct shader;
+    struct ShaderProgram;
 }
 
 namespace euphoria::render::attributes2d
 {
-    const shader_attribute&
+    const ShaderAttribute&
     vertex();
 
     void
-    prebind_shader(shader* shader);
+    prebind_shader(ShaderProgram* shader);
 }

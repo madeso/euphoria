@@ -22,7 +22,7 @@
 
 namespace euphoria::render
 {
-    compiled_mesh_material::compiled_mesh_material()
+    CompiledMeshMaterial::CompiledMeshMaterial()
         : ambient(core::NamedColor::white)
         , diffuse(core::NamedColor::white)
         , specular(core::NamedColor::white)
@@ -32,10 +32,10 @@ namespace euphoria::render
 
 
     void
-    compiled_mesh_material::set_texture
+    CompiledMeshMaterial::set_texture
     (
         const core::EnumValue& name,
-        std::shared_ptr<texture2d> texture
+        std::shared_ptr<Texture2> texture
     )
     {
         if(textures.find(name) != textures.end())
@@ -47,13 +47,13 @@ namespace euphoria::render
 
 
     void
-    compiled_mesh_material::apply
+    CompiledMeshMaterial::apply
     (
         const core::mat4f& model_matrix,
         const core::mat4f& projection_matrix,
         const core::mat4f& view_matrix,
         const core::Vec3f& camera,
-        const light& light
+        const Light& light
     ) const
     {
         shader->use_shader();
@@ -90,7 +90,7 @@ namespace euphoria::render
 
 
     void
-    compiled_mesh_material::load_default_materials_from_shader(texture_cache* cache)
+    CompiledMeshMaterial::load_default_materials_from_shader(TextureCache* cache)
     {
         for(const auto& default_texture: shader->default_textures)
         {
@@ -106,7 +106,7 @@ namespace euphoria::render
 
 
     bool
-    compiled_mesh_material::validate() const
+    CompiledMeshMaterial::validate() const
     {
         std::set<core::EnumValue> shader_values;
 
@@ -161,8 +161,8 @@ namespace euphoria::render
     convert_points_to_vertex_buffer
     (
             const std::vector<core::MeshPoint>& points,
-            const std::vector<shader_attribute>& attributes,
-            vertex_buffer* vb
+            const std::vector<ShaderAttribute>& attributes,
+            VertexBuffer* vb
     )
     {
         constexpr auto add_float2 = [](std::vector<float>* dst, const core::Vec2f& src)
@@ -180,7 +180,7 @@ namespace euphoria::render
         const auto total_attributes = std::accumulate
         (
             attributes.begin(), attributes.end(), 0,
-            [](int count, const shader_attribute& att) -> int
+            [](int count, const ShaderAttribute& att) -> int
             {
                 return count + att.get_element_count();
             }
@@ -192,16 +192,16 @@ namespace euphoria::render
             {
                 switch(att.source)
                 {
-                case shader_attribute_source::vertex:
-                    ASSERT(att.type == shader_attribute_type::float3);
+                case ShaderAttributeSource::vertex:
+                    ASSERT(att.type == ShaderAttributeType::float3);
                     add_float3(&data, point.vertex);
                     break;
-                case shader_attribute_source::normal:
-                    ASSERT(att.type == shader_attribute_type::float3);
+                case ShaderAttributeSource::normal:
+                    ASSERT(att.type == ShaderAttributeType::float3);
                     add_float3(&data, point.normal);
                     break;
-                case shader_attribute_source::uv:
-                    ASSERT(att.type == shader_attribute_type::float2);
+                case ShaderAttributeSource::uv:
+                    ASSERT(att.type == ShaderAttributeType::float2);
                     add_float2(&data, point.uv);
                     break;
                 default: DIE("Unhandled case");
@@ -213,7 +213,7 @@ namespace euphoria::render
 
 
     void
-    convert_tris_to_index_buffer(const std::vector<core::MeshFace>& faces, index_buffer* b)
+    convert_tris_to_index_buffer(const std::vector<core::MeshFace>& faces, IndexBuffer* b)
     {
         std::vector<unsigned int> data;
         data.reserve(faces.size() * 3);
@@ -226,17 +226,17 @@ namespace euphoria::render
         b->set_data(data);
     }
 
-    std::shared_ptr<compiled_mesh>
+    std::shared_ptr<CompiledMesh>
     compile_mesh
     (
             const core::Mesh& mesh,
-            material_shader_cache* shader_cache,
-            texture_cache* texture_cache,
+            MaterialShaderCache* shader_cache,
+            TextureCache* texture_cache,
             const core::vfs::DirPath& texture_folder,
             const std::string& debug_name
     )
     {
-        std::shared_ptr<compiled_mesh> ret {new compiled_mesh {}};
+        std::shared_ptr<CompiledMesh> ret {new CompiledMesh {}};
 
         // todo(Gustav): add default material if there are 0 materials
 
@@ -245,7 +245,7 @@ namespace euphoria::render
         for(const auto& material_src: mesh.materials)
         {
             material_index += 1;
-            compiled_mesh_material mat;
+            CompiledMeshMaterial mat;
             mat.ambient = material_src.ambient;
             mat.diffuse = material_src.diffuse;
             mat.specular = material_src.specular;
@@ -309,7 +309,7 @@ namespace euphoria::render
         const auto material_count = ret->materials.size();
 
         // todo(Gustav): move this to a data file, load the mesh dynamically
-        const auto attributes = std::vector<shader_attribute>
+        const auto attributes = std::vector<ShaderAttribute>
         {
             attributes3d::vertex(),
             attributes3d::normal(),
@@ -318,11 +318,11 @@ namespace euphoria::render
 
         for(const auto& part_src: mesh.parts)
         {
-            std::shared_ptr<compiled_mesh_part> part {new compiled_mesh_part()};
+            std::shared_ptr<CompiledMeshPart> part {new CompiledMeshPart()};
 
-            point_layout::bind(&part->config);
-            vertex_buffer::bind(&part->data);
-            index_buffer::bind(&part->tris);
+            PointLayout::bind(&part->config);
+            VertexBuffer::bind(&part->data);
+            IndexBuffer::bind(&part->tris);
 
             convert_points_to_vertex_buffer
                     (
@@ -335,9 +335,9 @@ namespace euphoria::render
             convert_tris_to_index_buffer(part_src.faces, &part->tris);
             part->tri_count = core::c_sizet_to_int(part_src.faces.size());
 
-            index_buffer::bind(nullptr);
-            vertex_buffer::bind(nullptr);
-            point_layout::bind(nullptr);
+            IndexBuffer::bind(nullptr);
+            VertexBuffer::bind(nullptr);
+            PointLayout::bind(nullptr);
 
             part->material = part_src.material;
 
@@ -355,14 +355,14 @@ namespace euphoria::render
 
 
     void
-    compiled_mesh::render
+    CompiledMesh::render
     (
         const core::mat4f& model_matrix,
         const core::mat4f& projection_matrix,
         const core::mat4f& view_matrix,
         const core::Vec3f& camera,
-        const light& light,
-        const std::shared_ptr<material_override>& overridden_materials
+        const Light& light,
+        const std::shared_ptr<MaterialOverride>& overridden_materials
     )
     {
         ASSERT
@@ -387,11 +387,11 @@ namespace euphoria::render
                             light
                     );
 
-            point_layout::bind(&part->config);
-            index_buffer::bind(&part->tris);
-            part->tris.draw(render_mode::triangles, part->tri_count);
-            index_buffer::bind(nullptr);
-            point_layout::bind(nullptr);
+            PointLayout::bind(&part->config);
+            IndexBuffer::bind(&part->tris);
+            part->tris.draw(RenderMode::triangles, part->tri_count);
+            IndexBuffer::bind(nullptr);
+            PointLayout::bind(nullptr);
         }
     }
 

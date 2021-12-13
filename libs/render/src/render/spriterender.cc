@@ -15,7 +15,7 @@ namespace euphoria::render
 {
     //////////////////////////////////////////////////////////////////////////
 
-    draw_data::draw_data()
+    DrawData::DrawData()
         : rotation(0.0_rad)
         , scale(core::Scale2f(1, 1))
         , tint(core::Rgba(core::NamedColor::white))
@@ -23,24 +23,24 @@ namespace euphoria::render
     }
 
 
-    draw_data&
-    draw_data::set_rotation(const core::Angle& r)
+    DrawData&
+    DrawData::set_rotation(const core::Angle& r)
     {
         rotation = r;
         return *this;
     }
 
 
-    draw_data&
-    draw_data::set_scale(const core::Scale2f& s)
+    DrawData&
+    DrawData::set_scale(const core::Scale2f& s)
     {
         scale = s;
         return *this;
     }
 
 
-    draw_data&
-    draw_data::set_tint(const core::Rgba& t)
+    DrawData&
+    DrawData::set_tint(const core::Rgba& t)
     {
         tint = t;
         return *this;
@@ -50,7 +50,7 @@ namespace euphoria::render
     //////////////////////////////////////////////////////////////////////////
 
 
-    sprite_renderer::sprite_renderer(shader* shader)
+    SpriteRenderer::SpriteRenderer(ShaderProgram* shader)
         : sprite_shader(shader)
         , color_uniform(shader->get_uniform("color"))
         , model_uniform(shader->get_uniform("model"))
@@ -61,16 +61,16 @@ namespace euphoria::render
     }
 
 
-    sprite_renderer::~sprite_renderer()
+    SpriteRenderer::~SpriteRenderer()
     {
         single_quad_buffer.reset();
     }
 
 
     void
-    sprite_renderer::draw_rect
+    SpriteRenderer::draw_rect
     (
-        const texture2d& texture,
+        const Texture2& texture,
         const core::Rectf& sprite_area,
         const core::Rectf& texture_region,
         const core::Angle& rotation_angle,
@@ -122,11 +122,11 @@ namespace euphoria::render
 
 
     void
-    sprite_renderer::draw_sprite
+    SpriteRenderer::draw_sprite
     (
-        const texture2d& texture,
+        const Texture2& texture,
         const core::Rectf& position,
-        const draw_data& data
+        const DrawData& data
     )
     {
         draw_rect
@@ -142,9 +142,9 @@ namespace euphoria::render
 
 
     void
-    sprite_renderer::draw_ninepatch
+    SpriteRenderer::draw_ninepatch
     (
-        const scalable_sprite& ninepatch,
+        const ScalableSprite& ninepatch,
         const core::Rectf& rect,
         const core::Rgba& tint
     )
@@ -154,7 +154,7 @@ namespace euphoria::render
 
 
     void
-    sprite_renderer::init_render_data()
+    SpriteRenderer::init_render_data()
     {
         core::BufferBuilder2 data;
 
@@ -165,7 +165,7 @@ namespace euphoria::render
 
         data.add_quad(a, b, c, d);
 
-        single_quad_buffer = std::make_unique<buffer2d>(data);
+        single_quad_buffer = std::make_unique<Buffer2d>(data);
     }
 }
 

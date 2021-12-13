@@ -6,7 +6,7 @@
 
 namespace euphoria::render
 {
-    enum class shader_attribute_type
+    enum class ShaderAttributeType
     {
         float1,
         float2,
@@ -16,7 +16,7 @@ namespace euphoria::render
         float44
     };
 
-    enum class shader_attribute_source
+    enum class ShaderAttributeSource
     {
         unknown,
         vertex,
@@ -27,15 +27,15 @@ namespace euphoria::render
 
     /** Represents a shader attribute like vertex, normal or uv coord.
      */
-    struct shader_attribute
+    struct ShaderAttribute
     {
         // todo(Gustav): can this be made into a constexpr?
-        shader_attribute
+        ShaderAttribute
         (
             glint a_id,
-            shader_attribute_type a_type,
+            ShaderAttributeType a_type,
             std::string a_name,
-            shader_attribute_source a_source,
+            ShaderAttributeSource a_source,
             bool a_normalize = false
         );
 
@@ -49,18 +49,18 @@ namespace euphoria::render
         glint id;
 
         /// the type of the attribute
-        shader_attribute_type type;
+        ShaderAttributeType type;
 
         /// the name of the shader attribute
         std::string name;
 
         /// the source of the shader attribute
-        shader_attribute_source source;
+        ShaderAttributeSource source;
 
         // true if the attribute is normalized
         bool normalize;
     };
 
     bool
-    operator==(const shader_attribute& lhs, const shader_attribute& rhs);
+    operator==(const ShaderAttribute& lhs, const ShaderAttribute& rhs);
 }

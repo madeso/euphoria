@@ -32,10 +32,10 @@ namespace euphoria::core::argparse
 
 namespace euphoria::render
 {
-    struct material_shader_cache;
-    struct texture_cache;
-    struct world;
-    struct positioned_lines;
+    struct MaterialShaderCache;
+    struct TextureCache;
+    struct World;
+    struct PositionedLines;
 }
 
 namespace euphoria::window
@@ -53,17 +53,17 @@ namespace euphoria::t3d
     struct application
     {
         std::shared_ptr<window::engine> engine;
-        std::shared_ptr<render::viewport_handler> viewport_handler;
-        std::shared_ptr<render::material_shader_cache> material_shader_cache;
-        std::shared_ptr<render::texture_cache> texture_cache;
+        std::shared_ptr<render::ViewportHandler> viewport_handler;
+        std::shared_ptr<render::MaterialShaderCache> material_shader_cache;
+        std::shared_ptr<render::TextureCache> texture_cache;
         std::shared_ptr<t3d::tile_library> tile_library;
-        std::shared_ptr<render::world> world;
+        std::shared_ptr<render::World> world;
         core::Camera3 camera;
         std::shared_ptr<t3d::editor> editor;
         bool running = true;
         std::shared_ptr<window::sdl_timer> timer;
         bool immersive_mode = false;
-        std::shared_ptr<render::positioned_lines> grid;
+        std::shared_ptr<render::PositionedLines> grid;
         t3d::grid grid_data;
 
         bool environment_window = false;

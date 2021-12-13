@@ -36,7 +36,7 @@ namespace euphoria::gui
 
 
     void
-    container::render(render::sprite_renderer* renderer) const
+    container::render(render::SpriteRenderer* renderer) const
     {
         for(const std::shared_ptr<widget>& w: widgets)
         {

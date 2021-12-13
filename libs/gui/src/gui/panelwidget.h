@@ -17,7 +17,7 @@ namespace euphoria::gui
         NONCOPYABLE(panel_widget);
 
         void
-        render(render::sprite_renderer* renderer) const override;
+        render(render::SpriteRenderer* renderer) const override;
 
         void
         visit(visitor* visitor) override;

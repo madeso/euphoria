@@ -12,21 +12,21 @@ namespace euphoria::render
     /** Stores vertices, uv, etc.
      * Represents a OpenGL Vertex Buffer Object (VBO).
      */
-    struct vertex_buffer : public id
+    struct VertexBuffer : public Id
     {
     public:
-        vertex_buffer();
-        ~vertex_buffer();
+        VertexBuffer();
+        ~VertexBuffer();
 
-        NONCOPYABLE(vertex_buffer);
+        NONCOPYABLE(VertexBuffer);
 
         void
         set_data(const std::vector<float>& data);
 
         static void
-        bind(const vertex_buffer* vbo);
+        bind(const VertexBuffer* vbo);
 
-        static const vertex_buffer*&
+        static const VertexBuffer*&
         get_bound();
     };
 
@@ -34,29 +34,29 @@ namespace euphoria::render
     /** Stores what the data in the vertex_buffer is and how it is laid out/used
      * Represents a OpenGL Vertex Array Object (VAO).
      */
-    struct point_layout : public id
+    struct PointLayout : public Id
     {
     public:
-        point_layout();
-        ~point_layout();
+        PointLayout();
+        ~PointLayout();
 
-        NONCOPYABLE(point_layout);
+        NONCOPYABLE(PointLayout);
 
         void
-        bind_data(const shader_attribute& attribute, int stride, int offset);
+        bind_data(const ShaderAttribute& attribute, int stride, int offset);
 
         static void
-        bind(const point_layout* vao);
+        bind(const PointLayout* vao);
 
-        static const point_layout*&
+        static const PointLayout*&
         get_bound();
 
         // debug
-        std::vector<shader_attribute> attributes;
+        std::vector<ShaderAttribute> attributes;
     };
 
 
-    enum class render_mode
+    enum class RenderMode
     {
         lines,
         triangles
@@ -66,25 +66,25 @@ namespace euphoria::render
     /** Reuses points.
      * Represents a OpenGL Element Buffer Object (EBO).
      */
-    struct index_buffer : public id
+    struct IndexBuffer : public Id
     {
     public:
-        index_buffer();
-        ~index_buffer();
+        IndexBuffer();
+        ~IndexBuffer();
 
-        NONCOPYABLE(index_buffer);
+        NONCOPYABLE(IndexBuffer);
 
         void
         set_data(const std::vector<unsigned int>& indices);
 
         // count = the number of triangles
         void
-        draw(render_mode mode, int count) const;
+        draw(RenderMode mode, int count) const;
 
         static void
-        bind(const index_buffer* ebo);
+        bind(const IndexBuffer* ebo);
 
-        static const index_buffer*&
+        static const IndexBuffer*&
         get_bound();
     };
 

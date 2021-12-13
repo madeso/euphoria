@@ -14,39 +14,39 @@
 
 namespace euphoria::render
 {
-    struct scalable_sprite;
-    struct buffer2d;
+    struct ScalableSprite;
+    struct Buffer2d;
 
 
-    struct draw_data
+    struct DrawData
     {
-        draw_data();
+        DrawData();
         core::Angle rotation;
         core::Scale2f scale;
         core::Rgba tint;
 
-        draw_data&
+        DrawData&
         set_rotation(const core::Angle& r);
 
-        draw_data&
+        DrawData&
         set_scale(const core::Scale2f& s);
 
-        draw_data&
+        DrawData&
         set_tint(const core::Rgba& t);
     };
 
 
-    struct sprite_renderer
+    struct SpriteRenderer
     {
-        sprite_renderer(render::shader* shader);
-        ~sprite_renderer();
+        SpriteRenderer(render::ShaderProgram* shader);
+        ~SpriteRenderer();
 
-        NONCOPYABLE(sprite_renderer);
+        NONCOPYABLE(SpriteRenderer);
 
         void
         draw_rect
         (
-            const texture2d& texture,
+            const Texture2& texture,
             const core::Rectf& sprite_area,
             const core::Rectf& texture_region,
             const core::Angle& rotation_angle,
@@ -58,26 +58,26 @@ namespace euphoria::render
         void
         draw_sprite
         (
-            const texture2d& texture,
+            const Texture2& texture,
             const core::Rectf& position,
-            const draw_data& data = draw_data{}
+            const DrawData& data = DrawData{}
         );
 
         // bottom left
         void
         draw_ninepatch
         (
-            const scalable_sprite& ninepatch,
+            const ScalableSprite& ninepatch,
             const core::Rectf& rect,
             const core::Rgba& tint
         );
 
     private:
-        shader* sprite_shader;
-        shader_uniform color_uniform;
-        shader_uniform model_uniform;
-        shader_uniform region_uniform;
-        std::unique_ptr<buffer2d> single_quad_buffer;
+        ShaderProgram* sprite_shader;
+        ShaderUniform color_uniform;
+        ShaderUniform model_uniform;
+        ShaderUniform region_uniform;
+        std::unique_ptr<Buffer2d> single_quad_buffer;
 
         void
         init_render_data();

@@ -9,20 +9,20 @@
 
 namespace euphoria::render
 {
-    vertex_buffer::vertex_buffer()
+    VertexBuffer::VertexBuffer()
     {
         glGenBuffers(1, &id_);
     }
 
 
-    vertex_buffer::~vertex_buffer()
+    VertexBuffer::~VertexBuffer()
     {
         glDeleteBuffers(1, &id_);
     }
 
 
     void
-    vertex_buffer::set_data(const std::vector<float>& data)
+    VertexBuffer::set_data(const std::vector<float>& data)
     {
         ASSERT(get_bound() == this);
         // use GL_DYNAMIC_DRAW or GL_STREAM_DRAW instead?
@@ -31,7 +31,7 @@ namespace euphoria::render
 
 
     void
-    vertex_buffer::bind(const vertex_buffer* vbo)
+    VertexBuffer::bind(const VertexBuffer* vbo)
     {
         const gluint id = vbo != nullptr ? vbo->id_ : 0;
         glBindBuffer(GL_ARRAY_BUFFER, id);
@@ -39,10 +39,10 @@ namespace euphoria::render
     }
 
 
-    const vertex_buffer*&
-    vertex_buffer::get_bound()
+    const VertexBuffer*&
+    VertexBuffer::get_bound()
     {
-        static const vertex_buffer* vbo = nullptr;
+        static const VertexBuffer* vbo = nullptr;
         return vbo;
     }
 
@@ -50,13 +50,13 @@ namespace euphoria::render
     ////////////////////////////////////////////////////////////////////////////////
 
 
-    point_layout::point_layout()
+    PointLayout::PointLayout()
     {
         glGenVertexArrays(1, &id_);
     }
 
 
-    point_layout::~point_layout()
+    PointLayout::~PointLayout()
     {
         glDeleteVertexArrays(1, &id_);
     }
@@ -65,16 +65,16 @@ namespace euphoria::render
     namespace
     {
         GLenum
-        con(shader_attribute_type type)
+        con(ShaderAttributeType type)
         {
             switch(type)
             {
-            case shader_attribute_type::float1:
-            case shader_attribute_type::float2:
-            case shader_attribute_type::float3:
-            case shader_attribute_type::float4:
-            case shader_attribute_type::float33:
-            case shader_attribute_type::float44: return GL_FLOAT;
+            case ShaderAttributeType::float1:
+            case ShaderAttributeType::float2:
+            case ShaderAttributeType::float3:
+            case ShaderAttributeType::float4:
+            case ShaderAttributeType::float33:
+            case ShaderAttributeType::float44: return GL_FLOAT;
             default: LOG_ERROR("Unhandled shader type"); return GL_FLOAT;
             }
         }
@@ -82,10 +82,10 @@ namespace euphoria::render
 
 
     void
-    point_layout::bind_data(const shader_attribute& attribute, int stride, int offset)
+    PointLayout::bind_data(const ShaderAttribute& attribute, int stride, int offset)
     {
         ASSERT(get_bound() == this);
-        ASSERT(vertex_buffer::get_bound() != nullptr);
+        ASSERT(VertexBuffer::get_bound() != nullptr);
         // reinterpret_cast is probably ok since the void* is an offset
         // and not a actual pointer
         glVertexAttribPointer
@@ -104,7 +104,7 @@ namespace euphoria::render
 
 
     void
-    point_layout::bind(const point_layout* vao)
+    PointLayout::bind(const PointLayout* vao)
     {
         const gluint id = vao != nullptr ? vao->id_ : 0;
         glBindVertexArray(id);
@@ -112,10 +112,10 @@ namespace euphoria::render
     }
 
 
-    const point_layout*&
-    point_layout::get_bound()
+    const PointLayout*&
+    PointLayout::get_bound()
     {
-        static const point_layout* vao = nullptr;
+        static const PointLayout* vao = nullptr;
         return vao;
     }
 
@@ -123,20 +123,20 @@ namespace euphoria::render
     ////////////////////////////////////////////////////////////////////////////////
 
 
-    index_buffer::index_buffer()
+    IndexBuffer::IndexBuffer()
     {
         glGenBuffers(1, &id_);
     }
 
 
-    index_buffer::~index_buffer()
+    IndexBuffer::~IndexBuffer()
     {
         glDeleteBuffers(1, &id_);
     }
 
 
     void
-    index_buffer::set_data(const std::vector<unsigned int>& indices)
+    IndexBuffer::set_data(const std::vector<unsigned int>& indices)
     {
         ASSERT(get_bound() == this);
         glBufferData
@@ -150,13 +150,13 @@ namespace euphoria::render
 
 
     void
-    index_buffer::draw(render_mode mode, int count) const
+    IndexBuffer::draw(RenderMode mode, int count) const
     {
-        ASSERT(point_layout::get_bound() != nullptr);
-        ASSERT(shader::get_current_bound_for_debug() != nullptr);
+        ASSERT(PointLayout::get_bound() != nullptr);
+        ASSERT(ShaderProgram::get_current_bound_for_debug() != nullptr);
 
-        const point_layout* vao = point_layout::get_bound();
-        const shader* shader = shader::get_current_bound_for_debug();
+        const PointLayout* vao = PointLayout::get_bound();
+        const ShaderProgram* shader = ShaderProgram::get_current_bound_for_debug();
 
         ASSERT(vao);
         ASSERT(shader);
@@ -179,7 +179,7 @@ namespace euphoria::render
             }
         }
 
-        if(mode == render_mode::triangles)
+        if(mode == RenderMode::triangles)
         {
             glDrawElements(GL_TRIANGLES, count * 3, GL_UNSIGNED_INT, nullptr);
         }
@@ -190,17 +190,17 @@ namespace euphoria::render
     }
 
     void
-    index_buffer::bind(const index_buffer* ebo)
+    IndexBuffer::bind(const IndexBuffer* ebo)
     {
         const gluint id = ebo != nullptr ? ebo->id_ : 0;
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);
         get_bound() = ebo;
     }
 
-    const index_buffer*&
-    index_buffer::get_bound()
+    const IndexBuffer*&
+    IndexBuffer::get_bound()
     {
-        static const index_buffer* ebo = nullptr;
+        static const IndexBuffer* ebo = nullptr;
         return ebo;
     }
 }

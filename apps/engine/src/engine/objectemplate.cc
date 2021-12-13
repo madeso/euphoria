@@ -63,7 +63,7 @@ namespace euphoria::engine
     struct sprite_component_creator : public component_creator
     {
     public:
-        std::shared_ptr<render::texture2d> texture;
+        std::shared_ptr<render::Texture2> texture;
         engine::components* components;
 
         explicit sprite_component_creator(engine::components* c) : components(c) {}
@@ -74,7 +74,7 @@ namespace euphoria::engine
         create
         (
             const game::Sprite& sprite,
-            render::texture_cache* cache,
+            render::TextureCache* cache,
             engine::components* components
         )
         {
@@ -151,7 +151,7 @@ namespace euphoria::engine
     (
         const game::Component& comp,
         script_registry* reg,
-        render::texture_cache* cache,
+        render::TextureCache* cache,
         components* components
     )
     {
@@ -198,7 +198,7 @@ namespace euphoria::engine
         object_template* ot,
         const game::Template& ct,
         script_registry* reg,
-        render::texture_cache* cache,
+        render::TextureCache* cache,
         components* components
     )
     {
@@ -249,7 +249,7 @@ namespace euphoria::engine
         const game::Game& json,
         object_creator* temp,
         script_registry* reg,
-        render::texture_cache* cache,
+        render::TextureCache* cache,
         components* components
     )
     {

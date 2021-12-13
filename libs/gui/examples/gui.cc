@@ -156,7 +156,7 @@ imgui_widget(const char* title, Rectf* r)
 
 
 void
-imgui_widget(const char* title, euphoria::render::texture2d* tex)
+imgui_widget(const char* title, euphoria::render::Texture2* tex)
 {
     if(tex == nullptr) { return; }
 
@@ -165,7 +165,7 @@ imgui_widget(const char* title, euphoria::render::texture2d* tex)
 }
 
 void
-imgui_widget(euphoria::render::scalable_sprite* sprite)
+imgui_widget(euphoria::render::ScalableSprite* sprite)
 {
     imgui_widget("texture", sprite->texture.get());
 }
@@ -252,7 +252,7 @@ imgui_widget(layout_container* container)
 }
 
 void
-imgui_widget(int id, euphoria::render::glyph* gl)
+imgui_widget(int id, euphoria::render::Glyph* gl)
 {
     const std::string s = StringBuilder() << "glyph " << id;
     if(ImGui::TreeNode(s.c_str()) == false) { return; }
@@ -269,7 +269,7 @@ imgui_widget(int id, euphoria::render::glyph* gl)
 }
 
 void
-imgui_widget(const char* title, euphoria::render::drawable_font* font)
+imgui_widget(const char* title, euphoria::render::DrawableFont* font)
 {
     if(ImGui::TreeNode(title) == false) {return;}
 
@@ -327,7 +327,7 @@ main(int argc, char* argv[])
         std::make_shared<vfs::WriteRootPhysicalFolder>(get_current_directory())
     );
 
-    texture_cache cache {engine.file_system.get()};
+    TextureCache cache {engine.file_system.get()};
 
     const auto clear_color = NamedColor::blue;
 
@@ -349,11 +349,11 @@ main(int argc, char* argv[])
     }
 
 
-    shader shader;
+    ShaderProgram shader;
     attributes2d::prebind_shader(&shader);
     shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
-    sprite_renderer renderer(&shader);
-    font_cache font_cache {engine.file_system.get(), &cache};
+    SpriteRenderer renderer(&shader);
+    FontCache font_cache {engine.file_system.get(), &cache};
 
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
@@ -379,7 +379,7 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    auto viewport_handler = euphoria::render::viewport_handler
+    auto viewport_handler = euphoria::render::ViewportHandler
     {
         engine.init.get(),
         nullptr

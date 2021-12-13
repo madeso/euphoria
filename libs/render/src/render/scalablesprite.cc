@@ -63,11 +63,11 @@ namespace
 
 namespace euphoria::render
 {
-    scalable_sprite::scalable_sprite
+    ScalableSprite::ScalableSprite
     (
         core::vfs::FileSystem* fs,
         const core::vfs::FilePath& path,
-        texture_cache* cache
+        TextureCache* cache
     )
         : texture(cache->get_texture(path))
     {
@@ -82,11 +82,11 @@ namespace euphoria::render
     }
 
 
-    scalable_sprite::~scalable_sprite() = default;
+    ScalableSprite::~ScalableSprite() = default;
 
 
     core::size2f
-    scalable_sprite::get_minimum_size() const
+    ScalableSprite::get_minimum_size() const
     {
         return core::size2f::create_from_width_height
         (
@@ -97,7 +97,7 @@ namespace euphoria::render
 
 
     void
-    scalable_sprite::render(sprite_renderer* renderer, const core::Rectf& rect, const core::Rgba& tint) const
+    ScalableSprite::render(SpriteRenderer* renderer, const core::Rectf& rect, const core::Rgba& tint) const
     {
         const auto size = rect.get_size();
         const auto pos = rect.get_bottom_left();

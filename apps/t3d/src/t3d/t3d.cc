@@ -63,7 +63,7 @@ namespace euphoria::t3d
             return -2;
         }
 
-        material_shader_cache = std::make_shared<render::material_shader_cache>(engine->file_system.get());
+        material_shader_cache = std::make_shared<render::MaterialShaderCache>(engine->file_system.get());
 
         SET_ENUM_FROM_FILE
         (
@@ -72,11 +72,11 @@ namespace euphoria::t3d
             core::texture_type
         );
 
-        texture_cache = std::make_shared<render::texture_cache>(engine->file_system.get());
+        texture_cache = std::make_shared<render::TextureCache>(engine->file_system.get());
 
         tile_library = std::make_shared<t3d::tile_library>(engine->file_system.get());
 
-        world = std::make_shared<render::world>();
+        world = std::make_shared<render::World>();
 
         editor = std::make_shared<t3d::editor>(&grid_data, world.get(), tile_library.get());
         editor->tools.push_tool(std::make_shared<tool_no_tool>());
@@ -87,7 +87,7 @@ namespace euphoria::t3d
 
         euphoria::window::enable_char_event(!immersive_mode);
 
-        viewport_handler = std::make_shared<render::viewport_handler>
+        viewport_handler = std::make_shared<render::ViewportHandler>
         (
             engine->init.get(),
             nullptr
@@ -172,7 +172,7 @@ namespace euphoria::t3d
         def.add_line(core::Vec3f {0, 0, -size}, core::Vec3f {0, 0, size}, z_color);
 
         auto compiled = compile(material_shader_cache.get(), def);
-        grid = std::make_shared<render::positioned_lines>(compiled);
+        grid = std::make_shared<render::PositionedLines>(compiled);
         world->add_actor(grid);
     }
 
@@ -620,7 +620,7 @@ namespace euphoria::t3d
                 auto placed = std::make_shared<placed_mesh>();
                 placed->tile = editor->selected_mesh;
                 placed->is_selected = true;
-                placed->actor = std::make_shared<render::actor>
+                placed->actor = std::make_shared<render::Actor>
                 (
                         placed->tile->mesh
                 );
@@ -646,7 +646,7 @@ namespace euphoria::t3d
                 auto placed = std::make_shared<placed_mesh>();
                 placed->tile = selected->tile;
                 placed->is_selected = true;
-                placed->actor = std::make_shared<render::actor>
+                placed->actor = std::make_shared<render::Actor>
                 (
                         placed->tile->mesh
                 );

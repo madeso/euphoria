@@ -16,7 +16,7 @@ namespace euphoria::render
     convert_lines_to_index_buffer
     (
         const std::vector<core::Lines::line>& lines,
-        index_buffer* buffer
+        IndexBuffer* buffer
     )
     {
         std::vector<unsigned int> data;
@@ -35,8 +35,8 @@ namespace euphoria::render
     convert_points_to_vertex_buffer
     (
         const std::vector<core::LinePoint>& points,
-        const std::vector<shader_attribute>& attributes,
-        vertex_buffer* vb
+        const std::vector<ShaderAttribute>& attributes,
+        VertexBuffer* vb
     )
     {
         constexpr auto add_float3 = [](std::vector<float>* dst, const core::Vec3f& src)
@@ -51,7 +51,7 @@ namespace euphoria::render
             attributes.begin(),
             attributes.end(),
             0,
-            [](int count, const shader_attribute& att) -> int
+            [](int count, const ShaderAttribute& att) -> int
             {
                 return count + att.get_element_count();
             }
@@ -63,12 +63,12 @@ namespace euphoria::render
             {
                 switch(att.source)
                 {
-                case shader_attribute_source::vertex:
-                    ASSERT(att.type == shader_attribute_type::float3);
+                case ShaderAttributeSource::vertex:
+                    ASSERT(att.type == ShaderAttributeType::float3);
                     add_float3(&data, point.point);
                     break;
-                case shader_attribute_source::color:
-                    ASSERT(att.type == shader_attribute_type::float3);
+                case ShaderAttributeSource::color:
+                    ASSERT(att.type == ShaderAttributeType::float3);
                     add_float3
                     (
                         &data, core::Vec3f
@@ -89,7 +89,7 @@ namespace euphoria::render
 
 
     void
-    compiled_lines::render
+    CompiledLines::render
     (
         const core::mat4f& model_matrix,
         const core::mat4f& projection_matrix,
@@ -103,26 +103,26 @@ namespace euphoria::render
         shader->set_projection(projection_matrix);
         shader->set_view(view_matrix);
 
-        point_layout::bind(&config);
-        index_buffer::bind(&lines);
-        lines.draw(render_mode::lines, line_count);
-        index_buffer::bind(nullptr);
-        point_layout::bind(nullptr);
+        PointLayout::bind(&config);
+        IndexBuffer::bind(&lines);
+        lines.draw(RenderMode::lines, line_count);
+        IndexBuffer::bind(nullptr);
+        PointLayout::bind(nullptr);
     }
 
 
-    std::shared_ptr<compiled_lines>
-    compile(material_shader_cache* shader_cache, const core::Lines& lines)
+    std::shared_ptr<CompiledLines>
+    compile(MaterialShaderCache* shader_cache, const core::Lines& lines)
     {
-        std::shared_ptr<compiled_lines> ret {new compiled_lines {}};
+        std::shared_ptr<CompiledLines> ret {new CompiledLines {}};
 
         ret->shader = shader_cache->get(core::vfs::FilePath{"~/default_line_shader"});
 
-        point_layout::bind(&ret->config);
-        vertex_buffer::bind(&ret->data);
-        index_buffer::bind(&ret->lines);
+        PointLayout::bind(&ret->config);
+        VertexBuffer::bind(&ret->data);
+        IndexBuffer::bind(&ret->lines);
 
-        const auto attributes = std::vector<shader_attribute>
+        const auto attributes = std::vector<ShaderAttribute>
         {
             attributes3d::vertex(),
             attributes3d::color()
@@ -134,9 +134,9 @@ namespace euphoria::render
         convert_lines_to_index_buffer(lines.indices, &ret->lines);
         ret->line_count = core::c_sizet_to_int(lines.indices.size());
 
-        index_buffer::bind(nullptr);
-        vertex_buffer::bind(nullptr);
-        point_layout::bind(nullptr);
+        IndexBuffer::bind(nullptr);
+        VertexBuffer::bind(nullptr);
+        PointLayout::bind(nullptr);
 
         return ret;
     }

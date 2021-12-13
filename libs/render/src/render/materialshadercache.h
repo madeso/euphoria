@@ -7,18 +7,18 @@
 
 namespace euphoria::render
 {
-    struct material_shader_cache
-        : core::Cache<core::vfs::FilePath, material_shader, material_shader_cache>
+    struct MaterialShaderCache
+        : core::Cache<core::vfs::FilePath, MaterialShader, MaterialShaderCache>
     {
-        material_shader_cache(core::vfs::FileSystem* fs) : file_system(fs)
+        MaterialShaderCache(core::vfs::FileSystem* fs) : file_system(fs)
         {
             ASSERT(fs);
         }
 
-        [[nodiscard]] std::shared_ptr<material_shader>
+        [[nodiscard]] std::shared_ptr<MaterialShader>
         create(const core::vfs::FilePath& path) const
         {
-            auto ret = std::make_shared<material_shader>();
+            auto ret = std::make_shared<MaterialShader>();
             ret->load(file_system, path);
             return ret;
         }

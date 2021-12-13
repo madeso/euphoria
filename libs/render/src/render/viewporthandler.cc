@@ -13,11 +13,11 @@ namespace
     namespace core = euphoria::core;
 
     core::ViewportDefinition
-    create_definition(const euphoria::render::viewport_handler& handler)
+    create_definition(const euphoria::render::ViewportHandler& handler)
     {
         switch(handler.type)
         {
-        case euphoria::render::viewport_type::fit_with_black_bars:
+        case euphoria::render::ViewportType::fit_with_black_bars:
             return core::ViewportDefinition::fit_with_black_bars
             (
                 handler.virtual_width,
@@ -25,13 +25,13 @@ namespace
                 handler.window_width,
                 handler.window_height
             );
-        case euphoria::render::viewport_type::screen_pixel:
+        case euphoria::render::ViewportType::screen_pixel:
             return core::ViewportDefinition::screen_pixel
             (
                 handler.window_width,
                 handler.window_height
             );
-        case euphoria::render::viewport_type::extend:
+        case euphoria::render::ViewportType::extend:
             return core::ViewportDefinition::extend
             (
                 handler.virtual_width,
@@ -52,7 +52,7 @@ namespace
 
     void apply_viewport
     (
-        euphoria::render::viewport_handler* handler,
+        euphoria::render::ViewportHandler* handler,
         const core::ViewportDefinition& vp,
         bool shaders_too
     )
@@ -83,7 +83,7 @@ namespace
             );
         }
 
-        auto viewport = euphoria::render::viewport{vp.screen_rect};
+        auto viewport = euphoria::render::Viewport{vp.screen_rect};
         viewport.activate();
     }
 }
@@ -91,7 +91,7 @@ namespace
 
 namespace euphoria::render
 {
-    viewport_handler::viewport_handler(render::init* i, core::Rectf* s)
+    ViewportHandler::ViewportHandler(render::Init* i, core::Rectf* s)
         : init(i)
         , virtual_screen(s)
     {
@@ -99,14 +99,14 @@ namespace euphoria::render
 
 
     void
-    viewport_handler::add(shader* shader)
+    ViewportHandler::add(ShaderProgram* shader)
     {
         shaders.emplace_back(shader);
     }
 
 
     void
-    viewport_handler::set_size(int width, int height)
+    ViewportHandler::set_size(int width, int height)
     {
         window_width = width;
         window_height = height;
@@ -118,9 +118,9 @@ namespace euphoria::render
 
 
     void
-    viewport_handler::clear_black()
+    ViewportHandler::clear_black()
     {
-        if(type != viewport_type::fit_with_black_bars) { return; }
+        if(type != ViewportType::fit_with_black_bars) { return; }
 
         apply_viewport
         (
@@ -141,10 +141,10 @@ namespace euphoria::render
 
 
 
-    viewport
-    viewport_handler::get_full_viewport() const
+    Viewport
+    ViewportHandler::get_full_viewport() const
     {
-        const auto viewport = render::viewport
+        const auto viewport = render::Viewport
         {
             core::Recti::from_width_height(window_width, window_height)
                 .set_bottom_left_to_copy

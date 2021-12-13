@@ -14,7 +14,7 @@
 
 namespace euphoria::render
 {
-    material_shader_default_texture::material_shader_default_texture
+    MaterialShaderDefaultTexture::MaterialShaderDefaultTexture
     (
         const core::EnumValue& a_name,
         const core::vfs::FilePath& a_path
@@ -26,9 +26,9 @@ namespace euphoria::render
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    material_shader_binding::material_shader_binding
+    MaterialShaderBinding::MaterialShaderBinding
     (
-        shader_uniform a_uniform,
+        ShaderUniform a_uniform,
         const core::EnumValue& a_name
     )
         : uniform(std::move(a_uniform))
@@ -39,35 +39,35 @@ namespace euphoria::render
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    material_shader::material_shader()
-        : projection(shader_uniform::null())
-        , view(shader_uniform::null())
-        , model(shader_uniform::null())
-        , ambient(shader_uniform::null())
-        , diffuse(shader_uniform::null())
-        , specular(shader_uniform::null())
-        , shininess(shader_uniform::null())
+    MaterialShader::MaterialShader()
+        : projection(ShaderUniform::null())
+        , view(ShaderUniform::null())
+        , model(ShaderUniform::null())
+        , ambient(ShaderUniform::null())
+        , diffuse(ShaderUniform::null())
+        , specular(ShaderUniform::null())
+        , shininess(ShaderUniform::null())
         , has_light(false)
-        , light_ambient(shader_uniform::null())
-        , light_diffuse(shader_uniform::null())
-        , light_specular(shader_uniform::null())
-        , light_position(shader_uniform::null())
-        , light_direction(shader_uniform::null())
-        , light_type(shader_uniform::null())
-        , light_attenuation_constant(shader_uniform::null())
-        , light_attenuation_linear(shader_uniform::null())
-        , light_attenuation_quadratic(shader_uniform::null())
-        , light_cutoff_angle_outer(shader_uniform::null())
-        , light_cutoff_angle_inner(shader_uniform::null())
-        , normal_matrix(shader_uniform::null())
-        , view_position(shader_uniform::null())
+        , light_ambient(ShaderUniform::null())
+        , light_diffuse(ShaderUniform::null())
+        , light_specular(ShaderUniform::null())
+        , light_position(ShaderUniform::null())
+        , light_direction(ShaderUniform::null())
+        , light_type(ShaderUniform::null())
+        , light_attenuation_constant(ShaderUniform::null())
+        , light_attenuation_linear(ShaderUniform::null())
+        , light_attenuation_quadratic(ShaderUniform::null())
+        , light_cutoff_angle_outer(ShaderUniform::null())
+        , light_cutoff_angle_inner(ShaderUniform::null())
+        , normal_matrix(ShaderUniform::null())
+        , view_position(ShaderUniform::null())
     {
     }
 
     void
     post_build
     (
-        material_shader* sh,
+        MaterialShader* sh,
         const materialshader::MaterialShader& file,
         const core::vfs::FilePath& path
     )
@@ -153,7 +153,7 @@ namespace euphoria::render
     }
 
     bool
-    material_shader::load
+    MaterialShader::load
     (
         core::vfs::FileSystem* file_system,
         const core::vfs::FilePath& path
@@ -176,25 +176,25 @@ namespace euphoria::render
     }
 
     void
-    material_shader::use_shader()
+    MaterialShader::use_shader()
     {
         use(&shader);
     }
 
     void
-    material_shader::set_projection(const core::mat4f& projection_data)
+    MaterialShader::set_projection(const core::mat4f& projection_data)
     {
         shader.set_uniform(projection, projection_data);
     }
 
     void
-    material_shader::set_view(const core::mat4f& view_data)
+    MaterialShader::set_view(const core::mat4f& view_data)
     {
         shader.set_uniform(view, view_data);
     }
 
     void
-    material_shader::set_model(const core::mat4f& model_data)
+    MaterialShader::set_model(const core::mat4f& model_data)
     {
         shader.set_uniform(model, model_data);
         if(has_light)
@@ -208,7 +208,7 @@ namespace euphoria::render
     }
 
     void
-    material_shader::setup_light(const light& light, const core::Vec3f& camera)
+    MaterialShader::setup_light(const Light& light, const core::Vec3f& camera)
     {
         if(!has_light)
         {
@@ -233,7 +233,7 @@ namespace euphoria::render
     }
 
     void
-    material_shader::set_colors
+    MaterialShader::set_colors
     (
         const core::Rgb& ambient_data,
         const core::Rgb& diffuse_data,

@@ -8,14 +8,14 @@
 
 namespace euphoria::render
 {
-    struct light;
+    struct Light;
 
-    struct instance
+    struct Instance
     {
-        instance();
-        virtual ~instance() = default;
+        Instance();
+        virtual ~Instance() = default;
 
-        NONCOPYABLE(instance);
+        NONCOPYABLE(Instance);
 
         [[nodiscard]] core::mat4f
         calculate_model_matrix() const;
@@ -26,7 +26,7 @@ namespace euphoria::render
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
             const core::Vec3f& camera,
-            const light& light
+            const Light& light
         ) = 0;
 
         bool remove_this = false;

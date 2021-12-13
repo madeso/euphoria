@@ -120,7 +120,7 @@ namespace euphoria::gui
 
 
     void
-    button::render(render::sprite_renderer* renderer) const
+    button::render(render::SpriteRenderer* renderer) const
     {
         if(skin_ != nullptr)
         {

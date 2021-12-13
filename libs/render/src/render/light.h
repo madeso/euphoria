@@ -6,7 +6,7 @@
 
 namespace euphoria::render
 {
-    struct light_attenuation
+    struct LightAttenuation
     {
         float constant = 1.0f;
         float linear = 0.09f;
@@ -14,9 +14,9 @@ namespace euphoria::render
     };
 
 
-    struct light
+    struct Light
     {
-        light();
+        Light();
 
         // todo(Gustav): move this to a light def file and let it be specified in a editor
 
@@ -36,7 +36,7 @@ namespace euphoria::render
         core::Angle cutoff_angle_outer;
         core::Angle cutoff_angle_inner;
 
-        light_attenuation attenuation;
+        LightAttenuation attenuation;
     };
 
 }

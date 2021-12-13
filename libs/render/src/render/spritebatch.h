@@ -12,13 +12,13 @@
 namespace euphoria::render
 {
     // texture & shader will be handled by 2d world and sprite
-    struct sprite_batch
+    struct SpriteBatch
     {
     public:
-        sprite_batch();
-        ~sprite_batch();
+        SpriteBatch();
+        ~SpriteBatch();
 
-        NONCOPYABLE(sprite_batch);
+        NONCOPYABLE(SpriteBatch);
 
         void
         begin();

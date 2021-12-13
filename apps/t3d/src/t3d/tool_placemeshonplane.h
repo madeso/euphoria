@@ -9,7 +9,7 @@
 
 namespace euphoria::render
 {
-    struct actor;
+    struct Actor;
 }
 
 

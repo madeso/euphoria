@@ -4,17 +4,17 @@
 
 namespace euphoria::render
 {
-    actor::actor(const std::shared_ptr<compiled_mesh>& mesh)
+    Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
         : mesh_(mesh)
     {
         ASSERT(mesh);
     }
 
-    std::shared_ptr<material_override>
-    actor::create_override() const
+    std::shared_ptr<MaterialOverride>
+    Actor::create_override() const
     {
         const auto s = mesh_->materials.size();
-        auto r = std::make_shared<material_override>();
+        auto r = std::make_shared<MaterialOverride>();
         r->materials.resize(s);
         for(std::size_t index=0; index<s; index+=1)
         {
@@ -24,12 +24,12 @@ namespace euphoria::render
     }
 
     void
-    actor::render
+    Actor::render
     (
         const core::mat4f& projection_matrix,
         const core::mat4f& view_matrix,
         const core::Vec3f& camera,
-        const light& light
+        const Light& light
     )
     {
         mesh_->render

@@ -4,9 +4,9 @@
 
 namespace euphoria::render
 {
-    positioned_lines::positioned_lines
+    PositionedLines::PositionedLines
     (
-        const std::shared_ptr<compiled_lines>& alines
+        const std::shared_ptr<CompiledLines>& alines
     )
         : lines(alines)
     {
@@ -14,12 +14,12 @@ namespace euphoria::render
     }
 
     void
-    positioned_lines::render
+    PositionedLines::render
     (
         const core::mat4f& projection_matrix,
         const core::mat4f& view_matrix,
         const core::Vec3f&,
-        const light&
+        const Light&
     )
     {
         lines->render

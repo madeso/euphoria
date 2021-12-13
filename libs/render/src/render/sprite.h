@@ -10,14 +10,16 @@
 
 namespace euphoria::render
 {
-    struct texture2d;
-    struct sprite_renderer;
+    struct Texture2;
+    struct SpriteRenderer;
 
-    struct sprite
+    struct Sprite
     {
-        explicit sprite(
-                std::shared_ptr<texture2d> texture,
-                const core::Vec2f& position = core::Vec2f::zero());
+        explicit Sprite
+        (
+            std::shared_ptr<Texture2> texture,
+            const core::Vec2f& position = core::Vec2f::zero()
+        );
 
         [[nodiscard]] float
         get_height() const;
@@ -26,9 +28,9 @@ namespace euphoria::render
         get_width() const;
 
         void
-        render(sprite_renderer* render) const;
+        render(SpriteRenderer* render) const;
 
-        std::shared_ptr<texture2d> texture;
+        std::shared_ptr<Texture2> texture;
         core::Vec2f position;
         core::Angle rotation;
         core::Scale2f scale = core::Scale2f(1, 1);
@@ -37,23 +39,23 @@ namespace euphoria::render
     };
 
 
-    struct layer
+    struct Layer
     {
-        explicit layer(sprite_renderer* render);
+        explicit Layer(SpriteRenderer* render);
 
         void
-        add(sprite* sprite);
+        add(Sprite* sprite);
 
         void
-        remove(sprite* sprite);
+        remove(Sprite* sprite);
 
         void
         render();
 
-        using sprite_list = std::vector<sprite*>;
-        using sprite_map = std::map<std::shared_ptr<texture2d>, sprite_list>;
+        using sprite_list = std::vector<Sprite*>;
+        using sprite_map = std::map<std::shared_ptr<Texture2>, sprite_list>;
 
-        sprite_renderer* renderer;
+        SpriteRenderer* renderer;
         sprite_map texture_to_sprites;
     };
 }

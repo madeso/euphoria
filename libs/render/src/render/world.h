@@ -19,23 +19,23 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct viewport;
-    struct material_shader;
-    struct shader_uniform;
+    struct Viewport;
+    struct MaterialShader;
+    struct ShaderUniform;
 }
 
 namespace euphoria::render
 {
-    struct world
+    struct World
     {
         void
-        add_actor(const std::shared_ptr<instance>& actor);
+        add_actor(const std::shared_ptr<Instance>& actor);
 
         // todo(Gustav): improve light support
-        render::light light;
+        render::Light light;
 
         void
-        render(const viewport& viewport, const core::Camera3& camera);
+        render(const Viewport& viewport, const core::Camera3& camera);
 
         void
         step();
@@ -47,6 +47,6 @@ namespace euphoria::render
             const core::CompiledCamera3& compiled
         );
 
-        std::vector<std::shared_ptr<instance>> actors;
+        std::vector<std::shared_ptr<Instance>> actors;
     };
 }

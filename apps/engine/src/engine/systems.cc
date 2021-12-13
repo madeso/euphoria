@@ -26,7 +26,7 @@ namespace euphoria::engine
         draw
         (
             core::ecs::Registry* reg,
-            render::sprite_renderer* renderer
+            render::SpriteRenderer* renderer
         ) const override
         {
             const auto items = reg->get_entities_with_components

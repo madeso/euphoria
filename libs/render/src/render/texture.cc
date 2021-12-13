@@ -15,13 +15,13 @@
 namespace
 {
     euphoria::render::glint
-    con(euphoria::render::texture_wrap v)
+    con(euphoria::render::TextureWrap v)
     {
         switch(v)
         {
-        case euphoria::render::texture_wrap::repeat: return GL_REPEAT;
-        case euphoria::render::texture_wrap::mirrored_repeat: return GL_MIRRORED_REPEAT;
-        case euphoria::render::texture_wrap::clamp_to_edge: return GL_CLAMP_TO_EDGE;
+        case euphoria::render::TextureWrap::repeat: return GL_REPEAT;
+        case euphoria::render::TextureWrap::mirrored_repeat: return GL_MIRRORED_REPEAT;
+        case euphoria::render::TextureWrap::clamp_to_edge: return GL_CLAMP_TO_EDGE;
         }
 
         DIE("Unhandled texture wrap value");
@@ -30,12 +30,12 @@ namespace
 
 
     euphoria::render::glint
-    con(euphoria::render::filter_magnification v)
+    con(euphoria::render::FilterMagnification v)
     {
         switch(v)
         {
-        case euphoria::render::filter_magnification::nearest: return GL_NEAREST;
-        case euphoria::render::filter_magnification::linear: return GL_LINEAR;
+        case euphoria::render::FilterMagnification::nearest: return GL_NEAREST;
+        case euphoria::render::FilterMagnification::linear: return GL_LINEAR;
         }
 
 
@@ -45,12 +45,12 @@ namespace
 
 
     euphoria::render::glint
-    con(euphoria::render::filter_minification v)
+    con(euphoria::render::FilterMinification v)
     {
         switch(v)
         {
-        case euphoria::render::filter_minification::nearest: return GL_NEAREST;
-        case euphoria::render::filter_minification::linear: return GL_LINEAR;
+        case euphoria::render::FilterMinification::nearest: return GL_NEAREST;
+        case euphoria::render::FilterMinification::linear: return GL_LINEAR;
         }
 
         DIE("Unhandled filter minification value");
@@ -58,10 +58,10 @@ namespace
     }
 
 
-    const euphoria::render::texture_id*&
+    const euphoria::render::TextureId*&
     get_bound_texture()
     {
-        static const euphoria::render::texture_id* bound_texture = nullptr;
+        static const euphoria::render::TextureId* bound_texture = nullptr;
         return bound_texture;
     }
 }
@@ -70,66 +70,66 @@ namespace
 
 namespace euphoria::render
 {
-    texture2d_load_data::texture2d_load_data()
-        : wrap(texture_wrap::repeat)
-        , minification(filter_minification::linear)
-        , magnification(filter_magnification::linear)
+    Texture2dLoadData::Texture2dLoadData()
+        : wrap(TextureWrap::repeat)
+        , minification(FilterMinification::linear)
+        , magnification(FilterMagnification::linear)
     {
     }
 
 
-    texture2d_load_data&
-    texture2d_load_data::set_wrap(texture_wrap v)
+    Texture2dLoadData&
+    Texture2dLoadData::set_wrap(TextureWrap v)
     {
         wrap = v;
         return *this;
     }
 
 
-    texture2d_load_data&
-    texture2d_load_data::set_filter_magnification(filter_magnification v)
+    Texture2dLoadData&
+    Texture2dLoadData::set_filter_magnification(FilterMagnification v)
     {
         magnification = v;
         return *this;
     }
 
 
-    texture2d_load_data&
-    texture2d_load_data::set_filter_minification(filter_minification v)
+    Texture2dLoadData&
+    Texture2dLoadData::set_filter_minification(FilterMinification v)
     {
         minification = v;
         return *this;
     }
 
 
-    texture_id::texture_id() : id(0)
+    TextureId::TextureId() : id(0)
     {
         glGenTextures(1, &id);
     }
 
 
-    texture_id::~texture_id()
+    TextureId::~TextureId()
     {
         glDeleteTextures(1, &id);
     }
 
 
     GLuint
-    texture_id::get_id() const
+    TextureId::get_id() const
     {
         return id;
     }
 
 
     bool
-    texture_id::is_currently_bound() const
+    TextureId::is_currently_bound() const
     {
         return this == get_bound_texture();
     }
 
 
     void
-    use(const texture_id* texture)
+    use(const TextureId* texture)
     {
         if(texture != nullptr)
         {
@@ -139,7 +139,7 @@ namespace euphoria::render
     }
 
 
-    texture2d::texture2d()
+    Texture2::Texture2()
         : width(0)
         , height(0)
     {
@@ -147,14 +147,14 @@ namespace euphoria::render
 
 
     void
-    texture2d::load_from_pixels
+    Texture2::load_from_pixels
     (
         int new_width,
         int new_height,
         const unsigned char* pixel_data,
         GLint internal_format,
         GLuint image_format,
-        const texture2d_load_data& data
+        const Texture2dLoadData& data
     )
     {
         use(this);
@@ -185,12 +185,12 @@ namespace euphoria::render
 
 
     void
-    texture2d::load_from_file
+    Texture2::load_from_file
     (
         core::vfs::FileSystem* fs,
         const core::vfs::FilePath& path,
         core::AlphaLoad alpha,
-        const texture2d_load_data& data
+        const Texture2dLoadData& data
     )
     {
         const auto loaded = core::load_image(fs, path, alpha);
@@ -204,11 +204,11 @@ namespace euphoria::render
 
 
     void
-    texture2d::load_from_image
+    Texture2::load_from_image
     (
         const core::Image& image,
         core::AlphaLoad alpha,
-        const texture2d_load_data& data
+        const Texture2dLoadData& data
     )
     {
         GLint internal_format = GL_RGB;

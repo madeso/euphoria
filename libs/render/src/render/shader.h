@@ -25,16 +25,16 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct texture2d;
+    struct Texture2;
 
 
-    struct shader_id
+    struct ShaderId
     {
     public:
-        shader_id();
-        ~shader_id();
+        ShaderId();
+        ~ShaderId();
 
-        NONCOPYABLE(shader_id);
+        NONCOPYABLE(ShaderId);
 
         [[nodiscard]] bool
         is_currently_bound() const;
@@ -47,16 +47,16 @@ namespace euphoria::render
     };
 
 
-    struct shader : public shader_id
+    struct ShaderProgram : public ShaderId
     {
     public:
-        shader();
-        ~shader() = default;
+        ShaderProgram();
+        ~ShaderProgram() = default;
 
-        NONCOPYABLE(shader);
+        NONCOPYABLE(ShaderProgram);
 
         void
-        pre_bind(const shader_attribute& attribute);
+        pre_bind(const ShaderAttribute& attribute);
 
         bool
         load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path);
@@ -70,41 +70,41 @@ namespace euphoria::render
         );
 
         // uniform = shader global
-        shader_uniform
+        ShaderUniform
         get_uniform(const std::string& name);
 
         void
-        set_uniform(const shader_uniform& attribute, glint val);
+        set_uniform(const ShaderUniform& attribute, glint val);
 
         void
-        set_uniform(const shader_uniform& attribute, float val);
+        set_uniform(const ShaderUniform& attribute, float val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::Rgb& val);
+        set_uniform(const ShaderUniform& attribute, const core::Rgb& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::Rgba& val);
+        set_uniform(const ShaderUniform& attribute, const core::Rgba& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::Vec3f& val);
+        set_uniform(const ShaderUniform& attribute, const core::Vec3f& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::Vec4f& val);
+        set_uniform(const ShaderUniform& attribute, const core::Vec4f& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::Mat3f& val);
+        set_uniform(const ShaderUniform& attribute, const core::Mat3f& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::mat4f& val);
+        set_uniform(const ShaderUniform& attribute, const core::mat4f& val);
 
         void
-        set_uniform(const shader_uniform& attribute, const core::Rectf& val);
+        set_uniform(const ShaderUniform& attribute, const core::Rectf& val);
 
         // debug
-        [[nodiscard]] static const shader*
+        [[nodiscard]] static const ShaderProgram*
         get_current_bound_for_debug();
 
-        [[nodiscard]] const std::vector<shader_attribute>&
+        [[nodiscard]] const std::vector<ShaderAttribute>&
         get_attributes() const;
 
         [[nodiscard]] const core::vfs::FilePath&
@@ -112,25 +112,25 @@ namespace euphoria::render
 
     private:
         [[nodiscard]] bool
-        has_bound_attribute(const shader_attribute& attribute) const;
+        has_bound_attribute(const ShaderAttribute& attribute) const;
 
         [[nodiscard]] bool
-        has_bound_uniform(const shader_uniform& uniform) const;
+        has_bound_uniform(const ShaderUniform& uniform) const;
 
-        std::vector<shader_attribute> bound_attributes;
-        std::vector<shader_uniform> bound_uniforms;
+        std::vector<ShaderAttribute> bound_attributes;
+        std::vector<ShaderUniform> bound_uniforms;
         core::vfs::FilePath shader_name;
     };
 
     void
-    use(const render::shader* shader);
+    use(const render::ShaderProgram* shader);
 
     void
     bind_texture_to_shader
     (
-            texture2d* texture,
-            shader* shader,
-            const shader_uniform& attribute,
+            Texture2* texture,
+            ShaderProgram* shader,
+            const ShaderUniform& attribute,
             glint index
     );
 

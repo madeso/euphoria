@@ -12,7 +12,7 @@
 
 namespace euphoria::render
 {
-    struct drawable_font;
+    struct DrawableFont;
 }
 
 namespace euphoria::gui
@@ -47,7 +47,7 @@ namespace euphoria::gui
 
         std::string name;
 
-        std::shared_ptr<render::drawable_font> font;
+        std::shared_ptr<render::DrawableFont> font;
 
         float text_size = 30.0f;
 

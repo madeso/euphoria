@@ -9,8 +9,8 @@ namespace euphoria::render
     void
     bind_attributes
     (
-            const std::vector<shader_attribute>& attributes,
-            point_layout* layout
+            const std::vector<ShaderAttribute>& attributes,
+            PointLayout* layout
     )
     {
         const int total_size = std::accumulate
@@ -18,7 +18,7 @@ namespace euphoria::render
             attributes.begin(),
             attributes.end(),
             0,
-            [](int value, const shader_attribute& att) -> int
+            [](int value, const ShaderAttribute& att) -> int
             {
                 return value + att.get_byte_size();
             }

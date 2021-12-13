@@ -62,8 +62,8 @@ namespace euphoria::t3d
     tile_library::add_file
     (
         const core::vfs::FilePath& path,
-        render::material_shader_cache* shader_cache,
-        render::texture_cache* texture_cache
+        render::MaterialShaderCache* shader_cache,
+        render::TextureCache* texture_cache
     )
     {
         const auto loaded_mesh = core::meshes::load_mesh(file_system, path);

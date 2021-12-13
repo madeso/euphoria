@@ -24,14 +24,14 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct sprite_renderer;
-    struct texture_cache;
+    struct SpriteRenderer;
+    struct TextureCache;
 
     // todo(Gustav): separate rendering and the rest and move to core
 
-    struct glyph
+    struct Glyph
     {
-        glyph
+        Glyph
         (
             const core::Rectf& sprite,
             const core::Rectf& texture,
@@ -45,11 +45,11 @@ namespace euphoria::render
         float advance;
     };
 
-    using char_to_glyph_map = std::map<int, std::shared_ptr<glyph>>;
+    using char_to_glyph_map = std::map<int, std::shared_ptr<Glyph>>;
 
-    struct drawable_font;
+    struct DrawableFont;
 
-    enum class align
+    enum class Align
     {
         top_left,
         top_center,
@@ -63,16 +63,16 @@ namespace euphoria::render
     };
 
 
-    struct text_draw_command
+    struct TextDrawCommand
     {
-        const texture2d* texture;
+        const Texture2* texture;
         core::Rectf sprite_rect;
         core::Rectf texture_rect;
         bool hi;
 
-        text_draw_command
+        TextDrawCommand
         (
-            const texture2d* texture,
+            const Texture2* texture,
             const core::Rectf& sprite_rect,
             const core::Rectf& texture_rect,
             bool hi
@@ -80,14 +80,14 @@ namespace euphoria::render
     };
 
 
-    struct list_of_text_draw_commands
+    struct ListOfTextDrawCommands
     {
-        std::vector<text_draw_command> commands;
+        std::vector<TextDrawCommand> commands;
 
         void
         add
         (
-            const texture2d* texture,
+            const Texture2* texture,
             const core::Rectf& sprite_rect,
             const core::Rectf& texture_rect,
             bool hi
@@ -96,7 +96,7 @@ namespace euphoria::render
         void
         draw
         (
-                sprite_renderer* renderer,
+                SpriteRenderer* renderer,
                 const core::Vec2f& start_position,
                 const core::Rgb& base_color,
                 const core::Rgb& hi_color
@@ -107,13 +107,13 @@ namespace euphoria::render
     };
 
 
-    struct drawable_text
+    struct DrawableText
     {
     public:
-        explicit drawable_text(drawable_font* the_font);
-        ~drawable_text();
+        explicit DrawableText(DrawableFont* the_font);
+        ~DrawableText();
 
-        NONCOPYABLE(drawable_text);
+        NONCOPYABLE(DrawableText);
 
         void
         set_text(const core::UiText& new_text);
@@ -122,7 +122,7 @@ namespace euphoria::render
         set_background(bool new_use_background, float new_alpha = 0.5f);
 
         void
-        set_alignment(align new_alignment);
+        set_alignment(Align new_alignment);
 
         void
         set_size(float new_size);
@@ -130,7 +130,7 @@ namespace euphoria::render
         void
         draw
         (
-            sprite_renderer* renderer,
+            SpriteRenderer* renderer,
             const core::Vec2f& p,
             const core::Rgb& base_hi_color
         ) const;
@@ -138,7 +138,7 @@ namespace euphoria::render
         void
         draw
         (
-            sprite_renderer* renderer,
+            SpriteRenderer* renderer,
             const core::Vec2f& p,
             const core::Rgb& base_color,
             const core::Rgb& hi_color
@@ -151,30 +151,30 @@ namespace euphoria::render
         compile() const;
 
     private:
-        const drawable_font* font;
+        const DrawableFont* font;
         float size;
         core::UiText text;
-        align alignment;
+        Align alignment;
 
         bool use_background;
         float background_alpha;
 
         // updated in Compile function
         mutable bool is_dirty;
-        mutable list_of_text_draw_commands commands;
+        mutable ListOfTextDrawCommands commands;
     };
 
 
     struct ui_text_compile_visitor;
 
 
-    struct drawable_font
+    struct DrawableFont
     {
     public:
-        drawable_font
+        DrawableFont
         (
             core::vfs::FileSystem* fs,
-            texture_cache* cache,
+            TextureCache* cache,
             const core::vfs::FilePath& font_file
         );
 
@@ -182,19 +182,19 @@ namespace euphoria::render
         void
         draw_background
         (
-            sprite_renderer* renderer,
+            SpriteRenderer* renderer,
             float alpha,
             const core::Rectf& where
         ) const;
 
-        [[nodiscard]] list_of_text_draw_commands
+        [[nodiscard]] ListOfTextDrawCommands
         compile_list(const core::UiText& text, float size) const;
 
         float line_height=1;
 
         friend ui_text_compile_visitor;
-        std::unique_ptr<texture2d> texture;
-        std::shared_ptr<texture2d> background;
+        std::unique_ptr<Texture2> texture;
+        std::shared_ptr<Texture2> background;
         char_to_glyph_map char_to_glyph;
         core::KerningMap kernings;
         std::map<std::string, int> private_use_aliases;

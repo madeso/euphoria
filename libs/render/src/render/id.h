@@ -7,13 +7,13 @@
 
 namespace euphoria::render
 {
-    struct id
+    struct Id
     {
     public:
-        id();
-        ~id() = default;
+        Id();
+        ~Id() = default;
 
-        NONCOPYABLE(id);
+        NONCOPYABLE(Id);
 
         // todo(Gustav): remove and make id public or remove class altogether
         [[nodiscard]] gluint

@@ -8,20 +8,20 @@
 
 namespace euphoria::render
 {
-    struct shader;
-    struct init;
+    struct ShaderProgram;
+    struct Init;
 
-    enum class viewport_type
+    enum class ViewportType
     {
         screen_pixel, fit_with_black_bars, extend
     };
 
-    struct viewport_handler
+    struct ViewportHandler
     {
-        render::init* init;
-        std::vector<shader*> shaders;
+        render::Init* init;
+        std::vector<ShaderProgram*> shaders;
 
-        viewport_type type = viewport_type::screen_pixel;
+        ViewportType type = ViewportType::screen_pixel;
         int window_width = 0;
         int window_height = 0;
 
@@ -31,10 +31,10 @@ namespace euphoria::render
 
         core::Rectf* virtual_screen;
 
-        viewport_handler(render::init* i, core::Rectf* s);
+        ViewportHandler(render::Init* i, core::Rectf* s);
 
         void
-        add(shader* shader);
+        add(ShaderProgram* shader);
 
         void
         set_size(int width, int height);
@@ -42,7 +42,7 @@ namespace euphoria::render
         void
         clear_black();
 
-        [[nodiscard]] viewport
+        [[nodiscard]] Viewport
         get_full_viewport() const;
     };
 }

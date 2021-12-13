@@ -2,7 +2,7 @@
 
 namespace euphoria::render
 {
-    light::light()
+    Light::Light()
         : light_type(type::directional)
         , position(core::Vec3f::zero())
         , direction(core::Vec3f {-0.2f, -1.0f, -0.3f}.get_normalized())

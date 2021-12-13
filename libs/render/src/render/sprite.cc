@@ -10,9 +10,9 @@ using namespace euphoria::convert;
 
 namespace euphoria::render
 {
-    sprite::sprite
+    Sprite::Sprite
     (
-        std::shared_ptr<texture2d> texture,
+        std::shared_ptr<Texture2> texture,
         const core::Vec2f& position
     )
         : texture(texture)
@@ -23,21 +23,21 @@ namespace euphoria::render
 
 
     float
-    sprite::get_height() const
+    Sprite::get_height() const
     {
         return static_cast<float>(texture->height) * scale.y;
     }
 
 
     float
-    sprite::get_width() const
+    Sprite::get_width() const
     {
         return static_cast<float>(texture->width) * scale.x;
     }
 
 
     void
-    sprite::render(sprite_renderer* render) const
+    Sprite::render(SpriteRenderer* render) const
     {
         render->draw_sprite
         (
@@ -49,7 +49,7 @@ namespace euphoria::render
                 static_cast<float>(texture->width),
                 static_cast<float>(texture->height)
             ),
-            draw_data{}
+            DrawData{}
                 .set_rotation(rotation)
                 .set_scale(scale)
                 .set_tint(core::Rgba(color, alpha))
@@ -57,21 +57,21 @@ namespace euphoria::render
     }
 
 
-    layer::layer(sprite_renderer* render)
+    Layer::Layer(SpriteRenderer* render)
         : renderer(render)
     {
     }
 
 
     void
-    layer::add(sprite* sprite)
+    Layer::add(Sprite* sprite)
     {
         texture_to_sprites[sprite->texture].push_back(sprite);
     }
 
 
     void
-    layer::remove(sprite* sprite)
+    Layer::remove(Sprite* sprite)
     {
         sprite_list& sprites = texture_to_sprites[sprite->texture];
         sprites.erase
@@ -83,7 +83,7 @@ namespace euphoria::render
 
 
     void
-    layer::render()
+    Layer::render()
     {
         for(auto& list: texture_to_sprites)
         {

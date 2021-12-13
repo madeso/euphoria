@@ -6,14 +6,14 @@
 
 namespace euphoria::render
 {
-    viewport::viewport(const core::Recti& r)
+    Viewport::Viewport(const core::Recti& r)
         : bounds(r)
     {
     }
 
 
     void
-    viewport::activate() const
+    Viewport::activate() const
     {
         const auto bottom_left = bounds.get_bottom_left();
         glViewport
@@ -37,14 +37,14 @@ namespace euphoria::render
 
 
     float
-    viewport::get_aspect_ratio() const
+    Viewport::get_aspect_ratio() const
     {
         return core::c_int_to_float(bounds.get_width()) / core::c_int_to_float(bounds.get_height());
     }
 
 
     core::Vec2f
-    viewport::to_clip_coord(const core::Vec2i& p) const
+    Viewport::to_clip_coord(const core::Vec2i& p) const
     {
         const auto p01 = core::to01(bounds.StaticCast<float>(), p.StaticCast<float>());
         const auto clip = core::from01(core::Rectf::from_left_right_top_bottom(-1, 1, 1, -1), p01);

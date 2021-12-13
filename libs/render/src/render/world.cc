@@ -12,19 +12,19 @@
 namespace euphoria::render
 {
     void
-    world::add_actor(const std::shared_ptr<instance>& actor)
+    World::add_actor(const std::shared_ptr<Instance>& actor)
     {
         actors.push_back(actor);
     }
 
     void
-    world::render(const viewport& viewport, const core::Camera3& camera)
+    World::render(const Viewport& viewport, const core::Camera3& camera)
     {
         render(camera, camera.compile(viewport.get_aspect_ratio()));
     }
 
     void
-    world::step()
+    World::step()
     {
         actors.erase
         (
@@ -32,7 +32,7 @@ namespace euphoria::render
             (
                 actors.begin(),
                 actors.end(),
-                [](const std::shared_ptr<instance>& instance)
+                [](const std::shared_ptr<Instance>& instance)
                 {
                     return instance->remove_this;
                 }
@@ -42,7 +42,7 @@ namespace euphoria::render
     }
 
     void
-    world::render
+    World::render
     (
         const core::Camera3& camera,
         const core::CompiledCamera3& compiled

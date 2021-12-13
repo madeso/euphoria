@@ -7,9 +7,9 @@
 
 namespace euphoria::render
 {
-    struct positioned_lines : public instance
+    struct PositionedLines : public Instance
     {
-        positioned_lines(const std::shared_ptr<compiled_lines>& alines);
+        PositionedLines(const std::shared_ptr<CompiledLines>& alines);
 
         void
         render
@@ -17,9 +17,9 @@ namespace euphoria::render
             const core::mat4f& projection_matrix,
             const core::mat4f& view_matrix,
             const core::Vec3f& camera,
-            const render::light& light
+            const render::Light& light
         ) override;
 
-        std::shared_ptr<compiled_lines> lines;
+        std::shared_ptr<CompiledLines> lines;
     };
 }

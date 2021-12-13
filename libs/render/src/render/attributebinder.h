@@ -6,13 +6,13 @@
 
 namespace euphoria::render
 {
-    struct point_layout;
+    struct PointLayout;
 
     void
     bind_attributes
     (
-            const std::vector<shader_attribute>& attributes,
-            point_layout* layout
+        const std::vector<ShaderAttribute>& attributes,
+        PointLayout* layout
     );
 }
 

@@ -6,22 +6,22 @@
 
 namespace euphoria::render::attributes2d
 {
-    const shader_attribute&
+    const ShaderAttribute&
     vertex()
     {
-        static const auto attribute = shader_attribute
+        static const auto attribute = ShaderAttribute
         {
             1,
-            shader_attribute_type::float4,
+            ShaderAttributeType::float4,
             "vertex",
-            shader_attribute_source::unknown
+            ShaderAttributeSource::unknown
         };
         return attribute;
     }
 
 
     void
-    prebind_shader(shader* shader)
+    prebind_shader(ShaderProgram* shader)
     {
         ASSERT(shader);
         shader->pre_bind(vertex());

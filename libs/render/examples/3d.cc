@@ -57,7 +57,7 @@ struct cube_animation
     {
     }
 
-    std::shared_ptr<euphoria::render::actor> actor;
+    std::shared_ptr<euphoria::render::Actor> actor;
     float timer = 0.0f;
     Quatf from;
     Quatf to;
@@ -84,7 +84,7 @@ main(int argc, char** argv)
         return -1;
     }
 
-    material_shader_cache material_shader_cache {engine.file_system.get()};
+    MaterialShaderCache material_shader_cache {engine.file_system.get()};
 
     SET_ENUM_FROM_FILE
     (
@@ -123,13 +123,13 @@ main(int argc, char** argv)
         image.write(ImageWriteFormat::png)
     );
 
-    texture_cache texture_cache {engine.file_system.get()};
+    TextureCache texture_cache {engine.file_system.get()};
 
     bool running = true;
 
     sdl_timer timer;
 
-    auto world = euphoria::render::world {};
+    auto world = euphoria::render::World {};
 
     auto box_mesh1 = meshes::create_cube(0.5f);
     box_mesh1.materials[0].set_texture("Diffuse", vfs::FilePath{"./container2.png"});
@@ -190,7 +190,7 @@ main(int argc, char** argv)
 
     for(int i = 0; i < 20; ++i)
     {
-        auto actor = std::make_shared<render::actor>(rand.get_next_bool() ? box1 : box2);
+        auto actor = std::make_shared<render::Actor>(rand.get_next_bool() ? box1 : box2);
         world.add_actor(actor);
 
         cube_animation anim;
@@ -215,7 +215,7 @@ main(int argc, char** argv)
         animation_handler.push_back(anim);
     }
 
-    auto light_actor = std::make_shared<actor>(light);
+    auto light_actor = std::make_shared<Actor>(light);
     world.add_actor(light_actor);
     light_actor->overriden_materials = light_actor->create_override();
     ASSERT(light_actor->overriden_materials->materials.size() == 1);
@@ -241,7 +241,7 @@ main(int argc, char** argv)
     FpsController fps;
     fps.position = Vec3f(0, 0, 3);
 
-    auto viewport_handler = euphoria::render::viewport_handler
+    auto viewport_handler = euphoria::render::ViewportHandler
     {
         engine.init.get(),
         nullptr
@@ -265,9 +265,9 @@ main(int argc, char** argv)
             "Type",
             &world.light.light_type,
             {
-                {"Directional", light::type::directional},
-                {"Point", light::type::point},
-                {"Spot", light::type::spot}
+                {"Directional", Light::type::directional},
+                {"Point", Light::type::point},
+                {"Spot", Light::type::spot}
             }
         );
         imgui::color_edit("Ambient", &world.light.ambient);

@@ -55,7 +55,7 @@ main(int argc, char* argv[])
         std::make_shared<vfs::WriteRootPhysicalFolder>(get_current_directory())
     );
 
-    texture_cache cache {engine.file_system.get()};
+    TextureCache cache {engine.file_system.get()};
 
     const auto clear_color = NamedColor::light_gray;
 
@@ -77,16 +77,16 @@ main(int argc, char* argv[])
     }
 
 
-    shader shader;
+    ShaderProgram shader;
     attributes2d::prebind_shader(&shader);
     shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
-    sprite_renderer renderer(&shader);
-    font_cache font_cache {engine.file_system.get(), &cache};
+    SpriteRenderer renderer(&shader);
+    FontCache font_cache {engine.file_system.get(), &cache};
 
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto viewport_handler = euphoria::render::viewport_handler
+    auto viewport_handler = euphoria::render::ViewportHandler
     {
         engine.init.get(),
         nullptr

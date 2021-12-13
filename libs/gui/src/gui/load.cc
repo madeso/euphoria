@@ -73,7 +73,7 @@ namespace euphoria::gui
         ui_state* state,
         layout_container* root,
         const ::gui::LayoutContainer& c,
-        render::texture_cache* cache,
+        render::TextureCache* cache,
         const std::map<std::string, skin*>& skins
     );
 
@@ -106,7 +106,7 @@ namespace euphoria::gui
         core::vfs::FileSystem* fs,
         ui_state* state,
         const ::gui::Widget& w,
-        render::texture_cache* cache,
+        render::TextureCache* cache,
         const std::map<std::string, skin*>& skins
     )
     {
@@ -133,9 +133,9 @@ namespace euphoria::gui
 
                 if(skin_it->second->button_image.has_value())
                 {
-                    std::shared_ptr<render::scalable_sprite> sp
+                    std::shared_ptr<render::ScalableSprite> sp
                     {
-                        new render::scalable_sprite
+                        new render::ScalableSprite
                         {
                             fs,
                             skin->button_image.value(),
@@ -193,7 +193,7 @@ namespace euphoria::gui
         ui_state* state,
         layout_container* root,
         const ::gui::LayoutContainer& c,
-        render::texture_cache* cache,
+        render::TextureCache* cache,
         const std::map<std::string, skin*>& skins
     )
     {
@@ -305,7 +305,7 @@ namespace euphoria::gui
 
 
     std::shared_ptr<skin>
-    load_skin(const ::gui::Skin& src, render::font_cache* font)
+    load_skin(const ::gui::Skin& src, render::FontCache* font)
     {
         std::shared_ptr<skin> skin(new gui::skin());
         skin->name = src.name;
@@ -333,9 +333,9 @@ namespace euphoria::gui
     (
         root* root,
         core::vfs::FileSystem* fs,
-        render::font_cache* font,
+        render::FontCache* font,
         const core::vfs::FilePath& path,
-        render::texture_cache* cache
+        render::TextureCache* cache
     )
     {
         const auto loaded = core::get_optional_and_log_errors

@@ -19,7 +19,7 @@ namespace euphoria::gui
 
 
     void
-    text_data::set_font(std::shared_ptr<render::drawable_font> new_font)
+    text_data::set_font(std::shared_ptr<render::DrawableFont> new_font)
     {
         font = new_font;
         text.reset();
@@ -27,7 +27,7 @@ namespace euphoria::gui
     }
 
 
-    const render::drawable_font&
+    const render::DrawableFont&
     text_data::get_font() const
     {
         ASSERT(font);
@@ -50,7 +50,7 @@ namespace euphoria::gui
     }
 
 
-    const render::drawable_text&
+    const render::DrawableText&
     text_data::get_text() const
     {
         ASSERT(text);
@@ -58,7 +58,7 @@ namespace euphoria::gui
     }
 
 
-    render::drawable_text&
+    render::DrawableText&
     text_data::get_text()
     {
         ASSERT(text);
@@ -82,13 +82,13 @@ namespace euphoria::gui
     {
         if(text == nullptr && font != nullptr)
         {
-            text = std::make_shared<render::drawable_text>(font.get());
+            text = std::make_shared<render::DrawableText>(font.get());
         }
 
         if(text != nullptr)
         {
             // button assumes this is bottom left
-            text->set_alignment(render::align::bottom_left);
+            text->set_alignment(render::Align::bottom_left);
 
             core::UiText parsed;
             if(false == parsed.init_by_parsing_source(string))

@@ -23,9 +23,9 @@ namespace euphoria::gui
     root::load
     (
         core::vfs::FileSystem* fs,
-        render::font_cache* font,
+        render::FontCache* font,
         const core::vfs::FilePath& path,
-        render::texture_cache* cache
+        render::TextureCache* cache
     )
     {
         const bool result = euphoria::gui::load_gui(this, fs, font, path, cache);
@@ -65,7 +65,7 @@ namespace euphoria::gui
 
 
     void
-    root::render(render::sprite_renderer* sp) const
+    root::render(render::SpriteRenderer* sp) const
     {
         container.render(sp);
 

@@ -10,7 +10,7 @@ namespace euphoria::render
     using LoaderFunction = void* (*)(const char* name);
 
     // todo(Gustav): come up with a better name
-    struct init
+    struct Init
     {
     public:
         enum class blend_hack
@@ -19,10 +19,10 @@ namespace euphoria::render
             enable_hack
         };
 
-        explicit init(LoaderFunction loader, blend_hack blend_hack = blend_hack::no_hack);
-        ~init();
+        explicit Init(LoaderFunction loader, blend_hack blend_hack = blend_hack::no_hack);
+        ~Init();
 
-        NONCOPYABLE(init);
+        NONCOPYABLE(Init);
 
         [[nodiscard]] core::mat4f
         get_ortho_projection(float width, float height) const;

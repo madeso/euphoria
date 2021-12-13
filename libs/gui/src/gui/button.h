@@ -14,7 +14,7 @@
 
 namespace euphoria::render
 {
-    struct scalable_sprite;
+    struct ScalableSprite;
 }
 
 namespace euphoria::gui
@@ -40,7 +40,7 @@ namespace euphoria::gui
         calculate_minimum_size() const override;
 
         void
-        render(render::sprite_renderer* renderer) const override;
+        render(render::SpriteRenderer* renderer) const override;
 
         void
         visit(visitor* visitor) override;
@@ -52,7 +52,7 @@ namespace euphoria::gui
         set_skin(skin* new_skin);
 
         button_state* last_state;
-        std::shared_ptr<render::scalable_sprite> sprite;
+        std::shared_ptr<render::ScalableSprite> sprite;
         text_data text;
         skin* skin_;
 

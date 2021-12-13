@@ -9,20 +9,20 @@
 
 namespace euphoria::render
 {
-    struct shader;
+    struct ShaderProgram;
 
-    struct shader_uniform
+    struct ShaderUniform
     {
     public:
-        shader_uniform(std::string aname, glint aid, render::shader* ashader);
+        ShaderUniform(std::string aname, glint aid, render::ShaderProgram* ashader);
 
-        ~shader_uniform() = default;
-        shader_uniform(const shader_uniform&) = default;
-        shader_uniform(shader_uniform&&) = default;
-        shader_uniform& operator=(const shader_uniform&) = default;
-        shader_uniform& operator=(shader_uniform&&) = default;
+        ~ShaderUniform() = default;
+        ShaderUniform(const ShaderUniform&) = default;
+        ShaderUniform(ShaderUniform&&) = default;
+        ShaderUniform& operator=(const ShaderUniform&) = default;
+        ShaderUniform& operator=(ShaderUniform&&) = default;
 
-        [[nodiscard]] static const shader_uniform&
+        [[nodiscard]] static const ShaderUniform&
         null();
 
         [[nodiscard]] bool
@@ -30,12 +30,12 @@ namespace euphoria::render
 
         std::string name;
         glint id;
-        render::shader* shader;
+        render::ShaderProgram* shader;
 
     private:
-        shader_uniform(); // creates a null shader
+        ShaderUniform(); // creates a null shader
     };
 
     bool
-    operator==(const shader_uniform& lhs, const shader_uniform& rhs);
+    operator==(const ShaderUniform& lhs, const ShaderUniform& rhs);
 }

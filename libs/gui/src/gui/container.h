@@ -8,7 +8,7 @@
 
 namespace euphoria::render
 {
-    struct sprite_renderer;
+    struct SpriteRenderer;
 }
 
 namespace euphoria::gui
@@ -36,7 +36,7 @@ namespace euphoria::gui
         step(float dt);
 
         void
-        render(render::sprite_renderer* renderer) const;
+        render(render::SpriteRenderer* renderer) const;
 
         std::vector<std::shared_ptr<widget>> widgets;
     };

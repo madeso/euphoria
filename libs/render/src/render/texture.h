@@ -12,51 +12,51 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    enum class texture_wrap
+    enum class TextureWrap
     {
         repeat,
         mirrored_repeat,
         clamp_to_edge
     };
 
-    enum class filter_magnification
+    enum class FilterMagnification
     {
         nearest,
         linear
     };
 
-    enum class filter_minification
+    enum class FilterMinification
     {
         nearest,
         linear
         // todo(Gustav): add mipmap
     };
 
-    struct texture2d_load_data
+    struct Texture2dLoadData
     {
-        texture2d_load_data();
+        Texture2dLoadData();
 
-        texture2d_load_data&
-        set_wrap(texture_wrap v);
+        Texture2dLoadData&
+        set_wrap(TextureWrap v);
 
-        texture2d_load_data&
-        set_filter_magnification(filter_magnification v);
+        Texture2dLoadData&
+        set_filter_magnification(FilterMagnification v);
 
-        texture2d_load_data&
-        set_filter_minification(filter_minification v);
+        Texture2dLoadData&
+        set_filter_minification(FilterMinification v);
 
-        texture_wrap wrap;
-        filter_minification minification;
-        filter_magnification magnification;
+        TextureWrap wrap;
+        FilterMinification minification;
+        FilterMagnification magnification;
     };
 
-    struct texture_id
+    struct TextureId
     {
     public:
-        texture_id();
-        ~texture_id();
+        TextureId();
+        ~TextureId();
 
-        NONCOPYABLE(texture_id);
+        NONCOPYABLE(TextureId);
 
         [[nodiscard]] bool
         is_currently_bound() const;
@@ -69,15 +69,15 @@ namespace euphoria::render
     };
 
     void
-    use(const texture_id* texture);
+    use(const TextureId* texture);
 
-    struct texture2d : public texture_id
+    struct Texture2 : public TextureId
     {
     public:
-        texture2d();
-        ~texture2d() = default;
+        Texture2();
+        ~Texture2() = default;
 
-        NONCOPYABLE(texture2d);
+        NONCOPYABLE(Texture2);
 
         void
         load_from_pixels
@@ -87,7 +87,7 @@ namespace euphoria::render
             const unsigned char* pixel_data,
             glint internal_format,
             gluint image_format,
-            const texture2d_load_data& data
+            const Texture2dLoadData& data
         );
 
         void
@@ -95,7 +95,7 @@ namespace euphoria::render
         (
             const core::Image& image,
             core::AlphaLoad alpha,
-            const texture2d_load_data& data
+            const Texture2dLoadData& data
         );
 
         void
@@ -104,7 +104,7 @@ namespace euphoria::render
             core::vfs::FileSystem* fs,
             const core::vfs::FilePath& path,
             core::AlphaLoad alpha,
-            const texture2d_load_data& data
+            const Texture2dLoadData& data
         );
 
         int width;

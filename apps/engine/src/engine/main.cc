@@ -126,20 +126,20 @@ run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& pa
 }
 
 
-viewport_type
+ViewportType
 con(game::ViewportType type)
 {
     switch(type)
     {
     case game::ViewportType::FitWithBlackBars:
-        return viewport_type::fit_with_black_bars;
+        return ViewportType::fit_with_black_bars;
     case game::ViewportType::ScreenPixel:
-        return viewport_type::screen_pixel;
+        return ViewportType::screen_pixel;
     case game::ViewportType::Extend:
-        return viewport_type::extend;
+        return ViewportType::extend;
     default:
         DIE("Unhandled viewport case");
-        return viewport_type::screen_pixel;
+        return ViewportType::screen_pixel;
     }
 }
 
@@ -190,7 +190,7 @@ main(int argc, char* argv[])
         std::make_shared<vfs::WriteRootPhysicalFolder>(get_current_directory())
     );
 
-    texture_cache cache {engine.file_system.get()};
+    TextureCache cache {engine.file_system.get()};
 
     auto loaded_gamedata = load_game_data(engine.file_system.get());
     if(loaded_gamedata.has_value() == false)
@@ -231,11 +231,11 @@ main(int argc, char* argv[])
         input.add(std::make_shared<bound_var>(bind.name, key));
     }
 
-    shader shader;
+    ShaderProgram shader;
     attributes2d::prebind_shader(&shader);
     shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
-    sprite_renderer renderer(&shader);
-    font_cache font_cache {engine.file_system.get(), &cache};
+    SpriteRenderer renderer(&shader);
+    FontCache font_cache {engine.file_system.get(), &cache};
 
     LuaState duk;
 
@@ -292,7 +292,7 @@ main(int argc, char* argv[])
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto viewport_handler = euphoria::render::viewport_handler
+    auto viewport_handler = euphoria::render::ViewportHandler
     {
         engine.init.get(),
         &camera_data.screen

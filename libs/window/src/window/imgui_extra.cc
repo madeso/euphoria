@@ -154,14 +154,14 @@ namespace euphoria::window::imgui
 
 
     ImTextureID
-    c_texture_to_imgui(render::texture2d* texture)
+    c_texture_to_imgui(render::Texture2* texture)
     {
         return reinterpret_cast<ImTextureID>(texture->get_id());
     }
 
 
     void
-    image(render::texture2d* texture)
+    image(render::Texture2* texture)
     {
         auto tex_w = static_cast<float>(texture->width);
         auto tex_h = static_cast<float>(texture->height);

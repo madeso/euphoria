@@ -7,64 +7,64 @@
 
 namespace euphoria::render::attributes3d
 {
-    const shader_attribute&
+    const ShaderAttribute&
     vertex()
     {
-        static const auto attribute = shader_attribute
+        static const auto attribute = ShaderAttribute
         {
             1,
-            shader_attribute_type::float3,
+            ShaderAttributeType::float3,
             "aPosition",
-            shader_attribute_source::vertex
+            ShaderAttributeSource::vertex
         };
         return attribute;
     }
 
 
-    const shader_attribute&
+    const ShaderAttribute&
     normal()
     {
-        static const auto attribute = shader_attribute
+        static const auto attribute = ShaderAttribute
         {
             2,
-            shader_attribute_type::float3,
+            ShaderAttributeType::float3,
             "aNormal",
-            shader_attribute_source::normal
+            ShaderAttributeSource::normal
         };
         return attribute;
     }
 
 
-    const shader_attribute&
+    const ShaderAttribute&
     tex_coord()
     {
-        static const auto attribute = shader_attribute
+        static const auto attribute = ShaderAttribute
         {
             3,
-            shader_attribute_type::float2,
+            ShaderAttributeType::float2,
             "aTexCoord",
-            shader_attribute_source::uv
+            ShaderAttributeSource::uv
         };
         return attribute;
     }
 
 
-    const shader_attribute&
+    const ShaderAttribute&
     color()
     {
-        static const auto attribute = shader_attribute
+        static const auto attribute = ShaderAttribute
         {
             4,
-            shader_attribute_type::float3,
+            ShaderAttributeType::float3,
             "aColor",
-            shader_attribute_source::color
+            ShaderAttributeSource::color
         };
         return attribute;
     }
 
 
     void
-    prebind_shader(shader* shader)
+    prebind_shader(ShaderProgram* shader)
     {
         ASSERT(shader);
         shader->pre_bind(vertex());

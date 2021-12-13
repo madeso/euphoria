@@ -266,7 +266,7 @@ void
 load_file
 (
     scimed* scimed,
-    texture_cache* cache,
+    TextureCache* cache,
     scaling_sprite_cache* shader_cache,
     const vfs::FilePath& path
 )
@@ -293,7 +293,7 @@ open_or_focus_scimed
 (
     Windows* windows,
     const vfs::FilePath& file,
-    texture_cache* tc,
+    TextureCache* tc,
     scaling_sprite_cache* sc
 )
 {
@@ -512,7 +512,7 @@ main(int argc, char** argv)
         return -1;
     }
 
-    texture_cache texture_cache {engine.file_system.get()};
+    TextureCache texture_cache {engine.file_system.get()};
     scaling_sprite_cache sprite_cache;
 
     bool running = true;
@@ -648,7 +648,7 @@ main(int argc, char** argv)
         )
     );
 
-    auto viewport_handler = euphoria::render::viewport_handler
+    auto viewport_handler = euphoria::render::ViewportHandler
     {
         engine.init.get(),
         nullptr

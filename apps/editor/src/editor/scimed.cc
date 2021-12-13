@@ -297,7 +297,7 @@ namespace euphoria::editor
     void
     draw_sizer
     (
-        std::shared_ptr<render::texture2d> image,
+        std::shared_ptr<render::Texture2> image,
         const scimed& sc,
         const scimed_config& scc,
         scalingsprite::ScalingSprite* sprite

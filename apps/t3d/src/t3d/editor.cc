@@ -14,7 +14,7 @@ namespace euphoria::t3d
     editor::editor
     (
             t3d::grid* agrid,
-            render::world* aworld,
+            render::World* aworld,
             t3d::tile_library* atile_library
     )
         : grid(agrid)

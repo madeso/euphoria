@@ -8,8 +8,8 @@
 
 namespace euphoria::render
 {
-    struct drawable_font;
-    struct drawable_text;
+    struct DrawableFont;
+    struct DrawableText;
 }
 
 namespace euphoria::gui
@@ -22,9 +22,9 @@ namespace euphoria::gui
         NONCOPYABLE(text_data);
 
         void
-        set_font(std::shared_ptr<render::drawable_font> font);
+        set_font(std::shared_ptr<render::DrawableFont> font);
 
-        [[nodiscard]] const render::drawable_font&
+        [[nodiscard]] const render::DrawableFont&
         get_font() const;
 
         void
@@ -33,10 +33,10 @@ namespace euphoria::gui
         [[nodiscard]] bool
         has_text() const;
 
-        [[nodiscard]] const render::drawable_text&
+        [[nodiscard]] const render::DrawableText&
         get_text() const;
 
-        render::drawable_text&
+        render::DrawableText&
         get_text();
 
         void
@@ -46,9 +46,9 @@ namespace euphoria::gui
         update_text();
 
 
-        std::shared_ptr<render::drawable_font> font;
+        std::shared_ptr<render::DrawableFont> font;
         std::string string;
         float size;
-        std::shared_ptr<render::drawable_text> text;
+        std::shared_ptr<render::DrawableText> text;
     };
 }

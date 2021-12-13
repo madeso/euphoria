@@ -9,12 +9,12 @@
 
 namespace euphoria::render
 {
-    struct light;
+    struct Light;
 
-    struct material_shader_default_texture
+    struct MaterialShaderDefaultTexture
     {
     public:
-        material_shader_default_texture
+        MaterialShaderDefaultTexture
         (
             const core::EnumValue& a_name,
             const core::vfs::FilePath& a_path
@@ -24,24 +24,24 @@ namespace euphoria::render
         core::vfs::FilePath path;
     };
 
-    struct material_shader_binding
+    struct MaterialShaderBinding
     {
-        material_shader_binding
+        MaterialShaderBinding
         (
-                shader_uniform a_uniform,
-                const core::EnumValue& a_name
+            ShaderUniform a_uniform,
+            const core::EnumValue& a_name
         );
 
-        shader_uniform uniform;
+        ShaderUniform uniform;
         core::EnumValue name;
     };
 
     /** Extends a regular Shader with uniform bindings for 3d rendering
      */
-    struct material_shader
+    struct MaterialShader
     {
     public:
-        material_shader();
+        MaterialShader();
 
         bool
         load
@@ -63,7 +63,7 @@ namespace euphoria::render
         set_model(const core::mat4f& model_data);
 
         void
-        setup_light(const light& light, const core::Vec3f& camera);
+        setup_light(const Light& light, const core::Vec3f& camera);
 
         void
         set_colors
@@ -74,36 +74,36 @@ namespace euphoria::render
             float shininess_data
         );
 
-        render::shader shader;
+        render::ShaderProgram shader;
 
         // private:
-        shader_uniform projection;
-        shader_uniform view;
-        shader_uniform model;
+        ShaderUniform projection;
+        ShaderUniform view;
+        ShaderUniform model;
 
-        shader_uniform ambient;
-        shader_uniform diffuse;
-        shader_uniform specular;
-        shader_uniform shininess;
+        ShaderUniform ambient;
+        ShaderUniform diffuse;
+        ShaderUniform specular;
+        ShaderUniform shininess;
 
         bool has_light;
-        shader_uniform light_ambient;
-        shader_uniform light_diffuse;
-        shader_uniform light_specular;
-        shader_uniform light_position;
-        shader_uniform light_direction;
-        shader_uniform light_type;
-        shader_uniform light_attenuation_constant;
-        shader_uniform light_attenuation_linear;
-        shader_uniform light_attenuation_quadratic;
-        shader_uniform light_cutoff_angle_outer;
-        shader_uniform light_cutoff_angle_inner;
+        ShaderUniform light_ambient;
+        ShaderUniform light_diffuse;
+        ShaderUniform light_specular;
+        ShaderUniform light_position;
+        ShaderUniform light_direction;
+        ShaderUniform light_type;
+        ShaderUniform light_attenuation_constant;
+        ShaderUniform light_attenuation_linear;
+        ShaderUniform light_attenuation_quadratic;
+        ShaderUniform light_cutoff_angle_outer;
+        ShaderUniform light_cutoff_angle_inner;
 
-        shader_uniform normal_matrix;
-        shader_uniform view_position;
+        ShaderUniform normal_matrix;
+        ShaderUniform view_position;
 
-        std::vector<material_shader_binding> bindings;
-        std::vector<material_shader_default_texture> default_textures;
+        std::vector<MaterialShaderBinding> bindings;
+        std::vector<MaterialShaderDefaultTexture> default_textures;
     };
 
 }

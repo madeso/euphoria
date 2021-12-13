@@ -14,16 +14,16 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    struct material_shader;
-    struct material_shader_cache;
+    struct MaterialShader;
+    struct MaterialShaderCache;
     
-    struct compiled_lines
+    struct CompiledLines
     {
-        vertex_buffer data;
-        point_layout config;
-        index_buffer lines;
+        VertexBuffer data;
+        PointLayout config;
+        IndexBuffer lines;
         int line_count;
-        std::shared_ptr<material_shader> shader;
+        std::shared_ptr<MaterialShader> shader;
         
         void
         render
@@ -35,8 +35,8 @@ namespace euphoria::render
     };
     
 
-    std::shared_ptr<compiled_lines>
-    compile(material_shader_cache* shader_cache, const core::Lines& lines);
+    std::shared_ptr<CompiledLines>
+    compile(MaterialShaderCache* shader_cache, const core::Lines& lines);
 }
 
 

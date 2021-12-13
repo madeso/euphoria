@@ -17,8 +17,8 @@ namespace euphoria::core
 
 namespace euphoria::render
 {
-    struct world;
-    struct actor;
+    struct World;
+    struct Actor;
 }
 
 
@@ -31,7 +31,7 @@ namespace euphoria::t3d
 
     struct placed_mesh
     {
-        std::shared_ptr<render::actor> actor;
+        std::shared_ptr<render::Actor> actor;
         std::shared_ptr<t3d::tile> tile;
         bool is_selected = false;
     };
@@ -41,10 +41,10 @@ namespace euphoria::t3d
     struct editor
     {
         t3d::grid* grid;
-        render::world* world;
+        render::World* world;
         t3d::tile_library* tile_library;
         core::CompiledCamera3 camera;
-        render::viewport viewport;
+        render::Viewport viewport;
 
         core::Vec2i mouse;
         tool_stack tools;
@@ -56,7 +56,7 @@ namespace euphoria::t3d
         // change so that fps control rotate focuspoint around current camera pos
 
 
-        editor(t3d::grid* agrid, render::world* aworld, t3d::tile_library* atile_library);
+        editor(t3d::grid* agrid, render::World* aworld, t3d::tile_library* atile_library);
 
 
         std::shared_ptr<placed_mesh>

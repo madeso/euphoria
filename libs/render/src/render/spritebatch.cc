@@ -11,18 +11,18 @@ namespace euphoria::render
     constexpr int stride = 2 * 4 + 2 * 4 + 4 * 4;
 
 
-    sprite_batch::sprite_batch() : is_inside(false), current_quad_count(0), number_of_render_calls(0)
+    SpriteBatch::SpriteBatch() : is_inside(false), current_quad_count(0), number_of_render_calls(0)
     {
         vertex_data.reserve(core::c_int_to_sizet(stride * quad_cont));
         quad_indices.reserve(core::c_int_to_sizet(6 * quad_cont));
     }
 
 
-    sprite_batch::~sprite_batch() = default;
+    SpriteBatch::~SpriteBatch() = default;
 
 
     void
-    sprite_batch::begin()
+    SpriteBatch::begin()
     {
         ASSERT(!is_inside && "Already open, missing call to end.");
         number_of_render_calls = 0;
@@ -30,7 +30,7 @@ namespace euphoria::render
 
 
     void
-    sprite_batch::quad
+    SpriteBatch::quad
     (
         const core::Vec2f& pos,
         const core::size2f& quad,
@@ -107,7 +107,7 @@ namespace euphoria::render
 
 
     void
-    sprite_batch::end()
+    SpriteBatch::end()
     {
         ASSERT(is_inside && "not open, missing begin.");
         flush();
@@ -116,7 +116,7 @@ namespace euphoria::render
 
 
     void
-    sprite_batch::flush()
+    SpriteBatch::flush()
     {
         if(current_quad_count == 0)
         {

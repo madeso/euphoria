@@ -11,8 +11,8 @@
 
 namespace euphoria::render
 {
-    struct texture2d;
-    struct texture_cache;
+    struct Texture2;
+    struct TextureCache;
 }
 
 
@@ -37,7 +37,7 @@ namespace euphoria::editor
     {
         std::shared_ptr<scalingsprite::ScalingSprite> scaling;
 
-        std::shared_ptr<render::texture2d> texture;
+        std::shared_ptr<render::Texture2> texture;
         window::canvas canvas;
         core::Vec2i mouse_popup = core::Vec2i {0, 0};
         line_hover_data hover;
