@@ -149,14 +149,14 @@ namespace
 
 
 
-    enum class animal
+    enum class Animal
     {
         cat, dog, bird, none
     };
 
 
     std::ostream&
-    operator<<(std::ostream& o, const animal& m)
+    operator<<(std::ostream& o, const Animal& m)
     {
         o << euphoria::core::enum_to_string(m);
         return o;
@@ -368,21 +368,21 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("optional enum")
     {
-        animal value = animal::dog;
+        Animal value = Animal::dog;
         parser.add("-f", &value).set_help("some animal");
 
         SECTION("empty parser is ok")
         {
             const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
-            CHECK(value == animal::dog);
+            CHECK(value == Animal::dog);
         }
 
         SECTION("parse cat")
         {
             const auto res = parser.parse(make_arguments({"-f", "cat" }));
             CHECK(res == argparse::ok);
-            CHECK(value == animal::cat);
+            CHECK(value == Animal::cat);
         }
 
         SECTION("print help")
@@ -425,28 +425,28 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("multi optional names")
     {
-        animal value = animal::dog;
+        Animal value = Animal::dog;
         parser.add("-a, --animal", &value).set_help("set the animal");
 
         SECTION("empty parser is ok")
         {
             const auto res = parser.parse(make_arguments({}));
             CHECK(res == argparse::ok);
-            CHECK(value == animal::dog);
+            CHECK(value == Animal::dog);
         }
 
         SECTION("short name")
         {
             const auto res = parser.parse(make_arguments({"-a", "cat" }));
             CHECK(res == argparse::ok);
-            CHECK(value == animal::cat);
+            CHECK(value == Animal::cat);
         }
 
         SECTION("long name")
         {
             const auto res = parser.parse(make_arguments({"--animal", "bird" }));
             CHECK(res == argparse::ok);
-            CHECK(value == animal::bird);
+            CHECK(value == Animal::bird);
         }
 
         SECTION("print help")
@@ -966,8 +966,8 @@ TEST_CASE("argparse_error", "[argparse]")
 
     SECTION("fourway test enum")
     {
-        using FF = Lrud<animal>;
-        auto ff = FF{animal::none};
+        using FF = Lrud<Animal>;
+        auto ff = FF{Animal::none};
         parser.add("f", &ff);
 
         SECTION("one value")
@@ -975,14 +975,14 @@ TEST_CASE("argparse_error", "[argparse]")
             const auto res = parser.parse(make_arguments({"cat"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
-            CHECK(ff == FF{animal::cat});
+            CHECK(ff == FF{Animal::cat});
         }
         SECTION("two values")
         {
             const auto res = parser.parse(make_arguments({"cat/none"}));
             INFO(output->messages);
             CHECK(res == argparse::ok);
-            CHECK(ff == FF::from_lrud(animal::none, animal::cat));
+            CHECK(ff == FF::from_lrud(Animal::none, Animal::cat));
         }
     }
 
