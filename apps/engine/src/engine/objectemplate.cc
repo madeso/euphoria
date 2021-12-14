@@ -16,10 +16,10 @@ namespace euphoria::engine
 {
     ////////////////////////////////////////////////////////////////////////////////
 
-    object_creation_arguments::object_creation_arguments
+    ObjectCreationArguments::ObjectCreationArguments
     (
             core::ecs::World* aworld,
-            script_registry* areg,
+            ScriptRegistry* areg,
             LuaState* actx,
             LuaState* aduk
     )
@@ -32,12 +32,12 @@ namespace euphoria::engine
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct position_component_creator : component_creator
+    struct position_component_creator : ComponentCreator
     {
         core::Vec2f p;
-        engine::components* components;
+        engine::Components* components;
 
-        position_component_creator(const core::Vec2f& pp, engine::components* components)
+        position_component_creator(const core::Vec2f& pp, engine::Components* components)
             : p(pp)
             , components(components)
         {
@@ -46,27 +46,27 @@ namespace euphoria::engine
         [[nodiscard]]
         static
         std::shared_ptr<position_component_creator>
-        create(const game::vec2f& p, engine::components* components)
+        create(const game::vec2f& p, engine::Components* components)
         {
             return std::make_shared<position_component_creator>(core::Vec2f {p.x, p.y}, components);
         }
 
         void
-        create_component(const object_creation_arguments& args, core::ecs::entity_id ent) override
+        create_component(const ObjectCreationArguments& args, core::ecs::entity_id ent) override
         {
-            auto c = std::make_shared<component_position2>();
+            auto c = std::make_shared<ComponentPosition2>();
             c->pos = p;
             args.world->reg.add_component_to_entity(ent, components->position2, c);
         }
     };
 
-    struct sprite_component_creator : public component_creator
+    struct sprite_component_creator : public ComponentCreator
     {
     public:
         std::shared_ptr<render::Texture2> texture;
-        engine::components* components;
+        engine::Components* components;
 
-        explicit sprite_component_creator(engine::components* c) : components(c) {}
+        explicit sprite_component_creator(engine::Components* c) : components(c) {}
 
         [[nodiscard]]
         static
@@ -75,7 +75,7 @@ namespace euphoria::engine
         (
             const game::Sprite& sprite,
             render::TextureCache* cache,
-            engine::components* components
+            engine::Components* components
         )
         {
             auto ptr = std::make_shared<sprite_component_creator>(components);
@@ -84,20 +84,20 @@ namespace euphoria::engine
         }
 
         void
-        create_component(const object_creation_arguments& args, core::ecs::entity_id ent) override
+        create_component(const ObjectCreationArguments& args, core::ecs::entity_id ent) override
         {
-            auto c = std::make_shared<component_sprite>();
+            auto c = std::make_shared<ComponentSprite>();
             c->texture = texture;
             args.world->reg.add_component_to_entity(ent, components->sprite, c);
         }
     };
 
 
-    struct custom_component_creator : public component_creator
+    struct custom_component_creator : public ComponentCreator
     {
     public:
         core::ecs::component_id comp;
-        custom_arguments arguments;
+        CustomArguments arguments;
 
         explicit custom_component_creator(core::ecs::component_id id)
             : comp(id)
@@ -135,7 +135,7 @@ namespace euphoria::engine
         }
 
         void
-        create_component(const object_creation_arguments& args, core::ecs::entity_id ent) override
+        create_component(const ObjectCreationArguments& args, core::ecs::entity_id ent) override
         {
             auto val = args.reg->create_component(comp, args.ctx, arguments);
             args.reg->set_property(ent, comp, val);
@@ -146,13 +146,13 @@ namespace euphoria::engine
     ////////////////////////////////////////////////////////////////////////////////
 
 
-    std::shared_ptr<component_creator>
+    std::shared_ptr<ComponentCreator>
     create_creator
     (
         const game::Component& comp,
-        script_registry* reg,
+        ScriptRegistry* reg,
         render::TextureCache* cache,
-        components* components
+        Components* components
     )
     {
         if(comp.position)
@@ -195,11 +195,11 @@ namespace euphoria::engine
     void
     load_object_template
     (
-        object_template* ot,
+        ObjectTemplate* ot,
         const game::Template& ct,
-        script_registry* reg,
+        ScriptRegistry* reg,
         render::TextureCache* cache,
-        components* components
+        Components* components
     )
     {
         for(const auto& comp: ct.components)
@@ -214,7 +214,7 @@ namespace euphoria::engine
 
 
     core::ecs::entity_id
-    object_template::create_object(const object_creation_arguments& args)
+    ObjectTemplate::create_object(const ObjectCreationArguments& args)
     {
         auto ent = args.world->reg.create_new_entity();
         for(const auto& c: components)
@@ -233,11 +233,11 @@ namespace euphoria::engine
 
 
     void
-    load_templates_but_only_names(const game::Game& json, object_creator* temp)
+    load_templates_but_only_names(const game::Game& json, ObjectCreator* temp)
     {
         for(const auto& t: json.templates)
         {
-            auto o = std::make_shared<object_template>();
+            auto o = std::make_shared<ObjectTemplate>();
             temp->templates.insert(std::make_pair(t.name, o));
         }
     }
@@ -247,15 +247,15 @@ namespace euphoria::engine
     load_templates
     (
         const game::Game& json,
-        object_creator* temp,
-        script_registry* reg,
+        ObjectCreator* temp,
+        ScriptRegistry* reg,
         render::TextureCache* cache,
-        components* components
+        Components* components
     )
     {
         for(const auto& t: json.templates)
         {
-            auto o = std::make_shared<object_template>();
+            auto o = std::make_shared<ObjectTemplate>();
 
             auto fr = temp->templates.find(t.name);
             if(fr == temp->templates.end())
@@ -272,8 +272,8 @@ namespace euphoria::engine
     }
 
 
-    object_template*
-    object_creator::find_template(const std::string& name)
+    ObjectTemplate*
+    ObjectCreator::find_template(const std::string& name)
     {
         auto result = templates.find(name);
         if(result == templates.end())

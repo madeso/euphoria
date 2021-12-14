@@ -14,7 +14,7 @@ namespace euphoria::core::vfs
 
 namespace euphoria::t3d
 {
-    struct file_list
+    struct FileList
     {
         void
         add_directory

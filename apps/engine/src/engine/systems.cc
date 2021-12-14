@@ -14,9 +14,9 @@ namespace euphoria::engine
         : core::ecs::ComponentSystem
         , core::ecs::ComponentSystemSpriteDrawer
     {
-        engine::components* components;
+        engine::Components* components;
 
-        explicit system_sprite_draw(engine::components* c)
+        explicit system_sprite_draw(engine::Components* c)
             : ComponentSystem("sprite draw")
             , components(c)
         {
@@ -39,8 +39,8 @@ namespace euphoria::engine
             );
             for(auto ent: items)
             {
-                auto* sprite = reg->get_component_or_null<component_sprite>(ent, components->sprite);
-                auto* pos = reg->get_component_or_null<component_position2>(ent, components->position2);
+                auto* sprite = reg->get_component_or_null<ComponentSprite>(ent, components->sprite);
+                auto* pos = reg->get_component_or_null<ComponentPosition2>(ent, components->position2);
                 ASSERT(sprite);
                 ASSERT(pos);
                 renderer->draw_sprite
@@ -60,7 +60,7 @@ namespace euphoria::engine
 
 
     void
-    add_systems(core::ecs::Systems* sys, components* comps)
+    add_systems(core::ecs::Systems* sys, Components* comps)
     {
         sys->add_and_register(std::make_shared<system_sprite_draw>(comps));
     }

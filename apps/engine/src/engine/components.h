@@ -10,22 +10,22 @@
 
 namespace euphoria::engine
 {
-    struct component_position2 : public core::ecs::Component
+    struct ComponentPosition2 : public core::ecs::Component
     {
-        component_position2();
+        ComponentPosition2();
         core::Vec2f pos;
     };
 
-    struct component_sprite : public core::ecs::Component
+    struct ComponentSprite : public core::ecs::Component
     {
-        COMPONENT_CONSTRUCTOR_DEFINITION(component_sprite)
+        COMPONENT_CONSTRUCTOR_DEFINITION(ComponentSprite)
 
         std::shared_ptr<render::Texture2> texture;
     };
 
-    struct components
+    struct Components
     {
-        components(core::ecs::Registry* reg);
+        Components(core::ecs::Registry* reg);
 
         core::ecs::component_id position2;
         core::ecs::component_id sprite;
@@ -39,6 +39,6 @@ namespace euphoria::engine
     );
 }
 
-TYPEID_SETUP_TYPE(euphoria::engine::component_position2);
-TYPEID_SETUP_TYPE(euphoria::engine::component_sprite);
+TYPEID_SETUP_TYPE(euphoria::engine::ComponentPosition2);
+TYPEID_SETUP_TYPE(euphoria::engine::ComponentSprite);
 

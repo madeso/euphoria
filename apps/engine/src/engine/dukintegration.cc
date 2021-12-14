@@ -175,9 +175,9 @@ namespace euphoria::engine
                 core::ecs::Systems* sys,
                 core::ecs::World* world,
                 LuaState* duk,
-                object_creator* creator,
-                engine::components* cc,
-                camera_data* cam
+                ObjectCreator* creator,
+                engine::Components* cc,
+                CameraData* cam
         )
             : systems(sys, duk)
             , registry(&world->reg, cc)
@@ -217,19 +217,19 @@ namespace euphoria::engine
                 return creator->find_template(name);
             };
 
-            auto template_type = duk->state.new_usertype<object_template>("template");
-            template_type["create"] = [&, duk](object_template* t)
+            auto template_type = duk->state.new_usertype<ObjectTemplate>("template");
+            template_type["create"] = [&, duk](ObjectTemplate* t)
             {
-                return t->create_object(object_creation_arguments{world, &registry, duk, duk});
+                return t->create_object(ObjectCreationArguments{world, &registry, duk, duk});
             };
 
             auto camera_table = duk->state["camera"].get_or_create<sol::table>();
             camera_table["get_rect"] = [&]() { return &camera->screen; };
 
-            duk->state.new_usertype<custom_arguments>
+            duk->state.new_usertype<CustomArguments>
             (
                 "custom_arguments",
-                "get_number", [](const custom_arguments& args, const std::string& name) -> double
+                "get_number", [](const CustomArguments& args, const std::string& name) -> double
                 {
                     const auto f = args.numbers.find(name);
                     if(f == args.numbers.end())
@@ -291,38 +291,38 @@ namespace euphoria::engine
             };
             registry_table["get_sprite"] = [&](core::ecs::component_id ent)
             {
-                return registry.get_component_or_null<component_sprite>(ent, components->sprite);
+                return registry.get_component_or_null<ComponentSprite>(ent, components->sprite);
             };
             registry_table["get_position2"] = [&](core::ecs::component_id ent)
             {
-                return registry.get_component_or_null<component_position2>(ent, components->position2);
+                return registry.get_component_or_null<ComponentPosition2>(ent, components->position2);
             };
             registry_table["get_position2_vec"] = [&](core::ecs::component_id ent)
             {
-                auto* c = registry.get_component_or_null<component_position2>(ent, components->position2);
+                auto* c = registry.get_component_or_null<ComponentPosition2>(ent, components->position2);
                 return c == nullptr ? nullptr : &c->pos;
             };
 
-            duk->state.new_usertype<component_position2>
+            duk->state.new_usertype<ComponentPosition2>
             (
                 "component_position2",
                 "vec", sol::property
                 (
-                    [](const component_position2& p)
+                    [](const ComponentPosition2& p)
                     {
                         return p.pos;
                     },
-                    [](component_position2& p, const core::Vec2f& np)
+                    [](ComponentPosition2& p, const core::Vec2f& np)
                     {
                         p.pos = np;
                     }
                 )
             );
 
-            duk->state.new_usertype<component_sprite>
+            duk->state.new_usertype<ComponentSprite>
             (
                 "component_sprite",
-                "get_rect", [](const component_sprite& sp, const component_position2& p)
+                "get_rect", [](const ComponentSprite& sp, const ComponentPosition2& p)
                 {
                     return get_sprite_rect(p.pos, *sp.texture);
                 }
@@ -361,23 +361,23 @@ namespace euphoria::engine
         }
 
         script_systems systems;
-        script_registry registry;
+        ScriptRegistry registry;
         sol::table input;
         core::ecs::World* world;
-        object_creator* creator;
-        engine::components* components;
-        camera_data* camera;
+        ObjectCreator* creator;
+        engine::Components* components;
+        CameraData* camera;
     };
 
 
-    script_integration::script_integration
+    ScriptIntegration::ScriptIntegration
     (
             core::ecs::Systems* systems,
             core::ecs::World* reg,
             LuaState* duk,
-            object_creator* creator,
-            components* components,
-            camera_data* camera
+            ObjectCreator* creator,
+            Components* components,
+            CameraData* camera
     )
     {
         pimpl = std::make_unique<script_integration_pimpl>
@@ -393,21 +393,21 @@ namespace euphoria::engine
     }
 
 
-    script_integration::~script_integration()
+    ScriptIntegration::~ScriptIntegration()
     {
         clear();
     }
 
 
     void
-    script_integration::clear()
+    ScriptIntegration::clear()
     {
         pimpl.reset();
     }
 
 
-    script_registry&
-    script_integration::get_registry()
+    ScriptRegistry&
+    ScriptIntegration::get_registry()
     {
         ASSERT(pimpl);
         return pimpl->registry;
@@ -415,12 +415,12 @@ namespace euphoria::engine
 
 
     void
-    script_integration::bind_keys(const input_system &input)
+    ScriptIntegration::bind_keys(const InputSystem &input)
     {
         input.set(&pimpl->input);
     }
 }
 
 TYPEID_SETUP_TYPE(euphoria::core::Random);
-TYPEID_SETUP_TYPE(euphoria::engine::object_template);
+TYPEID_SETUP_TYPE(euphoria::engine::ObjectTemplate);
 TYPEID_SETUP_TYPE(euphoria::core::Rect<float>);

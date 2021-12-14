@@ -19,17 +19,17 @@ namespace euphoria::core::vfs
 
 namespace euphoria::engine
 {
-    struct script_registry;
-    struct object_creator;
+    struct ScriptRegistry;
+    struct ObjectCreator;
 
     void
     load_world
     (
             core::vfs::FileSystem* fs,
             core::ecs::World* world,
-            script_registry* reg,
+            ScriptRegistry* reg,
             const core::vfs::FilePath& path,
-            object_creator* creator,
+            ObjectCreator* creator,
             LuaState* ctx
     );
 }

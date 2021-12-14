@@ -47,24 +47,24 @@ namespace euphoria::window
 
 namespace euphoria::t3d
 {
-    struct editor;
-    struct tile_library;
+    struct Editor;
+    struct TileLibrary;
 
-    struct application
+    struct Application
     {
         std::shared_ptr<window::Engine> engine;
         std::shared_ptr<render::ViewportHandler> viewport_handler;
         std::shared_ptr<render::MaterialShaderCache> material_shader_cache;
         std::shared_ptr<render::TextureCache> texture_cache;
-        std::shared_ptr<t3d::tile_library> tile_library;
+        std::shared_ptr<t3d::TileLibrary> tile_library;
         std::shared_ptr<render::World> world;
         core::Camera3 camera;
-        std::shared_ptr<t3d::editor> editor;
+        std::shared_ptr<t3d::Editor> editor;
         bool running = true;
         std::shared_ptr<window::SdlTimer> timer;
         bool immersive_mode = false;
         std::shared_ptr<render::PositionedLines> grid;
-        t3d::grid grid_data;
+        t3d::Grid grid_data;
 
         bool environment_window = false;
         bool camera_window = false;
@@ -79,13 +79,13 @@ namespace euphoria::t3d
         bool show_imgui = false;
 
         int help_style = 0;
-        file_list pending_files;
+        FileList pending_files;
 
 
-        application();
-        ~application();
+        Application();
+        ~Application();
 
-        NONCOPYABLE(application);
+        NONCOPYABLE(Application);
 
 
         [[nodiscard]] int

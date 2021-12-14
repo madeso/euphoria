@@ -10,7 +10,7 @@
 namespace euphoria::t3d
 {
     void
-    file_list::add_directory
+    FileList::add_directory
     (
         const core::vfs::DirPath& directory,
         core::vfs::FileSystem* file_system
@@ -38,14 +38,14 @@ namespace euphoria::t3d
 
 
     bool
-    file_list::has_more_files() const
+    FileList::has_more_files() const
     {
         return !files.empty();
     }
 
 
     core::vfs::FilePath
-    file_list::get_next_file()
+    FileList::get_next_file()
     {
         ASSERT(!files.empty());
         ASSERTX(index < files.size(), index, files.size());

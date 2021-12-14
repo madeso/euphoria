@@ -13,38 +13,38 @@ namespace euphoria::core::ecs
 
 namespace euphoria::engine
 {
-    struct input_system;
-    struct script_registry;
-    struct object_creator;
+    struct InputSystem;
+    struct ScriptRegistry;
+    struct ObjectCreator;
     struct script_integration_pimpl;
-    struct camera_data;
-    struct components;
+    struct CameraData;
+    struct Components;
 
 
-    struct script_integration
+    struct ScriptIntegration
     {
     public:
-        script_integration
+        ScriptIntegration
         (
                 core::ecs::Systems* systems,
                 core::ecs::World* reg,
                 LuaState* duk,
-                object_creator* creator,
-                components* components,
-                camera_data* camera
+                ObjectCreator* creator,
+                Components* components,
+                CameraData* camera
         );
-        ~script_integration();
+        ~ScriptIntegration();
 
-        NONCOPYABLE(script_integration);
+        NONCOPYABLE(ScriptIntegration);
 
         void
         clear();
 
-        script_registry&
+        ScriptRegistry&
         get_registry();
 
         void
-        bind_keys(const input_system& input);
+        bind_keys(const InputSystem& input);
 
     private:
         std::unique_ptr<script_integration_pimpl> pimpl;

@@ -24,42 +24,42 @@ namespace euphoria::render
 
 namespace euphoria::t3d
 {
-    struct tile;
-    struct tile_library;
-    struct grid;
+    struct Tile;
+    struct TileLibrary;
+    struct Grid;
 
 
-    struct placed_mesh
+    struct PlacedMesh
     {
         std::shared_ptr<render::Actor> actor;
-        std::shared_ptr<t3d::tile> tile;
+        std::shared_ptr<t3d::Tile> tile;
         bool is_selected = false;
     };
 
 
     // todo(Gustav): Should editor and T3d structs be merged?
-    struct editor
+    struct Editor
     {
-        t3d::grid* grid;
+        t3d::Grid* grid;
         render::World* world;
-        t3d::tile_library* tile_library;
+        t3d::TileLibrary* tile_library;
         core::CompiledCamera3 camera;
         render::Viewport viewport;
 
         core::Vec2i mouse;
-        tool_stack tools;
+        ToolStack tools;
 
-        std::vector<std::shared_ptr<placed_mesh>> actors;
-        std::shared_ptr<tile> selected_mesh;
+        std::vector<std::shared_ptr<PlacedMesh>> actors;
+        std::shared_ptr<Tile> selected_mesh;
 
         // todo(Gustav): move camera here so we can have camera movement
         // change so that fps control rotate focuspoint around current camera pos
 
 
-        editor(t3d::grid* agrid, render::World* aworld, t3d::tile_library* atile_library);
+        Editor(t3d::Grid* agrid, render::World* aworld, t3d::TileLibrary* atile_library);
 
 
-        std::shared_ptr<placed_mesh>
+        std::shared_ptr<PlacedMesh>
         get_first_selected_or_null();
 
 
@@ -67,7 +67,7 @@ namespace euphoria::t3d
         set_all_selected(bool is_selected);
 
 
-        std::vector<std::shared_ptr<placed_mesh>>
+        std::vector<std::shared_ptr<PlacedMesh>>
         raycast(const core::UnitRay3f& ray);
 
 

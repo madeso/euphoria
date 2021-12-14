@@ -19,9 +19,9 @@ namespace euphoria::engine
     (
             core::vfs::FileSystem* fs,
             core::ecs::World* world,
-            script_registry* reg,
+            ScriptRegistry* reg,
             const core::vfs::FilePath& path,
-            object_creator* creator,
+            ObjectCreator* creator,
             LuaState* ctx
     )
     {
@@ -39,7 +39,7 @@ namespace euphoria::engine
                 LOG_ERROR("Failed to find template named {0}", name);
                 continue;
             }
-            t->create_object(object_creation_arguments{world, reg, ctx, ctx});
+            t->create_object(ObjectCreationArguments{world, reg, ctx, ctx});
         }
     }
 }

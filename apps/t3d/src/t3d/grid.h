@@ -2,7 +2,7 @@
 
 namespace euphoria::t3d
 {
-    struct grid
+    struct Grid
     {
         bool visible = true;
         float small_step = 0.5f;

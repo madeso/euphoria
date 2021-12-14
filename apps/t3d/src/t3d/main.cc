@@ -9,7 +9,7 @@
 int
 main(int argc, char** argv)
 {
-    euphoria::t3d::application t3d;
+    euphoria::t3d::Application t3d;
 
     const auto args = euphoria::core::argparse::NameAndArguments::extract(argc, argv);
 

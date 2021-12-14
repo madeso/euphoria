@@ -12,13 +12,13 @@
 
 namespace euphoria::engine
 {
-    component_position2::component_position2()
-        : COMPONENT_CONSTRUCTOR_ARG(component_position2)
+    ComponentPosition2::ComponentPosition2()
+        : COMPONENT_CONSTRUCTOR_ARG(ComponentPosition2)
         pos(0, 0)
     {
     }
 
-    components::components(core::ecs::Registry* reg)
+    Components::Components(core::ecs::Registry* reg)
         : position2(reg->register_new_component_type("position2"))
         , sprite(reg->register_new_component_type("sprite"))
     {

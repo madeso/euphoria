@@ -12,14 +12,14 @@
 
 namespace euphoria::engine
 {
-    struct bound_var
+    struct BoundVar
     {
         std::string name;
         float state;
         float last_state;
         core::Key key;
 
-        bound_var(const std::string& n, const core::Key& k);
+        BoundVar(const std::string& n, const core::Key& k);
 
         // todo(Gustav): figure out how to bind keys to this property
         // todo(Gustav): figure out how to handle just pressed
@@ -29,14 +29,14 @@ namespace euphoria::engine
 
 
 
-    struct input_system
+    struct InputSystem
     {
     public:
         static void
         bind(LuaState* duk);
 
         void
-        add(std::shared_ptr<bound_var> bind);
+        add(std::shared_ptr<BoundVar> bind);
 
         void
         set_key_state(core::Key key, float state);
@@ -48,9 +48,9 @@ namespace euphoria::engine
         update_state();
 
     private:
-        std::vector<std::shared_ptr<bound_var>> binds;
+        std::vector<std::shared_ptr<BoundVar>> binds;
     };
 }
 
-TYPEID_SETUP_TYPE(euphoria::engine::bound_var);
+TYPEID_SETUP_TYPE(euphoria::engine::BoundVar);
 

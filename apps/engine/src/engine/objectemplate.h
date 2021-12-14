@@ -26,62 +26,62 @@ namespace euphoria::render
 
 namespace euphoria::engine
 {
-    struct script_registry;
-    struct components;
+    struct ScriptRegistry;
+    struct Components;
 
-    struct object_creation_arguments
+    struct ObjectCreationArguments
     {
         core::ecs::World* world;
-        script_registry* reg;
+        ScriptRegistry* reg;
         LuaState* ctx;
         LuaState* duk;
 
-        object_creation_arguments
+        ObjectCreationArguments
         (
                 core::ecs::World* aworld,
-                script_registry* areg,
+                ScriptRegistry* areg,
                 LuaState* actx,
                 LuaState* aduk
         );
 };
 
-    struct component_creator
+    struct ComponentCreator
     {
-        component_creator() = default;
-        virtual ~component_creator() = default;
+        ComponentCreator() = default;
+        virtual ~ComponentCreator() = default;
 
-        NONCOPYABLE(component_creator);
+        NONCOPYABLE(ComponentCreator);
 
         virtual void
-        create_component(const object_creation_arguments& args, core::ecs::entity_id id) = 0;
+        create_component(const ObjectCreationArguments& args, core::ecs::entity_id id) = 0;
     };
 
-    struct object_template
+    struct ObjectTemplate
     {
         core::ecs::entity_id
-        create_object(const object_creation_arguments& args);
+        create_object(const ObjectCreationArguments& args);
 
-        std::vector<std::shared_ptr<component_creator>> components;
+        std::vector<std::shared_ptr<ComponentCreator>> components;
     };
 
-    struct object_creator
+    struct ObjectCreator
     {
-        std::map<std::string, std::shared_ptr<object_template>> templates;
+        std::map<std::string, std::shared_ptr<ObjectTemplate>> templates;
 
-        object_template*
+        ObjectTemplate*
         find_template(const std::string& name);
     };
 
     void
-    load_templates_but_only_names(const game::Game& json, object_creator* temp);
+    load_templates_but_only_names(const game::Game& json, ObjectCreator* temp);
 
     void
     load_templates
     (
         const game::Game& json,
-        object_creator* temp,
-        script_registry* reg,
+        ObjectCreator* temp,
+        ScriptRegistry* reg,
         render::TextureCache* cache,
-        components* components
+        Components* components
     );
 }

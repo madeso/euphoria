@@ -9,7 +9,7 @@
 
 namespace euphoria::editor
 {
-    struct file_browser
+    struct FileBrowser
     {
         core::vfs::DirPath current_folder;
         int selected_file = -1;
@@ -17,7 +17,7 @@ namespace euphoria::editor
         std::string filter;
         core::vfs::FileSystem* file_system = nullptr;
 
-        explicit file_browser(core::vfs::FileSystem* fs);
+        explicit FileBrowser(core::vfs::FileSystem* fs);
 
         std::optional<core::vfs::FilePath>
         get_selected_file();

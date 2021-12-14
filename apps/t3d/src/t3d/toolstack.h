@@ -5,17 +5,17 @@
 
 namespace euphoria::t3d
 {
-    struct tool;
+    struct Tool;
     struct tool_action;
 
-    struct tool_stack
+    struct ToolStack
     {
-        tool*
+        Tool*
         get_current_tool();
 
 
         void
-        push_tool(std::shared_ptr<tool> new_tool);
+        push_tool(std::shared_ptr<Tool> new_tool);
 
 
         void
@@ -26,7 +26,7 @@ namespace euphoria::t3d
         perform_tools();
 
 
-        std::vector<std::shared_ptr<tool>> current_tool;
+        std::vector<std::shared_ptr<Tool>> current_tool;
         std::vector<std::shared_ptr<tool_action>> pending_actions;
     };
 }

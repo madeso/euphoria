@@ -11,11 +11,11 @@
 
 namespace euphoria::t3d
 {
-    editor::editor
+    Editor::Editor
     (
-            t3d::grid* agrid,
+            t3d::Grid* agrid,
             render::World* aworld,
-            t3d::tile_library* atile_library
+            t3d::TileLibrary* atile_library
     )
         : grid(agrid)
         , world(aworld)
@@ -27,8 +27,8 @@ namespace euphoria::t3d
     }
 
 
-    std::shared_ptr<placed_mesh>
-    editor::get_first_selected_or_null()
+    std::shared_ptr<PlacedMesh>
+    Editor::get_first_selected_or_null()
     {
         for(auto act : actors)
         {
@@ -43,7 +43,7 @@ namespace euphoria::t3d
 
 
     void
-    editor::set_all_selected(bool is_selected)
+    Editor::set_all_selected(bool is_selected)
     {
         for(auto actor: actors)
         {
@@ -52,10 +52,10 @@ namespace euphoria::t3d
     }
 
 
-    std::vector<std::shared_ptr<placed_mesh>>
-    editor::raycast(const core::UnitRay3f& ray)
+    std::vector<std::shared_ptr<PlacedMesh>>
+    Editor::raycast(const core::UnitRay3f& ray)
     {
-        std::vector<std::shared_ptr<placed_mesh>> r;
+        std::vector<std::shared_ptr<PlacedMesh>> r;
 
         for(auto a: actors)
         {
@@ -73,42 +73,42 @@ namespace euphoria::t3d
 
     // current tool callbacks
     bool
-    editor::is_busy()
+    Editor::is_busy()
     {
         return tools.get_current_tool()->is_busy(this);
     }
 
 
     void
-    editor::step()
+    Editor::step()
     {
         tools.get_current_tool()->step(this);
     }
 
 
     void
-    editor::on_mouse(core::MouseButton button, bool down)
+    Editor::on_mouse(core::MouseButton button, bool down)
     {
         tools.get_current_tool()->on_mouse(this, button, down);
     }
 
 
     void
-    editor::on_key(core::Key key, bool down)
+    Editor::on_key(core::Key key, bool down)
     {
         tools.get_current_tool()->on_key(this, key, down);
     }
 
 
     void
-    editor::on_scroll(const core::Vec2i& scroll)
+    Editor::on_scroll(const core::Vec2i& scroll)
     {
         tools.get_current_tool()->on_scroll(this, scroll);
     }
 
 
     void
-    editor::on_editor()
+    Editor::on_editor()
     {
         tools.get_current_tool()->on_editor(this);
     }

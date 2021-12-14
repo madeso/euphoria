@@ -9,19 +9,19 @@
 namespace euphoria::t3d
 {
     bool
-    tool_no_tool::is_busy(editor*)
+    ToolNoTool::is_busy(Editor*)
     {
         return false;
     }
 
 
     void
-    tool_no_tool::step(editor*)
+    ToolNoTool::step(Editor*)
     {}
 
 
     void
-    tool_no_tool::on_mouse(editor* editor, core::MouseButton button, bool down)
+    ToolNoTool::on_mouse(Editor* editor, core::MouseButton button, bool down)
     {
         if(down) { return; }
         if(button != core::MouseButton::left) { return; }
@@ -41,17 +41,17 @@ namespace euphoria::t3d
 
 
     void
-    tool_no_tool::on_key(editor*, core::Key, bool)
+    ToolNoTool::on_key(Editor*, core::Key, bool)
     {}
 
 
     void
-    tool_no_tool::on_scroll(editor*, const core::Vec2i&)
+    ToolNoTool::on_scroll(Editor*, const core::Vec2i&)
     {}
 
 
     void
-    tool_no_tool::on_editor(editor*)
+    ToolNoTool::on_editor(Editor*)
     {
         ImGui::Text("<No tool>");
     }

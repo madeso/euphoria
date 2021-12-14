@@ -217,7 +217,7 @@ main(int argc, char* argv[])
         return -1;
     }
 
-    input_system input;
+    InputSystem input;
 
     for(const auto& bind: gamedata.binds)
     {
@@ -228,7 +228,7 @@ main(int argc, char* argv[])
             key = Key::unbound;
         }
 
-        input.add(std::make_shared<bound_var>(bind.name, key));
+        input.add(std::make_shared<BoundVar>(bind.name, key));
     }
 
     ShaderProgram shader;
@@ -254,17 +254,17 @@ main(int argc, char* argv[])
     duk.state.open_libraries(sol::lib::base, sol::lib::package);
     add_print(&duk);
     bind_math(&duk);
-    input_system::bind(&duk);
+    InputSystem::bind(&duk);
 
     Systems systems;
     World world {&systems};
-    components components {&world.reg};
+    Components components {&world.reg};
     add_systems(&systems, &components);
-    object_creator templates;
+    ObjectCreator templates;
     load_templates_but_only_names(gamedata, &templates);
-    camera_data camera_data;
+    CameraData camera_data;
 
-    auto integration = script_integration
+    auto integration = ScriptIntegration
     {
         &systems,
         &world,

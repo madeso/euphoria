@@ -12,21 +12,21 @@
 
 namespace euphoria::t3d
 {
-    tile::tile()
+    Tile::Tile()
         : path("~/unknown_tile")
         , aabb(core::Aabb::create_empty())
     {
     }
 
 
-    tile::~tile() = default;
+    Tile::~Tile() = default;
 
 
-    tile_library::tile_library(core::vfs::FileSystem* fs) : file_system(fs) {}
+    TileLibrary::TileLibrary(core::vfs::FileSystem* fs) : file_system(fs) {}
 
 
-    std::shared_ptr<tile>
-    tile_library::get_first_tile()
+    std::shared_ptr<Tile>
+    TileLibrary::get_first_tile()
     {
         if(tiles.empty()) { return nullptr; }
         else { return tiles[0]; }
@@ -34,7 +34,7 @@ namespace euphoria::t3d
 
 
     bool
-    tile_library::run_imgui_list(std::shared_ptr<tile>* selected_tile)
+    TileLibrary::run_imgui_list(std::shared_ptr<Tile>* selected_tile)
     {
         if(tiles.empty()) { return false; }
 
@@ -59,7 +59,7 @@ namespace euphoria::t3d
 
 
     void
-    tile_library::add_file
+    TileLibrary::add_file
     (
         const core::vfs::FilePath& path,
         render::MaterialShaderCache* shader_cache,
@@ -73,7 +73,7 @@ namespace euphoria::t3d
             return;
         }
 
-        auto tile = std::make_shared<t3d::tile>();
+        auto tile = std::make_shared<t3d::Tile>();
         tile->path = path;
         tile->name = path.get_filename_without_extension();
         tile->aabb = loaded_mesh.loaded_mesh.calculate_aabb();

@@ -35,14 +35,14 @@ namespace euphoria::editor
         return -1;
     }
 
-    file_browser::file_browser(vfs::FileSystem* fs)
+    FileBrowser::FileBrowser(vfs::FileSystem* fs)
         : current_folder(core::vfs::DirPath::from_root())
         , file_system(fs)
     {
     }
 
     std::optional<core::vfs::FilePath>
-    file_browser::get_selected_file()
+    FileBrowser::get_selected_file()
     {
         if(selected_file >= 0 && selected_file < c_sizet_to_int(files.size()))
         {
@@ -56,7 +56,7 @@ namespace euphoria::editor
     }
 
     void
-    file_browser::refresh()
+    FileBrowser::refresh()
     {
         files = file_system->list_files(current_folder);
         if(current_folder != core::vfs::DirPath::from_root())
@@ -103,7 +103,7 @@ namespace euphoria::editor
     }
 
     bool
-    file_browser::run()
+    FileBrowser::run()
     {
         window::imgui::input_text("URL", &current_folder.path);
         window::imgui::input_text("Filter", &filter);

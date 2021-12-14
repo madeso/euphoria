@@ -14,14 +14,14 @@
 
 namespace euphoria::engine
 {
-    struct custom_arguments
+    struct CustomArguments
     {
         std::map<std::string, float> numbers;
     };
 
-    struct script_registry
+    struct ScriptRegistry
     {
-        script_registry(core::ecs::Registry* r, engine::components* c);
+        ScriptRegistry(core::ecs::Registry* r, engine::Components* c);
 
         using creation_callback = sol::protected_function;
 
@@ -53,7 +53,7 @@ namespace euphoria::engine
         (
                 core::ecs::component_id comp,
                 LuaState* ctx,
-                const custom_arguments& arguments
+                const CustomArguments& arguments
         );
 
         void
@@ -69,10 +69,10 @@ namespace euphoria::engine
         using script_component_map = std::map<core::ecs::component_id, creation_callback>;
 
         core::ecs::Registry* reg;
-        engine::components* components;
+        engine::Components* components;
         script_component_map script_components;
     };
 }
 
-TYPEID_SETUP_TYPE(euphoria::engine::custom_arguments);
+TYPEID_SETUP_TYPE(euphoria::engine::CustomArguments);
 

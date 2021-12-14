@@ -15,38 +15,38 @@ namespace euphoria::render
 
 namespace euphoria::t3d
 {
-    struct placed_mesh;
+    struct PlacedMesh;
 
-    struct tool_place_mesh_on_a_plane : public tool
+    struct ToolPlaceMeshOnAPlane : public Tool
     {
-        std::shared_ptr<placed_mesh> actor;
+        std::shared_ptr<PlacedMesh> actor;
         core::Plane plane;
 
 
-        tool_place_mesh_on_a_plane(std::shared_ptr<placed_mesh> aactor);
+        ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> aactor);
 
 
         bool
-        is_busy(editor*) override;
+        is_busy(Editor*) override;
 
 
         void
-        step(editor* editor) override;
+        step(Editor* editor) override;
 
 
         void
-        on_mouse(editor* editor, core::MouseButton button, bool down) override;
+        on_mouse(Editor* editor, core::MouseButton button, bool down) override;
 
 
         void
-        on_key(editor* editor, core::Key key, bool down) override;
+        on_key(Editor* editor, core::Key key, bool down) override;
 
 
         void
-        on_scroll(editor*, const core::Vec2i&) override;
+        on_scroll(Editor*, const core::Vec2i&) override;
 
 
         void
-        on_editor(editor*) override;
+        on_editor(Editor*) override;
     };
 }

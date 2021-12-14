@@ -70,15 +70,15 @@ using namespace euphoria::window;
 using namespace euphoria::minsynth;
 
 
-struct application_base
+struct ApplicationBase
 {
-    application_base()
+    ApplicationBase()
     {
-        application_base::setup_window("musik maskin");
+        ApplicationBase::setup_window("musik maskin");
         setup_audio_callbacks();
     }
 
-    NONCOPYABLE(application_base);
+    NONCOPYABLE(ApplicationBase);
 
     static void
     setup_window(const std::string&)
@@ -127,7 +127,7 @@ struct application_base
         }
     }
 
-    virtual ~application_base()
+    virtual ~ApplicationBase()
     {
         if(audio_opened)
         {
@@ -183,7 +183,7 @@ struct application_base
     static void
     sdl_audio_callback(void* userdata, Uint8* stream, int len)
     {
-        auto* app = static_cast<application_base*>(userdata);
+        auto* app = static_cast<ApplicationBase*>(userdata);
         app->audio_callback(stream, len);
     }
 
@@ -199,7 +199,7 @@ struct application_base
 };
 
 
-struct midi_input_node : public euphoria::minsynth::MidiInNode
+struct MidiInputNode : public euphoria::minsynth::MidiInNode
 {
     ToneTaker* tones = nullptr;
 
@@ -309,10 +309,10 @@ draw_keys
 }
 
 
-class application : public application_base
+class Application : public ApplicationBase
 {
 public:
-    midi_input_node midi;
+    MidiInputNode midi;
     KeyboardInputNode piano;
     SingleToneNode single_tone;
     ArpegiatorNode arp;
@@ -325,7 +325,7 @@ public:
 
     float current_time = 0;
 
-    application()
+    Application()
     {
         setup_qwerty_two_octave_layout(&piano.keys, 4, -2);
 
@@ -547,7 +547,7 @@ main(int argc, char** argv)
         return -1;
     }
 
-    application app;
+    Application app;
     app.start();
 
     bool running = true;

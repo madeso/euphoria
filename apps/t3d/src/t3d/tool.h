@@ -6,37 +6,37 @@
 
 namespace euphoria::t3d
 {
-    struct editor;
+    struct Editor;
 
 
-    struct tool
+    struct Tool
     {
-        tool() = default;
-        virtual ~tool() = default;
+        Tool() = default;
+        virtual ~Tool() = default;
 
-        NONCOPYABLE(tool);
+        NONCOPYABLE(Tool);
 
         virtual bool
-        is_busy(t3d::editor* editor) = 0;
+        is_busy(t3d::Editor* editor) = 0;
 
 
         virtual void
-        step(t3d::editor* editor) = 0;
+        step(t3d::Editor* editor) = 0;
 
 
         virtual void
-        on_mouse(t3d::editor* editor, core::MouseButton key, bool down) = 0;
+        on_mouse(t3d::Editor* editor, core::MouseButton key, bool down) = 0;
         
         
         virtual void
-        on_key(t3d::editor* editor, core::Key key, bool down) = 0;
+        on_key(t3d::Editor* editor, core::Key key, bool down) = 0;
         
         
         virtual void
-        on_scroll(t3d::editor* editor, const core::Vec2i& scroll) = 0;
+        on_scroll(t3d::Editor* editor, const core::Vec2i& scroll) = 0;
         
         
         virtual void
-        on_editor(t3d::editor* editor) = 0;
+        on_editor(t3d::Editor* editor) = 0;
     };
 }

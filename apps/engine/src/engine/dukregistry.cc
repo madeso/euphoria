@@ -17,17 +17,17 @@ namespace euphoria::engine
 
     COMPONENT_CONSTRUCTOR_IMPLEMENTATION(script_component)
 
-    script_registry::script_registry(core::ecs::Registry* r, engine::components* c)
+    ScriptRegistry::ScriptRegistry(core::ecs::Registry* r, engine::Components* c)
         : reg(r)
         , components(c)
     {
     }
 
     core::ecs::component_id
-    script_registry::create_new_id
+    ScriptRegistry::create_new_id
     (
         const std::string& name,
-        const script_registry::creation_callback& fv
+        const ScriptRegistry::creation_callback& fv
     )
     {
         const auto id = reg->register_new_component_type(name);
@@ -36,7 +36,7 @@ namespace euphoria::engine
     }
 
     core::ecs::component_id
-    script_registry::create_new_id
+    ScriptRegistry::create_new_id
     (
         const std::string& name
     )
@@ -47,7 +47,7 @@ namespace euphoria::engine
     }
 
     core::Result<core::ecs::component_id>
-    script_registry::get_custom_component_by_name
+    ScriptRegistry::get_custom_component_by_name
     (
         const std::string& name
     )
@@ -57,13 +57,13 @@ namespace euphoria::engine
     }
 
     std::vector<core::ecs::entity_id>
-    script_registry::entity_view(const std::vector<core::ecs::component_id>& types) const
+    ScriptRegistry::entity_view(const std::vector<core::ecs::component_id>& types) const
     {
         return reg->get_entities_with_components(types);
     }
 
     sol::table
-    script_registry::get_property
+    ScriptRegistry::get_property
     (
         core::ecs::entity_id ent,
         core::ecs::component_id comp
@@ -98,7 +98,7 @@ namespace euphoria::engine
     }
 
     void
-    script_registry::set_property
+    ScriptRegistry::set_property
     (
         core::ecs::entity_id ent,
         core::ecs::component_id comp,
@@ -111,11 +111,11 @@ namespace euphoria::engine
     }
 
     sol::table
-    script_registry::create_component
+    ScriptRegistry::create_component
     (
             core::ecs::component_id comp,
             LuaState* ctx,
-            const custom_arguments& arguments
+            const CustomArguments& arguments
     )
     {
         const auto name = reg->get_component_name(comp);
@@ -149,7 +149,7 @@ namespace euphoria::engine
     }
 
     void
-    script_registry::destroy_entity(core::ecs::entity_id id) const
+    ScriptRegistry::destroy_entity(core::ecs::entity_id id) const
     {
         reg->destroy_entity(id);
     }

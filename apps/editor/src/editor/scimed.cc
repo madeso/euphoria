@@ -259,7 +259,7 @@ namespace euphoria::editor
     void
     draw_sizer_common
     (
-        const scimed_config& sc,
+        const ScimedConfig& sc,
         std::vector<int>* data_ptr,
         int end,
         TAnchorFunction anchor_function,
@@ -298,8 +298,8 @@ namespace euphoria::editor
     draw_sizer
     (
         std::shared_ptr<render::Texture2> image,
-        const scimed& sc,
-        const scimed_config& scc,
+        const Scimed& sc,
+        const ScimedConfig& scc,
         scalingsprite::ScalingSprite* sprite
     )
     {
@@ -380,11 +380,11 @@ namespace euphoria::editor
     }
 
 
-    line_hover_data
-    draw_splits(scalingsprite::ScalingSprite* sprite, Canvas* canvas, const scimed_config& scc)
+    LineHoverData
+    draw_splits(scalingsprite::ScalingSprite* sprite, Canvas* canvas, const ScimedConfig& scc)
     {
         const auto mouse = ImGui::GetMousePos();
-        line_hover_data ret;
+        LineHoverData ret;
 
         ret.vertical_index = draw_single_axis_splits
         (
@@ -420,7 +420,7 @@ namespace euphoria::editor
 
 
     void
-    set_mouse_cursor_from_hover(const line_hover_data& hover)
+    set_mouse_cursor_from_hover(const LineHoverData& hover)
     {
         if(hover.horizontal_index != -1 || hover.vertical_index != -1)
         {
@@ -482,7 +482,7 @@ namespace euphoria::editor
 
 
     bool
-    scimed::run(const CanvasConfig& cc, const scimed_config& scc)
+    Scimed::run(const CanvasConfig& cc, const ScimedConfig& scc)
     {
         canvas.begin(cc);
         canvas.show_grid(cc);
@@ -531,7 +531,7 @@ namespace euphoria::editor
             else if(ImGui::IsItemHovered())
             {
                 set_mouse_cursor_from_hover(current_hover);
-                hover = line_hover_data {};
+                hover = LineHoverData {};
             }
         }
         else if(ImGui::IsItemHovered())

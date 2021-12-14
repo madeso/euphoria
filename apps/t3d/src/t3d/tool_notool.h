@@ -4,29 +4,29 @@
 
 namespace euphoria::t3d
 {
-    struct tool_no_tool : public tool
+    struct ToolNoTool : public Tool
     {
         bool
-        is_busy(editor*) override;
+        is_busy(Editor*) override;
 
 
         void
-        step(editor*) override;
+        step(Editor*) override;
 
 
         void
-        on_mouse(editor*, core::MouseButton, bool) override;
+        on_mouse(Editor*, core::MouseButton, bool) override;
 
 
         void
-        on_key(editor*, core::Key, bool) override;
+        on_key(Editor*, core::Key, bool) override;
 
 
         void
-        on_scroll(editor*, const core::Vec2i&) override;
+        on_scroll(Editor*, const core::Vec2i&) override;
 
 
         void
-        on_editor(editor*) override;
+        on_editor(Editor*) override;
     };
 }

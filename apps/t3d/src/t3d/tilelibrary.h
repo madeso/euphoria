@@ -17,12 +17,12 @@ namespace euphoria::core::vfs
 
 namespace euphoria::t3d
 {
-    struct tile
+    struct Tile
     {
-        tile();
-        ~tile();
+        Tile();
+        ~Tile();
 
-        NONCOPYABLE(tile);
+        NONCOPYABLE(Tile);
 
         core::vfs::FilePath path;
         core::Aabb aabb;
@@ -32,17 +32,17 @@ namespace euphoria::t3d
     };
 
 
-    struct tile_library
+    struct TileLibrary
     {
-        tile_library(core::vfs::FileSystem* fs);
+        TileLibrary(core::vfs::FileSystem* fs);
 
 
-        std::shared_ptr<tile>
+        std::shared_ptr<Tile>
         get_first_tile();
 
 
         bool
-        run_imgui_list(std::shared_ptr<tile>* selected_tile);
+        run_imgui_list(std::shared_ptr<Tile>* selected_tile);
 
 
         void
@@ -55,7 +55,7 @@ namespace euphoria::t3d
 
 
         core::vfs::FileSystem* file_system;
-        std::vector<std::shared_ptr<tile>> tiles;
+        std::vector<std::shared_ptr<Tile>> tiles;
     };
 
 }

@@ -57,7 +57,7 @@ operator+(const ImVec2& lhs, const ImVec2& rhs)
 
 struct style_data
 {
-    scimed_config scc;
+    ScimedConfig scc;
     CanvasConfig cc;
 };
 
@@ -110,7 +110,7 @@ open_or_focus_window
 
 struct scimed_window : public generic_window
 {
-    euphoria::editor::scimed scimed;
+    euphoria::editor::Scimed scimed;
 
     void
     run(style_data* style_data) override
@@ -265,7 +265,7 @@ struct scaling_sprite_cache
 void
 load_file
 (
-    scimed* scimed,
+    Scimed* scimed,
     TextureCache* cache,
     scaling_sprite_cache* shader_cache,
     const vfs::FilePath& path
@@ -517,7 +517,7 @@ main(int argc, char** argv)
 
     bool running = true;
 
-    file_browser browser {engine.file_system.get()};
+    FileBrowser browser {engine.file_system.get()};
     browser.refresh();
     std::vector<std::shared_ptr<generic_window>> windows;
     ::style_data style_data;

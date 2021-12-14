@@ -13,14 +13,14 @@
 
 namespace euphoria::t3d
 {
-    tool_place_mesh_on_a_plane::tool_place_mesh_on_a_plane(std::shared_ptr<placed_mesh> aactor)
+    ToolPlaceMeshOnAPlane::ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> aactor)
         : actor(aactor)
         , plane(core::Plane::from_normal_and_point(core::Unit3f::up(), core::Vec3f::zero()))
     {}
 
 
     bool
-    tool_place_mesh_on_a_plane::is_busy(editor*)
+    ToolPlaceMeshOnAPlane::is_busy(Editor*)
     {
         return true;
     }
@@ -34,7 +34,7 @@ namespace euphoria::t3d
 
 
     void
-    tool_place_mesh_on_a_plane::step(editor* editor)
+    ToolPlaceMeshOnAPlane::step(Editor* editor)
     {
         auto ray = editor->camera
                         .clip_to_world_ray(
@@ -63,7 +63,7 @@ namespace euphoria::t3d
 
 
     void
-    tool_place_mesh_on_a_plane::on_mouse(editor* editor, core::MouseButton button, bool down)
+    ToolPlaceMeshOnAPlane::on_mouse(Editor* editor, core::MouseButton button, bool down)
     {
         if(down) { return; }
         switch(button)
@@ -75,7 +75,7 @@ namespace euphoria::t3d
 
 
     void
-    tool_place_mesh_on_a_plane::on_key(editor* editor, core::Key key, bool down)
+    ToolPlaceMeshOnAPlane::on_key(Editor* editor, core::Key key, bool down)
     {
         if(down) { return; }
         switch(key)
@@ -87,13 +87,13 @@ namespace euphoria::t3d
 
 
     void
-    tool_place_mesh_on_a_plane::on_scroll(editor*, const core::Vec2i&)
+    ToolPlaceMeshOnAPlane::on_scroll(Editor*, const core::Vec2i&)
     {}
 
 
 
     void
-    tool_place_mesh_on_a_plane::on_editor(editor* editor)
+    ToolPlaceMeshOnAPlane::on_editor(Editor* editor)
     {
         ImGui::Text("Placing object in world!");
 

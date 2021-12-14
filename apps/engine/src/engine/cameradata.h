@@ -4,7 +4,7 @@
 
 namespace euphoria::engine
 {
-    struct camera_data
+    struct CameraData
     {
         core::Rectf screen;
     };
