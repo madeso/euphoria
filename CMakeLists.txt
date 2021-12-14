@@ -42,18 +42,26 @@ if(GENERATE_COVERAGE)
         message(FATAL_ERROR "Code coverage results with an optimised (non-Debug) build may be misleading! Add -DCMAKE_BUILD_TYPE=Debug")
     endif()
 
-    target_compile_options(project_options INTERFACE "-fprofile-arcs")
-    target_compile_options(project_options INTERFACE "-ftest-coverage")
-    target_compile_options(project_options INTERFACE "-fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage")
+    # target_compile_options(project_options INTERFACE "-fprofile-arcs")
+    # target_compile_options(project_options INTERFACE "-ftest-coverage")
+    # target_compile_options(project_options INTERFACE "-fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage")
 
     # is -fprofile-generate needed?
-    target_compile_options(project_options INTERFACE "-fprofile-generate")
+    # target_compile_options(project_options INTERFACE "-fprofile-generate")
     
-    target_link_libraries(project_options  INTERFACE "-lgcov")
-    target_link_libraries(project_options  INTERFACE "--coverage")
-    # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
-    # set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
-    # set(CMAKE_LINKER_FLAGS "${CMAKE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage -fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage -fprofile-generate")
+    # target_link_libraries(project_options  INTERFACE "-lgcov")
+
+    # Add required flags (GCC & LLVM/Clang)
+    target_compile_options(project_options INTERFACE
+        -O0        # no optimization
+        -g         # generate debug info
+        --coverage # sets all required flags
+    )
+    if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.13)
+        target_link_options(project_options INTERFACE --coverage)
+    else()
+        target_link_libraries(project_options INTERFACE --coverage)
+    endif()
 endif()
 
 set(OpenGL_GL_PREFERENCE "GLVND")
