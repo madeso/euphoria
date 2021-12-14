@@ -10,7 +10,7 @@
 
 namespace euphoria::minsynth
 {
-    enum class tuning
+    enum class Tuning
     {
         a4,
         boston,
@@ -24,7 +24,7 @@ namespace euphoria::minsynth
     };
 
 
-    enum class chord_emulation
+    enum class ChordEmulation
     {
         none,
         major,
@@ -40,7 +40,7 @@ namespace euphoria::minsynth
     };
 
 
-    enum class midi_event
+    enum class MidiEvent
     {
         note_off = 0b000,
         note_on = 0b001,
@@ -52,7 +52,7 @@ namespace euphoria::minsynth
     };
 
 
-    enum class arp_mode
+    enum class ArpMode
     {
         up,
         down,
@@ -64,7 +64,7 @@ namespace euphoria::minsynth
     };
 
 
-    enum class oscilator_type
+    enum class OscilatorType
     {
         sine,
         square,
@@ -90,24 +90,24 @@ namespace euphoria::minsynth
     }
 
     std::string
-    to_string(tuning t);
+    to_string(Tuning t);
 
     std::string
-    to_string(chord_emulation em);
-
-
-    std::string
-    midi_event_to_string(midi_event e);
-
-    std::string
-    to_string(arp_mode mode);
+    to_string(ChordEmulation em);
 
 
     std::string
-    to_string(oscilator_type osc);
+    midi_event_to_string(MidiEvent e);
+
+    std::string
+    to_string(ArpMode mode);
+
+
+    std::string
+    to_string(OscilatorType osc);
 
     float
-    tuning_to_base_frequency(tuning t);
+    tuning_to_base_frequency(Tuning t);
 
     float
     tone_to_frequency(int tone, float base_frequency);
@@ -115,42 +115,42 @@ namespace euphoria::minsynth
     // nodes
 
 
-    struct node
+    struct Node
     {
-        node() = default;
-        virtual ~node() = default;
+        Node() = default;
+        virtual ~Node() = default;
 
-        NONCOPYABLE(node);
+        NONCOPYABLE(Node);
 
         virtual void
         update(float dt, float current_time);
     };
 
-    struct tone_taker
+    struct ToneTaker
     {
-        tone_taker() = default;
-        virtual ~tone_taker() = default;
+        ToneTaker() = default;
+        virtual ~ToneTaker() = default;
 
-        NONCOPYABLE(tone_taker);
+        NONCOPYABLE(ToneTaker);
 
         virtual void
         on_tone(int tone, bool down, float time) = 0;
     };
 
-    struct tone_sender
+    struct ToneSender
     {
-        tone_taker* next_node = nullptr;
+        ToneTaker* next_node = nullptr;
 
         void
         send_tone(int tone, bool down, float time) const;
     };
 
-    struct frequency_taker
+    struct FrequencyTaker
     {
-        frequency_taker() = default;
-        virtual ~frequency_taker() = default;
+        FrequencyTaker() = default;
+        virtual ~FrequencyTaker() = default;
 
-        NONCOPYABLE(frequency_taker);
+        NONCOPYABLE(FrequencyTaker);
 
         virtual void
         on_frequency_down(int id, float freq, float time) = 0;
@@ -159,25 +159,25 @@ namespace euphoria::minsynth
         on_frequency_up(int id, float frequency, float time) = 0;
     };
 
-    struct wave_out
+    struct WaveOut
     {
-        wave_out() = default;
-        virtual ~wave_out() = default;
+        WaveOut() = default;
+        virtual ~WaveOut() = default;
 
-        NONCOPYABLE(wave_out);
+        NONCOPYABLE(WaveOut);
 
         virtual float
         get_output(float time) = 0;
     };
 
     // Tone -> Frequency
-    struct tone_to_frequency_converter_node
-        : public tone_taker
-        , public node
+    struct ToneToFrequencyConverterNode
+        : public ToneTaker
+        , public Node
     {
-        minsynth::tuning tuning = minsynth::tuning::a4;
+        minsynth::Tuning tuning = minsynth::Tuning::a4;
 
-        frequency_taker* next = nullptr;
+        FrequencyTaker* next = nullptr;
 
         void
         on_tone(int tone, bool down, float time) override;
@@ -186,9 +186,9 @@ namespace euphoria::minsynth
         calculate_frequency(int semitone) const;
     };
 
-    struct piano_key
+    struct PianoKey
     {
-        piano_key(int st, core::Key kc, const std::string& n, int octave);
+        PianoKey(int st, core::Key kc, const std::string& n, int octave);
 
         int semitone;
         core::Key keycode;
@@ -197,9 +197,9 @@ namespace euphoria::minsynth
         bool octave_shift;
     };
 
-    struct midi_in_node : public virtual node
+    struct MidiInNode : public virtual Node
     {
-        tone_taker* tones = nullptr;
+        ToneTaker* tones = nullptr;
         float last_time = 0;
         bool open_virtual_port = false;
         unsigned int port_number = 1;
@@ -216,14 +216,14 @@ namespace euphoria::minsynth
 
 
     // Node handles input from keyboard. Input -> Tones
-    struct keyboard_input_node : public virtual node
+    struct KeyboardInputNode : public virtual Node
     {
-        std::vector<piano_key> keys;
+        std::vector<PianoKey> keys;
         bool octave_shift = false;
 
-        tone_taker* tones = nullptr;
+        ToneTaker* tones = nullptr;
 
-        chord_emulation chords_emulation = chord_emulation::none;
+        ChordEmulation chords_emulation = ChordEmulation::none;
 
         void
         on_chord
@@ -250,10 +250,10 @@ namespace euphoria::minsynth
 
 
     // Single Tone node, Tone->Tone.
-    struct single_tone_node
-        : public tone_taker
-        , public tone_sender
-        , public node
+    struct SingleToneNode
+        : public ToneTaker
+        , public ToneSender
+        , public Node
     {
         std::map<int, float> down_tones;
 
@@ -265,10 +265,10 @@ namespace euphoria::minsynth
     };
 
 
-    struct arpegiator_node
-        : public tone_taker
-        , public tone_sender
-        , public node
+    struct ArpegiatorNode
+        : public ToneTaker
+        , public ToneSender
+        , public Node
     {
         std::map<int, float> down_tones;
         float current_time_in_interval = 0;
@@ -276,7 +276,7 @@ namespace euphoria::minsynth
         int index = 0;
         std::vector<int> tones;
 
-        arp_mode mode = arp_mode::up;
+        ArpMode mode = ArpMode::up;
         int octaves = 3;
         float update_time = 1.0f;
         float tone_time = 0.3f;
@@ -292,16 +292,16 @@ namespace euphoria::minsynth
 
 
     float
-    run_oscilator(float frequency, float time, oscilator_type osc);
+    run_oscilator(float frequency, float time, OscilatorType osc);
 
 
-    struct live_frequency
+    struct LiveFrequency
     {
         float frequency;
         float time_start;
     };
 
-    struct dead_frequency
+    struct DeadFrequency
     {
         bool alive;
         float frequency;
@@ -313,7 +313,7 @@ namespace euphoria::minsynth
     float
     to01(float lower_bound, float value, float upper_bound);
 
-    struct envelope
+    struct Envelope
     {
         float time_to_start = 0.01f;
         float time_to_end = 0.01f;
@@ -327,15 +327,15 @@ namespace euphoria::minsynth
 
 
     /// Node represents a single Oscilator. Frequency -> WaveOutput
-    struct oscilator_node
-        : public virtual wave_out
-        , public virtual frequency_taker
-        , public node
+    struct OscilatorNode
+        : public virtual WaveOut
+        , public virtual FrequencyTaker
+        , public Node
     {
-        std::map<int, live_frequency> live;
-        std::vector<dead_frequency> dead;
-        oscilator_type oscilator = oscilator_type::sawtooth;
-        minsynth::envelope envelope;
+        std::map<int, LiveFrequency> live;
+        std::vector<DeadFrequency> dead;
+        OscilatorType oscilator = OscilatorType::sawtooth;
+        minsynth::Envelope envelope;
 
         [[nodiscard]] int
         get_total_tones() const;
@@ -361,7 +361,7 @@ namespace euphoria::minsynth
     };
 
 
-    struct effect : public wave_out
+    struct Effect : public WaveOut
     {
         float
         get_output(float time) override;
@@ -369,12 +369,12 @@ namespace euphoria::minsynth
         virtual float
         on_wave(float wave) = 0;
 
-        wave_out* in = nullptr;
+        WaveOut* in = nullptr;
     };
 
-    struct volume_node
-        : public effect
-        , public node
+    struct VolumeNode
+        : public Effect
+        , public Node
     {
         float
         on_wave(float wave) override;
@@ -382,9 +382,9 @@ namespace euphoria::minsynth
         float volume = 0.5f;
     };
 
-    struct scaler_effect
-        : public effect
-        , public node
+    struct ScalerEffect
+        : public Effect
+        , public Node
     {
         float
         on_wave(float wave) override;
@@ -393,16 +393,16 @@ namespace euphoria::minsynth
     };
 
 
-    using keyboard_layout = std::vector<std::vector<core::Key>>;
+    using KeyboardLayout = std::vector<std::vector<core::Key>>;
 
 
-    const keyboard_layout&
+    const KeyboardLayout&
     create_qwerty_keyboard_layout();
 
     void
     setup_qwerty_two_octave_layout
     (
-        std::vector<piano_key>* keys,
+        std::vector<PianoKey>* keys,
         int base_octave,
         int octave_offset
     );

@@ -25,102 +25,102 @@ namespace euphoria::minsynth
 
 
     std::string
-    to_string(tuning t)
+    to_string(Tuning t)
     {
         switch(t)
         {
-        case tuning::a4: return "A4 (ISO 16) 440 Hz";
-        case tuning::boston: return "Boston 441 Hz";
-        case tuning::new_york: return "New York 442 Hz";
-        case tuning::europe: return "europe 443 Hz";
-        case tuning::french: return "French 435 Hz";
-        case tuning::baroque: return "baroque 415 hz";
-        case tuning::chorton: return "chorton 466 Hz";
-        case tuning::classical: return "classical 430 Hz";
+        case Tuning::a4: return "A4 (ISO 16) 440 Hz";
+        case Tuning::boston: return "Boston 441 Hz";
+        case Tuning::new_york: return "New York 442 Hz";
+        case Tuning::europe: return "europe 443 Hz";
+        case Tuning::french: return "French 435 Hz";
+        case Tuning::baroque: return "baroque 415 hz";
+        case Tuning::chorton: return "chorton 466 Hz";
+        case Tuning::classical: return "classical 430 Hz";
         default: return "???";
         }
     }
 
     std::string
-    to_string(chord_emulation em)
+    to_string(ChordEmulation em)
     {
         switch(em)
         {
-        case chord_emulation::none: return "None";
-        case chord_emulation::major: return "Major triad";
-        case chord_emulation::minor: return "Minor Triad";
-        case chord_emulation::diminished: return "diminished triad";
-        case chord_emulation::augmented: return "augmented triad";
-        case chord_emulation::major7: return "Major 7th";
-        case chord_emulation::dominant7: return "Dominant 7th";
-        case chord_emulation::augmented7: return "augmented 7th";
-        case chord_emulation::augmented_major7: return "augmented Major 7th";
-        case chord_emulation::minor_major7: return "Minor major 7th";
+        case ChordEmulation::none: return "None";
+        case ChordEmulation::major: return "Major triad";
+        case ChordEmulation::minor: return "Minor Triad";
+        case ChordEmulation::diminished: return "diminished triad";
+        case ChordEmulation::augmented: return "augmented triad";
+        case ChordEmulation::major7: return "Major 7th";
+        case ChordEmulation::dominant7: return "Dominant 7th";
+        case ChordEmulation::augmented7: return "augmented 7th";
+        case ChordEmulation::augmented_major7: return "augmented Major 7th";
+        case ChordEmulation::minor_major7: return "Minor major 7th";
         default: return "???";
         }
     }
 
     float
-    tuning_to_base_frequency(tuning t)
+    tuning_to_base_frequency(Tuning t)
     {
         switch(t)
         {
-        case tuning::a4: return base_frequencies::a4;
-        case tuning::boston: return base_frequencies::boston_a4;
-        case tuning::new_york: return base_frequencies::new_york_a4;
-        case tuning::europe: return base_frequencies::europe_a4;
-        case tuning::french: return base_frequencies::french_a4;
-        case tuning::baroque: return base_frequencies::baroque_a4;
-        case tuning::chorton: return base_frequencies::chorton_a4;
-        case tuning::classical: return base_frequencies::classical_a4;
+        case Tuning::a4: return base_frequencies::a4;
+        case Tuning::boston: return base_frequencies::boston_a4;
+        case Tuning::new_york: return base_frequencies::new_york_a4;
+        case Tuning::europe: return base_frequencies::europe_a4;
+        case Tuning::french: return base_frequencies::french_a4;
+        case Tuning::baroque: return base_frequencies::baroque_a4;
+        case Tuning::chorton: return base_frequencies::chorton_a4;
+        case Tuning::classical: return base_frequencies::classical_a4;
         default: return base_frequencies::a4;
         }
     }
 
 
     std::string
-    midi_event_to_string(midi_event e)
+    midi_event_to_string(MidiEvent e)
     {
         switch(e)
         {
-        case midi_event::note_off: return "Off";
-        case midi_event::note_on: return "On";
-        case midi_event::aftertouch: return "aftertouch";
-        case midi_event::control_change: return "CC";
-        case midi_event::program_change: return "PC";
-        case midi_event::channel_pressure: return "Channel Pressure";
-        case midi_event::pitch_bend: return "pitch_bend";
+        case MidiEvent::note_off: return "Off";
+        case MidiEvent::note_on: return "On";
+        case MidiEvent::aftertouch: return "aftertouch";
+        case MidiEvent::control_change: return "CC";
+        case MidiEvent::program_change: return "PC";
+        case MidiEvent::channel_pressure: return "Channel Pressure";
+        case MidiEvent::pitch_bend: return "pitch_bend";
         }
         return "???";
     }
 
 
     std::string
-    to_string(arp_mode mode)
+    to_string(ArpMode mode)
     {
         switch(mode)
         {
-        case arp_mode::up: return "Up";
-        case arp_mode::down: return "Down";
-        case arp_mode::up_down_inclusive: return "Up/Down (inclusive)";
-        case arp_mode::up_down_exclusive: return "Up/Down (exclusive)";
-        case arp_mode::random: return "Random";
-        case arp_mode::random_no_repeat: return "Random (no repeat)";
+        case ArpMode::up: return "Up";
+        case ArpMode::down: return "Down";
+        case ArpMode::up_down_inclusive: return "Up/Down (inclusive)";
+        case ArpMode::up_down_exclusive: return "Up/Down (exclusive)";
+        case ArpMode::random: return "Random";
+        case ArpMode::random_no_repeat: return "Random (no repeat)";
         default: return "???";
         }
     }
 
 
     std::string
-    to_string(oscilator_type osc)
+    to_string(OscilatorType osc)
     {
         switch(osc)
         {
-        case oscilator_type::sine: return "Sine";
-        case oscilator_type::square: return "Square";
-        case oscilator_type::triangle: return "Triangle";
-        case oscilator_type::sawtooth: return "sawtooth";
-        case oscilator_type::noise: return "noise";
+        case OscilatorType::sine: return "Sine";
+        case OscilatorType::square: return "Square";
+        case OscilatorType::triangle: return "Triangle";
+        case OscilatorType::sawtooth: return "sawtooth";
+        case OscilatorType::noise: return "noise";
         default: return "?";
         }
     }
@@ -184,12 +184,12 @@ namespace euphoria::minsynth
     }
 
     void
-    node::update(float /*dt*/, float /*current_time*/)
+    Node::update(float /*dt*/, float /*current_time*/)
     {
     }
 
     void
-    tone_sender::send_tone(int tone, bool down, float time) const
+    ToneSender::send_tone(int tone, bool down, float time) const
     {
         if(next_node != nullptr)
         {
@@ -199,7 +199,7 @@ namespace euphoria::minsynth
 
 
     void
-    tone_to_frequency_converter_node::on_tone(int tone, bool down, float time)
+    ToneToFrequencyConverterNode::on_tone(int tone, bool down, float time)
     {
         if(next == nullptr)
         {
@@ -217,7 +217,7 @@ namespace euphoria::minsynth
     }
 
     float
-    tone_to_frequency_converter_node::calculate_frequency(int semitone) const
+    ToneToFrequencyConverterNode::calculate_frequency(int semitone) const
     {
         const float base_freq = tuning_to_base_frequency(tuning);
         const int tone = semitone - 9; // hrm.... why?
@@ -238,7 +238,7 @@ namespace euphoria::minsynth
         }
     }
 
-    piano_key::piano_key(int st, core::Key kc, const std::string& n, int octave)
+    PianoKey::PianoKey(int st, core::Key kc, const std::string& n, int octave)
         : semitone(st)
         , keycode(kc)
         , name(name_and_octave(n, octave))
@@ -248,14 +248,14 @@ namespace euphoria::minsynth
 
 
     bool
-    midi_in_node::is_status_message(unsigned char b)
+    MidiInNode::is_status_message(unsigned char b)
     {
         const auto is_status = ((b >> 7) & 0x1) == 1;
         return is_status;
     }
 
     void
-    midi_in_node::debug_callback
+    MidiInNode::debug_callback
     (
         double dt,
         const std::vector<unsigned char>& bytes
@@ -268,7 +268,7 @@ namespace euphoria::minsynth
 
         for(auto b: bytes)
         {
-            const auto is_status = midi_in_node::is_status_message(b);
+            const auto is_status = MidiInNode::is_status_message(b);
             if(is_status)
             {
                 const byte channel = (b >> 0) & channel_mask;
@@ -278,7 +278,7 @@ namespace euphoria::minsynth
                 (
                 "STAT ({0}) {1}",
                 static_cast<unsigned int>(channel),
-                midi_event_to_string(static_cast<midi_event>(message))
+                midi_event_to_string(static_cast<MidiEvent>(message))
                 );
             }
             else
@@ -293,7 +293,7 @@ namespace euphoria::minsynth
     }
 
     void
-    midi_in_node::callback(float dt, const std::vector<unsigned char>& bytes)
+    MidiInNode::callback(float dt, const std::vector<unsigned char>& bytes)
     {
         using byte = unsigned char;
 
@@ -302,7 +302,7 @@ namespace euphoria::minsynth
             return;
         }
 
-        if(!midi_in_node::is_status_message(bytes[0]))
+        if(!MidiInNode::is_status_message(bytes[0]))
         {
             LOG_ERROR("todo: need to handle data message without status.");
             return;
@@ -315,18 +315,18 @@ namespace euphoria::minsynth
         // const byte channel = (bytes[0] >> 0) & channel_mask;
         const byte message = (bytes[0] >> 4) & message_mask;
 
-        const auto event = static_cast<midi_event>(message);
+        const auto event = static_cast<MidiEvent>(message);
         switch(event)
         {
-        case midi_event::note_on:
-        case midi_event::note_off: {
-            const bool on = event == midi_event::note_on;
+        case MidiEvent::note_on:
+        case MidiEvent::note_off: {
+            const bool on = event == MidiEvent::note_on;
             if(bytes_size == 3)
             {
                 const auto note = bytes[1];
                 const auto velocity = bytes[2];
 
-                if(midi_in_node::is_status_message(note) || midi_in_node::is_status_message(velocity))
+                if(MidiInNode::is_status_message(note) || MidiInNode::is_status_message(velocity))
                 {
                     LOG_ERROR("Unexpected midi command in note on/off data.");
                     return;
@@ -356,7 +356,7 @@ namespace euphoria::minsynth
 
 
     void
-    keyboard_input_node::on_chord
+    KeyboardInputNode::on_chord
     (
         int base,
         bool was_pressed,
@@ -371,7 +371,7 @@ namespace euphoria::minsynth
     }
 
     void
-    keyboard_input_node::on_chord
+    KeyboardInputNode::on_chord
     (
         int base,
         bool was_pressed,
@@ -386,7 +386,7 @@ namespace euphoria::minsynth
     }
 
     void
-    keyboard_input_node::on_input(core::Key input, bool was_pressed, float time)
+    KeyboardInputNode::on_input(core::Key input, bool was_pressed, float time)
     {
         if(tones == nullptr)
         {
@@ -408,34 +408,34 @@ namespace euphoria::minsynth
                 const auto major3rd = 4;
                 switch(chords_emulation)
                 {
-                case chord_emulation::none:
+                case ChordEmulation::none:
                     tones->on_tone(tone, was_pressed, time);
                     break;
-                case chord_emulation::major:
+                case ChordEmulation::major:
                     on_chord(tone, was_pressed, time, major3rd, minor3rd);
                     break;
-                case chord_emulation::minor:
+                case ChordEmulation::minor:
                     on_chord(tone, was_pressed, time, minor3rd, major3rd);
                     break;
-                case chord_emulation::diminished:
+                case ChordEmulation::diminished:
                     on_chord(tone, was_pressed, time, minor3rd, minor3rd);
                     break;
-                case chord_emulation::augmented:
+                case ChordEmulation::augmented:
                     on_chord(tone, was_pressed, time, major3rd, major3rd);
                     break;
-                case chord_emulation::major7:
+                case ChordEmulation::major7:
                     on_chord(tone, was_pressed, time, {0, 4, 7, 11});
                     break;
-                case chord_emulation::dominant7:
+                case ChordEmulation::dominant7:
                     on_chord(tone, was_pressed, time, {0, 4, 7, 10});
                     break;
-                case chord_emulation::augmented7:
+                case ChordEmulation::augmented7:
                     on_chord(tone, was_pressed, time, {0, 4, 8, 10});
                     break;
-                case chord_emulation::augmented_major7:
+                case ChordEmulation::augmented_major7:
                     on_chord(tone, was_pressed, time, {0, 4, 8, 11});
                     break;
-                case chord_emulation::minor_major7:
+                case ChordEmulation::minor_major7:
                     on_chord(tone, was_pressed, time, {0, 3, 7, 11});
                     break;
                 default: break;
@@ -451,7 +451,7 @@ namespace euphoria::minsynth
 
 
     void
-    single_tone_node::on_tone(int tone, bool down, float time)
+    SingleToneNode::on_tone(int tone, bool down, float time)
     {
         if(down)
         {
@@ -486,7 +486,7 @@ namespace euphoria::minsynth
     }
 
     int
-    single_tone_node::get_current_tone() const
+    SingleToneNode::get_current_tone() const
     {
         bool has_tone = false;
         int tone = 0;
@@ -515,7 +515,7 @@ namespace euphoria::minsynth
 
 
     void
-    arpegiator_node::update(float dt, float current_time)
+    ArpegiatorNode::update(float dt, float current_time)
     {
         int count = 0;
         current_time_in_interval += dt;
@@ -527,11 +527,11 @@ namespace euphoria::minsynth
             {
                 const int size = core::c_sizet_to_int(tones.size());
 
-                if(mode == arp_mode::random || mode == arp_mode::random_no_repeat)
+                if(mode == ArpMode::random || mode == ArpMode::random_no_repeat)
                 {
                     const int last_index = index;
                     index = rand() % size;
-                    if(mode == arp_mode::random_no_repeat && tones.size() > 1)
+                    if(mode == ArpMode::random_no_repeat && tones.size() > 1)
                     {
                         while(index == last_index)
                         {
@@ -564,7 +564,7 @@ namespace euphoria::minsynth
     }
 
     void
-    arpegiator_node::on_tone(int tone, bool down, float time)
+    ArpegiatorNode::on_tone(int tone, bool down, float time)
     {
         if(down)
         {
@@ -588,17 +588,17 @@ namespace euphoria::minsynth
             }
             switch(mode)
             {
-            case arp_mode::up:
+            case ArpMode::up:
                 tones.insert(tones.begin(), tt.begin(), tt.end());
                 break;
-            case arp_mode::down:
+            case ArpMode::down:
                 tones.insert(tones.begin(), tt.rbegin(), tt.rend());
                 break;
-            case arp_mode::up_down_inclusive:
+            case ArpMode::up_down_inclusive:
                 tones.insert(tones.begin(), tt.begin(), tt.end());
                 tones.insert(tones.begin(), tt.rbegin(), tt.rend());
                 break;
-            case arp_mode::up_down_exclusive:
+            case ArpMode::up_down_exclusive:
                 tones.insert(tones.begin(), tt.begin(), tt.end());
                 if(tt.size() > 2)
                 {
@@ -619,17 +619,17 @@ namespace euphoria::minsynth
 
 
     float
-    run_oscilator(float frequency, float time, oscilator_type osc)
+    run_oscilator(float frequency, float time, OscilatorType osc)
     {
         const float sine = core::sin( core::Angle::from_percent_of_360(frequency) * time);
         switch(osc)
         {
-        case oscilator_type::sine: return sine;
-        case oscilator_type::square: return sine > 0.0f ? 1.0f : -1.0f;
-        case oscilator_type::triangle: return core::asin(sine).in_radians() * (2.0f / pi);
-        case oscilator_type::sawtooth:
+        case OscilatorType::sine: return sine;
+        case OscilatorType::square: return sine > 0.0f ? 1.0f : -1.0f;
+        case OscilatorType::triangle: return core::asin(sine).in_radians() * (2.0f / pi);
+        case OscilatorType::sawtooth:
             return (2 / pi) * (frequency * pi * fmodf(time, 1 / frequency) - pi / 2);
-        case oscilator_type::noise:
+        case OscilatorType::noise:
             // todo(Gustav): use the improved c++ random library
             // todo(Gustav): and also add perlin noise?
             return 2 * (static_cast<float>(rand()) / static_cast<float>(RAND_MAX)) - 1;
@@ -646,7 +646,7 @@ namespace euphoria::minsynth
 
 
     float
-    envelope::get_live(float wave, float start_time, float current_time) const
+    Envelope::get_live(float wave, float start_time, float current_time) const
     {
         if(current_time < start_time)
         {
@@ -663,7 +663,7 @@ namespace euphoria::minsynth
     }
 
     float
-    envelope::get_dead(float wave, float end_time, float current_time) const
+    Envelope::get_dead(float wave, float end_time, float current_time) const
     {
         if(current_time < end_time)
         {
@@ -681,25 +681,25 @@ namespace euphoria::minsynth
 
 
     int
-    oscilator_node::get_total_tones() const
+    OscilatorNode::get_total_tones() const
     {
         return core::c_sizet_to_int(live.size() + dead.size());
     }
 
     int
-    oscilator_node::get_alive_tones() const
+    OscilatorNode::get_alive_tones() const
     {
         return core::c_sizet_to_int(live.size());
     }
 
     int
-    oscilator_node::get_dead_tones() const
+    OscilatorNode::get_dead_tones() const
     {
         return core::c_sizet_to_int(dead.size());
     }
 
     void
-    oscilator_node::update(float, float current_time)
+    OscilatorNode::update(float, float current_time)
     {
         dead.erase
         (
@@ -707,7 +707,7 @@ namespace euphoria::minsynth
             (
                 dead.begin(),
                 dead.end(),
-                [=](const dead_frequency& df) -> bool
+                [=](const DeadFrequency& df) -> bool
                 {
                     return df.time_end + envelope.time_to_end < current_time;
                 }
@@ -717,21 +717,21 @@ namespace euphoria::minsynth
     }
 
     void
-    oscilator_node::on_frequency_down(int id, float freq, float time)
+    OscilatorNode::on_frequency_down(int id, float freq, float time)
     {
-        live[id] = live_frequency {freq, time};
+        live[id] = LiveFrequency {freq, time};
     }
 
     void
-    oscilator_node::on_frequency_up(int id, float frequency, float time)
+    OscilatorNode::on_frequency_up(int id, float frequency, float time)
     {
         const auto scale = envelope.get_live(1.0f, live[id].time_start, time);
         live.erase(id);
-        dead.emplace_back(dead_frequency {true, frequency, time, scale});
+        dead.emplace_back(DeadFrequency {true, frequency, time, scale});
     }
 
     float
-    oscilator_node::get_output(float time)
+    OscilatorNode::get_output(float time)
     {
         float value = 0;
 
@@ -787,7 +787,7 @@ namespace euphoria::minsynth
 
 
     float
-    effect::get_output(float time)
+    Effect::get_output(float time)
     {
         if(in == nullptr)
         {
@@ -799,14 +799,14 @@ namespace euphoria::minsynth
 
 
     float
-    volume_node::on_wave(float wave)
+    VolumeNode::on_wave(float wave)
     {
         return volume * wave;
     }
 
 
     float
-    scaler_effect::on_wave(float wave)
+    ScalerEffect::on_wave(float wave)
     {
         float w = core::abs(wave);
         const auto negative = wave < 0;
@@ -818,7 +818,7 @@ namespace euphoria::minsynth
     }
 
 
-    std::vector<piano_key>
+    std::vector<PianoKey>
     build_one_cctave_of_piano_keys
     (
         int octave,
@@ -839,29 +839,29 @@ namespace euphoria::minsynth
     {
         return
         {
-            piano_key(semitone_offset + 0, c, "C", octave),
-            piano_key(semitone_offset + 1, c_sharp, "C#", octave),
-            piano_key(semitone_offset + 2, d, "D", octave),
-            piano_key(semitone_offset + 3, d_sharp, "D#", octave),
-            piano_key(semitone_offset + 4, e, "E", octave),
+            PianoKey(semitone_offset + 0, c, "C", octave),
+            PianoKey(semitone_offset + 1, c_sharp, "C#", octave),
+            PianoKey(semitone_offset + 2, d, "D", octave),
+            PianoKey(semitone_offset + 3, d_sharp, "D#", octave),
+            PianoKey(semitone_offset + 4, e, "E", octave),
 
-            piano_key(semitone_offset + 5, f, "F", octave),
-            piano_key(semitone_offset + 6, f_sharp, "F#", octave),
-            piano_key(semitone_offset + 7, g, "G", octave),
-            piano_key(semitone_offset + 8, g_sharp, "G#", octave),
-            piano_key(semitone_offset + 9, a, "A", octave),
-            piano_key(semitone_offset + 10, a_sharp, "A#", octave),
-            piano_key(semitone_offset + 11, b, "B", octave),
+            PianoKey(semitone_offset + 5, f, "F", octave),
+            PianoKey(semitone_offset + 6, f_sharp, "F#", octave),
+            PianoKey(semitone_offset + 7, g, "G", octave),
+            PianoKey(semitone_offset + 8, g_sharp, "G#", octave),
+            PianoKey(semitone_offset + 9, a, "A", octave),
+            PianoKey(semitone_offset + 10, a_sharp, "A#", octave),
+            PianoKey(semitone_offset + 11, b, "B", octave),
         };
     }
 
 
-    const keyboard_layout&
+    const KeyboardLayout&
     create_qwerty_keyboard_layout()
     {
         using K = euphoria::core::Key;
 
-        static const keyboard_layout k =
+        static const KeyboardLayout k =
         {
             {K::num_1, K::num_2, K::num_3, K::num_4, K::num_5, K::num_6, K::num_7, K::num_8, K::num_9, K::num_0},
             {K::q, K::w, K::e, K::r, K::t, K::y, K::u, K::i, K::o, K::p},
@@ -876,10 +876,10 @@ namespace euphoria::minsynth
     void
     setup_one_octave_layout
     (
-        std::vector<piano_key>* keys,
+        std::vector<PianoKey>* keys,
         int base_octave,
         int octave,
-        const keyboard_layout& k,
+        const KeyboardLayout& k,
         int start_row,
         int start_col
     )
@@ -925,7 +925,7 @@ namespace euphoria::minsynth
     void
     setup_qwerty_two_octave_layout
     (
-        std::vector<piano_key>* keys,
+        std::vector<PianoKey>* keys,
         int base_octave,
         int octave_offset
     )

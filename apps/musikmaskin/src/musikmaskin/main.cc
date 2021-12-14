@@ -199,9 +199,9 @@ struct application_base
 };
 
 
-struct midi_input_node : public euphoria::minsynth::midi_in_node
+struct midi_input_node : public euphoria::minsynth::MidiInNode
 {
-    tone_taker* tones = nullptr;
+    ToneTaker* tones = nullptr;
 
     std::unique_ptr<RtMidiIn> midi;
 
@@ -213,7 +213,7 @@ struct midi_input_node : public euphoria::minsynth::midi_in_node
         void* user_data
     )
     {
-        auto* self = static_cast<midi_in_node*>(user_data);
+        auto* self = static_cast<MidiInNode*>(user_data);
         if(message != nullptr)
         {
             self->callback(static_cast<float>(deltatime), *message);
@@ -254,8 +254,8 @@ struct midi_input_node : public euphoria::minsynth::midi_in_node
 void
 draw_keys
 (
-    const std::vector<piano_key>& piano,
-    const keyboard_layout& layout,
+    const std::vector<PianoKey>& piano,
+    const KeyboardLayout& layout,
     float start_x,
     float start_y,
     float width,
@@ -280,7 +280,7 @@ draw_keys
             const auto found = std::find_if
             (
                 piano.begin(), piano.end(),
-                [=](const piano_key& p) -> bool
+                [=](const PianoKey& p) -> bool
                 {
                     return p.keycode == key;
                 }
@@ -313,15 +313,15 @@ class application : public application_base
 {
 public:
     midi_input_node midi;
-    keyboard_input_node piano;
-    single_tone_node single_tone;
-    arpegiator_node arp;
-    tone_to_frequency_converter_node ttf;
-    oscilator_node oscilator;
-    scaler_effect scaler;
-    volume_node master;
+    KeyboardInputNode piano;
+    SingleToneNode single_tone;
+    ArpegiatorNode arp;
+    ToneToFrequencyConverterNode ttf;
+    OscilatorNode oscilator;
+    ScalerEffect scaler;
+    VolumeNode master;
 
-    std::vector<node*> nodes;
+    std::vector<Node*> nodes;
 
     float current_time = 0;
 
@@ -430,7 +430,7 @@ public:
 
             imgui::custom_dropdown
             (
-                "tuning", &ttf.tuning, tuning::max_value,
+                "tuning", &ttf.tuning, Tuning::max_value,
                 [](auto t)
                 {
                     return to_string(t);
@@ -458,7 +458,7 @@ public:
             (
                 "Oscilator",
                 &oscilator.oscilator,
-                oscilator_type::max_value,
+                OscilatorType::max_value,
                 [](auto t)
                 {
                     return to_string(t);
@@ -469,7 +469,7 @@ public:
             (
                 "Chord emulation",
                 &piano.chords_emulation,
-                chord_emulation::max_value,
+                ChordEmulation::max_value,
                 [](auto t)
                 {
                     return to_string(t);
@@ -481,7 +481,7 @@ public:
             ImGui::InputInt("Arp octaves", &arp.octaves);
             imgui::custom_dropdown
             (
-                "Arp mode", &arp.mode, arp_mode::max_value,
+                "Arp mode", &arp.mode, ArpMode::max_value,
                 [](auto t)
                 {
                     return to_string(t);
