@@ -7,70 +7,70 @@
 
 using namespace euphoria::core;
 
-struct t
+struct Tree
 {
     std::string name;
-    std::vector<t> children;
+    std::vector<Tree> children;
 
-    t(const std::string& n) : name(n) {}
-    t(const std::string& n, std::initializer_list<t> t) : name(n), children(t) {}
+    Tree(const std::string& n) : name(n) {}
+    Tree(const std::string& n, std::initializer_list<Tree> t) : name(n), children(t) {}
 };
 
 int
 main(int, char**)
 {
-    const auto simple_tree = t{"a", { t{"1"} }};
+    const auto simple_tree = Tree{"a", { Tree{"1"} }};
 
-    const auto root_tree = t
+    const auto root_tree = Tree
     {
         "Tolkien characters",
         {
-            t
+            Tree
             {
                 "Heroes",
                 {
-                    t
+                    Tree
                     {
                         "Humans",
                         {
-                            t{"Aragon"},
-                            t{"Boromir"}
+                            Tree{"Aragon"},
+                            Tree{"Boromir"}
                         }
                     },
-                    t
+                    Tree
                     {
                         "Hobbits",
                         {
-                            t{"Frodo"},
-                            t{"Samwise"},
-                            t{"Merry"},
-                            t{"Pippin"},
+                            Tree{"Frodo"},
+                            Tree{"Samwise"},
+                            Tree{"Merry"},
+                            Tree{"Pippin"},
                         }
                     },
-                    t
+                    Tree
                     {
                         "Other",
                         {
-                            t{"Legolas"},
-                            t{"Gandalf"},
-                            t{"Gimli"}
+                            Tree{"Legolas"},
+                            Tree{"Gandalf"},
+                            Tree{"Gimli"}
                         }
                     }
                 }
             },
-            t
+            Tree
             {
                 "Enemies",
                 {
-                    t{"Sauron"},
-                    t{"orcs"},
-                    t{"Sauruman"}
+                    Tree{"Sauron"},
+                    Tree{"orcs"},
+                    Tree{"Sauruman"}
                 }
             }
         }
     };
 
-    const auto trees = std::vector<t>{simple_tree, root_tree};
+    const auto trees = std::vector<Tree>{simple_tree, root_tree};
 
     bool first = true;
 
@@ -82,8 +82,8 @@ main(int, char**)
         print_hierarchy
         (
             tree_to_print,
-            [](const t& tt) {return tt.name; },
-            [](const t& tt) {return tt.children; },
+            [](const Tree& tt) {return tt.name; },
+            [](const Tree& tt) {return tt.children; },
             [](const std::string& s) {std::cout << s << "\n"; }
         );
 
@@ -98,13 +98,13 @@ main(int, char**)
                 (
                     tree_to_print,
                     132-2,
-                    [](const t& e)
+                    [](const Tree& e)
                     {
                         return e.name;
                     },
-                    [](const t& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
-                    [](const t& e) { return !e.children.empty(); }, // whether simplified horizontal layout can be used
-                    [](const t& ) { return true; }
+                    [](const Tree& e) { return std::make_pair(e.children.cbegin(), e.children.cend()); },
+                    [](const Tree& e) { return !e.children.empty(); }, // whether simplified horizontal layout can be used
+                    [](const Tree& ) { return true; }
                 )
             );
 

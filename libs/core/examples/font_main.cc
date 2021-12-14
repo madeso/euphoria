@@ -97,7 +97,7 @@ bool print_string
 }
 
 
-enum class font_name
+enum class FontName
 {
     builtin8, builtin13, font_file
 };
@@ -106,13 +106,13 @@ enum class font_name
 euphoria::core::LoadedFont
 get_font
 (
-    font_name font_name,
+    FontName font_name,
     const std::string& font_file,
     int font_size,
     const std::string& chars
 )
 {
-    if(font_name == font_name::font_file && font_file.empty())
+    if(font_name == FontName::font_file && font_file.empty())
     {
         std::cerr << "warning: Font file requested, but no file specified!";
         return load_characters_from_builtin8();
@@ -132,7 +132,7 @@ get_font
         }
     }
 
-    return font_name == font_name::builtin13
+    return font_name == FontName::builtin13
         ? load_characters_from_builtin13()
         : load_characters_from_builtin8()
         ;
@@ -142,7 +142,7 @@ get_font
 int
 main(int argc, char* argv[])
 {
-    auto font_name = font_name::builtin8;
+    auto font_name = FontName::builtin8;
     std::string font_file;
     int size = 10;
     std::string chars = "ABCDEFGHIJKLMNOPQRSTUWXYZ!@#$%^&*()_+abcdefghijklmnopqrstuwxyz0123456789-=<>,./\\[]{};:";

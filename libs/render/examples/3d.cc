@@ -49,9 +49,9 @@ using namespace euphoria::core;
 using namespace euphoria::render;
 using namespace euphoria::window;
 
-struct cube_animation
+struct CubeAnimation
 {
-    cube_animation()
+    CubeAnimation()
         : from(Quatf::identity())
         , to(Quatf::identity())
     {
@@ -181,7 +181,7 @@ main(int argc, char** argv)
         Vec3f{box_extent_value, box_extent_value, box_extent_value}
     };
 
-    std::vector<cube_animation> animation_handler;
+    std::vector<CubeAnimation> animation_handler;
 
     bool capturing_mouse_movement = false;
 
@@ -193,7 +193,7 @@ main(int argc, char** argv)
         auto actor = std::make_shared<render::Actor>(rand.get_next_bool() ? box1 : box2);
         world.add_actor(actor);
 
-        cube_animation anim;
+        CubeAnimation anim;
         anim.actor = actor;
         anim.from = Quatf::from_random(&rand);
         anim.to = Quatf::from_random(&rand);

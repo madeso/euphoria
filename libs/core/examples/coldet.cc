@@ -15,7 +15,7 @@ using namespace euphoria::core;
 using namespace euphoria::core::dump3d;
 
 
-struct plane_demo
+struct PlaneDemo
 {
     const euphoria::core::Plane plane = euphoria::core::Plane::from_points
     (Vec3f(5, 6, 7), Vec3f(6, 5, 4), Vec3f(1, 2, 3));
@@ -65,7 +65,7 @@ struct plane_demo
     }
 };
 
-struct ray_demo
+struct RayDemo
 {
     const Ray3f ray = {Vec3f(-3, -2, -1), Vec3f(3, 2, 1)};
     const std::vector<Vec3f> points =
@@ -165,11 +165,11 @@ ray_sphere()
 int
 main(int, char**)
 {
-    const auto plane = plane_demo{};
+    const auto plane = PlaneDemo{};
     plane.distance_to_plane();
     plane.point_to_plane();
 
-    const auto ray = ray_demo{};
+    const auto ray = RayDemo{};
     ray.point_on_ray();
     ray.closest_point_on_ray();
 

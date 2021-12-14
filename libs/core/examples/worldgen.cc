@@ -21,7 +21,7 @@ using namespace euphoria;
 using namespace euphoria::core;
 
 
-struct difference
+struct Difference
 {
     int x;
     int y;
@@ -29,10 +29,10 @@ struct difference
 };
 
 
-std::vector<difference>
+std::vector<Difference>
 find_differences(const Table<bool>& src, const Table<bool>& dst)
 {
-    std::vector<difference> ret;
+    std::vector<Difference> ret;
     for(int y = 0; y < src.get_height(); y += 1)
     {
         for(int x = 0; x < src.get_width(); x += 1)

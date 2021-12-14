@@ -14,20 +14,20 @@ using namespace euphoria;
 using namespace euphoria::core;
 
 
-enum class hash_type
+enum class HashType
 {
     identicon, retro, sprator
 };
 
 
-struct common_arguments
+struct CommonArguments
 {
     int image_size = 512;
     int number_of_images = 10;
     bool use_random = true;
-    hash_type type = hash_type::identicon;
+    HashType type = HashType::identicon;
 
-    explicit common_arguments(argparse::ParserBase* base)
+    explicit CommonArguments(argparse::ParserBase* base)
     {
         base->add("--size", &image_size).set_help("image size");
         base->add("--count", &number_of_images).set_help("The number of images to generate");
@@ -42,7 +42,7 @@ void run_main
     int image_size,
     int number_of_images,
     bool use_random,
-    hash_type type,
+    HashType type,
     bool collage,
     const euphoria::core::Palette& palette
 )
@@ -69,13 +69,13 @@ void run_main
 
         switch(type)
         {
-        case hash_type::identicon:
+        case HashType::identicon:
             render_identicon(&image, code);
             break;
-        case hash_type::retro:
+        case HashType::retro:
             render_retro(&image, code);
             break;
-        case hash_type::sprator:
+        case HashType::sprator:
             render_sprator(&image, code, palette.get_safe_index(i));
             break;
         default:
@@ -202,7 +202,7 @@ main(int argc, char* argv[])
         "singles", "write many images",
         [&palette](argparse::SubParser* sub)
         {
-            auto arguments = common_arguments{sub};
+            auto arguments = CommonArguments{sub};
             return sub->on_complete
             (
                 [&]
@@ -226,7 +226,7 @@ main(int argc, char* argv[])
         "collage", "write collage",
         [&palette](argparse::SubParser* sub)
         {
-            auto arguments = common_arguments{sub};
+            auto arguments = CommonArguments{sub};
             return sub->on_complete
             (
                 [&]

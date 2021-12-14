@@ -6,7 +6,7 @@
 
 using namespace euphoria::core;
 
-enum class type
+enum class Type
 {
     simple,
     grid
@@ -25,15 +25,15 @@ main(int argc, char* argv[])
 {
     std::string file;
     std::string format = ",\"";
-    type type = type::simple;
+    Type type = Type::simple;
     CsvTrim trim = CsvTrim::trim;
 
     {
         auto parser = argparse::Parser {"csvtool"};
 
         parser.add("-format", &format).set_help("The CSV format used");
-        parser.set_const("-simple", &type, type::simple);
-        parser.set_const("-grid", &type, type::grid);
+        parser.set_const("-simple", &type, Type::simple);
+        parser.set_const("-grid", &type, Type::grid);
         parser.set_const("-notrim", &trim, CsvTrim::dont_trim);
         parser.add("CSV-file", &file);
         if(const auto r = parser.parse(argc, argv))
@@ -60,8 +60,8 @@ main(int argc, char* argv[])
 
     switch(type)
     {
-    case type::simple: print_table_simple(std::cout, table); break;
-    case type::grid: print_table_grid(std::cout, table); break;
+    case Type::simple: print_table_simple(std::cout, table); break;
+    case Type::grid: print_table_grid(std::cout, table); break;
     }
 
     return 0;

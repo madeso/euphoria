@@ -18,11 +18,11 @@
 using namespace euphoria::core;
 
 
-struct image_and_file
+struct ImageAndFile
 {
-    image_and_file() = default;
+    ImageAndFile() = default;
 
-    image_and_file(const std::string& f, const Image& i)
+    ImageAndFile(const std::string& f, const Image& i)
         : file(f)
         , image(i)
     {}
@@ -32,10 +32,10 @@ struct image_and_file
 };
 
 
-std::vector<image_and_file>
+std::vector<ImageAndFile>
 load_images(const std::vector<std::string>& files)
 {
-    auto images = std::vector<image_and_file>{};
+    auto images = std::vector<ImageAndFile>{};
 
     for(const auto& f: files)
     {
@@ -91,7 +91,7 @@ find(std::vector<extracted_color>* psource, const Rgbi& color, float length)
 }
 
 std::vector<extracted_color>
-extract_colors(const std::vector<image_and_file>& images, float range)
+extract_colors(const std::vector<ImageAndFile>& images, float range)
 {
     auto ret = std::vector<extracted_color>{};
 
@@ -112,7 +112,7 @@ extract_colors(const std::vector<image_and_file>& images, float range)
 
 
 std::vector<extracted_color>
-extract_colors(const std::vector<image_and_file>& images)
+extract_colors(const std::vector<ImageAndFile>& images)
 {
     std::map<int, int> colors;
     for(const auto& img: images)

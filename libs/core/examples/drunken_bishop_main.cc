@@ -22,7 +22,7 @@ using namespace euphoria;
 using namespace euphoria::core;
 
 
-struct common
+struct CommonArguments
 {
     int width = 17;
     int height = 9;
@@ -39,7 +39,7 @@ struct common
 
 
 Table<int>
-generate_drunken_bishop_table(core::Random* random, const ::common& common)
+generate_drunken_bishop_table(core::Random* random, const ::CommonArguments& common)
 {
     auto hash = std::vector<int>{};
     const int times = common.big ? 8 : 4;
@@ -109,7 +109,7 @@ main(int argc, char* argv[])
         "img", "drunken bishop with img style",
         [](argparse::SubParser* sub)
         {
-            auto common = ::common{};
+            auto common = ::CommonArguments{};
             int count = 1;
             int scale = 10;
             auto pal = palettes::name::cubehelix_1;
@@ -147,7 +147,7 @@ main(int argc, char* argv[])
         "drunken bishop with ssh like output",
         [](argparse::SubParser* sub)
         {
-            auto common = ::common{};
+            auto common = ::CommonArguments{};
             common.add(sub);
             return sub->on_complete([&]{
                 auto rand = core::Random{};

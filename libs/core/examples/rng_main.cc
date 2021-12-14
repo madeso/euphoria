@@ -47,7 +47,7 @@ print_random_numbers
 }
 
 
-struct runner
+struct Runner
 {
     int count = 1000;
     int small_count = 10;
@@ -96,7 +96,7 @@ struct runner
 int
 main()
 {
-    auto m = runner{};
+    auto m = Runner{};
     m.main();
     return 0;
 }
