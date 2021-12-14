@@ -210,10 +210,12 @@ target_link_libraries(core
 )
 set_target_properties(core PROPERTIES FOLDER "Libraries")
 
-generate_header_test(core
-    INCLUDE_BASE "${CMAKE_CURRENT_SOURCE_DIR}/src"
-    FILES ${src}
-)
+if(NOT GENERATE_COVERAGE)
+    generate_header_test(core
+        INCLUDE_BASE "${CMAKE_CURRENT_SOURCE_DIR}/src"
+        FILES ${src}
+    )
+endif()
 
 ###############################################################################
 # test project
