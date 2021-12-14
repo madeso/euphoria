@@ -9,7 +9,7 @@
 
 namespace euphoria::tests
 {
-    struct approx_data
+    struct ApproxData
     {
         float epsilon;
         float scale;
@@ -20,7 +20,7 @@ namespace euphoria::tests
 
     template <typename T>
     bool
-    approximately_equal(const T& lhs, const T& rhs, const approx_data& data);
+    approximately_equal(const T& lhs, const T& rhs, const ApproxData& data);
 
 
     template <>
@@ -28,7 +28,7 @@ namespace euphoria::tests
     approximately_equal(
             float const& lhs,
             float const& rhs,
-            const approx_data& data);
+            const ApproxData& data);
 
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -37,10 +37,10 @@ namespace euphoria::tests
     namespace custom
     {
         template <typename T>
-        struct approx
+        struct Approx
         {
         public:
-            explicit approx(T value)
+            explicit Approx(T value)
                 : epsilon(std::numeric_limits<float>::epsilon() * 100)
                 , margin(0.0)
                 , scale(1.0)
@@ -48,9 +48,9 @@ namespace euphoria::tests
             {}
 
             friend bool
-            operator==(T lhs, approx<T> const& rhs)
+            operator==(T lhs, Approx<T> const& rhs)
             {
-                auto data = approx_data{};
+                auto data = ApproxData{};
                 data.epsilon = rhs.epsilon;
                 data.scale = rhs.scale;
                 data.margin = rhs.margin;
@@ -58,38 +58,38 @@ namespace euphoria::tests
             }
 
             friend bool
-            operator==(approx<T> const& lhs, T rhs)
+            operator==(Approx<T> const& lhs, T rhs)
             {
                 return operator==(rhs, lhs);
             }
 
             friend bool
-            operator!=(T lhs, approx<T> const& rhs)
+            operator!=(T lhs, Approx<T> const& rhs)
             {
                 return !operator==(lhs, rhs);
             }
 
             friend bool
-            operator!=(approx<T> const& lhs, T rhs)
+            operator!=(Approx<T> const& lhs, T rhs)
             {
                 return !operator==(rhs, lhs);
             }
 
-            approx&
+            Approx&
             set_epsilon(float new_epsilon)
             {
                 epsilon = new_epsilon;
                 return *this;
             }
 
-            approx&
+            Approx&
             set_margin(float new_margin)
             {
                 margin = new_margin;
                 return *this;
             }
 
-            approx&
+            Approx&
             set_scale(float new_scale)
             {
                 scale = new_scale;
@@ -115,7 +115,7 @@ namespace euphoria::tests
 
     template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const custom::approx<T>& v)
+    operator<<(std::ostream& stream, const custom::Approx<T>& v)
     {
         return stream << v.to_string();
     }
@@ -124,9 +124,9 @@ namespace euphoria::tests
 
 
     template <typename T>
-    custom::approx<T>
+    custom::Approx<T>
     approx(T const& t)
     {
-        return custom::approx<T>(t);
+        return custom::Approx<T>(t);
     }
 }

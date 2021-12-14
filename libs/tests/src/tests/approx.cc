@@ -19,7 +19,7 @@ namespace euphoria::tests
     approximately_equal(
             float const& lhs,
             float const& rhs,
-            const approx_data& data)
+            const ApproxData& data)
     {
         const auto m_value = lhs;
         const auto other = rhs;

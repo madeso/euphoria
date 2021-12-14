@@ -6,12 +6,12 @@
 namespace euphoria::tests
 {
     // represents a error (false) or empty string (true)
-    struct false_string
+    struct FalseString
     {
-        static false_string
+        static FalseString
         create_false(const std::string& text);
 
-        static false_string
+        static FalseString
         create_true();
 
         operator bool() const;
@@ -20,5 +20,5 @@ namespace euphoria::tests
     };
 
     std::ostream&
-    operator<<(std::ostream& s, const false_string& f);
+    operator<<(std::ostream& s, const FalseString& f);
 }

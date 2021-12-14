@@ -9,12 +9,12 @@
 
 
 using namespace euphoria::core;
-using euphoria::tests::false_string;
+using euphoria::tests::FalseString;
 
 
 namespace
 {
-    false_string
+    FalseString
     vector_is_same(const std::vector<unsigned int> lhs, const std::vector<unsigned int>& rhs)
     {
         return euphoria::tests::vector_is_equal
@@ -23,14 +23,14 @@ namespace
             rhs,
             [](unsigned int f) -> std::string
             { return StringBuilder() << f; },
-            [](unsigned int a, unsigned int b) -> false_string
+            [](unsigned int a, unsigned int b) -> FalseString
             {
                 if (a == b)
                 {
-                    return false_string::create_true();
+                    return FalseString::create_true();
                 } else
                 {
-                    return false_string::create_false
+                    return FalseString::create_false
                     (
                         StringBuilder() << a << " != " << b
                     );
@@ -40,7 +40,7 @@ namespace
     }
 
 
-    false_string
+    FalseString
     vector_is_same(const std::vector<float> lhs, const std::vector<float>& rhs)
     {
         return euphoria::tests::vector_is_equal
@@ -49,14 +49,14 @@ namespace
             rhs,
             [](float f) -> std::string
             { return StringBuilder() << f; },
-            [](float a, float b) -> false_string
+            [](float a, float b) -> FalseString
             {
                 if (euphoria::tests::approx(a) == b)
                 {
-                    return false_string::create_true();
+                    return FalseString::create_true();
                 } else
                 {
-                    return false_string::create_false
+                    return FalseString::create_false
                     (
                         StringBuilder() << a << " != " << b
                     );

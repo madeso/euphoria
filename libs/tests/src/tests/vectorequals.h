@@ -19,7 +19,7 @@ namespace euphoria::tests
         // std::function<false_string (const T&, const T&)>
         typename TCompare
     >
-    false_string
+    FalseString
     vector_is_equal
     (
         const std::vector<T>& lhs,
@@ -28,7 +28,7 @@ namespace euphoria::tests
         TCompare compare_functor
     )
     {
-        auto size_equal = false_string::create_true();
+        auto size_equal = FalseString::create_true();
         if(lhs.size() != rhs.size())
         {
             std::ostringstream ss;
@@ -37,13 +37,13 @@ namespace euphoria::tests
                 << " vs "
                 << rhs.size();
             ss << vector_to_string(lhs, to_string_functor) << " " << vector_to_string(rhs, to_string_functor);
-            size_equal = false_string::create_false(ss.str());
+            size_equal = FalseString::create_false(ss.str());
         }
 
         const auto size = std::min(lhs.size(), rhs.size());
         for(size_t i =0; i < size; i+=1)
         {
-            const false_string equals = compare_functor(lhs[i], rhs[i]);
+            const FalseString equals = compare_functor(lhs[i], rhs[i]);
             if(!equals)
             {
                 std::ostringstream ss;
@@ -71,7 +71,7 @@ namespace euphoria::tests
                 ss << " value at index ";
                 ss << i << ", "
                     << equals.str;
-                return false_string::create_false(ss.str());
+                return FalseString::create_false(ss.str());
             }
         }
 
@@ -80,6 +80,6 @@ namespace euphoria::tests
             return size_equal;
         }
 
-        return false_string::create_true();
+        return FalseString::create_true();
     }
 }

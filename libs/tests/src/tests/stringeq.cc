@@ -22,7 +22,7 @@ namespace
 
 namespace euphoria::tests
 {
-    false_string
+    FalseString
     string_is_equal(const std::string& lhs, const std::string& rhs)
     {
         const auto s = core::find_first_index_of_mismatch(lhs, rhs);
@@ -43,17 +43,17 @@ namespace euphoria::tests
                 << core::char_to_string(rhs[s]);
             ss << ", edit-distance is " << core::edit_distance(lhs, rhs);
 
-            return false_string::create_false(ss.str());
+            return FalseString::create_false(ss.str());
         }
 
-        return false_string::create_true();
+        return FalseString::create_true();
     }
 
 
-    false_string
+    FalseString
     string_is_equal(const std::vector<std::string>& lhs, const std::vector<std::string>& rhs)
     {
-        auto size_equal = false_string::create_true();
+        auto size_equal = FalseString::create_true();
         if(lhs.size() != rhs.size())
         {
             std::ostringstream ss;
@@ -62,13 +62,13 @@ namespace euphoria::tests
                << " vs "
                << rhs.size();
             ss << vector_to_string(lhs, escape_string) << " " << vector_to_string(rhs, escape_string);
-            size_equal = false_string::create_false(ss.str());
+            size_equal = FalseString::create_false(ss.str());
         }
 
         const auto size = std::min(lhs.size(), rhs.size());
         for(size_t i =0; i < size; i+=1)
         {
-            const false_string equals = string_is_equal(lhs[i], rhs[i]);
+            const FalseString equals = string_is_equal(lhs[i], rhs[i]);
             if(!equals)
             {
                 std::ostringstream ss;
@@ -87,7 +87,7 @@ namespace euphoria::tests
                 ss << " value at index ";
                 ss << i << ", "
                     << equals.str;
-                return false_string::create_false(ss.str());
+                return FalseString::create_false(ss.str());
             }
         }
 
@@ -96,6 +96,6 @@ namespace euphoria::tests
             return size_equal;
         }
 
-        return false_string::create_true();
+        return FalseString::create_true();
     }
 }

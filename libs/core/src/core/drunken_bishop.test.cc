@@ -34,24 +34,24 @@ int_to_hex_string_representation(const T& t)
 
 
 template<typename T, typename F>
-false_string
+FalseString
 compare_ints(const T& lhs, const T& rhs, F to_string)
 {
     if(lhs == rhs)
     {
-        return false_string::create_true();
+        return FalseString::create_true();
     }
     else
     {
         std::ostringstream ss;
         ss << to_string(lhs) << " != " << to_string(rhs);
-        return false_string::create_false(ss.str());
+        return FalseString::create_false(ss.str());
     }
 }
 
 
 template<typename T>
-false_string
+FalseString
 int_equals_hex
 (
     const std::vector<T>& lhs,
@@ -71,7 +71,7 @@ int_equals_hex
 
 
 template<typename T>
-false_string
+FalseString
 int_equals_bin
 (
     const std::vector<T>& lhs,

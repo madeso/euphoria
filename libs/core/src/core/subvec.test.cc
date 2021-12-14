@@ -11,7 +11,7 @@ using namespace euphoria::tests;
 
 namespace
 {
-    false_string
+    FalseString
     is_equal
     (
         const std::vector<int>& lhs,
@@ -26,13 +26,13 @@ namespace
             {
                 return StringBuilder{} << m;
             },
-            [](int lhs, int rhs) -> false_string
+            [](int lhs, int rhs) -> FalseString
             {
                 if (lhs == rhs)
-                { return false_string::create_true(); }
+                { return FalseString::create_true(); }
                 else
                 {
-                    return false_string::create_false(StringBuilder() << lhs << " != " << rhs);
+                    return FalseString::create_false(StringBuilder() << lhs << " != " << rhs);
                 }
             }
         );

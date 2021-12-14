@@ -92,7 +92,7 @@ namespace
     };
 
 
-    false_string
+    FalseString
     check
     (
         const std::vector<std::string>& lhs,
@@ -107,14 +107,14 @@ namespace
             {
                 return m;
             },
-            [](const std::string &lhs, const std::string &rhs) -> false_string
+            [](const std::string &lhs, const std::string &rhs) -> FalseString
             {
                 return string_is_equal(lhs, rhs);
             }
         );
     }
 
-    false_string
+    FalseString
     check
     (
         const std::vector<Message>& lhs,
@@ -129,14 +129,14 @@ namespace
             {
                 return StringBuilder() << m;
             },
-            [](const Message &lhs, const Message &rhs) -> false_string
+            [](const Message &lhs, const Message &rhs) -> FalseString
             {
                 const auto str = string_is_equal(lhs.text, rhs.text);
                 if (str == false)
                 { return str; }
                 if (lhs.error == rhs.error)
-                { return false_string::create_true(); }
-                return false_string::create_false
+                { return FalseString::create_true(); }
+                return FalseString::create_false
                 (
                     StringBuilder() << "error diff: "
                                      << lhs.error << " vs "
