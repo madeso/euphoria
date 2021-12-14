@@ -22,7 +22,7 @@
 
 namespace euphoria::gui
 {
-    std::shared_ptr<layout>
+    std::shared_ptr<Layout>
     create_layout(const ::gui::Layout& c)
     {
         if(c.table)
@@ -48,10 +48,10 @@ namespace euphoria::gui
     }
 
 
-    struct command_button : public button
+    struct command_button : public Button
     {
-        explicit command_button(gui::ui_state* state)
-            : button(state)
+        explicit command_button(gui::State* state)
+            : Button(state)
         {
         }
 
@@ -70,16 +70,16 @@ namespace euphoria::gui
     build_layout_container
     (
         core::vfs::FileSystem* fs,
-        ui_state* state,
-        layout_container* root,
+        State* state,
+        LayoutContainer* root,
         const ::gui::LayoutContainer& c,
         render::TextureCache* cache,
-        const std::map<std::string, skin*>& skins
+        const std::map<std::string, Skin*>& skins
     );
 
 
     void
-    setup_layout(layout_data* data, const ::gui::Widget& src)
+    setup_layout(LayoutData* data, const ::gui::Widget& src)
     {
         data->column = src.column;
         data->row = src.row;
@@ -100,17 +100,17 @@ namespace euphoria::gui
     }
 
 
-    std::shared_ptr<widget>
+    std::shared_ptr<Widget>
     create_widget
     (
         core::vfs::FileSystem* fs,
-        ui_state* state,
+        State* state,
         const ::gui::Widget& w,
         render::TextureCache* cache,
-        const std::map<std::string, skin*>& skins
+        const std::map<std::string, Skin*>& skins
     )
     {
-        std::shared_ptr<widget> ret;
+        std::shared_ptr<Widget> ret;
 
         if(w.button)
         {
@@ -119,7 +119,7 @@ namespace euphoria::gui
 
             const std::string skin_name = w.button->skin;
             const auto skin_it = skins.find(skin_name);
-            skin* skin = nullptr;
+            Skin* skin = nullptr;
 
             if(skin_it == skins.end())
             {
@@ -157,7 +157,7 @@ namespace euphoria::gui
         else if(w.panel)
         {
             LOG_INFO("Creating a panel widget");
-            auto l = std::make_shared<panel_widget>(state);
+            auto l = std::make_shared<PanelWidget>(state);
             ret = l;
             build_layout_container
             (
@@ -190,11 +190,11 @@ namespace euphoria::gui
     build_layout_container
     (
         core::vfs::FileSystem* fs,
-        ui_state* state,
-        layout_container* root,
+        State* state,
+        LayoutContainer* root,
         const ::gui::LayoutContainer& c,
         render::TextureCache* cache,
-        const std::map<std::string, skin*>& skins
+        const std::map<std::string, Skin*>& skins
     )
     {
         root->layout = create_layout(c.layout);
@@ -275,10 +275,10 @@ namespace euphoria::gui
     }
 
 
-    button_state
+    ButtonState
     load_button(const ::gui::ButtonState& src)
     {
-        button_state ret;
+        ButtonState ret;
         // ret.image = src.image();
         ret.scale = src.scale;
         ret.image_color = load(src.image_color);
@@ -304,10 +304,10 @@ namespace euphoria::gui
     }
 
 
-    std::shared_ptr<skin>
+    std::shared_ptr<Skin>
     load_skin(const ::gui::Skin& src, render::FontCache* font)
     {
-        std::shared_ptr<skin> skin(new gui::skin());
+        std::shared_ptr<Skin> skin(new gui::Skin());
         skin->name = src.name;
         skin->font = font->get_font
         (
@@ -331,7 +331,7 @@ namespace euphoria::gui
     bool
     load_gui
     (
-        root* root,
+        Root* root,
         core::vfs::FileSystem* fs,
         render::FontCache* font,
         const core::vfs::FilePath& path,
@@ -359,11 +359,11 @@ namespace euphoria::gui
             core::vfs::FilePath::from_script_or_empty(f.hover_image)
         );
 
-        std::map<std::string, skin*> skin_map;
+        std::map<std::string, Skin*> skin_map;
 
         for(const auto& skin: f.skins)
         {
-            std::shared_ptr<gui::skin> skin_ptr = load_skin(skin, font);
+            std::shared_ptr<gui::Skin> skin_ptr = load_skin(skin, font);
             skin_map.insert(std::make_pair(skin.name, skin_ptr.get()));
             root->skins.push_back(skin_ptr);
         }

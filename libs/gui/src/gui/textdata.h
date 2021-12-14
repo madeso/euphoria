@@ -14,12 +14,12 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct text_data
+    struct TextData
     {
-        text_data();
-        ~text_data();
+        TextData();
+        ~TextData();
 
-        NONCOPYABLE(text_data);
+        NONCOPYABLE(TextData);
 
         void
         set_font(std::shared_ptr<render::DrawableFont> font);

@@ -18,7 +18,7 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct root;
+    struct Root;
 }
 
 
@@ -27,7 +27,7 @@ namespace euphoria::gui
     bool
     load_gui
     (
-            root* root,
+            Root* root,
             core::vfs::FileSystem* fs,
             render::FontCache* font,
             const core::vfs::FilePath& path,

@@ -14,13 +14,13 @@
 
 namespace euphoria::gui
 {
-    layout::layout() = default;
+    Layout::Layout() = default;
 
 
-    layout::~layout() = default;
+    Layout::~Layout() = default;
 
 
-    table_layout::table_layout
+    TableLayout::TableLayout
     (
             const std::vector<bool>& er,
             const std::vector<bool>& ec,
@@ -45,9 +45,9 @@ namespace euphoria::gui
 
 
     core::size2f
-    table_layout::calculate_minimum_area
+    TableLayout::calculate_minimum_area
     (
-        const std::vector<std::shared_ptr<widget>>& widgets
+        const std::vector<std::shared_ptr<Widget>>& widgets
     ) const
     {
         // todo(Gustav): include padding
@@ -87,9 +87,9 @@ namespace euphoria::gui
     }
 
     void
-    table_layout::do_layout
+    TableLayout::do_layout
     (
-        std::vector<std::shared_ptr<widget>>* widgets,
+        std::vector<std::shared_ptr<Widget>>* widgets,
         const core::Rectf& area
     ) const
     {
@@ -153,7 +153,7 @@ namespace euphoria::gui
 
         for(const auto& w: *widgets)
         {
-            const layout_data& d = w->layout;
+            const LayoutData& d = w->layout;
             const auto topleft = area.get_top_left();
             float x = topleft.x;
             float y = topleft.y;
@@ -188,16 +188,16 @@ namespace euphoria::gui
     }
 
 
-    single_row_layout::single_row_layout(float padding)
+    SingleRowLayout::SingleRowLayout(float padding)
         : padding(padding)
     {
     }
 
 
     core::size2f
-    single_row_layout::calculate_minimum_area
+    SingleRowLayout::calculate_minimum_area
     (
-        const std::vector<std::shared_ptr<widget>>& widgets
+        const std::vector<std::shared_ptr<Widget>>& widgets
     ) const
     {
         float width = 0;
@@ -223,9 +223,9 @@ namespace euphoria::gui
 
 
     void
-    single_row_layout::do_layout
+    SingleRowLayout::do_layout
     (
-        std::vector<std::shared_ptr<widget>>* widgets,
+        std::vector<std::shared_ptr<Widget>>* widgets,
         const core::Rectf& area
     ) const
     {

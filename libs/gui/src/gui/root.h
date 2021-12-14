@@ -26,19 +26,19 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct skin;
+    struct Skin;
 }
 
 
 namespace euphoria::gui
 {
 
-    struct root
+    struct Root
     {
-        explicit root(const core::size2f& s);
-        ~root();
+        explicit Root(const core::size2f& s);
+        ~Root();
 
-        NONCOPYABLE(root);
+        NONCOPYABLE(Root);
 
         [[nodiscard]] bool
         load
@@ -61,10 +61,10 @@ namespace euphoria::gui
         void
         render(render::SpriteRenderer* sp) const;
 
-        std::vector<std::shared_ptr<skin>> skins;
+        std::vector<std::shared_ptr<Skin>> skins;
         core::size2f size;
-        ui_state state;
-        layout_container container;
+        State state;
+        LayoutContainer container;
         std::shared_ptr<render::Texture2> cursor_image;
         std::shared_ptr<render::Texture2> hover_image;
     };

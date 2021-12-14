@@ -4,20 +4,20 @@
 
 namespace euphoria::gui
 {
-    struct widget;
+    struct Widget;
 }
 
 namespace euphoria::gui
 {
-    struct ui_state
+    struct State
     {
-        ui_state() = default;
+        State() = default;
 
         core::Vec2f mouse = core::Vec2f(0.0f, 0.0f);
         bool mouse_down = false;
 
-        widget* hot = nullptr;
-        widget* active = nullptr;
+        Widget* hot = nullptr;
+        Widget* active = nullptr;
         bool has_active = false;
 
         void
@@ -27,10 +27,10 @@ namespace euphoria::gui
         end();
 
         void
-        set_hot(widget* w);
+        set_hot(Widget* w);
 
         void
-        set_active(widget* w);
+        set_active(Widget* w);
 
         [[nodiscard]] bool
         is_mouse_down() const;

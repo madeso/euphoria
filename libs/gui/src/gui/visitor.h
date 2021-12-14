@@ -5,26 +5,26 @@
 
 namespace euphoria::gui
 {
-    struct button;
-    struct panel_widget;
+    struct Button;
+    struct PanelWidget;
 }
 
 
 namespace euphoria::gui
 {
-    struct visitor
+    struct Visitor
     {
-        visitor() = default;
-        virtual ~visitor() = default;
-        NONCOPYABLE(visitor);
+        Visitor() = default;
+        virtual ~Visitor() = default;
+        NONCOPYABLE(Visitor);
 
         virtual
         void
-        visit(button* button) = 0;
+        visit(Button* button) = 0;
 
         virtual
         void
-        visit(panel_widget* button) = 0;
+        visit(PanelWidget* button) = 0;
     };
 }
 

@@ -16,8 +16,8 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct ui_state;
-    struct visitor;
+    struct State;
+    struct Visitor;
 }
 
 namespace euphoria::gui
@@ -31,19 +31,19 @@ namespace euphoria::gui
     };
 
 
-    struct widget
+    struct Widget
     {
         std::string name;
         lrtb margin;
         lrtb padding;
 
         explicit
-        widget(gui::ui_state* state);
+        Widget(gui::State* state);
 
         virtual
-        ~widget();
+        ~Widget();
 
-        NONCOPYABLE(widget);
+        NONCOPYABLE(Widget);
 
         [[nodiscard]] bool
         is_active() const;
@@ -81,17 +81,17 @@ namespace euphoria::gui
 
         virtual
         void
-        visit(visitor* visitor) = 0;
+        visit(Visitor* visitor) = 0;
 
-        [[nodiscard]] const gui::ui_state&
+        [[nodiscard]] const gui::State&
         get_state() const;
 
-        [[nodiscard]] gui::ui_state*
+        [[nodiscard]] gui::State*
         get_state_ptr() const;
 
-        gui::ui_state* ui_state;
+        gui::State* ui_state;
 
-        layout_data layout;
+        LayoutData layout;
         core::Rectf rect;
     };
 }

@@ -19,16 +19,16 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct skin;
-    struct button_state;
-    struct ui_state;
+    struct Skin;
+    struct ButtonState;
+    struct State;
 
-    struct button : widget
+    struct Button : Widget
     {
-         button(gui::ui_state* state);
-        ~button() override;
+         Button(gui::State* state);
+        ~Button() override;
 
-        NONCOPYABLE(button);
+        NONCOPYABLE(Button);
 
         virtual void
         on_clicked() = 0;
@@ -43,18 +43,18 @@ namespace euphoria::gui
         render(render::SpriteRenderer* renderer) const override;
 
         void
-        visit(visitor* visitor) override;
+        visit(Visitor* visitor) override;
 
         void
         on_size_changed() override;
 
         void
-        set_skin(skin* new_skin);
+        set_skin(Skin* new_skin);
 
-        button_state* last_state;
+        ButtonState* last_state;
         std::shared_ptr<render::ScalableSprite> sprite;
-        text_data text;
-        skin* skin_;
+        TextData text;
+        Skin* skin_;
 
         core::Interpolate<float, core::FloatTransform> scale;
         core::Interpolate<core::Rgb, core::RgbTransform> image_color;

@@ -4,5 +4,5 @@
 
 namespace euphoria::gui
 {
-    skin::~skin() = default;
+    Skin::~Skin() = default;
 }

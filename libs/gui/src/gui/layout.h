@@ -10,59 +10,59 @@
 
 namespace euphoria::gui
 {
-    struct widget;
+    struct Widget;
 }
 
 
 namespace euphoria::gui
 {
-    struct layout
+    struct Layout
     {
-        layout();
+        Layout();
 
         virtual
-        ~layout();
+        ~Layout();
 
-        NONCOPYABLE(layout);
+        NONCOPYABLE(Layout);
 
         [[nodiscard]] virtual core::size2f
         calculate_minimum_area
         (
-            const std::vector<std::shared_ptr<widget>>& widgets
+            const std::vector<std::shared_ptr<Widget>>& widgets
         ) const = 0;
 
         virtual
         void
         do_layout
         (
-            std::vector<std::shared_ptr<widget>>* widgets,
+            std::vector<std::shared_ptr<Widget>>* widgets,
             const core::Rectf& area
         ) const = 0;
     };
 
-    struct table_layout : layout
+    struct TableLayout : Layout
     {
-        table_layout
+        TableLayout
         (
             const std::vector<bool>& er,
             const std::vector<bool>& ec,
             float cp
         );
 
-        ~table_layout() override = default;
+        ~TableLayout() override = default;
 
-        NONCOPYABLE(table_layout);
+        NONCOPYABLE(TableLayout);
 
         [[nodiscard]] core::size2f
         calculate_minimum_area
         (
-            const std::vector<std::shared_ptr<widget>>& widgets
+            const std::vector<std::shared_ptr<Widget>>& widgets
         ) const override;
 
         void
         do_layout
         (
-            std::vector<std::shared_ptr<widget>>* widgets,
+            std::vector<std::shared_ptr<Widget>>* widgets,
             const core::Rectf& area
         ) const override;
 
@@ -71,24 +71,24 @@ namespace euphoria::gui
         float combined_padding;
     };
 
-    struct single_row_layout : layout
+    struct SingleRowLayout : Layout
     {
-        single_row_layout(float padding);
+        SingleRowLayout(float padding);
 
-        ~single_row_layout() override = default;
+        ~SingleRowLayout() override = default;
 
-        NONCOPYABLE(single_row_layout);
+        NONCOPYABLE(SingleRowLayout);
 
         [[nodiscard]] core::size2f
         calculate_minimum_area
         (
-            const std::vector<std::shared_ptr<widget>>& widgets
+            const std::vector<std::shared_ptr<Widget>>& widgets
         ) const override;
 
         void
         do_layout
         (
-            std::vector<std::shared_ptr<widget>>* widgets,
+            std::vector<std::shared_ptr<Widget>>* widgets,
             const core::Rectf& area
         ) const override;
 

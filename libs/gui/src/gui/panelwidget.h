@@ -9,18 +9,18 @@
 
 namespace euphoria::gui
 {
-    struct panel_widget : widget
+    struct PanelWidget : Widget
     {
-        panel_widget(gui::ui_state* state);
-        ~panel_widget() override = default;
+        PanelWidget(gui::State* state);
+        ~PanelWidget() override = default;
 
-        NONCOPYABLE(panel_widget);
+        NONCOPYABLE(PanelWidget);
 
         void
         render(render::SpriteRenderer* renderer) const override;
 
         void
-        visit(visitor* visitor) override;
+        visit(Visitor* visitor) override;
 
         void
         on_size_changed() override;
@@ -31,6 +31,6 @@ namespace euphoria::gui
         void
         step(float dt) override;
 
-        layout_container container;
+        LayoutContainer container;
     };
 }

@@ -172,7 +172,7 @@ imgui_widget(euphoria::render::ScalableSprite* sprite)
 
 
 bool
-imgui_widget(ui_state* state)
+imgui_widget(State* state)
 {
     imgui_widget("mouse", &state->mouse);
     imgui_widget("down", &state->mouse_down);
@@ -183,19 +183,19 @@ imgui_widget(ui_state* state)
 }
 
 void
-imgui_widget(text_data* data)
+imgui_widget(TextData* data)
 {
     imgui_widget("string", &data->string);
     ImGui::DragFloat("size", &data->size);
 }
 
 bool
-imgui_widget(layout_container* container);
+imgui_widget(LayoutContainer* container);
 
-struct imgui_widget_visitor : public visitor
+struct imgui_widget_visitor : public Visitor
 {
     void
-    visit(button* w) override
+    visit(Button* w) override
     {
         imgui_widget(w->sprite.get());
         if(ImGui::Button("Click"))
@@ -206,7 +206,7 @@ struct imgui_widget_visitor : public visitor
     }
 
     void
-    visit(panel_widget* w) override
+    visit(PanelWidget* w) override
     {
         imgui_widget(&w->container);
     }
@@ -214,7 +214,7 @@ struct imgui_widget_visitor : public visitor
 
 
 bool
-imgui_widget(widget* w)
+imgui_widget(Widget* w)
 {
     imgui::input_text("name", &w->name);
     imgui_widget("margin", &w->margin);
@@ -233,7 +233,7 @@ imgui_widget(widget* w)
 }
 
 bool
-imgui_widget(layout_container* container)
+imgui_widget(LayoutContainer* container)
 {
     for(int i=0; i < c_sizet_to_int(container->widgets.size()); i+= 1)
     {
@@ -285,7 +285,7 @@ imgui_widget(const char* title, euphoria::render::DrawableFont* font)
 }
 
 void
-imgui_widget(skin* skin)
+imgui_widget(Skin* skin)
 {
     if(ImGui::TreeNode(skin->name.c_str()) == false) { return; }
 
@@ -298,7 +298,7 @@ imgui_widget(skin* skin)
 
 
 void
-imgui_widget(root* root)
+imgui_widget(Root* root)
 {
     for(auto& skin: root->skins)
     {
@@ -358,7 +358,7 @@ main(int argc, char* argv[])
     use(&shader);
     shader.set_uniform(shader.get_uniform("image"), 0);
 
-    auto root = euphoria::gui::root
+    auto root = euphoria::gui::Root
     {
         size2f::create_from_width_height
         (

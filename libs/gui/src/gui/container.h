@@ -13,24 +13,24 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct widget;
+    struct Widget;
 }
 
 
 namespace euphoria::gui
 {
-    struct container
+    struct Container
     {
-        container();
-        ~container();
+        Container();
+        ~Container();
 
-        NONCOPYABLE(container);
+        NONCOPYABLE(Container);
 
         [[nodiscard]] bool
         has_any_widgets() const;
 
         void
-        add(std::shared_ptr<widget> widget);
+        add(std::shared_ptr<Widget> widget);
 
         void
         step(float dt);
@@ -38,7 +38,7 @@ namespace euphoria::gui
         void
         render(render::SpriteRenderer* renderer) const;
 
-        std::vector<std::shared_ptr<widget>> widgets;
+        std::vector<std::shared_ptr<Widget>> widgets;
     };
 }
 

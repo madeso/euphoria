@@ -11,8 +11,8 @@
 
 namespace euphoria::gui
 {
-    button::button(gui::ui_state* state)
-        : widget(state)
+    Button::Button(gui::State* state)
+        : Widget(state)
         , last_state(nullptr)
         , skin_(nullptr)
         , scale(1.0f)
@@ -23,11 +23,11 @@ namespace euphoria::gui
     }
 
 
-    button::~button() = default;
+    Button::~Button() = default;
 
 
     void
-    button::step(float dt)
+    Button::step(float dt)
     {
         if(get_background_rect().contains_exclusive(get_state().mouse))
         {
@@ -93,7 +93,7 @@ namespace euphoria::gui
 
 
     core::size2f
-    button::calculate_minimum_size() const
+    Button::calculate_minimum_size() const
     {
         auto size = core::size2f::create_from_width_height(0, 0);
         if(sprite != nullptr)
@@ -120,7 +120,7 @@ namespace euphoria::gui
 
 
     void
-    button::render(render::SpriteRenderer* renderer) const
+    Button::render(render::SpriteRenderer* renderer) const
     {
         if(skin_ != nullptr)
         {
@@ -158,20 +158,20 @@ namespace euphoria::gui
 
 
     void
-    button::visit(visitor* visitor)
+    Button::visit(Visitor* visitor)
     {
         visitor->visit(this);
     }
 
 
     void
-    button::on_size_changed()
+    Button::on_size_changed()
     {
     }
 
 
     void
-    button::set_skin(skin* new_skin)
+    Button::set_skin(Skin* new_skin)
     {
         skin_ = new_skin;
         if(skin_ != nullptr)

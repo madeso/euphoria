@@ -17,13 +17,13 @@ namespace euphoria::render
 
 namespace euphoria::gui
 {
-    struct interpolation
+    struct Interpolation
     {
         core::InterpolationType type = core::InterpolationType::Linear;
         float time = 0.0f;
     };
 
-    struct button_state
+    struct ButtonState
     {
         // std::string image;
         float scale = 0;
@@ -32,18 +32,18 @@ namespace euphoria::gui
         float dx = 0;
         float dy = 0;
 
-        interpolation interpolation_position;
-        interpolation interpolation_color;
-        interpolation interpolation_size;
+        Interpolation interpolation_position;
+        Interpolation interpolation_color;
+        Interpolation interpolation_size;
     };
 
 
-    struct skin
+    struct Skin
     {
-        skin() = default;
-        ~skin();
+        Skin() = default;
+        ~Skin();
 
-        NONCOPYABLE(skin);
+        NONCOPYABLE(Skin);
 
         std::string name;
 
@@ -53,8 +53,8 @@ namespace euphoria::gui
 
         std::optional<core::vfs::FilePath> button_image;
 
-        button_state button_idle;
-        button_state button_hot;
-        button_state button_active_hot;
+        ButtonState button_idle;
+        ButtonState button_hot;
+        ButtonState button_active_hot;
     };
 }

@@ -12,10 +12,10 @@
 
 namespace euphoria::gui
 {
-    struct layout;
+    struct Layout;
 
 
-    std::shared_ptr<layout>
+    std::shared_ptr<Layout>
     create_table_layout
     (
         const std::vector<bool>& expandable_rows,
@@ -23,15 +23,15 @@ namespace euphoria::gui
         float combined_padding
     );
 
-    std::shared_ptr<layout>
+    std::shared_ptr<Layout>
     create_single_row_layout(float padding);
 
-    struct layout_container : container
+    struct LayoutContainer : Container
     {
-        layout_container();
-        virtual ~layout_container();
+        LayoutContainer();
+        virtual ~LayoutContainer();
 
-        NONCOPYABLE(layout_container);
+        NONCOPYABLE(LayoutContainer);
 
         void
         do_layout(core::Rectf area);
@@ -39,6 +39,6 @@ namespace euphoria::gui
         [[nodiscard]] core::size2f
         calculate_minimum_area() const;
 
-        std::shared_ptr<gui::layout> layout;
+        std::shared_ptr<gui::Layout> layout;
     };
 }

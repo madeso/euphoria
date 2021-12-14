@@ -2,9 +2,9 @@
 
 namespace euphoria::gui
 {
-    struct layout_data
+    struct LayoutData
     {
-        layout_data() = default;
+        LayoutData() = default;
 
         int column = 0;
         int row = 0;

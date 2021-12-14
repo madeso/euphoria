@@ -8,18 +8,18 @@
 
 namespace euphoria::gui
 {
-    text_data::text_data()
+    TextData::TextData()
         : font(nullptr)
         , size(-1.0f)
     {
     }
 
 
-    text_data::~text_data() = default;
+    TextData::~TextData() = default;
 
 
     void
-    text_data::set_font(std::shared_ptr<render::DrawableFont> new_font)
+    TextData::set_font(std::shared_ptr<render::DrawableFont> new_font)
     {
         font = new_font;
         text.reset();
@@ -28,7 +28,7 @@ namespace euphoria::gui
 
 
     const render::DrawableFont&
-    text_data::get_font() const
+    TextData::get_font() const
     {
         ASSERT(font);
         return *font;
@@ -36,7 +36,7 @@ namespace euphoria::gui
 
 
     void
-    text_data::update_string(const std::string& str)
+    TextData::update_string(const std::string& str)
     {
         string = str;
         update_text();
@@ -44,14 +44,14 @@ namespace euphoria::gui
 
 
     bool
-    text_data::has_text() const
+    TextData::has_text() const
     {
         return text != nullptr;
     }
 
 
     const render::DrawableText&
-    text_data::get_text() const
+    TextData::get_text() const
     {
         ASSERT(text);
         return *text;
@@ -59,7 +59,7 @@ namespace euphoria::gui
 
 
     render::DrawableText&
-    text_data::get_text()
+    TextData::get_text()
     {
         ASSERT(text);
         return *text;
@@ -67,7 +67,7 @@ namespace euphoria::gui
 
 
     void
-    text_data::set_size(float new_size)
+    TextData::set_size(float new_size)
     {
         this->size = new_size;
         if(has_text())
@@ -78,7 +78,7 @@ namespace euphoria::gui
 
 
     void
-    text_data::update_text()
+    TextData::update_text()
     {
         if(text == nullptr && font != nullptr)
         {

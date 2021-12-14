@@ -10,17 +10,17 @@
 
 namespace euphoria::gui
 {
-    root::root(const core::size2f& s)
+    Root::Root(const core::size2f& s)
         : size(s)
     {
     }
 
 
-    root::~root() = default;
+    Root::~Root() = default;
 
 
     bool
-    root::load
+    Root::load
     (
         core::vfs::FileSystem* fs,
         render::FontCache* font,
@@ -40,7 +40,7 @@ namespace euphoria::gui
 
 
     void
-    root::set_input_mouse(const core::Vec2f& pos, bool down)
+    Root::set_input_mouse(const core::Vec2f& pos, bool down)
     {
         state.mouse = pos;
         state.mouse_down = down;
@@ -48,7 +48,7 @@ namespace euphoria::gui
 
 
     void
-    root::step(float dt)
+    Root::step(float dt)
     {
         state.begin();
         container.step(dt);
@@ -57,7 +57,7 @@ namespace euphoria::gui
 
 
     void
-    root::resize(const core::size2f& new_size)
+    Root::resize(const core::size2f& new_size)
     {
         size = new_size;
         container.do_layout(core::Rectf::from_width_height(size));
@@ -65,7 +65,7 @@ namespace euphoria::gui
 
 
     void
-    root::render(render::SpriteRenderer* sp) const
+    Root::render(render::SpriteRenderer* sp) const
     {
         container.render(sp);
 

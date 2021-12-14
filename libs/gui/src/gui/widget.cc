@@ -7,51 +7,51 @@
 
 namespace euphoria::gui
 {
-    widget::widget(gui::ui_state* state)
+    Widget::Widget(gui::State* state)
         : ui_state(state)
     {
     }
 
 
-    widget::~widget() = default;
+    Widget::~Widget() = default;
 
 
     bool
-    widget::is_active() const
+    Widget::is_active() const
     {
         return ui_state->active == this;
     }
 
 
     bool
-    widget::is_hot() const
+    Widget::is_hot() const
     {
         return ui_state->hot == this;
     }
 
 
     void
-    widget::on_size_changed()
+    Widget::on_size_changed()
     {
     }
 
 
     core::Rectf
-    widget::get_client_rect() const
+    Widget::get_client_rect() const
     {
         return rect.inset_copy(padding.left, padding.right, padding.top, padding.bottom);
     }
 
 
     core::Rectf
-    widget::get_background_rect() const
+    Widget::get_background_rect() const
     {
         return rect;
     }
 
 
     void
-    widget::set_rect(const core::Rectf& r)
+    Widget::set_rect(const core::Rectf& r)
     {
         rect = r.inset_copy
         (
@@ -66,7 +66,7 @@ namespace euphoria::gui
 
 
     core::size2f
-    widget::get_preferred_size() const
+    Widget::get_preferred_size() const
     {
         const auto min = calculate_minimum_size();
         const auto padding_width = padding.left + padding.right;
@@ -90,15 +90,15 @@ namespace euphoria::gui
     }
 
 
-    const ui_state&
-    widget::get_state() const
+    const State&
+    Widget::get_state() const
     {
         return *ui_state;
     }
 
 
-    ui_state*
-    widget::get_state_ptr() const
+    State*
+    Widget::get_state_ptr() const
     {
         return ui_state;
     }
