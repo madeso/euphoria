@@ -21,6 +21,9 @@ GAF_GENERATE_CPP(
         ${file_types_folder}/world.gaf
         ${file_types_folder}/enum.gaf
 )
+
+source_group("generated" FILES ${generated_sources} ${generated_headers})
+
 set(src ${src} ${generated_sources} ${generated_headers})
 
 
