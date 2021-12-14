@@ -5,6 +5,7 @@
 #include "core/rect.h"
 #include "core/size2.h"
 #include "core/noncopyable.h"
+#include "core/fourway.h"
 
 #include "gui/layoutdata.h"
 
@@ -22,20 +23,11 @@ namespace euphoria::gui
 
 namespace euphoria::gui
 {
-    struct lrtb
-    {
-        float left = 0.0f;
-        float right = 0.0f;
-        float top = 0.0f;
-        float bottom = 0.0f;
-    };
-
-
     struct Widget
     {
         std::string name;
-        lrtb margin;
-        lrtb padding;
+        core::Lrud<float> margin;
+        core::Lrud<float> padding;
 
         explicit
         Widget(gui::State* state);

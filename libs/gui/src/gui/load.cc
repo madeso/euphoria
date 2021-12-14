@@ -88,15 +88,16 @@ namespace euphoria::gui
     }
 
 
-    lrtb
+    core::Lrud<float>
     lrtb_from_gaf(const ::gui::Lrtb& lrtd)
     {
-        lrtb r;
-        r.left = lrtd.left;
-        r.right = lrtd.right;
-        r.top = lrtd.top;
-        r.bottom = lrtd.bottom;
-        return r;
+        return core::Lrud<float>::from_lrud
+        (
+            lrtd.left,
+            lrtd.right,
+            lrtd.top,
+            lrtd.bottom
+        );
     }
 
 

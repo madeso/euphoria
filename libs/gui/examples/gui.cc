@@ -10,6 +10,7 @@
 #include "core/vfs_defaultshaders.h"
 #include "core/proto.h"
 #include "core/viewportdef.h"
+#include "core/fourway.h"
 
 #include "render/debuggl.h"
 #include "render/font.h"
@@ -83,7 +84,7 @@ imgui_widget(const char* title, bool* b)
 
 
 bool
-imgui_widget(const char* title, euphoria::gui::lrtb* p)
+imgui_widget(const char* title, euphoria::core::Lrud<float>* p)
 {
     const auto spacing = ImGui::GetStyle().ItemInnerSpacing.x;
     ImGui::PushID(title);
@@ -101,12 +102,12 @@ imgui_widget(const char* title, euphoria::gui::lrtb* p)
 
     ImGui::SameLine(0, spacing);
 
-    changed |= ImGui::DragFloat("T", &p->top);
+    changed |= ImGui::DragFloat("U", &p->up);
     ImGui::PopItemWidth();
 
     ImGui::SameLine(0, spacing);
 
-    changed |= ImGui::DragFloat("B", &p->bottom);
+    changed |= ImGui::DragFloat("D", &p->down);
     ImGui::PopItemWidth();
 
     ImGui::SameLine(0, spacing);

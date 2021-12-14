@@ -8,7 +8,9 @@
 namespace euphoria::gui
 {
     Widget::Widget(gui::State* state)
-        : ui_state(state)
+        : margin(0.0f)
+        , padding(0.0f)
+        , ui_state(state)
     {
     }
 
@@ -39,7 +41,7 @@ namespace euphoria::gui
     core::Rectf
     Widget::get_client_rect() const
     {
-        return rect.inset_copy(padding.left, padding.right, padding.top, padding.bottom);
+        return rect.inset_copy(padding.left, padding.right, padding.up, padding.down);
     }
 
 
@@ -57,8 +59,8 @@ namespace euphoria::gui
         (
             margin.left,
             margin.right,
-            margin.top,
-            margin.bottom
+            margin.up,
+            margin.down
         );
         LOG_INFO("Setting gui rect of '{0}' {1}", name, rect);
         on_size_changed();
@@ -70,9 +72,9 @@ namespace euphoria::gui
     {
         const auto min = calculate_minimum_size();
         const auto padding_width = padding.left + padding.right;
-        const auto padding_height = padding.top + padding.bottom;
+        const auto padding_height = padding.up + padding.down;
         const auto margin_width = margin.left + margin.right;
-        const auto margin_height = margin.top + margin.bottom;
+        const auto margin_height = margin.up + margin.down;
 
         return core::size2f::create_from_width_height
         (
