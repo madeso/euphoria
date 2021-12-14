@@ -13,6 +13,7 @@ set(all_gafs
     src/file_types/game.gaf
     src/file_types/tracery.gaf
 )
+source_group("" FILES ${all_gafs})
 
 set(generated_files)
 
@@ -42,9 +43,10 @@ set(generated_files
     ${generated_sources}
     ${generated_headers}
 )
+source_group("generated" FILES ${generated_files})
 
 
-add_library(file_types STATIC ${generated_files})
+add_library(file_types STATIC ${generated_files} ${all_gafs})
 set_target_properties(file_types PROPERTIES FOLDER "Libraries")
 target_include_directories(file_types
     PUBLIC
