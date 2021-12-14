@@ -14,9 +14,9 @@ extern "C"
 
 namespace euphoria::window
 {
-    struct sdl_window
+    struct SdlWindow
     {
-        sdl_window
+        SdlWindow
         (
             const std::string& title,
             int width,
@@ -24,9 +24,9 @@ namespace euphoria::window
             bool resize = false
         );
 
-        ~sdl_window();
+        ~SdlWindow();
 
-        NONCOPYABLE(sdl_window);
+        NONCOPYABLE(SdlWindow);
 
         // 0-(size-1)
         [[nodiscard]] core::Vec2i

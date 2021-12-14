@@ -220,7 +220,7 @@ namespace euphoria::window::imgui
     bool
     begin_fixed_overlay
     (
-            corner corner,
+            Corner corner,
             const std::string& title,
             float a_distance,
             float a_distance_y
@@ -231,7 +231,7 @@ namespace euphoria::window::imgui
         const auto distance_x = a_distance;
         const auto distance_y = a_distance_y > 0 ? a_distance_y : a_distance;
         const auto size = ImGui::GetIO().DisplaySize;
-        const ImVec2 window_pos = corner == corner::center
+        const ImVec2 window_pos = corner == Corner::center
             ? ImVec2(size.x / 2, size.y / 2)
             : ImVec2
             (
@@ -242,7 +242,7 @@ namespace euphoria::window::imgui
                     ? size.y - distance_y
                     : distance_y
             );
-        const ImVec2 window_pos_pivot = corner == corner::center
+        const ImVec2 window_pos_pivot = corner == Corner::center
             ? ImVec2(0.5f, 0.5f)
             : ImVec2
             (
@@ -262,7 +262,7 @@ namespace euphoria::window::imgui
 
 
     // from https://github.com/ocornut/imgui/issues/211
-    disabled::disabled()
+    VisuallyDisabledWidgets::VisuallyDisabledWidgets()
     {
         // ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
         ImGui::PushStyleVar(
@@ -270,7 +270,7 @@ namespace euphoria::window::imgui
     }
 
 
-    disabled::~disabled()
+    VisuallyDisabledWidgets::~VisuallyDisabledWidgets()
     {
         // ImGui::PopItemFlag();
         ImGui::PopStyleVar();
@@ -289,7 +289,7 @@ namespace euphoria::window::imgui
         }
         else
         {
-            disabled disabled;
+            VisuallyDisabledWidgets disabled;
             ImGui::TextUnformatted(label);
         }
 
@@ -335,7 +335,7 @@ namespace euphoria::window::imgui
         float* p_value,
         float v_min,
         float v_max,
-        knob_style style
+        KnobStyle style
     )
     {
         constexpr auto pi = core::pi;

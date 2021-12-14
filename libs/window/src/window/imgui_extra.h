@@ -32,7 +32,7 @@ struct ImVec4;
 
 namespace euphoria::window
 {
-    enum class corner
+    enum class Corner
     {
         top_left = 0,
         top_right = 1,
@@ -52,7 +52,7 @@ namespace euphoria::window::imgui
 {
     // knob based on https://github.com/ocornut/imgui/issues/942
 
-    enum knob_style
+    enum KnobStyle
     {
         // interaction style
         knob_style_ui_drag_x = 1 << 1,
@@ -123,18 +123,18 @@ namespace euphoria::window::imgui
     bool
     begin_fixed_overlay
     (
-        corner corner,
+        Corner corner,
         const std::string& title,
         float distance = 10.0f,
         float distance_y = -1.0f
     );
 
-    struct disabled
+    struct VisuallyDisabledWidgets
     {
-        disabled();
-        ~disabled();
+        VisuallyDisabledWidgets();
+        ~VisuallyDisabledWidgets();
 
-        NONCOPYABLE(disabled);
+        NONCOPYABLE(VisuallyDisabledWidgets);
     };
 
     bool
@@ -147,7 +147,7 @@ namespace euphoria::window::imgui
         float* p_value,
         float v_min,
         float v_max,
-        knob_style style = knob_style_default
+        KnobStyle style = knob_style_default
     );
 
     bool

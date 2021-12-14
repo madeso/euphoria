@@ -70,7 +70,7 @@ struct cube_animation
 int
 main(int argc, char** argv)
 {
-    engine engine;
+    Engine engine;
     if(const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
     {
         return r;
@@ -127,7 +127,7 @@ main(int argc, char** argv)
 
     bool running = true;
 
-    sdl_timer timer;
+    SdlTimer timer;
 
     auto world = euphoria::render::World {};
 

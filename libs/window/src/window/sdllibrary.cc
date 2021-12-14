@@ -32,7 +32,7 @@ namespace euphoria::window
         SDL_GL_SetAttribute(SDL_GL_CONTEXT_FLAGS, SDL_GL_CONTEXT_DEBUG_FLAG);
     }
 
-    sdl_library::sdl_library()
+    SdlLibrary::SdlLibrary()
         : ok(false)
     {
         if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_JOYSTICK | SDL_INIT_AUDIO) < 0)
@@ -45,7 +45,7 @@ namespace euphoria::window
         ok = true;
     }
 
-    sdl_library::~sdl_library()
+    SdlLibrary::~SdlLibrary()
     {
         SDL_Quit();
     }

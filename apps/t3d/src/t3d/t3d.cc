@@ -48,7 +48,7 @@ namespace euphoria::t3d
     [[nodiscard]] int
     application::start(const core::argparse::NameAndArguments& args)
     {
-        engine = std::make_shared<window::engine>();
+        engine = std::make_shared<window::Engine>();
 
         if(const auto r = engine->setup(args); r != 0)
         {
@@ -81,7 +81,7 @@ namespace euphoria::t3d
         editor = std::make_shared<t3d::editor>(&grid_data, world.get(), tile_library.get());
         editor->tools.push_tool(std::make_shared<tool_no_tool>());
 
-        timer = std::make_shared<window::sdl_timer>();
+        timer = std::make_shared<window::SdlTimer>();
 
         update_grid();
 
@@ -358,14 +358,14 @@ namespace euphoria::t3d
 
         if(grid_window)
         {
-            window::imgui::begin_fixed_overlay(window::corner::top_left, "grid overlay", 10.0f, 30.0f);
+            window::imgui::begin_fixed_overlay(window::Corner::top_left, "grid overlay", 10.0f, 30.0f);
             on_grid_window();
             ImGui::End();
         }
 
         if(pending_files.has_more_files())
         {
-            window::imgui::begin_fixed_overlay(window::corner::bottom_left, "pending files");
+            window::imgui::begin_fixed_overlay(window::Corner::bottom_left, "pending files");
             const auto frac = core::c_sizet_to_float(pending_files.index) / core::c_sizet_to_float(pending_files.files.size());
             window::imgui::label("Loading tiles...");
             ImGui::ProgressBar(frac, ImVec2{120, 0});

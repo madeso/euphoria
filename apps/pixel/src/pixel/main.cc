@@ -100,7 +100,7 @@ flood_fill(Image* image, int x, int y, const Rgbai& target_color, const Rgbai& r
 int
 main(int argc, char** argv)
 {
-    engine engine;
+    Engine engine;
 
     if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
     {
@@ -124,8 +124,8 @@ main(int argc, char** argv)
 
     //////////////////////////////////////////////////////////////////////////////
     // main loop
-    canvas_config cc;
-    canvas canvas;
+    CanvasConfig cc;
+    Canvas canvas;
     Image image;
     core::Random random;
     tool current_tool = tool::pen;

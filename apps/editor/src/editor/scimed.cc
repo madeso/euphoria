@@ -185,7 +185,7 @@ namespace euphoria::editor
 
 
     void
-    draw_line(const canvas& canvas, int x, int y, int tx, int ty, ImU32 color)
+    draw_line(const Canvas& canvas, int x, int y, int tx, int ty, ImU32 color)
     {
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
         const auto from = canvas.world_to_screen(ImVec2{static_cast<float>(x), static_cast<float>(y)});
@@ -195,21 +195,21 @@ namespace euphoria::editor
 
 
     void
-    draw_anchor_down(const canvas& canvas, int x, int y, int size, ImU32 color)
+    draw_anchor_down(const Canvas& canvas, int x, int y, int size, ImU32 color)
     {
         draw_line(canvas, x, y, x, y + size, color);
     }
 
 
     void
-    draw_anchor_left(const canvas& canvas, int x, int y, int size, ImU32 color)
+    draw_anchor_left(const Canvas& canvas, int x, int y, int size, ImU32 color)
     {
         draw_line(canvas, x, y, x + size, y, color);
     }
 
 
     bool
-    button_at(const canvas& canvas, const ImVec2& p, const char* label, int id)
+    button_at(const Canvas& canvas, const ImVec2& p, const char* label, int id)
     {
         const auto backup = ImGui::GetCursorPos();
         ImVec2 pp = p;
@@ -225,7 +225,7 @@ namespace euphoria::editor
 
 
     bool
-    draw_horizontal_centered_text(const canvas& canvas, int left_p, int right_p, int y_p, const std::string& s, int id)
+    draw_horizontal_centered_text(const Canvas& canvas, int left_p, int right_p, int y_p, const std::string& s, int id)
     {
         const auto size = ImGui::CalcTextSize(s.c_str());
         const auto left = canvas.world_to_screen(ImVec2{static_cast<float>(left_p), static_cast<float>(y_p)});
@@ -238,7 +238,7 @@ namespace euphoria::editor
 
 
     bool
-    draw_vertical_centered_text(const canvas& canvas, int top_p, int bottom_p, int x_p, const std::string& s, int id)
+    draw_vertical_centered_text(const Canvas& canvas, int top_p, int bottom_p, int x_p, const std::string& s, int id)
     {
         const auto size = ImGui::CalcTextSize(s.c_str());
         const auto top = canvas.world_to_screen(ImVec2{static_cast<float>(x_p), static_cast<float>(top_p)});
@@ -352,7 +352,7 @@ namespace euphoria::editor
     (
         const std::vector<int>& data,
         const ImVec2& mouse,
-        canvas* canvas,
+        Canvas* canvas,
         TLineFunction line_function,
         TCoordFunction coord_function
     )
@@ -381,7 +381,7 @@ namespace euphoria::editor
 
 
     line_hover_data
-    draw_splits(scalingsprite::ScalingSprite* sprite, canvas* canvas, const scimed_config& scc)
+    draw_splits(scalingsprite::ScalingSprite* sprite, Canvas* canvas, const scimed_config& scc)
     {
         const auto mouse = ImGui::GetMousePos();
         line_hover_data ret;
@@ -482,7 +482,7 @@ namespace euphoria::editor
 
 
     bool
-    scimed::run(const canvas_config& cc, const scimed_config& scc)
+    scimed::run(const CanvasConfig& cc, const scimed_config& scc)
     {
         canvas.begin(cc);
         canvas.show_grid(cc);

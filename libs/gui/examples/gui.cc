@@ -316,7 +316,7 @@ imgui_widget(root* root)
 int
 main(int argc, char* argv[])
 {
-    engine engine;
+    Engine engine;
     if(const auto ret = engine.setup(argparse::NameAndArguments::extract(argc, argv)); ret != 0)
     {
         return ret;

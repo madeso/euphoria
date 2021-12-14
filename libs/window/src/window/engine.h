@@ -22,21 +22,21 @@ namespace euphoria::render
 
 namespace euphoria::window::imgui
 {
-    struct library;
+    struct Library;
 }
 
 namespace euphoria::window
 {
-    struct sdl_library;
-    struct sdl_window;
-    struct sdl_gl_context;
+    struct SdlLibrary;
+    struct SdlWindow;
+    struct SdlAndOpenglContext;
 
-    struct engine
+    struct Engine
     {
-        engine();
-        ~engine();
+        Engine();
+        ~Engine();
 
-        NONCOPYABLE(engine);
+        NONCOPYABLE(Engine);
 
         int
         setup(const core::argparse::NameAndArguments& args);
@@ -53,13 +53,13 @@ namespace euphoria::window
         bool
         on_resize(SDL_Event e, int* width, int* height) const;
 
-        std::unique_ptr<sdl_library> sdl;
+        std::unique_ptr<SdlLibrary> sdl;
         std::unique_ptr<core::vfs::FileSystem> file_system;
         std::shared_ptr<core::vfs::ReadRootCatalog> catalog;
-        std::unique_ptr<sdl_window> window;
+        std::unique_ptr<SdlWindow> window;
         unsigned int window_id;
-        std::unique_ptr<sdl_gl_context> context;
+        std::unique_ptr<SdlAndOpenglContext> context;
         std::unique_ptr<render::Init> init;
-        std::unique_ptr<imgui::library> imgui;
+        std::unique_ptr<imgui::Library> imgui;
     };
 }

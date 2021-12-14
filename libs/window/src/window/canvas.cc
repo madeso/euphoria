@@ -11,7 +11,7 @@ using euphoria::window::con;
 namespace euphoria::window
 {
     void
-    canvas::show_grid(const canvas_config& cc) const
+    Canvas::show_grid(const CanvasConfig& cc) const
     {
         const auto size = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -40,7 +40,7 @@ namespace euphoria::window
     }
 
     void
-    canvas::vertical_line(float rx, ImU32 grid_color) const
+    Canvas::vertical_line(float rx, ImU32 grid_color) const
     {
         const auto x = view.scroll.x + rx * view.scale;
         const auto size = ImGui::GetWindowSize();
@@ -54,7 +54,7 @@ namespace euphoria::window
     }
 
     void
-    canvas::horizontal_line(float ry, ImU32 grid_color) const
+    Canvas::horizontal_line(float ry, ImU32 grid_color) const
     {
         const auto y = view.scroll.y + ry * view.scale;
         const auto size = ImGui::GetWindowSize();
@@ -68,7 +68,7 @@ namespace euphoria::window
     }
 
     void
-    canvas::show_ruler(float ruler_interval, ImU32 ruler_color, float length) const
+    Canvas::show_ruler(float ruler_interval, ImU32 ruler_color, float length) const
     {
         const auto size = ImGui::GetWindowSize();
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
@@ -99,13 +99,13 @@ namespace euphoria::window
     }
 
     void
-    canvas::show_ruler(const canvas_config& cc) const
+    Canvas::show_ruler(const CanvasConfig& cc) const
     {
         show_ruler(5.0f, cc.grid_color, 10.0f);
     }
 
     void
-    canvas::begin(const canvas_config& cc)
+    Canvas::begin(const CanvasConfig& cc)
     {
         ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(1, 1));
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
@@ -123,7 +123,7 @@ namespace euphoria::window
     }
 
     void
-    do_canvas_scroll(canvas* canvas)
+    do_canvas_scroll(Canvas* canvas)
     {
         if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive() && ImGui::IsMouseDragging(2, 0.0f))
         {
@@ -132,7 +132,7 @@ namespace euphoria::window
     }
 
     void
-    do_canvas_zoom(canvas* canvas, const canvas_config& cc)
+    do_canvas_zoom(Canvas* canvas, const CanvasConfig& cc)
     {
         if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive())
         {
@@ -143,7 +143,7 @@ namespace euphoria::window
     }
 
     void
-    canvas::end(const canvas_config& cc)
+    Canvas::end(const CanvasConfig& cc)
     {
         do_canvas_scroll(this);
         do_canvas_zoom(this, cc);
@@ -155,25 +155,25 @@ namespace euphoria::window
     }
 
     ImVec2
-    canvas::world_to_screen(const ImVec2& v) const
+    Canvas::world_to_screen(const ImVec2& v) const
     {
         return con(view.world_to_screen(con(v))) + position;
     }
 
     ImVec2
-    canvas::world_to_screen_size(const ImVec2& v) const
+    Canvas::world_to_screen_size(const ImVec2& v) const
     {
         return v * view.scale;
     }
 
     ImVec2
-    canvas::screen_to_world(const ImVec2& v) const
+    Canvas::screen_to_world(const ImVec2& v) const
     {
         return con(view.screen_to_world(con(v - position)));
     }
 
     ImVec2
-    canvas::get_mouse() const
+    Canvas::get_mouse() const
     {
         return ImGui::GetMousePos() - position;
     }

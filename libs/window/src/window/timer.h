@@ -5,9 +5,9 @@
 
 namespace euphoria::window
 {
-    struct sdl_timer
+    struct SdlTimer
     {
-        sdl_timer();
+        SdlTimer();
 
         float
         update();

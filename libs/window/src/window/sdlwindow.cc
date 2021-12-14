@@ -6,7 +6,7 @@
 
 namespace euphoria::window
 {
-    sdl_window::sdl_window
+    SdlWindow::SdlWindow
     (
         const std::string& title,
         int width,
@@ -31,7 +31,7 @@ namespace euphoria::window
         }
     }
 
-    sdl_window::~sdl_window()
+    SdlWindow::~SdlWindow()
     {
         SDL_DestroyWindow(window);
     }
@@ -58,7 +58,7 @@ namespace euphoria::window
     }
 
     [[nodiscard]] core::Vec2i
-    sdl_window::get_mouse_position() const
+    SdlWindow::get_mouse_position() const
     {
         core::Vec2i ret {0, 0};
         int width = 0;

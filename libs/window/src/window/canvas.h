@@ -6,7 +6,7 @@
 
 namespace euphoria::window
 {
-    struct canvas_config
+    struct CanvasConfig
     {
         float zoom_speed = 10;
         float grid_size = 64.0f;
@@ -14,13 +14,13 @@ namespace euphoria::window
         ImU32 background_color = IM_COL32(60, 60, 70, 200);
     };
 
-    struct canvas
+    struct Canvas
     {
         core::CanvasLogic view;
         ImVec2 position = ImVec2 {0, 0};
 
         void
-        show_grid(const canvas_config& cc) const;
+        show_grid(const CanvasConfig& cc) const;
 
         void
         vertical_line(float rx, ImU32 grid_color) const;
@@ -32,13 +32,13 @@ namespace euphoria::window
         show_ruler(float ruler_interval, ImU32 ruler_color, float length) const;
 
         void
-        show_ruler(const canvas_config& cc) const;
+        show_ruler(const CanvasConfig& cc) const;
 
         void
-        begin(const canvas_config& cc);
+        begin(const CanvasConfig& cc);
 
         void
-        end(const canvas_config& cc);
+        end(const CanvasConfig& cc);
 
         [[nodiscard]] ImVec2
         world_to_screen(const ImVec2& v) const;

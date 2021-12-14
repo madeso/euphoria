@@ -6,14 +6,14 @@
 
 namespace euphoria::window
 {
-    sdl_timer::sdl_timer()
+    SdlTimer::SdlTimer()
         : current_time_(SDL_GetPerformanceCounter())
         , last_time_(0)
     {
     }
 
     float
-    sdl_timer::update()
+    SdlTimer::update()
     {
         last_time_ = current_time_;
         current_time_ = SDL_GetPerformanceCounter();

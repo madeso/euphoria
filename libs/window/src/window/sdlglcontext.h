@@ -4,15 +4,15 @@
 
 namespace euphoria::window
 {
-    struct sdl_window;
+    struct SdlWindow;
 
-    struct sdl_gl_context
+    struct SdlAndOpenglContext
     {
     public:
-        sdl_gl_context(sdl_window* window);
-        ~sdl_gl_context();
+        SdlAndOpenglContext(SdlWindow* window);
+        ~SdlAndOpenglContext();
 
-        NONCOPYABLE(sdl_gl_context);
+        NONCOPYABLE(SdlAndOpenglContext);
 
         void* context;
     };

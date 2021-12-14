@@ -179,7 +179,7 @@ int custom_lua_exception_handler
 int
 main(int argc, char* argv[])
 {
-    engine engine;
+    Engine engine;
     if(const auto ret = engine.setup(argparse::NameAndArguments::extract(argc, argv)); ret != 0)
     {
         return ret;
@@ -434,7 +434,7 @@ main(int argc, char* argv[])
             // though clicking around and debugging might be useful...
             engine.init->clear_screen(NamedColor::cornflower_blue);
 
-            if(imgui::begin_fixed_overlay(corner::center, "Crashed"))
+            if(imgui::begin_fixed_overlay(Corner::center, "Crashed"))
             {
                 ImGui::TextDisabled("%s", crash_message_string.c_str());
                 if(ImGui::Button("Quit"))

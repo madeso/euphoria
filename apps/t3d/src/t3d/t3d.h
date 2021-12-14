@@ -40,8 +40,8 @@ namespace euphoria::render
 
 namespace euphoria::window
 {
-    struct engine;
-    struct sdl_timer;
+    struct Engine;
+    struct SdlTimer;
 }
 
 
@@ -52,7 +52,7 @@ namespace euphoria::t3d
 
     struct application
     {
-        std::shared_ptr<window::engine> engine;
+        std::shared_ptr<window::Engine> engine;
         std::shared_ptr<render::ViewportHandler> viewport_handler;
         std::shared_ptr<render::MaterialShaderCache> material_shader_cache;
         std::shared_ptr<render::TextureCache> texture_cache;
@@ -61,7 +61,7 @@ namespace euphoria::t3d
         core::Camera3 camera;
         std::shared_ptr<t3d::editor> editor;
         bool running = true;
-        std::shared_ptr<window::sdl_timer> timer;
+        std::shared_ptr<window::SdlTimer> timer;
         bool immersive_mode = false;
         std::shared_ptr<render::PositionedLines> grid;
         t3d::grid grid_data;

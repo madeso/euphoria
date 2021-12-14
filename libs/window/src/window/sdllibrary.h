@@ -4,13 +4,13 @@
 
 namespace euphoria::window
 {
-    struct sdl_library
+    struct SdlLibrary
     {
     public:
-        sdl_library();
-        ~sdl_library();
+        SdlLibrary();
+        ~SdlLibrary();
 
-        NONCOPYABLE(sdl_library);
+        NONCOPYABLE(SdlLibrary);
 
         bool ok;
     };

@@ -9,18 +9,18 @@
 
 namespace euphoria::window
 {
-    struct sdl_gl_context;
+    struct SdlAndOpenglContext;
 }
 
 namespace euphoria::window::imgui
 {
-    struct library
+    struct Library
     {
     public:
-        library(SDL_Window* the_window, sdl_gl_context* context, const std::string& the_path);
-        ~library();
+        Library(SDL_Window* the_window, SdlAndOpenglContext* context, const std::string& the_path);
+        ~Library();
 
-        NONCOPYABLE(library);
+        NONCOPYABLE(Library);
 
         void
         start_new_frame();

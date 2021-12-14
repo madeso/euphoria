@@ -58,7 +58,7 @@ operator+(const ImVec2& lhs, const ImVec2& rhs)
 struct style_data
 {
     scimed_config scc;
-    canvas_config cc;
+    CanvasConfig cc;
 };
 
 struct generic_window
@@ -489,7 +489,7 @@ struct file_handler_list
 int
 main(int argc, char** argv)
 {
-    engine engine;
+    Engine engine;
 
     if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
     {

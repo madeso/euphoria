@@ -21,13 +21,13 @@
 
 namespace euphoria::window
 {
-    engine::engine()
+    Engine::Engine()
         : window_id(0)
     {
     }
 
 
-    engine::~engine()
+    Engine::~Engine()
     {
         imgui.reset();
         init.reset();
@@ -40,9 +40,9 @@ namespace euphoria::window
 
 
     int
-    engine::setup(const core::argparse::NameAndArguments& args)
+    Engine::setup(const core::argparse::NameAndArguments& args)
     {
-        sdl = std::make_unique<sdl_library>();
+        sdl = std::make_unique<SdlLibrary>();
         if(sdl->ok == false)
         {
             LOG_ERROR("Failed to create SDL");
@@ -89,7 +89,7 @@ namespace euphoria::window
 
 
     bool
-    engine::create_window
+    Engine::create_window
     (
         const std::string& title,
         int width,
@@ -99,7 +99,7 @@ namespace euphoria::window
     {
         const auto pref_path = get_preference_path();
 
-        window = std::make_unique<sdl_window>(title, width, height, true);
+        window = std::make_unique<SdlWindow>(title, width, height, true);
 
         if(window->window == nullptr)
         {
@@ -109,7 +109,7 @@ namespace euphoria::window
 
         window_id = SDL_GetWindowID(window->window);
 
-        context = std::make_unique<sdl_gl_context>(window.get());
+        context = std::make_unique<SdlAndOpenglContext>(window.get());
 
         if(context->context == nullptr)
         {
@@ -133,7 +133,7 @@ namespace euphoria::window
 
         render::setup_opengl_debug();
 
-        imgui = std::make_unique<imgui::library>(window->window, context.get(), pref_path);
+        imgui = std::make_unique<imgui::Library>(window->window, context.get(), pref_path);
         ImGui::StyleColorsLight();
 
         return true;
@@ -141,7 +141,7 @@ namespace euphoria::window
 
 
     bool
-    engine::on_resize(SDL_Event e, int* width, int* height) const
+    Engine::on_resize(SDL_Event e, int* width, int* height) const
     {
         if(e.type == SDL_WINDOWEVENT)
         {
