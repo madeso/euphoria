@@ -8,9 +8,9 @@ namespace euphoria::render
     {
     }
 
-    core::mat4f
+    core::Mat4f
     Instance::calculate_model_matrix() const
     {
-        return core::mat4f::from_translation(position) * rotation.to_mat4();
+        return core::Mat4f::from_translation(position) * rotation.to_mat4();
     }
 }

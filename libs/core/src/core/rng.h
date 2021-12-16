@@ -26,14 +26,14 @@ namespace euphoria::core
     };
 
 
-    using random_knuth_lcg = RandomLcg<U64, std::numeric_limits<U64>::max() /* 2^64 */, 6364136223846793005, 1442695040888963407>;
+    using RandomLnuthLcg = RandomLcg<U64, std::numeric_limits<U64>::max() /* 2^64 */, 6364136223846793005, 1442695040888963407>;
 
 
     // https://en.wikipedia.org/wiki/Xorshift
     template<typename I, I a, I b, I c>
-    struct RandomXorshift
+    struct RandomXorShift
     {
-        explicit RandomXorshift(I s) : state(s) {}
+        explicit RandomXorShift(I s) : state(s) {}
 
         I state;
 
@@ -59,7 +59,7 @@ namespace euphoria::core
     };
 
 
-    using random_xorshift32 = RandomXorshift<U32, 13, 17, 5>;
-    using random_xorshift64 = RandomXorshift<U64, 13, 17, 7>;
+    using RandomXorShift32 = RandomXorShift<U32, 13, 17, 5>;
+    using RandomXorShift64 = RandomXorShift<U64, 13, 17, 7>;
 }
 

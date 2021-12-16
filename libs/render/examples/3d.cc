@@ -265,9 +265,9 @@ main(int argc, char** argv)
             "Type",
             &world.light.light_type,
             {
-                {"Directional", Light::type::directional},
-                {"Point", Light::type::point},
-                {"Spot", Light::type::spot}
+                {"Directional", Light::Type::directional},
+                {"Point", Light::Type::point},
+                {"Spot", Light::Type::spot}
             }
         );
         imgui::color_edit("Ambient", &world.light.ambient);

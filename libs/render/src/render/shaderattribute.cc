@@ -10,7 +10,7 @@ namespace euphoria::render
 {
     ShaderAttribute::ShaderAttribute
     (
-        glint a_id,
+        OpenglInt a_id,
         ShaderAttributeType a_type,
         std::string a_name,
         ShaderAttributeSource a_source,

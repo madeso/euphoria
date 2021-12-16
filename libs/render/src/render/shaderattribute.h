@@ -32,7 +32,7 @@ namespace euphoria::render
         // todo(Gustav): can this be made into a constexpr?
         ShaderAttribute
         (
-            glint a_id,
+            OpenglInt a_id,
             ShaderAttributeType a_type,
             std::string a_name,
             ShaderAttributeSource a_source,
@@ -46,7 +46,7 @@ namespace euphoria::render
         get_byte_size() const;
 
         /// the id of the attribute
-        glint id;
+        OpenglInt id;
 
         /// the type of the attribute
         ShaderAttributeType type;

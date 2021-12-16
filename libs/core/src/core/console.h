@@ -13,24 +13,24 @@ namespace euphoria::core
      */
     struct VirtualConsole
     {
-        using args = std::vector<std::string>;
-        using print_function = std::function<void(const std::string&)>;
-        using callback = std::function<void(print_function, const args&)>;
+        using Args = std::vector<std::string>;
+        using PrintFunction = std::function<void(const std::string&)>;
+        using ActionFunction = std::function<void(PrintFunction, const Args&)>;
 
         VirtualConsole();
 
         void
-        register_command(const std::string& name, callback callback);
+        register_command(const std::string& name, ActionFunction callback);
 
         void
-        run(print_function print, const std::string& cmd);
+        run(PrintFunction print, const std::string& cmd);
 
         void
-        print_help(VirtualConsole::print_function print, const args&);
+        print_help(VirtualConsole::PrintFunction print, const Args&);
 
     private:
         // private to make sure the case of the name is consistent
-        std::map<std::string, callback> callbacks;
+        std::map<std::string, ActionFunction> callbacks;
     };
 
     std::vector<std::string>

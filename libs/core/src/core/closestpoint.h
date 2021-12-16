@@ -34,10 +34,10 @@ namespace euphoria::core
         [[nodiscard]] Data
         find_closest(const Vec& v)
         {
-            struct d { Data data; DistanceType distance; };
+            struct DistanceData { Data data; DistanceType distance; };
             ASSERT(!points.empty());
             
-            std::optional<d> result;
+            std::optional<DistanceData> result;
             for(const auto& [vec, data]: points)
             {
                 const auto this_dist = distance_function(v, vec);

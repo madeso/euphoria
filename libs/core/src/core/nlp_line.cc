@@ -6,7 +6,7 @@
 namespace euphoria::core
 {
 
-std::optional<text_line>
+std::optional<TextLine>
 parse_line(const std::string& line)
 {
     return split(line, ' ');
@@ -14,7 +14,7 @@ parse_line(const std::string& line)
 
 
 std::string
-line_to_string(const text_line& s)
+line_to_string(const TextLine& s)
 {
     return string_mergers::space.merge(s);
 }

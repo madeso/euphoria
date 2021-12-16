@@ -100,7 +100,7 @@ bool
 handle_pack
 (
     const std::string& output_file,
-    const size2i& requested_size,
+    const Size2i& requested_size,
     int padding,
     Rgbi background_color,
     bool should_pack_image,
@@ -114,7 +114,7 @@ handle_pack
         return false;
     }
 
-    const auto image_size = size2i::create_from_width_height
+    const auto image_size = Size2i::create_from_width_height
     (
         requested_size.width - padding,
         requested_size.height - padding
@@ -227,7 +227,7 @@ main(int argc, char* argv[])
         "pack", "pack images according to the stb rect-pack algorithm",
         [](argparse::SubParser* sub)
         {
-            auto image_size = size2i::create_from_width_height(1024, 1024);
+            auto image_size = Size2i::create_from_width_height(1024, 1024);
             Rgbi background_color = NamedColor::gray;
             std::string output_file = "collage.png";
             int padding = 5;

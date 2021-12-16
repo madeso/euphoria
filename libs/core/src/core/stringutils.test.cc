@@ -51,8 +51,8 @@ TEST_CASE("stringutils-chartostring", "[stringutils]")
     CHECK("A" == euco::char_to_string('A'));
     CHECK("<start of heading>(0x1)" == euco::char_to_string(1));
 
-    CHECK("<space>(0x20)" == euco::char_to_string(' ', euco::char_to_string_style::include_hex));
-    CHECK("P(0x50)" == euco::char_to_string('P', euco::char_to_string_style::include_hex));
+    CHECK("<space>(0x20)" == euco::char_to_string(' ', euco::CharToStringStyle::include_hex));
+    CHECK("P(0x50)" == euco::char_to_string('P', euco::CharToStringStyle::include_hex));
 }
 
 TEST_CASE("stringutils-findfirstindexmismatch", "[stringutils]")

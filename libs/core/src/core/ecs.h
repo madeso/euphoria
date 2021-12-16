@@ -27,14 +27,14 @@
 
 namespace euphoria::core::ecs
 {
-    entity_id
-    get_value(entity_id id);
+    EntityId
+    get_value(EntityId id);
 
-    entity_version
-    get_version(entity_version id);
+    EntityVersion
+    get_version(EntityVersion id);
 
-    entity_id
-    get_id(entity_id id, entity_version version);
+    EntityId
+    get_id(EntityId id, EntityVersion version);
 
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -72,7 +72,7 @@ namespace euphoria::core::ecs
         void operator=(RegistryEntityCallback&&) = delete;
 
         virtual void
-        on_created(entity_id ent) = 0;
+        on_created(EntityId ent) = 0;
     };
 
     template <typename Func>
@@ -83,7 +83,7 @@ namespace euphoria::core::ecs
         explicit RegistryEntityCallbackFunction(Func f) : func(f) {}
 
         void
-        on_created(entity_id ent) override
+        on_created(EntityId ent) override
         {
             func(ent);
         }
@@ -109,49 +109,49 @@ namespace euphoria::core::ecs
         void operator=(const Registry&) = delete;
         void operator=(Registry&&) = delete;
 
-        entity_id
+        EntityId
         create_new_entity();
 
         void
-        post_create(entity_id id);
+        post_create(EntityId id);
 
         void
         add_callback(std::shared_ptr<RegistryEntityCallback> callback);
 
         [[nodiscard]] bool
-        is_alive(entity_id id) const;
+        is_alive(EntityId id) const;
 
         void
-        destroy_entity(entity_id id);
+        destroy_entity(EntityId id);
 
 
-        component_id
+        ComponentId
         register_new_component_type(const std::string& name);
 
         [[nodiscard]] std::string
-        get_component_name(component_id id) const;
+        get_component_name(ComponentId id) const;
 
-        Result<component_id>
+        Result<ComponentId>
         get_custom_component_by_name(const std::string& name);
 
         std::shared_ptr<Component>
-        get_component(entity_id entity, component_id component);
+        get_component(EntityId entity, ComponentId component);
 
         void
         add_component_to_entity
         (
-            entity_id entity,
-            component_id comp,
+            EntityId entity,
+            ComponentId comp,
             std::shared_ptr<Component> data
         );
 
 
-        std::vector<entity_id>
-        get_entities_with_components(const std::vector<component_id>& components);
+        std::vector<EntityId>
+        get_entities_with_components(const std::vector<ComponentId>& components);
 
         template <typename T>
         T*
-        get_component_or_null(entity_id entity, component_id component)
+        get_component_or_null(EntityId entity, ComponentId component)
         {
             auto c = get_component(entity, component);
             if(c == nullptr)

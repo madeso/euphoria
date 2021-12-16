@@ -43,16 +43,16 @@ namespace euphoria::core
         add_enums(const std::vector<std::string>& names);
 
 
-        using value_to_name_map = std::map<size_t, std::string>;
-        using name_to_value_map = std::map<std::string, size_t>;
+        using ValueToNameMap = std::map<size_t, std::string>;
+        using NameToValueMap = std::map<std::string, size_t>;
 
         void
         add_enum(const std::string& name);
 
         std::string type_name;
 
-        value_to_name_map value_to_name;
-        name_to_value_map name_to_value;
+        ValueToNameMap value_to_name;
+        NameToValueMap name_to_value;
 
         bool is_adding;
         size_t next_index;

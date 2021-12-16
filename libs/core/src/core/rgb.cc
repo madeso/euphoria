@@ -299,7 +299,7 @@ namespace euphoria::core
         const auto l = (max + min) / 2;
         // var h, s;
 
-        enum class biggest_value
+        enum class BiggestValue
         {
             r,
             g,
@@ -307,25 +307,25 @@ namespace euphoria::core
             same
         };
 
-        const auto cl = [](float r, float g, float b) -> biggest_value {
+        const auto cl = [](float r, float g, float b) -> BiggestValue {
             constexpr auto min_diff = 0.001f;
             if(abs(r - g) < min_diff && abs(g - b) < min_diff)
             {
-                return biggest_value::same;
+                return BiggestValue::same;
             }
             if(r >= g && r >= b)
             {
-                return biggest_value::r;
+                return BiggestValue::r;
             }
             if(g >= r && g >= b)
             {
-                return biggest_value::g;
+                return BiggestValue::g;
             }
             ASSERTX(b >= r && b >= g, r, g, b);
-            return biggest_value::b;
+            return BiggestValue::b;
         }(c.r, c.g, c.b);
 
-        if(cl == biggest_value::same)
+        if(cl == BiggestValue::same)
         {
             return {Angle::from_radians(0), 0, l}; // achromatic
         }
@@ -338,9 +338,9 @@ namespace euphoria::core
             {
                 switch(cl)
                 {
-                case biggest_value::r: return (c.g - c.b) / d + (c.g < c.b ? 6.0f : 0.0f);
-                case biggest_value::g: return (c.b - c.r) / d + 2;
-                case biggest_value::b: return (c.r - c.g) / d + 4;
+                case BiggestValue::r: return (c.g - c.b) / d + (c.g < c.b ? 6.0f : 0.0f);
+                case BiggestValue::g: return (c.b - c.r) / d + 2;
+                case BiggestValue::b: return (c.r - c.g) / d + 4;
                 default: DIE("Unreachable"); return 0.0f;
                 }
             }() / 6;
@@ -423,11 +423,11 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
     Hsl
-    saturate(const Hsl& ahsl, float amount, is_absolute method)
+    saturate(const Hsl& ahsl, float amount, IsAbsolute method)
     {
         auto hsl = ahsl;
 
-        if(method == is_absolute::no)
+        if(method == IsAbsolute::no)
         {
             hsl.s += hsl.s * amount;
         }
@@ -440,11 +440,11 @@ namespace euphoria::core
     }
 
     Hsl
-    desaturate(const Hsl& ahsl, float amount, is_absolute method)
+    desaturate(const Hsl& ahsl, float amount, IsAbsolute method)
     {
         auto hsl = ahsl;
 
-        if(method == is_absolute::no)
+        if(method == IsAbsolute::no)
         {
             hsl.s -= hsl.s * amount;
         }
@@ -457,11 +457,11 @@ namespace euphoria::core
     }
 
     Hsl
-    lighten(const Hsl& ahsl, float amount, is_absolute method)
+    lighten(const Hsl& ahsl, float amount, IsAbsolute method)
     {
         auto hsl = ahsl;
 
-        if(method == is_absolute::no)
+        if(method == IsAbsolute::no)
         {
             hsl.l += hsl.l * amount;
         }
@@ -474,11 +474,11 @@ namespace euphoria::core
     }
 
     Hsl
-    darken(const Hsl& ahsl, float amount, is_absolute method)
+    darken(const Hsl& ahsl, float amount, IsAbsolute method)
     {
         auto hsl = ahsl;
 
-        if(method == is_absolute::no)
+        if(method == IsAbsolute::no)
         {
             hsl.l -= hsl.l * amount;
         }

@@ -212,6 +212,6 @@ namespace euphoria::core
         return s;
     }
 
-    using size2i = Size2<int>;
-    using size2f = Size2<float>;
+    using Size2i = Size2<int>;
+    using Size2f = Size2<float>;
 }

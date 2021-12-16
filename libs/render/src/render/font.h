@@ -45,7 +45,7 @@ namespace euphoria::render
         float advance;
     };
 
-    using char_to_glyph_map = std::map<int, std::shared_ptr<Glyph>>;
+    using CharToGlyphMap = std::map<int, std::shared_ptr<Glyph>>;
 
     struct DrawableFont;
 
@@ -195,7 +195,7 @@ namespace euphoria::render
         friend ui_text_compile_visitor;
         std::unique_ptr<Texture2> texture;
         std::shared_ptr<Texture2> background;
-        char_to_glyph_map char_to_glyph;
+        CharToGlyphMap char_to_glyph;
         core::KerningMap kernings;
         std::map<std::string, int> private_use_aliases;
     };

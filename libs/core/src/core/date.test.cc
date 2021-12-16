@@ -33,7 +33,7 @@ TEST_CASE("datetime", "[datetime]")
 
     SECTION("TestConstructorGmt")
     {
-        const auto dt = DateTime::create_from_date(2010, Month::february, 2, time_zone::gmt);
+        const auto dt = DateTime::create_from_date(2010, Month::february, 2, TimeZone::gmt);
         REQUIRE(2010 == dt.get_year());
         REQUIRE(Month::february == dt.get_month());
         REQUIRE(2 == dt.get_day_of_month());
@@ -42,7 +42,7 @@ TEST_CASE("datetime", "[datetime]")
 
     SECTION("TestConstructorLocal")
     {
-        const auto dt = DateTime::create_from_date(2010, Month::february, 2, time_zone::local);
+        const auto dt = DateTime::create_from_date(2010, Month::february, 2, TimeZone::local);
         REQUIRE(2010 == dt.get_year());
         REQUIRE(Month::february == dt.get_month());
         REQUIRE(2 == dt.get_day_of_month());
@@ -51,7 +51,7 @@ TEST_CASE("datetime", "[datetime]")
 
     SECTION("TestChangeMembers")
     {
-        auto dt = DateTime::create_from_date(2010, Month::february, 2, time_zone::local);
+        auto dt = DateTime::create_from_date(2010, Month::february, 2, TimeZone::local);
         dt.set_year(2012);
         dt.set_month(Month::june);
         dt.set_day_of_moth(10);

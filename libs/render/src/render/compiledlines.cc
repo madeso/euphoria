@@ -15,7 +15,7 @@ namespace euphoria::render
     void
     convert_lines_to_index_buffer
     (
-        const std::vector<core::Lines::line>& lines,
+        const std::vector<core::Lines::FromToIndices>& lines,
         IndexBuffer* buffer
     )
     {
@@ -91,9 +91,9 @@ namespace euphoria::render
     void
     CompiledLines::render
     (
-        const core::mat4f& model_matrix,
-        const core::mat4f& projection_matrix,
-        const core::mat4f& view_matrix
+        const core::Mat4f& model_matrix,
+        const core::Mat4f& projection_matrix,
+        const core::Mat4f& view_matrix
     )
     {
         shader->use_shader();

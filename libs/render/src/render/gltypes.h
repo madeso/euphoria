@@ -2,8 +2,10 @@
 
 namespace euphoria::render
 {
-    using glfloat = float;
-    using gluint = unsigned int;
-    using glint = int;
-    using glchar = char;
+    // todo(Gustav): move to a (open)gl namespace
+
+    using OpenglFloat = float;
+    using OpenglUint = unsigned int;
+    using OpenglInt = int;
+    using OpenglChar = char;
 }

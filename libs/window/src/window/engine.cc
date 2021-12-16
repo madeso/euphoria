@@ -121,8 +121,8 @@ namespace euphoria::window
         (
             SDL_GL_GetProcAddress,
             blend_hack
-                ? render::Init::blend_hack::enable_hack
-               : render::Init::blend_hack::no_hack
+                ? render::Init::BlendHack::enable_hack
+               : render::Init::BlendHack::no_hack
         );
 
         if(init->is_ok == false)

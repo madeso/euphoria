@@ -429,19 +429,19 @@ TEST_CASE("tb_box")
 
 namespace
 {
-    struct node
+    struct Node
     {
         std::string name;
-        std::vector<node> children;
+        std::vector<Node> children;
 
-        node(const std::string& n) : name(n) {}
-        node(const std::string& n, std::initializer_list<node> t) : name(n), children(t) {}
+        Node(const std::string& n) : name(n) {}
+        Node(const std::string& n, std::initializer_list<Node> t) : name(n), children(t) {}
     };
 }
 
 TEST_CASE("tb_create_tree_graph")
 {
-    const auto simple_tree = node("a", {node{"1"}, node{"2"}, node{"3"} });
+    const auto simple_tree = Node("a", {Node{"1"}, Node{"2"}, Node{"3"} });
 
     const auto simple_two_row = std::vector<std::string>
         {
@@ -463,13 +463,13 @@ TEST_CASE("tb_create_tree_graph")
             (
                 simple_tree,
                 130,
-                [](const node &e) { return e.name; },
-                [](const node &e)
+                [](const Node &e) { return e.name; },
+                [](const Node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const node &) { return false; },
-                [](const node &) { return false; }
+                [](const Node &) { return false; },
+                [](const Node &) { return false; }
             ).to_string(ascii_style()),
             simple_three_row
         )
@@ -483,13 +483,13 @@ TEST_CASE("tb_create_tree_graph")
             (
                 simple_tree,
                 130,
-                [](const node &e) { return e.name; },
-                [](const node &e)
+                [](const Node &e) { return e.name; },
+                [](const Node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const node &) { return false; },
-                [](const node &) { return true; }
+                [](const Node &) { return false; },
+                [](const Node &) { return true; }
             ).to_string(ascii_style()),
             simple_three_row
         )
@@ -504,13 +504,13 @@ TEST_CASE("tb_create_tree_graph")
             (
                 simple_tree,
                 130,
-                [](const node &e) { return e.name; },
-                [](const node &e)
+                [](const Node &e) { return e.name; },
+                [](const Node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const node &) { return true; },
-                [](const node &) { return false; }
+                [](const Node &) { return true; },
+                [](const Node &) { return false; }
             ).to_string(ascii_style()),
             simple_two_row
         )
@@ -524,13 +524,13 @@ TEST_CASE("tb_create_tree_graph")
             (
                 simple_tree,
                 130,
-                [](const node &e) { return e.name; },
-                [](const node &e)
+                [](const Node &e) { return e.name; },
+                [](const Node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const node &) { return true; },
-                [](const node &) { return true; }
+                [](const Node &) { return true; },
+                [](const Node &) { return true; }
             ).to_string(ascii_style()),
 simple_two_row
 )
@@ -540,50 +540,50 @@ simple_two_row
 
 TEST_CASE("tb_tolkien")
 {
-    const auto tolkien_tree = node
+    const auto tolkien_tree = Node
     {
         "Tolkien characters",
         {
-                node
+                Node
             {
                 "Heroes",
                 {
-                        node
+                        Node
                     {
                         "Humans",
                         {
-                                node{"Aragon"},
-                                node{"Boromir"}
+                                Node{"Aragon"},
+                                Node{"Boromir"}
                         }
                     },
-                        node
+                        Node
                     {
                         "Hobbits",
                         {
-                                node{"Frodo"},
-                                node{"Samwise"},
-                                node{"Merry"},
-                                node{"Pippin"},
+                                Node{"Frodo"},
+                                Node{"Samwise"},
+                                Node{"Merry"},
+                                Node{"Pippin"},
                         }
                     },
-                        node
+                        Node
                     {
                         "Other",
                         {
-                                node{"Legolas"},
-                                node{"Gandalf"},
-                                node{"Gimli"}
+                                Node{"Legolas"},
+                                Node{"Gandalf"},
+                                Node{"Gimli"}
                         }
                     }
                 }
             },
-                node
+                Node
             {
                 "Enemies",
                 {
-                        node{"Sauron"},
-                        node{"orcs"},
-                        node{"Sauruman"}
+                        Node{"Sauron"},
+                        Node{"orcs"},
+                        Node{"Sauruman"}
                 }
             }
         }
@@ -596,13 +596,13 @@ TEST_CASE("tb_tolkien")
             (
                 tolkien_tree,
                 130,
-                [](const node &e) { return e.name; },
-                [](const node &e)
+                [](const Node &e) { return e.name; },
+                [](const Node &e)
                 {
                     return std::make_pair(e.children.cbegin(), e.children.cend());
                 },
-                [](const node &e) { return !e.children.empty(); },
-                [](const node &) { return true; }
+                [](const Node &e) { return !e.children.empty(); },
+                [](const Node &) { return true; }
             ).to_string(ascii_style()),
             {
                 "Tolkien characters",

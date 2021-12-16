@@ -25,7 +25,7 @@ namespace euphoria::gui
 
         NONCOPYABLE(Layout);
 
-        [[nodiscard]] virtual core::size2f
+        [[nodiscard]] virtual core::Size2f
         calculate_minimum_area
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
@@ -53,7 +53,7 @@ namespace euphoria::gui
 
         NONCOPYABLE(TableLayout);
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] core::Size2f
         calculate_minimum_area
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
@@ -79,7 +79,7 @@ namespace euphoria::gui
 
         NONCOPYABLE(SingleRowLayout);
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] core::Size2f
         calculate_minimum_area
         (
             const std::vector<std::shared_ptr<Widget>>& widgets

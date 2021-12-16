@@ -80,12 +80,12 @@ get_char_code(char c)
 }
 
 
-struct sentence_parser
+struct SentenceParser
 {
     bool ok = true;
     std::string buffer;
-    text_sentence words;
-    core::on_sentence on_sentence;
+    TextSentence words;
+    core::OnSentenceFunction on_sentence;
 
     int line = 1;
     int ch = 0;
@@ -150,7 +150,7 @@ struct sentence_parser
             add_word();
             words.push_back(std::string(1, c));
             on_sentence(words);
-            words = text_sentence {};
+            words = TextSentence{};
             return;
         }
 
@@ -164,18 +164,18 @@ struct sentence_parser
         {
             add_word();
             on_sentence(words);
-            words = text_sentence {};
+            words = TextSentence{};
         }
     }
 };
 }
 
 bool
-parse_sentences(std::istream& data, on_sentence on_sentence)
+parse_sentences(std::istream& data, OnSentenceFunction on_sentence)
 {
     std::string line;
 
-    sentence_parser parser;
+    SentenceParser parser;
     parser.on_sentence = on_sentence;
 
     while(std::getline(data, line))
@@ -204,7 +204,7 @@ parse_sentences(std::istream& data, on_sentence on_sentence)
 
 
 std::string
-sentence_to_string(const text_sentence& s)
+sentence_to_string(const TextSentence& s)
 {
     std::ostringstream ss;
     bool first = true;

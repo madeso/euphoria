@@ -32,14 +32,14 @@ namespace euphoria::editor
         return std::abs(a - b) < 5;
     }
 
-    using position_classification = std::optional<int>;
+    using PositionClassification = std::optional<int>;
 
     /// Extra calculated data from the corresponding data row (either row or column)
     /// in the ScalingSprite struct. Like the data, this can be viewed as the space
     /// between the dividing lines.
-    struct space_data
+    struct SpaceData
     {
-        space_data(int aleft, int aright, int i)
+        SpaceData(int aleft, int aright, int i)
             : left(aleft)
             , right(aright)
             , index(i)
@@ -54,9 +54,9 @@ namespace euphoria::editor
 
     /// The visual representation of a line, dividing or splitting a area
     /// The actual data is either the row or col array of the ScalingSprite struct
-    struct split_data
+    struct SplitData
     {
-        split_data(int p, int mi, int ma)
+        SplitData(int p, int mi, int ma)
             : position(p)
             , min_value(mi)
             , max_value(ma)
@@ -102,10 +102,10 @@ namespace euphoria::editor
     }
 
 
-    std::vector<space_data>
+    std::vector<SpaceData>
     calculate_all_spaces(const std::vector<int>& data)
     {
-        std::vector<space_data> ret;
+        std::vector<SpaceData> ret;
         int x = 0;
 
         for(unsigned int index = 0; index < data.size(); ++index)
@@ -141,7 +141,7 @@ namespace euphoria::editor
     }
 
 
-    position_classification
+    PositionClassification
     find_space_index_or_null(const std::vector<int>& data, int y, int image_size)
     {
         const bool within_image = y > 0 && y < image_size;
@@ -157,10 +157,10 @@ namespace euphoria::editor
     }
 
 
-    std::vector<split_data>
+    std::vector<SplitData>
     calculate_all_splits(const std::vector<int>& data)
     {
-        std::vector<split_data> ret;
+        std::vector<SplitData> ret;
         bool has_data = false;
         int x = 0;
         int last_x = 0;
@@ -170,7 +170,7 @@ namespace euphoria::editor
             int dx = std::abs(i);
             if(has_data)
             {
-                ret.emplace_back(split_data(x, last_x, x + dx));
+                ret.emplace_back(SplitData(x, last_x, x + dx));
             }
             else
             {

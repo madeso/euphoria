@@ -18,7 +18,7 @@ namespace euphoria::t3d
     };
 
 
-    struct push_tool_action : public tool_action
+    struct PushToolAction : public tool_action
     {
         std::shared_ptr<Tool> new_tool;
 
@@ -30,14 +30,14 @@ namespace euphoria::t3d
         }
 
 
-        explicit push_tool_action(std::shared_ptr<Tool> anew_tool)
+        explicit PushToolAction(std::shared_ptr<Tool> anew_tool)
             : new_tool(anew_tool)
         {
         }
     };
 
 
-    struct pop_tool_action : public tool_action
+    struct PopToolAction : public tool_action
     {
         void
         act(ToolStack* tools) override
@@ -60,14 +60,14 @@ namespace euphoria::t3d
     void
     ToolStack::push_tool(std::shared_ptr<Tool> new_tool)
     {
-        pending_actions.push_back(std::make_shared<push_tool_action>(new_tool));
+        pending_actions.push_back(std::make_shared<PushToolAction>(new_tool));
     }
 
 
     void
     ToolStack::pop_tool()
     {
-        pending_actions.push_back(std::make_shared<pop_tool_action>());
+        pending_actions.push_back(std::make_shared<PopToolAction>());
     }
 
 

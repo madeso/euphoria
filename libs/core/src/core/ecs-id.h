@@ -5,7 +5,7 @@
 namespace euphoria::core::ecs
 {
     // todo(Gustav): change to enums
-    using entity_id = std::uint32_t;
-    using entity_version = std::uint16_t;
-    using component_id = std::uint32_t;
+    using EntityId = std::uint32_t;
+    using EntityVersion = std::uint16_t;
+    using ComponentId = std::uint32_t;
 }

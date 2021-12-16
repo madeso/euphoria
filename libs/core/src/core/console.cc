@@ -7,21 +7,21 @@ namespace euphoria::core
 {
     VirtualConsole::VirtualConsole()
     {
-        register_command("help", [this](print_function print, const args& arg) {
+        register_command("help", [this](PrintFunction print, const Args& arg) {
             this->print_help(print, arg);
         });
     }
 
 
     void
-    VirtualConsole::register_command(const std::string& name, callback callback)
+    VirtualConsole::register_command(const std::string& name, ActionFunction callback)
     {
         callbacks[to_lower(name)] = callback;
     }
 
 
     void
-    VirtualConsole::run(print_function print, const std::string& cmd)
+    VirtualConsole::run(PrintFunction print, const std::string& cmd)
     {
         if(cmd.empty())
         {
@@ -42,14 +42,14 @@ namespace euphoria::core
             return;
         }
 
-        callback callback = found->second;
+        ActionFunction callback = found->second;
         callback(
                 print, std::vector<std::string> {line.begin() + 1, line.end()});
     }
 
 
     void
-    VirtualConsole::print_help(VirtualConsole::print_function print, const args&)
+    VirtualConsole::print_help(VirtualConsole::PrintFunction print, const Args&)
     {
         print("Available commands:");
         for(const auto& c: callbacks)

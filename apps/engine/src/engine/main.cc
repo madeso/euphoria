@@ -72,32 +72,32 @@ load_game_data(vfs::FileSystem* fs)
 }
 
 
-struct run_result
+struct RunResult
 {
     bool ok;
     std::string message;
 
     [[nodiscard]]
     static
-    run_result
+    RunResult
     create_ok()
     {
-        return run_result {true, ""};
+        return RunResult {true, ""};
     }
 
     [[nodiscard]]
     static
-    run_result
+    RunResult
     create_error(const std::string& message)
     {
-        return run_result {false, message};
+        return RunResult {false, message};
     }
 
 private:
-    run_result(bool b, const std::string& str) : ok(b), message(str) {}
+    RunResult(bool b, const std::string& str) : ok(b), message(str) {}
 };
 
-run_result
+RunResult
 run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
 {
     std::string content;
@@ -107,7 +107,7 @@ run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& pa
         const std::string error_message = StringBuilder() << "Unable to open " << path
                                                 << " for running";
         LOG_ERROR("{0}", error_message);
-        return run_result::create_error(error_message);
+        return RunResult::create_error(error_message);
     }
     const auto eval = duk->state.script
     (
@@ -119,10 +119,10 @@ run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& pa
         const sol::error err = eval;
         const std::string error_message = StringBuilder() << "Failed to run " << path << ": " << err.what();
         LOG_ERROR("{0}", error_message);
-        return run_result::create_error(error_message);
+        return RunResult::create_error(error_message);
     }
 
-    return run_result::create_ok();
+    return RunResult::create_ok();
 }
 
 

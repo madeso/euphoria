@@ -118,7 +118,7 @@ namespace euphoria::core
 
     namespace
     {
-        enum class parser_state
+        enum class ParserState
         {
             text,
             image
@@ -126,11 +126,11 @@ namespace euphoria::core
 
 
         // todo(Gustav): this parser looks shitty... improve?
-        struct parser
+        struct Parser
         {
             UiText* nodes = nullptr;
 
-            parser_state state = parser_state::text;
+            ParserState state = ParserState::text;
             bool escape = false;
             std::stringstream buff;
             bool ok = true;
@@ -142,13 +142,13 @@ namespace euphoria::core
                 buff.str("");
                 switch(state)
                 {
-                case parser_state::text:
+                case ParserState::text:
                     if(!data.empty())
                     {
                         nodes->add_text(data);
                     }
                     break;
-                case parser_state::image:
+                case ParserState::image:
                     if(!data.empty())
                     {
                         nodes->add_image(data);
@@ -167,7 +167,7 @@ namespace euphoria::core
             {
                 switch(state)
                 {
-                case parser_state::text:
+                case ParserState::text:
                     if(escape)
                     {
                         buff << c;
@@ -179,7 +179,7 @@ namespace euphoria::core
                         {
                         case '@':
                             close();
-                            state = parser_state::image;
+                            state = ParserState::image;
                             break;
                         case '{':
                             close();
@@ -194,7 +194,7 @@ namespace euphoria::core
                         }
                     }
                     break;
-                case parser_state::image:
+                case ParserState::image:
                     if(('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')
                        || c == '-' || c == '_')
                     {
@@ -203,7 +203,7 @@ namespace euphoria::core
                     else
                     {
                         close();
-                        state = parser_state::text;
+                        state = ParserState::text;
                         if(c == ' ')
                         {
                             // nop
@@ -224,7 +224,7 @@ namespace euphoria::core
     UiText::init_by_parsing_source(const std::string& str)
     {
         nodes.resize(0);
-        parser parser;
+        Parser parser;
         parser.nodes = this;
 
         for(char c: str)

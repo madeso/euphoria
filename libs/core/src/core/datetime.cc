@@ -320,21 +320,21 @@ namespace euphoria::core
 
 
     DateTime
-    DateTime::create_from_date(int year, core::Month month, int day, time_zone timezone)
+    DateTime::create_from_date(int year, core::Month month, int day, TimeZone timezone)
     {
         return DateTime(timezone, StructTmWrapper(year, month, day));
     }
 
 
     DateTime
-    DateTime::create_from_date_and_time(int year, core::Month month, int day, int hour, int minute, int second, time_zone timezone)
+    DateTime::create_from_date_and_time(int year, core::Month month, int day, int hour, int minute, int second, TimeZone timezone)
     {
         return DateTime(timezone, StructTmWrapper(year, month, day, hour, minute, second));
     }
 
 
     DateTime
-    DateTime::create_from_current_time(time_zone timezone)
+    DateTime::create_from_current_time(TimeZone timezone)
     {
         return DateTime(timezone, TimetWrapper::from_current_time());
     }
@@ -466,7 +466,7 @@ namespace euphoria::core
     }
 
 
-    time_zone
+    TimeZone
     DateTime::get_timezone() const
     {
         return timezone;
@@ -481,13 +481,13 @@ namespace euphoria::core
 
 
     TimetWrapper
-    to_time_t_wrapper(const StructTmWrapper& s, time_zone timezone)
+    to_time_t_wrapper(const StructTmWrapper& s, TimeZone timezone)
     {
         switch (timezone)
         {
-        case time_zone::gmt:
+        case TimeZone::gmt:
             return TimetWrapper::from_gmt(s);
-        case time_zone::local:
+        case TimeZone::local:
             return TimetWrapper::from_local_time(s);
         }
 
@@ -496,14 +496,14 @@ namespace euphoria::core
     }
 
 
-    DateTime::DateTime(time_zone timezone, const StructTmWrapper& time)
+    DateTime::DateTime(TimeZone timezone, const StructTmWrapper& time)
         : timezone(timezone)
         , time(to_time_t_wrapper(time, timezone))
     {
     }
 
 
-    DateTime::DateTime(time_zone timezone, const TimetWrapper& time)
+    DateTime::DateTime(TimeZone timezone, const TimetWrapper& time)
         : timezone(timezone)
         , time(time)
     {
@@ -515,9 +515,9 @@ namespace euphoria::core
     {
         switch (timezone)
         {
-        case time_zone::gmt:
+        case TimeZone::gmt:
             return time.to_gmt();
-        case time_zone::local:
+        case TimeZone::local:
             return time.to_local_time();
         }
 

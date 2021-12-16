@@ -23,11 +23,11 @@ namespace euphoria::engine
     {
     }
 
-    core::ecs::component_id
+    core::ecs::ComponentId
     ScriptRegistry::create_new_id
     (
         const std::string& name,
-        const ScriptRegistry::creation_callback& fv
+        const ScriptRegistry::CreationCallback& fv
     )
     {
         const auto id = reg->register_new_component_type(name);
@@ -35,7 +35,7 @@ namespace euphoria::engine
         return id;
     }
 
-    core::ecs::component_id
+    core::ecs::ComponentId
     ScriptRegistry::create_new_id
     (
         const std::string& name
@@ -46,7 +46,7 @@ namespace euphoria::engine
         return id;
     }
 
-    core::Result<core::ecs::component_id>
+    core::Result<core::ecs::ComponentId>
     ScriptRegistry::get_custom_component_by_name
     (
         const std::string& name
@@ -56,8 +56,8 @@ namespace euphoria::engine
         return reg->get_custom_component_by_name(name);
     }
 
-    std::vector<core::ecs::entity_id>
-    ScriptRegistry::entity_view(const std::vector<core::ecs::component_id>& types) const
+    std::vector<core::ecs::EntityId>
+    ScriptRegistry::entity_view(const std::vector<core::ecs::ComponentId>& types) const
     {
         return reg->get_entities_with_components(types);
     }
@@ -65,8 +65,8 @@ namespace euphoria::engine
     sol::table
     ScriptRegistry::get_property
     (
-        core::ecs::entity_id ent,
-        core::ecs::component_id comp
+        core::ecs::EntityId ent,
+        core::ecs::ComponentId comp
     )
     {
         ASSERT(script_components.find(comp) != script_components.end());
@@ -82,7 +82,7 @@ namespace euphoria::engine
     }
 
     script_component*
-    get_script_component(core::ecs::Registry *reg, core::ecs::entity_id ent, core::ecs::component_id comp)
+    get_script_component(core::ecs::Registry *reg, core::ecs::EntityId ent, core::ecs::ComponentId comp)
     {
         auto c = reg->get_component(ent, comp);
         if(c == nullptr)
@@ -100,8 +100,8 @@ namespace euphoria::engine
     void
     ScriptRegistry::set_property
     (
-        core::ecs::entity_id ent,
-        core::ecs::component_id comp,
+        core::ecs::EntityId ent,
+        core::ecs::ComponentId comp,
         sol::table value
     )
     const
@@ -113,7 +113,7 @@ namespace euphoria::engine
     sol::table
     ScriptRegistry::create_component
     (
-            core::ecs::component_id comp,
+            core::ecs::ComponentId comp,
             LuaState* ctx,
             const CustomArguments& arguments
     )
@@ -149,7 +149,7 @@ namespace euphoria::engine
     }
 
     void
-    ScriptRegistry::destroy_entity(core::ecs::entity_id id) const
+    ScriptRegistry::destroy_entity(core::ecs::EntityId id) const
     {
         reg->destroy_entity(id);
     }

@@ -51,7 +51,7 @@ using namespace euphoria::window;
 
 // todo(Gustav): move to window/imgui_ext
 bool
-imgui_widget(const char* title, size2f* s)
+imgui_widget(const char* title, Size2f* s)
 {
     return ImGui::DragFloat2(title, &s->width);
 }
@@ -193,7 +193,7 @@ imgui_widget(TextData* data)
 bool
 imgui_widget(LayoutContainer* container);
 
-struct imgui_widget_visitor : public Visitor
+struct ImguiWidgetVisitor : public Visitor
 {
     void
     visit(Button* w) override
@@ -227,7 +227,7 @@ imgui_widget(Widget* w)
         w->on_size_changed();
     }
 
-    auto vis = imgui_widget_visitor{};
+    auto vis = ImguiWidgetVisitor{};
     w->visit(&vis);
 
     return false;
@@ -361,7 +361,7 @@ main(int argc, char* argv[])
 
     auto root = euphoria::gui::Root
     {
-        size2f::create_from_width_height
+        Size2f::create_from_width_height
         (
             c_int_to_float(window_width),
             c_int_to_float(window_height)
@@ -423,7 +423,7 @@ main(int argc, char* argv[])
                 viewport_handler.set_size(window_width, window_height);
                 root.resize
                 (
-                    size2f::create_from_width_height
+                    Size2f::create_from_width_height
                     (
                         c_int_to_float(window_width),
                         c_int_to_float(window_height)

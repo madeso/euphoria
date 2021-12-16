@@ -10,8 +10,8 @@ namespace euphoria::core
     std::vector<std::optional<Recti>>
     pack
     (
-        const size2i& container,
-        const std::vector<size2i>& to_pack
+        const Size2i& container,
+        const std::vector<Size2i>& to_pack
     )
     {
         //init data

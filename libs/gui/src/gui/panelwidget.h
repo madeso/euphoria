@@ -25,7 +25,7 @@ namespace euphoria::gui
         void
         on_size_changed() override;
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] core::Size2f
         calculate_minimum_size() const override;
 
         void

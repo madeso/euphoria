@@ -8,7 +8,7 @@ namespace euphoria::core
     template<typename T>
     struct SubVec
     {
-        using it = typename std::vector<T>::iterator;
+        using Iterator = typename std::vector<T>::iterator;
 
         explicit SubVec(std::vector<T>* s)
             : source(s)
@@ -28,13 +28,13 @@ namespace euphoria::core
         std::size_t ibegin;
         std::size_t iend;
 
-        it
+        Iterator
         begin() const
         {
             return source->begin() + ibegin;
         }
 
-        it
+        Iterator
         end() const
         {
             return source->begin() + iend;

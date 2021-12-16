@@ -50,7 +50,7 @@ namespace euphoria::core
         ASSERTX
         (
             c-1 < c_sizet_to_int(connections.size()),
-            char_to_string(c, char_to_string_style::include_hex),
+            char_to_string(c, CharToStringStyle::include_hex),
             connections.size()
         );
         return connections[c-1];
@@ -66,7 +66,7 @@ namespace euphoria::core
             ASSERTX
             (
                 c-1 < c_sizet_to_int(style.connections.size()),
-                char_to_string(c, char_to_string_style::include_hex),
+                char_to_string(c, CharToStringStyle::include_hex),
                 style.connections.size()
             );
             style.connections[c-1] = connections_func(c);

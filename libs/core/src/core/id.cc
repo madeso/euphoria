@@ -6,25 +6,25 @@ namespace euphoria::core
 {
     IdGenerator::IdGenerator() : current(1) {}
 
-    IdGenerator::id
+    IdGenerator::Id
     IdGenerator::generate()
     {
         if(released.empty())
         {
-            const id value = current;
+            const Id value = current;
             ++current;
             return value;
         }
         else
         {
-            const id value = *released.rbegin();
+            const Id value = *released.rbegin();
             released.pop_back();
             return value;
         }
     }
 
     void
-    IdGenerator::release(IdGenerator::id id)
+    IdGenerator::release(IdGenerator::Id id)
     {
         released.push_back(id);
     }
@@ -35,7 +35,7 @@ namespace euphoria::core
 
     namespace
     {
-        IdGenerator::id
+        IdGenerator::Id
         generate_id(IdGenerator* generator)
         {
             ASSERT(generator);
@@ -76,7 +76,7 @@ namespace euphoria::core
         generator = the_generator;
     }
 
-    IdGenerator::id
+    IdGenerator::Id
     Id::get_value() const
     {
         ASSERT(is_valid());

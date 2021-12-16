@@ -75,7 +75,7 @@ namespace euphoria::core::ecs
         void operator=(ComponentSystemInitializer&&) = delete;
 
         virtual void
-        on_add(entity_id entity) const = 0;
+        on_add(EntityId entity) const = 0;
     };
 
     struct ComponentSystemSpriteDrawer
@@ -113,7 +113,7 @@ namespace euphoria::core::ecs
     struct ComponentSystemInitializerStore : public SystemStore<ComponentSystemInitializer>
     {
         void
-        on_add(entity_id ent) const;
+        on_add(EntityId ent) const;
     };
 
     struct ComponentSystemSpriteDrawerStore : public SystemStore<ComponentSystemSpriteDrawer>

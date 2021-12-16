@@ -48,7 +48,7 @@ namespace euphoria::gui
     }
 
 
-    core::size2f
+    core::Size2f
     LayoutContainer::calculate_minimum_area() const
     {
         ASSERT(layout);

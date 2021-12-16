@@ -8,15 +8,15 @@
 namespace euphoria::core
 {
 
-using text_sentence = std::vector<std::string>;
-using on_sentence = std::function<void(const text_sentence&)>;
+using TextSentence = std::vector<std::string>;
+using OnSentenceFunction = std::function<void(const TextSentence&)>;
 
 
 bool
-parse_sentences(std::istream& data, on_sentence on_sentence);
+parse_sentences(std::istream& data, OnSentenceFunction on_sentence);
 
 
 std::string
-sentence_to_string(const text_sentence& s);
+sentence_to_string(const TextSentence& s);
 
 }

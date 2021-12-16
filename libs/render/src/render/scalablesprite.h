@@ -38,7 +38,7 @@ namespace euphoria::render
 
         NONCOPYABLE(ScalableSprite);
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] core::Size2f
         get_minimum_size() const;
 
         void

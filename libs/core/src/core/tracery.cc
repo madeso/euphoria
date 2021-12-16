@@ -89,9 +89,9 @@ namespace euphoria::core::tracery
 
     // ----------------------------------------------------------------
 
-    struct literal_string_node : public Node
+    struct LiteralStringNode : public Node
     {
-        literal_string_node(const std::string& t) : text(t) {}
+        LiteralStringNode(const std::string& t) : text(t) {}
         std::string text;
 
         Result
@@ -103,11 +103,11 @@ namespace euphoria::core::tracery
 
     // ----------------------------------------------------------------
 
-    struct call_symbol_node : public Node
+    struct CallSymbolNode : public Node
     {
-        call_symbol_node() = default;
+        CallSymbolNode() = default;
 
-        struct action_rule
+        struct ActionRule
         {
             std::string key;
             std::string symbol;
@@ -115,7 +115,7 @@ namespace euphoria::core::tracery
 
         std::string symbol;
         std::vector<std::string> modifiers;
-        std::vector<action_rule> action_rules;
+        std::vector<ActionRule> action_rules;
 
         void
         add_action_rule
@@ -124,7 +124,7 @@ namespace euphoria::core::tracery
             const std::string& action_symbol
         )
         {
-            action_rules.push_back(action_rule {action_key, action_symbol});
+            action_rules.push_back(ActionRule {action_key, action_symbol});
         }
 
         Result
@@ -288,9 +288,9 @@ namespace euphoria::core::tracery
                 buffer.str("");
                 if(text.empty() == false)
                 {
-                    add(std::make_shared<literal_string_node>(text));
+                    add(std::make_shared<LiteralStringNode>(text));
                 }
-                auto n = std::make_shared<call_symbol_node>();
+                auto n = std::make_shared<CallSymbolNode>();
                 while(parser.peek_char() == '[')
                 {
                     parser.read_char();
@@ -356,7 +356,7 @@ namespace euphoria::core::tracery
         const auto text = buffer.str();
         if(text.empty() == false)
         {
-            add(std::make_shared<literal_string_node>(text));
+            add(std::make_shared<LiteralStringNode>(text));
         }
 
         return Result(Result::no_error);
@@ -543,11 +543,11 @@ namespace euphoria::core::tracery
         }
 
 
-        template <typename Func>
-        struct func_modifier : public Modifier
+        template <typename TFunction>
+        struct FunctionModifier : public Modifier
         {
-            Func func;
-            func_modifier(Func f) : func(f) {}
+            TFunction func;
+            FunctionModifier(TFunction f) : func(f) {}
 
             Result
             apply_modifier(const std::string& input) override
@@ -561,7 +561,7 @@ namespace euphoria::core::tracery
         std::shared_ptr<Modifier>
         new_modifier(T func)
         {
-            return std::shared_ptr<Modifier>{new func_modifier<T>(func)};
+            return std::shared_ptr<Modifier>{new FunctionModifier<T>(func)};
         }
 
 

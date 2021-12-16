@@ -111,14 +111,14 @@ namespace euphoria::core
     to_upper(const std::string& str);
 
 
-    enum class char_to_string_style
+    enum class CharToStringStyle
     {
         smart, include_hex
     };
 
 
     std::string
-    char_to_string(char c, char_to_string_style style=char_to_string_style::smart);
+    char_to_string(char c, CharToStringStyle style=CharToStringStyle::smart);
 
 
     std::string::size_type

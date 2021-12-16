@@ -12,7 +12,7 @@ namespace euphoria::core
 
 namespace euphoria::core::generator
 {
-    using world = bool_table;
+    using World = BoolTable;
 
     // make generation better
     // http://www.roguebasin.com/index.php?title=Cellular_Automata_Method_for_Generating_Random_Cave-Like_Levels
@@ -44,11 +44,11 @@ namespace euphoria::core::generator
     struct CellularAutomata
     {
         generator::Rules* rules;
-        generator::world* world;
-        Lrud<core::outside_rule> outside_rule;
+        generator::World* world;
+        Lrud<core::OutsideRule> outside_rule;
         int iteration;
 
-        CellularAutomata(generator::Rules* r, generator::world* w, const Lrud<core::outside_rule>& fw);
+        CellularAutomata(generator::Rules* r, generator::World* w, const Lrud<core::OutsideRule>& fw);
 
         [[nodiscard]] bool
         has_more_work() const;
@@ -57,7 +57,7 @@ namespace euphoria::core::generator
         work();
     };
 
-    using change_function = std::function
+    using ChangeFunction = std::function
     <
         std::optional<bool>
         (bool, const WallCounter&)
@@ -95,7 +95,7 @@ namespace euphoria::core::generator
     (
         Rules* ca,
         int times,
-        change_function change
+        ChangeFunction change
     );
 
     /// simple smoothing, less than count neighbours are removed, more -> solid

@@ -11,19 +11,19 @@ namespace euphoria::core
 
     struct IdGenerator
     {
-        using id = int;
+        using Id = int;
 
         IdGenerator();
 
-        [[nodiscard]] id
+        [[nodiscard]] Id
         generate();
 
         void
-        release(id id);
+        release(Id id);
 
     private:
-        id current;
-        std::vector<id> released;
+        Id current;
+        std::vector<Id> released;
     };
 
 
@@ -48,11 +48,11 @@ namespace euphoria::core
         void
         generate(IdGenerator* generator);
 
-        [[nodiscard]] IdGenerator::id
+        [[nodiscard]] IdGenerator::Id
         get_value() const;
 
     private:
-        IdGenerator::id value;
+        IdGenerator::Id value;
         IdGenerator* generator;
     };
 

@@ -12,7 +12,7 @@ namespace euphoria::core
 
 namespace euphoria::core::palettes
 {
-    enum class name
+    enum class Name
     {
         // standard
         dawnbringer,
@@ -81,73 +81,73 @@ namespace euphoria::core::palettes
     };
 
     Palette
-    get_palette(name palette_name);
+    get_palette(Name palette_name);
 
     constexpr std::array palette_names
     {
         // standard
-        name::dawnbringer,
-        name::named_colors,
+        Name::dawnbringer,
+        Name::named_colors,
 
         // cubehelix
-        name::classic,
-        name::perceptual_rainbow,
-        name::purple,
-        name::jim_special,
-        name::red,
-        name::cubehelix_1,
-        name::cubehelix_2,
-        name::cubehelix_3,
+        Name::classic,
+        Name::perceptual_rainbow,
+        Name::purple,
+        Name::jim_special,
+        Name::red,
+        Name::cubehelix_1,
+        Name::cubehelix_2,
+        Name::cubehelix_3,
 
         // lospec
-        name::one_bit,
-        name::two_bit_grayscale,
-        name::three_bit,
-        name::arq_4,
-        name::cga,
-        name::endesga_8,
-        name::endesga_16,
-        name::endesga_32,
-        name::endesga_36,
-        name::endesga_64,
-        name::endesga_4,
-        name::ink,
-        name::pico8,
-        name::ammo_8,
-        name::nyx_8,
-        name::fifteen_p_dx,
-        name::twenty_p_dx,
-        name::arne_16,
-        name::night_16,
-        name::aap_16,
-        name::aap_64,
-        name::splendor_128,
-        name::famicube,
+        Name::one_bit,
+        Name::two_bit_grayscale,
+        Name::three_bit,
+        Name::arq_4,
+        Name::cga,
+        Name::endesga_8,
+        Name::endesga_16,
+        Name::endesga_32,
+        Name::endesga_36,
+        Name::endesga_64,
+        Name::endesga_4,
+        Name::ink,
+        Name::pico8,
+        Name::ammo_8,
+        Name::nyx_8,
+        Name::fifteen_p_dx,
+        Name::twenty_p_dx,
+        Name::arne_16,
+        Name::night_16,
+        Name::aap_16,
+        Name::aap_64,
+        Name::splendor_128,
+        Name::famicube,
 
         // matplot
-        name::magma,
-        name::inferno,
-        name::plasma,
-        name::viridis,
+        Name::magma,
+        Name::inferno,
+        Name::plasma,
+        Name::viridis,
 
         // mycarta
-        name::cube1,
-        name::cube_yf,
-        name::linear_l,
+        Name::cube1,
+        Name::cube_yf,
+        Name::linear_l,
 
         // tableu
-        name::tableau_10,
-        name::tableau_light_10,
-        name::tableau_medium_10,
-        name::tableau_20,
-        name::gray_5,
-        name::color_blind_10,
-        name::traffic_light_9,
-        name::purple_gray_6,
-        name::purple_gray_12,
-        name::blue_red_6,
-        name::blue_red_12,
-        name::green_orange_6,
-        name::green_orange_12
+        Name::tableau_10,
+        Name::tableau_light_10,
+        Name::tableau_medium_10,
+        Name::tableau_20,
+        Name::gray_5,
+        Name::color_blind_10,
+        Name::traffic_light_9,
+        Name::purple_gray_6,
+        Name::purple_gray_12,
+        Name::blue_red_6,
+        Name::blue_red_12,
+        Name::green_orange_6,
+        Name::green_orange_12
     };
 }

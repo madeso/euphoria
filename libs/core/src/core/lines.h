@@ -19,9 +19,9 @@ namespace euphoria::core
 
     struct Lines
     {
-        using line = std::tuple<int, int>;
+        using FromToIndices = std::tuple<int, int>;
         std::vector<LinePoint> points;
-        std::vector<line> indices;
+        std::vector<FromToIndices> indices;
 
         void add_line(const Vec3f& from, const Vec3f& to, const Rgb& c);
     };

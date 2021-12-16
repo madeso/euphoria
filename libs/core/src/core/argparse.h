@@ -43,44 +43,44 @@ namespace euphoria::core::argparse
 
     struct ParseResult
     {
-        enum class type { error, ok, quit, custom };
+        enum class Type { error, ok, quit, custom };
 
-        type internal_type;
+        Type internal_type;
         int return_value;
 
         static constexpr int
-        default_return_value(type pr)
+        default_return_value(Type pr)
         {
             switch (pr)
             {
-            case type::ok: return 0;
-            case type::error: return -1;
-            case type::quit: return 0;
+            case Type::ok: return 0;
+            case Type::error: return -1;
+            case Type::quit: return 0;
             default: return -1;
             }
         }
 
-        constexpr explicit ParseResult(type t)
+        constexpr explicit ParseResult(Type t)
             : internal_type(t)
             , return_value(default_return_value(t))
         {
         }
 
         constexpr explicit ParseResult(int rv)
-            : internal_type(ParseResult::type::custom)
+            : internal_type(ParseResult::Type::custom)
             , return_value(rv)
         {
         }
     };
 
     // no error occurred
-    constexpr ParseResult error = ParseResult{ ParseResult::type::error };
+    constexpr ParseResult error = ParseResult{ ParseResult::Type::error };
 
     // all ok
-    constexpr ParseResult ok = ParseResult{ ParseResult::type::ok };
+    constexpr ParseResult ok = ParseResult{ ParseResult::Type::ok };
 
     // all ok, but quit requested
-    constexpr ParseResult quit = ParseResult{ ParseResult::type::quit };
+    constexpr ParseResult quit = ParseResult{ ParseResult::Type::quit };
 
     std::ostream&
     operator<<(std::ostream& o, const ParseResult& pr);
@@ -255,10 +255,10 @@ namespace euphoria::core::argparse
     // or a void function like --help
     struct ArgumentNoValue : public Argument
     {
-        using callback = std::function<ParseResult (Runner*)>;
-        callback callback_function;
+        using CallbackFunction = std::function<ParseResult (Runner*)>;
+        CallbackFunction callback_function;
 
-        explicit ArgumentNoValue(callback cb);
+        explicit ArgumentNoValue(CallbackFunction cb);
 
         bool
         have_nargs() override;
@@ -278,7 +278,7 @@ namespace euphoria::core::argparse
     // a single argument, probably either a --count 3 or positional input
     struct SingleArgument : public Argument
     {
-        using callback = std::function
+        using CallbackFunction = std::function
         <
             ParseResult
             (
@@ -288,12 +288,12 @@ namespace euphoria::core::argparse
                 const std::string& value
             )
         >;
-        using describe = std::function<std::optional<std::string> ()>;
+        using DescribeFunction = std::function<std::optional<std::string> ()>;
 
-        callback callback_function;
-        describe describe_function;
+        CallbackFunction callback_function;
+        DescribeFunction describe_function;
 
-        SingleArgument(callback cb, describe d);
+        SingleArgument(CallbackFunction cb, DescribeFunction d);
 
         bool
         have_nargs() override;
@@ -313,7 +313,7 @@ namespace euphoria::core::argparse
     // a single argument, probably either a --count 3 or positional input
     struct MultiArgument : public Argument
     {
-        using callback = std::function
+        using CallbackFunction = std::function
         <
             ParseResult
             (
@@ -323,11 +323,11 @@ namespace euphoria::core::argparse
                 const std::string& value
             )
         >;
-        using describe = std::function<std::optional<std::string> ()>;
-        callback callback_function;
-        describe describe_function;
+        using DescribeFunction = std::function<std::optional<std::string> ()>;
+        CallbackFunction callback_function;
+        DescribeFunction describe_function;
 
-        MultiArgument(callback cb, describe d);
+        MultiArgument(CallbackFunction cb, DescribeFunction d);
 
         bool
         have_nargs() override;

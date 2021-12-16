@@ -28,7 +28,7 @@ namespace euphoria::core
     template <typename T>
     struct Scale3
     {
-        using self = Scale3<T>;
+        using Self = Scale3<T>;
 
         T x;
         T y;
@@ -63,6 +63,7 @@ namespace euphoria::core
     struct Vec3
     {
         using Self = Vec3<T>;
+        using Unit = Unit3<T>;
 
         T x;
         T y;
@@ -112,8 +113,6 @@ namespace euphoria::core
 
         T get_length_squared() const { return x * x + y * y + z * z; }
 
-        using unit = Unit3<T>;
-
         static Self
         from_to(const Vec3<T>& from, const Vec3<T>& to)
         {
@@ -154,7 +153,7 @@ namespace euphoria::core
             const T l2 = get_length_squared();
             if(is_equal(l2, 0))
             {
-                *this = unit::up();
+                *this = Unit::up();
             }
             else
             {
@@ -163,12 +162,12 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] unit
+        [[nodiscard]] Unit
         get_normalized() const
         {
             Self r = *this;
             r.normalize();
-            return unit::to_unit(r);
+            return Unit::to_unit(r);
         }
     };
 
@@ -178,9 +177,9 @@ namespace euphoria::core
     template <typename T>
     struct Unit3 : public Vec3<T>
     {
-        using self = Unit3<T>;
+        using Self = Unit3<T>;
 
-        self operator-() const { return self(-this->x, -this->y, -this->z); }
+        Self operator-() const { return Self(-this->x, -this->y, -this->z); }
 
         [[nodiscard]] bool
         is_valid() const
@@ -188,70 +187,70 @@ namespace euphoria::core
             return is_equal(this->get_length_squared(), 1);
         }
 
-        static self
+        static Self
         x_axis()
         {
-            return self {1, 0, 0};
+            return Self {1, 0, 0};
         }
 
-        static self
+        static Self
         y_axis()
         {
-            return self {0, 1, 0};
+            return Self {0, 1, 0};
         }
 
-        static self
+        static Self
         z_axis()
         {
-            return self(0, 0, 1);
+            return Self(0, 0, 1);
         }
 
-        static self
+        static Self
         up()
         {
             return y_axis();
         }
 
-        static self
+        static Self
         down()
         {
             return -y_axis();
         }
 
-        static self
+        static Self
         right()
         {
             return x_axis();
         }
 
-        static self
+        static Self
         left()
         {
             return -x_axis();
         }
 
-        static self
+        static Self
         in()
         {
             return -z_axis();
         }
 
-        static self
+        static Self
         out()
         {
             return z_axis();
         }
 
-        static self
+        static Self
         to_unit(T x, T y, T z)
         {
-            return self {x, y, z};
+            return Self {x, y, z};
         }
 
-        static self
+        static Self
         to_unit(const Vec3<T>& v)
         {
-            return self {v.x, v.y, v.z};
+            return Self {v.x, v.y, v.z};
         }
 
     private:

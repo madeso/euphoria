@@ -16,8 +16,8 @@ namespace euphoria::render
     void
     PositionedLines::render
     (
-        const core::mat4f& projection_matrix,
-        const core::mat4f& view_matrix,
+        const core::Mat4f& projection_matrix,
+        const core::Mat4f& view_matrix,
         const core::Vec3f&,
         const Light&
     )

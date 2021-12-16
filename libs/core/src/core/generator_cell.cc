@@ -14,7 +14,7 @@ namespace euphoria::core::generator
 {
     struct SmoothRule final : public Rule
     {
-        using SmoothFunction = change_function;
+        using SmoothFunction = ChangeFunction;
 
         SmoothFunction smooth_function;
 
@@ -79,7 +79,7 @@ namespace euphoria::core::generator
         void
         step(CellularAutomata* self) override
         {
-            bool_table& world = *self->world;
+            BoolTable& world = *self->world;
             const auto regions = find_empty_regions(world, allow_diagonals);
             for(const auto& re: regions)
             {
@@ -109,7 +109,7 @@ namespace euphoria::core::generator
         void
         step(CellularAutomata* self) override
         {
-            bool_table& world = *self->world;
+            BoolTable& world = *self->world;
             auto regions = find_empty_regions(world, allow_diagonals);
             using V = std::vector<Vec2i>;
             std::sort
@@ -150,7 +150,7 @@ namespace euphoria::core::generator
         void
         step(CellularAutomata* self) override
         {
-            const bool_table current = *self->world;
+            const BoolTable current = *self->world;
 
             self->world->set_all
             (
@@ -182,8 +182,8 @@ namespace euphoria::core::generator
     CellularAutomata::CellularAutomata
     (
         generator::Rules* r,
-        generator::world* w,
-        const Lrud<core::outside_rule>& fw
+        generator::World* w,
+        const Lrud<core::OutsideRule>& fw
     )
         : rules(r)
         , world(w)
@@ -254,7 +254,7 @@ namespace euphoria::core::generator
     (
         Rules* ca,
         int times,
-        change_function change
+        ChangeFunction change
     )
     {
         ca->add_rule

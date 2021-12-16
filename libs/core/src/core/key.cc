@@ -12,9 +12,9 @@ namespace euphoria::core
     namespace
     {
         template <typename T>
-        struct keynamer
+        struct KeyNamer
         {
-            keynamer(T unbound, T invalid)
+            KeyNamer(T unbound, T invalid)
                 : invalid_key(invalid)
                 , unbound_key(unbound)
             {
@@ -24,7 +24,7 @@ namespace euphoria::core
                     ;
             }
 
-            keynamer&
+            KeyNamer&
             operator()(T key, const std::string& name)
             {
                 string_to_key.insert(std::make_pair(to_lower(name), key));
@@ -71,10 +71,10 @@ namespace euphoria::core
             const T unbound_key;
         };
 
-        const keynamer<Key>&
+        const KeyNamer<Key>&
         all_keys()
         {
-            static keynamer<Key> keys = keynamer<Key>
+            static KeyNamer<Key> keys = KeyNamer<Key>
                 (Key::unbound, Key::invalid)
                 (Key::return_key, "Return")
                 (Key::escape, "Escape")
@@ -315,10 +315,10 @@ namespace euphoria::core
             return keys;
         }
 
-        const keynamer<MouseButton>&
+        const KeyNamer<MouseButton>&
         all_mouse_buttons()
         {
-            static keynamer<MouseButton> buttons = keynamer<MouseButton>
+            static KeyNamer<MouseButton> buttons = KeyNamer<MouseButton>
                 (MouseButton::unbound, MouseButton::invalid)
                 (MouseButton::left, "left")
                 (MouseButton::middle, "middle")

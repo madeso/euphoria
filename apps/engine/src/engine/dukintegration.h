@@ -16,7 +16,7 @@ namespace euphoria::engine
     struct InputSystem;
     struct ScriptRegistry;
     struct ObjectCreator;
-    struct script_integration_pimpl;
+    struct ScriptIntegrationPimpl;
     struct CameraData;
     struct Components;
 
@@ -47,6 +47,6 @@ namespace euphoria::engine
         bind_keys(const InputSystem& input);
 
     private:
-        std::unique_ptr<script_integration_pimpl> pimpl;
+        std::unique_ptr<ScriptIntegrationPimpl> pimpl;
     };
 }

@@ -82,7 +82,7 @@ namespace euphoria::core::dump2d
     const Circle* as_circle(const Item* item);
 
     template<typename TBase>
-    struct add_wrapper
+    struct AddWrapper
     {
         template<typename TItem>
         TBase& operator<<(const TItem& sub_item)
@@ -91,14 +91,14 @@ namespace euphoria::core::dump2d
         }
     };
 
-    struct Group : public add_wrapper<Group>
+    struct Group : public AddWrapper<Group>
     {
         std::vector<Item> items;
 
         Group& add(const Item& item);
     };
 
-    struct Dumper : add_wrapper<Dumper>
+    struct Dumper : AddWrapper<Dumper>
     {
         Rgbi canvas_color = NamedColor::white;
         std::vector<Item> items;

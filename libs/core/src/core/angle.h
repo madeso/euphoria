@@ -198,7 +198,7 @@ namespace euphoria::core
     operator>=(const Angle& lhs, const Angle& rhs);
 
 
-    struct angle_transform
+    struct AngleTransform
     {
         static Angle
         transform(const Angle& from, float v, const Angle& to);

@@ -346,7 +346,7 @@ namespace euphoria::core::argparse
     }
 
 
-    ArgumentNoValue::ArgumentNoValue(callback cb)
+    ArgumentNoValue::ArgumentNoValue(CallbackFunction cb)
         : callback_function(cb)
     {
     }
@@ -379,7 +379,7 @@ namespace euphoria::core::argparse
     }
 
 
-    MultiArgument::MultiArgument(callback cb, describe d)
+    MultiArgument::MultiArgument(CallbackFunction cb, DescribeFunction d)
         : callback_function(cb)
         , describe_function(d)
     {
@@ -427,7 +427,7 @@ namespace euphoria::core::argparse
     }
 
 
-    SingleArgument::SingleArgument(callback cb, describe d)
+    SingleArgument::SingleArgument(CallbackFunction cb, DescribeFunction d)
         : callback_function(cb)
         , describe_function(d)
     {
@@ -897,7 +897,7 @@ namespace euphoria::core::argparse
 
     namespace
     {
-        struct argument_parser
+        struct ArgumentParser
         {
             ParserBase* base = nullptr;
             argparse::Runner* runner = nullptr;
@@ -931,7 +931,7 @@ namespace euphoria::core::argparse
 
 
         bool
-        argument_parser::has_more_positionals() const
+        ArgumentParser::has_more_positionals() const
         {
             const auto positionals_size = c_sizet_to_int
             (
@@ -942,7 +942,7 @@ namespace euphoria::core::argparse
 
 
         std::vector<std::string>
-        argument_parser::get_positionals_left() const
+        ArgumentParser::get_positionals_left() const
         {
             if(has_more_positionals() == false) { return {}; }
 
@@ -964,14 +964,14 @@ namespace euphoria::core::argparse
 
 
         void
-        argument_parser::print_error(const std::string& error_message) const
+        ArgumentParser::print_error(const std::string& error_message) const
         {
             print_parse_error(runner, base, error_message);
         }
 
 
         std::optional<ParseResult>
-        argument_parser::try_parse_important_optional() const
+        ArgumentParser::try_parse_important_optional() const
         {
             // first, peek at the next commandline argument
             // and check for optionals that are allowed before positionals
@@ -997,7 +997,7 @@ namespace euphoria::core::argparse
         }
 
         std::optional<ParseResult>
-        argument_parser::parse_one_positional()
+        ArgumentParser::parse_one_positional()
         {
             auto match = base->positional_argument_list[positional_index];
             auto arg_parse_result = match.argument->parse_arguments
@@ -1041,7 +1041,7 @@ namespace euphoria::core::argparse
 
 
         std::optional<ParseResult>
-        argument_parser::parse_sub_command(const std::string& arg)
+        ArgumentParser::parse_sub_command(const std::string& arg)
         {
             auto match = base->subparsers.match(arg, 3);
             if(match.single_match == false)
@@ -1117,7 +1117,7 @@ namespace euphoria::core::argparse
         }
 
         std::optional<ParseResult>
-        argument_parser::parse_one_optional()
+        ArgumentParser::parse_one_optional()
         {
             const auto arg = runner->arguments->read();
             if(is_optional_argument(arg))
@@ -1188,7 +1188,7 @@ namespace euphoria::core::argparse
 
 
         std::optional<ParseResult>
-        argument_parser::parse_one_arg()
+        ArgumentParser::parse_one_arg()
         {
             if (has_more_positionals())
             {
@@ -1226,7 +1226,7 @@ namespace euphoria::core::argparse
     ParserBase::parse_args(Runner* runner)
     {
         parser_state = State::parsing;
-        auto parser = argument_parser{this, runner};
+        auto parser = ArgumentParser{this, runner};
 
         while (runner->arguments->has_more())
         {

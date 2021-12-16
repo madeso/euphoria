@@ -75,7 +75,7 @@ bool is_over(const ImVec2& min, const ImVec2& max, const ImVec2& mouse)
 }
 
 
-enum class tool
+enum class Tool
 {
     pen, fill
 };
@@ -128,7 +128,7 @@ main(int argc, char** argv)
     Canvas canvas;
     Image image;
     core::Random random;
-    tool current_tool = tool::pen;
+    Tool current_tool = Tool::pen;
     auto palette = *palettes::lospec::endesga_64;
     auto foreground = 0;
     auto background = 1;
@@ -194,18 +194,18 @@ main(int argc, char** argv)
         ImGui::PopStyleVar(2);
         if(show_toolbar)
         {
-            auto toolbar_button = [&current_tool, toolbar_button_size](const char* label, ::tool t)
+            auto toolbar_button = [&current_tool, toolbar_button_size](const char* label, ::Tool t)
             {
                 if(imgui::toggle_button(label, current_tool == t, toolbar_button_size))
                 {
                     current_tool = t;
                 }
             };
-            toolbar_button(ICON_MDI_FORMAT_COLOR_HIGHLIGHT, tool::pen);
+            toolbar_button(ICON_MDI_FORMAT_COLOR_HIGHLIGHT, Tool::pen);
             imgui::help_text("Pen");
 
             ImGui::SameLine();
-            toolbar_button(ICON_MDI_FORMAT_COLOR_FILL, tool::fill);
+            toolbar_button(ICON_MDI_FORMAT_COLOR_FILL, Tool::fill);
             imgui::help_text("Fill");
         }
         ImGui::End();
@@ -316,7 +316,7 @@ main(int argc, char** argv)
                     {
                         switch(current_tool)
                         {
-                        case tool::pen:
+                        case Tool::pen:
                             // hovering over pixel
                             if(!hovering && left_down)
                             {
@@ -329,7 +329,7 @@ main(int argc, char** argv)
                                 image.set_pixel(x, y, palette.colors[background]);
                             }
                             break;
-                        case tool::fill:
+                        case Tool::fill:
                             if(!hovering && (left_clicked || right_clicked))
                             {
                                 const auto color = palette.colors[left_clicked ? foreground : background];

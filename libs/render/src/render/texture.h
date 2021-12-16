@@ -61,11 +61,11 @@ namespace euphoria::render
         [[nodiscard]] bool
         is_currently_bound() const;
 
-        [[nodiscard]] gluint
+        [[nodiscard]] OpenglUint
         get_id() const;
 
     private:
-        gluint id;
+        OpenglUint id;
     };
 
     void
@@ -85,8 +85,8 @@ namespace euphoria::render
             int width,
             int height,
             const unsigned char* pixel_data,
-            glint internal_format,
-            gluint image_format,
+            OpenglInt internal_format,
+            OpenglUint image_format,
             const Texture2dLoadData& data
         );
 

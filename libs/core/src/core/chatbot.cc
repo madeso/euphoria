@@ -127,12 +127,12 @@ namespace euphoria::core::detail
     }
 
 
-    Input::Input(const std::string& input, location_type where)
+    Input::Input(const std::string& input, LocationType where)
         : words(clean_input(input)), location(where)
     {}
 
 
-    Input::Input(const std::vector<std::string>& input, location_type where)
+    Input::Input(const std::vector<std::string>& input, LocationType where)
         : words(input), location(where)
     {}
 
@@ -143,7 +143,7 @@ namespace euphoria::core::detail
 
 
     ResponseBuilder&
-    ResponseBuilder::input(const std::string& in, Input::location_type where)
+    ResponseBuilder::input(const std::string& in, Input::LocationType where)
     {
         this->response->inputs.emplace_back(in, where);
         return *this;
@@ -206,7 +206,7 @@ namespace euphoria::core::detail
 
 
     ResponseBuilder
-    Database::add_response(const std::string& input, Input::location_type where)
+    Database::add_response(const std::string& input, Input::LocationType where)
     {
         ResponseBuilder r {&create_response()};
         r.input(input, where);
@@ -286,13 +286,13 @@ namespace euphoria::core::detail
     }
 
 
-    struct basic_response
+    struct BasicResponse
     {
         std::vector<std::string>* responses;
 
-        basic_response() = default;
+        BasicResponse() = default;
 
-        basic_response&
+        BasicResponse&
         operator()(const std::string& response)
         {
             responses->push_back(response);
@@ -301,22 +301,22 @@ namespace euphoria::core::detail
     };
 
 
-    basic_response
+    BasicResponse
     add_response(std::vector<std::string>* input)
     {
-        auto b = basic_response{};
+        auto b = BasicResponse{};
         b.responses = input;
         return b;
     }
 
 
-    std::vector<ConversationStatus::topic_entry>
+    std::vector<ConversationStatus::TopicEntry>
     collect_topics(const ConversationTopics& current_topics)
     {
-        std::vector<ConversationStatus::topic_entry> ret;
+        std::vector<ConversationStatus::TopicEntry> ret;
         for(const auto& t: current_topics.topics)
         {
-            ConversationStatus::topic_entry entry;
+            ConversationStatus::TopicEntry entry;
             entry.topic = t.first;
             entry.time = *t.second;
             ret.emplace_back(entry);
@@ -330,7 +330,7 @@ namespace euphoria::core
 {
     namespace
     {
-        detail::Input::location_type
+        detail::Input::LocationType
         con(chat::Location loc)
         {
             switch (loc)
@@ -630,7 +630,7 @@ namespace euphoria::core
         current_topics.decrease_and_remove();
 
         unsigned long match_length = 0;
-        detail::Input::location_type match_location = detail::Input::lowest;
+        detail::Input::LocationType match_location = detail::Input::lowest;
         std::string response;
 
         for(const auto& resp: database.responses)

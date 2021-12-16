@@ -16,11 +16,11 @@ namespace euphoria::render
         NONCOPYABLE(Id);
 
         // todo(Gustav): remove and make id public or remove class altogether
-        [[nodiscard]] gluint
+        [[nodiscard]] OpenglUint
         get_id() const;
 
     protected:
         // nolint regarding protected visibility
-        gluint id_; // NOLINT
+        OpenglUint id_; // NOLINT
     };
 }

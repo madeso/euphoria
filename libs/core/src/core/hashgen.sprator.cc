@@ -29,7 +29,7 @@ namespace
 
 
     void
-    apply_sprator_algorithm(bool_table* half_side, int number_of_steps)
+    apply_sprator_algorithm(BoolTable* half_side, int number_of_steps)
     {
         generator::Rules rules;
         generator::add_complex_rules
@@ -61,15 +61,15 @@ namespace
         (
             &rules,
             half_side,
-            Lrud<outside_rule>{outside_rule::empty}
+            Lrud<OutsideRule>{OutsideRule::empty}
         );
 
         while(cell.has_more_work()) { cell.work(); }
     }
 
 
-    bool_table
-    mirror(const bool_table& half_side)
+    BoolTable
+    mirror(const BoolTable& half_side)
     {
         const auto height = half_side.get_height();
         const auto half_width = half_side.get_width();
@@ -79,7 +79,7 @@ namespace
         constexpr auto offset = 1;
         constexpr auto extra_size = 2;
 
-        auto result_table = bool_table::from_width_height
+        auto result_table = BoolTable::from_width_height
         (
             width + extra_size,
             height + extra_size,
@@ -102,7 +102,7 @@ namespace
 
 
     int
-    calculate_scale(const Image& image, const bool_table& table)
+    calculate_scale(const Image& image, const BoolTable& table)
     {
         auto calculate_scale = [](int image_scale, int table_scale) -> int
         {
@@ -126,7 +126,7 @@ namespace
     draw_image_with_border
     (
         Image* image,
-        const bool_table& result_table,
+        const BoolTable& result_table,
         const Rgbai& background_color,
         const Rgbai& foreground_color,
         const Rgbai& border_color
@@ -150,7 +150,7 @@ namespace
         typename TGenerator
     >
     void
-    randomize_world(bool_table* half_side, TGenerator* generator)
+    randomize_world(BoolTable* half_side, TGenerator* generator)
     {
         set_white_noise
         (
@@ -185,7 +185,7 @@ namespace
             calculate_border_color(foreground_color)
         );
 
-        auto half_side = bool_table::from_width_height(half_width, height);
+        auto half_side = BoolTable::from_width_height(half_width, height);
 
         auto generator = TGenerator{code};
 
@@ -227,7 +227,7 @@ namespace
             calculate_border_color(foreground_color)
         );
 
-        auto half_side = bool_table::from_width_height(half_width, height);
+        auto half_side = BoolTable::from_width_height(half_width, height);
 
         auto generator = TGenerator{code};
 
@@ -249,7 +249,7 @@ namespace
                 half_side = orig_half_side;
 
                 // animate...
-                auto hit = bool_table::from_width_height(half_side.get_width(), half_side.get_height(), false);
+                auto hit = BoolTable::from_width_height(half_side.get_width(), half_side.get_height(), false);
                 for(int i=0; i<2; i+=1)
                 {
                     int x = 0;
@@ -289,7 +289,7 @@ namespace euphoria::core
         const Rgbai& background_color
     )
     {
-        render_sprator_impl<random_xorshift32>
+        render_sprator_impl<RandomXorShift32>
         (
                 image,
                 code,
@@ -310,7 +310,7 @@ namespace euphoria::core
         const Rgbai& background_color
     )
     {
-        render_sprator_impl<random_xorshift32>
+        render_sprator_impl<RandomXorShift32>
         (
                 images,
                 code,

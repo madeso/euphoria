@@ -535,7 +535,7 @@ namespace euphoria::core
 
     namespace meshes
     {
-        struct file_for_assimp : public Assimp::IOStream
+        struct FileForAssimp : public Assimp::IOStream
         {
             size_t index = 0;
             std::shared_ptr<MemoryChunk> content;
@@ -590,11 +590,11 @@ namespace euphoria::core
         };
 
 
-        struct filesystem_for_assimp : public Assimp::IOSystem
+        struct FilesystemForAssimp : public Assimp::IOSystem
         {
             vfs::FileSystem* file_system;
 
-            filesystem_for_assimp(vfs::FileSystem* fs) : file_system(fs) {}
+            FilesystemForAssimp(vfs::FileSystem* fs) : file_system(fs) {}
 
             bool Exists(const char* file) const override
             {
@@ -617,7 +617,7 @@ namespace euphoria::core
                 {
                     return nullptr;
                 }
-                auto* data = new file_for_assimp(); // NOLINT
+                auto* data = new FileForAssimp(); // NOLINT
                 data->content = content;
                 return data;
             }
@@ -638,7 +638,7 @@ namespace euphoria::core
         load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path)
         {
             Assimp::Importer importer;
-            importer.SetIOHandler(new filesystem_for_assimp{fs}); // NOLINT
+            importer.SetIOHandler(new FilesystemForAssimp{fs}); // NOLINT
 
             LoadedMeshOrError res;
 

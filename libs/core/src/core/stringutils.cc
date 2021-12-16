@@ -164,7 +164,7 @@ to_upper(const std::string& str)
 
 
 std::string
-char_to_string(char c, char_to_string_style style)
+char_to_string(char c, CharToStringStyle style)
 {
     constexpr std::string_view smart_characters =
         "abcdefghijklmnopqrstuwxyz"
@@ -181,7 +181,7 @@ char_to_string(char c, char_to_string_style style)
     {
     case 0:
         ss << "<null>";
-        if(style == char_to_string_style::smart)
+        if(style == CharToStringStyle::smart)
         {
             return ss.str();
         }
@@ -237,7 +237,7 @@ char_to_string(char c, char_to_string_style style)
         break;
     }
 
-    if(style == char_to_string_style::include_hex || smart_characters.find(c) == std::string_view::npos)
+    if(style == CharToStringStyle::include_hex || smart_characters.find(c) == std::string_view::npos)
     {
         ss << "(0x" << std::hex << static_cast<int>(c) << ")";
     }

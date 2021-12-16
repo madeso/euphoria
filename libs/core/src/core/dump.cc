@@ -89,7 +89,7 @@ namespace euphoria::core::dump2d
 
     namespace detail
     {
-        struct writer
+        struct Writer
         {
             std::ofstream file;
 
@@ -98,16 +98,17 @@ namespace euphoria::core::dump2d
 
             float scale = 1.0f;
 
-            explicit writer(const std::string& path)
+            explicit Writer(const std::string& path)
                 : file(path.c_str()) {}
         };
 
-        struct min_max
+        // todo(Gustav): merge with MinMax in core
+        struct MinMaxer
         {
             Vec2f min = Vec2f::zero();
             Vec2f max = Vec2f::zero();
 
-            min_max& include(const Vec2f& point, float extra=0)
+            MinMaxer& include(const Vec2f& point, float extra=0)
             {
                 min.x = std::min(min.x, point.x - extra);
                 min.y = std::min(min.y, point.y - extra);
@@ -118,13 +119,13 @@ namespace euphoria::core::dump2d
                 return *this;
             }
 
-            min_max& operator<<(const Vec2f& point)
+            MinMaxer& operator<<(const Vec2f& point)
             {
                 return include(point);
             }
         };
 
-        void write_poly(writer* writer, const Poly* poly)
+        void write_poly(Writer* writer, const Poly* poly)
         {
             writer->file << "<polyline points=\"";
             {
@@ -178,13 +179,13 @@ namespace euphoria::core::dump2d
             writer->file << "/>\n";
         }
 
-        void write_text(writer* writer, const Text* text)
+        void write_text(Writer* writer, const Text* text)
         {
             writer->file << "<text x=\"" << writer->px(text->point.x)
                          << "\" y=\"" << writer->py(text->point.y) << "\" fill=\"" << to_html(text->color) << "\">" << text->label << "</text>\n";
         }
 
-        void write_circle(writer* writer, const Circle* circle)
+        void write_circle(Writer* writer, const Circle* circle)
         {
             writer->file
                     << "<circle cx=\"" << writer->px(circle->point.x) << "\" cy=\"" << writer->py(circle->point.y)
@@ -193,7 +194,7 @@ namespace euphoria::core::dump2d
                 << "/>\n";
         }
 
-        void write_item(writer* writer, const Item& item)
+        void write_item(Writer* writer, const Item& item)
         {
             const auto* poly = as_poly(&item);
             const auto* text = as_text(&item);
@@ -226,7 +227,7 @@ namespace euphoria::core::dump2d
             }
         }
 
-        void find_min_max(min_max* mm, const Item& item)
+        void find_min_max(MinMaxer* mm, const Item& item)
         {
             const auto* poly = as_poly(&item);
             const auto* text = as_text(&item);
@@ -290,7 +291,7 @@ namespace euphoria::core::dump2d
     // calculate total area size and offset so that x+offset will never be lower than 0
     std::pair<Vec2f,Vec2f> Dumper::calculate_size_and_offset() const
     {
-        detail::min_max minmax;
+        detail::MinMaxer minmax;
 
         for(const auto& item: items)
         {
@@ -326,7 +327,7 @@ namespace euphoria::core::dump2d
         const auto px = [=](float x) -> float { return static_cast<float>(space) + dx + x * scale; };
         const auto py = [=](float y) -> float { return static_cast<float>(height) - (static_cast<float>(space) + dy + y * scale); };
 
-        detail::writer writer(path);
+        detail::Writer writer(path);
         writer.px = px;
         writer.py = py;
         writer.scale = scale;

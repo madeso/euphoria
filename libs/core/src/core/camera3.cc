@@ -4,7 +4,7 @@
 
 namespace euphoria::core
 {
-    CompiledCamera3::CompiledCamera3(const mat4f& v, const mat4f& p)
+    CompiledCamera3::CompiledCamera3(const Mat4f& v, const Mat4f& p)
         : view(v)
         , projection(p)
         , combined(v * p)
@@ -48,10 +48,10 @@ namespace euphoria::core
 
     namespace
     {
-        mat4f
+        Mat4f
         calculate_projection_matrix(const Camera3& camera, float aspect)
         {
-            const mat4f projection_matrix = mat4f::create_perspective
+            const Mat4f projection_matrix = Mat4f::create_perspective
             (
                 Angle::from_degrees(camera.fov),
                 aspect,
@@ -61,11 +61,11 @@ namespace euphoria::core
             return projection_matrix;
         }
 
-        mat4f
+        Mat4f
         calculate_view_matrix(const Camera3& camera)
         {
             const auto rotation = camera.rotation.get_conjugate().to_mat4();
-            const auto translation = mat4f::from_translation(-static_cast<Vec3f>(camera.position));
+            const auto translation = Mat4f::from_translation(-static_cast<Vec3f>(camera.position));
             return rotation * translation;
         }
     }

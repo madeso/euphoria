@@ -23,7 +23,7 @@ namespace euphoria::core::ecs
     }
 
     void
-    ComponentSystemInitializerStore::on_add(entity_id ent) const
+    ComponentSystemInitializerStore::on_add(EntityId ent) const
     {
         for(const auto* s: systems)
         {
@@ -52,7 +52,7 @@ namespace euphoria::core::ecs
     World::World(ecs::Systems* sys) : systems(sys)
     {
         reg.add_callback(make_registry_entity_callback(
-                [this](entity_id id) { this->systems->initializer.on_add(id); }));
+                [this](EntityId id) { this->systems->initializer.on_add(id); }));
     }
 
     void

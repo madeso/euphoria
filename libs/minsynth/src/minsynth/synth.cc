@@ -126,9 +126,9 @@ namespace euphoria::minsynth
     }
 
     template <int StepsPerOctave>
-    struct tone_to_frequency_converter
+    struct ToneToFrequencyConverter
     {
-        constexpr tone_to_frequency_converter()
+        constexpr ToneToFrequencyConverter()
         {
             const float base
                     = std::pow(2.0f, 1.0f / static_cast<float>(StepsPerOctave));
@@ -173,7 +173,7 @@ namespace euphoria::minsynth
     float
     template_tone_to_frequency(int tone, float base_frequency)
     {
-        const static auto converter = tone_to_frequency_converter<TonesPerOctave>();
+        const static auto converter = ToneToFrequencyConverter<TonesPerOctave>();
         return converter.get_frequency(tone, base_frequency);
     }
 
@@ -261,18 +261,18 @@ namespace euphoria::minsynth
         const std::vector<unsigned char>& bytes
     )
     {
-        using byte = unsigned char;
+        using Byte = unsigned char;
 
-        const byte message_mask = 0x7;
-        const byte channel_mask = 0xF;
+        const Byte message_mask = 0x7;
+        const Byte channel_mask = 0xF;
 
         for(auto b: bytes)
         {
             const auto is_status = MidiInNode::is_status_message(b);
             if(is_status)
             {
-                const byte channel = (b >> 0) & channel_mask;
-                const byte message = (b >> 4) & message_mask;
+                const Byte channel = (b >> 0) & channel_mask;
+                const Byte message = (b >> 4) & message_mask;
 
                 LOG_INFO
                 (
@@ -295,7 +295,7 @@ namespace euphoria::minsynth
     void
     MidiInNode::callback(float dt, const std::vector<unsigned char>& bytes)
     {
-        using byte = unsigned char;
+        using Byte = unsigned char;
 
         if(bytes.empty())
         {
@@ -310,10 +310,10 @@ namespace euphoria::minsynth
 
         const auto bytes_size = bytes.size();
 
-        const byte message_mask = 0x7;
+        const Byte message_mask = 0x7;
         // const byte channel_mask = 0xF;
         // const byte channel = (bytes[0] >> 0) & channel_mask;
-        const byte message = (bytes[0] >> 4) & message_mask;
+        const Byte message = (bytes[0] >> 4) & message_mask;
 
         const auto event = static_cast<MidiEvent>(message);
         switch(event)

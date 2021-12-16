@@ -155,7 +155,7 @@ main(int argc, char* argv[])
         "palswap", "Switch palette",
         [&](argparse::SubParser* sub)
         {
-            auto palette_name = palettes::name::one_bit;
+            auto palette_name = palettes::Name::one_bit;
             auto dither = false;
 
             sub->add("-p, --palette", &palette_name);

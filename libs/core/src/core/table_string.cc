@@ -8,11 +8,11 @@
 
 namespace euphoria::core
 {
-    string_table
+    StringTable
     table_from_csv(const std::string& csv_data, const CsvParserOptions& options)
     {
         const auto add_row_to_table
-                = [](string_table* table, const std::vector<std::string>& row) {
+                = [](StringTable* table, const std::vector<std::string>& row) {
                       if(row.empty())
                       {
                           return;
@@ -21,7 +21,7 @@ namespace euphoria::core
                   };
         auto file = TextfileParser::from_string(csv_data);
 
-        string_table table;
+        StringTable table;
 
         std::vector<std::string> row;
         std::stringstream ss;
@@ -159,10 +159,10 @@ namespace euphoria::core
     }
 
     int
-    column_width(const string_table& t, int c)
+    column_width(const StringTable& t, int c)
     {
         int width = 0;
-        for(string_table::I y = 0; y < t.get_height(); y += 1)
+        for(StringTable::I y = 0; y < t.get_height(); y += 1)
         {
             width = std::max<int>(width, width_of_string(t(c, y)));
         }
@@ -170,10 +170,10 @@ namespace euphoria::core
     }
 
     int
-    row_height(const string_table& t, int r)
+    row_height(const StringTable& t, int r)
     {
         int height = 0;
-        for(string_table::I x = 0; x < t.get_width(); x += 1)
+        for(StringTable::I x = 0; x < t.get_width(); x += 1)
         {
             height = std::max<int>(height, height_of_string(t(x, r)));
         }
@@ -181,11 +181,11 @@ namespace euphoria::core
     }
 
     std::vector<int>
-    column_widths(const string_table& table, int extra)
+    column_widths(const StringTable& table, int extra)
     {
         const auto number_of_cols = table.get_width();
         std::vector<int> sizes(number_of_cols);
-        for(string_table::I i = 0; i < number_of_cols; ++i)
+        for(StringTable::I i = 0; i < number_of_cols; ++i)
         {
             sizes[i] = column_width(table, i) + extra;
         }
@@ -193,15 +193,15 @@ namespace euphoria::core
     }
 
     /// Return a new table based on row, where each cell is split at newline over many rows
-    string_table
-    split_table_cells_on_newline(const string_table& table, string_table::I row)
+    StringTable
+    split_table_cells_on_newline(const StringTable& table, StringTable::I row)
     {
-        auto ret = string_table::from_width_height(
+        auto ret = StringTable::from_width_height(
                 table.get_width(), row_height(table, row));
         for(int c = 0; c < table.get_width(); c += 1)
         {
             const auto rows = split(table(c, row), '\n');
-            for(string_table::I i = 0; i < string_table::conv(rows.size()); i += 1)
+            for(StringTable::I i = 0; i < StringTable::conv(rows.size()); i += 1)
             {
                 ret(c, i) = rows[i];
             }
@@ -210,7 +210,7 @@ namespace euphoria::core
     }
 
     void
-    print_table_simple(std::ostream& out, const string_table& maintable)
+    print_table_simple(std::ostream& out, const StringTable& maintable)
     {
         // todo(Gustav): cleanup this function...
         const auto begin_str_padding = 1;
@@ -225,12 +225,12 @@ namespace euphoria::core
 
         const auto total_padding = begin_str_padding + end_space_padding;
 
-        for(string_table::I mainrow = 0; mainrow < number_of_rows; ++mainrow)
+        for(StringTable::I mainrow = 0; mainrow < number_of_rows; ++mainrow)
         {
             const auto subtable = split_table_cells_on_newline(maintable, mainrow);
-            for(string_table::I subrow = 0; subrow < subtable.get_height(); ++subrow)
+            for(StringTable::I subrow = 0; subrow < subtable.get_height(); ++subrow)
             {
-                for(string_table::I col = 0; col < number_of_cols; ++col)
+                for(StringTable::I col = 0; col < number_of_cols; ++col)
                 {
                     const auto cell = begin_str + subtable(col, subrow);
                     auto line_length = c_sizet_to_int(cell.length());
@@ -238,7 +238,7 @@ namespace euphoria::core
 
                     if(col != number_of_cols - 1)
                     {
-                        for(string_table::I i = line_length;
+                        for(StringTable::I i = line_length;
                             i < sizes[col] + total_padding;
                             ++i)
                         {
@@ -250,7 +250,7 @@ namespace euphoria::core
 
                 if(mainrow == 0)
                 {
-                    for(string_table::I col = 0; col < number_of_cols; ++col)
+                    for(StringTable::I col = 0; col < number_of_cols; ++col)
                     {
                         const auto row_text
                                 = std::string(
@@ -265,7 +265,7 @@ namespace euphoria::core
     }
 
     void
-    print_table_grid(std::ostream& out, const string_table& maintable)
+    print_table_grid(std::ostream& out, const StringTable& maintable)
     {
         const std::vector<int> sizes = column_widths(maintable, 0);
 
@@ -294,13 +294,13 @@ namespace euphoria::core
 
         horizontal_line();
 
-        for(string_table::I y = 0; y < maintable.get_height(); ++y)
+        for(StringTable::I y = 0; y < maintable.get_height(); ++y)
         {
             const auto subtable = split_table_cells_on_newline(maintable, y);
-            for(string_table::I suby = 0; suby < subtable.get_height(); suby += 1)
+            for(StringTable::I suby = 0; suby < subtable.get_height(); suby += 1)
             {
                 out << "|";
-                for(string_table::I x = 0; x < subtable.get_width(); ++x)
+                for(StringTable::I x = 0; x < subtable.get_width(); ++x)
                 {
                     const auto cell = subtable(x, suby);
                     some_space(internal_space);

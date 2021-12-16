@@ -10,13 +10,13 @@
 
 namespace euphoria::engine
 {
-    struct system_sprite_draw
+    struct SystemSpriteDraw
         : core::ecs::ComponentSystem
         , core::ecs::ComponentSystemSpriteDrawer
     {
         engine::Components* components;
 
-        explicit system_sprite_draw(engine::Components* c)
+        explicit SystemSpriteDraw(engine::Components* c)
             : ComponentSystem("sprite draw")
             , components(c)
         {
@@ -31,7 +31,7 @@ namespace euphoria::engine
         {
             const auto items = reg->get_entities_with_components
             (
-                std::vector<core::ecs::component_id>
+                std::vector<core::ecs::ComponentId>
                 {
                     components->position2,
                     components->sprite
@@ -62,6 +62,6 @@ namespace euphoria::engine
     void
     add_systems(core::ecs::Systems* sys, Components* comps)
     {
-        sys->add_and_register(std::make_shared<system_sprite_draw>(comps));
+        sys->add_and_register(std::make_shared<SystemSpriteDraw>(comps));
     }
 }

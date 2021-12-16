@@ -33,29 +33,29 @@ namespace
     }
 
 
-    enum class sort_range
+    enum class SortRange
     {
         r, g, b
     };
 
 
     float
-    get_value(sort_range range, const Rgbi& c)
+    get_value(SortRange range, const Rgbi& c)
     {
         switch(range)
         {
-            case sort_range::r: return crgb(c).r;
-            case sort_range::g: return crgb(c).g;
-            case sort_range::b: return crgb(c).b;
+            case SortRange::r: return crgb(c).r;
+            case SortRange::g: return crgb(c).g;
+            case SortRange::b: return crgb(c).b;
             default: return 0;
         }
     }
 
 
-    std::tuple<sort_range, Range<float>>
+    std::tuple<SortRange, Range<float>>
     find_greatest_sort_range(SubVec<Rgbi> colors)
     {
-        using Tu = std::tuple<sort_range, Range<float>>;
+        using Tu = std::tuple<SortRange, Range<float>>;
 
         const auto [min_values, max_values] = find_min_max_ranges<3, float>
         (
@@ -64,23 +64,23 @@ namespace
             {
                 return
                 {
-                    get_value(sort_range::r, c),
-                    get_value(sort_range::g, c),
-                    get_value(sort_range::b, c)
+                    get_value(SortRange::r, c),
+                    get_value(SortRange::g, c),
+                    get_value(SortRange::b, c)
                 };
             }
         );
         // init-capture due to a bug in clang/gcc/standard
         // https://www.reddit.com/r/cpp/comments/68vhir/whats_the_rationale_for_this_reference_to_local/
-        auto make = [&, miv = std::move(min_values), mav = std::move(max_values)] (sort_range r, size_t i) -> Tu
+        auto make = [&, miv = std::move(min_values), mav = std::move(max_values)] (SortRange r, size_t i) -> Tu
         {
             return std::make_tuple(r, Range{miv[i], mav[i]});
         };
         auto ranges = std::vector<Tu>
         {
-            make(sort_range::r, 0),
-            make(sort_range::g, 1),
-            make(sort_range::b, 2)
+            make(SortRange::r, 0),
+            make(SortRange::g, 1),
+            make(SortRange::b, 2)
         };
         std::sort
         (
@@ -94,7 +94,7 @@ namespace
 
 
     void
-    sort(sort_range sort_range, SubVec<Rgbi> colors)
+    sort(SortRange sort_range, SubVec<Rgbi> colors)
     {
         auto sort = [&](std::function<float (const Rgbi& c)> conv)
         {
@@ -109,16 +109,16 @@ namespace
 
         switch(sort_range)
         {
-        case sort_range::r: sort([](const Rgbi& c) -> float { return c.r; }); break;
-        case sort_range::g: sort([](const Rgbi& c) -> float { return c.g; }); break;
-        case sort_range::b: sort([](const Rgbi& c) -> float { return c.b; }); break;
+        case SortRange::r: sort([](const Rgbi& c) -> float { return c.r; }); break;
+        case SortRange::g: sort([](const Rgbi& c) -> float { return c.g; }); break;
+        case SortRange::b: sort([](const Rgbi& c) -> float { return c.b; }); break;
         }
     }
 
 
 
     size_t
-    find_median_index(sort_range sort, SubVec<Rgbi> colors, Range<float> range)
+    find_median_index(SortRange sort, SubVec<Rgbi> colors, Range<float> range)
     {
         const auto median = range.get_distance()/2 + range.lower_bound;
         // todo(Gustav): make non-linear

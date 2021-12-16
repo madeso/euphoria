@@ -75,7 +75,7 @@ namespace euphoria::core
     uint64_t date_time_to_int64(const TimetWrapper& dt);
     TimetWrapper int64_to_date_time(uint64_t i);
 
-    enum class time_zone
+    enum class TimeZone
     {
         gmt, local
     };
@@ -87,9 +87,9 @@ namespace euphoria::core
     public:
         DateTime() = delete;
 
-        static DateTime create_from_date(int year, core::Month month, int day, time_zone timezone = time_zone::local);
-        static DateTime create_from_date_and_time(int year, core::Month month, int day, int hour, int minute, int second, time_zone timezone = time_zone::local);
-        static DateTime create_from_current_time(time_zone timezone = time_zone::local);
+        static DateTime create_from_date(int year, core::Month month, int day, TimeZone timezone = TimeZone::local);
+        static DateTime create_from_date_and_time(int year, core::Month month, int day, int hour, int minute, int second, TimeZone timezone = TimeZone::local);
+        static DateTime create_from_current_time(TimeZone timezone = TimeZone::local);
 
         [[nodiscard]] std::string to_string(const std::string& format) const;
         [[nodiscard]] std::string to_debug_string() const;
@@ -110,17 +110,17 @@ namespace euphoria::core
         [[nodiscard]] int get_year() const;
         [[nodiscard]] DstInfo get_dst() const;
 
-        [[nodiscard]] time_zone get_timezone() const;
+        [[nodiscard]] TimeZone get_timezone() const;
         [[nodiscard]] TimetWrapper get_time() const;
 
     private:
-        DateTime(time_zone timezone, const StructTmWrapper& time);
-        DateTime(time_zone timezone, const TimetWrapper& time);
+        DateTime(TimeZone timezone, const StructTmWrapper& time);
+        DateTime(TimeZone timezone, const TimetWrapper& time);
 
         [[nodiscard]] StructTmWrapper as_struct() const;
         void update_time(const StructTmWrapper& s);
 
-        time_zone timezone;
+        TimeZone timezone;
         TimetWrapper time;
     };
 

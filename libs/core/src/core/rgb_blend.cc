@@ -12,113 +12,113 @@ namespace euphoria::core
     namespace
     {
         // todo(Gustav): replace uint8 with float
-        using uint8 = std::uint8_t;
+        using Uint8 = std::uint8_t;
 
 
-        uint8
-        min(uint8 lhs, uint8 rhs)
+        Uint8
+        min(Uint8 lhs, Uint8 rhs)
         {
             return (lhs < rhs) ? lhs : rhs;
         }
 
 
-        uint8
-        max(uint8 lhs, uint8 rhs)
+        Uint8
+        max(Uint8 lhs, Uint8 rhs)
         {
             return (lhs > rhs) ? lhs : rhs;
         }
 
 
-        uint8
-        abs(uint8 lhs)
+        Uint8
+        abs(Uint8 lhs)
         {
             return lhs;
         }
 
 
-        uint8 c_u8(int i)
+        Uint8 c_u8(int i)
         {
             if(i < 0) { return 0; }
             else if(i > 255) { return 255; }
-            else { return static_cast<uint8>(i); }
+            else { return static_cast<Uint8>(i); }
         }
 
 
-        uint8 c_u8(float f)
+        Uint8 c_u8(float f)
         {
             const auto i = c_float_to_int(f);
             return c_u8(i);
         }
 
 
-        uint8 channel_blend_normal(uint8 top, uint8)
+        Uint8 channel_blend_normal(Uint8 top, Uint8)
         {
             return top;
         }
 
 
-        uint8 channel_blend_lighten(uint8 top, uint8 bottom)
+        Uint8 channel_blend_lighten(Uint8 top, Uint8 bottom)
         {
             return (bottom > top) ? bottom : top;
         }
 
 
-        uint8 channel_blend_darken(uint8 top, uint8 bottom)
+        Uint8 channel_blend_darken(Uint8 top, Uint8 bottom)
         {
             return (bottom > top) ? top : bottom;
         }
 
 
-        uint8 channel_blend_multiply(uint8 top, uint8 bottom)
+        Uint8 channel_blend_multiply(Uint8 top, Uint8 bottom)
         {
             return c_u8(static_cast<float>(static_cast<int>(top) * static_cast<int>(bottom)) / 255.0f);
         }
 
 
-        uint8 channel_blend_average(uint8 top, uint8 bottom)
+        Uint8 channel_blend_average(Uint8 top, Uint8 bottom)
         {
             return c_u8(static_cast<float>(static_cast<int>(top) + static_cast<int>(bottom)) / 2.0f);
         }
 
 
-        uint8 channel_blend_add(uint8 top, uint8 bottom)
+        Uint8 channel_blend_add(Uint8 top, Uint8 bottom)
         {
             const auto sum = static_cast<int>(top) + static_cast<int>(bottom);
             return c_u8(sum);
         }
 
 
-        uint8 channel_blend_subtract(uint8 top, uint8 bottom)
+        Uint8 channel_blend_subtract(Uint8 top, Uint8 bottom)
         {
             return c_u8(static_cast<int>(top) + static_cast<int>(bottom) - 255);
         }
 
 
-        uint8 channel_blend_difference(uint8 top, uint8 bottom)
+        Uint8 channel_blend_difference(Uint8 top, Uint8 bottom)
         {
             return c_u8(static_cast<int>(top) - static_cast<int>(bottom));
         }
 
 
-        uint8 channel_blend_negation(uint8 top, uint8 bottom)
+        Uint8 channel_blend_negation(Uint8 top, Uint8 bottom)
         {
             return 255 - abs(255 - top - bottom);
         }
 
 
-        uint8 channel_blend_screen(uint8 top, uint8 bottom)
+        Uint8 channel_blend_screen(Uint8 top, Uint8 bottom)
         {
             return 255 - (((255 - top) * (255 - bottom)) >> 8);
         }
 
 
-        uint8 channel_blend_exclusion(uint8 top, uint8 bottom)
+        Uint8 channel_blend_exclusion(Uint8 top, Uint8 bottom)
         {
             return top + bottom - 2 * top * bottom / 255;
         }
 
 
-        uint8 channel_blend_overlay(uint8 top, uint8 bottom)
+        Uint8 channel_blend_overlay(Uint8 top, Uint8 bottom)
         {
             if(bottom < 128)
             {
@@ -131,7 +131,7 @@ namespace euphoria::core
         }
 
 
-        uint8 channel_blend_soft_light(uint8 top, uint8 bottom)
+        Uint8 channel_blend_soft_light(Uint8 top, Uint8 bottom)
         {
             const int magic = (top>>1)+64;
 
@@ -148,13 +148,13 @@ namespace euphoria::core
         }
 
 
-        uint8 channel_blend_hard_light(uint8 top, uint8 bottom)
+        Uint8 channel_blend_hard_light(Uint8 top, Uint8 bottom)
         {
             return channel_blend_overlay(bottom, top);
         }
 
 
-        uint8 channel_blend_color_dodge(uint8 top, uint8 bottom)
+        Uint8 channel_blend_color_dodge(Uint8 top, Uint8 bottom)
         {
             if(bottom == 255)
             {
@@ -167,7 +167,7 @@ namespace euphoria::core
         }
 
 
-        uint8 channel_blend_color_burn(uint8 top, uint8 bottom)
+        Uint8 channel_blend_color_burn(Uint8 top, Uint8 bottom)
         {
             if(bottom == 0)
             {
@@ -180,19 +180,19 @@ namespace euphoria::core
         }
 
 
-        uint8 channel_blend_linear_dodge(uint8 top, uint8 bottom)
+        Uint8 channel_blend_linear_dodge(Uint8 top, Uint8 bottom)
         {
             return channel_blend_add(top, bottom);
         }
 
 
-        uint8 channel_blend_linear_burn(uint8 top, uint8 bottom)
+        Uint8 channel_blend_linear_burn(Uint8 top, Uint8 bottom)
         {
             return channel_blend_subtract(top, bottom);
         }
 
 
-        uint8 channel_blend_linear_light(uint8 top, uint8 bottom)
+        Uint8 channel_blend_linear_light(Uint8 top, Uint8 bottom)
         {
             if(bottom < 128)
             {
@@ -205,7 +205,7 @@ namespace euphoria::core
         }
 
 
-        uint8 channel_blend_vivid_light(uint8 top, uint8 bottom)
+        Uint8 channel_blend_vivid_light(Uint8 top, Uint8 bottom)
         {
             if(bottom < 128)
             {
@@ -218,7 +218,7 @@ namespace euphoria::core
         }
 
 
-        uint8 channel_blend_pin_light(uint8 top, uint8 bottom)
+        Uint8 channel_blend_pin_light(Uint8 top, Uint8 bottom)
         {
             if(bottom < 128)
             {
@@ -231,7 +231,7 @@ namespace euphoria::core
         }
 
 
-        uint8 channel_blend_hard_mix(uint8 top, uint8 bottom)
+        Uint8 channel_blend_hard_mix(Uint8 top, Uint8 bottom)
         {
             if(channel_blend_vivid_light(top, bottom) < 128)
             {
@@ -244,7 +244,7 @@ namespace euphoria::core
         }
 
 
-        uint8 channel_blend_reflect(uint8 top, uint8 bottom)
+        Uint8 channel_blend_reflect(Uint8 top, Uint8 bottom)
         {
             if(bottom == 255)
             {
@@ -257,13 +257,13 @@ namespace euphoria::core
         }
 
 
-        uint8 channel_blend_glow(uint8 top, uint8 bottom)
+        Uint8 channel_blend_glow(Uint8 top, Uint8 bottom)
         {
             return channel_blend_reflect(bottom, top);
         }
 
 
-        uint8 channel_blend_phoenix(uint8 top, uint8 bottom)
+        Uint8 channel_blend_phoenix(Uint8 top, Uint8 bottom)
         {
             return min(top,bottom) - max(top,bottom) + 255;
         }
@@ -272,16 +272,16 @@ namespace euphoria::core
 
         // 1 = top
         // 0 = bottom
-        uint8
-        channel_blend_alpha(uint8 top, uint8 bottom, float factor)
+        Uint8
+        channel_blend_alpha(Uint8 top, Uint8 bottom, float factor)
         {
             return c_u8(factor * static_cast<float>(top) + (1.0f - factor) * static_cast<float>(bottom));
         }
 
 
         template<typename TF>
-        uint8
-        channel_blend_alpha_f(uint8 top, uint8 bottom, float factor, TF f)
+        Uint8
+        channel_blend_alpha_f(Uint8 top, Uint8 bottom, float factor, TF f)
         {
             return channel_blend_alpha(f(top, bottom), bottom, factor);
         }
@@ -326,7 +326,7 @@ namespace euphoria::core
         )
         {
             const auto factor = static_cast<float>(top.a)/255.0f;
-            const auto ff = [&](uint8 a_top, uint8 a_bottom)
+            const auto ff = [&](Uint8 a_top, Uint8 a_bottom)
             {
                 return channel_blend_alpha_f
                 (

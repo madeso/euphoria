@@ -217,7 +217,7 @@ namespace euphoria::render
         stbrp_init_target(&context, texture_width, texture_height, &nodes[0], num_nodes);
         stbrp_pack_rects(&context, &packed_rects[0], num_rects);
 
-        char_to_glyph_map map;
+        CharToGlyphMap map;
         core::Image image;
         image.setup_with_alpha_support(texture_width, texture_height);
         for(int i = 0; i < num_rects; ++i)
@@ -257,7 +257,7 @@ namespace euphoria::render
                     static_cast<float>(src_char.advance) / src_char.size
                 )
             );
-            map.insert(char_to_glyph_map::value_type(dest->code_point, dest));
+            map.insert(CharToGlyphMap::value_type(dest->code_point, dest));
         }
 
         // for debug

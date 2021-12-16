@@ -10,7 +10,7 @@
 
 namespace euphoria::render
 {
-    Init::Init(LoaderFunction loader, Init::blend_hack blend_hack)
+    Init::Init(LoaderFunction loader, Init::BlendHack blend_hack)
         : is_ok(true)
     {
         const int glad_result = gladLoadGLLoader(loader);
@@ -34,7 +34,7 @@ namespace euphoria::render
         glEnable(GL_STENCIL_TEST);
         glEnable(GL_SCISSOR_TEST); // need scissor test for the viewport clearing
 
-        if(blend_hack == Init::blend_hack::enable_hack)
+        if(blend_hack == Init::BlendHack::enable_hack)
         {
             LOG_INFO("Enabled blend hack");
             // need to be enabled for shitty 2d rendering to work
@@ -50,11 +50,11 @@ namespace euphoria::render
     Init::~Init() = default;
 
 
-    core::mat4f
+    core::Mat4f
     Init::get_ortho_projection(float width, float height) const
     {
         ASSERT(is_ok);
-        return core::mat4f::create_ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
+        return core::Mat4f::create_ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
     }
 
 

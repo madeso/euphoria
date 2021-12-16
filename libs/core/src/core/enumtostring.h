@@ -83,21 +83,21 @@ namespace euphoria::core
                 return MatchedEnum<T> {true, {input}, {found->second}};
             }
 
-            struct match : search::Match
+            struct Match : search::Match
             {
                 T t;
 
-                match(const std::string& str, T tt, const std::string& input)
+                Match(const std::string& str, T tt, const std::string& input)
                     : search::Match(str, input)
                     , t(tt)
                 {
                 }
             };
 
-            const auto matches = search::find_closest<match>
+            const auto matches = search::find_closest<Match>
             (
                 max_size, enum_to_string,
-                [&](const auto& entry) -> match
+                [&](const auto& entry) -> Match
                 {
                     return {entry.second, entry.first, input};
                 }

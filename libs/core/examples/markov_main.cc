@@ -52,7 +52,7 @@ markov_sentence(const std::string& file, int memory, int count)
     const auto parsed = core::parse_sentences
     (
         data,
-        [&](const core::text_sentence& s) { m.add(s); }
+        [&](const core::TextSentence& s) { m.add(s); }
     );
     if(!parsed)
     {
@@ -102,19 +102,19 @@ markov_word(const std::string& file, int memory, int count)
 }
 
 
-struct similar
+struct Similar
 {
-    similar() = default;
-    virtual ~similar() = default;
+    Similar() = default;
+    virtual ~Similar() = default;
 
-    NONCOPYABLE(similar);
+    NONCOPYABLE(Similar);
 
     virtual void add(const std::string& line) = 0;
     virtual bool is_same(const std::string& generated) = 0;
 };
 
 
-struct similar_set : public similar
+struct SimilarSet : public Similar
 {
     std::set<std::string> existing_lines;
 
@@ -128,14 +128,14 @@ struct similar_set : public similar
         return existing_lines.find(generated) != existing_lines.end();
     }
 
-    static std::unique_ptr<similar> create()
+    static std::unique_ptr<Similar> create()
     {
-         return std::make_unique<similar_set>();
+         return std::make_unique<SimilarSet>();
     }
 };
 
 
-struct similar_edit_distance : public similar
+struct SimilarEditDistance : public Similar
 {
     std::vector<std::string> existing_lines;
     std::set<std::string> rejected;
@@ -171,9 +171,9 @@ struct similar_edit_distance : public similar
         );
     }
 
-    static std::unique_ptr<similar> create()
+    static std::unique_ptr<Similar> create()
     {
-         return std::make_unique<similar_edit_distance>();
+         return std::make_unique<SimilarEditDistance>();
     }
 };
 
@@ -192,7 +192,7 @@ markov_line(const std::string& file, int memory, int count, bool also_existing, 
         return;
     }
 
-    std::unique_ptr<similar> existing_lines = simple ? similar_set::create() : similar_edit_distance::create();
+    std::unique_ptr<Similar> existing_lines = simple ? SimilarSet::create() : SimilarEditDistance::create();
 
     {
         std::string line;

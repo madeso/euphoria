@@ -39,7 +39,7 @@ namespace euphoria::core
     };
 
     template<typename T>
-    using read_result = std::variant<T, ReadErrorFileMissing, ReadErrorFileError>;
+    using ReadResult = std::variant<T, ReadErrorFileMissing, ReadErrorFileError>;
 
 
 
@@ -72,7 +72,7 @@ namespace euphoria::core
 
     template<typename T>
     std::optional<T>
-    work_get_optional_and_log_errors(read_result<T>&& result, bool log_missing_file)
+    work_get_optional_and_log_errors(ReadResult<T>&& result, bool log_missing_file)
     {
         return std::visit
         (
@@ -114,7 +114,7 @@ namespace euphoria::core
     // log all errors, only return when file loaded
     template<typename T>
     std::optional<T>
-    get_optional_and_log_errors(read_result<T>&& result)
+    get_optional_and_log_errors(ReadResult<T>&& result)
     {
         return work_get_optional_and_log_errors<T>(std::move(result), true);
     }
@@ -123,7 +123,7 @@ namespace euphoria::core
     // log syntax error
     template<typename T>
     std::optional<T>
-    get_optional_and_log_errors_allow_missing(read_result<T>&& result)
+    get_optional_and_log_errors_allow_missing(ReadResult<T>&& result)
     {
         // todo(Gustav): should this return something different to indicate that file was missing?
         return work_get_optional_and_log_errors<T>(std::move(result), false);
@@ -133,7 +133,7 @@ namespace euphoria::core
 
     template<typename T>
     T
-    get_default_but_log_errors(read_result<T>&& result)
+    get_default_but_log_errors(ReadResult<T>&& result)
     {
         auto r = work_get_optional_and_log_errors<T>(std::move(result), true);
         if(r)
@@ -148,7 +148,7 @@ namespace euphoria::core
 
     template<typename T>
     T
-    get_default_ignore_missing_but_log_errors(read_result<T>&& result)
+    get_default_ignore_missing_but_log_errors(ReadResult<T>&& result)
     {
         auto r = work_get_optional_and_log_errors<T>(std::move(result), false);
         if(r)
@@ -165,7 +165,7 @@ namespace euphoria::core
     // Actual load functions
 
     template <typename T, typename ReadXmlElementFun>
-    read_result<T>
+    ReadResult<T>
     read_xml_source_to_gaf_struct
     (
         const std::string& path_to_file,
@@ -218,7 +218,7 @@ namespace euphoria::core
     }
 
     template <typename T, typename ReadXmlElementFun>
-    read_result<T>
+    ReadResult<T>
     read_xml_file_to_gaf_struct
     (
         vfs::FileSystem* fs,

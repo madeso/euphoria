@@ -11,7 +11,7 @@ namespace euphoria::core
     bool utf8_to_codepoints(const String& string, OnCodepoint on_codepoint)
     {
         // reference: https://en.wikipedia.org/wiki/UTF-8
-        using integer = int;
+        using CodePointInt = int;
         auto to_byte = [](char c)->std::byte { return static_cast<std::byte>(c); };
 
         constexpr auto mask0 = std::byte{0b10000000}; constexpr auto bit0 = std::byte{0b00000000};
@@ -30,7 +30,7 @@ namespace euphoria::core
             {
                 if( (mask0 & b) == bit0)
                 {
-                    on_codepoint(std::to_integer<integer>(b));
+                    on_codepoint(std::to_integer<CodePointInt>(b));
                 }
                 else
                 {
@@ -74,25 +74,25 @@ namespace euphoria::core
                     case 2:
                         on_codepoint
                         (
-                            ( std::to_integer<integer>(buffer[0] & ~mask2) << 6) |
-                            ( std::to_integer<integer>(buffer[1] & ~mask1) << 0)
+                            ( std::to_integer<CodePointInt>(buffer[0] & ~mask2) << 6) |
+                            ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 0)
                         );
                         break;
                     case 3:
                         on_codepoint
                         (
-                            ( std::to_integer<integer>(buffer[0] & ~mask3) << 12) |
-                            ( std::to_integer<integer>(buffer[1] & ~mask1) << 6 ) |
-                            ( std::to_integer<integer>(buffer[2] & ~mask1) << 0 )
+                            ( std::to_integer<CodePointInt>(buffer[0] & ~mask3) << 12) |
+                            ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 6 ) |
+                            ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 0 )
                         );
                         break;
                     case 4:
                         on_codepoint
                         (
-                            ( std::to_integer<integer>(buffer[0] & ~mask4) << 18) |
-                            ( std::to_integer<integer>(buffer[1] & ~mask1) << 12) |
-                            ( std::to_integer<integer>(buffer[2] & ~mask1) << 6 ) |
-                            ( std::to_integer<integer>(buffer[3] & ~mask1) << 0 )
+                            ( std::to_integer<CodePointInt>(buffer[0] & ~mask4) << 18) |
+                            ( std::to_integer<CodePointInt>(buffer[1] & ~mask1) << 12) |
+                            ( std::to_integer<CodePointInt>(buffer[2] & ~mask1) << 6 ) |
+                            ( std::to_integer<CodePointInt>(buffer[3] & ~mask1) << 0 )
                         );
                         break;
                     default:

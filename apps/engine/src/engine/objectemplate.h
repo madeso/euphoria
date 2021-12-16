@@ -53,12 +53,12 @@ namespace euphoria::engine
         NONCOPYABLE(ComponentCreator);
 
         virtual void
-        create_component(const ObjectCreationArguments& args, core::ecs::entity_id id) = 0;
+        create_component(const ObjectCreationArguments& args, core::ecs::EntityId id) = 0;
     };
 
     struct ObjectTemplate
     {
-        core::ecs::entity_id
+        core::ecs::EntityId
         create_object(const ObjectCreationArguments& args);
 
         std::vector<std::shared_ptr<ComponentCreator>> components;

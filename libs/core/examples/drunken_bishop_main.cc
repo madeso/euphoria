@@ -112,7 +112,7 @@ main(int argc, char* argv[])
             auto common = ::CommonArguments{};
             int count = 1;
             int scale = 10;
-            auto pal = palettes::name::cubehelix_1;
+            auto pal = palettes::Name::cubehelix_1;
 
             common.add(sub);
             sub->add("--pal", &pal).set_help("Set the palette");

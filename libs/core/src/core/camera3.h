@@ -12,7 +12,7 @@ namespace euphoria::core
     struct CompiledCamera3
     {
     public:
-        CompiledCamera3(const mat4f& v, const mat4f& p);
+        CompiledCamera3(const Mat4f& v, const Mat4f& p);
 
         [[nodiscard]]
         Vec3f
@@ -26,10 +26,10 @@ namespace euphoria::core
         Ray3f
         clip_to_world_ray(const Vec2f& p) const;
 
-        mat4f view;
-        mat4f projection;
-        mat4f combined;
-        mat4f combined_inverted;
+        Mat4f view;
+        Mat4f projection;
+        Mat4f combined;
+        Mat4f combined_inverted;
     };
 
 

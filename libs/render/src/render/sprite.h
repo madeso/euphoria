@@ -52,10 +52,10 @@ namespace euphoria::render
         void
         render();
 
-        using sprite_list = std::vector<Sprite*>;
-        using sprite_map = std::map<std::shared_ptr<Texture2>, sprite_list>;
+        using SpriteList = std::vector<Sprite*>;
+        using SpriteMap = std::map<std::shared_ptr<Texture2>, SpriteList>;
 
         SpriteRenderer* renderer;
-        sprite_map texture_to_sprites;
+        SpriteMap texture_to_sprites;
     };
 }

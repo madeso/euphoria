@@ -33,7 +33,7 @@ namespace euphoria::render
     SpriteBatch::quad
     (
         const core::Vec2f& pos,
-        const core::size2f& quad,
+        const core::Size2f& quad,
         const core::Rectf& uv,
         const core::Scale2f& center,
         const core::Angle& rotation,

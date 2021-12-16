@@ -18,7 +18,7 @@ namespace euphoria::core
     template<typename T>
     struct Lrud
     {
-        using self = Lrud<T>;
+        using Self = Lrud<T>;
 
         T left;
         T right;
@@ -37,7 +37,7 @@ namespace euphoria::core
           */
         [[nodiscard]]
         static
-        self
+        Self
         from_lrud(const T& lr, const T& ud)
         {
             return {lr, lr, ud, ud};
@@ -47,7 +47,7 @@ namespace euphoria::core
           */
         [[nodiscard]]
         static
-        self
+        Self
         from_lrud(const T& l, const T& r, const T& u, const T& d)
         {
             return {l, r, u, d};

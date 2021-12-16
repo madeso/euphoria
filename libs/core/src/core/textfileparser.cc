@@ -16,7 +16,7 @@ namespace euphoria::core
             return peek(1);
         }
 
-        struct textfile_string : public Textfile
+        struct TextFileString : public Textfile
         {
             std::string text;
             std::size_t next_position = 0;
@@ -61,7 +61,7 @@ namespace euphoria::core
         std::shared_ptr<Textfile>
         create_from_string(const std::string& str)
         {
-            auto file = std::make_shared<textfile_string>();
+            auto file = std::make_shared<TextFileString>();
             file->text = str;
             return file;
         }

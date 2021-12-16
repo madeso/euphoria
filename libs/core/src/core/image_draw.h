@@ -78,7 +78,7 @@ namespace euphoria::core
         const LoadedFont& font
     );
 
-    enum class pixels_outside
+    enum class PixelsOutside
     {
         assert,
         discard
@@ -96,7 +96,7 @@ namespace euphoria::core
         // how to blend
         BlendMode blend = BlendMode::normal,
         // how to handle pixels that fall outside
-        pixels_outside clip = pixels_outside::assert
+        PixelsOutside clip = PixelsOutside::assert
     );
 
     void

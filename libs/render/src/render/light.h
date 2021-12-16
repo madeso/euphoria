@@ -20,14 +20,14 @@ namespace euphoria::render
 
         // todo(Gustav): move this to a light def file and let it be specified in a editor
 
-        enum class type
+        enum class Type
         {
             directional,
             point,
             spot
         };
 
-        type light_type;
+        Type light_type;
         core::Vec3f position;
         core::Unit3f direction;
         core::Rgb ambient;

@@ -16,7 +16,7 @@ namespace euphoria::core::generator
 {
     namespace cell
     {
-        enum type
+        enum Type
         {
             none = 0,
             path_north = 1 << 0,
@@ -27,7 +27,7 @@ namespace euphoria::core::generator
         };
     }
 
-    enum class dir
+    enum class Direction
     {
         north,
         south,
@@ -87,12 +87,12 @@ namespace euphoria::core::generator
         generator::Maze* maze = nullptr;
         core::Random* random = nullptr;
 
-        struct entry
+        struct Entry
         {
             Vec2i position;
-            dir direction;
+            Direction direction;
         };
-        std::vector<entry> frontier;
+        std::vector<Entry> frontier;
 
         void
         setup() override;

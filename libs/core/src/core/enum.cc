@@ -119,8 +119,8 @@ namespace euphoria::core
         }
         const size_t id = next_index;
         ++next_index;
-        value_to_name.insert(value_to_name_map::value_type(id, name));
-        name_to_value.insert(name_to_value_map::value_type(name, id));
+        value_to_name.insert(ValueToNameMap::value_type(id, name));
+        name_to_value.insert(NameToValueMap::value_type(name, id));
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////////

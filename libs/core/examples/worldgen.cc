@@ -72,7 +72,7 @@ print_maze_to_console(const generator::Drawer& drawer)
 }
 
 
-enum class maze_algorithm
+enum class MazeAlgorithm
 {
     recursive_backtracker,
     random_traversal
@@ -82,7 +82,7 @@ enum class maze_algorithm
 void
 handle_maze_command
 (
-    maze_algorithm algo,
+    MazeAlgorithm algo,
     int world_width,
     int world_height,
     int cell_size,
@@ -101,7 +101,7 @@ handle_maze_command
 
     switch(algo)
     {
-    case maze_algorithm::recursive_backtracker:
+    case MazeAlgorithm::recursive_backtracker:
         {
             auto g = std::make_unique<generator::RecursiveBacktracker>();
             g->maze = &maze;
@@ -110,7 +110,7 @@ handle_maze_command
             gen = std::move(g);
         }
         break;
-    case maze_algorithm::random_traversal:
+    case MazeAlgorithm::random_traversal:
         {
             auto g = std::make_unique<generator::RandomTraversal>();
             g->maze = &maze;
@@ -182,21 +182,21 @@ handle_maze_command
 
 
 
-struct cellwriter
+struct CellWriter
 {
     bool debug;
     argparse::FileOutput output;
-    generator::world* world;
+    generator::World* world;
     int world_scale;
 
     core::Random shuffle_random;
-    generator::world world_copy;
+    generator::World world_copy;
 
-    explicit cellwriter
+    explicit CellWriter
     (
         bool d,
         const std::string& f,
-        generator::world* w,
+        generator::World* w,
         int ws
     )
         : debug(d)
@@ -207,7 +207,7 @@ struct cellwriter
     }
 
     [[nodiscard]] Image
-    generate_world_image(const generator::world& world_or_copy) const
+    generate_world_image(const generator::World& world_or_copy) const
     {
         return draw
         (
@@ -304,9 +304,9 @@ struct cellwriter
 };
 
 
-struct maze_arguments
+struct MazeArguments
 {
-    size2i size = size2i::create_from_width_height(10, 10);
+    Size2i size = Size2i::create_from_width_height(10, 10);
     std::string output = "maze.png";
 
     int cell_size = 1;
@@ -340,7 +340,7 @@ main(int argc, char* argv[])
         "maze generation using recursive backtracker algorithm",
         [&](argparse::SubParser* sub)
         {
-            auto args = maze_arguments{};
+            auto args = MazeArguments{};
             args.add(sub);
 
             return sub->on_complete
@@ -349,7 +349,7 @@ main(int argc, char* argv[])
                 {
                     handle_maze_command
                     (
-                        maze_algorithm::recursive_backtracker,
+                        MazeAlgorithm::recursive_backtracker,
                         args.size.width,
                         args.size.height,
                         args.cell_size,
@@ -369,7 +369,7 @@ main(int argc, char* argv[])
         "maze generation using random traversal algorithm",
         [&](argparse::SubParser* sub)
         {
-            auto args = maze_arguments{};
+            auto args = MazeArguments{};
             args.add(sub);
 
             return sub->on_complete
@@ -378,7 +378,7 @@ main(int argc, char* argv[])
                 {
                     handle_maze_command
                     (
-                        maze_algorithm::random_traversal,
+                        MazeAlgorithm::random_traversal,
                         args.size.width,
                         args.size.height,
                         args.cell_size,
@@ -400,7 +400,7 @@ main(int argc, char* argv[])
         {
             int world_scale = 5;
             bool debug = false;
-            size2i size = size2i::create_from_width_height(100, 70);
+            Size2i size = Size2i::create_from_width_height(100, 70);
             std::string output = "cell.png";
             auto rand = core::Random{};
             auto rules = generator::Rules{};
@@ -536,7 +536,7 @@ main(int argc, char* argv[])
                 [&]
                 {
 
-                    auto world = generator::world::from_width_height(size.width, size.height);
+                    auto world = generator::World::from_width_height(size.width, size.height);
                     world.clear(false);
 
                     if(rules.rules.empty())
@@ -545,9 +545,9 @@ main(int argc, char* argv[])
                         return argparse::ok;
                     }
 
-                    auto cell = generator::CellularAutomata{&rules, &world, Lrud{outside_rule::wall}};
+                    auto cell = generator::CellularAutomata{&rules, &world, Lrud{OutsideRule::wall}};
 
-                    auto writer = cellwriter{debug, output, &world, world_scale};
+                    auto writer = CellWriter{debug, output, &world, world_scale};
                     writer.first_state();
 
                     while(cell.has_more_work())

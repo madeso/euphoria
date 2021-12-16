@@ -14,23 +14,23 @@
 
 namespace euphoria::core
 {
-    using string_table = Table<std::string>;
+    using StringTable = Table<std::string>;
 
     template <typename T>
     struct TableGenerator : public SortBuilder<T, TableGenerator<T>>
     {
-        using converter = std::function<std::string(const T&)>;
+        using ToStringFunction = std::function<std::string(const T&)>;
 
         const std::vector<T>& data;
-        std::vector<converter> column_converter;
+        std::vector<ToStringFunction> column_to_string;
         std::vector<std::string> column_titles;
 
         explicit TableGenerator(const std::vector<T>& d) : data(d) {}
 
-        [[nodiscard]] string_table
+        [[nodiscard]] StringTable
         to_table() const
         {
-            string_table ret;
+            StringTable ret;
             ret.new_row(column_titles);
 
             const auto s = column_titles.size();
@@ -43,7 +43,7 @@ namespace euphoria::core
                 row_strings.reserve(s);
                 for(size_t i = 0; i < s; ++i)
                 {
-                    row_strings.emplace_back(column_converter[i](d));
+                    row_strings.emplace_back(column_to_string[i](d));
                 }
                 ret.new_row(row_strings);
             }
@@ -52,10 +52,10 @@ namespace euphoria::core
         }
 
         TableGenerator<T>&
-        add_column(const std::string& title, converter converter)
+        add_column(const std::string& title, ToStringFunction to_string)
         {
             column_titles.emplace_back(title);
-            column_converter.emplace_back(converter);
+            column_to_string.emplace_back(to_string);
             return *this;
         }
     };
@@ -73,7 +73,7 @@ namespace euphoria::core
         CsvTrim trim = CsvTrim::dont_trim;
     };
 
-    string_table
+    StringTable
     table_from_csv
     (
         const std::string& data,
@@ -90,7 +90,7 @@ namespace euphoria::core
         George         Costanza
         */
     void
-    print_table_simple(std::ostream& out, const string_table& table);
+    print_table_simple(std::ostream& out, const StringTable& table);
 
     /*
         +------------+-----------+
@@ -103,6 +103,6 @@ namespace euphoria::core
         +------------+-----------+
         */
     void
-    print_table_grid(std::ostream& out, const string_table& table);
+    print_table_grid(std::ostream& out, const StringTable& table);
 
 }

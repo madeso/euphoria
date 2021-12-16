@@ -18,7 +18,7 @@ namespace euphoria::gui
     }
 
 
-    core::size2f
+    core::Size2f
     PanelWidget::calculate_minimum_size() const
     {
         return container.calculate_minimum_area();

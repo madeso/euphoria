@@ -27,8 +27,8 @@ namespace euphoria::engine
     {
         Components(core::ecs::Registry* reg);
 
-        core::ecs::component_id position2;
-        core::ecs::component_id sprite;
+        core::ecs::ComponentId position2;
+        core::ecs::ComponentId sprite;
     };
 
     core::Rectf

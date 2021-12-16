@@ -152,7 +152,7 @@ namespace euphoria::core
         static constexpr Angle magenta = Angle::from_percent_of_360(5 / 6.0f);
     };
 
-    enum class is_absolute
+    enum class IsAbsolute
     {
         yes,
         no
@@ -162,16 +162,16 @@ namespace euphoria::core
     // Util functions
 
     Hsl
-    saturate(const Hsl& ahsl, float amount, is_absolute method);
+    saturate(const Hsl& ahsl, float amount, IsAbsolute method);
 
     Hsl
-    desaturate(const Hsl& ahsl, float amount, is_absolute method);
+    desaturate(const Hsl& ahsl, float amount, IsAbsolute method);
 
     Hsl
-    lighten(const Hsl& ahsl, float amount, is_absolute method);
+    lighten(const Hsl& ahsl, float amount, IsAbsolute method);
 
     Hsl
-    darken(const Hsl& ahsl, float amount, is_absolute method);
+    darken(const Hsl& ahsl, float amount, IsAbsolute method);
 
     /** Makes a color brighter or darker.
      * The +1 makes it white, 0% is no change, -1 makes it black.

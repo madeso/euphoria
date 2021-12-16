@@ -73,7 +73,7 @@ namespace euphoria::render
     void
     Layer::remove(Sprite* sprite)
     {
-        sprite_list& sprites = texture_to_sprites[sprite->texture];
+        SpriteList& sprites = texture_to_sprites[sprite->texture];
         sprites.erase
         (
             std::remove(sprites.begin(), sprites.end(), sprite),

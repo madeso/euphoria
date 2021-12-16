@@ -32,12 +32,12 @@ namespace euphoria::engine
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    struct position_component_creator : ComponentCreator
+    struct PositionComponentCreator : ComponentCreator
     {
         core::Vec2f p;
         engine::Components* components;
 
-        position_component_creator(const core::Vec2f& pp, engine::Components* components)
+        PositionComponentCreator(const core::Vec2f& pp, engine::Components* components)
             : p(pp)
             , components(components)
         {
@@ -45,14 +45,14 @@ namespace euphoria::engine
 
         [[nodiscard]]
         static
-        std::shared_ptr<position_component_creator>
+        std::shared_ptr<PositionComponentCreator>
         create(const game::vec2f& p, engine::Components* components)
         {
-            return std::make_shared<position_component_creator>(core::Vec2f {p.x, p.y}, components);
+            return std::make_shared<PositionComponentCreator>(core::Vec2f {p.x, p.y}, components);
         }
 
         void
-        create_component(const ObjectCreationArguments& args, core::ecs::entity_id ent) override
+        create_component(const ObjectCreationArguments& args, core::ecs::EntityId ent) override
         {
             auto c = std::make_shared<ComponentPosition2>();
             c->pos = p;
@@ -60,17 +60,17 @@ namespace euphoria::engine
         }
     };
 
-    struct sprite_component_creator : public ComponentCreator
+    struct SpriteComponentCreator : public ComponentCreator
     {
     public:
         std::shared_ptr<render::Texture2> texture;
         engine::Components* components;
 
-        explicit sprite_component_creator(engine::Components* c) : components(c) {}
+        explicit SpriteComponentCreator(engine::Components* c) : components(c) {}
 
         [[nodiscard]]
         static
-        std::shared_ptr<sprite_component_creator>
+        std::shared_ptr<SpriteComponentCreator>
         create
         (
             const game::Sprite& sprite,
@@ -78,13 +78,13 @@ namespace euphoria::engine
             engine::Components* components
         )
         {
-            auto ptr = std::make_shared<sprite_component_creator>(components);
+            auto ptr = std::make_shared<SpriteComponentCreator>(components);
             ptr->texture = cache->get_texture(core::vfs::FilePath::from_script(sprite.path));
             return ptr;
         }
 
         void
-        create_component(const ObjectCreationArguments& args, core::ecs::entity_id ent) override
+        create_component(const ObjectCreationArguments& args, core::ecs::EntityId ent) override
         {
             auto c = std::make_shared<ComponentSprite>();
             c->texture = texture;
@@ -93,28 +93,28 @@ namespace euphoria::engine
     };
 
 
-    struct custom_component_creator : public ComponentCreator
+    struct CustomComponentCreator : public ComponentCreator
     {
     public:
-        core::ecs::component_id comp;
+        core::ecs::ComponentId comp;
         CustomArguments arguments;
 
-        explicit custom_component_creator(core::ecs::component_id id)
+        explicit CustomComponentCreator(core::ecs::ComponentId id)
             : comp(id)
         {
         }
 
         [[nodiscard]]
         static
-        std::shared_ptr<custom_component_creator>
+        std::shared_ptr<CustomComponentCreator>
         create
         (
             const std::string& name,
-            core::ecs::component_id id,
+            core::ecs::ComponentId id,
             const std::vector<game::Var>& arguments
         )
         {
-            auto ptr = std::make_shared<custom_component_creator>(id);
+            auto ptr = std::make_shared<CustomComponentCreator>(id);
             for(const auto& a: arguments)
             {
                 if(a.number != nullptr)
@@ -135,7 +135,7 @@ namespace euphoria::engine
         }
 
         void
-        create_component(const ObjectCreationArguments& args, core::ecs::entity_id ent) override
+        create_component(const ObjectCreationArguments& args, core::ecs::EntityId ent) override
         {
             auto val = args.reg->create_component(comp, args.ctx, arguments);
             args.reg->set_property(ent, comp, val);
@@ -157,11 +157,11 @@ namespace euphoria::engine
     {
         if(comp.position)
         {
-            return position_component_creator::create(*comp.position, components);
+            return PositionComponentCreator::create(*comp.position, components);
         }
         else if(comp.sprite)
         {
-            return sprite_component_creator::create
+            return SpriteComponentCreator::create
             (
                 *comp.sprite,
                 cache,
@@ -173,7 +173,7 @@ namespace euphoria::engine
             const auto& s = *comp.custom;
             if(const auto id = reg->get_custom_component_by_name(s.name); id)
             {
-                return custom_component_creator::create(s.name, *id, s.arguments);
+                return CustomComponentCreator::create(s.name, *id, s.arguments);
             }
             else
             {
@@ -213,7 +213,7 @@ namespace euphoria::engine
     }
 
 
-    core::ecs::entity_id
+    core::ecs::EntityId
     ObjectTemplate::create_object(const ObjectCreationArguments& args)
     {
         auto ent = args.world->reg.create_new_entity();

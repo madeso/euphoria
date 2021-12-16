@@ -53,10 +53,10 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] mat4<T>
+        [[nodiscard]] Mat4<T>
         to_mat4() const
         {
-            return mat4<T>::from_axis_angle(to_axis_angle());
+            return Mat4<T>::from_axis_angle(to_axis_angle());
         }
 
 
@@ -83,7 +83,7 @@ namespace euphoria::core
 
 
         [[nodiscard]] static Self
-        look_at(const Point& from, const Point& to, const typename Vec::unit up)
+        look_at(const Point& from, const Point& to, const typename Vec::Unit up)
         {
             return look_in_direction(Vec::from_to(from, to).get_normalized(), up);
         }

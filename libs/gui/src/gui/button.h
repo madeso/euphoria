@@ -36,7 +36,7 @@ namespace euphoria::gui
         void
         step(float dt) override;
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] core::Size2f
         calculate_minimum_size() const override;
 
         void

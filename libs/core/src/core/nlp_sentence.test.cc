@@ -11,14 +11,14 @@ using namespace euphoria::core;
 
 namespace
 {
-    std::pair<bool, std::vector<text_sentence>>
+    std::pair<bool, std::vector<TextSentence>>
     parse_to_sentence(const std::string& str)
     {
-        std::vector<text_sentence> list;
+        std::vector<TextSentence> list;
 
         auto ss = std::istringstream{str};
 
-        const auto result = parse_sentences(ss, [&](const text_sentence& s){list.emplace_back(s);});
+        const auto result = parse_sentences(ss, [&](const TextSentence& s){list.emplace_back(s);});
 
         return {result, list};
     }

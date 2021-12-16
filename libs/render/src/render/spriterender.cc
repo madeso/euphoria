@@ -87,7 +87,7 @@ namespace euphoria::render
             0.0f
         };
 
-        const core::mat4f model = core::mat4f::identity()
+        const core::Mat4f model = core::Mat4f::identity()
             .translate(core::Vec3f(sprite_area.get_bottom_left(), 0.0f))
             .translate(-rotation_anchor_displacement)
             // rotate around center

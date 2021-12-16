@@ -8,15 +8,15 @@
 namespace euphoria::core
 {
 
-using text_line = std::vector<std::string>;
+using TextLine = std::vector<std::string>;
 
 
-std::optional<text_line>
+std::optional<TextLine>
 parse_line(const std::string& line);
 
 
 std::string
-line_to_string(const text_line& s);
+line_to_string(const TextLine& s);
 
 }
 

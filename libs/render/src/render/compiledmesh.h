@@ -54,9 +54,9 @@ namespace euphoria::render
         void
         apply
         (
-            const core::mat4f& model_matrix,
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
+            const core::Mat4f& model_matrix,
+            const core::Mat4f& projection_matrix,
+            const core::Mat4f& view_matrix,
             const core::Vec3f& camera,
             const Light& light
         ) const;
@@ -95,9 +95,9 @@ namespace euphoria::render
         void
         render
         (
-            const core::mat4f& model_matrix,
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
+            const core::Mat4f& model_matrix,
+            const core::Mat4f& projection_matrix,
+            const core::Mat4f& view_matrix,
             const core::Vec3f& camera,
             const Light& light,
             const std::shared_ptr<MaterialOverride>& overridden_materials

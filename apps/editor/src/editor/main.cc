@@ -55,31 +55,31 @@ operator+(const ImVec2& lhs, const ImVec2& rhs)
     return ImVec2 {lhs.x + rhs.x, lhs.y + rhs.y};
 }
 
-struct style_data
+struct StyleData
 {
     ScimedConfig scc;
     CanvasConfig cc;
 };
 
-struct generic_window
+struct GenericWindow
 {
     std::string name;
     bool open = true;
 
-    generic_window() = default;
-    NONCOPYABLE(generic_window);
+    GenericWindow() = default;
+    NONCOPYABLE(GenericWindow);
 
-    virtual ~generic_window() = default;
+    virtual ~GenericWindow() = default;
 
     virtual void
-    run(style_data* style_data) = 0;
+    run(StyleData* style_data) = 0;
 };
 
 template <typename CreateWindowFunction>
 void
 open_or_focus_window
 (
-    std::vector<std::shared_ptr<generic_window>>* windows,
+    std::vector<std::shared_ptr<GenericWindow>>* windows,
     const std::string& title_name,
     CreateWindowFunction create_window_function
 )
@@ -87,7 +87,7 @@ open_or_focus_window
     const auto found = find_first
     (
         *windows,
-        [&](std::shared_ptr<generic_window>& wind) -> bool
+        [&](std::shared_ptr<GenericWindow>& wind) -> bool
         {
             return wind->name == title_name;
         }
@@ -108,41 +108,41 @@ open_or_focus_window
 }
 
 
-struct scimed_window : public generic_window
+struct ScimedWindow : public GenericWindow
 {
     euphoria::editor::Scimed scimed;
 
     void
-    run(style_data* style_data) override
+    run(StyleData* style_data) override
     {
         scimed.run(style_data->cc, style_data->scc);
     }
 };
 
 template <typename TEditorFunction, typename TData>
-struct generic_editor_window : public generic_window
+struct GenericEditorWindow : public GenericWindow
 {
     TData data;
     TEditorFunction edit_function;
 
-    generic_editor_window(TData d, TEditorFunction edit)
+    GenericEditorWindow(TData d, TEditorFunction edit)
         : data(d)
         , edit_function(edit)
     {
     }
 
     void
-    run(style_data*) override
+    run(StyleData*) override
     {
         edit_function(data);
     }
 };
 
 template <typename TEditorFunction, typename TData>
-std::shared_ptr<generic_editor_window<TEditorFunction, TData>>
+std::shared_ptr<GenericEditorWindow<TEditorFunction, TData>>
 create_generic_window(TData data, TEditorFunction edit)
 {
-    return std::make_shared<generic_editor_window<TEditorFunction, TData>>(data, edit);
+    return std::make_shared<GenericEditorWindow<TEditorFunction, TData>>(data, edit);
 }
 
 void
@@ -156,10 +156,10 @@ color_edit4(const char* label, ImU32* color)
     }
 }
 
-struct style_editor_window : generic_window
+struct StyleEditorWindow : GenericWindow
 {
     void
-    run(style_data* s) override
+    run(StyleData* s) override
     {
         color_edit4("Background color", &s->cc.background_color);
         color_edit4("Grid color", &s->cc.grid_color);
@@ -174,18 +174,18 @@ struct style_editor_window : generic_window
 
         if(ImGui::Button("Set Default"))
         {
-            *s = style_data {};
+            *s = StyleData {};
         }
     }
 };
 
-struct text_editor_window : generic_window
+struct TextEditorWindow : GenericWindow
 {
     // todo(Gustav): look into using a more complex text editor?
     // https://github.com/BalazsJako/ImGuiColorTextEdit
     std::vector<char> buffer;
 
-    explicit text_editor_window(const std::string& str)
+    explicit TextEditorWindow(const std::string& str)
     {
         const auto length = str.size();
         buffer.reserve(length + 1);
@@ -194,7 +194,7 @@ struct text_editor_window : generic_window
     }
 
     void
-    run(style_data*) override
+    run(StyleData*) override
     {
         ImGui::InputTextMultiline("", &buffer[0], buffer.capacity(), ImVec2 {-1, -1});
         if(buffer.size() + 2 > buffer.capacity())
@@ -205,7 +205,7 @@ struct text_editor_window : generic_window
     }
 };
 
-using Windows = std::vector<std::shared_ptr<generic_window>>;
+using Windows = std::vector<std::shared_ptr<GenericWindow>>;
 
 void
 open_or_focus_style_editor(Windows* windows)
@@ -216,7 +216,7 @@ open_or_focus_style_editor(Windows* windows)
         "Style editor",
         []()
         {
-            return std::make_shared<style_editor_window>();
+            return std::make_shared<StyleEditorWindow>();
         }
     );
 }
@@ -240,17 +240,17 @@ open_or_focus_text_file
             {
                 str = StringBuilder {} << "Failed to open " << path;
             }
-            return std::make_shared<text_editor_window>(str);
+            return std::make_shared<TextEditorWindow>(str);
         }
     );
 }
 
-struct scaling_sprite_cache
+struct ScalingSpriteCache
     : Cache
     <
         vfs::FilePath,
         scalingsprite::ScalingSprite,
-        scaling_sprite_cache
+        ScalingSpriteCache
     >
 {
     std::shared_ptr<scalingsprite::ScalingSprite>
@@ -267,7 +267,7 @@ load_file
 (
     Scimed* scimed,
     TextureCache* cache,
-    scaling_sprite_cache* shader_cache,
+    ScalingSpriteCache* shader_cache,
     const vfs::FilePath& path
 )
 {
@@ -294,16 +294,16 @@ open_or_focus_scimed
     Windows* windows,
     const vfs::FilePath& file,
     TextureCache* tc,
-    scaling_sprite_cache* sc
+    ScalingSpriteCache* sc
 )
 {
     open_or_focus_window
     (
         windows,
         StringBuilder {} << "scimed: " << file,
-        [&]() -> std::shared_ptr<generic_window>
+        [&]() -> std::shared_ptr<GenericWindow>
         {
-            auto scimed = std::make_shared<scimed_window>();
+            auto scimed = std::make_shared<ScimedWindow>();
             load_file(&scimed->scimed, tc, sc, file);
             return scimed;
         }
@@ -315,7 +315,7 @@ open_or_focus_scimed_editor
 (
     Windows* windows,
     const vfs::FilePath& path,
-    scaling_sprite_cache* sc
+    ScalingSpriteCache* sc
 )
 {
     auto file = path;
@@ -327,7 +327,7 @@ open_or_focus_scimed_editor
     (
         windows,
         StringBuilder {} << "scimed editor: " << file,
-        [&]() -> std::shared_ptr<generic_window>
+        [&]() -> std::shared_ptr<GenericWindow>
         {
             auto sprite = sc->get(file);
             return create_generic_window(sprite, [](auto sprite)
@@ -354,7 +354,7 @@ open_or_focus_on_generic_window
     (
         windows,
         StringBuilder {} << title << ": " << path,
-        [=]() -> std::shared_ptr<generic_window>
+        [=]() -> std::shared_ptr<GenericWindow>
         {
             auto window = create_generic_window
             (
@@ -375,18 +375,18 @@ open_or_focus_on_generic_window
 }
 
 
-struct file_handler
+struct FileHandler
 {
     std::string context_menu;
 
-    explicit file_handler(const std::string& menu)
+    explicit FileHandler(const std::string& menu)
         : context_menu(menu)
     {
     }
 
-    NONCOPYABLE(file_handler);
+    NONCOPYABLE(FileHandler);
 
-    virtual ~file_handler() = default;
+    virtual ~FileHandler() = default;
 
     virtual bool
     matches(const vfs::FilePath& path) = 0;
@@ -396,17 +396,17 @@ struct file_handler
 };
 
 template <typename TMatchFunction, typename TOpenFunction>
-struct generic_file_handler : public file_handler
+struct GenericFileHandler : public FileHandler
 {
     TMatchFunction match_function;
     TOpenFunction open_function;
-    generic_file_handler
+    GenericFileHandler
     (
         const std::string& menu,
         TMatchFunction match,
         TOpenFunction open
     )
-        : file_handler(menu)
+        : FileHandler(menu)
         , match_function(match)
         , open_function(open)
     {
@@ -427,10 +427,10 @@ struct generic_file_handler : public file_handler
 
 
 template <typename TMatchFunction, typename TOpenFunction>
-std::shared_ptr<file_handler>
+std::shared_ptr<FileHandler>
 create_handler(const std::string& menu, TMatchFunction match, TOpenFunction open)
 {
-    return std::make_shared<generic_file_handler<TMatchFunction, TOpenFunction>>
+    return std::make_shared<GenericFileHandler<TMatchFunction, TOpenFunction>>
     (
         menu,
         match,
@@ -438,12 +438,12 @@ create_handler(const std::string& menu, TMatchFunction match, TOpenFunction open
     );
 }
 
-struct file_handler_list
+struct FileHandlerList
 {
-    std::vector<std::shared_ptr<file_handler>> handlers;
+    std::vector<std::shared_ptr<FileHandler>> handlers;
 
     void
-    add(std::shared_ptr<file_handler> handler)
+    add(std::shared_ptr<FileHandler> handler)
     {
         handlers.emplace_back(handler);
     }
@@ -513,15 +513,15 @@ main(int argc, char** argv)
     }
 
     TextureCache texture_cache {engine.file_system.get()};
-    scaling_sprite_cache sprite_cache;
+    ScalingSpriteCache sprite_cache;
 
     bool running = true;
 
     FileBrowser browser {engine.file_system.get()};
     browser.refresh();
-    std::vector<std::shared_ptr<generic_window>> windows;
-    ::style_data style_data;
-    file_handler_list file_types;
+    std::vector<std::shared_ptr<GenericWindow>> windows;
+    ::StyleData style_data;
+    FileHandlerList file_types;
 
     //////////////////////////////////////////////////////////////////////////////
     // File types
@@ -783,7 +783,7 @@ main(int argc, char** argv)
         remove_matching
         (
             &windows,
-            [](const std::shared_ptr<generic_window>& window)
+            [](const std::shared_ptr<GenericWindow>& window)
             {
                 return !window->open;
             }

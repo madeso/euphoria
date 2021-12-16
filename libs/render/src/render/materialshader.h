@@ -54,13 +54,13 @@ namespace euphoria::render
         use_shader();
 
         void
-        set_projection(const core::mat4f& projection_data);
+        set_projection(const core::Mat4f& projection_data);
 
         void
-        set_view(const core::mat4f& view_data);
+        set_view(const core::Mat4f& view_data);
 
         void
-        set_model(const core::mat4f& model_data);
+        set_model(const core::Mat4f& model_data);
 
         void
         setup_light(const Light& light, const core::Vec3f& camera);

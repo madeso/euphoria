@@ -60,11 +60,11 @@ namespace euphoria::gui
         void
         set_rect(const core::Rectf& r);
 
-        [[nodiscard]] core::size2f
+        [[nodiscard]] core::Size2f
         get_preferred_size() const;
 
         [[nodiscard]] virtual
-        core::size2f
+        core::Size2f
         calculate_minimum_size() const = 0;
 
         virtual

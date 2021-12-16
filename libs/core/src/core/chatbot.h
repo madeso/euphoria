@@ -43,7 +43,7 @@ namespace euphoria::core
         struct Input
         {
             std::vector<std::string> words;
-            enum location_type
+            enum LocationType
             {
                 lowest,
                 in_middle,
@@ -55,13 +55,13 @@ namespace euphoria::core
             explicit Input
             (
                 const std::string& input,
-                location_type where = in_middle
+                LocationType where = in_middle
             );
 
             explicit Input
             (
                 const std::vector<std::string>& input,
-                location_type where = in_middle
+                LocationType where = in_middle
             );
         };
 
@@ -94,7 +94,7 @@ namespace euphoria::core
             input
             (
                 const std::string& in,
-                Input::location_type where = Input::at_start
+                Input::LocationType where = Input::at_start
             );
 
             ResponseBuilder&
@@ -133,7 +133,7 @@ namespace euphoria::core
             add_response
             (
                 const std::string& input,
-                Input::location_type where = Input::at_start
+                Input::LocationType where = Input::at_start
             );
         };
 
@@ -173,13 +173,13 @@ namespace euphoria::core
 
         struct ConversationStatus
         {
-            struct topic_entry
+            struct TopicEntry
             {
                 std::string topic;
                 int time;
             };
 
-            struct log_entry
+            struct LogEntry
             {
                 std::vector<std::string> titles;
                 std::vector<std::string> lines;
@@ -188,8 +188,8 @@ namespace euphoria::core
             std::string input;
             std::string response;
             std::string section;
-            std::vector<topic_entry> topics;
-            std::vector<log_entry> logs;
+            std::vector<TopicEntry> topics;
+            std::vector<LogEntry> logs;
         };
     }
 

@@ -48,9 +48,9 @@ namespace euphoria::gui
     }
 
 
-    struct command_button : public Button
+    struct CommandButton : public Button
     {
-        explicit command_button(gui::State* state)
+        explicit CommandButton(gui::State* state)
             : Button(state)
         {
         }
@@ -116,7 +116,7 @@ namespace euphoria::gui
         if(w.button)
         {
             LOG_INFO("Creating a button widget");
-            auto b = std::make_shared<command_button>(state);
+            auto b = std::make_shared<CommandButton>(state);
 
             const std::string skin_name = w.button->skin;
             const auto skin_it = skins.find(skin_name);

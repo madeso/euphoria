@@ -9,7 +9,7 @@ namespace euphoria::core
     void
     set_white_noise
     (
-        bool_table* world,
+        BoolTable* world,
         Lrud<BorderSetupRule> border_control,
         std::function<bool()> rng
     )
@@ -44,8 +44,8 @@ namespace euphoria::core
         int
         count_single_walls
         (
-            const bool_table& world,
-            Lrud<outside_rule> outside_rule,
+            const BoolTable& world,
+            Lrud<OutsideRule> outside_rule,
             int x,
             int y,
             int cx,
@@ -85,16 +85,16 @@ namespace euphoria::core
                 const auto xrule = x < 0 ? outside_rule.left : outside_rule.right;
                 switch (xrule)
                 {
-                case outside_rule::wall:
+                case OutsideRule::wall:
                     return 1;
-                case outside_rule::empty:
+                case OutsideRule::empty:
                     return 0;
-                case outside_rule::mirror:
+                case OutsideRule::mirror:
                     // todo(Gustav): implement this!
                     nx = keep_within(world.get_indices().get_range_x(), x);
                     DIE("Implement this");
                     break;
-                case outside_rule::wrap:
+                case OutsideRule::wrap:
                     nx = wrap(world.get_indices().get_range_x(), x);
                     break;
                 default:
@@ -110,17 +110,17 @@ namespace euphoria::core
                 const auto yrule = y < 0 ? outside_rule.up : outside_rule.down;
                 switch (yrule)
                 {
-                case outside_rule::wall:
+                case OutsideRule::wall:
                     return 1;
-                case outside_rule::empty:
+                case OutsideRule::empty:
                     // pass
                     return 0;
-                case outside_rule::mirror:
+                case OutsideRule::mirror:
                     // todo(Gustav): implement this!
                     ny = keep_within(world.get_indices().get_range_y(), y);
                     DIE("Implement this");
                     break;
-                case outside_rule::wrap:
+                case OutsideRule::wrap:
                     ny = wrap(world.get_indices().get_range_y(), y);
                     break;
                 default:
@@ -144,8 +144,8 @@ namespace euphoria::core
     int
     count_walls_manhattan
     (
-        const bool_table& world,
-        Lrud<outside_rule> outside_rule,
+        const BoolTable& world,
+        Lrud<OutsideRule> outside_rule,
         int cx,
         int cy,
         int step,
@@ -181,8 +181,8 @@ namespace euphoria::core
     int
     count_walls_plus
     (
-        const bool_table& world,
-        Lrud<outside_rule> outside_rule,
+        const BoolTable& world,
+        Lrud<OutsideRule> outside_rule,
         int cx,
         int cy,
         int step,
@@ -220,8 +220,8 @@ namespace euphoria::core
     int
     count_walls_box
     (
-        const bool_table& world,
-        Lrud<outside_rule> outside_rule,
+        const BoolTable& world,
+        Lrud<OutsideRule> outside_rule,
         int cx,
         int cy,
         int step,
@@ -253,8 +253,8 @@ namespace euphoria::core
 
     WallCounter::WallCounter
     (
-        const bool_table& w,
-        Lrud<core::outside_rule> r,
+        const BoolTable& w,
+        Lrud<core::OutsideRule> r,
         int x,
         int y
     )
@@ -272,8 +272,8 @@ namespace euphoria::core
         count_walls
         (
             NeighborhoodAlgorithm algorithm,
-            const bool_table& world,
-            Lrud<outside_rule> outside_rule,
+            const BoolTable& world,
+            Lrud<OutsideRule> outside_rule,
             int cx,
             int cy,
             int step,
@@ -325,12 +325,12 @@ namespace euphoria::core
     void
     smooth_map
     (
-        bool_table* world,
-        Lrud<outside_rule> outside_rule,
+        BoolTable* world,
+        Lrud<OutsideRule> outside_rule,
         std::function<std::optional<bool>(bool, const WallCounter&)> smooth_function
     )
     {
-        const bool_table current = *world;
+        const BoolTable current = *world;
 
         world->set_all([&current, outside_rule, smooth_function](int x, int y)
         {
@@ -343,7 +343,7 @@ namespace euphoria::core
 
 
     std::vector<Vec2i>
-    find_empty_blocks(const bool_table& world)
+    find_empty_blocks(const BoolTable& world)
     {
         auto ret = std::vector<Vec2i>{};
 
@@ -364,12 +364,12 @@ namespace euphoria::core
     std::vector<Vec2i>
     find_flood_fill_items
     (
-        const bool_table& world,
+        const BoolTable& world,
         const Vec2i& start,
         bool allow_diagonals
     )
     {
-        auto visited = bool_table::from_width_height
+        auto visited = BoolTable::from_width_height
         (
             world.get_width(),
             world.get_height(),
@@ -419,11 +419,11 @@ namespace euphoria::core
     }
 
     std::vector<std::vector<Vec2i>>
-    find_empty_regions(const bool_table& world, bool allow_diagonals)
+    find_empty_regions(const BoolTable& world, bool allow_diagonals)
     {
         auto ret = std::vector<std::vector<Vec2i>>{};
 
-        auto visited = bool_table::from_width_height
+        auto visited = BoolTable::from_width_height
         (
             world.get_width(),
             world.get_height(),
@@ -457,7 +457,7 @@ namespace euphoria::core
     Image
     draw
     (
-        const bool_table& world,
+        const BoolTable& world,
         Rgbai wall_color,
         Rgbai space_color,
         int scale,
@@ -487,7 +487,7 @@ namespace euphoria::core
         {
             if(border.has_value() == false) { return space_color; }
 
-            const auto rule = Lrud<outside_rule>{outside_rule::empty};
+            const auto rule = Lrud<OutsideRule>{OutsideRule::empty};
             const auto algorithm = NeighborhoodAlgorithm::plus;
 
             const auto wc = WallCounter{world, rule, x, y};

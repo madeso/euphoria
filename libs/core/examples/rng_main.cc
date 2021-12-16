@@ -83,9 +83,9 @@ struct Runner
     void
     main()
     {
-        print<random_knuth_lcg>("knuth_lcg");
-        print<random_xorshift32>("xorshift32");
-        print<random_xorshift64>("xorshift64");
+        print<RandomLnuthLcg>("knuth_lcg");
+        print<RandomXorShift32>("xorshift32");
+        print<RandomXorShift64>("xorshift64");
 
         const int int_count = 10;
         print_ints<32>("u32", int_count, [](core::Random* r) { return r->get_next_u32();});

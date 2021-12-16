@@ -7,51 +7,51 @@
 namespace euphoria::core::generator
 {
     Vec2i
-    dir_to_offset(const dir d)
+    dir_to_offset(const Direction d)
     {
         switch(d)
         {
-        case dir::south: return Vec2i { 0, -1};
-        case dir::north: return Vec2i { 0, 1};
-        case dir::west: return Vec2i {-1, 0};
-        case dir::east: return Vec2i { 1, 0};
+        case Direction::south: return Vec2i { 0, -1};
+        case Direction::north: return Vec2i { 0, 1};
+        case Direction::west: return Vec2i {-1, 0};
+        case Direction::east: return Vec2i { 1, 0};
         default: return Vec2i(0, 0);
         }
     }
 
 
-    const std::vector<dir>&
+    const std::vector<Direction>&
     all_dirs()
     {
-        const static auto dirs = std::vector<dir> {
-                dir::north, dir::south, dir::east, dir::west};
+        const static auto dirs = std::vector<Direction> {
+                Direction::north, Direction::south, Direction::east, Direction::west};
         return dirs;
     }
 
 
-    dir
-    flip_direction(const dir d)
+    Direction
+    flip_direction(const Direction d)
     {
         switch(d)
         {
-        case dir::north: return dir::south;
-        case dir::south: return dir::north;
-        case dir::east: return dir::west;
-        case dir::west: return dir::east;
-        default: return dir::north;
+        case Direction::north: return Direction::south;
+        case Direction::south: return Direction::north;
+        case Direction::east: return Direction::west;
+        case Direction::west: return Direction::east;
+        default: return Direction::north;
         }
     }
 
 
-    cell::type
-    dir_to_cell_path(const dir d)
+    cell::Type
+    dir_to_cell_path(const Direction d)
     {
         switch(d)
         {
-        case dir::north: return cell::path_north;
-        case dir::south: return cell::path_south;
-        case dir::east: return cell::path_east;
-        case dir::west: return cell::path_west;
+        case Direction::north: return cell::path_north;
+        case Direction::south: return cell::path_south;
+        case Direction::east: return cell::path_east;
+        case Direction::west: return cell::path_west;
         default: return cell::path_north;
         }
     }
@@ -65,7 +65,7 @@ namespace euphoria::core::generator
 
 
     Vec2i
-    add_step_to_maze(Maze* maze, const Vec2i& c, dir dir)
+    add_step_to_maze(Maze* maze, const Vec2i& c, Direction dir)
     {
         const auto o = dir_to_offset(dir);
         const auto np = c + o;
@@ -139,7 +139,7 @@ namespace euphoria::core::generator
     {
         const auto c = stack.top();
 
-        std::vector<dir> neighbours;
+        std::vector<Direction> neighbours;
 
         for(auto d: all_dirs())
         {
@@ -156,7 +156,7 @@ namespace euphoria::core::generator
         }
         else
         {
-            const dir dir = get_random_item_in_vector(random, neighbours);
+            const Direction dir = get_random_item_in_vector(random, neighbours);
             auto np = add_step_to_maze(maze, c, dir);
             stack.push(np);
             visited_cells += 1;
@@ -169,7 +169,7 @@ namespace euphoria::core::generator
     void
     add_to_frontier(
             Maze* maze,
-            std::vector<RandomTraversal::entry>* frontier,
+            std::vector<RandomTraversal::Entry>* frontier,
             const Vec2i& p)
     {
         visit(maze, p);

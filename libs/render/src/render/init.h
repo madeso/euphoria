@@ -13,18 +13,18 @@ namespace euphoria::render
     struct Init
     {
     public:
-        enum class blend_hack
+        enum class BlendHack
         {
             no_hack,
             enable_hack
         };
 
-        explicit Init(LoaderFunction loader, blend_hack blend_hack = blend_hack::no_hack);
+        explicit Init(LoaderFunction loader, BlendHack blend_hack = BlendHack::no_hack);
         ~Init();
 
         NONCOPYABLE(Init);
 
-        [[nodiscard]] core::mat4f
+        [[nodiscard]] core::Mat4f
         get_ortho_projection(float width, float height) const;
 
         // todo(Gustav): move to some better place

@@ -33,12 +33,12 @@ std::vector<Vec2f> generate_random_points(int count, const Rectf& size, euco::Ra
     return r;
 }
 
-enum class distance_function
+enum class DistanceFunction
 {
     euclidian, manhattan, min, max
 };
 
-enum class point_generation
+enum class PointGeneration
 {
     random, poisson
 };
@@ -71,14 +71,14 @@ float max_distance(const Vec2f& lhs, const Vec2f& rhs)
     return max(d.x, d.y);
 }
 
-float get_distance(distance_function f, const Vec2f& lhs, const Vec2f& rhs)
+float get_distance(DistanceFunction f, const Vec2f& lhs, const Vec2f& rhs)
 {
     switch(f)
     {
-        case distance_function::euclidian: return euclidian_distance(lhs, rhs);
-        case distance_function::manhattan: return manhattan_distance(lhs, rhs);
-        case distance_function::min: return min_distance(lhs, rhs);
-        case distance_function::max: return max_distance(lhs, rhs);
+        case DistanceFunction::euclidian: return euclidian_distance(lhs, rhs);
+        case DistanceFunction::manhattan: return manhattan_distance(lhs, rhs);
+        case DistanceFunction::min: return min_distance(lhs, rhs);
+        case DistanceFunction::max: return max_distance(lhs, rhs);
     }
     DIE("Unhandled distancfe function");
     return 0.0f;
@@ -90,9 +90,9 @@ main(int argc, char* argv[])
 {
     auto size = 512;
 
-    auto distance_function = distance_function::euclidian;
+    auto distance_function = DistanceFunction::euclidian;
 
-    auto point_generation = point_generation::random;
+    auto point_generation = PointGeneration::random;
     auto number_of_points = 30;
     auto poisson_radius = 10.0f;
     auto use_colorblind = false;
@@ -123,7 +123,7 @@ main(int argc, char* argv[])
 
     const auto area = Rectf::from_width_height(c_sizet_to_float(size), c_sizet_to_float(size));
     const auto random_points =
-        point_generation == point_generation::random
+        point_generation == PointGeneration::random
         ? generate_random_points(number_of_points, area, &rand)
         : poisson_sample(area, &rand, poisson_radius*2, poisson_radius);
 

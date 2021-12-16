@@ -93,13 +93,13 @@ namespace euphoria::core
     void
     match_palette_dither(Image* image, const Palette& palette)
     {
-        struct color_error
+        struct ColorError
         {
             float r = 0;
             float g = 0;
             float b = 0;
         };
-        auto errors = Table<color_error>::from_width_height(image->width, image->height);
+        auto errors = Table<ColorError>::from_width_height(image->width, image->height);
         const auto errors_range = errors.get_indices();
 
         *image = create_new_image_from(*image, [&](int x, int y)
@@ -114,7 +114,7 @@ namespace euphoria::core
             const auto palette_color = palette.get_closest_color(crgbi(new_color));
 
             const auto pcf = crgb(palette_color);
-            const auto error = color_error
+            const auto error = ColorError
             {
                 new_color.r - pcf.r,
                 new_color.g - pcf.g,

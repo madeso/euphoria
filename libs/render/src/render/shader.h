@@ -39,11 +39,11 @@ namespace euphoria::render
         [[nodiscard]] bool
         is_currently_bound() const;
 
-        [[nodiscard]] gluint
+        [[nodiscard]] OpenglUint
         get_id() const;
 
     private:
-        gluint id;
+        OpenglUint id;
     };
 
 
@@ -64,9 +64,9 @@ namespace euphoria::render
         bool
         compile
         (
-            const glchar* vertex_source,
-            const glchar* fragment_source,
-            const glchar* geometry_source = nullptr
+            const OpenglChar* vertex_source,
+            const OpenglChar* fragment_source,
+            const OpenglChar* geometry_source = nullptr
         );
 
         // uniform = shader global
@@ -74,7 +74,7 @@ namespace euphoria::render
         get_uniform(const std::string& name);
 
         void
-        set_uniform(const ShaderUniform& attribute, glint val);
+        set_uniform(const ShaderUniform& attribute, OpenglInt val);
 
         void
         set_uniform(const ShaderUniform& attribute, float val);
@@ -95,7 +95,7 @@ namespace euphoria::render
         set_uniform(const ShaderUniform& attribute, const core::Mat3f& val);
 
         void
-        set_uniform(const ShaderUniform& attribute, const core::mat4f& val);
+        set_uniform(const ShaderUniform& attribute, const core::Mat4f& val);
 
         void
         set_uniform(const ShaderUniform& attribute, const core::Rectf& val);
@@ -131,7 +131,7 @@ namespace euphoria::render
             Texture2* texture,
             ShaderProgram* shader,
             const ShaderUniform& attribute,
-            glint index
+            OpenglInt index
     );
 
 }

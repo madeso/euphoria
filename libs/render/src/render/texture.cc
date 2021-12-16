@@ -14,7 +14,7 @@
 
 namespace
 {
-    euphoria::render::glint
+    euphoria::render::OpenglInt
     con(euphoria::render::TextureWrap v)
     {
         switch(v)
@@ -29,7 +29,7 @@ namespace
     }
 
 
-    euphoria::render::glint
+    euphoria::render::OpenglInt
     con(euphoria::render::FilterMagnification v)
     {
         switch(v)
@@ -44,7 +44,7 @@ namespace
     }
 
 
-    euphoria::render::glint
+    euphoria::render::OpenglInt
     con(euphoria::render::FilterMinification v)
     {
         switch(v)

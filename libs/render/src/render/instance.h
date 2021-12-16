@@ -17,14 +17,14 @@ namespace euphoria::render
 
         NONCOPYABLE(Instance);
 
-        [[nodiscard]] core::mat4f
+        [[nodiscard]] core::Mat4f
         calculate_model_matrix() const;
 
         virtual void
         render
         (
-            const core::mat4f& projection_matrix,
-            const core::mat4f& view_matrix,
+            const core::Mat4f& projection_matrix,
+            const core::Mat4f& view_matrix,
             const core::Vec3f& camera,
             const Light& light
         ) = 0;

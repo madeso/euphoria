@@ -30,12 +30,12 @@ main()
     VirtualConsole cmdline;
     cmdline.register_command(
             "debug",
-            [&chatbot](VirtualConsole::print_function, const VirtualConsole::args& args) {
+            [&chatbot](VirtualConsole::PrintFunction, const VirtualConsole::Args& args) {
                 std::cout << chatbot.debug_last_response(args);
                 std::cout << "\n\n";
             });
     cmdline.register_command(
-            "kill", [&chatbot](VirtualConsole::print_function, const VirtualConsole::args&) {
+            "kill", [&chatbot](VirtualConsole::PrintFunction, const VirtualConsole::Args&) {
                 chatbot.is_in_conversation = false;
                 std::cout << "Killing chatbot.\n\n";
             });

@@ -195,7 +195,7 @@ namespace euphoria::core
 
 
     Angle
-    angle_transform::transform(const Angle& from, float v, const Angle& to)
+    AngleTransform::transform(const Angle& from, float v, const Angle& to)
     {
         return Angle::from_radians(lerp(from.in_radians(), v, to.in_radians()));
     }

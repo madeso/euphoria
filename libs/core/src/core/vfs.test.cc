@@ -11,7 +11,7 @@ using namespace euphoria::core::vfs;
 namespace euco = euphoria::core;
 
 
-struct always_exist_root : public ReadRoot
+struct AlwaysExistRoot : public ReadRoot
 {
 public:
     std::shared_ptr<euco::MemoryChunk>
@@ -34,7 +34,7 @@ public:
 };
 
 
-struct never_exist_root : public ReadRoot
+struct NeverExistRoot : public ReadRoot
 {
 public:
     std::shared_ptr<euco::MemoryChunk>
@@ -61,14 +61,14 @@ TEST_CASE("vfs-test_basic", "[vfs]")
     SECTION("always")
     {
         FileSystem always;
-        always.add_read_root(std::make_shared<always_exist_root>());
+        always.add_read_root(std::make_shared<AlwaysExistRoot>());
         REQUIRE(always.read_file(FilePath{"~/dog"}) != nullptr);
     }
 
     SECTION("never")
     {
         FileSystem never;
-        never.add_read_root(std::make_shared<never_exist_root>());
+        never.add_read_root(std::make_shared<NeverExistRoot>());
         REQUIRE(never.read_file(FilePath{"~/dog"}) == nullptr);
     }
 }

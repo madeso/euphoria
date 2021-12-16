@@ -79,7 +79,7 @@ namespace euphoria::core
     void
     render_retro(Image* image, U32 code)
     {
-        render_retro_impl<random_xorshift32>(image, code);
+        render_retro_impl<RandomXorShift32>(image, code);
     }
 }
 

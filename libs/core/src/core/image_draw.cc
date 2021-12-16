@@ -555,7 +555,7 @@ namespace euphoria::core
         const Vec2i& position,
         const Image& source_image,
         BlendMode blend_mode,
-        pixels_outside clip
+        PixelsOutside clip
     )
     {
         ASSERT(dest_image);
@@ -568,7 +568,7 @@ namespace euphoria::core
                 const auto dest_y = position.y + y;
                 if
                 (
-                    clip == pixels_outside::discard &&
+                    clip == PixelsOutside::discard &&
                     is_within(dest_image->get_indices(), Vec2i(dest_x, dest_y)) == false
                 )
                 {
