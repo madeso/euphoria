@@ -6,7 +6,7 @@
 
 namespace euphoria::render
 {
-    ShaderUniform::ShaderUniform(std::string aname, OpenglInt aid, render::ShaderProgram* ashader)
+    ShaderUniform::ShaderUniform(std::string aname, gl::Int aid, render::ShaderProgram* ashader)
         : name(std::move(aname))
         , id(aid)
         , shader(ashader)

@@ -33,7 +33,7 @@ namespace euphoria::render
     void
     VertexBuffer::bind(const VertexBuffer* vbo)
     {
-        const OpenglUint id = vbo != nullptr ? vbo->id_ : 0;
+        const gl::Uint id = vbo != nullptr ? vbo->id_ : 0;
         glBindBuffer(GL_ARRAY_BUFFER, id);
         get_bound() = vbo;
     }
@@ -106,7 +106,7 @@ namespace euphoria::render
     void
     PointLayout::bind(const PointLayout* vao)
     {
-        const OpenglUint id = vao != nullptr ? vao->id_ : 0;
+        const gl::Uint id = vao != nullptr ? vao->id_ : 0;
         glBindVertexArray(id);
         get_bound() = vao;
     }
@@ -192,7 +192,7 @@ namespace euphoria::render
     void
     IndexBuffer::bind(const IndexBuffer* ebo)
     {
-        const OpenglUint id = ebo != nullptr ? ebo->id_ : 0;
+        const gl::Uint id = ebo != nullptr ? ebo->id_ : 0;
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);
         get_bound() = ebo;
     }

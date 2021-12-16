@@ -1,11 +1,9 @@
 #pragma once
 
-namespace euphoria::render
+namespace euphoria::render::gl
 {
-    // todo(Gustav): move to a (open)gl namespace
-
-    using OpenglFloat = float;
-    using OpenglUint = unsigned int;
-    using OpenglInt = int;
-    using OpenglChar = char;
+    using Float = float;
+    using Uint = unsigned int;
+    using Int = int;
+    using Char = char;
 }

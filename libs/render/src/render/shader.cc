@@ -264,7 +264,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, OpenglInt val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, gl::Int val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -450,7 +450,7 @@ namespace euphoria::render
         Texture2* texture,
         ShaderProgram* shader,
         const ShaderUniform& attribute,
-        OpenglInt index
+        gl::Int index
     )
     {
         ASSERT(index < 16); // at most 16 texture units

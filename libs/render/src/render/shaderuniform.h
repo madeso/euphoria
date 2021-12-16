@@ -14,7 +14,7 @@ namespace euphoria::render
     struct ShaderUniform
     {
     public:
-        ShaderUniform(std::string aname, OpenglInt aid, render::ShaderProgram* ashader);
+        ShaderUniform(std::string aname, gl::Int aid, render::ShaderProgram* ashader);
 
         ~ShaderUniform() = default;
         ShaderUniform(const ShaderUniform&) = default;
@@ -29,7 +29,7 @@ namespace euphoria::render
         is_null() const;
 
         std::string name;
-        OpenglInt id;
+        gl::Int id;
         render::ShaderProgram* shader;
 
     private:

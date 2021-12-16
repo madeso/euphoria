@@ -9,7 +9,7 @@ namespace euphoria::render
     {
     }
 
-    OpenglUint
+    gl::Uint
     Id::get_id() const
     {
         return id_;
