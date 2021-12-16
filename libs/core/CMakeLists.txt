@@ -42,7 +42,7 @@ set(app_src_math
     src/core/vec3.cc src/core/vec3.h
     src/core/vec4.cc src/core/vec4.h
     src/core/quat.cc src/core/quat.h
-    src/core/easing.cc
+    src/core/easing.cc src/core/easing.h
 )
 
 set(app_src_cli
