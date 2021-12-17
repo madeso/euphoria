@@ -148,6 +148,11 @@ namespace euphoria::render
         );
 
         // todo(Gustav): handle error better
+        if (font_root.sources.empty())
+        {
+            LOG_ERROR("Missing sources in {}", font_file);
+            return;
+        }
         
         for(const auto& source: font_root.sources)
         {
