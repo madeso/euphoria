@@ -74,7 +74,7 @@ namespace
     }
 
 
-    struct test_printer : public Printer
+    struct TestPrinter : public Printer
     {
         std::vector<Message> messages;
 
@@ -167,7 +167,7 @@ namespace
 TEST_CASE("argparse", "[argparse]")
 {
     auto parser = argparse::Parser{};
-    auto output = std::make_shared<test_printer>();
+    auto output = std::make_shared<TestPrinter>();
     parser.printer = output;
 
 
@@ -888,7 +888,7 @@ TEST_CASE("argparse", "[argparse]")
 TEST_CASE("argparse_error", "[argparse]")
 {
     auto parser = argparse::Parser{};
-    auto output = std::make_shared<test_printer>();
+    auto output = std::make_shared<TestPrinter>();
     parser.printer = output;
 
     SECTION("default")

@@ -60,9 +60,9 @@ load_images(const std::vector<std::string>& files)
 }
 
 
-struct extracted_color
+struct ExtractedColor
 {
-    extracted_color(const Rgbi& r, int c)
+    ExtractedColor(const Rgbi& r, int c)
         : color(r)
         , count(c)
     {
@@ -74,7 +74,7 @@ struct extracted_color
 
 
 int
-find(std::vector<extracted_color>* psource, const Rgbi& color, float length)
+find(std::vector<ExtractedColor>* psource, const Rgbi& color, float length)
 {
     auto& source = *psource;
 
@@ -90,10 +90,10 @@ find(std::vector<extracted_color>* psource, const Rgbi& color, float length)
     return c_sizet_to_int(source.size()) - 1;
 }
 
-std::vector<extracted_color>
+std::vector<ExtractedColor>
 extract_colors(const std::vector<ImageAndFile>& images, float range)
 {
-    auto ret = std::vector<extracted_color>{};
+    auto ret = std::vector<ExtractedColor>{};
 
     for(const auto& img: images)
     {
@@ -111,7 +111,7 @@ extract_colors(const std::vector<ImageAndFile>& images, float range)
 }
 
 
-std::vector<extracted_color>
+std::vector<ExtractedColor>
 extract_colors(const std::vector<ImageAndFile>& images)
 {
     std::map<int, int> colors;
@@ -129,7 +129,7 @@ extract_colors(const std::vector<ImageAndFile>& images)
         }
     }
 
-    auto ret = std::vector<extracted_color>{};
+    auto ret = std::vector<ExtractedColor>{};
     for(const auto c: colors)
     {
         ret.emplace_back(Rgbi::from_hex(c.first), c.second);
