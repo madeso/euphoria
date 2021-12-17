@@ -168,7 +168,7 @@ namespace euphoria::window::imgui
         ImTextureID tex_id = c_texture_to_imgui(texture); // NOLINT: auto is preferred but a texture is a hidden pointer
 
         ImVec2 tex_screen_pos = ImGui::GetCursorScreenPos();
-        label(fmt::format("{.0f}x{.0f}", tex_w, tex_h));
+        label(fmt::format("{:.0}x{:.0}", tex_w, tex_h));
         ImGui::Image(
                 tex_id,
                 ImVec2(tex_w, tex_h),
@@ -199,8 +199,8 @@ namespace euphoria::window::imgui
             {
                 focus_y = tex_h - focus_sz;
             }
-            label(fmt::format("Min: ({.2f}, {.2f})", focus_x, focus_y));
-            label(fmt::format("Max: ({.2f}, {.2f})", focus_x + focus_sz, focus_y + focus_sz));
+            label(fmt::format("Min: ({:.2f}, {:.2f})", focus_x, focus_y));
+            label(fmt::format("Max: ({:.2f}, {:.2f})", focus_x + focus_sz, focus_y + focus_sz));
             ImVec2 uv0 = ImVec2((focus_x) / tex_w, (focus_y) / tex_h);
             ImVec2 uv1 = ImVec2(
                     (focus_x + focus_sz) / tex_w, (focus_y + focus_sz) / tex_h);
