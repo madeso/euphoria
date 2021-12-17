@@ -146,8 +146,8 @@ namespace euphoria::core::vfs
     bool
     FileSystem::read_file_to_string
     (
-            const FilePath& path,
-            std::string* source
+        const FilePath& path,
+        std::string* source
     )
     {
         ASSERT(source);

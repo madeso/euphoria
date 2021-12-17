@@ -246,18 +246,18 @@ namespace euphoria::gui
         ret.dy = src.dy;
         ret.interpolation_color =
         {
-                load(src.interpolate_color),
-                src.interpolate_color_time
+            load(src.interpolate_color),
+            src.interpolate_color_time
         };
         ret.interpolation_size =
         {
-                load(src.interpolate_size),
-                src.interpolate_size_time
+            load(src.interpolate_size),
+            src.interpolate_size_time
         };
         ret.interpolation_position =
         {
-                load(src.interpolate_position),
-                src.interpolate_position_time
+            load(src.interpolate_position),
+            src.interpolate_position_time
         };
         return ret;
     }
