@@ -40,8 +40,11 @@ target_link_libraries(gui
 file(GLOB all_examples_src examples/*.cc)
 source_group("" FILES ${all_examples_src})
 
-add_executable(examples-gui WIN32 MACOSX_BUNDLE examples/gui.cc)
-set_target_properties(examples-gui PROPERTIES FOLDER "Examples/GUI")
+add_executable(examples-gui MACOSX_BUNDLE examples/gui.cc)
+set_target_properties(examples-gui PROPERTIES
+    FOLDER "Examples/GUI"
+    VS_DEBUGGER_WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/data/dist/gui
+)
 target_link_libraries(examples-gui
     PRIVATE
         project_options
