@@ -30,7 +30,33 @@ namespace euphoria::core
         //     dir/file.txt is missing in ~/folder/
         //     or
         //     ~/folder/[dir/file.txt] exists...
-        return StringBuilder() << p << " roots: "<< fs->get_roots_as_string();
+
+        constexpr std::size_t max_items = 3;
+
+        const auto files = fs->list_files(p.get_directory());
+        const auto file_name = p.get_file_with_extension();
+        const auto values = map<std::string>
+        (
+            search::find_closest<search::Match>
+            (
+                max_items, files,
+                [&](const auto& value) -> search::Match
+                {
+                    // todo(Gustav): ignore directories?
+                    return {value.name, file_name};
+                }
+            ),
+            [](const search::Match& m)
+            {
+                return m.name;
+            }
+        );
+        const auto all_entries = string_mergers::array.merge(map<std::string>(files, [](const auto& f) { return f.name; }));
+        const auto closest = string_mergers::english_or.merge(values);
+
+        return StringBuilder()
+            << "File " << p << " is requrested with roots: "
+            << fs->get_roots_as_string() << ". All entries: " << all_entries << ". Did you mean " << closest << "?";
     }
 
     std::optional<std::string>
