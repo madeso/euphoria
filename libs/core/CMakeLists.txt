@@ -203,7 +203,6 @@ target_link_libraries(core
         crc32
         font8x8
         font8x13
-        aheasing
         file_types
         assimp
         stb_truetype

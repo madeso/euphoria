@@ -57,25 +57,25 @@ namespace euphoria::gui
             if(last_state != state)
             {
                 last_state = state;
-                scale.Clear().Add
+                scale.set
                 (
                     state->interpolation_size.type,
                     state->scale,
                     state->interpolation_size.time
                 );
-                image_color.Clear().Add
+                image_color.set
                 (
                     state->interpolation_color.type,
                     state->image_color,
                     state->interpolation_color.time
                 );
-                text_color.Clear().Add
+                text_color.set
                 (
                     state->interpolation_color.type,
                     state->text_color,
                     state->interpolation_color.time
                 );
-                position_displacement.Clear().Add
+                position_displacement.set
                 (
                     state->interpolation_position.type,
                     core::Vec2f(state->dx, state->dy),
@@ -83,11 +83,11 @@ namespace euphoria::gui
                 );
             }
 
-            scale.Update(dt);
-            image_color.Update(dt);
-            text_color.Update(dt);
-            position_displacement.Update(dt);
-            text.set_size(skin_->text_size * scale.GetValue());
+            scale.update(dt);
+            image_color.update(dt);
+            text_color.update(dt);
+            position_displacement.update(dt);
+            text.set_size(skin_->text_size * scale.value);
         }
     }
 
@@ -128,19 +128,19 @@ namespace euphoria::gui
             {
                 const auto background_rect = get_background_rect();
 
-                ASSERTX(scale.GetValue() > 0, scale.GetValue());
+                ASSERTX(scale.value > 0, scale.value);
                 const auto scaled = background_rect.get_scaled_around_center_copy
                 (
-                        scale.GetValue()
+                    scale.value
                 );
                 ASSERTX(scaled.get_width() > 0, scaled.get_width());
                 ASSERTX(scaled.get_height() > 0, scaled.get_height());
                 renderer->draw_ninepatch
-                        (
-                                *sprite,
-                                scaled.offset_copy(position_displacement.GetValue()),
-                                image_color.GetValue()
-                        );
+                (
+                    *sprite,
+                    scaled.offset_copy(position_displacement.value),
+                    image_color.value
+                );
             }
 
             if(text.has_text())
@@ -150,8 +150,8 @@ namespace euphoria::gui
 
                 const auto base = ex.center_inside_other(get_client_rect());
                 const auto base_pos = base.get_bottom_left();
-                const auto p = base_pos + position_displacement.GetValue();
-                text.get_text().draw(renderer, p, text_color.GetValue());
+                const auto p = base_pos + position_displacement.value;
+                text.get_text().draw(renderer, p, text_color.value);
             }
         }
     }

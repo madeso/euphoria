@@ -1,57 +1,19 @@
 package gui;
 
 enum InterpolationType {
-  Linear,
+    linear,
+    
+    // also called ease in
+    // start slow, end quick
+    smooth_start2, smooth_start3, smooth_start4,
 
-  // Quadratic easing; p^2
-  QuadIn,
-  QuadOut,
-  Quad,
+    // also called ease out
+    // start fast, end slow
+    smooth_stop2, smooth_stop3, smooth_stop4,
 
-  // Cubic easing; p^3
-  CubicIn,
-  CubicOut,
-  Cubic,
-
-  // Quartic easing; p^4
-  QuartIn,
-  QuartOut,
-  Quart,
-
-  // Quintic easing; p^5
-  QuintIn,
-  QuintOut,
-  Quint,
-
-  // Sine wave easing; sin(p * PI/2
-  SineIn,
-  SineOut,
-  Sine,
-
-  // Circular easing; sqrt(1 - p^2
-  CircIn,
-  CircOut,
-  Circ,
-
-  // Exponential easing, base 2
-  ExpIn,
-  ExpOut,
-  Exp,
-
-  // Exponentially-damped sine wave easing
-  ElasticIn,
-  ElasticOut,
-  Elastic,
-
-  // Overshooting cubic easing;
-  BackIn,
-  BackOut,
-  Back,
-
-  // Exponentially-decaying bounce easing
-  BounceIn,
-  BounceOut,
-  Bounce
+    // also called ease in and out
+    // start slow, end slow
+    smooth_step2, smooth_step3, smooth_step4
 }
 
 struct Button {
@@ -126,13 +88,13 @@ struct ButtonState {
   float dx;
   float dy;
 
-  InterpolationType interpolate_position = Linear;
+  InterpolationType interpolate_position = linear;
   float interpolate_position_time = 0.1f;
 
-  InterpolationType interpolate_color = Linear;
+  InterpolationType interpolate_color = linear;
   float interpolate_color_time = 0.1f;
 
-  InterpolationType interpolate_size = Linear;
+  InterpolationType interpolate_size = linear;
   float interpolate_size_time = 0.1f;
 }
 

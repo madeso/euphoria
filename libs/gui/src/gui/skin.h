@@ -19,7 +19,7 @@ namespace euphoria::gui
 {
     struct Interpolation
     {
-        core::InterpolationType type = core::InterpolationType::Linear;
+        core::easing::Function type = core::easing::Function::linear;
         float time = 0.0f;
     };
 

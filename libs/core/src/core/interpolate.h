@@ -1,408 +1,100 @@
 #pragma once
 
-// todo(Gustav): this seems way to complicated... why is there a deque here?
-// I think we could just remove it and use a 'is tweening or not' logic
-
+#include "core/easing.h"
 #include "core/assert.h"
-#include <deque>
+
 
 namespace euphoria::core
 {
-    namespace easing
-    {
-#define FUN(NAME, FUNC) float NAME(float value);
-        // Linear interpolation (no easing)
-        FUN(Linear, LinearInterpolation)
-
-        // Quadratic easing; p^2
-        FUN(QuadIn, QuadraticEaseIn)
-        FUN(QuadOut, QuadraticEaseOut)
-        FUN(Quad, QuadraticEaseInOut)
-
-        // Cubic easing; p^3
-        FUN(CubicIn, CubicEaseIn)
-        FUN(CubicOut, CubicEaseOut)
-        FUN(Cubic, CubicEaseInOut)
-
-        // Quartic easing; p^4
-        FUN(QuartIn, QuarticEaseIn)
-        FUN(QuartOut, QuarticEaseOut)
-        FUN(Quart, QuarticEaseInOut)
-
-        // Quintic easing; p^5
-        FUN(QuintIn, QuinticEaseIn)
-        FUN(QuintOut, QuinticEaseOut)
-        FUN(Quint, QuinticEaseInOut)
-
-        // Sine wave easing; sin(p * PI/2)
-        FUN(SineIn, SineEaseIn)
-        FUN(SineOut, SineEaseOut)
-        FUN(Sine, SineEaseInOut)
-
-        // Circular easing; sqrt(1 - p^2)
-        FUN(CircIn, CircularEaseIn)
-        FUN(CircOut, CircularEaseOut)
-        FUN(Circ, CircularEaseInOut)
-
-        // Exponential easing, base 2
-        FUN(ExpIn, ExponentialEaseIn)
-        FUN(ExpOut, ExponentialEaseOut)
-        FUN(Exp, ExponentialEaseInOut)
-
-        // Exponentially-damped sine wave easing
-        FUN(ElasticIn, ElasticEaseIn)
-        FUN(ElasticOut, ElasticEaseOut)
-        FUN(Elastic, ElasticEaseInOut)
-
-        // Overshooting cubic easing;
-        FUN(BackIn, BackEaseIn)
-        FUN(BackOut, BackEaseOut)
-        FUN(Back, BackEaseInOut)
-
-        // Exponentially-decaying bounce easing
-        FUN(BounceIn, BounceEaseIn)
-        FUN(BounceOut, BounceEaseOut)
-        FUN(Bounce, BounceEaseInOut)
-#undef FUN
-    }
-
-    enum class InterpolationType
-    {
-#define FUN(NAME, FUNC) NAME,
-        // Linear interpolation (no easing)
-        FUN(Linear, LinearInterpolation)
-
-        // Quadratic easing; p^2
-        FUN(QuadIn, QuadraticEaseIn) FUN(QuadOut, QuadraticEaseOut)
-        FUN(Quad, QuadraticEaseInOut)
-
-        // Cubic easing; p^3
-        FUN(CubicIn, CubicEaseIn) FUN(CubicOut, CubicEaseOut)
-        FUN(Cubic, CubicEaseInOut)
-
-        // Quartic easing; p^4
-        FUN(QuartIn, QuarticEaseIn) FUN(QuartOut, QuarticEaseOut)
-        FUN(Quart, QuarticEaseInOut)
-
-        // Quintic easing; p^5
-        FUN(QuintIn, QuinticEaseIn) FUN(QuintOut, QuinticEaseOut)
-        FUN(Quint, QuinticEaseInOut)
-
-        // Sine wave easing; sin(p * PI/2)
-        FUN(SineIn, SineEaseIn) FUN(SineOut, SineEaseOut)
-        FUN(Sine, SineEaseInOut)
-
-        // Circular easing; sqrt(1 - p^2)
-        FUN(CircIn, CircularEaseIn) FUN(CircOut, CircularEaseOut)
-        FUN(Circ, CircularEaseInOut)
-
-        // Exponential easing, base 2
-        FUN(ExpIn, ExponentialEaseIn) FUN(ExpOut, ExponentialEaseOut)
-        FUN(Exp, ExponentialEaseInOut)
-
-        // Exponentially-damped sine wave easing
-        FUN(ElasticIn, ElasticEaseIn) FUN(ElasticOut, ElasticEaseOut)
-        FUN(Elastic, ElasticEaseInOut)
-
-        // Overshooting cubic easing;
-        FUN(BackIn, BackEaseIn) FUN(BackOut, BackEaseOut)
-        FUN(Back, BackEaseInOut)
-
-        // Exponentially-decaying bounce easing
-        FUN(BounceIn, BounceEaseIn) FUN(BounceOut, BounceEaseOut)
-        FUN(Bounce, BounceEaseInOut)
-#undef FUN
-        INVALID
-    };
-
     struct FloatTransform
     {
         static float
         Transform(float from, float v, float to);
     };
 
+
     // Transform should have a function Transform(T from, float zeroToOne, T to)
-    template <typename Type, typename Transform>
+    template <typename Type, typename Transformer>
     struct Interpolate
     {
-        using This = Interpolate<Type, Transform>;
+        using Self = Interpolate<Type, Transformer>;
+
+        static constexpr float transition_ended = 2.0f;
+
+        Type from;
+        Type to;
+        Type value;
+
+        float t = 1.0f;
+        float speed = 1.0f;
+        easing::Function easing_function = easing::Function::linear;
 
         explicit Interpolate(Type v)
-            : value_(v), from_(v), position_in_current_interpolation_(0.0f)
-        {}
-
-        [[nodiscard]] bool
-        HasSteps() const
+            : from(v)
+            , to(v)
+            , value(v)
         {
-            return !data_.empty();
         }
 
-        const Type&
-        Debug_GetFrom() const
+        Self&
+        clear()
         {
-            return from_;
-        }
-
-        const Type&
-        GetValue() const
-        {
-            return value_;
-        }
-
-        This&
-        SetValue(const Type& t)
-        {
-            value_ = t;
-            Clear();
+            t = transition_ended;
             return *this;
         }
 
-        operator const Type&() const
+        Self&
+        set(const Type& new_value)
         {
-            return GetValue();
+            value = new_value;
+            t = transition_ended;
+            return *this;
         }
 
-        Interpolate&
-        operator=(const Type& rhs)
+        void
+        set(const Type& new_value, easing::Function f, float time)
         {
-            SetValue(rhs);
-            return *this;
+            ASSERT(time >= 0.0f);
+
+            from = value;
+            to = new_value;
+            easing_function = f;
+            t = 0.0f;
+            speed = 1.0f / time;
+        }
+
+        void
+        set(easing::Function f, const Type& new_value, float time)
+        {
+            set(new_value, f, time);
         }
 
         bool
-        UpdateValueFromInterpolationPosition()
+        is_active() const
         {
-            if(data_.empty())
-            {
-                return false;
-            }
-            const InterpolationData<Type>& d = data_.front();
-            if(d.type != nullptr)
-            {
-                const float interpolated = d.type(position_in_current_interpolation_);
-                value_ = Transform::Transform(from_, interpolated, d.target);
-            }
-            return true;
+            return t < 1.0f;
         }
 
         void
-        Update(float adt)
+        update(float dt)
         {
-            float dt = adt;
-
-            while(dt > 0.0f)
+            if(t >= 1.0f)
             {
-                if(data_.empty())
-                {
-                    UpdateValueFromInterpolationPosition();
-                    return;
-                }
-                const InterpolationData<Type>& d = data_.front();
-                position_in_current_interpolation_ += dt / d.time;
-                const bool over = position_in_current_interpolation_ >= 1.0f;
-
-                // update the delta time for the next interpolation step
-                if(over)
-                {
-                    dt = (1 - position_in_current_interpolation_) * d.time;
-                }
-                else
-                {
-                    dt = -1;
-                }
-
-                if(over)
-                {
-                    position_in_current_interpolation_ -= 1.0f;
-                    value_ = d.target;
-                    data_.pop_front();
-                    from_ = value_;
-                }
+                return;
             }
+            
+            t += dt * speed;
 
-            UpdateValueFromInterpolationPosition();
-        }
-
-        This&
-        Clear()
-        {
-            data_.clear();
-            position_in_current_interpolation_ = 0.0f;
-            return *this;
-        }
-
-        This&
-        Sleep(float time)
-        {
-            AddInterpolation(nullptr, value_, time);
-            return *this;
-        }
-
-#define FUN(NAME, FUNC) \
-        This& NAME(const Type& target, float time) \
-        { \
-            AddInterpolation(easing::NAME, target, time); \
-            return *this; \
-        }
-
-        // Linear interpolation (no easing)
-        FUN(Linear, LinearInterpolation)
-
-        // Quadratic easing; p^2
-        FUN(QuadIn, QuadraticEaseIn)
-        FUN(QuadOut, QuadraticEaseOut)
-        FUN(Quad, QuadraticEaseInOut)
-
-        // Cubic easing; p^3
-        FUN(CubicIn, CubicEaseIn)
-        FUN(CubicOut, CubicEaseOut)
-        FUN(Cubic, CubicEaseInOut)
-
-        // Quartic easing; p^4
-        FUN(QuartIn, QuarticEaseIn)
-        FUN(QuartOut, QuarticEaseOut)
-        FUN(Quart, QuarticEaseInOut)
-
-        // Quintic easing; p^5
-        FUN(QuintIn, QuinticEaseIn)
-        FUN(QuintOut, QuinticEaseOut)
-        FUN(Quint, QuinticEaseInOut)
-
-        // Sine wave easing; sin(p * PI/2)
-        FUN(SineIn, SineEaseIn)
-        FUN(SineOut, SineEaseOut)
-        FUN(Sine, SineEaseInOut)
-
-        // Circular easing; sqrt(1 - p^2)
-        FUN(CircIn, CircularEaseIn)
-        FUN(CircOut, CircularEaseOut)
-        FUN(Circ, CircularEaseInOut)
-
-        // Exponential easing, base 2
-        FUN(ExpIn, ExponentialEaseIn)
-        FUN(ExpOut, ExponentialEaseOut)
-        FUN(Exp, ExponentialEaseInOut)
-
-        // Exponentially-damped sine wave easing
-        FUN(ElasticIn, ElasticEaseIn)
-        FUN(ElasticOut, ElasticEaseOut)
-        FUN(Elastic, ElasticEaseInOut)
-
-        // Overshooting cubic easing;
-        FUN(BackIn, BackEaseIn)
-        FUN(BackOut, BackEaseOut)
-        FUN(Back, BackEaseInOut)
-
-        // Exponentially-decaying bounce easing
-        FUN(BounceIn, BounceEaseIn)
-        FUN(BounceOut, BounceEaseOut)
-        FUN(Bounce, BounceEaseInOut)
-#undef FUN
-
-        This&
-        Add(InterpolationType type, const Type& target, float time)
-        {
-#define FUN(NAME, FUNC) \
-    case InterpolationType::NAME: \
-        AddInterpolation(easing::NAME, target, time); \
-        return *this;
-            switch(type)
+            if (is_active() == false)
             {
-                // Linear interpolation (no easing)
-                FUN(Linear, LinearInterpolation)
-
-                // Quadratic easing; p^2
-                FUN(QuadIn, QuadraticEaseIn)
-                FUN(QuadOut, QuadraticEaseOut)
-                FUN(Quad, QuadraticEaseInOut)
-
-                // Cubic easing; p^3
-                FUN(CubicIn, CubicEaseIn)
-                FUN(CubicOut, CubicEaseOut)
-                FUN(Cubic, CubicEaseInOut)
-
-                // Quartic easing; p^4
-                FUN(QuartIn, QuarticEaseIn)
-                FUN(QuartOut, QuarticEaseOut)
-                FUN(Quart, QuarticEaseInOut)
-
-                // Quintic easing; p^5
-                FUN(QuintIn, QuinticEaseIn)
-                FUN(QuintOut, QuinticEaseOut)
-                FUN(Quint, QuinticEaseInOut)
-
-                // Sine wave easing; sin(p * PI/2)
-                FUN(SineIn, SineEaseIn)
-                FUN(SineOut, SineEaseOut)
-                FUN(Sine, SineEaseInOut)
-
-                // Circular easing; sqrt(1 - p^2)
-                FUN(CircIn, CircularEaseIn)
-                FUN(CircOut, CircularEaseOut)
-                FUN(Circ, CircularEaseInOut)
-
-                // Exponential easing, base 2
-                FUN(ExpIn, ExponentialEaseIn)
-                FUN(ExpOut, ExponentialEaseOut)
-                FUN(Exp, ExponentialEaseInOut)
-
-                // Exponentially-damped sine wave easing
-                FUN(ElasticIn, ElasticEaseIn)
-                FUN(ElasticOut, ElasticEaseOut)
-                FUN(Elastic, ElasticEaseInOut)
-
-                // Overshooting cubic easing;
-                FUN(BackIn, BackEaseIn)
-                FUN(BackOut, BackEaseOut)
-                FUN(Back, BackEaseInOut)
-
-                // Exponentially-decaying bounce easing
-                FUN(BounceIn, BounceEaseIn)
-                FUN(BounceOut, BounceEaseOut)
-                FUN(Bounce, BounceEaseInOut)
-#undef FUN
-
-            case InterpolationType::INVALID:
-            default:
-                DIE("Unhandled case");
+                value = to;
+                t = transition_ended;
             }
-            // ignore invalid interpolation type
-            return *this;
-        }
-
-
-    private:
-        using EasingFunction = float (*)(float);
-
-        template <typename TType>
-        struct InterpolationData
-        {
-            InterpolationData(const TType& t) : type(nullptr), target(t), time(0.0f) {}
-
-            EasingFunction type; // how to interpolate
-            TType target; // target value
-            float time; // time to transition
-        };
-        Type value_; // current value
-
-        Type from_; // starting value
-        float position_in_current_interpolation_; // goes from 0 to 1
-        std::deque<InterpolationData<Type>> data_;
-
-        void
-        AddInterpolation(EasingFunction type, const Type& target, float time)
-        {
-            ASSERTX(time >= 0.0f, time);
-
-            if(data_.empty())
+            else
             {
-                from_ = value_;
+                const auto f = easing::apply(easing_function, t);
+                value = Transformer::Transform(from, f, to);
             }
-
-            InterpolationData<Type> d(target);
-            d.type = type;
-            d.time = time;
-            data_.push_back(d);
         }
     };
 
