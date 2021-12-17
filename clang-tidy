@@ -105,40 +105,59 @@ readability-identifier-naming
 # just regular (yaml) .clang-tidy settings from now on
 
 END_CHECKS
-CheckOptions:
-  - key:             readability-identifier-naming.ClassCase
-    value:           CamelCase
-  - key:             readability-identifier-naming.TypedefCase
-    value:           CamelCase
-  - key:             readability-identifier-naming.TypeAliasCase
-    value:           CamelCase
-  - key:             readability-identifier-naming.ClassMethodCase
-    value:           lower_case
-  - key:             readability-identifier-naming.ConstantParameterCase
-    value:           lower_case
-  - key:             readability-identifier-naming.EnumCase
-    value:           CamelCase
-  - key:             readability-identifier-naming.EnumConstantCase
-    value:           lower_case
-  - key:             readability-identifier-naming.FunctionCase
-    value:           lower_case
-  - key:             readability-identifier-naming.LocalVariableCase
-    value:           lower_case
-  - key:             readability-identifier-naming.GlobalVariableCase
-    value:           lower_case
-  - key:             readability-identifier-naming.PrivateMemberCase
-    value:           lower_case
-  - key:             readability-identifier-naming.NamespaceCase
-    value:           lower_case
-  - key:             readability-identifier-naming.ParameterCasePrefix
-    value:           ''
-  - key:             readability-identifier-naming.ParameterCase
-    value:           lower_case
-  - key:             readability-identifier-naming.GlobalConstantCase
-    value:           lower_case
-  - key:             readability-identifier-naming.StaticVariableCase
-    value:           lower_case
-  - key:             readability-identifier-naming.ConstexprVariableCase
-    value:           lower_case
-  - key:             readability-identifier-naming.MacroDefinitionCase
-    value:           UPPER_CASE
+
+"CheckOptions": [
+    {"key": "MacroDefinitionCase",          "value": "UPPER_CASE"},
+
+    {"key": "AbstractClassCase",            "value": "CamelCase"},
+    {"key": "ClassCase",                    "value": "CamelCase"},
+    {"key": "EnumCase",                     "value": "CamelCase"},
+    {"key": "TypeAliasCase",                "value": "CamelCase"},
+    {"key": "TypedefCase",                  "value": "CamelCase"},
+    {"key": "UnionCase",                    "value": "CamelCase"},
+    {"key": "StructCase",                   "value": "CamelCase"},
+    
+    {"key": "ClassConstantCase",            "value": "lower_case"},
+    {"key": "ClassMemberCase",              "value": "lower_case"},
+    {"key": "ClassMethodCase",              "value": "lower_case"},
+    {"key": "ConstantCase",                 "value": "lower_case"},
+    {"key": "ConstantMemberCase",           "value": "lower_case"},
+    {"key": "ConstantParameterCase",        "value": "lower_case"},
+    {"key": "ConstantPointerParameterCase", "value": "lower_case"},
+    {"key": "ConstexprFunctionCase",        "value": "lower_case"},
+    {"key": "ConstexprMethodCase",          "value": "lower_case"},
+    {"key": "ConstexprVariableCase",        "value": "lower_case"},
+    {"key": "EnumConstantCase",             "value": "lower_case"},
+    {"key": "FunctionCase",                 "value": "lower_case"},
+    {"key": "GlobalConstantCase",           "value": "lower_case"},
+    {"key": "GlobalConstantPointerCase",    "value": "lower_case"},
+    {"key": "GlobalFunctionCase",           "value": "lower_case"},
+    {"key": "GlobalPointerCase",            "value": "lower_case"},
+    {"key": "GlobalVariableCase",           "value": "lower_case"},
+    {"key": "InlineNamespaceCase",          "value": "lower_case"},
+    {"key": "LocalConstantCase",            "value": "lower_case"},
+    {"key": "LocalConstantPointerCase",     "value": "lower_case"},
+    {"key": "LocalPointerCase",             "value": "lower_case"},
+    {"key": "LocalVariableCase",            "value": "lower_case"},
+    {"key": "MemberCase",                   "value": "lower_case"},
+    {"key": "MethodCase",                   "value": "lower_case"},
+    {"key": "NamespaceCase",                "value": "lower_case"},
+    {"key": "ParameterCase",                "value": "lower_case"},
+    {"key": "ParameterPackCase",            "value": "lower_case"},
+    {"key": "PointerParameterCase",         "value": "lower_case"},
+    {"key": "PrivateMemberCase",            "value": "lower_case"},
+    {"key": "PrivateMethodCase",            "value": "lower_case"},
+    {"key": "ProtectedMemberCase",          "value": "lower_case"},
+    {"key": "ProtectedMethodCase",          "value": "lower_case"},
+    {"key": "PublicMemberCase",             "value": "lower_case"},
+    {"key": "PublicMethodCase",             "value": "lower_case"},
+    {"key": "ScopedEnumConstantCase",       "value": "lower_case"},
+    {"key": "StaticConstantCase",           "value": "lower_case"},
+    {"key": "StaticVariableCase",           "value": "lower_case"},
+    {"key": "TemplateParameterCase",        "value": "lower_case"},
+    {"key": "TemplateTemplateParameterCase","value": "lower_case"},
+    {"key": "TypeTemplateParameterCase",    "value": "lower_case"},
+    {"key": "ValueTemplateParameterCase",   "value": "lower_case"},
+    {"key": "VariableCase",                 "value": "lower_case"},
+    {"key": "VirtualMethodCase",            "value": "lower_case"},
+]
