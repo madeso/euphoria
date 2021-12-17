@@ -264,21 +264,41 @@ namespace euphoria::gui
 
 
     std::shared_ptr<Skin>
-    load_skin(const ::gui::Skin& src, render::FontCache* font)
+    load_skin(const ::gui::Skin& src, render::FontCache* font, const core::vfs::DirPath& folder)
     {
         std::shared_ptr<Skin> skin(new gui::Skin());
         skin->name = src.name;
-        skin->font = font->get_font
+        
+        const auto relative_font_file = core::vfs::FilePath::from_script(src.font).value_or
         (
-            core::vfs::FilePath::from_script(src.font).value_or
+            core::vfs::FilePath{ "~/invalid_font_file" }
+        );
+        const auto resolved_font_file = core::vfs::resolve_relative(relative_font_file, folder);
+        if(resolved_font_file)
+        {
+            skin->font = font->get_font
             (
-                core::vfs::FilePath{"~/invalid_font_file"}
-            )
-        );
-        skin->button_image = core::vfs::FilePath::from_script_or_empty
-        (
-            src.button_image
-        );
+                *resolved_font_file
+            );
+        }
+        else
+        {
+            LOG_ERROR("Unable to resolve font file {} for skin {}", relative_font_file, src.name);
+        }
+
+        if (const auto relative_image_file = core::vfs::FilePath::from_script_or_empty(src.button_image); relative_image_file)
+        {
+            const auto resolved_file = core::vfs::resolve_relative(*relative_image_file, folder);
+            if (resolved_file)
+            {
+                skin->button_image = *resolved_file;
+            }
+            else
+            {
+                LOG_ERROR("Unable to resolve button image {} for skin {}", *relative_image_file, src.name);
+            }
+        }
+
         skin->text_size = src.text_size;
         skin->button_idle = load_button(src.button_idle);
         skin->button_hot = load_button(src.button_hot);
@@ -297,6 +317,8 @@ namespace euphoria::gui
         render::TextureCache* cache
     )
     {
+        const auto folder = path.get_directory();
+
         const auto loaded = core::get_optional_and_log_errors
         (
             core::read_xml_file_to_gaf_struct<::gui::File>(fs, path, ::gui::ReadXmlElementFile)
@@ -309,20 +331,37 @@ namespace euphoria::gui
 
         const auto& f = *loaded;
 
-        root->cursor_image = cache->get_texture
-        (
-            core::vfs::FilePath::from_script_or_empty(f.cursor_image)
-        );
-        root->hover_image = cache->get_texture
-        (
-            core::vfs::FilePath::from_script_or_empty(f.hover_image)
-        );
+        if(auto relative = core::vfs::FilePath::from_script_or_empty(f.cursor_image); relative)
+        {
+            const auto resolved = core::vfs::resolve_relative(*relative, folder);
+            if (resolved)
+            {
+                root->cursor_image = cache->get_texture(*resolved);
+            }
+            else
+            {
+                LOG_ERROR("Invalid path for cursor_image: {}", *relative);
+            }
+        }
+        
+        if (auto relative = core::vfs::FilePath::from_script_or_empty(f.hover_image); relative)
+        {
+            const auto resolved = core::vfs::resolve_relative(*relative, folder);
+            if (resolved)
+            {
+                root->hover_image = cache->get_texture(*resolved);
+            }
+            else
+            {
+                LOG_ERROR("Invalid path for hover_image: {}", *relative);
+            }
+        }
 
         std::map<std::string, Skin*> skin_map;
 
         for(const auto& skin: f.skins)
         {
-            std::shared_ptr<gui::Skin> skin_ptr = load_skin(skin, font);
+            std::shared_ptr<gui::Skin> skin_ptr = load_skin(skin, font, folder);
             skin_map.insert(std::make_pair(skin.name, skin_ptr.get()));
             root->skins.push_back(skin_ptr);
         }
