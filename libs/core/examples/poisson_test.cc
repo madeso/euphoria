@@ -78,22 +78,13 @@ png_dump(int extra_images)
             ) != worker.active.end();
             const auto circle_color = is_active ? NamedColor::blue : NamedColor::white;
             const auto cp = worker.samples[i]*world_to_image;
-            const auto circle_position = (cp).StaticCast<int>();
+            const auto circle_position = static_cast<Vec2i>(cp);
             const auto circle_radius = radius * world_to_image;
             draw_circle(&result, circle_color, circle_position, circle_radius);
-            // svg << Circle(circle_position.StaticCast<float>(),
-            // circle_radius, circle_color);
         }
         if(line)
         {
             const auto [from, to] = *line;
-            // DrawLineFast(&image, Color::PureRed,
-            // (from*world_to_image).StaticCast<int>(),
-            // (to*world_to_image).StaticCast<int>());
-            // DrawCircle(&image, Color::PureRed,
-            // (to*world_to_image).StaticCast<int>(), 10);
-            // DrawCircle(&image, Color::PureYellow,
-            // (from*world_to_image).StaticCast<int>(), 10);
             draw_arrow
             (
                 &result,
@@ -104,7 +95,6 @@ png_dump(int extra_images)
             );
         }
         io::chunk_to_file(result.write(ImageWriteFormat::png), frames.get_next_file());
-        // svg.Write("poisson.html", 800, 600);
     };
 
     if(!frames.single)

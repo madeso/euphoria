@@ -46,7 +46,7 @@ namespace euphoria::render
     core::Vec2f
     Viewport::to_clip_coord(const core::Vec2i& p) const
     {
-        const auto p01 = core::to01(bounds.StaticCast<float>(), p.StaticCast<float>());
+        const auto p01 = core::to01(static_cast<core::Rectf>(bounds), static_cast<core::Vec2f>(p));
         const auto clip = core::from01(core::Rectf::from_left_right_top_bottom(-1, 1, 1, -1), p01);
         return clip;
     }

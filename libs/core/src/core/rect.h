@@ -31,11 +31,10 @@ namespace euphoria::core
 
     public:
         template<typename Y>
-        Rect<Y>
-        StaticCast() const
+        explicit operator Rect<Y>() const
         {
-            return
-            Rect<Y>::from_left_right_top_bottom(
+            return Rect<Y>::from_left_right_top_bottom
+            (
                 static_cast<Y>(left),
                 static_cast<Y>(right),
                 static_cast<Y>(top),

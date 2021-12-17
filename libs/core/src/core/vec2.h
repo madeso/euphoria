@@ -51,7 +51,7 @@ namespace euphoria::core
         const T* get_data_ptr() const { return &x; }
 
         template <typename F>
-        Vec2<F> StaticCast() const { return Vec2<F>(static_cast<F>(x), static_cast<F>(y)); }
+        explicit operator Vec2<F>() const { return Vec2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
         Self get_rotated(const Angle& a) const
         {
@@ -150,7 +150,7 @@ namespace euphoria::core
         const T* get_data_ptr() const { return &x; }
 
         template <typename F>
-        Unit2<F> StaticCast() const { return Unit2<F>(static_cast<F>(x), static_cast<F>(y)); }
+        explicit operator Unit2<F>() const { return Unit2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
         Self get_rotated(const Angle& a) const
         {
@@ -219,7 +219,7 @@ namespace euphoria::core
         const T* get_data_ptr() const { return &x; }
 
         template <typename F>
-        Scale2<F> StaticCast() const { return Scale2<F>(static_cast<F>(x), static_cast<F>(y)); }
+        explicit operator Scale2<F>() const { return Scale2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
         Self get_rotated(const Angle& a) const
         {

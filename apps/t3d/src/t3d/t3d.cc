@@ -252,7 +252,7 @@ namespace euphoria::t3d
 
             if(mmb_down)
             {
-                const auto mm = movement.StaticCast<float>();
+                const auto mm = static_cast<euphoria::core::Vec2f>(movement);
                 if(shift_down) { orbit.on_pan_input(mm.x, mm.y); }
                 else { orbit.on_rotate_input(mm.x, mm.y); }
             }
