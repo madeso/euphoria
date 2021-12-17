@@ -1,0 +1,28 @@
+<root size="30">
+    <sources>
+        <font
+            file="kenvector_future.ttf"
+            characters=" abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!&quot;#¤%&amp;/()'=?@£$€¥{[]}\'*"
+            />
+    </sources>
+    <sources>
+        <image
+            file="cross.png"
+            alias="cross"
+            scale="1"
+            bearing_x="0"
+            bearing_y="-8"
+            advance="0"
+            />
+    </sources>
+    <sources>
+        <image
+            file="checkmark.png"
+            alias="check"
+            scale="1"
+            bearing_x="0"
+            bearing_y="-8"
+            advance="0"
+            />
+    </sources>
+</root>
