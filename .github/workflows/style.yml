@@ -31,11 +31,6 @@ jobs:
                 CXX: ${{matrix.cxx}}
           run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
-        - name: Build
-          shell: bash
-          working-directory: ${{github.workspace}}/build
-          run: time cmake --build . --config ${{matrix.build_type}}
-
         - name: Run code check (clang-tidy)
           shell: bash
           working-directory: ${{github.workspace}}
