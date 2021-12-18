@@ -133,12 +133,12 @@ END_CHECKS
     //       typename... THIS>
     {"key": "readability-identifier-naming.TypeTemplateParameterCase",    "value": "CamelCase"},
 
-    // template <template <typename> class TPL_parameter, int THIS,
-    //       typename... TYPE_parameters>
-    {"key": "readability-identifier-naming.ValueTemplateParameterCase",   "value": "CamelCase"},
     // todo(Gustav): move static member functions here
 
     // lower_case
+    // template <template <typename> class TPL_parameter, int THIS,
+    //       typename... TYPE_parameters>
+    {"key": "readability-identifier-naming.ValueTemplateParameterCase",   "value": "lower_case"},
     {"key": "readability-identifier-naming.ClassConstantCase",            "value": "lower_case"},
     {"key": "readability-identifier-naming.ClassMemberCase",              "value": "lower_case"},
     {"key": "readability-identifier-naming.ClassMethodCase",              "value": "lower_case"},
