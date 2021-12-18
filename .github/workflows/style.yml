@@ -34,8 +34,9 @@ jobs:
         - name: clang-tidy version
           shell: bash
           working-directory: ${{github.workspace}}/build
-          run: which clang-tidy
-          run: clang-tidy --version
+          run: |
+                which clang-tidy
+                clang-tidy --version
 
         - name: Build
           shell: bash
