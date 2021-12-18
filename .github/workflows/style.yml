@@ -37,8 +37,9 @@ jobs:
           run: |
                 sudo apt-get install -y clang-tidy-12
                 ls /usr/bin/clang-*
-                alias clang-tidy='clang-tidy-12'
+                alias clang-tidy='/usr/bin/clang-tidy-12'
                 which clang-tidy
+                clang-tidy-12 --version
                 clang-tidy --version
 
         - name: Build
