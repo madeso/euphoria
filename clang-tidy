@@ -102,19 +102,30 @@ readability-identifier-naming
 
 #################################################################################
 # the checks attribute ends here...
-# just regular (yaml) .clang-tidy settings from now on
+# just regular (yaml) .clang-tidy settings from now on (with lines starting with // stripped away)
 
 END_CHECKS
 
 "CheckOptions": [
+    // readability identifier settings
+    // https://clang.llvm.org/extra/clang-tidy/checks/readability-identifier-naming.html
+
+    // UPPER_CASE
     {"key": "readability-identifier-naming.MacroDefinitionCase",          "value": "UPPER_CASE"},
+
+    // CamelCase
     {"key": "readability-identifier-naming.AbstractClassCase",            "value": "CamelCase"},
     {"key": "readability-identifier-naming.ClassCase",                    "value": "CamelCase"},
     {"key": "readability-identifier-naming.EnumCase",                     "value": "CamelCase"},
     {"key": "readability-identifier-naming.TypeAliasCase",                "value": "CamelCase"},
     {"key": "readability-identifier-naming.TypedefCase",                  "value": "CamelCase"},
     {"key": "readability-identifier-naming.UnionCase",                    "value": "CamelCase"},
+    {"key": "readability-identifier-naming.TemplateParameterCase",        "value": "CamelCase"},
+    {"key": "readability-identifier-naming.TemplateTemplateParameterCase","value": "CamelCase"},
     {"key": "readability-identifier-naming.StructCase",                   "value": "CamelCase"},
+    // todo(Gustav): move static member functions here
+
+    // lower_case
     {"key": "readability-identifier-naming.ClassConstantCase",            "value": "lower_case"},
     {"key": "readability-identifier-naming.ClassMemberCase",              "value": "lower_case"},
     {"key": "readability-identifier-naming.ClassMethodCase",              "value": "lower_case"},
@@ -152,8 +163,6 @@ END_CHECKS
     {"key": "readability-identifier-naming.ScopedEnumConstantCase",       "value": "lower_case"},
     {"key": "readability-identifier-naming.StaticConstantCase",           "value": "lower_case"},
     {"key": "readability-identifier-naming.StaticVariableCase",           "value": "lower_case"},
-    {"key": "readability-identifier-naming.TemplateParameterCase",        "value": "lower_case"},
-    {"key": "readability-identifier-naming.TemplateTemplateParameterCase","value": "lower_case"},
     {"key": "readability-identifier-naming.TypeTemplateParameterCase",    "value": "lower_case"},
     {"key": "readability-identifier-naming.ValueTemplateParameterCase",   "value": "lower_case"},
     {"key": "readability-identifier-naming.VariableCase",                 "value": "lower_case"},

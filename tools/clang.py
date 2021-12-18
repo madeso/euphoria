@@ -115,7 +115,9 @@ def clang_tidy_lines(root):
         checks = []
         for line in clang_tidy_file:
             if write:
-                yield line.rstrip()
+                l = line.rstrip()
+                if not l.lstrip().startswith('//'):
+                    yield l
             else:
                 stripped_line = line.strip()
                 if stripped_line == '':
