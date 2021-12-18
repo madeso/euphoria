@@ -36,9 +36,10 @@ jobs:
           working-directory: ${{github.workspace}}/build
           run: |
                 sudo apt-get install -y clang-tidy-12
+                ls /usr/bin/clang-*
+                alias clang-tidy='clang-tidy-12'
                 which clang-tidy
                 clang-tidy --version
-                update-alternatives --config clang-tidy
 
         - name: Build
           shell: bash
