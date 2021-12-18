@@ -10,9 +10,15 @@ Checks: "-*,bugprone-*,modernize-*,-modernize-use-trailing-return-type,performan
     {"key": "readability-identifier-naming.TypeAliasCase",                "value": "CamelCase"},
     {"key": "readability-identifier-naming.TypedefCase",                  "value": "CamelCase"},
     {"key": "readability-identifier-naming.UnionCase",                    "value": "CamelCase"},
-    {"key": "readability-identifier-naming.TemplateParameterCase",        "value": "CamelCase"},
-    {"key": "readability-identifier-naming.TemplateTemplateParameterCase","value": "CamelCase"},
     {"key": "readability-identifier-naming.StructCase",                   "value": "CamelCase"},
+
+    {"key": "readability-identifier-naming.TemplateParameterCase",        "value": "CamelCase"},
+
+    {"key": "readability-identifier-naming.TemplateTemplateParameterCase","value": "CamelCase"},
+
+    {"key": "readability-identifier-naming.TypeTemplateParameterCase",    "value": "CamelCase"},
+
+    {"key": "readability-identifier-naming.ValueTemplateParameterCase",   "value": "CamelCase"},
 
     {"key": "readability-identifier-naming.ClassConstantCase",            "value": "lower_case"},
     {"key": "readability-identifier-naming.ClassMemberCase",              "value": "lower_case"},
@@ -51,8 +57,6 @@ Checks: "-*,bugprone-*,modernize-*,-modernize-use-trailing-return-type,performan
     {"key": "readability-identifier-naming.ScopedEnumConstantCase",       "value": "lower_case"},
     {"key": "readability-identifier-naming.StaticConstantCase",           "value": "lower_case"},
     {"key": "readability-identifier-naming.StaticVariableCase",           "value": "lower_case"},
-    {"key": "readability-identifier-naming.TypeTemplateParameterCase",    "value": "lower_case"},
-    {"key": "readability-identifier-naming.ValueTemplateParameterCase",   "value": "lower_case"},
     {"key": "readability-identifier-naming.VariableCase",                 "value": "lower_case"},
     {"key": "readability-identifier-naming.VirtualMethodCase",            "value": "lower_case"},
 ]

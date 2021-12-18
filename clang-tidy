@@ -120,9 +120,22 @@ END_CHECKS
     {"key": "readability-identifier-naming.TypeAliasCase",                "value": "CamelCase"},
     {"key": "readability-identifier-naming.TypedefCase",                  "value": "CamelCase"},
     {"key": "readability-identifier-naming.UnionCase",                    "value": "CamelCase"},
-    {"key": "readability-identifier-naming.TemplateParameterCase",        "value": "CamelCase"},
-    {"key": "readability-identifier-naming.TemplateTemplateParameterCase","value": "CamelCase"},
     {"key": "readability-identifier-naming.StructCase",                   "value": "CamelCase"},
+
+    // template <typename THIS> class Foo {};
+    {"key": "readability-identifier-naming.TemplateParameterCase",        "value": "CamelCase"},
+
+    // template <template <typename> class THIS, int COUNT_params,
+    //       typename... TYPE_parameters>
+    {"key": "readability-identifier-naming.TemplateTemplateParameterCase","value": "CamelCase"},
+
+    // template <template <typename> class TPL_parameter, int COUNT_params,
+    //       typename... THIS>
+    {"key": "readability-identifier-naming.TypeTemplateParameterCase",    "value": "CamelCase"},
+
+    // template <template <typename> class TPL_parameter, int THIS,
+    //       typename... TYPE_parameters>
+    {"key": "readability-identifier-naming.ValueTemplateParameterCase",   "value": "CamelCase"},
     // todo(Gustav): move static member functions here
 
     // lower_case
@@ -163,8 +176,6 @@ END_CHECKS
     {"key": "readability-identifier-naming.ScopedEnumConstantCase",       "value": "lower_case"},
     {"key": "readability-identifier-naming.StaticConstantCase",           "value": "lower_case"},
     {"key": "readability-identifier-naming.StaticVariableCase",           "value": "lower_case"},
-    {"key": "readability-identifier-naming.TypeTemplateParameterCase",    "value": "lower_case"},
-    {"key": "readability-identifier-naming.ValueTemplateParameterCase",   "value": "lower_case"},
     {"key": "readability-identifier-naming.VariableCase",                 "value": "lower_case"},
     {"key": "readability-identifier-naming.VirtualMethodCase",            "value": "lower_case"},
 ]
