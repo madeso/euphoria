@@ -252,7 +252,7 @@ namespace euphoria::core
             if(is_closed || is_within(r, index))
             {
                 auto offset = (Vec2f::from_to(anchor_pos, points[loop_index(index)])).get_normalized_and_length();
-                dir += offset.second.vec() * scale;
+                dir += offset.second.vec() * c_int_to_float(scale);
                 distances[c_int_to_sizet(dist_index)] = offset.first * static_cast<float>(scale);
             }
         };

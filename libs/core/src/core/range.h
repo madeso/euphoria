@@ -5,6 +5,7 @@
 
 #include "core/angle.h"
 #include "core/assert.h"
+#include "core/cint.h"
 
 namespace euphoria::core
 {
@@ -55,7 +56,7 @@ namespace euphoria::core
     make_range(const std::vector<T>& v)
     {
         ASSERT(!v.empty());
-        return make_range<int>(v.size() - 1);
+        return make_range<int>(c_sizet_to_int(v.size()) - 1);
     }
 
     constexpr Range<float> r01 = { 0.0f, 1.0f, nullptr};
