@@ -124,14 +124,14 @@ namespace euphoria::core
     }
 
     void
-    BezierPath2::set_closed(bool is_closed)
+    BezierPath2::set_closed(bool new_is_closed)
     {
-        if(is_closed == is_closed)
+        if(is_closed == new_is_closed)
         {
             return;
         }
 
-        is_closed = is_closed;
+        is_closed = new_is_closed;
 
         if(is_closed)
         {
