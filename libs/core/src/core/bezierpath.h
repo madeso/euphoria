@@ -34,10 +34,10 @@ namespace euphoria::core
     struct BezierPath2
     {
         std::vector<Vec2f> points;
-        bool is_closed_ = false;
+        bool is_closed = false;
 
         // todo(Gustav): move out to a controller?
-        bool autoset_ = false;
+        bool autoset = false;
 
         BezierPath2(const Vec2f& center);
 

@@ -103,7 +103,7 @@ namespace euphoria::t3d
             if(editor->tile_library->run_imgui_list(&editor->selected_mesh))
             {
                 actor->tile = editor->selected_mesh;
-                actor->actor->mesh_ = editor->selected_mesh->mesh;
+                actor->actor->mesh = editor->selected_mesh->mesh;
             }
         }
     }

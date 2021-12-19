@@ -54,7 +54,7 @@ namespace euphoria::gui
         ButtonState* last_state;
         std::shared_ptr<render::ScalableSprite> sprite;
         TextData text;
-        Skin* skin_;
+        Skin* skin;
 
         core::Interpolate<float, core::FloatTransform> scale;
         core::Interpolate<core::Rgb, core::RgbTransform> image_color;

@@ -273,7 +273,7 @@ namespace euphoria::core
     struct RgbTransform
     {
         static Rgb
-        Transform(const Rgb& from, float v, const Rgb& to);
+        transform(const Rgb& from, float v, const Rgb& to);
     };
 
 

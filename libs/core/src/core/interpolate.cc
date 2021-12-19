@@ -3,7 +3,7 @@
 namespace euphoria::core
 {
     float
-    FloatTransform::Transform(float from, float v, float to)
+    FloatTransform::transform(float from, float v, float to)
     {
         return from + (to - from) * v;
     }

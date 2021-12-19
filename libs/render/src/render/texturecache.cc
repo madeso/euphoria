@@ -11,7 +11,7 @@ namespace euphoria::render
     struct TextureCache::texture_cache_pimpl
         : core::Cache<core::vfs::FilePath, Texture2, TextureCache::texture_cache_pimpl>
     {
-        explicit texture_cache_pimpl(core::vfs::FileSystem* fs) : fs_(fs)
+        explicit texture_cache_pimpl(core::vfs::FileSystem* fs) : vfs(fs)
         {
             ASSERT(fs);
         }
@@ -22,7 +22,7 @@ namespace euphoria::render
             auto ret = std::make_shared<Texture2>();
             ret->load_from_file
             (
-                fs_,
+                vfs,
                 file,
                 core::AlphaLoad::keep,
                 Texture2dLoadData{}
@@ -30,7 +30,7 @@ namespace euphoria::render
             return ret;
         }
 
-        core::vfs::FileSystem* fs_;
+        core::vfs::FileSystem* vfs;
     };
 
 

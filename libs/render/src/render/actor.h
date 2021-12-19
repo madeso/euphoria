@@ -35,7 +35,7 @@ namespace euphoria::render
         create_override() const;
 
 
-        std::shared_ptr<CompiledMesh> mesh_;
+        std::shared_ptr<CompiledMesh> mesh;
         std::shared_ptr<MaterialOverride> overriden_materials;
     };
 

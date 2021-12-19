@@ -7,18 +7,18 @@
 namespace euphoria::window
 {
     SdlTimer::SdlTimer()
-        : current_time_(SDL_GetPerformanceCounter())
-        , last_time_(0)
+        : current_time(SDL_GetPerformanceCounter())
+        , last_time(0)
     {
     }
 
     float
     SdlTimer::update()
     {
-        last_time_ = current_time_;
-        current_time_ = SDL_GetPerformanceCounter();
+        last_time = current_time;
+        current_time = SDL_GetPerformanceCounter();
 
-        const float dt = core::c_u64_to_float(current_time_ - last_time_) / core::c_u64_to_float(SDL_GetPerformanceFrequency());
+        const float dt = core::c_u64_to_float(current_time - last_time) / core::c_u64_to_float(SDL_GetPerformanceFrequency());
         return dt;
     }
 }

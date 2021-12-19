@@ -8,14 +8,14 @@
 
 namespace euphoria::engine
 {
-    struct script_component : public core::ecs::Component
+    struct ScriptComponent : public core::ecs::Component
     {
-        COMPONENT_CONSTRUCTOR_DEFINITION(script_component)
+        COMPONENT_CONSTRUCTOR_DEFINITION(ScriptComponent)
 
         sol::table val;
     };
 
-    COMPONENT_CONSTRUCTOR_IMPLEMENTATION(script_component)
+    COMPONENT_CONSTRUCTOR_IMPLEMENTATION(ScriptComponent)
 
     ScriptRegistry::ScriptRegistry(core::ecs::Registry* r, engine::Components* c)
         : reg(r)
@@ -77,23 +77,23 @@ namespace euphoria::engine
         }
         else
         {
-            return static_cast<script_component*>(c.get())->val;
+            return static_cast<ScriptComponent*>(c.get())->val;
         }
     }
 
-    script_component*
+    ScriptComponent*
     get_script_component(core::ecs::Registry *reg, core::ecs::EntityId ent, core::ecs::ComponentId comp)
     {
         auto c = reg->get_component(ent, comp);
         if(c == nullptr)
         {
-            auto d = std::make_shared<script_component>();
+            auto d = std::make_shared<ScriptComponent>();
             reg->add_component_to_entity(ent, comp, d);
             return d.get();
         }
         else
         {
-            return static_cast<script_component*>(c.get());
+            return static_cast<ScriptComponent*>(c.get());
         }
     }
 
@@ -106,7 +106,7 @@ namespace euphoria::engine
     )
     const
     {
-        script_component* component = get_script_component(reg, ent, comp);
+        ScriptComponent* component = get_script_component(reg, ent, comp);
         component->val = value;
     }
 
@@ -155,4 +155,4 @@ namespace euphoria::engine
     }
 }
 
-TYPEID_SETUP_TYPE(euphoria::engine::script_component);
+TYPEID_SETUP_TYPE(euphoria::engine::ScriptComponent);

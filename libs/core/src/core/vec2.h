@@ -338,11 +338,11 @@ namespace euphoria::core
     struct Vec2Transform
     {
         static Vec2<T>
-        Transform(const Vec2<T>& from, float v, const Vec2<T> to)
+        transform(const Vec2<T>& from, float v, const Vec2<T> to)
         {
             return Vec2<T>(
-                    FloatTransform::Transform(from.x, v, to.x),
-                    FloatTransform::Transform(from.y, v, to.y));
+                    FloatTransform::transform(from.x, v, to.x),
+                    FloatTransform::transform(from.y, v, to.y));
         }
     };
 

@@ -14,7 +14,7 @@ namespace euphoria::gui
     Button::Button(gui::State* state)
         : Widget(state)
         , last_state(nullptr)
-        , skin_(nullptr)
+        , skin(nullptr)
         , scale(1.0f)
         , image_color(core::Rgb(1.0f))
         , text_color(core::Rgb(1.0f))
@@ -45,12 +45,12 @@ namespace euphoria::gui
             on_clicked();
         }
 
-        if(skin_ != nullptr)
+        if(skin != nullptr)
         {
-            auto* cold_state = &skin_->button_idle;
+            auto* cold_state = &skin->button_idle;
             auto* hot_state = is_active()
-                ? &skin_->button_active_hot
-                : &skin_->button_hot
+                ? &skin->button_active_hot
+                : &skin->button_hot
                 ;
             auto* state = is_hot() ? hot_state : cold_state;
 
@@ -87,7 +87,7 @@ namespace euphoria::gui
             image_color.update(dt);
             text_color.update(dt);
             position_displacement.update(dt);
-            text.set_size(skin_->text_size * scale.value);
+            text.set_size(skin->text_size * scale.value);
         }
     }
 
@@ -122,7 +122,7 @@ namespace euphoria::gui
     void
     Button::render(render::SpriteRenderer* renderer) const
     {
-        if(skin_ != nullptr)
+        if(skin != nullptr)
         {
             if(sprite != nullptr)
             {
@@ -173,10 +173,10 @@ namespace euphoria::gui
     void
     Button::set_skin(Skin* new_skin)
     {
-        skin_ = new_skin;
-        if(skin_ != nullptr)
+        skin = new_skin;
+        if(skin != nullptr)
         {
-            text.set_size(skin_->text_size);
+            text.set_size(skin->text_size);
         }
     }
 }

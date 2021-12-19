@@ -10,19 +10,19 @@ namespace euphoria::core
 {
     template
     <
-        std::size_t TCount,
+        std::size_t count,
         typename T,
         typename TContainer,
         typename TExtract
     >
-    std::pair<std::array<T, TCount>, std::array<T, TCount>>
+    std::pair<std::array<T, count>, std::array<T, count>>
     find_min_max_ranges
     (
         const TContainer& ts,
         TExtract extract
     )
     {
-        using A = std::array<T, TCount>;
+        using A = std::array<T, count>;
 
         ASSERT(!ts.empty());
         auto it = ts.begin();
@@ -35,7 +35,7 @@ namespace euphoria::core
         for(; it!=ts.end(); it+=1)
         {
             const A a = extract(*it);
-            for(size_t sub = 0; sub<TCount; sub += 1)
+            for(size_t sub = 0; sub< count; sub += 1)
             {
                 min_value[sub] = std::min(min_value[sub], a[sub]);
                 max_value[sub] = std::max(max_value[sub], a[sub]);

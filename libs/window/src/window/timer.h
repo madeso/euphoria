@@ -12,7 +12,7 @@ namespace euphoria::window
         float
         update();
 
-        Uint64 current_time_;
-        Uint64 last_time_;
+        Uint64 current_time;
+        Uint64 last_time;
     };
 }

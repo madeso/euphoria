@@ -189,7 +189,7 @@ main(int argc, char** argv)
             for(size_t point_index = 0; point_index < path.points.size(); point_index += 1)
             {
                 const bool is_anchor_point = BezierPath2::is_anchor_point(point_index);
-                if(path.autoset_ && !is_anchor_point)
+                if(path.autoset && !is_anchor_point)
                 {
                     continue;
                 }
@@ -228,7 +228,7 @@ main(int argc, char** argv)
                     1
                 );
 
-                if(!path.autoset_)
+                if(!path.autoset)
                 {
                     line(canvas.world_to_screen(con(s.a0)), canvas.world_to_screen(con(s.c0)), line_color);
                     line(canvas.world_to_screen(con(s.a1)), canvas.world_to_screen(con(s.c1)), line_color);
@@ -245,12 +245,12 @@ main(int argc, char** argv)
                 {
                     path.add_point(con(p));
                 }
-                auto ic = path.is_closed_;
+                auto ic = path.is_closed;
                 if(ImGui::Checkbox("Is closed", &ic))
                 {
                     path.toggle_closed();
                 }
-                auto as = path.autoset_;
+                auto as = path.autoset;
                 if(ImGui::Checkbox("Autoset control points", &as))
                 {
                     path.toggle_auto_set_control_points();

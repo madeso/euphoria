@@ -9,7 +9,7 @@ namespace euphoria::core
     struct FloatTransform
     {
         static float
-        Transform(float from, float v, float to);
+        transform(float from, float v, float to);
     };
 
 
@@ -69,7 +69,7 @@ namespace euphoria::core
             set(new_value, f, time);
         }
 
-        bool
+        [[nodiscard]] bool
         is_active() const
         {
             return t < 1.0f;
@@ -93,7 +93,7 @@ namespace euphoria::core
             else
             {
                 const auto f = easing::apply(easing_function, t);
-                value = Transformer::Transform(from, f, to);
+                value = Transformer::transform(from, f, to);
             }
         }
     };

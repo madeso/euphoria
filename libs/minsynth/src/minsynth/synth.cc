@@ -125,14 +125,14 @@ namespace euphoria::minsynth
         }
     }
 
-    template <int StepsPerOctave>
+    template <int steps_per_octave>
     struct ToneToFrequencyConverter
     {
         constexpr ToneToFrequencyConverter()
         {
             const float base
-                    = std::pow(2.0f, 1.0f / static_cast<float>(StepsPerOctave));
-            for(int i = 0; i < StepsPerOctave; i += 1)
+                    = std::pow(2.0f, 1.0f / static_cast<float>(steps_per_octave));
+            for(int i = 0; i < steps_per_octave; i += 1)
             {
                 step_data[i] = std::pow(base, static_cast<float>(i));
             }
@@ -145,35 +145,35 @@ namespace euphoria::minsynth
 
             int step = halfstep;
 
-            while(step >= StepsPerOctave)
+            while(step >= steps_per_octave)
             {
                 freq = freq * 2;
-                step -= StepsPerOctave;
+                step -= steps_per_octave;
             }
 
             while(step < 0)
             {
                 freq = freq / 2;
-                step += StepsPerOctave;
+                step += steps_per_octave;
             }
 
-            ASSERT(step >= 0 && step < StepsPerOctave);
+            ASSERT(step >= 0 && step < steps_per_octave);
             const auto rf = freq * step_data[step];
             return rf;
         }
 
     private:
-        float step_data[StepsPerOctave] = {
+        float step_data[steps_per_octave] = {
                 0.0f,
         };
     };
 
 
-    template <int TonesPerOctave>
+    template <int tones_per_octave>
     float
     template_tone_to_frequency(int tone, float base_frequency)
     {
-        const static auto converter = ToneToFrequencyConverter<TonesPerOctave>();
+        const static auto converter = ToneToFrequencyConverter<tones_per_octave>();
         return converter.get_frequency(tone, base_frequency);
     }
 

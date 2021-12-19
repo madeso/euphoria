@@ -13,8 +13,8 @@ namespace euphoria::render
         : core::Cache<core::vfs::FilePath, DrawableFont, FontCache::font_cache_pimpl>
     {
         explicit font_cache_pimpl(core::vfs::FileSystem* fs, TextureCache* cache)
-            : fs_(fs)
-            , cache_(cache)
+            : vfs(fs)
+            , cache(cache)
         {
             ASSERT(fs);
         }
@@ -22,12 +22,12 @@ namespace euphoria::render
         std::shared_ptr<DrawableFont>
         create(const core::vfs::FilePath& file)
         {
-            auto ret = std::make_shared<DrawableFont>(fs_, cache_, file);
+            auto ret = std::make_shared<DrawableFont>(vfs, cache, file);
             return ret;
         }
 
-        core::vfs::FileSystem* fs_;
-        TextureCache* cache_;
+        core::vfs::FileSystem* vfs;
+        TextureCache* cache;
     };
 
     FontCache::FontCache(core::vfs::FileSystem* fs, TextureCache* cache)
