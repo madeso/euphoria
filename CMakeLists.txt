@@ -32,6 +32,7 @@ option(GENERATE_COVERAGE "generate code coverage information" OFF)
 
 
 if(GENERATE_COVERAGE)
+    message(STATUS "Coverage enabled")
     # inspired by https://github.com/JoakimSoderberg/coveralls-cmake
     if(NOT (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
         AND (NOT "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang"))
