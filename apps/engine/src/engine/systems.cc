@@ -1,6 +1,6 @@
 #include "engine/systems.h"
 
-#include "core/ecs-systems.h"
+#include "core/ecs.systems.h"
 
 #include "render/texture.h"
 #include "render/spriterender.h"

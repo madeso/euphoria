@@ -1,4 +1,4 @@
-#include "core/ecs-systems.h"
+#include "core/ecs.systems.h"
 
 
 namespace euphoria::core::ecs

@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "core/typeinfo.h"
-#include "core/ecs-id.h"
+#include "core/ecs.id.h"
 #include "core/assert.h"
 #include "core/result.h"
 

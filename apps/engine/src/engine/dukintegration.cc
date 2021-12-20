@@ -3,7 +3,7 @@
 #include <map>
 #include <functional>
 
-#include "core/ecs-systems.h"
+#include "core/ecs.systems.h"
 #include "core/random.h"
 #include "core/log.h"
 #include "core/sol.h"

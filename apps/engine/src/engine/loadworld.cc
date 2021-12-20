@@ -2,7 +2,7 @@
 
 #include "core/proto.h"
 #include "core/log.h"
-#include "core/ecs-systems.h"
+#include "core/ecs.systems.h"
 #include "core/vfs_path.h"
 
 #include "engine/components.h"

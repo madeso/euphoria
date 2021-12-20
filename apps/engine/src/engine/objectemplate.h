@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/ecs-id.h"
+#include "core/ecs.id.h"
 #include "core/sol_forward.h"
 #include "core/noncopyable.h"
 

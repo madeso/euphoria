@@ -6,7 +6,7 @@
 #include <vector>
 
 #include "core/ecs.h"
-#include "core/ecs-id.h"
+#include "core/ecs.id.h"
 
 namespace euphoria::render
 {

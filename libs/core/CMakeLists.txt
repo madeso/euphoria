@@ -97,8 +97,8 @@ set(app_src
     src/core/decompress.cc src/core/decompress.h
     src/core/datetime.cc src/core/datetime.h
     src/core/dump.cc src/core/dump.h
-    src/core/ecs-id.cc src/core/ecs-id.h
-    src/core/ecs-systems.cc src/core/ecs-systems.h
+    src/core/ecs.id.cc src/core/ecs.id.h
+    src/core/ecs.systems.cc src/core/ecs.systems.h
     src/core/ecs.cc src/core/ecs.h
     src/core/editdistance.cc src/core/editdistance.h
     src/core/editdistance.search.cc src/core/editdistance.search.h
