@@ -203,13 +203,14 @@ def set_existing_output(root, project_build_folder, source_file, existing_output
 
 
 
-def call_clang_tidy(root, tidy_path, project_build_folder, source_file, name_printer, fix):
+def call_clang_tidy(root, force: bool, tidy_path, project_build_folder, source_file, name_printer, fix):
     """
     runs clang-tidy and returns all the text output
     """
-    existing_output, took = get_existing_output(root, project_build_folder, source_file)
-    if existing_output is not None:
-        return existing_output, took
+    if not force:
+        existing_output, took = get_existing_output(root, project_build_folder, source_file)
+        if existing_output is not None:
+            return existing_output, took
     command = [tidy_path, '-p', project_build_folder]
     if fix:
         command.append('--fix')
@@ -257,11 +258,11 @@ class FileStatistics:
             print(f'{len(self.data)} files')
 
 
-def run_clang_tidy(root, tidy_path, source_file, project_build_folder, stats, short, name_printer, fix, printable_file, only):
+def run_clang_tidy(root, force: bool, tidy_path, source_file, project_build_folder, stats, short, name_printer, fix, printable_file, only):
     """
     runs the clang-tidy process, printing status to terminal
     """
-    output, time_taken = call_clang_tidy(root, tidy_path, project_build_folder, source_file, name_printer, fix)
+    output, time_taken = call_clang_tidy(root, force, tidy_path, project_build_folder, source_file, name_printer, fix)
     warnings = collections.Counter()
     classes = collections.Counter()
     if not short and len(only) == 0:
@@ -402,6 +403,7 @@ def handle_tidy(args):
     make_clang_tidy(root)
 
     tidy_path = args.tidy
+    force = args.force
     print(f'using clang-tidy: {tidy_path}')
 
     total_counter = collections.Counter()
@@ -426,7 +428,7 @@ def handle_tidy(args):
                         print_header(project)
                     first_file = False
                 if args.nop is False:
-                    warnings, classes = run_clang_tidy(root, tidy_path, source_file, project_build_folder, stats, args.short, print_name, args.fix, printable_file, args.only)
+                    warnings, classes = run_clang_tidy(root, force, tidy_path, source_file, project_build_folder, stats, args.short, print_name, args.fix, printable_file, args.only)
                     if args.short and len(warnings) > 0:
                         break
                     project_counter.update(warnings)
@@ -497,6 +499,7 @@ def main():
     sub.add_argument('--list', action='store_true', help="also list files in the summary")
     sub.add_argument('--no-headers', dest='headers', action='store_false', help="don't tidy headers")
     sub.add_argument('--only', nargs='*', default=[])
+    sub.add_argument('--force', action='store_true', help="Force clang-tidy to run, even if there is a result")
     sub.add_argument('--tidy', help='the clang-tidy to use', default='clang-tidy')
     sub.set_defaults(func=handle_tidy)
 
