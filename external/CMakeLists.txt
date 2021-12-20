@@ -1,44 +1,89 @@
+###################################################################################################
+## fmt
 add_subdirectory(fmt-7.1.1)
+
+
+
+
+###################################################################################################
+## gaf
 add_subdirectory(gaf)
 set_target_properties(fmt PROPERTIES FOLDER "Dependencies")
 
-################################################################
-# header only libraries
 
+
+
+###################################################################################################
+## stb image
 add_library(stb_image STATIC stb_image.cc)
 set_target_properties(stb_image PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_image
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
+
+
+
+###################################################################################################
+## stb image write
 add_library(stb_image_write STATIC stb_image_write.cc)
 set_target_properties(stb_image_write PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_image_write
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
+
+
+
+###################################################################################################
+## stb rect pack
 add_library(stb_rect_pack STATIC stb_rect_pack.cc)
 set_target_properties(stb_rect_pack PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_rect_pack
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
+
+
+
+###################################################################################################
+## stb true type
 add_library(stb_truetype STATIC stb_truetype.cc)
 set_target_properties(stb_truetype PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_truetype
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
 
+
+
+
+###################################################################################################
+## range
 # todo(Gustav): remove once we update to c++20
 add_library(range INTERFACE)
 target_include_directories(range INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/range-v3/include)
 
+
+
+
+###################################################################################################
+## font 8x8
 add_library(font8x8 INTERFACE)
 target_include_directories(font8x8 INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/font8x8)
 
+
+
+
+###################################################################################################
+## font 8x13
 add_library(font8x13 INTERFACE)
 target_include_directories(font8x13 INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/font8x13)
 
+
+
+
+###################################################################################################
+## crc32
 add_library(crc32 STATIC
     crc32/crc32/crc32.c
     crc32/crc32/crc32.h
@@ -48,6 +93,11 @@ target_include_directories(crc32
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/crc32
 )
 
+
+
+
+###################################################################################################
+## glad
 add_library(glad STATIC
     glad/src/glad.c
     glad/include/glad/glad.h
@@ -58,44 +108,78 @@ target_include_directories(glad
 )
 target_link_libraries(glad PUBLIC ${CMAKE_DL_LIBS})
 
+
+
+
+###################################################################################################
+## icon font cpp headers
 add_library(icon_font_cpp_headers INTERFACE)
 target_include_directories(icon_font_cpp_headers
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/IconFontCppHeaders
 )
 
+
+
+
+###################################################################################################
+## catch
 add_library(catch INTERFACE)
 target_include_directories(catch
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/catch
 )
 target_link_libraries(catch INTERFACE ${CMAKE_THREAD_LIBS_INIT})
 
+
+
+
+###################################################################################################
+## spdlog
 add_library(spdlog INTERFACE)
 target_include_directories(spdlog
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/spdlog/include
 )
 
+
+
+###################################################################################################
+## magic enum
 add_library(magic_enum INTERFACE)
 target_include_directories(magic_enum
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/magic_enum/include
 )
 
-################################################################
-# more complex libraries
 
+
+###################################################################################################
+## assimp
 find_package(assimp REQUIRED)
 add_library(assimp INTERFACE)
 target_include_directories(assimp INTERFACE ${assimp_INCLUDE_DIRS})
 target_link_libraries(assimp INTERFACE ${assimp_LIBRARIES})
 
+
+
+###################################################################################################
+## OpenGL
 find_package(OpenGL REQUIRED)
 add_library(opengl INTERFACE)
 target_link_libraries(opengl INTERFACE ${OPENGL_LIBRARIES} ${CMAKE_DL_LIBS})
 
+
+
+
+###################################################################################################
+## sdl2
 find_package(SDL2 REQUIRED)
 add_library(sdl2 INTERFACE)
 target_include_directories(sdl2 INTERFACE ${SDL2_INCLUDE_DIR})
 target_link_libraries(sdl2 INTERFACE ${SDL2_LIBRARY})
 
+
+
+
+###################################################################################################
+## DearIMGUI
 add_library(imgui STATIC
     imgui/imgui/imconfig.h
     imgui/imgui/imgui_demo.cpp
@@ -138,6 +222,11 @@ target_link_libraries(imgui
         project_options
 )
 
+
+
+
+###################################################################################################
+## lua
 add_library(lua STATIC
     lua/src/lapi.c
     lua/src/lauxlib.c
