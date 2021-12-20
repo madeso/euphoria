@@ -5,6 +5,8 @@
 #include <variant>
 #include <optional>
 
+#include "core/assert.h"
+
 #include "pugixml.hpp"
 #include "gaf/lib_pugixml.h"
 
@@ -74,36 +76,44 @@ namespace euphoria::core
     std::optional<T>
     work_get_optional_and_log_errors(ReadResult<T>&& result, bool log_missing_file)
     {
-        return std::visit
-        (
-            [log_missing_file](auto&& arg) -> std::optional<T>
-            {
-                using TArg = std::decay_t<decltype(arg)>;
-                if constexpr (std::is_same_v<TArg, T>)
+        try
+        {
+            return std::visit
+            (
+                [log_missing_file](auto&& arg) -> std::optional<T>
                 {
-                    return arg;
-                }
-                else if constexpr (std::is_same_v<TArg, ReadErrorFileMissing>)
-                {
-                    if(log_missing_file)
+                    using TArg = std::decay_t<decltype(arg)>;
+                    if constexpr (std::is_same_v<TArg, T>)
+                    {
+                        return arg;
+                    }
+                    else if constexpr (std::is_same_v<TArg, ReadErrorFileMissing>)
+                    {
+                        if(log_missing_file)
+                        {
+                            log_read_error(arg);
+                        }
+
+                        return std::nullopt;
+                    }
+                    else if constexpr (std::is_same_v<TArg, ReadErrorFileError>)
                     {
                         log_read_error(arg);
+                        return std::nullopt;
                     }
-
-                    return std::nullopt;
-                }
-                else if constexpr (std::is_same_v<TArg, ReadErrorFileError>)
-                {
-                    log_read_error(arg);
-                    return std::nullopt;
-                }
-                else
-                {
-                    static_assert(always_false_v<TArg>, "non-exhaustive visitor!");
-                }
-            },
-            result
-        );
+                    else
+                    {
+                        static_assert(always_false_v<TArg>, "non-exhaustive visitor!");
+                    }
+                },
+                result
+            );
+        }
+        catch(const std::bad_variant_access&)
+        {
+            DIE("invalid state of ReadResult");
+            return std::nullopt;
+        }
     }
 
 
