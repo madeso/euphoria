@@ -1,7 +1,14 @@
 #include "core/stringutils.h"
+
+#include "tests/stringeq.h"
+
 #include "catch.hpp"
 
+
 namespace euco = euphoria::core;
+
+using namespace euphoria::tests;
+
 
 TEST_CASE("stringutils-laststrings", "[stringutils]")
 {
@@ -104,4 +111,32 @@ TEST_CASE("stringutils-human_stringsort", "[stringutils]")
 
     CHECK(lhs > rhs);
     CHECK(euco::string_compare(lhs, rhs) < 0);
+}
+
+
+TEST_CASE("stringutils-split", "[stringutils]")
+{
+    CHECK(string_is_equal({}, euco::split("", ',')));
+
+    CHECK(string_is_equal({"a", "b", "c"}, euco::split("a,b,c", ',')));
+    CHECK(string_is_equal({"a", "", "b", "c"}, euco::split("a,,b,c", ',')));
+    CHECK(string_is_equal({"", "a", "b", "c"}, euco::split(",a,b,c", ',')));
+    CHECK(string_is_equal({"a", "b", "c"}, euco::split("a,b,c,", ',')));
+    CHECK(string_is_equal({"a", "", "", "b"}, euco::split("a,,,b", ',')));
+
+    CHECK(string_is_equal({"another", "bites", "cars"}, euco::split("another,bites,cars", ',')));
+
+    CHECK(string_is_equal({"a", "b", "c"}, euco::split("a/b/c", '/')));
+    CHECK(string_is_equal({"another", "bites", "cars"}, euco::split("another/bites/cars", '/')));
+}
+
+TEST_CASE("stringutils-split-spaces", "[stringutils]")
+{
+    CHECK(string_is_equal({}, euco::split_on_spaces("")));
+    CHECK(string_is_equal({}, euco::split_on_spaces("  \n  \r   \t  ")));
+
+    CHECK(string_is_equal({"a", "b", "c"}, euco::split_on_spaces("a b c")));
+    CHECK(string_is_equal({"a", "b", "c"}, euco::split_on_spaces("   a   b   c  ")));
+    CHECK(string_is_equal({"a", "b", "c"}, euco::split_on_spaces("\na\tb\rc ")));
+    CHECK(string_is_equal({"another", "bites", "cars"}, euco::split_on_spaces("another bites cars")));
 }
