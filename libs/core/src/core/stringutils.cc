@@ -6,6 +6,7 @@
 #include <vector>
 #include <sstream>
 #include <iterator>
+#include <type_traits>
 
 #include "core/assert.h"
 
@@ -373,25 +374,72 @@ remove_consecutive(const std::string& str, const std::string& ch)
 }
 
 
-template <typename Out>
-void
-split(const std::string& s, char delim, Out result)
+namespace
 {
-    std::stringstream ss(s);
-    std::string item;
-    while(std::getline(ss, item, delim))
+    template<typename R, typename T>
+    struct SizeGetter
     {
-        *(result++) = item;
+        static R get(const T& t) { return t.size(); }
+    };
+
+    template<typename R>
+    struct SizeGetter<R, char>
+    {
+        static R get(char) { return 1; }
+    };
+
+    template<typename R, typename T>
+    R get_size(const T& t) { return SizeGetter<R, T>::get(t); }
+
+    template
+    <
+        typename ListType,
+        typename OffsetType,
+        typename StringType,
+        typename DelimType,
+        typename AddFunction
+    >
+    ListType
+    split_base(const StringType str, DelimType delim, bool add_final, AddFunction&& add_function)
+    {
+        ListType ret;
+
+        const OffsetType delim_length = get_size<OffsetType>(delim);
+
+        OffsetType search_start = 0;
+        OffsetType index = 0;
+        
+        while(true)
+        {
+            const auto found_index = str.find(delim, search_start);
+            if(found_index == StringType::npos)
+            {
+                // abort... add last?
+                // todo(Gustav): add argument to specify how to handle split on empty input
+                if(add_final && str.empty() == false)
+                {
+                    add_function(ret, index, str.substr(search_start));
+                }
+                return ret;
+            }
+            add_function(ret, index, str.substr(search_start, found_index - search_start));
+            index += 1;
+            search_start = found_index + delim_length;
+        }
     }
 }
 
 
 std::vector<std::string>
-split(const std::string& s, char delim)
+split(const std::string& s, char c)
 {
-    std::vector<std::string> elems;
-    split(s, delim, std::back_inserter(elems));
-    return elems;
+    return split_base<std::vector<std::string>, std::size_t>
+    (
+        s, c, true, [](std::vector<std::string>& v, std::size_t, const std::string& s)
+        {
+            v.emplace_back(s);
+        }
+    );
 }
 
 

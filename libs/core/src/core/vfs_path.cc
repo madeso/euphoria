@@ -308,7 +308,14 @@ namespace euphoria::core::vfs
     std::vector<std::string>
     DirPath::split_directories() const
     {
-        return split(path, '/');
+        auto r = split(path, '/');
+
+        // if path ends with / then remove the empty "folder"
+        if(r.empty() == false && r.rbegin()->empty())
+        {
+            r.pop_back();
+        }
+        return r;
     }
 
 

@@ -121,7 +121,7 @@ TEST_CASE("stringutils-split", "[stringutils]")
     CHECK(string_is_equal({"a", "b", "c"}, euco::split("a,b,c", ',')));
     CHECK(string_is_equal({"a", "", "b", "c"}, euco::split("a,,b,c", ',')));
     CHECK(string_is_equal({"", "a", "b", "c"}, euco::split(",a,b,c", ',')));
-    CHECK(string_is_equal({"a", "b", "c"}, euco::split("a,b,c,", ',')));
+    CHECK(string_is_equal({"a", "b", "c", ""}, euco::split("a,b,c,", ',')));
     CHECK(string_is_equal({"a", "", "", "b"}, euco::split("a,,,b", ',')));
 
     CHECK(string_is_equal({"another", "bites", "cars"}, euco::split("another,bites,cars", ',')));
