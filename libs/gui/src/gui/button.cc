@@ -1,5 +1,5 @@
 #include "gui/button.h"
-#include "uistate.h"
+#include "gui/uistate.h"
 
 #include "render/scalablesprite.h"
 #include "render/spriterender.h"

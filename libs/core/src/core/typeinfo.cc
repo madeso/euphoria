@@ -1,4 +1,4 @@
-#include "typeinfo.h"
+#include "core/typeinfo.h"
 
 #if BUILD_TYPEINFO_IMPL_CUSTOM_RT == 1
 

@@ -1,4 +1,4 @@
-#include "defaultfiles.h"
+#include "render/defaultfiles.h"
 
 #include "core/vfs.h"
 #include "core/vfs_path.h"

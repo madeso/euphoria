@@ -1,4 +1,5 @@
-#include "str.h"
+#include "core/str.h"
+
 #include <string>
 
 namespace euphoria::core

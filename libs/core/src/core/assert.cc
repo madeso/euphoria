@@ -1,5 +1,5 @@
 #include "core/assert.h"
-#include "stringmerger.h"
+#include "core/stringmerger.h"
 
 #ifdef IMPLEMENT_ASSERT_LIB
 
