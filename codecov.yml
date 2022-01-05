@@ -3,6 +3,8 @@
     [
         "external/**/*",
         "apps/**/*",
-        "libs/render/**/*"
+        "libs/render/**/*",
+        "libs/core/examples/**/*",
+        "libs/render/**/*.test.cc"
     ]
 }
