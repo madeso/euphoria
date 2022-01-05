@@ -47,12 +47,11 @@ jobs:
                 ctest -C ${{matrix.build_type}}
                 gcovr -j $(nproc) --delete --root ../ --print-summary --xml-pretty --xml coverage.xml .
 
-        - name: Find coverage
+        - name: Display coverage
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
-                ls
-                find .
+                cat coverage.xml
 
         - name: Upload coverage to Codecov
           uses: codecov/codecov-action@v2
@@ -60,14 +59,3 @@ jobs:
             flags: ${{ runner.os }}
             name: ${{ runner.os }}-coverage
             files: ${{github.workspace}}/build/coverage.xml
-
-        - name: Test coverage
-          shell: bash
-          working-directory: ${{github.workspace}}/build
-          run: |
-                ls coverage
-
-        - name: Coveralls
-          uses: coverallsapp/github-action@master
-          with:
-            github-token: ${{ secrets.GITHUB_TOKEN }}
