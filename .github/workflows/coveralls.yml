@@ -21,6 +21,10 @@ jobs:
                 sudo apt update
                 sudo apt install -y libsdl2-dev libassimp-dev clang-9 clang-tidy
 
+        - name: Install python dependencies
+          run: |
+                pip3 install wheel setuptools gcovr
+
         - name: Create Build Environment
           run: cmake -E make_directory ${{github.workspace}}/build
 
@@ -41,6 +45,7 @@ jobs:
           working-directory: ${{github.workspace}}/build
           run: |
                 ctest -C ${{matrix.build_type}}
+                gcovr -j $(nproc) --delete --root ../ --print-summary --xml-pretty --xml coverage.xml .
 
         - name: Find coverage
           shell: bash
@@ -51,6 +56,10 @@ jobs:
 
         - name: Upload coverage to Codecov
           uses: codecov/codecov-action@v2
+          with:
+            flags: ${{ runner.os }}
+            name: ${{ runner.os }}-coverage
+            files: ${{github.workspace}}/build/coverage.xml
 
         - name: Test coverage
           shell: bash
