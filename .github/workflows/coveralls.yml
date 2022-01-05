@@ -16,17 +16,21 @@ jobs:
           with:
             submodules: recursive
 
+
         - name: Install Dependencies
           run: |
                 sudo apt update
                 sudo apt install -y libsdl2-dev libassimp-dev clang-9 clang-tidy
 
+
         - name: Install python dependencies
           run: |
                 pip3 install wheel setuptools gcovr
 
+
         - name: Create Build Environment
           run: cmake -E make_directory ${{github.workspace}}/build
+
 
         - name: Configure
           shell: bash
@@ -35,23 +39,41 @@ jobs:
                 CXX: ${{matrix.cxx}}
           run: cmake -DGENERATE_COVERAGE=ON -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
+
         - name: Build
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: time cmake --build . --config ${{matrix.build_type}}
+
 
         - name: Generate coverage files by running test
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
                 ctest -C ${{matrix.build_type}}
+
+
+        - name: Debug file structure
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: |
+                ls
+                find .
+
+
+        - name: Generate coverage.xml
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: |
                 gcovr -j $(nproc) --delete --root ../ --print-summary --xml-pretty --xml coverage.xml .
 
-        - name: Display coverage
+
+        - name: Display coverage.xml
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
                 cat coverage.xml
+
 
         - name: Upload coverage to Codecov
           uses: codecov/codecov-action@v2
