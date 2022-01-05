@@ -32,37 +32,23 @@ option(GENERATE_COVERAGE "generate code coverage information" OFF)
 
 
 if(GENERATE_COVERAGE)
-    message(STATUS "Coverage enabled")
     # inspired by https://github.com/JoakimSoderberg/coveralls-cmake
-    if(NOT (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
-        AND (NOT "${CMAKE_C_COMPILER_ID}" STREQUAL "Clang"))
-        message(FATAL_ERROR "Compiler ${CMAKE_C_COMPILER_ID} is not GNU gcc! Aborting... You can set this on the command line using CC=/usr/bin/gcc CXX=/usr/bin/g++ cmake <options> ..")
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU" OR CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
+        # supported
+    else()
+        message(FATAL_ERROR "Compiler ${CMAKE_C_COMPILER_ID} is not supported!")
     endif()
 
     if(NOT CMAKE_BUILD_TYPE STREQUAL "Debug")
-        message(FATAL_ERROR "Code coverage results with an optimised (non-Debug) build may be misleading! Add -DCMAKE_BUILD_TYPE=Debug")
+        message(FATAL_ERROR "Code coverage results with an optimised (non-Debug) build may be misleading!")
     endif()
 
-    target_compile_options(project_options INTERFACE "-fprofile-arcs")
-    target_compile_options(project_options INTERFACE "-ftest-coverage")
-    target_compile_options(project_options INTERFACE "-fprofile-dir=${CMAKE_CURRENT_BINARY_DIR}/coverage")
+    message(STATUS "Coverage enabled")
 
-    # is -fprofile-generate needed?
-    # target_compile_options(project_options INTERFACE "-fprofile-generate")
-    
-    # target_link_libraries(project_options  INTERFACE "-lgcov")
-
-    # Add required flags (GCC & LLVM/Clang)
-    target_compile_options(project_options INTERFACE
-        -O0        # no optimization
-        -g         # generate debug info
-        --coverage # sets all required flags
-    )
-    if(CMAKE_VERSION VERSION_GREATER_EQUAL 3.13)
-        target_link_options(project_options INTERFACE --coverage)
-    else()
-        target_link_libraries(project_options INTERFACE --coverage)
-    endif()
+    # based on
+    # https://github.com/cpp-best-practices/cpp_starter_project/blob/main/cmake/Sanitizers.cmake#L6
+    target_compile_options(project_options INTERFACE --coverage -O0 -g)
+    target_link_libraries(project_options INTERFACE --coverage)
 endif()
 
 set(OpenGL_GL_PREFERENCE "GLVND")
