@@ -36,12 +36,26 @@ jobs:
           working-directory: ${{github.workspace}}/build
           run: time cmake --build . --config ${{matrix.build_type}}
 
-        - name: Test
+        - name: Generate coverage files by running test
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
                 ctest -C ${{matrix.build_type}}
+
+        - name: Find coverage
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: |
                 ls
+                find .
+
+        - name: Upload coverage to Codecov
+          uses: codecov/codecov-action@v2
+
+        - name: Test coverage
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: |
                 ls coverage
 
         - name: Coveralls
