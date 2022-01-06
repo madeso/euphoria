@@ -404,7 +404,7 @@ namespace
     {
         ListType ret;
 
-        const OffsetType delim_length = get_size<OffsetType>(delim);
+        const auto delim_length = get_size<OffsetType>(delim);
 
         OffsetType search_start = 0;
         OffsetType index = 0;
