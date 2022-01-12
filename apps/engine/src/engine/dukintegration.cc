@@ -180,7 +180,7 @@ namespace euphoria::engine
                 CameraData* cam
         )
             : systems(sys, duk)
-            , registry(&world->reg, cc)
+            , registry(&wr->reg, cc)
             , input(duk->state["input"].get_or_create<sol::table>())
             , world(wr)
             , creator(cr)
