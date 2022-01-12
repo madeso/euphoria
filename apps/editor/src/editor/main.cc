@@ -330,9 +330,9 @@ open_or_focus_scimed_editor
         [&]() -> std::shared_ptr<GenericWindow>
         {
             auto sprite = sc->get(file);
-            return create_generic_window(sprite, [](auto sprite)
+            return create_generic_window(sprite, [](auto sp)
             {
-                scalingsprite::RunImgui(sprite.get());
+                scalingsprite::RunImgui(sp.get());
             });
         }
     );
@@ -535,11 +535,11 @@ main(int argc, char** argv)
             {
                 return file.path == "~/gamedata.xml";
             },
-            [&](Windows *windows, const vfs::FilePath &file)
+            [&](Windows* wins, const vfs::FilePath &file)
             {
                 open_or_focus_on_generic_window<game::Game>
                 (
-                    windows,
+                    wins,
                     file,
                     engine.file_system.get(),
                     "Game",
@@ -560,11 +560,11 @@ main(int argc, char** argv)
             {
                 return file.path == "~/world.xml";
             },
-            [&](Windows *windows, const vfs::FilePath &file)
+            [&](Windows* wins, const vfs::FilePath &file)
             {
                 open_or_focus_on_generic_window<::world::World>
                 (
-                    windows,
+                    wins,
                     file,
                     engine.file_system.get(),
                     "World",
@@ -584,11 +584,11 @@ main(int argc, char** argv)
             "Open with Enum Editor",
             [](const vfs::FilePath &) -> bool
             { return false; },
-            [&](Windows *windows, const vfs::FilePath &file)
+            [&](Windows* wins, const vfs::FilePath &file)
             {
                 open_or_focus_on_generic_window<enumlist::Enumroot>
                 (
-                    windows,
+                    wins,
                     file,
                     engine.file_system.get(),
                     "Enums",
@@ -611,9 +611,9 @@ main(int argc, char** argv)
             {
                 return ends_with(file.path, ".xml") || ends_with(file.path, ".js");
             },
-            [&](Windows *windows, const vfs::FilePath &file)
+            [&](Windows* wins, const vfs::FilePath &file)
             {
-                open_or_focus_text_file(windows, file, engine.file_system.get());
+                open_or_focus_text_file(wins, file, engine.file_system.get());
             }
         )
     );
@@ -627,9 +627,9 @@ main(int argc, char** argv)
             {
                 return file.get_extension() == "png";
             },
-            [&](Windows *windows, const vfs::FilePath &file)
+            [&](Windows* wins, const vfs::FilePath &file)
             {
-                open_or_focus_scimed(windows, file, &texture_cache, &sprite_cache);
+                open_or_focus_scimed(wins, file, &texture_cache, &sprite_cache);
             }
         )
     );
@@ -641,9 +641,9 @@ main(int argc, char** argv)
             "Open with auto scimed editor",
             [](const vfs::FilePath &) -> bool
             { return false; },
-            [&](Windows *windows, const vfs::FilePath &file)
+            [&](Windows* wins, const vfs::FilePath &file)
             {
-                open_or_focus_scimed_editor(windows, file, &sprite_cache);
+                open_or_focus_scimed_editor(wins, file, &sprite_cache);
             }
         )
     );

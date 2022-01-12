@@ -59,8 +59,8 @@ namespace euphoria::engine
         LuaState* duk;
         UpdateFunction func;
 
-        ScriptUpdateSystem(const std::string& name, LuaState* d, UpdateFunction f)
-            : ComponentSystem(name)
+        ScriptUpdateSystem(const std::string& n, LuaState* d, UpdateFunction f)
+            : ComponentSystem(n)
             , duk(d)
             , func(f)
         {
@@ -96,13 +96,13 @@ namespace euphoria::engine
 
         ScriptInitSystem
         (
-                const std::string& name,
+                const std::string& n,
                 LuaState* d,
                 core::ecs::Registry* r,
                 const std::vector<core::ecs::ComponentId>& t,
                 InitFunction f
         )
-            : ComponentSystem(name)
+            : ComponentSystem(n)
             , reg(r)
             , duk(d)
             , types(t)
@@ -173,17 +173,17 @@ namespace euphoria::engine
         ScriptIntegrationPimpl
         (
                 core::ecs::Systems* sys,
-                core::ecs::World* world,
+                core::ecs::World* wr,
                 LuaState* duk,
-                ObjectCreator* creator,
+                ObjectCreator* cr,
                 engine::Components* cc,
                 CameraData* cam
         )
             : systems(sys, duk)
             , registry(&world->reg, cc)
             , input(duk->state["input"].get_or_create<sol::table>())
-            , world(world)
-            , creator(creator)
+            , world(wr)
+            , creator(cr)
             , components(cc)
             , camera(cam)
         {

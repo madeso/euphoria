@@ -40,12 +40,13 @@ namespace euphoria::tests
         struct Approx
         {
         public:
-            explicit Approx(T value)
+            explicit Approx(T v)
                 : epsilon(std::numeric_limits<float>::epsilon() * 100)
                 , margin(0.0)
                 , scale(1.0)
-                , value(value)
-            {}
+                , value(v)
+            {
+            }
 
             friend bool
             operator==(T lhs, Approx<T> const& rhs)

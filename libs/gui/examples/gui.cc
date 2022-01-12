@@ -394,7 +394,6 @@ main(int argc, char* argv[])
     // SDL_StartTextInput();
 
     bool running = true;
-    constexpr bool show_imgui = true;
 
     int window_mouse_x = 0;
     int window_mouse_y = 0;
@@ -494,6 +493,7 @@ main(int argc, char* argv[])
         SDL_GL_SwapWindow(engine.window->window);
     };
 
+    constexpr bool show_imgui = true;
     while(running)
     {
         last = now;

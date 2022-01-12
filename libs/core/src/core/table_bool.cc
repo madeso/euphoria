@@ -59,9 +59,9 @@ namespace euphoria::core
                 return 0;
             }
 
-            auto contains = [&world](int x, int y)
+            auto contains = [&world](int xx, int yy)
             {
-                return world.get_indices().contains_inclusive(x, y);
+                return world.get_indices().contains_inclusive(xx, yy);
             };
 
             if (contains(x, y))

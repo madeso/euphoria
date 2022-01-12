@@ -305,15 +305,15 @@ namespace euphoria::render
 
     TextDrawCommand::TextDrawCommand
     (
-        const Texture2* texture,
-        const core::Rectf& sprite_rect,
-        const core::Rectf& texture_rect,
-        bool hi
+        const Texture2* atexture,
+        const core::Rectf& asprite_rect,
+        const core::Rectf& atexture_rect,
+        bool ahi
     )
-        : texture(texture)
-        , sprite_rect(sprite_rect)
-        , texture_rect(texture_rect)
-        , hi(hi)
+        : texture(atexture)
+        , sprite_rect(asprite_rect)
+        , texture_rect(atexture_rect)
+        , hi(ahi)
     {
     }
 
@@ -370,14 +370,14 @@ namespace euphoria::render
         ui_text_compile_visitor
         (
             const DrawableFont& f,
-            float size,
-            ListOfTextDrawCommands* list
+            float s,
+            ListOfTextDrawCommands* li
         )
             : font(f)
-            , size(size)
+            , size(s)
             , apply_highlight(false)
             , position(0, 0)
-            , list(list)
+            , list(li)
         {
         }
 

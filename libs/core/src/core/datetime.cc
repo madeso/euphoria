@@ -33,8 +33,8 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
 
 
-    TimetWrapper::TimetWrapper(time_t time)
-        : time(time)
+    TimetWrapper::TimetWrapper(time_t atime)
+        : time(atime)
     {
     }
 
@@ -240,7 +240,7 @@ namespace euphoria::core
 
 
     std::string
-    StructTmWrapper::to_string(const std::string& format) const
+    StructTmWrapper::to_debug_string() const
     {
         std::vector<char> ret;
         const size_t base_size = 100;
@@ -249,7 +249,8 @@ namespace euphoria::core
             const size_t string_length = base_size * i;
             ret.resize(string_length);
 
-            const auto characters_written = strftime(&ret[0], string_length, format.c_str(), &time);
+            constexpr const char* const format = "%Y-%m-%d %H:%M:%S";
+            const auto characters_written = strftime(&ret[0], string_length, format, &time);
 
             if (characters_written != 0)
             {
@@ -258,12 +259,6 @@ namespace euphoria::core
         }
 
         return "";
-    }
-
-    std::string
-    StructTmWrapper::to_debug_string() const
-    {
-        return to_string("%Y-%m-%d %H:%M:%S");
     }
 
 
@@ -337,13 +332,6 @@ namespace euphoria::core
     DateTime::create_from_current_time(TimeZone timezone)
     {
         return DateTime(timezone, TimetWrapper::from_current_time());
-    }
-
-
-    std::string
-    DateTime::to_string(const std::string& format) const
-    {
-        return as_struct().to_string(format);
     }
 
 
@@ -496,16 +484,16 @@ namespace euphoria::core
     }
 
 
-    DateTime::DateTime(TimeZone timezone, const StructTmWrapper& time)
-        : timezone(timezone)
-        , time(to_time_t_wrapper(time, timezone))
+    DateTime::DateTime(TimeZone atimezone, const StructTmWrapper& wrapped_time)
+        : timezone(atimezone)
+        , time(to_time_t_wrapper(wrapped_time, timezone))
     {
     }
 
 
-    DateTime::DateTime(TimeZone timezone, const TimetWrapper& time)
-        : timezone(timezone)
-        , time(time)
+    DateTime::DateTime(TimeZone atimezone, const TimetWrapper& atime)
+        : timezone(atimezone)
+        , time(atime)
     {
     }
 

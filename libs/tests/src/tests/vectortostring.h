@@ -27,7 +27,7 @@ namespace euphoria::tests
 
         ss << newline << "{" << newline;
         int index = 0;
-        for(const auto s: v)
+        for(const auto& s: v)
         {
             if(first) { first = false; }
             else { ss << ", " << newline; }

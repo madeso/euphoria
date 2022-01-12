@@ -43,8 +43,9 @@ namespace euphoria::core
         }
     }
 
-    Id::Id(IdGenerator* generator)
-        : value(generate_id(generator)), generator(generator)
+    Id::Id(IdGenerator* g)
+        : value(generate_id(g))
+        , generator(g)
     {
     }
 

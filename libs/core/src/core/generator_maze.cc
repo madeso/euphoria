@@ -23,8 +23,10 @@ namespace euphoria::core::generator
     const std::vector<Direction>&
     all_dirs()
     {
-        const static auto dirs = std::vector<Direction> {
-                Direction::north, Direction::south, Direction::east, Direction::west};
+        const static auto dirs = std::vector<Direction>
+        {
+            Direction::north, Direction::south, Direction::east, Direction::west
+        };
         return dirs;
     }
 
@@ -69,8 +71,7 @@ namespace euphoria::core::generator
     {
         const auto o = dir_to_offset(dir);
         const auto np = c + o;
-        (*maze)(np.x, np.y)
-                |= cell::visited | dir_to_cell_path(flip_direction(dir));
+        (*maze)(np.x, np.y) |= cell::visited | dir_to_cell_path(flip_direction(dir));
         (*maze)(c.x, c.y) |= dir_to_cell_path(dir);
         return np;
     }
@@ -86,8 +87,11 @@ namespace euphoria::core::generator
     bool
     can_visit_without_making_loop(Maze* maze, const Vec2i& np)
     {
-        const auto world_size = Recti::from_width_height(
-                maze->get_width() - 1, maze->get_height() - 1);
+        const auto world_size = Recti::from_width_height
+        (
+            maze->get_width() - 1,
+            maze->get_height() - 1
+        );
         return world_size.contains_inclusive(np) && !has_visited(maze, np);
     }
 
@@ -107,8 +111,11 @@ namespace euphoria::core::generator
     Vec2i
     random_position_on_maze(Random* random, Maze* maze)
     {
-        return {get_random_in_range(random, maze->get_width()),
-                get_random_in_range(random, maze->get_height())};
+        return
+        {
+            get_random_in_range(random, maze->get_width()),
+            get_random_in_range(random, maze->get_height())
+        };
     }
 
 
@@ -167,10 +174,12 @@ namespace euphoria::core::generator
     //////////////////////////////////////////////////////////////////////////////////////////
 
     void
-    add_to_frontier(
-            Maze* maze,
-            std::vector<RandomTraversal::Entry>* frontier,
-            const Vec2i& p)
+    add_to_frontier
+    (
+        Maze* maze,
+        std::vector<RandomTraversal::Entry>* frontier,
+        const Vec2i& p
+    )
     {
         visit(maze, p);
         for(auto d: all_dirs())
@@ -187,7 +196,6 @@ namespace euphoria::core::generator
     RandomTraversal::setup()
     {
         maze->clear(cell::none);
-
         add_to_frontier(maze, &frontier, random_position_on_maze(random, maze));
     }
 
@@ -209,13 +217,14 @@ namespace euphoria::core::generator
         {
             return;
         }
-        add_step_to_maze(maze, f.position, f.direction);
 
+        add_step_to_maze(maze, f.position, f.direction);
         add_to_frontier(maze, &frontier, np);
     }
 
 
     //////////////////////////////////////////////////////////////////////////////////////////
+
 
     Drawer::Drawer()
         : wall_color(NamedColor::black)
@@ -223,7 +232,9 @@ namespace euphoria::core::generator
         , cell_visited_color(NamedColor::white)
         , unit_color(NamedColor::red)
         , corridor_color(NamedColor::white)
-    {}
+    {
+    }
+
 
     Rgbi
     Drawer::calculate_cell_color(int x, int y) const
@@ -261,14 +272,17 @@ namespace euphoria::core::generator
         }
     }
 
+
     void
     Drawer::draw()
     {
         const auto path_size = cell_size + wall_size;
 
-        image.setup_no_alpha_support(
-                wall_size + maze->get_width() * path_size,
-                wall_size + maze->get_height() * path_size);
+        image.setup_no_alpha_support
+        (
+            wall_size + maze->get_width() * path_size,
+            wall_size + maze->get_height() * path_size
+        );
 
         clear(&image, wall_color);
 
@@ -279,34 +293,43 @@ namespace euphoria::core::generator
                 const auto px = wall_size + x * path_size;
                 const auto py = wall_size + y * path_size + cell_size - 1;
 
-                draw_square(
-                        &image,
-                        calculate_cell_color(x, y),
-                        px,
-                        py,
-                        cell_size);
+                draw_square
+                (
+                    &image,
+                    calculate_cell_color(x, y),
+                    px,
+                    py,
+                    cell_size
+                );
 
-                const auto xywh = [](int x, int y, int w, int h) {
-                    return Recti::from_top_left_width_height(Vec2i{x, y + 1}, w, h);
+                const auto xywh = [](int ax, int ay, int aw, int ah)
+                {
+                    return Recti::from_top_left_width_height(Vec2i{ax, ay + 1}, aw, ah);
                 };
 
                 const auto cell_value = (*maze)(x, y);
 
                 if((cell_value & cell::path_south) != 0)
                 {
-                    draw_rect(
-                            &image,
-                            corridor_color,
-                            xywh(px, py - cell_size, cell_size, wall_size));
+                    draw_rect
+                    (
+                        &image,
+                        corridor_color,
+                        xywh(px, py - cell_size, cell_size, wall_size)
+                    );
                 }
                 if((cell_value & cell::path_east) != 0)
                 {
-                    draw_rect(
-                            &image,
-                            corridor_color,
-                            xywh(px + cell_size, py, wall_size, cell_size));
+                    draw_rect
+                    (
+                        &image,
+                        corridor_color,
+                        xywh(px + cell_size, py, wall_size, cell_size)
+                    );
                 }
             }
         }
     }
+
+
 }

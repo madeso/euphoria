@@ -12,7 +12,6 @@ using namespace euphoria::core;
 int
 main()
 {
-
     const auto current_directory = get_current_directory();
     vfs::FileSystem file_system;
     vfs::ReadRootPhysicalFolder::add(&file_system, current_directory);
@@ -28,17 +27,24 @@ main()
 
     std::string input;
     VirtualConsole cmdline;
-    cmdline.register_command(
-            "debug",
-            [&chatbot](VirtualConsole::PrintFunction, const VirtualConsole::Args& args) {
-                std::cout << chatbot.debug_last_response(args);
-                std::cout << "\n\n";
-            });
-    cmdline.register_command(
-            "kill", [&chatbot](VirtualConsole::PrintFunction, const VirtualConsole::Args&) {
-                chatbot.is_in_conversation = false;
-                std::cout << "Killing chatbot.\n\n";
-            });
+    cmdline.register_command
+    (
+        "debug",
+        [&chatbot](VirtualConsole::PrintFunction, const VirtualConsole::Args& args)
+        {
+            std::cout << chatbot.debug_last_response(args);
+            std::cout << "\n\n";
+        }
+    );
+    cmdline.register_command
+    (
+        "kill",
+        [&chatbot](VirtualConsole::PrintFunction, const VirtualConsole::Args&)
+        {
+            chatbot.is_in_conversation = false;
+            std::cout << "Killing chatbot.\n\n";
+        }
+    );
 
     std::cout << chatbot.get_sign_on_message() << "\n";
 
@@ -50,9 +56,11 @@ main()
             if(!input.empty() && input[0] == '@')
             {
                 const std::string in {input.begin() + 1, input.end()};
-                cmdline.run(
-                        [](const std::string& s) { std::cout << s << "\n"; },
-                        in);
+                cmdline.run
+                (
+                    [](const std::string& s) { std::cout << s << "\n"; },
+                    in
+                );
             }
             else
             {

@@ -639,9 +639,9 @@ namespace euphoria::core
             ret.logs.rbegin()->titles = to_string_vector
             (
                 resp.inputs,
-                [](const detail::Input& input)
+                [](const detail::Input& ainput)
                 {
-                    return string_mergers::space.merge(input.words);
+                    return string_mergers::space.merge(ainput.words);
                 }
             );
             auto& log = ret.logs.rbegin()->lines;

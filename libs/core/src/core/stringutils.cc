@@ -435,9 +435,9 @@ split(const std::string& s, char c)
 {
     return split_base<std::vector<std::string>, std::size_t>
     (
-        s, c, true, [](std::vector<std::string>& v, std::size_t, const std::string& s)
+        s, c, true, [](std::vector<std::string>& v, std::size_t, const std::string& ss)
         {
-            v.emplace_back(s);
+            v.emplace_back(ss);
         }
     );
 }

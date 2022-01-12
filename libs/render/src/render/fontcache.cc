@@ -12,9 +12,9 @@ namespace euphoria::render
     struct FontCache::font_cache_pimpl
         : core::Cache<core::vfs::FilePath, DrawableFont, FontCache::font_cache_pimpl>
     {
-        explicit font_cache_pimpl(core::vfs::FileSystem* fs, TextureCache* cache)
+        explicit font_cache_pimpl(core::vfs::FileSystem* fs, TextureCache* c)
             : vfs(fs)
-            , cache(cache)
+            , cache(c)
         {
             ASSERT(fs);
         }

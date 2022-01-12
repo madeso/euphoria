@@ -79,7 +79,7 @@ TEST_CASE("mat4-transposed", "[mat]")
 TEST_CASE("mat4-axis", "[mat]")
 {
     const auto m = euco::Mat4i::identity();
-    REQUIRE(euco::Vec3i(1, 0, 0) == static_cast<euco::Vec3i>(m.get_x_axis()));
+    REQUIRE(euco::Vec3i(1, 0, 0) == m.get_x_axis());
     REQUIRE(euco::Vec3i(0, 1, 0) == m.get_y_axis());
     REQUIRE(euco::Vec3i(0, 0, 1) == m.get_z_axis());
 }

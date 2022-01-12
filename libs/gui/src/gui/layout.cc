@@ -188,8 +188,8 @@ namespace euphoria::gui
     }
 
 
-    SingleRowLayout::SingleRowLayout(float padding)
-        : padding(padding)
+    SingleRowLayout::SingleRowLayout(float p)
+        : padding(p)
     {
     }
 

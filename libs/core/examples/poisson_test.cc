@@ -132,9 +132,9 @@ main(int argc, char* argv[])
 {
     auto parser = argparse::Parser {"Poisson test"};
 
-    auto sub = parser.add_sub_parsers();
+    auto subs = parser.add_sub_parsers();
 
-    sub->add
+    subs->add
     (
         "svg", "generate svg file",
         [](argparse::SubParser* sub)
@@ -150,7 +150,7 @@ main(int argc, char* argv[])
         }
     );
 
-    sub->add
+    subs->add
     (
         "png", "generate png file",
         [](argparse::SubParser* sub)

@@ -25,7 +25,7 @@ namespace euphoria::core
 
         // w for point is 1
         // w for vector is 0
-        Vec4(const Vec3<T>& a, float w) : x(a.x), y(a.y), z(a.z), w(w) {}
+        Vec4(const Vec3<T>& a, float aw) : x(a.x), y(a.y), z(a.z), w(aw) {}
 
         Vec4(const Scale3<T>& a) : x(a.x), y(a.y), z(a.z), w(1) {}
 

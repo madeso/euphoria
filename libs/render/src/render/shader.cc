@@ -14,14 +14,18 @@
 #include "render/gl.h"
 #include "render/texture.h"
 
+
 namespace
 {
+
+
     const euphoria::render::ShaderProgram*&
     get_current_shader()
     {
         static const euphoria::render::ShaderProgram* current_shader = nullptr;
         return current_shader;
     }
+
 
     bool
     was_compilation_successful(GLuint object)
@@ -31,6 +35,7 @@ namespace
         return r == GL_TRUE;
     }
 
+
     bool
     was_linking_successful(GLuint object)
     {
@@ -38,6 +43,7 @@ namespace
         glGetProgramiv(object, GL_LINK_STATUS, &r);
         return r == GL_TRUE;
     }
+
 
     std::string
     get_shader_log(GLuint shader)
@@ -54,6 +60,7 @@ namespace
         return &str[0];
     }
 
+
     std::string
     get_program_log(GLuint shader)
     {
@@ -68,20 +75,26 @@ namespace
         glGetProgramInfoLog(shader, max_length, &length, &str[0]);
         return &str[0];
     }
+
+
 }
 
 
 namespace euphoria::render
 {
+
+
     ShaderId::ShaderId()
         : id(glCreateProgram())
     {
     }
 
+
     ShaderId::~ShaderId()
     {
         glDeleteProgram(id);
     }
+
 
     GLuint
     ShaderId::get_id() const
@@ -89,11 +102,13 @@ namespace euphoria::render
         return id;
     }
 
+
     bool
     ShaderId::is_currently_bound() const
     {
         return this == get_current_shader();
     }
+
 
     void
     use(const ShaderProgram* shader)
@@ -108,6 +123,7 @@ namespace euphoria::render
         }
         get_current_shader() = shader;
     }
+
 
     const ShaderProgram*
     ShaderProgram::get_current_bound_for_debug()
@@ -129,6 +145,7 @@ namespace euphoria::render
         );
     }
 
+
     void
     report_error_program(GLuint program)
     {
@@ -136,12 +153,14 @@ namespace euphoria::render
         report_shader_error(log, "PROGRAM");
     }
 
+
     void
     report_error_shader(GLuint shader, const std::string& type)
     {
         const std::string& log = get_shader_log(shader);
         report_shader_error(log, type);
     }
+
 
     GLuint
     compile_shader(GLuint type, const GLchar* source, const std::string& name)
@@ -160,12 +179,14 @@ namespace euphoria::render
         }
     }
 
+
     void
     ShaderProgram::pre_bind(const ShaderAttribute& attribute)
     {
         glBindAttribLocation(get_id(), attribute.id, attribute.name.c_str());
         bound_attributes.push_back(attribute);
     }
+
 
     bool
     ShaderProgram::compile
@@ -234,6 +255,7 @@ namespace euphoria::render
         return ret;
     }
 
+
     ShaderUniform
     ShaderProgram::get_uniform(const std::string& name)
     {
@@ -254,6 +276,7 @@ namespace euphoria::render
         return uniform;
     }
 
+
     void
     ShaderProgram::set_uniform(const ShaderUniform& attribute, float val)
     {
@@ -271,6 +294,7 @@ namespace euphoria::render
         glUniform1i(attribute.id, val);
     }
 
+
     void
     ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Rgb& val)
     {
@@ -282,6 +306,7 @@ namespace euphoria::render
         }
         glUniform3f(attribute.id, val.r, val.g, val.b);
     }
+
 
     void
     ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Rgba& val)
@@ -295,6 +320,7 @@ namespace euphoria::render
         glUniform4f(attribute.id, val.r, val.g, val.b, val.a);
     }
 
+
     void
     ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Vec3f& val)
     {
@@ -306,6 +332,7 @@ namespace euphoria::render
         }
         glUniform3f(attribute.id, val.x, val.y, val.z);
     }
+
 
     void
     ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Vec4f& val)
@@ -319,6 +346,7 @@ namespace euphoria::render
         glUniform4f(attribute.id, val.x, val.y, val.z, val.w);
     }
 
+
     void
     ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Mat3f& val)
     {
@@ -330,6 +358,7 @@ namespace euphoria::render
         }
         glUniformMatrix3fv(attribute.id, 1, GL_FALSE, val.get_data_ptr());
     }
+
 
     void
     ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Mat4f& val)
@@ -343,6 +372,7 @@ namespace euphoria::render
         glUniformMatrix4fv(attribute.id, 1, GL_FALSE, val.get_data_ptr());
     }
 
+
     void
     ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Rectf& val)
     {
@@ -355,21 +385,23 @@ namespace euphoria::render
         glUniform4f(attribute.id, val.left, val.right, val.bottom, val.top);
     }
 
+
     ShaderProgram::ShaderProgram()
         : shader_name("~/not_loaded_shader")
     {
     }
+
 
     bool
     ShaderProgram::load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path)
     {
         shader_name = file_path;
 
-        const auto load_path = [](core::vfs::FileSystem* fs, const core::vfs::FilePath& path) -> std::string
+        const auto load_path = [](core::vfs::FileSystem* afs, const core::vfs::FilePath& path) -> std::string
         {
             // todo(Gustav): replace with a template instead of basic string
             std::string content;
-            if(!fs->read_file_to_string(path, &content))
+            if(!afs->read_file_to_string(path, &content))
             {
                 return "";
             }
@@ -413,17 +445,20 @@ namespace euphoria::render
         return shader_compiled;
     }
 
+
     const std::vector<ShaderAttribute>&
     ShaderProgram::get_attributes() const
     {
         return bound_attributes;
     }
 
+
     const core::vfs::FilePath&
     ShaderProgram::get_name() const
     {
         return shader_name;
     }
+
 
     bool
     ShaderProgram::has_bound_attribute(const ShaderAttribute& attribute) const
@@ -437,12 +472,14 @@ namespace euphoria::render
         return found != bound_attributes.end();
     }
 
+
     bool
     ShaderProgram::has_bound_uniform(const ShaderUniform& uniform) const
     {
         const auto found = std::find(bound_uniforms.begin(), bound_uniforms.end(), uniform);
         return found != bound_uniforms.end();
     }
+
 
     void
     bind_texture_to_shader
@@ -460,4 +497,6 @@ namespace euphoria::render
         shader->set_uniform(attribute, index);
     }
 
+
 }
+

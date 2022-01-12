@@ -16,11 +16,17 @@ namespace euphoria::core::vfs
 {
     ////////////////////////////////////////////////////////////////////////////////
 
+
     ListedFile::ListedFile(const std::string& n, bool b, bool f)
-        : name(n), is_builtin(b), is_file(f)
-    {}
+        : name(n)
+        , is_builtin(b)
+        , is_file(f)
+    {
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////
+
 
     void
     FileList::add(const ListedFile& file)
@@ -33,23 +39,31 @@ namespace euphoria::core::vfs
         }
     }
 
+
     void
     FileList::add(const std::string& n, bool b, bool f)
     {
         add(ListedFile {n, b, f});
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
+
 
     ReadRoot::~ReadRoot() = default;
 
+
     WriteRoot::~WriteRoot() = default;
+
 
     ////////////////////////////////////////////////////////////////////////////////
 
+
     FileSystem::FileSystem() = default;
 
+
     FileSystem::~FileSystem() = default;
+
 
     void
     FileSystem::add_read_root(const std::shared_ptr<ReadRoot>& root)
@@ -57,11 +71,13 @@ namespace euphoria::core::vfs
         read_roots.push_back(root);
     }
 
+
     void
     FileSystem::set_write_root(const std::shared_ptr<vfs::WriteRoot>& root)
     {
         write_root = root;
     }
+
 
     std::shared_ptr<MemoryChunk>
     FileSystem::read_file(const FilePath& a_path)
@@ -91,6 +107,7 @@ namespace euphoria::core::vfs
         return MemoryChunk::null();
     }
 
+
     void
     FileSystem::write_file
     (
@@ -101,6 +118,7 @@ namespace euphoria::core::vfs
         ASSERT(write_root);
         write_root->write_file(path, data);
     }
+
 
     std::vector<ListedFile>
     FileSystem::list_files(const DirPath& path)
@@ -131,6 +149,7 @@ namespace euphoria::core::vfs
         return r;
     }
 
+
     std::string
     FileSystem::get_roots_as_string()
     {
@@ -142,6 +161,7 @@ namespace euphoria::core::vfs
 
         return string_mergers::array.merge(ret);
     }
+
 
     bool
     FileSystem::read_file_to_string
@@ -163,9 +183,12 @@ namespace euphoria::core::vfs
         return true;
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
 
+
     ReadRootCatalog::ReadRootCatalog() = default;
+
 
     void
     ReadRootCatalog::register_file_string
@@ -178,6 +201,7 @@ namespace euphoria::core::vfs
         register_file_data(path, file);
     }
 
+
     void
     ReadRootCatalog::register_file_data
     (
@@ -188,6 +212,7 @@ namespace euphoria::core::vfs
         catalog.insert(std::make_pair(path, content));
     }
 
+
     std::shared_ptr<ReadRootCatalog>
     ReadRootCatalog::create_and_add(FileSystem* fs)
     {
@@ -196,6 +221,7 @@ namespace euphoria::core::vfs
         fs->add_read_root(catalog);
         return catalog;
     }
+
 
     std::shared_ptr<MemoryChunk>
     ReadRootCatalog::read_file(const FilePath& path)
@@ -209,6 +235,7 @@ namespace euphoria::core::vfs
 
         return found->second;
     }
+
 
     void
     ReadRootCatalog::add_description(std::vector<std::string>* strings)
@@ -234,7 +261,9 @@ namespace euphoria::core::vfs
         return r;
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
+
 
     std::string
     combine_folder_and_path(const std::string& folder, const FilePath& path)
@@ -242,11 +271,13 @@ namespace euphoria::core::vfs
         return folder + path.path.substr(2);
     }
 
+
     std::string
     combine_folder_and_path(const std::string& folder, const DirPath& path)
     {
         return folder + path.path.substr(2);
     }
+
 
     std::string
     make_sure_folder_ends_with_slash(const std::string& folder)
@@ -258,11 +289,15 @@ namespace euphoria::core::vfs
         return the_folder;
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
 
-    ReadRootPhysicalFolder::ReadRootPhysicalFolder(std::string folder)
-        : folder(std::move(folder))
-    {}
+
+    ReadRootPhysicalFolder::ReadRootPhysicalFolder(std::string f)
+        : folder(std::move(f))
+    {
+    }
+
 
     std::shared_ptr<MemoryChunk>
     ReadRootPhysicalFolder::read_file(const FilePath& path)
@@ -271,11 +306,13 @@ namespace euphoria::core::vfs
         return io::file_to_chunk(full_path);
     }
 
+
     void
     ReadRootPhysicalFolder::add_description(std::vector<std::string>* strings)
     {
         strings->emplace_back(folder);
     }
+
 
     void
     ReadRootPhysicalFolder::add(FileSystem* fs, const std::string& folder)
@@ -287,12 +324,14 @@ namespace euphoria::core::vfs
         fs->add_read_root(catalog);
     }
 
+
     void
     ReadRootPhysicalFolder::add_current_directory(FileSystem* fs)
     {
         const std::string folder = get_current_directory();
         return ReadRootPhysicalFolder::add(fs, folder);
     }
+
 
     FileList
     ReadRootPhysicalFolder::list_files(const DirPath& path)
@@ -323,11 +362,15 @@ namespace euphoria::core::vfs
         return r;
     }
 
+
     ////////////////////////////////////////////////////////////////////////////////
+
 
     WriteRootPhysicalFolder::WriteRootPhysicalFolder(const std::string& f)
         : folder(make_sure_folder_ends_with_slash(f))
-    {}
+    {
+    }
+
 
     void
     WriteRootPhysicalFolder::write_file
@@ -339,5 +382,5 @@ namespace euphoria::core::vfs
         const auto full_path = combine_folder_and_path(folder, path);
         io::chunk_to_file(data, full_path);
     }
-
 }
+

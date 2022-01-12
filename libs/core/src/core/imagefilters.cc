@@ -130,8 +130,8 @@ namespace euphoria::core
 
             for(auto fs: floyd_steinberg)
             {
-                auto nx = static_cast<int>(x) + fs.first.x;
-                auto ny = static_cast<int>(y) + fs.first.y;
+                auto nx = x + fs.first.x;
+                auto ny = y + fs.first.y;
                 auto factor = fs.second;
                 if(errors_range.contains_inclusive(nx, ny))
                 {

@@ -64,8 +64,8 @@ int_equals_hex
         lhs,
         rhs,
         to_string,
-        [&](const T &lhs, const T &rhs)
-        { return compare_ints(lhs, rhs, to_string); }
+        [&](const T& alhs, const T& arhs)
+        { return compare_ints(alhs, arhs, to_string); }
     );
 }
 
@@ -84,8 +84,8 @@ int_equals_bin
         lhs,
         rhs,
         to_string,
-        [&](const T &lhs, const T &rhs)
-        { return compare_ints(lhs, rhs, to_string); }
+        [&](const T& alhs, const T& arhs)
+        { return compare_ints(alhs, arhs, to_string); }
     );
 }
 

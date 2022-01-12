@@ -10,9 +10,11 @@
 namespace euphoria::core::vfs
 {
     void
-    ReadRootImageGenerator::add(
-            FileSystem* fs,
-            const DirPath& base)
+    ReadRootImageGenerator::add
+    (
+        FileSystem* fs,
+        const DirPath& base
+    )
     {
         auto root = std::make_shared<ReadRootImageGenerator>(base);
         fs->add_read_root(root);
@@ -60,8 +62,8 @@ namespace euphoria::core::vfs
     }
 
 
-    ReadRootImageGenerator::ReadRootImageGenerator(const DirPath& base)
-        : base(base)
+    ReadRootImageGenerator::ReadRootImageGenerator(const DirPath& b)
+        : base(b)
     {
         ASSERT(!base.contains_relative());
     }

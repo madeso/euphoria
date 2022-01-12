@@ -174,11 +174,11 @@ main(int argc, char** argv)
                 }
                 return std::make_pair(false, Vec2f(0, 0));
             };
-            auto line = [](const ImVec2& a, const ImVec2& b, ImU32 color)
+            auto line = [](const ImVec2& from, const ImVec2& to, ImU32 color)
             {
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                draw_list->PathLineTo(a);
-                draw_list->PathLineTo(b);
+                draw_list->PathLineTo(from);
+                draw_list->PathLineTo(to);
                 draw_list->PathStroke(color, ImDrawFlags_None);
             };
 

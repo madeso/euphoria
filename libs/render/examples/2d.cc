@@ -202,14 +202,14 @@ main(int argc, char* argv[])
         SDL_GL_SwapWindow(engine.window->window);
     };
 
-    Uint64 now = SDL_GetPerformanceCounter();
-    Uint64 last = 0;
+    // Uint64 now = SDL_GetPerformanceCounter();
+    // Uint64 last = 0;
 
     while(running)
     {
 
-        last = now;
-        now = SDL_GetPerformanceCounter();
+        // last = now;
+        // now = SDL_GetPerformanceCounter();
         //const float dt = (now - last) * 1.0f / SDL_GetPerformanceFrequency();
 
 

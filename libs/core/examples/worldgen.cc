@@ -332,9 +332,9 @@ int
 main(int argc, char* argv[])
 {
     auto parser = argparse::Parser{"Generate worlds"};
-    auto sub = parser.add_sub_parsers();
+    auto subs = parser.add_sub_parsers();
 
-    sub->add
+    subs->add
     (
         "recursive",
         "maze generation using recursive backtracker algorithm",
@@ -363,7 +363,7 @@ main(int argc, char* argv[])
         }
     );
 
-    sub->add
+    subs->add
     (
         "random",
         "maze generation using random traversal algorithm",
@@ -392,7 +392,7 @@ main(int argc, char* argv[])
         }
     );
 
-    sub->add
+    subs->add
     (
         "cell",
         "world generation using cellular automata algorithm",
@@ -509,12 +509,12 @@ main(int argc, char* argv[])
             commands->add("fill", "fill small holes", [&](argparse::SubParser* cmd)
             {
                 cmd->parser_style = argparse::SubParserStyle::fallback;
-                int size = 3;
+                int hole_size = 3;
                 bool allow_diagonals = true;
-                cmd->add("--size", &size).set_help("holes smaller than this are filled");
+                cmd->add("--size", &hole_size).set_help("holes smaller than this are filled");
                 cmd->set_false("-d", &allow_diagonals).set_help("include diagonals when flood filling");
                 return cmd->on_complete([&]{
-                    generator::add_fill_small_holes_rule(&rules, allow_diagonals, size);
+                    generator::add_fill_small_holes_rule(&rules, allow_diagonals, hole_size);
                     return argparse::ok;
                 });
             });

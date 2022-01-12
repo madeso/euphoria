@@ -107,9 +107,9 @@ namespace
             {
                 return m;
             },
-            [](const std::string &lhs, const std::string &rhs) -> FalseString
+            [](const std::string &alhs, const std::string &arhs) -> FalseString
             {
-                return string_is_equal(lhs, rhs);
+                return string_is_equal(alhs, arhs);
             }
         );
     }
@@ -129,18 +129,18 @@ namespace
             {
                 return StringBuilder() << m;
             },
-            [](const Message &lhs, const Message &rhs) -> FalseString
+            [](const Message &alhs, const Message &arhs) -> FalseString
             {
-                const auto str = string_is_equal(lhs.text, rhs.text);
+                const auto str = string_is_equal(alhs.text, arhs.text);
                 if (str == false)
                 { return str; }
-                if (lhs.error == rhs.error)
+                if (alhs.error == arhs.error)
                 { return FalseString::create_true(); }
                 return FalseString::create_false
                 (
                     StringBuilder() << "error diff: "
-                                     << lhs.error << " vs "
-                                     << rhs.error
+                                     << alhs.error << " vs "
+                                     << arhs.error
                 );
             }
         );
@@ -469,7 +469,7 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.parse(make_arguments({"--animal", "cookie" }));
             CHECK(res == argparse::error);
             CHECK(check(output->messages,
-                        {
+            {
                     create_info("usage: app [-h] [-a A]"),
                     create_error("'cookie' is not accepted for '--animal', did you mean 'none', 'dog', 'cat' or 'bird'?")
             }));
@@ -479,7 +479,7 @@ TEST_CASE("argparse", "[argparse]")
             const auto res = parser.parse(make_arguments({"-a", "cookie" }));
             CHECK(res == argparse::error);
             CHECK(check(output->messages,
-                        {
+            {
                     create_info("usage: app [-h] [-a A]"),
                     create_error("'cookie' is not accepted for '-a', did you mean 'none', 'dog', 'cat' or 'bird'?")
             }));
@@ -499,7 +499,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(res == argparse::error);
             CHECK(value == "default");
             CHECK(check(output->messages,
-                        {
+            {
                     create_info("usage: app [-h] F"),
                     create_error("Positional F was not specified.")
             }));
@@ -530,7 +530,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(a == 42);
             CHECK(b == 42);
             CHECK(check(files,
-                        {
+            {
                 "dog"
             }));
         }
@@ -542,7 +542,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(a == 42);
             CHECK(b == 42);
             CHECK(check(files,
-                        {
+            {
                 "dog", "cat"
             }));
         }
@@ -554,7 +554,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(a == 5);
             CHECK(b == 42);
             CHECK(check(files,
-                        {
+            {
                 "dog"
             }));
         }
@@ -566,7 +566,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(a == 7);
             CHECK(b == 42);
             CHECK(check(files,
-                        {
+            {
                 "dog"
             }));
         }
@@ -578,7 +578,7 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(a == 5);
             CHECK(b == 3);
             CHECK(check(files,
-                        {
+            {
                 "dog"
             }));
         }
@@ -589,21 +589,21 @@ TEST_CASE("argparse", "[argparse]")
         std::string a = "default";
         std::string b = "default";
 
-        auto sub = parser.add_sub_parsers();
+        auto subs = parser.add_sub_parsers();
 
-        sub->add("a", "do awesome stuff", [&](SubParser* parser)
+        subs->add("a", "do awesome stuff", [&](SubParser* sub)
         {
             std::string a_value = "dog";
-            parser->add("-s", &a_value);
+            sub->add("-s", &a_value);
 
-            return parser->on_complete([&]
+            return sub->on_complete([&]
             {
                 a = a_value;
                 return argparse::ok;
             });
         });
 
-        sub->add("b", "do boring stuff", [&](SubParser*)
+        subs->add("b", "do boring stuff", [&](SubParser*)
         {
             b = "bird";
             return argparse::ok;
@@ -617,9 +617,9 @@ TEST_CASE("argparse", "[argparse]")
             CHECK(a == "default");
             CHECK(b == "default");
             CHECK(check(output->messages,
-                        {
-                    create_info("usage: app [-h] <command> [<args>]"),
-                    create_error("no subparser specified")
+            {
+                create_info("usage: app [-h] <command> [<args>]"),
+                create_error("no subparser specified")
             }));
         }
 
@@ -627,7 +627,7 @@ TEST_CASE("argparse", "[argparse]")
         {
             const auto res = parser.parse
             (
-                    make_arguments
+                make_arguments
                 ({
                     "a"
                 })
@@ -709,10 +709,10 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("non greedy subparser/script like")
     {
-        auto sub = parser.add_sub_parsers();
+        auto subs = parser.add_sub_parsers();
         parser.parser_style = SubParserStyle::fallback;
         std::string data;
-        sub->add("add", "add something", [&](SubParser* sub)
+        subs->add("add", "add something", [&](SubParser* sub)
         {
             std::string what;
             sub->add("what", &what);
@@ -722,7 +722,7 @@ TEST_CASE("argparse", "[argparse]")
                 return argparse::ok;
             });
         });
-        sub->add("double", "double the content", [&](SubParser* sub)
+        subs->add("double", "double the content", [&](SubParser* sub)
         {
             return sub->on_complete([&]
             {
@@ -792,15 +792,15 @@ TEST_CASE("argparse", "[argparse]")
 
     SECTION("non root root")
     {
-        auto sub = parser.add_sub_parsers();
+        auto root = parser.add_sub_parsers();
         std::string data;
-        sub->add("pretty", "be kind", [&](SubParser* pretty)
+        root->add("pretty", "be kind", [&](SubParser* pretty)
         {
             pretty->add_sub_parsers()->add("please", [&](SubParser* please)
             {
                 please->parser_style = SubParserStyle::fallback;
-                auto sub = please->add_sub_parsers();
-                sub->add("add", [&](SubParser* sub)
+                auto subs = please->add_sub_parsers();
+                subs->add("add", [&](SubParser* sub)
                 {
                     std::string what;
                     sub->add("what", &what);
@@ -810,7 +810,7 @@ TEST_CASE("argparse", "[argparse]")
                         return argparse::ok;
                     });
                 });
-                sub->add("double", [&](SubParser* sub)
+                subs->add("double", [&](SubParser* sub)
                 {
                     return sub->on_complete([&]
                     {
@@ -991,9 +991,9 @@ TEST_CASE("argparse_error", "[argparse]")
         auto sub = parser.add_sub_parsers();
         bool completed = false;
         parser.parser_style = SubParserStyle::greedy;
-        sub->add("a", [&](SubParser* parser)
+        sub->add("a", [&](SubParser* p)
         {
-            return parser->on_complete([&]
+            return p->on_complete([&]
             {
                 completed = true;
                 return argparse::ok;
@@ -1006,9 +1006,9 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(check(output->messages,
-                        {
-                    create_info("usage: app a [-h]"),
-                    create_error("'dog' was unexpected")
+            {
+                create_info("usage: app a [-h]"),
+                create_error("'dog' was unexpected")
             }));
         }
         SECTION("many positionals")
@@ -1017,9 +1017,9 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(check(output->messages,
-                        {
-                    create_info("usage: app a [-h]"),
-                    create_error("'cat' was unexpected")
+            {
+                create_info("usage: app a [-h]"),
+                create_error("'cat' was unexpected")
             }));
         }
         SECTION("optional 1 dash")
@@ -1028,9 +1028,9 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(check(output->messages,
-                        {
-                    create_info("usage: app a [-h]"),
-                    create_error("unknown argument: '-o', did you mean '-h'?")
+            {
+                create_info("usage: app a [-h]"),
+                create_error("unknown argument: '-o', did you mean '-h'?")
             }));
         }
         SECTION("optional 2 dashes")
@@ -1039,9 +1039,9 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(check(output->messages,
-                        {
-                    create_info("usage: app a [-h]"),
-                    create_error("unknown argument: '--make-cool', did you mean '--help'?")
+            {
+                create_info("usage: app a [-h]"),
+                create_error("unknown argument: '--make-cool', did you mean '--help'?")
             }));
         }
     }
@@ -1051,9 +1051,9 @@ TEST_CASE("argparse_error", "[argparse]")
         auto sub = parser.add_sub_parsers();
         bool completed = false;
         parser.parser_style = SubParserStyle::fallback;
-        sub->add("a", [&](SubParser* parser)
+        sub->add("a", [&](SubParser* p)
         {
-            return parser->on_complete([&]
+            return p->on_complete([&]
             {
                 completed = true;
                 return argparse::ok;
@@ -1066,9 +1066,9 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(res == argparse::error);
             CHECK(completed);
             CHECK(check(output->messages,
-                        {
-                    create_info("usage: app [-h] <command> [<args>]"),
-                    create_error("Invalid command 'dog', did you mean 'a'?")
+            {
+                create_info("usage: app [-h] <command> [<args>]"),
+                create_error("Invalid command 'dog', did you mean 'a'?")
             }));
         }
         SECTION("many positionals")
@@ -1077,9 +1077,9 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(res == argparse::error);
             CHECK(completed);
             CHECK(check(output->messages,
-                        {
-                    create_info("usage: app [-h] <command> [<args>]"),
-                    create_error("Invalid command 'cat', did you mean 'a'?")
+            {
+                create_info("usage: app [-h] <command> [<args>]"),
+                create_error("Invalid command 'cat', did you mean 'a'?")
             }));
         }
         SECTION("optional 1 dash")
@@ -1088,9 +1088,9 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(check(output->messages,
-                        {
-                    create_info("usage: app a [-h]"),
-                    create_error("unknown argument: '-o', did you mean '-h'?")
+            {
+                create_info("usage: app a [-h]"),
+                create_error("unknown argument: '-o', did you mean '-h'?")
             }));
         }
         SECTION("optional 2 dashes")
@@ -1099,9 +1099,9 @@ TEST_CASE("argparse_error", "[argparse]")
             CHECK(res == argparse::error);
             CHECK_FALSE(completed);
             CHECK(check(output->messages,
-                        {
-                    create_info("usage: app a [-h]"),
-                    create_error("unknown argument: '--make-cool', did you mean '--help'?")
+            {
+                create_info("usage: app a [-h]"),
+                create_error("unknown argument: '--make-cool', did you mean '--help'?")
             }));
         }
     }

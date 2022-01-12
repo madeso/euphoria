@@ -41,7 +41,6 @@ namespace euphoria::core
     U8
     c_int_to_u8(unsigned int i)
     {
-        ASSERTX(i >= 0, i);
         ASSERTX(i <255, i);
         return static_cast<U8>(i);
     }

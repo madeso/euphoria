@@ -12,11 +12,11 @@ namespace euphoria::render
 {
     Sprite::Sprite
     (
-        std::shared_ptr<Texture2> texture,
-        const core::Vec2f& position
+        std::shared_ptr<Texture2> t,
+        const core::Vec2f& p
     )
-        : texture(texture)
-        , position(position)
+        : texture(t)
+        , position(p)
         , rotation(0.0_rad)
     {
     }

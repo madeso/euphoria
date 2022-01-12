@@ -433,9 +433,9 @@ namespace euphoria::window::imgui
         const auto peg_color_max = ImGui::GetColorU32(ImGuiCol_Text);
 
         // util function
-        const auto calculate_position = [=](float angle, float rad) -> ImVec2
+        const auto calculate_position = [=](float ang, float rad) -> ImVec2
         {
-            return ImVec2(center.x + cosf(angle) * rad, center.y + sinf(angle) * rad);
+            return ImVec2(center.x + cosf(ang) * rad, center.y + sinf(ang) * rad);
         };
 
         // ----------------- visualization

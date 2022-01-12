@@ -29,7 +29,7 @@ namespace euphoria::core
         }
 
 
-        Quat(T w, const Vec& v) : w(w), x(v.x), y(v.y), z(v.z) {}
+        Quat(T aw, const Vec& v) : w(aw), x(v.x), y(v.y), z(v.z) {}
 
 
         [[nodiscard]] static Self

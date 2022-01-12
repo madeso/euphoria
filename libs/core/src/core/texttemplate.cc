@@ -130,8 +130,8 @@ namespace euphoria::core
 
     struct TemplateNodeString : TemplateNode
     {
-        explicit TemplateNodeString(std::string text)
-            : text(std::move(text))
+        explicit TemplateNodeString(std::string t)
+            : text(std::move(t))
         {
         }
 
@@ -200,9 +200,9 @@ namespace euphoria::core
 
     struct TemplateNodeIfdef : TemplateNode
     {
-        TemplateNodeIfdef(std::string name, std::shared_ptr<TemplateNode> node)
-            : name(std::move(name))
-            , node(std::move(node))
+        TemplateNodeIfdef(std::string aname, std::shared_ptr<TemplateNode> anode)
+            : name(std::move(aname))
+            , node(std::move(anode))
         {
         }
 
@@ -228,8 +228,8 @@ namespace euphoria::core
 
     struct TemplateNodeEval : TemplateNode
     {
-        explicit TemplateNodeEval(std::string name)
-            : name(std::move(name))
+        explicit TemplateNodeEval(std::string n)
+            : name(std::move(n))
         {
         }
 
@@ -263,9 +263,9 @@ namespace euphoria::core
 
     struct TemplateNodeSet : TemplateNode
     {
-        TemplateNodeSet(std::string name, std::string value)
-            : name(std::move(name))
-            , value(std::move(value))
+        TemplateNodeSet(std::string aname, std::string avalue)
+            : name(std::move(aname))
+            , value(std::move(avalue))
         {
         }
 

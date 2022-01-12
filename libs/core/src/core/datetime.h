@@ -63,8 +63,6 @@ namespace euphoria::core
         [[nodiscard]] int get_year() const;
         [[nodiscard]] DstInfo get_dst() const;
 
-        // format: http://www.cplusplus.com/reference/ctime/strftime/
-        [[nodiscard]] std::string to_string(const std::string& format) const;
         [[nodiscard]] std::string to_debug_string() const;
 
         struct tm time;
@@ -91,7 +89,6 @@ namespace euphoria::core
         static DateTime create_from_date_and_time(int year, core::Month month, int day, int hour, int minute, int second, TimeZone timezone = TimeZone::local);
         static DateTime create_from_current_time(TimeZone timezone = TimeZone::local);
 
-        [[nodiscard]] std::string to_string(const std::string& format) const;
         [[nodiscard]] std::string to_debug_string() const;
 
         void set_seconds(int seconds);

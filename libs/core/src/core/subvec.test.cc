@@ -26,13 +26,13 @@ namespace
             {
                 return StringBuilder{} << m;
             },
-            [](int lhs, int rhs) -> FalseString
+            [](int alhs, int arhs) -> FalseString
             {
-                if (lhs == rhs)
+                if (alhs == arhs)
                 { return FalseString::create_true(); }
                 else
                 {
-                    return FalseString::create_false(StringBuilder() << lhs << " != " << rhs);
+                    return FalseString::create_false(StringBuilder() << alhs << " != " << arhs);
                 }
             }
         );

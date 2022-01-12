@@ -4,11 +4,12 @@
 
 namespace euphoria::render
 {
-    Actor::Actor(const std::shared_ptr<CompiledMesh>& mesh)
-        : mesh(mesh)
+    Actor::Actor(const std::shared_ptr<CompiledMesh>& m)
+        : mesh(m)
     {
-        ASSERT(mesh);
+        ASSERT(m);
     }
+
 
     std::shared_ptr<MaterialOverride>
     Actor::create_override() const
@@ -22,6 +23,7 @@ namespace euphoria::render
         }
         return r;
     }
+
 
     void
     Actor::render

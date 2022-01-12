@@ -37,9 +37,9 @@ namespace euphoria::engine
         core::Vec2f p;
         engine::Components* components;
 
-        PositionComponentCreator(const core::Vec2f& pp, engine::Components* components)
+        PositionComponentCreator(const core::Vec2f& pp, engine::Components* cs)
             : p(pp)
-            , components(components)
+            , components(cs)
         {
         }
 

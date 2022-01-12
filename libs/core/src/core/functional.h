@@ -57,7 +57,7 @@ namespace euphoria::core
     {
         std::vector<T> r;
         r.reserve(fs.size());
-        for(const auto f: fs)
+        for(const auto& f: fs)
         {
             r.emplace_back(convert(f));
         }
