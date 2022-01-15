@@ -3,7 +3,7 @@
 #include <fstream>
 
 #include "core/vec3.h"
-
+#include "core/cint.h"
 
 namespace euphoria::core
 {
@@ -89,7 +89,7 @@ namespace euphoria::core
         const BufferPoint2& d
     )
     {
-        const unsigned int ai = data.size();
+        const unsigned int ai = c_sizet_to_int(data.size());
         const unsigned int bi = ai + 1;
         const unsigned int ci = ai + 2;
         const unsigned int di = ai + 3;

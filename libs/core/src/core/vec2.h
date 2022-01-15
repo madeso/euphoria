@@ -7,6 +7,8 @@
 #include "core/typeinfo.h"
 #include "core/numeric.h"
 #include "core/assert.h"
+#include "core/cint.h"
+
 
 namespace euphoria::core
 {
@@ -178,7 +180,7 @@ namespace euphoria::core
         [[nodiscard]] bool
         is_valid() const
         {
-            return is_equal(get_length_squared(), 1);
+            return is_equal(get_length_squared(), c_int_to_t<T>(1));
         }
 
         explicit Unit2(T ax, T ay) : x(ax), y(ay)

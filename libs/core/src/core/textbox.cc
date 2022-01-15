@@ -232,7 +232,7 @@ namespace euphoria::core
 
 
     void
-    TextBox::put_char(std::size_t x, std::size_t y, char c)
+    TextBox::put_char(int x, int y, char c)
     {
         extend_to(x,y);
         data[y][x] = c;
@@ -240,7 +240,7 @@ namespace euphoria::core
 
 
     void
-    TextBox::extend_to(std::size_t x, std::size_t y)
+    TextBox::extend_to(int x, int y)
     {
         if(y >= data.size())
         {
@@ -256,19 +256,19 @@ namespace euphoria::core
     void
     TextBox::put_string
     (
-        std::size_t x,
-        std::size_t y,
+        int x,
+        int y,
         const std::string& line
     )
     {
-        for(std::size_t index = 0; index < line.length(); index+=1)
+        for(int index = 0; index < line.length(); index+=1)
         {
             put_char(x+index, y, line[index]);
         }
     }
 
     TextBox
-    TextBox::from_string(const std::string& s, std::size_t x, std::size_t y)
+    TextBox::from_string(const std::string& s, int x, int y)
     {
         auto tb = create_empty();
         tb.put_string(x, y, s);
@@ -279,20 +279,20 @@ namespace euphoria::core
     void
     TextBox::put_box
     (
-        std::size_t x_start,
-        std::size_t y_start,
+        int x_start,
+        int y_start,
         const TextBox& b
     )
     {
-        for(std::size_t p = 0; p < b.data.size(); p+=1)
+        for(int p = 0; p < b.data.size(); p+=1)
         {
             const auto line = b.data[p];
             const auto y = y_start + p;
 
-            const auto size_minus_1 = line.empty() ? 0 : line.size()-1;
+            const int size_minus_1 = line.empty() ? 0 : c_sizet_to_int(line.size())-1;
             extend_to(x_start+size_minus_1, y);
 
-            for(std::size_t line_index = 0; line_index < line.size(); line_index+=1)
+            for(int line_index = 0; line_index < line.size(); line_index+=1)
             {
                 const auto x = x_start + line_index;
                 const auto source_texel = line[line_index];
@@ -323,8 +323,8 @@ namespace euphoria::core
     TextBox
     TextBox::put_box_copy
     (
-        std::size_t x,
-        std::size_t y,
+        int x,
+        int y,
         const TextBox& b
     ) const
     {
@@ -339,7 +339,7 @@ namespace euphoria::core
     {
         for(auto& s: data)
         {
-            std::size_t end = s.size();
+            int end = c_sizet_to_int(s.size());
             while(end > 0 && is_emtpy(s[end - 1]))
             {
                 end-=1;
@@ -354,28 +354,28 @@ namespace euphoria::core
     }
 
 
-    std::size_t
+    int
     TextBox::get_height() const
     {
-        return data.size();
+        return c_sizet_to_int(data.size());
     }
 
 
-    std::size_t
+    int
     TextBox::get_width() const
     {
-        std::size_t result = 0;
+        int result = 0;
 
         for(const auto& s: data)
         {
-            result = std::max(result, s.size());
+            result = std::max(result, c_sizet_to_int(s.size()));
         }
 
         return result;
     }
 
 
-    std::pair<std::size_t, std::size_t>
+    std::pair<int, int>
     TextBox::get_size() const
     {
         return {get_width(), get_height()};
@@ -385,14 +385,14 @@ namespace euphoria::core
     void
     TextBox::put_horizontal_line
     (
-        std::size_t x,
-        std::size_t y,
-        std::size_t line_width,
+        int x,
+        int y,
+        int line_width,
         bool bef,
         bool aft
     )
     {
-        for(std::size_t line_index=0; line_index<line_width; line_index+=1)
+        for(int line_index=0; line_index<line_width; line_index+=1)
         {
             mod_char(x+line_index, y, [&](char& c)
             {
@@ -418,14 +418,14 @@ namespace euphoria::core
     void
     TextBox::put_vertical_line
     (
-        std::size_t x,
-        std::size_t y,
-        std::size_t line_height,
+        int x,
+        int y,
+        int line_height,
         bool bef,
         bool aft
     )
     {
-        for(std::size_t line_index=0; line_index<line_height; line_index+=1)
+        for(int line_index=0; line_index<line_height; line_index+=1)
         {
             mod_char(x, y+line_index, [&](char& c)
             {
@@ -448,13 +448,13 @@ namespace euphoria::core
     }
 
 
-    std::size_t
-    TextBox::get_horizontal_append_position(std::size_t y, const TextBox& b) const
+    int
+    TextBox::get_horizontal_append_position(int y, const TextBox& b) const
     {
-        const std::size_t my_width = get_width();
+        const int my_width = get_width();
 
-        std::size_t reduce = my_width;
-        for(std::size_t p=0; p<b.get_height(); p+=1)
+        int reduce = my_width;
+        for(int p=0; p<b.get_height(); p+=1)
         {
             reduce = std::min(reduce, find_right_padding(y+p) + b.find_left_padding(p));
         }
@@ -463,17 +463,17 @@ namespace euphoria::core
     }
 
 
-    std::size_t
+    int
     TextBox::get_vertical_append_position
     (
-        std::size_t x,
+        int x,
         const TextBox& b
     ) const
     {
-        const std::size_t my_height = get_height();
+        const int my_height = get_height();
 
-        std::size_t reduce = my_height;
-        for(std::size_t p=0; p<b.get_width(); p+=1)
+        int reduce = my_height;
+        for(int p=0; p<b.get_width(); p+=1)
         {
             reduce = std::min(reduce, find_bottom_padding(x+p) + b.find_top_padding(p));
         }
@@ -515,11 +515,11 @@ namespace euphoria::core
             }
         };
 
-        const std::size_t h = get_height();
-        for(std::size_t y = 0; y < h; y+=1)
+        const int h = get_height();
+        for(int y = 0; y < h; y+=1)
         {
             const std::string& s = data[y];
-            for(std::size_t x = 0; x < s.size(); x+=1)
+            for(int x = 0; x < s.size(); x+=1)
             {
                 char c = s[x];
                 if(c > 0 && c < 16)
@@ -541,10 +541,10 @@ namespace euphoria::core
     }
 
 
-    std::size_t
-    TextBox::find_left_padding(std::size_t y) const
+    int
+    TextBox::find_left_padding(int y) const
     {
-        const std::size_t max = get_width();
+        const int max = get_width();
 
         if(y >= data.size())
         {
@@ -553,7 +553,7 @@ namespace euphoria::core
 
         const std::string& line = data[y];
 
-        std::size_t result = 0;
+        int result = 0;
         while(result < line.size() && is_emtpy(line[result]))
         {
             result+=1;
@@ -563,10 +563,10 @@ namespace euphoria::core
     }
 
 
-    std::size_t
-    TextBox::find_right_padding(std::size_t y) const
+    int
+    TextBox::find_right_padding(int y) const
     {
-        const std::size_t max = get_width();
+        const int max = get_width();
 
         if(y >= data.size())
         {
@@ -574,8 +574,8 @@ namespace euphoria::core
         }
 
         const std::string& line = data[y];
-        std::size_t position = max;
-        std::size_t result = 0;
+        int position = max;
+        int result = 0;
         while
         (
             position != 0 &&
@@ -590,13 +590,13 @@ namespace euphoria::core
     }
 
 
-    std::size_t
-    TextBox::find_bottom_padding(std::size_t x) const
+    int
+    TextBox::find_bottom_padding(int x) const
     {
-        const std::size_t max = data.size();
+        const int max = c_sizet_to_int(data.size());
 
-        std::size_t result = 0;
-        std::size_t position = max;
+        int result = 0;
+        int position = max;
 
         while
         (
@@ -613,11 +613,11 @@ namespace euphoria::core
 
 
 
-    std::size_t
-    TextBox::find_top_padding(std::size_t x) const
+    int
+    TextBox::find_top_padding(int x) const
     {
-        const std::size_t max = data.size();
-        std::size_t result = 0;
+        const int max = c_sizet_to_int(data.size());
+        int result = 0;
 
         while
         (
@@ -641,11 +641,11 @@ namespace euphoria::core
         bool consider_oneliner,
         bool consider_simple,
         const std::string& label,
-        std::size_t margin,
-        std::size_t firstx
+        int margin,
+        int firstx
     )
     {
-        constexpr std::size_t min_y = 1;
+        constexpr int min_y = 1;
 
         const auto totalwidth = boxes.empty() ? 0 :
             std::accumulate
@@ -661,17 +661,17 @@ namespace euphoria::core
             (label.size() + margin + totalwidth) < maxwidth;
         bool simple = consider_simple && oneliner && boxes.size() == 1;
 
-        std::size_t y = simple ? 0 : 1;
+        int y = simple ? 0 : 1;
 
         for(auto box_iterator = boxes.begin(); box_iterator != boxes.end(); box_iterator+=1)
         {
             const TextBox& current_box = *box_iterator;
-            const std::size_t usemargin = (simple || oneliner) ? (margin/2) : margin;
+            const int usemargin = (simple || oneliner) ? (margin/2) : margin;
             const auto first_valid_x = result->get_horizontal_append_position(y, current_box);
-            std::size_t x = first_valid_x != 0 ? first_valid_x + usemargin
+            int x = first_valid_x != 0 ? first_valid_x + usemargin
                 :(
                     oneliner
-                    ? label.size()+usemargin
+                    ? c_sizet_to_int(label.size())+usemargin
                     : firstx
                 );
 
@@ -695,7 +695,7 @@ namespace euphoria::core
             )
             {
                 const auto& next_box = *std::next(box_iterator);
-                std::size_t combined_width =
+                int combined_width =
                     current_box.get_horizontal_append_position(0, next_box) +
                     margin +
                     next_box.get_width()
@@ -714,7 +714,7 @@ namespace euphoria::core
                     y = std::max
                     (
                         result->get_vertical_append_position(x, combined),
-                        std::size_t(1)
+                        int(1)
                     );
                     if(!oneliner)
                     {
@@ -727,7 +727,7 @@ namespace euphoria::core
                 y = std::max
                 (
                     result->get_vertical_append_position(x, current_box),
-                    std::size_t(1)
+                    int(1)
                 );
             }
             if(horizontal && !simple && !oneliner)
@@ -768,11 +768,12 @@ namespace euphoria::core
             {
                 if(x > label.size())
                 {
+                    const auto label_size = c_sizet_to_int(label.size());
                     result->put_horizontal_line
                     (
-                        label.size(),
+                        label_size,
                         0,
-                        1+x-label.size(),
+                        1+x-label_size,
                         false,
                         false
                     );
@@ -780,15 +781,17 @@ namespace euphoria::core
             }
             else if(oneliner)
             {
+                const auto label_size = c_sizet_to_int(label.size());
+
                 unsigned cx = x;
                 unsigned cy = y > min_y ? y-min_y : 0;
                 if(x > label.size())
                 {
                     result->put_horizontal_line
                     (
-                        label.size(),
+                        label_size,
                         0,
-                        1+x-label.size(),
+                        1+x-label_size,
                         false,
                         false
                     );

@@ -116,7 +116,7 @@ namespace euphoria::core::detail
         }
         for
         (
-            unsigned long i = index + input.words.size();
+            unsigned long i = index + c_sizet_to_int(input.words.size());
             i < source.size();
             i += 1
         )
@@ -468,7 +468,7 @@ namespace euphoria::core
         }
 
         template <typename T>
-        unsigned long
+        std::size_t
         select_basic_response_index
         (
             Chatbot* chatbot,
@@ -629,7 +629,7 @@ namespace euphoria::core
 
         current_topics.decrease_and_remove();
 
-        unsigned long match_length = 0;
+        int match_length = 0;
         detail::Input::LocationType match_location = detail::Input::lowest;
         std::string response;
 
@@ -715,7 +715,7 @@ namespace euphoria::core
                     }
                     else
                     {
-                        match_length = keyword.words.size();
+                        match_length = c_sizet_to_int(keyword.words.size());
                         match_location = keyword.location;
                         log.emplace_back
                         (

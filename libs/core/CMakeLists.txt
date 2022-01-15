@@ -91,6 +91,7 @@ set(app_src
     src/core/chatbot.cc src/core/chatbot.h
     src/core/cint.cc src/core/cint.h
     src/core/closestpoint.cc src/core/closestpoint.h
+    src/core/compiler_warning.cc src/core/compiler_warning.h
     src/core/console.cc src/core/console.h
     src/core/cypher.cc src/core/cypher.h
     src/core/crc32.cc src/core/crc32.h

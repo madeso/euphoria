@@ -20,14 +20,23 @@ namespace euphoria::core
         T right;
         T top;
         T bottom;
-        // typedef vec2<T> vec;
 
-        Rect() : left(0), right(0), top(0), bottom(0) {}
+        Rect()
+            : left(0)
+            , right(0)
+            , top(0)
+            , bottom(0)
+        {
+        }
 
     private:
         Rect(T left_side, T right_side, T top_side, T bottom_side)
-            : left(left_side), right(right_side), top(top_side), bottom(bottom_side)
-        {}
+            : left(left_side)
+            , right(right_side)
+            , top(top_side)
+            , bottom(bottom_side)
+        {
+        }
 
     public:
         template<typename Y>
@@ -59,17 +68,22 @@ namespace euphoria::core
         }
 
         [[nodiscard]] static Rect
-        from_position_anchor_width_and_height(
-                const Vec2<T>& pos,
-                const Scale2<T>& anchor,
-                float width,
-                float height)
+        from_position_anchor_width_and_height
+        (
+            const Vec2<T>& pos,
+            const Scale2<T>& anchor,
+            T width,
+            T height
+        )
         {
             // todo(Gustav): change anchor type to some anchor type instead
             const T left = pos.x - width * anchor.x;
             const T bottom = pos.y - height * anchor.y;
-            return from_left_right_bottom_top(
-                    left, left + width, bottom, bottom + height);
+            return from_left_right_bottom_top
+            (
+                left, left + width,
+                bottom, bottom + height
+            );
         }
 
         [[nodiscard]]
@@ -81,7 +95,8 @@ namespace euphoria::core
             ASSERT(height >= 0);
             return from_left_right_top_bottom
             (
-                bl.x, bl.x + width, bl.y + height, bl.y
+                bl.x, bl.x + width,
+                bl.y + height, bl.y
             );
         }
 
@@ -90,8 +105,11 @@ namespace euphoria::core
         {
             ASSERT(width >= 0);
             ASSERT(height >= 0);
-            return from_left_right_top_bottom(
-                    topleft.x, topleft.x + width, topleft.y, topleft.y - height);
+            return from_left_right_top_bottom
+            (
+                topleft.x, topleft.x + width,
+                topleft.y, topleft.y - height
+            );
         }
 
         [[nodiscard]] static Rect
@@ -127,10 +145,12 @@ namespace euphoria::core
         {
             const auto lower_left = other.get_absolute_center_pos()
                                     - get_relative_center_pos_from_bottom_left();
-            return Rect::from_top_left_width_height(
-                    Vec2<T> {lower_left.x, lower_left.y + get_height()},
-                    get_width(),
-                    get_height());
+            return Rect::from_top_left_width_height
+            (
+                Vec2<T> {lower_left.x, lower_left.y + get_height()},
+                get_width(),
+                get_height()
+            );
         }
 
         Vec2<T>
@@ -154,9 +174,11 @@ namespace euphoria::core
         Vec2<T>
         get_relative_center_pos_from_bottom_left() const
         {
-            return Vec2<T>(
-                    get_relative_center_x_from_bottom_left(),
-                    get_relative_center_y_from_bottom_left());
+            return Vec2<T>
+            (
+                get_relative_center_x_from_bottom_left(),
+                get_relative_center_y_from_bottom_left()
+            );
         }
 
         T
@@ -184,8 +206,11 @@ namespace euphoria::core
             ASSERT(is_valid());
             ASSERT(r.is_valid());
 
-            return left < r.left && right > r.right && top > r.top
-                   && bottom < r.bottom;
+            return left < r.left
+                && right > r.right
+                && top > r.top
+                && bottom < r.bottom
+                ;
         }
 
         // on the border is NOT considered included
@@ -200,7 +225,11 @@ namespace euphoria::core
         contains_exclusive(T x, T y) const
         {
             ASSERT(is_valid());
-            return left < x && x < right && bottom < y && y < top;
+            return left < x
+                && x < right
+                && bottom < y
+                && y < top
+                ;
         }
 
         // on the border is considered included
@@ -214,7 +243,11 @@ namespace euphoria::core
         contains_inclusive(T x, T y) const
         {
             ASSERT(is_valid());
-            return left <= x && x <= right && bottom <= y && y <= top;
+            return left <= x
+                && x <= right
+                && bottom <= y
+                && y <= top
+                ;
         }
 
         Rect
@@ -222,8 +255,11 @@ namespace euphoria::core
         {
             const auto s = get_size();
             const auto ns = s * scale;
-            return inset_copy(
-                    (s.width - ns.width) / 2, (s.height - ns.height) / 2);
+            return inset_copy
+            (
+                (s.width - ns.width) / 2,
+                (s.height - ns.height) / 2
+            );
         }
 
         void
@@ -370,8 +406,12 @@ namespace euphoria::core
         Rect<T>
         set_top_left_to_copy(T new_left, T new_top) const
         {
-            return from_top_left_width_height(
-                    Vec2<T>{new_left, new_top}, get_width(), get_height());
+            return from_top_left_width_height
+            (
+                Vec2<T>{new_left, new_top},
+                get_width(),
+                get_height()
+            );
         }
 
         Rect<T>
@@ -380,8 +420,12 @@ namespace euphoria::core
         Rect<T>
         set_bottom_left_to_copy(T new_left, T new_bottom) const
         {
-            return from_top_left_width_height(
-                    Vec2<T>{new_left, new_bottom + get_height()}, get_width(), get_height());
+            return from_top_left_width_height
+            (
+                Vec2<T>{new_left, new_bottom + get_height()},
+                get_width(),
+                get_height()
+            );
         }
 
         Rect<T>
@@ -495,19 +539,23 @@ namespace euphoria::core
     bool
     operator==(const Rect<T>& lhs, const Rect<T>& rhs)
     {
-        return
-            lhs.left == rhs.left &&
-            lhs.right == rhs.right &&
-            lhs.top == rhs.top &&
-            lhs.bottom == rhs.bottom ;
+        return lhs.left == rhs.left
+            && lhs.right == rhs.right
+            && lhs.top == rhs.top
+            && lhs.bottom == rhs.bottom
+            ;
     }
 
     template <typename S, typename T>
     S&
     operator<<(S& s, const Rect<T>& r)
     {
-        s << "(" << r.left << ", " << r.bottom << " / " << r.get_width() << " x "
-          << r.get_height() << ")";
+        s
+            << "("
+            << r.left << ", " << r.bottom << " / "
+            << r.get_width() << " x " << r.get_height()
+            << ")"
+            ;
         return s;
     }
 

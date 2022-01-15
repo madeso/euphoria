@@ -19,7 +19,7 @@ namespace euphoria::core
         auto bytes = std::vector<U8>{};
         for(int byte_index=0; byte_index<total_bytes; byte_index +=1)
         {
-            const U8 byte = hash >> (((total_bytes-1)-byte_index) * 8);
+            const U8 byte = static_cast<U8>(0xFF & (hash >> (((total_bytes-1)-byte_index) * 8)));
             bytes.emplace_back(byte);
         }
         return bytes;
@@ -36,7 +36,7 @@ namespace euphoria::core
     std::vector<U8>
     to_bytes(U64 hash)
     {
-        return to_bytes_generic<U32, 8>(hash);
+        return to_bytes_generic<U64, 8>(hash);
     }
 
 

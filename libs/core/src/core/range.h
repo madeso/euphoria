@@ -2,6 +2,8 @@
 
 
 #include <vector>
+#include <type_traits>
+
 
 #include "core/angle.h"
 #include "core/assert.h"
@@ -37,6 +39,7 @@ namespace euphoria::core
         T upper_bound;
     };
 
+
     template <typename T>
     Range<T>
     make_range(T min, T max)
@@ -62,12 +65,31 @@ namespace euphoria::core
     constexpr Range<float> r01 = { 0.0f, 1.0f, nullptr};
     constexpr Range<float> r11 = { -1.0f, 1.0f, nullptr};
 
+    float
+    from01f(float lower_bound, float upper_bound, float value);
+
     template <typename T>
     T
     from01(const Range<T>& range, float value)
     {
-        return value * (range.upper_bound - range.lower_bound) + range.lower_bound;
+        const float r = from01f
+        (
+            static_cast<float>(range.lower_bound),
+            static_cast<float>(range.upper_bound),
+            value
+        );
+
+        if constexpr (std::is_unsigned<T>::value)
+        {
+            ASSERT(r >= 0.0f);
+        }
+
+        return static_cast<T>(r);
     }
+
+    template <>
+    float
+    from01(const Range<float>& range, float value);
 
     template <typename T>
     float

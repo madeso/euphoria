@@ -10,7 +10,7 @@
 
 namespace euphoria::core
 {
-    // std::uint8_t colors: 0 - 255
+    // U8 colors: 0 - 255
     struct Rgbi;
     struct Rgbai;
 
@@ -24,10 +24,10 @@ namespace euphoria::core
     struct Rgbi
     {
         constexpr
-        Rgbi(std::uint8_t red, std::uint8_t green, std::uint8_t blue);
+        Rgbi(U8 red, U8 green, U8 blue);
 
         constexpr explicit
-        Rgbi(std::uint8_t gray);
+        Rgbi(U8 gray);
 
         constexpr
         Rgbi(NamedColor color);
@@ -41,9 +41,9 @@ namespace euphoria::core
         [[nodiscard]] constexpr int
         to_hex() const;
 
-        std::uint8_t r;
-        std::uint8_t g;
-        std::uint8_t b;
+        U8 r;
+        U8 g;
+        U8 b;
     };
 
 
@@ -53,15 +53,15 @@ namespace euphoria::core
     struct Rgbai
     {
         constexpr
-        Rgbai(const Rgbi& rgb, std::uint8_t alpha = 255);
+        Rgbai(const Rgbi& rgb, U8 alpha = 255);
 
         constexpr explicit
         Rgbai(const Rgba& rgba);
 
-        std::uint8_t r;
-        std::uint8_t g;
-        std::uint8_t b;
-        std::uint8_t a;
+        U8 r;
+        U8 g;
+        U8 b;
+        U8 a;
     };
 
 
@@ -344,7 +344,7 @@ namespace euphoria::core
 
         constexpr
         float
-        to_float(std::uint8_t c)
+        to_float(U8 c)
         {
             return static_cast<float>(c) / 255.0f;
         }
@@ -414,14 +414,14 @@ namespace euphoria::core
     // implementation
 
     constexpr
-    Rgbi::Rgbi(std::uint8_t red, std::uint8_t green, std::uint8_t blue)
+    Rgbi::Rgbi(U8 red, U8 green, U8 blue)
         : r(red), g(green), b(blue)
     {
     }
 
 
     constexpr
-    Rgbi::Rgbi(std::uint8_t gray)
+    Rgbi::Rgbi(U8 gray)
         : r(gray), g(gray), b(gray)
     {
     }
@@ -464,7 +464,7 @@ namespace euphoria::core
 
 
     constexpr
-    Rgbai::Rgbai(const Rgbi& rgb, std::uint8_t alpha)
+    Rgbai::Rgbai(const Rgbi& rgb, U8 alpha)
         : r(rgb.r), g(rgb.g), b(rgb.b), a(alpha)
     {
     }

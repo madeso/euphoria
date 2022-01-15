@@ -246,7 +246,7 @@ namespace euphoria::window
         case SDLK_SLEEP: return core::Key::sleep;
         default:
             // todo(Gustav): die should have a x version too
-            ASSERTX(false && "Invalid keyboard button", key.sym);
+            DIEX("Invalid keyboard button", key.sym);
             return core::Key::invalid;
         }
     }
@@ -262,7 +262,7 @@ namespace euphoria::window
         case SDL_BUTTON_X1: return core::MouseButton::x1;
         case SDL_BUTTON_X2: return core::MouseButton::x2;
         default:
-            ASSERTX(false && "Invalid mouse button", mb.button);
+            DIEX("Invalid mouse button", mb.button);
             return core::MouseButton::invalid;
         }
     }

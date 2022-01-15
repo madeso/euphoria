@@ -74,6 +74,15 @@
             {}, \
             __PRETTY_FUNCTION__)
 
+#define DIEX(message, ...) \
+    ::euphoria::core::assertlib::on_assert( \
+            message, \
+            __LINE__, \
+            __FILE__, \
+            #__VA_ARGS__, \
+            {__VA_ARGS__}, \
+            __PRETTY_FUNCTION__)
+
 #endif // _MSC_VER
 
 #ifdef IMPLEMENT_ASSERT_LIB

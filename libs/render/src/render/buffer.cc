@@ -1,11 +1,15 @@
 #include "render/buffer.h"
 
+#include <algorithm>
+
 #include "core/assert.h"
 #include "core/log.h"
 
 #include "render/gl.h"
 #include "render/shader.h"
-#include <algorithm>
+
+#include "euph_generated_config.h"
+
 
 namespace euphoria::render
 {
@@ -81,21 +85,40 @@ namespace euphoria::render
     }
 
 
+    namespace
+    {
+        void* offset_to_pointer_offset(int aoffset)
+        {
+            // reinterpret_cast is probably ok since the void* is an offset
+            // and not a actual pointer
+
+            // use arch detection to store in a (potentially) bigger integer before converting to a pointer
+#if EUPH_ARCH_32 == 1
+            std::int32_t
+#elif EUPH_ARCH_64 == 1
+            std::int64_t
+#else
+    #error unknown arch
+#endif
+                offset = aoffset;
+            return reinterpret_cast<GLvoid*>(offset); // NOLINT
+        }
+    }
+
+
     void
     PointLayout::bind_data(const ShaderAttribute& attribute, int stride, int offset)
     {
         ASSERT(get_bound() == this);
         ASSERT(VertexBuffer::get_bound() != nullptr);
-        // reinterpret_cast is probably ok since the void* is an offset
-        // and not a actual pointer
         glVertexAttribPointer
         (
-                attribute.id,
-                attribute.get_element_count(),
-                con(attribute.type),
+            attribute.id,
+            attribute.get_element_count(),
+            con(attribute.type),
             attribute.normalize ? GL_TRUE : GL_FALSE,
-                stride,
-                reinterpret_cast<GLvoid*>(offset) // NOLINT
+            stride,
+            offset_to_pointer_offset(offset)
         );
         glEnableVertexAttribArray(attribute.id);
 

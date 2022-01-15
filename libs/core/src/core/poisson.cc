@@ -106,12 +106,12 @@ namespace euphoria::core
 
             if(can_place_at(sample, sample_pos))
             {
-                const auto point_index = samples.size();
+                const auto point_index = c_sizet_to_int(samples.size());
 
                 ASSERT( grid(sample_pos.x, sample_pos.y) == -1);
 
                 samples.emplace_back(sample);
-                grid(sample_pos.x, sample_pos.y) = c_sizet_to_int(point_index);
+                grid(sample_pos.x, sample_pos.y) = point_index;
                 active.emplace_back(point_index);
 
                 return {true, sample};

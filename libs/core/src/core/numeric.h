@@ -3,11 +3,21 @@
 
 namespace euphoria::core
 {
+
+    // int overloads provided for template overload reasons
+
+
     bool
     is_equal(float lhs, float rhs);
 
     bool
+    is_equal(int lhs, int rhs);
+
+    bool
     is_zero(float r);
+
+    bool
+    is_zero(int r);
 
     float
     zero_or_value(float r);
@@ -73,17 +83,30 @@ namespace euphoria::core
     float
     abs(float r);
 
-    float
-    min(float lhs, float rhs);
+    template<typename T>
+    constexpr T
+    min(T lhs, T rhs)
+    {
+        if (lhs < rhs)
+        {
+            return lhs;
+        }
 
-    int
-    min(int lhs, int rhs);
+        return rhs;
+    }
 
-    float
-    max(float lhs, float rhs);
 
-    int
-    max(int lhs, int rhs);
+    template<typename T>
+    constexpr T
+    max(T lhs, T rhs)
+    {
+        if (lhs > rhs)
+        {
+            return lhs;
+        }
+
+        return rhs;
+    }
 
     float
     mod(float numer, float denumer);

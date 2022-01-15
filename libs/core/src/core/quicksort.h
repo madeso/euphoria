@@ -3,6 +3,9 @@
 
 #include <vector>
 
+#include "core/cint.h"
+
+
 namespace euphoria::core
 {
     // Hoare partition scheme as described in wikipedia
@@ -51,7 +54,7 @@ namespace euphoria::core
     void
     quicksort(std::vector<T>* array, SortFunc sort_func)
     {
-        quicksort_implementation<T, SortFunc>(sort_func, *array, 0, array->size() - 1);
+        quicksort_implementation<T, SortFunc>(sort_func, *array, 0, c_sizet_to_int(array->size()) - 1);
     }
 
     template <typename T, typename SortFunc>

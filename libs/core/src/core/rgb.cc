@@ -516,14 +516,14 @@ namespace euphoria::core
             auto parse_rgb_hex = [&](int size) -> R
             {
                 auto parse_hex = [&](int index, int len) ->
-                    std::pair<std::optional<std::uint8_t>, std::string>
+                    std::pair<std::optional<U8>, std::string>
                 {
                     const auto s = value.substr(1+index*len, len);
                     auto ss = std::istringstream(s);
                     int hex = 0;
                     ss >> std::hex >> hex;
                     if(ss.eof() && ss.fail()==false)
-                    { return {static_cast<std::uint8_t>(hex), s}; }
+                    { return {static_cast<U8>(hex), s}; }
                     else { return {std::nullopt, s}; };
                 };
 

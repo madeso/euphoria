@@ -11,7 +11,7 @@ namespace euphoria::core
     namespace
     {
         Rgbai
-        make_gray(unsigned char g, unsigned char a)
+        make_gray(U8 g, U8 a)
         {
             return {Rgbi {g, g, g}, a};
         }
@@ -202,7 +202,7 @@ namespace euphoria::core
     void
     run_lut_transform(Image* image, C c)
     {
-        std::vector<unsigned char> lut;
+        std::vector<U8> lut;
         lut.reserve(256);
         for(int i = 0; i < 256; i++)
         {
@@ -214,11 +214,19 @@ namespace euphoria::core
         });
     }
 
+    namespace
+    {
+        U8 keep_within_u8(int i)
+        {
+            return static_cast<U8>(keep_within(make_range(0, 255), i));
+        }
+    }
+
     void
     change_brightness(Image* image, int change)
     {
         run_lut_transform(image, [&](int i) {
-            return keep_within(make_range(0, 255), i + change);
+            return keep_within_u8(i + change);
         });
     }
 
@@ -226,13 +234,13 @@ namespace euphoria::core
     change_contrast(Image* image, const Angle& contrast)
     {
         const auto tc = tan(contrast);
-        run_lut_transform(image, [&](int i) {
+        run_lut_transform(image, [&](int i) -> U8 {
             const auto f = c_int_to_float(i);
             const auto a = 128.0f + 128.0f * tc;
             const auto b = 128.0f - 128.0f * tc;
             if(f < a && b < f)
             {
-                return c_float_to_int((f - 128.0f) / tc) + 128;
+                return keep_within_u8(c_float_to_int((f - 128.0f) / tc) + 128);
             }
             else if(f > a)
             {

@@ -4,6 +4,10 @@
 
 #include "stb_rect_pack.h"
 
+#ifndef STBRP_LARGE_RECTS
+#error int is not available in stb rect packing
+#endif
+
 
 namespace euphoria::core
 {

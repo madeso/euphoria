@@ -41,7 +41,7 @@ namespace std
         return s;
     }
 
-    std::ostream& operator<<(std::ostream& s, const std::pair<size_t, size_t>& t)
+    std::ostream& operator<<(std::ostream& s, const std::pair<int, int>& t)
     {
         s << "(" << t.first << ", " << t.second << ")";
         return s;
@@ -50,7 +50,7 @@ namespace std
 
 namespace
 {
-    std::pair<size_t, size_t> create_size(size_t a, size_t b)
+    std::pair<int, int> create_size(int a, int b)
     {
         return {a, b};
     }

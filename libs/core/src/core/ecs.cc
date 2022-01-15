@@ -13,7 +13,7 @@ namespace euphoria::core::ecs
 {
     ////////////////////////////////////////////////////////////////////////////////
 
-    static constexpr auto version_shift_amount = 24;
+    static constexpr auto version_shift_amount = 6 * 4;
     static constexpr EntityId entity_bit_mask = 0x00FFFFFF;
     static constexpr EntityId version_bit_mask = 0xFF000000;
 
@@ -32,9 +32,9 @@ namespace euphoria::core::ecs
     }
 
     EntityVersion
-    get_version(EntityVersion id)
+    get_version(EntityId id)
     {
-        return static_cast<EntityVersion>(id & version_bit_mask) >> version_shift_amount;
+        return static_cast<EntityVersion>((id & version_bit_mask) >> version_shift_amount);
     }
 
     EntityId

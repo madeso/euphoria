@@ -18,11 +18,22 @@ TEST_CASE("num-to01", "[numeric]")
     REQUIRE(TO_01(-1.0f, 2.0f, 1.0f) == Approx(1.5f));
 }
 
-TEST_CASE("num-from01", "[numeric]")
+TEST_CASE("num-from01-float", "[numeric]")
 {
     REQUIRE(FROM_01(0.0f, 0.5f, 2.0f) == Approx(1.0f));
     REQUIRE(FROM_01(-2.0f, 0.5f, 2.0f) == Approx(0.0f));
     REQUIRE(FROM_01(-2.0f, 1.5f, 2.0f) == Approx(4.0f));
+}
+
+TEST_CASE("num-from01-int", "[numeric]")
+{
+    REQUIRE(FROM_01(0, 0.5f, 2) == 1);
+    REQUIRE(FROM_01(-2, 0.5f, 2) == 0);
+    REQUIRE(FROM_01(-2, 1.5f, 2) == 4);
+
+    REQUIRE(FROM_01(0, 0.0f, 100) == 0);
+    REQUIRE(FROM_01(0, 0.5f, 100) == 50);
+    REQUIRE(FROM_01(0, 1.0f, 100) == 100);
 }
 
 TEST_CASE("num-remap", "[numeric]")

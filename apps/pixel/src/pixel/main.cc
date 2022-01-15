@@ -218,7 +218,7 @@ main(int argc, char** argv)
             const auto big_offset = 0.20f;
             const auto max_pal_size = tile_size * 5;
 
-            if(imgui::canvas_begin(ImVec4(0.3, 0.3, 0.3, 1.0f), "palette"))
+            if(imgui::canvas_begin(ImVec4(0.3f, 0.3f, 0.3f, 1.0f), "palette"))
             {
                 const auto p = ImGui::GetCursorScreenPos();
                 const auto size = ImGui::GetContentRegionAvail();

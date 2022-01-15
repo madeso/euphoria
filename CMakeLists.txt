@@ -87,16 +87,18 @@ set_target_properties(NightlyMemoryCheck PROPERTIES FOLDER "_cmake/tests")
 
 # compiler flags
 if(${MSVC})
-    add_definitions(/D _CRT_SECURE_NO_WARNINGS)
+    target_compile_definitions(project_options
+        INTERFACE
+            _CRT_SECURE_NO_WARNINGS
+            NOMINMAX
+            STRICT
+            WIN32_LEAN_AND_MEAN
+            VC_EXTRALEAN
 
-    add_definitions(/D NOMINMAX)
-    add_definitions(/D STRICT)
-    add_definitions(/D WIN32_LEAN_AND_MEAN)
-    add_definitions(/D VC_EXTRALEAN)
-
-    # character set to Not Set=ASCII/SBCS
-    # http://public.kitware.com/Bug/view.php?id=12189
-    add_definitions(/D _SBCS)
+            # character set to Not Set=ASCII/SBCS
+            # http://public.kitware.com/Bug/view.php?id=12189
+            _SBCS
+    )
 
     # range-v3 requires this
     add_compile_options(/permissive-)
@@ -115,6 +117,25 @@ endif()
 if(BUILD_TYPEINFO_IMPL_CTTI)
     include_directories(SYSTEM external/ctti/include)
 endif()
+
+
+
+##-----------------------------------------------------------------------------
+## arch detection
+set(EUPH_ARCH_64 OFF)
+set(EUPH_ARCH_32 OFF)
+
+if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+    # 64 bits
+    set(EUPH_ARCH_64 ON)
+elseif(CMAKE_SIZEOF_VOID_P EQUAL 4)
+    set(EUPH_ARCH_32 ON)
+else()
+    message(FATAL_ERROR "Unsupported platform: ${CMAKE_SIZEOF_VOID_P}")
+endif()
+##-----------------------------------------------------------------------------
+
+
 
 # todo(Gustav): move to "file" specific config files and not a single global one
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/tools/config_in.h ${CMAKE_CURRENT_BINARY_DIR}/euph_generated_config.h)

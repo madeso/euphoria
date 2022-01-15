@@ -96,7 +96,7 @@ namespace euphoria::core
                 // this is a new table, the row is the new table
                 ASSERTX(height == 0, height);
                 data = row;
-                width = row.size();
+                width = c_sizet_to_int(row.size());
                 height = 1;
             }
             else if(width == conv(row.size()))
@@ -119,7 +119,7 @@ namespace euphoria::core
             {
                 // new row has more columns, solve by expanding table with empties
                 ASSERTX(width < conv(row.size()), width, row.size());
-                expand_width(row.size(), d);
+                expand_width(c_sizet_to_int(row.size()), d);
                 data.insert(data.end(), row.begin(), row.end());
                 height += 1;
             }

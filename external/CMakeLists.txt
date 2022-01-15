@@ -39,6 +39,10 @@ target_include_directories(stb_image_write SYSTEM
 ## stb rect pack
 add_library(stb_rect_pack STATIC stb_rect_pack.cc)
 set_target_properties(stb_rect_pack PROPERTIES FOLDER "Dependencies")
+target_compile_definitions(stb_rect_pack
+    # required for using int in packing
+    PUBLIC STBRP_LARGE_RECTS
+)
 target_include_directories(stb_rect_pack SYSTEM
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )

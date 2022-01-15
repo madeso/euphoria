@@ -156,7 +156,15 @@ namespace euphoria::window::imgui
     ImTextureID
     c_texture_to_imgui(render::Texture2* texture)
     {
-        return reinterpret_cast<ImTextureID>(texture->get_id());
+#if EUPH_ARCH_32 == 1
+        std::int32_t
+#elif EUPH_ARCH_64 == 1
+        std::int64_t
+#else
+#error unknown arch
+#endif
+            id = texture->get_id();
+        return reinterpret_cast<ImTextureID>(id);
     }
 
 

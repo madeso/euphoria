@@ -7,6 +7,7 @@
 #include "core/vec2.h"
 #include "core/numeric.h"
 #include "core/assert.h"
+#include "core/cint.h"
 
 
 namespace euphoria::core
@@ -151,7 +152,7 @@ namespace euphoria::core
         normalize()
         {
             const T l2 = get_length_squared();
-            if(is_equal(l2, 0))
+            if(is_equal(l2, c_int_to_t<T>(0)))
             {
                 *this = Unit::up();
             }
@@ -184,7 +185,7 @@ namespace euphoria::core
         [[nodiscard]] bool
         is_valid() const
         {
-            return is_equal(this->get_length_squared(), 1);
+            return is_equal(this->get_length_squared(), c_int_to_t<T>(1));
         }
 
         static Self

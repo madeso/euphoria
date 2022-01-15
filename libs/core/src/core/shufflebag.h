@@ -70,7 +70,7 @@ namespace euphoria::core
     create_shuffle_bag(const ranges::span<const T>& items, int amount)
     {
         auto b = Shufflebag<T>{};
-        b.reserve(items.size() * amount);
+        b.reserve(c_sizet_to_int(items.size()) * amount);
         for(const auto& it: items)
         {
             b.add(it, amount);

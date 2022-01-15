@@ -11,6 +11,16 @@ namespace euphoria::core
     c_sizet_to_int(size_t t);
 
 
+    template <typename T>
+    T c_int_to_t(int i)
+    {
+        return static_cast<T>(i);
+    }
+
+    template<>
+    constexpr int c_int_to_t(int i) { return i; }
+
+
     int
     c_unsigned_int_to_int(unsigned int i);
 

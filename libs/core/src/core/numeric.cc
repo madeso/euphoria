@@ -17,10 +17,23 @@ namespace euphoria::core
 
 
     bool
+    is_equal(int lhs, int rhs)
+    {
+        return lhs == rhs;
+    }
+
+
+    bool
     is_zero(float r)
     {
         const float epsilon = 0.0001f;
         return is_within(make_range(-epsilon, epsilon), r);
+    }
+
+    bool
+    is_zero(int r)
+    {
+        return r == 0;
     }
 
 
@@ -49,14 +62,14 @@ namespace euphoria::core
     int
     floor_to_int(float v)
     {
-        return std::floor(v);
+        return static_cast<int>(std::floor(v));
     }
 
 
     int
     ceil_to_int(float v)
     {
-        return std::ceil(v);
+        return static_cast<int>(std::ceil(v));
     }
 
 
@@ -138,54 +151,6 @@ namespace euphoria::core
         }
 
         return r;
-    }
-
-
-    float
-    min(float lhs, float rhs)
-    {
-        if(lhs < rhs)
-        {
-            return lhs;
-        }
-
-        return rhs;
-    }
-
-
-    int
-    min(int lhs, int rhs)
-    {
-        if(lhs < rhs)
-        {
-            return lhs;
-        }
-
-        return rhs;
-    }
-
-
-    float
-    max(float lhs, float rhs)
-    {
-        if(lhs > rhs)
-        {
-            return lhs;
-        }
-
-        return rhs;
-    }
-
-
-    int
-    max(int lhs, int rhs)
-    {
-        if(lhs > rhs)
-        {
-            return lhs;
-        }
-
-        return rhs;
     }
 
 

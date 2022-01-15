@@ -14,7 +14,7 @@ namespace euphoria::core
     constexpr unsigned char bit_down    = 1 << 1;
     constexpr unsigned char bit_left    = 1 << 2;
     constexpr unsigned char bit_right   = 1 << 3;
-    constexpr unsigned char bit_no_line = ~(bit_up | bit_down | bit_left | bit_right);
+    constexpr unsigned char bit_no_line = static_cast<unsigned char>(~(bit_up | bit_down | bit_left | bit_right));
 
     struct TextBoxStyle
     {
@@ -69,12 +69,12 @@ namespace euphoria::core
         /** Place a single character in the given coordinate.
         Notice that behavior is undefined if the character is in 00-1F range. */
         void
-        put_char(std::size_t x, std::size_t y, char c);
+        put_char(int x, int y, char c);
 
         /** Modify a character using a callback */
         template<typename F>
         void
-        mod_char(std::size_t x, std::size_t y, F&& func)
+        mod_char(int x, int y, F&& func)
         {
             extend_to(x,y);
             func(data[y][x]);
@@ -85,18 +85,18 @@ namespace euphoria::core
         or if the string includes multibyte characters.
         */
         void
-        put_string(std::size_t x, std::size_t y, const std::string& s);
+        put_string(int x, int y, const std::string& s);
 
         static TextBox
-        from_string(const std::string& s, std::size_t x=0, std::size_t y=0);
+        from_string(const std::string& s, int x=0, int y=0);
 
 
         /* Put a 2D string starting at the given coordinate */
         void
-        put_box(std::size_t x, std::size_t y, const TextBox& b);
+        put_box(int x, int y, const TextBox& b);
 
         [[nodiscard]] TextBox
-        put_box_copy(std::size_t x, std::size_t y, const TextBox& b) const;
+        put_box_copy(int x, int y, const TextBox& b) const;
 
         /** Draw a horizontal line.
         If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center.
@@ -104,9 +104,9 @@ namespace euphoria::core
         void
         put_horizontal_line
         (
-            std::size_t x,
-            std::size_t y,
-            std::size_t width,
+            int x,
+            int y,
+            int width,
             bool bef,
             bool aft
         );
@@ -117,9 +117,9 @@ namespace euphoria::core
         void
         put_vertical_line
         (
-            std::size_t x,
-            std::size_t y,
-            std::size_t height,
+            int x,
+            int y,
+            int height,
             bool bef,
             bool aft
         );
@@ -140,14 +140,14 @@ namespace euphoria::core
         // Status
 
         /* Calculate the current dimensions of the string */
-        [[nodiscard]] std::size_t
+        [[nodiscard]] int
         get_height() const;
 
-        [[nodiscard]] std::size_t
+        [[nodiscard]] int
         get_width() const;
 
         // width x height
-        [[nodiscard]] std::pair<std::size_t, std::size_t>
+        [[nodiscard]] std::pair<int, int>
         get_size() const;
 
         ///////////////////////////////////////////////////////////////////////////
@@ -230,13 +230,13 @@ namespace euphoria::core
         create_tree_graph
         (
             const T& e,
-            std::size_t maxwidth,
+            int maxwidth,
             ToStringFunction&& to_string,
             ParamCountFunc&& count_children,
             OneLinerFunc&& oneliner_test,
             SimpleTestFunc&& simple_test,
-            std::size_t margin = 4,
-            std::size_t firstx = 2
+            int margin = 4,
+            int firstx = 2
         )
         {
             ASSERTX(maxwidth >=16, maxwidth);
@@ -255,7 +255,7 @@ namespace euphoria::core
                         create_tree_graph
                         (
                             *i,
-                            std::max<std::size_t>(maxwidth - 2, 16),
+                            std::max<int>(maxwidth - 2, 16),
                             to_string,
                             count_children,
                             oneliner_test,
@@ -286,32 +286,32 @@ namespace euphoria::core
         // private functions
 
         void
-        extend_to(std::size_t x, std::size_t y);
+        extend_to(int x, int y);
 
         /** Calculate the earliest X coordinate where the given box could be placed.
         without colliding with existing content in this box. Guaranteed to be <= width().
         Find leftmost position where box b can be appended into *this without overlap
         */
-        [[nodiscard]] std::size_t
-        get_horizontal_append_position(std::size_t y, const TextBox& b) const;
+        [[nodiscard]] int
+        get_horizontal_append_position(int y, const TextBox& b) const;
 
         /** Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. Guaranteed to be <= height().
         * Find topmost position where box b can be appended into *this without overlap
         */
-        [[nodiscard]] std::size_t
-        get_vertical_append_position(std::size_t x, const TextBox& b) const;
+        [[nodiscard]] int
+        get_vertical_append_position(int x, const TextBox& b) const;
 
-        [[nodiscard]] std::size_t
-        find_left_padding(std::size_t y) const;
+        [[nodiscard]] int
+        find_left_padding(int y) const;
 
-        [[nodiscard]] std::size_t
-        find_right_padding(std::size_t y) const;
+        [[nodiscard]] int
+        find_right_padding(int y) const;
 
-        [[nodiscard]] std::size_t
-        find_top_padding(std::size_t x) const;
+        [[nodiscard]] int
+        find_top_padding(int x) const;
 
-        [[nodiscard]] std::size_t
-        find_bottom_padding(std::size_t x) const;
+        [[nodiscard]] int
+        find_bottom_padding(int x) const;
 
     private:
         static void
@@ -323,8 +323,8 @@ namespace euphoria::core
             bool oneliner_test,
             bool simple_test,
             const std::string& label,
-            std::size_t margin,
-            std::size_t firstx
+            int margin,
+            int firstx
         );
 
         std::vector<std::string> data;
