@@ -108,7 +108,7 @@ namespace euphoria::editor
         std::vector<SpaceData> ret;
         int x = 0;
 
-        for(unsigned int index = 0; index < data.size(); ++index)
+        for(int index = 0; index < core::c_sizet_to_int(data.size()); index+=1)
         {
             const int value = data[index];
             const int step = abs(value);

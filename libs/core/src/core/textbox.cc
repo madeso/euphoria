@@ -612,7 +612,6 @@ namespace euphoria::core
     }
 
 
-
     int
     TextBox::find_top_padding(int x) const
     {
@@ -783,8 +782,8 @@ namespace euphoria::core
             {
                 const auto label_size = c_sizet_to_int(label.size());
 
-                unsigned cx = x;
-                unsigned cy = y > min_y ? y-min_y : 0;
+                int cx = x;
+                int cy = y > min_y ? y-min_y : 0;
                 if(x > label.size())
                 {
                     result->put_horizontal_line
@@ -800,16 +799,16 @@ namespace euphoria::core
             }
             else if(horizontal)
             {
-                unsigned cx = x;
-                unsigned cy = y-1;
+                int cx = x;
+                int cy = y-1;
                 result->put_vertical_line(0,  1,  1 + (cy-1), true,false);
                 result->put_horizontal_line(0, cy, 1 + (cx-0), false,false);
                 result->put_vertical_line(cx, cy, 1, false,true);
             }
             else
             {
-                unsigned cx = x-1;
-                unsigned cy = y;
+                int cx = x-1;
+                int cy = y;
                 result->put_vertical_line(0,1, 1 + (cy-1), true,false);
                 result->put_horizontal_line(0,cy, 1 + (cx-0), false,true);
             }

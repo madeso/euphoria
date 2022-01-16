@@ -24,7 +24,7 @@ namespace euphoria::engine
     {
         std::vector<T> r;
         r.reserve(table.size());
-        for(unsigned int i=0; i<table.size(); i+=1)
+        for(size_t i=0; i<table.size(); i+=1)
         {
             r.emplace_back(table[i+1]);
         }
