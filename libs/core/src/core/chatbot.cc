@@ -673,9 +673,9 @@ namespace euphoria::core
             for(const auto& keyword: resp.inputs)
             {
                 // todo(Gustav): look into levenshtein distance
-                const bool longer_keyword = keyword.words.size() > match_length;
+                const bool longer_keyword = c_sizet_to_int(keyword.words.size()) > match_length;
                 const bool same_size_but_better
-                        = keyword.words.size() == match_length
+                        = c_sizet_to_int(keyword.words.size()) == match_length
                         && keyword.location > match_location;
 
                 // todo add detail as to why the check failed

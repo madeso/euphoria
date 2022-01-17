@@ -12,6 +12,7 @@
     // warning C4459: declaration of 'X' hides global declaration
     // https://docs.microsoft.com/en-us/cpp/error-messages/compiler-warnings/compiler-warning-level-4-c4459?view=msvc-170
     #define DISABLE_GLOBAL_DECLARATION    DISABLE_WARNING(4459)
+    #define DISABLE_WARNING_UNUSED_VARIABLE
 #elif defined(__GNUC__) || defined(__clang__)
     #define DISABLE_WARNING_PUSH DO_PRAGMA(GCC diagnostic push)
     #define DISABLE_WARNING_POP DO_PRAGMA(GCC diagnostic pop)
@@ -21,17 +22,19 @@
 
     // gcc and clang definitons
     #define DISABLE_GLOBAL_DECLARATION
-    // #define DISABLE_WARNING_OLDSTYLE_CAST DISABLE_WARNING(-Wold-style-cast)
+    #define DISABLE_WARNING_UNUSED_VARIABLE DISABLE_WARNING(-Wunused-variable)
     
     #if !defined(__clang__)
-        // clang definitions
-    #else
         // gcc definitions
+        // #define DISABLE_WARNING_UNUSED_VARIABLE
+    #else
+        // clang definitions
     #endif
 #else
     #define DISABLE_WARNING_PUSH
     #define DISABLE_WARNING_POP
 
     #define DISABLE_GLOBAL_DECLARATION
+    #define DISABLE_WARNING_UNUSED_VARIABLE
 #endif
 

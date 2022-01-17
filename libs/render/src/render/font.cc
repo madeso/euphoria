@@ -92,7 +92,7 @@ namespace euphoria::render
         const stbrp_coord uv_left = src_rect.x;
         const stbrp_coord uv_right = uv_left + src_rect.w;
         const stbrp_coord uv_bottom = src_rect.y;
-        const stbrp_coord uv_top = uv_bottom + std::max(static_cast<stbrp_coord>(1), src_rect.h);
+        const stbrp_coord uv_top = uv_bottom + std::max(1, src_rect.h);
 
         // todo(Gustav): add ability to be a quad for tighter fit
         ASSERTX(vert_top > vert_bottom, vert_top, vert_bottom, src_char.code_point);

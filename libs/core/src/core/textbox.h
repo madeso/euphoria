@@ -318,7 +318,7 @@ namespace euphoria::core
         sub_create_tree_graph
         (
             TextBox* result,
-            size_t maxwidth,
+            int maxwidth,
             const std::vector<TextBox>& boxes,
             bool oneliner_test,
             bool simple_test,

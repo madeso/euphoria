@@ -4,6 +4,7 @@
 #include <array>
 
 #include "core/enumtostring.h"
+#include "core/compiler_warning.h"
 
 namespace euphoria::core
 {
@@ -83,6 +84,10 @@ namespace euphoria::core::palettes
     Palette
     get_palette(Name palette_name);
 
+    DISABLE_WARNING_PUSH
+    DISABLE_WARNING_UNUSED_VARIABLE
+    // clang claims this variable is unused, but it's part of a interface
+
     constexpr std::array palette_names
     {
         // standard
@@ -150,4 +155,5 @@ namespace euphoria::core::palettes
         Name::green_orange_6,
         Name::green_orange_12
     };
+    DISABLE_WARNING_POP
 }

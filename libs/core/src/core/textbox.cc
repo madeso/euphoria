@@ -242,11 +242,11 @@ namespace euphoria::core
     void
     TextBox::extend_to(int x, int y)
     {
-        if(y >= data.size())
+        if(y >= c_sizet_to_int(data.size()))
         {
             data.resize(y+1);
         }
-        if(data[y].size() <= x)
+        if(c_sizet_to_int(data[y].size()) <= x)
         {
             data[y].resize(x+1, ' ');
         }
@@ -261,7 +261,7 @@ namespace euphoria::core
         const std::string& line
     )
     {
-        for(int index = 0; index < line.length(); index+=1)
+        for(int index = 0; index < c_sizet_to_int(line.length()); index+=1)
         {
             put_char(x+index, y, line[index]);
         }
@@ -284,7 +284,7 @@ namespace euphoria::core
         const TextBox& b
     )
     {
-        for(int p = 0; p < b.data.size(); p+=1)
+        for(int p = 0; p < c_sizet_to_int(b.data.size()); p+=1)
         {
             const auto line = b.data[p];
             const auto y = y_start + p;
@@ -292,12 +292,12 @@ namespace euphoria::core
             const int size_minus_1 = line.empty() ? 0 : c_sizet_to_int(line.size())-1;
             extend_to(x_start+size_minus_1, y);
 
-            for(int line_index = 0; line_index < line.size(); line_index+=1)
+            for(int line_index = 0; line_index < c_sizet_to_int(line.size()); line_index+=1)
             {
                 const auto x = x_start + line_index;
                 const auto source_texel = line[line_index];
 
-                ASSERT(x < data[y].size());
+                ASSERT(x < c_sizet_to_int(data[y].size()));
 
                 if(!is_emtpy(source_texel))
                 {
@@ -519,7 +519,7 @@ namespace euphoria::core
         for(int y = 0; y < h; y+=1)
         {
             const std::string& s = data[y];
-            for(int x = 0; x < s.size(); x+=1)
+            for(int x = 0; x < c_sizet_to_int(s.size()); x+=1)
             {
                 char c = s[x];
                 if(c > 0 && c < 16)
@@ -546,7 +546,7 @@ namespace euphoria::core
     {
         const int max = get_width();
 
-        if(y >= data.size())
+        if(y >= c_sizet_to_int(data.size()))
         {
             return max;
         }
@@ -554,7 +554,7 @@ namespace euphoria::core
         const std::string& line = data[y];
 
         int result = 0;
-        while(result < line.size() && is_emtpy(line[result]))
+        while(result < c_sizet_to_int(line.size()) && is_emtpy(line[result]))
         {
             result+=1;
         }
@@ -568,7 +568,7 @@ namespace euphoria::core
     {
         const int max = get_width();
 
-        if(y >= data.size())
+        if(y >= c_sizet_to_int(data.size()))
         {
             return max;
         }
@@ -579,7 +579,7 @@ namespace euphoria::core
         while
         (
             position != 0 &&
-            (position-1 >= line.size() || is_emtpy(line[position - 1]))
+            (position-1 >= c_sizet_to_int(line.size()) || is_emtpy(line[position - 1]))
         )
         {
             position-=1;
@@ -601,7 +601,7 @@ namespace euphoria::core
         while
         (
             position != 0 &&
-            (x >= data[position-1].size() || is_emtpy(data[position - 1][x]))
+            (x >= c_sizet_to_int(data[position-1].size()) || is_emtpy(data[position - 1][x]))
         )
         {
             position-=1;
@@ -621,7 +621,7 @@ namespace euphoria::core
         while
         (
             result < max &&
-            (x >= data[result].size() || is_emtpy(data[result][x]))
+            (x >= c_sizet_to_int(data[result].size()) || is_emtpy(data[result][x]))
         )
         {
             result+=1;
@@ -635,7 +635,7 @@ namespace euphoria::core
     TextBox::sub_create_tree_graph
     (
         TextBox* result,
-        size_t maxwidth,
+        int maxwidth,
         const std::vector<TextBox>& boxes,
         bool consider_oneliner,
         bool consider_simple,
@@ -646,18 +646,18 @@ namespace euphoria::core
     {
         constexpr int min_y = 1;
 
-        const auto totalwidth = boxes.empty() ? 0 :
+        const int totalwidth = boxes.empty() ? 0 :
             std::accumulate
             (
                 boxes.begin(),
                 boxes.end(),
                 0,
                 [](auto t, const auto& b) {return t + b.get_width();}
-            ) + (boxes.size()-1) * margin
+            ) + (c_sizet_to_int(boxes.size())-1) * margin
         ;
 
         bool oneliner = consider_oneliner &&
-            (label.size() + margin + totalwidth) < maxwidth;
+            (c_sizet_to_int(label.size()) + margin + totalwidth) < maxwidth;
         bool simple = consider_simple && oneliner && boxes.size() == 1;
 
         int y = simple ? 0 : 1;
@@ -713,7 +713,7 @@ namespace euphoria::core
                     y = std::max
                     (
                         result->get_vertical_append_position(x, combined),
-                        int(1)
+                        1
                     );
                     if(!oneliner)
                     {
@@ -726,7 +726,7 @@ namespace euphoria::core
                 y = std::max
                 (
                     result->get_vertical_append_position(x, current_box),
-                    int(1)
+                    1
                 );
             }
             if(horizontal && !simple && !oneliner)
@@ -765,7 +765,7 @@ namespace euphoria::core
 
             if(simple)
             {
-                if(x > label.size())
+                if(x > c_sizet_to_int(label.size()))
                 {
                     const auto label_size = c_sizet_to_int(label.size());
                     result->put_horizontal_line
@@ -784,7 +784,7 @@ namespace euphoria::core
 
                 int cx = x;
                 int cy = y > min_y ? y-min_y : 0;
-                if(x > label.size())
+                if(x > c_sizet_to_int(label.size()))
                 {
                     result->put_horizontal_line
                     (
