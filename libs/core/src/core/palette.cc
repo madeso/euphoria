@@ -42,15 +42,15 @@ namespace euphoria::core
     }
 
 
-    unsigned int
+    int
     Palette::get_index_closest(const Rgbi& c) const
     {
         ASSERT(!colors.empty());
         auto diff_best = get_distance_squared(c, colors[0]);
 
         unsigned int index_best = 0;
-        const auto size = colors.size();
-        for(unsigned int index = 1; index < size; index += 1)
+        const int size =  c_sizet_to_int(colors.size());
+        for(int index = 1; index < size; index += 1)
         {
             const auto diff = get_distance_squared(c, colors[index]);
             if(diff < diff_best)

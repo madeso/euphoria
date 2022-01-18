@@ -24,6 +24,14 @@ namespace euphoria::core::io
         file_handle.write(chunk->get_data(), chunk->get_size());
     }
 
+    namespace
+    {
+        int c_postype_to_int(std::ifstream::pos_type p)
+        {
+            return static_cast<int>(p);
+        }
+    }
+
     std::shared_ptr<MemoryChunk>
     file_to_chunk(const std::string& full_path)
     {
@@ -45,7 +53,7 @@ namespace euphoria::core::io
             return MemoryChunk::null();
         }
 
-        auto memory = MemoryChunk::allocate(c_sizet_to_int(length));
+        auto memory = MemoryChunk::allocate(c_postype_to_int(length));
         is.read
         (
             static_cast<char*>(static_cast<void*>(memory->get_data())),

@@ -44,7 +44,7 @@ namespace euphoria::core
         [[nodiscard]] const Rgbi&
         get_closest_color(const Rgbi& c) const;
 
-        [[nodiscard]] unsigned int
+        [[nodiscard]] int
         get_index_closest(const Rgbi& c) const;
 
         // todo(Gustav): provide a function that takes a (void) lambda
