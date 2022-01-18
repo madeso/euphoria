@@ -207,6 +207,10 @@ add_library(imgui STATIC
     imgui/imgui/imstb_rectpack.h
     imgui/imgui/imstb_textedit.h
     imgui/imgui/imstb_truetype.h
+
+    imgui/imgui/misc/cpp/imgui_stdlib.cpp
+    imgui/imgui/misc/cpp/imgui_stdlib.h
+
     imgui/imgui/backends/imgui_impl_sdl.cpp
     imgui/imgui/backends/imgui_impl_sdl.h
     imgui/imgui/backends/imgui_impl_opengl3.cpp
@@ -215,8 +219,9 @@ add_library(imgui STATIC
 set_target_properties(imgui PROPERTIES FOLDER "Dependencies")
 target_include_directories(imgui SYSTEM
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/backends
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/misc/cpp/
+    ${CMAKE_CURRENT_SOURCE_DIR}/imgui/imgui/backends
     # we want this to be private but we currently include the sdl loader
     # and it include imgui the 'imgui way'
     ${CMAKE_CURRENT_SOURCE_DIR}/imgui/fake/

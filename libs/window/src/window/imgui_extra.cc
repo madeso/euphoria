@@ -5,6 +5,7 @@
 #include "fmt/format.h"
 
 #include "imgui/imgui_internal.h"
+#include "imgui_stdlib.h"
 
 #include "core/angle.h"
 #include "core/assert.h"
@@ -14,7 +15,6 @@
 #include "render/texture.h"
 
 #include "window/imgui_icons.h"
-
 
 namespace euphoria::window
 {
@@ -37,17 +37,7 @@ namespace euphoria::window::imgui
     bool
     input_text(const char* label, std::string* str)
     {
-        constexpr int size = 500;
-        char buffer[size] = { 0, };
-
-        strncpy(buffer, str->c_str(), size);
-        const bool r = ImGui::InputText(label, buffer, size);
-        if(r)
-        {
-            *str = buffer;
-        }
-
-        return r;
+        return ImGui::InputText(label, str);
     }
 
 
