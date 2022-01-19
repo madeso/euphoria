@@ -48,7 +48,7 @@ namespace euphoria::core
         ASSERT(!colors.empty());
         auto diff_best = get_distance_squared(c, colors[0]);
 
-        unsigned int index_best = 0;
+        int index_best = 0;
         const int size =  c_sizet_to_int(colors.size());
         for(int index = 1; index < size; index += 1)
         {
