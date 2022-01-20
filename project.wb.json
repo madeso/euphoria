@@ -2,7 +2,7 @@
     "name": "euphoria",
     "dependencies":
     [
-        "sdl2", "assimp"
+        "sdl-2.0.8", "assimp"
     ],
     "includes":
     [
