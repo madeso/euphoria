@@ -6,65 +6,83 @@
     ],
     "includes":
     [
-        "#include \"core/{file_stem}\\.h\"",
-        "#include \"engine/{file_stem}\\.h\"",
-        "#include \"editor/{file_stem}\\.h\"",
-        "#include \"window/{file_stem}\\.h\"",
-        "#include \"t3d/{file_stem}\\.h\"",
-        "#include \"render/{file_stem}\\.h\"",
-        "#include \"gui/{file_stem}\\.h\"",
-        "#include \"tests/{file_stem}\\.h\"",
-        "#include \"minsynth/{file_stem}\\.h\"",
+        [
+            "#include \"core/{file_stem}\\.h\"",
+            "#include \"engine/{file_stem}\\.h\"",
+            "#include \"editor/{file_stem}\\.h\"",
+            "#include \"window/{file_stem}\\.h\"",
+            "#include \"t3d/{file_stem}\\.h\"",
+            "#include \"render/{file_stem}\\.h\"",
+            "#include \"gui/{file_stem}\\.h\"",
+            "#include \"tests/{file_stem}\\.h\"",
+            "#include \"minsynth/{file_stem}\\.h\""
+        ],
 
-        "#include <[a-zA-Z_0-9]+>",
+        [
+            "#include <[a-zA-Z_0-9]+>"
+        ],
         
-        "#include \"range/v3/view/[a-z_A-Z0-9.]+\\.hpp\"",
-        "#include <range/v3/[a-z_A-Z0-9.]+\\.hpp>",
+        [
+            "#include \"range/v3/view/[a-z_A-Z0-9.]+\\.hpp\"",
+            "#include <range/v3/[a-z_A-Z0-9.]+\\.hpp>"
+        ],
 
-        "#include \"magic_enum/magic_enum\\.hpp\"",
-        "#include \"spdlog/fmt/ostr\\.h\"",
-        "#include \"spdlog/spdlog\\.h\"",
-        "#include \"sol/sol\\.hpp\"",
-        "#include \"pugixml\\.hpp\"",
-        "#include \"ctti/[a-z_A-Z0-9]+\\.hpp\"",
-        "#include \"imgui/[a-z_A-Z0-9]+\\.h\"",
-        "#include \"imgui_[a-z_A-Z0-9]+\\.h\"",
-        "#include \"assimp/[a-z_A-Z0-9]+\\.h\"",
-        "#include \"assimp/[a-z_A-Z0-9]+\\.hpp\"",
-        "#include \"stb_[a-z_A-Z0-9]+\\.h\"",
-        "#include \"SDL\\.h\"",
-        "#include \"SDL_[a-z_A-Z0-9]+\\.h\"",
-        "#include \"font8x8/[a-z_A-Z0-9]+\\.h\"",
-        "#include \"font8x13\\.h\"",
-        "#include \"fmt/[a-z_A-Z0-9]+\\.h\"",
-        "#include \"crc32/crc32\\.h\"",
-        "#include \"windows\\.h\"",
-        "#include <direct\\.h>",
-        "#include <dirent\\.h>",
-        "#include <unistd\\.h>",
-        "#include <cxxabi\\.h>",
-        "#include <execinfo\\.h>",
-        "#include \"glad/glad\\.h\"",
-        "#include \"font_material_design_icons\\.h\"",
-        "#include \"font_noto_sans_display\\.h\"",
-        "#include \"IconsMaterialDesignIcons\\.h\"",
-        "#include \"catch\\.hpp\"",
-        "#include \"RtMidi\\.h\"",
+        ["#include \"magic_enum/magic_enum\\.hpp\""],
+        [
+            "#include \"spdlog/fmt/ostr\\.h\"",
+            "#include \"spdlog/spdlog\\.h\""
+        ],
 
-        "#include \"gaf/[a-z_A-Z0-9]+\\.h\"",
-        "#include \"gaf_[a-z_A-Z0-9]+\\.h\"",
+        ["#include \"sol/sol\\.hpp\""],
+        ["#include \"pugixml\\.hpp\""],
+        ["#include \"ctti/[a-z_A-Z0-9]+\\.hpp\""],
+        [
+            "#include \"imgui/[a-z_A-Z0-9]+\\.h\"",
+            "#include \"imgui_[a-z_A-Z0-9]+\\.h\""
+        ],
+        [
+            "#include \"assimp/[a-z_A-Z0-9]+\\.h\"",
+            "#include \"assimp/[a-z_A-Z0-9]+\\.hpp\""
+        ],
+        ["#include \"stb_[a-z_A-Z0-9]+\\.h\""],
+        [
+            "#include \"SDL\\.h\"",
+            "#include \"SDL_[a-z_A-Z0-9]+\\.h\""
+        ],
+        ["#include \"font8x8/[a-z_A-Z0-9]+\\.h\""],
+        ["#include \"font8x13\\.h\""],
+        ["#include \"fmt/[a-z_A-Z0-9]+\\.h\""],
+        ["#include \"crc32/crc32\\.h\""],
+        ["#include <direct\\.h>"],
+        ["#include <dirent\\.h>"],
+        ["#include <unistd\\.h>"],
+        ["#include <cxxabi\\.h>"],
+        ["#include <execinfo\\.h>"],
+        ["#include \"glad/glad\\.h\""],
+        ["#include \"font_material_design_icons\\.h\""],
+        ["#include \"font_noto_sans_display\\.h\""],
+        ["#include \"IconsMaterialDesignIcons\\.h\""],
+        ["#include \"catch\\.hpp\""],
+        ["#include \"RtMidi\\.h\""],
 
-        "#include \"core/[a-z_A-Z0-9.]+\\.h\"",
-        "#include \"engine/[a-z_A-Z0-9.]+\\.h\"",
-        "#include \"editor/[a-z_A-Z0-9.]+\\.h\"",
-        "#include \"window/[a-z_A-Z0-9.]+\\.h\"",
-        "#include \"t3d/[a-z_A-Z0-9.]+\\.h\"",
-        "#include \"render/[a-z_A-Z0-9.]+\\.h\"",
-        "#include \"gui/[a-z_A-Z0-9.]+\\.h\"",
-        "#include \"minsynth/[a-z_A-Z0-9.]+\\.h\"",
+        ["#include \"windows\\.h\""],
+
+        [
+            "#include \"gaf/[a-z_A-Z0-9]+\\.h\"",
+            "#include \"gaf_[a-z_A-Z0-9]+\\.h\""
+        ],
+
+        ["#include \"core/[a-z_A-Z0-9.]+\\.h\""],
+        ["#include \"engine/[a-z_A-Z0-9.]+\\.h\""],
+        ["#include \"editor/[a-z_A-Z0-9.]+\\.h\""],
+        ["#include \"window/[a-z_A-Z0-9.]+\\.h\""],
+        ["#include \"t3d/[a-z_A-Z0-9.]+\\.h\""],
+        ["#include \"render/[a-z_A-Z0-9.]+\\.h\""],
+        ["#include \"gui/[a-z_A-Z0-9.]+\\.h\""],
+        ["#include \"minsynth/[a-z_A-Z0-9.]+\\.h\""],
         
-        "#include \"tests/[a-z_A-Z0-9.]+\\.h\"",
+        ["#include \"tests/[a-z_A-Z0-9.]+\\.h\""],
         
-        "#include \"euph_generated_config.h\""
+        ["#include \"euph_generated_config.h\""]
     ]
 }
