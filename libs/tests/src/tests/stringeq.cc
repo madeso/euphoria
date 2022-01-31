@@ -1,7 +1,7 @@
 #include "tests/stringeq.h"
 
 #include "core/editdistance.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/stringutils.h"
 
 #include "tests/vectortostring.h"

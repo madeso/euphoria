@@ -1,7 +1,7 @@
 #include "core/textfileparser.h"
 
 #include "core/numeric.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 
 #include <sstream>
 

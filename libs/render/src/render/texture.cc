@@ -2,7 +2,7 @@
 #include <iostream>
 
 #include "core/image.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "log/log.h"
 #include "core/vfs_path.h"
 

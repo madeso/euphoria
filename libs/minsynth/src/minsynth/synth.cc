@@ -1,7 +1,7 @@
 #include "minsynth/synth.h"
 
 #include "log/log.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/numeric.h"
 #include "core/cint.h"
 #include "core/angle.h"

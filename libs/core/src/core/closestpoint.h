@@ -4,7 +4,7 @@
 #include <tuple>
 #include <optional>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 namespace euphoria::core
 {

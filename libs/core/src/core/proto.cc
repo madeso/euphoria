@@ -2,7 +2,7 @@
 
 #include "core/proto.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/vfs.h"
 #include "core/str.h"
 #include "core/vfs_path.h"

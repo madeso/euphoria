@@ -1,7 +1,7 @@
 #include "render/spritebatch.h"
 #include "render/gl.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/cint.h"
 
 namespace euphoria::render

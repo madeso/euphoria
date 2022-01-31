@@ -1,7 +1,7 @@
 #include "core/texttemplate.h"
 
 #include "core/textfileparser.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/str.h"
 #include "core/noncopyable.h"
 #include "core/vfs.h"

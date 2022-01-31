@@ -7,7 +7,7 @@
 
 #include "core/random.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/textfileparser.h"
 #include "core/str.h"
 #include "core/proto.h"

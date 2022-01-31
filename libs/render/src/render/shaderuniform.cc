@@ -1,6 +1,6 @@
 #include "render/shaderuniform.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 #include <utility>
 

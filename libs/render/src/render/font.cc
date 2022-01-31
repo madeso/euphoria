@@ -13,7 +13,7 @@
 #include "core/image_draw.h"
 #include "core/ui_text.h"
 #include "core/utf8.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/noncopyable.h"
 #include "core/image.h"
 #include "core/vfs_path.h"

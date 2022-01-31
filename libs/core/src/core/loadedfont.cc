@@ -11,7 +11,7 @@
 #include "font8x13.h"
 
 #include "log/log.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/noncopyable.h"
 #include "core/image_draw.h"
 #include "core/utf8.h"

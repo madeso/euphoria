@@ -1,6 +1,6 @@
 #include "core/camera3.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 namespace euphoria::core
 {

@@ -1,7 +1,7 @@
 #include "core/image_draw.h"
 
 #include "core/numeric.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/range.h"
 #include "core/loadedfont.h"
 #include "core/utf8.h"

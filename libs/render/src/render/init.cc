@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "log/log.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 
 #include "render/gl.h"
 

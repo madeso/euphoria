@@ -243,8 +243,8 @@ target_link_libraries(imgui
     PUBLIC
         sdl2
         glad
-        # need core and project_options for assert override
-        core
+        # need assert and project_options for assert override
+        assert
         project_options
 )
 

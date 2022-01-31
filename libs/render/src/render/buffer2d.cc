@@ -1,6 +1,6 @@
 #include "render/buffer2d.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/bufferbuilder2d.h"
 #include "core/cint.h"
 

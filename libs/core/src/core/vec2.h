@@ -6,7 +6,7 @@
 #include "core/angle.h"
 #include "core/typeinfo.h"
 #include "core/numeric.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/cint.h"
 
 

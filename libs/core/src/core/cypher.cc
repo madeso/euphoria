@@ -4,7 +4,7 @@
 
 #include "core/stringutils.h"
 #include "core/range.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 
 
 namespace euphoria::core

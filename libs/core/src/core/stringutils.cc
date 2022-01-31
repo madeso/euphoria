@@ -8,7 +8,7 @@
 #include <iterator>
 #include <type_traits>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 
 namespace euphoria::core

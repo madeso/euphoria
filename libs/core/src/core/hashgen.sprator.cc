@@ -4,7 +4,7 @@
 
 #include "core/image.h"
 #include "core/rgb.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/rng.h"
 #include "core/numeric.h"
 #include "core/image_draw.h"

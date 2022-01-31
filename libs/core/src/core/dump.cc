@@ -4,7 +4,7 @@
 #include <fstream>
 #include <sstream>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/plane.h"
 #include "core/ray.h"
 

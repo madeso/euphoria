@@ -1,4 +1,5 @@
 add_subdirectory(log)
+add_subdirectory(assert)
 add_subdirectory(core)
 add_subdirectory(file_types)
 add_subdirectory(gui)

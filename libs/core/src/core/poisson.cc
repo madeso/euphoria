@@ -2,7 +2,7 @@
 
 #include "core/numeric.h"
 #include "core/random.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/cint.h"
 
 

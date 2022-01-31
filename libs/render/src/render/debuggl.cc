@@ -1,7 +1,7 @@
 #include "render/debuggl.h"
 
 #include "render/gl.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "log/log.h"
 
 

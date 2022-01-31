@@ -3,7 +3,7 @@
 #include <iostream>
 #include <algorithm>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/rect.h"
 #include "core/proto.h"
 #include "core/tablelayout.h"

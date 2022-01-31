@@ -4,7 +4,7 @@
 #include <vector>
 #include "range/v3/view/span.hpp"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/random.h"
 #include "core/cint.h"
 

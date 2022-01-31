@@ -81,7 +81,6 @@ set(app_src
     src/core/custom_parser.cc src/core/custom_parser.h
     src/core/default_parse.cc src/core/default_parse.h
     src/core/argparse.cc src/core/argparse.h
-    src/core/assert.cc src/core/assert.h
     src/core/base64.cc src/core/base64.h
     src/core/bitfield.cc src/core/bitfield.h
     src/core/bufferbuilder2d.cc src/core/bufferbuilder2d.h
@@ -190,6 +189,7 @@ target_link_libraries(core
     PUBLIC
         magic_enum
         log
+        assert
         libgaf_xml
         range
         lua

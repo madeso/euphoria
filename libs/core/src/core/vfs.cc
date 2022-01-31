@@ -2,7 +2,7 @@
 
 #include <fstream>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/os.h"
 #include "core/stringmerger.h"
 #include "core/vfs_path.h"

@@ -1,6 +1,6 @@
 #include "t3d/filelist.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/os.h"
 #include "core/vfs.h"
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/str.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 
 #include <map>
 #include <vector>

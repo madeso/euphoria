@@ -1,5 +1,11 @@
 # Euphoria libraries
 
+## log
+logging library
+
+## assert
+assert library, uses log
+
 ### core
 contains core functionality like math and other things that doesn't require external libraries that can't be embedded
 

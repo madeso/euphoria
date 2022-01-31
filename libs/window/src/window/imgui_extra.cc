@@ -8,7 +8,7 @@
 #include "imgui_stdlib.h"
 
 #include "core/angle.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/rgb.h"
 #include "core/numeric.h"
 

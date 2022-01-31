@@ -1,7 +1,7 @@
     #include "core/table_bool.h"
 
 #include "core/image_draw.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include <cmath>
 
 namespace euphoria::core

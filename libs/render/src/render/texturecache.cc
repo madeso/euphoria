@@ -1,6 +1,6 @@
 #include "render/texturecache.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/cache.h"
 #include "core/vfs_path.h"
 

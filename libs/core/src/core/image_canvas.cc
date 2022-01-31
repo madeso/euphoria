@@ -1,7 +1,7 @@
 #include "core/image_canvas.h"
 
 #include "core/image.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/numeric.h"
 #include "core/mat2.h"
 #include "core/image_draw.h"

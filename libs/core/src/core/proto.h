@@ -5,7 +5,7 @@
 #include <variant>
 #include <optional>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 #include "pugixml.hpp"
 #include "gaf/lib_pugixml.h"

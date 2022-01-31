@@ -1,6 +1,6 @@
 #include "core/aabb.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/numeric.h"
 #include "core/range.h"
 #include "core/random.h"

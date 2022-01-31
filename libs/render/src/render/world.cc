@@ -1,6 +1,6 @@
 #include "render/world.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/camera3.h"
 
 #include "render/materialshader.h"

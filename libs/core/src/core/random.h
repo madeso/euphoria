@@ -3,7 +3,7 @@
 #include <vector>
 #include "range/v3/view/span.hpp"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 #include "core/ints.h"
 #include "core/vec2.h"

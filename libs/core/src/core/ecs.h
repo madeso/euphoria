@@ -7,7 +7,7 @@
 
 #include "core/typeinfo.h"
 #include "core/ecs.id.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/result.h"
 
 #include "euph_generated_config.h"

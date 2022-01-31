@@ -1,6 +1,6 @@
 #include "engine/input.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/cint.h"
 #include "core/sol.h"
 

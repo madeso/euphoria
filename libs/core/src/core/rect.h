@@ -1,6 +1,6 @@
 #pragma once
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/vec2.h"
 #include "core/size2.h"
 #include "core/range.h"

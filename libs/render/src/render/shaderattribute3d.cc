@@ -1,6 +1,6 @@
 #include "render/shaderattribute3d.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 #include "render/shader.h"
 

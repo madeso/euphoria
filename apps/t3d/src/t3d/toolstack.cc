@@ -1,6 +1,6 @@
 #include "t3d/toolstack.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/noncopyable.h"
 
 

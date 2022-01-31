@@ -3,7 +3,7 @@
 
 #include "core/numeric.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include <vector>
 
 namespace euphoria::core

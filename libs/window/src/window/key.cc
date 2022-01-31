@@ -1,6 +1,6 @@
 #include "window/key.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 namespace euphoria::window
 {

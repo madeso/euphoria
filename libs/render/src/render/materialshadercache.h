@@ -2,7 +2,7 @@
 
 #include "core/cache.h"
 #include "core/vfs_path.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "render/materialshader.h"
 
 namespace euphoria::render

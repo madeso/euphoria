@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <functional>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 namespace euphoria::core
 {

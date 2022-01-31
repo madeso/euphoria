@@ -3,7 +3,7 @@
 
 #include <cstring>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 namespace euphoria::core
 {

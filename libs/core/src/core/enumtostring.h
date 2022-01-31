@@ -5,7 +5,7 @@
 #include <vector>
 #include <ostream>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/stringutils.h"
 #include "core/editdistance.search.h"
 

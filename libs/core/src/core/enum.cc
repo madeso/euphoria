@@ -4,7 +4,7 @@
 #include <set>
 #include <utility>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/str.h"
 #include "core/stringmerger.h"
 #include "core/stringutils.h"

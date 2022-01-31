@@ -1,6 +1,6 @@
 #include "gui/textdata.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "log/log.h"
 
 #include "render/font.h"

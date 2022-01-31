@@ -2,7 +2,7 @@
 
 #include <vector>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/numeric.h"
 #include "core/rect.h"
 #include "core/cint.h"

@@ -6,7 +6,7 @@
 
 #include "core/cint.h"
 #include "core/rgb.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/enum.h"
 #include "core/texturetypes.h"
 #include "log/log.h"

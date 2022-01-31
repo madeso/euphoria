@@ -1,6 +1,6 @@
 #include "core/drunken_bishop.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 #include <algorithm>
 

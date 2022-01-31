@@ -3,7 +3,7 @@
 #include <algorithm>
 
 #include "core/cint.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
 

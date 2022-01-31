@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <sstream>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "log/log.h"
 #include "core/stringutils.h"
 #include "core/vfs.h"

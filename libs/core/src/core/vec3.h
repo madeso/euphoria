@@ -6,7 +6,7 @@
 
 #include "core/vec2.h"
 #include "core/numeric.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/cint.h"
 
 

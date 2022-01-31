@@ -1,6 +1,6 @@
 #include "render/actor.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 namespace euphoria::render
 {

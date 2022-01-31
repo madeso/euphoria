@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/easing.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 
 
 namespace euphoria::core

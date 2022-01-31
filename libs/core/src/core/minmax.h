@@ -3,7 +3,7 @@
 
 #include <tuple>
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/range.h"
 
 namespace euphoria::core

@@ -4,7 +4,7 @@
 #include <numeric>
 
 #include "core/cint.h"
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/stringutils.h"
 
 namespace

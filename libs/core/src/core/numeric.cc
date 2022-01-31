@@ -1,6 +1,6 @@
 #include "core/numeric.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/angle.h"
 #include "core/range.h"
 

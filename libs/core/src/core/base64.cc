@@ -1,6 +1,6 @@
 #include "core/base64.h"
 
-#include "core/assert.h"
+#include "assert/assert.h"
 #include "core/cint.h"
 
 #include <sstream>

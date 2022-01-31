@@ -7,7 +7,7 @@
 // filter functions (run a filter on it)
 // tweening functions
 
-#include "core/assert.h"
+#include "assert/assert.h"
 
 namespace euphoria::core::easing
 {
