@@ -147,23 +147,18 @@ namespace euphoria::assertlib
 
         if(!arguments.empty())
         {
-            std::vector<std::string> args;
-            for(const auto& a: arguments)
-            {
-                args.emplace_back(a.value);
-            }
             ss << "(" << argstr << ")";
 
             // append args array
             {
                 ss << " = [";
                 bool first = true;
-                for(const auto& v: args)
+                for(const auto& a: arguments)
                 {
                     if(first) { first = false; }
                     else { ss << ", "; }
 
-                    ss << v;
+                    ss << a.value;
                 }
                 ss << ']';
             }
