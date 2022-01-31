@@ -1,7 +1,7 @@
 #include "gui/textdata.h"
 
 #include "core/assert.h"
-#include "core/log.h"
+#include "log/log.h"
 
 #include "render/font.h"
 

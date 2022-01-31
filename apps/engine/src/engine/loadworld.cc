@@ -1,7 +1,7 @@
 #include "engine/loadworld.h"
 
 #include "core/proto.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/ecs.systems.h"
 #include "core/vfs_path.h"
 

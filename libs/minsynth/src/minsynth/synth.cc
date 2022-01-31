@@ -1,6 +1,6 @@
 #include "minsynth/synth.h"
 
-#include "core/log.h"
+#include "log/log.h"
 #include "core/assert.h"
 #include "core/numeric.h"
 #include "core/cint.h"

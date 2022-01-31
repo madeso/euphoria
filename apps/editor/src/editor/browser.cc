@@ -6,7 +6,7 @@
 #include "core/vfs_path.h"
 #include "core/stringutils.h"
 #include "core/cint.h"
-#include "core/log.h"
+#include "log/log.h"
 
 #include "window/imgui_extra.h"
 #include "window/imgui_icons.h"

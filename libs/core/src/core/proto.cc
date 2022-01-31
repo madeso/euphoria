@@ -6,7 +6,7 @@
 #include "core/vfs.h"
 #include "core/str.h"
 #include "core/vfs_path.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/editdistance.search.h"
 #include "core/stringmerger.h"
 #include "core/functional.h"

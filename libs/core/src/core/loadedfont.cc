@@ -10,7 +10,7 @@
 #include "font8x8/font8x8_basic.h"
 #include "font8x13.h"
 
-#include "core/log.h"
+#include "log/log.h"
 #include "core/assert.h"
 #include "core/noncopyable.h"
 #include "core/image_draw.h"

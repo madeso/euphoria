@@ -4,7 +4,7 @@
 #include "core/image_draw.h"
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/vfs_path.h"
 
 namespace euphoria::core::vfs

@@ -10,7 +10,7 @@
 
 #include "font_noto_sans_display.h"
 
-#include "core/log.h"
+#include "log/log.h"
 
 #include "window/sdlglcontext.h"
 #include "window/imgui_icons.h"

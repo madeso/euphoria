@@ -1,6 +1,6 @@
 #include "SDL.h"
 
-#include "core/log.h"
+#include "log/log.h"
 #include "core/str.h"
 #include "core/cint.h"
 #include "core/interpolate.h"

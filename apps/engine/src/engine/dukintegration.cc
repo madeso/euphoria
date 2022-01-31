@@ -5,7 +5,7 @@
 
 #include "core/ecs.systems.h"
 #include "core/random.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/sol.h"
 #include "core/cint.h"
 

@@ -9,7 +9,7 @@
 #include "core/stringmerger.h"
 #include "core/stringutils.h"
 #include "core/proto.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/vfs_path.h"
 
 #ifdef assert

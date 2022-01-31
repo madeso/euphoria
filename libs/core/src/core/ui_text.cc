@@ -1,6 +1,6 @@
 #include "core/ui_text.h"
 
-#include "core/log.h"
+#include "log/log.h"
 
 #include <sstream>
 

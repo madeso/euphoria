@@ -9,7 +9,7 @@
 #include "core/str.h"
 #include "core/findstring.h"
 #include "core/proto.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/cint.h"
 
 #include "gaf_chatbot.h"

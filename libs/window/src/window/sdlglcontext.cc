@@ -1,6 +1,6 @@
 #include "window/sdlglcontext.h"
 
-#include "core/log.h"
+#include "log/log.h"
 
 #include "window/sdlwindow.h"
 

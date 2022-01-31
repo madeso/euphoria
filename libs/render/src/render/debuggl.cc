@@ -2,7 +2,7 @@
 
 #include "render/gl.h"
 #include "core/assert.h"
-#include "core/log.h"
+#include "log/log.h"
 
 
 namespace

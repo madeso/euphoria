@@ -10,7 +10,7 @@
 #include "core/intersection.h"
 #include "core/minmax.h"
 
-#include "core/log.h"
+#include "log/log.h"
 
 #include <utility>
 #include <cmath>

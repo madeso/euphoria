@@ -8,7 +8,7 @@
 
 #include "stb_rect_pack.h"
 
-#include "core/log.h"
+#include "log/log.h"
 #include "core/proto.h"
 #include "core/image_draw.h"
 #include "core/ui_text.h"

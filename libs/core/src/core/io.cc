@@ -1,6 +1,6 @@
 #include "core/io.h"
 
-#include "core/log.h"
+#include "log/log.h"
 #include "core/cint.h"
 
 #include <fstream>

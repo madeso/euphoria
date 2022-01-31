@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#include "core/log.h"
+#include "log/log.h"
 #include "core/assert.h"
 
 #include "render/gl.h"

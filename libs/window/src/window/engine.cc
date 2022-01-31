@@ -4,7 +4,7 @@
 #include "imgui/imgui.h"
 
 #include "core/os.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/vfs.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/vfs_imagegenerator.h"

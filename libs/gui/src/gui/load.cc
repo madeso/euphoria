@@ -1,7 +1,7 @@
 #include "gui/load.h"
 
 #include "core/proto.h"
-#include "core/log.h"
+#include "log/log.h"
 
 #include "render/texturecache.h"
 #include "render/scalablesprite.h"

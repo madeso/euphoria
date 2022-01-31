@@ -6,7 +6,7 @@
 #include "core/image_to_text.h"
 #include "core/utf8.h"
 #include "core/io.h"
-#include "core/log.h"
+#include "log/log.h"
 
 using namespace euphoria::core;
 

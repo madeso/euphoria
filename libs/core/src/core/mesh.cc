@@ -14,7 +14,7 @@
 #include "core/texturetypes.h"
 #include "core/stdutils.h"
 #include "core/proto.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/stringmerger.h"
 #include "core/vfs.h"
 

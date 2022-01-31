@@ -13,7 +13,7 @@
 #include "core/stringutils.h"
 #include "core/stdutils.h"
 #include "core/proto.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/noncopyable.h"
 #include "core/cint.h"
 

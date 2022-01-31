@@ -9,7 +9,7 @@
 #include "core/assert.h"
 #include "core/enum.h"
 #include "core/texturetypes.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/vfs_path.h"
 
 #include "render/materialshader.h"

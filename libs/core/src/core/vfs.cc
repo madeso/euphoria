@@ -7,7 +7,7 @@
 #include "core/stringmerger.h"
 #include "core/vfs_path.h"
 #include "core/io.h"
-#include "core/log.h"
+#include "log/log.h"
 
 #include "core/stringutils.h"
 

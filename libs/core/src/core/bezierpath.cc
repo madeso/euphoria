@@ -3,7 +3,7 @@
 #include <array>
 
 #include "core/range.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/cint.h"
 
 namespace euphoria::core

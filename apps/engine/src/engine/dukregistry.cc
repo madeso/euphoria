@@ -3,7 +3,7 @@
 #include <algorithm>
 
 #include "core/assert.h"
-#include "core/log.h"
+#include "log/log.h"
 
 
 namespace euphoria::engine

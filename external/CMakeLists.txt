@@ -6,6 +6,13 @@ add_subdirectory(fmt-7.1.1)
 
 
 ###################################################################################################
+## fmt
+add_subdirectory(undef_windows)
+
+
+
+
+###################################################################################################
 ## gaf
 add_subdirectory(gaf)
 set_target_properties(fmt PROPERTIES FOLDER "Dependencies")

@@ -1,6 +1,6 @@
 #include "gui/widget.h"
 
-#include "core/log.h"
+#include "log/log.h"
 
 #include "gui/uistate.h"
 

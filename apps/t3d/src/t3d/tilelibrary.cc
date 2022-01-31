@@ -6,7 +6,7 @@
 #include "core/os.h"
 #include "core/mesh.h"
 #include "core/vfs.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/vfs_path.h"
 
 

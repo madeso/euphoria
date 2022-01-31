@@ -7,7 +7,7 @@
 #include <sstream>
 
 #include "core/assert.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/stringutils.h"
 #include "core/vfs.h"
 

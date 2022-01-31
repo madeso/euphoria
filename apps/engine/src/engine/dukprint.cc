@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "core/log.h"
+#include "log/log.h"
 
 #include "core/sol.h"
 

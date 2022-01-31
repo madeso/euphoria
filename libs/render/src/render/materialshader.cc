@@ -3,7 +3,7 @@
 #include <utility>
 
 #include "core/proto.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/texturetypes.h"
 
 #include "render/shaderattribute3d.h"

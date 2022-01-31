@@ -118,7 +118,6 @@ set(app_src
     src/core/key.cc src/core/key.h
     src/core/knuthshuffle.cc src/core/knuthshuffle.h
     src/core/loadedfont.cc src/core/loadedfont.h
-    src/core/log.cc src/core/log.h
     src/core/memorychunk.cc src/core/memorychunk.h
     src/core/mesh.cc src/core/mesh.h
     src/core/minmax.cc src/core/minmax.h
@@ -154,7 +153,6 @@ set(app_src
     src/core/timepoint.cc src/core/timepoint.h
     src/core/typeinfo.cc src/core/typeinfo.h
     src/core/ui_text.cc src/core/ui_text.h
-    src/core/undef_windows.cc src/core/undef_windows.h
     src/core/utf8.cc src/core/utf8.h
     src/core/vfs.cc src/core/vfs.h
     src/core/vfs_defaultshaders.cc src/core/vfs_defaultshaders.h
@@ -191,10 +189,11 @@ target_include_directories(core
 target_link_libraries(core
     PUBLIC
         magic_enum
-        spdlog
+        log
         libgaf_xml
         range
         lua
+        undef_windows
     PRIVATE
         project_options
         project_warnings

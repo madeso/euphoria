@@ -1,6 +1,6 @@
 #include "window/sdllibrary.h"
 
-#include "core/log.h"
+#include "log/log.h"
 
 #include "SDL.h"
 

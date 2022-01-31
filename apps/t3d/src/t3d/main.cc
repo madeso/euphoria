@@ -1,5 +1,5 @@
 #include "core/argparse.h"
-#include "core/log.h"
+#include "log/log.h"
 
 #include "t3d/t3d.h"
 #include "t3d/tilelibrary.h"

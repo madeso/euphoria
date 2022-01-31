@@ -3,13 +3,13 @@
 
 #include "core/image.h"
 #include "core/assert.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/vfs_path.h"
 
 #include "render/gl.h"
 #include "render/texture.h"
 
-#include "core/undef_windows.h"
+#include "undef_windows/undef_windows.h"
 
 
 namespace

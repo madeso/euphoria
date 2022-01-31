@@ -1,0 +1,26 @@
+###############################################################################
+# log project
+
+set(app_src
+    src/log/log.cc src/log/log.h
+)
+
+source_group("" FILES ${app_src})
+
+set(src
+    ${app_src}
+)
+
+add_library(log STATIC ${src})
+target_include_directories(log
+    PUBLIC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+target_link_libraries(log
+    PUBLIC
+        spdlog
+        undef_windows
+    PRIVATE
+        project_options
+        project_warnings
+)

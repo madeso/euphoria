@@ -3,7 +3,7 @@
 #include "core/stdutils.h"
 #include "core/stringmerger.h"
 #include "core/vfs_path.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/proto.h"
 
 #include "engine/components.h"

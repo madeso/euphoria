@@ -3,7 +3,7 @@
 #include <algorithm>
 
 #include "core/stdutils.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/stringmerger.h"
 #include "core/functional.h"
 #include "core/editdistance.search.h"

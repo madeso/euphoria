@@ -13,7 +13,7 @@
 #include "core/image_draw.h"
 #include "core/image_canvas.h"
 #include "core/cint.h"
-#include "core/log.h"
+#include "log/log.h"
 
 
 namespace

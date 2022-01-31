@@ -7,7 +7,7 @@
 
 #include "core/assert.h"
 #include "core/numeric.h"
-#include "core/log.h"
+#include "log/log.h"
 #include "core/cint.h"
 #include "core/decompress.h"
 #include "core/vfs.h"
