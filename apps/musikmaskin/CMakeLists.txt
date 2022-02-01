@@ -25,14 +25,14 @@ target_include_directories(musikmaskin
 )
 target_link_libraries(musikmaskin
     PRIVATE
-        project_options
-        project_warnings
-        core
-        minsynth
-        render
-        window
-        imgui
-        sdl2
-        fmt
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::minsynth
+        euph::render
+        euph::window
+        external::imgui
+        external::sdl2
+        external::fmt
 )
 

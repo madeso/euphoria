@@ -12,15 +12,16 @@ set(src
 )
 
 add_library(log STATIC ${src})
+add_library(euph::log ALIAS log)
 target_include_directories(log
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(log
     PUBLIC
-        spdlog
-        undef_windows
+        external::spdlog
+        undef_windows::undef_windows
     PRIVATE
-        project_options
-        project_warnings
+        euph::project_options
+        euph::project_warnings
 )

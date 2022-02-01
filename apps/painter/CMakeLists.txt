@@ -14,12 +14,12 @@ target_include_directories(painter
 )
 target_link_libraries(painter
     PRIVATE
-        project_options
-        project_warnings
-        core
-        render
-        window
-        imgui
-        sdl2
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::render
+        euph::window
+        external::imgui
+        external::sdl2
 )
 

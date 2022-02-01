@@ -18,9 +18,11 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(project_options INTERFACE)
 target_compile_features(project_options INTERFACE cxx_std_17)
+add_library(euph::project_options ALIAS project_options)
 
 add_library(project_warnings INTERFACE)
 set_project_warnings(project_warnings)
+add_library(euph::project_warnings ALIAS project_warnings)
 
 source_group("_cmake/rules" REGULAR_EXPRESSION "\\.rule$")
 source_group("_cmake" REGULAR_EXPRESSION "CMakeLists\.txt") # is this the correct way to move CMakeLists to a _cmake folder?

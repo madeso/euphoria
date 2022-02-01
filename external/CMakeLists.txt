@@ -6,7 +6,7 @@ add_subdirectory(fmt-7.1.1)
 
 
 ###################################################################################################
-## fmt
+## undef_windows
 add_subdirectory(undef_windows)
 
 
@@ -15,7 +15,7 @@ add_subdirectory(undef_windows)
 ###################################################################################################
 ## gaf
 add_subdirectory(gaf)
-set_target_properties(fmt PROPERTIES FOLDER "Dependencies")
+set_target_properties(gaf PROPERTIES FOLDER "Dependencies")
 
 
 
@@ -27,7 +27,7 @@ set_target_properties(stb_image PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_image SYSTEM
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
-
+add_library(external::stb_image ALIAS stb_image)
 
 
 
@@ -38,7 +38,7 @@ set_target_properties(stb_image_write PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_image_write SYSTEM
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
-
+add_library(external::stb_image_write ALIAS stb_image_write)
 
 
 
@@ -53,7 +53,7 @@ target_compile_definitions(stb_rect_pack
 target_include_directories(stb_rect_pack SYSTEM
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
-
+add_library(external::stb_rect_pack ALIAS stb_rect_pack)
 
 
 
@@ -64,7 +64,7 @@ set_target_properties(stb_truetype PROPERTIES FOLDER "Dependencies")
 target_include_directories(stb_truetype SYSTEM
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/stb
 )
-
+add_library(external::stb_truetype ALIAS stb_truetype)
 
 
 
@@ -75,7 +75,7 @@ add_library(range INTERFACE)
 target_include_directories(range SYSTEM
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/range-v3/include
 )
-
+add_library(external::range ALIAS range)
 
 
 
@@ -85,7 +85,7 @@ add_library(font8x8 INTERFACE)
 target_include_directories(font8x8  SYSTEM
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/font8x8
 )
-
+add_library(external::font8x8 ALIAS font8x8)
 
 
 
@@ -95,7 +95,7 @@ add_library(font8x13 INTERFACE)
 target_include_directories(font8x13 SYSTEM
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/font8x13
 )
-
+add_library(external::font8x13 ALIAS font8x13)
 
 
 
@@ -109,7 +109,7 @@ set_target_properties(crc32 PROPERTIES FOLDER "Dependencies")
 target_include_directories(crc32 SYSTEM
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/crc32
 )
-
+add_library(external::crc32 ALIAS crc32)
 
 
 
@@ -124,7 +124,7 @@ target_include_directories(glad SYSTEM
     PUBLIC glad/include
 )
 target_link_libraries(glad PUBLIC ${CMAKE_DL_LIBS})
-
+add_library(external::glad ALIAS glad)
 
 
 
@@ -134,7 +134,7 @@ add_library(icon_font_cpp_headers INTERFACE)
 target_include_directories(icon_font_cpp_headers SYSTEM
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/IconFontCppHeaders
 )
-
+add_library(external::icon_font_cpp_headers ALIAS icon_font_cpp_headers)
 
 
 
@@ -145,7 +145,7 @@ target_include_directories(catch SYSTEM
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/catch
 )
 target_link_libraries(catch INTERFACE ${CMAKE_THREAD_LIBS_INIT})
-
+add_library(external::catch ALIAS catch)
 
 
 
@@ -155,6 +155,23 @@ add_library(spdlog INTERFACE)
 target_include_directories(spdlog SYSTEM
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/spdlog/include
 )
+add_library(external::spdlog ALIAS spdlog)
+
+
+
+###################################################################################################
+## pugixml
+add_library(pugixml INTERFACE)
+target_link_libraries(pugixml INTERFACE libgaf::pugixml)
+add_library(external::pugixml ALIAS pugixml)
+
+
+
+###################################################################################################
+## fmt
+add_library(fmt_dep INTERFACE)
+target_link_libraries(fmt_dep INTERFACE libgaf::fmt)
+add_library(external::fmt ALIAS fmt_dep)
 
 
 
@@ -164,7 +181,7 @@ add_library(magic_enum INTERFACE)
 target_include_directories(magic_enum SYSTEM
     INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/magic_enum/include
 )
-
+add_library(external::magic_enum ALIAS magic_enum)
 
 
 ###################################################################################################
@@ -175,6 +192,7 @@ target_include_directories(assimp  SYSTEM
     INTERFACE ${assimp_INCLUDE_DIRS}
 )
 target_link_libraries(assimp INTERFACE ${assimp_LIBRARIES})
+add_library(external::assimp ALIAS assimp)
 
 
 
@@ -183,7 +201,7 @@ target_link_libraries(assimp INTERFACE ${assimp_LIBRARIES})
 find_package(OpenGL REQUIRED)
 add_library(opengl INTERFACE)
 target_link_libraries(opengl INTERFACE ${OPENGL_LIBRARIES} ${CMAKE_DL_LIBS})
-
+add_library(external::opengl ALIAS opengl)
 
 
 
@@ -195,7 +213,7 @@ target_include_directories(sdl2 SYSTEM
     INTERFACE ${SDL2_INCLUDE_DIR}
 )
 target_link_libraries(sdl2 INTERFACE ${SDL2_LIBRARY})
-
+add_library(external::sdl2 ALIAS sdl2)
 
 
 
@@ -247,7 +265,7 @@ target_link_libraries(imgui
         assert
         project_options
 )
-
+add_library(external::imgui ALIAS imgui)
 
 
 
@@ -294,3 +312,4 @@ target_include_directories(lua SYSTEM
         sol2
         lua/src
 )
+add_library(external::lua ALIAS lua)

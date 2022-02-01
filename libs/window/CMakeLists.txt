@@ -46,6 +46,7 @@ include_directories(SYSTEM ${CMAKE_CURRENT_BINARY_DIR})
 
 
 add_library(window STATIC ${src})
+add_library(euph::window ALIAS window)
 set_target_properties(window PROPERTIES FOLDER "Libraries")
 target_include_directories(window
     PUBLIC
@@ -53,16 +54,16 @@ target_include_directories(window
 )
 target_link_libraries(window
     PUBLIC
-        icon_font_cpp_headers
+        external::icon_font_cpp_headers
     PRIVATE
-        project_options
-        project_warnings
-        core
-        render
-        imgui
-        fmt
-        icon_font_cpp_headers
-        sdl2
-        glad
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::render
+        external::imgui
+        external::fmt
+        external::icon_font_cpp_headers
+        external::sdl2
+        external::glad
 )
 

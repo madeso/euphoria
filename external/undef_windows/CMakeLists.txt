@@ -16,3 +16,4 @@ target_include_directories(undef_windows
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}
 )
+add_library(undef_windows::undef_windows ALIAS undef_windows)

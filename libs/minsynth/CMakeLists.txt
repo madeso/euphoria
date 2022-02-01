@@ -7,6 +7,7 @@ set(src
 source_group("" FILES ${src})
 
 add_library(minsynth STATIC ${src})
+add_library(euph::minsynth ALIAS minsynth)
 set_target_properties(minsynth PROPERTIES FOLDER "Libraries")
 target_include_directories(minsynth
     PUBLIC
@@ -14,10 +15,10 @@ target_include_directories(minsynth
 )
 target_link_libraries(minsynth
     PUBLIC
-        core
+        euph::core
     PRIVATE
-        project_options
-        project_warnings
+        euph::project_options
+        euph::project_warnings
 )
 
 
@@ -34,10 +35,10 @@ add_executable(minsynth_test ${test_src} ${test_main_src})
 set_target_properties(minsynth_test PROPERTIES FOLDER "Tests")
 target_link_libraries(minsynth_test
     PRIVATE
-        project_options
-        project_warnings
-        minsynth
-        tests
+        euph::project_options
+        euph::project_warnings
+        euph::minsynth
+        euph::tests
 )
 
 catch_discover_tests(minsynth_test)

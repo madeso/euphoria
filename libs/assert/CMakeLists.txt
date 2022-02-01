@@ -12,14 +12,15 @@ set(src
 )
 
 add_library(assert STATIC ${src})
+add_library(euph::assert ALIAS assert)
 target_include_directories(assert
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(assert
     PUBLIC
-        log
+        euph::log
     PRIVATE
-        project_options
-        project_warnings
+        euph::project_options
+        euph::project_warnings
 )

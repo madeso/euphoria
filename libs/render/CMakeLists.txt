@@ -40,6 +40,7 @@ set(src ${app_src})
 source_group("" FILES ${app_src})
 
 add_library(render STATIC ${src})
+add_library(euph::render ALIAS render)
 set_target_properties(render PROPERTIES FOLDER "Libraries")
 target_include_directories(render
     PUBLIC
@@ -47,13 +48,13 @@ target_include_directories(render
 )
 target_link_libraries(render
     PRIVATE
-        project_options
-        project_warnings
-        core
-        glad
-        opengl
-        file_types
-        stb_rect_pack
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::file_types
+        external::glad
+        external::opengl
+        external::stb_rect_pack
 )
 
 
@@ -67,24 +68,24 @@ add_executable(examples-3d WIN32 MACOSX_BUNDLE examples/3d.cc)
 set_target_properties(examples-3d PROPERTIES FOLDER "Examples/Render")
 target_link_libraries(examples-3d
     PRIVATE
-        project_options
-        project_warnings
-        core
-        render
-        window
-        imgui
-        sdl2
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::render
+        euph::window
+        external::imgui
+        external::sdl2
 )
 
 add_executable(examples-2d WIN32 MACOSX_BUNDLE examples/2d.cc)
 set_target_properties(examples-2d PROPERTIES FOLDER "Examples/Render")
 target_link_libraries(examples-2d
     PRIVATE
-        project_options
-        project_warnings
-        core
-        render
-        window
-        imgui
-        sdl2
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::render
+        euph::window
+        external::imgui
+        external::sdl2
 )

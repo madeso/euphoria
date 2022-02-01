@@ -47,6 +47,7 @@ source_group("generated" FILES ${generated_files})
 
 
 add_library(file_types STATIC ${generated_files} ${all_gafs})
+add_library(euph::file_types ALIAS file_types)
 set_target_properties(file_types PROPERTIES FOLDER "Libraries")
 target_include_directories(file_types
     PUBLIC
@@ -54,10 +55,10 @@ target_include_directories(file_types
 )
 target_link_libraries(file_types
     PUBLIC
-        pugixml
-        libgaf_xml
+        external::pugixml
+        libgaf::xml
     PRIVATE
-        project_options
-        project_warnings
+        euph::project_options
+        euph::project_warnings
 )
 

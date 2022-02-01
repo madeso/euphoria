@@ -13,6 +13,7 @@ set(src
 source_group("" FILES ${src})
 
 add_library(tests STATIC ${src})
+add_library(euph::tests ALIAS tests)
 set_target_properties(tests PROPERTIES FOLDER "Libraries")
 target_include_directories(tests
     PUBLIC
@@ -20,11 +21,11 @@ target_include_directories(tests
 )
 target_link_libraries(tests
     PUBLIC
-        catch
+        external::catch
     PRIVATE
-        project_options
-        project_warnings
-        core
+        euph::project_options
+        euph::project_warnings
+        euph::core
 )
 
 
@@ -41,10 +42,10 @@ add_executable(tests_test ${test_src} ${test_main_src})
 set_target_properties(tests_test PROPERTIES FOLDER "Tests")
 target_link_libraries(tests_test
     PRIVATE
-        project_options
-        project_warnings
-        tests
-        core
+        euph::project_options
+        euph::project_warnings
+        euph::tests
+        euph::core
 )
 
 catch_discover_tests(tests_test)

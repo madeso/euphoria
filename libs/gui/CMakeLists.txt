@@ -19,6 +19,7 @@ set(src
 source_group("" FILES ${src})
 
 add_library(gui STATIC ${src})
+add_library(euph::gui ALIAS gui)
 set_target_properties(gui PROPERTIES FOLDER "Libraries")
 target_include_directories(gui
     PUBLIC
@@ -26,11 +27,11 @@ target_include_directories(gui
 )
 target_link_libraries(gui
     PRIVATE
-        project_options
-        project_warnings
-        core
-        render
-        file_types
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::render
+        euph::file_types
 )
 
 
@@ -47,13 +48,13 @@ set_target_properties(examples-gui PROPERTIES
 )
 target_link_libraries(examples-gui
     PRIVATE
-        project_options
-        project_warnings
-        core
-        gui
-        render
-        window
-        imgui
-        sdl2
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::gui
+        euph::render
+        euph::window
+        external::imgui
+        external::sdl2
 )
 

@@ -35,13 +35,13 @@ target_include_directories(editor
 )
 target_link_libraries(editor
     PRIVATE
-        project_options
-        project_warnings
-        core
-        render
-        window
-        sdl2
-        imgui
-        file_types
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::render
+        euph::window
+        euph::file_types
+        external::sdl2
+        external::imgui
 )
 

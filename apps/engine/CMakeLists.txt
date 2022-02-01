@@ -24,14 +24,14 @@ target_include_directories(engine
 )
 target_link_libraries(engine
     PRIVATE
-        project_options
-        project_warnings
-        core
-        render
-        window
-        lua
-        imgui
-        sdl2
-        file_types
+        euph::project_options
+        euph::project_warnings
+        euph::core
+        euph::render
+        euph::window
+        euph::file_types
+        external::lua
+        external::imgui
+        external::sdl2
 )
 
