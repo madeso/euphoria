@@ -1,0 +1,24 @@
+{
+    "project_directories":
+    [
+        "libs/core/src/",
+        "libs/assert/src/",
+        "libs/gui/src/",
+        "libs/log/src/",
+        "libs/minsynth/src/",
+        "libs/render/src/",
+        "libs/window/src/",
+        "apps/engine/src/"
+    ],
+    "include_directories":
+    [
+        "libs/core/src/",
+        "libs/assert/src/",
+        "libs/gui/src/",
+        "libs/log/src/",
+        "libs/minsynth/src/",
+        "libs/render/src/",
+        "libs/window/src/",
+        "apps/engine/src/"
+    ]
+}
