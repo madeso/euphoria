@@ -19,7 +19,10 @@ namespace euphoria::core
         auto bytes = std::vector<U8>{};
         for(int byte_index=0; byte_index<total_bytes; byte_index +=1)
         {
-            const U8 byte = static_cast<U8>(0xFF & (hash >> (((total_bytes-1)-byte_index) * 8)));
+            const U8 byte = static_cast<U8>
+            (
+                0xFF & (hash >> (((total_bytes-1)-byte_index) * 8))
+            );
             bytes.emplace_back(byte);
         }
         return bytes;
@@ -174,14 +177,13 @@ namespace euphoria::core
             std::string r;
             for(int x=0; x<table.get_width(); x+=1)
             {
-                const auto v =
-                std::max
+                const auto v = std::max
                 (
                     0,
                     std::min
                     (
-                            table(x,y),
-                            c_sizet_to_int(characters.size())
+                        table(x,y),
+                        c_sizet_to_int(characters.size())
                     )
                 );
                 r += characters[v];
