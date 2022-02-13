@@ -53,7 +53,7 @@ namespace euphoria::core
 
     Vec2f
     PoissonWorker::random_point() const
-    { return area.get_random_point(rand); }
+    { return get_random_point(rand, area); }
 
 
     Vec2i

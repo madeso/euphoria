@@ -102,7 +102,7 @@ main(int argc, char** argv)
     for(int i = 0; i < 20; i += 1)
     {
         const Rgb color = crgb(palettes::dawnbringer().get_random_color(&rand));
-        const auto pos = wi.get_random_point(&rand);
+        const auto pos = get_random_point(&rand, wi);
         const auto outer = get_random_in_range(&rand, 55.0f, 100.0f);
         const auto inner = get_random_in_range(&rand, make_range(50.0f));
         draw_circle(&image, color, pos, outer, 10, inner);
@@ -206,7 +206,7 @@ main(int argc, char** argv)
         Vec3f position = Vec3f::zero();
         do
         {
-            position = box_extents.get_random_point(&rand);
+            position = get_random_point(&rand, box_extents);
         } while(position.get_length() < 1.4f);
 
         actor->position = position;

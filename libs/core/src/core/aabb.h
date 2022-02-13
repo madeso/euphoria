@@ -48,10 +48,6 @@ namespace euphoria::core
         offset_copy(const Vec3f& vec) const;
 
 
-        [[nodiscard]] Vec3f
-        get_random_point(Random* rand) const;
-
-
         Vec3f min;
         Vec3f max;
     };
@@ -63,5 +59,8 @@ namespace euphoria::core
         s << "{" << a.min << ", " << a.max << "}";
         return s;
     }
+
+    Vec3f
+    get_random_point(Random* rand, const Aabb&);
 
 }

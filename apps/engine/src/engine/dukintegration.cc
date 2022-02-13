@@ -356,7 +356,7 @@ namespace euphoria::engine
             random_type["next_bool"] = &core::Random::get_next_bool;
             random_type["next_point2"] = [](core::Random& r, core::Rectf& rect) -> core::Vec2f
             {
-                return rect.get_random_point(&r);
+                return get_random_point(&r, rect);
             };
         }
 

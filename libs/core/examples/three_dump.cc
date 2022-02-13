@@ -38,7 +38,7 @@ main(int, char*[])
 
     for(int i=0; i<30; i+=1)
     {
-        dump.add_sphere(area.get_random_point(&rand), 1.0f, pal.get_random_item(&rand));
+        dump.add_sphere(get_random_point(&rand, area), 1.0f, pal.get_random_item(&rand));
     }
 
     add_spiral(&dump, 100, 4, 5, 2.5f, pal.get_random_item(&rand));

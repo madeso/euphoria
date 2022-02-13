@@ -113,11 +113,11 @@ namespace euphoria::core
 
 
     Vec3f
-    Aabb::get_random_point(Random* rand) const
+    get_random_point(Random* rand, const Aabb& a)
     {
-        const auto x = get_random_in_range(rand, make_range(min.x, max.x));
-        const auto y = get_random_in_range(rand, make_range(min.y, max.y));
-        const auto z = get_random_in_range(rand, make_range(min.z, max.z));
+        const auto x = get_random_in_range(rand, make_range(a.min.x, a.max.x));
+        const auto y = get_random_in_range(rand, make_range(a.min.y, a.max.y));
+        const auto z = get_random_in_range(rand, make_range(a.min.z, a.max.z));
 
         return Vec3f {x, y, z};
     }

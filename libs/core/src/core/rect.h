@@ -4,7 +4,6 @@
 #include "core/vec2.h"
 #include "core/size2.h"
 #include "core/range.h"
-#include "core/random.h"
 
 // Bottom, Left of screen is (0,0)
 // X-axis is positive right, Y-axis is positive up
@@ -13,6 +12,8 @@
 
 namespace euphoria::core
 {
+    struct Random;
+
     template <typename T>
     struct Rect
     {
@@ -492,14 +493,6 @@ namespace euphoria::core
         {
             return Vec2<T>(right, bottom);
         }
-
-        [[nodiscard]] Vec2<T>
-        get_random_point(Random* random) const
-        {
-            const T x = get_random_in_range(random, get_width());
-            const T y = get_random_in_range(random, get_height());
-            return get_position_from_bottom_left(Vec2<T> {x, y});
-        }
     };
 
     template <typename T>
@@ -559,7 +552,9 @@ namespace euphoria::core
         return s;
     }
 
+    Vec2f get_random_point(Random* random, const Rect<float>& r);
+    Vec2i get_random_point(Random* random, const Rect<int>& r);
+
     using Recti = Rect<int>;
     using Rectf = Rect<float>;
-
 }
