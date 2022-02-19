@@ -108,7 +108,6 @@ set(app_src
     src/core/fpscontroller.cc src/core/fpscontroller.h
     src/core/functional.cc src/core/functional.h
     src/core/last_n.cc src/core/last_n.h
-    src/core/id.cc src/core/id.h
     src/core/insertionsort.cc src/core/insertionsort.h
     src/core/interpolate.cc src/core/interpolate.h
     src/core/intersection.cc src/core/intersection.h
