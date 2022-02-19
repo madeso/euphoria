@@ -74,7 +74,7 @@ namespace euphoria::core
         const KeyNamer<Key>&
         all_keys()
         {
-            static KeyNamer<Key> keys = KeyNamer<Key>
+            static const KeyNamer<Key> keys = KeyNamer<Key>
                 (Key::unbound, Key::invalid)
                 (Key::return_key, "Return")
                 (Key::escape, "Escape")
@@ -318,7 +318,7 @@ namespace euphoria::core
         const KeyNamer<MouseButton>&
         all_mouse_buttons()
         {
-            static KeyNamer<MouseButton> buttons = KeyNamer<MouseButton>
+            static const KeyNamer<MouseButton> buttons = KeyNamer<MouseButton>
                 (MouseButton::unbound, MouseButton::invalid)
                 (MouseButton::left, "left")
                 (MouseButton::middle, "middle")
