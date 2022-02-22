@@ -60,13 +60,35 @@ if(WIN32)
     find_library(ASSIMP_LIBRARY_RELEASE assimp-${ASSIMP_MSVC_VERSION}-mt.lib  PATHS ${ASSIMP_LIBRARY_DIR})
     find_library(ASSIMP_LIBRARY_DEBUG   assimp-${ASSIMP_MSVC_VERSION}-mtd.lib PATHS ${ASSIMP_LIBRARY_DIR})
 
+    find_library(ASSIMP_IRRXML_LIBRARY_RELEASE IrrXML.lib  PATHS ${ASSIMP_LIBRARY_DIR})
+    find_library(ASSIMP_IRRXML_LIBRARY_DEBUG   IrrXMLd.lib PATHS ${ASSIMP_LIBRARY_DIR})
+
+    find_library(ASSIMP_ZLIB_LIBRARY_RELEASE zlibstatic.lib  PATHS ${ASSIMP_LIBRARY_DIR})
+    find_library(ASSIMP_ZLIB_LIBRARY_DEBUG   zlibstaticd.lib PATHS ${ASSIMP_LIBRARY_DIR})
+
+    set(assimp_lib_release ${ASSIMP_LIBRARY_RELEASE})
+    set(assimp_lib_debug ${ASSIMP_LIBRARY_DEBUG})
+    
+    if(ASSIMP_IRRXML_LIBRARY_RELEASE AND ASSIMP_IRRXML_LIBRARY_DEBUG)
+        set(assimp_lib_debug   ${assimp_lib_debug}   ${ASSIMP_IRRXML_LIBRARY_DEBUG})
+        set(assimp_lib_release ${assimp_lib_release} ${ASSIMP_IRRXML_LIBRARY_RELEASE})
+    endif()
+    if(ASSIMP_ZLIB_LIBRARY_RELEASE AND ASSIMP_ZLIB_LIBRARY_DEBUG)
+        set(assimp_lib_debug   ${assimp_lib_debug}   ${ASSIMP_ZLIB_LIBRARY_RELEASE})
+        set(assimp_lib_release ${assimp_lib_release} ${ASSIMP_ZLIB_LIBRARY_DEBUG})
+    endif()
+
     if(ASSIMP_LIBRARY_DEBUG)
         set(assimp_LIBRARIES
-            optimized 	${ASSIMP_LIBRARY_RELEASE}
-            debug		${ASSIMP_LIBRARY_DEBUG}
+            optimized
+                ${assimp_lib_release}
+            debug
+                ${assimp_lib_debug}
         )
     else()
-        set(assimp_LIBRARIES ${ASSIMP_LIBRARY_RELEASE} )
+        set(assimp_LIBRARIES
+            ${assimp_lib_release}
+        )
     endif()
 else(WIN32)
 
