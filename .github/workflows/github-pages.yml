@@ -3,25 +3,26 @@ name: github pages
 on: [push, pull_request]
 
 jobs:
-    deploy:
+    build:
         runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
-        fetch-depth: 0
 
-    - name: Install Dependencies
-      run: |
-            sudo apt update
-            sudo apt install -y doxygen
+        steps:
+        - uses: actions/checkout@v2
+          with:
+            submodules: recursive
+            fetch-depth: 0
 
-    - name: Build doxygen
-      run: doxygen docs/doxygen.ini
+        - name: Install Dependencies
+          run: |
+                sudo apt update
+                sudo apt install -y doxygen
 
-    - name: Deploy
-      uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/master'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./docs/generated/html/
+        - name: Build doxygen
+          run: doxygen docs/doxygen.ini
+
+        - name: Deploy
+          uses: peaceiris/actions-gh-pages@v3
+          if: github.ref == 'refs/heads/master'
+          with:
+                github_token: ${{ secrets.GITHUB_TOKEN }}
+                publish_dir: ./docs/generated/html/
