@@ -3,6 +3,8 @@
 #include "SDL.h"
 #include "imgui/imgui.h"
 
+#include "log/log.h"
+
 #include "core/lines.h"
 #include "core/colors.h"
 #include "core/enum.h"
@@ -34,6 +36,8 @@ namespace euphoria::t3d
 {
     Application::Application()
     {
+        log::setup_logging();
+
         pending_files.extensions = std::vector<std::string>
         {
             "obj",
