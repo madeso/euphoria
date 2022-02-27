@@ -179,7 +179,4 @@ END_CHECKS
     {"key": "readability-identifier-naming.VariableCase",                 "value": "lower_case"},
     {"key": "readability-identifier-naming.VirtualMethodCase",            "value": "lower_case"},
 
-    // force "globals" to have a horrible prefix
-    {"key": "readability-identifier-naming.StaticVariablePrefix",  "value": "do_no_use_global_state_"},
-    {"key": "readability-identifier-naming.GlobalVariablePrefix",  "value": "do_no_use_global_state_"},
 ]
