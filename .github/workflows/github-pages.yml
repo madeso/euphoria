@@ -1,9 +1,6 @@
-# name: github pages
-{ "name": "github pages" }
+name: github pages
 
-# is on = true?
-# on: [push, pull_request]
-{ "on": [ "push",  "pull_request" ] }
+on: [push, pull_request]
 
 jobs:
     build:
