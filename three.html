@@ -1,0 +1,241 @@
+<html>
+  <head>
+    <title>My first three.js app</title>
+    <style>
+      body { margin: 0; }
+      canvas { width: 100%; height: 100% }
+    </style>
+  </head>
+  <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+    <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
+
+    <script>
+      var scene = new THREE.Scene();
+      scene.background = new THREE.Color( 0x0096ff );
+      var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+      // https://threejs.org/examples/#webgl_shadowmesh
+
+      var light = new THREE.AmbientLight(0xffffff);
+      scene.add( light );
+      // scene.add( new THREE.AxisHelper( 20 ) );
+
+      var renderer = new THREE.WebGLRenderer();
+      renderer.setSize( window.innerWidth, window.innerHeight );
+      document.body.appendChild( renderer.domElement );
+      function onWindowResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize( window.innerWidth, window.innerHeight );
+      }
+      window.addEventListener( 'resize', onWindowResize, false );
+
+      var add_geom = function(geom, c)
+      {
+          var material = new THREE.MeshPhongMaterial( {
+              color: c,
+              // shading: THREE.FlatShading,
+              polygonOffset: true,
+              polygonOffsetFactor: 1,
+              polygonOffsetUnits: 1
+          } );
+
+          var mesh = new THREE.Mesh( geom, material );
+          scene.add( mesh );
+          return mesh;
+      }
+
+      var add_wire = function(geom, c)
+      {
+          mesh = add_geom(geom, c);
+          var geo = new THREE.EdgesGeometry( mesh.geometry ); // or WireframeGeometry
+          var mat = new THREE.LineBasicMaterial( { color: 0xffffff, linewidth: 2 } );
+          var wireframe = new THREE.LineSegments( geo, mat );
+          mesh.add( wireframe );
+      }
+
+      // add_wire(new THREE.BoxGeometry( 1, 1, 1 ));
+        add_geom(new THREE.SphereGeometry(1), 0xc8520)
+          .position.set(-10.4289, -0.368089, 1.79431);
+        add_geom(new THREE.SphereGeometry(1), 0xa2c8ec)
+          .position.set(-11.6905, -12.4802, -0.653561);
+        add_geom(new THREE.SphereGeometry(1), 0x06ba4)
+          .position.set(-5.48571, -13.0363, 5.91348);
+        add_geom(new THREE.SphereGeometry(1), 0xc8520)
+          .position.set(-12.0415, -0.828375, -5.81256);
+        add_geom(new THREE.SphereGeometry(1), 0x5f9ed1)
+          .position.set(-1.92641, 4.72302, 8.47911);
+        add_geom(new THREE.SphereGeometry(1), 0x06ba4)
+          .position.set(10.2836, -4.81482, -2.98572);
+        add_geom(new THREE.SphereGeometry(1), 0xababab)
+          .position.set(-5.25673, -8.72126, 0.782556);
+        add_geom(new THREE.SphereGeometry(1), 0xffbc79)
+          .position.set(5.36541, 6.74045, 9.34832);
+        add_geom(new THREE.SphereGeometry(1), 0x595959)
+          .position.set(5.74399, 14.7031, 1.69831);
+        add_geom(new THREE.SphereGeometry(1), 0x898989)
+          .position.set(10.1933, -14.323, 14.647);
+        add_geom(new THREE.SphereGeometry(1), 0xffbc79)
+          .position.set(-6.1264, 8.67818, 7.08554);
+        add_geom(new THREE.SphereGeometry(1), 0xff80e)
+          .position.set(8.47299, -14.8474, -6.2262);
+        add_geom(new THREE.SphereGeometry(1), 0xababab)
+          .position.set(2.74728, -12.5194, -6.874);
+        add_geom(new THREE.SphereGeometry(1), 0xff80e)
+          .position.set(-2.7897, -0.973434, 10.4075);
+        add_geom(new THREE.SphereGeometry(1), 0x898989)
+          .position.set(-0.574599, -4.40405, 9.95527);
+        add_geom(new THREE.SphereGeometry(1), 0xcfcfcf)
+          .position.set(-3.1748, 4.00933, -2.60807);
+        add_geom(new THREE.SphereGeometry(1), 0xa2c8ec)
+          .position.set(-10.7706, -0.592682, -2.41101);
+        add_geom(new THREE.SphereGeometry(1), 0x5f9ed1)
+          .position.set(3.0283, -6.75838, 3.15763);
+        add_geom(new THREE.SphereGeometry(1), 0xcfcfcf)
+          .position.set(13.3678, 6.86472, -4.65859);
+        add_geom(new THREE.SphereGeometry(1), 0x595959)
+          .position.set(3.04744, 2.33789, 3.33236);
+        add_geom(new THREE.SphereGeometry(1), 0x898989)
+          .position.set(9.17492, 12.0216, 3.43643);
+        add_geom(new THREE.SphereGeometry(1), 0xa2c8ec)
+          .position.set(-5.84098, -2.30549, -13.6081);
+        add_geom(new THREE.SphereGeometry(1), 0xff80e)
+          .position.set(-9.77819, -14.4642, 8.70147);
+        add_geom(new THREE.SphereGeometry(1), 0xababab)
+          .position.set(1.575, -5.63463, 9.49127);
+        add_geom(new THREE.SphereGeometry(1), 0x06ba4)
+          .position.set(-10.9977, -0.681867, -10.915);
+        add_geom(new THREE.SphereGeometry(1), 0x5f9ed1)
+          .position.set(-0.315862, -8.42467, -8.0285);
+        add_geom(new THREE.SphereGeometry(1), 0xcfcfcf)
+          .position.set(-4.81413, -2.31681, -12.3641);
+        add_geom(new THREE.SphereGeometry(1), 0xcfcfcf)
+          .position.set(10.4316, -10.2014, 9.5157);
+        add_geom(new THREE.SphereGeometry(1), 0x898989)
+          .position.set(3.90763, 9.55268, -1.57703);
+        add_geom(new THREE.SphereGeometry(1), 0x5f9ed1)
+          .position.set(4.77598, -7.03118, -14.6595);
+        (function() {
+          var material = new THREE.LineBasicMaterial( { color: 0xababab } );
+          var geometry = new THREE.Geometry();
+          geometry.vertices.push(new THREE.Vector3( 0, 0, 2.5) );
+          geometry.vertices.push(new THREE.Vector3( 0.621725, 0.05, 2.42146) );
+          geometry.vertices.push(new THREE.Vector3( 1.20438, 0.1, 2.19077) );
+          geometry.vertices.push(new THREE.Vector3( 1.71137, 0.15, 1.82242) );
+          geometry.vertices.push(new THREE.Vector3( 2.11082, 0.2, 1.33957) );
+          geometry.vertices.push(new THREE.Vector3( 2.37764, 0.25, 0.772542) );
+          geometry.vertices.push(new THREE.Vector3( 2.49507, 0.3, 0.156976) );
+          geometry.vertices.push(new THREE.Vector3( 2.45572, 0.35, -0.468453) );
+          geometry.vertices.push(new THREE.Vector3( 2.26207, 0.4, -1.06445) );
+          geometry.vertices.push(new THREE.Vector3( 1.92628, 0.45, -1.59356) );
+          geometry.vertices.push(new THREE.Vector3( 1.46946, 0.5, -2.02254) );
+          geometry.vertices.push(new THREE.Vector3( 0.920311, 0.55, -2.32444) );
+          geometry.vertices.push(new THREE.Vector3( 0.313333, 0.6, -2.48029) );
+          geometry.vertices.push(new THREE.Vector3( -0.313333, 0.65, -2.48029) );
+          geometry.vertices.push(new THREE.Vector3( -0.920311, 0.7, -2.32444) );
+          geometry.vertices.push(new THREE.Vector3( -1.46946, 0.75, -2.02254) );
+          geometry.vertices.push(new THREE.Vector3( -1.92628, 0.8, -1.59356) );
+          geometry.vertices.push(new THREE.Vector3( -2.26207, 0.85, -1.06445) );
+          geometry.vertices.push(new THREE.Vector3( -2.45572, 0.9, -0.468452) );
+          geometry.vertices.push(new THREE.Vector3( -2.49507, 0.95, 0.156976) );
+          geometry.vertices.push(new THREE.Vector3( -2.37764, 1, 0.772543) );
+          geometry.vertices.push(new THREE.Vector3( -2.11082, 1.05, 1.33957) );
+          geometry.vertices.push(new THREE.Vector3( -1.71137, 1.1, 1.82242) );
+          geometry.vertices.push(new THREE.Vector3( -1.20438, 1.15, 2.19077) );
+          geometry.vertices.push(new THREE.Vector3( -0.621725, 1.2, 2.42146) );
+          geometry.vertices.push(new THREE.Vector3( 4.37114e-07, 1.25, 2.5) );
+          geometry.vertices.push(new THREE.Vector3( 0.621724, 1.3, 2.42146) );
+          geometry.vertices.push(new THREE.Vector3( 1.20439, 1.35, 2.19077) );
+          geometry.vertices.push(new THREE.Vector3( 1.71137, 1.4, 1.82242) );
+          geometry.vertices.push(new THREE.Vector3( 2.11082, 1.45, 1.33957) );
+          geometry.vertices.push(new THREE.Vector3( 2.37764, 1.5, 0.772541) );
+          geometry.vertices.push(new THREE.Vector3( 2.49507, 1.55, 0.156976) );
+          geometry.vertices.push(new THREE.Vector3( 2.45572, 1.6, -0.468454) );
+          geometry.vertices.push(new THREE.Vector3( 2.26207, 1.65, -1.06445) );
+          geometry.vertices.push(new THREE.Vector3( 1.92628, 1.7, -1.59356) );
+          geometry.vertices.push(new THREE.Vector3( 1.46946, 1.75, -2.02254) );
+          geometry.vertices.push(new THREE.Vector3( 0.920309, 1.8, -2.32444) );
+          geometry.vertices.push(new THREE.Vector3( 0.313333, 1.85, -2.48029) );
+          geometry.vertices.push(new THREE.Vector3( -0.313333, 1.9, -2.48029) );
+          geometry.vertices.push(new THREE.Vector3( -0.920312, 1.95, -2.32444) );
+          geometry.vertices.push(new THREE.Vector3( -1.46946, 2, -2.02254) );
+          geometry.vertices.push(new THREE.Vector3( -1.92628, 2.05, -1.59356) );
+          geometry.vertices.push(new THREE.Vector3( -2.26207, 2.1, -1.06445) );
+          geometry.vertices.push(new THREE.Vector3( -2.45572, 2.15, -0.468452) );
+          geometry.vertices.push(new THREE.Vector3( -2.49507, 2.2, 0.156978) );
+          geometry.vertices.push(new THREE.Vector3( -2.37764, 2.25, 0.772542) );
+          geometry.vertices.push(new THREE.Vector3( -2.11082, 2.3, 1.33957) );
+          geometry.vertices.push(new THREE.Vector3( -1.71137, 2.35, 1.82242) );
+          geometry.vertices.push(new THREE.Vector3( -1.20438, 2.4, 2.19077) );
+          geometry.vertices.push(new THREE.Vector3( -0.621724, 2.45, 2.42146) );
+          geometry.vertices.push(new THREE.Vector3( 8.74228e-07, 2.5, 2.5) );
+          geometry.vertices.push(new THREE.Vector3( 0.621726, 2.55, 2.42146) );
+          geometry.vertices.push(new THREE.Vector3( 1.20438, 2.6, 2.19077) );
+          geometry.vertices.push(new THREE.Vector3( 1.71137, 2.65, 1.82242) );
+          geometry.vertices.push(new THREE.Vector3( 2.11082, 2.7, 1.33957) );
+          geometry.vertices.push(new THREE.Vector3( 2.37764, 2.75, 0.77254) );
+          geometry.vertices.push(new THREE.Vector3( 2.49507, 2.8, 0.156976) );
+          geometry.vertices.push(new THREE.Vector3( 2.45572, 2.85, -0.468454) );
+          geometry.vertices.push(new THREE.Vector3( 2.26207, 2.9, -1.06445) );
+          geometry.vertices.push(new THREE.Vector3( 1.92628, 2.95, -1.59356) );
+          geometry.vertices.push(new THREE.Vector3( 1.46946, 3, -2.02254) );
+          geometry.vertices.push(new THREE.Vector3( 0.92031, 3.05, -2.32444) );
+          geometry.vertices.push(new THREE.Vector3( 0.313332, 3.1, -2.48029) );
+          geometry.vertices.push(new THREE.Vector3( -0.313335, 3.15, -2.48029) );
+          geometry.vertices.push(new THREE.Vector3( -0.920313, 3.2, -2.32444) );
+          geometry.vertices.push(new THREE.Vector3( -1.46946, 3.25, -2.02254) );
+          geometry.vertices.push(new THREE.Vector3( -1.92628, 3.3, -1.59356) );
+          geometry.vertices.push(new THREE.Vector3( -2.26207, 3.35, -1.06445) );
+          geometry.vertices.push(new THREE.Vector3( -2.45572, 3.4, -0.46845) );
+          geometry.vertices.push(new THREE.Vector3( -2.49507, 3.45, 0.15698) );
+          geometry.vertices.push(new THREE.Vector3( -2.37764, 3.5, 0.772541) );
+          geometry.vertices.push(new THREE.Vector3( -2.11082, 3.55, 1.33957) );
+          geometry.vertices.push(new THREE.Vector3( -1.71136, 3.6, 1.82242) );
+          geometry.vertices.push(new THREE.Vector3( -1.20438, 3.65, 2.19077) );
+          geometry.vertices.push(new THREE.Vector3( -0.621725, 3.7, 2.42146) );
+          geometry.vertices.push(new THREE.Vector3( 1.19249e-07, 3.75, 2.5) );
+          geometry.vertices.push(new THREE.Vector3( 0.621725, 3.8, 2.42146) );
+          geometry.vertices.push(new THREE.Vector3( 1.20438, 3.85, 2.19077) );
+          geometry.vertices.push(new THREE.Vector3( 1.71137, 3.9, 1.82242) );
+          geometry.vertices.push(new THREE.Vector3( 2.11082, 3.95, 1.33957) );
+          geometry.vertices.push(new THREE.Vector3( 2.37764, 4, 0.772541) );
+          geometry.vertices.push(new THREE.Vector3( 2.49507, 4.05, 0.156975) );
+          geometry.vertices.push(new THREE.Vector3( 2.45572, 4.1, -0.468455) );
+          geometry.vertices.push(new THREE.Vector3( 2.26207, 4.15, -1.06445) );
+          geometry.vertices.push(new THREE.Vector3( 1.92628, 4.2, -1.59356) );
+          geometry.vertices.push(new THREE.Vector3( 1.46946, 4.25, -2.02254) );
+          geometry.vertices.push(new THREE.Vector3( 0.920309, 4.3, -2.32444) );
+          geometry.vertices.push(new THREE.Vector3( 0.31333, 4.35, -2.48029) );
+          geometry.vertices.push(new THREE.Vector3( -0.313337, 4.4, -2.48029) );
+          geometry.vertices.push(new THREE.Vector3( -0.92031, 4.45, -2.32444) );
+          geometry.vertices.push(new THREE.Vector3( -1.46946, 4.5, -2.02254) );
+          geometry.vertices.push(new THREE.Vector3( -1.92629, 4.55, -1.59356) );
+          geometry.vertices.push(new THREE.Vector3( -2.26207, 4.6, -1.06444) );
+          geometry.vertices.push(new THREE.Vector3( -2.45572, 4.65, -0.468453) );
+          geometry.vertices.push(new THREE.Vector3( -2.49507, 4.7, 0.156977) );
+          geometry.vertices.push(new THREE.Vector3( -2.37764, 4.75, 0.772543) );
+          geometry.vertices.push(new THREE.Vector3( -2.11082, 4.8, 1.33957) );
+          geometry.vertices.push(new THREE.Vector3( -1.71136, 4.85, 1.82243) );
+          geometry.vertices.push(new THREE.Vector3( -1.20438, 4.9, 2.19077) );
+          geometry.vertices.push(new THREE.Vector3( -0.621723, 4.95, 2.42146) );
+          var line = new THREE.Line( geometry, material );
+          scene.add( line );
+        })();
+        scene.add( new THREE.PlaneHelper( new THREE.Plane( new THREE.Vector3(1, 0, 0), -1), 5, 0x595959) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(-0.801784, -0.534522, -0.267261), new THREE.Vector3(3, 2, 1), 3.74166, 0xffbc79) );
+        scene.add(new THREE.AxesHelper(2) );
+        scene.add(new THREE.GridHelper(10, 10) );
+
+      camera.position.z = 5;
+      new THREE.OrbitControls( camera, renderer.domElement );
+
+      var animate = function () {
+        requestAnimationFrame( animate );
+        renderer.render( scene, camera );
+      };
+
+      animate();
+    </script>
+  </body>
+</html>
