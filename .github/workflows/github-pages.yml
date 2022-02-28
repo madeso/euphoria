@@ -3,7 +3,7 @@
 
 # is on = true?
 # on: [push, pull_request]
-{ "true": [ "push",  "pull_request" ] }
+{ "on": [ "push",  "pull_request" ] }
 
 jobs:
     build:
