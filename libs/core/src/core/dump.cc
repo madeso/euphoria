@@ -441,7 +441,7 @@ namespace euphoria::core::dump3d
     </style>
   </head>
   <body>
-    <script src="https://threejs.org/build/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
     <script src="https://threejs.org/examples/js/controls/OrbitControls.js"></script>
 
     <script>
