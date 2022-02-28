@@ -12,13 +12,40 @@ jobs:
             submodules: recursive
             fetch-depth: 0
 
-        - name: Install doxygen
+        - name: Install Dependencies
           run: |
                 sudo apt update
-                sudo apt install -y doxygen
+                sudo apt install -y libsdl2-dev libassimp-dev clang-9
+
+        - name: Create Build Environment
+          run: cmake -E make_directory ${{github.workspace}}/build
+
+        - name: Configure
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          env:
+                CXX: ${{matrix.cxx}}
+          run: cmake -DCMAKE_BUILD_TYPE=Release $GITHUB_WORKSPACE
+
+        - name: Build
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: time cmake --build . --config Release
+
+        - name: Install doxygen
+          run: sudo apt install -y doxygen
 
         - name: Build doxygen
           run: doxygen docs/doxygen.ini
+        
+        - name: Build demo html files
+          working-directory: ${{github.workspace}}/build
+          run: |
+                ./libs/core/examples-three-dump -w $GITHUB_WORKSPACE/docs/generated
+                ./libs/core/examples-palette write-html -w $GITHUB_WORKSPACE/docs/generated
+                ./libs/core/examples-coldet -w $GITHUB_WORKSPACE/docs/generated
+                ./libs/core/examples-svg-dump -w $GITHUB_WORKSPACE/docs/generated
+
 
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
