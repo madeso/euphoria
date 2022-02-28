@@ -10,12 +10,11 @@ jobs:
         - uses: actions/checkout@v2
           with:
             submodules: recursive
-            fetch-depth: 0
 
         - name: Install Dependencies
           run: |
                 sudo apt update
-                sudo apt install -y libsdl2-dev libassimp-dev clang-9
+                sudo apt install -y libsdl2-dev libassimp-dev
 
         - name: Create Build Environment
           run: cmake -E make_directory ${{github.workspace}}/build
@@ -24,7 +23,7 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: ${{matrix.cxx}}
+                CXX: clang++-10
           run: cmake -DCMAKE_BUILD_TYPE=Release $GITHUB_WORKSPACE
 
         - name: Build
@@ -45,7 +44,6 @@ jobs:
                 ./libs/core/examples-palette write-html -w $GITHUB_WORKSPACE/docs/generated
                 ./libs/core/examples-coldet -w $GITHUB_WORKSPACE/docs/generated
                 ./libs/core/examples-svg-dump -w $GITHUB_WORKSPACE/docs/generated
-
 
         - name: Deploy
           uses: peaceiris/actions-gh-pages@v3
