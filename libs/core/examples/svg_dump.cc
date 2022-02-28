@@ -10,10 +10,14 @@
 #include "core/palette_tableu.h"
 #include "core/shufflebag.h"
 #include "core/str.h"
+#include "core/os.h"
+#include "core/argparse.h"
+
 
 using namespace euphoria;
 using namespace euphoria::core;
 using namespace euphoria::core::dump2d;
+
 
 Poly
 make_star(const Vec2f& origo, float radius, const Angle& rotation, int number_of_points=5, float inner_scale=0.5f)
@@ -35,9 +39,23 @@ make_star(const Vec2f& origo, float radius, const Angle& rotation, int number_of
     return poly;
 }
 
+
 int
-main(int, char*[])
+main(int argc, char* argv[])
 {
+    auto parser = argparse::Parser("svg dump");
+
+    auto current_directory = core::get_current_directory();
+    parser
+        .add("-w", &current_directory)
+        .set_help("Sets the working direction if it's different from the current folder")
+        ;
+    const auto parse_result = parser.parse(argparse::NameAndArguments::extract(argc, argv));
+    if(parse_result != core::argparse::ok)
+    {
+        return parse_result.return_value;
+    }
+
     core::Random rand;
 
     auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
@@ -57,6 +75,8 @@ main(int, char*[])
             ;
     }
     svg.add_axis();
-    svg.write("stars.html");
+    svg.write(current_directory + "/stars.html");
+
+    return 0;
 }
 

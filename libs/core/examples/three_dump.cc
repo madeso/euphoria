@@ -7,6 +7,8 @@
 #include "core/shufflebag.h"
 #include "core/plane.h"
 #include "core/ray.h"
+#include "core/os.h"
+#include "core/argparse.h"
 
 #include "core/aabb.h"
 
@@ -26,15 +28,29 @@ void add_spiral(Dumper* dump, int number_of_steps, float number_of_spins, float 
 }
 
 int
-main(int, char*[])
+main(int argc, char* argv[])
 {
+
+    auto parser = argparse::Parser("three dump");
+
+    auto current_directory = get_current_directory();
+    parser
+        .add("-w", &current_directory)
+        .set_help("Sets the working direction if it's different from the current folder")
+        ;
+    const auto parse_result = parser.parse(argparse::NameAndArguments::extract(argc, argv));
+    if(parse_result != argparse::ok)
+    {
+        return parse_result.return_value;
+    }
+
     euphoria::core::Random rand;
 
     auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
 
     const auto size = 15.0f;
     auto area = Aabb{Vec3f{-size, -size, -size}, Vec3f{size, size, size}};
-    auto dump = Dumper{"three.html"};
+    auto dump = Dumper{current_directory + "/three.html"};
 
     for(int i=0; i<30; i+=1)
     {
@@ -51,5 +67,7 @@ main(int, char*[])
     dump.add_grid();
 
     // dump.AddAxis();
+
+    return 0;
 }
 

@@ -5,6 +5,8 @@
 #include "core/ray.h"
 #include "core/plane.h"
 #include "core/sphere.h"
+#include "core/argparse.h"
+#include "core/os.h"
 
 #include <vector>
 #include <string>
@@ -34,9 +36,9 @@ struct PlaneDemo
     };
 
     void
-    distance_to_plane() const
+    distance_to_plane(const std::string& cd) const
     {
-        auto d = Dumper{ "coldet-distance-to-plane.html" };
+        auto d = Dumper{ cd + "/coldet-distance-to-plane.html" };
 
         d.add_plane(plane, NamedColor::white);
         d.add_arrow(Ray3f(Vec3f::zero(), plane.normal), NamedColor::green);
@@ -48,9 +50,9 @@ struct PlaneDemo
     }
 
     void
-    point_to_plane() const
+    point_to_plane(const std::string& cd) const
     {
-        auto d = Dumper{ "coldet-point-to-plane.html" };
+        auto d = Dumper{ cd + "/coldet-point-to-plane.html" };
 
         d.add_plane(plane, NamedColor::white);
         d.add_arrow(Ray3f(Vec3f::zero(), plane.normal), NamedColor::green);
@@ -84,9 +86,9 @@ struct RayDemo
     };
 
     void
-    point_on_ray() const
+    point_on_ray(const std::string& cd) const
     {
-        auto d = Dumper{ "coldet-point-on-ray.html" };
+        auto d = Dumper{ cd + "/coldet-point-on-ray.html" };
 
         d.add_grid();
         d.add_arrow(ray, NamedColor::black);
@@ -99,9 +101,9 @@ struct RayDemo
     }
 
     void
-    closest_point_on_ray() const
+    closest_point_on_ray(const std::string& cd) const
     {
-        auto d = Dumper{ "coldet-closest-point-on-ray.html" };
+        auto d = Dumper{ cd + "/coldet-closest-point-on-ray.html" };
 
         d.add_grid();
         d.add_arrow(ray, NamedColor::black);
@@ -163,15 +165,28 @@ ray_sphere()
 }
 
 int
-main(int, char**)
+main(int argc, char* argv[])
 {
+    auto parser = argparse::Parser("coldet dump");
+
+    auto current_directory = get_current_directory();
+    parser
+        .add("-w", &current_directory)
+        .set_help("Sets the working direction if it's different from the current folder")
+        ;
+    const auto parse_result = parser.parse(argparse::NameAndArguments::extract(argc, argv));
+    if(parse_result != argparse::ok)
+    {
+        return parse_result.return_value;
+    }
+
     const auto plane = PlaneDemo{};
-    plane.distance_to_plane();
-    plane.point_to_plane();
+    plane.distance_to_plane(current_directory);
+    plane.point_to_plane(current_directory);
 
     const auto ray = RayDemo{};
-    ray.point_on_ray();
-    ray.closest_point_on_ray();
+    ray.point_on_ray(current_directory);
+    ray.closest_point_on_ray(current_directory);
 
     ray_sphere();
 }

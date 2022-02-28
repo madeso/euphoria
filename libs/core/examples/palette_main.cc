@@ -10,6 +10,10 @@
 #include "core/str.h"
 #include "core/cint.h"
 #include "core/dump.h"
+#include "core/os.h"
+
+#include <sstream>
+#include <fstream>
 
 
 using namespace euphoria::core;
@@ -54,10 +58,88 @@ write_palettes_to_files(int image_size)
         }
 
         const std::string file = StringBuilder{} << "palette_" << pal.name << ".png";
-
+        
         io::chunk_to_file(image.write(ImageWriteFormat::png), file);
     }
 }
+
+
+
+void
+write_palettes_to_html(const std::string& wd)
+{
+    const std::string file = StringBuilder{} << wd << "/" << "palettes.html";
+    std::ofstream handle;
+    handle.open(file.c_str());
+    handle << R"(
+    <!DOCTYPE html>
+    <html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="referrer" content="no-referrer">
+        <link rel="stylesheet" type="text/css" media="screen" href="style.css"/>
+        <title>Palettes</title>
+            <style>
+                p.pal
+                {
+                    background: #aaa;
+                    padding: 6px;
+                    display: inline-block;
+                }
+                span.color
+                {
+                    float: left;
+                    width:32px;
+                    height:32px;
+                }
+            </style>
+        </head>
+        <body>
+        <div id="root">
+            <div id="page">
+                <div id="content">
+                    <h1>Palettes</h1>
+    )";
+
+    for (auto palette_name : palettes::palette_names)
+    {
+        const auto pal = palettes::get_palette(palette_name);
+
+        handle << "<h2>" << pal.name << "</h2>\n";
+        handle << "<p class=\"pal\">\n";
+
+        for
+        (
+            int i = 0;
+            i < c_sizet_to_int(pal.colors.size());
+            i += 1
+        )
+        {
+            const auto c = pal.colors[i];
+            handle
+                << "<span "
+                << "class=\"color\""
+                << "style=\"background:rgb("
+                    << static_cast<int>(c.r) << ", "
+                    << static_cast<int>(c.g) << ", "
+                    << static_cast<int>(c.b) << ");\""
+                <<">&nbsp</span>\n";
+        }
+
+        handle << "</p>\n";
+    }
+
+    handle << R"(
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+    )";
+}
+
+
 
 dump2d::Poly create_box(const Vec2f& p, float width, float height, const Rgbi& c, bool border)
 {
@@ -142,7 +224,26 @@ main(int argc, char* argv[])
 
     filters_subs->add
     (
-        "write-single", "write all palettes to a single html dump",
+        "write-html", "write each palette to a image file",
+        [&](argparse::SubParser* sub)
+        {
+            auto current_directory = get_current_directory();
+            sub->add("-w", &current_directory);
+
+            return sub->on_complete
+            (
+                [&]
+                {
+                    write_palettes_to_html(current_directory);
+                    return argparse::ok;
+                }
+            );
+        }
+    );
+
+    filters_subs->add
+    (
+        "write-single", "write all palettes to a single svg dump",
         [&](argparse::SubParser* sub)
         {
             bool add_border = false;
