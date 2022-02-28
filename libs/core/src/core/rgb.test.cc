@@ -20,14 +20,29 @@ TEST_CASE("rgb-test_basic", "[rgb]")
     REQUIRE(euco::colorutil::get_red(color_red) == 255);
     REQUIRE(euco::colorutil::get_green(color_red) == 0);
     REQUIRE(euco::colorutil::get_blue(color_red) == 0);
+    
+    const auto red = euco::Rgbi::from_hex(color_red);
+    REQUIRE(red.r == 255);
+    REQUIRE(red.g == 0);
+    REQUIRE(red.b == 0);
 
     REQUIRE(euco::colorutil::get_red(color_green) == 0);
     REQUIRE(euco::colorutil::get_green(color_green) == 255);
     REQUIRE(euco::colorutil::get_blue(color_green) == 0);
 
+    const auto green = euco::Rgbi::from_hex(color_green);
+    REQUIRE(green.r == 0);
+    REQUIRE(green.g == 255);
+    REQUIRE(green.b == 0);
+
     REQUIRE(euco::colorutil::get_red(color_blue) == 0);
     REQUIRE(euco::colorutil::get_green(color_blue) == 0);
     REQUIRE(euco::colorutil::get_blue(color_blue) == 255);
+
+    const auto blue = euco::Rgbi::from_hex(color_blue);
+    REQUIRE(blue.r == 0);
+    REQUIRE(blue.g == 0);
+    REQUIRE(blue.b == 255);
 }
 
 TEST_CASE("rgb-get_component_works", "[rgb]")
