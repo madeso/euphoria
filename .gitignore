@@ -29,3 +29,12 @@ junk/
 .tgit.json
 
 node_modules/
+
+docs/generated/coldet-closest-point-on-ray.html
+docs/generated/coldet-distance-to-plane.html
+docs/generated/coldet-point-on-ray.html
+docs/generated/coldet-point-to-plane.html
+docs/generated/doxygen-html/
+docs/generated/palettes.html
+docs/generated/stars.html
+docs/generated/three.html

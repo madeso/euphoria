@@ -12,7 +12,7 @@ jobs:
             submodules: recursive
             fetch-depth: 0
 
-        - name: Install Dependencies
+        - name: Install doxygen
           run: |
                 sudo apt update
                 sudo apt install -y doxygen
@@ -25,4 +25,4 @@ jobs:
           if: github.ref == 'refs/heads/master'
           with:
                 github_token: ${{ secrets.GITHUB_TOKEN }}
-                publish_dir: ./docs/generated/html/
+                publish_dir: ./docs/generated/
