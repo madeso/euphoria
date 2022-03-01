@@ -16,6 +16,7 @@
 #include "gaf_tracery.h"
 #include "gaf_rapidjson_tracery.h"
 
+#include "rapidjson/document.h"
 
 namespace euphoria::core::tracery
 {
@@ -82,6 +83,57 @@ namespace euphoria::core::tracery
 
         return r;
     }
+
+    // ----------------------------------------------------------------
+
+
+    Result
+    parse_json(Symbol* rule, const rapidjson::Value& value)
+    {
+        if(value.IsString())
+        {
+            return rule->add_rule(value.GetString());
+        }
+        else if(value.IsArray())
+        {
+            for(const auto& v: value.GetArray())
+            {
+                if(v.IsString())
+                {
+                    Result r = rule->add_rule(v.GetString());
+                    if(r == false)
+                    {
+                        return r;
+                    }
+                }
+                else
+                {
+                    return Result(Result::invalid_json);
+                }
+            }
+
+            return Result(Result::no_error);
+        }
+        else
+        {
+            return Result(Result::invalid_json);
+        }
+    }
+
+
+    Result
+    from_json(Symbol* rule, const rapidjson::Value& value)
+    {
+        auto r = parse_json(rule, value);
+        if(r == false)
+        {
+            // todo(Gustav): add json error information
+            r << "for symbol " << rule->key;
+        }
+
+        return r;
+    }
+
 
     // ----------------------------------------------------------------
 
@@ -588,7 +640,7 @@ namespace euphoria::core::tracery
     }
 
     Result
-    Grammar::load_from_string(const std::string& filename, const std::string& data)
+    Grammar::load_from_gaf_string(const std::string& filename, const std::string& data)
     {
         const auto loaded = get_optional_and_log_errors
         (
@@ -600,12 +652,6 @@ namespace euphoria::core::tracery
             return Result(Result::json_parse) << "unable to load file";
         }
         const auto& message = *loaded;
-        // ::tracery::Tracery message;
-        // const auto loaded_json_error = read_json_source_to_gaf_struct_or_get_error_message(data, &message);
-        // if(loaded_json_error.empty() == false)
-        // {
-        //     return result(result::json_parse) << loaded_json_error;
-        // }
 
         for(const auto& json_rule: message.rule)
         {
@@ -616,6 +662,33 @@ namespace euphoria::core::tracery
                 return rule_loaded;
             }
             rules.insert(std::make_pair(json_rule.name, rule));
+        }
+
+        return Result(Result::no_error);
+    }
+
+    Result
+    Grammar::load_from_string(const std::string& filename, const std::string& data)
+    {
+        rapidjson::Document doc;
+        const auto parse_error = read_source_or_get_error_message(data, &doc);
+        if(parse_error.has_value())
+        {
+            return Result(Result::json_parse) << "Error in " << filename << ": "<< *parse_error;
+        }
+
+        for(rapidjson::Value::ConstMemberIterator itr = doc.MemberBegin();
+            itr != doc.MemberEnd();
+            ++itr)
+        {
+            const std::string name_of_rule = itr->name.GetString();
+            Symbol rule {name_of_rule};
+            Result r = from_json(&rule, itr->value);
+            if(r == false)
+            {
+                return r;
+            }
+            rules.insert(std::make_pair(name_of_rule, rule));
         }
 
         return Result(Result::no_error);

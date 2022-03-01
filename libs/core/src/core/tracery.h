@@ -114,6 +114,9 @@ namespace euphoria::core::tracery
         load_from_string(const std::string& filename, const std::string& data);
 
         [[nodiscard]] Result
+        load_from_gaf_string(const std::string& filename, const std::string& data);
+
+        [[nodiscard]] Result
         get_string_from_symbol(const std::string& rule, generator_argument* generator) const;
 
         Grammar&
