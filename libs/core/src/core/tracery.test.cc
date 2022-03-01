@@ -16,8 +16,8 @@ TEST_CASE("tracery-all", "[tracery]")
     SECTION("empty json")
     {
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-            </tracery>
+            {
+            }
         )");
         REQUIRE(loaded);
 
@@ -29,11 +29,9 @@ TEST_CASE("tracery-all", "[tracery]")
     SECTION("flatten single rule")
     {
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-                <rule name="dog">
-                    <text>doggo</text>
-                </rule>
-            </tracery>
+            {
+                "dog": "doggo"
+            }
         )");
         REQUIRE(loaded);
 
@@ -44,12 +42,12 @@ TEST_CASE("tracery-all", "[tracery]")
 
     SECTION("escape")
     {
+        // need double backslashes to escape \ and
+        // to actually enter a \ into the json string
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-                <rule name="esc">
-                    <text>\#</text>
-                </rule>
-            </tracery>
+            {
+                "esc": "\\#"
+            }
         )");
         REQUIRE(loaded);
 
@@ -60,12 +58,12 @@ TEST_CASE("tracery-all", "[tracery]")
 
     SECTION("don't die on non ending rules")
     {
+        // need double backslashes to escape \ and
+        // to actually enter a \ into the json string
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-                <rule name="esc">
-                    <text>#dog</text>
-                </rule>
-            </tracery>
+            {
+                "esc": "#dog"
+            }
         )");
         REQUIRE(loaded.error_type == tr::Result::rule_eof);
     }
@@ -73,14 +71,10 @@ TEST_CASE("tracery-all", "[tracery]")
     SECTION("rule call rule")
     {
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-                <rule name="dog">
-                    <text>doggo</text>
-                </rule>
-                <rule name="animal">
-                    <text>#dog#</text>
-                </rule>
-            </tracery>
+            {
+                "dog": "doggo",
+                "animal": "#dog#"
+            }
         )");
         REQUIRE(loaded);
 
@@ -92,14 +86,10 @@ TEST_CASE("tracery-all", "[tracery]")
     SECTION("weird name rules")
     {
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-                <rule name="animal-dog">
-                    <text>doggo</text>
-                </rule>
-                <rule name="animal">
-                    <text>#animal-dog#</text>
-                </rule>
-            </tracery>
+            {
+                "animal-dog": "doggo",
+                "animal": "#animal-dog#"
+            }
         )");
         REQUIRE(loaded);
 
@@ -111,14 +101,10 @@ TEST_CASE("tracery-all", "[tracery]")
     SECTION("func a")
     {
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-                <rule name="dog">
-                    <text>dog</text>
-                </rule>
-                <rule name="animal">
-                    <text>#dog.a#</text>
-                </rule>
-            </tracery>
+            {
+                "dog": "dog",
+                "animal": "#dog.a#"
+            }
         )");
         REQUIRE(loaded);
 
@@ -131,14 +117,10 @@ TEST_CASE("tracery-all", "[tracery]")
     SECTION("func s")
     {
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-                <rule name="dog">
-                    <text>dog</text>
-                </rule>
-                <rule name="animal">
-                    <text>#dog.s#</text>
-                </rule>
-            </tracery>
+            {
+                "dog": "dog",
+                "animal": "#dog.s#"
+            }
         )");
         REQUIRE(loaded);
 
@@ -150,20 +132,12 @@ TEST_CASE("tracery-all", "[tracery]")
     SECTION("push rules")
     {
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-                <rule name="dog">
-                    <text>dog</text>
-                </rule>
-                <rule name="name">
-                    <text>dog</text>
-                </rule>
-                <rule name="story">
-                    <text>#hero# is good</text>
-                </rule>
-                <rule name="origin">
-                    <text>#[hero:#name#]story#</text>
-                </rule>
-            </tracery>
+            {
+                "dog": "dog",
+                "name": ["dog"],
+                "story": ["#hero# is good"],
+                "origin": ["#[hero:#name#]story#"]
+            }
         )");
         REQUIRE(loaded);
 
@@ -175,20 +149,12 @@ TEST_CASE("tracery-all", "[tracery]")
     SECTION("advanced push")
     {
         const auto loaded = g.load_from_string(test_file, R"(
-            <tracery>
-                <rule name="origin">
-                    <text>I love #[animal:#cat#]say# and #[animal:POP]say#</text>
-                </rule>
-                <rule name="say">
-                    <text>#animal.s#</text>
-                </rule>
-                <rule name="animal">
-                    <text>dog</text>
-                </rule>
-                <rule name="cat">
-                    <text>cat</text>
-                </rule>
-            </tracery>
+            {
+                "origin":"I love #[animal:#cat#]say# and #[animal:POP]say#",
+                "say":"#animal.s#",
+                "animal": "dog",
+                "cat":"cat"
+            }
         )");
         REQUIRE(loaded);
 
