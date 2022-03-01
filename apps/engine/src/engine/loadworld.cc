@@ -10,7 +10,7 @@
 #include "engine/objectemplate.h"
 
 #include "gaf_world.h"
-#include "gaf_pugixml_world.h"
+#include "gaf_rapidjson_world.h"
 
 namespace euphoria::engine
 {
@@ -27,7 +27,7 @@ namespace euphoria::engine
     {
         const auto json = core::get_default_but_log_errors
         (
-            core::read_xml_file_to_gaf_struct<world::World>(fs, path, world::ReadXmlElementWorld)
+            core::read_xml_file_to_gaf_struct<world::World>(fs, path, world::ReadJsonWorld)
         );
 
         for(const auto& obj: json.objects)

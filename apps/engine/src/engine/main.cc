@@ -48,7 +48,7 @@
 #include "imgui/imgui.h"
 
 #include "gaf_game.h"
-#include "gaf_pugixml_game.h"
+#include "gaf_rapidjson_game.h"
 
 using namespace euphoria::core;
 using namespace euphoria::core::ecs;
@@ -66,7 +66,7 @@ load_game_data(vfs::FileSystem* fs)
         (
             fs,
             vfs::FilePath{"~/gamedata.xml"},
-            ::game::ReadXmlElementGame
+            ::game::ReadJsonGame
         )
     );
 }

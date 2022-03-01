@@ -32,7 +32,7 @@ set(generated_files
 
 
 GAF_GENERATE_CPP(
-    PUGIXML
+    RAPIDJSON
     SOURCES generated_sources
     HEADERS generated_headers
     FILES
@@ -55,7 +55,7 @@ target_include_directories(file_types
 )
 target_link_libraries(file_types
     PUBLIC
-        external::pugixml
+        external::rapidjson
         libgaf::xml
     PRIVATE
         euph::project_options

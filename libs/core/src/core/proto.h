@@ -7,8 +7,8 @@
 
 #include "assert/assert.h"
 
-#include "pugixml.hpp"
-#include "gaf/lib_pugixml.h"
+#include "gaf/lib_gaf.h"
+#include "rapidjson/document.h"
 
 namespace euphoria::core
 {
@@ -58,7 +58,7 @@ namespace euphoria::core
     get_file_contents_or_null(vfs::FileSystem* fs, const vfs::FilePath& file_name);
 
     std::optional<std::string>
-    read_source_or_get_error_message(const std::string& source, pugi::xml_document* doc);
+    read_source_or_get_error_message(const std::string& source, rapidjson::Document* doc);
 
     std::string
     could_be_callback(const std::string& v, const std::vector<std::string>& vv);
@@ -183,7 +183,7 @@ namespace euphoria::core
         ReadXmlElementFun read_xml_element
     )
     {
-        pugi::xml_document doc;
+        rapidjson::Document doc;
         auto error_message = read_source_or_get_error_message(source, &doc);
         if(error_message)
         {
@@ -203,8 +203,9 @@ namespace euphoria::core
             auto result = read_xml_element
             (
                 &errors,
-                doc.document_element(),
-                could_be_callback
+                doc,
+                could_be_callback,
+                ""
             );
             if(errors.empty() == false)
             {

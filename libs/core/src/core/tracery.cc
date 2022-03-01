@@ -14,7 +14,7 @@
 #include "core/stringutils.h"
 
 #include "gaf_tracery.h"
-#include "gaf_pugixml_tracery.h"
+#include "gaf_rapidjson_tracery.h"
 
 
 namespace euphoria::core::tracery
@@ -592,7 +592,7 @@ namespace euphoria::core::tracery
     {
         const auto loaded = get_optional_and_log_errors
         (
-            read_xml_source_to_gaf_struct<::tracery::Tracery>(filename, data, ::tracery::ReadXmlElementTracery)
+            read_xml_source_to_gaf_struct<::tracery::Tracery>(filename, data, ::tracery::ReadJsonTracery)
         );
         if(loaded.has_value() == false)
         {

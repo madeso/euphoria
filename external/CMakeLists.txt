@@ -153,10 +153,10 @@ add_library(external::spdlog ALIAS spdlog)
 
 
 ###################################################################################################
-## pugixml
-add_library(pugixml INTERFACE)
-target_link_libraries(pugixml INTERFACE libgaf::pugixml)
-add_library(external::pugixml ALIAS pugixml)
+## rapidjson
+add_library(rapidjson INTERFACE)
+target_link_libraries(rapidjson INTERFACE libgaf::json)
+add_library(external::rapidjson ALIAS rapidjson)
 
 
 

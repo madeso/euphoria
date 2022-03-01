@@ -13,7 +13,7 @@
 #include "core/cint.h"
 
 #include "gaf_chatbot.h"
-#include "gaf_pugixml_chatbot.h"
+#include "gaf_rapidjson_chatbot.h"
 
 
 namespace euphoria::core::detail
@@ -349,7 +349,7 @@ namespace euphoria::core
     {
         const auto loaded = get_optional_and_log_errors
         (
-            read_xml_file_to_gaf_struct<chat::Root>(fs, path, chat::ReadXmlElementRoot)
+            read_xml_file_to_gaf_struct<chat::Root>(fs, path, chat::ReadJsonRoot)
         );
         if(loaded.has_value() == false)
         {

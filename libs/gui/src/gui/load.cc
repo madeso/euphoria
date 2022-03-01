@@ -15,7 +15,7 @@
 #include "gui/root.h"
 
 #include "gaf_gui.h"
-#include "gaf_pugixml_gui.h"
+#include "gaf_rapidjson_gui.h"
 
 #include <iostream>
 #include <map>
@@ -321,7 +321,7 @@ namespace euphoria::gui
 
         const auto loaded = core::get_optional_and_log_errors
         (
-            core::read_xml_file_to_gaf_struct<::gui::File>(fs, path, ::gui::ReadXmlElementFile)
+            core::read_xml_file_to_gaf_struct<::gui::File>(fs, path, ::gui::ReadJsonFile)
         );
         
         if(loaded.has_value() == false)

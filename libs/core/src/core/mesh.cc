@@ -19,7 +19,7 @@
 #include "core/vfs.h"
 
 #include "gaf_mesh.h"
-#include "gaf_pugixml_mesh.h"
+#include "gaf_rapidjson_mesh.h"
 
 
 namespace euphoria::core
@@ -472,7 +472,7 @@ namespace euphoria::core
         {
             const auto json = get_default_ignore_missing_but_log_errors
             (
-                read_xml_file_to_gaf_struct<::mesh::Mesh>(fs, json_path, ::mesh::ReadXmlElementMesh)
+                read_xml_file_to_gaf_struct<::mesh::Mesh>(fs, json_path, ::mesh::ReadJsonMesh)
             );
 
             if(json.diffuse_and_ambient_are_same)
@@ -494,7 +494,7 @@ namespace euphoria::core
                 (
                     fs,
                     folder_path,
-                    ::mesh::ReadXmlElementFolder
+                    ::mesh::ReadJsonFolder
                 )
             );
             if(folder_loaded.has_value() == false)

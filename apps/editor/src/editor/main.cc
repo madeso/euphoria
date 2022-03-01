@@ -39,9 +39,9 @@
 #include "gaf_imgui_enum.h"
 #include "gaf_imgui_scalingsprite.h"
 
-#include "gaf_pugixml_game.h"
-#include "gaf_pugixml_world.h"
-#include "gaf_pugixml_enum.h"
+#include "gaf_rapidjson_game.h"
+#include "gaf_rapidjson_world.h"
+#include "gaf_rapidjson_enum.h"
 
 
 using namespace euphoria::core;
@@ -543,7 +543,7 @@ main(int argc, char** argv)
                     file,
                     engine.file_system.get(),
                     "Game",
-                    game::ReadXmlElementGame,
+                    game::ReadJsonGame,
                     [](auto *s)
                     { game::RunImgui(s); }
                 );
@@ -568,7 +568,7 @@ main(int argc, char** argv)
                     file,
                     engine.file_system.get(),
                     "World",
-                    world::ReadXmlElementWorld,
+                    world::ReadJsonWorld,
                     [](auto *s)
                     {
                         ::world::RunImgui(s);
@@ -592,7 +592,7 @@ main(int argc, char** argv)
                     file,
                     engine.file_system.get(),
                     "Enums",
-                    enumlist::ReadXmlElementEnumroot,
+                    enumlist::ReadJsonEnumroot,
                     [](auto* s)
                     {
                         enumlist::RunImgui(s);

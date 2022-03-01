@@ -193,6 +193,7 @@ target_link_libraries(core
         libgaf::xml
         external::range
         external::lua
+        external::rapidjson
         undef_windows::undef_windows
     PRIVATE
         euph::project_options

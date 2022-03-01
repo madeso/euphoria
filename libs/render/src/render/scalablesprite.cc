@@ -15,7 +15,7 @@
 #include "render/spriterender.h"
 
 #include "gaf_scalingsprite.h"
-#include "gaf_pugixml_scalingsprite.h"
+#include "gaf_rapidjson_scalingsprite.h"
 
 using namespace euphoria::convert;
 
@@ -74,7 +74,7 @@ namespace euphoria::render
         const auto xml_path = path.set_extension_copy(path.get_extension()+ ".xml");
         const auto sprite = core::get_default_but_log_errors
         (
-            core::read_xml_file_to_gaf_struct<scalingsprite::ScalingSprite>(fs, xml_path, scalingsprite::ReadXmlElementScalingSprite)
+            core::read_xml_file_to_gaf_struct<scalingsprite::ScalingSprite>(fs, xml_path, scalingsprite::ReadJsonScalingSprite)
         );
 
         calculated_texture_size_rows = copy_data(&rows, sprite.rows);

@@ -25,7 +25,7 @@
 #include "render/texturecache.h"
 
 #include "gaf_font.h"
-#include "gaf_pugixml_font.h"
+#include "gaf_rapidjson_font.h"
 
 using namespace euphoria::convert;
 
@@ -144,7 +144,7 @@ namespace euphoria::render
 
         const auto font_root = core::get_default_but_log_errors
         (
-            core::read_xml_file_to_gaf_struct<font::Root>(fs, font_file, font::ReadXmlElementRoot)
+            core::read_xml_file_to_gaf_struct<font::Root>(fs, font_file, font::ReadJsonRoot)
         );
 
         // todo(Gustav): handle error better

@@ -10,7 +10,7 @@
 #include "render/light.h"
 
 #include "gaf_materialshader.h"
-#include "gaf_pugixml_materialshader.h"
+#include "gaf_rapidjson_materialshader.h"
 
 namespace euphoria::render
 {
@@ -166,7 +166,7 @@ namespace euphoria::render
         const auto proto_path = path.set_extension_copy("json");
         const auto file = core::get_default_but_log_errors
         (
-            core::read_xml_file_to_gaf_struct<materialshader::MaterialShader>(file_system, proto_path, materialshader::ReadXmlElementMaterialShader)
+            core::read_xml_file_to_gaf_struct<materialshader::MaterialShader>(file_system, proto_path, materialshader::ReadJsonMaterialShader)
         );
         // todo(Gustav): set default shader names if file failed to
 

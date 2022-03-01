@@ -11,6 +11,8 @@
 #include "core/stringmerger.h"
 #include "core/functional.h"
 
+#include "rapidjson/error/en.h"
+
 #include <fstream>
 
 namespace euphoria::core
@@ -105,20 +107,29 @@ namespace euphoria::core
         return r;
     }
 
+    constexpr unsigned rapid_json_flags = rapidjson::kParseNoFlags
+            | rapidjson::kParseValidateEncodingFlag // Validate encoding of JSON strings.
+            | rapidjson::kParseCommentsFlag // Allow one - line(//) and multi-line (/**‍/) comments.
+            | rapidjson::kParseTrailingCommasFlag // Allow trailing commas at the end of objects and arrays.
+            | rapidjson::kParseEscapedApostropheFlag // Allow escaped apostrophe in strings.
+        ;
+
     std::optional<std::string>
-    read_source_or_get_error_message(const std::string& source, pugi::xml_document* doc)
+    read_source_or_get_error_message(const std::string& source, rapidjson::Document* doc)
     {
         // todo(Gustav): look up insitu & sax parsing
 
-        const auto result = doc->load_buffer(source.data(), source.length());
+        doc->Parse<rapid_json_flags>(source.c_str());
 
-        if(result.status != pugi::status_ok)
+        const auto err = doc->GetParseError();
+        if (err != rapidjson::kParseErrorNone)
         {
-            const auto location = get_location_from_offset(source, result.offset);
+            const auto error_offset = doc->GetErrorOffset();
+            const auto location = get_location_from_offset(source, error_offset);
             // todo(Gustav): make the source offset string better looking, like a compiler error with a "here: ^~~~~~~" text
             return StringBuilder {}
-                << "XML error: " << result.description() << "\n"
-                << "Error offset: (" << location.line << ":" << location.offset << ") (error at [..." << source.substr(result.offset, 10) << "]";
+                << "JSON error: " << rapidjson::GetParseError_En(err) << "\n"
+                << "Error offset: (" << location.line << ":" << location.offset << ") (error at [..." << source.substr(error_offset, 10) << "]";
         }
 
         return std::nullopt;

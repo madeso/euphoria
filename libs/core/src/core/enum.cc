@@ -18,7 +18,7 @@
 #include <cassert>
 
 #include "gaf_enum.h"
-#include "gaf_pugixml_enum.h"
+#include "gaf_rapidjson_enum.h"
 
 namespace euphoria::core
 {
@@ -186,7 +186,7 @@ namespace euphoria::core
 
         const auto root = get_default_but_log_errors
         (
-            read_xml_file_to_gaf_struct<enumlist::Enumroot>(fs, path, enumlist::ReadXmlElementEnumroot)
+            read_xml_file_to_gaf_struct<enumlist::Enumroot>(fs, path, enumlist::ReadJsonEnumroot)
         );
 
         // todo(Gustav): handle enum errors better...
