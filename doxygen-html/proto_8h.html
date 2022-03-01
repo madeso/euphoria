@@ -65,8 +65,8 @@
 <code>#include &lt;variant&gt;</code><br />
 <code>#include &lt;optional&gt;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
-<code>#include &quot;pugixml.hpp&quot;</code><br />
-<code>#include &quot;gaf/lib_pugixml.h&quot;</code><br />
+<code>#include &quot;gaf/lib_gaf.h&quot;</code><br />
+<code>#include &quot;rapidjson/document.h&quot;</code><br />
 </div>
 <p><a href="proto_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -100,8 +100,8 @@ Functions</h2></td></tr>
 <tr class="separator:a258851a77c403c206aa563406884486b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aee44040117f96af670652bdfbac44960"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aee44040117f96af670652bdfbac44960">euphoria::core::get_file_contents_or_null</a> (vfs::FileSystem *fs, const vfs::FilePath &amp;file_name)</td></tr>
 <tr class="separator:aee44040117f96af670652bdfbac44960"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f5b1d4c2743797523d37edfde899958"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a7f5b1d4c2743797523d37edfde899958">euphoria::core::read_source_or_get_error_message</a> (const std::string &amp;source, pugi::xml_document *doc)</td></tr>
-<tr class="separator:a7f5b1d4c2743797523d37edfde899958"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9d82d773a121ba85ff1a961954a9ba7"><td class="memItemLeft" align="right" valign="top">std::optional&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae9d82d773a121ba85ff1a961954a9ba7">euphoria::core::read_source_or_get_error_message</a> (const std::string &amp;source, rapidjson::Document *doc)</td></tr>
+<tr class="separator:ae9d82d773a121ba85ff1a961954a9ba7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ef06befe2e9eeca91cb5d455a810732"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a8ef06befe2e9eeca91cb5d455a810732">euphoria::core::could_be_callback</a> (const std::string &amp;v, const std::vector&lt; std::string &gt; &amp;vv)</td></tr>
 <tr class="separator:a8ef06befe2e9eeca91cb5d455a810732"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a3d6af2d674669ad734b1aad86ef6f1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a8a3d6af2d674669ad734b1aad86ef6f1">euphoria::core::log_read_error</a> (const ReadErrorFileMissing &amp;)</td></tr>
@@ -123,12 +123,12 @@ Functions</h2></td></tr>
 <tr class="memitem:aa215a7479f5851b8b2336bf07d5f4748"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa215a7479f5851b8b2336bf07d5f4748"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa215a7479f5851b8b2336bf07d5f4748">euphoria::core::get_default_ignore_missing_but_log_errors</a> (ReadResult&lt; T &gt; &amp;&amp;result)</td></tr>
 <tr class="separator:aa215a7479f5851b8b2336bf07d5f4748"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe2d0ca0cfab3b31340acfd8a5f94f71"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ReadXmlElementFun &gt; </td></tr>
-<tr class="memitem:afe2d0ca0cfab3b31340acfd8a5f94f71"><td class="memTemplItemLeft" align="right" valign="top">ReadResult&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#afe2d0ca0cfab3b31340acfd8a5f94f71">euphoria::core::read_xml_source_to_gaf_struct</a> (const std::string &amp;path_to_file, const std::string &amp;source, ReadXmlElementFun read_xml_element)</td></tr>
-<tr class="separator:afe2d0ca0cfab3b31340acfd8a5f94f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86e1fe8f195ea2890b5fd1832311f9df"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ReadXmlElementFun &gt; </td></tr>
-<tr class="memitem:a86e1fe8f195ea2890b5fd1832311f9df"><td class="memTemplItemLeft" align="right" valign="top">ReadResult&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a86e1fe8f195ea2890b5fd1832311f9df">euphoria::core::read_xml_file_to_gaf_struct</a> (vfs::FileSystem *fs, const vfs::FilePath &amp;file_name, ReadXmlElementFun read_xml_element)</td></tr>
-<tr class="separator:a86e1fe8f195ea2890b5fd1832311f9df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4fcc0f316b9ef8d70f8dbec05d10f52"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ReadJsonElementFun &gt; </td></tr>
+<tr class="memitem:ac4fcc0f316b9ef8d70f8dbec05d10f52"><td class="memTemplItemLeft" align="right" valign="top">ReadResult&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ac4fcc0f316b9ef8d70f8dbec05d10f52">euphoria::core::read_json_source_to_gaf_struct</a> (const std::string &amp;path_to_file, const std::string &amp;source, ReadJsonElementFun read_json_element)</td></tr>
+<tr class="separator:ac4fcc0f316b9ef8d70f8dbec05d10f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5a8d602ab310286b200aa68255b961f"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ReadJsonElementFun &gt; </td></tr>
+<tr class="memitem:ae5a8d602ab310286b200aa68255b961f"><td class="memTemplItemLeft" align="right" valign="top">ReadResult&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae5a8d602ab310286b200aa68255b961f">euphoria::core::read_json_file_to_gaf_struct</a> (vfs::FileSystem *fs, const vfs::FilePath &amp;file_name, ReadJsonElementFun read_json_element)</td></tr>
+<tr class="separator:ae5a8d602ab310286b200aa68255b961f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
