@@ -93,10 +93,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a4bc7da0256c3a0dc0da4de52f68b5b4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a030745247e19727a45e2699f98349e56"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#a18429a488f4a0c6d17b4a84fe0dac703">Recti</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a030745247e19727a45e2699f98349e56">get_indices</a> () const</td></tr>
 <tr class="separator:a030745247e19727a45e2699f98349e56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad362963990379153aec73bb99db2a57f"><td class="memItemLeft" align="right" valign="top">const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#ad362963990379153aec73bb99db2a57f">get_pixel_data</a> () const</td></tr>
-<tr class="separator:ad362963990379153aec73bb99db2a57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b78a261f40f2d80cebf2bef78ca5742"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1MemoryChunk.html">MemoryChunk</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a8b78a261f40f2d80cebf2bef78ca5742">write</a> (<a class="el" href="namespaceeuphoria_1_1core.html#a68fff98aaeca3d2cba3daf865a80eaa1">ImageWriteFormat</a> format, int jpeg_quality=100) const</td></tr>
-<tr class="separator:a8b78a261f40f2d80cebf2bef78ca5742"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ff0949f1eb131015e4ec94d6756b5ea"><td class="memItemLeft" align="right" valign="top">const unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a6ff0949f1eb131015e4ec94d6756b5ea">get_pixel_data</a> () const</td></tr>
+<tr class="separator:a6ff0949f1eb131015e4ec94d6756b5ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad36c8b2bb9e82f2866b9363bb4b4c6ec"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1MemoryChunk.html">MemoryChunk</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#ad36c8b2bb9e82f2866b9363bb4b4c6ec">write</a> (<a class="el" href="namespaceeuphoria_1_1core.html#a68fff98aaeca3d2cba3daf865a80eaa1">ImageWriteFormat</a> format, int jpeg_quality=100) const</td></tr>
+<tr class="separator:ad36c8b2bb9e82f2866b9363bb4b4c6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf8e7c0ec7c4a9a33bfd21283bfbe1f2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#adf8e7c0ec7c4a9a33bfd21283bfbe1f2">setup</a> (int image_width, int image_height, bool alpha, int default_value)</td></tr>
 <tr class="separator:adf8e7c0ec7c4a9a33bfd21283bfbe1f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34c9282b79cdcd5f47009bda2598657a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Image.html#a34c9282b79cdcd5f47009bda2598657a">get_pixel_byte_size</a> () const</td></tr>
@@ -194,8 +194,6 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00168">168</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
-
 </div>
 </div>
 <a id="a9b0b8bc8c20faef2b3a07495b5731b7d"></a>
@@ -224,8 +222,6 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00137">137</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
-
 </div>
 </div>
 <a id="a34c9282b79cdcd5f47009bda2598657a"></a>
@@ -243,26 +239,22 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00032">32</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
-
 </div>
 </div>
-<a id="ad362963990379153aec73bb99db2a57f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad362963990379153aec73bb99db2a57f">&#9670;&nbsp;</a></span>get_pixel_data()</h2>
+<a id="a6ff0949f1eb131015e4ec94d6756b5ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ff0949f1eb131015e4ec94d6756b5ea">&#9670;&nbsp;</a></span>get_pixel_data()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const unsigned char * euphoria::core::Image::get_pixel_data </td>
+          <td class="memname">const unsigned char* euphoria::core::Image::get_pixel_data </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00178">178</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
 
 </div>
 </div>
@@ -292,8 +284,6 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00094">94</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
-
 </div>
 </div>
 <a id="a608dfee2f1bd7d516aadc1dd8a5f3313"></a>
@@ -311,8 +301,6 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00161">161</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
-
 </div>
 </div>
 <a id="a8607e2aa71f44168218558a1793a88fc"></a>
@@ -329,8 +317,6 @@ template&lt;typename Func &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00020">20</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
 
 </div>
 </div>
@@ -426,8 +412,6 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00104">104</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
-
 </div>
 </div>
 <a id="a66eca93054fe4f4c26a314c2dd9dedc6"></a>
@@ -480,8 +464,6 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00112">112</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
-
 </div>
 </div>
 <a id="adf8e7c0ec7c4a9a33bfd21283bfbe1f2"></a>
@@ -522,8 +504,6 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00063">63</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
-
 </div>
 </div>
 <a id="aa899a093fe2b87a7a729ff5a08711ad7"></a>
@@ -557,8 +537,6 @@ template&lt;typename Func &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00052">52</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
 
 </div>
 </div>
@@ -594,18 +572,16 @@ template&lt;typename Func &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00040">40</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
-
 </div>
 </div>
-<a id="a8b78a261f40f2d80cebf2bef78ca5742"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b78a261f40f2d80cebf2bef78ca5742">&#9670;&nbsp;</a></span>write()</h2>
+<a id="ad36c8b2bb9e82f2866b9363bb4b4c6ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad36c8b2bb9e82f2866b9363bb4b4c6ec">&#9670;&nbsp;</a></span>write()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1MemoryChunk.html">MemoryChunk</a> &gt; euphoria::core::Image::write </td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="structeuphoria_1_1core_1_1MemoryChunk.html">MemoryChunk</a>&gt; euphoria::core::Image::write </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core.html#a68fff98aaeca3d2cba3daf865a80eaa1">ImageWriteFormat</a>&#160;</td>
           <td class="paramname"><em>format</em>, </td>
@@ -623,8 +599,6 @@ template&lt;typename Func &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="image_8cc_source.html#l00233">233</a> of file <a class="el" href="image_8cc_source.html">image.cc</a>.</p>
 
 </div>
 </div>
@@ -693,9 +667,8 @@ template&lt;typename Func &gt; </div>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following files:<ul>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>libs/core/src/core/<a class="el" href="image_8h_source.html">image.h</a></li>
-<li>libs/core/src/core/<a class="el" href="image_8cc_source.html">image.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
