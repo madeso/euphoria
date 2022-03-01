@@ -62,10 +62,10 @@ load_game_data(vfs::FileSystem* fs)
 {
     return get_optional_and_log_errors
     (
-        read_xml_file_to_gaf_struct<::game::Game>
+        read_json_file_to_gaf_struct<::game::Game>
         (
             fs,
-            vfs::FilePath{"~/gamedata.xml"},
+            vfs::FilePath{"~/gamedata.json"},
             ::game::ReadJsonGame
         )
     );
@@ -179,6 +179,8 @@ int custom_lua_exception_handler
 int
 main(int argc, char* argv[])
 {
+    // euphoria::log::setup_logging();
+    
     Engine engine;
     if(const auto ret = engine.setup(argparse::NameAndArguments::extract(argc, argv)); ret != 0)
     {
@@ -311,7 +313,7 @@ main(int argc, char* argv[])
             engine.file_system.get(),
             &world,
             &integration.get_registry(),
-            vfs::FilePath{"~/world.xml"},
+            vfs::FilePath{"~/world.json"},
             &templates,
             &duk
         );

@@ -27,7 +27,7 @@ namespace euphoria::engine
     {
         const auto json = core::get_default_but_log_errors
         (
-            core::read_xml_file_to_gaf_struct<world::World>(fs, path, world::ReadJsonWorld)
+            core::read_json_file_to_gaf_struct<world::World>(fs, path, world::ReadJsonWorld)
         );
 
         for(const auto& obj: json.objects)

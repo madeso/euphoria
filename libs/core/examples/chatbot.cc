@@ -16,7 +16,7 @@ main()
     vfs::FileSystem file_system;
     vfs::ReadRootPhysicalFolder::add(&file_system, current_directory);
 
-    const auto loaded_chatbot = Chatbot::load_from_file(&file_system, vfs::FilePath{"~/chatbot.xml"});
+    const auto loaded_chatbot = Chatbot::load_from_file(&file_system, vfs::FilePath{"~/chatbot.json"});
     if(!loaded_chatbot)
     {
         std::cerr << "Failed to load chatbot\n";

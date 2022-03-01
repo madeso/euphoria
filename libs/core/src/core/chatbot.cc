@@ -349,7 +349,7 @@ namespace euphoria::core
     {
         const auto loaded = get_optional_and_log_errors
         (
-            read_xml_file_to_gaf_struct<chat::Root>(fs, path, chat::ReadJsonRoot)
+            read_json_file_to_gaf_struct<chat::Root>(fs, path, chat::ReadJsonRoot)
         );
         if(loaded.has_value() == false)
         {

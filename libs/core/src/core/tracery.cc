@@ -592,7 +592,7 @@ namespace euphoria::core::tracery
     {
         const auto loaded = get_optional_and_log_errors
         (
-            read_xml_source_to_gaf_struct<::tracery::Tracery>(filename, data, ::tracery::ReadJsonTracery)
+            read_json_source_to_gaf_struct<::tracery::Tracery>(filename, data, ::tracery::ReadJsonTracery)
         );
         if(loaded.has_value() == false)
         {
@@ -601,7 +601,7 @@ namespace euphoria::core::tracery
         }
         const auto& message = *loaded;
         // ::tracery::Tracery message;
-        // const auto loaded_json_error = read_xml_source_to_gaf_struct_or_get_error_message(data, &message);
+        // const auto loaded_json_error = read_json_source_to_gaf_struct_or_get_error_message(data, &message);
         // if(loaded_json_error.empty() == false)
         // {
         //     return result(result::json_parse) << loaded_json_error;

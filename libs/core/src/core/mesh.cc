@@ -472,7 +472,7 @@ namespace euphoria::core
         {
             const auto json = get_default_ignore_missing_but_log_errors
             (
-                read_xml_file_to_gaf_struct<::mesh::Mesh>(fs, json_path, ::mesh::ReadJsonMesh)
+                read_json_file_to_gaf_struct<::mesh::Mesh>(fs, json_path, ::mesh::ReadJsonMesh)
             );
 
             if(json.diffuse_and_ambient_are_same)
@@ -486,11 +486,11 @@ namespace euphoria::core
             }
 
             const auto json_dir = json_path.get_directory();
-            const auto folder_path = json_dir.get_file("folder.xml");
+            const auto folder_path = json_dir.get_file("folder.json");
 
             auto folder_loaded = get_optional_and_log_errors_allow_missing
             (
-                read_xml_file_to_gaf_struct<::mesh::Folder>
+                read_json_file_to_gaf_struct<::mesh::Folder>
                 (
                     fs,
                     folder_path,
@@ -654,7 +654,7 @@ namespace euphoria::core
                 (
                     fs,
                     &res.loaded_mesh,
-                    path.set_extension_copy(path.get_extension()+".xml")
+                    path.set_extension_copy(path.get_extension()+".json")
                 );
 
                 if(res.loaded_mesh.parts.empty())

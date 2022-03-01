@@ -319,9 +319,9 @@ open_or_focus_scimed_editor
 )
 {
     auto file = path;
-    if(!ends_with(file.path, ".xml"))
+    if(!ends_with(file.path, ".json"))
     {
-        file = file.extend_extension_copy("xml");
+        file = file.extend_extension_copy("json");
     }
     open_or_focus_window
     (
@@ -338,7 +338,7 @@ open_or_focus_scimed_editor
     );
 }
 
-template <typename T, typename TRun, typename TReadXmlFunction>
+template <typename T, typename TRun, typename TReadJsonFunction>
 void
 open_or_focus_on_generic_window
 (
@@ -346,7 +346,7 @@ open_or_focus_on_generic_window
     const vfs::FilePath& path,
     vfs::FileSystem* fs,
     const std::string& title,
-    TReadXmlFunction read_xml,
+    TReadJsonFunction read_json,
     TRun run_function
 )
 {
@@ -367,7 +367,7 @@ open_or_focus_on_generic_window
             // todo(Gustav): don't open window if loading failed...
             window->data = euphoria::core::get_default_but_log_errors
             (
-                euphoria::core::read_xml_file_to_gaf_struct<T>(fs, path, read_xml)
+                euphoria::core::read_json_file_to_gaf_struct<T>(fs, path, read_json)
             );
             return window;
         }
@@ -533,7 +533,7 @@ main(int argc, char** argv)
             "Open with Game Data",
             [](const vfs::FilePath &file) -> bool
             {
-                return file.path == "~/gamedata.xml";
+                return file.path == "~/gamedata.json";
             },
             [&](Windows* wins, const vfs::FilePath &file)
             {
@@ -558,7 +558,7 @@ main(int argc, char** argv)
             "Open with World Editor",
             [](const vfs::FilePath &file) -> bool
             {
-                return file.path == "~/world.xml";
+                return file.path == "~/world.json";
             },
             [&](Windows* wins, const vfs::FilePath &file)
             {
@@ -609,7 +609,7 @@ main(int argc, char** argv)
             "Open with text editor",
             [](const vfs::FilePath &file) -> bool
             {
-                return ends_with(file.path, ".xml") || ends_with(file.path, ".js");
+                return ends_with(file.path, ".json") || ends_with(file.path, ".js");
             },
             [&](Windows* wins, const vfs::FilePath &file)
             {

@@ -144,7 +144,7 @@ namespace euphoria::render
 
         const auto font_root = core::get_default_but_log_errors
         (
-            core::read_xml_file_to_gaf_struct<font::Root>(fs, font_file, font::ReadJsonRoot)
+            core::read_json_file_to_gaf_struct<font::Root>(fs, font_file, font::ReadJsonRoot)
         );
 
         // todo(Gustav): handle error better

@@ -321,7 +321,7 @@ namespace euphoria::gui
 
         const auto loaded = core::get_optional_and_log_errors
         (
-            core::read_xml_file_to_gaf_struct<::gui::File>(fs, path, ::gui::ReadJsonFile)
+            core::read_json_file_to_gaf_struct<::gui::File>(fs, path, ::gui::ReadJsonFile)
         );
         
         if(loaded.has_value() == false)

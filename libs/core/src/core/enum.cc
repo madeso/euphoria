@@ -186,7 +186,7 @@ namespace euphoria::core
 
         const auto root = get_default_but_log_errors
         (
-            read_xml_file_to_gaf_struct<enumlist::Enumroot>(fs, path, enumlist::ReadJsonEnumroot)
+            read_json_file_to_gaf_struct<enumlist::Enumroot>(fs, path, enumlist::ReadJsonEnumroot)
         );
 
         // todo(Gustav): handle enum errors better...

@@ -174,20 +174,20 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////////////////////////
     // Actual load functions
 
-    template <typename T, typename ReadXmlElementFun>
+    template <typename T, typename ReadJsonElementFun>
     ReadResult<T>
-    read_xml_source_to_gaf_struct
+    read_json_source_to_gaf_struct
     (
         const std::string& path_to_file,
         const std::string& source,
-        ReadXmlElementFun read_xml_element
+        ReadJsonElementFun read_json_element
     )
     {
         rapidjson::Document doc;
         auto error_message = read_source_or_get_error_message(source, &doc);
         if(error_message)
         {
-            // xml parse error
+            // json parse error
             return ReadErrorFileError
             {
                 path_to_file,
@@ -200,12 +200,12 @@ namespace euphoria::core
         else
         {
             std::vector<gaf::Error> errors;
-            auto result = read_xml_element
+            auto result = read_json_element
             (
                 &errors,
                 doc,
                 could_be_callback,
-                ""
+                "$"
             );
             if(errors.empty() == false)
             {
@@ -228,24 +228,24 @@ namespace euphoria::core
         }
     }
 
-    template <typename T, typename ReadXmlElementFun>
+    template <typename T, typename ReadJsonElementFun>
     ReadResult<T>
-    read_xml_file_to_gaf_struct
+    read_json_file_to_gaf_struct
     (
         vfs::FileSystem* fs,
         const vfs::FilePath& file_name,
-        ReadXmlElementFun read_xml_element
+        ReadJsonElementFun read_json_element
     )
     {
         auto source = get_file_contents_or_null(fs, file_name);
         if(source)
         {
-            return read_xml_source_to_gaf_struct
-            <T, ReadXmlElementFun>
+            return read_json_source_to_gaf_struct
+            <T, ReadJsonElementFun>
             (
                 get_string_from_path(file_name),
                 *source,
-                read_xml_element
+                read_json_element
             );
         }
         else

@@ -72,7 +72,7 @@ namespace euphoria::t3d
         SET_ENUM_FROM_FILE
         (
             engine->file_system.get(),
-            core::vfs::FilePath{"~/texture_types.xml"},
+            core::vfs::FilePath{"~/texture_types.json"},
             core::texture_type
         );
 

@@ -71,10 +71,10 @@ namespace euphoria::render
     )
         : texture(cache->get_texture(path))
     {
-        const auto xml_path = path.set_extension_copy(path.get_extension()+ ".xml");
+        const auto json_path = path.set_extension_copy(path.get_extension()+ ".json");
         const auto sprite = core::get_default_but_log_errors
         (
-            core::read_xml_file_to_gaf_struct<scalingsprite::ScalingSprite>(fs, xml_path, scalingsprite::ReadJsonScalingSprite)
+            core::read_json_file_to_gaf_struct<scalingsprite::ScalingSprite>(fs, json_path, scalingsprite::ReadJsonScalingSprite)
         );
 
         calculated_texture_size_rows = copy_data(&rows, sprite.rows);

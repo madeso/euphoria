@@ -371,7 +371,7 @@ main(int argc, char* argv[])
     (
         engine.file_system.get(),
         &font_cache,
-        vfs::FilePath{"~/gui.xml"},
+        vfs::FilePath{"~/gui.json"},
         &cache
     );
 
