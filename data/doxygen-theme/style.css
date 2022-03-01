@@ -674,4 +674,23 @@ hr
     max-width: 40em;
 }
 
+span.mlabels span.mlabel
+{
+    padding-left: 0.4em;
+}
 
+span.mlabels span.mlabel::before { content: "[" }
+span.mlabels span.mlabel::after { content: "]" }
+
+
+span.lineno
+{
+    margin-right: 0.6em;
+    padding-right: 0.6em;
+}
+
+
+.memproto
+{
+    padding: 10px;
+}
