@@ -188,7 +188,7 @@ struct TextEditorWindow : GenericWindow
     explicit TextEditorWindow(const std::string& str)
     {
         const auto length = str.size();
-        buffer.reserve(length + 1);
+        buffer.resize(length + 1, ' ');
         strncpy(&buffer[0], str.c_str(), length);
         buffer[length] = 0;
     }
