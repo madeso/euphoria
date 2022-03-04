@@ -30,11 +30,11 @@ namespace euphoria::t3d
     std::shared_ptr<PlacedMesh>
     Editor::get_first_selected_or_null()
     {
-        for(auto act : actors)
+        for(auto mesh : placed_meshes)
         {
-            if(act->is_selected)
+            if(mesh->is_selected)
             {
-                return act;
+                return mesh;
             }
         }
 
@@ -45,9 +45,9 @@ namespace euphoria::t3d
     void
     Editor::set_all_selected(bool is_selected)
     {
-        for(auto actor: actors)
+        for(auto mesh: placed_meshes)
         {
-            actor->is_selected = is_selected;
+            mesh->is_selected = is_selected;
         }
     }
 
@@ -57,13 +57,13 @@ namespace euphoria::t3d
     {
         std::vector<std::shared_ptr<PlacedMesh>> r;
 
-        for(auto a: actors)
+        for(auto mesh: placed_meshes)
         {
-            const auto collision = core::get_intersection(ray, a->tile->aabb.offset_copy(a->actor->position));
+            const auto collision = core::get_intersection(ray, mesh->tile->aabb.offset_copy(mesh->actor->position));
             
             if(collision.intersected)
             {
-                r.emplace_back(a);
+                r.emplace_back(mesh);
             }
         }
 

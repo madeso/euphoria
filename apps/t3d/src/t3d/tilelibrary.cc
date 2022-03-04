@@ -22,14 +22,23 @@ namespace euphoria::t3d
     Tile::~Tile() = default;
 
 
-    TileLibrary::TileLibrary(core::vfs::FileSystem* fs) : file_system(fs) {}
+    TileLibrary::TileLibrary(core::vfs::FileSystem* fs)
+        : file_system(fs)
+    {
+    }
 
 
     std::shared_ptr<Tile>
     TileLibrary::get_first_tile()
     {
-        if(tiles.empty()) { return nullptr; }
-        else { return tiles[0]; }
+        if(tiles.empty())
+        {
+            return nullptr;
+        }
+        else
+        {
+            return tiles[0];
+        }
     }
 
 
@@ -41,7 +50,7 @@ namespace euphoria::t3d
         bool tile_has_changed = false;
 
         ImGui::BeginListBox("Tiles");
-        for(auto tile: tiles)
+        for(auto& tile: tiles)
         {
             std::string display = core::StringBuilder {}
                 << tile->name << ": "
@@ -66,20 +75,20 @@ namespace euphoria::t3d
         render::TextureCache* texture_cache
     )
     {
-        const auto loaded_mesh = core::meshes::load_mesh(file_system, path);
-        if(!loaded_mesh.error.empty())
+        const auto loaded_mesh_result = core::meshes::load_mesh(file_system, path);
+        if(!loaded_mesh_result.error.empty())
         {
-            LOG_WARN("Failed to open {0}: {1}", path, loaded_mesh.error);
+            LOG_WARN("Failed to open {0}: {1}", path, loaded_mesh_result.error);
             return;
         }
 
         auto tile = std::make_shared<t3d::Tile>();
         tile->path = path;
         tile->name = path.get_filename_without_extension();
-        tile->aabb = loaded_mesh.loaded_mesh.calculate_aabb();
+        tile->aabb = loaded_mesh_result.loaded_mesh.calculate_aabb();
         tile->mesh = compile_mesh
         (
-            loaded_mesh.loaded_mesh,
+            loaded_mesh_result.loaded_mesh,
             shader_cache,
             texture_cache,
             // todo(Gustav): test with mesh directory instead of root?

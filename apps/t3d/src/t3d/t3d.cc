@@ -150,7 +150,7 @@ namespace euphoria::t3d
         const auto size = core::abs(core::c_int_to_float(grid_data.size) * grid_data.small_step);
         const auto normal = grid_data.normal;
 
-        auto def = core::Lines {};
+        auto def = core::Lines{};
 
         if(normal > 0)
         {
@@ -172,8 +172,8 @@ namespace euphoria::t3d
             add_single_grid_line(&def, size, x, color);
         }
 
-        def.add_line(core::Vec3f {-size, 0, 0}, core::Vec3f {size, 0, 0}, x_color);
-        def.add_line(core::Vec3f {0, 0, -size}, core::Vec3f {0, 0, size}, z_color);
+        def.add_line(core::Vec3f{-size, 0, 0}, core::Vec3f{size, 0, 0}, x_color);
+        def.add_line(core::Vec3f{0, 0, -size}, core::Vec3f{0, 0, size}, z_color);
 
         auto compiled = compile(material_shader_cache.get(), def);
         grid = std::make_shared<render::PositionedLines>(compiled);
@@ -196,35 +196,39 @@ namespace euphoria::t3d
         }
 
         auto& io = ImGui::GetIO();
-        const auto forward_keyboard
-                = !(show_imgui && io.WantCaptureKeyboard);
+        const auto forward_keyboard = !(show_imgui && io.WantCaptureKeyboard);
         const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
 
         switch(e.type)
         {
-        case SDL_QUIT: running = false; break;
-        case SDL_MOUSEMOTION:
-        {
-            const auto mouse_position = core::Vec2i
-            (
-                e.motion.x,
-                viewport_handler->window_height - e.motion.y
-            );
-            const auto mouse_movement = core::Vec2i
-            (
-                e.motion.xrel,
-                e.motion.yrel
-            );
-            on_mouse_movement(mouse_position, mouse_movement, forward_mouse);
+        case SDL_QUIT:
+            running = false;
             break;
-        }
+
+        case SDL_MOUSEMOTION:
+            {
+                const auto mouse_position = core::Vec2i
+                (
+                    e.motion.x,
+                    viewport_handler->window_height - e.motion.y
+                );
+                const auto mouse_movement = core::Vec2i
+                (
+                    e.motion.xrel,
+                    e.motion.yrel
+                );
+                on_mouse_movement(mouse_position, mouse_movement, forward_mouse);
+            }
+            break;
+
         case SDL_KEYDOWN:
-        case SDL_KEYUP: {
-            const auto key = window::to_key(e.key.keysym);
-            const bool down = e.type == SDL_KEYDOWN;
-            on_key(key, down, forward_keyboard);
-        }
-        break;
+        case SDL_KEYUP:
+            {
+                const auto key = window::to_key(e.key.keysym);
+                const bool down = e.type == SDL_KEYDOWN;
+                on_key(key, down, forward_keyboard);
+            }
+            break;
 
         case SDL_MOUSEBUTTONDOWN:
         case SDL_MOUSEBUTTONUP:
@@ -238,7 +242,6 @@ namespace euphoria::t3d
         case SDL_MOUSEWHEEL:
             on_mouse_wheel(e, forward_mouse);
             break;
-
 
         default:
             // ignore other events
@@ -257,8 +260,14 @@ namespace euphoria::t3d
             if(mmb_down)
             {
                 const auto mm = static_cast<euphoria::core::Vec2f>(movement);
-                if(shift_down) { orbit.on_pan_input(mm.x, mm.y); }
-                else { orbit.on_rotate_input(mm.x, mm.y); }
+                if(shift_down)
+                {
+                    orbit.on_pan_input(mm.x, mm.y);
+                }
+                else
+                {
+                    orbit.on_rotate_input(mm.x, mm.y);
+                }
             }
         }
     }
@@ -277,6 +286,7 @@ namespace euphoria::t3d
                     running = false;
                 }
                 break;
+
             case core::Key::tab:
                 if(!down)
                 {
@@ -285,6 +295,7 @@ namespace euphoria::t3d
                     euphoria::window::enable_char_event(!immersive_mode);
                 }
                 break;
+                
             default:
                 editor->on_key(key, down);
                 break;
@@ -297,6 +308,7 @@ namespace euphoria::t3d
             case core::Key::shift_right:
                 shift_down = down;
                 break;
+                
             default:
                 break;
         }
@@ -434,26 +446,26 @@ namespace euphoria::t3d
     void
     Application::on_lister_window()
     {
-        auto actors = editor->actors;
-        if(actors.empty())
+        auto placed_meshes = editor->placed_meshes;
+        if(placed_meshes.empty())
         {
             return;
         }
 
         ImGui::BeginListBox("Items");
-        for(auto actor: actors)
+        for(auto mesh: placed_meshes)
         {
-            ASSERT(actor->tile);
-            ASSERT(actor->tile);
-            const auto p = actor->actor->position;
+            ASSERT(mesh->tile);
+            ASSERT(mesh->tile);
+            const auto p = mesh->actor->position;
             std::string display = core::StringBuilder {}
-                << actor->tile->name
+                << mesh->tile->name
                 << " "
                 << p;
-            if(ImGui::Selectable(display.c_str(), actor->is_selected))
+            if(ImGui::Selectable(display.c_str(), mesh->is_selected))
             {
                 editor->set_all_selected(false);
-                actor->is_selected = !actor->is_selected;
+                mesh->is_selected = !mesh->is_selected;
             }
         }
         ImGui::EndListBox();
@@ -611,25 +623,25 @@ namespace euphoria::t3d
         // if(!tile_library->tiles.empty())
         if(ImGui::Button(ICON_MDI_PLUS) && !editor->is_busy())
         {
-            if(editor->selected_mesh == nullptr)
+            if(editor->selected_tile == nullptr)
             {
-                editor->selected_mesh = tile_library->get_first_tile();
+                editor->selected_tile = tile_library->get_first_tile();
             }
 
             // todo(Gustav): add message if tile library is empty...
 
-            if(editor->selected_mesh)
+            if(editor->selected_tile)
             {
                 editor->set_all_selected(false);
                 auto placed = std::make_shared<PlacedMesh>();
-                placed->tile = editor->selected_mesh;
+                placed->tile = editor->selected_tile;
                 placed->is_selected = true;
                 placed->actor = std::make_shared<render::Actor>
                 (
                         placed->tile->mesh
                 );
                 world->add_actor(placed->actor);
-                editor->actors.emplace_back(placed);
+                editor->placed_meshes.emplace_back(placed);
 
                 editor->tools.push_tool
                 (
@@ -655,7 +667,7 @@ namespace euphoria::t3d
                         placed->tile->mesh
                 );
                 world->add_actor(placed->actor);
-                editor->actors.emplace_back(placed);
+                editor->placed_meshes.emplace_back(placed);
 
                 editor->tools.push_tool
                 (
@@ -672,7 +684,7 @@ namespace euphoria::t3d
             auto placed = editor->get_first_selected_or_null();
             if(placed != nullptr && !editor->is_busy())
             {
-                editor->selected_mesh = placed->tile;
+                editor->selected_tile = placed->tile;
                 editor->tools.push_tool
                 (
                     std::make_shared<ToolPlaceMeshOnAPlane>(placed)

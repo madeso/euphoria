@@ -49,8 +49,8 @@ namespace euphoria::t3d
         core::Vec2i mouse;
         ToolStack tools;
 
-        std::vector<std::shared_ptr<PlacedMesh>> actors;
-        std::shared_ptr<Tile> selected_mesh;
+        std::vector<std::shared_ptr<PlacedMesh>> placed_meshes;
+        std::shared_ptr<Tile> selected_tile;
 
         // todo(Gustav): move camera here so we can have camera movement
         // change so that fps control rotate focuspoint around current camera pos

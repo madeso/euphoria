@@ -17,7 +17,8 @@ namespace euphoria::t3d
 
     void
     ToolNoTool::step(Editor*)
-    {}
+    {
+    }
 
 
     void
@@ -25,10 +26,17 @@ namespace euphoria::t3d
     {
         if(down) { return; }
         if(button != core::MouseButton::left) { return; }
+
         auto ray = editor->camera
-                        .clip_to_world_ray(
-                                editor->viewport.to_clip_coord(editor->mouse))
-                        .get_normalized();
+            .clip_to_world_ray
+            (
+                editor->viewport.to_clip_coord
+                (
+                    editor->mouse
+                )
+            )
+            .get_normalized()
+            ;
         
         editor->set_all_selected(false);
         auto hits = editor->raycast(ray);
@@ -42,12 +50,14 @@ namespace euphoria::t3d
 
     void
     ToolNoTool::on_key(Editor*, core::Key, bool)
-    {}
+    {
+    }
 
 
     void
     ToolNoTool::on_scroll(Editor*, const core::Vec2i&)
-    {}
+    {
+    }
 
 
     void

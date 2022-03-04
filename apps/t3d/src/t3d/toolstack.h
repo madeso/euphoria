@@ -8,6 +8,7 @@ namespace euphoria::t3d
     struct Tool;
     struct tool_action;
 
+
     struct ToolStack
     {
         Tool*

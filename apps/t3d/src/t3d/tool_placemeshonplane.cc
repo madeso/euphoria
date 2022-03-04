@@ -13,10 +13,20 @@
 
 namespace euphoria::t3d
 {
-    ToolPlaceMeshOnAPlane::ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> aactor)
-        : actor(aactor)
+    namespace
+    {
+        float
+            snap_to(float val, float step)
+        {
+            return core::round(val, step);
+        }
+    }
+
+    ToolPlaceMeshOnAPlane::ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> mesh_to_place)
+        : placed_mesh(mesh_to_place)
         , plane(core::Plane::from_normal_and_point(core::Unit3f::up(), core::Vec3f::zero()))
-    {}
+    {
+    }
 
 
     bool
@@ -25,30 +35,27 @@ namespace euphoria::t3d
         return true;
     }
 
-
-    float
-    snap_to(float val, float step)
-    {
-        return core::round(val, step);
-    }
-
-
     void
     ToolPlaceMeshOnAPlane::step(Editor* editor)
     {
         auto ray = editor->camera
-                        .clip_to_world_ray(
-                                editor->viewport.to_clip_coord(editor->mouse))
-                        .get_normalized();
+            .clip_to_world_ray
+            (
+                editor->viewport.to_clip_coord
+                (
+                    editor->mouse
+                )
+            )
+            .get_normalized()
+            ;
 
         const auto t = core::get_intersection(ray, plane);
-
-        // LOG_INFO("Step " << editor->mouse << ", " << t);
 
         if(t < 0)
         {
             return;
         }
+
         // do intersection with plane...
         auto p = ray.get_point(t);
 
@@ -58,7 +65,7 @@ namespace euphoria::t3d
             p.z = snap_to(p.z, editor->grid->small_step);
         }
 
-        actor->actor->position = p;
+        placed_mesh->actor->position = p;
     }
 
 
@@ -66,10 +73,15 @@ namespace euphoria::t3d
     ToolPlaceMeshOnAPlane::on_mouse(Editor* editor, core::MouseButton button, bool down)
     {
         if(down) { return; }
+
         switch(button)
         {
-        case core::MouseButton::left: editor->tools.pop_tool(); break;
-        default: break;
+        case core::MouseButton::left:
+            editor->tools.pop_tool();
+            break;
+
+        default:
+            break;
         }
     }
 
@@ -78,18 +90,23 @@ namespace euphoria::t3d
     ToolPlaceMeshOnAPlane::on_key(Editor* editor, core::Key key, bool down)
     {
         if(down) { return; }
+
         switch(key)
         {
-        case core::Key::return_key: editor->tools.pop_tool(); break;
-        default: break;
+        case core::Key::return_key:
+            editor->tools.pop_tool();
+            break;
+
+        default:
+            break;
         }
     }
 
 
     void
     ToolPlaceMeshOnAPlane::on_scroll(Editor*, const core::Vec2i&)
-    {}
-
+    {
+    }
 
 
     void
@@ -98,12 +115,12 @@ namespace euphoria::t3d
         ImGui::Text("Placing object in world!");
 
 
-        if(editor->selected_mesh != nullptr)
+        if(editor->selected_tile != nullptr)
         {
-            if(editor->tile_library->run_imgui_list(&editor->selected_mesh))
+            if(editor->tile_library->run_imgui_list(&editor->selected_tile))
             {
-                actor->tile = editor->selected_mesh;
-                actor->actor->mesh = editor->selected_mesh->mesh;
+                placed_mesh->tile = editor->selected_tile;
+                placed_mesh->actor->mesh = editor->selected_tile->mesh;
             }
         }
     }
