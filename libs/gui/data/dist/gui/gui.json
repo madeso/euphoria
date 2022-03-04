@@ -4,7 +4,7 @@
     "skins": [
         {
             "name": "default",
-            "font": "guifont.xml",
+            "font": "guifont.json",
             "button_image": "gui/glassPanel_projection.png",
             "text_size": 30,
             "button_idle": {
@@ -12,37 +12,37 @@
                 "image_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
                 "text_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
                 "dx": 0, "dy": 0,
-                "interpolate_position": "QuadOut",
+                "interpolate_position": "smooth_stop3",
                 "interpolate_position_time": 0,
-                "interpolate_size": "QuadOut",
+                "interpolate_size": "smooth_stop3",
                 "interpolate_size_time": 0.2,
-                "interpolate_color": "QuadOut",
+                "interpolate_color": "smooth_stop3",
                 "interpolate_color_time": 0
             },
             "button_hot": {
                 "scale": 1.1,
-                "interpolate_size": "QuadOut",
+                "interpolate_size": "smooth_stop3",
                 "interpolate_size_time": 0.2,
 
                 "image_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
                 "text_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
                 "dx": 0, "dy": 0,
-                "interpolate_position": "QuadOut",
+                "interpolate_position": "smooth_stop3",
                 "interpolate_position_time": 0,
-                "interpolate_color": "QuadOut",
+                "interpolate_color": "smooth_stop3",
                 "interpolate_color_time": 0
             },
             "button_active_hot": {
                 "scale": 0.9,
-                "interpolate_size": "QuadOut",
+                "interpolate_size": "smooth_stop3",
                 "interpolate_size_time": 0.2,
 
                 "image_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
                 "text_color": { "r": 1.0, "g": 1.0, "b": 1.0 },
                 "dx": 0, "dy": 0,
-                "interpolate_position": "QuadOut",
+                "interpolate_position": "smooth_stop3",
                 "interpolate_position_time": 0,
-                "interpolate_color": "QuadOut",
+                "interpolate_color": "smooth_stop3",
                 "interpolate_color_time": 0
             }
         }
@@ -70,7 +70,6 @@
                         }},
                         "widgets": [
                             {
-                                "preferred_with": 0,
                                 "name": "hello btn",
                                 "column": 0, "row": 0,
                                 "preferred_width": 0, "preferred_height": 0,
