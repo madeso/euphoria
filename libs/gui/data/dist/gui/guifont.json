@@ -1,11 +1,14 @@
 {
     "size": 30,
-    "sources": [
-        { "font": {
+    "sources":
+    [
+        {
+            "font": {
             "file": "kenvector_future.ttf",
             "characters": " abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ;:,.-_<>|1234567890!\"#¤%&/()'=?@£$€¥{[]}\\'*"
         }},
-        { "image": {
+        {
+            "image": {
             "file": "cross.png",
             "alias": "cross",
             "scale": 1,
@@ -13,7 +16,8 @@
             "bearing_y": -8,
             "advance": 0
         }},
-        { "image": {
+        {
+            "image": {
             "file": "checkmark.png",
             "alias": "check",
             "scale": 1,
