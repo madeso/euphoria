@@ -251,6 +251,8 @@ target_compile_definitions(imgui
         -DIMGUI_IMPL_OPENGL_LOADER_GLAD
     PUBLIC
         -DIMGUI_DISABLE_OBSOLETE_FUNCTIONS
+        # this does not switch to utf-32, this only extends dear imgui to support more fonts 32
+        -DIMGUI_USE_WCHAR32
 )
 target_link_libraries(imgui
     PUBLIC
