@@ -1,4 +1,4 @@
-    #include "window/imguilibrary.h"
+#include "window/imguilibrary.h"
 
 #include <cstdint>
 
@@ -25,11 +25,11 @@ namespace euphoria::window::imgui
 
         // io.Fonts->AddFontDefault();
         io.Fonts->AddFontFromMemoryCompressedTTF
-                (
-                        NotoSansDisplay_compressed_data,
-                        NotoSansDisplay_compressed_size,
-                        16
-                );
+        (
+            NotoSansDisplay_compressed_data,
+            NotoSansDisplay_compressed_size,
+            16
+        );
 
         const uint64_t min_mdi = ICON_MIN_MDI;
         const uint64_t max_mdi = ICON_MAX_MDI;
@@ -53,13 +53,13 @@ namespace euphoria::window::imgui
         icons_config.GlyphMinAdvanceX = 13.0f;
 
         io.Fonts->AddFontFromMemoryCompressedTTF
-                (
-                        MaterialDesignIcons_compressed_data,
-                        MaterialDesignIcons_compressed_size,
-                        13.0f,
-                        &icons_config,
-                        icons_ranges
-                );
+        (
+            MaterialDesignIcons_compressed_data,
+            MaterialDesignIcons_compressed_size,
+            13.0f,
+            &icons_config,
+            icons_ranges
+        );
     }
 
 
