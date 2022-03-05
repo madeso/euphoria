@@ -34,13 +34,6 @@ namespace euphoria::window
 
 namespace euphoria::window::imgui
 {
-    bool
-    input_text(const char* label, std::string* str)
-    {
-        return ImGui::InputText(label, str);
-    }
-
-
     void
     help_marker(const char* desc)
     {

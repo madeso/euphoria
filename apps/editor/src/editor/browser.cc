@@ -1,6 +1,7 @@
 #include "editor/browser.h"
 
 #include "imgui/imgui.h"
+#include "imgui_stdlib.h"
 
 #include "core/os.h"
 #include "core/vfs_path.h"
@@ -105,8 +106,8 @@ namespace euphoria::editor
     bool
     FileBrowser::run()
     {
-        window::imgui::input_text("URL", &current_folder.path);
-        window::imgui::input_text("Filter", &filter);
+        ImGui::InputText("URL", &current_folder.path);
+        ImGui::InputText("Filter", &filter);
         if(ImGui::BeginListBox("", ImVec2 {-1, -1}) == false)
         {
             return false;

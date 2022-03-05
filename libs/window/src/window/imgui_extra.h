@@ -79,9 +79,6 @@ namespace euphoria::window::imgui
             | knob_style_vis_value_instead_of_name
     };
 
-    bool
-    input_text(const char* label, std::string* str);
-
     void
     help_marker(const char* desc);
 

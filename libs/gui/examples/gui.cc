@@ -42,6 +42,7 @@
 
 #include "imgui/imgui.h"
 #include "imgui/imgui_internal.h"
+#include "imgui_stdlib.h"
 
 using namespace euphoria::core;
 using namespace euphoria::gui;
@@ -59,7 +60,7 @@ imgui_widget(const char* title, Size2f* s)
 void
 imgui_widget(const char* title, std::string* str)
 {
-    imgui::input_text(title, str);
+    ImGui::InputText(title, str);
 }
 
 bool
@@ -217,7 +218,7 @@ struct ImguiWidgetVisitor : public Visitor
 bool
 imgui_widget(Widget* w)
 {
-    imgui::input_text("name", &w->name);
+    ImGui::InputText("name", &w->name);
     imgui_widget("margin", &w->margin);
     imgui_widget("padding", &w->padding);
     imgui_widget("rect", &w->rect);
@@ -290,7 +291,7 @@ imgui_widget(Skin* skin)
 {
     if(ImGui::TreeNode(skin->name.c_str()) == false) { return; }
 
-    imgui::input_text("name", &skin->name);
+    ImGui::InputText("name", &skin->name);
     imgui_widget("font", skin->font.get());
     ImGui::DragFloat("text size", &skin->text_size);
 
