@@ -30,6 +30,8 @@
 #include "SDL.h"
 #include <memory>
 
+#include "imgui_stdlib.h"
+
 #include "gaf_game.h"
 #include "gaf_world.h"
 #include "gaf_enum.h"
@@ -183,25 +185,17 @@ struct TextEditorWindow : GenericWindow
 {
     // todo(Gustav): look into using a more complex text editor?
     // https://github.com/BalazsJako/ImGuiColorTextEdit
-    std::vector<char> buffer;
+    std::string text;
 
     explicit TextEditorWindow(const std::string& str)
+        : text(str)
     {
-        const auto length = str.size();
-        buffer.resize(length + 1, ' ');
-        strncpy(&buffer[0], str.c_str(), length);
-        buffer[length] = 0;
     }
 
     void
     run(StyleData*) override
     {
-        ImGui::InputTextMultiline("", &buffer[0], buffer.capacity(), ImVec2 {-1, -1});
-        if(buffer.size() + 2 > buffer.capacity())
-        {
-            buffer.push_back(0);
-            buffer.push_back(0);
-        }
+        ImGui::InputTextMultiline("", &text, ImVec2 {-1, -1});
     }
 };
 
