@@ -135,149 +135,146 @@
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            | <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa8f31772736bf63060dcb2b57fd036d8d">knob_style_vis_value_instead_of_name</a></div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    };</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a830f17dffa46f918390140c4d52271fd">input_text</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>, std::string* str);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ac834ab6efca3af5142116422979baecc">help_marker</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* desc);</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ac834ab6efca3af5142116422979baecc">help_marker</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* desc);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a7c3e79b13da62535e6b5ab436ec817ed">help_text</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* desc);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a7c3e79b13da62535e6b5ab436ec817ed">help_text</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* desc);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>(<span class="keyword">const</span> std::string&amp; str);</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a26c31c0b2ef08876ccca07da05350315">angle_slider</a></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    (</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* name,</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a>* angle,</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a>&amp; min_deg,</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a>&amp; max_deg</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    );</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a26c31c0b2ef08876ccca07da05350315">angle_slider</a></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    (</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* name,</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a>* angle,</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a>&amp; min_deg,</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a>&amp; max_deg</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    );</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a28dce8129588e66894a8bdc9d9b5b6d6">toggle_button</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>, <span class="keywordtype">bool</span> down, <span class="keyword">const</span> ImVec2&amp; size);</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a28dce8129588e66894a8bdc9d9b5b6d6">toggle_button</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>, <span class="keywordtype">bool</span> down, <span class="keyword">const</span> ImVec2&amp; size);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ImTextureID</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a2e92c5022becd962e6deea57eeac5fb1">c_texture_to_imgui</a>(<a class="code" href="structeuphoria_1_1render_1_1Texture2.html">render::Texture2</a>* texture);</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    ImTextureID</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a2e92c5022becd962e6deea57eeac5fb1">c_texture_to_imgui</a>(<a class="code" href="structeuphoria_1_1render_1_1Texture2.html">render::Texture2</a>* texture);</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a21e4957ab2346183f5c6aa2ba465d128">image</a>(<a class="code" href="structeuphoria_1_1render_1_1Texture2.html">render::Texture2</a>* texture);</div>
 <div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a21e4957ab2346183f5c6aa2ba465d128">image</a>(<a class="code" href="structeuphoria_1_1render_1_1Texture2.html">render::Texture2</a>* texture);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#acf364e3536431669fa0414d1d315ea62">color_edit</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, <a class="code" href="structeuphoria_1_1core_1_1Rgb.html">core::Rgb</a>* rgb);</div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#acf364e3536431669fa0414d1d315ea62">color_edit</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, <a class="code" href="structeuphoria_1_1core_1_1Rgb.html">core::Rgb</a>* rgb);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#acf364e3536431669fa0414d1d315ea62">color_edit</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, <a class="code" href="structeuphoria_1_1core_1_1Rgba.html">core::Rgba</a>* rgb);</div>
 <div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
 <div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#acf364e3536431669fa0414d1d315ea62">color_edit</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, <a class="code" href="structeuphoria_1_1core_1_1Rgba.html">core::Rgba</a>* rgb);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#acf364e3536431669fa0414d1d315ea62">color_edit</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, <a class="code" href="structeuphoria_1_1core_1_1Rgbai.html">core::Rgbai</a>* rgb);</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#acf364e3536431669fa0414d1d315ea62">color_edit</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, <a class="code" href="structeuphoria_1_1core_1_1Rgbai.html">core::Rgbai</a>* rgb);</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ab4e83f1842363a529b4d6774005c3f1c">begin_fixed_overlay</a></div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    (</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <a class="code" href="namespaceeuphoria_1_1window.html#af0e2b3cfd44cffa0089449896c9f19f5">Corner</a> corner,</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        <span class="keyword">const</span> std::string&amp; title,</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        <span class="keywordtype">float</span> distance = 10.0f,</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">float</span> distance_y = -1.0f</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    );</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html">  132</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html">VisuallyDisabledWidgets</a></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html#a5c6240773ad147876e1c8246a30322d2">VisuallyDisabledWidgets</a>();</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html#a0520ebdc5dcc5323d610bb9113eab988">~VisuallyDisabledWidgets</a>();</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ab4e83f1842363a529b4d6774005c3f1c">begin_fixed_overlay</a></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    (</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        <a class="code" href="namespaceeuphoria_1_1window.html#af0e2b3cfd44cffa0089449896c9f19f5">Corner</a> corner,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keyword">const</span> std::string&amp; title,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <span class="keywordtype">float</span> distance = 10.0f,</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        <span class="keywordtype">float</span> distance_y = -1.0f</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    );</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html">  129</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html">VisuallyDisabledWidgets</a></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html#a5c6240773ad147876e1c8246a30322d2">VisuallyDisabledWidgets</a>();</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html#a0520ebdc5dcc5323d610bb9113eab988">~VisuallyDisabledWidgets</a>();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html#a35ad125d009364dacdd350cc6917b63c">NONCOPYABLE</a>(<a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html">VisuallyDisabledWidgets</a>);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    };</div>
 <div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html#a35ad125d009364dacdd350cc6917b63c">NONCOPYABLE</a>(<a class="code" href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html">VisuallyDisabledWidgets</a>);</div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    };</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ae71214bbf2b61728f61b3cce0cffdf37">selectable_or_disabled</a>(<span class="keywordtype">bool</span> enabled, <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>);</div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
 <div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ae71214bbf2b61728f61b3cce0cffdf37">selectable_or_disabled</a>(<span class="keywordtype">bool</span> enabled, <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a1626574de081081c5f994ffb5864b932">knob</a></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    (</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>,</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <span class="keywordtype">float</span>* p_value,</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordtype">float</span> v_min,</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        <span class="keywordtype">float</span> v_max,</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360af">KnobStyle</a> style = <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa4e68fd227d30a3f76a4615d0ed4a6b6b">knob_style_default</a></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    );</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a1626574de081081c5f994ffb5864b932">knob</a></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    (</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>,</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <span class="keywordtype">float</span>* p_value,</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordtype">float</span> v_min,</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordtype">float</span> v_max,</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360af">KnobStyle</a> style = <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa4e68fd227d30a3f76a4615d0ed4a6b6b">knob_style_default</a></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    );</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a9422682b9ef6133684f37c81e8cb3594">canvas_begin</a>(<span class="keyword">const</span> ImVec4&amp; background_color, <span class="keyword">const</span> <span class="keywordtype">char</span>* title);</div>
 <div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a9422682b9ef6133684f37c81e8cb3594">canvas_begin</a>(<span class="keyword">const</span> ImVec4&amp; background_color, <span class="keyword">const</span> <span class="keywordtype">char</span>* title);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a9a8b4467c61c7b693015ff92d9f673f8">canvas_end</a>();</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a9a8b4467c61c7b693015ff92d9f673f8">canvas_end</a>();</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment">// wrappers over dear imgui functions to avoid exposing the whole dear imgui header</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="comment">// wrappers over dear imgui functions to avoid exposing the whole dear imgui header</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#af0297c4982600d0059ad7e4a6b372c78">begin_combo</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>, <span class="keyword">const</span> <span class="keywordtype">char</span>* preview);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
 <div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#af0297c4982600d0059ad7e4a6b372c78">begin_combo</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>, <span class="keyword">const</span> <span class="keywordtype">char</span>* preview);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ab63b2b639aab9a0b8860c5eb79fc9948">selectable</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>, <span class="keywordtype">bool</span> is_selected);</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ab63b2b639aab9a0b8860c5eb79fc9948">selectable</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>, <span class="keywordtype">bool</span> is_selected);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a2c1f67c04ae5e4561993c90234905412">end_combo</a>();</div>
 <div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a2c1f67c04ae5e4561993c90234905412">end_combo</a>();</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a42cd813f5bc810a2184c59277c611fce">combo</a></div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1window_1_1imgui.html#a42cd813f5bc810a2184c59277c611fce">  171</a></span>&#160;    (</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>,</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        T* data,</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        std::vector&lt;std::pair&lt;const char*, T&gt;&gt; values</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    )</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    {</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> found = std::find_if</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        (</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;            values.begin(), values.end(),</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            [data](<span class="keyword">const</span> std::pair&lt;const char*, T&gt;&amp; p)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;                return p.</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                second == *data;</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            }</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        );</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* preview_value = found != values.end() ? found-&gt;first : <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        <span class="keywordtype">bool</span> was_changed = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#af0297c4982600d0059ad7e4a6b372c78">begin_combo</a>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>, preview_value))</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        {</div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; v: values)</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;            {</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ab63b2b639aab9a0b8860c5eb79fc9948">selectable</a>(v.first, v.second == *data))</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                {</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                    *data = v.second;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                    was_changed = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                }</div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;            }</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;            <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a2c1f67c04ae5e4561993c90234905412">end_combo</a>();</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        }</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a42cd813f5bc810a2184c59277c611fce">combo</a></div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1window_1_1imgui.html#a42cd813f5bc810a2184c59277c611fce">  168</a></span>&#160;    (</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>,</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        T* data,</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        std::vector&lt;std::pair&lt;const char*, T&gt;&gt; values</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    )</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> found = std::find_if</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        (</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            values.begin(), values.end(),</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            [data](<span class="keyword">const</span> std::pair&lt;const char*, T&gt;&amp; p)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;            {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;                return p.</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;                second == *data;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        );</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">char</span>* preview_value = found != values.end() ? found-&gt;first : <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordtype">bool</span> was_changed = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#af0297c4982600d0059ad7e4a6b372c78">begin_combo</a>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>, preview_value))</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; v: values)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;            {</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ab63b2b639aab9a0b8860c5eb79fc9948">selectable</a>(v.first, v.second == *data))</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                    *data = v.second;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                    was_changed = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;            }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;            <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a2c1f67c04ae5e4561993c90234905412">end_combo</a>();</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">return</span> was_changed;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
 <div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <span class="keywordflow">return</span> was_changed;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> F&gt;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1window_1_1imgui.html#ac2d5234592ab0009c2ff7b841be58dcc">  209</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ac2d5234592ab0009c2ff7b841be58dcc">custom_dropdown</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, T* current, T max, F <a class="code" href="namespaceeuphoria_1_1core.html#af24d04d4cc7e9dadc73b1412e11952cf">to_string</a>)</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    {</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#af0297c4982600d0059ad7e4a6b372c78">begin_combo</a>(name, <a class="code" href="namespaceeuphoria_1_1core.html#af24d04d4cc7e9dadc73b1412e11952cf">to_string</a>(*current).c_str()))</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        {</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; static_cast&lt;int&gt;(max); i += 1)</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            {</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> o = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(i);</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ab63b2b639aab9a0b8860c5eb79fc9948">selectable</a>(<a class="code" href="namespaceeuphoria_1_1core.html#af24d04d4cc7e9dadc73b1412e11952cf">to_string</a>(o).c_str(), *current == o))</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;                {</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                    *current = o;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                }</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            }</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a2c1f67c04ae5e4561993c90234905412">end_combo</a>();</div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        }</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    }</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;}</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1window_1_1imgui.html#ac2d5234592ab0009c2ff7b841be58dcc">  206</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ac2d5234592ab0009c2ff7b841be58dcc">custom_dropdown</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name, T* current, T max, F <a class="code" href="namespaceeuphoria_1_1core.html#af24d04d4cc7e9dadc73b1412e11952cf">to_string</a>)</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#af0297c4982600d0059ad7e4a6b372c78">begin_combo</a>(name, <a class="code" href="namespaceeuphoria_1_1core.html#af24d04d4cc7e9dadc73b1412e11952cf">to_string</a>(*current).c_str()))</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> i = 0; i &lt; static_cast&lt;int&gt;(max); i += 1)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;            {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;                <span class="keyword">const</span> <span class="keyword">auto</span> o = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(i);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#ab63b2b639aab9a0b8860c5eb79fc9948">selectable</a>(<a class="code" href="namespaceeuphoria_1_1core.html#af24d04d4cc7e9dadc73b1412e11952cf">to_string</a>(o).c_str(), *current == o))</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                    *current = o;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                }</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#a2c1f67c04ae5e4561993c90234905412">end_combo</a>();</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespaceeuphoria_1_1window_html"><div class="ttname"><a href="namespaceeuphoria_1_1window.html">euphoria::window</a></div><div class="ttdef"><b>Definition:</b> <a href="canvas_8h_source.html#l00007">canvas.h:7</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_html_af0e2b3cfd44cffa0089449896c9f19f5a369408ec984d94fb270ae125c6de1a5b"><div class="ttname"><a href="namespaceeuphoria_1_1window.html#af0e2b3cfd44cffa0089449896c9f19f5a369408ec984d94fb270ae125c6de1a5b">euphoria::window::Corner::bottom_left</a></div><div class="ttdeci">@ bottom_left</div></div>
@@ -287,7 +284,7 @@
 <div class="ttc" id="anamespaceeuphoria_1_1window_html_af0e2b3cfd44cffa0089449896c9f19f5ab88b8c9790136e01b8dfce869959cea3"><div class="ttname"><a href="namespaceeuphoria_1_1window.html#af0e2b3cfd44cffa0089449896c9f19f5ab88b8c9790136e01b8dfce869959cea3">euphoria::window::Corner::bottom_right</a></div><div class="ttdeci">@ bottom_right</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_html_a6e0ba70b1a06d48a8f0e8b2f9f8b22f0"><div class="ttname"><a href="namespaceeuphoria_1_1window.html#a6e0ba70b1a06d48a8f0e8b2f9f8b22f0">euphoria::window::con</a></div><div class="ttdeci">ImVec2 con(const core::Vec2f &amp;v)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_a0d179c982dca18f1c23aa66c99f360afa3d2c90ebd495de4d38dc4fb8b613a61e"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa3d2c90ebd495de4d38dc4fb8b613a61e">euphoria::window::imgui::knob_style_vis_draw_background</a></div><div class="ttdeci">@ knob_style_vis_draw_background</div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8h_source.html#l00066">imgui_extra.h:66</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_ac2d5234592ab0009c2ff7b841be58dcc"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#ac2d5234592ab0009c2ff7b841be58dcc">euphoria::window::imgui::custom_dropdown</a></div><div class="ttdeci">void custom_dropdown(const char *name, T *current, T max, F to_string)</div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8h_source.html#l00209">imgui_extra.h:209</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_ac2d5234592ab0009c2ff7b841be58dcc"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#ac2d5234592ab0009c2ff7b841be58dcc">euphoria::window::imgui::custom_dropdown</a></div><div class="ttdeci">void custom_dropdown(const char *name, T *current, T max, F to_string)</div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8h_source.html#l00206">imgui_extra.h:206</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1render_1_1Texture2_html"><div class="ttname"><a href="structeuphoria_1_1render_1_1Texture2.html">euphoria::render::Texture2</a></div><div class="ttdef"><b>Definition:</b> <a href="texture_8h_source.html#l00074">texture.h:74</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_aae9687e24ada7365019d6da628852eb2"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">euphoria::window::imgui::label</a></div><div class="ttdeci">void label(const std::string &amp;str)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_a2c1f67c04ae5e4561993c90234905412"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#a2c1f67c04ae5e4561993c90234905412">euphoria::window::imgui::end_combo</a></div><div class="ttdeci">void end_combo()</div></div>
@@ -301,15 +298,14 @@
 <div class="ttc" id="astructeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_html_a5c6240773ad147876e1c8246a30322d2"><div class="ttname"><a href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html#a5c6240773ad147876e1c8246a30322d2">euphoria::window::imgui::VisuallyDisabledWidgets::VisuallyDisabledWidgets</a></div><div class="ttdeci">VisuallyDisabledWidgets()</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_ab63b2b639aab9a0b8860c5eb79fc9948"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#ab63b2b639aab9a0b8860c5eb79fc9948">euphoria::window::imgui::selectable</a></div><div class="ttdeci">bool selectable(const char *label, bool is_selected)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_a0d179c982dca18f1c23aa66c99f360afa588c5f7444a393492d48d453d0d1b267"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa588c5f7444a393492d48d453d0d1b267">euphoria::window::imgui::knob_style_ui_drag_y</a></div><div class="ttdeci">@ knob_style_ui_drag_y</div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8h_source.html#l00059">imgui_extra.h:59</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_html"><div class="ttname"><a href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html">euphoria::window::imgui::VisuallyDisabledWidgets</a></div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8h_source.html#l00132">imgui_extra.h:132</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_a830f17dffa46f918390140c4d52271fd"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#a830f17dffa46f918390140c4d52271fd">euphoria::window::imgui::input_text</a></div><div class="ttdeci">bool input_text(const char *label, std::string *str)</div></div>
+<div class="ttc" id="astructeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_html"><div class="ttname"><a href="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets.html">euphoria::window::imgui::VisuallyDisabledWidgets</a></div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8h_source.html#l00129">imgui_extra.h:129</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1render_html"><div class="ttname"><a href="namespaceeuphoria_1_1render.html">euphoria::render</a></div><div class="ttdef"><b>Definition:</b> <a href="ecs_8systems_8h_source.html#l00011">ecs.systems.h:11</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_html_af0e2b3cfd44cffa0089449896c9f19f5aadb115059e28d960fa8badfac5516667"><div class="ttname"><a href="namespaceeuphoria_1_1window.html#af0e2b3cfd44cffa0089449896c9f19f5aadb115059e28d960fa8badfac5516667">euphoria::window::Corner::center</a></div><div class="ttdeci">@ center</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_html_af0e2b3cfd44cffa0089449896c9f19f5af12ea736b05cb6002f1ebf1b8c052676"><div class="ttname"><a href="namespaceeuphoria_1_1window.html#af0e2b3cfd44cffa0089449896c9f19f5af12ea736b05cb6002f1ebf1b8c052676">euphoria::window::Corner::top_right</a></div><div class="ttdeci">@ top_right</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_a0d179c982dca18f1c23aa66c99f360afa8f31772736bf63060dcb2b57fd036d8d"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#a0d179c982dca18f1c23aa66c99f360afa8f31772736bf63060dcb2b57fd036d8d">euphoria::window::imgui::knob_style_vis_value_instead_of_name</a></div><div class="ttdeci">@ knob_style_vis_value_instead_of_name</div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8h_source.html#l00069">imgui_extra.h:69</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Rgba_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1Rgba.html">euphoria::core::Rgba</a></div><div class="ttdef"><b>Definition:</b> <a href="rgb_8h_source.html#l00186">rgb.h:186</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_a7c3e79b13da62535e6b5ab436ec817ed"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#a7c3e79b13da62535e6b5ab436ec817ed">euphoria::window::imgui::help_text</a></div><div class="ttdeci">void help_text(const char *desc)</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_a42cd813f5bc810a2184c59277c611fce"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#a42cd813f5bc810a2184c59277c611fce">euphoria::window::imgui::combo</a></div><div class="ttdeci">bool combo(const char *label, T *data, std::vector&lt; std::pair&lt; const char *, T &gt;&gt; values)</div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8h_source.html#l00171">imgui_extra.h:171</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_a42cd813f5bc810a2184c59277c611fce"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#a42cd813f5bc810a2184c59277c611fce">euphoria::window::imgui::combo</a></div><div class="ttdeci">bool combo(const char *label, T *data, std::vector&lt; std::pair&lt; const char *, T &gt;&gt; values)</div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8h_source.html#l00168">imgui_extra.h:168</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_af24d04d4cc7e9dadc73b1412e11952cf"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#af24d04d4cc7e9dadc73b1412e11952cf">euphoria::core::to_string</a></div><div class="ttdeci">std::string to_string(MouseButton button)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_a21e4957ab2346183f5c6aa2ba465d128"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#a21e4957ab2346183f5c6aa2ba465d128">euphoria::window::imgui::image</a></div><div class="ttdeci">void image(render::Texture2 *texture)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_af0297c4982600d0059ad7e4a6b372c78"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#af0297c4982600d0059ad7e4a6b372c78">euphoria::window::imgui::begin_combo</a></div><div class="ttdeci">bool begin_combo(const char *label, const char *preview)</div></div>
