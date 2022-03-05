@@ -212,6 +212,9 @@ add_library(external::sdl2 ALIAS sdl2)
 
 ###################################################################################################
 ## DearIMGUI
+
+# todo(Gustav): investigate enabling ImGui_ImplWin32_EnableDpiAwareness
+
 add_library(imgui STATIC
     imgui/imgui/imconfig.h
     imgui/imgui/imgui_demo.cpp
