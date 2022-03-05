@@ -255,6 +255,7 @@ namespace euphoria::window::imgui
     // from https://github.com/ocornut/imgui/issues/211
     VisuallyDisabledWidgets::VisuallyDisabledWidgets()
     {
+        // todo(Gustav): change to use BeginDisabled / EndDisabled instead?
         // ImGui::PushItemFlag(ImGuiItemFlags_Disabled, true);
         ImGui::PushStyleVar(
                 ImGuiStyleVar_Alpha, ImGui::GetStyle().Alpha * 0.5f);

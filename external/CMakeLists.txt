@@ -233,6 +233,8 @@ add_library(imgui STATIC
     imgui/imgui/backends/imgui_impl_sdl.h
     imgui/imgui/backends/imgui_impl_opengl3.cpp
     imgui/imgui/backends/imgui_impl_opengl3.h
+
+    imgui/imgui/backends/imgui_impl_opengl3_loader.h # 1.84
 )
 set_target_properties(imgui PROPERTIES FOLDER "Dependencies")
 target_include_directories(imgui SYSTEM

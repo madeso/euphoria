@@ -195,7 +195,7 @@ struct TextEditorWindow : GenericWindow
     void
     run(StyleData*) override
     {
-        ImGui::InputTextMultiline("", &text, ImVec2 {-1, -1});
+        ImGui::InputTextMultiline("##text", &text, ImVec2 {-1, -1});
     }
 };
 

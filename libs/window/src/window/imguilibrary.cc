@@ -64,7 +64,7 @@ namespace euphoria::window::imgui
 
 
     Library::Library(SDL_Window *the_window, SdlAndOpenglContext *context, const std::string &the_path)
-            : sdl_window(the_window), path_to_imgui_ini(the_path + "imgui.ini")
+            : path_to_imgui_ini(the_path + "imgui.ini")
     {
         // hrm... euphoria is using #version 330 core
         // todo(Gustav): look into this...
@@ -103,7 +103,7 @@ namespace euphoria::window::imgui
     Library::start_new_frame()
     {
         ImGui_ImplOpenGL3_NewFrame();
-        ImGui_ImplSDL2_NewFrame(sdl_window);
+        ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
     }
 

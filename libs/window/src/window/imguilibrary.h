@@ -26,7 +26,6 @@ namespace euphoria::window::imgui
         start_new_frame();
 
     private:
-        SDL_Window* sdl_window;
         std::string path_to_imgui_ini;
     };
 

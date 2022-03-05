@@ -108,7 +108,7 @@ namespace euphoria::editor
     {
         ImGui::InputText("URL", &current_folder.path);
         ImGui::InputText("Filter", &filter);
-        if(ImGui::BeginListBox("", ImVec2 {-1, -1}) == false)
+        if(ImGui::BeginListBox("##files", ImVec2 {-1, -1}) == false)
         {
             return false;
         }

@@ -1,4 +1,4 @@
 # dear imgui
-Version: 1.83
+Version: v1.87
 
-https://github.com/ocornut/imgui/releases/tag/v1.83
+https://github.com/ocornut/imgui/releases/tag/v1.87
