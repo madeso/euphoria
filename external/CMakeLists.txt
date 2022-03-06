@@ -1,6 +1,7 @@
 ###################################################################################################
 ## undef_windows
 add_subdirectory(undef_windows)
+set_target_properties(undef_windows PROPERTIES FOLDER "Dependencies")
 
 
 
@@ -8,8 +9,12 @@ add_subdirectory(undef_windows)
 ###################################################################################################
 ## gaf
 add_subdirectory(gaf)
-set_target_properties(gaf PROPERTIES FOLDER "Dependencies")
-
+set_target_properties(gaf         PROPERTIES FOLDER "Dependencies/gaf")
+set_target_properties(gaf_fmt     PROPERTIES FOLDER "Dependencies/gaf")
+set_target_properties(gaf_pugixml PROPERTIES FOLDER "Dependencies/gaf")
+set_target_properties(libgaf_gaf  PROPERTIES FOLDER "Dependencies/gaf")
+set_target_properties(libgaf_json PROPERTIES FOLDER "Dependencies/gaf")
+set_target_properties(libgaf_xml  PROPERTIES FOLDER "Dependencies/gaf")
 
 
 

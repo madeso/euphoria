@@ -13,6 +13,7 @@ set(src
 
 add_library(log STATIC ${src})
 add_library(euph::log ALIAS log)
+set_target_properties(log PROPERTIES FOLDER "Libraries")
 target_include_directories(log
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
