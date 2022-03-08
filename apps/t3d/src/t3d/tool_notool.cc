@@ -4,10 +4,16 @@
 #include "imgui/imgui.h"
 
 #include "t3d/editor.h"
-
+#include "t3d/t3d.h"
 
 namespace euphoria::t3d
 {
+    ToolNoTool::ToolNoTool(Application* a)
+        : app(a)
+    {
+    }
+
+
     bool
     ToolNoTool::is_busy(Editor*)
     {
@@ -64,5 +70,6 @@ namespace euphoria::t3d
     ToolNoTool::on_editor(Editor*)
     {
         ImGui::Text("<No tool>");
+        app->guizmo();
     }
 }

@@ -276,6 +276,26 @@ add_library(external::imgui ALIAS imgui)
 
 ###################################################################################################
 ## lua
+add_library(imguizmo STATIC
+    imguizmo/imguizmo/ImGuizmo.cpp
+    imguizmo/imguizmo/ImGuizmo.h
+)
+set_target_properties(imguizmo PROPERTIES FOLDER "Dependencies")
+target_include_directories(imguizmo SYSTEM
+    PUBLIC
+        imguizmo
+)
+target_link_libraries(imguizmo
+    PUBLIC
+        external::imgui
+)
+add_library(external::imguizmo ALIAS imguizmo)
+
+
+
+
+###################################################################################################
+## lua
 add_library(lua STATIC
     lua/src/lapi.c
     lua/src/lauxlib.c

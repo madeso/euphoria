@@ -1,9 +1,5 @@
 #pragma once
 
-
-#include <string>
-#include <memory>
-
 #include "core/rgb.h"
 #include "core/key.h"
 #include "core/vec2.h"
@@ -18,6 +14,10 @@
 
 #include "t3d/grid.h"
 #include "t3d/filelist.h"
+
+#include <string>
+#include <memory>
+#include <optional>
 
 
 namespace euphoria::core
@@ -59,6 +59,7 @@ namespace euphoria::t3d
         std::shared_ptr<t3d::TileLibrary> tile_library;
         std::shared_ptr<render::World> world;
         core::Camera3 camera;
+        std::optional<core::CompiledCamera3> compiled_camera;
         std::shared_ptr<t3d::Editor> editor;
         bool running = true;
         std::shared_ptr<window::SdlTimer> timer;
@@ -161,6 +162,9 @@ namespace euphoria::t3d
 
         void
         on_frame();
+
+        void
+        guizmo();
 
         void
         show_help(const char* desc) const;

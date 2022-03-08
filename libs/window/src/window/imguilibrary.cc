@@ -14,6 +14,7 @@
 
 #include "window/sdlglcontext.h"
 #include "window/imgui_icons.h"
+#include "window/imguizmo.h"
 
 
 namespace euphoria::window::imgui
@@ -80,6 +81,7 @@ namespace euphoria::window::imgui
 
         ImGui_ImplSDL2_InitForOpenGL(the_window, context->context);
         ImGui_ImplOpenGL3_Init(glsl_version);
+        imgui::guizmo::setup();
 
         add_fork_awesome();
 
@@ -105,6 +107,7 @@ namespace euphoria::window::imgui
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame();
         ImGui::NewFrame();
+        imgui::guizmo::begin();
     }
 
     void

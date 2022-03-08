@@ -34,7 +34,7 @@ namespace euphoria::render
         // todo(Gustav): improve light support
         render::Light light;
 
-        void
+        core::CompiledCamera3
         render(const Viewport& viewport, const core::Camera3& camera);
 
         void

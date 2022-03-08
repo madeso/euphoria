@@ -5,8 +5,11 @@
 
 #include "render/actor.h"
 
+#include "window/imguizmo.h"
+
 #include "t3d/tool.h"
 #include "t3d/tilelibrary.h"
+#include "t3d/grid.h"
 
 
 namespace euphoria::t3d
@@ -111,5 +114,64 @@ namespace euphoria::t3d
     Editor::on_editor()
     {
         tools.get_current_tool()->on_editor(this);
+    }
+
+
+    std::vector<int>
+    Editor::get_selected_indices() const
+    {
+        std::vector<int> selections;
+
+        int index = 0;
+        for (auto mesh : placed_meshes)
+        {
+            if (mesh->is_selected)
+            {
+                selections.emplace_back(index);
+            }
+
+            index += 1;
+        }
+
+        return selections;
+    }
+
+
+    std::optional<core::Vec3f> get_position_snap(const Grid& grid)
+    {
+        if (grid.snap_enabled)
+        {
+            return core::Vec3f{ grid.small_step, grid.small_step , grid.small_step };
+        }
+        else
+        {
+            return std::nullopt;
+        }
+    }
+
+
+    void
+    Editor::run_tools(bool show_imgui, const core::CompiledCamera3& cc)
+    {
+        if (show_imgui == false) { return; }
+
+        const auto selections = get_selected_indices();
+        if (selections.empty()) { return; }
+
+        if (selections.size() == 1)
+        {
+            auto mesh = placed_meshes[selections[0]];
+
+            bool is_local = false;
+            window::imgui::guizmo::run
+            (
+                is_local,
+                get_position_snap(*grid),
+                cc.view,
+                cc.projection,
+                mesh->actor->calculate_model_matrix(),
+                &mesh->actor->position
+            );
+        }
     }
 }

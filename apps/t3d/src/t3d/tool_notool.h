@@ -4,8 +4,15 @@
 
 namespace euphoria::t3d
 {
+    struct Application;
+
     struct ToolNoTool : public Tool
     {
+        Application* app;
+
+        ToolNoTool(Application* a);
+
+
         bool
         is_busy(Editor*) override;
 

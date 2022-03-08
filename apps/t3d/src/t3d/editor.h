@@ -94,5 +94,11 @@ namespace euphoria::t3d
 
         void
         on_editor();
+
+        std::vector<int>
+        get_selected_indices() const;
+
+        void
+        run_tools(bool show_imgui, const core::CompiledCamera3& cc);
     };
 }

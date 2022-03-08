@@ -83,7 +83,7 @@ namespace euphoria::t3d
         world = std::make_shared<render::World>();
 
         editor = std::make_shared<t3d::Editor>(&grid_data, world.get(), tile_library.get());
-        editor->tools.push_tool(std::make_shared<ToolNoTool>());
+        editor->tools.push_tool(std::make_shared<ToolNoTool>(this));
 
         timer = std::make_shared<window::SdlTimer>();
 
@@ -355,6 +355,13 @@ namespace euphoria::t3d
         }
     }
 
+    void Application::guizmo()
+    {
+        if (compiled_camera.has_value())
+        {
+            editor->run_tools(show_imgui, *compiled_camera);
+        }
+    }
 
     void
     Application::process_imgui()
@@ -664,7 +671,7 @@ namespace euphoria::t3d
                 placed->is_selected = true;
                 placed->actor = std::make_shared<render::Actor>
                 (
-                        placed->tile->mesh
+                    placed->tile->mesh
                 );
                 world->add_actor(placed->actor);
                 editor->placed_meshes.emplace_back(placed);
@@ -715,7 +722,7 @@ namespace euphoria::t3d
         auto viewport = viewport_handler->get_full_viewport();
         editor->camera = camera.compile(viewport.get_aspect_ratio());
         editor->viewport = viewport;
-        world->render(viewport, camera);
+        compiled_camera = world->render(viewport, camera);
     }
 
 
@@ -727,8 +734,9 @@ namespace euphoria::t3d
         timer->update();
 
         world->step();
-        editor->tools.perform_tools();
 
+        editor->tools.perform_tools();
+        
         handle_all_sdl_events();
 
         editor->step();

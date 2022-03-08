@@ -11,6 +11,7 @@ set(app_src
     src/window/imgui_extra.cc src/window/imgui_extra.h
     src/window/imgui_icons.h src/window/imgui_icons.cc
     src/window/imguilibrary.cc src/window/imguilibrary.h
+    src/window/imguizmo.cc src/window/imguizmo.h
     src/window/key.cc src/window/key.h
     src/window/sdlglcontext.cc src/window/sdlglcontext.h
     src/window/sdllibrary.cc src/window/sdllibrary.h
@@ -65,5 +66,6 @@ target_link_libraries(window
         external::icon_font_cpp_headers
         external::sdl2
         external::glad
+        external::imguizmo
 )
 

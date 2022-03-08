@@ -17,10 +17,12 @@ namespace euphoria::render
         actors.push_back(actor);
     }
 
-    void
+    core::CompiledCamera3
     World::render(const Viewport& viewport, const core::Camera3& camera)
     {
-        render(camera, camera.compile(viewport.get_aspect_ratio()));
+        const auto compiled = camera.compile(viewport.get_aspect_ratio());
+        render(camera, compiled);
+        return compiled;
     }
 
     void

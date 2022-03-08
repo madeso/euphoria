@@ -36,6 +36,9 @@ namespace euphoria::core
         }
 
     public:
+        T* get_column_major() { return data; }
+        const T* get_column_major() const { return data; }
+
         [[nodiscard]]
         static
         Mat4<T>
