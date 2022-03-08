@@ -149,12 +149,22 @@ namespace euphoria::t3d
         }
     }
 
+    std::optional<core::Angle> get_angle_snap(const Grid& grid)
+    {
+        if (grid.snap_enabled)
+        {
+            return grid.angle_snap;
+        }
+        else
+        {
+            return std::nullopt;
+        }
+    }
+
 
     void
-    Editor::run_tools(bool show_imgui, const core::CompiledCamera3& cc)
+    Editor::run_tools(bool is_transform, bool global_space, const core::CompiledCamera3& cc)
     {
-        if (show_imgui == false) { return; }
-
         const auto selections = get_selected_indices();
         if (selections.empty()) { return; }
 
@@ -162,16 +172,32 @@ namespace euphoria::t3d
         {
             auto mesh = placed_meshes[selections[0]];
 
-            bool is_local = false;
-            window::imgui::guizmo::run
-            (
-                is_local,
-                get_position_snap(*grid),
-                cc.view,
-                cc.projection,
-                mesh->actor->calculate_model_matrix(),
-                &mesh->actor->position
-            );
+            const bool is_local = !global_space;
+
+            if (is_transform)
+            {
+                window::imgui::guizmo::transform
+                (
+                    is_local,
+                    get_position_snap(*grid),
+                    cc.view,
+                    cc.projection,
+                    mesh->actor->calculate_model_matrix(),
+                    &mesh->actor->position
+                );
+            }
+            else
+            {
+                window::imgui::guizmo::rotate
+                (
+                    is_local,
+                    get_angle_snap(*grid),
+                    cc.view,
+                    cc.projection,
+                    mesh->actor->calculate_model_matrix(),
+                    &mesh->actor->rotation
+                );
+            }
         }
     }
 }

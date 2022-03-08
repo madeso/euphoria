@@ -164,7 +164,7 @@ namespace euphoria::t3d
         on_frame();
 
         void
-        guizmo();
+        guizmo(bool is_transform, bool global_space);
 
         void
         show_help(const char* desc) const;

@@ -9,6 +9,8 @@ namespace euphoria::t3d
     struct ToolNoTool : public Tool
     {
         Application* app;
+        bool global_space = false;
+        bool is_transform = true;
 
         ToolNoTool(Application* a);
 

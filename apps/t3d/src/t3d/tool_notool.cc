@@ -1,5 +1,7 @@
 #include "t3d/tool_notool.h"
 
+#include "window/imgui_icons.h"
+#include "window/imgui_extra.h"
 
 #include "imgui/imgui.h"
 
@@ -66,10 +68,51 @@ namespace euphoria::t3d
     }
 
 
+    bool
+    toggle(const char* label, bool down)
+    {
+        if (down)
+        {
+            const auto disabled = window::imgui::VisuallyDisabledWidgets{};
+            return ImGui::Button(label);
+        }
+        else
+        {
+            return ImGui::Button(label);
+        }
+    }
+
+
     void
     ToolNoTool::on_editor(Editor*)
     {
         ImGui::Text("<No tool>");
-        app->guizmo();
+
+        if
+        (
+            ImGui::Button
+            (
+                global_space
+                ? ICON_MDI_EARTH " global"
+                : ICON_MDI_ARROW_DOWN " local"
+            )
+        )
+        {
+            global_space = !global_space;
+        }
+        app->show_help("Toggle the global/local space");
+
+        if (toggle(ICON_MDI_ARROW_ALL, is_transform == true))
+        {
+            is_transform = true;
+        }
+        ImGui::SameLine();
+        if (toggle(ICON_MDI_ROTATE_ORBIT, is_transform == false))
+        {
+            is_transform = false;
+        }
+
+
+        app->guizmo(is_transform, global_space);
     }
 }

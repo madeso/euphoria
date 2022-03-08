@@ -44,6 +44,29 @@ namespace euphoria::core
 
 
         [[nodiscard]] static Self
+        from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll)
+        {
+            // Abbreviations for the various angular functions
+            const auto cy = cos(yaw * 0.5);
+            const auto sy = sin(yaw * 0.5);
+            const auto cp = cos(pitch * 0.5);
+            const auto sp = sin(pitch * 0.5);
+            const auto cr = cos(roll * 0.5);
+            const auto sr = sin(roll * 0.5);
+
+            return
+            {
+                cr * cp * cy + sr * sp * sy,
+                {
+                    sr * cp * cy - cr * sp * sy,
+                    cr * sp * cy + sr * cp * sy,
+                    cr * cp * sy - sr * sp * cy
+                }
+            };
+        }
+
+
+        [[nodiscard]] static Self
         from_random(Random* random)
         {
             const auto axis = get_random_unit3(random);

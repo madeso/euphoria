@@ -355,11 +355,16 @@ namespace euphoria::t3d
         }
     }
 
-    void Application::guizmo()
+    void Application::guizmo(bool is_transform, bool global_space)
     {
+        if (show_imgui == false)
+        {
+            return;
+        }
+
         if (compiled_camera.has_value())
         {
-            editor->run_tools(show_imgui, *compiled_camera);
+            editor->run_tools(is_transform, global_space, *compiled_camera);
         }
     }
 
@@ -544,6 +549,14 @@ namespace euphoria::t3d
                 uistep,
                 uimin,
                 uimax
+            ) || dirty;
+
+            dirty = window::imgui::angle_slider
+            (
+                "Angle snap",
+                &grid_data.angle_snap,
+                core::Angle::zero(),
+                core::Angle::one_turn()
             ) || dirty;
 
             dirty = ImGui::DragInt("lines on grid", &grid_data.size) || dirty;

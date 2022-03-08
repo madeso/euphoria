@@ -99,6 +99,6 @@ namespace euphoria::t3d
         get_selected_indices() const;
 
         void
-        run_tools(bool show_imgui, const core::CompiledCamera3& cc);
+        run_tools(bool is_transform, bool global_space, const core::CompiledCamera3& cc);
     };
 }
