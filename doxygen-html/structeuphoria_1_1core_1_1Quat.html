@@ -131,6 +131,8 @@ Public Member Functions</h2></td></tr>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a478fc5c0b0eafa226c0e410ca8734698"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1Quat.html#ae0e9acb1ec144aec6d1954de83129fa0">Self</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Quat.html#a478fc5c0b0eafa226c0e410ca8734698">from_axis_angle</a> (const <a class="el" href="structeuphoria_1_1core_1_1AxisAngle.html">AxisAngle</a> &amp;aa)</td></tr>
 <tr class="separator:a478fc5c0b0eafa226c0e410ca8734698"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7dcc9ceb6f49a7d4c40db5dc5bf84a1e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1Quat.html#ae0e9acb1ec144aec6d1954de83129fa0">Self</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Quat.html#a7dcc9ceb6f49a7d4c40db5dc5bf84a1e">from_ypr</a> (const <a class="el" href="structeuphoria_1_1core_1_1Angle.html">Angle</a> &amp;yaw, const <a class="el" href="structeuphoria_1_1core_1_1Angle.html">Angle</a> &amp;pitch, const <a class="el" href="structeuphoria_1_1core_1_1Angle.html">Angle</a> &amp;roll)</td></tr>
+<tr class="separator:a7dcc9ceb6f49a7d4c40db5dc5bf84a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba60650ec07acaeae1fed3ee04d53fd2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1Quat.html#ae0e9acb1ec144aec6d1954de83129fa0">Self</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Quat.html#aba60650ec07acaeae1fed3ee04d53fd2">from_random</a> (<a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a> *random)</td></tr>
 <tr class="separator:aba60650ec07acaeae1fed3ee04d53fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af96d93de62b49b91a9bfeff870d45500"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1Quat.html#ae0e9acb1ec144aec6d1954de83129fa0">Self</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Quat.html#af96d93de62b49b91a9bfeff870d45500">identity</a> ()</td></tr>
@@ -304,7 +306,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00213">213</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00236">236</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -333,7 +335,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00205">205</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00228">228</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -393,6 +395,52 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00070">70</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+
+</div>
+</div>
+<a id="a7dcc9ceb6f49a7d4c40db5dc5bf84a1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7dcc9ceb6f49a7d4c40db5dc5bf84a1e">&#9670;&nbsp;</a></span>from_ypr()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="structeuphoria_1_1core_1_1Quat.html#ae0e9acb1ec144aec6d1954de83129fa0">Self</a> <a class="el" href="structeuphoria_1_1core_1_1Quat.html">euphoria::core::Quat</a>&lt; T &gt;::from_ypr </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Angle.html">Angle</a> &amp;&#160;</td>
+          <td class="paramname"><em>yaw</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Angle.html">Angle</a> &amp;&#160;</td>
+          <td class="paramname"><em>pitch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Angle.html">Angle</a> &amp;&#160;</td>
+          <td class="paramname"><em>roll</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 <p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00047">47</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
@@ -422,7 +470,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00104">104</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00127">127</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -451,7 +499,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00119">119</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00142">142</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -480,7 +528,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00112">112</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00135">135</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -509,7 +557,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00129">129</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00152">152</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -538,7 +586,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00136">136</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00159">159</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -567,7 +615,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00161">161</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00184">184</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -625,7 +673,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00079">79</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00102">102</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -654,7 +702,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00170">170</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00193">193</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -683,7 +731,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00191">191</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00214">214</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -729,7 +777,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00231">231</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00254">254</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -775,7 +823,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00086">86</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00109">109</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -815,7 +863,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00351">351</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00374">374</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -844,7 +892,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00143">143</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00166">166</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -874,7 +922,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00319">319</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00342">342</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -904,7 +952,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00309">309</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00332">332</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -934,7 +982,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00289">289</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00312">312</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -964,7 +1012,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00299">299</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00322">322</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -993,7 +1041,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00177">177</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00200">200</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1022,7 +1070,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00184">184</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00207">207</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1052,7 +1100,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00097">97</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00120">120</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1082,7 +1130,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00220">220</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00243">243</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1128,7 +1176,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00238">238</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00261">261</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1174,7 +1222,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00275">275</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00298">298</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1203,7 +1251,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00064">64</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00087">87</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1232,7 +1280,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00057">57</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00080">80</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -1261,7 +1309,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00198">198</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00221">221</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
