@@ -26,3 +26,6 @@
 [submodule "tools/buildtools"]
 	path = tools/buildtools
 	url = git@github.com:madeso/build.git
+[submodule "external/imguizmo/imguizmo"]
+	path = external/imguizmo/imguizmo
+	url = git@github.com:madeso/ImGuizmo.git
