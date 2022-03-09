@@ -163,7 +163,12 @@ namespace euphoria::t3d
 
 
     void
-    Editor::run_tools(bool is_transform, bool global_space, const core::CompiledCamera3& cc)
+    Editor::run_tools
+    (
+        bool is_transform, bool global_space, const core::CompiledCamera3& cc,
+        bool translate_x, bool translate_y, bool translate_z,
+        bool rotate_x, bool rotate_y, bool rotate_z
+    )
     {
         const auto selections = get_selected_indices();
         if (selections.empty()) { return; }
@@ -183,6 +188,7 @@ namespace euphoria::t3d
                     cc.view,
                     cc.projection,
                     mesh->actor->calculate_model_matrix(),
+                    translate_x, translate_y, translate_z,
                     &mesh->actor->position
                 );
             }
@@ -195,6 +201,7 @@ namespace euphoria::t3d
                     cc.view,
                     cc.projection,
                     mesh->actor->calculate_model_matrix(),
+                    rotate_x, rotate_y, rotate_z,
                     &mesh->actor->rotation
                 );
             }

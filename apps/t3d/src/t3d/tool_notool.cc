@@ -17,23 +17,23 @@ namespace euphoria::t3d
 
 
     bool
-    ToolNoTool::is_busy(Editor*)
+        ToolNoTool::is_busy(Editor*)
     {
         return false;
     }
 
 
     void
-    ToolNoTool::step(Editor*)
+        ToolNoTool::step(Editor*)
     {
     }
 
 
     void
-    ToolNoTool::on_mouse(Editor* editor, core::MouseButton button, bool down)
+        ToolNoTool::on_mouse(Editor* editor, core::MouseButton button, bool down)
     {
-        if(down) { return; }
-        if(button != core::MouseButton::left) { return; }
+        if (down) { return; }
+        if (button != core::MouseButton::left) { return; }
 
         auto ray = editor->camera
             .clip_to_world_ray
@@ -45,11 +45,11 @@ namespace euphoria::t3d
             )
             .get_normalized()
             ;
-        
+
         editor->set_all_selected(false);
         auto hits = editor->raycast(ray);
 
-        for(auto h: hits)
+        for (auto h : hits)
         {
             h->is_selected = true;
         }
@@ -57,13 +57,13 @@ namespace euphoria::t3d
 
 
     void
-    ToolNoTool::on_key(Editor*, core::Key, bool)
+        ToolNoTool::on_key(Editor*, core::Key, bool)
     {
     }
 
 
     void
-    ToolNoTool::on_scroll(Editor*, const core::Vec2i&)
+        ToolNoTool::on_scroll(Editor*, const core::Vec2i&)
     {
     }
 
@@ -71,7 +71,7 @@ namespace euphoria::t3d
     bool
     toggle(const char* label, bool down)
     {
-        if (down)
+        if (down == false)
         {
             const auto disabled = window::imgui::VisuallyDisabledWidgets{};
             return ImGui::Button(label);
@@ -82,21 +82,31 @@ namespace euphoria::t3d
         }
     }
 
+    bool toggle(const char* label, bool* state)
+    {
+        const auto changed = toggle(label, *state);
+        if (changed)
+        {
+            *state = !*state;
+        }
+        return changed;
+    }
+
 
     void
-    ToolNoTool::on_editor(Editor*)
+        ToolNoTool::on_editor(Editor*)
     {
         ImGui::Text("<No tool>");
 
         if
-        (
-            ImGui::Button
             (
-                global_space
-                ? ICON_MDI_EARTH " global"
-                : ICON_MDI_ARROW_DOWN " local"
-            )
-        )
+                ImGui::Button
+                (
+                    global_space
+                    ? ICON_MDI_EARTH " global"
+                    : ICON_MDI_ARROW_DOWN " local"
+                )
+                )
         {
             global_space = !global_space;
         }
@@ -112,7 +122,29 @@ namespace euphoria::t3d
             is_transform = false;
         }
 
+        if (is_transform)
+        {
+            toggle(ICON_MDI_AXIS_X_ARROW, &translate_x);
+            ImGui::SameLine();
+            toggle(ICON_MDI_AXIS_Y_ARROW, &translate_y);
+            ImGui::SameLine();
+            toggle(ICON_MDI_AXIS_Z_ARROW, &translate_z);
+        }
+        else
+        {
+            toggle(ICON_MDI_AXIS_X_ROTATE_CLOCKWISE, &rotate_x);
+            ImGui::SameLine();
+            toggle(ICON_MDI_AXIS_Y_ROTATE_CLOCKWISE, &rotate_y);
+            ImGui::SameLine();
+            toggle(ICON_MDI_AXIS_Z_ROTATE_CLOCKWISE, &rotate_z);
+        }
 
-        app->guizmo(is_transform, global_space);
+        app->guizmo
+        (
+            is_transform,
+            global_space,
+            translate_x, translate_y, translate_z,
+            rotate_x, rotate_y, rotate_z
+        );
     }
 }

@@ -21,6 +21,7 @@ namespace euphoria::window::imgui::guizmo
         const core::Mat4f& camera_view,
         const core::Mat4f& camera_projection,
         const core::Mat4f& model,
+        bool x, bool y, bool z,
         core::Vec3f* new_position
     );
 
@@ -32,6 +33,7 @@ namespace euphoria::window::imgui::guizmo
         const core::Mat4f& camera_view,
         const core::Mat4f& camera_projection,
         const core::Mat4f& model,
+        bool y, bool p, bool r,
         core::Quatf* new_rotation
     );
 }

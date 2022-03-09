@@ -12,6 +12,14 @@ namespace euphoria::t3d
         bool global_space = false;
         bool is_transform = true;
 
+        bool translate_x = true;
+        bool translate_y = true;
+        bool translate_z = true;
+
+        bool rotate_x = true;
+        bool rotate_y = true;
+        bool rotate_z = true;
+
         ToolNoTool(Application* a);
 
 

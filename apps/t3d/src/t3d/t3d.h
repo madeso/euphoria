@@ -164,7 +164,12 @@ namespace euphoria::t3d
         on_frame();
 
         void
-        guizmo(bool is_transform, bool global_space);
+        guizmo
+        (
+            bool is_transform, bool global_space,
+            bool translate_x, bool translate_y, bool translate_z,
+            bool rotate_x, bool rotate_y, bool rotate_z
+        );
 
         void
         show_help(const char* desc) const;

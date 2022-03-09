@@ -1,7 +1,10 @@
 #include "window/imguizmo.h"
 
+#include "core/stdutils.h"
+
 #include "imgui/imgui.h"
 #include "imguizmo/ImGuizmo.h"
+
 
 namespace euphoria::window::imgui::guizmo
 {
@@ -16,6 +19,37 @@ namespace euphoria::window::imgui::guizmo
         ImGuizmo::BeginFrame();
     }
 
+    namespace
+    {
+        std::optional<ImGuizmo::OPERATION>
+        combine
+        (
+            bool a, ImGuizmo::OPERATION ao,
+            bool b, ImGuizmo::OPERATION bo,
+            bool c, ImGuizmo::OPERATION co
+        )
+        {
+            // todo(Gustav): add a none value to ImGuizmo so we can remove the static cast
+            constexpr const auto none_op = static_cast<ImGuizmo::OPERATION>(0);
+            constexpr const auto none = core::base_cast(none_op);
+
+            auto r = none;
+
+            if(a) r |= core::base_cast(ao);
+            if(b) r |= core::base_cast(bo);
+            if(c) r |= core::base_cast(co);
+
+            if (r != none)
+            {
+                return static_cast<ImGuizmo::OPERATION>(r);
+            }
+            else
+            {
+                return std::nullopt;
+            }
+        }
+    }
+
 
     bool
     transform
@@ -25,10 +59,20 @@ namespace euphoria::window::imgui::guizmo
         const core::Mat4f& camera_view,
         const core::Mat4f& camera_projection,
         const core::Mat4f& model,
+        bool tx, bool ty, bool tz,
         core::Vec3f* new_position
     )
     {
         const auto mCurrentGizmoMode = is_local ? ImGuizmo::LOCAL : ImGuizmo::WORLD;
+
+        const auto operation = combine
+        (
+            tx, ImGuizmo::TRANSLATE_X,
+            ty, ImGuizmo::TRANSLATE_Y,
+            tz, ImGuizmo::TRANSLATE_Z
+        );
+
+        if (operation.has_value() == false) { return false; }
 
         {
             ImGuiIO& io = ImGui::GetIO();
@@ -41,7 +85,7 @@ namespace euphoria::window::imgui::guizmo
         (
             camera_view.get_column_major(),
             camera_projection.get_column_major(),
-            ImGuizmo::TRANSLATE,
+            *operation,
             mCurrentGizmoMode,
             model_to_modify.get_column_major(),
             nullptr,
@@ -72,10 +116,20 @@ namespace euphoria::window::imgui::guizmo
         const core::Mat4f& camera_view,
         const core::Mat4f& camera_projection,
         const core::Mat4f& model,
+        bool rx, bool ry, bool rz,
         core::Quatf* new_rotation
     )
     {
         const auto mCurrentGizmoMode = is_local ? ImGuizmo::LOCAL : ImGuizmo::WORLD;
+
+        const auto operation = combine
+        (
+            rx, ImGuizmo::ROTATE_X,
+            ry, ImGuizmo::ROTATE_Y,
+            rz, ImGuizmo::ROTATE_Z
+        );
+
+        if (operation.has_value() == false) { return false; }
 
         {
             ImGuiIO& io = ImGui::GetIO();
@@ -90,7 +144,7 @@ namespace euphoria::window::imgui::guizmo
         (
             camera_view.get_column_major(),
             camera_projection.get_column_major(),
-            ImGuizmo::ROTATE_X | ImGuizmo::ROTATE_Y | ImGuizmo::ROTATE_Z,
+            *operation,
             mCurrentGizmoMode,
             model_to_modify.get_column_major(),
             nullptr,

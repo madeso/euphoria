@@ -355,7 +355,12 @@ namespace euphoria::t3d
         }
     }
 
-    void Application::guizmo(bool is_transform, bool global_space)
+    void Application::guizmo
+    (
+        bool is_transform, bool global_space,
+        bool translate_x, bool translate_y, bool translate_z,
+        bool rotate_x, bool rotate_y, bool rotate_z
+    )
     {
         if (show_imgui == false)
         {
@@ -364,7 +369,12 @@ namespace euphoria::t3d
 
         if (compiled_camera.has_value())
         {
-            editor->run_tools(is_transform, global_space, *compiled_camera);
+            editor->run_tools
+            (
+                is_transform, global_space, *compiled_camera,
+                translate_x, translate_y, translate_z,
+                rotate_x, rotate_y, rotate_z
+            );
         }
     }
 
