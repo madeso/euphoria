@@ -27,5 +27,29 @@ testing libraries that are useful in unittests. should be replaced with the catc
 ### window
 sdl and imgui wrapper
 
+<pre>
+┌───────┐
+│ test  │
+├───────┤
+│       │
+└───────┘
+</pre>
 
 
+```
+┌───┬──┬──┐
+│   │  │  │
+│   ├──┼──┤
+│   │  │  │
+├───┴──┴──┤
+│         │
+└─────────┘
+
+
+┌───────┐
+│ test  │
+├───────┤
+│       │
+└───────┘
+
+```
