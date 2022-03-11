@@ -1,7 +1,5 @@
 #include "window/imguizmo.h"
 
-#include "core/stdutils.h"
-
 #include "imgui/imgui.h"
 #include "imguizmo/ImGuizmo.h"
 
@@ -30,18 +28,17 @@ namespace euphoria::window::imgui::guizmo
         )
         {
             // todo(Gustav): add a none value to ImGuizmo so we can remove the static cast
-            constexpr const auto none_op = static_cast<ImGuizmo::OPERATION>(0);
-            constexpr const auto none = core::base_cast(none_op);
+            constexpr const auto none = static_cast<ImGuizmo::OPERATION>(0);
 
             auto r = none;
 
-            if(a) r |= core::base_cast(ao);
-            if(b) r |= core::base_cast(bo);
-            if(c) r |= core::base_cast(co);
+            if(a) r = r | ao;
+            if(b) r = r | bo;
+            if(c) r = r | co;
 
             if (r != none)
             {
-                return static_cast<ImGuizmo::OPERATION>(r);
+                return r;
             }
             else
             {
