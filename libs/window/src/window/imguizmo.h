@@ -14,7 +14,7 @@ namespace euphoria::window::imgui::guizmo
     void begin();
 
     bool
-    transform
+    translate
     (
         bool is_local,
         const std::optional<core::Vec3f>& snap,

@@ -112,17 +112,17 @@ namespace euphoria::t3d
         }
         app->show_help("Toggle the global/local space");
 
-        if (toggle(ICON_MDI_ARROW_ALL, is_transform == true))
+        if (toggle(ICON_MDI_ARROW_ALL, is_translate == true))
         {
-            is_transform = true;
+            is_translate = true;
         }
         ImGui::SameLine();
-        if (toggle(ICON_MDI_ROTATE_ORBIT, is_transform == false))
+        if (toggle(ICON_MDI_ROTATE_ORBIT, is_translate == false))
         {
-            is_transform = false;
+            is_translate = false;
         }
 
-        if (is_transform)
+        if (is_translate)
         {
             toggle(ICON_MDI_AXIS_X_ARROW, &translate_x);
             ImGui::SameLine();
@@ -141,7 +141,7 @@ namespace euphoria::t3d
 
         app->guizmo
         (
-            is_transform,
+            is_translate,
             global_space,
             translate_x, translate_y, translate_z,
             rotate_x, rotate_y, rotate_z

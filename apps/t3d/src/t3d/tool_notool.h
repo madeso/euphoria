@@ -10,7 +10,7 @@ namespace euphoria::t3d
     {
         Application* app;
         bool global_space = false;
-        bool is_transform = true;
+        bool is_translate = true;
 
         bool translate_x = true;
         bool translate_y = true;

@@ -165,7 +165,7 @@ namespace euphoria::t3d
     void
     Editor::run_tools
     (
-        bool is_transform, bool global_space, const core::CompiledCamera3& cc,
+        bool is_translate, bool global_space, const core::CompiledCamera3& cc,
         bool translate_x, bool translate_y, bool translate_z,
         bool rotate_x, bool rotate_y, bool rotate_z
     )
@@ -179,9 +179,9 @@ namespace euphoria::t3d
 
             const bool is_local = !global_space;
 
-            if (is_transform)
+            if (is_translate)
             {
-                window::imgui::guizmo::transform
+                window::imgui::guizmo::translate
                 (
                     is_local,
                     get_position_snap(*grid),

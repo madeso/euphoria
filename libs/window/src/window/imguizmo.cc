@@ -49,7 +49,7 @@ namespace euphoria::window::imgui::guizmo
 
 
     bool
-    transform
+    translate
     (
         bool is_local,
         const std::optional<core::Vec3f>& snap,
@@ -69,7 +69,10 @@ namespace euphoria::window::imgui::guizmo
             tz, ImGuizmo::TRANSLATE_Z
         );
 
-        if (operation.has_value() == false) { return false; }
+        if (operation.has_value() == false)
+        {
+            return false;
+        }
 
         {
             ImGuiIO& io = ImGui::GetIO();
@@ -97,8 +100,6 @@ namespace euphoria::window::imgui::guizmo
                 model_to_modify.get_column_major(),
                 new_position->get_data_ptr(), matrixRotation, matrixScale
             );
-
-
         }
 
         return was_modified;
@@ -126,7 +127,10 @@ namespace euphoria::window::imgui::guizmo
             rz, ImGuizmo::ROTATE_Z
         );
 
-        if (operation.has_value() == false) { return false; }
+        if (operation.has_value() == false)
+        {
+            return false;
+        }
 
         {
             ImGuiIO& io = ImGui::GetIO();
@@ -135,7 +139,7 @@ namespace euphoria::window::imgui::guizmo
 
         auto model_to_modify = model;
 
-        const auto snap_degrees = snap.value_or(core::Angle::from_degrees(0.0f)).in_degrees();
+        const auto snap_degrees = snap.value_or(core::Angle::zero()).in_degrees();
 
         const auto was_modified = ImGuizmo::Manipulate
         (
@@ -145,7 +149,7 @@ namespace euphoria::window::imgui::guizmo
             mCurrentGizmoMode,
             model_to_modify.get_column_major(),
             nullptr,
-            snap.has_value() ? &(snap_degrees) : nullptr
+            snap.has_value() ? &snap_degrees : nullptr
         );
 
         if (was_modified)

@@ -166,7 +166,7 @@ namespace euphoria::t3d
         void
         guizmo
         (
-            bool is_transform, bool global_space,
+            bool is_translate, bool global_space,
             bool translate_x, bool translate_y, bool translate_z,
             bool rotate_x, bool rotate_y, bool rotate_z
         );
