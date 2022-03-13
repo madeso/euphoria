@@ -16,5 +16,8 @@ namespace euphoria::t3d
 
         bool snap_enabled = true;
     };
+
+    float
+    snap_to(float val, float step);
 }
 

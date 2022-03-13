@@ -34,4 +34,11 @@ namespace euphoria::render
         core::Vec3f position;
         core::Quatf rotation;
     };
+
+    [[nodiscard]] core::Mat4f
+    calculate_model_matrix
+    (
+        const core::Vec3f& position,
+        const core::Quatf& rotation
+    );
 }

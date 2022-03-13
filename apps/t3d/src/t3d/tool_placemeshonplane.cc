@@ -13,15 +13,6 @@
 
 namespace euphoria::t3d
 {
-    namespace
-    {
-        float
-            snap_to(float val, float step)
-        {
-            return core::round(val, step);
-        }
-    }
-
     ToolPlaceMeshOnAPlane::ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> mesh_to_place)
         : placed_mesh(mesh_to_place)
         , plane(core::Plane::from_normal_and_point(core::Unit3f::up(), core::Vec3f::zero()))
