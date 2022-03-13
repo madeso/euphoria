@@ -17,20 +17,20 @@ namespace euphoria::t3d
 
 
     bool
-        ToolNoTool::is_busy(Editor*)
+    ToolNoTool::is_busy(Editor*)
     {
         return false;
     }
 
 
     void
-        ToolNoTool::step(Editor*)
+    ToolNoTool::step(Editor*)
     {
     }
 
 
     void
-        ToolNoTool::on_mouse(Editor* editor, core::MouseButton button, bool down)
+    ToolNoTool::on_mouse(Editor* editor, core::MouseButton button, bool down)
     {
         if (down) { return; }
         if (button != core::MouseButton::left) { return; }
@@ -57,13 +57,13 @@ namespace euphoria::t3d
 
 
     void
-        ToolNoTool::on_key(Editor*, core::Key, bool)
+    ToolNoTool::on_key(Editor*, core::Key, bool)
     {
     }
 
 
     void
-        ToolNoTool::on_scroll(Editor*, const core::Vec2i&)
+    ToolNoTool::on_scroll(Editor*, const core::Vec2i&)
     {
     }
 
@@ -99,14 +99,14 @@ namespace euphoria::t3d
         ImGui::Text("<No tool>");
 
         if
+        (
+            ImGui::Button
             (
-                ImGui::Button
-                (
-                    global_space
-                    ? ICON_MDI_EARTH " global"
-                    : ICON_MDI_ARROW_DOWN " local"
-                )
-                )
+                global_space
+                ? ICON_MDI_EARTH " global"
+                : ICON_MDI_ARROW_DOWN " local"
+            )
+        )
         {
             global_space = !global_space;
         }

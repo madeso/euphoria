@@ -137,154 +137,166 @@ namespace euphoria::t3d
     }
 
 
-    std::optional<core::Vec3f> get_position_snap(const Grid& grid)
+    namespace
     {
-        if (grid.snap_enabled)
+        std::optional<core::Vec3f>
+        get_position_snap(const Grid& grid)
         {
-            return core::Vec3f{ grid.small_step, grid.small_step , grid.small_step };
+            if (grid.snap_enabled)
+            {
+                return core::Vec3f{ grid.small_step, grid.small_step , grid.small_step };
+            }
+            else
+            {
+                return std::nullopt;
+            }
         }
-        else
-        {
-            return std::nullopt;
-        }
-    }
 
-    std::optional<core::Angle> get_angle_snap(const Grid& grid)
-    {
-        if (grid.snap_enabled)
-        {
-            return grid.angle_snap;
-        }
-        else
-        {
-            return std::nullopt;
-        }
-    }
 
-    void run_single_selection
-    (
-        const Grid& grid, std::shared_ptr<PlacedMesh> mesh,
-        bool is_translate, bool global_space, const core::CompiledCamera3& cc,
-        bool translate_x, bool translate_y, bool translate_z,
-        bool rotate_x, bool rotate_y, bool rotate_z
-    )
-    {
-        if (is_translate)
+        std::optional<core::Angle>
+        get_angle_snap(const Grid& grid)
         {
-            window::imgui::guizmo::translate
+            if (grid.snap_enabled)
+            {
+                return grid.angle_snap;
+            }
+            else
+            {
+                return std::nullopt;
+            }
+        }
+
+
+        void
+        run_single_selection
+        (
+            const Grid& grid, std::shared_ptr<PlacedMesh> mesh,
+            bool is_translate, bool global_space, const core::CompiledCamera3& cc,
+            bool translate_x, bool translate_y, bool translate_z,
+            bool rotate_x, bool rotate_y, bool rotate_z
+        )
+        {
+            if (is_translate)
+            {
+                window::imgui::guizmo::translate
+                (
+                    !global_space,
+                    get_position_snap(grid),
+                    cc.view,
+                    cc.projection,
+                    mesh->actor->calculate_model_matrix(),
+                    translate_x, translate_y, translate_z,
+                    &mesh->actor->position
+                );
+            }
+            else
+            {
+                window::imgui::guizmo::rotate
+                (
+                    !global_space,
+                    get_angle_snap(grid),
+                    cc.view,
+                    cc.projection,
+                    mesh->actor->calculate_model_matrix(),
+                    rotate_x, rotate_y, rotate_z,
+                    &mesh->actor->rotation
+                );
+            }
+        }
+
+
+        core::Vec3f
+        get_common_position
+        (
+            const std::vector<std::shared_ptr<PlacedMesh>>& meshes,
+            const std::vector<int>& selections
+        )
+        {
+            ASSERT(selections.empty() == false);
+
+            auto p = core::Vec3f{ 0.0f, 0.0f, 0.0f };
+            int count = 0;
+
+            for (auto selection : selections)
+            {
+                p += meshes[selection]->actor->position;
+                count += 1;
+            }
+
+            return p / static_cast<float>(count);
+        }
+
+
+        core::Vec3f
+        snap_or_not
+        (
+            std::optional<core::Vec3f> snap,
+            const core::Vec3f& point
+        )
+        {
+            if (snap.has_value())
+            {
+                return core::Vec3f
+                {
+                    snap_to(point.x, snap->x),
+                    snap_to(point.y, snap->y),
+                    snap_to(point.z, snap->z)
+                };
+            }
+            else
+            {
+                return point;
+            }
+        }
+
+
+        void
+        run_multi_selection
+        (
+            const Grid& grid,
+            std::vector<std::shared_ptr<PlacedMesh>>* meshes_ptr, const std::vector<int>& selections,
+            bool is_translate, bool global_space, const core::CompiledCamera3& cc,
+            bool translate_x, bool translate_y, bool translate_z,
+            // todo(Gustav): handle multi rotation
+            // bool rotate_x, bool rotate_y, bool rotate_z
+            bool, bool, bool
+        )
+        {
+            if (is_translate == false)
+            {
+                return;
+            }
+
+            auto& meshes = *meshes_ptr;
+            const auto original_base_position = get_common_position(meshes, selections);
+            const auto original_position = snap_or_not(get_position_snap(grid), original_base_position);
+            const auto rotation = core::Quatf::identity();
+
+            auto position = original_position;
+
+            const auto has_been_translated = window::imgui::guizmo::translate
             (
                 !global_space,
                 get_position_snap(grid),
                 cc.view,
                 cc.projection,
-                mesh->actor->calculate_model_matrix(),
+                render::calculate_model_matrix(position, rotation),
                 translate_x, translate_y, translate_z,
-                &mesh->actor->position
+                &position
             );
-        }
-        else
-        {
-            window::imgui::guizmo::rotate
-            (
-                !global_space,
-                get_angle_snap(grid),
-                cc.view,
-                cc.projection,
-                mesh->actor->calculate_model_matrix(),
-                rotate_x, rotate_y, rotate_z,
-                &mesh->actor->rotation
-            );
-        }
-    }
 
-
-    core::Vec3f
-    get_common_position
-    (
-        const std::vector<std::shared_ptr<PlacedMesh>>& meshes,
-        const std::vector<int>& selections
-    )
-    {
-        ASSERT(selections.empty() == false);
-
-        auto p = core::Vec3f{0.0f, 0.0f, 0.0f};
-        int count = 0;
-
-        for (auto selection : selections)
-        {
-            p += meshes[selection]->actor->position;
-            count += 1;
-        }
-
-        return p / static_cast<float>(count);
-    }
-
-    core::Vec3f
-    snap_or_not
-    (
-        std::optional<core::Vec3f> snap,
-        const core::Vec3f& point
-    )
-    {
-        if (snap.has_value())
-        {
-            return core::Vec3f
+            if (has_been_translated)
             {
-                snap_to(point.x, snap->x),
-                snap_to(point.y, snap->y),
-                snap_to(point.z, snap->z)
-            };
-        }
-        else
-        {
-            return point;
-        }
-    }
+                const auto translation = core::Vec3f::from_to(original_position, position);
 
-    void run_multi_selection
-    (
-        const Grid& grid,
-        std::vector<std::shared_ptr<PlacedMesh>>* meshes_ptr, const std::vector<int>& selections,
-        bool is_translate, bool global_space, const core::CompiledCamera3& cc,
-        bool translate_x, bool translate_y, bool translate_z,
-        // todo(Gustav): handle multi rotation
-        // bool rotate_x, bool rotate_y, bool rotate_z
-        bool, bool, bool
-    )
-    {
-        if (is_translate == false)
-        {
-            return;
-        }
-
-        auto& meshes = *meshes_ptr;
-        const auto original_base_position = get_common_position(meshes, selections);
-        const auto original_position = snap_or_not(get_position_snap(grid), original_base_position);
-        const auto rotation = core::Quatf::identity();
-
-        auto position = original_position;
-        
-        const auto has_been_translated = window::imgui::guizmo::translate
-        (
-            !global_space,
-            get_position_snap(grid),
-            cc.view,
-            cc.projection,
-            render::calculate_model_matrix(position, rotation),
-            translate_x, translate_y, translate_z,
-            &position
-        );
-
-        if (has_been_translated)
-        {
-            const auto translation = core::Vec3f::from_to(original_position, position);
-            
-            for (auto selection : selections)
-            {
-                meshes[selection]->actor->position += translation;
+                for (auto selection : selections)
+                {
+                    meshes[selection]->actor->position += translation;
+                }
             }
         }
     }
+
 
     void
     Editor::run_tools
