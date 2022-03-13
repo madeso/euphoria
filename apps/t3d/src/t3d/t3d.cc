@@ -300,6 +300,7 @@ namespace euphoria::t3d
             case core::Key::ctrl_right: state_ctrl_right = down; break;
             case core::Key::alt_left: state_alt_left = down; break;
             case core::Key::alt_right: state_alt_right = down; break;
+            default: break;
             }
 
             switch(key)
