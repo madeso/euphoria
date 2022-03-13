@@ -67,6 +67,14 @@ namespace euphoria::core
 
 
         [[nodiscard]] static Self
+        from_to(const Self& from, const Self& to)
+        {
+            // https://stackoverflow.com/a/22167097
+            return to * from.get_inverse();
+        }
+
+
+        [[nodiscard]] static Self
         from_random(Random* random)
         {
             const auto axis = get_random_unit3(random);
@@ -130,9 +138,18 @@ namespace euphoria::core
         }
 
 
-        // the inverse represent the same rotation
         Self
         get_inverse() const
+        {
+            // todo(Gustav): assert here
+            // get_length_squared() == 1
+            return get_conjugate();
+        }
+
+
+        // the negated represents the same rotation
+        Self
+        get_negated() const
         {
             return Quat(-w, -get_vec_part());
         }
@@ -294,16 +311,17 @@ namespace euphoria::core
         }
 
 
+        // todo(Gustav): rename this to slerp and slerp to slerp_fast or slerp_base
         [[nodiscard]] static Self
-        slerp_shortway(const Self& f, const T scale, const Self& t)
+        slerp_shortway(const Self& from, const T scale, const Self& to)
         {
-            if(dot(f, t) < 0)
+            if(dot(from, to) < 0)
             {
-                return slerp(f.get_inverse(), scale, t);
+                return slerp(from.get_negated(), scale, to);
             }
             else
             {
-                return slerp(f, scale, t);
+                return slerp(from, scale, to);
             }
         }
 

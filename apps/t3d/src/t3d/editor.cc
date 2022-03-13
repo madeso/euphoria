@@ -227,6 +227,21 @@ namespace euphoria::t3d
         }
 
 
+        core::Quatf
+        get_common_rotation
+        (
+            const std::vector<std::shared_ptr<PlacedMesh>>& meshes,
+            const std::vector<int>& selections
+        )
+        {
+            ASSERT(selections.empty() == false);
+
+            // todo(Gutav): is this the correct way?
+            // should we calculate the average rotation instead of just grabbing one?
+            return meshes[selections[0]]->actor->rotation;
+        }
+
+
         core::Vec3f
         snap_or_not
         (
@@ -251,26 +266,18 @@ namespace euphoria::t3d
 
 
         void
-        run_multi_selection
+        run_multi_selection_translate
         (
             const Grid& grid,
             std::vector<std::shared_ptr<PlacedMesh>>* meshes_ptr, const std::vector<int>& selections,
-            bool is_translate, bool global_space, const core::CompiledCamera3& cc,
-            bool translate_x, bool translate_y, bool translate_z,
-            // todo(Gustav): handle multi rotation
-            // bool rotate_x, bool rotate_y, bool rotate_z
-            bool, bool, bool
+            bool global_space, const core::CompiledCamera3& cc,
+            bool translate_x, bool translate_y, bool translate_z
         )
         {
-            if (is_translate == false)
-            {
-                return;
-            }
-
             auto& meshes = *meshes_ptr;
             const auto original_base_position = get_common_position(meshes, selections);
             const auto original_position = snap_or_not(get_position_snap(grid), original_base_position);
-            const auto rotation = core::Quatf::identity();
+            const auto rotation = get_common_rotation(meshes, selections);
 
             auto position = original_position;
 
@@ -293,6 +300,76 @@ namespace euphoria::t3d
                 {
                     meshes[selection]->actor->position += translation;
                 }
+            }
+        }
+
+        void
+        run_multi_selection_rotate
+        (
+            const Grid& grid,
+            std::vector<std::shared_ptr<PlacedMesh>>* meshes_ptr, const std::vector<int>& selections,
+            bool global_space, const core::CompiledCamera3& cc,
+            bool rotate_x, bool rotate_y, bool rotate_z
+        )
+        {
+            auto& meshes = *meshes_ptr;
+            const auto position = get_common_position(meshes, selections);
+            const auto original_rotation = get_common_rotation(meshes, selections);
+
+            auto rotation = original_rotation;
+
+            const auto has_been_rotated = window::imgui::guizmo::rotate
+            (
+                !global_space,
+                get_angle_snap(grid),
+                cc.view,
+                cc.projection,
+                render::calculate_model_matrix(position, rotation),
+                rotate_x, rotate_y, rotate_z,
+                &rotation
+            );
+
+            if (has_been_rotated)
+            {
+                const auto change = core::Quatf::from_to(original_rotation, rotation);
+
+                for (auto selection : selections)
+                {
+                    auto act = meshes[selection]->actor;
+                    act->rotation = (act->rotation * change).get_normalized();
+                }
+            }
+        }
+
+        void
+        run_multi_selection
+        (
+            const Grid& grid,
+            std::vector<std::shared_ptr<PlacedMesh>>* meshes_ptr, const std::vector<int>& selections,
+            bool is_translate, bool global_space, const core::CompiledCamera3& cc,
+            bool translate_x, bool translate_y, bool translate_z,
+            bool rotate_x, bool rotate_y, bool rotate_z
+        )
+        {
+            if (is_translate)
+            {
+                run_multi_selection_translate
+                (
+                    grid,
+                    meshes_ptr, selections,
+                    global_space, cc,
+                    translate_x, translate_y, translate_z
+                );
+            }
+            else
+            {
+                run_multi_selection_rotate
+                (
+                    grid,
+                    meshes_ptr, selections,
+                    global_space, cc,
+                    rotate_x, rotate_y, rotate_z
+                );
             }
         }
     }
