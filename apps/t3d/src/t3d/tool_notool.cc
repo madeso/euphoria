@@ -87,7 +87,8 @@ namespace euphoria::t3d
         }
     }
 
-    bool toggle(const char* label, bool* state)
+    bool
+    toggle(const char* label, bool* state)
     {
         const auto changed = toggle(label, *state);
         if (changed)
@@ -99,7 +100,7 @@ namespace euphoria::t3d
 
 
     void
-        ToolNoTool::on_editor(Editor*)
+    ToolNoTool::on_editor(Editor*)
     {
         ImGui::Text("<No tool>");
 

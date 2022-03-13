@@ -14,6 +14,7 @@
 
 #include "t3d/grid.h"
 #include "t3d/filelist.h"
+#include "t3d/keyboardstate.h"
 
 #include <string>
 #include <memory>
@@ -106,6 +107,10 @@ namespace euphoria::t3d
 
         void
         update_grid();
+
+
+        KeyboardState
+        calculate_keyboard_state() const;
 
 
         void

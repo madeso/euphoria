@@ -182,6 +182,18 @@ namespace euphoria::t3d
     }
 
 
+    KeyboardState
+    Application::calculate_keyboard_state() const
+    {
+        return
+        {
+            state_ctrl_left  || state_ctrl_right,
+            state_shift_left || state_shift_right,
+            state_alt_left   || state_alt_right,
+        };
+    }
+
+
     void
     Application::on_sdl_event(const SDL_Event& e)
     {
@@ -335,11 +347,7 @@ namespace euphoria::t3d
             editor->on_mouse
             (
                 button,
-                {
-                    state_ctrl_left  || state_ctrl_right,
-                    state_shift_left || state_shift_right,
-                    state_alt_left   || state_alt_right,
-                },
+                calculate_keyboard_state(),
                 down
             );
         }
@@ -505,9 +513,12 @@ namespace euphoria::t3d
                 << mesh->tile->name
                 << " "
                 << p;
-            if(ImGui::Selectable(display.c_str(), mesh->is_selected))
+            if (ImGui::Selectable(display.c_str(), mesh->is_selected))
             {
-                editor->set_all_selected(false);
+                if (calculate_keyboard_state().ctrl == false)
+                {
+                    editor->set_all_selected(false);
+                }
                 mesh->is_selected = !mesh->is_selected;
             }
         }
