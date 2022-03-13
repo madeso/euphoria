@@ -7,7 +7,7 @@
 namespace euphoria::t3d
 {
     struct Editor;
-
+    struct KeyboardState;
 
     struct Tool
     {
@@ -25,7 +25,7 @@ namespace euphoria::t3d
 
 
         virtual void
-        on_mouse(t3d::Editor* editor, core::MouseButton key, bool down) = 0;
+        on_mouse(t3d::Editor* editor, core::MouseButton key, const KeyboardState& state, bool down) = 0;
         
         
         virtual void

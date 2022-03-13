@@ -82,6 +82,14 @@ namespace euphoria::t3d
         int help_style = 0;
         FileList pending_files;
 
+        // current keyboard state
+        bool state_shift_left = false;
+        bool state_shift_right = false;
+        bool state_ctrl_left = false;
+        bool state_ctrl_right = false;
+        bool state_alt_left = false;
+        bool state_alt_right = false;
+
 
         Application();
         ~Application();

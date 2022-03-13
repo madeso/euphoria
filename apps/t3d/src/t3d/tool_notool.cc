@@ -7,6 +7,8 @@
 
 #include "t3d/editor.h"
 #include "t3d/t3d.h"
+#include "t3d/keyboardstate.h"
+
 
 namespace euphoria::t3d
 {
@@ -30,28 +32,31 @@ namespace euphoria::t3d
 
 
     void
-    ToolNoTool::on_mouse(Editor* editor, core::MouseButton button, bool down)
+    ToolNoTool::on_mouse(Editor* editor, core::MouseButton button, const KeyboardState& state, bool down)
     {
         if (down) { return; }
         if (button != core::MouseButton::left) { return; }
 
-        auto ray = editor->camera
-            .clip_to_world_ray
+        auto ray = editor->camera.clip_to_world_ray
+        (
+            editor->viewport.to_clip_coord
             (
-                editor->viewport.to_clip_coord
-                (
-                    editor->mouse
-                )
+                editor->mouse
             )
-            .get_normalized()
-            ;
+        )
+        .get_normalized()
+        ;
 
-        editor->set_all_selected(false);
+        if (state.ctrl == false)
+        {
+            editor->set_all_selected(false);
+        }
+
         auto hits = editor->raycast(ray);
 
         for (auto h : hits)
         {
-            h->is_selected = true;
+            h->is_selected = !h->is_selected;
         }
     }
 

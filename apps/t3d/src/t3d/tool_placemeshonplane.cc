@@ -61,7 +61,7 @@ namespace euphoria::t3d
 
 
     void
-    ToolPlaceMeshOnAPlane::on_mouse(Editor* editor, core::MouseButton button, bool down)
+    ToolPlaceMeshOnAPlane::on_mouse(Editor* editor, core::MouseButton button, const KeyboardState&, bool down)
     {
         if(down) { return; }
 

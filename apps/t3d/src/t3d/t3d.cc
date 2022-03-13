@@ -30,6 +30,7 @@
 #include "t3d/editor.h"
 #include "t3d/tool_notool.h"
 #include "t3d/tool_placemeshonplane.h"
+#include "t3d/keyboardstate.h"
 
 
 namespace euphoria::t3d
@@ -278,6 +279,17 @@ namespace euphoria::t3d
     {
         if(forward_keyboard)
         {
+            // update keyvoard state
+            switch (key)
+            {
+            case core::Key::shift_left: state_shift_left = down; break;
+            case core::Key::shift_right: state_shift_right = down; break;
+            case core::Key::ctrl_left: state_ctrl_left = down; break;
+            case core::Key::ctrl_right: state_ctrl_right = down; break;
+            case core::Key::alt_left: state_alt_left = down; break;
+            case core::Key::alt_right: state_alt_right = down; break;
+            }
+
             switch(key)
             {
             case core::Key::escape:
@@ -320,7 +332,16 @@ namespace euphoria::t3d
     {
         if(forward_mouse)
         {
-            editor->on_mouse(button, down);
+            editor->on_mouse
+            (
+                button,
+                {
+                    state_ctrl_left  || state_ctrl_right,
+                    state_shift_left || state_shift_right,
+                    state_alt_left   || state_alt_right,
+                },
+                down
+            );
         }
 
         switch(button)

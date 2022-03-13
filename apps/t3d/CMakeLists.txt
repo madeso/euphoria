@@ -5,6 +5,7 @@ set(src
     src/t3d/editor.cc src/t3d/editor.h
     src/t3d/filelist.cc src/t3d/filelist.h
     src/t3d/grid.cc src/t3d/grid.h
+    src/t3d/keyboardstate.cc src/t3d/keyboardstate.h
     src/t3d/main.cc
     src/t3d/t3d.cc src/t3d/t3d.h
     src/t3d/tilelibrary.cc src/t3d/tilelibrary.h

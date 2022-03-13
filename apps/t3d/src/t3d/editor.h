@@ -27,6 +27,7 @@ namespace euphoria::t3d
     struct Tile;
     struct TileLibrary;
     struct Grid;
+    struct KeyboardState;
 
 
     struct PlacedMesh
@@ -81,7 +82,7 @@ namespace euphoria::t3d
 
 
         void
-        on_mouse(core::MouseButton button, bool down);
+        on_mouse(core::MouseButton button, const KeyboardState& state, bool down);
 
 
         void
@@ -95,8 +96,10 @@ namespace euphoria::t3d
         void
         on_editor();
 
+
         std::vector<int>
         get_selected_indices() const;
+
 
         void
         run_tools

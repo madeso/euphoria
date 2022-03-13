@@ -32,7 +32,7 @@ namespace euphoria::t3d
 
 
         void
-        on_mouse(Editor*, core::MouseButton, bool) override;
+        on_mouse(Editor*, core::MouseButton, const KeyboardState&, bool) override;
 
 
         void
