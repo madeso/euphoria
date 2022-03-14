@@ -142,6 +142,12 @@ namespace euphoria::core
             return get_transform(p, 0);
         }
 
+        Unit3<T>
+        get_transform_vec(const Unit3<T>& p) const
+        {
+            return Unit3<T>::to_unit(get_transform_vec(static_cast<Vec3<T>>(p)));
+        }
+
         Vec3<T>
         get_translation() const
         {

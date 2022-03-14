@@ -33,6 +33,17 @@ namespace euphoria::core
         return from + dir * at;
     }
 
+
+    [[nodiscard]] UnitRay3f
+    UnitRay3f::get_transform(const Mat4f& m) const
+    {
+        return
+        {
+            m.get_transform_point(from),
+            m.get_transform_vec(dir)
+        };
+    }
+
     
     [[nodiscard]] Ray2f
     Ray2f::from_direction(const Vec2f& direction, const Vec2f& pos)

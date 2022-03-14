@@ -62,7 +62,8 @@ namespace euphoria::t3d
 
         for (auto mesh : placed_meshes)
         {
-            const auto collision = core::get_intersection(ray, mesh->tile->aabb.offset_copy(mesh->actor->position));
+            const auto transformed_ray = ray.get_transform(mesh->actor->calculate_model_matrix().get_inverted());
+            const auto collision = core::get_intersection(transformed_ray, mesh->tile->aabb);
 
             if (collision.intersected)
             {

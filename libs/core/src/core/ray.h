@@ -1,6 +1,7 @@
 #pragma once
 
 #include "core/vec3.h"
+#include "core/mat4.h"
 
 namespace euphoria::core
 {
@@ -16,6 +17,9 @@ namespace euphoria::core
 
         [[nodiscard]] Vec3f
         get_point(float at) const;
+
+        [[nodiscard]] UnitRay3f
+        get_transform(const Mat4f& m) const;
 
         Vec3f from;
         Unit3f dir;
