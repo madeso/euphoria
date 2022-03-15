@@ -90,6 +90,7 @@ set(app_src
     src/core/chatbot.cc src/core/chatbot.h
     src/core/cint.cc src/core/cint.h
     src/core/closestpoint.cc src/core/closestpoint.h
+    src/core/collisionmesh.cc src/core/collisionmesh.h
     src/core/compiler_warning.cc src/core/compiler_warning.h
     src/core/console.cc src/core/console.h
     src/core/cypher.cc src/core/cypher.h
@@ -238,6 +239,7 @@ set(test_src
     src/core/findstring.test.cc
     src/core/hash.test.cc
     src/core/image.test.cc
+    src/core/intersection.test.cc
     data/test/test_image.png
     src/core/insertionsort.test.cc
     src/core/interpolate.test.cc

@@ -170,6 +170,12 @@ namespace euphoria::core
             r.normalize();
             return Unit::to_unit(r);
         }
+
+        [[nodiscard]] Unit
+        as_normalized() const
+        {
+            return Unit::to_unit(*this);
+        }
     };
 
 

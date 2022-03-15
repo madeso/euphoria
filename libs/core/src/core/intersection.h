@@ -1,8 +1,10 @@
 #pragma once
 
+#include <optional>
 
 #include "core/vec2.h"
 #include "core/vec3.h"
+
 
 namespace euphoria::core
 {
@@ -107,6 +109,20 @@ namespace euphoria::core
 
     bool
     is_point_in_triangle(const Vec2f& a, const Vec2f& b, const Vec2f& c, const Vec2f& p);
+
+
+
+
+    // --------------------------------
+    // 3d ray to triangle
+
+    std::optional<float>
+    get_intersection_ray_triangle
+    (
+        const UnitRay3f& ray,
+        const Vec3f& v0, const Vec3f& v1, const Vec3f& v2
+    );
+    
 
 
 

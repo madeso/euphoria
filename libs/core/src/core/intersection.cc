@@ -4,6 +4,8 @@
 #include "core/aabb.h"
 #include "core/sphere.h"
 #include "core/plane.h"
+#include "core/numeric.h"
+
 
 namespace euphoria::core
 {
@@ -342,4 +344,51 @@ namespace euphoria::core
     }
 
 
+    /**
+     * This implements the Möller–Trumbore intersection algorithm.
+     * https://en.wikipedia.org/wiki/M%C3%B6ller%E2%80%93Trumbore_intersection_algorithm
+     */
+    std::optional<float>
+    get_intersection_ray_triangle
+    (
+        const UnitRay3f& ray,
+        const Vec3f& v0, const Vec3f& v1, const Vec3f& v2
+    )
+    {
+        constexpr float EPSILON = 0.0000001f;
+        
+        const auto edge1 = v1 - v0;
+        const auto edge2 = v2 - v0;
+        const auto h = cross(ray.dir, edge2);
+        const auto a = dot(edge1, h);
+        if (a > -EPSILON && a < EPSILON)
+        {
+            return std::nullopt;
+        }
+        
+        const auto f = 1.0f/a;
+        const auto s = ray.from - v0;
+        const auto u = f * dot(s, h);
+        if (u < 0.0f || u > 1.0f)
+        {
+            return std::nullopt;
+        }
+        
+        const auto q = cross(s, edge1);
+        const auto v = f * dot(ray.dir, q);
+        if (v < 0.0f || u + v > 1.0f)
+        {
+            return std::nullopt;
+        }
+        
+        const auto t = f * dot(edge2, q);
+        if (t > EPSILON)
+        {
+            return t;
+        }
+        else
+        {
+            return std::nullopt;
+        }
+    }
 }

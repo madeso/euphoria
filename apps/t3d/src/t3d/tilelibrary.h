@@ -3,6 +3,7 @@
 #include "core/aabb.h"
 #include "core/vfs_path.h"
 #include "core/noncopyable.h"
+#include "core/collisionmesh.h"
 
 #include "render/compiledmesh.h"
 
@@ -28,6 +29,7 @@ namespace euphoria::t3d
         core::Aabb aabb;
         std::string name;
 
+        core::CollisionMesh collison;
         std::shared_ptr<render::CompiledMesh> mesh;
     };
 

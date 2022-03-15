@@ -67,7 +67,12 @@ namespace euphoria::t3d
 
             if (collision.intersected)
             {
-                r.emplace_back(mesh);
+                const auto mesh_collision = core::get_intersection(transformed_ray, mesh->tile->collison);
+
+                if(mesh_collision)
+                {
+                    r.emplace_back(mesh);
+                }
             }
         }
 
