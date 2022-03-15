@@ -159,6 +159,7 @@ set(app_src
     src/core/vfs_path.cc src/core/vfs_path.h
     src/core/viewportdef.cc src/core/viewportdef.h
     src/core/wordwrap.cc src/core/wordwrap.h
+    src/core/dotoutput.cc src/core/dotoutput.h
 )
 
 source_group("" FILES ${app_src})

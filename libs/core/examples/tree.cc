@@ -2,6 +2,7 @@
 #include "core/textbox.h"
 
 #include "core/argparse.h"
+#include "core/dotoutput.h"
 
 #include <vector>
 #include <string>
@@ -96,6 +97,18 @@ print_tree_simple(const Tree& tree_to_print)
 
 
 void
+print_tree_dot(const Tree& tree_to_print)
+{
+    dot::create_graph
+    (
+        tree_to_print,
+        [](const Tree& tt) {return tt.name; },
+        [](const Tree& tt) {return tt.children; }
+    ).print();
+}
+
+
+void
 print_tree_textbox(const Tree& tree_to_print)
 {
     auto result = TextBox::create_empty();
@@ -139,7 +152,7 @@ enum class Trees
 
 enum class Output
 {
-    all, simple, textbox
+    all, simple, textbox, dot
 };
 
 
@@ -169,6 +182,8 @@ struct TreeApp
             break;
         case Output::textbox:
             print_tree_textbox(tree);
+        case Output::dot:
+            print_tree_dot(tree);
             break;
         }
     }
