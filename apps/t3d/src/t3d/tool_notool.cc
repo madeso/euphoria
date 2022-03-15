@@ -8,6 +8,7 @@
 #include "t3d/editor.h"
 #include "t3d/t3d.h"
 #include "t3d/keyboardstate.h"
+#include "t3d/tilelibrary.h"
 
 
 namespace euphoria::t3d
@@ -47,16 +48,25 @@ namespace euphoria::t3d
         .get_normalized()
         ;
 
-        if (state.ctrl == false)
-        {
-            editor->set_all_selected(false);
-        }
+        active_selection_click.meshes = editor->raycast(ray);
+        active_selection_click.ctrl_down = state.ctrl;
 
-        auto hits = editor->raycast(ray);
-
-        for (auto h : hits)
+        switch(active_selection_click.meshes.size())
         {
-            h->is_selected = !h->is_selected;
+        case 0:
+            break;
+        case 1:
+            if (active_selection_click.ctrl_down == false)
+            {
+                editor->set_all_selected(false);
+            }
+            {
+                auto& m = active_selection_click.meshes[0];
+                m->is_selected = !m->is_selected;
+            }
+            break;
+        default:
+            trigger_selection_popup = true;
         }
     }
 
@@ -100,7 +110,7 @@ namespace euphoria::t3d
 
 
     void
-    ToolNoTool::on_editor(Editor*)
+    ToolNoTool::on_editor(Editor* editor)
     {
         ImGui::Text("<No tool>");
 
@@ -152,5 +162,32 @@ namespace euphoria::t3d
             translate_x, translate_y, translate_z,
             rotate_x, rotate_y, rotate_z
         );
+
+        if(trigger_selection_popup)
+        {
+            trigger_selection_popup = false;
+            ImGui::OpenPopup("popup");
+        }
+
+        if (ImGui::BeginPopup("popup"))
+        {
+            for(auto& m: active_selection_click.meshes)
+            {
+                if(active_selection_click.ctrl_down)
+                {
+                    ImGui::Checkbox(m->tile->name.c_str(), &m->is_selected);
+                }
+                else
+                {
+                    if( ImGui::Button(m->tile->name.c_str()) )
+                    {
+                        editor->set_all_selected(false);
+                        m->is_selected = !m->is_selected;
+                        ImGui::CloseCurrentPopup();
+                    }
+                }
+            }
+            ImGui::EndPopup();
+        }
     }
 }
