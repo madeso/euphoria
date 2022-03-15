@@ -216,7 +216,7 @@ main(int argc, char** argv)
     auto output = Output::all;
 
     auto parser = argparse::Parser {"tree example"};
-    parser.add("--trees", &trees).set_help("What trees to print");
+    parser.add("--tree", &trees).set_help("What trees to print");
     parser.add("--output", &output).set_help("How to print the trees");
 
     if(const auto r = parser.parse(argc, argv))
