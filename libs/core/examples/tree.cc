@@ -74,7 +74,7 @@ create_tolkien_tree()
                 "Enemies",
                 {
                     Tree{"Sauron"},
-                    Tree{"orcs"},
+                    Tree{"Orcs"},
                     Tree{"Sauruman"}
                 }
             }
