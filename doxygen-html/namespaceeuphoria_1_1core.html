@@ -74,6 +74,8 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceeuphoria_1_1core_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1detail.html">detail</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceeuphoria_1_1core_1_1dot"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1dot.html">dot</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceeuphoria_1_1core_1_1dump2d"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1dump2d.html">dump2d</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceeuphoria_1_1core_1_1dump3d"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1dump3d.html">dump3d</a></td></tr>
@@ -145,6 +147,8 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints dots on the commandline for long running processes.  <a href="structeuphoria_1_1core_1_1CliProgressDots.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ClosestPointCollector.html">ClosestPointCollector</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1CollisionMesh.html">CollisionMesh</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1053,6 +1057,8 @@ Functions</h2></td></tr>
 <tr class="separator:ab7af0efa3209c752a2bb407927cc9962"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d4dae55ee0c833d3c7f19b888203637"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1Image.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a6d4dae55ee0c833d3c7f19b888203637">grid_layout</a> (const std::vector&lt; <a class="el" href="structeuphoria_1_1core_1_1Image.html">Image</a> &gt; &amp;images, int padding, <a class="el" href="structeuphoria_1_1core_1_1Rgbi.html">Rgbi</a> background_color, bool top_to_bottom)</td></tr>
 <tr class="separator:a6d4dae55ee0c833d3c7f19b888203637"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad44176a68db7eda1a6adacdc8748144e"><td class="memItemLeft" align="right" valign="top">std::optional&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad44176a68db7eda1a6adacdc8748144e">get_intersection</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, const <a class="el" href="structeuphoria_1_1core_1_1CollisionMesh.html">CollisionMesh</a> &amp;mesh)</td></tr>
+<tr class="separator:ad44176a68db7eda1a6adacdc8748144e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad749318b4cd5de0e4f2ef98d5cd9cf0d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad749318b4cd5de0e4f2ef98d5cd9cf0d">parse_commandline</a> (const std::string &amp;str)</td></tr>
 <tr class="separator:ad749318b4cd5de0e4f2ef98d5cd9cf0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e6b585fb99265669fb91b68b785969e"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a2e6b585fb99265669fb91b68b785969e">get_cp437</a> (int c)</td></tr>
@@ -1275,6 +1281,8 @@ Functions</h2></td></tr>
 <tr class="separator:a50d06f88689882e5a72962e0bc02ae29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7544c0bf0fafbc6c716eff245324739c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a7544c0bf0fafbc6c716eff245324739c">is_point_in_triangle</a> (const <a class="el" href="namespaceeuphoria_1_1core.html#a0fac06348fb78bf037c7279ac205036c">Vec2f</a> &amp;a, const <a class="el" href="namespaceeuphoria_1_1core.html#a0fac06348fb78bf037c7279ac205036c">Vec2f</a> &amp;b, const <a class="el" href="namespaceeuphoria_1_1core.html#a0fac06348fb78bf037c7279ac205036c">Vec2f</a> &amp;c, const <a class="el" href="namespaceeuphoria_1_1core.html#a0fac06348fb78bf037c7279ac205036c">Vec2f</a> &amp;p)</td></tr>
 <tr class="separator:a7544c0bf0fafbc6c716eff245324739c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9aa05d9c9d86f5f927d010c9359e810c"><td class="memItemLeft" align="right" valign="top">std::optional&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a9aa05d9c9d86f5f927d010c9359e810c">get_intersection_ray_triangle</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;v0, const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;v1, const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;v2)</td></tr>
+<tr class="separator:a9aa05d9c9d86f5f927d010c9359e810c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af24d04d4cc7e9dadc73b1412e11952cf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#af24d04d4cc7e9dadc73b1412e11952cf">to_string</a> (<a class="el" href="namespaceeuphoria_1_1core.html#aca4be613f8530e618686f73fdb00eeac">MouseButton</a> button)</td></tr>
 <tr class="separator:af24d04d4cc7e9dadc73b1412e11952cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7594444660871b56e1ab43909ba46f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#aca4be613f8530e618686f73fdb00eeac">MouseButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae7594444660871b56e1ab43909ba46f3">to_mouse_button</a> (const std::string &amp;button)</td></tr>
@@ -2209,7 +2217,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00637">637</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00643">643</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -2225,7 +2233,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00638">638</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00644">644</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -2419,7 +2427,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00407">407</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00413">413</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -2435,7 +2443,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00411">411</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00417">417</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -2661,7 +2669,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00406">406</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00412">412</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -2677,7 +2685,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00410">410</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00416">416</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -2761,7 +2769,7 @@ template&lt;typename T &gt; </div>
 
 <p>Typedefs. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00405">405</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00411">411</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -2777,7 +2785,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00409">409</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00415">415</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -4836,7 +4844,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00321">321</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00327">327</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -5520,7 +5528,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00361">361</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00367">367</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -5956,7 +5964,7 @@ template&lt;typename T &gt; </div>
 
 <p>Functions. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00354">354</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00360">360</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -8021,7 +8029,7 @@ template&lt;typename T , typename SortFunc &gt; </div>
 </div>
 </div>
 <a id="aa77a81d1dbc4f113feaa49e9ea757ef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa77a81d1dbc4f113feaa49e9ea757ef2">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[1/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa77a81d1dbc4f113feaa49e9ea757ef2">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[1/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -8049,7 +8057,7 @@ template&lt;typename T , typename SortFunc &gt; </div>
 </div>
 </div>
 <a id="a85706fe3216c3e13ae3ad7f5f579c8da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a85706fe3216c3e13ae3ad7f5f579c8da">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[2/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a85706fe3216c3e13ae3ad7f5f579c8da">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[2/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -8089,7 +8097,7 @@ template&lt;typename T , typename SortFunc &gt; </div>
 </div>
 </div>
 <a id="a66ebd1e7ded6a99716624029fdc087d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a66ebd1e7ded6a99716624029fdc087d3">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[3/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a66ebd1e7ded6a99716624029fdc087d3">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[3/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -8117,7 +8125,7 @@ template&lt;typename T , typename SortFunc &gt; </div>
 </div>
 </div>
 <a id="aef7816bf0108632fc69edf5bb98b3d9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aef7816bf0108632fc69edf5bb98b3d9c">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[4/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aef7816bf0108632fc69edf5bb98b3d9c">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[4/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -8145,7 +8153,7 @@ template&lt;typename T , typename SortFunc &gt; </div>
 </div>
 </div>
 <a id="ae31a36613c10c5b65c2d606515836425"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae31a36613c10c5b65c2d606515836425">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[5/5]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae31a36613c10c5b65c2d606515836425">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[5/6]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -8167,6 +8175,74 @@ template&lt;typename T , typename SortFunc &gt; </div>
           <td></td>
           <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;&#160;</td>
           <td class="paramname"><em>sphere_center</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad44176a68db7eda1a6adacdc8748144e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad44176a68db7eda1a6adacdc8748144e">&#9670;&nbsp;</a></span>get_intersection() <span class="overload">[6/6]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt;float&gt; euphoria::core::get_intersection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>ray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1CollisionMesh.html">CollisionMesh</a> &amp;&#160;</td>
+          <td class="paramname"><em>mesh</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9aa05d9c9d86f5f927d010c9359e810c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9aa05d9c9d86f5f927d010c9359e810c">&#9670;&nbsp;</a></span>get_intersection_ray_triangle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::optional&lt;float&gt; euphoria::core::get_intersection_ray_triangle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>ray</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>v0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -10672,7 +10748,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00611">611</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00617">617</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -10704,7 +10780,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00627">627</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00633">633</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -11048,7 +11124,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00295">295</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00301">301</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -11136,7 +11212,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00287">287</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00293">293</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -11292,7 +11368,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00594">594</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00600">600</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -11452,7 +11528,7 @@ template&lt;typename T &gt; </div>
 
 <p>Math operators. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00270">270</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00276">276</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -11576,7 +11652,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00603">603</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00609">609</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -11732,7 +11808,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00279">279</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00285">285</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -11884,7 +11960,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00304">304</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00310">310</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -11916,7 +11992,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00313">313</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00319">319</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -12314,7 +12390,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00581">581</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00587">587</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -12490,7 +12566,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00395">395</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00401">401</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -12522,7 +12598,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00388">388</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00394">394</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -12557,7 +12633,7 @@ template&lt;typename T &gt; </div>
 <p>Transformations. </p>
 <p>Printing </p>
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00381">381</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00387">387</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -12777,7 +12853,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00569">569</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00575">575</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -12929,7 +13005,7 @@ template&lt;typename T , typename K  = std::enable_if_t&lt;std::is_integral&lt;T
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00343">343</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00349">349</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -12993,7 +13069,7 @@ template&lt;typename T , typename K  = std::enable_if_t&lt;std::is_integral&lt;T
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00337">337</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00343">343</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>
@@ -13061,7 +13137,7 @@ template&lt;typename T , typename K  = std::enable_if_t&lt;std::is_integral&lt;T
 
 <p>Equality operators. </p>
 
-<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00331">331</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00337">337</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
 
 </div>
 </div>

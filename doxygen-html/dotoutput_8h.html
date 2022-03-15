@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/ray.h File Reference</title>
+<title>Euphoria: libs/core/src/core/dotoutput.h File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -52,23 +52,25 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a>  </div>
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">ray.h File Reference</div>  </div>
+<div class="title">dotoutput.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="vec3_8h_source.html">core/vec3.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mat4_8h_source.html">core/mat4.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
 </div>
-<p><a href="ray_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="dotoutput_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">euphoria::core::UnitRay3f</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1dot_1_1Node.html">euphoria::core::dot::Node</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Ray2f.html">euphoria::core::Ray2f</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1dot_1_1Edge.html">euphoria::core::dot::Edge</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Ray3f.html">euphoria::core::Ray3f</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1dot_1_1Graph.html">euphoria::core::dot::Graph</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -77,6 +79,22 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceeuphoria_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html">euphoria::core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:namespaceeuphoria_1_1core_1_1dot"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1dot.html">euphoria::core::dot</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a1720f1180592f245e27686f462058778"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1dot.html#a1720f1180592f245e27686f462058778">euphoria::core::dot::NodeId</a> : int </td></tr>
+<tr class="separator:a1720f1180592f245e27686f462058778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a23cb82e063411571597ad2968e1fa293"><td class="memTemplParams" colspan="2">template&lt;typename T , typename LabelFunction , typename FindChildrenFunction &gt; </td></tr>
+<tr class="memitem:a23cb82e063411571597ad2968e1fa293"><td class="memTemplItemLeft" align="right" valign="top">NodeId&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1dot.html#a23cb82e063411571597ad2968e1fa293">euphoria::core::dot::fill_graph</a> (const T &amp;item, LabelFunction label_function, FindChildrenFunction find_children_function, Graph *graph)</td></tr>
+<tr class="separator:a23cb82e063411571597ad2968e1fa293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49dc10d6d76d788deca9e935bf6baef8"><td class="memTemplParams" colspan="2">template&lt;typename T , typename LabelFunction , typename FindChildrenFunction &gt; </td></tr>
+<tr class="memitem:a49dc10d6d76d788deca9e935bf6baef8"><td class="memTemplItemLeft" align="right" valign="top">Graph&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1dot.html#a49dc10d6d76d788deca9e935bf6baef8">euphoria::core::dot::create_graph</a> (const T &amp;item, LabelFunction label_function, FindChildrenFunction find_children_function)</td></tr>
+<tr class="separator:a49dc10d6d76d788deca9e935bf6baef8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
