@@ -94,13 +94,13 @@ namespace euphoria::window::imgui::guizmo
 
         if (was_modified)
         {
-            float matrixRotation[3];
-            float matrixScale[3];
-            
+            float matrix_rotation[3];
+            float matrix_scale[3];
+
             ImGuizmo::DecomposeMatrixToComponents
             (
                 model_to_modify.get_column_major(),
-                new_position->get_data_ptr(), matrixRotation, matrixScale
+                new_position->get_data_ptr(), matrix_rotation, matrix_scale
             );
         }
 
@@ -156,21 +156,21 @@ namespace euphoria::window::imgui::guizmo
 
         if (was_modified)
         {
-            float matrixPosition[3];
-            float matrixRotation[3];
-            float matrixScale[3];
+            float matrix_position[3];
+            float matrix_rotation[3];
+            float matrix_scale[3];
 
             ImGuizmo::DecomposeMatrixToComponents
             (
                 model_to_modify.get_column_major(),
-                matrixPosition, matrixRotation, matrixScale
+                matrix_position, matrix_rotation, matrix_scale
             );
 
             *new_rotation = core::Quatf::from_ypr
             (
-                core::Angle::from_degrees(matrixRotation[2]),
-                core::Angle::from_degrees(matrixRotation[1]),
-                core::Angle::from_degrees(matrixRotation[0])
+                core::Angle::from_degrees(matrix_rotation[2]),
+                core::Angle::from_degrees(matrix_rotation[1]),
+                core::Angle::from_degrees(matrix_rotation[0])
             );
         }
 
