@@ -603,7 +603,7 @@ main(int argc, char** argv)
 
         app.update(dt);
 
-        engine.imgui->start_new_frame();
+        imgui::start_new_frame();
 
         if(ImGui::BeginMainMenuBar())
         {

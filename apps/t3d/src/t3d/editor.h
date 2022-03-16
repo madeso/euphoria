@@ -97,7 +97,7 @@ namespace euphoria::t3d
         on_editor();
 
 
-        std::vector<int>
+        [[nodiscard]] std::vector<int>
         get_selected_indices() const;
 
 

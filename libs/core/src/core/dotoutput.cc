@@ -46,7 +46,7 @@ namespace euphoria::core::dot
     void
     Graph::print()
     {
-        constexpr const auto i = "    ";
+        constexpr const auto* const i = "    ";
         auto& out = std::cout;
 
         out << "digraph G\n";

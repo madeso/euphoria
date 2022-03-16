@@ -21,16 +21,15 @@ namespace euphoria::window::imgui
         ~Library();
 
         NONCOPYABLE(Library);
-
-        void
-        start_new_frame();
-
     private:
         std::string path_to_imgui_ini;
     };
 
     void
     process_imgui_events(const SDL_Event*);
+
+    void
+    start_new_frame();
 
     void
     imgui_render();

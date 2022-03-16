@@ -102,7 +102,7 @@ namespace euphoria::window::imgui
     }
 
     void
-    Library::start_new_frame()
+    start_new_frame()
     {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame();

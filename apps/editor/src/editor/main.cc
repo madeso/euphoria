@@ -678,7 +678,7 @@ main(int argc, char** argv)
     {
         handle_events();
 
-        engine.imgui->start_new_frame();
+        imgui::start_new_frame();
 
         if(ImGui::BeginMainMenuBar())
         {

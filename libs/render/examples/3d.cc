@@ -452,7 +452,7 @@ main(int argc, char** argv)
 
         if(show_imgui)
         {
-            engine.imgui->start_new_frame();
+            imgui::start_new_frame();
             run_imgui();
         }
 

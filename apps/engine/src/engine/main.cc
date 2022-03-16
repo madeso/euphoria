@@ -404,7 +404,7 @@ main(int argc, char* argv[])
         const float dt = euphoria::core::c_u64_to_float(now - last) / euphoria::core::c_u64_to_float(SDL_GetPerformanceFrequency());
 
         handle_events();
-        engine.imgui->start_new_frame();
+        imgui::start_new_frame();
 
         if(!has_crashed)
         {

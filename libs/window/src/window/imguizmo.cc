@@ -32,9 +32,9 @@ namespace euphoria::window::imgui::guizmo
 
             auto r = none;
 
-            if(a) r = r | ao;
-            if(b) r = r | bo;
-            if(c) r = r | co;
+            if(a) { r = r | ao; }
+            if(b) { r = r | bo; }
+            if(c) { r = r | co; }
 
             if (r != none)
             {
@@ -60,7 +60,7 @@ namespace euphoria::window::imgui::guizmo
         core::Vec3f* new_position
     )
     {
-        const auto mCurrentGizmoMode = is_local ? ImGuizmo::LOCAL : ImGuizmo::WORLD;
+        const auto current_gizmo_mode = is_local ? ImGuizmo::LOCAL : ImGuizmo::WORLD;
 
         const auto operation = combine
         (
@@ -86,7 +86,7 @@ namespace euphoria::window::imgui::guizmo
             camera_view.get_column_major(),
             camera_projection.get_column_major(),
             *operation,
-            mCurrentGizmoMode,
+            current_gizmo_mode,
             model_to_modify.get_column_major(),
             nullptr,
             snap.has_value() ? &snap->x : nullptr
@@ -94,7 +94,9 @@ namespace euphoria::window::imgui::guizmo
 
         if (was_modified)
         {
-            float matrixRotation[3], matrixScale[3];
+            float matrixRotation[3];
+            float matrixScale[3];
+            
             ImGuizmo::DecomposeMatrixToComponents
             (
                 model_to_modify.get_column_major(),
@@ -118,7 +120,7 @@ namespace euphoria::window::imgui::guizmo
         core::Quatf* new_rotation
     )
     {
-        const auto mCurrentGizmoMode = is_local ? ImGuizmo::LOCAL : ImGuizmo::WORLD;
+        const auto current_gizmo_mode = is_local ? ImGuizmo::LOCAL : ImGuizmo::WORLD;
 
         const auto operation = combine
         (
@@ -146,7 +148,7 @@ namespace euphoria::window::imgui::guizmo
             camera_view.get_column_major(),
             camera_projection.get_column_major(),
             *operation,
-            mCurrentGizmoMode,
+            current_gizmo_mode,
             model_to_modify.get_column_major(),
             nullptr,
             snap.has_value() ? &snap_degrees : nullptr
@@ -154,7 +156,10 @@ namespace euphoria::window::imgui::guizmo
 
         if (was_modified)
         {
-            float matrixPosition[3], matrixRotation[3], matrixScale[3];
+            float matrixPosition[3];
+            float matrixRotation[3];
+            float matrixScale[3];
+
             ImGuizmo::DecomposeMatrixToComponents
             (
                 model_to_modify.get_column_major(),

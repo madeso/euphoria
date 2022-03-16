@@ -216,7 +216,7 @@ main(int argc, char* argv[])
         // imgui
         if(show_imgui)
         {
-            engine.imgui->start_new_frame();
+            imgui::start_new_frame();
 
             ImGui::Begin("2d");
             ImGui::DragFloat("width", &sprite_width);

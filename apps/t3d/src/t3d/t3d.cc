@@ -805,7 +805,7 @@ namespace euphoria::t3d
 
         if(show_imgui)
         {
-            engine->imgui->start_new_frame();
+            window::imgui::start_new_frame();
             process_imgui();
         }
 

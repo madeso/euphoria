@@ -109,7 +109,7 @@ namespace euphoria::t3d
         update_grid();
 
 
-        KeyboardState
+        [[nodiscard]] KeyboardState
         calculate_keyboard_state() const;
 
 

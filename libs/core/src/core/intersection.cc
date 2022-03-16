@@ -355,13 +355,13 @@ namespace euphoria::core
         const Vec3f& v0, const Vec3f& v1, const Vec3f& v2
     )
     {
-        constexpr float EPSILON = 0.0000001f;
+        constexpr float epsilon = 0.0000001f;
         
         const auto edge1 = v1 - v0;
         const auto edge2 = v2 - v0;
         const auto h = cross(ray.dir, edge2);
         const auto a = dot(edge1, h);
-        if (a > -EPSILON && a < EPSILON)
+        if (a > -epsilon && a < epsilon)
         {
             return std::nullopt;
         }
@@ -382,7 +382,7 @@ namespace euphoria::core
         }
         
         const auto t = f * dot(edge2, q);
-        if (t > EPSILON)
+        if (t > epsilon)
         {
             return t;
         }

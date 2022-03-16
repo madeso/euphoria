@@ -110,7 +110,7 @@ main(int argc, char** argv)
             }
         }
 
-        engine.imgui->start_new_frame();
+        imgui::start_new_frame();
 
         if(ImGui::BeginMainMenuBar())
         {
