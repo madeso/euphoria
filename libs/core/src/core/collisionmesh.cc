@@ -26,9 +26,9 @@ CollisionMesh::add(const Mesh& mesh)
         {
             faces.emplace_back
             (
-                point_base + f.a,
-                point_base + f.b,
-                point_base + f.c
+                core::c_sizet_to_int(point_base) + f.a,
+                core::c_sizet_to_int(point_base) + f.b,
+                core::c_sizet_to_int(point_base) + f.c
             );
         }
     }
