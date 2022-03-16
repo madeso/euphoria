@@ -182,6 +182,7 @@ struct TreeApp
             break;
         case Output::textbox:
             print_tree_textbox(tree);
+            break;
         case Output::dot:
             print_tree_dot(tree);
             break;
