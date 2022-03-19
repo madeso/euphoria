@@ -143,7 +143,7 @@ namespace euphoria::core::ecs
     // contains all the components for all entities
     struct AllComponents
     {
-        void set_component_array(ComponentIndex comp_ind, std::unique_ptr<IComponentArray>&& components)
+        void set_component_array(ComponentIndex comp_ind, std::unique_ptr<ComponentArrayBase>&& components)
         {
             if(component_arrays.size() <= comp_ind)
             {
@@ -160,12 +160,12 @@ namespace euphoria::core::ecs
             }
         }
 
-        std::vector<std::unique_ptr<IComponentArray>> component_arrays;
+        std::vector<std::unique_ptr<ComponentArrayBase>> component_arrays;
 
-        IComponentArray* get_components_base(ComponentIndex comp_ind)
+        ComponentArrayBase* get_components_base(ComponentIndex comp_ind)
         {
             ASSERT(comp_ind < component_arrays.size() && "Component not registered before use.");
-            IComponentArray* r = component_arrays[comp_ind].get();
+            ComponentArrayBase* r = component_arrays[comp_ind].get();
             ASSERT(r);
             return r;
         }
@@ -188,7 +188,7 @@ namespace euphoria::core::ecs
             alive_entities.destroy(entity);
         }
 
-        ComponentIndex set_component_array(const std::string& name, std::unique_ptr<IComponentArray>&& components)
+        ComponentIndex set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components)
         {
             const auto comp_ind = known_component_types.add(name);
             all_components.set_component_array(comp_ind, std::move(components));
@@ -200,7 +200,7 @@ namespace euphoria::core::ecs
             return alive_entities.view(matching_components);
         }
 
-        IComponentArray* get_components_base(ComponentIndex comp_ind)
+        ComponentArrayBase* get_components_base(ComponentIndex comp_ind)
         {
             return all_components.get_components_base(comp_ind);
         }
@@ -233,12 +233,12 @@ namespace euphoria::core::ecs
         pimpl->destroy(entity);
     }
 
-    ComponentIndex Registry::set_component_array(const std::string& name, std::unique_ptr<IComponentArray>&& components)
+    ComponentIndex Registry::set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components)
     {
         return pimpl->set_component_array(name, std::move(components));
     }
 
-    IComponentArray* Registry::get_components_base(ComponentIndex comp_ind)
+    ComponentArrayBase* Registry::get_components_base(ComponentIndex comp_ind)
     {
         return pimpl->get_components_base(comp_ind);
     }

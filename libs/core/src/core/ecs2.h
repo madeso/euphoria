@@ -10,21 +10,25 @@
 
 namespace euphoria::core::ecs
 {
+    // todo(Gustav): add versioning
     enum EntityHandle : U64 {};
+
+    // todo(Gustav): move detail to detail namespace
 
 
     using ComponentIndex = U8;
 
-    struct IComponentArray
+    struct ComponentArrayBase
     {
-        virtual ~IComponentArray() = default;
+        virtual ~ComponentArrayBase() = default;
         virtual void remove(EntityHandle) = 0;
     };
 
     // contains a list of components for a single component type
     template<typename T>
-    struct ComponentArray : public IComponentArray
+    struct GenericComponentArray : public ComponentArrayBase
     {
+        // todo(Gustav): implement better sparse vector
         std::vector<std::optional<T>> components;
 
         void
@@ -87,7 +91,7 @@ namespace euphoria::core::ecs
         destroy(EntityHandle entity);
 
         ComponentIndex
-        set_component_array(const std::string& name, std::unique_ptr<IComponentArray>&& components);
+        set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components);
 
         std::vector<EntityHandle>
         view(const std::vector<ComponentIndex>& matching_components) const;
@@ -96,7 +100,7 @@ namespace euphoria::core::ecs
         ComponentIndex
         register_component(const std::string& name)
         {
-            return set_component_array(name, std::make_unique<ComponentArray<T>>());
+            return set_component_array(name, std::make_unique<GenericComponentArray<T>>());
         }
 
 
@@ -129,14 +133,14 @@ namespace euphoria::core::ecs
         // detail
     private:
         template<typename T>
-        ComponentArray<T>*
+        GenericComponentArray<T>*
         get_components(ComponentIndex comp_ind)
         {
             // todo(Gustav): add validation here to the Signature...?
-            return static_cast<ComponentArray<T>*>(get_components_base(comp_ind));
+            return static_cast<GenericComponentArray<T>*>(get_components_base(comp_ind));
         }
 
-        IComponentArray*
+        ComponentArrayBase*
         get_components_base(ComponentIndex comp_ind);
 
         void
