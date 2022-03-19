@@ -1,0 +1,150 @@
+#pragma once
+
+#include <vector>
+#include <optional>
+#include <memory>
+
+#include "assert/assert.h"
+
+#include "core/ints.h"
+
+namespace euphoria::core::ecs
+{
+    enum EntityHandle : U64 {};
+
+
+    using ComponentIndex = U8;
+
+    struct IComponentArray
+    {
+        virtual ~IComponentArray() = default;
+        virtual void remove(EntityHandle) = 0;
+    };
+
+    // contains a list of components for a single component type
+    template<typename T>
+    struct ComponentArray : public IComponentArray
+    {
+        std::vector<std::optional<T>> components;
+
+        void
+        add(EntityHandle entity, T&& component)
+        {
+            const auto index = static_cast<std::size_t>(entity);
+            if(components.size() < index + 1)
+            {
+                components.resize(index + 1);
+            }
+            ASSERT(components[index].has_value() == false);
+            components[index] = std::move(component);
+        }
+
+
+        void
+        remove(EntityHandle entity) override
+        {
+            const auto index = static_cast<std::size_t>(entity);
+            if(components.size() < index + 1)
+            {
+                return;
+            }
+
+            ASSERT(components[index].has_value());
+            components[index] = std::nullopt;
+        }
+
+
+        T&
+        get(EntityHandle entity)
+        {
+            const auto index = static_cast<std::size_t>(entity);
+            ASSERT(components.size() >= index);
+            ASSERT(components[index].has_value());
+            return *components[index];
+        }
+    };
+
+
+    ///////////////////////////////////////////////////////////////////////////
+
+
+    struct RegistryPimpl;
+
+
+    struct Registry
+    {
+        Registry();
+
+        ~Registry();
+
+        [[nodiscard]] int
+        get_number_of_active_entities() const;
+
+        EntityHandle
+        create();
+
+        void
+        destroy(EntityHandle entity);
+
+        ComponentIndex
+        set_component_array(const std::string& name, std::unique_ptr<IComponentArray>&& components);
+
+        std::vector<EntityHandle>
+        view(const std::vector<ComponentIndex>& matching_components) const;
+
+        template<typename T>
+        ComponentIndex
+        register_component(const std::string& name)
+        {
+            return set_component_array(name, std::make_unique<ComponentArray<T>>());
+        }
+
+
+        template<typename T>
+        void
+        add_component(EntityHandle entity, ComponentIndex comp_ind, T&& component)
+        {
+            get_components<T>(comp_ind)->add(entity, std::move(component));
+            on_added_component(entity, comp_ind);
+        }
+
+
+        template<typename T>
+        void
+        remove_component(EntityHandle entity, ComponentIndex comp_ind)
+        {
+            on_removed_component(entity, comp_ind);
+            get_components<T>(comp_ind)->remove(entity);
+        }
+
+
+        template<typename T>
+        T&
+        get_component(EntityHandle entity, ComponentIndex comp_ind)
+        {
+            return get_components<T>(comp_ind)->get(entity);
+        }
+
+
+        // detail
+    private:
+        template<typename T>
+        ComponentArray<T>*
+        get_components(ComponentIndex comp_ind)
+        {
+            // todo(Gustav): add validation here to the Signature...?
+            return static_cast<ComponentArray<T>*>(get_components_base(comp_ind));
+        }
+
+        IComponentArray*
+        get_components_base(ComponentIndex comp_ind);
+
+        void
+        on_added_component(EntityHandle entity, ComponentIndex comp_ind);
+
+        void
+        on_removed_component(EntityHandle entity, ComponentIndex comp_ind);
+
+        std::unique_ptr<RegistryPimpl> pimpl;
+    };
+}
