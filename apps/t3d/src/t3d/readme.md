@@ -11,7 +11,7 @@ Inspirations are tiled (obviosly), unity snaps system, sketchup, the tony hawk l
 * continous collision when placing items
 * functionality so roate multiple can consider global/local pivot
 * arrays + splines
-* prop libraries
+* prop libraries/kits: https://www.twitter.com/delaneykingrox/status/1504613050049232896
 * random placement on quad
 * rotator tool with protractor thing from sketchup
 * replace with matching mesh
