@@ -109,6 +109,56 @@ TEST_CASE("ecs2", "[ecs2]")
         CHECK(reg.view({dog}).size() == 0);
     }
 
+    SECTION("2 name single compoent")
+    {
+        const std::string cat1_name = "cat-1";
+        const std::string cat2_name = "cat-2";
+
+        const auto cat1 = reg.register_component<Cat>(cat1_name);
+        const auto cat2 = reg.register_component<Cat>(cat2_name);
+
+        CHECK(reg.get_number_of_active_entities() == 0);
+
+        auto a = reg.create();
+        auto b = reg.create();
+
+        reg.add_component(a, cat1, Cat{42});
+        reg.add_component(a, cat2, Cat{10});
+
+        reg.add_component(b, cat1, Cat{24});
+        reg.add_component(b, cat2, Cat{20});
+
+        CHECK(reg.get_number_of_active_entities() == 2);
+        CHECK(reg.view({cat1}).size() == 2);
+        CHECK(reg.view({cat2}).size() == 2);
+
+        const auto v = reg.view({cat1, cat2});
+        REQUIRE(v.size() == 2);
+        CHECK(v[0] == a);
+        CHECK(v[1] == b);
+
+        CHECK(reg.get_component<Cat>(a, cat1).cat == 42);
+        CHECK(reg.get_component<Cat>(a, cat2).cat == 10);
+
+        CHECK(reg.get_component<Cat>(b, cat1).cat == 24);
+        CHECK(reg.get_component<Cat>(b, cat2).cat == 20);
+
+        // destroy the 2
+        reg.destroy(a);
+        reg.destroy(b);
+
+        CHECK(reg.get_number_of_active_entities() == 0);
+        CHECK(reg.view({cat1}).size() == 0);
+        CHECK(reg.view({cat2}).size() == 0);
+
+        // recreate 2 entities
+        reg.create();
+        reg.create();
+
+        CHECK(reg.get_number_of_active_entities() == 2);
+        CHECK(reg.view({cat1}).size() == 0);
+        CHECK(reg.view({cat2}).size() == 0);
+    }
+
     // todo(Gustav): add failing/asserting tests
-    // todo(Gustav): add 2 name single component tests
 }
