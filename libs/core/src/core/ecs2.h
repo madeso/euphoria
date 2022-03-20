@@ -8,7 +8,7 @@
 
 #include "core/ints.h"
 
-namespace euphoria::core::ecs
+namespace euphoria::core::ecs2
 {
     // todo(Gustav): add versioning
     enum EntityHandle : U64 {};
@@ -16,7 +16,7 @@ namespace euphoria::core::ecs
     // todo(Gustav): move detail to detail namespace
 
 
-    using ComponentIndex = U8;
+    enum ComponentIndex : U8 {};
 
     struct ComponentArrayBase
     {

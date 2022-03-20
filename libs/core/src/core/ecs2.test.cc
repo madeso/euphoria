@@ -2,7 +2,7 @@
 
 #include "tests/utils.h"
 
-using namespace euphoria::core::ecs;
+using namespace euphoria::core::ecs2;
 // using namespace euphoria::tests;
 
 namespace

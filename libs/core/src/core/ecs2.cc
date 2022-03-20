@@ -6,8 +6,16 @@
 #include "core/cint.h"
 
 
-namespace euphoria::core::ecs
+namespace euphoria::core::ecs2
 {
+    std::size_t c_comp(ComponentIndex v) { return static_cast<std::size_t>(v); }
+    std::size_t c_ent(EntityHandle v) { return static_cast<std::size_t>(v); }
+    ComponentIndex c_comp(std::size_t v) { return static_cast<ComponentIndex>(v); }
+    EntityHandle c_ent(std::size_t v) { return static_cast<EntityHandle>(v); }
+
+
+
+
     // what components a entity has
     struct Signature
     {
@@ -40,7 +48,7 @@ namespace euphoria::core::ecs
             {
                 const auto r = signatures.size();
                 signatures.emplace_back();
-                return static_cast<EntityHandle>(r);
+                return c_ent(r);
             }
             else
             {
@@ -63,9 +71,9 @@ namespace euphoria::core::ecs
             std::vector<EntityHandle> r;
             for(int i=0; i<c_sizet_to_int(signatures.size()); i += 1)
             {
-                if(has_components(static_cast<EntityHandle>(i), matching_components))
+                if(has_components(c_ent(i), matching_components))
                 {
-                    r.emplace_back(static_cast<EntityHandle>(i));
+                    r.emplace_back(c_ent(i));
                 }
             }
             return r;
@@ -119,12 +127,12 @@ namespace euphoria::core::ecs
 
         ComponentIndex add(const std::string& name)
         {
-            const auto index = index_to_name.size();
+            const auto component = c_comp(index_to_name.size());
             
-            name_to_index.insert({name, index});
+            name_to_index.insert({name, component});
             index_to_name.emplace_back(name);
             
-            return index;
+            return component;
         }
 
         ComponentIndex get_index(const std::string& name)
