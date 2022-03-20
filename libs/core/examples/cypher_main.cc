@@ -37,7 +37,8 @@ void run_rot13(const std::string& input)
         }
         else
         {
-            std::cerr << "Failed to open " << input << "\n";
+            std::istringstream s(input);
+            run_rot13_from_stream(s);
         }
 
     }
