@@ -61,7 +61,8 @@ main(int argc, char* argv[])
         {
             std::string input;
 
-            sent->add("input", &input);
+            sent->add("input", &input)
+                .set_help("path to a file (- for stdin) or just text");
 
             return sent->on_complete([&]
             {
