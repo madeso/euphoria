@@ -162,3 +162,26 @@ TEST_CASE("ecs2", "[ecs2]")
 
     // todo(Gustav): add failing/asserting tests
 }
+
+TEST_CASE("ecs2-error", "[ecs2]")
+{
+    Registry reg;
+
+    SECTION("assert when accessing with wrong type")
+    {
+        const std::string cat_name = "cat";
+        const std::string dog_name = "dog";
+
+        const auto cat = reg.register_component<Cat>(cat_name);
+        reg.register_component<Dog>(dog_name);
+
+        auto a = reg.create();
+        reg.add_component(a, cat, Cat{42});
+
+        REQUIRE_THROWS_WITH
+        (
+            reg.get_component<Dog>(a, cat),
+            Catch::Contains("Assertion failed") && Catch::Contains("cat")
+        );
+    }
+}

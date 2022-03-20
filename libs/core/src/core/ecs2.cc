@@ -14,6 +14,10 @@ namespace euphoria::core::ecs2
     ComponentIndex c_comp(std::size_t v) { return static_cast<ComponentIndex>(v); }
 
 
+    ComponentArrayBase::ComponentArrayBase(std::string_view n)
+        : name(n)
+    {
+    }
 
 
     // what components a entity has
@@ -112,12 +116,6 @@ namespace euphoria::core::ecs2
         std::vector<Signature> signatures;
         std::vector<EntityHandle> free_handles;
     };
-
-    template<typename T>
-    std::string get_component_name()
-    {
-        return typeid(T).name();
-    }
 
     // map (internal) name -> index && index -> (debug) name
     struct KnownComponentTypes
@@ -244,6 +242,12 @@ namespace euphoria::core::ecs2
     ComponentIndex Registry::set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components)
     {
         return pimpl->set_component_array(name, std::move(components));
+    }
+
+    std::string
+    Registry::get_component_name(ComponentIndex comp_ind) const
+    {
+        return pimpl->known_component_types.get_name(comp_ind);
     }
 
     ComponentArrayBase* Registry::get_components_base(ComponentIndex comp_ind)
