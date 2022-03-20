@@ -10,8 +10,8 @@ namespace euphoria::core::ecs2
 {
     std::size_t c_comp(ComponentIndex v) { return static_cast<std::size_t>(v); }
     std::size_t c_ent(EntityHandle v) { return static_cast<std::size_t>(v); }
-    ComponentIndex c_comp(std::size_t v) { return static_cast<ComponentIndex>(v); }
     EntityHandle c_ent(std::size_t v) { return static_cast<EntityHandle>(v); }
+    ComponentIndex c_comp(std::size_t v) { return static_cast<ComponentIndex>(v); }
 
 
 

@@ -14,6 +14,7 @@ namespace euphoria::core::ecs2
     enum EntityHandle : U64 {};
 
     // todo(Gustav): move detail to detail namespace
+    std::size_t c_ent(EntityHandle v);
 
 
     enum ComponentIndex : U8 {};
@@ -34,7 +35,7 @@ namespace euphoria::core::ecs2
         void
         add(EntityHandle entity, T&& component)
         {
-            const auto index = static_cast<std::size_t>(entity);
+            const auto index = c_ent(entity);
             if(components.size() < index + 1)
             {
                 components.resize(index + 1);
@@ -47,7 +48,7 @@ namespace euphoria::core::ecs2
         void
         remove(EntityHandle entity) override
         {
-            const auto index = static_cast<std::size_t>(entity);
+            const auto index = c_ent(entity);
             if(components.size() < index + 1)
             {
                 return;
@@ -61,7 +62,7 @@ namespace euphoria::core::ecs2
         T&
         get(EntityHandle entity)
         {
-            const auto index = static_cast<std::size_t>(entity);
+            const auto index = c_ent(entity);
             ASSERT(components.size() >= index);
             ASSERT(components[index].has_value());
             return *components[index];
