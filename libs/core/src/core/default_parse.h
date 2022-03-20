@@ -28,13 +28,30 @@ namespace euphoria::core::argparse
         return r;
     }
 
+    template
+    <
+        typename T,
+        std::enable_if_t
+        <
+            std::is_same<T, std::string>::value
+        , int> = 0
+    >
+    Result<T>
+    default_parse_function
+    (
+        const std::string& value
+    )
+    {
+        return Result<T>::create_value(value);
+    }
+
     // default parse function for non-enums
     template
     <
         typename T,
         std::enable_if_t
         <
-            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0,
+            std::is_enum<T>::value == false && CustomArgparser<T>::value == 0 && std::is_same<T, std::string>::value == false,
             int
         > = 0
     >
