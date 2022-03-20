@@ -106,6 +106,7 @@
 <li>get()
 : <a class="el" href="structeuphoria_1_1core_1_1Bitfield.html#a81ea32324e329c23a07616aecd15796a">euphoria::core::Bitfield&lt; T, I &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Cache.html#a615edd1f3a87ad70f82a1a58bfb735ee">euphoria::core::Cache&lt; Key, Data, Loader &gt;</a>
+, <a class="el" href="structeuphoria_1_1core_1_1ecs2_1_1GenericComponentArray.html#a1db34f2aea93eba88a6533eb52132f11">euphoria::core::ecs2::GenericComponentArray&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1markov_1_1Probability.html#a003898c66ab969f9c9352dd65da512dd">euphoria::core::markov::Probability&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Mat2.html#a86c2ad4f44d2bbab819275d444a2b1ff">euphoria::core::Mat2&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Mat3.html#a21294fe6f954f6117a0483ba2c3e09bf">euphoria::core::Mat3&lt; T &gt;</a>
@@ -180,7 +181,8 @@
 : <a class="el" href="structeuphoria_1_1core_1_1Chatbot.html#a2cc6f7c1742b72c63c89e40b6f65b21a">euphoria::core::Chatbot</a>
 </li>
 <li>get_component()
-: <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1Registry.html#a6cc545cff45f1d3381123da96354fc53">euphoria::core::ecs::Registry</a>
+: <a class="el" href="structeuphoria_1_1core_1_1ecs2_1_1Registry.html#abad58b0ba21773b4a453043de4a2be79">euphoria::core::ecs2::Registry</a>
+, <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1Registry.html#a6cc545cff45f1d3381123da96354fc53">euphoria::core::ecs::Registry</a>
 </li>
 <li>get_component_name()
 : <a class="el" href="structeuphoria_1_1core_1_1ecs_1_1Registry.html#aa92e28e814af41e30baa15c45c56ceab">euphoria::core::ecs::Registry</a>
@@ -217,8 +219,8 @@
 , <a class="el" href="structeuphoria_1_1core_1_1Mat4.html#a820049c99c6eff02ae79f30ded0f61e3">euphoria::core::Mat4&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Scale2.html#a7f28feb7194b507cce964f919c61217d">euphoria::core::Scale2&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Scale3.html#a25b1a3c94416b99f344287fce4d0d198">euphoria::core::Scale3&lt; T &gt;</a>
-, <a class="el" href="structeuphoria_1_1core_1_1Unit2.html#a74da3ef5de4ce567e1c59d4a949aae14">euphoria::core::Unit2&lt; T &gt;</a>
-, <a class="el" href="structeuphoria_1_1core_1_1Vec2.html#a126a43818c066ff508b521fb419e72e9">euphoria::core::Vec2&lt; T &gt;</a>
+, <a class="el" href="structeuphoria_1_1core_1_1Unit2.html#abb32ebe3466e4d5c60731e4c640a67db">euphoria::core::Unit2&lt; T &gt;</a>
+, <a class="el" href="structeuphoria_1_1core_1_1Vec2.html#af62b3456c3ea47e3c31caff9cbded872">euphoria::core::Vec2&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Vec3.html#a80da2c55d751b9a20e6b6b855bb30320">euphoria::core::Vec3&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1Vec4.html#a595dda493a887e0bd95a1d9bd08802e3">euphoria::core::Vec4&lt; T &gt;</a>
 </li>
@@ -419,6 +421,9 @@
 <li>get_normalized_and_length()
 : <a class="el" href="structeuphoria_1_1core_1_1Vec2.html#ab578e96e61274aa0f4741763b75ced0f">euphoria::core::Vec2&lt; T &gt;</a>
 </li>
+<li>get_number_of_active_entities()
+: <a class="el" href="structeuphoria_1_1core_1_1ecs2_1_1Registry.html#a121af074676b4b4f7b8952302cdbbf22">euphoria::core::ecs2::Registry</a>
+</li>
 <li>get_number_of_segments()
 : <a class="el" href="structeuphoria_1_1core_1_1BezierPath2.html#a37ca1032524853af3d1153e9638e46c9">euphoria::core::BezierPath2</a>
 </li>
@@ -557,7 +562,7 @@
 </li>
 <li>get_text()
 : <a class="el" href="structeuphoria_1_1core_1_1tracery_1_1Result.html#a78911944eb238cde3346d176cc4586bf">euphoria::core::tracery::Result</a>
-, <a class="el" href="structeuphoria_1_1gui_1_1TextData.html#a3f447c4f087088ac09962b95b2b05b84">euphoria::gui::TextData</a>
+, <a class="el" href="structeuphoria_1_1gui_1_1TextData.html#a29174062a6dc3ccfdd77effa84c43d0d">euphoria::gui::TextData</a>
 </li>
 <li>get_texture()
 : <a class="el" href="structeuphoria_1_1render_1_1TextureCache.html#aa76b2cd3e101d81fdf624f797d542e50">euphoria::render::TextureCache</a>
@@ -578,7 +583,7 @@
 : <a class="el" href="structeuphoria_1_1minsynth_1_1OscilatorNode.html#a35b040638fc88dab5d66b1c99004e483">euphoria::minsynth::OscilatorNode</a>
 </li>
 <li>get_transform()
-: <a class="el" href="structeuphoria_1_1core_1_1Mat4.html#afd53e630b33348bb975d75cd6e63a040">euphoria::core::Mat4&lt; T &gt;</a>
+: <a class="el" href="structeuphoria_1_1core_1_1Mat4.html#a1eea9cc3e0290893f02bc570c067c3a8">euphoria::core::Mat4&lt; T &gt;</a>
 , <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html#a843aeeb22d9fecb7224b3e3ce586795e">euphoria::core::UnitRay3f</a>
 </li>
 <li>get_transform_point()
