@@ -4,6 +4,7 @@
 #include <optional>
 #include <memory>
 #include <string_view>
+#include <utility>  // std::forward
 
 #include "assert/assert.h"
 
@@ -31,6 +32,11 @@ namespace euphoria::core::ecs2
         std::string_view name;
 
         ComponentArrayBase(std::string_view n);
+
+        ComponentArrayBase(const ComponentArrayBase&) = delete;
+        ComponentArrayBase(ComponentArrayBase&&) = delete;
+        ComponentArrayBase& operator=(const ComponentArrayBase&) = delete;
+        ComponentArrayBase& operator=(ComponentArrayBase&&) = delete;
 
         virtual ~ComponentArrayBase() = default;
         virtual void remove(EntityHandle) = 0;
@@ -95,8 +101,12 @@ namespace euphoria::core::ecs2
     struct Registry
     {
         Registry();
-
         ~Registry();
+
+        Registry(const Registry&) = delete;
+        Registry(Registry&&) = delete;
+        Registry& operator=(const Registry&) = delete;
+        Registry& operator=(Registry&&) = delete;
 
         [[nodiscard]] int
         get_number_of_active_entities() const;
@@ -110,6 +120,7 @@ namespace euphoria::core::ecs2
         ComponentIndex
         set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components);
 
+        [[nodiscard]]
         std::vector<EntityHandle>
         view(const std::vector<ComponentIndex>& matching_components) const;
 
@@ -125,7 +136,7 @@ namespace euphoria::core::ecs2
         void
         add_component(EntityHandle entity, ComponentIndex comp_ind, T&& component)
         {
-            get_components<T>(comp_ind)->add(entity, std::move(component));
+            get_components<T>(comp_ind)->add(entity, std::forward<T>(component));
             on_added_component(entity, comp_ind);
         }
 

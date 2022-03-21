@@ -2,6 +2,7 @@
 
 
 #include <unordered_map>
+#include <algorithm>
 
 #include "core/cint.h"
 
@@ -25,7 +26,7 @@ namespace euphoria::core::ecs2
     {
         std::vector<bool> components;
 
-        bool has_component(ComponentIndex c) const
+        [[nodiscard]] bool has_component(ComponentIndex c) const
         {
             if(c < components.size()) { return components[c]; }
             else { return false; }
@@ -68,7 +69,7 @@ namespace euphoria::core::ecs2
             free_handles.emplace_back(h);
         }
 
-        std::vector<EntityHandle> view(const std::vector<ComponentIndex>& matching_components) const
+        [[nodiscard]] std::vector<EntityHandle> view(const std::vector<ComponentIndex>& matching_components) const
         {
             ASSERT(matching_components.empty() == false);
 
@@ -89,19 +90,19 @@ namespace euphoria::core::ecs2
             signatures[handle].set_component(component, has);
         }
 
-        bool has_components(EntityHandle handle, const std::vector<ComponentIndex>& components) const
+        [[nodiscard]] bool has_components(EntityHandle handle, const std::vector<ComponentIndex>& components) const
         {
             ASSERT(components.empty() == false);
 
             const auto& sig = signatures[handle];
-            for(const auto comp: components)
-            {
-                if(sig.has_component(comp) == false)
+            return std::all_of
+            (
+                components.begin(), components.end(),
+                [&](ComponentIndex comp) -> bool
                 {
-                    return false;
+                    return sig.has_component(comp);
                 }
-            }
-            return true;
+            );
         }
 
         [[nodiscard]] int

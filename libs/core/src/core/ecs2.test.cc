@@ -45,15 +45,15 @@ TEST_CASE("ecs2", "[ecs2]")
 
         auto a = reg.create();
         CHECK(reg.get_number_of_active_entities() == 1);
-        CHECK(reg.view({cat}).size() == 0);
-        CHECK(reg.view({dog}).size() == 0);
+        CHECK(reg.view({cat}).empty());
+        CHECK(reg.view({dog}).empty());
 
         reg.add_component(a, cat, Cat{42});
 
         const auto v = reg.view({cat});
         REQUIRE(v.size() == 1);
         CHECK(v[0] == a);
-        CHECK(reg.view({dog}).size() == 0);
+        CHECK(reg.view({dog}).empty());
 
         CHECK(reg.get_component<Cat>(a, cat).cat == 42);
     }
@@ -97,16 +97,16 @@ TEST_CASE("ecs2", "[ecs2]")
         reg.destroy(b);
 
         CHECK(reg.get_number_of_active_entities() == 0);
-        CHECK(reg.view({cat}).size() == 0);
-        CHECK(reg.view({dog}).size() == 0);
+        CHECK(reg.view({cat}).empty());
+        CHECK(reg.view({dog}).empty());
 
         // recreate 2 entities
         reg.create();
         reg.create();
 
         CHECK(reg.get_number_of_active_entities() == 2);
-        CHECK(reg.view({cat}).size() == 0);
-        CHECK(reg.view({dog}).size() == 0);
+        CHECK(reg.view({cat}).empty());
+        CHECK(reg.view({dog}).empty());
     }
 
     SECTION("2 name single compoent")
@@ -148,16 +148,16 @@ TEST_CASE("ecs2", "[ecs2]")
         reg.destroy(b);
 
         CHECK(reg.get_number_of_active_entities() == 0);
-        CHECK(reg.view({cat1}).size() == 0);
-        CHECK(reg.view({cat2}).size() == 0);
+        CHECK(reg.view({cat1}).empty());
+        CHECK(reg.view({cat2}).empty());
 
         // recreate 2 entities
         reg.create();
         reg.create();
 
         CHECK(reg.get_number_of_active_entities() == 2);
-        CHECK(reg.view({cat1}).size() == 0);
-        CHECK(reg.view({cat2}).size() == 0);
+        CHECK(reg.view({cat1}).empty());
+        CHECK(reg.view({cat2}).empty());
     }
 
     // todo(Gustav): add failing/asserting tests
