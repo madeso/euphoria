@@ -28,38 +28,39 @@ TEST_CASE("utf8_tests")
 {
     SECTION("empty")
     {
-        const auto [ok, code_points] = parse_to_codepoints(u8"");
+        const auto [ok, code_points] = parse_to_codepoints("");
         CHECK(ok);
         CHECK_THAT(code_points, Catch::Equals(T{}));
     }
     SECTION("Dollar sign")
     {
-        const auto [ok, code_points] = parse_to_codepoints(u8"$");
+        const auto [ok, code_points] = parse_to_codepoints("$");
         CHECK(ok);
-        CHECK_THAT(code_points, Catch::Equals(T{044}));
+        CHECK_THAT(code_points, Catch::Equals(T{ 044 }));
     }
     SECTION("Cent sign")
     {
-        const auto [ok, code_points] = parse_to_codepoints(u8"¢");
+        const auto [ok, code_points] = parse_to_codepoints("¢");
         CHECK(ok);
-        CHECK_THAT(code_points, Catch::Equals(T{0242}));
+        CHECK_THAT(code_points, Catch::Equals(T{ 0242 }));
     }
     SECTION("Devanagari character")
     {
-        const auto [ok, code_points] = parse_to_codepoints(u8"ह");
+        const auto [ok, code_points] = parse_to_codepoints("ह");
         CHECK(ok);
-        CHECK_THAT(code_points, Catch::Equals(T{004471}));
+        CHECK_THAT(code_points, Catch::Equals(T{ 004471 }));
     }
     SECTION("Euro sign")
     {
-        const auto [ok, code_points] = parse_to_codepoints(u8"€");
+        const auto [ok, code_points] = parse_to_codepoints("€");
         CHECK(ok);
-        CHECK_THAT(code_points, Catch::Equals(T{020254}));
+        CHECK_THAT(code_points, Catch::Equals(T{ 020254 }));
     }
     SECTION("Hwair")
     {
-        const auto [ok, code_points] = parse_to_codepoints(u8"𐍈");
+        const auto [ok, code_points] = parse_to_codepoints("𐍈");
         CHECK(ok);
-        CHECK_THAT(code_points, Catch::Equals(T{0201510}));
+        CHECK_THAT(code_points, Catch::Equals(T{ 0201510 }));
     }
 }
+
