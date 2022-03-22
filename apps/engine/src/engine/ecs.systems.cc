@@ -1,11 +1,12 @@
-#include "core/ecs.systems.h"
+#include "engine/ecs.systems.h"
 
 
-namespace euphoria::core::ecs
+namespace euphoria::engine
 {
     ComponentSystem::ComponentSystem(const std::string& the_name)
         : name(the_name)
-    {}
+    {
+    }
 
     void
     ComponentSystemStore::add(std::shared_ptr<ComponentSystem> system)
@@ -14,7 +15,7 @@ namespace euphoria::core::ecs
     }
 
     void
-    ComponentSystemUpdaterStore::update(Registry* reg, float dt) const
+    ComponentSystemUpdaterStore::update(core::ecs::Registry* reg, float dt) const
     {
         for(const auto* s: systems)
         {
@@ -23,7 +24,7 @@ namespace euphoria::core::ecs
     }
 
     void
-    ComponentSystemInitializerStore::on_add(EntityId ent) const
+    ComponentSystemInitializerStore::on_add(core::ecs::EntityHandle ent) const
     {
         for(const auto* s: systems)
         {
@@ -32,9 +33,11 @@ namespace euphoria::core::ecs
     }
 
     void
-    ComponentSystemSpriteDrawerStore::draw(
-            Registry* reg,
-            render::SpriteRenderer* renderer) const
+    ComponentSystemSpriteDrawerStore::draw
+    (
+        core::ecs::Registry* reg,
+        render::SpriteRenderer* renderer
+    ) const
     {
         for(const auto* s: systems)
         {
@@ -49,10 +52,9 @@ namespace euphoria::core::ecs
         system->register_callbacks(this);
     }
 
-    World::World(ecs::Systems* sys) : systems(sys)
+    World::World(Systems* sys)
+        : systems(sys)
     {
-        reg.add_callback(make_registry_entity_callback(
-                [this](EntityId id) { this->systems->initializer.on_add(id); }));
     }
 
     void
@@ -65,6 +67,11 @@ namespace euphoria::core::ecs
     World::draw(render::SpriteRenderer* renderer)
     {
         systems->sprite_drawer.draw(&reg, renderer);
+    }
+
+    void World::post_create(core::ecs::EntityHandle id)
+    {
+        systems->initializer.on_add(id);
     }
 
 }

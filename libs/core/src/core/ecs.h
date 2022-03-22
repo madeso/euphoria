@@ -1,104 +1,136 @@
 #pragma once
 
-#include <cstdint>
-#include <string>
-#include <memory>
 #include <vector>
+#include <optional>
+#include <memory>
+#include <string_view>
+#include <utility>  // std::forward
 
-#include "core/typeinfo.h"
-#include "core/ecs.id.h"
 #include "assert/assert.h"
-#include "core/result.h"
 
-#include "euph_generated_config.h"
-
-#if BUILD_ENTITY_DEBUG_COMPONENT == 1
-#define COMPONENT_CONSTRUCTOR_IMPLEMENTATION(X) \
-    X::X() : Component(TYPEID_NAME(X), TYPEID_ID(X)) {}
-#define COMPONENT_CONSTRUCTOR_ARG(X) Component(TYPEID_NAME(X), TYPEID_ID(X)),
-#define COMPONENT_CONSTRUCTOR_DEFINITION(X) X();
-#else
-#define COMPONENT_CONSTRUCTOR_IMPLEMENTATION(X)
-#define COMPONENT_CONSTRUCTOR_DEFINITION(X)
-#define COMPONENT_CONSTRUCTOR_ARG(X)
-#endif
-
-////////////////////////////////////////////////////////////////////////////////
+#include "core/ecs.id.h"
 
 namespace euphoria::core::ecs
 {
-    EntityId
-    get_value(EntityId id);
+    // todo(Gustav): move detail to detail namespace
+    std::size_t c_ent(EntityHandle v);
+    std::size_t c_comp(ComponentIndex v);
 
-    EntityVersion
-    get_version(EntityVersion id);
-
-    EntityId
-    get_id(EntityId id, EntityVersion version);
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-    struct Component
+    template<typename T>
+    constexpr std::string_view get_component_base_name()
     {
-#if BUILD_ENTITY_DEBUG_COMPONENT == 1
-        component(TypeName n, TypeId i);
-#else
-        Component() = default;
-#endif
-        virtual ~Component() = default;
+        return typeid(T).name();
+    }
 
-        Component(const Component&) = delete;
-        Component(Component&&) = delete;
-        void operator=(const Component&) = delete;
-        void operator=(Component&&) = delete;
+    struct ComponentArrayBase
+    {
+        std::string_view name;
 
-        // todo(Gustav): change to a virtual function and a hashed string struct
-#if BUILD_ENTITY_DEBUG_COMPONENT == 1
-        const TypeName type_name;
-        const TypeId type_id;
-#endif
+        ComponentArrayBase(std::string_view n);
+
+        ComponentArrayBase(const ComponentArrayBase&) = delete;
+        ComponentArrayBase(ComponentArrayBase&&) = delete;
+        ComponentArrayBase& operator=(const ComponentArrayBase&) = delete;
+        ComponentArrayBase& operator=(ComponentArrayBase&&) = delete;
+
+        virtual ~ComponentArrayBase() = default;
+        virtual void remove(EntityHandle) = 0;
+        virtual bool has(EntityHandle) const= 0;
     };
 
-    ////////////////////////////////////////////////////////////////////////////////
-
-    struct RegistryEntityCallback
+    // contains a list of components for a single component type
+    template<typename T>
+    struct GenericComponentArray : public ComponentArrayBase
     {
-        RegistryEntityCallback() = default;
-        virtual ~RegistryEntityCallback() = default;
+        GenericComponentArray()
+            : ComponentArrayBase(get_component_base_name<T>())
+        {
+        }
 
-        RegistryEntityCallback(const RegistryEntityCallback&) = delete;
-        RegistryEntityCallback(RegistryEntityCallback&&) = delete;
-        void operator=(const RegistryEntityCallback&) = delete;
-        void operator=(RegistryEntityCallback&&) = delete;
-
-        virtual void
-        on_created(EntityId ent) = 0;
-    };
-
-    template <typename Func>
-    struct RegistryEntityCallbackFunction : public RegistryEntityCallback
-    {
-        Func func;
-
-        explicit RegistryEntityCallbackFunction(Func f) : func(f) {}
+        // todo(Gustav): implement better sparse vector
+        std::vector<std::optional<T>> components;
 
         void
-        on_created(EntityId ent) override
+        add(EntityHandle entity, T&& component)
         {
-            func(ent);
+            const auto index = c_ent(entity);
+            if(components.size() < index + 1)
+            {
+                components.resize(index + 1);
+            }
+            ASSERT(components[index].has_value() == false);
+            components[index] = std::move(component);
+        }
+
+
+        void
+        remove(EntityHandle entity) override
+        {
+            const auto index = c_ent(entity);
+            if(components.size() < index + 1)
+            {
+                return;
+            }
+
+            ASSERT(components[index].has_value());
+            components[index] = std::nullopt;
+        }
+
+
+        bool
+        has(EntityHandle entity) const override
+        {
+            const auto index = c_ent(entity);
+            if(components.size() <= index)
+            {
+                return false;
+            }
+            else if(components[index].has_value() == false)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+
+        T&
+        get(EntityHandle entity)
+        {
+            const auto index = c_ent(entity);
+            ASSERT(components.size() >= index);
+            ASSERT(components[index].has_value());
+            return *components[index];
+        }
+
+        T*
+        get_or_null(EntityHandle entity)
+        {
+            const auto index = c_ent(entity);
+            if(components.size() <= index)
+            {
+                return nullptr;
+            }
+            else if(components[index].has_value() == false)
+            {
+                return nullptr;
+            }
+            else
+            {
+                return &(*components[index]);
+            }
         }
     };
 
-    template <typename Func>
-    std::shared_ptr<RegistryEntityCallback>
-    make_registry_entity_callback(Func f)
-    {
-        return std::make_shared<RegistryEntityCallbackFunction<Func>>(f);
-    }
 
-    ////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////
 
-    struct RegistryImplementation;
+
+    struct RegistryPimpl;
+
+
     struct Registry
     {
         Registry();
@@ -106,76 +138,96 @@ namespace euphoria::core::ecs
 
         Registry(const Registry&) = delete;
         Registry(Registry&&) = delete;
-        void operator=(const Registry&) = delete;
-        void operator=(Registry&&) = delete;
+        Registry& operator=(const Registry&) = delete;
+        Registry& operator=(Registry&&) = delete;
 
-        EntityId
-        create_new_entity();
+        [[nodiscard]] int
+        get_number_of_active_entities() const;
 
-        void
-        post_create(EntityId id);
-
-        void
-        add_callback(std::shared_ptr<RegistryEntityCallback> callback);
-
-        [[nodiscard]] bool
-        is_alive(EntityId id) const;
-
-        void
-        destroy_entity(EntityId id);
-
-
-        ComponentId
-        register_new_component_type(const std::string& name);
+        EntityHandle
+        create();
 
         [[nodiscard]] std::string
-        get_component_name(ComponentId id) const;
-
-        Result<ComponentId>
-        get_custom_component_by_name(const std::string& name);
-
-        std::shared_ptr<Component>
-        get_component(EntityId entity, ComponentId component);
+        get_component_debug_name(ComponentIndex c) const;
 
         void
-        add_component_to_entity
-        (
-            EntityId entity,
-            ComponentId comp,
-            std::shared_ptr<Component> data
-        );
+        destroy(EntityHandle entity);
+
+        [[nodiscard]] bool
+        has_component(EntityHandle entity, ComponentIndex comp_ind) const;
+
+        ComponentIndex
+        set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components);
+
+        [[nodiscard]]
+        std::vector<EntityHandle>
+        view(const std::vector<ComponentIndex>& matching_components) const;
 
 
-        std::vector<EntityId>
-        get_entities_with_components(const std::vector<ComponentId>& components);
-
-        template <typename T>
-        T*
-        get_component_or_null(EntityId entity, ComponentId component)
+        template<typename T>
+        ComponentIndex
+        register_component(const std::string& name)
         {
-            auto c = get_component(entity, component);
-            if(c == nullptr)
-            {
-                return nullptr;
-            }
-            else
-            {
-#if BUILD_ENTITY_DEBUG_COMPONENT == 1
-                ASSERTX(c->type_id == TYPEID_ID(T),
-                        c->type_name,
-                        TYPEID_NAME(T));
-#endif
-                return static_cast<T*>(c.get());
-            }
+            return set_component_array(name, std::make_unique<GenericComponentArray<T>>());
         }
 
+
+        template<typename T>
         void
-        remove_entities_tagged_for_removal();
+        add_component(EntityHandle entity, ComponentIndex comp_ind, T&& component)
+        {
+            get_components<T>(comp_ind)->add(entity, std::forward<T>(component));
+            on_added_component(entity, comp_ind);
+        }
 
+
+        template<typename T>
+        void
+        remove_component(EntityHandle entity, ComponentIndex comp_ind)
+        {
+            on_removed_component(entity, comp_ind);
+            get_components<T>(comp_ind)->remove(entity);
+        }
+
+
+        template<typename T>
+        T&
+        get_component(EntityHandle entity, ComponentIndex comp_ind)
+        {
+            return get_components<T>(comp_ind)->get(entity);
+        }
+
+
+        template<typename T>
+        T*
+        get_component_or_null(EntityHandle entity, ComponentIndex comp_ind)
+        {
+            return get_components<T>(comp_ind)->get_or_null(entity);
+        }
+
+
+        // detail
     private:
-        std::unique_ptr<RegistryImplementation> impl;
+        [[nodiscard]] std::string get_component_name(ComponentIndex comp_ind) const;
+
+        template<typename T>
+        [[nodiscard]] GenericComponentArray<T>*
+        get_components(ComponentIndex comp_ind)
+        {
+            ComponentArrayBase* base = get_components_base(comp_ind);
+            ASSERTX(base->name == get_component_base_name<T>(), base->name, get_component_base_name<T>(), get_component_name(comp_ind));
+            return static_cast<GenericComponentArray<T>*>(base);
+        }
+
+        ComponentArrayBase*
+        get_components_base(ComponentIndex comp_ind);
+
+        void
+        on_added_component(EntityHandle entity, ComponentIndex comp_ind);
+
+        void
+        on_removed_component(EntityHandle entity, ComponentIndex comp_ind);
+
+        std::unique_ptr<RegistryPimpl> pimpl;
     };
-
-    ////////////////////////////////////////////////////////////////////////////////
-
 }

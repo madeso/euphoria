@@ -3,12 +3,13 @@
 #include <map>
 #include <functional>
 
-#include "core/ecs.systems.h"
 #include "core/random.h"
 #include "log/log.h"
 #include "core/sol.h"
 #include "core/cint.h"
+#include "core/ecs.h"
 
+#include "engine/ecs.systems.h"
 #include "engine/components.h"
 #include "engine/input.h"
 #include "engine/dukregistry.h"
@@ -51,8 +52,8 @@ namespace euphoria::engine
 
 
     struct ScriptUpdateSystem
-        : core::ecs::ComponentSystem
-        , core::ecs::ComponentSystemUpdater
+        : ComponentSystem
+        , ComponentSystemUpdater
     {
         using UpdateFunction = sol::protected_function; // void(double)
 
@@ -75,7 +76,7 @@ namespace euphoria::engine
         }
 
         void
-        register_callbacks(core::ecs::Systems* systems) override
+        register_callbacks(Systems* systems) override
         {
             systems->updater.add(this);
         }
@@ -83,24 +84,24 @@ namespace euphoria::engine
 
 
     struct ScriptInitSystem
-        : public core::ecs::ComponentSystem
-        , public core::ecs::ComponentSystemInitializer
+        : public ComponentSystem
+        , public ComponentSystemInitializer
     {
     	using InitFunction = sol::protected_function; // void(entity_id)
 
         core::ecs::Registry* reg;
         LuaState* duk;
-        std::vector<core::ecs::ComponentId> types;
+        std::vector<core::ecs::ComponentIndex> types;
         InitFunction func;
 
 
         ScriptInitSystem
         (
-                const std::string& n,
-                LuaState* d,
-                core::ecs::Registry* r,
-                const std::vector<core::ecs::ComponentId>& t,
-                InitFunction f
+            const std::string& n,
+            LuaState* d,
+            core::ecs::Registry* r,
+            const std::vector<core::ecs::ComponentIndex>& t,
+            InitFunction f
         )
             : ComponentSystem(n)
             , reg(r)
@@ -111,15 +112,14 @@ namespace euphoria::engine
         }
 
         void
-        on_add(core::ecs::EntityId entity) const override
+        on_add(core::ecs::EntityHandle entity) const override
         {
             ASSERT(reg);
             ASSERT(!types.empty());
 
             for(const auto& type: types)
             {
-                const auto component = reg->get_component(entity, type);
-                const bool has_component = component != nullptr;
+                const bool has_component = reg->has_component(entity, type);
 
                 if(!has_component)
                 {
@@ -131,7 +131,7 @@ namespace euphoria::engine
         }
 
         void
-        register_callbacks(core::ecs::Systems* systems) override
+        register_callbacks(Systems* systems) override
         {
             systems->initializer.add(this);
         }
@@ -140,10 +140,10 @@ namespace euphoria::engine
 
     struct ScriptSystems
     {
-        core::ecs::Systems* systems;
+        Systems* systems;
         LuaState* duk;
 
-        explicit ScriptSystems(core::ecs::Systems* s, LuaState* d)
+        explicit ScriptSystems(Systems* s, LuaState* d)
             : systems(s)
             , duk(d)
         {
@@ -160,7 +160,7 @@ namespace euphoria::engine
         (
             const std::string& name,
             core::ecs::Registry* reg,
-            const std::vector<core::ecs::ComponentId>& types,
+            const std::vector<core::ecs::ComponentIndex>& types,
             ScriptInitSystem::InitFunction func
         )
         {
@@ -172,8 +172,8 @@ namespace euphoria::engine
     {
         ScriptIntegrationPimpl
         (
-                core::ecs::Systems* sys,
-                core::ecs::World* wr,
+                Systems* sys,
+                World* wr,
                 LuaState* duk,
                 ObjectCreator* cr,
                 engine::Components* cc,
@@ -204,7 +204,7 @@ namespace euphoria::engine
                 sol::function func
             )
             {
-                auto vtypes = get_vector<core::ecs::ComponentId>(types);
+                auto vtypes = get_vector<core::ecs::ComponentIndex>(types);
                 systems.add_init(name, &world->reg, vtypes, func);
             };
 
@@ -246,7 +246,7 @@ namespace euphoria::engine
             auto registry_table = duk->state["registry"].get_or_create<sol::table>();
             registry_table["entities"] = [&](sol::table types)
             {
-                auto vec = get_vector<core::ecs::ComponentId>(types);
+                auto vec = get_vector<core::ecs::ComponentIndex>(types);
                 if(vec.empty())
                 {
                     throw std::runtime_error("no entities specified");
@@ -257,7 +257,7 @@ namespace euphoria::engine
             {
                 return registry.components->sprite;
             };
-            registry_table["destroy_entity"] = [&](core::ecs::EntityId entity)
+            registry_table["destroy_entity"] = [&](core::ecs::EntityHandle entity)
             {
                 registry.destroy_entity(entity);
             };
@@ -281,23 +281,23 @@ namespace euphoria::engine
                     return registry.create_new_id(name);
                 }
             );
-            registry_table["get"] = [&](core::ecs::EntityId ent, core::ecs::ComponentId comp)
+            registry_table["get"] = [&](core::ecs::EntityHandle ent, core::ecs::ComponentIndex comp)
             {
                 return registry.get_property(ent, comp);
             };
-            registry_table["set"] = [&](core::ecs::EntityId ent, core::ecs::ComponentId comp, sol::table val)
+            registry_table["set"] = [&](core::ecs::EntityHandle ent, core::ecs::ComponentIndex comp, sol::table val)
             {
                 registry.set_property(ent, comp, val);
             };
-            registry_table["get_sprite"] = [&](core::ecs::ComponentId ent)
+            registry_table["get_sprite"] = [&](core::ecs::EntityHandle ent)
             {
                 return registry.get_component_or_null<ComponentSprite>(ent, components->sprite);
             };
-            registry_table["get_position2"] = [&](core::ecs::ComponentId ent)
+            registry_table["get_position2"] = [&](core::ecs::EntityHandle ent)
             {
                 return registry.get_component_or_null<ComponentPosition2>(ent, components->position2);
             };
-            registry_table["get_position2_vec"] = [&](core::ecs::ComponentId ent)
+            registry_table["get_position2_vec"] = [&](core::ecs::EntityHandle ent)
             {
                 auto* c = registry.get_component_or_null<ComponentPosition2>(ent, components->position2);
                 return c == nullptr ? nullptr : &c->pos;
@@ -363,7 +363,7 @@ namespace euphoria::engine
         ScriptSystems systems;
         ScriptRegistry registry;
         sol::table input;
-        core::ecs::World* world;
+        World* world;
         ObjectCreator* creator;
         engine::Components* components;
         CameraData* camera;
@@ -372,8 +372,8 @@ namespace euphoria::engine
 
     ScriptIntegration::ScriptIntegration
     (
-            core::ecs::Systems* systems,
-            core::ecs::World* reg,
+            Systems* systems,
+            World* reg,
             LuaState* duk,
             ObjectCreator* creator,
             Components* components,

@@ -4,11 +4,6 @@
 
 #include "core/sol_forward.h"
 
-namespace euphoria::core::ecs
-{
-    struct World;
-}
-
 
 namespace euphoria::core::vfs
 {
@@ -21,15 +16,16 @@ namespace euphoria::engine
 {
     struct ScriptRegistry;
     struct ObjectCreator;
+    struct World;
 
     void
     load_world
     (
-            core::vfs::FileSystem* fs,
-            core::ecs::World* world,
-            ScriptRegistry* reg,
-            const core::vfs::FilePath& path,
-            ObjectCreator* creator,
-            LuaState* ctx
+        core::vfs::FileSystem* fs,
+        World* world,
+        ScriptRegistry* reg,
+        const core::vfs::FilePath& path,
+        ObjectCreator* creator,
+        LuaState* ctx
     );
 }

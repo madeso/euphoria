@@ -5,7 +5,6 @@
 #include "core/cint.h"
 #include "core/interpolate.h"
 #include "core/os.h"
-#include "core/ecs.systems.h"
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/proto.h"

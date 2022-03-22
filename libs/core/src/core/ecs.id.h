@@ -1,11 +1,14 @@
 #pragma once
 
-#include <cstdint>
+#include "core/ints.h"
 
 namespace euphoria::core::ecs
 {
-    // todo(Gustav): change to enums
-    using EntityId = std::uint32_t;
-    using EntityVersion = std::uint16_t;
-    using ComponentId = std::uint32_t;
+    // using EntityId = std::uint32_t;
+    // using EntityVersion = std::uint16_t;
+    // using ComponentId = std::uint32_t;
+
+    // todo(Gustav): add versioning
+    enum EntityHandle : U64 {};
+    enum ComponentIndex : U8 {};
 }

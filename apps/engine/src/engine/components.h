@@ -3,23 +3,28 @@
 #include <memory>
 
 #include "core/vec2.h"
-#include "core/ecs.h"
 #include "core/rect.h"
+#include "core/ecs.id.h"
 
 #include "render/texturecache.h"
 
+namespace euphoria::core::ecs
+{
+    struct Registry;
+}
+
+
 namespace euphoria::engine
 {
-    struct ComponentPosition2 : public core::ecs::Component
+    struct ComponentPosition2
     {
         ComponentPosition2();
+        explicit ComponentPosition2(const core::Vec2f& p);
         core::Vec2f pos;
     };
 
-    struct ComponentSprite : public core::ecs::Component
+    struct ComponentSprite
     {
-        COMPONENT_CONSTRUCTOR_DEFINITION(ComponentSprite)
-
         std::shared_ptr<render::Texture2> texture;
     };
 
@@ -27,8 +32,8 @@ namespace euphoria::engine
     {
         Components(core::ecs::Registry* reg);
 
-        core::ecs::ComponentId position2;
-        core::ecs::ComponentId sprite;
+        core::ecs::ComponentIndex position2;
+        core::ecs::ComponentIndex sprite;
     };
 
     core::Rectf
@@ -38,7 +43,3 @@ namespace euphoria::engine
         const render::Texture2& texture
     );
 }
-
-TYPEID_SETUP_TYPE(euphoria::engine::ComponentPosition2);
-TYPEID_SETUP_TYPE(euphoria::engine::ComponentSprite);
-

@@ -8,14 +8,10 @@
 
 namespace euphoria::engine
 {
-    struct ScriptComponent : public core::ecs::Component
+    struct ScriptComponent
     {
-        COMPONENT_CONSTRUCTOR_DEFINITION(ScriptComponent)
-
         sol::table val;
     };
-
-    COMPONENT_CONSTRUCTOR_IMPLEMENTATION(ScriptComponent)
 
     ScriptRegistry::ScriptRegistry(core::ecs::Registry* r, engine::Components* c)
         : reg(r)
@@ -23,85 +19,98 @@ namespace euphoria::engine
     {
     }
 
-    core::ecs::ComponentId
+    core::ecs::ComponentIndex
     ScriptRegistry::create_new_id
     (
         const std::string& name,
         const ScriptRegistry::CreationCallback& fv
     )
     {
-        const auto id = reg->register_new_component_type(name);
+        const auto id = reg->register_component<ScriptComponent>(name);
         script_components[id] = fv;
+        name_to_id[name] = id;
         return id;
     }
 
-    core::ecs::ComponentId
+    core::ecs::ComponentIndex
     ScriptRegistry::create_new_id
     (
         const std::string& name
     )
-    const
     {
-        const auto id = reg->register_new_component_type(name);
+        const auto id = reg->register_component<ScriptComponent>(name);
+        name_to_id[name] = id;
         return id;
     }
 
-    core::Result<core::ecs::ComponentId>
+    core::Result<core::ecs::ComponentIndex>
     ScriptRegistry::get_custom_component_by_name
     (
         const std::string& name
     )
     const
     {
-        return reg->get_custom_component_by_name(name);
+        auto found = name_to_id.find(name);
+        if(found != name_to_id.end())
+        {
+            return core::Result<core::ecs::ComponentIndex>::create_value(found->second);
+        }
+        else
+        {
+            return core::Result<core::ecs::ComponentIndex>::create_error
+            (
+                core::StringBuilder{} << "Unable to find " <<  name
+            );
+        }
     }
 
-    std::vector<core::ecs::EntityId>
-    ScriptRegistry::entity_view(const std::vector<core::ecs::ComponentId>& types) const
+    std::vector<core::ecs::EntityHandle>
+    ScriptRegistry::entity_view(const std::vector<core::ecs::ComponentIndex>& types) const
     {
-        return reg->get_entities_with_components(types);
+        return reg->view(types);
     }
 
     sol::table
     ScriptRegistry::get_property
     (
-        core::ecs::EntityId ent,
-        core::ecs::ComponentId comp
+        core::ecs::EntityHandle ent,
+        core::ecs::ComponentIndex comp
     )
     {
         ASSERT(script_components.find(comp) != script_components.end());
-        auto c = reg->get_component(ent, comp);
+        auto c = reg->get_component_or_null<ScriptComponent>(ent, comp);
+        
         if(c == nullptr)
         {
             return sol::table{};
         }
         else
         {
-            return static_cast<ScriptComponent*>(c.get())->val;
+            return c->val;
         }
     }
 
     ScriptComponent*
-    get_script_component(core::ecs::Registry *reg, core::ecs::EntityId ent, core::ecs::ComponentId comp)
+    get_script_component(core::ecs::Registry *reg, core::ecs::EntityHandle ent, core::ecs::ComponentIndex comp)
     {
-        auto c = reg->get_component(ent, comp);
+        // todo(Gustav): add a get_create_function
+        auto* c = reg->get_component_or_null<ScriptComponent>(ent, comp);
         if(c == nullptr)
         {
-            auto d = std::make_shared<ScriptComponent>();
-            reg->add_component_to_entity(ent, comp, d);
-            return d.get();
+            reg->add_component(ent, comp, ScriptComponent{});
+            return reg->get_component_or_null<ScriptComponent>(ent, comp);
         }
         else
         {
-            return static_cast<ScriptComponent*>(c.get());
+            return c;
         }
     }
 
     void
     ScriptRegistry::set_property
     (
-        core::ecs::EntityId ent,
-        core::ecs::ComponentId comp,
+        core::ecs::EntityHandle ent,
+        core::ecs::ComponentIndex comp,
         sol::table value
     )
     const
@@ -113,12 +122,12 @@ namespace euphoria::engine
     sol::table
     ScriptRegistry::create_component
     (
-            core::ecs::ComponentId comp,
-            LuaState* ctx,
-            const CustomArguments& arguments
+        core::ecs::ComponentIndex comp,
+        LuaState* ctx,
+        const CustomArguments& arguments
     )
     {
-        const auto name = reg->get_component_name(comp);
+        const auto name = reg->get_component_debug_name(comp);
 
         auto res = script_components.find(comp);
         if(res == script_components.end())
@@ -137,7 +146,7 @@ namespace euphoria::engine
         else
         {
             sol::error err = val;
-            const auto message = fmt::format("Failed to call create for component {0}({1}): {2}", name, comp, err.what());
+            const auto message = fmt::format("Failed to call create for component {0}({1}): {2}", name, core::ecs::c_comp(comp), err.what());
             LOG_ERROR("{0}", message);
             if(!ctx->has_error)
             {
@@ -149,9 +158,9 @@ namespace euphoria::engine
     }
 
     void
-    ScriptRegistry::destroy_entity(core::ecs::EntityId id) const
+    ScriptRegistry::destroy_entity(core::ecs::EntityHandle id) const
     {
-        reg->destroy_entity(id);
+        reg->destroy(id);
     }
 }
 

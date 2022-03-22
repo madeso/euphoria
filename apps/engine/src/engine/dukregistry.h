@@ -1,11 +1,11 @@
 #pragma once
 
-#include "core/ecs.systems.h"
 #include "core/ecs.h"
 #include "core/result.h"
 #include "core/sol.h"
 
 #include "engine/components.h"
+#include "engine/ecs.systems.h"
 
 #include <map>
 #include <string>
@@ -25,52 +25,54 @@ namespace euphoria::engine
 
         using CreationCallback = sol::protected_function;
 
-        core::ecs::ComponentId
+        core::ecs::ComponentIndex
         create_new_id(const std::string& name, const CreationCallback& fv);
 
-        [[nodiscard]] core::ecs::ComponentId
-        create_new_id(const std::string& name) const;
+        [[nodiscard]] core::ecs::ComponentIndex
+        create_new_id(const std::string& name);
 
-        [[nodiscard]] core::Result<core::ecs::ComponentId>
+        [[nodiscard]] core::Result<core::ecs::ComponentIndex>
         get_custom_component_by_name(const std::string& name) const;
 
-        [[nodiscard]] std::vector<core::ecs::EntityId>
-        entity_view(const std::vector<core::ecs::ComponentId>& types) const;
+        [[nodiscard]] std::vector<core::ecs::EntityHandle>
+        entity_view(const std::vector<core::ecs::ComponentIndex>& types) const;
 
         sol::table
-        get_property(core::ecs::EntityId ent, core::ecs::ComponentId comp);
+        get_property(core::ecs::EntityHandle ent, core::ecs::ComponentIndex comp);
 
         void
         set_property
         (
-            core::ecs::EntityId ent,
-            core::ecs::ComponentId comp,
+            core::ecs::EntityHandle ent,
+            core::ecs::ComponentIndex comp,
             sol::table value
         ) const;
 
         sol::table
         create_component
         (
-                core::ecs::ComponentId comp,
-                LuaState* ctx,
-                const CustomArguments& arguments
+            core::ecs::ComponentIndex comp,
+            LuaState* ctx,
+            const CustomArguments& arguments
         );
 
         void
-        destroy_entity(core::ecs::EntityId id) const;
+        destroy_entity(core::ecs::EntityHandle id) const;
 
         template <typename T>
         T*
-        get_component_or_null(core::ecs::EntityId ent, core::ecs::ComponentId comp)
+        get_component_or_null(core::ecs::EntityHandle ent, core::ecs::ComponentIndex comp)
         {
             return reg->get_component_or_null<T>(ent, comp);
         }
 
-        using ScriptComponentMap = std::map<core::ecs::ComponentId, CreationCallback>;
+        using ScriptComponentMap = std::map<core::ecs::ComponentIndex, CreationCallback>;
+        using NameToIdMap = std::map<std::string, core::ecs::ComponentIndex>;
 
         core::ecs::Registry* reg;
         engine::Components* components;
         ScriptComponentMap script_components;
+        NameToIdMap name_to_id;
     };
 }
 

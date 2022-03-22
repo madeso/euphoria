@@ -7,7 +7,6 @@
 #include "core/interpolate.h"
 #include "core/os.h"
 #include "core/cint.h"
-#include "core/ecs.systems.h"
 #include "core/vfs_imagegenerator.h"
 #include "core/vfs_defaultshaders.h"
 #include "core/proto.h"
@@ -35,6 +34,7 @@
 #include "window/sdlglcontext.h"
 #include "window/engine.h"
 
+#include "engine/ecs.systems.h"
 #include "engine/loadworld.h"
 #include "engine/systems.h"
 #include "engine/dukintegration.h"
@@ -51,7 +51,6 @@
 #include "gaf_rapidjson_game.h"
 
 using namespace euphoria::core;
-using namespace euphoria::core::ecs;
 using namespace euphoria::render;
 using namespace euphoria::window;
 using namespace euphoria::engine;
@@ -455,7 +454,7 @@ main(int argc, char* argv[])
         imgui::imgui_render();
         SDL_GL_SwapWindow(engine.window->window);
 
-        world.reg.remove_entities_tagged_for_removal();
+        // world.reg.remove_entities_tagged_for_removal();
     }
 
     return 0;

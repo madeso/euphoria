@@ -98,10 +98,8 @@ set(app_src
     src/core/default_parse.cc src/core/default_parse.h
     src/core/dotoutput.cc src/core/dotoutput.h
     src/core/dump.cc src/core/dump.h
-    src/core/ecs2.cc src/core/ecs2.h
     src/core/ecs.cc src/core/ecs.h
     src/core/ecs.id.cc src/core/ecs.id.h
-    src/core/ecs.systems.cc src/core/ecs.systems.h
     src/core/editdistance.cc src/core/editdistance.h
     src/core/editdistance.search.cc src/core/editdistance.search.h
     src/core/enum.cc src/core/enum.h
@@ -238,7 +236,7 @@ set(test_src
     src/core/date.test.cc
     src/core/drunken_bishop.test.cc
     src/core/editdistance.test.cc
-    src/core/ecs2.test.cc
+    src/core/ecs.test.cc
     src/core/enumtostring.test.cc
     src/core/findstring.test.cc
     src/core/hash.test.cc

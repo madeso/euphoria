@@ -1,18 +1,18 @@
 #include "engine/systems.h"
 
-#include "core/ecs.systems.h"
 
 #include "render/texture.h"
 #include "render/spriterender.h"
 #include "render/texturecache.h"
 
+#include "engine/ecs.systems.h"
 #include "engine/components.h"
 
 namespace euphoria::engine
 {
     struct SystemSpriteDraw
-        : core::ecs::ComponentSystem
-        , core::ecs::ComponentSystemSpriteDrawer
+        : ComponentSystem
+        , ComponentSystemSpriteDrawer
     {
         engine::Components* components;
 
@@ -29,9 +29,8 @@ namespace euphoria::engine
             render::SpriteRenderer* renderer
         ) const override
         {
-            const auto items = reg->get_entities_with_components
+            const auto items = reg->view
             (
-                std::vector<core::ecs::ComponentId>
                 {
                     components->position2,
                     components->sprite
@@ -39,20 +38,18 @@ namespace euphoria::engine
             );
             for(auto ent: items)
             {
-                auto* sprite = reg->get_component_or_null<ComponentSprite>(ent, components->sprite);
-                auto* pos = reg->get_component_or_null<ComponentPosition2>(ent, components->position2);
-                ASSERT(sprite);
-                ASSERT(pos);
+                auto& sprite = reg->get_component<ComponentSprite>(ent, components->sprite);
+                auto& pos = reg->get_component<ComponentPosition2>(ent, components->position2);
                 renderer->draw_sprite
                 (
-                    *sprite->texture,
-                    get_sprite_rect(pos->pos, *sprite->texture)
+                    *sprite.texture,
+                    get_sprite_rect(pos.pos, *sprite.texture)
                 );
             }
         }
 
         void
-        register_callbacks(core::ecs::Systems* systems) override
+        register_callbacks(Systems* systems) override
         {
             systems->sprite_drawer.add(this);
         }
@@ -60,7 +57,7 @@ namespace euphoria::engine
 
 
     void
-    add_systems(core::ecs::Systems* sys, Components* comps)
+    add_systems(Systems* sys, Components* comps)
     {
         sys->add_and_register(std::make_shared<SystemSpriteDraw>(comps));
     }

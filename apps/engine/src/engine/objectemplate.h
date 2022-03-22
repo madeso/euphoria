@@ -14,11 +14,6 @@ namespace game
     struct Game;
 }
 
-namespace euphoria::core::ecs
-{
-    struct World;
-}
-
 namespace euphoria::render
 {
     struct TextureCache;
@@ -28,20 +23,21 @@ namespace euphoria::engine
 {
     struct ScriptRegistry;
     struct Components;
+    struct World;
 
     struct ObjectCreationArguments
     {
-        core::ecs::World* world;
+        World* world;
         ScriptRegistry* reg;
         LuaState* ctx;
         LuaState* duk;
 
         ObjectCreationArguments
         (
-                core::ecs::World* aworld,
-                ScriptRegistry* areg,
-                LuaState* actx,
-                LuaState* aduk
+            World* aworld,
+            ScriptRegistry* areg,
+            LuaState* actx,
+            LuaState* aduk
         );
 };
 
@@ -53,12 +49,12 @@ namespace euphoria::engine
         NONCOPYABLE(ComponentCreator);
 
         virtual void
-        create_component(const ObjectCreationArguments& args, core::ecs::EntityId id) = 0;
+        create_component(const ObjectCreationArguments& args, core::ecs::EntityHandle id) = 0;
     };
 
     struct ObjectTemplate
     {
-        core::ecs::EntityId
+        core::ecs::EntityHandle
         create_object(const ObjectCreationArguments& args);
 
         std::vector<std::shared_ptr<ComponentCreator>> components;

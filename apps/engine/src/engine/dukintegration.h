@@ -5,12 +5,6 @@
 #include "core/sol.h"
 #include "core/noncopyable.h"
 
-namespace euphoria::core::ecs
-{
-    struct Systems;
-    struct World;
-}
-
 namespace euphoria::engine
 {
     struct InputSystem;
@@ -19,6 +13,9 @@ namespace euphoria::engine
     struct ScriptIntegrationPimpl;
     struct CameraData;
     struct Components;
+    struct Systems;
+    struct World;
+    struct Systems;
 
 
     struct ScriptIntegration
@@ -26,12 +23,12 @@ namespace euphoria::engine
     public:
         ScriptIntegration
         (
-                core::ecs::Systems* systems,
-                core::ecs::World* reg,
-                LuaState* duk,
-                ObjectCreator* creator,
-                Components* components,
-                CameraData* camera
+            Systems* systems,
+            World* reg,
+            LuaState* duk,
+            ObjectCreator* creator,
+            Components* components,
+            CameraData* camera
         );
         ~ScriptIntegration();
 

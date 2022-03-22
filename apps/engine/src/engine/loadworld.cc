@@ -1,10 +1,11 @@
 #include "engine/loadworld.h"
 
-#include "core/proto.h"
 #include "log/log.h"
-#include "core/ecs.systems.h"
+
+#include "core/proto.h"
 #include "core/vfs_path.h"
 
+#include "engine/ecs.systems.h"
 #include "engine/components.h"
 #include "engine/dukregistry.h"
 #include "engine/objectemplate.h"
@@ -18,7 +19,7 @@ namespace euphoria::engine
     load_world
     (
             core::vfs::FileSystem* fs,
-            core::ecs::World* world,
+            World* world,
             ScriptRegistry* reg,
             const core::vfs::FilePath& path,
             ObjectCreator* creator,

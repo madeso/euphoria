@@ -1,8 +1,8 @@
-#include "core/ecs2.h"
+#include "core/ecs.h"
 
 #include "tests/utils.h"
 
-using namespace euphoria::core::ecs2;
+using namespace euphoria::core::ecs;
 // using namespace euphoria::tests;
 
 namespace
@@ -54,6 +54,10 @@ TEST_CASE("ecs2", "[ecs2]")
         REQUIRE(v.size() == 1);
         CHECK(v[0] == a);
         CHECK(reg.view({dog}).empty());
+        CHECK(reg.has_component(a, cat));
+        CHECK_FALSE(reg.has_component(a, dog));
+        CHECK(reg.get_component_or_null<Cat>(a, cat) != nullptr);
+        CHECK(reg.get_component_or_null<Dog>(a, dog) == nullptr);
 
         CHECK(reg.get_component<Cat>(a, cat).cat == 42);
     }

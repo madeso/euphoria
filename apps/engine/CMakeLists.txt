@@ -12,6 +12,7 @@ set(src
     src/engine/loadworld.cc src/engine/loadworld.h
     src/engine/objectemplate.cc src/engine/objectemplate.h
     src/engine/systems.cc src/engine/systems.h
+    src/engine/ecs.systems.cc src/engine/ecs.systems.h
     src/engine/main.cc
 )
 source_group("" FILES ${src})

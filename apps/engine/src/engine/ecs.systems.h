@@ -6,18 +6,15 @@
 #include <vector>
 
 #include "core/ecs.h"
-#include "core/ecs.id.h"
+
 
 namespace euphoria::render
 {
-    // its horrible to reference in another module,
-    // but for now we only need a pointer to pass around
-    // todo(Gustav): fix this by merging in more of the renderer into core?
     struct SpriteRenderer;
 }
 
 
-namespace euphoria::core::ecs
+namespace euphoria::engine
 {
     struct Systems;
 
@@ -61,7 +58,7 @@ namespace euphoria::core::ecs
         void operator=(ComponentSystemUpdater&&) = delete;
 
         virtual void
-        update(Registry* reg, float dt) const = 0;
+        update(core::ecs::Registry* reg, float dt) const = 0;
     };
 
     struct ComponentSystemInitializer
@@ -75,7 +72,7 @@ namespace euphoria::core::ecs
         void operator=(ComponentSystemInitializer&&) = delete;
 
         virtual void
-        on_add(EntityId entity) const = 0;
+        on_add(core::ecs::EntityHandle entity) const = 0;
     };
 
     struct ComponentSystemSpriteDrawer
@@ -89,7 +86,7 @@ namespace euphoria::core::ecs
         void operator=(ComponentSystemSpriteDrawer&&) = delete;
 
         virtual void
-        draw(Registry* reg, render::SpriteRenderer* renderer) const = 0;
+        draw(core::ecs::Registry* reg, render::SpriteRenderer* renderer) const = 0;
     };
 
     template <typename TSystem>
@@ -107,19 +104,19 @@ namespace euphoria::core::ecs
     struct ComponentSystemUpdaterStore : public SystemStore<ComponentSystemUpdater>
     {
         void
-        update(Registry* reg, float dt) const;
+        update(core::ecs::Registry* reg, float dt) const;
     };
 
     struct ComponentSystemInitializerStore : public SystemStore<ComponentSystemInitializer>
     {
         void
-        on_add(EntityId ent) const;
+        on_add(core::ecs::EntityHandle ent) const;
     };
 
     struct ComponentSystemSpriteDrawerStore : public SystemStore<ComponentSystemSpriteDrawer>
     {
         void
-        draw(Registry* reg, render::SpriteRenderer* renderer) const;
+        draw(core::ecs::Registry* reg, render::SpriteRenderer* renderer) const;
     };
 
     struct Systems
@@ -136,18 +133,20 @@ namespace euphoria::core::ecs
         ComponentSystemSpriteDrawerStore sprite_drawer;
     };
 
-    struct World\
+    struct World
     {
-        Registry reg;
-        ecs::Systems* systems;
+        core::ecs::Registry reg;
+        Systems* systems;
 
-        explicit World(ecs::Systems* sys);
+        explicit World(Systems* sys);
 
         void
         update(float dt);
 
         void
         draw(render::SpriteRenderer* renderer);
+
+        void post_create(core::ecs::EntityHandle id);
     };
 
 }

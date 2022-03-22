@@ -2,7 +2,7 @@
 
 #include <memory>
 
-#include "core/ecs.systems.h"
+#include "core/ecs.h"
 #include "core/vec2.h"
 #include "core/cint.h"
 
@@ -13,18 +13,20 @@
 namespace euphoria::engine
 {
     ComponentPosition2::ComponentPosition2()
-        : COMPONENT_CONSTRUCTOR_ARG(ComponentPosition2)
-        pos(0, 0)
+        : pos(0, 0)
+    {
+    }
+
+    ComponentPosition2::ComponentPosition2(const core::Vec2f& p)
+        : pos(p)
     {
     }
 
     Components::Components(core::ecs::Registry* reg)
-        : position2(reg->register_new_component_type("position2"))
-        , sprite(reg->register_new_component_type("sprite"))
+        : position2(reg->register_component<ComponentPosition2>("position2"))
+        , sprite(reg->register_component<ComponentSprite>("sprite"))
     {
     }
-
-    COMPONENT_CONSTRUCTOR_IMPLEMENTATION(CSprite)
 
     core::Rectf
     get_sprite_rect(const core::Vec2f& position, const render::Texture2& texture)

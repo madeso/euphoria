@@ -1,370 +1,295 @@
 #include "core/ecs.h"
 
+
+#include <unordered_map>
 #include <algorithm>
 
-#include "core/stdutils.h"
-#include "log/log.h"
-#include "core/stringmerger.h"
-#include "core/functional.h"
-#include "core/editdistance.search.h"
+#include "core/cint.h"
 
 
 namespace euphoria::core::ecs
 {
-    ////////////////////////////////////////////////////////////////////////////////
+    std::size_t c_comp(ComponentIndex v) { return static_cast<std::size_t>(v); }
+    std::size_t c_ent(EntityHandle v) { return static_cast<std::size_t>(v); }
+    EntityHandle c_ent(std::size_t v) { return static_cast<EntityHandle>(v); }
+    ComponentIndex c_comp(std::size_t v) { return static_cast<ComponentIndex>(v); }
 
-    static constexpr auto version_shift_amount = 6 * 4;
-    static constexpr EntityId entity_bit_mask = 0x00FFFFFF;
-    static constexpr EntityId version_bit_mask = 0xFF000000;
 
-    ////////////////////////////////////////////////////////////////////////////////
-
-#if BUILD_ENTITY_DEBUG_COMPONENT == 1
-    Component::Component(TypeName n, TypeId i) : type_name(n), type_id(i) {}
-#endif
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-    EntityId
-    get_value(EntityId id)
+    ComponentArrayBase::ComponentArrayBase(std::string_view n)
+        : name(n)
     {
-        return id & entity_bit_mask;
     }
 
-    EntityVersion
-    get_version(EntityId id)
+
+    // what components a entity has
+    struct Signature
     {
-        return static_cast<EntityVersion>((id & version_bit_mask) >> version_shift_amount);
-    }
+        std::vector<bool> components;
 
-    EntityId
-    get_id(EntityId id, EntityVersion version)
-    {
-        const EntityId masked_id = id & entity_bit_mask;
-        const EntityId masked_version = (version << version_shift_amount) & version_bit_mask;
-        return masked_id | masked_version;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-    struct ComponentList
-    {
-        std::string name;
-        std::map<EntityId, std::shared_ptr<Component>> components;
-
-        explicit ComponentList(const std::string& n) : name(n) {}
-
-        std::shared_ptr<Component>
-        get_component(EntityId entity)
+        [[nodiscard]] bool has_component(ComponentIndex c) const
         {
-            auto found = components.find(entity);
-            if(found != components.end())
-            {
-                return found->second;
-            }
-            else
-            {
-                return nullptr;
-            }
+            if(c < components.size()) { return components[c]; }
+            else { return false; }
         }
 
-        void
-        add_component(EntityId entity, std::shared_ptr<Component> data)
+        void set_component(ComponentIndex c, bool has)
         {
-            components[entity] = data;
+            components.resize(c+1, false);
+            components[c] = has;
         }
 
-        void
-        remove_component(EntityId entity)
+        void destroy()
         {
-            components.erase(entity);
-        }
-
-        [[nodiscard]] std::vector<EntityId>
-        get_components() const
-        {
-            const auto keys = get_keys(components);
-            ASSERT(get_sorted(keys) == keys);
-            return keys;
+            components.clear();
         }
     };
 
-    ////////////////////////////////////////////////////////////////////////////////
-
-    struct RegistryImplementation
+    // pool of "alive" entities
+    struct AliveEntities
     {
-        EntityId current = 0;
-        std::vector<EntityId> free_entities;
-        std::vector<EntityId> alive;
-
-        EntityId
-        create_new_entity()
+        EntityHandle create()
         {
-            if(free_entities.empty())
+            if(free_handles.empty())
             {
-                current += 1;
-                set_alive(current);
-                return current;
+                const auto r = signatures.size();
+                signatures.emplace_back();
+                return c_ent(r);
             }
             else
             {
-                EntityId last = *free_entities.rbegin();
-                free_entities.pop_back();
-                const auto n = get_id(get_value(last), get_version(last) + 1);
-                set_alive(n);
-                return n;
+                const auto r = free_handles.back();
+                free_handles.pop_back();
+                return r;
             }
         }
 
-        std::vector<std::shared_ptr<RegistryEntityCallback>> callbacks;
-
-        void
-        post_create(EntityId id)
+        void destroy(EntityHandle h)
         {
-            for(auto& c: callbacks)
+            signatures[h].destroy();
+            free_handles.emplace_back(h);
+        }
+
+        [[nodiscard]] std::vector<EntityHandle> view(const std::vector<ComponentIndex>& matching_components) const
+        {
+            ASSERT(matching_components.empty() == false);
+
+            std::vector<EntityHandle> r;
+            for(int i=0; i<c_sizet_to_int(signatures.size()); i += 1)
             {
-                c->on_created(id);
-            }
-        }
-
-        void
-        add_callback(std::shared_ptr<RegistryEntityCallback> callback)
-        {
-            callbacks.emplace_back(callback);
-        }
-
-        void
-        set_alive(EntityId id)
-        {
-            LOG_DEBUG("Alive {0}/{1}", get_value(id), get_version(id));
-            alive.emplace_back(id);
-        }
-
-        [[nodiscard]] bool
-        is_alive(EntityId id) const
-        {
-            return std::find(alive.begin(), alive.end(), id) != alive.end();
-        }
-
-        std::vector<EntityId> destroyed_entities;
-
-        void
-        destroy_entity(EntityId id)
-        {
-            LOG_DEBUG("Destroy {0}/{1}", get_value(id), get_version(id));
-            destroyed_entities.emplace_back(id);
-        }
-
-        void
-        remove_entities_tagged_for_removal()
-        {
-            for(const auto id: destroyed_entities)
-            {
-                // todo(Gustav): postpone!
-                if(swap_back_and_erase_object(id, &alive))
+                if(has_components(c_ent(i), matching_components))
                 {
-                    for(const auto& entry: components)
-                    {
-                        entry.second->remove_component(id);
-                    }
-                    free_entities.emplace_back(id);
+                    r.emplace_back(c_ent(i));
                 }
             }
-            destroyed_entities.resize(0);
-        }
-
-        ComponentId next_component_id = 0;
-        std::map<ComponentId, std::shared_ptr<ComponentList>> components;
-        std::map<std::string, ComponentId> name_to_component;
-
-        ComponentId
-        register_new_component_type(const std::string& name)
-        {
-            const auto ret = next_component_id;
-            next_component_id += 1;
-            components[ret] = std::make_shared<ComponentList>(name);
-            name_to_component[name] = ret;
-
-            return ret;
-        }
-
-        [[nodiscard]] std::string
-        get_component_name(ComponentId id) const
-        {
-            auto found = components.find(id);
-            if(found == components.end())
-            {
-                return "<unknown>";
-            }
-            else
-            {
-                return (found->second)->name;
-            }
-        }
-
-        std::shared_ptr<Component>
-        get_component(EntityId entity, ComponentId id)
-        {
-            return components[id]->get_component(entity);
-        }
-
-        void
-        add_component_to_entity
-        (
-            EntityId entity,
-            ComponentId id,
-            std::shared_ptr<Component> data
-        )
-        {
-            components[id]->add_component(entity, data);
-        }
-
-
-        std::vector<EntityId>
-        get_entities_with_components(const std::vector<ComponentId>& component_list)
-        {
-            ASSERT(!component_list.empty());
-            bool first = true;
-            std::vector<EntityId> r;
-            for(const auto c: component_list)
-            {
-                const auto v = components[c]->get_components();
-                if(first)
-                {
-                    r = v;
-                    first = false;
-                }
-                else
-                {
-                    std::vector<EntityId> rr;
-                    std::set_intersection
-                    (
-                        v.begin(),
-                        v.end(),
-                        r.begin(),
-                        r.end(),
-                        std::back_inserter(rr)
-                    );
-                    r = rr;
-                }
-            }
-
             return r;
         }
 
-        Result<ComponentId>
-        get_custom_component_by_name(const std::string& name)
+        void set_component(EntityHandle handle, ComponentIndex component, bool has)
         {
-            if(const auto found_component = name_to_component.find(name); found_component == name_to_component.end())
-            {
-                auto matches = string_mergers::english_or.merge
-                (
-                    map<std::string>
-                    (
-                        search::find_closest<search::Match>
-                        (
-                            3, name_to_component,
-                            [&](const auto& entry) -> search::Match
-                            {
-                                return {entry.first, name};
-                            }
-                        ),
-                        [](const search::Match& m)
-                        {
-                            return m.name;
-                        }
-                    )
-                );
-                return Result<ComponentId>::create_error(fmt::format("could be {}", matches));
-            }
-            else
-            {
-                return Result<ComponentId>::create_value(found_component->second);
-            }
+            ASSERT(handle < signatures.size());
+            signatures[handle].set_component(component, has);
+        }
+
+        [[nodiscard]] bool has_components(EntityHandle handle, const std::vector<ComponentIndex>& components) const
+        {
+            ASSERT(components.empty() == false);
+
+            const auto& sig = signatures[handle];
+            return std::all_of
+            (
+                components.begin(), components.end(),
+                [&](ComponentIndex comp) -> bool
+                {
+                    return sig.has_component(comp);
+                }
+            );
+        }
+
+        [[nodiscard]] int
+        get_count() const
+        {
+            const auto sign_count = c_sizet_to_int(signatures.size());
+            const auto free_count = c_sizet_to_int(free_handles.size());
+            ASSERT(sign_count >= free_count);
+            return sign_count - free_count;
+        }
+
+        std::vector<Signature> signatures;
+        std::vector<EntityHandle> free_handles;
+    };
+
+    // map (internal) name -> index && index -> (debug) name
+    struct KnownComponentTypes
+    {
+        std::unordered_map<std::string, ComponentIndex> name_to_index;
+        std::vector<std::string> index_to_name;
+
+        ComponentIndex add(const std::string& name)
+        {
+            const auto component = c_comp(index_to_name.size());
+            
+            name_to_index.insert({name, component});
+            index_to_name.emplace_back(name);
+            
+            return component;
+        }
+
+        ComponentIndex get_index(const std::string& name)
+        {
+            const auto found = name_to_index.find(name);
+            ASSERT(found != name_to_index.end());
+            return found->second;
+        }
+
+        std::string get_name(ComponentIndex c)
+        {
+            return index_to_name[c];
         }
     };
 
-    ////////////////////////////////////////////////////////////////////////////////
-
-    Registry::Registry() : impl(new RegistryImplementation {}) {}
-
-    Registry::~Registry() = default;
-
-    EntityId
-    Registry::create_new_entity()
+    // contains all the components for all entities
+    struct AllComponents
     {
-        return impl->create_new_entity();
+        void set_component_array(ComponentIndex comp_ind, std::unique_ptr<ComponentArrayBase>&& components)
+        {
+            if(component_arrays.size() <= comp_ind)
+            {
+                component_arrays.resize(comp_ind + 1);
+            }
+            component_arrays[comp_ind] = std::move(components);
+        }
+
+        void destroy_entity(EntityHandle entity)
+        {
+            for (auto const& comp : component_arrays)
+            {
+                comp->remove(entity);
+            }
+        }
+
+        std::vector<std::unique_ptr<ComponentArrayBase>> component_arrays;
+
+        ComponentArrayBase* get_components_base(ComponentIndex comp_ind)
+        {
+            ASSERT(comp_ind < component_arrays.size() && "Component not registered before use.");
+            ComponentArrayBase* r = component_arrays[comp_ind].get();
+            ASSERT(r);
+            return r;
+        }
+
+        const ComponentArrayBase* get_components_base(ComponentIndex comp_ind) const
+        {
+            ASSERT(comp_ind < component_arrays.size() && "Component not registered before use.");
+            ComponentArrayBase* r = component_arrays[comp_ind].get();
+            ASSERT(r);
+            return r;
+        }
+    };
+
+    struct RegistryPimpl
+    {
+        AliveEntities alive_entities;
+        KnownComponentTypes known_component_types;
+        AllComponents all_components;
+
+        EntityHandle create()
+        {
+            return alive_entities.create();
+        }
+
+        void destroy(EntityHandle entity)
+        {
+            all_components.destroy_entity(entity);
+            alive_entities.destroy(entity);
+        }
+
+        ComponentIndex set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components)
+        {
+            const auto comp_ind = known_component_types.add(name);
+            all_components.set_component_array(comp_ind, std::move(components));
+            return comp_ind;
+        }
+
+        std::vector<EntityHandle> view(const std::vector<ComponentIndex>& matching_components) const
+        {
+            return alive_entities.view(matching_components);
+        }
+
+        ComponentArrayBase* get_components_base(ComponentIndex comp_ind)
+        {
+            return all_components.get_components_base(comp_ind);
+        }
+    };
+
+
+    Registry::Registry()
+        : pimpl(std::make_unique<RegistryPimpl>())
+    {
     }
 
-    void
-    Registry::post_create(EntityId id)
+    Registry::~Registry()
     {
-        impl->post_create(id);
+        pimpl.reset();
     }
 
-    void
-    Registry::add_callback(std::shared_ptr<RegistryEntityCallback> callback)
+    int
+    Registry::get_number_of_active_entities() const
     {
-        impl->add_callback(callback);
+        return pimpl->alive_entities.get_count();
     }
 
-    bool
-    Registry::is_alive(EntityId id) const
+    EntityHandle Registry::create()
     {
-        return impl->is_alive(id);
+        return pimpl->create();
     }
 
-    void
-    Registry::destroy_entity(EntityId id)
+    [[nodiscard]] std::string
+    Registry::get_component_debug_name(ComponentIndex c) const
     {
-        impl->destroy_entity(id);
+        return pimpl->known_component_types.get_name(c);
     }
 
-
-    ComponentId
-    Registry::register_new_component_type(const std::string& name)
+    void Registry::destroy(EntityHandle entity)
     {
-        return impl->register_new_component_type(name);
+        pimpl->destroy(entity);
+    }
+
+    [[nodiscard]] bool
+    Registry::has_component(EntityHandle entity, ComponentIndex comp_ind) const
+    {
+        return pimpl->all_components.get_components_base(comp_ind)->has(entity);
+    }
+
+    ComponentIndex Registry::set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components)
+    {
+        return pimpl->set_component_array(name, std::move(components));
     }
 
     std::string
-    Registry::get_component_name(ComponentId id) const
+    Registry::get_component_name(ComponentIndex comp_ind) const
     {
-        return impl->get_component_name(id);
+        return pimpl->known_component_types.get_name(comp_ind);
     }
 
-    Result<ComponentId>
-    Registry::get_custom_component_by_name(const std::string& name)
+    ComponentArrayBase* Registry::get_components_base(ComponentIndex comp_ind)
     {
-        return impl->get_custom_component_by_name(name);
+        return pimpl->get_components_base(comp_ind);
     }
 
-    std::shared_ptr<Component>
-    Registry::get_component(EntityId entity, ComponentId component)
+    std::vector<EntityHandle> Registry::view(const std::vector<ComponentIndex>& matching_components) const
     {
-        return impl->get_component(entity, component);
-    }
-
-    void
-    Registry::add_component_to_entity(
-            EntityId entity,
-            ComponentId component,
-            std::shared_ptr<ecs::Component> data)
-    {
-        impl->add_component_to_entity(entity, component, data);
-    }
-
-    std::vector<EntityId>
-    Registry::get_entities_with_components(const std::vector<ComponentId>& components)
-    {
-        return impl->get_entities_with_components(components);
+        return pimpl->view(matching_components);
     }
 
     void
-    Registry::remove_entities_tagged_for_removal()
+    Registry::on_added_component(EntityHandle entity, ComponentIndex comp_ind)
     {
-        impl->remove_entities_tagged_for_removal();
+        pimpl->alive_entities.set_component(entity, comp_ind, true);
     }
 
-
+    void
+    Registry::on_removed_component(EntityHandle entity, ComponentIndex comp_ind)
+    {
+        pimpl->alive_entities.set_component(entity, comp_ind, false);
+    }
 }
