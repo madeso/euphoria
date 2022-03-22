@@ -53,31 +53,26 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">ecs.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
-<code>#include &lt;string&gt;</code><br />
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
-<code>#include &quot;<a class="el" href="typeinfo_8h_source.html">core/typeinfo.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="ecs_8id_8h_source.html">core/ecs.id.h</a>&quot;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
+<code>#include &lt;utility&gt;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="result_8h_source.html">core/result.h</a>&quot;</code><br />
-<code>#include &quot;euph_generated_config.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="ecs_8id_8h_source.html">core/ecs.id.h</a>&quot;</code><br />
 </div>
 <p><a href="ecs_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1Component.html">euphoria::core::ecs::Component</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase.html">euphoria::core::ecs::ComponentArrayBase</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1RegistryEntityCallback.html">euphoria::core::ecs::RegistryEntityCallback</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1RegistryEntityCallbackFunction.html">euphoria::core::ecs::RegistryEntityCallbackFunction&lt; Func &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray.html">euphoria::core::ecs::GenericComponentArray&lt; T &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ecs_1_1Registry.html">euphoria::core::ecs::Registry</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -91,88 +86,16 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeuphoria_1_1core_1_1ecs"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html">euphoria::core::ecs</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a770c2c37cc509ed9f987d12df7ae817f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ecs_8h.html#a770c2c37cc509ed9f987d12df7ae817f">COMPONENT_CONSTRUCTOR_IMPLEMENTATION</a>(X)</td></tr>
-<tr class="separator:a770c2c37cc509ed9f987d12df7ae817f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab4df3b41ccbae04cf989937bf484a386"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ecs_8h.html#ab4df3b41ccbae04cf989937bf484a386">COMPONENT_CONSTRUCTOR_DEFINITION</a>(X)</td></tr>
-<tr class="separator:ab4df3b41ccbae04cf989937bf484a386"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0013969e35c54dd08af94d50cd6ffe66"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ecs_8h.html#a0013969e35c54dd08af94d50cd6ffe66">COMPONENT_CONSTRUCTOR_ARG</a>(X)</td></tr>
-<tr class="separator:a0013969e35c54dd08af94d50cd6ffe66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aff4b47e5a5f0b8068c7e7d276cdf6470"><td class="memItemLeft" align="right" valign="top">EntityId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#aff4b47e5a5f0b8068c7e7d276cdf6470">euphoria::core::ecs::get_value</a> (EntityId id)</td></tr>
-<tr class="separator:aff4b47e5a5f0b8068c7e7d276cdf6470"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35ee0bff4ecb0d66f685e11683ab835c"><td class="memItemLeft" align="right" valign="top">EntityVersion&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#a35ee0bff4ecb0d66f685e11683ab835c">euphoria::core::ecs::get_version</a> (EntityVersion id)</td></tr>
-<tr class="separator:a35ee0bff4ecb0d66f685e11683ab835c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60d47cd6a16acc28bd73f60cdc0360d2"><td class="memItemLeft" align="right" valign="top">EntityId&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#a60d47cd6a16acc28bd73f60cdc0360d2">euphoria::core::ecs::get_id</a> (EntityId id, EntityVersion version)</td></tr>
-<tr class="separator:a60d47cd6a16acc28bd73f60cdc0360d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2af010fbcaf30155a2c4d88a944d7461"><td class="memTemplParams" colspan="2">template&lt;typename Func &gt; </td></tr>
-<tr class="memitem:a2af010fbcaf30155a2c4d88a944d7461"><td class="memTemplItemLeft" align="right" valign="top">std::shared_ptr&lt; RegistryEntityCallback &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#a2af010fbcaf30155a2c4d88a944d7461">euphoria::core::ecs::make_registry_entity_callback</a> (Func f)</td></tr>
-<tr class="separator:a2af010fbcaf30155a2c4d88a944d7461"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aada226c861dc4683e2031b71cc238125"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#aada226c861dc4683e2031b71cc238125">euphoria::core::ecs::c_ent</a> (EntityHandle v)</td></tr>
+<tr class="separator:aada226c861dc4683e2031b71cc238125"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43345acc00405eea800cb73f1d1fb404"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#a43345acc00405eea800cb73f1d1fb404">euphoria::core::ecs::c_comp</a> (ComponentIndex v)</td></tr>
+<tr class="separator:a43345acc00405eea800cb73f1d1fb404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66a22e430932e4c28a11a0a21c600cc3"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a66a22e430932e4c28a11a0a21c600cc3"><td class="memTemplItemLeft" align="right" valign="top">constexpr std::string_view&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core_1_1ecs.html#a66a22e430932e4c28a11a0a21c600cc3">euphoria::core::ecs::get_component_base_name</a> ()</td></tr>
+<tr class="separator:a66a22e430932e4c28a11a0a21c600cc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a0013969e35c54dd08af94d50cd6ffe66"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0013969e35c54dd08af94d50cd6ffe66">&#9670;&nbsp;</a></span>COMPONENT_CONSTRUCTOR_ARG</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COMPONENT_CONSTRUCTOR_ARG</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">X</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ecs_8h_source.html#l00023">23</a> of file <a class="el" href="ecs_8h_source.html">ecs.h</a>.</p>
-
-</div>
-</div>
-<a id="ab4df3b41ccbae04cf989937bf484a386"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab4df3b41ccbae04cf989937bf484a386">&#9670;&nbsp;</a></span>COMPONENT_CONSTRUCTOR_DEFINITION</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COMPONENT_CONSTRUCTOR_DEFINITION</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">X</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ecs_8h_source.html#l00022">22</a> of file <a class="el" href="ecs_8h_source.html">ecs.h</a>.</p>
-
-</div>
-</div>
-<a id="a770c2c37cc509ed9f987d12df7ae817f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a770c2c37cc509ed9f987d12df7ae817f">&#9670;&nbsp;</a></span>COMPONENT_CONSTRUCTOR_IMPLEMENTATION</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define COMPONENT_CONSTRUCTOR_IMPLEMENTATION</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">X</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="ecs_8h_source.html#l00021">21</a> of file <a class="el" href="ecs_8h_source.html">ecs.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
