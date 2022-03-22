@@ -17,6 +17,15 @@ Inspirations are tiled (obviosly), unity snaps system, sketchup, the tony hawk l
 * replace with matching mesh
 * quickly switch between old snaps
 * iterate selection when raycast return many
+* prefabs/pack ins (meshes, entities + lights)
+* grid paint
+* smart paint/wave function collapse to a grid
+* plug/socket system, 2 mesh types that go together, can be from different kits as long as they match, square plugs, circle plugs etc...
+  create for transition blocks or wall/destruction
+* add decals for rust, mold and cracks
+* mouse wheel swap (ctrl+scroll?)
+* photoshop like layers
+* prop kit => asset forge?
 
 ## todo (require better renderer)
 * proper rendering of current selection
