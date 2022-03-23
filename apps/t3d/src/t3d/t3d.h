@@ -78,7 +78,7 @@ namespace euphoria::t3d
         core::EditorCamera3 editor_camera;
         bool mmb_down = false;
         bool shift_down = false;
-        bool show_imgui = false;
+        bool show_gizmo = true;
 
         int help_style = 0;
         FileList pending_files;
@@ -138,7 +138,7 @@ namespace euphoria::t3d
 
 
         void
-        process_imgui();
+        process_imgui(bool display_full);
 
 
         void

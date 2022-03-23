@@ -93,7 +93,7 @@ namespace euphoria::t3d
 
         update_grid();
 
-        euphoria::window::enable_char_event(!immersive_mode);
+        euphoria::window::enable_char_event(true);
 
         viewport_handler = std::make_shared<render::ViewportHandler>
         (
@@ -206,14 +206,12 @@ namespace euphoria::t3d
         {
             viewport_handler->set_size(window_width, window_height);
         }
-        if(show_imgui)
-        {
-            window::imgui::process_imgui_events(&e);
-        }
+        
+        window::imgui::process_imgui_events(&e);
 
         auto& io = ImGui::GetIO();
-        const auto forward_keyboard = !(show_imgui && io.WantCaptureKeyboard);
-        const auto forward_mouse = !(show_imgui && io.WantCaptureMouse);
+        const auto forward_keyboard = io.WantCaptureKeyboard == false;
+        const auto forward_mouse = io.WantCaptureMouse == false;
 
         switch(e.type)
         {
@@ -311,7 +309,6 @@ namespace euphoria::t3d
                 if(!down)
                 {
                     immersive_mode = !immersive_mode;
-                    euphoria::window::enable_char_event(!immersive_mode);
                 }
                 break;
                 
@@ -396,7 +393,7 @@ namespace euphoria::t3d
         bool rotate_x, bool rotate_y, bool rotate_z
     )
     {
-        if (show_imgui == false)
+        if (show_gizmo == false)
         {
             return;
         }
@@ -413,20 +410,13 @@ namespace euphoria::t3d
     }
 
     void
-    Application::process_imgui()
+    Application::process_imgui(bool display_full)
     {
         if(ImGui::BeginMainMenuBar())
         {
             on_main_menu();
         }
         ImGui::EndMainMenuBar();
-
-        if(environment_window)
-        {
-            ImGui::Begin("Environment", &environment_window);
-            on_environment_window();
-            ImGui::End();
-        }
 
         if(grid_window)
         {
@@ -444,32 +434,42 @@ namespace euphoria::t3d
             ImGui::End();
         }
 
-        if(camera_window)
+        if(display_full)
         {
-            ImGui::Begin("Camera", &camera_window);
-            on_camera_window();
-            ImGui::End();
-        }
+            if(environment_window)
+            {
+                ImGui::Begin("Environment", &environment_window);
+                on_environment_window();
+                ImGui::End();
+            }
 
-        if(tiles_window)
-        {
-            ImGui::Begin("Tiles", &tiles_window);
-            on_tile_window();
-            ImGui::End();
-        }
+            if(camera_window)
+            {
+                ImGui::Begin("Camera", &camera_window);
+                on_camera_window();
+                ImGui::End();
+            }
 
-        if(lister_window)
-        {
-            ImGui::Begin("Lister", &lister_window);
-            on_lister_window();
-            ImGui::End();
-        }
+            if(tiles_window)
+            {
+                ImGui::Begin("Tiles", &tiles_window);
+                on_tile_window();
+                ImGui::End();
+            }
 
-        if(preference_window)
-        {
-            ImGui::Begin("Preferences", &preference_window);
-            on_preference_window();
-            ImGui::End();
+            if(lister_window)
+            {
+                ImGui::Begin("Lister", &lister_window);
+                on_lister_window();
+                ImGui::End();
+            }
+
+            if(preference_window)
+            {
+                ImGui::Begin("Preferences", &preference_window);
+                on_preference_window();
+                ImGui::End();
+            }
         }
     }
 
@@ -789,7 +789,6 @@ namespace euphoria::t3d
     void
     Application::on_frame()
     {
-        show_imgui = !immersive_mode;
         const float delta = timer->update();
 
         editor_camera.step(delta);
@@ -808,11 +807,8 @@ namespace euphoria::t3d
             tile_library->add_file(file, material_shader_cache.get(), texture_cache.get());
         }
 
-        if(show_imgui)
-        {
-            window::imgui::start_new_frame();
-            process_imgui();
-        }
+        window::imgui::start_new_frame();
+        process_imgui(!immersive_mode);
 
         camera.position = editor_camera.fps.position;
         camera.rotation = editor_camera.fps.get_rotation();
@@ -821,10 +817,7 @@ namespace euphoria::t3d
 
         render();
 
-        if(show_imgui)
-        {
-            window::imgui::imgui_render();
-        }
+        window::imgui::imgui_render();
 
         SDL_GL_SwapWindow(engine->window->window);
     }
