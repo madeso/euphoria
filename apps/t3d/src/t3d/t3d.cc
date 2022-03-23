@@ -273,7 +273,7 @@ namespace euphoria::t3d
 
             if(mmb_down)
             {
-                editor_camera.look(movement.x, movement.y);
+                editor_camera.look(core::c_int_to_float(movement.x), core::c_int_to_float(movement.y));
             }
         }
     }
