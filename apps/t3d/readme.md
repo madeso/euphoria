@@ -1,6 +1,11 @@
 # t3d
 T3D is a simple "tiled" 3d level editor, mostly aimed for speed world building.
-Inspirations are tiled (obviosly), unity snaps system, sketchup, the tony hawk level editor and the starcraft level editor.
+Inspirations are
+* tiled (obviosly): https://www.mapeditor.org/
+* unity snaps system: https://www.youtube.com/watch?v=b4oqOdBCy3c
+* sketchup
+* the tony hawk pro skater 2 - create a park: https://www.youtube.com/watch?v=DWGNN2ACJao
+* starcraft level editor
 
 ## todo
 * better editor camera

@@ -39,6 +39,9 @@ namespace euphoria::t3d
     {
         log::setup_logging();
 
+        editor_camera.fps.position.y = 5.0f;
+        editor_camera.fps.position.z = 10.0f;
+
         pending_files.extensions = std::vector<std::string>
         {
             "obj",
@@ -272,15 +275,7 @@ namespace euphoria::t3d
 
             if(mmb_down)
             {
-                const auto mm = static_cast<euphoria::core::Vec2f>(movement);
-                if(shift_down)
-                {
-                    orbit.on_pan_input(mm.x, mm.y);
-                }
-                else
-                {
-                    orbit.on_rotate_input(mm.x, mm.y);
-                }
+                editor_camera.look(movement.x, movement.y);
             }
         }
     }
@@ -316,7 +311,6 @@ namespace euphoria::t3d
                 if(!down)
                 {
                     immersive_mode = !immersive_mode;
-                    euphoria::window::keep_mouse_within_window(immersive_mode);
                     euphoria::window::enable_char_event(!immersive_mode);
                 }
                 break;
@@ -325,6 +319,11 @@ namespace euphoria::t3d
                 editor->on_key(key, down);
                 break;
             }
+        }
+
+        if(mmb_down)
+        {
+            editor_camera.on_key(key, down);
         }
 
         switch(key)
@@ -357,6 +356,11 @@ namespace euphoria::t3d
         {
         case core::MouseButton::middle:
             mmb_down = down;
+            euphoria::window::keep_mouse_within_window(mmb_down);
+            if(mmb_down == false)
+            {
+                editor_camera.on_lost_camera();
+            }
             break;
         default:
             break;
@@ -370,7 +374,7 @@ namespace euphoria::t3d
         if(forward_mouse)
         {
             editor->on_scroll(core::Vec2i(e.wheel.x, e.wheel.y));
-            orbit.on_zoom_input(core::c_int_to_float(e.wheel.y));
+            // orbit.on_zoom_input(core::c_int_to_float(e.wheel.y));
         }
     }
 
@@ -649,21 +653,24 @@ namespace euphoria::t3d
     {
         window::imgui::angle_slider
         (
-            "Horizontal",
-            &orbit.horizontal_rotation,
+            "Rotation",
+            &editor_camera.fps.rotation_angle,
             core::Angle::zero(),
             core::Angle::one_turn()
         );
         window::imgui::angle_slider
         (
-            "Vertical",
-            &orbit.vertical_rotation,
+            "Look",
+            &editor_camera.fps.look_angle,
             -core::Angle::quarter(),
             core::Angle::quarter()
         );
-        ImGui::InputFloat3("Position", orbit.center.get_data_ptr());
+        ImGui::InputFloat3("Position", editor_camera.fps.position.get_data_ptr());
+        {
+            auto rotation = editor_camera.fps.get_rotation();
+            ImGui::InputFloat4("Orientation", rotation.get_data_ptr());
+        }
         ImGui::Spacing();
-        ImGui::InputFloat("Distance", &orbit.distance);
         auto sens = [](const char* label, core::Sensitivity* s)
         {
             ImGui::PushID(label);
@@ -672,11 +679,8 @@ namespace euphoria::t3d
             ImGui::SameLine();
             ImGui::DragFloat(label, &s->multiplier, 0.1f, 0.0f);
         };
-        sens("Pan dX", &orbit.pan_dx);
-        sens("Pan dY", &orbit.pan_dy);
-        sens("Rotate dY", &orbit.rotate_dx);
-        sens("Rotate dX", &orbit.rotate_dy);
-        sens("Zoom", &orbit.zoom);
+        sens("Look Sensitivity", &editor_camera.fps.look_sensitivity);
+        ImGui::DragFloat("Move speed", &editor_camera.fps.move_speed, 0.1f, 0.0f);
     }
 
 
@@ -786,8 +790,9 @@ namespace euphoria::t3d
     Application::on_frame()
     {
         show_imgui = !immersive_mode;
-        // const float delta =
-        timer->update();
+        const float delta = timer->update();
+
+        editor_camera.step(delta);
 
         world->step();
 
@@ -809,8 +814,8 @@ namespace euphoria::t3d
             process_imgui();
         }
 
-        camera.position = orbit.get_camera_position();
-        camera.rotation = orbit.get_rotation();
+        camera.position = editor_camera.fps.position;
+        camera.rotation = editor_camera.fps.get_rotation();
 
         engine->init->clear_screen(core::NamedColor::light_gray);
 

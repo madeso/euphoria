@@ -83,6 +83,7 @@ set(app_src
     src/core/bufferbuilder2d.cc src/core/bufferbuilder2d.h
     src/core/cache.cc src/core/cache.h
     src/core/camera3.cc src/core/camera3.h
+    src/core/camera3.editor.cc src/core/camera3.editor.h
     src/core/canvaslogic.cc src/core/canvaslogic.h
     src/core/chatbot.cc src/core/chatbot.h
     src/core/cint.cc src/core/cint.h

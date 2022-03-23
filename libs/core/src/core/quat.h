@@ -22,6 +22,16 @@ namespace euphoria::core
         T y;
         T z;
 
+        T* get_data_ptr()
+        {
+            return &w;
+        }
+
+        [[nodiscard]] const T* get_data_ptr() const
+        {
+            return &w;
+        }
+
         Vec
         get_vec_part() const
         {

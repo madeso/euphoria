@@ -4,6 +4,7 @@
 #include "core/angle.h"
 #include "core/quat.h"
 #include "core/key.h"
+#include "core/sensitivity.h"
 
 namespace euphoria::core
 {
@@ -48,7 +49,7 @@ namespace euphoria::core
 
         Vec3f position;
         float move_speed = 3.0f;
-        float look_sensitivity = 0.10f;
+        Sensitivity look_sensitivity;
     };
 
 }

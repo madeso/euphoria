@@ -4,7 +4,7 @@
 #include "core/key.h"
 #include "core/vec2.h"
 #include "core/camera3.h"
-#include "core/orbitcontroller.h"
+#include "core/camera3.editor.h"
 #include "core/vfs_path.h"
 #include "core/noncopyable.h"
 
@@ -75,7 +75,7 @@ namespace euphoria::t3d
         bool lister_window = true;
         bool preference_window = false;
 
-        core::OrbitController orbit;
+        core::EditorCamera3 editor_camera;
         bool mmb_down = false;
         bool shift_down = false;
         bool show_imgui = false;

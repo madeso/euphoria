@@ -5,14 +5,17 @@ namespace euphoria::core
     using namespace euphoria::convert;
 
     FpsController::FpsController()
-        : rotation_angle(0.0_rad), look_angle(0.0_rad), position(Vec3f::zero())
+        : rotation_angle(0.0_rad)
+        , look_angle(0.0_rad)
+        , position(Vec3f::zero())
+        , look_sensitivity(0.10f)
     {}
 
     void
     FpsController::look(float x, float y)
     {
-        rotation_angle += Angle::from_degrees(-x * look_sensitivity);
-        look_angle += Angle::from_degrees(-y * look_sensitivity);
+        rotation_angle += Angle::from_degrees(-x * look_sensitivity.get_multiplier_with_sign());
+        look_angle += Angle::from_degrees(-y * look_sensitivity.get_multiplier_with_sign());
     }
 
     void
