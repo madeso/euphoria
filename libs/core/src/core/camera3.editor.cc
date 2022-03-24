@@ -30,7 +30,7 @@ namespace euphoria::core
         {
             void on_mouse_move(EditorCamera3* owner, float dx, float dy) override
             {
-                if(owner->style == EditorCameraStyle3::Fps)
+                if(owner->style == EditorCameraStyle3::fps)
                 {
                     owner->fps.look(dx, dy);
                 }
@@ -38,7 +38,7 @@ namespace euphoria::core
 
             void on_key(EditorCamera3* owner, Key key, bool down) override
             {
-                if(owner->style == EditorCameraStyle3::Fps)
+                if(owner->style == EditorCameraStyle3::fps)
                 {
                     owner->fps.on_key(key, down);
                 }
@@ -46,7 +46,7 @@ namespace euphoria::core
 
             void step(EditorCamera3* owner, float dt) override
             {
-                if(owner->style == EditorCameraStyle3::Fps)
+                if(owner->style == EditorCameraStyle3::fps)
                 {
                     owner->fps.update(dt);
                 }

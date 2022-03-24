@@ -28,7 +28,7 @@ namespace euphoria::core
 
     enum class EditorCameraStyle3
     {
-        Oribital, Fps
+        oribital, fps
     };
 
     struct EditorCamera3
@@ -45,7 +45,7 @@ namespace euphoria::core
 
         void on_lost_camera();
 
-        EditorCameraStyle3 style = EditorCameraStyle3::Fps;
+        EditorCameraStyle3 style = EditorCameraStyle3::fps;
 
         FpsController fps;
         std::unique_ptr<detail::EditorCameraState3> state;

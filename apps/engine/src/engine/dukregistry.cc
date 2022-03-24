@@ -78,7 +78,7 @@ namespace euphoria::engine
     )
     {
         ASSERT(script_components.find(comp) != script_components.end());
-        auto c = reg->get_component_or_null<ScriptComponent>(ent, comp);
+        auto* c = reg->get_component_or_null<ScriptComponent>(ent, comp);
         
         if(c == nullptr)
         {

@@ -69,7 +69,7 @@ namespace euphoria::engine
         systems->sprite_drawer.draw(&reg, renderer);
     }
 
-    void World::post_create(core::ecs::EntityHandle id)
+    void World::post_create(core::ecs::EntityHandle id) const
     {
         systems->initializer.on_add(id);
     }

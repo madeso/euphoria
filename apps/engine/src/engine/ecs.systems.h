@@ -146,7 +146,7 @@ namespace euphoria::engine
         void
         draw(render::SpriteRenderer* renderer);
 
-        void post_create(core::ecs::EntityHandle id);
+        void post_create(core::ecs::EntityHandle id) const;
     };
 
 }

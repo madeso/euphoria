@@ -35,7 +35,7 @@ namespace euphoria::core::ecs
 
         virtual ~ComponentArrayBase() = default;
         virtual void remove(EntityHandle) = 0;
-        virtual bool has(EntityHandle) const= 0;
+        [[nodiscard]] virtual bool has(EntityHandle) const= 0;
     };
 
     // contains a list of components for a single component type
@@ -77,22 +77,24 @@ namespace euphoria::core::ecs
         }
 
 
+        [[nodiscard]]
+        bool
+        index_has_value(std::size_t index) const
+        {
+            return false ==
+            (
+                components.size() <= index ||
+                components[index].has_value() == false
+            );
+        }
+
+
+        [[nodiscard]]
         bool
         has(EntityHandle entity) const override
         {
             const auto index = c_ent(entity);
-            if(components.size() <= index)
-            {
-                return false;
-            }
-            else if(components[index].has_value() == false)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return index_has_value(index);
         }
 
 
@@ -109,17 +111,13 @@ namespace euphoria::core::ecs
         get_or_null(EntityHandle entity)
         {
             const auto index = c_ent(entity);
-            if(components.size() <= index)
+            if(index_has_value(index))
             {
-                return nullptr;
-            }
-            else if(components[index].has_value() == false)
-            {
-                return nullptr;
+                return &(*components[index]);
             }
             else
             {
-                return &(*components[index]);
+                return nullptr;
             }
         }
     };
