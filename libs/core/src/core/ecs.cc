@@ -177,7 +177,7 @@ namespace euphoria::core::ecs
             return r;
         }
 
-        const ComponentArrayBase* get_components_base(ComponentIndex comp_ind) const
+        [[nodiscard]] const ComponentArrayBase* get_components_base(ComponentIndex comp_ind) const
         {
             ASSERT(comp_ind < component_arrays.size() && "Component not registered before use.");
             ComponentArrayBase* r = component_arrays[comp_ind].get();
