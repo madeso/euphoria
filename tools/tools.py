@@ -191,17 +191,25 @@ def get_line_count(path: str, discard_empty: bool) -> int:
     return -1
 
 
-def get_max_indent(path: str, discard_empty: bool) -> int:
+def get_all_indent(path: str, discard_empty: bool) -> typing.Iterable[int]:
     with open(path, 'r') as handle:
         count = 0
         for line in handle:
             if discard_empty and len(line.strip()) == 0:
                 pass
             else:
-                count = max(count, len(line) - len(line.lstrip()))
-        return count
+                yield len(line) - len(line.lstrip())
 
-    return -1
+
+def get_max_indent(path: str, discard_empty: bool) -> int:
+    count = 0
+
+    got_files = False
+    for line_count in get_all_indent(path, discard_empty):
+        count = max(count, line_count)
+        got_files = True
+    
+    return count if got_files else -1
 
 
 def contains_pragma_once(path: str) -> bool:
@@ -235,28 +243,53 @@ def handle_missing_include_guards(args):
     print(f'Found {count} in {files} files.')
 
 
+def float_to_block_str(f) -> str:
+    block_width_char = ["▏", "▎", "▍", "▌", "▋", "▊", "▉", "█"]
+    size = len(block_width_char)
+    count = max(int(f * size), 1)
+    r = ""
+    while count > 0:
+        bi = len(block_width_char)-1 if count >= len(block_width_char) else count
+        r += block_width_char[bi]
+        count -= size
+    return r
+
+
 def handle_list_indents(args):
     stats = {}
     files = 0
     each = args.each
 
     for patt in args.files:
-        for file in list_files_in_folder(patt, ['.h', '.cc']):
+        for file in list_files_in_folder(patt, HEADER_FILES + SOURCE_FILES):
             files += 1
 
-            count = get_max_indent(file, args.discard_empty)
+            counts = list(get_all_indent(file, args.discard_empty)) if args.hist else [get_max_indent(file, args.discard_empty)]
 
-            index = count if each <= 1 else count - (count % each)
-            if index in stats:
-                stats[index].append(file)
-            else:
-                stats[index] = [file]
+            for count in counts:
+                index = count if each <= 1 else count - (count % each)
+                if index in stats:
+                    stats[index].append(file)
+                else:
+                    stats[index] = [file]
 
+    all_sorted = sorted(stats.items(), key=lambda item: item[0])
     print(f'Found {files} files.')
-    for count,files in sorted(stats.items(), key=lambda item: item[0]):
+    
+    total_sum = 0
+    if args.hist:
+        for _count,files in all_sorted:
+            total_sum = max(total_sum, len(files))
+    
+    for count,files in all_sorted:
         c = len(files)
         count_str = f'{count}' if each <= 1 else f'{count}-{count+each-1}'
-        if args.show and c < 3:
+        if args.hist:
+            hist_width = 50
+            # chars = '█' * max(int((c * hist_width)/total_sum), 1)
+            chars = float_to_block_str((c * hist_width)/total_sum)
+            print(f'{count_str:<6}: {chars}')
+        elif args.show and c < 3:
             print(f'{count_str}: {files}')
         else:
             print(f'{count_str}: {c}')
@@ -479,8 +512,9 @@ def main():
 
     sub = sub_parsers.add_parser('list-indents', help='list the files with the maximum indents')
     sub.add_argument('files', nargs='+')
-    sub.add_argument('--each', type=int, default=1)
-    sub.add_argument('--show', action='store_true')
+    sub.add_argument('--each', type=int, default=1, help='group counts')
+    sub.add_argument('--show', action='store_true', help='include files in list')
+    sub.add_argument('--hist', action='store_true', help='show simple histogram')
     sub.add_argument('--include-empty', dest='discard_empty', action='store_false')
     sub.set_defaults(func=handle_list_indents)
 
