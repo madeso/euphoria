@@ -414,7 +414,12 @@ main(int argc, char** argv)
                     if(!down)
                     {
                         capturing_mouse_movement = !capturing_mouse_movement;
-                        keep_mouse_within_window(capturing_mouse_movement);
+                        engine.window->set_mouse_behaviour
+                        (
+                            capturing_mouse_movement
+                                ? MouseBehaviour::normal
+                                : MouseBehaviour::relative_only
+                        );
                     }
                     break;
                 default:
