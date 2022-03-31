@@ -37,7 +37,7 @@ namespace euphoria::window
     }
 
     void
-    SdlWindow::set_mouse_behaviour(core::MouseBehaviour mb)
+    SdlWindow::set_mouse_behaviour(core::MouseBehaviour mb) const
     {
         switch(mb)
         {

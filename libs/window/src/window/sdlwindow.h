@@ -28,7 +28,7 @@ namespace euphoria::window
         ~SdlWindow();
 
         void
-        set_mouse_behaviour(core::MouseBehaviour);
+        set_mouse_behaviour(core::MouseBehaviour) const;
 
         NONCOPYABLE(SdlWindow);
 

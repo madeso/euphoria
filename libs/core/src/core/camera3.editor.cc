@@ -151,6 +151,7 @@ namespace euphoria::core
                 std::cout << "start mouse " << start_mouse.x << ", " << start_mouse.y << "\n";
             }
 
+            [[nodiscard]]
             bool
             is_panning() const
             {

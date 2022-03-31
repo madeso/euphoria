@@ -54,6 +54,11 @@ namespace euphoria::core
     struct EditorCamera3
     {
         EditorCamera3();
+        EditorCamera3(const EditorCamera3&) = delete;
+        EditorCamera3& operator=(const EditorCamera3&) = delete;
+        EditorCamera3(EditorCamera3&&) = default;
+        EditorCamera3& operator=(EditorCamera3&&) = default;
+
         virtual ~EditorCamera3() = default;
 
         void step
