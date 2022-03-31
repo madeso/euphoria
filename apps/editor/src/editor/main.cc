@@ -1,3 +1,5 @@
+#include "log/log.h"
+
 #include "core/mat4.h"
 #include "core/random.h"
 #include "core/vfs.h"
@@ -5,13 +7,12 @@
 #include "core/stringutils.h"
 #include "core/stdutils.h"
 #include "core/proto.h"
-#include "log/log.h"
+#include "core/viewport.h"
 
 #include "render/init.h"
 #include "render/materialshader.h"
 #include "render/texturecache.h"
 #include "render/texture.h"
-#include "render/viewport.h"
 #include "render/materialshadercache.h"
 #include "render/viewporthandler.h"
 

@@ -9,6 +9,7 @@
 #include "core/colors.h"
 #include "core/enum.h"
 #include "core/texturetypes.h"
+#include "core/viewport.h"
 
 #include "render/positionedlines.h"
 #include "render/world.h"
@@ -35,8 +36,23 @@
 
 namespace euphoria::t3d
 {
+    std::optional<core::Vec3f>
+    EditorCamera3::raycast
+    (
+        const core::Vec2i& mouse,
+        const core::CompiledCamera3& camera,
+        const core::Viewport& viewport
+    )
+    {
+        ASSERT(parent != nullptr);
+        const auto ray = core::mouse_to_unit_ray(camera, viewport, mouse);
+        return parent->editor->raycast_closest_point(ray);
+    }
+
+
     Application::Application()
     {
+        editor_camera.parent = this;
         log::setup_logging();
 
         editor_camera.fps.position.y = 5.0f;
@@ -273,7 +289,7 @@ namespace euphoria::t3d
 
             if(mmb_down)
             {
-                editor_camera.look(core::c_int_to_float(movement.x), core::c_int_to_float(movement.y));
+                editor_camera.on_mouse_move(movement.x, movement.y);
             }
         }
     }
@@ -353,15 +369,34 @@ namespace euphoria::t3d
         {
         case core::MouseButton::middle:
             mmb_down = down;
-            euphoria::window::keep_mouse_within_window(mmb_down);
-            if(mmb_down == false)
+            if(mmb_down)
             {
-                editor_camera.on_lost_camera();
+                editor_camera.on_camera_start();
+            }
+            else
+            {
+                editor_camera.on_camera_stop();
             }
             break;
         default:
             break;
         }
+
+        update_mouse();
+    }
+
+
+    void
+    Application::update_mouse()
+    {
+        const auto suggested_mouse = editor_camera.get_mouse();
+        if(current_mouse && *current_mouse == suggested_mouse)
+        {
+            return;
+        }
+
+        current_mouse = suggested_mouse;
+        engine->window->set_mouse_behaviour(suggested_mouse);
     }
 
 
@@ -425,6 +460,35 @@ namespace euphoria::t3d
             ImGui::End();
         }
 
+        if(camera_window)
+        {
+            window::imgui::begin_fixed_overlay(window::Corner::top_right, "camera overlay", 10.0f, 30.0f);
+
+            constexpr auto popup_camera = "popup_camera";
+            if(ImGui::Button(ICON_MDI_VIDEO_VINTAGE))
+            {
+                ImGui::OpenPopup(popup_camera);
+            }
+
+            if(ImGui::BeginPopup(popup_camera))
+            {
+                on_camera_window();
+                ImGui::EndPopup();
+            }
+
+            ImGui::SameLine();
+
+            constexpr auto camera_orbit = ICON_MDI_ROTATE_3D;
+            constexpr auto camera_fps = ICON_MDI_VIDEO;
+
+            if(ImGui::Button( editor_camera.is_camera_orbit() ? camera_orbit : camera_fps))
+            {
+                editor_camera.toggle_camera_orbit();
+            }
+
+            ImGui::End();
+        }
+
         if(pending_files.has_more_files())
         {
             window::imgui::begin_fixed_overlay(window::Corner::bottom_left, "pending files");
@@ -440,13 +504,6 @@ namespace euphoria::t3d
             {
                 ImGui::Begin("Environment", &environment_window);
                 on_environment_window();
-                ImGui::End();
-            }
-
-            if(camera_window)
-            {
-                ImGui::Begin("Camera", &camera_window);
-                on_camera_window();
                 ImGui::End();
             }
 
@@ -653,23 +710,17 @@ namespace euphoria::t3d
     {
         window::imgui::angle_slider
         (
-            "Rotation",
-            &editor_camera.fps.rotation_angle,
-            core::Angle::zero(),
-            core::Angle::one_turn()
+            "Rotation (left/right)",
+            &editor_camera.fps.rotation_angle
         );
         window::imgui::angle_slider
         (
-            "Look",
+            "Look (up/down)",
             &editor_camera.fps.look_angle,
             -core::Angle::quarter(),
             core::Angle::quarter()
         );
-        ImGui::InputFloat3("Position", editor_camera.fps.position.get_data_ptr());
-        {
-            auto rotation = editor_camera.fps.get_rotation();
-            ImGui::InputFloat4("Orientation", rotation.get_data_ptr());
-        }
+        ImGui::DragFloat3("Position", editor_camera.fps.position.get_data_ptr());
         ImGui::Spacing();
         auto sens = [](const char* label, core::Sensitivity* s)
         {
@@ -791,7 +842,17 @@ namespace euphoria::t3d
     {
         const float delta = timer->update();
 
-        editor_camera.step(delta);
+        if(compiled_camera.has_value())
+        {
+            editor_camera.step
+            (
+                shift_down,
+                editor->mouse,
+                *compiled_camera,
+                editor->viewport,
+                delta
+            );
+        }
 
         world->step();
 

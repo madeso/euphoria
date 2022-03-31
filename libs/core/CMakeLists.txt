@@ -120,6 +120,7 @@ set(app_src
     src/core/memorychunk.cc src/core/memorychunk.h
     src/core/mesh.cc src/core/mesh.h
     src/core/minmax.cc src/core/minmax.h
+    src/core/mousebehaviour.cc src/core/mousebehaviour.h
     src/core/multisort.cc src/core/multisort.h
     src/core/nlp_line.cc src/core/nlp_line.h
     src/core/nlp_sentence.cc src/core/nlp_sentence.h
@@ -159,6 +160,7 @@ set(app_src
     src/core/vfs_path.cc src/core/vfs_path.h
     src/core/vfs.cc src/core/vfs.h
     src/core/viewportdef.cc src/core/viewportdef.h
+    src/core/viewport.cc src/core/viewport.h
     src/core/wordwrap.cc src/core/wordwrap.h
 )
 

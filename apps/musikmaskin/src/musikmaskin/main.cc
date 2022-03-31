@@ -24,7 +24,7 @@
 #include "render/shaderattribute3d.h"
 #include "render/texture.h"
 #include "render/world.h"
-#include "render/viewport.h"
+#include "core/viewport.h"
 #include "render/materialshadercache.h"
 #include "render/defaultfiles.h"
 

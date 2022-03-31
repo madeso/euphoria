@@ -1,10 +1,12 @@
 #pragma once
 
+#include <optional>
+
 #include "core/key.h"
 #include "core/vec2.h"
 #include "core/camera3.h"
 
-#include "render/viewport.h"
+#include "core/viewport.h"
 
 #include "t3d/toolstack.h"
 
@@ -45,7 +47,7 @@ namespace euphoria::t3d
         render::World* world;
         t3d::TileLibrary* tile_library;
         core::CompiledCamera3 camera;
-        render::Viewport viewport;
+        core::Viewport viewport;
 
         core::Vec2i mouse;
         ToolStack tools;
@@ -70,6 +72,9 @@ namespace euphoria::t3d
 
         std::vector<std::shared_ptr<PlacedMesh>>
         raycast(const core::UnitRay3f& ray);
+
+        std::optional<core::Vec3f>
+        raycast_closest_point(const core::UnitRay3f& ray);
 
 
         // current tool callbacks

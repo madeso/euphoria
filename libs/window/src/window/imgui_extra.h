@@ -98,6 +98,13 @@ namespace euphoria::window::imgui
     );
 
     bool
+    angle_slider
+    (
+        const char* name,
+        core::Angle* angle
+    );
+
+    bool
     toggle_button(const char* label, bool down, const ImVec2& size);
 
 

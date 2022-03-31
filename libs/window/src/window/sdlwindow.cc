@@ -37,11 +37,25 @@ namespace euphoria::window
     }
 
     void
-    keep_mouse_within_window(bool k)
+    SdlWindow::set_mouse_behaviour(core::MouseBehaviour mb)
     {
-        // SDL_SetWindowGrab(window, k ? SDL_TRUE : SDL_FALSE);
-        // SDL_ShowCursor(k ? SDL_DISABLE : SDL_ENABLE);
-        SDL_SetRelativeMouseMode(k ? SDL_TRUE : SDL_FALSE);
+        switch(mb)
+        {
+        case core::MouseBehaviour::normal:
+            SDL_SetRelativeMouseMode(SDL_FALSE);
+            SDL_SetWindowGrab(window, SDL_FALSE);
+            break;
+        case core::MouseBehaviour::relative_only:
+            SDL_SetWindowGrab(window, SDL_FALSE);
+            SDL_SetRelativeMouseMode(SDL_TRUE);
+            break;
+        case core::MouseBehaviour::wrap_within_window:
+            SDL_SetRelativeMouseMode(SDL_FALSE);
+            SDL_SetWindowGrab(window, SDL_TRUE);
+            break;
+        default:
+            DIE("inavlid mouse behaviour");
+        }
     }
 
     void

@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "core/mousebehaviour.h"
 #include "core/noncopyable.h"
 #include "core/vec2.h"
 
@@ -26,6 +27,9 @@ namespace euphoria::window
 
         ~SdlWindow();
 
+        void
+        set_mouse_behaviour(core::MouseBehaviour);
+
         NONCOPYABLE(SdlWindow);
 
         // 0-(size-1)
@@ -38,7 +42,4 @@ namespace euphoria::window
 
     void
     enable_char_event(bool enable);
-
-    void
-    keep_mouse_within_window(bool k);
 }

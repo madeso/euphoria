@@ -1,3 +1,5 @@
+#include "log/log.h"
+
 #include "core/mat4.h"
 #include "core/random.h"
 #include "core/mat4.h"
@@ -12,9 +14,8 @@
 #include "core/camera3.h"
 #include "core/stringutils.h"
 #include "core/stdutils.h"
-#include "log/log.h"
 #include "core/cint.h"
-
+#include "core/viewport.h"
 #include "core/bezierpath.h"
 
 #include "render/init.h"
@@ -25,7 +26,6 @@
 #include "render/shaderattribute3d.h"
 #include "render/texture.h"
 #include "render/world.h"
-#include "render/viewport.h"
 #include "render/materialshadercache.h"
 #include "render/defaultfiles.h"
 

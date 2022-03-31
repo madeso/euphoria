@@ -1,5 +1,7 @@
 #include "t3d/tool_notool.h"
 
+#include "core/viewport.h"
+
 #include "window/imgui_icons.h"
 #include "window/imgui_extra.h"
 
@@ -38,15 +40,7 @@ namespace euphoria::t3d
         if (down) { return; }
         if (button != core::MouseButton::left) { return; }
 
-        auto ray = editor->camera.clip_to_world_ray
-        (
-            editor->viewport.to_clip_coord
-            (
-                editor->mouse
-            )
-        )
-        .get_normalized()
-        ;
+        const auto ray = core::mouse_to_unit_ray(editor->camera, editor->viewport, editor->mouse);
 
         active_selection_click.meshes = editor->raycast(ray);
         active_selection_click.ctrl_down = state.ctrl;

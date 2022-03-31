@@ -1,6 +1,7 @@
 #include "SDL.h"
 
 #include "log/log.h"
+
 #include "core/str.h"
 #include "core/cint.h"
 #include "core/interpolate.h"
@@ -10,6 +11,7 @@
 #include "core/proto.h"
 #include "core/viewportdef.h"
 #include "core/fourway.h"
+#include "core/viewport.h"
 
 #include "render/debuggl.h"
 #include "render/font.h"
@@ -18,7 +20,6 @@
 #include "render/scalablesprite.h"
 #include "render/shaderattribute2d.h"
 #include "render/texturecache.h"
-#include "render/viewport.h"
 #include "render/shader.h"
 #include "render/spriterender.h"
 #include "render/viewporthandler.h"

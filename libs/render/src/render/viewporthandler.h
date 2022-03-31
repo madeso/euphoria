@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "core/rect.h"
-#include "render/viewport.h"
+#include "core/viewport.h"
 
 
 namespace euphoria::render
@@ -42,7 +42,7 @@ namespace euphoria::render
         void
         clear_black();
 
-        [[nodiscard]] Viewport
+        [[nodiscard]] core::Viewport
         get_full_viewport() const;
     };
 }

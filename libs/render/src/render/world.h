@@ -10,6 +10,7 @@ namespace euphoria::core
 {
     struct Camera3;
     struct CompiledCamera3;
+    struct Viewport;
 }
 
 namespace euphoria::core::vfs
@@ -19,7 +20,6 @@ namespace euphoria::core::vfs
 
 namespace euphoria::render
 {
-    struct Viewport;
     struct MaterialShader;
     struct ShaderUniform;
 }
@@ -35,7 +35,7 @@ namespace euphoria::render
         render::Light light;
 
         core::CompiledCamera3
-        render(const Viewport& viewport, const core::Camera3& camera);
+        render(const core::Viewport& viewport, const core::Camera3& camera);
 
         void
         step();

@@ -9,6 +9,9 @@ include(tools/cmake/compiler_warnings.cmake)
 
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+# for debug builds only...
+set(CMAKE_ENABLE_EXPORTS ON)
+
 # enable building on all cores
 # https://blog.kitware.com/cmake-building-with-all-your-cores/
 # if(${MSVC})

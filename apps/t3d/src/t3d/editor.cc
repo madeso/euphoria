@@ -65,6 +65,8 @@ namespace euphoria::t3d
             const auto transformed_ray = ray.get_transform(mesh->actor->calculate_model_matrix().get_inverted());
             const auto collision = core::get_intersection(transformed_ray, mesh->tile->aabb);
 
+            // todo(Gustav): only interested about intersection here so provide a simpler algorithm?
+
             if (collision.intersected)
             {
                 const auto mesh_collision = core::get_intersection(transformed_ray, mesh->tile->collison);
@@ -72,6 +74,47 @@ namespace euphoria::t3d
                 if(mesh_collision)
                 {
                     r.emplace_back(mesh);
+                }
+            }
+        }
+
+        return r;
+    }
+
+
+    std::optional<core::Vec3f>
+    Editor::raycast_closest_point(const core::UnitRay3f& ray)
+    {
+        std::optional<core::Vec3f> r;
+
+        for (auto mesh : placed_meshes)
+        {
+            const auto transformed_ray = ray.get_transform(mesh->actor->calculate_model_matrix().get_inverted());
+            const auto collision = core::get_intersection(transformed_ray, mesh->tile->aabb);
+
+            if (collision.intersected)
+            {
+                const auto mesh_collision = core::get_intersection(transformed_ray, mesh->tile->collison);
+
+                // todo(Gustav): discard this collision if all of the aabb are further away than the current distance
+                if(mesh_collision)
+                {
+                    const auto this_point = transformed_ray.get_point(*mesh_collision);
+                    if(r)
+                    {
+                        if
+                        (
+                            core::Vec3f::from_to(ray.from, *r).get_length_squared() >
+                            core::Vec3f::from_to(ray.from, this_point).get_length_squared()
+                        )
+                        {
+                            r = this_point;
+                        }
+                    }
+                    else
+                    {
+                        r = this_point;
+                    }
                 }
             }
         }

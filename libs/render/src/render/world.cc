@@ -2,9 +2,9 @@
 
 #include "assert/assert.h"
 #include "core/camera3.h"
+#include "core/viewport.h"
 
 #include "render/materialshader.h"
-#include "render/viewport.h"
 #include "render/gl.h"
 
 #include <algorithm>
@@ -18,7 +18,7 @@ namespace euphoria::render
     }
 
     core::CompiledCamera3
-    World::render(const Viewport& viewport, const core::Camera3& camera)
+    World::render(const core::Viewport& viewport, const core::Camera3& camera)
     {
         const auto compiled = camera.compile(viewport.get_aspect_ratio());
         render(camera, compiled);

@@ -2,6 +2,7 @@
 
 #include "core/viewportdef.h"
 #include "core/cint.h"
+#include "core/viewport.h"
 
 #include "render/viewport.h"
 #include "render/init.h"
@@ -83,8 +84,8 @@ namespace
             );
         }
 
-        auto viewport = euphoria::render::Viewport{vp.screen_rect};
-        viewport.activate();
+        auto viewport = euphoria::core::Viewport{vp.screen_rect};
+        euphoria::render::activate(viewport);
     }
 }
 
@@ -141,10 +142,10 @@ namespace euphoria::render
 
 
 
-    Viewport
+    core::Viewport
     ViewportHandler::get_full_viewport() const
     {
-        const auto viewport = render::Viewport
+        const auto viewport = core::Viewport
         {
             core::Recti::from_width_height(window_width, window_height)
                 .set_bottom_left_to_copy

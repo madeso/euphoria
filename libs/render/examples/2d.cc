@@ -17,7 +17,7 @@
 #include "render/scalablesprite.h"
 #include "render/shaderattribute2d.h"
 #include "render/texturecache.h"
-#include "render/viewport.h"
+#include "core/viewport.h"
 #include "render/shader.h"
 #include "render/spriterender.h"
 #include "render/viewporthandler.h"

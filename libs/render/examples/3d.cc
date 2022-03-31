@@ -14,6 +14,7 @@
 #include "core/camera3.h"
 #include "core/palette.h"
 #include "core/fpscontroller.h"
+#include "core/viewport.h"
 
 #include "render/init.h"
 #include "render/debuggl.h"
@@ -23,7 +24,6 @@
 #include "render/shaderattribute3d.h"
 #include "render/texture.h"
 #include "render/world.h"
-#include "render/viewport.h"
 #include "render/materialshadercache.h"
 #include "render/defaultfiles.h"
 #include "render/actor.h"

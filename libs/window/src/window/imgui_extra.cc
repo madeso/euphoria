@@ -98,6 +98,32 @@ namespace euphoria::window::imgui
 
 
     bool
+    angle_slider
+    (
+        const char* name,
+        core::Angle* angle
+    )
+    {
+        ASSERT(angle);
+
+        float degrees = angle->in_degrees();
+        const auto value_was_changed = ImGui::DragFloat
+        (
+            name,
+            &degrees
+        );
+
+        if(value_was_changed)
+        {
+            *angle = core::Angle::from_degrees(degrees);
+            angle->wrap();
+        }
+
+        return value_was_changed;
+    }
+
+
+    bool
     toggle_button(const char* label, bool down, const ImVec2& size)
     {
         if (down)

@@ -7,6 +7,7 @@
 #include "core/camera3.editor.h"
 #include "core/vfs_path.h"
 #include "core/noncopyable.h"
+#include "core/mousebehaviour.h"
 
 #include "render/viewporthandler.h"
 
@@ -16,6 +17,7 @@
 #include "t3d/filelist.h"
 #include "t3d/keyboardstate.h"
 
+#include <vector>
 #include <string>
 #include <memory>
 #include <optional>
@@ -50,6 +52,20 @@ namespace euphoria::t3d
 {
     struct Editor;
     struct TileLibrary;
+    struct Application;
+
+    struct EditorCamera3 : public core::EditorCamera3
+    {
+        Application* parent = nullptr;
+
+        std::optional<core::Vec3f>
+        raycast
+        (
+            const core::Vec2i& mouse,
+            const core::CompiledCamera3& camera,
+            const core::Viewport& viewport
+        ) override;
+    };
 
     struct Application
     {
@@ -69,13 +85,13 @@ namespace euphoria::t3d
         t3d::Grid grid_data;
 
         bool environment_window = false;
-        bool camera_window = false;
+        bool camera_window = true;
         bool tiles_window = true;
         bool grid_window = true;
         bool lister_window = true;
         bool preference_window = false;
 
-        core::EditorCamera3 editor_camera;
+        EditorCamera3 editor_camera;
         bool mmb_down = false;
         bool shift_down = false;
         bool show_gizmo = true;
@@ -90,6 +106,10 @@ namespace euphoria::t3d
         bool state_ctrl_right = false;
         bool state_alt_left = false;
         bool state_alt_right = false;
+
+        std::optional<core::MouseBehaviour> current_mouse;
+        void
+        update_mouse();
 
 
         Application();
