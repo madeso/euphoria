@@ -364,6 +364,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1VertexPath2.html">VertexPath2</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1ViewportDefinition.html">ViewportDefinition</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1VirtualConsole.html">VirtualConsole</a></td></tr>
@@ -479,7 +481,7 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a1ec03d988d6a9065ce681392a857aa94"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94">EditorCameraStyle3</a> { <a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94afc2149933d423cd8e7e8b9cffafdda57">EditorCameraStyle3::oribital</a>, 
+<tr class="memitem:a1ec03d988d6a9065ce681392a857aa94"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94">EditorCameraStyle3</a> { <a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94aaaa13d20a3eef0dc1975270df400bcd8">EditorCameraStyle3::orbital</a>, 
 <a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94a05934928102b17827b8f03ed60c3e6e0">EditorCameraStyle3::fps</a>
  }</td></tr>
 <tr class="separator:a1ec03d988d6a9065ce681392a857aa94"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -900,6 +902,11 @@ Enumerations</h2></td></tr>
 <a class="el" href="namespaceeuphoria_1_1core.html#aac094dc57a2fe85861d0a09afea97978aa0987f6d6bef179be99f9ffd6f1cc73d">WrapMode::mirror_repeat</a>
  }</td></tr>
 <tr class="separator:aac094dc57a2fe85861d0a09afea97978"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c24a6a2024585c62a9b910a86d571d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571d">MouseBehaviour</a> { <a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571dafea087517c26fadd409bd4b9dc642555">MouseBehaviour::normal</a>, 
+<a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571da197a55dab3fecbc7d994f2ba66a92222">MouseBehaviour::wrap_within_window</a>, 
+<a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571dab94e97963431fdc1086c18b725454d99">MouseBehaviour::relative_only</a>
+ }</td></tr>
+<tr class="separator:ae4c24a6a2024585c62a9b910a86d571d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfc67891bba4cfcbc72a6eaaeb6371dc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dc">SortStyle</a> { <a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dca9c9ab624360885fcf93b7643c93b6748">SortStyle::ascending</a>, 
 <a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dcab19e9805fd7727c52ca04dfa3d24a2e5">SortStyle::descending</a>
  }</td></tr>
@@ -2004,6 +2011,8 @@ Functions</h2></td></tr>
 <tr class="memitem:afc08284570ede5fac73ca62241e1856a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:afc08284570ede5fac73ca62241e1856a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1Vec4.html">Vec4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#afc08284570ede5fac73ca62241e1856a">component_multiply</a> (const <a class="el" href="structeuphoria_1_1core_1_1Vec4.html">Vec4</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1Vec4.html">Vec4</a>&lt; T &gt; &amp;rhs)</td></tr>
 <tr class="separator:afc08284570ede5fac73ca62241e1856a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b7019f0f23829affc2a36f1ca9d4e2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a8b7019f0f23829affc2a36f1ca9d4e2a">mouse_to_unit_ray</a> (const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;camera, const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;viewport, const <a class="el" href="namespaceeuphoria_1_1core.html#a0cb40771b3579f3c7f3c2134fe4db2e9">Vec2i</a> &amp;position)</td></tr>
+<tr class="separator:a8b7019f0f23829affc2a36f1ca9d4e2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a78ee0507372ffc4a8e169633a19f0eb9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a78ee0507372ffc4a8e169633a19f0eb9">word_wrap</a> (const std::string &amp;str, std::function&lt; bool(const std::string &amp;)&gt; measure)</td></tr>
 <tr class="separator:a78ee0507372ffc4a8e169633a19f0eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -3042,11 +3051,11 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1ec03d988d6a9065ce681392a857aa94afc2149933d423cd8e7e8b9cffafdda57"></a>oribital&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1ec03d988d6a9065ce681392a857aa94aaaa13d20a3eef0dc1975270df400bcd8"></a>orbital&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a1ec03d988d6a9065ce681392a857aa94a05934928102b17827b8f03ed60c3e6e0"></a>fps&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00029">29</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00049">49</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 
 </div>
 </div>
@@ -3440,6 +3449,35 @@ template&lt;typename T &gt; </div>
 </table>
 
 <p class="definition">Definition at line <a class="el" href="datetime_8h_source.html#l00015">15</a> of file <a class="el" href="datetime_8h_source.html">datetime.h</a>.</p>
+
+</div>
+</div>
+<a id="ae4c24a6a2024585c62a9b910a86d571d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c24a6a2024585c62a9b910a86d571d">&#9670;&nbsp;</a></span>MouseBehaviour</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571d">euphoria::core::MouseBehaviour</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae4c24a6a2024585c62a9b910a86d571dafea087517c26fadd409bd4b9dc642555"></a>normal&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae4c24a6a2024585c62a9b910a86d571da197a55dab3fecbc7d994f2ba66a92222"></a>wrap_within_window&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ae4c24a6a2024585c62a9b910a86d571dab94e97963431fdc1086c18b725454d99"></a>relative_only&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="mousebehaviour_8h_source.html#l00006">6</a> of file <a class="el" href="mousebehaviour_8h_source.html">mousebehaviour.h</a>.</p>
 
 </div>
 </div>
@@ -10499,6 +10537,40 @@ template&lt;typename T &gt; </div>
           <td></td>
           <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>denumer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b7019f0f23829affc2a36f1ca9d4e2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b7019f0f23829affc2a36f1ca9d4e2a">&#9670;&nbsp;</a></span>mouse_to_unit_ray()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> euphoria::core::mouse_to_unit_ray </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;&#160;</td>
+          <td class="paramname"><em>viewport</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#a0cb40771b3579f3c7f3c2134fe4db2e9">Vec2i</a> &amp;&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
         </tr>
         <tr>
           <td></td>

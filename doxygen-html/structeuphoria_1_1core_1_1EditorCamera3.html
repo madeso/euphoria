@@ -57,7 +57,7 @@
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structeuphoria_1_1core_1_1EditorCamera3-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">euphoria::core::EditorCamera3 Struct Reference</div>  </div>
+<div class="title">euphoria::core::EditorCamera3 Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -67,27 +67,41 @@
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a679283199ea24f6c04071b012284d57b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a679283199ea24f6c04071b012284d57b">EditorCamera3</a> ()</td></tr>
 <tr class="separator:a679283199ea24f6c04071b012284d57b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc93f2697e6953095d4233535b5395c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#afc93f2697e6953095d4233535b5395c4">step</a> (float dt)</td></tr>
-<tr class="separator:afc93f2697e6953095d4233535b5395c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a06bbaca3427c561bc7b1617fca446d7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a06bbaca3427c561bc7b1617fca446d7f">look</a> (float delta_rot, float delta_look)</td></tr>
-<tr class="separator:a06bbaca3427c561bc7b1617fca446d7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a412fb5211afe2a45cecbc5bf3d8ce8d8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a412fb5211afe2a45cecbc5bf3d8ce8d8">~EditorCamera3</a> ()=default</td></tr>
+<tr class="separator:a412fb5211afe2a45cecbc5bf3d8ce8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3b5b4224c2ee80a746712449390dc08"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#ad3b5b4224c2ee80a746712449390dc08">step</a> (bool shift_state, const <a class="el" href="namespaceeuphoria_1_1core.html#a0cb40771b3579f3c7f3c2134fe4db2e9">Vec2i</a> &amp;mouse, const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;camera, const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;viewport, float dt)</td></tr>
+<tr class="separator:ad3b5b4224c2ee80a746712449390dc08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2f3456cb992295fa6ef7a45320ff083"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571d">MouseBehaviour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#af2f3456cb992295fa6ef7a45320ff083">get_mouse</a> ()</td></tr>
+<tr class="separator:af2f3456cb992295fa6ef7a45320ff083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53b66166a7841dad3adda26a4dc1ad9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a53b66166a7841dad3adda26a4dc1ad9a">on_mouse_move</a> (int dx, int dy)</td></tr>
+<tr class="separator:a53b66166a7841dad3adda26a4dc1ad9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae95fab3cca3a5e3c3ae7b4f992144297"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#ae95fab3cca3a5e3c3ae7b4f992144297">on_key</a> (<a class="el" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a> key, bool down)</td></tr>
 <tr class="separator:ae95fab3cca3a5e3c3ae7b4f992144297"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af8079c8bdc2be58612a78e814a9d2a11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#af8079c8bdc2be58612a78e814a9d2a11">on_lost_camera</a> ()</td></tr>
-<tr class="separator:af8079c8bdc2be58612a78e814a9d2a11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc1331c18c846b462e97a0a5783dd60b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#abc1331c18c846b462e97a0a5783dd60b">on_camera_start</a> ()</td></tr>
+<tr class="separator:abc1331c18c846b462e97a0a5783dd60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8777b9fe1d78c1fc1c70bf5738aaca1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#af8777b9fe1d78c1fc1c70bf5738aaca1">on_camera_stop</a> ()</td></tr>
+<tr class="separator:af8777b9fe1d78c1fc1c70bf5738aaca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac152a36757623240c797da27353843e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#ac152a36757623240c797da27353843e8">is_camera_orbit</a> () const</td></tr>
+<tr class="separator:ac152a36757623240c797da27353843e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d4655f22c6a94a20ebeb5dc7b66dd83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a6d4655f22c6a94a20ebeb5dc7b66dd83">toggle_camera_orbit</a> ()</td></tr>
+<tr class="separator:a6d4655f22c6a94a20ebeb5dc7b66dd83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2537d74c1945fab8eb7aef5d00ea5ab1"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a2537d74c1945fab8eb7aef5d00ea5ab1">raycast</a> (const <a class="el" href="namespaceeuphoria_1_1core.html#a0cb40771b3579f3c7f3c2134fe4db2e9">Vec2i</a> &amp;mouse, const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;camera, const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;viewport)=0</td></tr>
+<tr class="separator:a2537d74c1945fab8eb7aef5d00ea5ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a5150c440d9fec296267aca398301ab84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94">EditorCameraStyle3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a5150c440d9fec296267aca398301ab84">style</a> = <a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94a05934928102b17827b8f03ed60c3e6e0">EditorCameraStyle3::fps</a></td></tr>
+<tr class="memitem:a5150c440d9fec296267aca398301ab84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94">EditorCameraStyle3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a5150c440d9fec296267aca398301ab84">style</a> = <a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94aaaa13d20a3eef0dc1975270df400bcd8">EditorCameraStyle3::orbital</a></td></tr>
 <tr class="separator:a5150c440d9fec296267aca398301ab84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb6f520ad041b409920375397d7b5970"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1FpsController.html">FpsController</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#aeb6f520ad041b409920375397d7b5970">fps</a></td></tr>
 <tr class="separator:aeb6f520ad041b409920375397d7b5970"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2f7fcc21845e612eaff6c8a2a5ef6679"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html">detail::EditorCameraState3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a2f7fcc21845e612eaff6c8a2a5ef6679">state</a></td></tr>
 <tr class="separator:a2f7fcc21845e612eaff6c8a2a5ef6679"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad719542646c0ee25ddca57f425904ba2"><td class="memItemLeft" align="right" valign="top">std::unique_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html">detail::EditorCameraState3</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#ad719542646c0ee25ddca57f425904ba2">next_state</a></td></tr>
+<tr class="separator:ad719542646c0ee25ddca57f425904ba2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00034">34</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00054">54</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a679283199ea24f6c04071b012284d57b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a679283199ea24f6c04071b012284d57b">&#9670;&nbsp;</a></span>EditorCamera3()</h2>
@@ -106,29 +120,94 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="a412fb5211afe2a45cecbc5bf3d8ce8d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a412fb5211afe2a45cecbc5bf3d8ce8d8">&#9670;&nbsp;</a></span>~EditorCamera3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual euphoria::core::EditorCamera3::~EditorCamera3 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a06bbaca3427c561bc7b1617fca446d7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a06bbaca3427c561bc7b1617fca446d7f">&#9670;&nbsp;</a></span>look()</h2>
+<a id="af2f3456cb992295fa6ef7a45320ff083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2f3456cb992295fa6ef7a45320ff083">&#9670;&nbsp;</a></span>get_mouse()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void euphoria::core::EditorCamera3::look </td>
+          <td class="memname"><a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571d">MouseBehaviour</a> euphoria::core::EditorCamera3::get_mouse </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>delta_rot</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>delta_look</em>&#160;</td>
         </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac152a36757623240c797da27353843e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac152a36757623240c797da27353843e8">&#9670;&nbsp;</a></span>is_camera_orbit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
         <tr>
+          <td class="memname">bool euphoria::core::EditorCamera3::is_camera_orbit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abc1331c18c846b462e97a0a5783dd60b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1331c18c846b462e97a0a5783dd60b">&#9670;&nbsp;</a></span>on_camera_start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::core::EditorCamera3::on_camera_start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td>)</td>
-          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af8777b9fe1d78c1fc1c70bf5738aaca1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8777b9fe1d78c1fc1c70bf5738aaca1">&#9670;&nbsp;</a></span>on_camera_stop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::core::EditorCamera3::on_camera_stop </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -163,25 +242,78 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="af8079c8bdc2be58612a78e814a9d2a11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8079c8bdc2be58612a78e814a9d2a11">&#9670;&nbsp;</a></span>on_lost_camera()</h2>
+<a id="a53b66166a7841dad3adda26a4dc1ad9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53b66166a7841dad3adda26a4dc1ad9a">&#9670;&nbsp;</a></span>on_mouse_move()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void euphoria::core::EditorCamera3::on_lost_camera </td>
+          <td class="memname">void euphoria::core::EditorCamera3::on_mouse_move </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>dy</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="afc93f2697e6953095d4233535b5395c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc93f2697e6953095d4233535b5395c4">&#9670;&nbsp;</a></span>step()</h2>
+<a id="a2537d74c1945fab8eb7aef5d00ea5ab1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2537d74c1945fab8eb7aef5d00ea5ab1">&#9670;&nbsp;</a></span>raycast()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual std::optional&lt;<a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a>&gt; euphoria::core::EditorCamera3::raycast </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#a0cb40771b3579f3c7f3c2134fe4db2e9">Vec2i</a> &amp;&#160;</td>
+          <td class="paramname"><em>mouse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;&#160;</td>
+          <td class="paramname"><em>viewport</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad3b5b4224c2ee80a746712449390dc08"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3b5b4224c2ee80a746712449390dc08">&#9670;&nbsp;</a></span>step()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -189,8 +321,53 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">void euphoria::core::EditorCamera3::step </td>
           <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>shift_state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#a0cb40771b3579f3c7f3c2134fe4db2e9">Vec2i</a> &amp;&#160;</td>
+          <td class="paramname"><em>mouse</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;&#160;</td>
+          <td class="paramname"><em>camera</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;&#160;</td>
+          <td class="paramname"><em>viewport</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>dt</em></td><td>)</td>
+          <td class="paramname"><em>dt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6d4655f22c6a94a20ebeb5dc7b66dd83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d4655f22c6a94a20ebeb5dc7b66dd83">&#9670;&nbsp;</a></span>toggle_camera_orbit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::core::EditorCamera3::toggle_camera_orbit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -211,7 +388,23 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00050">50</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00096">96</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+
+</div>
+</div>
+<a id="ad719542646c0ee25ddca57f425904ba2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad719542646c0ee25ddca57f425904ba2">&#9670;&nbsp;</a></span>next_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unique_ptr&lt;<a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html">detail::EditorCameraState3</a>&gt; euphoria::core::EditorCamera3::next_state</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00098">98</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 
 </div>
 </div>
@@ -227,7 +420,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00051">51</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00097">97</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 
 </div>
 </div>
@@ -238,12 +431,12 @@ Public Attributes</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94">EditorCameraStyle3</a> euphoria::core::EditorCamera3::style = <a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94a05934928102b17827b8f03ed60c3e6e0">EditorCameraStyle3::fps</a></td>
+          <td class="memname"><a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94">EditorCameraStyle3</a> euphoria::core::EditorCamera3::style = <a class="el" href="namespaceeuphoria_1_1core.html#a1ec03d988d6a9065ce681392a857aa94aaaa13d20a3eef0dc1975270df400bcd8">EditorCameraStyle3::orbital</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00048">48</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00095">95</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 
 </div>
 </div>
