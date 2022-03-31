@@ -502,20 +502,21 @@ namespace euphoria::core
                 return;
             }
             const auto& folder = *folder_loaded;
+
+            for (auto& p : mesh->parts)
+            {
+                for (auto& v : p.points)
+                {
+                    v.vertex = v.vertex * folder.scale;
+                }
+            }
+
             if(folder.texture_override.empty())
             {
                 return;
             }
             auto dir = vfs::DirPath{folder.texture_override};
             if(dir.is_relative()) { dir = vfs::join(json_dir, dir); }
-
-            for(auto& p: mesh->parts)
-            {
-                for(auto& v: p.points)
-                {
-                    v.vertex = v.vertex * folder.scale;
-                }
-            }
 
             for(auto& m: mesh->materials)
             {
