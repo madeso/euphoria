@@ -21,6 +21,13 @@ namespace euphoria::core
 
     struct CompiledCamera3;
 
+    Ray3f mouse_to_ray
+    (
+        const CompiledCamera3& camera,
+        const Viewport& viewport,
+        const Vec2i& position
+    );
+
     UnitRay3f mouse_to_unit_ray
     (
         const CompiledCamera3& camera,

@@ -6,6 +6,7 @@
 #include "core/viewport.h"
 #include "core/intersection.h"
 #include "core/plane.h"
+#include "core/viewport.h"
 
 
 namespace euphoria::core
@@ -97,37 +98,32 @@ namespace euphoria::core
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
 
+        struct PanData
+        {
+            std::optional<Vec3f> collision;
+
+            PanData
+            (
+                std::optional<Vec3f> c
+            )
+            : collision(c)
+            {
+            }
+        };
+
+        struct OrbitData
+        {
+        };
+
         struct OrbitCamera : EditorCameraState3
         {
             CameraFrame start_frame;
             CompiledCamera3 camera;
+            CompiledCamera3 latest_camera;
             Viewport viewport;
             Vec2i start_mouse;
             Vec2i mouse;
             bool shift;
-
-            struct PanData
-            {
-                std::optional<Vec3f> center;
-                std::optional<Plane> plane;
-
-                PanData
-                (
-                    std::optional<Vec3f> collision,
-                    const Unit3f& normal
-                )
-                : center(collision)
-                {
-                    if(collision)
-                    {
-                        plane = Plane::from_normal_and_point(normal, *collision);
-                    }
-                }
-            };
-
-            struct OrbitData
-            {
-            };
             
             std::optional<PanData> pan;
             std::optional<OrbitData> orbit;
@@ -136,19 +132,19 @@ namespace euphoria::core
             (
                 // need mouse center
                 const CameraFrame& start,
-                const CompiledCamera3& latest_camera,
+                const CompiledCamera3& latest_c,
                 const Viewport& latest_viewport,
                 const Vec2i& latest_mouse,
                 bool latest_shift
             )
                 : start_frame(start)
-                , camera(latest_camera)
+                , camera(latest_c)
+                , latest_camera(latest_c)
                 , viewport(latest_viewport)
                 , start_mouse(latest_mouse)
                 , mouse(latest_mouse)
                 , shift(latest_shift)
             {
-                std::cout << "start mouse " << start_mouse.x << ", " << start_mouse.y << "\n";
             }
 
             [[nodiscard]]
@@ -168,8 +164,7 @@ namespace euphoria::core
                     {
                         pan = PanData
                         {
-                            owner->raycast(start_mouse, camera, viewport),
-                            camera.view.get_z_axis().get_normalized()
+                            owner->raycast(start_mouse, camera, viewport)
                         };
                     }
                 }
@@ -185,36 +180,44 @@ namespace euphoria::core
                 }
             }
 
+            Vec3f get_far_point(const Vec2i& p, const CompiledCamera3& cc)
+            {
+                return mouse_to_ray(cc, viewport, p).get_point(1.0f);
+            }
+
+            void
+            update_panning(EditorCamera3* owner)
+            {
+                if(pan.has_value() == false) { return; }
+                if(pan->collision.has_value() == false) { return; }
+
+                // based on https://prideout.net/blog/perfect_panning/
+
+                const auto far_start = get_far_point(start_mouse, camera);
+                const auto u = Vec3f::from_to(start_frame.position, *pan->collision).get_length();
+                const auto v = Vec3f::from_to(*pan->collision, far_start).get_length();
+
+                const auto far_point = get_far_point(mouse, latest_camera);
+                const auto offset = Vec3f::from_to(far_start, far_point) * (-u / v);
+                
+                auto new_frame = start_frame;
+                new_frame.position += offset;
+                detail::frame_to_editor(new_frame, owner);
+            }
+
             void
             update_camera(EditorCamera3* owner)
             {
                 if(is_panning())
                 {
-                    if(pan.has_value() == false) { return; }
-                    if(pan->plane.has_value() == false) { return; }
-                    const auto ray = mouse_to_unit_ray(camera, viewport, mouse);
-                    std::cout << "ray: " << ray.dir << "\n";
-                    const auto distance = get_intersection(ray, *pan->plane);
-                    std::cout << "dist: " << distance << "\n";
-                    const auto new_center = ray.get_point(distance);
-                    const auto offset = Vec3f::from_to(*pan->center, new_center);
-                    std::cout << "3d offset " << *pan->center << "\n   -> " << new_center << "\n   = " << offset << ": " << offset.get_length() << "\n";
-                    auto new_frame = start_frame;
-                    new_frame.position += offset;
-                    detail::frame_to_editor(new_frame, owner);
+                    update_panning(owner);
                 }
                 // todo(Gustav): implement rotate
             }
 
             void
-            on_mouse_move(EditorCamera3* owner, int dx, int dy) override
+            on_mouse_move(EditorCamera3*, int, int) override
             {
-                update_data(owner);
-                std::cout << "mouse " << mouse.x << ", " << mouse.y << "\n";
-                std::cout << "mouse move " << dx << ", " << dy << "\n";
-                mouse.x += dx;
-                mouse.y += dy;
-                update_camera(owner);
             }
 
             void
@@ -227,16 +230,31 @@ namespace euphoria::core
             (
                 EditorCamera3* owner,
                 bool shift_state,
-                const Vec2i&,
-                const CompiledCamera3&,
+                const Vec2i& m,
+                const CompiledCamera3& cc,
                 const Viewport&,
                 float
             ) override
             {
+                latest_camera = cc;
+                bool changed = false;
+
                 if(shift_state != shift)
                 {
                     shift = shift_state;
+                    changed = true;
+                }
+
+                if(mouse != m)
+                {
+                    mouse = m;
+                    changed = true;
+                }
+
+                if(changed)
+                {
                     update_data(owner);
+                    mouse = m;
                     update_camera(owner);
                 }
             }

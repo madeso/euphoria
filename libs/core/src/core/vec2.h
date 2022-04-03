@@ -257,6 +257,23 @@ namespace euphoria::core
     }
 
     template <typename T, typename O>
+    bool
+    operator==(const Vec2<T>& lhs, const Vec2<O>& rhs)
+    {
+        return
+            lhs.x == rhs.x &&
+            lhs.y == rhs.y
+            ;
+    }
+
+    template <typename T, typename O>
+    bool
+    operator!=(const Vec2<T>& lhs, const Vec2<O>& rhs)
+    {
+        return !(lhs == rhs);
+    }
+
+    template <typename T, typename O>
     Vec2<T> operator*(const Vec2<T>& lhs, const O& rhs)
     {
         Vec2<T> r = lhs;

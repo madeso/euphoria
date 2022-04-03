@@ -10,6 +10,8 @@
 #include "core/enum.h"
 #include "core/texturetypes.h"
 #include "core/viewport.h"
+#include "core/plane.h"
+#include "core/intersection.h"
 
 #include "render/positionedlines.h"
 #include "render/world.h"
@@ -46,7 +48,22 @@ namespace euphoria::t3d
     {
         ASSERT(parent != nullptr);
         const auto ray = core::mouse_to_unit_ray(camera, viewport, mouse);
-        return parent->editor->raycast_closest_point(ray);
+        
+        const auto closest_point_on_mesh = parent->editor->raycast_closest_point(ray);
+        if(closest_point_on_mesh) { return closest_point_on_mesh; }
+
+        const auto ground = core::Plane::from_normal_and_point
+        (
+            core::Unit3f::y_axis(), core::Vec3f::zero()
+        );
+
+        const auto where = core::get_intersection(ray, ground);
+        if(where > 0)
+        {
+            return ray.get_point(where);
+        }
+        
+        return std::nullopt;
     }
 
 
