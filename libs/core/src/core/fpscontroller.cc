@@ -108,25 +108,41 @@ namespace euphoria::core
             return;
         }
 
-        const auto input
-                = get_rotation()
-                          .create_from_right_up_in(Vec3f {static_cast<float>(right),
-                                            static_cast<float>(up),
-                                            static_cast<float>(forward)})
-                          .get_normalized();
+        const auto input = get_rotation()
+            .create_from_right_up_in
+            (
+                Vec3f
+                {
+                    static_cast<float>(right),
+                    static_cast<float>(up),
+                    static_cast<float>(forward)
+                }
+            )
+            .get_normalized()
+            ;
         const auto movement = input * move_speed * delta;
 
         position += movement;
     }
 
     Quatf
+    FpsController::calculate_rotation(const Angle& rotation_angle, const Angle& look_angle)
+    {
+        const auto rotation = Quatf::from_axis_angle
+        (
+            AxisAngle::right_hand_around(Unit3f::y_axis(), rotation_angle)
+        );
+        const auto look = Quatf::from_axis_angle
+        (
+            AxisAngle::right_hand_around(Unit3f::x_axis(), look_angle)
+        );
+        return rotation * look;
+    }
+
+    Quatf
     FpsController::get_rotation() const
     {
-        const auto rotation = Quatf::from_axis_angle(
-                AxisAngle::right_hand_around(Unit3f::y_axis(), rotation_angle));
-        const auto look = Quatf::from_axis_angle(
-                AxisAngle::right_hand_around(Unit3f::x_axis(), look_angle));
-        return rotation * look;
+        return calculate_rotation(rotation_angle, look_angle);
     }
 
 }

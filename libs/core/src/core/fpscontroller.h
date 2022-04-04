@@ -34,6 +34,9 @@ namespace euphoria::core
         void
         update(float delta);
 
+        static Quatf
+        calculate_rotation(const Angle& rotation_angle, const Angle& look_angle);
+
         [[nodiscard]] Quatf
         get_rotation() const;
 

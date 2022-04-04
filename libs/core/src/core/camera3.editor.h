@@ -10,6 +10,7 @@
 
 namespace euphoria::core
 {
+    struct UnitRay3f;
     struct CompiledCamera3;
     struct Viewport;
     
@@ -92,9 +93,7 @@ namespace euphoria::core
         std::optional<Vec3f>
         raycast
         (
-            const Vec2i& mouse,
-            const CompiledCamera3& camera,
-            const Viewport& viewport
+            const UnitRay3f& ray
         ) = 0;
         
         EditorCameraStyle3 style = EditorCameraStyle3::orbital;

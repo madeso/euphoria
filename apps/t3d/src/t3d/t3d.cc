@@ -41,13 +41,10 @@ namespace euphoria::t3d
     std::optional<core::Vec3f>
     EditorCamera3::raycast
     (
-        const core::Vec2i& mouse,
-        const core::CompiledCamera3& camera,
-        const core::Viewport& viewport
+        const core::UnitRay3f& ray
     )
     {
         ASSERT(parent != nullptr);
-        const auto ray = core::mouse_to_unit_ray(camera, viewport, mouse);
         
         const auto closest_point_on_mesh = parent->editor->raycast_closest_point(ray);
         if(closest_point_on_mesh) { return closest_point_on_mesh; }

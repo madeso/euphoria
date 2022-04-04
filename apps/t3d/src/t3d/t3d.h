@@ -26,6 +26,7 @@
 namespace euphoria::core
 {
     struct Lines;
+    struct UnitRay3f;
 }
 
 namespace euphoria::core::argparse
@@ -61,9 +62,7 @@ namespace euphoria::t3d
         std::optional<core::Vec3f>
         raycast
         (
-            const core::Vec2i& mouse,
-            const core::CompiledCamera3& camera,
-            const core::Viewport& viewport
+            const core::UnitRay3f& ray
         ) override;
     };
 

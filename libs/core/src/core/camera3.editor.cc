@@ -101,18 +101,24 @@ namespace euphoria::core
         struct PanData
         {
             std::optional<Vec3f> collision;
-
-            PanData
-            (
-                std::optional<Vec3f> c
-            )
-            : collision(c)
-            {
-            }
         };
 
         struct OrbitData
         {
+            bool valid;
+            Vec3f center;
+            float distance;
+            Angle rotation_angle;
+            Angle look_angle;
+
+            OrbitData(std::optional<Vec3f> collision, const CameraFrame& f)
+                : valid(collision.has_value())
+                , center(collision.has_value() ? *collision : Vec3f::zero())
+                , distance( Vec3f::from_to(center, f.position).get_length() )
+                , rotation_angle(f.rotation_angle)
+                , look_angle(f.look_angle)
+            {
+            }
         };
 
         struct OrbitCamera : EditorCameraState3
@@ -162,9 +168,10 @@ namespace euphoria::core
                     orbit.reset();
                     if(pan.has_value() == false)
                     {
+                        const auto ray = mouse_to_unit_ray(camera, viewport, start_mouse);
                         pan = PanData
                         {
-                            owner->raycast(start_mouse, camera, viewport)
+                            owner->raycast(ray)
                         };
                     }
                 }
@@ -173,8 +180,11 @@ namespace euphoria::core
                     pan.reset();
                     if(orbit.has_value() == false)
                     {
+                        const auto ray = camera.clip_to_world_ray(Vec2f{0.0f, 0.0f}).get_normalized();
                         orbit = OrbitData
                         {
+                            owner->raycast(ray),
+                            start_frame
                         };
                     }
                 }
@@ -206,18 +216,51 @@ namespace euphoria::core
             }
 
             void
+            update_orbit(EditorCamera3* owner)
+            {
+                if(orbit.has_value() == false) { return; }
+                if(orbit->valid == false) { return; }
+
+                const auto out = FpsController::calculate_rotation
+                (
+                    orbit->rotation_angle, orbit->look_angle
+                ).create_from_right_up_in(Vec3f{0.0f, 0.0f, -1.0f});
+
+                const auto new_frame = CameraFrame
+                {
+                    orbit->rotation_angle,
+                    orbit->look_angle,
+                    orbit->center + orbit->distance * out
+                };
+                detail::frame_to_editor(new_frame, owner);
+            }
+
+            void
             update_camera(EditorCamera3* owner)
             {
                 if(is_panning())
                 {
                     update_panning(owner);
                 }
-                // todo(Gustav): implement rotate
+                else
+                {
+                    update_orbit(owner);
+                }
             }
 
             void
-            on_mouse_move(EditorCamera3*, int, int) override
+            on_mouse_move(EditorCamera3* owner, int dx, int dy) override
             {
+                ASSERT(owner != nullptr);
+
+                if(orbit.has_value() && orbit->valid)
+                {
+                    const auto x = core::c_int_to_float(dx);
+                    const auto y = core::c_int_to_float(dy);
+
+                    orbit->rotation_angle += Angle::from_degrees(-x * owner->fps.look_sensitivity.get_multiplier_with_sign());
+                    orbit->look_angle += Angle::from_degrees(-y * owner->fps.look_sensitivity.get_multiplier_with_sign());
+                }
             }
 
             void
