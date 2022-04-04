@@ -93,8 +93,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac152a36757623240c797da27353843e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6d4655f22c6a94a20ebeb5dc7b66dd83"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a6d4655f22c6a94a20ebeb5dc7b66dd83">toggle_camera_orbit</a> ()</td></tr>
 <tr class="separator:a6d4655f22c6a94a20ebeb5dc7b66dd83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2537d74c1945fab8eb7aef5d00ea5ab1"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a2537d74c1945fab8eb7aef5d00ea5ab1">raycast</a> (const <a class="el" href="namespaceeuphoria_1_1core.html#a0cb40771b3579f3c7f3c2134fe4db2e9">Vec2i</a> &amp;mouse, const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;camera, const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;viewport)=0</td></tr>
-<tr class="separator:a2537d74c1945fab8eb7aef5d00ea5ab1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8287b4c7b1a301f9ef2dd0e54653d328"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a8287b4c7b1a301f9ef2dd0e54653d328">raycast</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray)=0</td></tr>
+<tr class="separator:a8287b4c7b1a301f9ef2dd0e54653d328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -109,7 +109,7 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00054">54</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00055">55</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a679283199ea24f6c04071b012284d57b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a679283199ea24f6c04071b012284d57b">&#9670;&nbsp;</a></span>EditorCamera3() <span class="overload">[1/3]</span></h2>
@@ -382,8 +382,8 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
-<a id="a2537d74c1945fab8eb7aef5d00ea5ab1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2537d74c1945fab8eb7aef5d00ea5ab1">&#9670;&nbsp;</a></span>raycast()</h2>
+<a id="a8287b4c7b1a301f9ef2dd0e54653d328"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8287b4c7b1a301f9ef2dd0e54653d328">&#9670;&nbsp;</a></span>raycast()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -394,25 +394,9 @@ Public Attributes</h2></td></tr>
         <tr>
           <td class="memname">virtual std::optional&lt;<a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a>&gt; euphoria::core::EditorCamera3::raycast </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#a0cb40771b3579f3c7f3c2134fe4db2e9">Vec2i</a> &amp;&#160;</td>
-          <td class="paramname"><em>mouse</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;&#160;</td>
+          <td class="paramname"><em>ray</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;&#160;</td>
-          <td class="paramname"><em>camera</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;&#160;</td>
-          <td class="paramname"><em>viewport</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -500,7 +484,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00101">101</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00100">100</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 
 </div>
 </div>
@@ -516,7 +500,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00103">103</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00102">102</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 
 </div>
 </div>
@@ -532,7 +516,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00102">102</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00101">101</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 
 </div>
 </div>
@@ -548,7 +532,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00100">100</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00099">99</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 
 </div>
 </div>
