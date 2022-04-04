@@ -1,7 +1,7 @@
 #include "t3d/t3d.h"
 
 #include "SDL.h"
-#include "imgui/imgui.h"
+#include "imgui/imgui_internal.h"
 
 #include "log/log.h"
 
@@ -836,6 +836,7 @@ namespace euphoria::t3d
             "No help\0"
             "Help text\0"
             "Help marker\0"
+            "Help text after time\0"
             ;
         ImGui::Combo("Help style", &help_style, help_styles_separated_by_zeros);
     }
@@ -855,6 +856,19 @@ namespace euphoria::t3d
     Application::on_frame()
     {
         const float delta = timer->update();
+
+        // todo(Gustav): improve when to display hover text...
+        const auto current_id = ImGui::GetHoveredID();
+        if(last_hover != current_id)
+        {
+            last_hover = current_id;
+            help_timer = 0.8f;
+        }
+        else if(help_timer >= 0.0f)
+        {
+            help_timer -= delta;
+        }
+        
 
         if(compiled_camera.has_value())
         {
@@ -909,6 +923,12 @@ namespace euphoria::t3d
             break;
         case 2:
             window::imgui::help_marker(desc);
+            break;
+        case 3:
+            if(help_timer < 0.0f)
+            {
+                window::imgui::help_text(desc);
+            }
             break;
         default:
             DIE("Invalid style");

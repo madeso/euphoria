@@ -257,7 +257,6 @@ namespace euphoria::core
                 {
                     const auto x = core::c_int_to_float(dx);
                     const auto y = core::c_int_to_float(dy);
-
                     orbit->rotation_angle += Angle::from_degrees(-x * owner->fps.look_sensitivity.get_multiplier_with_sign());
                     orbit->look_angle += Angle::from_degrees(-y * owner->fps.look_sensitivity.get_multiplier_with_sign());
                 }

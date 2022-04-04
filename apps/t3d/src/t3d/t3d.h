@@ -1,5 +1,7 @@
 #pragma once
 
+#include "imgui/imgui.h"
+
 #include "core/rgb.h"
 #include "core/key.h"
 #include "core/vec2.h"
@@ -95,7 +97,9 @@ namespace euphoria::t3d
         bool shift_down = false;
         bool show_gizmo = true;
 
-        int help_style = 0;
+        ImGuiID last_hover = 0;
+        float help_timer = 0.0f;
+        int help_style = 3;
         FileList pending_files;
 
         // current keyboard state
