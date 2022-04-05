@@ -10,6 +10,7 @@
 #include "core/vfs_path.h"
 #include "core/noncopyable.h"
 #include "core/mousebehaviour.h"
+#include "core/helptexthover.h"
 
 #include "render/viewporthandler.h"
 
@@ -97,8 +98,7 @@ namespace euphoria::t3d
         bool shift_down = false;
         bool show_gizmo = true;
 
-        ImGuiID last_hover = 0;
-        float help_timer = 0.0f;
+        core::HelpTextHover help_hover;
         int help_style = 3;
         FileList pending_files;
 

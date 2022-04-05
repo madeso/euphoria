@@ -108,6 +108,7 @@ set(app_src
     src/core/findstring.cc src/core/findstring.h
     src/core/fpscontroller.cc src/core/fpscontroller.h
     src/core/functional.cc src/core/functional.h
+    src/core/helptexthover.cc src/core/helptexthover.h
     src/core/insertionsort.cc src/core/insertionsort.h
     src/core/interpolate.cc src/core/interpolate.h
     src/core/intersection.cc src/core/intersection.h

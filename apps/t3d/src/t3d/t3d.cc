@@ -858,16 +858,7 @@ namespace euphoria::t3d
         const float delta = timer->update();
 
         // todo(Gustav): improve when to display hover text...
-        const auto current_id = ImGui::GetHoveredID();
-        if(last_hover != current_id)
-        {
-            last_hover = current_id;
-            help_timer = 0.8f;
-        }
-        else if(help_timer >= 0.0f)
-        {
-            help_timer -= delta;
-        }
+        help_hover.step(ImGui::GetHoveredID() != 0, delta);
         
 
         if(compiled_camera.has_value())
@@ -925,7 +916,7 @@ namespace euphoria::t3d
             window::imgui::help_marker(desc);
             break;
         case 3:
-            if(help_timer < 0.0f)
+            if(help_hover.display_hover)
             {
                 window::imgui::help_text(desc);
             }
