@@ -16,7 +16,7 @@ namespace euphoria::core
         pan:
             1. raycast from cursor to a point
             2. save plane with camera normal and compiled camera
-            3. one move raycast from current camera position to planeand get 3d offset from plane 0
+            3. one move raycast from current camera position to plane and get 3d offset from plane 0
         rotate:
             1. raycast from window center to a point, that is now origo of orientation
             2. orbit orientation is now reverse
