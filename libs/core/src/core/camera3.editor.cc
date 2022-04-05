@@ -121,6 +121,17 @@ namespace euphoria::core
             }
         };
 
+        float
+        calculate_zoom_move(int dx, int dy, float length, EditorCamera3* owner)
+        {
+            const auto change = dx+dy;
+            const auto suggested_move = change * length * owner->zoom_percent;
+            const auto sign = core::get_sign(change > 0.0f);
+            const auto val = core::min(core::square(suggested_move), length);
+            return sign * core::min(val, owner->max_zoom_change);
+        }
+                
+
         struct OrbitCamera : EditorCameraState3
         {
             CameraFrame start_frame;
@@ -263,6 +274,17 @@ namespace euphoria::core
             }
 
             void
+            on_scroll(EditorCamera3* owner, int dx, int dy) override
+            {
+                // only orbit can zoom
+                if(orbit.has_value() && orbit->valid )
+                {
+                    const auto move = calculate_zoom_move(dx, dy, orbit->distance, owner); 
+                    orbit->distance += move;
+                }
+            }
+
+            void
             on_key(EditorCamera3*, Key, bool) override
             {
             }
@@ -352,6 +374,29 @@ namespace euphoria::core
                 {
                     owner->fps.look(core::c_int_to_float(dx), core::c_int_to_float(dy));
                 }
+            }
+
+
+            void
+            on_scroll(EditorCamera3* owner, int dx, int dy) override
+            {
+                // fps camera can't scroll
+                if(owner->style == EditorCameraStyle3::fps) { return; }
+
+                const auto ray = mouse_to_unit_ray(latest_camera, latest_viewport, latest_mouse);
+                const auto collision = owner->raycast(ray);
+
+                // todo(Gustav): implement basic zoom if no collision
+                if(collision.has_value() == false) { return; }
+
+                const auto dir = Vec3f::from_to(owner->fps.position, *collision);
+                const auto length = dir.get_length();
+                const auto unit = dir.get_normalized();
+
+                const auto move = calculate_zoom_move(dx, dy, length, owner); 
+                const auto change = move * unit;
+
+                owner->fps.position += change;
             }
 
 
@@ -491,6 +536,15 @@ namespace euphoria::core
     {
         if(state == nullptr) { return; }
         state->on_mouse_move(this, dx, dy);
+        detail::update_state(this);
+    }
+
+
+    void
+    EditorCamera3::on_scroll(int dx, int dy)
+    {
+        if(state == nullptr) { return; }
+        state->on_scroll(this, dx, dy);
         detail::update_state(this);
     }
 

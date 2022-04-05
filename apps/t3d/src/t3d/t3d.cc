@@ -420,7 +420,7 @@ namespace euphoria::t3d
         if(forward_mouse)
         {
             editor->on_scroll(core::Vec2i(e.wheel.x, e.wheel.y));
-            // orbit.on_zoom_input(core::c_int_to_float(e.wheel.y));
+            editor_camera.on_scroll(e.wheel.x, e.wheel.y);
         }
     }
 
@@ -746,6 +746,9 @@ namespace euphoria::t3d
         };
         sens("Look Sensitivity", &editor_camera.fps.look_sensitivity);
         ImGui::DragFloat("Move speed", &editor_camera.fps.move_speed, 0.1f, 0.0f);
+
+        ImGui::DragFloat("Zoom percent", &editor_camera.zoom_percent, 0.001f, 0.0f, 1.0f);
+        ImGui::DragFloat("Max zoom change", &editor_camera.max_zoom_change);
     }
 
 

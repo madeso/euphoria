@@ -40,6 +40,9 @@ namespace euphoria::core
                 float dt
             ) = 0;
 
+            virtual void
+            on_scroll(EditorCamera3* owner, int dx, int dy) = 0;
+
             virtual void on_camera_start(EditorCamera3* owner) = 0;
             virtual void on_camera_stop(EditorCamera3* owner) = 0;
 
@@ -75,6 +78,9 @@ namespace euphoria::core
 
         void
         on_mouse_move(int dx, int dy);
+
+        void
+        on_scroll(int dx, int dy);
         
         void
         on_key(Key key, bool down);
@@ -98,6 +104,9 @@ namespace euphoria::core
         
         EditorCameraStyle3 style = EditorCameraStyle3::orbital;
         FpsController fps;
+        float zoom_percent = 0.1f;
+        float max_zoom_change = 25.0f;
+
         std::unique_ptr<detail::EditorCameraState3> state;
         std::unique_ptr<detail::EditorCameraState3> next_state;
     };
