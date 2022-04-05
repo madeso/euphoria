@@ -14,6 +14,9 @@ __pycache__
 # vi swap file
 *.swp
 
+# backup files
+*.bak
+
 # doxygenerated files
 docs/generated/html/
 
