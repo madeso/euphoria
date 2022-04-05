@@ -18,7 +18,7 @@ void setup_logging()
     auto logger = spdlog::stdout_color_mt("console");
 #endif
     spdlog::set_default_logger(logger);
-    spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [thread %t] %v");
+    spdlog::set_pattern("[%H:%M:%S] %v");
 }
 
 }
