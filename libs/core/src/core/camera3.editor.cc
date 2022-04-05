@@ -13,14 +13,7 @@ namespace euphoria::core
 {
     /*
     todo:
-        pan:
-            1. raycast from cursor to a point
-            2. save plane with camera normal and compiled camera
-            3. one move raycast from current camera position to plane and get 3d offset from plane 0
-        rotate:
-            1. raycast from window center to a point, that is now origo of orientation
-            2. orbit orientation is now reverse
-        zoom:
+        tweak zoom factor:
             > reminder that you should use exponential interpolation, not lerp, for multiplicative quantities~
             > if you want to find the frequency, zoom level or scale, halfway between 2 and 8, then the right answer is 4, not 5
             > lerp( 2, 8, 0.5 ) = 5
