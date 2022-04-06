@@ -123,6 +123,9 @@ namespace euphoria::core
         float zoom_percent = 0.1f;
         float max_zoom_change = 25.0f;
 
+        bool animate_camera = true;
+        float camera_lerp_time = 0.2f;
+
         std::unique_ptr<detail::EditorCameraState3> state;
         std::unique_ptr<detail::EditorCameraState3> next_state;
         std::vector<detail::CameraFrame> stored_cameras;

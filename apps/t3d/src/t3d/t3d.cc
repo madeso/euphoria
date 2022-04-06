@@ -784,6 +784,9 @@ namespace euphoria::t3d
 
         ImGui::DragFloat("Zoom percent", &editor_camera.zoom_percent, 0.001f, 0.0f, 1.0f);
         ImGui::DragFloat("Max zoom change", &editor_camera.max_zoom_change);
+
+        ImGui::Checkbox("Animate camera", &editor_camera.animate_camera);
+        ImGui::DragFloat("Camera lerp time", &editor_camera.camera_lerp_time, 0.001f, 0.0f, 1.0f);
     }
 
 

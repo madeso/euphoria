@@ -7,10 +7,27 @@
 #include "core/intersection.h"
 #include "core/plane.h"
 #include "core/viewport.h"
+#include "core/numeric.h"
 
 
 namespace euphoria::core
 {
+    Angle lerp(const Angle& f, float v, const Angle& t)
+    {
+        return AngleTransform::transform(f, v, t);
+    }
+
+    Vec3f lerp(const Vec3f& f, float v, const Vec3f& t)
+    {
+        return Vec3f
+        {
+            lerp(f.x, v, t.x),
+            lerp(f.y, v, t.y),
+            lerp(f.z, v, t.z)
+        };
+    }
+
+
     /*
     todo:
         tweak zoom factor:
@@ -474,6 +491,66 @@ namespace euphoria::core
         };
 
 
+        struct LerpCamera : EditorCameraState3
+        {
+            CameraFrame from;
+            CameraFrame to;
+            float total_time;
+            float timer;
+
+            LerpCamera(EditorCamera3* owner, const CameraFrame& ato, float atime)
+                : from(frame_from_editor(owner))
+                , to(ato)
+                , total_time(atime)
+                , timer(0.0f)
+            {
+            }
+
+            void on_mouse_move(EditorCamera3*, int, int) override
+            {
+            }
+
+            void on_key(EditorCamera3* owner, Key, bool) override
+            {
+                owner->next_state = make_default_camera();
+            }
+            
+            void step
+            (
+                EditorCamera3* owner,
+                bool,
+                const Vec2i&,
+                const CompiledCamera3&,
+                const Viewport&,
+                float dt
+            ) override
+            {
+                timer += dt;
+                if(timer >= total_time)
+                {
+                    owner->next_state = make_default_camera();
+                    return;
+                }
+
+                const auto factor = timer / total_time;
+                const auto frame = CameraFrame
+                {
+                    lerp(from.rotation_angle, factor, to.rotation_angle),
+                    lerp(from.look_angle, factor, to.look_angle),
+                    lerp(from.position, factor, to.position)
+                };
+
+                frame_to_editor(frame, owner);
+            }
+
+            void on_scroll(EditorCamera3*, int, int) override {}
+            void on_camera_start(EditorCamera3*) override {}
+            void on_camera_stop(EditorCamera3*) override {}
+
+            MouseBehaviour get_mouse(EditorCamera3*) override { return MouseBehaviour::normal; }
+        };
+
+
         void
         set_default_state(EditorCamera3* cam)
         {
@@ -503,6 +580,10 @@ namespace euphoria::core
             return std::make_unique<detail::DefaultCamera>();
         }
 
+        std::unique_ptr<detail::EditorCameraState3> make_lerp_camera(EditorCamera3* owner, const CameraFrame& to, float time)
+        {
+            return std::make_unique<detail::LerpCamera>(owner, to, time);
+        }
     }
 
 
@@ -621,7 +702,14 @@ namespace euphoria::core
         ASSERTX(id < EditorCamera3::max_stored_index, id, EditorCamera3::max_stored_index);
         const auto index = c_int_to_sizet(id);
         const auto& frame = stored_cameras[index];
-        detail::frame_to_editor(frame, this);
+        if(animate_camera)
+        {
+            next_state = make_lerp_camera(this, frame, camera_lerp_time);
+        }
+        else
+        {
+            detail::frame_to_editor(frame, this);
+        }
         // LOG_INFO("Restored frame {} to {}", id, frame);
     }
 
