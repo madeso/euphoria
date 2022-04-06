@@ -114,12 +114,14 @@ namespace euphoria::core
             }
         };
 
-        float
+        std::optional<float>
         calculate_zoom_move(int dx, int dy, float length, EditorCamera3* owner)
         {
             const auto change = dx+dy;
-            const auto suggested_move = change * length * owner->zoom_percent;
-            const auto sign = core::get_sign(change > 0.0f);
+            if (change == 0) { return std::nullopt; }
+
+            const auto suggested_move = c_int_to_float(change) * length * owner->zoom_percent;
+            const auto sign = core::get_sign(change > 0);
             const auto val = core::min(core::square(suggested_move), length);
             return sign * core::min(val, owner->max_zoom_change);
         }
@@ -273,7 +275,10 @@ namespace euphoria::core
                 if(orbit.has_value() && orbit->valid )
                 {
                     const auto move = calculate_zoom_move(dx, dy, orbit->distance, owner); 
-                    orbit->distance += move;
+                    if(move)
+                    {
+                        orbit->distance += *move;
+                    }
                 }
             }
 
@@ -386,10 +391,13 @@ namespace euphoria::core
                 const auto length = dir.get_length();
                 const auto unit = dir.get_normalized();
 
-                const auto move = calculate_zoom_move(dx, dy, length, owner); 
-                const auto change = move * unit;
+                const auto move = calculate_zoom_move(dx, dy, length, owner);
 
-                owner->fps.position += change;
+                if(move)
+                {
+                    const auto change = *move * unit;
+                    owner->fps.position += change;
+                }
             }
 
 

@@ -7,7 +7,7 @@ namespace euphoria::core
      */
     struct HelpTextHover
     {
-        float time_to_hover = 0.8;
+        float time_to_hover = 0.8f;
         float time_to_hide = 0.5f;
 
         int state = 0;
