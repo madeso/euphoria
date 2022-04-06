@@ -1,6 +1,6 @@
 #include "core/camera3.editor.h"
 
-#include <iostream>
+#include "log/log.h"
 
 #include "core/camera3.h"
 #include "core/viewport.h"
@@ -26,6 +26,16 @@ namespace euphoria::core
     */
     namespace detail
     {
+        template<typename Stream>
+        Stream& operator<<(Stream& s, const CameraFrame& f)
+        {
+            s   << "["
+                << f.rotation_angle << " "
+                << f.look_angle << " "
+                << f.position
+                << "]";
+            return s;
+        }
         void
         update_state(EditorCamera3* self)
         {
@@ -49,14 +59,6 @@ namespace euphoria::core
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
-
-        // represents a stored position and rotation of the editor camera
-        struct CameraFrame
-        {
-            Angle rotation_angle;
-            Angle look_angle;
-            Vec3f position;
-        };
 
         CameraFrame frame_from_editor(EditorCamera3* editor)
         {
@@ -513,6 +515,12 @@ namespace euphoria::core
         fps.look_sensitivity.inverted = true;
         fps.look_angle = Angle::from_degrees(-30.0f);
         detail::set_default_state(this);
+
+        const auto default_frame = detail::frame_from_editor(this);
+        for(int i=0; i<EditorCamera3::max_stored_index; i+=1)
+        {
+            stored_cameras.emplace_back(default_frame);
+        }
     }
 
 
@@ -595,6 +603,26 @@ namespace euphoria::core
     EditorCamera3::toggle_camera_orbit()
     {
         style = detail::next_style(style);
+    }
+
+    void
+    EditorCamera3::save_camera(int id)
+    {
+        ASSERTX(id < EditorCamera3::max_stored_index, id, EditorCamera3::max_stored_index);
+        const auto index = c_int_to_sizet(id);
+        const auto frame = detail::frame_from_editor(this);
+        stored_cameras[index] = frame;
+        // LOG_INFO("Saved frame {} to {}", id, frame);
+    }
+
+    void
+    EditorCamera3::load_camera(int id)
+    {
+        ASSERTX(id < EditorCamera3::max_stored_index, id, EditorCamera3::max_stored_index);
+        const auto index = c_int_to_sizet(id);
+        const auto& frame = stored_cameras[index];
+        detail::frame_to_editor(frame, this);
+        // LOG_INFO("Restored frame {} to {}", id, frame);
     }
 
     MouseBehaviour

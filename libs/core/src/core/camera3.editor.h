@@ -18,6 +18,14 @@ namespace euphoria::core
 
     namespace detail
     {
+        // represents a stored position and rotation of the editor camera
+        struct CameraFrame
+        {
+            Angle rotation_angle;
+            Angle look_angle;
+            Vec3f position;
+        };
+
         struct EditorCameraState3
         {
             EditorCameraState3() = default;
@@ -57,6 +65,8 @@ namespace euphoria::core
 
     struct EditorCamera3
     {
+        static constexpr int max_stored_index = 10;
+
         EditorCamera3();
         EditorCamera3(const EditorCamera3&) = delete;
         EditorCamera3& operator=(const EditorCamera3&) = delete;
@@ -95,6 +105,12 @@ namespace euphoria::core
         void
         toggle_camera_orbit();
 
+        void
+        save_camera(int id);
+
+        void
+        load_camera(int id);
+
         virtual
         std::optional<Vec3f>
         raycast
@@ -109,5 +125,6 @@ namespace euphoria::core
 
         std::unique_ptr<detail::EditorCameraState3> state;
         std::unique_ptr<detail::EditorCameraState3> next_state;
+        std::vector<detail::CameraFrame> stored_cameras;
     };
 }

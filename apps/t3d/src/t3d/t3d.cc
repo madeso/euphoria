@@ -71,6 +71,10 @@ namespace euphoria::t3d
 
         editor_camera.fps.position.y = 5.0f;
         editor_camera.fps.position.z = 10.0f;
+        for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
+        {
+            editor_camera.save_camera(i);
+        }
 
         pending_files.extensions = std::vector<std::string>
         {
@@ -565,6 +569,37 @@ namespace euphoria::t3d
             ImGui::MenuItem("Grid", nullptr, &grid_window);
             ImGui::MenuItem("Lister", nullptr, &lister_window);
             ImGui::MenuItem("Preferences", nullptr, &preference_window);
+            ImGui::EndMenu();
+        }
+
+        if(ImGui::BeginMenu("Camera"))
+        {
+            if(ImGui::BeginMenu("Save"))
+            {
+                for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
+                {
+                    const auto label = (core::StringBuilder() << "Save " << i).to_string();
+                    const auto shortcut = (core::StringBuilder() << "Ctrl+" << i).to_string();
+                    if(ImGui::MenuItem(label.c_str(), shortcut.c_str()))
+                    {
+                        editor_camera.save_camera(i);
+                    }
+                }
+                ImGui::EndMenu();
+            }
+            if(ImGui::BeginMenu("Load"))
+            {
+                for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
+                {
+                    const auto label = (core::StringBuilder() << "Load " << i).to_string();
+                    const auto shortcut = (core::StringBuilder() << i).to_string();
+                    if(ImGui::MenuItem(label.c_str(), shortcut.c_str()))
+                    {
+                        editor_camera.load_camera(i);
+                    }
+                }
+                ImGui::EndMenu();
+            }
             ImGui::EndMenu();
         }
     }
