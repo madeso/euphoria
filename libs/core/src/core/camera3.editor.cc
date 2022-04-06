@@ -36,8 +36,6 @@ namespace euphoria::core
             > lerp( 2, 8, 0.5 ) = 5
             > eerp( 2, 8, 0.5 ) = 4
             https://mobile.twitter.com/FreyaHolmer/status/1486714301540831234?t=pA5lC-hN6l_AssTX-rxKbw&s=09
-        saved viewports/camera spaces, # button to goto, ctrl+# to save
-        lerp to new camera position over time
         focus on object
         2d camera
     */
