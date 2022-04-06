@@ -5,6 +5,7 @@
 
 #include "log/log.h"
 
+#include "core/stdutils.h"
 #include "core/lines.h"
 #include "core/colors.h"
 #include "core/enum.h"
@@ -345,6 +346,23 @@ namespace euphoria::t3d
                     immersive_mode = !immersive_mode;
                 }
                 break;
+
+            case core::Key::num_0: case core::Key::num_1:
+            case core::Key::num_2: case core::Key::num_3:
+            case core::Key::num_4: case core::Key::num_5:
+            case core::Key::num_6: case core::Key::num_7:
+            case core::Key::num_8: case core::Key::num_9:
+            {
+                const auto index = core::base_cast(key) - core::base_cast(core::Key::num_0);
+                if(calculate_keyboard_state().ctrl)
+                {
+                    editor_camera.save_camera(index);
+                }
+                else
+                {
+                    editor_camera.load_camera(index);
+                }
+            }
                 
             default:
                 editor->on_key(key, down);
