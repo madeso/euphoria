@@ -363,6 +363,7 @@ namespace euphoria::t3d
                     editor_camera.load_camera(index);
                 }
             }
+            break;
                 
             default:
                 editor->on_key(key, down);

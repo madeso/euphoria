@@ -213,7 +213,7 @@ namespace euphoria::core
                 }
             }
 
-            Vec3f get_far_point(const Vec2i& p, const CompiledCamera3& cc)
+            Vec3f get_far_point(const Vec2i& p, const CompiledCamera3& cc) const
             {
                 return mouse_to_ray(cc, viewport, p).get_point(1.0f);
             }
