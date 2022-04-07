@@ -48,6 +48,10 @@ namespace euphoria::t3d
         switch(active_selection_click.meshes.size())
         {
         case 0:
+            if (active_selection_click.ctrl_down == false)
+            {
+                editor->set_all_selected(false);
+            }
             break;
         case 1:
             if (active_selection_click.ctrl_down == false)
