@@ -197,6 +197,18 @@ namespace euphoria::core
     Angle
     AngleTransform::transform(const Angle& from, float v, const Angle& to)
     {
-        return Angle::from_radians(lerp(from.in_radians(), v, to.in_radians()));
+        // https://gamedev.stackexchange.com/a/72364
+        const auto dtheta = to - from;
+
+        const auto new_from = 
+            dtheta > Angle::half()?
+                from + Angle::one_turn():
+            dtheta < -Angle::half()?
+                from - Angle::one_turn():
+                from;
+        
+        return from + ( to - new_from ) * v;
+
+        // return Angle::from_radians(lerp(from.in_radians(), v, to.in_radians()));
     }
 }

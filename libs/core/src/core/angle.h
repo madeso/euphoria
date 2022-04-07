@@ -53,6 +53,13 @@ namespace euphoria::core
 
 
         [[nodiscard]] constexpr static Angle
+        half()
+        {
+            return Angle::from_radians(pi);
+        }
+
+
+        [[nodiscard]] constexpr static Angle
         quarter()
         {
             return Angle::from_radians(pi / 2.0f);
