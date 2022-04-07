@@ -285,11 +285,12 @@ namespace euphoria::core
                 }
             }
 
+
             void
             on_scroll(EditorCamera3* owner, int dx, int dy) override
             {
                 // only orbit can zoom
-                if(orbit.has_value() && orbit->valid )
+                if(owner->scroll_in_orbit && orbit.has_value() && orbit->valid )
                 {
                     const auto move = calculate_zoom_move(dx, dy, orbit->distance, owner); 
                     if(move)
@@ -397,6 +398,8 @@ namespace euphoria::core
             {
                 // fps camera can't scroll
                 if(owner->style == EditorCameraStyle3::fps) { return; }
+                if(latest_viewport.bounds.get_width() == 0) { return;  }
+                if(latest_viewport.bounds.get_height() == 0) { return; }
 
                 const auto ray = mouse_to_unit_ray(latest_camera, latest_viewport, latest_mouse);
                 const auto collision = owner->raycast(ray);

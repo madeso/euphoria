@@ -125,6 +125,7 @@ namespace euphoria::core
 
         bool animate_camera = true;
         float camera_lerp_time = 0.2f;
+        bool scroll_in_orbit = false;
 
         std::unique_ptr<detail::EditorCameraState3> state;
         std::unique_ptr<detail::EditorCameraState3> next_state;

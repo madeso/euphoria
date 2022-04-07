@@ -51,6 +51,7 @@ namespace euphoria::core
         const core::Vec2i& position
     )
     {
-        return mouse_to_ray(camera, viewport, position).get_normalized();
+        const auto ray = mouse_to_ray(camera, viewport, position);
+        return ray.get_normalized();
     }
 }

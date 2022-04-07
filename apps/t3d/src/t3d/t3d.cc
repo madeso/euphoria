@@ -806,6 +806,8 @@ namespace euphoria::t3d
 
         ImGui::Checkbox("Animate camera", &editor_camera.animate_camera);
         ImGui::DragFloat("Camera lerp time", &editor_camera.camera_lerp_time, 0.001f, 0.0f, 1.0f);
+
+        ImGui::Checkbox("Scroll in orbit", &editor_camera.scroll_in_orbit);
     }
 
 
