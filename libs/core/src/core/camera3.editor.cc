@@ -531,6 +531,7 @@ namespace euphoria::core
                 timer += dt;
                 if(timer >= total_time)
                 {
+                    frame_to_editor(to, owner);
                     owner->next_state = make_default_camera();
                     return;
                 }
