@@ -39,6 +39,9 @@ namespace euphoria::core
 
         [[nodiscard]] Quatf
         get_rotation() const;
+        
+        void
+        look_in_direction(const Unit3f& v);
 
         Angle rotation_angle;
         Angle look_angle;

@@ -2,6 +2,7 @@
 
 
 #include "core/intersection.h"
+#include "core/sphere.builder.h"
 
 #include "render/actor.h"
 
@@ -52,6 +53,28 @@ namespace euphoria::t3d
         {
             mesh->is_selected = is_selected;
         }
+    }
+
+    [[nodiscard]] std::optional<core::SphereAndPosition>
+    Editor::calculate_selected_bounding_sphere() const
+    {
+        std::vector<core::Vec3f> points;
+
+        for (auto mesh : placed_meshes)
+        {
+            if(mesh->is_selected)
+            {
+                const auto mm = mesh->actor->calculate_model_matrix();
+                const auto corners = mesh->tile->aabb.calculate_all_corners();
+                for(const auto& c: corners)
+                {
+                    points.emplace_back(mm.get_transform_point(c));
+                }
+            }
+        }
+
+        if(points.empty()) { return std::nullopt; }
+        else { return core::build_bounding_sphere(points);}
     }
 
 

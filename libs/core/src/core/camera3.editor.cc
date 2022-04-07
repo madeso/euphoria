@@ -8,6 +8,7 @@
 #include "core/plane.h"
 #include "core/viewport.h"
 #include "core/numeric.h"
+#include "core/sphere.position.h"
 
 
 namespace euphoria::core
@@ -36,7 +37,6 @@ namespace euphoria::core
             > lerp( 2, 8, 0.5 ) = 5
             > eerp( 2, 8, 0.5 ) = 4
             https://mobile.twitter.com/FreyaHolmer/status/1486714301540831234?t=pA5lC-hN6l_AssTX-rxKbw&s=09
-        focus on object
         2d camera
     */
     namespace detail
@@ -703,6 +703,31 @@ namespace euphoria::core
         ASSERTX(id < EditorCamera3::max_stored_index, id, EditorCamera3::max_stored_index);
         const auto index = c_int_to_sizet(id);
         const auto& frame = stored_cameras[index];
+        apply_frame(frame);
+        // LOG_INFO("Restored frame {} to {}", id, frame);
+    }
+
+
+    void
+    EditorCamera3::focus(const SphereAndPosition& s, const Camera3& cam)
+    {
+        const auto from = detail::frame_from_editor(this);
+
+        // algorithm: https://stackoverflow.com/a/32836605
+        fps.look_in_direction(Vec3f::from_to(fps.position, s.center).get_normalized());
+        const auto distance = (s.sphere.radius * 2.0f) / core::tan(cam.fov / 2.0f);
+        fps.position = s.center  + fps.get_rotation().out() * distance;
+        
+        
+        const auto to = detail::frame_from_editor(this);
+        detail::frame_to_editor(from, this);
+        apply_frame(to);
+    }
+
+
+    void
+    EditorCamera3::apply_frame(const detail::CameraFrame& frame)
+    {
         if(animate_camera)
         {
             next_state = make_lerp_camera(this, frame, camera_lerp_time);
@@ -711,8 +736,8 @@ namespace euphoria::core
         {
             detail::frame_to_editor(frame, this);
         }
-        // LOG_INFO("Restored frame {} to {}", id, frame);
     }
+
 
     MouseBehaviour
     EditorCamera3::get_mouse()

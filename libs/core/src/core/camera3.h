@@ -5,6 +5,7 @@
 #include "core/vec3.h"
 #include "core/quat.h"
 #include "core/ray.h"
+#include "core/angle.h"
 
 
 namespace euphoria::core
@@ -43,7 +44,7 @@ namespace euphoria::core
 
         Vec3f position;
         Quatf rotation;
-        float fov;
+        Angle fov;
         float near;
         float far;
     };

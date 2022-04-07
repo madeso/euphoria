@@ -11,8 +11,10 @@
 namespace euphoria::core
 {
     struct UnitRay3f;
+    struct Camera3;
     struct CompiledCamera3;
     struct Viewport;
+    struct SphereAndPosition;
     
     struct EditorCamera3;
 
@@ -111,12 +113,17 @@ namespace euphoria::core
         void
         load_camera(int id);
 
+        void
+        focus(const SphereAndPosition& s, const Camera3& cam);
+
         virtual
         std::optional<Vec3f>
         raycast
         (
             const UnitRay3f& ray
         ) = 0;
+
+        void apply_frame(const detail::CameraFrame& frame);
         
         EditorCameraStyle3 style = EditorCameraStyle3::orbital;
         FpsController fps;

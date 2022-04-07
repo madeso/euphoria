@@ -40,6 +40,8 @@ set(app_src_math
     src/core/rgb_blend.cc src/core/rgb_blend.h
     src/core/rgb.cc src/core/rgb.h
     src/core/sphere.cc src/core/sphere.h
+    src/core/sphere.position.cc src/core/sphere.position.h
+    src/core/sphere.builder.cc src/core/sphere.builder.h
     src/core/vec2.cc src/core/vec2.h
     src/core/vec3.cc src/core/vec3.h
     src/core/vec4.cc src/core/vec4.h

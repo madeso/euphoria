@@ -112,6 +112,19 @@ namespace euphoria::core
     }
 
 
+    [[nodiscard]] std::vector<Vec3f>
+    Aabb::calculate_all_corners() const
+    {
+        return
+        {
+            {min.x, min.y, min.z}, {max.x, min.y, min.z},
+            {min.x, min.y, max.z}, {max.x, min.y, max.z},
+            {min.x, max.y, min.z}, {max.x, max.y, min.z},
+            {min.x, max.y, max.z}, {max.x, max.y, max.z},
+        };
+    }
+
+
     Vec3f
     get_random_point(Random* rand, const Aabb& a)
     {

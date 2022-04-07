@@ -5,6 +5,7 @@
 #include "core/key.h"
 #include "core/vec2.h"
 #include "core/camera3.h"
+#include "core/sphere.position.h"
 
 #include "core/viewport.h"
 
@@ -68,6 +69,10 @@ namespace euphoria::t3d
 
         void
         set_all_selected(bool is_selected);
+
+
+        [[nodiscard]] std::optional<core::SphereAndPosition>
+        calculate_selected_bounding_sphere() const;
 
 
         std::vector<std::shared_ptr<PlacedMesh>>

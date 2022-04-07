@@ -300,6 +300,17 @@ namespace euphoria::t3d
 
 
     void
+    Application::focus_selected()
+    {
+        const auto sphere = editor->calculate_selected_bounding_sphere();
+        if(sphere)
+        {
+            editor_camera.focus(*sphere, camera);
+        }
+    }
+
+
+    void
     Application::on_mouse_movement(const core::Vec2i& position, const core::Vec2i& movement, bool forward_mouse)
     {
         if(forward_mouse)
@@ -345,6 +356,10 @@ namespace euphoria::t3d
                 {
                     immersive_mode = !immersive_mode;
                 }
+                break;
+
+            case core::Key::f:
+                focus_selected();
                 break;
 
             case core::Key::num_0: case core::Key::num_1:

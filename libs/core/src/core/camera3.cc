@@ -41,7 +41,7 @@ namespace euphoria::core
     Camera3::Camera3()
         : position(Vec3f::zero())
         , rotation(Quatf::identity())
-        , fov(45.0f)
+        , fov(Angle::from_degrees(45.0f))
         , near(0.1f)
         , far(100.0f)
     {}
@@ -53,7 +53,7 @@ namespace euphoria::core
         {
             const Mat4f projection_matrix = Mat4f::create_perspective
             (
-                Angle::from_degrees(camera.fov),
+                camera.fov,
                 aspect,
                 camera.near,
                 camera.far

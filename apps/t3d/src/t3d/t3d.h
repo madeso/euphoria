@@ -141,6 +141,10 @@ namespace euphoria::t3d
 
 
         void
+        focus_selected();
+
+
+        void
         on_mouse_movement(const core::Vec2i& position, const core::Vec2i& movement, bool forward_mouse);
 
 

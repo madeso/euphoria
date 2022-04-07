@@ -1,7 +1,9 @@
 #pragma once
 
+#include <vector>
 
 #include "core/vec3.h"
+
 
 namespace euphoria::core
 {
@@ -46,6 +48,10 @@ namespace euphoria::core
 
         [[nodiscard]] Aabb
         offset_copy(const Vec3f& vec) const;
+
+
+        [[nodiscard]] std::vector<Vec3f>
+        calculate_all_corners() const;
 
 
         Vec3f min;
