@@ -109,180 +109,188 @@
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        [[nodiscard]] constexpr <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Angle.html#a062adf63700f2918328c448ac69402d4">   56</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a062adf63700f2918328c448ac69402d4">quarter</a>()</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Angle.html#ac02fdd7c0ec964a09a213c06cc28b482">   56</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ac02fdd7c0ec964a09a213c06cc28b482">half</a>()</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ae47dbab360ee9809460e09793f86939b">Angle::from_radians</a>(<a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a> / 2.0<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ae47dbab360ee9809460e09793f86939b">Angle::from_radians</a>(<a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a>);</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        }</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        [[nodiscard]] constexpr <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Angle.html#a356f4d3bdf1cd212a86bd450eb65e458">   63</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a356f4d3bdf1cd212a86bd450eb65e458">zero</a>()</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Angle.html#a062adf63700f2918328c448ac69402d4">   63</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a062adf63700f2918328c448ac69402d4">quarter</a>()</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ae47dbab360ee9809460e09793f86939b">Angle::from_radians</a>(0.0<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ae47dbab360ee9809460e09793f86939b">Angle::from_radians</a>(<a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a> / 2.0<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>);</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        }</div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        [[nodiscard]] constexpr <span class="keywordtype">float</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Angle.html#aa55c45768bbbbf4a5a0be2ea93ed0d4b">   70</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#aa55c45768bbbbf4a5a0be2ea93ed0d4b">in_percent_of_360</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a81fde79cf257aca064efa745d638b768">in_radians</a>() / (<a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a> * 2.0f);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        [[nodiscard]] constexpr <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Angle.html#a356f4d3bdf1cd212a86bd450eb65e458">   70</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a356f4d3bdf1cd212a86bd450eb65e458">zero</a>()</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ae47dbab360ee9809460e09793f86939b">Angle::from_radians</a>(0.0<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>);</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        }</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        [[nodiscard]] constexpr <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Angle.html#a1881539276ef5da515556e475b2574c5">   77</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a1881539276ef5da515556e475b2574c5">from_percent_of_180</a>(<span class="keywordtype">float</span> percent)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ae47dbab360ee9809460e09793f86939b">Angle::from_radians</a>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a354f047ba64552895b016bbdd60ab174">percent</a> * <a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        [[nodiscard]] constexpr <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Angle.html#aa55c45768bbbbf4a5a0be2ea93ed0d4b">   77</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#aa55c45768bbbbf4a5a0be2ea93ed0d4b">in_percent_of_360</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a81fde79cf257aca064efa745d638b768">in_radians</a>() / (<a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a> * 2.0f);</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        }</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        [[nodiscard]] <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ad5be4462baf65179b69819ee68a8ed2d">random</a>(::<a class="code" href="structeuphoria_1_1core_1_1Random.html">euphoria::core::Random</a>* <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ad5be4462baf65179b69819ee68a8ed2d">random</a>);</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        [[nodiscard]] <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a0b9c30f304ec6851e032dfc15dab6d85">get_wrapped</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        [[nodiscard]] constexpr <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Angle.html#a1881539276ef5da515556e475b2574c5">   84</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a1881539276ef5da515556e475b2574c5">from_percent_of_180</a>(<span class="keywordtype">float</span> percent)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ae47dbab360ee9809460e09793f86939b">Angle::from_radians</a>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a354f047ba64552895b016bbdd60ab174">percent</a> * <a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a>);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a22341a721e8c459febd453c679315c2b">wrap</a>();</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        [[nodiscard]] <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ad5be4462baf65179b69819ee68a8ed2d">random</a>(::<a class="code" href="structeuphoria_1_1core_1_1Random.html">euphoria::core::Random</a>* <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ad5be4462baf65179b69819ee68a8ed2d">random</a>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
 <div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a0e16d861fa57b7b1a0254a89ecc978d9">operator+=</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a>&amp; rhs);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;        [[nodiscard]] <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a0b9c30f304ec6851e032dfc15dab6d85">get_wrapped</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#acecd897faba74308c57a9c1e2c6a664c">operator-=</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a>&amp; rhs);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a22341a721e8c459febd453c679315c2b">wrap</a>();</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#aef3f8810c67f646d63e94c8d537d5c1d">operator*=</a>(<span class="keywordtype">float</span> rhs);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a0e16d861fa57b7b1a0254a89ecc978d9">operator+=</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a>&amp; rhs);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a90cbde1b0dbc921e8a8a9544260aad3c">operator/=</a>(<span class="keywordtype">float</span> rhs);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#acecd897faba74308c57a9c1e2c6a664c">operator-=</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a>&amp; rhs);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a4d6f4ccc56e03010af9e0db459a7c798">operator-</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#aef3f8810c67f646d63e94c8d537d5c1d">operator*=</a>(<span class="keywordtype">float</span> rhs);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
 <div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        [[nodiscard]] <span class="keyword">static</span> constexpr <span class="keywordtype">float</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;        radian_to_degrees(<span class="keywordtype">float</span> radians)</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        {</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;            <span class="keywordflow">return</span> (180.0f / <a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a>) * radians;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a90cbde1b0dbc921e8a8a9544260aad3c">operator/=</a>(<span class="keywordtype">float</span> rhs);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Angle.html#a4d6f4ccc56e03010af9e0db459a7c798">operator-</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;        [[nodiscard]] <span class="keyword">static</span> constexpr <span class="keywordtype">float</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        degrees_to_radian(<span class="keywordtype">float</span> degrees)</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        {</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a> / 180.0f * degrees;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;        constexpr <span class="keyword">explicit</span> Angle(<span class="keywordtype">float</span> r) : radians(r) {}</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordtype">float</span> radians;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    };</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <span class="keywordtype">float</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a54dc61b60c4556ed12bd50dab1f97755">sin</a>(<span class="keyword">const</span> Angle&amp; ang);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;        [[nodiscard]] <span class="keyword">static</span> constexpr <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;        radian_to_degrees(<span class="keywordtype">float</span> radians)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;            <span class="keywordflow">return</span> (180.0f / <a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a>) * radians;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;        }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        [[nodiscard]] <span class="keyword">static</span> constexpr <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        degrees_to_radian(<span class="keywordtype">float</span> degrees)</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        {</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#ad4a8e371c07d563694baaf2060f7fd5a">pi</a> / 180.0f * degrees;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;        }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        constexpr <span class="keyword">explicit</span> Angle(<span class="keywordtype">float</span> r) : radians(r) {}</div>
 <div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordtype">float</span></div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ae8d3f359094a7b631eb2b8431004eb33">cos</a>(<span class="keyword">const</span> Angle&amp; ang);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;        <span class="keywordtype">float</span> radians;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    };</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
 <div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordtype">float</span></div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a909c6e5e4847976d1b0eff710d379594">tan</a>(<span class="keyword">const</span> Angle&amp; ang);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a54dc61b60c4556ed12bd50dab1f97755">sin</a>(<span class="keyword">const</span> Angle&amp; ang);</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
 <div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    Angle</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a3708822241026b3647ac86d31299e0db">asin</a>(<span class="keywordtype">float</span> v);</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ae8d3f359094a7b631eb2b8431004eb33">cos</a>(<span class="keyword">const</span> Angle&amp; ang);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    Angle</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a3159f55a6d78330c7d9342cec146f46b">acos</a>(<span class="keywordtype">float</span> v);</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a909c6e5e4847976d1b0eff710d379594">tan</a>(<span class="keyword">const</span> Angle&amp; ang);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    Angle</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a966656c296ef6c69c3263be95f771033">atan</a>(<span class="keywordtype">float</span> v);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    Angle</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a3708822241026b3647ac86d31299e0db">asin</a>(<span class="keywordtype">float</span> v);</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    Angle</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a2ca6cf46cc444b8be5893b2b135d06a3">atan2</a>(<span class="keywordtype">float</span> y, <span class="keywordtype">float</span> x);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    Angle</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a3159f55a6d78330c7d9342cec146f46b">acos</a>(<span class="keywordtype">float</span> v);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
 <div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    Angle</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a60140f7b2f3938e91fe0cd66a8286eff">operator+</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    Angle</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a966656c296ef6c69c3263be95f771033">atan</a>(<span class="keywordtype">float</span> v);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
 <div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    Angle</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ad3dddde243b55924c20d8d157b82460d">operator-</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    Angle</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a2ca6cf46cc444b8be5893b2b135d06a3">atan2</a>(<span class="keywordtype">float</span> y, <span class="keywordtype">float</span> x);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
 <div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    Angle</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a28f84f955bba842fb8831871c2bb3024">operator*</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keywordtype">float</span> rhs);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    Angle</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a60140f7b2f3938e91fe0cd66a8286eff">operator+</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    Angle</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ab7b2e0db3d1906f786e018fade65f40b">operator/</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keywordtype">float</span> rhs);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    Angle</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ad3dddde243b55924c20d8d157b82460d">operator-</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
 <div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    Angle</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a28f84f955bba842fb8831871c2bb3024">operator*</a>(<span class="keywordtype">float</span> rhs, <span class="keyword">const</span> Angle&amp; lhs);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    Angle</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a28f84f955bba842fb8831871c2bb3024">operator*</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keywordtype">float</span> rhs);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
 <div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    std::ostream&amp;</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ae05a7c45a30c073c706720de288b3ef4">operator&lt;&lt;</a>(std::ostream&amp; stream, <span class="keyword">const</span> Angle&amp; a);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    Angle</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ab7b2e0db3d1906f786e018fade65f40b">operator/</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keywordtype">float</span> rhs);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
 <div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ad79fde24b36f5118ba33a7aff24a448b">operator&lt;</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    Angle</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a28f84f955bba842fb8831871c2bb3024">operator*</a>(<span class="keywordtype">float</span> rhs, <span class="keyword">const</span> Angle&amp; lhs);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a370cd137e658bbda2644dc55033498af">operator&lt;=</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    std::ostream&amp;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ae05a7c45a30c073c706720de288b3ef4">operator&lt;&lt;</a>(std::ostream&amp; stream, <span class="keyword">const</span> Angle&amp; a);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
 <div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6d3058c513926140bbba99e2c4d7a7c2">operator&gt;</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#ad79fde24b36f5118ba33a7aff24a448b">operator&lt;</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a62d42548fb7c2b4dc461bdcbaff2f08f">operator&gt;=</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a370cd137e658bbda2644dc55033498af">operator&lt;=</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1AngleTransform.html">  201</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1core_1_1AngleTransform.html">AngleTransform</a></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    {</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1AngleTransform.html#ae8445deef3d5a8ded3200f8d17487230">transform</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a>&amp; from, <span class="keywordtype">float</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>, <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a>&amp; to);</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    };</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;}</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6d3058c513926140bbba99e2c4d7a7c2">operator&gt;</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a62d42548fb7c2b4dc461bdcbaff2f08f">operator&gt;=</a>(<span class="keyword">const</span> Angle&amp; lhs, <span class="keyword">const</span> Angle&amp; rhs);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
 <div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1convert.html">  209</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1convert.html">euphoria::convert</a></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;{</div>
-<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1convert.html#ae7428497be0bfccc9ceaf662a0a8c7c3">  211</a></span>&#160;    constexpr <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _deg(<span class="keywordtype">long</span> <span class="keywordtype">double</span> d)</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    {</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#adc6d783bca801f312f5bb3809b64936a">core::Angle::from_degrees</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(d));</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1AngleTransform.html">  208</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1core_1_1AngleTransform.html">AngleTransform</a></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    {</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1AngleTransform.html#ae8445deef3d5a8ded3200f8d17487230">transform</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a>&amp; from, <span class="keywordtype">float</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>, <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html">Angle</a>&amp; to);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    };</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;}</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
-<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1convert.html#a45211991b54f443b32b710f2efc69dbb">  217</a></span>&#160;    constexpr <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _rad(<span class="keywordtype">long</span> <span class="keywordtype">double</span> r)</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    {</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ae47dbab360ee9809460e09793f86939b">core::Angle::from_radians</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(r));</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    }</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;}</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1convert.html">  216</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1convert.html">euphoria::convert</a></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;{</div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1convert.html#ae7428497be0bfccc9ceaf662a0a8c7c3">  218</a></span>&#160;    constexpr <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _deg(<span class="keywordtype">long</span> <span class="keywordtype">double</span> d)</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    {</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#adc6d783bca801f312f5bb3809b64936a">core::Angle::from_degrees</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(d));</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    }</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1convert.html#a45211991b54f443b32b710f2efc69dbb">  224</a></span>&#160;    constexpr <a class="code" href="structeuphoria_1_1core_1_1Angle.html">core::Angle</a> <span class="keyword">operator</span><span class="stringliteral">&quot;&quot;</span> _rad(<span class="keywordtype">long</span> <span class="keywordtype">double</span> r)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    {</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Angle.html#ae47dbab360ee9809460e09793f86939b">core::Angle::from_radians</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(r));</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_a062adf63700f2918328c448ac69402d4"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#a062adf63700f2918328c448ac69402d4">euphoria::core::Angle::quarter</a></div><div class="ttdeci">constexpr static Angle quarter()</div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00056">angle.h:56</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_a062adf63700f2918328c448ac69402d4"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#a062adf63700f2918328c448ac69402d4">euphoria::core::Angle::quarter</a></div><div class="ttdeci">constexpr static Angle quarter()</div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00063">angle.h:63</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_a22341a721e8c459febd453c679315c2b"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#a22341a721e8c459febd453c679315c2b">euphoria::core::Angle::wrap</a></div><div class="ttdeci">void wrap()</div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1AngleTransform_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1AngleTransform.html">euphoria::core::AngleTransform</a></div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00201">angle.h:201</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1AngleTransform_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1AngleTransform.html">euphoria::core::AngleTransform</a></div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00208">angle.h:208</a></div></div>
 <div class="ttc" id="anumeric_8h_html"><div class="ttname"><a href="numeric_8h.html">numeric.h</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1convert_html"><div class="ttname"><a href="namespaceeuphoria_1_1convert.html">euphoria::convert</a></div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00209">angle.h:209</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1convert_html"><div class="ttname"><a href="namespaceeuphoria_1_1convert.html">euphoria::convert</a></div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00216">angle.h:216</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a2ca6cf46cc444b8be5893b2b135d06a3"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a2ca6cf46cc444b8be5893b2b135d06a3">euphoria::core::atan2</a></div><div class="ttdeci">Angle atan2(float y, float x)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_ae05a7c45a30c073c706720de288b3ef4"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ae05a7c45a30c073c706720de288b3ef4">euphoria::core::operator&lt;&lt;</a></div><div class="ttdeci">Stream &amp; operator&lt;&lt;(Stream &amp;s, const Aabb &amp;a)</div><div class="ttdef"><b>Definition:</b> <a href="aabb_8h_source.html#l00063">aabb.h:63</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_ac02fdd7c0ec964a09a213c06cc28b482"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#ac02fdd7c0ec964a09a213c06cc28b482">euphoria::core::Angle::half</a></div><div class="ttdeci">constexpr static Angle half()</div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00056">angle.h:56</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_a0b9c30f304ec6851e032dfc15dab6d85"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#a0b9c30f304ec6851e032dfc15dab6d85">euphoria::core::Angle::get_wrapped</a></div><div class="ttdeci">Angle get_wrapped() const</div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_aef3f8810c67f646d63e94c8d537d5c1d"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#aef3f8810c67f646d63e94c8d537d5c1d">euphoria::core::Angle::operator*=</a></div><div class="ttdeci">void operator*=(float rhs)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a54dc61b60c4556ed12bd50dab1f97755"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a54dc61b60c4556ed12bd50dab1f97755">euphoria::core::sin</a></div><div class="ttdeci">float sin(const Angle &amp;ang)</div></div>
@@ -299,11 +307,11 @@
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a6d3058c513926140bbba99e2c4d7a7c2"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a6d3058c513926140bbba99e2c4d7a7c2">euphoria::core::operator&gt;</a></div><div class="ttdeci">bool operator&gt;(const Angle &amp;lhs, const Angle &amp;rhs)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a28f84f955bba842fb8831871c2bb3024"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a28f84f955bba842fb8831871c2bb3024">euphoria::core::operator*</a></div><div class="ttdeci">Angle operator*(const Angle &amp;lhs, float rhs)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a370cd137e658bbda2644dc55033498af"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a370cd137e658bbda2644dc55033498af">euphoria::core::operator&lt;=</a></div><div class="ttdeci">bool operator&lt;=(const Angle &amp;lhs, const Angle &amp;rhs)</div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_a1881539276ef5da515556e475b2574c5"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#a1881539276ef5da515556e475b2574c5">euphoria::core::Angle::from_percent_of_180</a></div><div class="ttdeci">constexpr static Angle from_percent_of_180(float percent)</div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00077">angle.h:77</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_a1881539276ef5da515556e475b2574c5"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#a1881539276ef5da515556e475b2574c5">euphoria::core::Angle::from_percent_of_180</a></div><div class="ttdeci">constexpr static Angle from_percent_of_180(float percent)</div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00084">angle.h:84</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_ad5be4462baf65179b69819ee68a8ed2d"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#ad5be4462baf65179b69819ee68a8ed2d">euphoria::core::Angle::random</a></div><div class="ttdeci">static Angle random(::euphoria::core::Random *random)</div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_acecd897faba74308c57a9c1e2c6a664c"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#acecd897faba74308c57a9c1e2c6a664c">euphoria::core::Angle::operator-=</a></div><div class="ttdeci">void operator-=(const Angle &amp;rhs)</div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_aa55c45768bbbbf4a5a0be2ea93ed0d4b"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#aa55c45768bbbbf4a5a0be2ea93ed0d4b">euphoria::core::Angle::in_percent_of_360</a></div><div class="ttdeci">constexpr float in_percent_of_360() const</div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00070">angle.h:70</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_a356f4d3bdf1cd212a86bd450eb65e458"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#a356f4d3bdf1cd212a86bd450eb65e458">euphoria::core::Angle::zero</a></div><div class="ttdeci">constexpr static Angle zero()</div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00063">angle.h:63</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_aa55c45768bbbbf4a5a0be2ea93ed0d4b"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#aa55c45768bbbbf4a5a0be2ea93ed0d4b">euphoria::core::Angle::in_percent_of_360</a></div><div class="ttdeci">constexpr float in_percent_of_360() const</div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00077">angle.h:77</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Angle_html_a356f4d3bdf1cd212a86bd450eb65e458"><div class="ttname"><a href="structeuphoria_1_1core_1_1Angle.html#a356f4d3bdf1cd212a86bd450eb65e458">euphoria::core::Angle::zero</a></div><div class="ttdeci">constexpr static Angle zero()</div><div class="ttdef"><b>Definition:</b> <a href="angle_8h_source.html#l00070">angle.h:70</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_ab7b2e0db3d1906f786e018fade65f40b"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ab7b2e0db3d1906f786e018fade65f40b">euphoria::core::operator/</a></div><div class="ttdeci">Angle operator/(const Angle &amp;lhs, float rhs)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a62d42548fb7c2b4dc461bdcbaff2f08f"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a62d42548fb7c2b4dc461bdcbaff2f08f">euphoria::core::operator&gt;=</a></div><div class="ttdeci">bool operator&gt;=(const Angle &amp;lhs, const Angle &amp;rhs)</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a60140f7b2f3938e91fe0cd66a8286eff"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a60140f7b2f3938e91fe0cd66a8286eff">euphoria::core::operator+</a></div><div class="ttdeci">Angle operator+(const Angle &amp;lhs, const Angle &amp;rhs)</div></div>
