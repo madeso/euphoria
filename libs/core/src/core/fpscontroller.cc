@@ -16,6 +16,8 @@ namespace euphoria::core
     {
         rotation_angle += Angle::from_degrees(-x * look_sensitivity.get_multiplier_with_sign());
         look_angle += Angle::from_degrees(-y * look_sensitivity.get_multiplier_with_sign());
+
+        rotation_angle.wrap();
     }
 
     void
