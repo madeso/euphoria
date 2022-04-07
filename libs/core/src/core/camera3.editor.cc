@@ -536,7 +536,7 @@ namespace euphoria::core
                     return;
                 }
 
-                const auto factor = timer / total_time;
+                const auto factor = easing::apply(owner->lerp_function, timer / total_time);
                 const auto frame = CameraFrame
                 {
                     lerp(from.rotation_angle, factor, to.rotation_angle),

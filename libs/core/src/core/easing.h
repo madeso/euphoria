@@ -1,5 +1,8 @@
 #pragma once
 
+#include <vector>
+
+
 namespace euphoria::core::easing
 {
 
@@ -22,5 +25,8 @@ enum class Function
 
 
 float apply(Function f, float t);
+
+
+std::vector<std::pair<const char*, Function>> get_all_values();
 
 }

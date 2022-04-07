@@ -6,6 +6,7 @@
 
 #include "core/fpscontroller.h"
 #include "core/mousebehaviour.h"
+#include "core/easing.h"
 
 
 namespace euphoria::core
@@ -133,6 +134,7 @@ namespace euphoria::core
         bool animate_camera = true;
         float camera_lerp_time = 0.2f;
         bool scroll_in_orbit = false;
+        easing::Function lerp_function = easing::Function::smooth_stop3;
 
         std::unique_ptr<detail::EditorCameraState3> state;
         std::unique_ptr<detail::EditorCameraState3> next_state;

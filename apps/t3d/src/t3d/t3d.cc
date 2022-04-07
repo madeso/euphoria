@@ -13,6 +13,7 @@
 #include "core/viewport.h"
 #include "core/plane.h"
 #include "core/intersection.h"
+#include "core/easing.h"
 
 #include "render/positionedlines.h"
 #include "render/world.h"
@@ -821,6 +822,8 @@ namespace euphoria::t3d
 
         ImGui::Checkbox("Animate camera", &editor_camera.animate_camera);
         ImGui::DragFloat("Camera lerp time", &editor_camera.camera_lerp_time, 0.001f, 0.0f, 1.0f);
+
+        window::imgui::combo("Lerp function", &editor_camera.lerp_function, core::easing::get_all_values());
 
         ImGui::Checkbox("Scroll in orbit", &editor_camera.scroll_in_orbit);
     }

@@ -1,3 +1,6 @@
+#include "core/easing.h"
+
+
 // source: Math for Game Programmers: Fast and Funky 1D Nonlinear Transformations
 // https://www.youtube.com/watch?v=mr5xkf6zSzk&t=1383s
 // easing functions on steroids
@@ -44,22 +47,6 @@ constexpr float normalized_bezier_curve3(float b, float c, float t)
 
 // library of easing functions
 
-enum class Function
-{
-    linear,
-    
-    // also called ease in
-    // start slow, end quick
-    smooth_start2, smooth_start3, smooth_start4,
-
-    // also called ease out
-    // start fast, end slow
-    smooth_stop2, smooth_stop3, smooth_stop4,
-
-    // also called ease in and out
-    // start slow, end slow
-    smooth_step2, smooth_step3, smooth_step4
-};
 
 template<int steps>
 float smooth_start(float t) { return ipow<steps>(t); }
@@ -93,6 +80,27 @@ float apply(Function f, float t)
         DIE("Invalid case");
         return 0.0f;
     }
+}
+
+
+
+std::vector<std::pair<const char*, Function>> get_all_values()
+{
+    return
+    {
+#define VALUE(x) {#x, Function::x}
+        {"Linear", Function::linear},
+        {"Smooth Start 2", Function::smooth_start2},
+        {"Smooth Start 3", Function::smooth_start3},
+        {"Smooth Start 4", Function::smooth_start4},
+        {"Smooth Stop 2", Function::smooth_stop2},
+        {"Smooth Stop 3", Function::smooth_stop3},
+        {"Smooth Stop 4", Function::smooth_stop4},
+        {"Smooth Step 2", Function::smooth_step2},
+        {"Smooth Step 3", Function::smooth_step3},
+        {"Smooth Step 4", Function::smooth_step4}
+#undef VALUE
+    };
 }
 
 }
