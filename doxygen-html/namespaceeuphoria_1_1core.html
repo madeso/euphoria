@@ -313,6 +313,8 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Sphere.html">Sphere</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SphereAndPosition.html">SphereAndPosition</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StaticPalette.html">StaticPalette</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a></td></tr>
@@ -1757,6 +1759,8 @@ Functions</h2></td></tr>
 <tr class="memitem:a23ec9ac7e929cd0bbb77bda973da9cfb"><td class="memTemplParams" colspan="2">template&lt;typename S , typename T &gt; </td></tr>
 <tr class="memitem:a23ec9ac7e929cd0bbb77bda973da9cfb"><td class="memTemplItemLeft" align="right" valign="top">S &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a23ec9ac7e929cd0bbb77bda973da9cfb">operator&lt;&lt;</a> (S &amp;s, const <a class="el" href="structeuphoria_1_1core_1_1Size2.html">Size2</a>&lt; T &gt; &amp;r)</td></tr>
 <tr class="separator:a23ec9ac7e929cd0bbb77bda973da9cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ddcbb8c269fbae542c9d290e1babcda"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1SphereAndPosition.html">SphereAndPosition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a2ddcbb8c269fbae542c9d290e1babcda">build_bounding_sphere</a> (const std::vector&lt; <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &gt; &amp;positions)</td></tr>
+<tr class="separator:a2ddcbb8c269fbae542c9d290e1babcda"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2de5c25d793092c8ba66f5ef16dc8995"><td class="memTemplParams" colspan="2">template&lt;typename K , typename V &gt; </td></tr>
 <tr class="memitem:a2de5c25d793092c8ba66f5ef16dc8995"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; K &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a2de5c25d793092c8ba66f5ef16dc8995">get_keys</a> (const std::map&lt; K, V &gt; &amp;m)</td></tr>
 <tr class="separator:a2de5c25d793092c8ba66f5ef16dc8995"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3066,7 +3070,7 @@ template&lt;typename T &gt; </div>
 <tr><td class="fieldname"><a id="a1ec03d988d6a9065ce681392a857aa94a05934928102b17827b8f03ed60c3e6e0"></a>fps&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00061">61</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="camera3_8editor_8h_source.html#l00063">63</a> of file <a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>.</p>
 
 </div>
 </div>
@@ -4125,6 +4129,24 @@ template&lt;typename E &gt; </div>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ddcbb8c269fbae542c9d290e1babcda"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ddcbb8c269fbae542c9d290e1babcda">&#9670;&nbsp;</a></span>build_bounding_sphere()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1SphereAndPosition.html">SphereAndPosition</a> euphoria::core::build_bounding_sphere </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>positions</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -12880,7 +12902,7 @@ template&lt;typename Stream &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="aabb_8h_source.html#l00057">57</a> of file <a class="el" href="aabb_8h_source.html">aabb.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="aabb_8h_source.html#l00063">63</a> of file <a class="el" href="aabb_8h_source.html">aabb.h</a>.</p>
 
 </div>
 </div>
