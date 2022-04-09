@@ -484,6 +484,7 @@ struct FileHandlerList
 int
 main(int argc, char** argv)
 {
+    EUPH_INIT_LOGGING();
     Engine engine;
 
     if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)

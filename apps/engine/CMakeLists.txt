@@ -18,6 +18,7 @@ set(src
 source_group("" FILES ${src})
 
 add_executable(engine MACOSX_BUNDLE ${src})
+set_win32_defines(engine)
 set_target_properties(engine PROPERTIES FOLDER "Applications")
 target_include_directories(engine
     PUBLIC

@@ -1,3 +1,5 @@
+#include "log/log.h"
+
 #include "core/mat4.h"
 #include "core/random.h"
 #include "core/mat4.h"
@@ -531,6 +533,7 @@ public:
 int
 main(int argc, char** argv)
 {
+    EUPH_INIT_LOGGING();
     Engine engine;
 
     if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)

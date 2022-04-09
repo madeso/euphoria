@@ -7,6 +7,7 @@ set(src
 source_group("" FILES ${src})
 
 add_executable(painter WIN32 MACOSX_BUNDLE ${src})
+set_win32_defines(painter)
 set_target_properties(painter PROPERTIES FOLDER "Applications")
 target_include_directories(painter
     PUBLIC

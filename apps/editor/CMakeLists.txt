@@ -28,6 +28,7 @@ set(src ${src} ${generated_sources} ${generated_headers})
 
 
 add_executable(editor WIN32 MACOSX_BUNDLE ${src})
+set_win32_defines(editor)
 set_target_properties(editor PROPERTIES FOLDER "Applications")
 target_include_directories(editor
     PUBLIC

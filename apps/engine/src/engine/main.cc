@@ -180,7 +180,7 @@ int custom_lua_exception_handler
 int
 main(int argc, char* argv[])
 {
-    // euphoria::log::setup_logging();
+    EUPH_INIT_LOGGING();
     
     Engine engine;
     if(const auto ret = engine.setup(argparse::NameAndArguments::extract(argc, argv)); ret != 0)

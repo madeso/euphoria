@@ -69,7 +69,7 @@ namespace euphoria::t3d
     Application::Application()
     {
         editor_camera.parent = this;
-        log::setup_logging();
+        EUPH_INIT_LOGGING();
 
         editor_camera.fps.position.y = 5.0f;
         editor_camera.fps.position.z = 10.0f;

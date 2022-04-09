@@ -6,6 +6,7 @@ project(euphoria C CXX)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/tools/cmake/modules")
 include(tools/cmake/standard_project_settings.cmake)
 include(tools/cmake/compiler_warnings.cmake)
+include(tools/cmake/win32define.cmake)
 
 set(CMAKE_CXX_EXTENSIONS OFF)
 
