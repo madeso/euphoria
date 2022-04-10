@@ -17,7 +17,7 @@ namespace
 
 
     std::shared_ptr<spdlog::logger>
-    create_msvc_logger(const std::string& name)
+    create_msvc_logger([[maybe_unused]] const std::string& name)
     {
 #ifdef _WIN32
         auto sink = std::make_shared<spdlog::sinks::msvc_sink_mt>();
