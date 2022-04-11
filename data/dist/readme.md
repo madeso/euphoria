@@ -8,5 +8,5 @@ t3d test scene, aimed for a PCG and car/boat test target
 t3d test scene, aimed for a "airplane"/shooter test target
 
 ### shooter
-current engine and editor test target
+current runner and editor test target
 

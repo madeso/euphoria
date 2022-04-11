@@ -1,22 +1,22 @@
-#include "engine/systems.h"
+#include "runner/systems.h"
 
 
 #include "render/texture.h"
 #include "render/spriterender.h"
 #include "render/texturecache.h"
 
-#include "engine/ecs.systems.h"
-#include "engine/components.h"
+#include "runner/ecs.systems.h"
+#include "runner/components.h"
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     struct SystemSpriteDraw
         : ComponentSystem
         , ComponentSystemSpriteDrawer
     {
-        engine::Components* components;
+        runner::Components* components;
 
-        explicit SystemSpriteDraw(engine::Components* c)
+        explicit SystemSpriteDraw(runner::Components* c)
             : ComponentSystem("sprite draw")
             , components(c)
         {

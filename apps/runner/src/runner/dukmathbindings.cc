@@ -1,4 +1,4 @@
-#include "engine/dukmathbindings.h"
+#include "runner/dukmathbindings.h"
 
 #include <string>
 
@@ -6,7 +6,7 @@
 #include "core/vec2.h"
 #include "core/sol.h"
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
 
     template <typename T>

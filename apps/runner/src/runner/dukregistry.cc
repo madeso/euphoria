@@ -1,4 +1,4 @@
-#include "engine/dukregistry.h"
+#include "runner/dukregistry.h"
 
 #include <algorithm>
 
@@ -6,14 +6,14 @@
 #include "log/log.h"
 
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     struct ScriptComponent
     {
         sol::table val;
     };
 
-    ScriptRegistry::ScriptRegistry(core::ecs::Registry* r, engine::Components* c)
+    ScriptRegistry::ScriptRegistry(core::ecs::Registry* r, runner::Components* c)
         : reg(r)
         , components(c)
     {
@@ -164,4 +164,4 @@ namespace euphoria::engine
     }
 }
 
-TYPEID_SETUP_TYPE(euphoria::engine::ScriptComponent);
+TYPEID_SETUP_TYPE(euphoria::runner::ScriptComponent);

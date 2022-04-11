@@ -1,4 +1,4 @@
-#include "engine/dukprint.h"
+#include "runner/dukprint.h"
 
 #include <string>
 
@@ -7,7 +7,7 @@
 #include "core/sol.h"
 
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     void
 	add_print(LuaState* sol)

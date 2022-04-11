@@ -36,16 +36,16 @@
 #include "window/sdlglcontext.h"
 #include "window/engine.h"
 
-#include "engine/ecs.systems.h"
-#include "engine/loadworld.h"
-#include "engine/systems.h"
-#include "engine/dukintegration.h"
-#include "engine/dukmathbindings.h"
-#include "engine/dukprint.h"
-#include "engine/input.h"
-#include "engine/objectemplate.h"
-#include "engine/components.h"
-#include "engine/cameradata.h"
+#include "runner/ecs.systems.h"
+#include "runner/loadworld.h"
+#include "runner/systems.h"
+#include "runner/dukintegration.h"
+#include "runner/dukmathbindings.h"
+#include "runner/dukprint.h"
+#include "runner/input.h"
+#include "runner/objectemplate.h"
+#include "runner/components.h"
+#include "runner/cameradata.h"
 
 #include "imgui/imgui.h"
 
@@ -55,7 +55,7 @@
 using namespace euphoria::core;
 using namespace euphoria::render;
 using namespace euphoria::window;
-using namespace euphoria::engine;
+using namespace euphoria::runner;
 
 
 std::optional<game::Game>

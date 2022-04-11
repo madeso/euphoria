@@ -1,4 +1,4 @@
-#include "engine/objectemplate.h"
+#include "runner/objectemplate.h"
 
 #include "log/log.h"
 
@@ -8,14 +8,14 @@
 #include "core/proto.h"
 #include "core/vec2.h"
 
-#include "engine/components.h"
-#include "engine/dukregistry.h"
-#include "engine/ecs.systems.h"
+#include "runner/components.h"
+#include "runner/dukregistry.h"
+#include "runner/ecs.systems.h"
 
 #include "gaf_game.h"
 
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -38,9 +38,9 @@ namespace euphoria::engine
     struct PositionComponentCreator : ComponentCreator
     {
         core::Vec2f p;
-        engine::Components* components;
+        runner::Components* components;
 
-        PositionComponentCreator(const core::Vec2f& pp, engine::Components* cs)
+        PositionComponentCreator(const core::Vec2f& pp, runner::Components* cs)
             : p(pp)
             , components(cs)
         {
@@ -49,7 +49,7 @@ namespace euphoria::engine
         [[nodiscard]]
         static
         std::shared_ptr<PositionComponentCreator>
-        create(const game::vec2f& p, engine::Components* components)
+        create(const game::vec2f& p, runner::Components* components)
         {
             return std::make_shared<PositionComponentCreator>(core::Vec2f {p.x, p.y}, components);
         }
@@ -65,9 +65,9 @@ namespace euphoria::engine
     {
     public:
         std::shared_ptr<render::Texture2> texture;
-        engine::Components* components;
+        runner::Components* components;
 
-        explicit SpriteComponentCreator(engine::Components* c) : components(c) {}
+        explicit SpriteComponentCreator(runner::Components* c) : components(c) {}
 
         [[nodiscard]]
         static
@@ -76,7 +76,7 @@ namespace euphoria::engine
         (
             const game::Sprite& sprite,
             render::TextureCache* cache,
-            engine::Components* components
+            runner::Components* components
         )
         {
             auto ptr = std::make_shared<SpriteComponentCreator>(components);

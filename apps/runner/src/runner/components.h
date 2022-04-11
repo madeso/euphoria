@@ -14,7 +14,7 @@ namespace euphoria::core::ecs
 }
 
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     struct ComponentPosition2
     {

@@ -5,7 +5,7 @@
 #include "core/sol.h"
 #include "core/noncopyable.h"
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     struct InputSystem;
     struct ScriptRegistry;

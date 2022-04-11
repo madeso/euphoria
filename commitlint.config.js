@@ -8,7 +8,7 @@ module.exports =
             2, 'always',
             [
                 'core', 'file_types', 'gui', 'minsynth', 'render', 'tests', 'window',
-                'editor', 'engine', 'painter', 'pixel', 't3d'
+                'editor', 'runner', 'painter', 'pixel', 't3d'
             ]
         ],
         'type-enum': [2, 'always', ['fix', 'feat', 'chore', 'docs', 'style', 'refactor', 'perf', 'test', 'revert', 'ci', 'build']]

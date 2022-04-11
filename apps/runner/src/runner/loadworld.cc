@@ -1,19 +1,19 @@
-#include "engine/loadworld.h"
+#include "runner/loadworld.h"
 
 #include "log/log.h"
 
 #include "core/proto.h"
 #include "core/vfs_path.h"
 
-#include "engine/ecs.systems.h"
-#include "engine/components.h"
-#include "engine/dukregistry.h"
-#include "engine/objectemplate.h"
+#include "runner/ecs.systems.h"
+#include "runner/components.h"
+#include "runner/dukregistry.h"
+#include "runner/objectemplate.h"
 
 #include "gaf_world.h"
 #include "gaf_rapidjson_world.h"
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     void
     load_world

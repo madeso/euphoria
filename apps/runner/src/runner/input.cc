@@ -1,10 +1,10 @@
-#include "engine/input.h"
+#include "runner/input.h"
 
 #include "assert/assert.h"
 #include "core/cint.h"
 #include "core/sol.h"
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     BoundVar::BoundVar(const std::string& n, const core::Key& k)
         : name(n), state(0), last_state(0), key(k)

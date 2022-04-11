@@ -14,7 +14,7 @@ namespace euphoria::render
 }
 
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     struct Systems;
 

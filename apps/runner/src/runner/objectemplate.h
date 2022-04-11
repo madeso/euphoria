@@ -19,7 +19,7 @@ namespace euphoria::render
     struct TextureCache;
 }
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     struct ScriptRegistry;
     struct Components;

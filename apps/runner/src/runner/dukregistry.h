@@ -4,15 +4,15 @@
 #include "core/result.h"
 #include "core/sol.h"
 
-#include "engine/components.h"
-#include "engine/ecs.systems.h"
+#include "runner/components.h"
+#include "runner/ecs.systems.h"
 
 #include <map>
 #include <string>
 #include <memory>
 #include <functional>
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     struct CustomArguments
     {
@@ -21,7 +21,7 @@ namespace euphoria::engine
 
     struct ScriptRegistry
     {
-        ScriptRegistry(core::ecs::Registry* r, engine::Components* c);
+        ScriptRegistry(core::ecs::Registry* r, runner::Components* c);
 
         using CreationCallback = sol::protected_function;
 
@@ -70,11 +70,11 @@ namespace euphoria::engine
         using NameToIdMap = std::map<std::string, core::ecs::ComponentIndex>;
 
         core::ecs::Registry* reg;
-        engine::Components* components;
+        runner::Components* components;
         ScriptComponentMap script_components;
         NameToIdMap name_to_id;
     };
 }
 
-TYPEID_SETUP_TYPE(euphoria::engine::CustomArguments);
+TYPEID_SETUP_TYPE(euphoria::runner::CustomArguments);
 

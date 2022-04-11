@@ -8,7 +8,7 @@
     [
         [
             "#include \"core/{file_stem}\\.h\"",
-            "#include \"engine/{file_stem}\\.h\"",
+            "#include \"runner/{file_stem}\\.h\"",
             "#include \"editor/{file_stem}\\.h\"",
             "#include \"window/{file_stem}\\.h\"",
             "#include \"t3d/{file_stem}\\.h\"",
@@ -73,7 +73,7 @@
         ],
 
         ["#include \"core/[a-z_A-Z0-9.]+\\.h\""],
-        ["#include \"engine/[a-z_A-Z0-9.]+\\.h\""],
+        ["#include \"runner/[a-z_A-Z0-9.]+\\.h\""],
         ["#include \"editor/[a-z_A-Z0-9.]+\\.h\""],
         ["#include \"window/[a-z_A-Z0-9.]+\\.h\""],
         ["#include \"t3d/[a-z_A-Z0-9.]+\\.h\""],

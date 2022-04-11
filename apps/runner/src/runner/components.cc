@@ -1,4 +1,4 @@
-#include "engine/components.h"
+#include "runner/components.h"
 
 #include <memory>
 
@@ -10,7 +10,7 @@
 #include "render/spriterender.h"
 #include "render/texturecache.h"
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     ComponentPosition2::ComponentPosition2()
         : pos(0, 0)

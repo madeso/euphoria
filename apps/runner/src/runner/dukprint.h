@@ -2,8 +2,8 @@
 
 #include "core/sol_forward.h"
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     void
-    bind_math(LuaState* duk);
+	add_print(LuaState* duk);
 }

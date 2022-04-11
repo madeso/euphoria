@@ -8,7 +8,7 @@
         "libs/minsynth/src/",
         "libs/render/src/",
         "libs/window/src/",
-        "apps/engine/src/"
+        "apps/runner/src/"
     ],
     "include_directories":
     [
@@ -19,6 +19,6 @@
         "libs/minsynth/src/",
         "libs/render/src/",
         "libs/window/src/",
-        "apps/engine/src/"
+        "apps/runner/src/"
     ]
 }

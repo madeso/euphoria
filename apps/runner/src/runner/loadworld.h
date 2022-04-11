@@ -12,7 +12,7 @@ namespace euphoria::core::vfs
 }
 
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     struct ScriptRegistry;
     struct ObjectCreator;

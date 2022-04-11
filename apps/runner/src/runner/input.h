@@ -9,7 +9,7 @@
 #include "core/sol.h"
 
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
     struct BoundVar
     {
@@ -51,5 +51,5 @@ namespace euphoria::engine
     };
 }
 
-TYPEID_SETUP_TYPE(euphoria::engine::BoundVar);
+TYPEID_SETUP_TYPE(euphoria::runner::BoundVar);
 

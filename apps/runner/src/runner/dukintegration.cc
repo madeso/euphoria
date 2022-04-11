@@ -1,4 +1,4 @@
-#include "engine/dukintegration.h"
+#include "runner/dukintegration.h"
 
 #include <map>
 #include <functional>
@@ -9,15 +9,15 @@
 #include "core/cint.h"
 #include "core/ecs.h"
 
-#include "engine/ecs.systems.h"
-#include "engine/components.h"
-#include "engine/input.h"
-#include "engine/dukregistry.h"
-#include "engine/objectemplate.h"
-#include "engine/cameradata.h"
+#include "runner/ecs.systems.h"
+#include "runner/components.h"
+#include "runner/input.h"
+#include "runner/dukregistry.h"
+#include "runner/objectemplate.h"
+#include "runner/cameradata.h"
 
 
-namespace euphoria::engine
+namespace euphoria::runner
 {
 
     template<typename T>
@@ -176,7 +176,7 @@ namespace euphoria::engine
                 World* wr,
                 LuaState* duk,
                 ObjectCreator* cr,
-                engine::Components* cc,
+                runner::Components* cc,
                 CameraData* cam
         )
             : systems(sys, duk)
@@ -365,7 +365,7 @@ namespace euphoria::engine
         sol::table input;
         World* world;
         ObjectCreator* creator;
-        engine::Components* components;
+        runner::Components* components;
         CameraData* camera;
     };
 
@@ -422,5 +422,5 @@ namespace euphoria::engine
 }
 
 TYPEID_SETUP_TYPE(euphoria::core::Random);
-TYPEID_SETUP_TYPE(euphoria::engine::ObjectTemplate);
+TYPEID_SETUP_TYPE(euphoria::runner::ObjectTemplate);
 TYPEID_SETUP_TYPE(euphoria::core::Rect<float>);
