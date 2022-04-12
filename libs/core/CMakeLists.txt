@@ -23,7 +23,7 @@ set(app_src_math
     src/core/aabb.cc src/core/aabb.h
     src/core/angle.cc src/core/angle.h
     src/core/axisangle.cc src/core/axisangle.h
-    src/core/bezierpath.cc src/core/bezierpath.h
+    src/core/polybezier.cc src/core/polybezier.h
     src/core/collage.cc src/core/collage.h
     src/core/easing.cc src/core/easing.h
     src/core/lines.cc src/core/lines.h

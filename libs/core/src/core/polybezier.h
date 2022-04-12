@@ -31,7 +31,10 @@ namespace euphoria::core
         Vec2f c1;
     };
 
-    struct BezierPath2
+    /*
+    Composite Bézier curve or polybezier
+    */
+    struct PolyBezier2
     {
         std::vector<Vec2f> points;
         bool is_closed = false;
@@ -39,7 +42,7 @@ namespace euphoria::core
         // todo(Gustav): move out to a controller?
         bool autoset = false;
 
-        BezierPath2(const Vec2f& center);
+        PolyBezier2(const Vec2f& center);
 
         [[nodiscard]] static bool
         is_anchor_point(size_t i);
@@ -91,7 +94,19 @@ namespace euphoria::core
     };
 
     // todo(Gustav): merge with svg::Poly
-    struct VertexPath2
+    /*
+    wikipedia call this:
+    * polygonal chain
+    * polygonal curve
+    * polygonal path
+    * polyline
+    * piecewise linear curve
+    * broken line
+    in geographic information systems:
+    * linestring
+    * linear ring
+    */
+    struct Polyline2
     {
         std::vector<Vec2f> points;
         bool is_closed = false;

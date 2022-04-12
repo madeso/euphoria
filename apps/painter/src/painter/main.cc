@@ -16,7 +16,7 @@
 #include "core/stdutils.h"
 #include "core/cint.h"
 #include "core/viewport.h"
-#include "core/bezierpath.h"
+#include "core/polybezier.h"
 
 #include "render/init.h"
 #include "render/debuggl.h"
@@ -87,7 +87,7 @@ main(int argc, char** argv)
     // main loop
     CanvasConfig cc;
     Canvas canvas;
-    BezierPath2 path(Vec2f(0, 0));
+    PolyBezier2 path(Vec2f(0, 0));
     int index = -1;
 
     while(running)
@@ -188,7 +188,7 @@ main(int argc, char** argv)
             // draw handles
             for(size_t point_index = 0; point_index < path.points.size(); point_index += 1)
             {
-                const bool is_anchor_point = BezierPath2::is_anchor_point(point_index);
+                const bool is_anchor_point = PolyBezier2::is_anchor_point(point_index);
                 if(path.autoset && !is_anchor_point)
                 {
                     continue;

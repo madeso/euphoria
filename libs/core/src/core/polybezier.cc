@@ -1,4 +1,4 @@
-#include "core/bezierpath.h"
+#include "core/polybezier.h"
 
 #include <array>
 
@@ -10,7 +10,7 @@ namespace euphoria::core
 {
     // LOG_SPECIFY_DEFAULT_LOGGER("painter")
 
-    BezierPath2::BezierPath2(const Vec2f& center)
+    PolyBezier2::PolyBezier2(const Vec2f& center)
     {
         const auto left = Vec2f(-1, 0);
         const auto right = Vec2f(1, 0);
@@ -24,7 +24,7 @@ namespace euphoria::core
     }
 
     void
-    BezierPath2::add_point(const Vec2f& p)
+    PolyBezier2::add_point(const Vec2f& p)
     {
         const auto p2 = points[points.size() - 2]; // control point
         const auto p3 = points[points.size() - 1]; // anchor point
@@ -44,20 +44,20 @@ namespace euphoria::core
     }
 
     bool
-    BezierPath2::is_anchor_point(size_t i)
+    PolyBezier2::is_anchor_point(size_t i)
     {
         return i % 3 == 0;
     }
 
     bool
-    BezierPath2::is_control_point(size_t i)
+    PolyBezier2::is_control_point(size_t i)
     {
         return !is_anchor_point(i);
     }
 
 
     void
-    BezierPath2::move_point(int i, const Vec2f& delta)
+    PolyBezier2::move_point(int i, const Vec2f& delta)
     {
         if(autoset && is_control_point(i))
         {
@@ -106,7 +106,7 @@ namespace euphoria::core
     }
 
     BezierSegment2
-    BezierPath2::get_points_in_segment(size_t i) const
+    PolyBezier2::get_points_in_segment(size_t i) const
     {
         const size_t b = i * 3;
         return {
@@ -118,13 +118,13 @@ namespace euphoria::core
     }
 
     size_t
-    BezierPath2::get_number_of_segments() const
+    PolyBezier2::get_number_of_segments() const
     {
         return points.size() / 3;
     }
 
     void
-    BezierPath2::set_closed(bool new_is_closed)
+    PolyBezier2::set_closed(bool new_is_closed)
     {
         if(is_closed == new_is_closed)
         {
@@ -160,14 +160,14 @@ namespace euphoria::core
     }
 
     void
-    BezierPath2::toggle_closed()
+    PolyBezier2::toggle_closed()
     {
         set_closed(!is_closed);
     }
 
 
     void
-    BezierPath2::set_auto_set_control_points(bool is_autoset)
+    PolyBezier2::set_auto_set_control_points(bool is_autoset)
     {
         if(is_autoset == autoset)
         {
@@ -183,21 +183,21 @@ namespace euphoria::core
     }
 
     void
-    BezierPath2::toggle_auto_set_control_points()
+    PolyBezier2::toggle_auto_set_control_points()
     {
         set_auto_set_control_points(!autoset);
     }
 
 
     size_t
-    BezierPath2::loop_index(int i) const
+    PolyBezier2::loop_index(int i) const
     {
         const auto s = points.size();
         return (s + i) % s;
     }
 
     void
-    BezierPath2::auto_set_affected_control_points(int updated_anchor_index)
+    PolyBezier2::auto_set_affected_control_points(int updated_anchor_index)
     {
         const auto r = make_range(points);
         for(int i = updated_anchor_index - 3; i <= updated_anchor_index + 3;
@@ -214,7 +214,7 @@ namespace euphoria::core
     }
 
     void
-    BezierPath2::auto_set_all_control_points()
+    PolyBezier2::auto_set_all_control_points()
     {
         for(int i = 0; i < c_sizet_to_int(points.size()); i += 3)
         {
@@ -224,7 +224,7 @@ namespace euphoria::core
     }
 
     void
-    BezierPath2::auto_set_start_and_end_control_points()
+    PolyBezier2::auto_set_start_and_end_control_points()
     {
         if(is_closed)
         {
@@ -239,7 +239,7 @@ namespace euphoria::core
     }
 
     void
-    BezierPath2::auto_set_anchor_control_points(int anchor_index)
+    PolyBezier2::auto_set_anchor_control_points(int anchor_index)
     {
         const auto r = make_range(points);
         const auto anchor_pos = points[anchor_index];
