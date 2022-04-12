@@ -9,7 +9,6 @@ Inspirations are
 * portal 2 level editor: https://www.youtube.com/watch?v=iJgllufikSo
 
 ## todo
-* better editor camera
 * duplicate selected item
 * delete selected item
 * box selection
