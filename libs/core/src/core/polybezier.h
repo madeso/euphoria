@@ -23,10 +23,16 @@ namespace euphoria::core
 
     // check if point in poly: http://geomalgorithms.com/a03-_inclusion.html
 
+
+    // anchor and control points
+    // curve passes through anchor points and control points are used for shaping the curve
+    // each point in the curve has 2 control points, except the first and last that only has one
+    
     struct BezierSegment2
     {
         Vec2f a0;
         Vec2f c0;
+
         Vec2f a1;
         Vec2f c1;
     };
@@ -62,7 +68,7 @@ namespace euphoria::core
         get_number_of_segments() const;
 
         [[nodiscard]] BezierSegment2
-        get_points_in_segment(size_t i) const;
+        get_segment(size_t i) const;
 
         void
         set_closed(bool is_closed);
@@ -75,6 +81,8 @@ namespace euphoria::core
 
         void
         toggle_auto_set_control_points();
+
+        /*
 
         // private stuff
         [[nodiscard]] size_t
@@ -91,9 +99,11 @@ namespace euphoria::core
 
         void
         auto_set_anchor_control_points(int anchor_index);
+
+        */
     };
 
-    // todo(Gustav): merge with svg::Poly
+
     /*
     wikipedia call this:
     * polygonal chain
