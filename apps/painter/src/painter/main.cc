@@ -214,7 +214,7 @@ main(int argc, char** argv)
 
             // draw bezier and link lines
             const auto tseg = path.get_number_of_segments();
-            for(size_t seg = 0; seg < tseg; seg += 1)
+            for(int seg = 0; seg < tseg; seg += 1)
             {
                 auto s = path.get_segment(seg);
                 auto* dl = ImGui::GetWindowDrawList();

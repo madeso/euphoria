@@ -48,6 +48,10 @@ namespace euphoria::core { namespace
         {
         }
 
+        Vec& point_at(int i) { return (*points)[i]; }
+        const Vec& point_at(int i) const { return (*points)[c_sizet_to_int(i)]; }
+        int num_points() const { return c_sizet_to_int(points->size()); }
+
         void reset(const Vec& left, const Vec& right, const Vec& up, const Vec& down, const Vec& center, float scale)
         {
             *is_autoset_enabled = false;
@@ -61,8 +65,8 @@ namespace euphoria::core { namespace
         
         void add_point(const Vec& p)
         {
-            const auto p2 = (*points)[points->size() - 2]; // control point
-            const auto p3 = (*points)[points->size() - 1]; // anchor point
+            const auto p2 = point_at(num_points() - 2); // control point
+            const auto p3 = point_at(num_points() - 1); // anchor point
 
             const auto p4 = p3 + Vec::from_to(p2, p3);
             const auto p6 = p;
@@ -74,7 +78,7 @@ namespace euphoria::core { namespace
 
             if(*is_autoset_enabled)
             {
-                auto_set_affected_control_points(c_sizet_to_int(points->size()) - 1);
+                auto_set_affected_control_points(num_points() - 1);
             }
         }
 
@@ -87,7 +91,7 @@ namespace euphoria::core { namespace
             }
 
             const auto r = make_range(*points);
-            (*points)[i] += delta;
+            point_at(i) += delta;
 
             if(*is_autoset_enabled)
             {
@@ -100,11 +104,11 @@ namespace euphoria::core { namespace
                 // anchor point, move control points too
                 if(*is_closed || is_within(r, i + 1))
                 {
-                    (*points)[loop_index(i + 1)] += delta;
+                    point_at(loop_index(i + 1)) += delta;
                 }
                 if(*is_closed || is_within(r, i - 1))
                 {
-                    (*points)[loop_index(i - 1)] += delta;
+                    point_at(loop_index(i - 1)) += delta;
                 }
             }
             else
@@ -116,30 +120,30 @@ namespace euphoria::core { namespace
                 {
                     const auto cci = loop_index(corresponding_control_index);
                     const auto ai = loop_index(anchor_index);
-                    const auto distance = Vec::from_to((*points)[cci], (*points)[ai]).get_length();
-                    const auto direction = Vec::from_to((*points)[i], (*points)[ai]).get_normalized();
-                    (*points)[cci] = (*points)[ai] + distance * direction;
+                    const auto distance = Vec::from_to(point_at(cci), point_at(ai)).get_length();
+                    const auto direction = Vec::from_to(point_at(i), point_at(ai)).get_normalized();
+                    point_at(cci) = point_at(ai) + distance * direction;
                 }
             }
         }
 
         [[nodiscard]] Segment
-        get_segment(size_t i) const
+        get_segment(int i) const
         {
-            const size_t b = i * 3;
+            const auto b = i * 3;
             return
             {
-                (*points)[b + 0], // anchor
-                (*points)[b + 1], // ^ control
-                (*points)[loop_index(c_sizet_to_int(b)+indices_between_anchor_pointsi)], // anchor
-                (*points)[b + 2] // ^ control
+                point_at(b + 0), // anchor
+                point_at(b + 1), // ^ control
+                point_at(loop_index(b+indices_between_anchor_pointsi)), // anchor
+                point_at(b + 2) // ^ control
             };
         }
 
-        size_t
+        int
         get_number_of_segments() const
         {
-            return points->size() / indices_between_anchor_points;
+            return num_points() / indices_between_anchor_points;
         }
 
         void
@@ -155,16 +159,16 @@ namespace euphoria::core { namespace
             if(*is_closed)
             {
                 // anchor control anchor (again)
-                const auto d = Vec::from_to((*points)[points->size() - 2], (*points)[points->size() - 1]);
-                const auto p1 = (*points)[points->size() - 1] + d;
-                const auto p2 = (*points)[0] + Vec::from_to((*points)[1], (*points)[0]);
+                const auto d = Vec::from_to(point_at(num_points() - 2), point_at(num_points() - 1));
+                const auto p1 = point_at(num_points() - 1) + d;
+                const auto p2 = point_at(0) + Vec::from_to(point_at(1), point_at(0));
                 points->push_back(p1);
                 points->push_back(p2);
 
                 if(*is_autoset_enabled)
                 {
                     auto_set_anchor_control_points(0);
-                    auto_set_anchor_control_points(c_sizet_to_int(points->size()) - indices_between_anchor_pointsi);
+                    auto_set_anchor_control_points(num_points() - indices_between_anchor_pointsi);
                 }
             }
             else
@@ -209,10 +213,10 @@ namespace euphoria::core { namespace
         }
 
 
-        size_t
+        int
         loop_index(int i) const
         {
-            const auto s = points->size();
+            const auto s = num_points();
             return (s + i) % s;
         }
 
@@ -240,7 +244,7 @@ namespace euphoria::core { namespace
         void
         auto_set_all_control_points()
         {
-            for(int i = 0; i < c_sizet_to_int(points->size()); i += indices_between_anchor_pointsi)
+            for(int i = 0; i < num_points(); i += indices_between_anchor_pointsi)
             {
                 auto_set_anchor_control_points(i);
             }
@@ -257,7 +261,7 @@ namespace euphoria::core { namespace
 
             const auto set_index = [&](int r, int a, int b)
             {
-                (*points)[loop_index(r)] = ((*points)[loop_index(a)] + (*points)[loop_index(b)]) * 0.5f;
+                point_at(loop_index(r)) = (point_at(loop_index(a)) + point_at(loop_index(b))) * 0.5f;
             };
             set_index( 1,  0,  2);
             set_index(-2, -1, -3);
@@ -267,13 +271,13 @@ namespace euphoria::core { namespace
         auto_set_anchor_control_points(int anchor_index)
         {
             const auto points_range = make_range(*points);
-            const auto anchor_pos = (*points)[anchor_index];
+            const auto anchor_pos = point_at(anchor_index);
 
             const auto get_distance_and_dir = [&](int index) -> std::pair<float, Vec>
             {
                 if(*is_closed || is_within(points_range, index))
                 {
-                    const auto ft = Vec::from_to(anchor_pos, (*points)[loop_index(index)]);
+                    const auto ft = Vec::from_to(anchor_pos, point_at(loop_index(index)));
                     const auto offset = ft.get_normalized_and_length();
                     const auto dir = offset.normalized.to_vec();
                     return {offset.length, dir};
@@ -287,7 +291,7 @@ namespace euphoria::core { namespace
             {
                 if(*is_closed || is_within(points_range, control_index))
                 {
-                    (*points)[loop_index(control_index)] = anchor_pos + dir * distance * 0.5f;
+                    point_at(loop_index(control_index)) = anchor_pos + dir * distance * 0.5f;
                 }
             };
 
@@ -359,14 +363,14 @@ namespace euphoria::core
         make_wrapper(this).move_point(i, delta);
     }
 
-    size_t
+    int
     PolyBezier2::get_number_of_segments() const
     {
         return make_wrapper(this).get_number_of_segments();
     }
 
     BezierSegment2
-    PolyBezier2::get_segment(size_t i) const
+    PolyBezier2::get_segment(int i) const
     {
         return make_wrapper(this).get_segment(i);
     }

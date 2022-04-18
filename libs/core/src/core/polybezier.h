@@ -64,11 +64,11 @@ namespace euphoria::core
         move_point(int i, const Vec2f& delta);
 
         // segment functions
-        [[nodiscard]] size_t
+        [[nodiscard]] int
         get_number_of_segments() const;
 
         [[nodiscard]] BezierSegment2
-        get_segment(size_t i) const;
+        get_segment(int i) const;
 
         void
         set_closed(bool is_closed);
