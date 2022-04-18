@@ -117,6 +117,7 @@ set(app_src
     src/core/intersection.cc src/core/intersection.h
     src/core/ints.cc src/core/ints.h
     src/core/io.cc src/core/io.h
+    src/core/iterate.cc src/core/iterate.h
     src/core/key.cc src/core/key.h
     src/core/knuthshuffle.cc src/core/knuthshuffle.h
     src/core/last_n.cc src/core/last_n.h
@@ -251,6 +252,7 @@ set(test_src
     src/core/insertionsort.test.cc
     src/core/interpolate.test.cc
     src/core/intersection.test.cc
+    src/core/iterate.test.cc
     src/core/loadedfont.test.cc
     src/core/mat4.test.cc
     src/core/multisort.test.cc
