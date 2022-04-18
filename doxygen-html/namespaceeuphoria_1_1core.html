@@ -321,6 +321,10 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StaticPalette.html">StaticPalette</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StepIterator.html">StepIterator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Basic string builder.  <a href="structeuphoria_1_1core_1_1StringBuilder.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1303,6 +1307,9 @@ Functions</h2></td></tr>
 <tr class="separator:a7544c0bf0fafbc6c716eff245324739c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9aa05d9c9d86f5f927d010c9359e810c"><td class="memItemLeft" align="right" valign="top">std::optional&lt; float &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a9aa05d9c9d86f5f927d010c9359e810c">get_intersection_ray_triangle</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;v0, const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;v1, const <a class="el" href="namespaceeuphoria_1_1core.html#abba9338710ab9852b3876cb4a495abab">Vec3f</a> &amp;v2)</td></tr>
 <tr class="separator:a9aa05d9c9d86f5f927d010c9359e810c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b2f2246b3a47e7b0f4a2dbda5cf9411"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7b2f2246b3a47e7b0f4a2dbda5cf9411"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a7b2f2246b3a47e7b0f4a2dbda5cf9411">iterate</a> (const T from, T to, T step=1)</td></tr>
+<tr class="separator:a7b2f2246b3a47e7b0f4a2dbda5cf9411"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af24d04d4cc7e9dadc73b1412e11952cf"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#af24d04d4cc7e9dadc73b1412e11952cf">to_string</a> (<a class="el" href="namespaceeuphoria_1_1core.html#aca4be613f8530e618686f73fdb00eeac">MouseButton</a> button)</td></tr>
 <tr class="separator:af24d04d4cc7e9dadc73b1412e11952cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7594444660871b56e1ab43909ba46f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#aca4be613f8530e618686f73fdb00eeac">MouseButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae7594444660871b56e1ab43909ba46f3">to_mouse_button</a> (const std::string &amp;button)</td></tr>
@@ -9690,6 +9697,44 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7b2f2246b3a47e7b0f4a2dbda5cf9411"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b2f2246b3a47e7b0f4a2dbda5cf9411">&#9670;&nbsp;</a></span>iterate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt;T&gt; euphoria::core::iterate </td>
+          <td>(</td>
+          <td class="paramtype">const T&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>to</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>step</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="iterate_8h_source.html#l00058">58</a> of file <a class="el" href="iterate_8h_source.html">iterate.h</a>.</p>
 
 </div>
 </div>
