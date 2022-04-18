@@ -338,6 +338,12 @@ namespace euphoria::core
         make_wrapper(this).reset(left, right, up, down, center, 50.0f);
     }
 
+    [[nodiscard]] StepIteratorCreator<size_t>
+    PolyBezier2::iterate_points() const
+    {
+        return iterate<std::size_t>(0, points.size());
+    }
+
     void
     PolyBezier2::add_point(const Vec2f& p)
     {
@@ -363,10 +369,10 @@ namespace euphoria::core
         make_wrapper(this).move_point(i, delta);
     }
 
-    int
-    PolyBezier2::get_number_of_segments() const
+    [[nodiscard]] StepIteratorCreator<int>
+    PolyBezier2::iterate_segments() const
     {
-        return make_wrapper(this).get_number_of_segments();
+        return iterate(0, make_wrapper(this).get_number_of_segments());
     }
 
     BezierSegment2

@@ -1,7 +1,9 @@
 #pragma once
 
 #include <vector>
+
 #include "core/vec2.h"
+#include "core/iterate.h"
 
 namespace euphoria::core
 {
@@ -56,16 +58,17 @@ namespace euphoria::core
         [[nodiscard]] static bool
         is_control_point(size_t i);
 
-        // point functions
+        [[nodiscard]] StepIteratorCreator<size_t>
+        iterate_points() const;
+
         void
         add_point(const Vec2f& p);
 
         void
         move_point(int i, const Vec2f& delta);
 
-        // segment functions
-        [[nodiscard]] int
-        get_number_of_segments() const;
+        [[nodiscard]] StepIteratorCreator<int>
+        iterate_segments() const;
 
         [[nodiscard]] BezierSegment2
         get_segment(int i) const;

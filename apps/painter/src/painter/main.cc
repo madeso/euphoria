@@ -186,7 +186,7 @@ main(int argc, char** argv)
             const auto line_color = IM_COL32(0, 0, 0, 255);
 
             // draw handles
-            for(size_t point_index = 0; point_index < path.points.size(); point_index += 1)
+            for(auto point_index: path.iterate_points())
             {
                 const bool is_anchor_point = PolyBezier2::is_anchor_point(point_index);
                 if(path.is_autoset_enabled && !is_anchor_point)
@@ -213,8 +213,7 @@ main(int argc, char** argv)
             }
 
             // draw bezier and link lines
-            const auto tseg = path.get_number_of_segments();
-            for(int seg = 0; seg < tseg; seg += 1)
+            for(int seg: path.iterate_segments())
             {
                 auto s = path.get_segment(seg);
                 auto* dl = ImGui::GetWindowDrawList();
