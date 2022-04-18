@@ -2,12 +2,14 @@
 
 #include <tuple>
 
+#include "assert/assert.h"
+
 #include "core/interpolate.h"
 #include "core/angle.h"
 #include "core/typeinfo.h"
 #include "core/numeric.h"
-#include "assert/assert.h"
 #include "core/cint.h"
+#include "core/vec.base.h"
 
 
 namespace euphoria::core
@@ -121,18 +123,18 @@ namespace euphoria::core
             return l;
         }
 
-        std::pair<T, Unit>
+        NormalizedAndLength<Unit, T>
         get_normalized_and_length() const
         {
             Self r = *this;
             const auto l = r.normalize();
-            return std::make_pair(l, Unit {r});
+            return {Unit{r}, l};
         }
 
         Unit
         get_normalized() const
         {
-            return get_normalized_and_length().second;
+            return get_normalized_and_length().normalized;
         }
     };
 
@@ -172,7 +174,7 @@ namespace euphoria::core
         }
 
         Vec2<T>
-        vec() const
+        to_vec() const
         {
             return Vec2<T>(x, y);
         }

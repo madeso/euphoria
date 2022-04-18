@@ -1,6 +1,5 @@
 #include "core/polybezier.h"
 
-#include <array>
 #include <type_traits>
 
 #include "core/range.h"
@@ -9,10 +8,13 @@
 
 namespace euphoria::core { namespace
 {
+    constexpr size_t indices_between_anchor_points  = 3;
+    constexpr size_t indices_between_anchor_pointsi = 3;
+
     bool
     is_anchor_point(size_t i)
     {
-        return i % 3 == 0;
+        return i % indices_between_anchor_points == 0;
     }
 
     bool
@@ -24,70 +26,70 @@ namespace euphoria::core { namespace
     template<typename T, bool b> struct Const { using Type = T; };
     template<typename T> struct Const<T, true> { using Type = std::add_const_t<T>; };
 
-    template<typename Vec, typename Segment, bool is_const>
+    template<typename Vec, typename Segment, typename Unit, bool is_const>
     struct PolyBezierWrapper
     {
         using TPoints = typename Const<std::vector<Vec>, is_const>::Type;
         using TBool = typename Const<bool, is_const>::Type;
 
-        TPoints* ppoints;
-        TBool* pis_closed;
-        TBool* pautoset;
+        TPoints* points;
+        TBool* is_closed;
+        TBool* is_autoset_enabled;
 
         PolyBezierWrapper
         (
-            TPoints* points,
-            TBool* is_closed,
-            TBool* autoset
+            TPoints* arg_points,
+            TBool* arg_is_closed,
+            TBool* arg_is_autoset_enabled
         )
-            : ppoints(points)
-            , pis_closed(is_closed)
-            , pautoset(autoset)
+            : points(arg_points)
+            , is_closed(arg_is_closed)
+            , is_autoset_enabled(arg_is_autoset_enabled)
         {
         }
 
         void reset(const Vec& left, const Vec& right, const Vec& up, const Vec& down, const Vec& center, float scale)
         {
-            *pautoset = false;
-            *pis_closed = false;
-            ppoints->clear();
-            ppoints->push_back(center + left * scale);
-            ppoints->push_back(center + (left + up) * 0.5f * scale);
-            ppoints->push_back(center + (right + down) * 0.5f * scale);
-            ppoints->push_back(center + right * scale);
+            *is_autoset_enabled = false;
+            *is_closed = false;
+            points->clear();
+            points->push_back(center + left * scale);
+            points->push_back(center + (left + up) * 0.5f * scale);
+            points->push_back(center + (right + down) * 0.5f * scale);
+            points->push_back(center + right * scale);
         }
         
         void add_point(const Vec& p)
         {
-            const auto p2 = (*ppoints)[ppoints->size() - 2]; // control point
-            const auto p3 = (*ppoints)[ppoints->size() - 1]; // anchor point
+            const auto p2 = (*points)[points->size() - 2]; // control point
+            const auto p3 = (*points)[points->size() - 1]; // anchor point
 
             const auto p4 = p3 + Vec::from_to(p2, p3);
             const auto p6 = p;
             const auto p5 = p4 + Vec::from_to(p4, p6);
 
-            ppoints->push_back(p4);
-            ppoints->push_back(p5);
-            ppoints->push_back(p6);
+            points->push_back(p4);
+            points->push_back(p5);
+            points->push_back(p6);
 
-            if(*pautoset)
+            if(*is_autoset_enabled)
             {
-                auto_set_affected_control_points(c_sizet_to_int(ppoints->size()) - 1);
+                auto_set_affected_control_points(c_sizet_to_int(points->size()) - 1);
             }
         }
 
         void move_point(int i, const Vec& delta)
         {
-            if(*pautoset && is_control_point(i))
+            if(*is_autoset_enabled && is_control_point(i))
             {
-                // that point is on autoset
+                // that point is on is_autoset_enabled
                 return;
             }
 
-            const auto r = make_range(*ppoints);
-            (*ppoints)[i] += delta;
+            const auto r = make_range(*points);
+            (*points)[i] += delta;
 
-            if(*pautoset)
+            if(*is_autoset_enabled)
             {
                 auto_set_affected_control_points(i);
                 return;
@@ -96,13 +98,13 @@ namespace euphoria::core { namespace
             if(is_anchor_point(i))
             {
                 // anchor point, move control points too
-                if(*pis_closed || is_within(r, i + 1))
+                if(*is_closed || is_within(r, i + 1))
                 {
-                    (*ppoints)[loop_index(i + 1)] += delta;
+                    (*points)[loop_index(i + 1)] += delta;
                 }
-                if(*pis_closed || is_within(r, i - 1))
+                if(*is_closed || is_within(r, i - 1))
                 {
-                    (*ppoints)[loop_index(i - 1)] += delta;
+                    (*points)[loop_index(i - 1)] += delta;
                 }
             }
             else
@@ -110,13 +112,13 @@ namespace euphoria::core { namespace
                 // point is control point, move the opposite point
                 const int corresponding_control_index = is_anchor_point(i + 1) ? i + 2 : i - 2;
                 const int anchor_index = is_anchor_point(i + 1) ? i + 1 : i - 1;
-                if(*pis_closed || is_within(r, corresponding_control_index))
+                if(*is_closed || is_within(r, corresponding_control_index))
                 {
                     const auto cci = loop_index(corresponding_control_index);
                     const auto ai = loop_index(anchor_index);
-                    const auto distance = Vec::from_to((*ppoints)[cci], (*ppoints)[ai]).get_length();
-                    const auto direction = Vec::from_to((*ppoints)[i], (*ppoints)[ai]).get_normalized();
-                    (*ppoints)[cci] = (*ppoints)[ai] + distance * direction;
+                    const auto distance = Vec::from_to((*points)[cci], (*points)[ai]).get_length();
+                    const auto direction = Vec::from_to((*points)[i], (*points)[ai]).get_normalized();
+                    (*points)[cci] = (*points)[ai] + distance * direction;
                 }
             }
         }
@@ -127,49 +129,50 @@ namespace euphoria::core { namespace
             const size_t b = i * 3;
             return
             {
-                (*ppoints)[b + 0], // anchor
-                (*ppoints)[b + 1], // ^ control
-                (*ppoints)[loop_index(c_sizet_to_int(b) + 3)], // anchor
-                (*ppoints)[b + 2] // ^ control
+                (*points)[b + 0], // anchor
+                (*points)[b + 1], // ^ control
+                (*points)[loop_index(c_sizet_to_int(b)+indices_between_anchor_pointsi)], // anchor
+                (*points)[b + 2] // ^ control
             };
         }
 
         size_t
         get_number_of_segments() const
         {
-            return ppoints->size() / 3;
+            return points->size() / indices_between_anchor_points;
         }
 
         void
         set_closed(bool new_is_closed)
         {
-            if(*pis_closed == new_is_closed)
+            if(*is_closed == new_is_closed)
             {
                 return;
             }
 
-            *pis_closed = new_is_closed;
+            *is_closed = new_is_closed;
 
-            if(*pis_closed)
+            if(*is_closed)
             {
                 // anchor control anchor (again)
-                const auto p1 = (*ppoints)[ppoints->size() - 1] + Vec::from_to((*ppoints)[ppoints->size() - 2], (*ppoints)[ppoints->size() - 1]);
-                const auto p2 = (*ppoints)[0] + Vec::from_to((*ppoints)[1], (*ppoints)[0]);
-                ppoints->push_back(p1);
-                ppoints->push_back(p2);
+                const auto d = Vec::from_to((*points)[points->size() - 2], (*points)[points->size() - 1]);
+                const auto p1 = (*points)[points->size() - 1] + d;
+                const auto p2 = (*points)[0] + Vec::from_to((*points)[1], (*points)[0]);
+                points->push_back(p1);
+                points->push_back(p2);
 
-                if(*pautoset)
+                if(*is_autoset_enabled)
                 {
                     auto_set_anchor_control_points(0);
-                    auto_set_anchor_control_points(c_sizet_to_int(ppoints->size()) - 3);
+                    auto_set_anchor_control_points(c_sizet_to_int(points->size()) - indices_between_anchor_pointsi);
                 }
             }
             else
             {
-                ppoints->pop_back();
-                ppoints->pop_back();
+                points->pop_back();
+                points->pop_back();
 
-                if(*pautoset)
+                if(*is_autoset_enabled)
                 {
                     auto_set_start_and_end_control_points();
                 }
@@ -179,21 +182,21 @@ namespace euphoria::core { namespace
         void
         toggle_closed()
         {
-            set_closed(!*pis_closed);
+            set_closed(!*is_closed);
         }
 
 
         void
         set_auto_set_control_points(bool is_autoset)
         {
-            if(is_autoset == *pautoset)
+            if(is_autoset == *is_autoset_enabled)
             {
                 return;
             }
 
-            *pautoset = is_autoset;
+            *is_autoset_enabled = is_autoset;
 
-            if(*pautoset)
+            if(*is_autoset_enabled)
             {
                 auto_set_all_control_points();
             }
@@ -202,29 +205,33 @@ namespace euphoria::core { namespace
         void
         toggle_auto_set_control_points()
         {
-            set_auto_set_control_points(!*pautoset);
+            set_auto_set_control_points(!*is_autoset_enabled);
         }
 
 
         size_t
         loop_index(int i) const
         {
-            const auto s = ppoints->size();
+            const auto s = points->size();
             return (s + i) % s;
         }
 
         void
         auto_set_affected_control_points(int updated_anchor_index)
         {
-            const auto r = make_range(*ppoints);
-            for(int i = updated_anchor_index - 3; i <= updated_anchor_index + 3;
-                i += 3)
+            const auto points_range = make_range(*points);
+            
+            const auto update_anchor_index = [&](int anchor_index)
             {
-                if(*pis_closed || is_within(r, i))
+                if(*is_closed || is_within(points_range, anchor_index))
                 {
-                    auto_set_anchor_control_points(c_sizet_to_int(loop_index(i)));
+                    auto_set_anchor_control_points(loop_index(anchor_index));
                 }
-            }
+            };
+
+            update_anchor_index(updated_anchor_index - indices_between_anchor_pointsi);
+            update_anchor_index(updated_anchor_index);
+            update_anchor_index(updated_anchor_index + indices_between_anchor_pointsi);
 
             // might be affected...
             auto_set_start_and_end_control_points();
@@ -233,7 +240,7 @@ namespace euphoria::core { namespace
         void
         auto_set_all_control_points()
         {
-            for(int i = 0; i < c_sizet_to_int(ppoints->size()); i += 3)
+            for(int i = 0; i < c_sizet_to_int(points->size()); i += indices_between_anchor_pointsi)
             {
                 auto_set_anchor_control_points(i);
             }
@@ -243,70 +250,73 @@ namespace euphoria::core { namespace
         void
         auto_set_start_and_end_control_points()
         {
-            if(*pis_closed)
+            if(*is_closed)
             {
                 return;
             }
 
-            for(int i = 0; i < 2; i += 1)
+            const auto set_index = [&](int r, int a, int b)
             {
-                const auto b = std::array<size_t, 2> {0, ppoints->size() - 3}[i];
-                (*ppoints)[b + 1] = ((*ppoints)[b + 0] + (*ppoints)[b + 2]) * 0.5f;
-            }
+                (*points)[loop_index(r)] = ((*points)[loop_index(a)] + (*points)[loop_index(b)]) * 0.5f;
+            };
+            set_index( 1,  0,  2);
+            set_index(-2, -1, -3);
         }
 
         void
         auto_set_anchor_control_points(int anchor_index)
         {
-            const auto r = make_range(*ppoints);
-            const auto anchor_pos = (*ppoints)[anchor_index];
-            auto dir = Vec::zero();
-            auto distances = std::array<float, 2> {0, 0};
+            const auto points_range = make_range(*points);
+            const auto anchor_pos = (*points)[anchor_index];
 
-            auto f = [&](int scale, int dist_index)
+            const auto get_distance_and_dir = [&](int index) -> std::pair<float, Vec>
             {
-                const auto index = anchor_index - 3 * scale;
-                if(*pis_closed || is_within(r, index))
+                if(*is_closed || is_within(points_range, index))
                 {
-                    auto offset = (Vec::from_to(anchor_pos, (*ppoints)[loop_index(index)])).get_normalized_and_length();
-                    dir += offset.second.vec() * c_int_to_float(scale);
-                    distances[c_int_to_sizet(dist_index)] = offset.first * static_cast<float>(scale);
+                    const auto ft = Vec::from_to(anchor_pos, (*points)[loop_index(index)]);
+                    const auto offset = ft.get_normalized_and_length();
+                    const auto dir = offset.normalized.to_vec();
+                    return {offset.length, dir};
+                }
+                else
+                {
+                    return {0.0f, Vec::zero()};
                 }
             };
-            f(1, 0);
-            f(-1, 1);
-            dir.normalize();
-
-            for(int i = 0; i < 2; i += 1)
+            const auto set_control_point = [&](int control_index, float distance, const Unit& dir)
             {
-                const auto control_index
-                        = anchor_index + std::array<int, 2> {-1, 1}[i];
-                if(*pis_closed || is_within(r, control_index))
+                if(*is_closed || is_within(points_range, control_index))
                 {
-                    (*ppoints)[loop_index(control_index)]
-                            = anchor_pos + dir * distances[i] * 0.5f;
+                    (*points)[loop_index(control_index)] = anchor_pos + dir * distance * 0.5f;
                 }
-            }
+            };
+
+            const auto [distance_from_anchor_to_fst_neighbour, anchor_to_fst_neighbour] = get_distance_and_dir(anchor_index - indices_between_anchor_pointsi);
+            const auto [distance_from_anchor_to_sec_neighbour, anchor_to_sec_neighbour] = get_distance_and_dir(anchor_index + indices_between_anchor_pointsi);
+            const auto dir = Vec::from_to(anchor_to_sec_neighbour, anchor_to_fst_neighbour).get_normalized();
+
+            set_control_point(anchor_index - 1,  distance_from_anchor_to_fst_neighbour, dir);
+            set_control_point(anchor_index + 1, -distance_from_anchor_to_sec_neighbour, dir);
         }
     };
 
-    PolyBezierWrapper<euphoria::core::Vec2f, euphoria::core::BezierSegment2, false> make_wrapper(euphoria::core::PolyBezier2* self)
+    PolyBezierWrapper<Vec2f, BezierSegment2, Unit2f, false> make_wrapper(euphoria::core::PolyBezier2* self)
     {
         return
         {
             &self->points,
             &self->is_closed,
-            &self->autoset
+            &self->is_autoset_enabled
         };
     }
 
-    PolyBezierWrapper<euphoria::core::Vec2f, euphoria::core::BezierSegment2, true> make_wrapper(const euphoria::core::PolyBezier2* self)
+    PolyBezierWrapper<Vec2f, BezierSegment2, Unit2f, true> make_wrapper(const euphoria::core::PolyBezier2* self)
     {
         return
         {
             &self->points,
             &self->is_closed,
-            &self->autoset
+            &self->is_autoset_enabled
         };
     }
 }}
@@ -321,7 +331,7 @@ namespace euphoria::core
         const auto up = Vec2f(0, 1);
         const auto down = Vec2f(0, -1);
 
-        make_wrapper(this).reset(left, right, up, down, center, 1.0f);
+        make_wrapper(this).reset(left, right, up, down, center, 50.0f);
     }
 
     void
@@ -385,92 +395,4 @@ namespace euphoria::core
     {
         make_wrapper(this).toggle_auto_set_control_points();
     }
-
-    /*
-
-
-    size_t
-    PolyBezier2::loop_index(int i) const
-    {
-        const auto s = points.size();
-        return (s + i) % s;
-    }
-
-    void
-    PolyBezier2::auto_set_affected_control_points(int updated_anchor_index)
-    {
-        const auto r = make_range(points);
-        for(int i = updated_anchor_index - 3; i <= updated_anchor_index + 3;
-            i += 3)
-        {
-            if(is_closed || is_within(r, i))
-            {
-                auto_set_anchor_control_points(c_sizet_to_int(loop_index(i)));
-            }
-        }
-
-        // might be affected...
-        auto_set_start_and_end_control_points();
-    }
-
-    void
-    PolyBezier2::auto_set_all_control_points()
-    {
-        for(int i = 0; i < c_sizet_to_int(points.size()); i += 3)
-        {
-            auto_set_anchor_control_points(i);
-        }
-        auto_set_start_and_end_control_points();
-    }
-
-    void
-    PolyBezier2::auto_set_start_and_end_control_points()
-    {
-        if(is_closed)
-        {
-            return;
-        }
-
-        for(int i = 0; i < 2; i += 1)
-        {
-            const auto b = std::array<size_t, 2> {0, points.size() - 3}[i];
-            points[b + 1] = (points[b + 0] + points[b + 2]) * 0.5f;
-        }
-    }
-
-    void
-    PolyBezier2::auto_set_anchor_control_points(int anchor_index)
-    {
-        const auto r = make_range(points);
-        const auto anchor_pos = points[anchor_index];
-        auto dir = Vec2f::zero();
-        auto distances = std::array<float, 2> {0, 0};
-
-        auto f = [&](int scale, int dist_index)
-        {
-            const auto index = anchor_index - 3 * scale;
-            if(is_closed || is_within(r, index))
-            {
-                auto offset = (Vec2f::from_to(anchor_pos, points[loop_index(index)])).get_normalized_and_length();
-                dir += offset.second.vec() * c_int_to_float(scale);
-                distances[c_int_to_sizet(dist_index)] = offset.first * static_cast<float>(scale);
-            }
-        };
-        f(1, 0);
-        f(-1, 1);
-        dir.normalize();
-
-        for(int i = 0; i < 2; i += 1)
-        {
-            const auto control_index
-                    = anchor_index + std::array<int, 2> {-1, 1}[i];
-            if(is_closed || is_within(r, control_index))
-            {
-                points[loop_index(control_index)]
-                        = anchor_pos + dir * distances[i] * 0.5f;
-            }
-        }
-    }
-    */
-
 }

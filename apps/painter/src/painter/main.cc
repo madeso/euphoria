@@ -189,7 +189,7 @@ main(int argc, char** argv)
             for(size_t point_index = 0; point_index < path.points.size(); point_index += 1)
             {
                 const bool is_anchor_point = PolyBezier2::is_anchor_point(point_index);
-                if(path.autoset && !is_anchor_point)
+                if(path.is_autoset_enabled && !is_anchor_point)
                 {
                     continue;
                 }
@@ -228,7 +228,7 @@ main(int argc, char** argv)
                     1
                 );
 
-                if(!path.autoset)
+                if(!path.is_autoset_enabled)
                 {
                     line(canvas.world_to_screen(con(s.a0)), canvas.world_to_screen(con(s.c0)), line_color);
                     line(canvas.world_to_screen(con(s.a1)), canvas.world_to_screen(con(s.c1)), line_color);
@@ -250,7 +250,7 @@ main(int argc, char** argv)
                 {
                     path.toggle_closed();
                 }
-                auto as = path.autoset;
+                auto as = path.is_autoset_enabled;
                 if(ImGui::Checkbox("Autoset control points", &as))
                 {
                     path.toggle_auto_set_control_points();

@@ -46,7 +46,7 @@ namespace euphoria::core
         bool is_closed = false;
 
         // todo(Gustav): move out to a controller?
-        bool autoset = false;
+        bool is_autoset_enabled = false;
 
         PolyBezier2(const Vec2f& center);
 
@@ -81,26 +81,6 @@ namespace euphoria::core
 
         void
         toggle_auto_set_control_points();
-
-        /*
-
-        // private stuff
-        [[nodiscard]] size_t
-        loop_index(int i) const;
-
-        void
-        auto_set_affected_control_points(int updated_anchor_index);
-
-        void
-        auto_set_all_control_points();
-
-        void
-        auto_set_start_and_end_control_points();
-
-        void
-        auto_set_anchor_control_points(int anchor_index);
-
-        */
     };
 
 

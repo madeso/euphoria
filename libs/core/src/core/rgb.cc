@@ -45,6 +45,7 @@ namespace euphoria::core
     float
     Rgb::calc_luminance() const
     {
+        // 0.3 0.59 0.11?
         return 0.2126f*r + 0.7152f*b + 0.0722f*b;
     }
 
