@@ -7,14 +7,23 @@
 
 namespace euco = euphoria::core;
 
-TEST_CASE("iterate-sum-10", "[iterate]")
+template<typename T>
+int sum_iterator(T iterator)
 {
     int r = 0;
-    for(auto i: euco::iterate(0, 10))
+    for(auto i: iterator)
     {
         r += i+1;
     }
-    REQUIRE(r == 55);
+    return r;
+}
+
+TEST_CASE("iterate-sums", "[iterate]")
+{
+    REQUIRE(sum_iterator(euco::iterate(0, 10)     ) == 55);
+    REQUIRE(sum_iterator(euco::iterate(0, 10, 3)  ) == 22);
+    REQUIRE(sum_iterator(euco::iterate(10, 0, -1) ) == 65);
+    REQUIRE(sum_iterator(euco::iterate(10, 0, -3) ) == 26);
 }
 
 TEST_CASE("iterate-odd", "[iterate]")

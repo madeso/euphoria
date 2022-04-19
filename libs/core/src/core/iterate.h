@@ -1,20 +1,37 @@
 #pragma once
 
+#include "assert/assert.h"
+
+
 namespace euphoria::core
 {
+    #include <cassert>
+
     template<typename T>
     struct StepIterator
     {
         T current; T to; T step;
         bool ended;
+        bool last;
+
+        static bool eval(T c, T t, T s)
+        {
+            if(s > 0) { return c >= t;}
+            else      { return c > t;}
+        }
+
+        StepIterator(T c, T t, T s, bool e)
+            : current(c), to(t), step(s), ended(e), last(eval(c, t, s))
+        {
+        }
 
         bool
         operator!=(const StepIterator<T>& rhs) const
         {
-            if(ended != rhs.ended ) return true;
-            if(to != rhs.to ) return true;
-            if(step != rhs.step ) return true;
-            return false;
+            ASSERT(to == rhs.to);
+            ASSERT(step == rhs.step);
+
+            return ended != rhs.ended;
         }
 
         T
@@ -27,7 +44,11 @@ namespace euphoria::core
         operator++()
         {
             current += step;
-            ended = current >= to;
+            const auto curr = eval(current, to, step);
+            if(curr != last)
+            {
+                ended = true;
+            }
         }
     };
 
@@ -51,7 +72,6 @@ namespace euphoria::core
             return StepIterator<T>{from, to, step, true};
         }
     };
-
 
     template<typename T>
     StepIteratorCreator<T>
