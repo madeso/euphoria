@@ -5,8 +5,6 @@
 
 namespace euphoria::core
 {
-    #include <cassert>
-
     template<typename T>
     struct StepIterator
     {
