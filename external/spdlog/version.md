@@ -1,1 +1,1 @@
-https://github.com/gabime/spdlog/releases/tag/v1.4.2
+https://github.com/gabime/spdlog/releases/tag/v1.10.0
