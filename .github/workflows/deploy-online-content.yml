@@ -1,4 +1,4 @@
-name: github pages
+name: deploy-online-content
 
 on: [push, pull_request]
 

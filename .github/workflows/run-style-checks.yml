@@ -1,4 +1,4 @@
-name: style
+name: run-style-checks
 
 on: [push, pull_request]
 

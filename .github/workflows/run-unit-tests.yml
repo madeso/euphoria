@@ -1,4 +1,4 @@
-name: coveralls
+name: run-unit-tests
 
 on: [push, pull_request]
 
