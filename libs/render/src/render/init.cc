@@ -20,10 +20,17 @@ namespace euphoria::render
             is_ok = false;
         }
 
-        LOG_INFO("Vendor:         {0}", glGetString(GL_VENDOR));
-        LOG_INFO("Renderer:       {0}", glGetString(GL_RENDERER));
-        LOG_INFO("Version OpenGL: {0}", glGetString(GL_VERSION));
-        LOG_INFO("Version GLSL:   {0}", glGetString(GL_SHADING_LANGUAGE_VERSION));
+        {
+            const std::string gl_vendor = reinterpret_cast<const char*>(glGetString(GL_VENDOR));
+            const std::string gl_renderer = reinterpret_cast<const char*>(glGetString(GL_RENDERER));
+            const std::string gl_version = reinterpret_cast<const char*>(glGetString(GL_VERSION));
+            const std::string gl_shading_language_version = reinterpret_cast<const char*>(glGetString(GL_SHADING_LANGUAGE_VERSION));
+
+            LOG_INFO("Vendor:         {0}", gl_vendor);
+            LOG_INFO("Renderer:       {0}", gl_renderer);
+            LOG_INFO("Version OpenGL: {0}", gl_version);
+            LOG_INFO("Version GLSL:   {0}", gl_shading_language_version);
+        }
 
         int attribute_count = 0;
         glGetIntegerv(GL_MAX_VERTEX_ATTRIBS, &attribute_count);
