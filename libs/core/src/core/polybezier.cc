@@ -49,8 +49,8 @@ namespace euphoria::core { namespace
         }
 
         Vec& point_at(int i) { return (*points)[i]; }
-        const Vec& point_at(int i) const { return (*points)[c_sizet_to_int(i)]; }
-        int num_points() const { return c_sizet_to_int(points->size()); }
+        [[nodiscard]] const Vec& point_at(int i) const { return (*points)[c_sizet_to_int(i)]; }
+        [[nodiscard]] int num_points() const { return c_sizet_to_int(points->size()); }
 
         void reset(const Vec& left, const Vec& right, const Vec& up, const Vec& down, const Vec& center, float scale)
         {
@@ -140,7 +140,7 @@ namespace euphoria::core { namespace
             };
         }
 
-        int
+        [[nodiscard]] int
         get_number_of_segments() const
         {
             return num_points() / indices_between_anchor_points;
@@ -213,7 +213,7 @@ namespace euphoria::core { namespace
         }
 
 
-        int
+        [[nodiscard]] int
         loop_index(int i) const
         {
             const auto s = num_points();
