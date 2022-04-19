@@ -1,4 +1,4 @@
-name: run-unit-tests
+name: run-coverage
 
 on: [push, pull_request]
 
