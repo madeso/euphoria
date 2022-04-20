@@ -182,6 +182,17 @@ target_include_directories(magic_enum SYSTEM
 add_library(external::magic_enum ALIAS magic_enum)
 
 
+
+###################################################################################################
+## magic enum
+add_library(open_color INTERFACE)
+target_include_directories(open_color SYSTEM
+    INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/open-color/include
+)
+add_library(external::open_color ALIAS open_color)
+
+
+
 ###################################################################################################
 ## assimp
 find_package(assimp REQUIRED)

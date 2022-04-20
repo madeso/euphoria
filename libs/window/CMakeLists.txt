@@ -17,6 +17,7 @@ set(app_src
     src/window/sdllibrary.cc src/window/sdllibrary.h
     src/window/sdlwindow.cc src/window/sdlwindow.h
     src/window/timer.cc src/window/timer.h
+    src/window/open-color.imgui.cc src/window/open-color.imgui.h
 )
 set(src ${app_src})
 source_group("" FILES ${app_src})
@@ -51,11 +52,12 @@ add_library(euph::window ALIAS window)
 set_target_properties(window PROPERTIES FOLDER "Libraries")
 target_include_directories(window
     PUBLIC
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
 target_link_libraries(window
     PUBLIC
         external::icon_font_cpp_headers
+        external::open_color
     PRIVATE
         euph::project_options
         euph::project_warnings

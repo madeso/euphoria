@@ -40,6 +40,7 @@
 #include "window/filesystem.h"
 #include "window/engine.h"
 #include "window/canvas.h"
+#include "window/open-color.imgui.h"
 
 #include "imgui/imgui.h"
 #include "SDL.h"
@@ -182,8 +183,11 @@ main(int argc, char** argv)
                 draw_list->PathStroke(color, ImDrawFlags_None);
             };
 
-            const auto curve_color = IM_COL32(0, 0, 200, 255);
-            const auto line_color = IM_COL32(0, 0, 0, 255);
+            const auto default_shade = 8;
+            const auto curve_color = oc_gray[9]; // IM_COL32(0, 0, 200, 255);
+            const auto line_color = oc_blue[default_shade]; //IM_COL32(0, 0, 0, 255);
+            const auto anchor_point_color = oc_cyan[default_shade]; IM_COL32(20, 20, 200, 255);
+            const auto control_point_color = oc_red[default_shade]; // IM_COL32(200, 20, 20, 255);
 
             // draw handles
             for(auto point_index: path.iterate_points())
@@ -193,11 +197,7 @@ main(int argc, char** argv)
                 {
                     continue;
                 }
-                const ImU32 alpha = 200;
-                const ImU32 color = is_anchor_point
-                    ? IM_COL32(20, 20, 200, alpha)
-                    : IM_COL32(200, 20, 20, alpha)
-                    ;
+                const auto color = is_anchor_point ? anchor_point_color : control_point_color;
                 auto r = handle(con(path.points[point_index]), euphoria::core::c_sizet_to_int(point_index), color);
                 if(r.first)
                 {
