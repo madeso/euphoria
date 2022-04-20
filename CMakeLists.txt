@@ -8,6 +8,13 @@ include(tools/cmake/standard_project_settings.cmake)
 include(tools/cmake/compiler_warnings.cmake)
 include(tools/cmake/win32define.cmake)
 
+if(WIN32)
+    # Error C1128	number of sections exceeded object file format limit: compile with /bigobj
+    # https://developercommunity.visualstudio.com/t/Enable-bigobj-by-default/1031214
+    # https://stackoverflow.com/questions/15110580/penalty-of-the-msvs-compiler-flag-bigobj
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /bigobj")
+endif()
+
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 # for debug builds only...
