@@ -53,8 +53,10 @@
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">euphoria::window Namespace Reference</div>  </div>
 </div><!--header-->
@@ -81,6 +83,11 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1window_1_1SdlWindow.html">SdlWindow</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:aa9994c29d8b416a8de3c17366b6a423f"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> = std::array&lt; ImU32, 10 &gt;</td></tr>
+<tr class="separator:aa9994c29d8b416a8de3c17366b6a423f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -109,9 +116,63 @@ Functions</h2></td></tr>
 <tr class="separator:aa6416d230d5dfd0df0b8098e178f415c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad07257e479b0c64aa3be0316228cd0f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#aca4be613f8530e618686f73fdb00eeac">core::MouseButton</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#ad07257e479b0c64aa3be0316228cd0f9">to_key</a> (SDL_MouseButtonEvent mb)</td></tr>
 <tr class="separator:ad07257e479b0c64aa3be0316228cd0f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b65b003162602535796ca2553fcb785"><td class="memItemLeft" align="right" valign="top">constexpr ImU32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a> (open_color::Hex h)</td></tr>
+<tr class="separator:a8b65b003162602535796ca2553fcb785"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca9f02c32095e810841feb87e2e05ab8"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#aca9f02c32095e810841feb87e2e05ab8">oc_to_dear_imgui_color</a> (open_color::Hexs h)</td></tr>
+<tr class="separator:aca9f02c32095e810841feb87e2e05ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0509ff09c4415d82c51e11057cc1978a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a0509ff09c4415d82c51e11057cc1978a">enable_char_event</a> (bool enable)</td></tr>
 <tr class="separator:a0509ff09c4415d82c51e11057cc1978a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a433a65f433026e24ac3731e803c8208d"><td class="memItemLeft" align="right" valign="top">constexpr ImU32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a433a65f433026e24ac3731e803c8208d">oc_white</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::white )</td></tr>
+<tr class="separator:a433a65f433026e24ac3731e803c8208d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f31d2520e3863dc958a343767dac6e"><td class="memItemLeft" align="right" valign="top">constexpr ImU32&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#aa8f31d2520e3863dc958a343767dac6e">oc_black</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::black )</td></tr>
+<tr class="separator:aa8f31d2520e3863dc958a343767dac6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5d18ff13644bb88d30d1b2c853357de"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#ad5d18ff13644bb88d30d1b2c853357de">oc_gray</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::gray )</td></tr>
+<tr class="separator:ad5d18ff13644bb88d30d1b2c853357de"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af86ec3612d45cf17c7ca549be903451b"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#af86ec3612d45cf17c7ca549be903451b">oc_red</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::red )</td></tr>
+<tr class="separator:af86ec3612d45cf17c7ca549be903451b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad142b36361050d28121743c10c18c0e8"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#ad142b36361050d28121743c10c18c0e8">oc_pink</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::pink )</td></tr>
+<tr class="separator:ad142b36361050d28121743c10c18c0e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac58070c0069f5a34f67bfba77b2ed21b"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#ac58070c0069f5a34f67bfba77b2ed21b">oc_grape</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::grape )</td></tr>
+<tr class="separator:ac58070c0069f5a34f67bfba77b2ed21b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca155006aab9683f29a85d768647c324"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#aca155006aab9683f29a85d768647c324">oc_violet</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::violet )</td></tr>
+<tr class="separator:aca155006aab9683f29a85d768647c324"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac15b2d31946cd11a5cdd60c136ef6b69"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#ac15b2d31946cd11a5cdd60c136ef6b69">oc_indigo</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::indigo )</td></tr>
+<tr class="separator:ac15b2d31946cd11a5cdd60c136ef6b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a2226eba5ebcfe64d713c537021c8e7"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a1a2226eba5ebcfe64d713c537021c8e7">oc_blue</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::blue )</td></tr>
+<tr class="separator:a1a2226eba5ebcfe64d713c537021c8e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a561f8482624d34786c9f6df530486f1d"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a561f8482624d34786c9f6df530486f1d">oc_cyan</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::cyan )</td></tr>
+<tr class="separator:a561f8482624d34786c9f6df530486f1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77bc862e218cdf7e9e02836a6e42dc5c"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a77bc862e218cdf7e9e02836a6e42dc5c">oc_teal</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::teal )</td></tr>
+<tr class="separator:a77bc862e218cdf7e9e02836a6e42dc5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d018abc2fc1b91784b9188c484165fd"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a4d018abc2fc1b91784b9188c484165fd">oc_green</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::green )</td></tr>
+<tr class="separator:a4d018abc2fc1b91784b9188c484165fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1ec376fdfb0ee3f648cccb5a37bcbcf"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#ad1ec376fdfb0ee3f648cccb5a37bcbcf">oc_lime</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::lime )</td></tr>
+<tr class="separator:ad1ec376fdfb0ee3f648cccb5a37bcbcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15f8c023c37a93448ed606763b4efbf7"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a15f8c023c37a93448ed606763b4efbf7">oc_yellow</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::yellow )</td></tr>
+<tr class="separator:a15f8c023c37a93448ed606763b4efbf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a690bbebc0009d2aa6bbfc96b7d5ed6ec"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a690bbebc0009d2aa6bbfc96b7d5ed6ec">oc_orange</a> = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::orange )</td></tr>
+<tr class="separator:a690bbebc0009d2aa6bbfc96b7d5ed6ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="aa9994c29d8b416a8de3c17366b6a423f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9994c29d8b416a8de3c17366b6a423f">&#9670;&nbsp;</a></span>Colors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">euphoria::window::Colors</a> = typedef std::array&lt;ImU32, 10&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00008">8</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="af0e2b3cfd44cffa0089449896c9f19f5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0e2b3cfd44cffa0089449896c9f19f5">&#9670;&nbsp;</a></span>Corner</h2>
@@ -233,6 +294,62 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a8b65b003162602535796ca2553fcb785"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b65b003162602535796ca2553fcb785">&#9670;&nbsp;</a></span>oc_to_dear_imgui_color() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr ImU32 euphoria::window::oc_to_dear_imgui_color </td>
+          <td>(</td>
+          <td class="paramtype">open_color::Hex&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00010">10</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="aca9f02c32095e810841feb87e2e05ab8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca9f02c32095e810841feb87e2e05ab8">&#9670;&nbsp;</a></span>oc_to_dear_imgui_color() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_to_dear_imgui_color </td>
+          <td>(</td>
+          <td class="paramtype">open_color::Hexs&#160;</td>
+          <td class="paramname"><em>h</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00026">26</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
 <a id="aa6416d230d5dfd0df0b8098e178f415c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa6416d230d5dfd0df0b8098e178f415c">&#9670;&nbsp;</a></span>to_key() <span class="overload">[1/2]</span></h2>
 
@@ -266,6 +383,367 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="aa8f31d2520e3863dc958a343767dac6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f31d2520e3863dc958a343767dac6e">&#9670;&nbsp;</a></span>oc_black</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr ImU32 euphoria::window::oc_black = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::black )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00039">39</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="a1a2226eba5ebcfe64d713c537021c8e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a2226eba5ebcfe64d713c537021c8e7">&#9670;&nbsp;</a></span>oc_blue</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_blue = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::blue )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00046">46</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="a561f8482624d34786c9f6df530486f1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a561f8482624d34786c9f6df530486f1d">&#9670;&nbsp;</a></span>oc_cyan</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_cyan = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::cyan )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00047">47</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="ac58070c0069f5a34f67bfba77b2ed21b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac58070c0069f5a34f67bfba77b2ed21b">&#9670;&nbsp;</a></span>oc_grape</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_grape = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::grape )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00043">43</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="ad5d18ff13644bb88d30d1b2c853357de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5d18ff13644bb88d30d1b2c853357de">&#9670;&nbsp;</a></span>oc_gray</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_gray = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::gray )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00040">40</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="a4d018abc2fc1b91784b9188c484165fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4d018abc2fc1b91784b9188c484165fd">&#9670;&nbsp;</a></span>oc_green</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_green = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::green )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00049">49</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="ac15b2d31946cd11a5cdd60c136ef6b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac15b2d31946cd11a5cdd60c136ef6b69">&#9670;&nbsp;</a></span>oc_indigo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_indigo = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::indigo )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00045">45</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="ad1ec376fdfb0ee3f648cccb5a37bcbcf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1ec376fdfb0ee3f648cccb5a37bcbcf">&#9670;&nbsp;</a></span>oc_lime</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_lime = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::lime )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00050">50</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="a690bbebc0009d2aa6bbfc96b7d5ed6ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a690bbebc0009d2aa6bbfc96b7d5ed6ec">&#9670;&nbsp;</a></span>oc_orange</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_orange = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::orange )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00052">52</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="ad142b36361050d28121743c10c18c0e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad142b36361050d28121743c10c18c0e8">&#9670;&nbsp;</a></span>oc_pink</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_pink = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::pink )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00042">42</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="af86ec3612d45cf17c7ca549be903451b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af86ec3612d45cf17c7ca549be903451b">&#9670;&nbsp;</a></span>oc_red</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_red = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::red )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00041">41</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="a77bc862e218cdf7e9e02836a6e42dc5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77bc862e218cdf7e9e02836a6e42dc5c">&#9670;&nbsp;</a></span>oc_teal</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_teal = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::teal )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00048">48</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="aca155006aab9683f29a85d768647c324"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca155006aab9683f29a85d768647c324">&#9670;&nbsp;</a></span>oc_violet</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_violet = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::violet )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00044">44</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="a433a65f433026e24ac3731e803c8208d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a433a65f433026e24ac3731e803c8208d">&#9670;&nbsp;</a></span>oc_white</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr ImU32 euphoria::window::oc_white = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::white )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00038">38</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
+
+</div>
+</div>
+<a id="a15f8c023c37a93448ed606763b4efbf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15f8c023c37a93448ed606763b4efbf7">&#9670;&nbsp;</a></span>oc_yellow</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a> euphoria::window::oc_yellow = <a class="el" href="namespaceeuphoria_1_1window.html#a8b65b003162602535796ca2553fcb785">oc_to_dear_imgui_color</a>(open_color::yellow )</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="open-color_8imgui_8h_source.html#l00051">51</a> of file <a class="el" href="open-color_8imgui_8h_source.html">open-color.imgui.h</a>.</p>
 
 </div>
 </div>
