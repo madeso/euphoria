@@ -147,9 +147,9 @@ main(int argc, char** argv)
             {
                 index = -1;
             }
-            auto handle = [&canvas, &index](const ImVec2& p, int id, ImU32 color)
+            auto handle = [&canvas, &index](const ImVec2& p, int id, ImU32 hover_color, ImU32 default_color)
             {
-                const auto size = 5.0f;
+                const auto size = 6.0f;
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
                 const auto sp = canvas.world_to_screen(p);
                 const auto me = ImGui::GetMousePos();
@@ -160,7 +160,7 @@ main(int argc, char** argv)
                 {
                     index = id;
                 }
-                draw_list->AddCircleFilled(sp, size, color);
+                draw_list->AddCircleFilled(sp, size, hover ? hover_color : default_color);
                 if(index == id)
                 {
                     // capture current drag item...
@@ -183,11 +183,13 @@ main(int argc, char** argv)
                 draw_list->PathStroke(color, ImDrawFlags_None);
             };
 
-            const auto default_shade = 8;
-            const auto curve_color = oc_gray[9]; // IM_COL32(0, 0, 200, 255);
-            const auto line_color = oc_blue[default_shade]; //IM_COL32(0, 0, 0, 255);
-            const auto anchor_point_color = oc_cyan[default_shade]; IM_COL32(20, 20, 200, 255);
-            const auto control_point_color = oc_red[default_shade]; // IM_COL32(200, 20, 20, 255);
+            constexpr auto default_shade = 9;
+            constexpr auto handle_default_shade = 7;
+            constexpr auto handle_hover_shade = 9;
+            constexpr auto curve_color = oc_gray[9]; // IM_COL32(0, 0, 200, 255);
+            constexpr auto line_color = oc_blue[default_shade]; //IM_COL32(0, 0, 0, 255);
+            constexpr auto anchor_point_color = oc_cyan;
+            constexpr auto control_point_color = oc_red;
 
             // draw handles
             for(auto point_index: path.iterate_points())
@@ -197,8 +199,8 @@ main(int argc, char** argv)
                 {
                     continue;
                 }
-                const auto color = is_anchor_point ? anchor_point_color : control_point_color;
-                auto r = handle(con(path.points[point_index]), euphoria::core::c_sizet_to_int(point_index), color);
+                const auto& color = is_anchor_point ? anchor_point_color : control_point_color;
+                auto r = handle(con(path.points[point_index]), euphoria::core::c_sizet_to_int(point_index), color[handle_hover_shade], color[handle_default_shade]);
                 if(r.first)
                 {
                     if(ImGui::GetIO().KeyCtrl)
