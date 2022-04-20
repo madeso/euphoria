@@ -18,9 +18,16 @@ target_include_directories(log
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
+
+target_compile_definitions(log
+    PUBLIC
+        SPDLOG_FMT_EXTERNAL
+)
+
 target_link_libraries(log
     PUBLIC
         external::spdlog
+        external::fmt
         undef_windows::undef_windows
     PRIVATE
         euph::project_options
