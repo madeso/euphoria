@@ -18,6 +18,7 @@
 #include "imgui/imgui_internal.h"
 #include "imgui_stdlib.h"
 
+#include "euph_generated_config.h"
 
 
 namespace euphoria::window
