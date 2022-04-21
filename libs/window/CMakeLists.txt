@@ -13,11 +13,11 @@ set(app_src
     src/window/imguilibrary.cc src/window/imguilibrary.h
     src/window/imguizmo.cc src/window/imguizmo.h
     src/window/key.cc src/window/key.h
+    src/window/open_color.imgui.cc src/window/open_color.imgui.h
     src/window/sdlglcontext.cc src/window/sdlglcontext.h
     src/window/sdllibrary.cc src/window/sdllibrary.h
     src/window/sdlwindow.cc src/window/sdlwindow.h
     src/window/timer.cc src/window/timer.h
-    src/window/open-color.imgui.cc src/window/open-color.imgui.h
 )
 set(src ${app_src})
 source_group("" FILES ${app_src})

@@ -40,7 +40,7 @@
 #include "window/filesystem.h"
 #include "window/engine.h"
 #include "window/canvas.h"
-#include "window/open-color.imgui.h"
+#include "window/open_color.imgui.h"
 
 #include "imgui/imgui.h"
 #include "SDL.h"
