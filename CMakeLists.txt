@@ -40,7 +40,6 @@ source_group("_cmake" REGULAR_EXPRESSION "CMakeLists\.txt") # is this the correc
 
 
 option(BUILD_ENTITY_DEBUG_COMPONENT "when converting components, (debug) assert of bad casts" OFF)
-set(BUILD_TYPEINFO_IMPL "rtti" CACHE STRING "rtti, ctti, custom_hashed, custom_rt")
 option(GENERATE_COVERAGE "generate code coverage information" OFF)
 
 
@@ -65,14 +64,6 @@ if(GENERATE_COVERAGE)
 endif()
 
 set(OpenGL_GL_PREFERENCE "GLVND")
-
-set(BUILD_TYPEINFO_IMPL_RTTI FALSE)
-set(BUILD_TYPEINFO_IMPL_CTTI FALSE)
-set(BUILD_TYPEINFO_IMPL_CUSTOM_HASHED FALSE)
-set(BUILD_TYPEINFO_IMPL_CUSTOM_RT FALSE)
-
-message(STATUS "BUILD_TYPEINFO_IMPL: ${BUILD_TYPEINFO_IMPL}")
-message(STATUS "Typeinfo totally disabled but was ${BUILD_TYPEINFO_IMPL}")
 
 set(MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_SOURCE_DIR}/tools/osx-bundle.plist")
 set(Gaf_CUSTOM_ARGUMENTS_FROM_FILE ${CMAKE_CURRENT_SOURCE_DIR}/tools/gaf_options.txt)
@@ -107,18 +98,11 @@ if(${MSVC})
     add_compile_options(/permissive-)
 endif()
 
-# disable rtti
-if(NOT BUILD_TYPEINFO_IMPL_RTTI)
-    if(MSVC)
-        add_compile_options(/GR-)
-    else()
-        add_compile_options(-fno-rtti)
-    endif()
-endif()
-
-
-if(BUILD_TYPEINFO_IMPL_CTTI)
-    include_directories(SYSTEM external/ctti/include)
+message(STATUS "Disabling RTTI")
+if(MSVC)
+    add_compile_options(/GR-)
+else()
+    add_compile_options(-fno-rtti)
 endif()
 
 

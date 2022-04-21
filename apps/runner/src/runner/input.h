@@ -4,7 +4,6 @@
 #include <memory>
 #include <vector>
 
-#include "core/typeinfo.h"
 #include "core/key.h"
 #include "core/sol.h"
 
@@ -50,6 +49,3 @@ namespace euphoria::runner
         std::vector<std::shared_ptr<BoundVar>> binds;
     };
 }
-
-TYPEID_SETUP_TYPE(euphoria::runner::BoundVar);
-

@@ -157,7 +157,6 @@ set(app_src
     src/core/texttemplate.cc src/core/texttemplate.h
     src/core/texturetypes.cc src/core/texturetypes.h
     src/core/timepoint.cc src/core/timepoint.h
-    src/core/typeinfo.cc src/core/typeinfo.h
     src/core/ui_text.cc src/core/ui_text.h
     src/core/utf8.cc src/core/utf8.h
     src/core/vfs_defaultshaders.cc src/core/vfs_defaultshaders.h

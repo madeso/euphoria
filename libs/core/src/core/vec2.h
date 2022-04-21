@@ -6,7 +6,6 @@
 
 #include "core/interpolate.h"
 #include "core/angle.h"
-#include "core/typeinfo.h"
 #include "core/numeric.h"
 #include "core/cint.h"
 #include "core/vec.base.h"
@@ -406,10 +405,4 @@ namespace euphoria::core
     Unit2f create_random_unit(Random* random);
 
 }
-
-
-////////////////////////////////////////////////////////////////////////////////
-/// Typeids
-
-TYPEID_SETUP_TYPE(euphoria::core::Vec2f);
 

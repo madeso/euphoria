@@ -420,7 +420,3 @@ namespace euphoria::runner
         input.set(&pimpl->input);
     }
 }
-
-TYPEID_SETUP_TYPE(euphoria::core::Random);
-TYPEID_SETUP_TYPE(euphoria::runner::ObjectTemplate);
-TYPEID_SETUP_TYPE(euphoria::core::Rect<float>);

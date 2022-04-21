@@ -163,5 +163,3 @@ namespace euphoria::runner
         reg->destroy(id);
     }
 }
-
-TYPEID_SETUP_TYPE(euphoria::runner::ScriptComponent);

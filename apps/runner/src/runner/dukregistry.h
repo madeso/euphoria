@@ -75,6 +75,3 @@ namespace euphoria::runner
         NameToIdMap name_to_id;
     };
 }
-
-TYPEID_SETUP_TYPE(euphoria::runner::CustomArguments);
-
