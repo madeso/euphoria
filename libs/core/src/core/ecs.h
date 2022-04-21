@@ -5,6 +5,7 @@
 #include <memory>
 #include <string_view>
 #include <utility>  // std::forward
+#include <typeinfo>
 
 #include "assert/assert.h"
 
