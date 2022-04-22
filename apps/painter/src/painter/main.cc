@@ -1,119 +1,115 @@
-#include "log/log.h"
-
-#include "core/mat4.h"
-#include "core/random.h"
-#include "core/mat4.h"
-#include "core/axisangle.h"
-#include "core/aabb.h"
-#include "core/texturetypes.h"
-#include "core/vfs.h"
-#include "core/vfs_imagegenerator.h"
-#include "core/vfs_path.h"
-#include "core/os.h"
-#include "core/range.h"
-#include "core/camera3.h"
-#include "core/stringutils.h"
-#include "core/stdutils.h"
-#include "core/cint.h"
-#include "core/viewport.h"
 #include "core/polybezier.h"
 
-#include "render/init.h"
-#include "render/debuggl.h"
-#include "render/materialshader.h"
-#include "render/compiledmesh.h"
-#include "render/texturecache.h"
-#include "render/shaderattribute3d.h"
-#include "render/texture.h"
-#include "render/world.h"
-#include "render/materialshadercache.h"
-#include "render/defaultfiles.h"
-
-
-#include "window/imguilibrary.h"
-#include "window/timer.h"
-#include "window/imgui_extra.h"
-// #include "window/fpscontroller.h"
-#include "window/sdllibrary.h"
-#include "window/sdlwindow.h"
-#include "window/sdlglcontext.h"
-#include "window/filesystem.h"
-#include "window/engine.h"
 #include "window/canvas.h"
 #include "window/open_color.imgui.h"
+#include "window/app.h"
 
-#include "imgui/imgui.h"
-#include "SDL.h"
-#include <iostream>
-#include <memory>
-
-
-#define IMGUI_DEFINE_MATH_OPERATORS
-#include "imgui/imgui_internal.h"
 #include "window/imgui_extra.h"
 
 
 using namespace euphoria::core;
-using namespace euphoria::render;
 using namespace euphoria::window;
 
 
-int
-main(int argc, char** argv)
+void line(const ImVec2& from, const ImVec2& to, ImU32 color)
 {
-    EUPH_INIT_LOGGING();
-    Engine engine;
-
-    if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
-    {
-        return r;
-    }
+    ImDrawList* draw_list = ImGui::GetWindowDrawList();
+    draw_list->PathLineTo(from);
+    draw_list->PathLineTo(to);
+    draw_list->PathStroke(color, ImDrawFlags_None);
+};
 
 
-    int window_width = 1280;
-    int window_height = 720;
-
-    if(!engine.create_window("Painter", window_width, window_height, true))
-    {
-        return -1;
-    }
-
-    // viewport_handler viewport_handler;
-    // viewport_handler.set_size(window_width, window_height);
-
-
-    bool running = true;
-
-    //////////////////////////////////////////////////////////////////////////////
-    // main loop
-    CanvasConfig cc;
+struct CanvasWithControls
+{
     Canvas canvas;
-    PolyBezier2 path(Vec2f(0, 0));
     int index = -1;
 
-    while(running)
+    void begin(const CanvasConfig& cc)
     {
-        SDL_Event e;
-        while(SDL_PollEvent(&e) != 0)
+        canvas.begin(cc);
+
+        if(ImGui::IsMouseReleased(0))
         {
-            imgui::process_imgui_events(&e);
+            index = -1;
+        }
+    }
 
-            if(engine.on_resize(e, &window_width, &window_height))
-            {
-                // viewport_handler.set_size(window_width, window_height);
-            }
+    void show_grid(const CanvasConfig& cc)
+    {
+        canvas.show_grid(cc);
+    }
 
-            switch(e.type)
+    void show_ruler(const CanvasConfig& cc)
+    {
+        canvas.show_ruler(cc);
+    }
+
+    void end(const CanvasConfig& cc)
+    {
+        canvas.end(cc);
+    }
+
+    std::pair<bool, Vec2f> handle(const ImVec2& p, int id, ImU32 hover_color, ImU32 default_color)
+    {
+        const auto size = 6.0f;
+        ImDrawList* draw_list = ImGui::GetWindowDrawList();
+        const auto sp = canvas.world_to_screen(p);
+        const auto me = ImGui::GetMousePos();
+        const auto hover
+                = Vec2f::from_to(con(me), con(sp)).get_length_squared()
+                    < size * size;
+        if(index == -1 && hover && ImGui::IsMouseDown(0))
+        {
+            index = id;
+        }
+        draw_list->AddCircleFilled(sp, size, hover ? hover_color : default_color);
+        if(index == id)
+        {
+            // capture current drag item...
+            if(ImGui::IsMouseDragging(ImGuiMouseButton_Left))
             {
-            case SDL_QUIT: running = false; break;
-            default:
-                // ignore other events
-                break;
+                const auto d = ImGui::GetMouseDragDelta();
+                ImGui::ResetMouseDragDelta();
+                // todo(Gustav): handle scale/zoom
+                return std::make_pair(
+                        true, Vec2f(d.x, d.y) / canvas.view.scale);
             }
         }
+        return std::make_pair(false, Vec2f(0, 0));
+    }
 
-        imgui::start_new_frame();
+    void line(const Vec2f& from, const Vec2f& to, ImU32 line_color)
+    {
+        ::line(canvas.world_to_screen(con(from)), canvas.world_to_screen(con(to)), line_color);
+    }
 
+    void bezier_cubic(const Vec2f& a0, const Vec2f& c0, const Vec2f& c1, const Vec2f& a1, ImU32 curve_color, float thickness = 1.0f)
+    {
+        auto* dl = ImGui::GetWindowDrawList();
+        dl->AddBezierCubic
+        (
+            canvas.world_to_screen(con(a0)),
+            canvas.world_to_screen(con(c0)),
+            canvas.world_to_screen(con(c1)),
+            canvas.world_to_screen(con(a1)),
+            curve_color,
+            thickness
+        );
+    }
+};
+
+
+
+
+struct PainterApp : App
+{
+    CanvasConfig cc;
+    CanvasWithControls canvas;
+    PolyBezier2 path = Vec2f{0, 0};
+
+    void on_gui() override
+    {
         if(ImGui::BeginMainMenuBar())
         {
             if(ImGui::BeginMenu("File"))
@@ -143,46 +139,6 @@ main(int argc, char** argv)
             canvas.begin(cc);
             canvas.show_grid(cc);
 
-            if(ImGui::IsMouseReleased(0))
-            {
-                index = -1;
-            }
-            auto handle = [&canvas, &index](const ImVec2& p, int id, ImU32 hover_color, ImU32 default_color)
-            {
-                const auto size = 6.0f;
-                ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                const auto sp = canvas.world_to_screen(p);
-                const auto me = ImGui::GetMousePos();
-                const auto hover
-                        = Vec2f::from_to(con(me), con(sp)).get_length_squared()
-                          < size * size;
-                if(index == -1 && hover && ImGui::IsMouseDown(0))
-                {
-                    index = id;
-                }
-                draw_list->AddCircleFilled(sp, size, hover ? hover_color : default_color);
-                if(index == id)
-                {
-                    // capture current drag item...
-                    if(ImGui::IsMouseDragging(ImGuiMouseButton_Left))
-                    {
-                        const auto d = ImGui::GetMouseDragDelta();
-                        ImGui::ResetMouseDragDelta();
-                        // todo(Gustav): handle scale/zoom
-                        return std::make_pair(
-                                true, Vec2f(d.x, d.y) / canvas.view.scale);
-                    }
-                }
-                return std::make_pair(false, Vec2f(0, 0));
-            };
-            auto line = [](const ImVec2& from, const ImVec2& to, ImU32 color)
-            {
-                ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                draw_list->PathLineTo(from);
-                draw_list->PathLineTo(to);
-                draw_list->PathStroke(color, ImDrawFlags_None);
-            };
-
             constexpr auto default_shade = 9;
             constexpr auto handle_default_shade = 7;
             constexpr auto handle_hover_shade = 9;
@@ -200,7 +156,7 @@ main(int argc, char** argv)
                     continue;
                 }
                 const auto& color = is_anchor_point ? anchor_point_color : control_point_color;
-                auto r = handle(con(path.points[point_index]), euphoria::core::c_sizet_to_int(point_index), color[handle_hover_shade], color[handle_default_shade]);
+                auto r = canvas.handle(con(path.points[point_index]), euphoria::core::c_sizet_to_int(point_index), color[handle_hover_shade], color[handle_default_shade]);
                 if(r.first)
                 {
                     if(ImGui::GetIO().KeyCtrl)
@@ -218,21 +174,12 @@ main(int argc, char** argv)
             for(int seg: path.iterate_segments())
             {
                 auto s = path.get_segment(seg);
-                auto* dl = ImGui::GetWindowDrawList();
-                dl->AddBezierCubic
-                (
-                    canvas.world_to_screen(con(s.a0)),
-                    canvas.world_to_screen(con(s.c0)),
-                    canvas.world_to_screen(con(s.c1)),
-                    canvas.world_to_screen(con(s.a1)),
-                    curve_color,
-                    1
-                );
+                canvas.bezier_cubic(s.a0, s.c0, s.c1, s.a1, curve_color);
 
                 if(!path.is_autoset_enabled)
                 {
-                    line(canvas.world_to_screen(con(s.a0)), canvas.world_to_screen(con(s.c0)), line_color);
-                    line(canvas.world_to_screen(con(s.a1)), canvas.world_to_screen(con(s.c1)), line_color);
+                    canvas.line(s.a0, s.c0, line_color);
+                    canvas.line(s.a1, s.c1, line_color);
                 }
             }
 
@@ -241,7 +188,7 @@ main(int argc, char** argv)
 
             if(ImGui::BeginPopup("context_menu"))
             {
-                const auto p = canvas.screen_to_world(ImGui::GetMousePosOnOpeningCurrentPopup());
+                const auto p = canvas.canvas.screen_to_world(ImGui::GetMousePosOnOpeningCurrentPopup());
                 if(ImGui::MenuItem("Add"))
                 {
                     path.add_point(con(p));
@@ -260,14 +207,12 @@ main(int argc, char** argv)
             }
         }
         ImGui::End();
-
-        // ImGui::ShowMetricsWindow();
-
-        engine.init->clear_screen(NamedColor::light_gray);
-        imgui::imgui_render();
-
-        SDL_GL_SwapWindow(engine.window->window);
     }
+};
 
-    return 0;
+
+int
+main(int argc, char** argv)
+{
+    return run_app(argc, argv, "Painter", []{ return std::make_unique<PainterApp>(); });
 }

@@ -18,6 +18,7 @@ set(app_src
     src/window/sdllibrary.cc src/window/sdllibrary.h
     src/window/sdlwindow.cc src/window/sdlwindow.h
     src/window/timer.cc src/window/timer.h
+    src/window/app.cc src/window/app.h
 )
 set(src ${app_src})
 source_group("" FILES ${app_src})
@@ -71,3 +72,4 @@ target_link_libraries(window
         external::imguizmo
 )
 
+set_win32_defines(window)
