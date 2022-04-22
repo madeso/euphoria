@@ -15,6 +15,8 @@ Euphoria is a data-driven "game engine". It's in quotes because
 
 Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).
 
+![project layout](./docs/euphoria.excalidraw.svg)
+
 The folder structure should follow the [pitchfork layout](https://github.com/vector-of-bool/pitchfork).
 
 All names should follow `snake_case`, both for variables, members, functions and files. The only exception are C++ macros that should follow `SHOUTING_SNAKE_CASE` and structs & template arguments that should follow `PascalCase`. Convertion functions should either be named `con` if the convertion is obvious, otherwise it should be named `c_foobar` where `foobar` describes the conversion, casts are discouraged to the point of being forbidden outside of the 'convertion functions'.
