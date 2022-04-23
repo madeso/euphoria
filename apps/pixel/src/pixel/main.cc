@@ -17,6 +17,7 @@
 #include "window/sdlwindow.h"
 #include "window/engine.h"
 #include "window/canvas.h"
+#include "window/app.h"
 
 #include "imgui/imgui.h"
 #include "SDL.h"
@@ -32,34 +33,6 @@ using namespace euphoria;
 using namespace euphoria::core;
 using namespace euphoria::window;
 
-
-/*
-PixLE todo
-
-General:
-brushes / sizes
-brush preview/hover
-transparency
-tool: eraser
-layers
-undo/redo
-save/load via terminal
-fast draw:
-algorithms listed by https://rickyhan.com/
-aa lines
-clone/pattern brush
-line/rectangle/circle tools
-add https://github.com/lendrick/Gradientifier/
-
-Tileset mode:
-tile x/y mode
-draw om example tileset mode
-functions to autocopy part of images
-
-Sprite mode:
-Sprite animations
-
-*/
 
 
 ImU32
@@ -99,72 +72,31 @@ flood_fill(Image* image, int x, int y, const Rgbai& target_color, const Rgbai& r
 }
 
 
-int
-main(int argc, char** argv)
+struct PixelApp : App
 {
-    log::setup_logging(false);
-    Engine engine;
-
-    if (const auto r = engine.setup(argparse::NameAndArguments::extract(argc, argv)); r != 0)
-    {
-        return r;
-    }
-
-
-    int window_width = 1280;
-    int window_height = 720;
-
-    if(!engine.create_window("PixLE", window_width, window_height, true))
-    {
-        return -1;
-    }
-
-    // viewport_handler viewport_handler;
-    // viewport_handler.set_size(window_width, window_height);
-
-
-    bool running = true;
-
-    //////////////////////////////////////////////////////////////////////////////
-    // main loop
     CanvasConfig cc;
     Canvas canvas;
     Image image;
     core::Random random;
     Tool current_tool = Tool::pen;
-    auto palette = *palettes::lospec::endesga_64;
-    auto foreground = 0;
-    auto background = 1;
+    Palette palette = *palettes::lospec::endesga_64;
+    int foreground = 0;
+    int background = 1;
 
-    image.setup_no_alpha_support(64, 64);
-    image.set_all_top_bottom([&](int, int)
+    PixelApp()
     {
-        return Rgbai{palette.colors[background]};
-    });
-
-    while(running)
-    {
-        SDL_Event e;
-        while(SDL_PollEvent(&e) != 0)
+        image.setup_no_alpha_support(64, 64);
+        image.set_all_top_bottom([&](int, int)
         {
-            imgui::process_imgui_events(&e);
+            return Rgbai{palette.colors[background]};
+        });
+    }
 
-            if(engine.on_resize(e, &window_width, &window_height))
-            {
-                // viewport_handler.set_size(window_width, window_height);
-            }
+    static constexpr int toolbar_height = 30;
+    ImVec2 toolbar_button_size = ImVec2(0, 20);
 
-            switch(e.type)
-            {
-            case SDL_QUIT: running = false; break;
-            default:
-                // ignore other events
-                break;
-            }
-        }
-
-        imgui::start_new_frame();
-
+    void on_gui() override
+    {
         if(ImGui::BeginMainMenuBar())
         {
             if(ImGui::BeginMenu("File"))
@@ -178,9 +110,6 @@ main(int argc, char** argv)
         }
         const auto menu_height = ImGui::GetCurrentWindow()->MenuBarHeight();
         ImGui::EndMainMenuBar();
-
-        const auto toolbar_height = 30;
-        const auto toolbar_button_size = ImVec2(0, 20);
 
         ImGui::SetNextWindowPos(ImVec2(0, 0 + menu_height), ImGuiCond_Always);
         ImGui::SetNextWindowSize(ImVec2(ImGui::GetIO().DisplaySize.x, toolbar_height), ImGuiCond_Always);
@@ -197,7 +126,7 @@ main(int argc, char** argv)
         ImGui::PopStyleVar(2);
         if(show_toolbar)
         {
-            auto toolbar_button = [&current_tool, toolbar_button_size](const char* label, ::Tool t)
+            auto toolbar_button = [this](const char* label, ::Tool t)
             {
                 if(imgui::toggle_button(label, current_tool == t, toolbar_button_size))
                 {
@@ -349,14 +278,12 @@ main(int argc, char** argv)
             }
         }
         ImGui::End();
-
-        // ImGui::ShowMetricsWindow();
-
-        engine.init->clear_screen(NamedColor::light_gray);
-        imgui::imgui_render();
-
-        SDL_GL_SwapWindow(engine.window->window);
     }
+};
 
-    return 0;
+
+int
+main(int argc, char** argv)
+{
+    return run_app(argc, argv, "PixLE", [] { return std::make_unique<PixelApp>();});
 }
