@@ -4,6 +4,9 @@
 #include <functional>
 #include <memory>
 
+// for sdl main to work
+#include "SDL.h"
+
 #include "core/rgb.h"
 
 
