@@ -17,7 +17,7 @@ void line(const ImVec2& from, const ImVec2& to, ImU32 color)
     draw_list->PathLineTo(from);
     draw_list->PathLineTo(to);
     draw_list->PathStroke(color, ImDrawFlags_None);
-};
+}
 
 
 struct CanvasWithControls
