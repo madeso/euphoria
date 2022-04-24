@@ -35,12 +35,12 @@ struct CanvasWithControls
         }
     }
 
-    void show_grid(const CanvasConfig& cc)
+    void show_grid(const CanvasConfig& cc) const
     {
         canvas.show_grid(cc);
     }
 
-    void show_ruler(const CanvasConfig& cc)
+    void show_ruler(const CanvasConfig& cc) const
     {
         canvas.show_ruler(cc);
     }

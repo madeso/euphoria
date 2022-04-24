@@ -15,6 +15,13 @@ namespace euphoria::window
     struct App
     {
         App();
+
+        App(const App&) = delete;
+        App(App&&) = delete;
+
+        void operator=(const App&) = delete;
+        void operator=(App&&) = delete;
+
         virtual ~App() = default;
 
         virtual void on_quit();
