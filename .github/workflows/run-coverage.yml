@@ -50,6 +50,8 @@ jobs:
         - name: Build
           shell: bash
           working-directory: ${{github.workspace}}/build
+          env:
+                CXX: ${{matrix.cxx}}
           run: time cmake --build . --config ${{matrix.build_type}}
 
 
