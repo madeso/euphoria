@@ -59,8 +59,11 @@ if(GENERATE_COVERAGE)
 
     # based on
     # https://github.com/cpp-best-practices/cpp_starter_project/blob/main/cmake/Sanitizers.cmake#L6
-    target_compile_options(project_options INTERFACE --coverage -O0 -g)
-    target_link_libraries(project_options INTERFACE --coverage)
+
+    # --coverage is a synonym for -fprofile-arcs -ftest-coverage (when compiling) and -lgcov (when linking).
+    # https://gcc.gnu.org/onlinedocs/gcc-6.2.0/gcc/Instrumentation-Options.html
+    target_compile_options(project_options INTERFACE -fprofile-arcs -ftest-coverage -O0 -g)
+    target_link_libraries(project_options INTERFACE -lgcov)
 endif()
 
 set(OpenGL_GL_PREFERENCE "GLVND")
