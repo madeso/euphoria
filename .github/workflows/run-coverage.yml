@@ -108,3 +108,10 @@ jobs:
             flags: ${{ runner.os }}
             name: ${{ runner.os }}-coverage
             files: ${{github.workspace}}/build/coverage.xml
+
+
+        - name: Upload coverage to codacy
+          uses: codacy/codacy-coverage-reporter-action@v1
+          with:
+            project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+            coverage-reports: ${{github.workspace}}/build/coverage.xml
