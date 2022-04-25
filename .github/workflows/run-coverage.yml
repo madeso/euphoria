@@ -91,7 +91,8 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
-                gcovr -j $(nproc) --delete --root ../ --print-summary --xml-pretty --xml coverage.xml .
+                gcovr --version
+                gcovr --root .. --xml coverage.xml .
 
 
         - name: Display coverage.xml
