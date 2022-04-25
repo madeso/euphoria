@@ -22,19 +22,27 @@ jobs:
                 sudo apt install -y libsdl2-dev libassimp-dev
 
 
-        - name: List all installed gcc versions
+        - name: List all installed GCC
           run: |
                 which gcc
+                echo "*** bin gcc ***"
                 ls -l /usr/bin/gcc*
+                echo "*** bin gcov ***"
                 ls -l /usr/bin/gcov*
+                echo "*** local gcc ***"
+                ls -l /usr/local/bin/gcc*
+                echo "*** local gcov ***"
+                ls -l /usr/local/bin/gcov*
 
+
+        - name: Switch to latest GCC
+          run: |
+                update-alternatives --install /usr/bin/gcc gcc /usr/local/bin/gcc-10 10
+                update-alternatives --install /usr/bin/gcov gcov /usr/local/bin/gcov-10 10
 
         - name: Check version
-          env:
-                CXX: ${{matrix.cxx}}
           run: |
                 gcc --version
-                echo ${{matrix.cxx}}
                 gcov --version
 
 
