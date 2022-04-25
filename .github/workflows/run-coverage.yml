@@ -16,6 +16,18 @@ jobs:
           with:
             submodules: recursive
 
+        - name: Install Dependencies
+          run: |
+                sudo apt update
+                sudo apt install -y libsdl2-dev libassimp-dev
+
+
+        - name: List all installed gcc versions
+          run: |
+                which gcc
+                ls -l /usr/bin/gcc*
+
+
         - name: Check version
           env:
                 CXX: ${{matrix.cxx}}
@@ -23,11 +35,6 @@ jobs:
                 gcc --version
                 echo ${{matrix.cxx}}
                 gcov --version
-
-        - name: Install Dependencies
-          run: |
-                sudo apt update
-                sudo apt install -y libsdl2-dev libassimp-dev clang-9 clang-tidy
 
 
         - name: Install python dependencies
@@ -43,6 +50,7 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
+                CC: gcc-10
                 CXX: ${{matrix.cxx}}
           run: cmake -DGENERATE_COVERAGE=ON -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
