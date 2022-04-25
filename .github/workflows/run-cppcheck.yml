@@ -1,4 +1,4 @@
-name: cppcheck
+name: run-cppcheck
 
 on: [push,pull_request]
 

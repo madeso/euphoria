@@ -1,4 +1,4 @@
-name: cpplint
+name: run-cpplint
 
 on: [push,pull_request]
 
