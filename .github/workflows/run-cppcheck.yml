@@ -16,5 +16,5 @@ jobs:
 
       - name: Cppcheck run
         run: |
-          cppcheck --enable=all --inconclusive --error-exitcode=0 src/ apps/ 2> cppcheck-result.txt
+          cppcheck --enable=all --inconclusive --error-exitcode=0 libs/ apps/ 2> cppcheck-result.txt
           cat cppcheck-result.txt
