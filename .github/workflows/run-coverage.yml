@@ -26,6 +26,7 @@ jobs:
           run: |
                 which gcc
                 ls -l /usr/bin/gcc*
+                ls -l /usr/bin/gcov*
 
 
         - name: Check version
