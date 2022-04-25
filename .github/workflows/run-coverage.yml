@@ -57,8 +57,12 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
+                echo "*** ls ***"
                 ls
+                echo "*** find ***"
                 find .
+                echo "*** tree ***"
+                tree
 
 
         - name: Generate coverage.xml
