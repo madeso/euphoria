@@ -3,6 +3,10 @@
     [
         "external/**/*",
         "apps/**/*",
+        "libs/log/**/*",
+        "libs/assert/**/*",
+        "libs/gui/**/*",
+        "libs/window/**/*",
         "libs/render/**/*",
         "libs/core/examples/**/*",
         "libs/render/**/*.test.cc"
