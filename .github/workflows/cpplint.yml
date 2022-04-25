@@ -1,0 +1,23 @@
+name: cpplint
+
+on: [push,pull_request]
+
+jobs:
+  cpplint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Python install
+        uses: actions/setup-python@v2
+
+      - name: Cpplint install
+        uses: BSFishy/pip-action@v1
+        with:
+          packages: cpplint
+
+      - name: Cpplint run
+        run: find libs/ apps/ -type f \( -iname \*.h -o -iname \*.cc \) | xargs cpplint
