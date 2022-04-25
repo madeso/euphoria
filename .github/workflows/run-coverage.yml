@@ -16,6 +16,13 @@ jobs:
           with:
             submodules: recursive
 
+        - name: Check version
+          env:
+                CXX: ${{matrix.cxx}}
+          run: |
+                gcc --version
+                echo ${{matrix.cxx}}
+                gcov --version
 
         - name: Install Dependencies
           run: |
