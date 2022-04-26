@@ -116,4 +116,9 @@ jobs:
             project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
             coverage-reports: ${{github.workspace}}/build/coverage.xml
             upload: true
-            max-allowed-issues: 2147483647
+
+        - name: Upload coverage to coveralls
+          uses: coverallsapp/github-action@master
+          with:
+            github-token: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
+            
