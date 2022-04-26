@@ -2,11 +2,15 @@
 
 [![windows](https://github.com/madeso/euphoria/workflows/windows/badge.svg?branch=master)](https://github.com/madeso/euphoria/actions?query=workflow%3Awindows)
 [![linux](https://github.com/madeso/euphoria/workflows/linux/badge.svg?branch=master)](https://github.com/madeso/euphoria/actions?query=workflow%3Alinux)
-[![run-style-checks](https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml)
 [![deploy-online-content](https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/deploy-online-content.yml)
+
+[![run-style-checks](https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-style-checks.yml)
+[![run-cppcheck](https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-cppcheck.yml)
+[![run-cpplint](https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml)
 
 [![run-coverage](https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml)
 [![codecov](https://codecov.io/gh/madeso/euphoria/branch/master/graph/badge.svg?token=V9K2H0U03G)](https://codecov.io/gh/madeso/euphoria)
+
 
 Euphoria is a data-driven "game engine". It's in quotes because
 
