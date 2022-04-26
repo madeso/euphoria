@@ -1,0 +1,16 @@
+ConfigurationNotChecked:*
+constParameter:*
+constVariable:*
+ctuOneDefinitionRuleViolation:*
+functionConst:*
+functionStatic:*
+knownConditionTrueFalse:*
+mismatchingContainers:*
+missingInclude:*
+noExplicitConstructor:*
+passedByValue:*
+unassignedVariable:*
+unreadVariable:*
+unusedFunction:*
+useStlAlgorithm:*
+variableScope:*
