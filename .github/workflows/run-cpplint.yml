@@ -20,4 +20,4 @@ jobs:
           packages: cpplint
 
       - name: Cpplint run
-        run: find libs/ apps/ -type f \( -iname \*.h -o -iname \*.cc \) | xargs cpplint
+        run: ./tools/run-cpplint.sh
