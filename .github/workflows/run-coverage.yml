@@ -19,7 +19,7 @@ jobs:
         - name: Install Dependencies
           run: |
                 sudo apt update
-                sudo apt install -y libsdl2-dev libassimp-dev curl
+                sudo apt install -y libsdl2-dev libassimp-dev lcov
 
 
         - name: List all installed GCC
@@ -87,18 +87,20 @@ jobs:
                 tree
 
 
-        - name: Generate cobertura.xml and coveralls.json
+        - name: Generate cobertura.xml and lcov.info
           shell: bash
-          env:
-                COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
           working-directory: ${{github.workspace}}/build
           run: |
                 echo "*** gcovr version ***"
                 gcovr --version
-                echo "*** run gcovr to cobertura***"
-                gcovr --root .. --cobertura cobertura.xml .
+                echo "*** lcov version ***"
+                lcov --version
                 echo "*** run gcovr ***"
-                gcovr --root .. --coveralls coveralls.json
+                gcovr --root .. --cobertura cobertura.xml .
+                echo "*** help lcov ***"
+                lcov --help
+                echo "*** run lcov ***"
+                lcov --capture --directory . --output-file lcov.info
 
 
         - name: Display cobertura.xml
@@ -134,9 +136,9 @@ jobs:
             project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
             coverage-reports: ${{github.workspace}}/build/cobertura.xml
 
-        - name: Upload coverage to coveralls via curl
-          working-directory: ${{github.workspace}}/build
-          shell: bash
-          run: |
-                curl --form json_file=@coveralls.json https://coveralls.io/api/v1/jobs
-
+        - name: Upload coverage to coveralls
+          uses: coverallsapp/github-action@master
+          with:
+            github-token: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
+            path-to-lcov: ./build/lcov.info
+            
