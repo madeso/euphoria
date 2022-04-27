@@ -11,11 +11,6 @@ jobs:
 
         runs-on: ubuntu-20.04
 
-        # increasing node memory should avoid the issue that coveralls app runs into
-        # 'FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory'
-        env:
-            NODE_OPTIONS: --max_old_space_size=4096
-
         steps:
         - uses: actions/checkout@v2
           with:
