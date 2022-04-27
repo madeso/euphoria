@@ -154,4 +154,35 @@ namespace euphoria::core
         cyan,
         pure_cyan
     };
+
+
+    // Colors optimized for color-blind individuals
+    // https://www.nature.com/articles/nmeth.1618
+    // renamed to have main color first
+    enum class BangWongPalette
+    {
+        // black
+        black,
+
+        // orange
+        organge,
+
+        // sky blue
+        blue_sky,
+
+        // bluish green
+        green_bluish,
+
+        // yellow
+        yellow,
+
+        // blue
+        blue,
+
+        // vermillion
+        red_vermillion,
+
+        // redish purple
+        purple_redish
+    };
 }

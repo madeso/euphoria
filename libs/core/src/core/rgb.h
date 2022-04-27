@@ -404,6 +404,25 @@ namespace euphoria::core
             }
         }
 
+
+        constexpr
+        unsigned int
+        to_color_hex(BangWongPalette color)
+        {
+            switch(color)
+            {
+            case BangWongPalette::black: return to_color_hex(0, 0, 0);
+            case BangWongPalette::organge: return to_color_hex(230, 159, 0);
+            case BangWongPalette::blue_sky: return to_color_hex(86, 180, 233);
+            case BangWongPalette::green_bluish: return to_color_hex(0, 158, 115);
+            case BangWongPalette::yellow: return to_color_hex(240, 228, 66);
+            case BangWongPalette::blue: return to_color_hex(0, 114, 178);
+            case BangWongPalette::red_vermillion: return to_color_hex(213, 94, 0);
+            case BangWongPalette::purple_redish: return to_color_hex(204, 121, 167);
+            default: return to_color_hex(0, 0, 0);
+            }
+        }
+
         unsigned int
         from_string_to_hex(const std::string& str);
     }
