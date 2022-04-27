@@ -102,6 +102,18 @@ jobs:
                 cat coverage.xml
 
 
+        - name: Debug file structure (again)
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: |
+                echo "*** ls ***"
+                ls
+                echo "*** find ***"
+                find .
+                echo "*** tree ***"
+                tree
+
+
         - name: Upload coverage to Codecov
           uses: codecov/codecov-action@v2
           with:
