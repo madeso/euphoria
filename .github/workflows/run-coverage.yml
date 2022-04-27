@@ -91,8 +91,13 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
+                echo "*** gcovr version ***"
                 gcovr --version
+                echo "*** lcov version ***"
+                lcov --version
+                echo "*** run gcovr ***"
                 gcovr --root .. --cobertura cobertura.xml .
+                echo "*** run lcov ***"
                 lcov --coverage --directory . --output-file lcov.info
 
 
