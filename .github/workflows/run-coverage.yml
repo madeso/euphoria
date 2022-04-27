@@ -97,6 +97,8 @@ jobs:
                 lcov --version
                 echo "*** run gcovr ***"
                 gcovr --root .. --cobertura cobertura.xml .
+                echo "*** help lcov ***"
+                lcov --help
                 echo "*** run lcov ***"
                 lcov --coverage --directory . --output-file lcov.info
 
