@@ -100,7 +100,7 @@ jobs:
                 echo "*** help lcov ***"
                 lcov --help
                 echo "*** run lcov ***"
-                lcov --directory . --output-file lcov.info
+                lcov --capture --directory . --output-file lcov.info
 
 
         - name: Display cobertura.xml
