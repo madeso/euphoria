@@ -87,19 +87,27 @@ jobs:
                 tree
 
 
-        - name: Generate coverage.xml
+        - name: Generate cobertura.xml and lcov.info
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
                 gcovr --version
-                gcovr --root .. --xml coverage.xml .
+                gcovr --root .. --cobertura cobertura.xml .
+                lcov --coverage --directory . --output-file lcov.info
 
 
-        - name: Display coverage.xml
+        - name: Display cobertura.xml
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
-                cat coverage.xml
+                cat cobertura.xml
+
+
+        - name: Display lcov.info
+          shell: bash
+          working-directory: ${{github.workspace}}/build
+          run: |
+                cat lcov.info
 
 
         - name: Debug file structure (again)
@@ -119,18 +127,18 @@ jobs:
           with:
             flags: ${{ runner.os }}
             name: ${{ runner.os }}-coverage
-            files: ${{github.workspace}}/build/coverage.xml
+            files: ${{github.workspace}}/build/cobertura.xml
 
 
         - name: Upload coverage to codacy
-          uses: codacy/codacy-coverage-reporter-action@v1
+          uses: codacy/codacy-coverage-reporter-action@v1.3.0
           with:
             project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
-            coverage-reports: ${{github.workspace}}/build/coverage.xml
-            upload: true
+            coverage-reports: ${{github.workspace}}/build/cobertura.xml
 
         - name: Upload coverage to coveralls
-          uses: coverallsapp/github-action@master
+          uses: coverallsapp/github-action@1.1.3
           with:
             github-token: ${{ secrets.COVERALLS_PROJECT_TOKEN }}
+            path-to-lcov: ./build/lcov.info
             
