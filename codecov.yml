@@ -1,14 +1,15 @@
 {
     "ignore":
     [
-        "external/**/*",
-        "apps/**/*",
-        "libs/log/**/*",
-        "libs/assert/**/*",
-        "libs/gui/**/*",
-        "libs/window/**/*",
-        "libs/render/**/*",
-        "libs/core/examples/**/*",
-        "libs/render/**/*.test.cc"
+        "apps/",
+        "external/",
+        "libs/assert/",
+        "libs/core/examples/",
+        "libs/core/test/main.cc"
+        "libs/file_types/",
+        "libs/gui/",
+        "libs/log/",
+        "libs/render/",
+        "libs/window/",
     ]
 }
