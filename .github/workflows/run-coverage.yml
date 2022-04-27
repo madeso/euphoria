@@ -98,7 +98,7 @@ jobs:
                 echo "*** run gcovr to cobertura***"
                 gcovr --root .. --cobertura cobertura.xml .
                 echo "*** run gcovr ***"
-                gcovr -v --root .. --exclude '.*/external/.*'  --exclude '.*/apps/.*' --exclude '.*/libs/gui/.*' --exclude '.*/libs/log/.*' --exclude '.*/libs/render/.*' --exclude '.*/libs/window/.*' --exclude '.*/libs/assert/.*' --coveralls coveralls.json
+                gcovr -v --root .. --exclude '.*/build/.*' --exclude '.*/external/.*' --exclude '.*/apps/.*' --exclude '.*/libs/gui/.*' --exclude '.*/libs/log/.*' --exclude '.*/libs/render/.*' --exclude '.*/libs/window/.*' --exclude '.*/libs/assert/.*' --coveralls coveralls.json
 
 
         - name: Display cobertura.xml
