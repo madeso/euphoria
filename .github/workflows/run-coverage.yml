@@ -11,15 +11,18 @@ jobs:
 
         runs-on: ubuntu-20.04
 
+
         steps:
         - uses: actions/checkout@v2
           with:
             submodules: recursive
 
+
         - name: Install Dependencies
           run: |
                 sudo apt update
                 sudo apt install -y libsdl2-dev libassimp-dev curl
+
 
 
         - name: List all installed GCC
@@ -31,15 +34,18 @@ jobs:
                 ls -l /usr/bin/gcov*
 
 
+
         - name: Switch to latest GCC
           run: |
                 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-10 10
                 sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-10 10
 
+
         - name: Check version
           run: |
                 gcc --version
                 gcov --version
+
 
 
         - name: Install python dependencies
@@ -51,6 +57,7 @@ jobs:
           run: cmake -E make_directory ${{github.workspace}}/build
 
 
+
         - name: Configure
           shell: bash
           working-directory: ${{github.workspace}}/build
@@ -58,6 +65,7 @@ jobs:
                 CC: gcc-10
                 CXX: ${{matrix.cxx}}
           run: cmake -DGENERATE_COVERAGE=ON -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
+
 
 
         - name: Build
@@ -68,23 +76,13 @@ jobs:
           run: time cmake --build . --config ${{matrix.build_type}}
 
 
-        - name: Generate coverage files by running test
+
+        - name: Generate coverage files by running tests
           shell: bash
           working-directory: ${{github.workspace}}/build
           run: |
                 ctest -C ${{matrix.build_type}}
 
-
-        - name: Debug file structure
-          shell: bash
-          working-directory: ${{github.workspace}}/build
-          run: |
-                echo "*** ls ***"
-                ls
-                echo "*** find ***"
-                find .
-                echo "*** tree ***"
-                tree
 
 
         - name: Generate cobertura.xml and coveralls.json
@@ -101,24 +99,6 @@ jobs:
                 gcovr -v --root .. --exclude '.*/build/.*' --exclude 'apps/editor/.*' --exclude 'libs/file_types/.*' --exclude '.*/external/.*' --exclude '.*/apps/.*' --exclude '.*/libs/tests/.*' --exclude '.*/libs/gui/.*' --exclude '.*/libs/log/.*' --exclude '.*/libs/render/.*' --exclude '.*/libs/window/.*' --exclude '.*/libs/assert/.*'  --exclude '.*/libs/file_types/.*' --exclude '.*/libs/core/examples/.*' --exclude '.*/libs/core/test/.*' --exclude '.*/libs/minsynth/test/.*' --coveralls coveralls.json
 
 
-        - name: Display cobertura.xml
-          shell: bash
-          working-directory: ${{github.workspace}}/build
-          run: |
-                cat cobertura.xml
-
-
-        - name: Debug file structure (again)
-          shell: bash
-          working-directory: ${{github.workspace}}/build
-          run: |
-                echo "*** ls ***"
-                ls
-                echo "*** find ***"
-                find .
-                echo "*** tree ***"
-                tree
-
 
         - name: Upload coverage to Codecov
           uses: codecov/codecov-action@v2
@@ -128,11 +108,14 @@ jobs:
             files: ${{github.workspace}}/build/cobertura.xml
 
 
+
         - name: Upload coverage to codacy
           uses: codacy/codacy-coverage-reporter-action@v1.3.0
           with:
             project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
             coverage-reports: ${{github.workspace}}/build/cobertura.xml
+
+
 
         - name: Upload coverage to coveralls via curl
           working-directory: ${{github.workspace}}/build
