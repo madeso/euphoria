@@ -19,6 +19,15 @@ Euphoria is a data-driven "game engine". It's in quotes because
 
 Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).
 
+
+## Demos
+There is a [youtube playlist here](https://www.youtube.com/playlist?list=PLLZf3o2GDQ_iTb2AjfPWNMu0IPSetTOhx) that has small sample videos of some parts.
+
+For each commit, theere are a few [html friendly things generated over here](https://i.madeso.me/euphoria/) such as doxygen, some color palettes and smaller tests for collision and debugging tools.
+
+
+## About the code
+
 ![project layout](./docs/euphoria.excalidraw.svg)
 
 The folder structure should follow the [pitchfork layout](https://github.com/vector-of-bool/pitchfork).
