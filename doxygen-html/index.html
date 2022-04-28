@@ -54,6 +54,12 @@
 <li>it also contains other things that aren't related to game engine at all (like csv import and a non-realtime ray tracer)</li>
 </ol>
 <p>Euphoria is under heavy development, not ready for prime time, and the final product will be focused on live programming/automatic refresh between computer and target devices (that include computers) with a feature set that lies between love2d (do whatever you like) and fps game creator(restrictive but quick prototyping).</p>
+<h2><a class="anchor" id="autotoc_md0"></a>
+Demos</h2>
+<p>There is a <a href="https://www.youtube.com/playlist?list=PLLZf3o2GDQ_iTb2AjfPWNMu0IPSetTOhx">youtube playlist here</a> that has small sample videos of some parts.</p>
+<p>For each commit, theere are a few <a href="https://i.madeso.me/euphoria/">html friendly things generated over here</a> such as doxygen, some color palettes and smaller tests for collision and debugging tools.</p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+About the code</h2>
 <p><object type="image/svg+xml" data="./docs/euphoria.excalidraw.svg" style="pointer-events: none;">project layout</object></p>
 <p>The folder structure should follow the <a href="https://github.com/vector-of-bool/pitchfork">pitchfork layout</a>.</p>
 <p>All names should follow <code>snake_case</code>, both for variables, members, functions and files. The only exception are C++ macros that should follow <code>SHOUTING_SNAKE_CASE</code> and structs &amp; template arguments that should follow <code>PascalCase</code>. Convertion functions should either be named <code>con</code> if the convertion is obvious, otherwise it should be named <code>c_foobar</code> where <code>foobar</code> describes the conversion, casts are discouraged to the point of being forbidden outside of the 'convertion functions'. </p>
