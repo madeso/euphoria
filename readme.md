@@ -21,16 +21,18 @@ Euphoria is under heavy development, not ready for prime time, and the final pro
 
 
 ## Demos
-There is a [youtube playlist here](https://www.youtube.com/playlist?list=PLLZf3o2GDQ_iTb2AjfPWNMu0IPSetTOhx) that has small sample videos of some parts.
+* There is a [youtube playlist here](https://www.youtube.com/playlist?list=PLLZf3o2GDQ_iTb2AjfPWNMu0IPSetTOhx) that has small sample videos of some parts.
 
-For each commit, theere are a few [html friendly things generated over here](https://i.madeso.me/euphoria/) such as doxygen, some color palettes and smaller tests for collision and debugging tools.
+* Various [screenshots](data/screenshots.md) what the engine can generate.
+
+* For each commit, theere are a few [html friendly things generated over here](https://i.madeso.me/euphoria/) such as doxygen, some color palettes and smaller tests for collision and debugging tools.
 
 
 ## About the code
 
-![project layout](./docs/euphoria.excalidraw.svg)
-
 The folder structure should follow the [pitchfork layout](https://github.com/vector-of-bool/pitchfork).
+
+![project layout](./docs/euphoria.excalidraw.svg)
 
 All names should follow `snake_case`, both for variables, members, functions and files. The only exception are C++ macros that should follow `SHOUTING_SNAKE_CASE` and structs & template arguments that should follow `PascalCase`. Convertion functions should either be named `con` if the convertion is obvious, otherwise it should be named `c_foobar` where `foobar` describes the conversion, casts are discouraged to the point of being forbidden outside of the 'convertion functions'.
 
