@@ -6,7 +6,7 @@
 #include "core/axisangle.h"
 #include "core/mat3.h"
 
-#include <vector>
+
 
 namespace euphoria::core
 {

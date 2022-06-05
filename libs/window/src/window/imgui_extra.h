@@ -2,10 +2,10 @@
 
 #include "imgui/imgui.h"
 
-#include <vector>
+
 #include <algorithm>
 #include <utility>
-#include <string>
+
 #include <functional>
 
 #include "core/vec2.h"

@@ -23,7 +23,7 @@
 #else
 #include <dirent.h>
 #include <unistd.h>
-#include <vector>
+
 
 #define GET_CURRENT_DIR getcwd
 #endif

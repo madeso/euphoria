@@ -5,7 +5,7 @@
 #include "assert/assert.h"
 #include "core/numeric.h"
 
-#include <ostream>
+
 
 namespace euphoria::core
 {

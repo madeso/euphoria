@@ -1,6 +1,6 @@
 #include "core/cypher.h"
 
-#include <sstream>
+
 
 #include "core/stringutils.h"
 #include "core/range.h"

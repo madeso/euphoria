@@ -1,6 +1,6 @@
 #include "core/mesh.h"
 
-#include <sstream>
+
 #include <utility>
 
 #include "assimp/Importer.hpp"

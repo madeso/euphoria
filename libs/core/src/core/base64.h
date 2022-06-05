@@ -2,7 +2,7 @@
 
 #include "core/memorychunk.h"
 
-#include <string>
+
 
 namespace euphoria::core::base64
 {

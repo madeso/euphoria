@@ -4,7 +4,7 @@
 #include "core/numeric.h"
 
 #include "assert/assert.h"
-#include <vector>
+
 
 namespace euphoria::core
 {

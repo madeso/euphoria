@@ -2,7 +2,7 @@
 
 #include "core/key.h"
 
-#include <string>
+
 #include <map>
 
 #include "core/stringutils.h"

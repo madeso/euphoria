@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+
 #include <optional>
 
 #include "core/vec2.h"

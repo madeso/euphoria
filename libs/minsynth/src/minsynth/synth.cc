@@ -6,7 +6,7 @@
 #include "core/cint.h"
 #include "core/angle.h"
 
-#include <sstream>
+
 #include <cmath>
 #include <set>
 #include <algorithm>

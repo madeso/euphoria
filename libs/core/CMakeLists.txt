@@ -166,6 +166,9 @@ set(app_src
     src/core/viewportdef.cc src/core/viewportdef.h
     src/core/viewport.cc src/core/viewport.h
     src/core/wordwrap.cc src/core/wordwrap.h
+
+    src/core/pch.private.h
+    src/core/pch.public.h
 )
 
 source_group("" FILES ${app_src})
@@ -192,6 +195,10 @@ add_library(euph::core ALIAS core)
 target_include_directories(core
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+target_precompile_headers(core
+    PUBLIC src/core/pch.public.h
+    PRIVATE src/core/pch.private.h
 )
 target_link_libraries(core
     PUBLIC

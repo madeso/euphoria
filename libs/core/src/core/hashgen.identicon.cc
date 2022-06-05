@@ -1,6 +1,6 @@
 #include "core/hashgen.h"
 
-#include <vector>
+
 
 #include "core/image.h"
 #include "core/rgb.h"

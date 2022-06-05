@@ -4,7 +4,7 @@
 #include "core/size2.h"
 #include "core/noncopyable.h"
 
-#include <vector>
+
 #include <memory>
 
 

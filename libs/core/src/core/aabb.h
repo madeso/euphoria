@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+
 
 #include "core/vec3.h"
 

@@ -3,7 +3,7 @@
 #include "core/palette.h"
 
 #include <map>
-#include <vector>
+
 
 namespace euphoria::core
 {

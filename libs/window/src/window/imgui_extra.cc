@@ -10,7 +10,7 @@
 
 #include "window/imgui_icons.h"
 
-#include <sstream>
+
 #include <iomanip>
 
 #include "fmt/format.h"

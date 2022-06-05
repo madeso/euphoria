@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include <vector>
+
 
 namespace euphoria::t3d
 {

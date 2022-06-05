@@ -1,10 +1,10 @@
 #include "render/shader.h"
 
 #include <iostream>
-#include <vector>
+
 #include <fstream>
 #include <algorithm>
-#include <sstream>
+
 
 #include "assert/assert.h"
 #include "log/log.h"

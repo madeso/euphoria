@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+
 
 #include "core/rect.h"
 #include "core/size2.h"

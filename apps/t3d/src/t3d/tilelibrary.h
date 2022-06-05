@@ -7,8 +7,8 @@
 
 #include "render/compiledmesh.h"
 
-#include <string>
-#include <vector>
+
+
 
 
 namespace euphoria::core::vfs

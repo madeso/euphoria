@@ -3,7 +3,7 @@
 #include "core/vec3.h"
 #include "core/rgb.h"
 
-#include <vector>
+
 #include <tuple>
 
 namespace euphoria::core

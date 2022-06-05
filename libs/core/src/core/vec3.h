@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include <ostream>
+
 #include <tuple>
 
 #include "core/vec2.h"

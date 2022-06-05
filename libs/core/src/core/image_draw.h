@@ -6,8 +6,8 @@
 #include "core/vec2.h"
 #include "core/rgb_blend.h"
 
-#include <string>
-#include <vector>
+
+
 
 namespace euphoria::core
 {

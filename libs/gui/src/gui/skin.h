@@ -5,7 +5,7 @@
 #include "core/vfs_path.h"
 #include "core/noncopyable.h"
 
-#include <string>
+
 #include <memory>
 #include <optional>
 

@@ -4,8 +4,8 @@
 #include "core/sol_forward.h"
 #include "core/noncopyable.h"
 
-#include <string>
-#include <vector>
+
+
 #include <memory>
 #include <map>
 

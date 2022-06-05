@@ -3,8 +3,8 @@
 #include "core/str.h"
 
 #include <string_view>
-#include <sstream>
-#include <vector>
+
+
 
 namespace euphoria::core
 {

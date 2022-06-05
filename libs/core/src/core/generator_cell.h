@@ -3,7 +3,7 @@
 #include "core/fourway.h"
 #include "core/table_bool.h"
 
-#include <vector>
+
 
 namespace euphoria::core
 {

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+
 #include "range/v3/view/span.hpp"
 
 #include "assert/assert.h"

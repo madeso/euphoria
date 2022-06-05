@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+
 
 #include "core/rgb.h"
 #include "core/vec2.h"

@@ -2,7 +2,7 @@
 
 #include <set>
 #include <optional>
-#include <vector>
+
 #include <map>
 
 #include "stb_truetype.h"

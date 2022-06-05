@@ -2,8 +2,8 @@
 
 #include "core/vfs_path.h"
 
-#include <string>
-#include <vector>
+
+
 
 
 namespace euphoria::core::vfs

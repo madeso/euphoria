@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+
 
 
 namespace euphoria::core::easing

@@ -1,8 +1,8 @@
 #pragma once
 
-#include <string>
+
 #include <memory>
-#include <vector>
+
 
 #include "core/key.h"
 #include "core/sol.h"

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include <string>
+
 #include <optional>
 
 #include "core/noncopyable.h"

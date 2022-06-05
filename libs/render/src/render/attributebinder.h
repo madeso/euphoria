@@ -2,7 +2,7 @@
 
 #include "render/shaderattribute.h"
 
-#include <vector>
+
 
 namespace euphoria::render
 {

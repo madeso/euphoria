@@ -3,10 +3,10 @@
 
 #include "core/memorychunk.h"
 
-#include <string>
+
 #include <map>
 #include <memory>
-#include <vector>
+
 
 
 namespace euphoria::core::vfs

@@ -1,7 +1,7 @@
 #include "core/argparse.h"
 
 #include <iostream>
-#include <sstream>
+
 #include <iomanip>
 
 #include "core/image.h"

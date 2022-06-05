@@ -6,8 +6,8 @@
 #include "gui/uistate.h"
 #include "gui/layoutcontainer.h"
 
-#include <string>
-#include <vector>
+
+
 #include <memory>
 
 

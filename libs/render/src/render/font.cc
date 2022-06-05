@@ -1,6 +1,6 @@
 #include "render/font.h"
 
-#include <vector>
+
 #include <memory>
 #include <map>
 #include <algorithm>

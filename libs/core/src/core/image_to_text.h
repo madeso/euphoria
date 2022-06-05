@@ -1,7 +1,7 @@
 #pragma once
 
-#include <vector>
-#include <string>
+
+
 
 #include "core/table.h"
 #include "core/rgb.h"

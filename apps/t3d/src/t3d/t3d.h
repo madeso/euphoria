@@ -20,8 +20,8 @@
 #include "t3d/filelist.h"
 #include "t3d/keyboardstate.h"
 
-#include <vector>
-#include <string>
+
+
 #include <memory>
 #include <optional>
 

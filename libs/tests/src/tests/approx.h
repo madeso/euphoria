@@ -1,7 +1,7 @@
 #pragma once
 
 #include <cmath>
-#include <sstream>
+
 #include <limits>
 
 #include "catch.hpp"

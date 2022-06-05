@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+
 #include <ostream>
 
 namespace euphoria::tests

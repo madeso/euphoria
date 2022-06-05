@@ -9,8 +9,8 @@
 #include "core/stringutils.h"
 
 #include <utility>
-#include <vector>
-#include <sstream>
+
+
 
 namespace euphoria::core
 {

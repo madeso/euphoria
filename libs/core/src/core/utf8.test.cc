@@ -4,8 +4,8 @@
 
 #include "catch.hpp"
 
-#include <vector>
-#include <string>
+
+
 
 using namespace euphoria::core;
 

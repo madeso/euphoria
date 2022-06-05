@@ -1,7 +1,7 @@
 #pragma once
 
 #include <memory>
-#include <vector>
+
 
 #include "core/rect.h"
 #include "core/noncopyable.h"

@@ -8,7 +8,7 @@
 #include "core/noncopyable.h"
 
 #include <memory>
-#include <vector>
+
 #include <optional>
 
 

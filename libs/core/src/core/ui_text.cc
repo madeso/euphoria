@@ -2,7 +2,7 @@
 
 #include "log/log.h"
 
-#include <sstream>
+
 
 namespace euphoria::core
 {
