@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="sol__forward_8h" kind="file" language="C++">
+    <compoundname>sol_forward.h</compoundname>
+    <innernamespace refid="namespacesol">sol</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/sol_forward.h"/>
+  </compounddef>
+</doxygen>

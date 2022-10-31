@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="iterate_8h" kind="file" language="C++">
+    <compoundname>iterate.h</compoundname>
+    <includes refid="assert_8h" local="yes">assert/assert.h</includes>
+    <includedby refid="polybezier_8h" local="yes">libs/core/src/core/polybezier.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/iterate.h</label>
+        <link refid="iterate_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>vector</label>
+      </node>
+      <node id="5">
+        <label>sstream</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/iterate.h</label>
+        <link refid="iterate_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/polybezier.h</label>
+        <link refid="polybezier_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1StepIterator" prot="public">euphoria::core::StepIterator</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1StepIteratorCreator" prot="public">euphoria::core::StepIteratorCreator</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/iterate.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1vfs_1_1FileList" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::vfs::FileList</compoundname>
+    <includes refid="vfs_8h" local="no">vfs.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1vfs_1_1FileList_1aabb1d462a89ce3e9d7edfe023b61c001" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, <ref refid="structeuphoria_1_1core_1_1vfs_1_1ListedFile" kindref="compound">ListedFile</ref> &gt;</type>
+        <definition>std::map&lt;std::string, ListedFile&gt; euphoria::core::vfs::FileList::files</definition>
+        <argsstring></argsstring>
+        <name>files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.h" line="29" column="18" bodyfile="libs/core/src/core/vfs.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1vfs_1_1FileList_1a264123c8c6d4fe5796c5237ac4533f83" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, <ref refid="structeuphoria_1_1core_1_1vfs_1_1ListedFile" kindref="compound">ListedFile</ref> &gt;</type>
+        <definition>std::map&lt;std::string, ListedFile&gt; euphoria::core::vfs::FileList::folders</definition>
+        <argsstring></argsstring>
+        <name>folders</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.h" line="30" column="18" bodyfile="libs/core/src/core/vfs.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileList_1a44409f31fa5ce72abfa842bed9e6834e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::vfs::FileList::add</definition>
+        <argsstring>(const ListedFile &amp;file)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1ListedFile" kindref="compound">ListedFile</ref> &amp;</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.h" line="33" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileList_1ad369e0db39dbc46413fe53477ec09f64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::vfs::FileList::add</definition>
+        <argsstring>(const std::string &amp;n, bool b, bool f)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs.h" line="36" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/vfs.h" line="28" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="27" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileList_1a44409f31fa5ce72abfa842bed9e6834e" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileList</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileList_1ad369e0db39dbc46413fe53477ec09f64" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileList</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileList_1aabb1d462a89ce3e9d7edfe023b61c001" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileList</scope><name>files</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileList_1a264123c8c6d4fe5796c5237ac4533f83" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileList</scope><name>folders</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

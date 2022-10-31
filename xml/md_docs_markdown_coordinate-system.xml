@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md_docs_markdown_coordinate-system" kind="page">
+    <compoundname>md_docs_markdown_coordinate-system</compoundname>
+    <title>Coordinate system</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>Euphoria works accordiing to the following coordinate system</para>
+<para><itemizedlist>
+<listitem><para><computeroutput>(0,0)</computeroutput> is lower left</para>
+</listitem><listitem><para>x-axis is positive right</para>
+</listitem><listitem><para>y-axis is positive up </para>
+</listitem></itemizedlist>
+</para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

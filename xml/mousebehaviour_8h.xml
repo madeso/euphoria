@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="mousebehaviour_8h" kind="file" language="C++">
+    <compoundname>mousebehaviour.h</compoundname>
+    <includedby refid="camera3_8editor_8h" local="yes">libs/core/src/core/camera3.editor.h</includedby>
+    <includedby refid="sdlwindow_8h" local="yes">libs/window/src/window/sdlwindow.h</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>libs/window/src/window/sdlwindow.h</label>
+        <link refid="sdlwindow_8h"/>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/camera3.editor.h</label>
+        <link refid="camera3_8editor_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/mousebehaviour.h</label>
+        <link refid="mousebehaviour_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/mousebehaviour.h"/>
+  </compounddef>
+</doxygen>

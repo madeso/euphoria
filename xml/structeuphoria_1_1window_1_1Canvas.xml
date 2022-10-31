@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1window_1_1Canvas" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::window::Canvas</compoundname>
+    <includes refid="canvas_8h" local="no">canvas.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1window_1_1Canvas_1a47bb0dd3db3fe78000352f7490863aec" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1CanvasLogic" kindref="compound">core::CanvasLogic</ref></type>
+        <definition>core::CanvasLogic euphoria::window::Canvas::view</definition>
+        <argsstring></argsstring>
+        <name>view</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="19" column="27" bodyfile="libs/window/src/window/canvas.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1window_1_1Canvas_1a49249c04df8b52b125b06e2f009ad728" prot="public" static="no" mutable="no">
+        <type>ImVec2</type>
+        <definition>ImVec2 euphoria::window::Canvas::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <initializer>= ImVec2 {0, 0}</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="20" column="16" bodyfile="libs/window/src/window/canvas.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1ac8cea0fc109deb38d13494537baf1fd5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::Canvas::show_grid</definition>
+        <argsstring>(const CanvasConfig &amp;cc) const</argsstring>
+        <name>show_grid</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1window_1_1CanvasConfig" kindref="compound">CanvasConfig</ref> &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="23" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a32907e4eb6723d337a949b4b440ca3d1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::Canvas::vertical_line</definition>
+        <argsstring>(float rx, ImU32 grid_color) const</argsstring>
+        <name>vertical_line</name>
+        <param>
+          <type>float</type>
+          <declname>rx</declname>
+        </param>
+        <param>
+          <type>ImU32</type>
+          <declname>grid_color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="26" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1ab1f1292a22677feb9bf9ba908cf7bb4b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::Canvas::horizontal_line</definition>
+        <argsstring>(float ry, ImU32 grid_color) const</argsstring>
+        <name>horizontal_line</name>
+        <param>
+          <type>float</type>
+          <declname>ry</declname>
+        </param>
+        <param>
+          <type>ImU32</type>
+          <declname>grid_color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="29" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a999897a977094dd6bbe3b1b74c628f31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::Canvas::show_ruler</definition>
+        <argsstring>(float ruler_interval, ImU32 ruler_color, float length) const</argsstring>
+        <name>show_ruler</name>
+        <param>
+          <type>float</type>
+          <declname>ruler_interval</declname>
+        </param>
+        <param>
+          <type>ImU32</type>
+          <declname>ruler_color</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>length</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="32" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a44b390dd6c9424a27d7c8f67fb9d4402" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::Canvas::show_ruler</definition>
+        <argsstring>(const CanvasConfig &amp;cc) const</argsstring>
+        <name>show_ruler</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1window_1_1CanvasConfig" kindref="compound">CanvasConfig</ref> &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="35" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1aacdec761dec32da1d59d21650ca51fd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::Canvas::begin</definition>
+        <argsstring>(const CanvasConfig &amp;cc)</argsstring>
+        <name>begin</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1window_1_1CanvasConfig" kindref="compound">CanvasConfig</ref> &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="38" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a47504e691af8ff60f6fc2edc70b390c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::Canvas::end</definition>
+        <argsstring>(const CanvasConfig &amp;cc)</argsstring>
+        <name>end</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1window_1_1CanvasConfig" kindref="compound">CanvasConfig</ref> &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="41" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1abff83b04cd035f9626916466724c4fac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ImVec2</type>
+        <definition>ImVec2 euphoria::window::Canvas::world_to_screen</definition>
+        <argsstring>(const ImVec2 &amp;v) const</argsstring>
+        <name>world_to_screen</name>
+        <param>
+          <type>const ImVec2 &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="44" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1af1d433c7d9f05ea7a71e0ed4befd3d41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ImVec2</type>
+        <definition>ImVec2 euphoria::window::Canvas::world_to_screen_size</definition>
+        <argsstring>(const ImVec2 &amp;v) const</argsstring>
+        <name>world_to_screen_size</name>
+        <param>
+          <type>const ImVec2 &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="47" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a53c855c6f975074eecfe9b10c4a36b95" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ImVec2</type>
+        <definition>ImVec2 euphoria::window::Canvas::screen_to_world</definition>
+        <argsstring>(const ImVec2 &amp;v) const</argsstring>
+        <name>screen_to_world</name>
+        <param>
+          <type>const ImVec2 &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="50" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1Canvas_1a6f3de293a54c2a9abcf8cd338f8854c2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>ImVec2</type>
+        <definition>ImVec2 euphoria::window::Canvas::get_mouse</definition>
+        <argsstring>() const</argsstring>
+        <name>get_mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/canvas.h" line="53" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>euphoria::core::Range&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Range"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::CanvasLogic</label>
+        <link refid="structeuphoria_1_1core_1_1CanvasLogic"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>scale_range</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>scroll</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>euphoria::core::Vec2&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Vec2"/>
+      </node>
+      <node id="1">
+        <label>euphoria::window::Canvas</label>
+        <link refid="structeuphoria_1_1window_1_1Canvas"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>view</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/window/src/window/canvas.h" line="18" column="1" bodyfile="libs/window/src/window/canvas.h" bodystart="17" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1aacdec761dec32da1d59d21650ca51fd8" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>begin</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1a47504e691af8ff60f6fc2edc70b390c2" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>end</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1a6f3de293a54c2a9abcf8cd338f8854c2" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>get_mouse</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1ab1f1292a22677feb9bf9ba908cf7bb4b" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>horizontal_line</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1a49249c04df8b52b125b06e2f009ad728" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1a53c855c6f975074eecfe9b10c4a36b95" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>screen_to_world</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1ac8cea0fc109deb38d13494537baf1fd5" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>show_grid</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1a999897a977094dd6bbe3b1b74c628f31" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>show_ruler</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1a44b390dd6c9424a27d7c8f67fb9d4402" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>show_ruler</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1a32907e4eb6723d337a949b4b440ca3d1" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>vertical_line</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1a47bb0dd3db3fe78000352f7490863aec" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>view</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1abff83b04cd035f9626916466724c4fac" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>world_to_screen</name></member>
+      <member refid="structeuphoria_1_1window_1_1Canvas_1af1d433c7d9f05ea7a71e0ed4befd3d41" prot="public" virt="non-virtual"><scope>euphoria::window::Canvas</scope><name>world_to_screen_size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

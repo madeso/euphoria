@@ -1,0 +1,259 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Vec4" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Vec4</compoundname>
+    <includes refid="vec4_8h" local="no">vec4.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Vec4_1a2836ce0a0e3e9ef93258f68e873de078" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Vec4&lt; T &gt;::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="16" column="11" bodyfile="libs/core/src/core/vec4.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Vec4_1adbb528ce9d3b6566ae00d932484c537e" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Vec4&lt; T &gt;::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="17" column="11" bodyfile="libs/core/src/core/vec4.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Vec4_1a884f273a86b3fdef94ad55ce58ad06a1" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Vec4&lt; T &gt;::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="18" column="11" bodyfile="libs/core/src/core/vec4.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Vec4_1aabdf65a14cef24c670ecad28bed92811" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Vec4&lt; T &gt;::w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="19" column="11" bodyfile="libs/core/src/core/vec4.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1a790bcf61894747b5a1491d2ec5f8f6f4" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Vec4&lt; T &gt;::Vec4</definition>
+        <argsstring>(const T &amp;a)</argsstring>
+        <name>Vec4</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="21" column="18" bodyfile="libs/core/src/core/vec4.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1a026d7e16780e0a1c5653b8b2eefcdba1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Vec4&lt; T &gt;::Vec4</definition>
+        <argsstring>(const T &amp;ax, const T &amp;ay, const T &amp;az, const T &amp;aw)</argsstring>
+        <name>Vec4</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>ax</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>ay</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>az</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>aw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="22" column="9" bodyfile="libs/core/src/core/vec4.h" bodystart="22" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1a7dae3c8c829ff0e0644fa649f742278e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Vec4&lt; T &gt;::Vec4</definition>
+        <argsstring>(const Vec3&lt; T &gt; &amp;a, T aw)</argsstring>
+        <name>Vec4</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Vec3" kindref="compound">Vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>aw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="28" column="9" bodyfile="libs/core/src/core/vec4.h" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1a3887ddede6ccf41314c223ea48664ec9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Vec4&lt; T &gt;::Vec4</definition>
+        <argsstring>(const Scale3&lt; T &gt; &amp;a)</argsstring>
+        <name>Vec4</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Scale3" kindref="compound">Scale3</ref>&lt; T &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="30" column="9" bodyfile="libs/core/src/core/vec4.h" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1a4ea4f8a63af6949d49b2b141f5b7d71e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Vec3" kindref="compound">Vec3</ref>&lt; T &gt;</type>
+        <definition>Vec3&lt;T&gt; euphoria::core::Vec4&lt; T &gt;::to_vec3</definition>
+        <argsstring>(T ww) const</argsstring>
+        <name>to_vec3</name>
+        <param>
+          <type>T</type>
+          <declname>ww</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="33" column="9" bodyfile="libs/core/src/core/vec4.h" bodystart="33" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1a232cc9c624312f594d5af58b31c20f04" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Vec3" kindref="compound">Vec3</ref>&lt; T &gt;</type>
+        <definition>Vec3&lt;T&gt; euphoria::core::Vec4&lt; T &gt;::to_vec3</definition>
+        <argsstring>() const</argsstring>
+        <name>to_vec3</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="41" column="9" bodyfile="libs/core/src/core/vec4.h" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1a27bbc45ecd4f17ed8249cbc96720462e" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Vec4&lt; T &gt;::Vec4</definition>
+        <argsstring>(const T *a)</argsstring>
+        <name>Vec4</name>
+        <param>
+          <type>const T *</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="46" column="18" bodyfile="libs/core/src/core/vec4.h" bodystart="46" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1a595dda493a887e0bd95a1d9bd08802e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* euphoria::core::Vec4&lt; T &gt;::get_data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="49" column="9" bodyfile="libs/core/src/core/vec4.h" bodystart="49" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1addf508e0d009e7fd04260044c0482976" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T *</type>
+        <definition>const T* euphoria::core::Vec4&lt; T &gt;::get_data_ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="55" column="9" bodyfile="libs/core/src/core/vec4.h" bodystart="55" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec4_1af9d1063b6b5ee403c36351b3ab84e905" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T euphoria::core::Vec4&lt; T &gt;::get_component_sum</definition>
+        <argsstring>() const</argsstring>
+        <name>get_component_sum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="61" column="9" bodyfile="libs/core/src/core/vec4.h" bodystart="61" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/vec4.h" line="15" column="1" bodyfile="libs/core/src/core/vec4.h" bodystart="14" bodyend="65"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1af9d1063b6b5ee403c36351b3ab84e905" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>get_component_sum</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a595dda493a887e0bd95a1d9bd08802e3" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1addf508e0d009e7fd04260044c0482976" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a4ea4f8a63af6949d49b2b141f5b7d71e" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>to_vec3</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a232cc9c624312f594d5af58b31c20f04" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>to_vec3</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a790bcf61894747b5a1491d2ec5f8f6f4" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>Vec4</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a026d7e16780e0a1c5653b8b2eefcdba1" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>Vec4</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a7dae3c8c829ff0e0644fa649f742278e" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>Vec4</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a3887ddede6ccf41314c223ea48664ec9" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>Vec4</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a27bbc45ecd4f17ed8249cbc96720462e" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>Vec4</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1aabdf65a14cef24c670ecad28bed92811" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>w</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a2836ce0a0e3e9ef93258f68e873de078" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>x</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1adbb528ce9d3b6566ae00d932484c537e" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>y</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec4_1a884f273a86b3fdef94ad55ce58ad06a1" prot="public" virt="non-virtual"><scope>euphoria::core::Vec4</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

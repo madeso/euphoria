@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1minsynth_1_1Envelope" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::minsynth::Envelope</compoundname>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1Envelope_1a6acae5846e65e59281ee92d58068c98b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::minsynth::Envelope::time_to_start</definition>
+        <argsstring></argsstring>
+        <name>time_to_start</name>
+        <initializer>= 0.01f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="318" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="318" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1Envelope_1a5d8ba8ebf14b6cc0cf9b90719af89ad6" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::minsynth::Envelope::time_to_end</definition>
+        <argsstring></argsstring>
+        <name>time_to_end</name>
+        <initializer>= 0.01f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="319" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="319" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Envelope_1af2af05f63e53052fd9e0dbeb6b3a4d64" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::minsynth::Envelope::get_live</definition>
+        <argsstring>(float wave, float start_time, float current_time) const</argsstring>
+        <name>get_live</name>
+        <param>
+          <type>float</type>
+          <declname>wave</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>start_time</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>current_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="322" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Envelope_1a7ea428c92fb793e07cd953932fcf9a62" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::minsynth::Envelope::get_dead</definition>
+        <argsstring>(float wave, float end_time, float current_time) const</argsstring>
+        <name>get_dead</name>
+        <param>
+          <type>float</type>
+          <declname>wave</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>end_time</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>current_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="325" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="317" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="316" bodyend="326"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1minsynth_1_1Envelope_1a7ea428c92fb793e07cd953932fcf9a62" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Envelope</scope><name>get_dead</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Envelope_1af2af05f63e53052fd9e0dbeb6b3a4d64" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Envelope</scope><name>get_live</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Envelope_1a5d8ba8ebf14b6cc0cf9b90719af89ad6" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Envelope</scope><name>time_to_end</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Envelope_1a6acae5846e65e59281ee92d58068c98b" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Envelope</scope><name>time_to_start</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

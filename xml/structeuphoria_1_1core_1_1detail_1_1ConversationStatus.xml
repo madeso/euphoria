@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::detail::ConversationStatus</compoundname>
+    <includes refid="chatbot_8h" local="no">chatbot.h</includes>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry" prot="public">euphoria::core::detail::ConversationStatus::LogEntry</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry" prot="public">euphoria::core::detail::ConversationStatus::TopicEntry</innerclass>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1add606277ea221865ce61e425b1ef1fad" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::detail::ConversationStatus::input</definition>
+        <argsstring></argsstring>
+        <name>input</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="188" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="188" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a1e6bf0074a60d4c7c458f8a81028b5c2" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::detail::ConversationStatus::response</definition>
+        <argsstring></argsstring>
+        <name>response</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="189" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="189" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a534afef0389064b60d4a410ede77b319" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::detail::ConversationStatus::section</definition>
+        <argsstring></argsstring>
+        <name>section</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="190" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="190" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1ac22e09cdd4ff0469764a2bc2a7e27572" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry" kindref="compound">TopicEntry</ref> &gt;</type>
+        <definition>std::vector&lt;TopicEntry&gt; euphoria::core::detail::ConversationStatus::topics</definition>
+        <argsstring></argsstring>
+        <name>topics</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="191" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="191" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a422fa56a9c43e025845227c3a0b788b7" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry" kindref="compound">LogEntry</ref> &gt;</type>
+        <definition>std::vector&lt;LogEntry&gt; euphoria::core::detail::ConversationStatus::logs</definition>
+        <argsstring></argsstring>
+        <name>logs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="192" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="192" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/chatbot.h" line="175" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="174" bodyend="193"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1add606277ea221865ce61e425b1ef1fad" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus</scope><name>input</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a422fa56a9c43e025845227c3a0b788b7" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus</scope><name>logs</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a1e6bf0074a60d4c7c458f8a81028b5c2" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus</scope><name>response</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a534afef0389064b60d4a410ede77b319" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus</scope><name>section</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1ac22e09cdd4ff0469764a2bc2a7e27572" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus</scope><name>topics</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

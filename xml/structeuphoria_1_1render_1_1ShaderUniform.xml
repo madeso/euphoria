@@ -1,0 +1,233 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1ShaderUniform" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::ShaderUniform</compoundname>
+    <includes refid="shaderuniform_8h" local="no">shaderuniform.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ShaderUniform_1a74027c52f4d055bc5cf69fb2a474c45a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::render::ShaderUniform::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="31" column="21" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ShaderUniform_1a46aaa861a144dac1e98e6fa57fd4833f" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1render_1_1gl_1aabea7c99ef9874e216a2869f613b2955" kindref="member">gl::Int</ref></type>
+        <definition>gl::Int euphoria::render::ShaderUniform::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="32" column="17" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ShaderUniform_1a2a743bd3e4fe253b420fbb53975452b2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1render_1_1ShaderProgram" kindref="compound">render::ShaderProgram</ref> *</type>
+        <definition>render::ShaderProgram* euphoria::render::ShaderUniform::shader</definition>
+        <argsstring></argsstring>
+        <name>shader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="33" column="31" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1aa46e5b15c5f9beb765a22e37ce858fef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ShaderUniform::ShaderUniform</definition>
+        <argsstring>(std::string aname, gl::Int aid, render::ShaderProgram *ashader)</argsstring>
+        <name>ShaderUniform</name>
+        <param>
+          <type>std::string</type>
+          <declname>aname</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1render_1_1gl_1aabea7c99ef9874e216a2869f613b2955" kindref="member">gl::Int</ref></type>
+          <declname>aid</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1ShaderProgram" kindref="compound">render::ShaderProgram</ref> *</type>
+          <declname>ashader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="17" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1afe871ec32ad8fdfea03de7d65210da4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ShaderUniform::~ShaderUniform</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ShaderUniform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="19" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1a09a19d2669bf300b52f18e0fbc632567" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ShaderUniform::ShaderUniform</definition>
+        <argsstring>(const ShaderUniform &amp;)=default</argsstring>
+        <name>ShaderUniform</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="20" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1a6d4adbb55cb687f80741aa097cbc8ced" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ShaderUniform::ShaderUniform</definition>
+        <argsstring>(ShaderUniform &amp;&amp;)=default</argsstring>
+        <name>ShaderUniform</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1a5b779888836932e58c0cb0a22f9670a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        <definition>ShaderUniform&amp; euphoria::render::ShaderUniform::operator=</definition>
+        <argsstring>(const ShaderUniform &amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="22" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1a8256b97402f42df0fc821827d38f8d46" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        <definition>ShaderUniform&amp; euphoria::render::ShaderUniform::operator=</definition>
+        <argsstring>(ShaderUniform &amp;&amp;)=default</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="23" column="23"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1abc167240b7dbf9f4431177709dd30d06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::render::ShaderUniform::is_null</definition>
+        <argsstring>() const</argsstring>
+        <name>is_null</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="29" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1a81a0588b3926a983497e702eee96381e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+        <definition>static const ShaderUniform&amp; euphoria::render::ShaderUniform::null</definition>
+        <argsstring>()</argsstring>
+        <name>null</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="26" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderUniform_1a20eb0b58bd6266b815dea64c5dc6b683" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ShaderUniform::ShaderUniform</definition>
+        <argsstring>()</argsstring>
+        <name>ShaderUniform</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="36" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::render::ShaderUniform</label>
+        <link refid="structeuphoria_1_1render_1_1ShaderUniform"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>shader</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::render::ShaderId</label>
+        <link refid="structeuphoria_1_1render_1_1ShaderId"/>
+      </node>
+      <node id="2">
+        <label>euphoria::render::ShaderProgram</label>
+        <link refid="structeuphoria_1_1render_1_1ShaderProgram"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/shaderuniform.h" line="15" column="1" bodyfile="libs/render/src/render/shaderuniform.h" bodystart="14" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a46aaa861a144dac1e98e6fa57fd4833f" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>id</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1abc167240b7dbf9f4431177709dd30d06" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>is_null</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a74027c52f4d055bc5cf69fb2a474c45a" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>name</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a81a0588b3926a983497e702eee96381e" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>null</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a5b779888836932e58c0cb0a22f9670a6" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a8256b97402f42df0fc821827d38f8d46" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a2a743bd3e4fe253b420fbb53975452b2" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>shader</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1aa46e5b15c5f9beb765a22e37ce858fef" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>ShaderUniform</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a09a19d2669bf300b52f18e0fbc632567" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>ShaderUniform</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a6d4adbb55cb687f80741aa097cbc8ced" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>ShaderUniform</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1a20eb0b58bd6266b815dea64c5dc6b683" prot="private" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>ShaderUniform</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderUniform_1afe871ec32ad8fdfea03de7d65210da4e" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderUniform</scope><name>~ShaderUniform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

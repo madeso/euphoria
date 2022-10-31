@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::argparse::NameAndArguments</compoundname>
+    <includes refid="argparse_8h" local="no">argparse.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments_1a5200915e13a03dfe4ad1bc9e933c31c7" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::argparse::NameAndArguments::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="99" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments_1a51c933d3e2c91983e9b48b6090acbde1" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::argparse::NameAndArguments::arguments</definition>
+        <argsstring></argsstring>
+        <name>arguments</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="100" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="100" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments_1ae05dfe7566cf2aff246c3d5a477ffdc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::argparse::NameAndArguments::NameAndArguments</definition>
+        <argsstring>(const std::string &amp;n, const std::vector&lt; std::string &gt; &amp;a)</argsstring>
+        <name>NameAndArguments</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="102" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments_1a2a31431dc93d6bb812b856f19a1b6a5d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" kindref="compound">NameAndArguments</ref></type>
+        <definition>static NameAndArguments euphoria::core::argparse::NameAndArguments::extract</definition>
+        <argsstring>(int argc, char *argv[])</argsstring>
+        <name>extract</name>
+        <param>
+          <type>int</type>
+          <declname>argc</declname>
+        </param>
+        <param>
+          <type>char *</type>
+          <declname>argv</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="106" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/argparse.h" line="98" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="97" bodyend="107"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments_1a51c933d3e2c91983e9b48b6090acbde1" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::NameAndArguments</scope><name>arguments</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments_1a2a31431dc93d6bb812b856f19a1b6a5d" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::NameAndArguments</scope><name>extract</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments_1a5200915e13a03dfe4ad1bc9e933c31c7" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::NameAndArguments</scope><name>name</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments_1ae05dfe7566cf2aff246c3d5a477ffdc6" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::NameAndArguments</scope><name>NameAndArguments</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

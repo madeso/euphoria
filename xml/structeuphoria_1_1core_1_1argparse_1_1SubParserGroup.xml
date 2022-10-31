@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::argparse::SubParserGroup</compoundname>
+    <includes refid="argparse_8h" local="no">argparse.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a7de06e033b312edbe9793c986054dbe5" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::argparse::SubParserGroup::title</definition>
+        <argsstring></argsstring>
+        <name>title</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="395" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="395" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a837090efc5ee0db74bdcfa56fa793ea0" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *</type>
+        <definition>ParserBase* euphoria::core::argparse::SubParserGroup::owner</definition>
+        <argsstring></argsstring>
+        <name>owner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="396" column="20" bodyfile="libs/core/src/core/argparse.h" bodystart="396" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a83b6d8d42314acb90aafa85eef9a10d9" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1SubParserContainer" kindref="compound">SubParserContainer</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;SubParserContainer&gt; &gt; euphoria::core::argparse::SubParserGroup::parsers</definition>
+        <argsstring></argsstring>
+        <name>parsers</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="397" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="397" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1abe4ce81e76cc1695bba1090c33ede463" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::argparse::SubParserGroup::SubParserGroup</definition>
+        <argsstring>(const std::string &amp;t, ParserBase *o)</argsstring>
+        <name>SubParserGroup</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="399" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a6fc97de9cd25b097b6f1678da51a9fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::argparse::SubParserGroup::add</definition>
+        <argsstring>(const SubParserNames &amp;names, const std::string &amp;desc, SubParserCallback sub)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1argparse_1_1SubParserNames" kindref="compound">SubParserNames</ref> &amp;</type>
+          <declname>names</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>desc</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1argparse_1a1634480feea39d1ec080754169f3b2eb" kindref="member">SubParserCallback</ref></type>
+          <declname>sub</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="406" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a7cf61f546fdcb7e9e5634d067337f4d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::argparse::SubParserGroup::add</definition>
+        <argsstring>(const SubParserNames &amp;names, SubParserCallback sub)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1argparse_1_1SubParserNames" kindref="compound">SubParserNames</ref> &amp;</type>
+          <declname>names</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1argparse_1a1634480feea39d1ec080754169f3b2eb" kindref="member">SubParserCallback</ref></type>
+          <declname>sub</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="414" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::argparse::SubParserGroup</label>
+        <link refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>owner</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::argparse::ParserBase</label>
+        <link refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>subparsers</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::EnumToStringImplementation&lt; std::shared_ptr&lt; euphoria::core::argparse::SubParserContainer &gt; &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1EnumToStringImplementation"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/argparse.h" line="394" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="393" bodyend="419"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a6fc97de9cd25b097b6f1678da51a9fe4" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParserGroup</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a7cf61f546fdcb7e9e5634d067337f4d2" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParserGroup</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a837090efc5ee0db74bdcfa56fa793ea0" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParserGroup</scope><name>owner</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a83b6d8d42314acb90aafa85eef9a10d9" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParserGroup</scope><name>parsers</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1abe4ce81e76cc1695bba1090c33ede463" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParserGroup</scope><name>SubParserGroup</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a7de06e033b312edbe9793c986054dbe5" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParserGroup</scope><name>title</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

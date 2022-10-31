@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1Dumper" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::dump2d::Dumper</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper" prot="public" virt="non-virtual">euphoria::core::dump2d::AddWrapper&lt; Dumper &gt;</basecompoundref>
+    <includes refid="dump_8h" local="no">dump.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a7731256769295b85acfd0f460d9f6fea" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <definition>Rgbi euphoria::core::dump2d::Dumper::canvas_color</definition>
+        <argsstring></argsstring>
+        <name>canvas_color</name>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1a4e52b01e84041d220929c7bcabfaf74ead508fe45cecaf653904a0e774084bb5c" kindref="member">NamedColor::white</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="103" column="14" bodyfile="libs/core/src/core/dump.h" bodystart="103" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a736e77d5d71ab3fe6ee2d6abf83bb949" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> &gt;</type>
+        <definition>std::vector&lt;Item&gt; euphoria::core::dump2d::Dumper::items</definition>
+        <argsstring></argsstring>
+        <name>items</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="104" column="21" bodyfile="libs/core/src/core/dump.h" bodystart="104" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a0ee1db348dcf5183c50dbbf5d4b51e9a" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::dump2d::Dumper::add_axis_when_writing</definition>
+        <argsstring></argsstring>
+        <name>add_axis_when_writing</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="106" column="14" bodyfile="libs/core/src/core/dump.h" bodystart="106" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a75551043255203d9a145885c02e389ab" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::dump2d::Dumper::point_size</definition>
+        <argsstring></argsstring>
+        <name>point_size</name>
+        <initializer>= -1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="107" column="13" bodyfile="libs/core/src/core/dump.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a7526f6dddf8e2b2f437c48a7419630bc" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::dump2d::Dumper::point_text</definition>
+        <argsstring></argsstring>
+        <name>point_text</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="108" column="14" bodyfile="libs/core/src/core/dump.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a90b8b9f4be2dc935422a1c710f4c6627" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::dump2d::Dumper::grid_x</definition>
+        <argsstring></argsstring>
+        <name>grid_x</name>
+        <initializer>=-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="110" column="15" bodyfile="libs/core/src/core/dump.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1aaeb934eb692d9cbfbffc70f2e8aa1f6f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::dump2d::Dumper::grid_y</definition>
+        <argsstring></argsstring>
+        <name>grid_y</name>
+        <initializer>=-1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="111" column="15" bodyfile="libs/core/src/core/dump.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a6a12fb7d9dcb79299bfec6c91a4b8d75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper" kindref="compound">Dumper</ref> &amp;</type>
+        <definition>Dumper&amp; euphoria::core::dump2d::Dumper::add_axis</definition>
+        <argsstring>()</argsstring>
+        <name>add_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="113" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a6b9eee18b4735d416db14ecf51d40e03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper" kindref="compound">Dumper</ref> &amp;</type>
+        <definition>Dumper&amp; euphoria::core::dump2d::Dumper::add_grid</definition>
+        <argsstring>(float xy)</argsstring>
+        <name>add_grid</name>
+        <param>
+          <type>float</type>
+          <declname>xy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="115" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a113b32a15dc4f10c539ea96b58d6bd23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper" kindref="compound">Dumper</ref> &amp;</type>
+        <definition>Dumper&amp; euphoria::core::dump2d::Dumper::enable_points_rendering</definition>
+        <argsstring>(int size=3)</argsstring>
+        <name>enable_points_rendering</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+          <defval>3</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="117" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a372ee3699752ef96ca3801673c71136d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper" kindref="compound">Dumper</ref> &amp;</type>
+        <definition>Dumper&amp; euphoria::core::dump2d::Dumper::add</definition>
+        <argsstring>(const Item &amp;item)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> &amp;</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="119" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1afbe5253fc08dad498756bef5bfbfc015" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref>, <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &gt;</type>
+        <definition>std::pair&lt;Vec2f,Vec2f&gt; euphoria::core::dump2d::Dumper::calculate_size_and_offset</definition>
+        <argsstring>() const</argsstring>
+        <name>calculate_size_and_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="122" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a17d86e4dd2db98c217f0314ba02a76f8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::dump2d::Dumper::write</definition>
+        <argsstring>(const std::string &amp;path, int width=1280, int height=1024, int space=6) const</argsstring>
+        <name>write</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+          <defval>1280</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+          <defval>1024</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>space</declname>
+          <defval>6</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="124" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::dump2d::Dumper</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::dump2d::AddWrapper&lt; Dumper &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>euphoria::core::Rgbi</label>
+        <link refid="structeuphoria_1_1core_1_1Rgbi"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::dump2d::Dumper</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>canvas_color</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::dump2d::AddWrapper&lt; Dumper &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/dump.h" line="102" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="101" bodyend="125"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a372ee3699752ef96ca3801673c71136d" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a6a12fb7d9dcb79299bfec6c91a4b8d75" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>add_axis</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a0ee1db348dcf5183c50dbbf5d4b51e9a" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>add_axis_when_writing</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a6b9eee18b4735d416db14ecf51d40e03" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>add_grid</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1afbe5253fc08dad498756bef5bfbfc015" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>calculate_size_and_offset</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a7731256769295b85acfd0f460d9f6fea" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>canvas_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a113b32a15dc4f10c539ea96b58d6bd23" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>enable_points_rendering</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a90b8b9f4be2dc935422a1c710f4c6627" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>grid_x</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1aaeb934eb692d9cbfbffc70f2e8aa1f6f" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>grid_y</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a736e77d5d71ab3fe6ee2d6abf83bb949" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>items</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper_1abf0448c6f1ac034594ae65105a3626b1" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>operator&lt;&lt;</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a75551043255203d9a145885c02e389ab" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>point_size</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a7526f6dddf8e2b2f437c48a7419630bc" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>point_text</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a17d86e4dd2db98c217f0314ba02a76f8" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Dumper</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

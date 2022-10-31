@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="nlp__line_8h" kind="file" language="C++">
+    <compoundname>nlp_line.h</compoundname>
+    <includes local="no">optional</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>optional</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/nlp_line.h</label>
+        <link refid="nlp__line_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/nlp_line.h"/>
+  </compounddef>
+</doxygen>

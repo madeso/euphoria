@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1dot_1_1Node" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::dot::Node</compoundname>
+    <includes refid="dotoutput_8h" local="no">dotoutput.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dot_1_1Node_1ac2ace04145266c7f4c78be4635dc8b7a" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1dot_1a1720f1180592f245e27686f462058778" kindref="member">NodeId</ref></type>
+        <definition>NodeId euphoria::core::dot::Node::id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.h" line="15" column="12" bodyfile="libs/core/src/core/dotoutput.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dot_1_1Node_1a50987c47a9f1967c20570d9d2d9215b3" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::dot::Node::label</definition>
+        <argsstring></argsstring>
+        <name>label</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.h" line="16" column="17" bodyfile="libs/core/src/core/dotoutput.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/dotoutput.h" line="14" column="1" bodyfile="libs/core/src/core/dotoutput.h" bodystart="13" bodyend="17"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1dot_1_1Node_1ac2ace04145266c7f4c78be4635dc8b7a" prot="public" virt="non-virtual"><scope>euphoria::core::dot::Node</scope><name>id</name></member>
+      <member refid="structeuphoria_1_1core_1_1dot_1_1Node_1a50987c47a9f1967c20570d9d2d9215b3" prot="public" virt="non-virtual"><scope>euphoria::core::dot::Node</scope><name>label</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

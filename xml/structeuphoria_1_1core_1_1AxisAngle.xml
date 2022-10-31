@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1AxisAngle" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::AxisAngle</compoundname>
+    <includes refid="axisangle_8h" local="no">axisangle.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1AxisAngle_1a244a3803f0e7e93250fe1294d9429cde" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">Unit3f</ref></type>
+        <definition>Unit3f euphoria::core::AxisAngle::axis</definition>
+        <argsstring></argsstring>
+        <name>axis</name>
+        <briefdescription>
+<para>a unit-vector. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/axisangle.h" line="17" column="16" bodyfile="libs/core/src/core/axisangle.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1AxisAngle_1a357c6f967461f2046451a21bdf3a3530" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
+        <definition>core::Angle euphoria::core::AxisAngle::angle</definition>
+        <argsstring></argsstring>
+        <name>angle</name>
+        <briefdescription>
+<para>rotation according to right-hand rule. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/axisangle.h" line="21" column="21" bodyfile="libs/core/src/core/axisangle.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1AxisAngle_1aec34ddb3be4432c238e14bf3ff25759a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1AxisAngle" kindref="compound">AxisAngle</ref></type>
+        <definition>static AxisAngle euphoria::core::AxisAngle::right_hand_around</definition>
+        <argsstring>(const Unit3f &amp;axis, const core::Angle &amp;angle)</argsstring>
+        <name>right_hand_around</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">Unit3f</ref> &amp;</type>
+          <declname>axis</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <declname>angle</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/axisangle.h" line="13" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1AxisAngle_1a3ad79a643f1385177a225d5f94d8adce" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::AxisAngle::AxisAngle</definition>
+        <argsstring>(const Unit3f &amp;ax, const core::Angle &amp;ang)</argsstring>
+        <name>AxisAngle</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">Unit3f</ref> &amp;</type>
+          <declname>ax</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <declname>ang</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/axisangle.h" line="24" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="3">
+        <label>euphoria::core::Unit3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Unit3"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::Angle</label>
+        <link refid="structeuphoria_1_1core_1_1Angle"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::AxisAngle</label>
+        <link refid="structeuphoria_1_1core_1_1AxisAngle"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>angle</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>axis</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/axisangle.h" line="11" column="1" bodyfile="libs/core/src/core/axisangle.h" bodystart="10" bodyend="25"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1AxisAngle_1a357c6f967461f2046451a21bdf3a3530" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1AxisAngle_1a244a3803f0e7e93250fe1294d9429cde" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>axis</name></member>
+      <member refid="structeuphoria_1_1core_1_1AxisAngle_1a3ad79a643f1385177a225d5f94d8adce" prot="private" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>AxisAngle</name></member>
+      <member refid="structeuphoria_1_1core_1_1AxisAngle_1aec34ddb3be4432c238e14bf3ff25759a" prot="public" virt="non-virtual"><scope>euphoria::core::AxisAngle</scope><name>right_hand_around</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

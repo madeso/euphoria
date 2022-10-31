@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1ScalableSprite" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::ScalableSprite</compoundname>
+    <includes refid="scalablesprite_8h" local="no">scalablesprite.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ScalableSprite_1a0807194e57fddfd91de7c2ee4d7e1634" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Texture2&gt; euphoria::render::ScalableSprite::texture</definition>
+        <argsstring></argsstring>
+        <name>texture</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="47" column="25" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ScalableSprite_1ad36a3b3049b3deae75eb85f4c2ddac3e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; euphoria::render::ScalableSprite::columns</definition>
+        <argsstring></argsstring>
+        <name>columns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="49" column="21" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ScalableSprite_1aaccbe902570019a893006609ddd65858" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; float &gt;</type>
+        <definition>std::vector&lt;float&gt; euphoria::render::ScalableSprite::rows</definition>
+        <argsstring></argsstring>
+        <name>rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="50" column="21" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ScalableSprite_1a3303f05a4f15123d7a29836bb7d981d0" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::render::ScalableSprite::calculated_texture_size_columns</definition>
+        <argsstring></argsstring>
+        <name>calculated_texture_size_columns</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="52" column="15" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ScalableSprite_1a9c64e705a4c43e391ddf0359754ddeaf" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::render::ScalableSprite::calculated_texture_size_rows</definition>
+        <argsstring></argsstring>
+        <name>calculated_texture_size_rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="53" column="15" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1a269b71382674ab32b61cfb992ec47878" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ScalableSprite::ScalableSprite</definition>
+        <argsstring>(core::vfs::FileSystem *fs, const core::vfs::FilePath &amp;path, TextureCache *cache)</argsstring>
+        <name>ScalableSprite</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="31" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1aeb0a98e4ce25289155ff592a773cc33b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ScalableSprite::~ScalableSprite</definition>
+        <argsstring>()</argsstring>
+        <name>~ScalableSprite</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="37" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1ac67e1403a8606f27cf09001b1228446a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ScalableSprite::NONCOPYABLE</definition>
+        <argsstring>(ScalableSprite)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1ScalableSprite" kindref="compound">ScalableSprite</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="39" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1a27783d62535080837f93e2ba07b8f7a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a8c5f78c50315b8abde58b90d27490153" kindref="member">core::Size2f</ref></type>
+        <definition>core::Size2f euphoria::render::ScalableSprite::get_minimum_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_minimum_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="42" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1ada69f798dabec1c7c1e377a4ce825b45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::ScalableSprite::render</definition>
+        <argsstring>(SpriteRenderer *renderer, const core::Rectf &amp;rect, const core::Rgba &amp;tint) const</argsstring>
+        <name>render</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
+          <declname>renderer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <declname>rect</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
+          <declname>tint</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/scalablesprite.h" line="45" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/scalablesprite.h" line="30" column="1" bodyfile="libs/render/src/render/scalablesprite.h" bodystart="29" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a3303f05a4f15123d7a29836bb7d981d0" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>calculated_texture_size_columns</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a9c64e705a4c43e391ddf0359754ddeaf" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>calculated_texture_size_rows</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1ad36a3b3049b3deae75eb85f4c2ddac3e" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>columns</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a27783d62535080837f93e2ba07b8f7a3" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>get_minimum_size</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1ac67e1403a8606f27cf09001b1228446a" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1ada69f798dabec1c7c1e377a4ce825b45" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>render</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1aaccbe902570019a893006609ddd65858" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>rows</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a269b71382674ab32b61cfb992ec47878" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>ScalableSprite</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a0807194e57fddfd91de7c2ee4d7e1634" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>texture</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1aeb0a98e4ce25289155ff592a773cc33b" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>~ScalableSprite</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

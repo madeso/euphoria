@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1StepIteratorCreator" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::StepIteratorCreator</compoundname>
+    <includes refid="iterate_8h" local="no">iterate.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1StepIteratorCreator_1af6a8b1819d0e8f22f4f43c5e4d1cde0e" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::StepIteratorCreator&lt; T &gt;::from</definition>
+        <argsstring></argsstring>
+        <name>from</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/iterate.h" line="57" column="11" bodyfile="libs/core/src/core/iterate.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1StepIteratorCreator_1ab05b59fffd925d413536539feab178ba" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::StepIteratorCreator&lt; T &gt;::to</definition>
+        <argsstring></argsstring>
+        <name>to</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/iterate.h" line="58" column="11" bodyfile="libs/core/src/core/iterate.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1StepIteratorCreator_1afcd5f4bb46fc5e218f84d75f5f2fb589" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::StepIteratorCreator&lt; T &gt;::step</definition>
+        <argsstring></argsstring>
+        <name>step</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/iterate.h" line="59" column="11" bodyfile="libs/core/src/core/iterate.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StepIteratorCreator_1a9c844a94184a1ed77f1ba86172825663" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1StepIterator" kindref="compound">StepIterator</ref>&lt; T &gt;</type>
+        <definition>StepIterator&lt;T&gt; euphoria::core::StepIteratorCreator&lt; T &gt;::begin</definition>
+        <argsstring>() const</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/iterate.h" line="62" column="9" bodyfile="libs/core/src/core/iterate.h" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StepIteratorCreator_1a3a601240b55f4bd4faa1543db5c92340" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1StepIterator" kindref="compound">StepIterator</ref>&lt; T &gt;</type>
+        <definition>StepIterator&lt;T&gt; euphoria::core::StepIteratorCreator&lt; T &gt;::end</definition>
+        <argsstring>() const</argsstring>
+        <name>end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/iterate.h" line="68" column="9" bodyfile="libs/core/src/core/iterate.h" bodystart="68" bodyend="71"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/iterate.h" line="56" column="1" bodyfile="libs/core/src/core/iterate.h" bodystart="55" bodyend="72"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1StepIteratorCreator_1a9c844a94184a1ed77f1ba86172825663" prot="public" virt="non-virtual"><scope>euphoria::core::StepIteratorCreator</scope><name>begin</name></member>
+      <member refid="structeuphoria_1_1core_1_1StepIteratorCreator_1a3a601240b55f4bd4faa1543db5c92340" prot="public" virt="non-virtual"><scope>euphoria::core::StepIteratorCreator</scope><name>end</name></member>
+      <member refid="structeuphoria_1_1core_1_1StepIteratorCreator_1af6a8b1819d0e8f22f4f43c5e4d1cde0e" prot="public" virt="non-virtual"><scope>euphoria::core::StepIteratorCreator</scope><name>from</name></member>
+      <member refid="structeuphoria_1_1core_1_1StepIteratorCreator_1afcd5f4bb46fc5e218f84d75f5f2fb589" prot="public" virt="non-virtual"><scope>euphoria::core::StepIteratorCreator</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1StepIteratorCreator_1ab05b59fffd925d413536539feab178ba" prot="public" virt="non-virtual"><scope>euphoria::core::StepIteratorCreator</scope><name>to</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

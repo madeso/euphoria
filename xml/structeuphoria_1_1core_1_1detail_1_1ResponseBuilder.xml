@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::detail::ResponseBuilder</compoundname>
+    <includes refid="chatbot_8h" local="no">chatbot.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a62308b6a8873cef8cffd2e8530b46e44" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1detail_1_1Response" kindref="compound">detail::Response</ref> *</type>
+        <definition>detail::Response* euphoria::core::detail::ResponseBuilder::response</definition>
+        <argsstring></argsstring>
+        <name>response</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="90" column="30" bodyfile="libs/core/src/core/chatbot.h" bodystart="90" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1abacf3b4fbab44e565ea7012970af3d11" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::detail::ResponseBuilder::ResponseBuilder</definition>
+        <argsstring>(detail::Response *r)</argsstring>
+        <name>ResponseBuilder</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1detail_1_1Response" kindref="compound">detail::Response</ref> *</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="91" column="22" bodyfile="libs/core/src/core/chatbot.h" bodystart="91" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1ab0ba189c9b56ab7b3a3c7e084e9b777b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" kindref="compound">ResponseBuilder</ref> &amp;</type>
+        <definition>ResponseBuilder&amp; euphoria::core::detail::ResponseBuilder::input</definition>
+        <argsstring>(const std::string &amp;in, Input::LocationType where=Input::at_start)</argsstring>
+        <name>input</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1detail_1_1Input_1aeddf00a5e8ba5b4ca227953b4ea8cc14" kindref="member">Input::LocationType</ref></type>
+          <declname>where</declname>
+          <defval><ref refid="structeuphoria_1_1core_1_1detail_1_1Input_1aeddf00a5e8ba5b4ca227953b4ea8cc14a363f6a1b7a1399ff748dd15e800a5da2" kindref="member">Input::at_start</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="94" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a56ded2569b8a7efbda1179e8b2d01f59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" kindref="compound">ResponseBuilder</ref> &amp;</type>
+        <definition>ResponseBuilder&amp; euphoria::core::detail::ResponseBuilder::operator()</definition>
+        <argsstring>(const std::string &amp;response)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>response</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="101" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a19e249a5366e496622d89016ab76b98c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" kindref="compound">ResponseBuilder</ref> &amp;</type>
+        <definition>ResponseBuilder&amp; euphoria::core::detail::ResponseBuilder::operator()</definition>
+        <argsstring>(const std::string &amp;response, const std::string &amp;topic)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>response</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>topic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="104" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1abeec37f42f529685c0cddd226a7cc251" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" kindref="compound">ResponseBuilder</ref> &amp;</type>
+        <definition>ResponseBuilder&amp; euphoria::core::detail::ResponseBuilder::add_topic</definition>
+        <argsstring>(const std::string &amp;topic)</argsstring>
+        <name>add_topic</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>topic</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="107" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a12f066d57c337d2cefe7bc469a23f27d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" kindref="compound">ResponseBuilder</ref> &amp;</type>
+        <definition>ResponseBuilder&amp; euphoria::core::detail::ResponseBuilder::end_conversation</definition>
+        <argsstring>()</argsstring>
+        <name>end_conversation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="110" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::detail::Response</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1Response"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::detail::ResponseBuilder</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>response</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/chatbot.h" line="89" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="88" bodyend="111"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1abeec37f42f529685c0cddd226a7cc251" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>add_topic</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a12f066d57c337d2cefe7bc469a23f27d" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>end_conversation</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1ab0ba189c9b56ab7b3a3c7e084e9b777b" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>input</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a56ded2569b8a7efbda1179e8b2d01f59" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>operator()</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a19e249a5366e496622d89016ab76b98c" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>operator()</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1a62308b6a8873cef8cffd2e8530b46e44" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>response</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder_1abacf3b4fbab44e565ea7012970af3d11" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ResponseBuilder</scope><name>ResponseBuilder</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_6719ab1f1f7655efc2fa43f7eb574fd1" kind="dir">
+    <compoundname>libs</compoundname>
+    <innerdir refid="dir_be4889e00cf19717698d04e08b906024">libs/assert</innerdir>
+    <innerdir refid="dir_6f77a39b07c019ccd7492ea87272f732">libs/core</innerdir>
+    <innerdir refid="dir_d16cd4c060e1b5bebe1c023937f3c146">libs/gui</innerdir>
+    <innerdir refid="dir_29a5e1422e0fbab2769746d85f117cd7">libs/log</innerdir>
+    <innerdir refid="dir_a1e79f3806ef92ed87013fe5b66ee637">libs/minsynth</innerdir>
+    <innerdir refid="dir_5ff146e0f6e8e07917ded14199fb1c6f">libs/render</innerdir>
+    <innerdir refid="dir_88d4f5e9589230f13756167b1d1fbb72">libs/tests</innerdir>
+    <innerdir refid="dir_bbee8afadf8cc28d659a13bb6f0669f2">libs/window</innerdir>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/"/>
+  </compounddef>
+</doxygen>

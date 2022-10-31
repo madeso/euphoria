@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1Instance" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>euphoria::render::Instance</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1render_1_1Actor" prot="public" virt="non-virtual">euphoria::render::Actor</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1render_1_1PositionedLines" prot="public" virt="non-virtual">euphoria::render::PositionedLines</derivedcompoundref>
+    <includes refid="instance_8h" local="no">instance.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Instance_1aa8b9db17cb0fb1ddc2587b0a82a2538d" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::render::Instance::remove_this</definition>
+        <argsstring></argsstring>
+        <name>remove_this</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="32" column="14" bodyfile="libs/render/src/render/instance.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Instance_1a0fdfab8cc9e4de197452be5349a49770" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref></type>
+        <definition>core::Vec3f euphoria::render::Instance::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="34" column="21" bodyfile="libs/render/src/render/instance.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Instance_1a5d1e8b13b3bbd65e3dc5b1a5a73e6d64" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a4e667d7591aa51d3bbf27ab04de0d8c1" kindref="member">core::Quatf</ref></type>
+        <definition>core::Quatf euphoria::render::Instance::rotation</definition>
+        <argsstring></argsstring>
+        <name>rotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="35" column="21" bodyfile="libs/render/src/render/instance.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1a605b012975c03862c2f772718ee29f6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Instance::Instance</definition>
+        <argsstring>()</argsstring>
+        <name>Instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="15" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1ae050d276f1fdd05b3035b6d4c93319a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::render::Instance::~Instance</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Instance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="16" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1ac7c94bbaa128b1d2f00ca10a346f7beb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Instance::NONCOPYABLE</definition>
+        <argsstring>(Instance)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Instance" kindref="compound">Instance</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="18" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1ac3142f5a387954a79f70a55b462a41c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref></type>
+        <definition>core::Mat4f euphoria::render::Instance::calculate_model_matrix</definition>
+        <argsstring>() const</argsstring>
+        <name>calculate_model_matrix</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1a41a79ce6b4a204613f98bf0db2a19236" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void euphoria::render::Instance::render</definition>
+        <argsstring>(const core::Mat4f &amp;projection_matrix, const core::Mat4f &amp;view_matrix, const core::Vec3f &amp;camera, const Light &amp;light)=0</argsstring>
+        <name>render</name>
+        <reimplementedby refid="structeuphoria_1_1render_1_1Actor_1a9864026d2df0eff4897144fa2f120ead">render</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1render_1_1PositionedLines_1a48fe6c43d1d1c8fe2257f88f6984a371">render</reimplementedby>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>projection_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>view_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> &amp;</type>
+          <declname>camera</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1Light" kindref="compound">Light</ref> &amp;</type>
+          <declname>light</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="24" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::render::Instance</label>
+        <link refid="structeuphoria_1_1render_1_1Instance"/>
+      </node>
+      <node id="3">
+        <label>euphoria::render::PositionedLines</label>
+        <link refid="structeuphoria_1_1render_1_1PositionedLines"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::render::Actor</label>
+        <link refid="structeuphoria_1_1render_1_1Actor"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/render/src/render/instance.h" line="14" column="1" bodyfile="libs/render/src/render/instance.h" bodystart="13" bodyend="36"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1Instance_1ac3142f5a387954a79f70a55b462a41c3" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>calculate_model_matrix</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1a605b012975c03862c2f772718ee29f6b" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>Instance</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1ac7c94bbaa128b1d2f00ca10a346f7beb" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1a0fdfab8cc9e4de197452be5349a49770" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1aa8b9db17cb0fb1ddc2587b0a82a2538d" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>remove_this</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1a41a79ce6b4a204613f98bf0db2a19236" prot="public" virt="pure-virtual"><scope>euphoria::render::Instance</scope><name>render</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1a5d1e8b13b3bbd65e3dc5b1a5a73e6d64" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>rotation</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1ae050d276f1fdd05b3035b6d4c93319a6" prot="public" virt="virtual"><scope>euphoria::render::Instance</scope><name>~Instance</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

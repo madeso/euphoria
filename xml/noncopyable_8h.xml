@@ -1,0 +1,397 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="noncopyable_8h" kind="file" language="C++">
+    <compoundname>noncopyable.h</compoundname>
+    <includedby refid="raytracer_8h" local="yes">libs/core/src/core/raytracer.h</includedby>
+    <includedby refid="texttemplate_8h" local="yes">libs/core/src/core/texttemplate.h</includedby>
+    <includedby refid="tracery_8h" local="yes">libs/core/src/core/tracery.h</includedby>
+    <includedby refid="ui__text_8h" local="yes">libs/core/src/core/ui_text.h</includedby>
+    <includedby refid="button_8h" local="yes">libs/gui/src/gui/button.h</includedby>
+    <includedby refid="container_8h" local="yes">libs/gui/src/gui/container.h</includedby>
+    <includedby refid="layout_8h" local="yes">libs/gui/src/gui/layout.h</includedby>
+    <includedby refid="layoutcontainer_8h" local="yes">libs/gui/src/gui/layoutcontainer.h</includedby>
+    <includedby refid="panelwidget_8h" local="yes">libs/gui/src/gui/panelwidget.h</includedby>
+    <includedby refid="root_8h" local="yes">libs/gui/src/gui/root.h</includedby>
+    <includedby refid="skin_8h" local="yes">libs/gui/src/gui/skin.h</includedby>
+    <includedby refid="textdata_8h" local="yes">libs/gui/src/gui/textdata.h</includedby>
+    <includedby refid="visitor_8h" local="yes">libs/gui/src/gui/visitor.h</includedby>
+    <includedby refid="widget_8h" local="yes">libs/gui/src/gui/widget.h</includedby>
+    <includedby refid="synth_8h" local="yes">libs/minsynth/src/minsynth/synth.h</includedby>
+    <includedby refid="buffer_8h" local="yes">libs/render/src/render/buffer.h</includedby>
+    <includedby refid="fontcache_8h" local="yes">libs/render/src/render/fontcache.h</includedby>
+    <includedby refid="id_8h" local="yes">libs/render/src/render/id.h</includedby>
+    <includedby refid="init_8h" local="yes">libs/render/src/render/init.h</includedby>
+    <includedby refid="instance_8h" local="yes">libs/render/src/render/instance.h</includedby>
+    <includedby refid="scalablesprite_8h" local="yes">libs/render/src/render/scalablesprite.h</includedby>
+    <includedby refid="shader_8h" local="yes">libs/render/src/render/shader.h</includedby>
+    <includedby refid="shaderuniform_8h" local="yes">libs/render/src/render/shaderuniform.h</includedby>
+    <includedby refid="spritebatch_8h" local="yes">libs/render/src/render/spritebatch.h</includedby>
+    <includedby refid="spriterender_8h" local="yes">libs/render/src/render/spriterender.h</includedby>
+    <includedby refid="texture_8h" local="yes">libs/render/src/render/texture.h</includedby>
+    <includedby refid="texturecache_8h" local="yes">libs/render/src/render/texturecache.h</includedby>
+    <includedby refid="engine_8h" local="yes">libs/window/src/window/engine.h</includedby>
+    <includedby refid="imgui__extra_8h" local="yes">libs/window/src/window/imgui_extra.h</includedby>
+    <includedby refid="imguilibrary_8h" local="yes">libs/window/src/window/imguilibrary.h</includedby>
+    <includedby refid="sdlglcontext_8h" local="yes">libs/window/src/window/sdlglcontext.h</includedby>
+    <includedby refid="sdllibrary_8h" local="yes">libs/window/src/window/sdllibrary.h</includedby>
+    <includedby refid="sdlwindow_8h" local="yes">libs/window/src/window/sdlwindow.h</includedby>
+    <invincdepgraph>
+      <node id="41">
+        <label>libs/window/src/window/sdlglcontext.h</label>
+        <link refid="sdlglcontext_8h"/>
+      </node>
+      <node id="29">
+        <label>libs/render/src/render/scalablesprite.h</label>
+        <link refid="scalablesprite_8h"/>
+      </node>
+      <node id="38">
+        <label>libs/window/src/window/engine.h</label>
+        <link refid="engine_8h"/>
+      </node>
+      <node id="11">
+        <label>libs/gui/src/gui/root.h</label>
+        <link refid="root_8h"/>
+      </node>
+      <node id="34">
+        <label>libs/render/src/render/shaderuniform.h</label>
+        <link refid="shaderuniform_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>libs/gui/src/gui/panelwidget.h</label>
+        <link refid="panelwidget_8h"/>
+      </node>
+      <node id="24">
+        <label>libs/render/src/render/fontcache.h</label>
+        <link refid="fontcache_8h"/>
+      </node>
+      <node id="20">
+        <label>libs/render/src/render/compiledlines.h</label>
+        <link refid="compiledlines_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>libs/window/src/window/sdlwindow.h</label>
+        <link refid="sdlwindow_8h"/>
+      </node>
+      <node id="27">
+        <label>libs/render/src/render/instance.h</label>
+        <link refid="instance_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>libs/window/src/window/sdllibrary.h</label>
+        <link refid="sdllibrary_8h"/>
+      </node>
+      <node id="33">
+        <label>libs/render/src/render/spriterender.h</label>
+        <link refid="spriterender_8h"/>
+      </node>
+      <node id="18">
+        <label>libs/render/src/render/buffer.h</label>
+        <link refid="buffer_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>libs/render/src/render/materialshader.h</label>
+        <link refid="materialshader_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libs/render/src/render/materialshadercache.h</label>
+        <link refid="materialshadercache_8h"/>
+      </node>
+      <node id="17">
+        <label>libs/minsynth/src/minsynth/synth.h</label>
+        <link refid="synth_8h"/>
+      </node>
+      <node id="19">
+        <label>libs/render/src/render/buffer2d.h</label>
+        <link refid="buffer2d_8h"/>
+      </node>
+      <node id="30">
+        <label>libs/render/src/render/shader.h</label>
+        <link refid="shader_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>libs/render/src/render/id.h</label>
+        <link refid="id_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>libs/window/src/window/imguilibrary.h</label>
+        <link refid="imguilibrary_8h"/>
+      </node>
+      <node id="15">
+        <label>libs/gui/src/gui/visitor.h</label>
+        <link refid="visitor_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libs/core/src/core/tracery.h</label>
+        <link refid="tracery_8h"/>
+      </node>
+      <node id="26">
+        <label>libs/render/src/render/init.h</label>
+        <link refid="init_8h"/>
+      </node>
+      <node id="28">
+        <label>libs/render/src/render/world.h</label>
+        <link refid="world_8h"/>
+      </node>
+      <node id="9">
+        <label>libs/gui/src/gui/layoutcontainer.h</label>
+        <link refid="layoutcontainer_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libs/render/src/render/font.h</label>
+        <link refid="font_8h"/>
+      </node>
+      <node id="36">
+        <label>libs/render/src/render/texture.h</label>
+        <link refid="texture_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libs/render/src/render/spritebatch.h</label>
+        <link refid="spritebatch_8h"/>
+      </node>
+      <node id="14">
+        <label>libs/gui/src/gui/textdata.h</label>
+        <link refid="textdata_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>libs/core/src/core/ui_text.h</label>
+        <link refid="ui__text_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="37">
+        <label>libs/render/src/render/texturecache.h</label>
+        <link refid="texturecache_8h"/>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/raytracer.h</label>
+        <link refid="raytracer_8h"/>
+      </node>
+      <node id="12">
+        <label>libs/gui/src/gui/layout.h</label>
+        <link refid="layout_8h"/>
+      </node>
+      <node id="39">
+        <label>libs/window/src/window/imgui_extra.h</label>
+        <link refid="imgui__extra_8h"/>
+      </node>
+      <node id="21">
+        <label>libs/render/src/render/positionedlines.h</label>
+        <link refid="positionedlines_8h"/>
+      </node>
+      <node id="16">
+        <label>libs/gui/src/gui/widget.h</label>
+        <link refid="widget_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>libs/gui/src/gui/button.h</label>
+        <link refid="button_8h"/>
+      </node>
+      <node id="23">
+        <label>libs/render/src/render/actor.h</label>
+        <link refid="actor_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/noncopyable.h</label>
+        <link refid="noncopyable_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>libs/gui/src/gui/skin.h</label>
+        <link refid="skin_8h"/>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/texttemplate.h</label>
+        <link refid="texttemplate_8h"/>
+      </node>
+      <node id="8">
+        <label>libs/gui/src/gui/container.h</label>
+        <link refid="container_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>libs/render/src/render/compiledmesh.h</label>
+        <link refid="compiledmesh_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="noncopyable_8h_1a1843e3096d4a214b3bf92b73e20d9989" prot="public" static="no">
+        <name>NONCOPYABLE_CONSTRUCTOR</name>
+        <param><defname>CLASS</defname></param>
+        <initializer>CLASS(const CLASS&amp; other) = delete</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/noncopyable.h" line="4" column="9" bodyfile="libs/core/src/core/noncopyable.h" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="noncopyable_8h_1a0f408bc1e30186c17d8ea12d8843d81b" prot="public" static="no">
+        <name>NONCOPYABLE_ASSIGNMENT</name>
+        <param><defname>CLASS</defname></param>
+        <initializer>void operator=(const CLASS&amp;) = delete</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/noncopyable.h" line="5" column="9" bodyfile="libs/core/src/core/noncopyable.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="noncopyable_8h_1af29295b0845cc9732557f09a1d7c9618" prot="public" static="no">
+        <name>NONCOPYABLE_MOVE_CONSTRUCTOR</name>
+        <param><defname>CLASS</defname></param>
+        <initializer>CLASS(CLASS&amp;&amp; other) = delete</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/noncopyable.h" line="6" column="9" bodyfile="libs/core/src/core/noncopyable.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="noncopyable_8h_1aaf63d32d4b2653a4087a0b9efdafa63d" prot="public" static="no">
+        <name>NONCOPYABLE_MOVE_ASSIGNMENT</name>
+        <param><defname>CLASS</defname></param>
+        <initializer>void operator=(CLASS&amp;&amp;) = delete</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/noncopyable.h" line="7" column="9" bodyfile="libs/core/src/core/noncopyable.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="noncopyable_8h_1a892d4534b5ce208b24d0e48ccc77ffb8" prot="public" static="no">
+        <name>NONCOPYABLE</name>
+        <param><defname>CLASS</defname></param>
+        <initializer>    <ref refid="noncopyable_8h_1a1843e3096d4a214b3bf92b73e20d9989" kindref="member">NONCOPYABLE_CONSTRUCTOR</ref>(CLASS); \
+    <ref refid="noncopyable_8h_1a0f408bc1e30186c17d8ea12d8843d81b" kindref="member">NONCOPYABLE_ASSIGNMENT</ref>(CLASS); \
+    <ref refid="noncopyable_8h_1af29295b0845cc9732557f09a1d7c9618" kindref="member">NONCOPYABLE_MOVE_CONSTRUCTOR</ref>(CLASS); \
+    <ref refid="noncopyable_8h_1aaf63d32d4b2653a4087a0b9efdafa63d" kindref="member">NONCOPYABLE_MOVE_ASSIGNMENT</ref>(CLASS)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/noncopyable.h" line="9" column="9" bodyfile="libs/core/src/core/noncopyable.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/noncopyable.h"/>
+  </compounddef>
+</doxygen>

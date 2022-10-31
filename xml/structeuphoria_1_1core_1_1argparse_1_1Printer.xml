@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1argparse_1_1Printer" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>euphoria::core::argparse::Printer</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter" prot="public" virt="non-virtual">euphoria::core::argparse::ConsolePrinter</derivedcompoundref>
+    <includes refid="argparse_8h" local="no">argparse.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1ae3ff6dfccea7e1819ffdcab76345873b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::argparse::Printer::Printer</definition>
+        <argsstring>()=default</argsstring>
+        <name>Printer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="138" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a74165ef378d6785d97ef41228c6525b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::core::argparse::Printer::~Printer</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Printer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="139" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a590a33e5e499812735dbf158d54962ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::argparse::Printer::Printer</definition>
+        <argsstring>(const Printer &amp;)=delete</argsstring>
+        <name>Printer</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1argparse_1_1Printer" kindref="compound">Printer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="141" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a674c9ad611d57f8f8c627c41a1c62ce7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::argparse::Printer::Printer</definition>
+        <argsstring>(Printer &amp;&amp;)=delete</argsstring>
+        <name>Printer</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1Printer" kindref="compound">Printer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="142" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1aaed56d50e6adfa4c44401acd4d08e781" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::argparse::Printer::operator=</definition>
+        <argsstring>(const Printer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1argparse_1_1Printer" kindref="compound">Printer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="143" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a8191a966614480994a05c00757ce4056" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::argparse::Printer::operator=</definition>
+        <argsstring>(Printer &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1Printer" kindref="compound">Printer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="144" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a153e881120131ef65a8fa049c151c072" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void euphoria::core::argparse::Printer::print_error</definition>
+        <argsstring>(const std::string &amp;line)=0</argsstring>
+        <name>print_error</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter_1a9e098c02551e70938ef39ffe0a5ac57a">print_error</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="147" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1Printer_1a8e6885c539240599b37f72376c9d8e04" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void euphoria::core::argparse::Printer::print_info</definition>
+        <argsstring>(const std::string &amp;line)=0</argsstring>
+        <name>print_info</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter_1a1f5a7ed083f43e7289c35113a08d3176">print_info</reimplementedby>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="150" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::argparse::ConsolePrinter</label>
+        <link refid="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::core::argparse::Printer</label>
+        <link refid="structeuphoria_1_1core_1_1argparse_1_1Printer"/>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/argparse.h" line="137" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="136" bodyend="151"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1aaed56d50e6adfa4c44401acd4d08e781" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::Printer</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1a8191a966614480994a05c00757ce4056" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::Printer</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1a153e881120131ef65a8fa049c151c072" prot="public" virt="pure-virtual"><scope>euphoria::core::argparse::Printer</scope><name>print_error</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1a8e6885c539240599b37f72376c9d8e04" prot="public" virt="pure-virtual"><scope>euphoria::core::argparse::Printer</scope><name>print_info</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1ae3ff6dfccea7e1819ffdcab76345873b" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::Printer</scope><name>Printer</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1a590a33e5e499812735dbf158d54962ff" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::Printer</scope><name>Printer</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1a674c9ad611d57f8f8c627c41a1c62ce7" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::Printer</scope><name>Printer</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1a74165ef378d6785d97ef41228c6525b2" prot="public" virt="virtual"><scope>euphoria::core::argparse::Printer</scope><name>~Printer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

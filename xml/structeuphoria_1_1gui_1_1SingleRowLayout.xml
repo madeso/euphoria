@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1gui_1_1SingleRowLayout" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::gui::SingleRowLayout</compoundname>
+    <basecompoundref refid="structeuphoria_1_1gui_1_1Layout" prot="public" virt="non-virtual">euphoria::gui::Layout</basecompoundref>
+    <includes refid="layout_8h" local="no">layout.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1SingleRowLayout_1abd58649daaa65ccf86d230dec1adfd00" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::gui::SingleRowLayout::padding</definition>
+        <argsstring></argsstring>
+        <name>padding</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="95" column="15" bodyfile="libs/gui/src/gui/layout.h" bodystart="95" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1SingleRowLayout_1a247b841c6aabcc4cefeadf7fe34ebd3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::SingleRowLayout::SingleRowLayout</definition>
+        <argsstring>(float padding)</argsstring>
+        <name>SingleRowLayout</name>
+        <param>
+          <type>float</type>
+          <declname>padding</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="76" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1SingleRowLayout_1a96b11f65a9e6504d8a1e52b2c13500ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::SingleRowLayout::~SingleRowLayout</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~SingleRowLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="78" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1SingleRowLayout_1a8edaebbe92fefd0f88774bc528cf3bdd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::SingleRowLayout::NONCOPYABLE</definition>
+        <argsstring>(SingleRowLayout)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1SingleRowLayout" kindref="compound">SingleRowLayout</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="80" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1SingleRowLayout_1a514df84cb47cdf7fd8e6837a737c41c7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a8c5f78c50315b8abde58b90d27490153" kindref="member">core::Size2f</ref></type>
+        <definition>core::Size2f euphoria::gui::SingleRowLayout::calculate_minimum_area</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; &amp;widgets) const override</argsstring>
+        <name>calculate_minimum_area</name>
+        <reimplements refid="structeuphoria_1_1gui_1_1Layout_1a42cfa0bb134f6810bc3cff4da107254a">calculate_minimum_area</reimplements>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; &amp;</type>
+          <declname>widgets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="83" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1SingleRowLayout_1aabd0646610802ae4c06986f1629ba524" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::SingleRowLayout::do_layout</definition>
+        <argsstring>(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const core::Rectf &amp;area) const override</argsstring>
+        <name>do_layout</name>
+        <reimplements refid="structeuphoria_1_1gui_1_1Layout_1a59f1d59f5b936e31b12c8e25c4cd91a7">do_layout</reimplements>
+        <param>
+          <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; *</type>
+          <declname>widgets</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <declname>area</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="89" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::gui::SingleRowLayout</label>
+        <link refid="structeuphoria_1_1gui_1_1SingleRowLayout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::gui::Layout</label>
+        <link refid="structeuphoria_1_1gui_1_1Layout"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::gui::SingleRowLayout</label>
+        <link refid="structeuphoria_1_1gui_1_1SingleRowLayout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::gui::Layout</label>
+        <link refid="structeuphoria_1_1gui_1_1Layout"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/gui/src/gui/layout.h" line="75" column="1" bodyfile="libs/gui/src/gui/layout.h" bodystart="74" bodyend="96"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1a514df84cb47cdf7fd8e6837a737c41c7" prot="public" virt="virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>calculate_minimum_area</name></member>
+      <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1aabd0646610802ae4c06986f1629ba524" prot="public" virt="virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>do_layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1aab9118341d8c1aa1a34728681ce65402" prot="public" virt="non-virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>Layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1a8edaebbe92fefd0f88774bc528cf3bdd" prot="public" virt="non-virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1ab2d7632c9c77d5cfd4e9a3c8181e27e3" prot="public" virt="non-virtual" ambiguityscope="euphoria::gui::Layout::"><scope>euphoria::gui::SingleRowLayout</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1abd58649daaa65ccf86d230dec1adfd00" prot="public" virt="non-virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>padding</name></member>
+      <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1a247b841c6aabcc4cefeadf7fe34ebd3c" prot="public" virt="non-virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>SingleRowLayout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1a3ea5e240526f7eac902caf96b3b20581" prot="public" virt="virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>~Layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1SingleRowLayout_1a96b11f65a9e6504d8a1e52b2c13500ee" prot="public" virt="non-virtual"><scope>euphoria::gui::SingleRowLayout</scope><name>~SingleRowLayout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="window_2src_2window_2key_8h" kind="file" language="C++">
+    <compoundname>key.h</compoundname>
+    <includes local="yes">SDL_system.h</includes>
+    <includes local="yes">SDL_events.h</includes>
+    <includes refid="core_2src_2core_2key_8h" local="yes">core/key.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/window/src/window/key.h</label>
+        <link refid="window_2src_2window_2key_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SDL_events.h</label>
+      </node>
+      <node id="2">
+        <label>SDL_system.h</label>
+      </node>
+      <node id="4">
+        <label>core/key.h</label>
+        <link refid="core_2src_2core_2key_8h"/>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/key.h"/>
+  </compounddef>
+</doxygen>

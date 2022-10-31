@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1window_1_1imgui_1_1Library" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::window::imgui::Library</compoundname>
+    <includes refid="imguilibrary_8h" local="no">imguilibrary.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1window_1_1imgui_1_1Library_1a90bb9ac1a59ac6bb512a229258b58b84" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::window::imgui::Library::path_to_imgui_ini</definition>
+        <argsstring></argsstring>
+        <name>path_to_imgui_ini</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imguilibrary.h" line="25" column="21" bodyfile="libs/window/src/window/imguilibrary.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1Library_1a88b0726e7b62db6dd5699814ac6d78da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::imgui::Library::Library</definition>
+        <argsstring>(SDL_Window *the_window, SdlAndOpenglContext *context, const std::string &amp;the_path)</argsstring>
+        <name>Library</name>
+        <param>
+          <type>SDL_Window *</type>
+          <declname>the_window</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1window_1_1SdlAndOpenglContext" kindref="compound">SdlAndOpenglContext</ref> *</type>
+          <declname>context</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>the_path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imguilibrary.h" line="20" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1Library_1a7dd515d32d168ad29c843522bc9f194d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::imgui::Library::~Library</definition>
+        <argsstring>()</argsstring>
+        <name>~Library</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imguilibrary.h" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1Library_1a35dbf8dfeac32741e89772801e0262ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::imgui::Library::NONCOPYABLE</definition>
+        <argsstring>(Library)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1window_1_1imgui_1_1Library" kindref="compound">Library</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imguilibrary.h" line="23" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/imguilibrary.h" line="18" column="1" bodyfile="libs/window/src/window/imguilibrary.h" bodystart="17" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a88b0726e7b62db6dd5699814ac6d78da" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::Library</scope><name>Library</name></member>
+      <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a35dbf8dfeac32741e89772801e0262ab" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::Library</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a90bb9ac1a59ac6bb512a229258b58b84" prot="private" virt="non-virtual"><scope>euphoria::window::imgui::Library</scope><name>path_to_imgui_ini</name></member>
+      <member refid="structeuphoria_1_1window_1_1imgui_1_1Library_1a7dd515d32d168ad29c843522bc9f194d" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::Library</scope><name>~Library</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

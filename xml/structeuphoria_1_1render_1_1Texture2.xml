@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1Texture2" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::Texture2</compoundname>
+    <basecompoundref refid="structeuphoria_1_1render_1_1TextureId" prot="public" virt="non-virtual">euphoria::render::TextureId</basecompoundref>
+    <includes refid="texture_8h" local="no">texture.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Texture2_1ab2bfc5b6e72cedca4d38b2e0e29025e1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::render::Texture2::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="110" column="13" bodyfile="libs/render/src/render/texture.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Texture2_1af5093abff0d9ee4ec297b8847d7135c3" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::render::Texture2::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="111" column="13" bodyfile="libs/render/src/render/texture.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2_1a273262ef49e48af9e6222a9bb18ff319" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Texture2::Texture2</definition>
+        <argsstring>()</argsstring>
+        <name>Texture2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="77" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2_1a22c888e48673959f788f6ad2d0a3b59b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Texture2::~Texture2</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Texture2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="78" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2_1a101c49ee1e832dde17001ef292cc53e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Texture2::NONCOPYABLE</definition>
+        <argsstring>(Texture2)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="80" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2_1ae92247ada0b2c13fde4158c1396705dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Texture2::load_from_pixels</definition>
+        <argsstring>(int width, int height, const unsigned char *pixel_data, gl::Int internal_format, gl::Uint image_format, const Texture2dLoadData &amp;data)</argsstring>
+        <name>load_from_pixels</name>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>const unsigned char *</type>
+          <declname>pixel_data</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1render_1_1gl_1aabea7c99ef9874e216a2869f613b2955" kindref="member">gl::Int</ref></type>
+          <declname>internal_format</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1render_1_1gl_1ad9e87e3f6176881566b2c8143f7bcf91" kindref="member">gl::Uint</ref></type>
+          <declname>image_format</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1Texture2dLoadData" kindref="compound">Texture2dLoadData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="83" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2_1a500b9546650fd89d93e8bb7e8ddef625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Texture2::load_from_image</definition>
+        <argsstring>(const core::Image &amp;image, core::AlphaLoad alpha, const Texture2dLoadData &amp;data)</argsstring>
+        <name>load_from_image</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Image" kindref="compound">core::Image</ref> &amp;</type>
+          <declname>image</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1ac4d25e41b15b75088eed48e49138eea8" kindref="member">core::AlphaLoad</ref></type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1Texture2dLoadData" kindref="compound">Texture2dLoadData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="94" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2_1a279bee7ecb201fc34138801f4eb23d69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Texture2::load_from_file</definition>
+        <argsstring>(core::vfs::FileSystem *fs, const core::vfs::FilePath &amp;path, core::AlphaLoad alpha, const Texture2dLoadData &amp;data)</argsstring>
+        <name>load_from_file</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1ac4d25e41b15b75088eed48e49138eea8" kindref="member">core::AlphaLoad</ref></type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1Texture2dLoadData" kindref="compound">Texture2dLoadData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="102" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::render::Texture2</label>
+        <link refid="structeuphoria_1_1render_1_1Texture2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::render::TextureId</label>
+        <link refid="structeuphoria_1_1render_1_1TextureId"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::render::Texture2</label>
+        <link refid="structeuphoria_1_1render_1_1Texture2"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::render::TextureId</label>
+        <link refid="structeuphoria_1_1render_1_1TextureId"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/texture.h" line="75" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="74" bodyend="112"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1TextureId_1ae8095a75f77b04aff1a997b8d181ecc5" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>get_id</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2_1af5093abff0d9ee4ec297b8847d7135c3" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>height</name></member>
+      <member refid="structeuphoria_1_1render_1_1TextureId_1a51c94218774d30d9fcc48955bd73b0db" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>is_currently_bound</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2_1a279bee7ecb201fc34138801f4eb23d69" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>load_from_file</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2_1a500b9546650fd89d93e8bb7e8ddef625" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>load_from_image</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2_1ae92247ada0b2c13fde4158c1396705dd" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>load_from_pixels</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2_1a101c49ee1e832dde17001ef292cc53e7" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1TextureId_1a39e88ed9d673452e3528ccd9a1f80c25" prot="public" virt="non-virtual" ambiguityscope="euphoria::render::TextureId::"><scope>euphoria::render::Texture2</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2_1a273262ef49e48af9e6222a9bb18ff319" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>Texture2</name></member>
+      <member refid="structeuphoria_1_1render_1_1TextureId_1ab5a8428f97d48c485ead001ad6cf0386" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>TextureId</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2_1ab2bfc5b6e72cedca4d38b2e0e29025e1" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>width</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2_1a22c888e48673959f788f6ad2d0a3b59b" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>~Texture2</name></member>
+      <member refid="structeuphoria_1_1render_1_1TextureId_1a7d305cea8e7910cfbbbb16cbffcb2bb2" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2</scope><name>~TextureId</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

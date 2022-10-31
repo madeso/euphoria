@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</compoundname>
+    <includes refid="fourway_8h" local="no">fourway.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1a02062738ae61c8827945f3ae9e54f6ad" prot="public" static="no" strong="no">
+        <type></type>
+        <name>@1</name>
+        <enumvalue id="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1a02062738ae61c8827945f3ae9e54f6ada3241e78e744623a07035269f4ba58ad0" prot="public">
+          <name>value</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="115" column="14" bodyfile="libs/core/src/core/fourway.h" bodystart="115" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1a5413b27fb6a59fd6a8ac6a3201d68a91" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr char</type>
+        <definition>constexpr char euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;::separator</definition>
+        <argsstring></argsstring>
+        <name>separator</name>
+        <initializer>= &apos;/&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="117" column="31" bodyfile="libs/core/src/core/fourway.h" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1a52d5b77b2e5bf5fa69f1b3bf6e95f719" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>static std::string euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;::to_string</definition>
+        <argsstring>(const Lrud&lt; T &gt; &amp;fw)</argsstring>
+        <name>to_string</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; T &gt; &amp;</type>
+          <declname>fw</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="121" column="9" bodyfile="libs/core/src/core/fourway.h" bodystart="121" bodyend="131"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1ac7b59e52f66f826961af42f7b85e6f74" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; T &gt; &gt;</type>
+        <definition>static Result&lt;Lrud&lt;T&gt; &gt; euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;::parse</definition>
+        <argsstring>(const std::string &amp;value)</argsstring>
+        <name>parse</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="135" column="9" bodyfile="libs/core/src/core/fourway.h" bodystart="135" bodyend="196"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Parses a fourway according to the CSS spec. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Either all, ver/hor or up/right/down/left </para>
+    </detaileddescription>
+    <location file="libs/core/src/core/fourway.h" line="114" column="1" bodyfile="libs/core/src/core/fourway.h" bodystart="113" bodyend="197"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1ac7b59e52f66f826961af42f7b85e6f74" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</scope><name>parse</name></member>
+      <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1a5413b27fb6a59fd6a8ac6a3201d68a91" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</scope><name>separator</name></member>
+      <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1a52d5b77b2e5bf5fa69f1b3bf6e95f719" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</scope><name>to_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Lrud_3_01T_01_4_01_4_1a02062738ae61c8827945f3ae9e54f6ada3241e78e744623a07035269f4ba58ad0" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Lrud&lt; T &gt; &gt;</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

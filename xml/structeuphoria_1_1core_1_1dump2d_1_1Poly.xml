@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1Poly" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::dump2d::Poly</compoundname>
+    <includes refid="dump_8h" local="no">dump.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a56bacb35fca398f40f6a42a2d775d2dd" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
+        <definition>Rgbi euphoria::core::dump2d::Poly::stroke_color</definition>
+        <argsstring></argsstring>
+        <name>stroke_color</name>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1a4e52b01e84041d220929c7bcabfaf74ea1ffd9e753c8054cc61456ac7fac1ac89" kindref="member">NamedColor::black</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="29" column="14" bodyfile="libs/core/src/core/dump.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a58de0673f7518d7d73dd6fa811a650ef" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <definition>std::optional&lt;Rgbi&gt; euphoria::core::dump2d::Poly::fill_color</definition>
+        <argsstring></argsstring>
+        <name>fill_color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="30" column="23" bodyfile="libs/core/src/core/dump.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1acb788914ef65f6434da9f84089432a59" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::dump2d::Poly::is_closed</definition>
+        <argsstring></argsstring>
+        <name>is_closed</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="31" column="14" bodyfile="libs/core/src/core/dump.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a86a8d567756af853e8bdba03d7b2c74b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::dump2d::Poly::stroke_width</definition>
+        <argsstring></argsstring>
+        <name>stroke_width</name>
+        <initializer>= 1.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="32" column="15" bodyfile="libs/core/src/core/dump.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a7c119981694c46cc6933b36375773ae3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; euphoria::core::dump2d::Poly::stroke</definition>
+        <argsstring></argsstring>
+        <name>stroke</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="33" column="21" bodyfile="libs/core/src/core/dump.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a27175c4eb37ab92558fbebbe57db3553" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &gt;</type>
+        <definition>std::vector&lt;Vec2f&gt; euphoria::core::dump2d::Poly::points</definition>
+        <argsstring></argsstring>
+        <name>points</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="40" column="21" bodyfile="libs/core/src/core/dump.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1adb8f26697f7c674af92b8853622adcbf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1Poly" kindref="compound">Poly</ref> &amp;</type>
+        <definition>Poly&amp; euphoria::core::dump2d::Poly::set_stroke</definition>
+        <argsstring>(const std::vector&lt; int &gt; &amp;new_stroke)</argsstring>
+        <name>set_stroke</name>
+        <param>
+          <type>const std::vector&lt; int &gt; &amp;</type>
+          <declname>new_stroke</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="35" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1aa11c40bfc8ae9cca2bf0d9d188176ac3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1Poly" kindref="compound">Poly</ref> &amp;</type>
+        <definition>Poly&amp; euphoria::core::dump2d::Poly::close</definition>
+        <argsstring>()</argsstring>
+        <name>close</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="37" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1abcdd80615e232313aaa7a85839733b78" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1Poly" kindref="compound">Poly</ref> &amp;</type>
+        <definition>Poly&amp; euphoria::core::dump2d::Poly::fill</definition>
+        <argsstring>(const Rgbi &amp;fill_color)</argsstring>
+        <name>fill</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <declname>fill_color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="38" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::Rgbi</label>
+        <link refid="structeuphoria_1_1core_1_1Rgbi"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::dump2d::Poly</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1Poly"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>stroke_color</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/dump.h" line="28" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="27" bodyend="41"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1aa11c40bfc8ae9cca2bf0d9d188176ac3" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>close</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1abcdd80615e232313aaa7a85839733b78" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>fill</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a58de0673f7518d7d73dd6fa811a650ef" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>fill_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1acb788914ef65f6434da9f84089432a59" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>is_closed</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a27175c4eb37ab92558fbebbe57db3553" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>points</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1adb8f26697f7c674af92b8853622adcbf" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>set_stroke</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a7c119981694c46cc6933b36375773ae3" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>stroke</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a56bacb35fca398f40f6a42a2d775d2dd" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>stroke_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Poly_1a86a8d567756af853e8bdba03d7b2c74b" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Poly</scope><name>stroke_width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

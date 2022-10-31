@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1MemoryChunkFile" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::MemoryChunkFile</compoundname>
+    <includes refid="memorychunk_8h" local="no">memorychunk.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1MemoryChunkFile_1a6d68f0e652f275257209a91c46a5d527" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::MemoryChunkFile::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="47" column="25" bodyfile="libs/core/src/core/memorychunk.h" bodystart="47" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1MemoryChunkFile_1a69fdb198f0294e91718ddba9185e3a06" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::MemoryChunkFile::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="48" column="13" bodyfile="libs/core/src/core/memorychunk.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunkFile_1a189db2477acb940bb728034b6f8a30bd" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::MemoryChunkFile::MemoryChunkFile</definition>
+        <argsstring>(std::shared_ptr&lt; MemoryChunk &gt; d)</argsstring>
+        <name>MemoryChunkFile</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="42" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunkFile_1a215f27decff07f1cdb4e6120f4c26c14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::MemoryChunkFile::write</definition>
+        <argsstring>(const void *src, int size)</argsstring>
+        <name>write</name>
+        <param>
+          <type>const void *</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="45" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/memorychunk.h" line="41" column="1" bodyfile="libs/core/src/core/memorychunk.h" bodystart="40" bodyend="49"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1MemoryChunkFile_1a6d68f0e652f275257209a91c46a5d527" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunkFile</scope><name>data</name></member>
+      <member refid="structeuphoria_1_1core_1_1MemoryChunkFile_1a189db2477acb940bb728034b6f8a30bd" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunkFile</scope><name>MemoryChunkFile</name></member>
+      <member refid="structeuphoria_1_1core_1_1MemoryChunkFile_1a69fdb198f0294e91718ddba9185e3a06" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunkFile</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1core_1_1MemoryChunkFile_1a215f27decff07f1cdb4e6120f4c26c14" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunkFile</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

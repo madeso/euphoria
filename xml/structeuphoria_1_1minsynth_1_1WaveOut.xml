@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1minsynth_1_1WaveOut" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>euphoria::minsynth::WaveOut</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1Effect" prot="public" virt="non-virtual">euphoria::minsynth::Effect</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1OscilatorNode" prot="public" virt="virtual">euphoria::minsynth::OscilatorNode</derivedcompoundref>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1a5b4bae5030f1aa1c8ebd733218fbb25e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::minsynth::WaveOut::WaveOut</definition>
+        <argsstring>()=default</argsstring>
+        <name>WaveOut</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="164" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1a74f6dd617d227bcadd11ae4fd7ce9a06" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::minsynth::WaveOut::~WaveOut</definition>
+        <argsstring>()=default</argsstring>
+        <name>~WaveOut</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="165" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1a3a6463d3db858165c565fa0d7b412929" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::minsynth::WaveOut::NONCOPYABLE</definition>
+        <argsstring>(WaveOut)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1minsynth_1_1WaveOut" kindref="compound">WaveOut</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="167" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1aa21b9ddec334bedf2c91e637ea7f6a13" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>float</type>
+        <definition>virtual float euphoria::minsynth::WaveOut::get_output</definition>
+        <argsstring>(float time)=0</argsstring>
+        <name>get_output</name>
+        <reimplementedby refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1a876eed42e09731c740fc1cc974ef2a65">get_output</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1minsynth_1_1Effect_1a74e2ba10b4d914884c3c37815494a323">get_output</reimplementedby>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="170" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::minsynth::WaveOut</label>
+        <link refid="structeuphoria_1_1minsynth_1_1WaveOut"/>
+      </node>
+      <node id="4">
+        <label>euphoria::minsynth::VolumeNode</label>
+        <link refid="structeuphoria_1_1minsynth_1_1VolumeNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>euphoria::minsynth::OscilatorNode</label>
+        <link refid="structeuphoria_1_1minsynth_1_1OscilatorNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::minsynth::Effect</label>
+        <link refid="structeuphoria_1_1minsynth_1_1Effect"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::minsynth::ScalerEffect</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ScalerEffect"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="163" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="162" bodyend="171"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1aa21b9ddec334bedf2c91e637ea7f6a13" prot="public" virt="pure-virtual"><scope>euphoria::minsynth::WaveOut</scope><name>get_output</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a3a6463d3db858165c565fa0d7b412929" prot="public" virt="non-virtual"><scope>euphoria::minsynth::WaveOut</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a5b4bae5030f1aa1c8ebd733218fbb25e" prot="public" virt="non-virtual"><scope>euphoria::minsynth::WaveOut</scope><name>WaveOut</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a74f6dd617d227bcadd11ae4fd7ce9a06" prot="public" virt="virtual"><scope>euphoria::minsynth::WaveOut</scope><name>~WaveOut</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

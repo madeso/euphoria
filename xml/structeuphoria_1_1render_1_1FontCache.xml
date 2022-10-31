@@ -1,0 +1,103 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1FontCache" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::FontCache</compoundname>
+    <includes refid="fontcache_8h" local="no">fontcache.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1FontCache_1a854fbeac913692a38f8e2a795e0e3a8a" prot="public" static="no" mutable="no">
+        <type>std::unique_ptr&lt; font_cache_pimpl &gt;</type>
+        <definition>std::unique_ptr&lt;font_cache_pimpl&gt; euphoria::render::FontCache::pimp</definition>
+        <argsstring></argsstring>
+        <name>pimp</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/fontcache.h" line="32" column="25" bodyfile="libs/render/src/render/fontcache.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1FontCache_1a60620e3d7f4b8634e3c4ba54b2a77947" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::FontCache::FontCache</definition>
+        <argsstring>(core::vfs::FileSystem *fs, TextureCache *cache)</argsstring>
+        <name>FontCache</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/fontcache.h" line="23" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1FontCache_1a400bc1cbfbed1e21897827566fda0a66" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::FontCache::~FontCache</definition>
+        <argsstring>()</argsstring>
+        <name>~FontCache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/fontcache.h" line="24" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1FontCache_1ac9f909253034276c4b1b72855873eef1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::FontCache::NONCOPYABLE</definition>
+        <argsstring>(FontCache)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1FontCache" kindref="compound">FontCache</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/fontcache.h" line="26" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1FontCache_1ade59b20b54ab4bd1dc489267bc79fc41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1DrawableFont" kindref="compound">DrawableFont</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;DrawableFont&gt; euphoria::render::FontCache::get_font</definition>
+        <argsstring>(const core::vfs::FilePath &amp;path) const</argsstring>
+        <name>get_font</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/fontcache.h" line="29" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/fontcache.h" line="22" column="1" bodyfile="libs/render/src/render/fontcache.h" bodystart="21" bodyend="33"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1FontCache_1a60620e3d7f4b8634e3c4ba54b2a77947" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache</scope><name>FontCache</name></member>
+      <member refid="structeuphoria_1_1render_1_1FontCache_1ade59b20b54ab4bd1dc489267bc79fc41" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache</scope><name>get_font</name></member>
+      <member refid="structeuphoria_1_1render_1_1FontCache_1ac9f909253034276c4b1b72855873eef1" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1FontCache_1a854fbeac913692a38f8e2a795e0e3a8a" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache</scope><name>pimp</name></member>
+      <member refid="structeuphoria_1_1render_1_1FontCache_1a400bc1cbfbed1e21897827566fda0a66" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache</scope><name>~FontCache</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

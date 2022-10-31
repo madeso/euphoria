@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1render_1_1gl" kind="namespace" language="C++">
+    <compoundname>euphoria::render::gl</compoundname>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1render_1_1gl_1a12d20de1999519bf32f4b0de03aebee2" prot="public" static="no">
+        <type>float</type>
+        <definition>using euphoria::render::gl::Float = typedef float</definition>
+        <argsstring></argsstring>
+        <name>Float</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/gltypes.h" line="5" column="5" bodyfile="libs/render/src/render/gltypes.h" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1render_1_1gl_1ad9e87e3f6176881566b2c8143f7bcf91" prot="public" static="no">
+        <type>unsigned int</type>
+        <definition>using euphoria::render::gl::Uint = typedef unsigned int</definition>
+        <argsstring></argsstring>
+        <name>Uint</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/gltypes.h" line="6" column="5" bodyfile="libs/render/src/render/gltypes.h" bodystart="6" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1render_1_1gl_1aabea7c99ef9874e216a2869f613b2955" prot="public" static="no">
+        <type>int</type>
+        <definition>using euphoria::render::gl::Int = typedef int</definition>
+        <argsstring></argsstring>
+        <name>Int</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/gltypes.h" line="7" column="5" bodyfile="libs/render/src/render/gltypes.h" bodystart="7" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1render_1_1gl_1a1e51a806c069588703eeaa043bcd1bc3" prot="public" static="no">
+        <type>char</type>
+        <definition>using euphoria::render::gl::Char = typedef char</definition>
+        <argsstring></argsstring>
+        <name>Char</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/gltypes.h" line="8" column="5" bodyfile="libs/render/src/render/gltypes.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/gltypes.h" line="4" column="1"/>
+  </compounddef>
+</doxygen>

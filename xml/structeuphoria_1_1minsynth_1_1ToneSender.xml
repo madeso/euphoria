@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1minsynth_1_1ToneSender" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::minsynth::ToneSender</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode" prot="public" virt="non-virtual">euphoria::minsynth::ArpegiatorNode</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1SingleToneNode" prot="public" virt="non-virtual">euphoria::minsynth::SingleToneNode</derivedcompoundref>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ToneSender_1aae1d353b99e9518d6b0e7526f3dfe101" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1minsynth_1_1ToneTaker" kindref="compound">ToneTaker</ref> *</type>
+        <definition>ToneTaker* euphoria::minsynth::ToneSender::next_node</definition>
+        <argsstring></argsstring>
+        <name>next_node</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="142" column="19" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneSender_1a99f52107cc9473c18855b51717d52011" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::ToneSender::send_tone</definition>
+        <argsstring>(int tone, bool down, float time) const</argsstring>
+        <name>send_tone</name>
+        <param>
+          <type>int</type>
+          <declname>tone</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>down</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="145" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::minsynth::ToneSender</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ToneSender"/>
+      </node>
+      <node id="3">
+        <label>euphoria::minsynth::SingleToneNode</label>
+        <link refid="structeuphoria_1_1minsynth_1_1SingleToneNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::minsynth::ArpegiatorNode</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::minsynth::ToneTaker</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ToneTaker"/>
+      </node>
+      <node id="1">
+        <label>euphoria::minsynth::ToneSender</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ToneSender"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>next_node</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="141" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="140" bodyend="146"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneSender_1aae1d353b99e9518d6b0e7526f3dfe101" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneSender</scope><name>next_node</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneSender_1a99f52107cc9473c18855b51717d52011" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneSender</scope><name>send_tone</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

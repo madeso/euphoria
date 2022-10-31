@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::window::imgui::VisuallyDisabledWidgets</compoundname>
+    <includes refid="imgui__extra_8h" local="no">imgui_extra.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1a5c6240773ad147876e1c8246a30322d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::imgui::VisuallyDisabledWidgets::VisuallyDisabledWidgets</definition>
+        <argsstring>()</argsstring>
+        <name>VisuallyDisabledWidgets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imgui_extra.h" line="138" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1a0520ebdc5dcc5323d610bb9113eab988" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::imgui::VisuallyDisabledWidgets::~VisuallyDisabledWidgets</definition>
+        <argsstring>()</argsstring>
+        <name>~VisuallyDisabledWidgets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imgui_extra.h" line="139" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1a35ad125d009364dacdd350cc6917b63c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::imgui::VisuallyDisabledWidgets::NONCOPYABLE</definition>
+        <argsstring>(VisuallyDisabledWidgets)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets" kindref="compound">VisuallyDisabledWidgets</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imgui_extra.h" line="141" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/imgui_extra.h" line="137" column="1" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="136" bodyend="142"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1a35ad125d009364dacdd350cc6917b63c" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::VisuallyDisabledWidgets</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1a5c6240773ad147876e1c8246a30322d2" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::VisuallyDisabledWidgets</scope><name>VisuallyDisabledWidgets</name></member>
+      <member refid="structeuphoria_1_1window_1_1imgui_1_1VisuallyDisabledWidgets_1a0520ebdc5dcc5323d610bb9113eab988" prot="public" virt="non-virtual"><scope>euphoria::window::imgui::VisuallyDisabledWidgets</scope><name>~VisuallyDisabledWidgets</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

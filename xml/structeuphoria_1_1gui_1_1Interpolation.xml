@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1gui_1_1Interpolation" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::gui::Interpolation</compoundname>
+    <includes refid="skin_8h" local="no">skin.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Interpolation_1a3f31ed37d833644df40928f384bfe28c" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1easing_1aaa99b0b408a1a6353f978b4f1e1852a9" kindref="member">core::easing::Function</ref></type>
+        <definition>core::easing::Function euphoria::gui::Interpolation::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1_1easing_1aaa99b0b408a1a6353f978b4f1e1852a9a9a932b3cb396238423eb2f33ec17d6aa" kindref="member">core::easing::Function::linear</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/skin.h" line="22" column="32" bodyfile="libs/gui/src/gui/skin.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Interpolation_1ad87c1fb6b6455fb747dda2627fddb79f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::gui::Interpolation::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/skin.h" line="23" column="15" bodyfile="libs/gui/src/gui/skin.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/gui/src/gui/skin.h" line="21" column="1" bodyfile="libs/gui/src/gui/skin.h" bodystart="20" bodyend="24"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1gui_1_1Interpolation_1ad87c1fb6b6455fb747dda2627fddb79f" prot="public" virt="non-virtual"><scope>euphoria::gui::Interpolation</scope><name>time</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Interpolation_1a3f31ed37d833644df40928f384bfe28c" prot="public" virt="non-virtual"><scope>euphoria::gui::Interpolation</scope><name>type</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

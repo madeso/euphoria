@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Palette" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Palette</compoundname>
+    <includes refid="palette_8h" local="no">palette.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Palette_1aca42d14f2b7e2a06214eedcf3fd0326b" prot="public" static="no" mutable="no">
+        <type>std::string_view</type>
+        <definition>std::string_view euphoria::core::Palette::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+<para>the name of the palette </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="19" column="26" bodyfile="libs/core/src/core/palette.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Palette_1a3bc21e64003199c81a8b732c8e8e6a81" prot="public" static="no" mutable="no">
+        <type>ranges::span&lt; const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+        <definition>ranges::span&lt;const Rgbi&gt; euphoria::core::Palette::colors</definition>
+        <argsstring></argsstring>
+        <name>colors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="21" column="22" bodyfile="libs/core/src/core/palette.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1ac2f5356bad2ca2612013eac0f1baa8b3" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr euphoria::core::Palette::Palette</definition>
+        <argsstring>(const std::string_view &amp;n, const ranges::span&lt; const Rgbi &gt; &amp;c)</argsstring>
+        <name>Palette</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>const ranges::span&lt; const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="23" column="19" bodyfile="libs/core/src/core/palette.h" bodystart="23" bodyend="27"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1adbd8409970c73f4aba06fd39bd335a0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+        <definition>const Rgbi&amp; euphoria::core::Palette::get_random_color</definition>
+        <argsstring>(Random *r) const</argsstring>
+        <name>get_random_color</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+<para>Get a random color. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>r</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the random generator to use </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>a random color </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1ad1eb3051870a4b28021e8b6e17d524cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+        <definition>const Rgbi&amp; euphoria::core::Palette::get_safe_index</definition>
+        <argsstring>(unsigned int i) const</argsstring>
+        <name>get_safe_index</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+<para>Get a color based on the index. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The index is modulated based on the palette size, ensuring a valid color. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>i</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the index </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the color </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="42" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1a662df6aac61c64f6052855d789ca5577" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+        <definition>const Rgbi&amp; euphoria::core::Palette::get_closest_color</definition>
+        <argsstring>(const Rgbi &amp;c) const</argsstring>
+        <name>get_closest_color</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="45" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1ae57873bcc32859e3960c90623456ea16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::Palette::get_index_closest</definition>
+        <argsstring>(const Rgbi &amp;c) const</argsstring>
+        <name>get_index_closest</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="48" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/palette.h" line="15" column="1" bodyfile="libs/core/src/core/palette.h" bodystart="14" bodyend="54"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Palette_1a3bc21e64003199c81a8b732c8e8e6a81" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>colors</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1a662df6aac61c64f6052855d789ca5577" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_closest_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1ae57873bcc32859e3960c90623456ea16" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_index_closest</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1adbd8409970c73f4aba06fd39bd335a0c" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_random_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1ad1eb3051870a4b28021e8b6e17d524cc" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_safe_index</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1aca42d14f2b7e2a06214eedcf3fd0326b" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>name</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1ac2f5356bad2ca2612013eac0f1baa8b3" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>Palette</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

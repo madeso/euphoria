@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1detail_1_1Textfile" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>euphoria::core::detail::Textfile</compoundname>
+    <includes refid="textfileparser_8h" local="no">textfileparser.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1ac9f68e817a3eded3987377e856cdb950" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::detail::Textfile::Textfile</definition>
+        <argsstring>()=default</argsstring>
+        <name>Textfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="12" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1a23705db959b135e775a49047ee41e28c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::core::detail::Textfile::~Textfile</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Textfile</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="13" column="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1a90cfce3196b4eacd167f13c2f0f7e1a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::detail::Textfile::Textfile</definition>
+        <argsstring>(const Textfile &amp;)=delete</argsstring>
+        <name>Textfile</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="15" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1ac88ecfe833cfe37e8127b6d4e081807e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::detail::Textfile::Textfile</definition>
+        <argsstring>(Textfile &amp;&amp;)=delete</argsstring>
+        <name>Textfile</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="16" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1a90ef81cd68177c7b51cd2e23d08ec530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::Textfile::operator=</definition>
+        <argsstring>(const Textfile &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="17" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1a251de3a611350dbbcc8cdbb9e6a6d141" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::Textfile::operator=</definition>
+        <argsstring>(Textfile &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="18" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1abdff0e995dcbd3b020a93a2c622b435d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool euphoria::core::detail::Textfile::has_more</definition>
+        <argsstring>() const =0</argsstring>
+        <name>has_more</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="22" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1a557e2a1a1619724b81637befd0620d25" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>char</type>
+        <definition>virtual char euphoria::core::detail::Textfile::peek</definition>
+        <argsstring>(int advance)=0</argsstring>
+        <name>peek</name>
+        <param>
+          <type>int</type>
+          <declname>advance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="27" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1afcadb5e97253072de4a18a848088aab8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char euphoria::core::detail::Textfile::peek</definition>
+        <argsstring>()</argsstring>
+        <name>peek</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="30" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Textfile_1aeb942d6dc86c824545a61e19017a2f49" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>char</type>
+        <definition>virtual char euphoria::core::detail::Textfile::read</definition>
+        <argsstring>()=0</argsstring>
+        <name>read</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="34" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/textfileparser.h" line="11" column="1" bodyfile="libs/core/src/core/textfileparser.h" bodystart="10" bodyend="35"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1abdff0e995dcbd3b020a93a2c622b435d" prot="public" virt="pure-virtual"><scope>euphoria::core::detail::Textfile</scope><name>has_more</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a90ef81cd68177c7b51cd2e23d08ec530" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Textfile</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a251de3a611350dbbcc8cdbb9e6a6d141" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Textfile</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a557e2a1a1619724b81637befd0620d25" prot="public" virt="pure-virtual"><scope>euphoria::core::detail::Textfile</scope><name>peek</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1afcadb5e97253072de4a18a848088aab8" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Textfile</scope><name>peek</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1aeb942d6dc86c824545a61e19017a2f49" prot="public" virt="pure-virtual"><scope>euphoria::core::detail::Textfile</scope><name>read</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1ac9f68e817a3eded3987377e856cdb950" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Textfile</scope><name>Textfile</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a90cfce3196b4eacd167f13c2f0f7e1a6" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Textfile</scope><name>Textfile</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1ac88ecfe833cfe37e8127b6d4e081807e" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Textfile</scope><name>Textfile</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a23705db959b135e775a49047ee41e28c" prot="public" virt="virtual"><scope>euphoria::core::detail::Textfile</scope><name>~Textfile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1search_1_1Match" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::search::Match</compoundname>
+    <includes refid="editdistance_8search_8h" local="no">editdistance.search.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1search_1_1Match_1a813c57fbb142368faa804bd6a2b9ea4a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::search::Match::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/editdistance.search.h" line="15" column="21" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1search_1_1Match_1a0b9f2f43e597139564c92c78a402262b" prot="public" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long euphoria::core::search::Match::changes</definition>
+        <argsstring></argsstring>
+        <name>changes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/editdistance.search.h" line="16" column="23" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1search_1_1Match_1aaf57c69d03f60d0a13e8eb1008f13156" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::search::Match::Match</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;input)</argsstring>
+        <name>Match</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/editdistance.search.h" line="18" column="9" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="18" bodyend="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1search_1_1Match_1a2732d0e518cb009d5b16a2447586c9e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::search::Match::operator&lt;</definition>
+        <argsstring>(const Match &amp;rhs) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1search_1_1Match" kindref="compound">Match</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/editdistance.search.h" line="24" column="9" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="25" bodyend="28"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/editdistance.search.h" line="14" column="1" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="13" bodyend="29"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1search_1_1Match_1a0b9f2f43e597139564c92c78a402262b" prot="public" virt="non-virtual"><scope>euphoria::core::search::Match</scope><name>changes</name></member>
+      <member refid="structeuphoria_1_1core_1_1search_1_1Match_1aaf57c69d03f60d0a13e8eb1008f13156" prot="public" virt="non-virtual"><scope>euphoria::core::search::Match</scope><name>Match</name></member>
+      <member refid="structeuphoria_1_1core_1_1search_1_1Match_1a813c57fbb142368faa804bd6a2b9ea4a" prot="public" virt="non-virtual"><scope>euphoria::core::search::Match</scope><name>name</name></member>
+      <member refid="structeuphoria_1_1core_1_1search_1_1Match_1a2732d0e518cb009d5b16a2447586c9e8" prot="public" virt="non-virtual"><scope>euphoria::core::search::Match</scope><name>operator&lt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

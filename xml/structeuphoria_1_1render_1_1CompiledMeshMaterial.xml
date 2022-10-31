@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1CompiledMeshMaterial" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::CompiledMeshMaterial</compoundname>
+    <includes refid="compiledmesh_8h" local="no">compiledmesh.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1af81197ccd3494437e5192b4854444b95" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb euphoria::render::CompiledMeshMaterial::ambient</definition>
+        <argsstring></argsstring>
+        <name>ambient</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="78" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1aa9c7f17b8a2a76cf6c01f31bc7a3436c" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb euphoria::render::CompiledMeshMaterial::diffuse</definition>
+        <argsstring></argsstring>
+        <name>diffuse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="79" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1aeecb725ad871a7abfc6fe76bccc2410b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
+        <definition>core::Rgb euphoria::render::CompiledMeshMaterial::specular</definition>
+        <argsstring></argsstring>
+        <name>specular</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="80" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="80" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a9aa04f91822a1b222dcbf6a9831caedb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::render::CompiledMeshMaterial::shininess</definition>
+        <argsstring></argsstring>
+        <name>shininess</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="81" column="15" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a6882b8beb41cac857ce5b7b265c26294" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1MaterialShader" kindref="compound">MaterialShader</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MaterialShader&gt; euphoria::render::CompiledMeshMaterial::shader</definition>
+        <argsstring></argsstring>
+        <name>shader</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="82" column="25" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a5020f033197834ef334f8aa42a6f18bd" prot="public" static="no" mutable="no">
+        <type>std::map&lt; <ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">core::EnumValue</ref>, std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt; &gt;</type>
+        <definition>std::map&lt;core::EnumValue, std::shared_ptr&lt;Texture2&gt; &gt; euphoria::render::CompiledMeshMaterial::textures</definition>
+        <argsstring></argsstring>
+        <name>textures</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="83" column="18" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1af660e0655c2e22967ea3a7016218a5c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::CompiledMeshMaterial::CompiledMeshMaterial</definition>
+        <argsstring>()</argsstring>
+        <name>CompiledMeshMaterial</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="43" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1ae91cf5acd4931d57cb74e54061074095" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::CompiledMeshMaterial::set_texture</definition>
+        <argsstring>(const core::EnumValue &amp;name, std::shared_ptr&lt; Texture2 &gt; texture)</argsstring>
+        <name>set_texture</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">core::EnumValue</ref> &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="47" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a6265af366e1fb962bce23594796be150" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::CompiledMeshMaterial::apply</definition>
+        <argsstring>(const core::Mat4f &amp;model_matrix, const core::Mat4f &amp;projection_matrix, const core::Mat4f &amp;view_matrix, const core::Vec3f &amp;camera, const Light &amp;light) const</argsstring>
+        <name>apply</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>model_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>projection_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>view_matrix</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> &amp;</type>
+          <declname>camera</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1Light" kindref="compound">Light</ref> &amp;</type>
+          <declname>light</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="55" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a9904a5ae96573f8a200d538eea04b92d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::CompiledMeshMaterial::load_default_materials_from_shader</definition>
+        <argsstring>(TextureCache *cache)</argsstring>
+        <name>load_default_materials_from_shader</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+<para>Gets the default materials from the shader if they are null/not set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="68" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a8e52f936aeb2930eacb7c2027cced363" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::render::CompiledMeshMaterial::validate</definition>
+        <argsstring>() const</argsstring>
+        <name>validate</name>
+        <briefdescription>
+<para>Asks the shader if all the textures are set, and if more than necessary are set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="75" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::render::CompiledMeshMaterial</label>
+        <link refid="structeuphoria_1_1render_1_1CompiledMeshMaterial"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>ambient</edgelabel>
+          <edgelabel>diffuse</edgelabel>
+          <edgelabel>specular</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::Rgb</label>
+        <link refid="structeuphoria_1_1core_1_1Rgb"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/compiledmesh.h" line="42" column="1" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="41" bodyend="84"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1af81197ccd3494437e5192b4854444b95" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>ambient</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a6265af366e1fb962bce23594796be150" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>apply</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1af660e0655c2e22967ea3a7016218a5c0" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>CompiledMeshMaterial</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1aa9c7f17b8a2a76cf6c01f31bc7a3436c" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>diffuse</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a9904a5ae96573f8a200d538eea04b92d" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>load_default_materials_from_shader</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1ae91cf5acd4931d57cb74e54061074095" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>set_texture</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a6882b8beb41cac857ce5b7b265c26294" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>shader</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a9aa04f91822a1b222dcbf6a9831caedb" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>shininess</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1aeecb725ad871a7abfc6fe76bccc2410b" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>specular</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a5020f033197834ef334f8aa42a6f18bd" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>textures</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a8e52f936aeb2930eacb7c2027cced363" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>validate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

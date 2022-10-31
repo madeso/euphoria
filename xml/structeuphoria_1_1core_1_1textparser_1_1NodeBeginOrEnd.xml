@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::textparser::NodeBeginOrEnd</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1textparser_1_1Node" prot="public" virt="non-virtual">euphoria::core::textparser::Node</basecompoundref>
+    <includes refid="ui__text_8h" local="no">ui_text.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1a620c45dd7f3e16c6f4fa9c77d201e281" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::textparser::NodeBeginOrEnd::begin</definition>
+        <argsstring></argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="54" column="18" bodyfile="libs/core/src/core/ui_text.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1af8ebb471bd8ca0fc0b6b26b4202315e9" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::textparser::NodeBeginOrEnd::NodeBeginOrEnd</definition>
+        <argsstring>(bool b)</argsstring>
+        <name>NodeBeginOrEnd</name>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="56" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1abe6ed38d6a0c0e62d45ab5acbb2a3449" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::textparser::NodeBeginOrEnd::accept</definition>
+        <argsstring>(Visitor *visitor) const override</argsstring>
+        <name>accept</name>
+        <reimplements refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a5eda5fd749d924d1a2c7f81627776706">accept</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" kindref="compound">Visitor</ref> *</type>
+          <declname>visitor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="59" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::textparser::NodeBeginOrEnd</label>
+        <link refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::textparser::Node</label>
+        <link refid="structeuphoria_1_1core_1_1textparser_1_1Node"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::textparser::NodeBeginOrEnd</label>
+        <link refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::textparser::Node</label>
+        <link refid="structeuphoria_1_1core_1_1textparser_1_1Node"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/ui_text.h" line="53" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="52" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1abe6ed38d6a0c0e62d45ab5acbb2a3449" prot="public" virt="virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>accept</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1a620c45dd7f3e16c6f4fa9c77d201e281" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>begin</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1aad5fbbcf326567a811cd9d9cd2b06da9" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1af8ebb471bd8ca0fc0b6b26b4202315e9" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>NodeBeginOrEnd</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a726156ea77716a1f912e774e746fe4c6" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a5310d8999c53d524ecc20362d0dc3a68" prot="public" virt="virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

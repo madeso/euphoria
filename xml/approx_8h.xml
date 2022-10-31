@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="approx_8h" kind="file" language="C++">
+    <compoundname>approx.h</compoundname>
+    <includes local="no">cmath</includes>
+    <includes local="no">limits</includes>
+    <includes local="yes">catch.hpp</includes>
+    <includedby refid="approx__equal_8h" local="yes">libs/tests/src/tests/approx_equal.h</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>catch.hpp</label>
+      </node>
+      <node id="3">
+        <label>limits</label>
+      </node>
+      <node id="2">
+        <label>cmath</label>
+      </node>
+      <node id="1">
+        <label>libs/tests/src/tests/approx.h</label>
+        <link refid="approx_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/tests/src/tests/approx.h</label>
+        <link refid="approx_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/tests/src/tests/approx_equal.h</label>
+        <link refid="approx__equal_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1tests_1_1ApproxData" prot="public">euphoria::tests::ApproxData</innerclass>
+    <innerclass refid="structeuphoria_1_1tests_1_1custom_1_1Approx" prot="public">euphoria::tests::custom::Approx</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1tests">euphoria::tests</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1tests_1_1custom">euphoria::tests::custom</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/tests/src/tests/approx.h"/>
+  </compounddef>
+</doxygen>

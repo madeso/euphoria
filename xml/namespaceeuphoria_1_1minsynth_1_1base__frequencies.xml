@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1minsynth_1_1base__frequencies" kind="namespace" language="C++">
+    <compoundname>euphoria::minsynth::base_frequencies</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1a14b3172f76c4c581e9467ef5ec782030" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::base_frequencies::c0</definition>
+        <argsstring></argsstring>
+        <name>c0</name>
+        <initializer>= 16.35f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="81" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="81" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1a91170eba40f44119a4a9cf3611754c93" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::base_frequencies::a4</definition>
+        <argsstring></argsstring>
+        <name>a4</name>
+        <initializer>= 440.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="82" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="82" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1a42ac7a95d769ea2c2cc56aef09397c0f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::base_frequencies::boston_a4</definition>
+        <argsstring></argsstring>
+        <name>boston_a4</name>
+        <initializer>= 441.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="83" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1a8f4f64ec394747ba1e9b0804bcfb605f" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::base_frequencies::new_york_a4</definition>
+        <argsstring></argsstring>
+        <name>new_york_a4</name>
+        <initializer>= 442.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="84" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1abde22e28d90dfed1e3c892b23ed7fdad" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::base_frequencies::europe_a4</definition>
+        <argsstring></argsstring>
+        <name>europe_a4</name>
+        <initializer>= 443.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="85" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1a7327268562964db7816ee78a2076e88e" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::base_frequencies::french_a4</definition>
+        <argsstring></argsstring>
+        <name>french_a4</name>
+        <initializer>= 435.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="86" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1aadbdbb7f3d562011846f29788f4929a3" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::base_frequencies::baroque_a4</definition>
+        <argsstring></argsstring>
+        <name>baroque_a4</name>
+        <initializer>= 415.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="87" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="87" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1ad1bc5a14db004909f718634ff2a7b6d9" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::base_frequencies::chorton_a4</definition>
+        <argsstring></argsstring>
+        <name>chorton_a4</name>
+        <initializer>= 466.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="88" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="88" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1_1base__frequencies_1a747dfc4014bc5ce8d6a524b87d01e6ee" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::base_frequencies::classical_a4</definition>
+        <argsstring></argsstring>
+        <name>classical_a4</name>
+        <initializer>= 430.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="89" column="25" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="89" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="80" column="1"/>
+  </compounddef>
+</doxygen>

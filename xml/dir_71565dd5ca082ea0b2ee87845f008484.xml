@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_71565dd5ca082ea0b2ee87845f008484" kind="dir">
+    <compoundname>libs/gui/src/gui</compoundname>
+    <innerfile refid="button_8h">button.h</innerfile>
+    <innerfile refid="container_8h">container.h</innerfile>
+    <innerfile refid="layout_8h">layout.h</innerfile>
+    <innerfile refid="layoutcontainer_8h">layoutcontainer.h</innerfile>
+    <innerfile refid="layoutdata_8h">layoutdata.h</innerfile>
+    <innerfile refid="load_8h">load.h</innerfile>
+    <innerfile refid="panelwidget_8h">panelwidget.h</innerfile>
+    <innerfile refid="root_8h">root.h</innerfile>
+    <innerfile refid="skin_8h">skin.h</innerfile>
+    <innerfile refid="textdata_8h">textdata.h</innerfile>
+    <innerfile refid="uistate_8h">uistate.h</innerfile>
+    <innerfile refid="visitor_8h">visitor.h</innerfile>
+    <innerfile refid="widget_8h">widget.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/gui/src/gui/"/>
+  </compounddef>
+</doxygen>

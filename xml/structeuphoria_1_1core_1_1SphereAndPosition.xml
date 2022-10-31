@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1SphereAndPosition" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::SphereAndPosition</compoundname>
+    <includes refid="sphere_8position_8h" local="no">sphere.position.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SphereAndPosition_1acea8519e9066ebb5cd7f2fc6f7789b83" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Sphere" kindref="compound">Sphere</ref></type>
+        <definition>Sphere euphoria::core::SphereAndPosition::sphere</definition>
+        <argsstring></argsstring>
+        <name>sphere</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sphere.position.h" line="11" column="16" bodyfile="libs/core/src/core/sphere.position.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SphereAndPosition_1ade2f3a00ba6c443f71c212b2b50e3dfa" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f euphoria::core::SphereAndPosition::center</definition>
+        <argsstring></argsstring>
+        <name>center</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sphere.position.h" line="12" column="15" bodyfile="libs/core/src/core/sphere.position.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::SphereAndPosition</label>
+        <link refid="structeuphoria_1_1core_1_1SphereAndPosition"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>center</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>sphere</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::Sphere</label>
+        <link refid="structeuphoria_1_1core_1_1Sphere"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::Vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/sphere.position.h" line="10" column="1" bodyfile="libs/core/src/core/sphere.position.h" bodystart="9" bodyend="13"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1SphereAndPosition_1ade2f3a00ba6c443f71c212b2b50e3dfa" prot="public" virt="non-virtual"><scope>euphoria::core::SphereAndPosition</scope><name>center</name></member>
+      <member refid="structeuphoria_1_1core_1_1SphereAndPosition_1acea8519e9066ebb5cd7f2fc6f7789b83" prot="public" virt="non-virtual"><scope>euphoria::core::SphereAndPosition</scope><name>sphere</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

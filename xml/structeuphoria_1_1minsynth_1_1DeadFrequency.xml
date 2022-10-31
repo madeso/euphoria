@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1minsynth_1_1DeadFrequency" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::minsynth::DeadFrequency</compoundname>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1DeadFrequency_1a1a7c4ddaa13a3124f483467a3fdcd529" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::minsynth::DeadFrequency::alive</definition>
+        <argsstring></argsstring>
+        <name>alive</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="306" column="14" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="306" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1DeadFrequency_1a24f299b7e3dda7e03cfc85faaa69fb3c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::minsynth::DeadFrequency::frequency</definition>
+        <argsstring></argsstring>
+        <name>frequency</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="307" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="307" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1DeadFrequency_1a5262e01a94a5e5c914f0e9f593f3e98d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::minsynth::DeadFrequency::time_end</definition>
+        <argsstring></argsstring>
+        <name>time_end</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="308" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="308" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1DeadFrequency_1a94641d12b252531685ffa2f41db76cfd" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::minsynth::DeadFrequency::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="309" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="309" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="305" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="304" bodyend="310"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1minsynth_1_1DeadFrequency_1a1a7c4ddaa13a3124f483467a3fdcd529" prot="public" virt="non-virtual"><scope>euphoria::minsynth::DeadFrequency</scope><name>alive</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1DeadFrequency_1a24f299b7e3dda7e03cfc85faaa69fb3c" prot="public" virt="non-virtual"><scope>euphoria::minsynth::DeadFrequency</scope><name>frequency</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1DeadFrequency_1a94641d12b252531685ffa2f41db76cfd" prot="public" virt="non-virtual"><scope>euphoria::minsynth::DeadFrequency</scope><name>scale</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1DeadFrequency_1a5262e01a94a5e5c914f0e9f593f3e98d" prot="public" virt="non-virtual"><scope>euphoria::minsynth::DeadFrequency</scope><name>time_end</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

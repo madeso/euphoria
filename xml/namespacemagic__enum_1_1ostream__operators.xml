@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespacemagic__enum_1_1ostream__operators" kind="namespace" language="C++">
+    <compoundname>magic_enum::ostream_operators</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/enumtostring.h" line="176" column="1"/>
+  </compounddef>
+</doxygen>

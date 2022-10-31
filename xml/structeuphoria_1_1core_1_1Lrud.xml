@@ -1,0 +1,202 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Lrud" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Lrud</compoundname>
+    <includes refid="fourway_8h" local="no">fourway.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1Lrud_1a9fbe87124c63e18fc8e30ebdbf13ac06" prot="public" static="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; T &gt;</type>
+        <definition>using euphoria::core::Lrud&lt; T &gt;::Self =  Lrud&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>Self</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="21" column="9" bodyfile="libs/core/src/core/fourway.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Lrud_1ad10b4e84e7e48788dcb21799b993c72e" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Lrud&lt; T &gt;::left</definition>
+        <argsstring></argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="23" column="11" bodyfile="libs/core/src/core/fourway.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Lrud_1ac2a395244c37f13694d6945400735a9a" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Lrud&lt; T &gt;::right</definition>
+        <argsstring></argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="24" column="11" bodyfile="libs/core/src/core/fourway.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Lrud_1aee20e948d1b39d96df5f8db8e3f480f2" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Lrud&lt; T &gt;::up</definition>
+        <argsstring></argsstring>
+        <name>up</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="25" column="11" bodyfile="libs/core/src/core/fourway.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Lrud_1afecca21de2cfa6975acbeb8de6c5e607" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Lrud&lt; T &gt;::down</definition>
+        <argsstring></argsstring>
+        <name>down</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="26" column="11" bodyfile="libs/core/src/core/fourway.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Lrud_1a1a90eb253e3ff2fd707dd56106d0075c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Lrud&lt; T &gt;::Lrud</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>Lrud</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="28" column="18" bodyfile="libs/core/src/core/fourway.h" bodystart="28" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Lrud_1a76740c1ada020ff24712b126531b2651" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Lrud_1a9fbe87124c63e18fc8e30ebdbf13ac06" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Lrud&lt; T &gt;::from_lrud</definition>
+        <argsstring>(const T &amp;lr, const T &amp;ud)</argsstring>
+        <name>from_lrud</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>lr</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>ud</declname>
+        </param>
+        <briefdescription>
+<para>Create a new fourway from left-righ and up-down. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="41" column="9" bodyfile="libs/core/src/core/fourway.h" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Lrud_1a5d40d6f697c7b8e164695d5355ec9f89" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Lrud_1a9fbe87124c63e18fc8e30ebdbf13ac06" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Lrud&lt; T &gt;::from_lrud</definition>
+        <argsstring>(const T &amp;l, const T &amp;r, const T &amp;u, const T &amp;d)</argsstring>
+        <name>from_lrud</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+<para>Create a new fourway from left right up and down. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="51" column="9" bodyfile="libs/core/src/core/fourway.h" bodystart="51" bodyend="54"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Lrud_1a4068dd7a43953e117666e7bfb07f973b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Lrud&lt; T &gt;::Lrud</definition>
+        <argsstring>(const T &amp;l, const T &amp;r, const T &amp;u, const T &amp;d)</argsstring>
+        <name>Lrud</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fourway.h" line="57" column="9" bodyfile="libs/core/src/core/fourway.h" bodystart="58" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Generic version of a CSS like padding type. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/fourway.h" line="20" column="1" bodyfile="libs/core/src/core/fourway.h" bodystart="19" bodyend="70"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Lrud_1afecca21de2cfa6975acbeb8de6c5e607" prot="public" virt="non-virtual"><scope>euphoria::core::Lrud</scope><name>down</name></member>
+      <member refid="structeuphoria_1_1core_1_1Lrud_1a76740c1ada020ff24712b126531b2651" prot="public" virt="non-virtual"><scope>euphoria::core::Lrud</scope><name>from_lrud</name></member>
+      <member refid="structeuphoria_1_1core_1_1Lrud_1a5d40d6f697c7b8e164695d5355ec9f89" prot="public" virt="non-virtual"><scope>euphoria::core::Lrud</scope><name>from_lrud</name></member>
+      <member refid="structeuphoria_1_1core_1_1Lrud_1ad10b4e84e7e48788dcb21799b993c72e" prot="public" virt="non-virtual"><scope>euphoria::core::Lrud</scope><name>left</name></member>
+      <member refid="structeuphoria_1_1core_1_1Lrud_1a1a90eb253e3ff2fd707dd56106d0075c" prot="public" virt="non-virtual"><scope>euphoria::core::Lrud</scope><name>Lrud</name></member>
+      <member refid="structeuphoria_1_1core_1_1Lrud_1a4068dd7a43953e117666e7bfb07f973b" prot="private" virt="non-virtual"><scope>euphoria::core::Lrud</scope><name>Lrud</name></member>
+      <member refid="structeuphoria_1_1core_1_1Lrud_1ac2a395244c37f13694d6945400735a9a" prot="public" virt="non-virtual"><scope>euphoria::core::Lrud</scope><name>right</name></member>
+      <member refid="structeuphoria_1_1core_1_1Lrud_1a9fbe87124c63e18fc8e30ebdbf13ac06" prot="public" virt="non-virtual"><scope>euphoria::core::Lrud</scope><name>Self</name></member>
+      <member refid="structeuphoria_1_1core_1_1Lrud_1aee20e948d1b39d96df5f8db8e3f480f2" prot="public" virt="non-virtual"><scope>euphoria::core::Lrud</scope><name>up</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

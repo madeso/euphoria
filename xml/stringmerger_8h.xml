@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="stringmerger_8h" kind="file" language="C++">
+    <compoundname>stringmerger.h</compoundname>
+    <includes local="no">string_view</includes>
+    <includedby refid="argparse_8h" local="yes">libs/core/src/core/argparse.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/stringmerger.h</label>
+        <link refid="stringmerger_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>string_view</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>libs/window/src/window/engine.h</label>
+        <link refid="engine_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/stringmerger.h</label>
+        <link refid="stringmerger_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/argparse.h</label>
+        <link refid="argparse_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1StringMerger" prot="public">euphoria::core::StringMerger</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1string__mergers">euphoria::core::string_mergers</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/stringmerger.h"/>
+  </compounddef>
+</doxygen>

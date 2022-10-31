@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1markov_1_1Some" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::markov::Some</compoundname>
+    <includes refid="markov_8h" local="no">markov.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1markov_1_1Some_1a7a04c2f46d7f5e4642190adb045bcfe7" prot="public" static="no" mutable="no">
+        <type>std::deque&lt; T &gt;</type>
+        <definition>std::deque&lt;T&gt; euphoria::core::markov::Some&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="16" column="20" bodyfile="libs/core/src/core/markov.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1markov_1_1Some_1aca609b41b88e58d7c30886c76ad6d767" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::markov::Some&lt; T &gt;::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="17" column="16" bodyfile="libs/core/src/core/markov.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1markov_1_1Some_1ab70c07971e937b7a30f7a92a53fe002d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::markov::Some&lt; T &gt;::Some</definition>
+        <argsstring>(size_t m)</argsstring>
+        <name>Some</name>
+        <param>
+          <type>size_t</type>
+          <declname>m</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="19" column="18" bodyfile="libs/core/src/core/markov.h" bodystart="19" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1markov_1_1Some_1afcfe9faaff9d63cbfb7cdbb6accc955d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::markov::Some&lt; T &gt;::add</definition>
+        <argsstring>(T t)</argsstring>
+        <name>add</name>
+        <param>
+          <type>T</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="22" column="9" bodyfile="libs/core/src/core/markov.h" bodystart="22" bodyend="30"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/markov.h" line="15" column="1" bodyfile="libs/core/src/core/markov.h" bodystart="14" bodyend="31"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1Some_1afcfe9faaff9d63cbfb7cdbb6accc955d" prot="public" virt="non-virtual"><scope>euphoria::core::markov::Some</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1Some_1aca609b41b88e58d7c30886c76ad6d767" prot="public" virt="non-virtual"><scope>euphoria::core::markov::Some</scope><name>max</name></member>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1Some_1ab70c07971e937b7a30f7a92a53fe002d" prot="public" virt="non-virtual"><scope>euphoria::core::markov::Some</scope><name>Some</name></member>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1Some_1a7a04c2f46d7f5e4642190adb045bcfe7" prot="public" virt="non-virtual"><scope>euphoria::core::markov::Some</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

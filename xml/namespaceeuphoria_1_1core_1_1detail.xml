@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1detail" kind="namespace" language="C++">
+    <compoundname>euphoria::core::detail</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" prot="public">euphoria::core::detail::CameraFrame</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus" prot="public">euphoria::core::detail::ConversationStatus</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics" prot="public">euphoria::core::detail::ConversationTopics</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Database" prot="public">euphoria::core::detail::Database</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" prot="public">euphoria::core::detail::EditorCameraState3</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Input" prot="public">euphoria::core::detail::Input</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile" prot="public">euphoria::core::detail::LocationInFile</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Response" prot="public">euphoria::core::detail::Response</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" prot="public">euphoria::core::detail::ResponseBuilder</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse" prot="public">euphoria::core::detail::SingleResponse</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Textfile" prot="public">euphoria::core::detail::Textfile</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Transposer" prot="public">euphoria::core::detail::Transposer</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a0f474d2bb912a78f7e5955737d91c087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::detail::clean_input</definition>
+        <argsstring>(const std::string &amp;input)</argsstring>
+        <name>clean_input</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="26" column="9" declfile="libs/core/src/core/chatbot.h" declline="26" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a61583e021ae4b35279a42d90e58b0340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::detail::index_of_matched_input</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;input, const detail::Input &amp;keywords)</argsstring>
+        <name>index_of_matched_input</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1Input" kindref="compound">detail::Input</ref> &amp;</type>
+          <declname>keywords</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="31" column="9" declfile="libs/core/src/core/chatbot.h" declline="31" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a3b9b5509d028c32be2f1ef57a0a0e99b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::detail::remove_from</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;source, const Input &amp;input)</argsstring>
+        <name>remove_from</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>source</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1Input" kindref="compound">Input</ref> &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="40" column="9" declfile="libs/core/src/core/chatbot.h" declline="40" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a7d3bbd41f8c0cbb04e2c2af89d17bf4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Textfile&gt; euphoria::core::detail::create_from_string</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>create_from_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.h" line="38" column="9" declfile="libs/core/src/core/textfileparser.h" declline="38" declcolumn="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/camera3.editor.h" line="23" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1Layer" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::Layer</compoundname>
+    <includes refid="sprite_8h" local="no">sprite.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structeuphoria_1_1render_1_1Layer_1abfb0fab1f02de4d7c6d1e7ab96798ec1" prot="public" static="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1render_1_1Sprite" kindref="compound">Sprite</ref> * &gt;</type>
+        <definition>using euphoria::render::Layer::SpriteList =  std::vector&lt;Sprite*&gt;</definition>
+        <argsstring></argsstring>
+        <name>SpriteList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="55" column="9" bodyfile="libs/render/src/render/sprite.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structeuphoria_1_1render_1_1Layer_1a0a25074810bd212546fbe1cb567541fb" prot="public" static="no">
+        <type>std::map&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;, <ref refid="structeuphoria_1_1render_1_1Layer_1abfb0fab1f02de4d7c6d1e7ab96798ec1" kindref="member">SpriteList</ref> &gt;</type>
+        <definition>using euphoria::render::Layer::SpriteMap =  std::map&lt;std::shared_ptr&lt;Texture2&gt;, SpriteList&gt;</definition>
+        <argsstring></argsstring>
+        <name>SpriteMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="56" column="9" bodyfile="libs/render/src/render/sprite.h" bodystart="56" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Layer_1ab3d866b55d5428394511df4d7778d11b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
+        <definition>SpriteRenderer* euphoria::render::Layer::renderer</definition>
+        <argsstring></argsstring>
+        <name>renderer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="58" column="24" bodyfile="libs/render/src/render/sprite.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Layer_1aa022f7979b520c6e14a5b7726ad8daed" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1render_1_1Layer_1a0a25074810bd212546fbe1cb567541fb" kindref="member">SpriteMap</ref></type>
+        <definition>SpriteMap euphoria::render::Layer::texture_to_sprites</definition>
+        <argsstring></argsstring>
+        <name>texture_to_sprites</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="59" column="19" bodyfile="libs/render/src/render/sprite.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Layer_1a61f00dfeb9d55219e7b5f1f66559128e" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Layer::Layer</definition>
+        <argsstring>(SpriteRenderer *render)</argsstring>
+        <name>Layer</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
+          <declname>render</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="44" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Layer_1ace19fa2563b0959efed9764a1508a0eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Layer::add</definition>
+        <argsstring>(Sprite *sprite)</argsstring>
+        <name>add</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Sprite" kindref="compound">Sprite</ref> *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="47" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Layer_1a4051d47b53e3fa29fa0c66230f463fba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Layer::remove</definition>
+        <argsstring>(Sprite *sprite)</argsstring>
+        <name>remove</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Sprite" kindref="compound">Sprite</ref> *</type>
+          <declname>sprite</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="50" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Layer_1aed8a8af8e40e552377fc85d91262d8dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Layer::render</definition>
+        <argsstring>()</argsstring>
+        <name>render</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="53" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::render::SpriteRenderer</label>
+        <link refid="structeuphoria_1_1render_1_1SpriteRenderer"/>
+      </node>
+      <node id="1">
+        <label>euphoria::render::Layer</label>
+        <link refid="structeuphoria_1_1render_1_1Layer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>renderer</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/sprite.h" line="43" column="1" bodyfile="libs/render/src/render/sprite.h" bodystart="42" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1Layer_1ace19fa2563b0959efed9764a1508a0eb" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1render_1_1Layer_1a61f00dfeb9d55219e7b5f1f66559128e" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>Layer</name></member>
+      <member refid="structeuphoria_1_1render_1_1Layer_1a4051d47b53e3fa29fa0c66230f463fba" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>remove</name></member>
+      <member refid="structeuphoria_1_1render_1_1Layer_1aed8a8af8e40e552377fc85d91262d8dd" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>render</name></member>
+      <member refid="structeuphoria_1_1render_1_1Layer_1ab3d866b55d5428394511df4d7778d11b" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>renderer</name></member>
+      <member refid="structeuphoria_1_1render_1_1Layer_1abfb0fab1f02de4d7c6d1e7ab96798ec1" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>SpriteList</name></member>
+      <member refid="structeuphoria_1_1render_1_1Layer_1a0a25074810bd212546fbe1cb567541fb" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>SpriteMap</name></member>
+      <member refid="structeuphoria_1_1render_1_1Layer_1aa022f7979b520c6e14a5b7726ad8daed" prot="public" virt="non-virtual"><scope>euphoria::render::Layer</scope><name>texture_to_sprites</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

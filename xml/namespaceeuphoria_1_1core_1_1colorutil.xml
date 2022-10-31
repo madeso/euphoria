@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1colorutil" kind="namespace" language="C++">
+    <compoundname>euphoria::core::colorutil</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a605b166e4e33fd624238a94775afa624" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
+        <definition>constexpr U8 euphoria::core::colorutil::get_component</definition>
+        <argsstring>(unsigned int i, unsigned int steps)</argsstring>
+        <name>get_component</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>steps</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="317" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="317" bodyend="322"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1ad8e4916201388d47ea31230e8799f297" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
+        <definition>constexpr U8 euphoria::core::colorutil::get_red</definition>
+        <argsstring>(unsigned int rgb)</argsstring>
+        <name>get_red</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>rgb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="326" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="326" bodyend="329"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a120f838b8584ffbd50bbc41e792c872e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
+        <definition>constexpr U8 euphoria::core::colorutil::get_green</definition>
+        <argsstring>(unsigned int rgb)</argsstring>
+        <name>get_green</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>rgb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="333" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="333" bodyend="336"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1af20ed28fbe8160b486fb33375bdd458f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
+        <definition>constexpr U8 euphoria::core::colorutil::get_blue</definition>
+        <argsstring>(unsigned int rgb)</argsstring>
+        <name>get_blue</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>rgb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="340" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="340" bodyend="343"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1ae9349d0806bacf86f1a6e25adff63efa" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::colorutil::to_float</definition>
+        <argsstring>(U8 c)</argsstring>
+        <name>to_float</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="347" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="347" bodyend="350"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a84535af9f8ff59f15fec6308a2ccd42d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
+        <definition>constexpr U8 euphoria::core::colorutil::to_unsigned_char</definition>
+        <argsstring>(float f)</argsstring>
+        <name>to_unsigned_char</name>
+        <param>
+          <type>float</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="354" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="354" bodyend="357"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1ad40d2c186180ddd812ebbc59dad57ef6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr unsigned int</type>
+        <definition>constexpr unsigned int euphoria::core::colorutil::to_color_hex</definition>
+        <argsstring>(unsigned int r, unsigned int g, unsigned int b)</argsstring>
+        <name>to_color_hex</name>
+        <param>
+          <type>unsigned int</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="361" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="361" bodyend="364"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a371a09384db34e68bff4391fddf74b78" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr unsigned int</type>
+        <definition>constexpr unsigned int euphoria::core::colorutil::to_color_hex</definition>
+        <argsstring>(NamedColor color)</argsstring>
+        <name>to_color_hex</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a4e52b01e84041d220929c7bcabfaf74e" kindref="member">NamedColor</ref></type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="368" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="368" bodyend="405"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1ab9827734dba7d1259798918b9f043a86" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr unsigned int</type>
+        <definition>constexpr unsigned int euphoria::core::colorutil::to_color_hex</definition>
+        <argsstring>(BangWongPalette color)</argsstring>
+        <name>to_color_hex</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a5aacc8412ac75c0c9bb8f5032852adad" kindref="member">BangWongPalette</ref></type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="410" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="410" bodyend="424"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a65b37b26b2c682a4288377769e42adec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int euphoria::core::colorutil::from_string_to_hex</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>from_string_to_hex</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="427" column="9" declfile="libs/core/src/core/rgb.h" declline="427" declcolumn="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/rgb.h" line="313" column="1"/>
+  </compounddef>
+</doxygen>

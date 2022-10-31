@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="log_8h" kind="file" language="C++">
+    <compoundname>log.h</compoundname>
+    <includes local="yes">spdlog/spdlog.h</includes>
+    <includes local="yes">spdlog/fmt/ostr.h</includes>
+    <includes local="yes">undef_windows/undef_windows.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>undef_windows/undef_windows.h</label>
+      </node>
+      <node id="3">
+        <label>spdlog/fmt/ostr.h</label>
+      </node>
+      <node id="2">
+        <label>spdlog/spdlog.h</label>
+      </node>
+      <node id="1">
+        <label>libs/log/src/log/log.h</label>
+        <link refid="log_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1log">euphoria::log</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="log_8h_1a58c994180e09d2f6400133b19b1d7036" prot="public" static="no">
+        <name>LOG_TRACE</name>
+        <param><defname>...</defname></param>
+        <initializer>spdlog::trace(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="11" column="9" bodyfile="libs/log/src/log/log.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1a754b3d074e0af4ad3c7b918dd77ecb2d" prot="public" static="no">
+        <name>LOG_DEBUG</name>
+        <param><defname>...</defname></param>
+        <initializer>spdlog::debug(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="12" column="9" bodyfile="libs/log/src/log/log.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1a378e28bfcb78d17285210d6bbb70a083" prot="public" static="no">
+        <name>LOG_INFO</name>
+        <param><defname>...</defname></param>
+        <initializer>spdlog::info(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="13" column="9" bodyfile="libs/log/src/log/log.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1add82efa459e0af380b68522c29b9fd44" prot="public" static="no">
+        <name>LOG_WARN</name>
+        <param><defname>...</defname></param>
+        <initializer>spdlog::warn(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="14" column="9" bodyfile="libs/log/src/log/log.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1ad4a9117ce894e3319e903142347a0f63" prot="public" static="no">
+        <name>LOG_ERROR</name>
+        <param><defname>...</defname></param>
+        <initializer>spdlog::error(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="15" column="9" bodyfile="libs/log/src/log/log.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1a89cecd05aeaafc715ebc091cf74d10fe" prot="public" static="no">
+        <name>LOG_FATAL</name>
+        <param><defname>...</defname></param>
+        <initializer>spdlog::critical(__VA_ARGS__)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="16" column="9" bodyfile="libs/log/src/log/log.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="log_8h_1aefb4911af911e06c7200c31f971db77d" prot="public" static="no">
+        <name>EUPH_INIT_LOGGING</name>
+        <param></param>
+        <initializer>it seems you forgot to to enable logging in cmake with set_win32_defines</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/log/src/log/log.h" line="24" column="10" bodyfile="libs/log/src/log/log.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/log/src/log/log.h"/>
+  </compounddef>
+</doxygen>

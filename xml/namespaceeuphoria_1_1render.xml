@@ -1,0 +1,670 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1render" kind="namespace" language="C++">
+    <compoundname>euphoria::render</compoundname>
+    <innerclass refid="structeuphoria_1_1render_1_1Actor" prot="public">euphoria::render::Actor</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Buffer2d" prot="public">euphoria::render::Buffer2d</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1CompiledLines" prot="public">euphoria::render::CompiledLines</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1CompiledMesh" prot="public">euphoria::render::CompiledMesh</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1CompiledMeshMaterial" prot="public">euphoria::render::CompiledMeshMaterial</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1CompiledMeshPart" prot="public">euphoria::render::CompiledMeshPart</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1DrawableFont" prot="public">euphoria::render::DrawableFont</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1DrawableText" prot="public">euphoria::render::DrawableText</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1DrawData" prot="public">euphoria::render::DrawData</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1FontCache" prot="public">euphoria::render::FontCache</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Glyph" prot="public">euphoria::render::Glyph</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Id" prot="public">euphoria::render::Id</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1IndexBuffer" prot="public">euphoria::render::IndexBuffer</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Init" prot="public">euphoria::render::Init</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Instance" prot="public">euphoria::render::Instance</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Layer" prot="public">euphoria::render::Layer</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Light" prot="public">euphoria::render::Light</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1LightAttenuation" prot="public">euphoria::render::LightAttenuation</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands" prot="public">euphoria::render::ListOfTextDrawCommands</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1MaterialOverride" prot="public">euphoria::render::MaterialOverride</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1MaterialShader" prot="public">euphoria::render::MaterialShader</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderBinding" prot="public">euphoria::render::MaterialShaderBinding</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderCache" prot="public">euphoria::render::MaterialShaderCache</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1MaterialShaderDefaultTexture" prot="public">euphoria::render::MaterialShaderDefaultTexture</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1PointLayout" prot="public">euphoria::render::PointLayout</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1PositionedLines" prot="public">euphoria::render::PositionedLines</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1ScalableSprite" prot="public">euphoria::render::ScalableSprite</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1ShaderAttribute" prot="public">euphoria::render::ShaderAttribute</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1ShaderId" prot="public">euphoria::render::ShaderId</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1ShaderProgram" prot="public">euphoria::render::ShaderProgram</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1ShaderUniform" prot="public">euphoria::render::ShaderUniform</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Sprite" prot="public">euphoria::render::Sprite</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1SpriteBatch" prot="public">euphoria::render::SpriteBatch</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1SpriteRenderer" prot="public">euphoria::render::SpriteRenderer</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1TextDrawCommand" prot="public">euphoria::render::TextDrawCommand</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Texture2" prot="public">euphoria::render::Texture2</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1Texture2dLoadData" prot="public">euphoria::render::Texture2dLoadData</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1TextureCache" prot="public">euphoria::render::TextureCache</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1TextureId" prot="public">euphoria::render::TextureId</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1VertexBuffer" prot="public">euphoria::render::VertexBuffer</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1ViewportHandler" prot="public">euphoria::render::ViewportHandler</innerclass>
+    <innerclass refid="structeuphoria_1_1render_1_1World" prot="public">euphoria::render::World</innerclass>
+    <innernamespace refid="namespaceeuphoria_1_1render_1_1attributes2d">euphoria::render::attributes2d</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1render_1_1attributes3d">euphoria::render::attributes3d</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1render_1_1gl">euphoria::render::gl</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceeuphoria_1_1render_1a30e353a1048fec0f396c49696d02363b" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>RenderMode</name>
+        <enumvalue id="namespaceeuphoria_1_1render_1a30e353a1048fec0f396c49696d02363ba980da98409d058c365664ff7ea33dd6b" prot="public">
+          <name>lines</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a30e353a1048fec0f396c49696d02363ba817d7d587258bac88b24567b17bdda87" prot="public">
+          <name>triangles</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="60" column="1" bodyfile="libs/render/src/render/buffer.h" bodystart="59" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518e" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Align</name>
+        <enumvalue id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518ea46d3836487c2110c695e52750c5d76e4" prot="public">
+          <name>top_left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518ea153dda402a237b8b093c3c418b66df5d" prot="public">
+          <name>top_center</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518eaf12ea736b05cb6002f1ebf1b8c052676" prot="public">
+          <name>top_right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518ea7d331b3c6c74eddb88c099b96315bda3" prot="public">
+          <name>baseline_left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518ea2ff91840b31caa27afa34748541c7ac2" prot="public">
+          <name>baseline_center</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518eaea7a172d6c64b5a81f1c9b8d35295130" prot="public">
+          <name>baseline_right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518ea369408ec984d94fb270ae125c6de1a5b" prot="public">
+          <name>bottom_left</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518ea1afb532afb8fb97068fa335cfdc02bb8" prot="public">
+          <name>bottom_center</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518eab88b8c9790136e01b8dfce869959cea3" prot="public">
+          <name>bottom_right</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="53" column="1" bodyfile="libs/render/src/render/font.h" bodystart="52" bodyend="63"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ShaderAttributeType</name>
+        <enumvalue id="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1a85e0b320fbc3e9c63ca40e8ba6e7f065" prot="public">
+          <name>float1</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1adee550e4331867f8c3d135c617d73988" prot="public">
+          <name>float2</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1a88bbd3e4df848c1fdfcf709115d2fe05" prot="public">
+          <name>float3</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1af7b078bb6679d738b69816f6978d6375" prot="public">
+          <name>float4</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1a02a4cc15ab3cc91c1b2241d9537965e2" prot="public">
+          <name>float33</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1ae45452793bc19eeb1c91e38f1a9952f1a42017c826d3cfb59d1be44752bf8c3f2" prot="public">
+          <name>float44</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="10" column="1" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="9" bodyend="17"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeuphoria_1_1render_1a26afb9be4efcbba2270f58fb6c608f42" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ShaderAttributeSource</name>
+        <enumvalue id="namespaceeuphoria_1_1render_1a26afb9be4efcbba2270f58fb6c608f42aad921d60486366258809553a3db49a4a" prot="public">
+          <name>unknown</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a26afb9be4efcbba2270f58fb6c608f42a2b5bc093b09bd81f51de433bde9d202a" prot="public">
+          <name>vertex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a26afb9be4efcbba2270f58fb6c608f42afea087517c26fadd409bd4b9dc642555" prot="public">
+          <name>normal</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a26afb9be4efcbba2270f58fb6c608f42a45210da832f9626829457a65e9e7c4d0" prot="public">
+          <name>uv</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a26afb9be4efcbba2270f58fb6c608f42a70dda5dfb8053dc6d1c492574bce9bfd" prot="public">
+          <name>color</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="20" column="1" bodyfile="libs/render/src/render/shaderattribute.h" bodystart="19" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeuphoria_1_1render_1aeae373119daee76a127f910b55bbad37" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>TextureWrap</name>
+        <enumvalue id="namespaceeuphoria_1_1render_1aeae373119daee76a127f910b55bbad37a32cf6da134a8b268cf4ab6b79a9a5ad9" prot="public">
+          <name>repeat</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1aeae373119daee76a127f910b55bbad37a301defc6e7425fc63ef35c7827d43b44" prot="public">
+          <name>mirrored_repeat</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1aeae373119daee76a127f910b55bbad37a7ff5ead6fef18ca5f63119754ac76c3e" prot="public">
+          <name>clamp_to_edge</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="16" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="15" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeuphoria_1_1render_1abf3b09d9bbcf00c16a54ac7c97ffb77d" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FilterMagnification</name>
+        <enumvalue id="namespaceeuphoria_1_1render_1abf3b09d9bbcf00c16a54ac7c97ffb77dad879c351426770bc0b13c3628db1e636" prot="public">
+          <name>nearest</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1abf3b09d9bbcf00c16a54ac7c97ffb77da9a932b3cb396238423eb2f33ec17d6aa" prot="public">
+          <name>linear</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="23" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="22" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeuphoria_1_1render_1ab28cae4d12a53cbb4244452fe07229eb" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>FilterMinification</name>
+        <enumvalue id="namespaceeuphoria_1_1render_1ab28cae4d12a53cbb4244452fe07229ebad879c351426770bc0b13c3628db1e636" prot="public">
+          <name>nearest</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1ab28cae4d12a53cbb4244452fe07229eba9a932b3cb396238423eb2f33ec17d6aa" prot="public">
+          <name>linear</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="29" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="28" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="enum" id="namespaceeuphoria_1_1render_1a0b3aaff6a12626a3e0106b8aee1c5004" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>ViewportType</name>
+        <enumvalue id="namespaceeuphoria_1_1render_1a0b3aaff6a12626a3e0106b8aee1c5004a2ff26f477fe6c0f2fcf8a4caf1b9128d" prot="public">
+          <name>screen_pixel</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a0b3aaff6a12626a3e0106b8aee1c5004a2c09f32da8197fe3a7bccfc19b481c82" prot="public">
+          <name>fit_with_black_bars</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1render_1a0b3aaff6a12626a3e0106b8aee1c5004ae0a91e6db6ff1103171559559f2d9698" prot="public">
+          <name>extend</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="15" column="1" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="14" bodyend="17"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1render_1af7f86a7a1790af35383bbf9c57c5fbcf" prot="public" static="no">
+        <type>std::map&lt; int, std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Glyph" kindref="compound">Glyph</ref> &gt; &gt;</type>
+        <definition>using euphoria::render::CharToGlyphMap = typedef std::map&lt;int, std::shared_ptr&lt;Glyph&gt; &gt;</definition>
+        <argsstring></argsstring>
+        <name>CharToGlyphMap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="48" column="5" bodyfile="libs/render/src/render/font.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1render_1a1844a3742ff4443264e0a31fc49583fb" prot="public" static="no">
+        <type>void *(*)(const char *name)</type>
+        <definition>using euphoria::render::LoaderFunction = typedef void* (*)(const char* name)</definition>
+        <argsstring></argsstring>
+        <name>LoaderFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="10" column="5" bodyfile="libs/render/src/render/init.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1a071b4ab49f6506296a5b67bc9c742e8c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::bind_attributes</definition>
+        <argsstring>(const std::vector&lt; ShaderAttribute &gt; &amp;attributes, PointLayout *layout)</argsstring>
+        <name>bind_attributes</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &gt; &amp;</type>
+          <declname>attributes</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1PointLayout" kindref="compound">PointLayout</ref> *</type>
+          <declname>layout</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/attributebinder.h" line="12" column="5" declfile="libs/render/src/render/attributebinder.h" declline="12" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1a1a22f354d20e3ee154ce3202a1b59171" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1CompiledLines" kindref="compound">CompiledLines</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;CompiledLines&gt; euphoria::render::compile</definition>
+        <argsstring>(MaterialShaderCache *shader_cache, const core::Lines &amp;lines)</argsstring>
+        <name>compile</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1MaterialShaderCache" kindref="compound">MaterialShaderCache</ref> *</type>
+          <declname>shader_cache</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Lines" kindref="compound">core::Lines</ref> &amp;</type>
+          <declname>lines</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledlines.h" line="39" column="5" declfile="libs/render/src/render/compiledlines.h" declline="39" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1a9646a949f266a86a43abb310b4d86060" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1CompiledMesh" kindref="compound">CompiledMesh</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;CompiledMesh&gt; euphoria::render::compile_mesh</definition>
+        <argsstring>(const core::Mesh &amp;mesh, MaterialShaderCache *shader_cache, TextureCache *texture_cache, const core::vfs::DirPath &amp;texture_folder, const std::string &amp;debug_name)</argsstring>
+        <name>compile_mesh</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Mesh" kindref="compound">core::Mesh</ref> &amp;</type>
+          <declname>mesh</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1MaterialShaderCache" kindref="compound">MaterialShaderCache</ref> *</type>
+          <declname>shader_cache</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
+          <declname>texture_cache</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">core::vfs::DirPath</ref> &amp;</type>
+          <declname>texture_folder</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>debug_name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="109" column="5" declfile="libs/render/src/render/compiledmesh.h" declline="109" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1a6a9240a286327d08088ba949eb6c0159" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::print_all_opengl_errors</definition>
+        <argsstring>(const char *file, int line)</argsstring>
+        <name>print_all_opengl_errors</name>
+        <param>
+          <type>const char *</type>
+          <declname>file</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>line</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/debuggl.h" line="6" column="5" declfile="libs/render/src/render/debuggl.h" declline="6" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1afddbf23cb6c42a1103312cf702951539" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::setup_opengl_debug</definition>
+        <argsstring>()</argsstring>
+        <name>setup_opengl_debug</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/debuggl.h" line="9" column="5" declfile="libs/render/src/render/debuggl.h" declline="9" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1a366fcc4fcc2a7441f87e5a290a0615a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::setup_default_files</definition>
+        <argsstring>(std::shared_ptr&lt; core::vfs::ReadRootCatalog &gt; catalog)</argsstring>
+        <name>setup_default_files</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog" kindref="compound">core::vfs::ReadRootCatalog</ref> &gt;</type>
+          <declname>catalog</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/defaultfiles.h" line="17" column="9" declfile="libs/render/src/render/defaultfiles.h" declline="17" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1a9d80e9e334e56e136038d3ba502e2af7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref></type>
+        <definition>core::Mat4f euphoria::render::calculate_model_matrix</definition>
+        <argsstring>(const core::Vec3f &amp;position, const core::Quatf &amp;rotation)</argsstring>
+        <name>calculate_model_matrix</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a4e667d7591aa51d3bbf27ab04de0d8c1" kindref="member">core::Quatf</ref> &amp;</type>
+          <declname>rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/instance.h" line="39" column="5" declfile="libs/render/src/render/instance.h" declline="39" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1a1004a385cdcaa8a9d2c8f29b2af7e686" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::use</definition>
+        <argsstring>(const render::ShaderProgram *shader)</argsstring>
+        <name>use</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderProgram" kindref="compound">render::ShaderProgram</ref> *</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="126" column="5" declfile="libs/render/src/render/shader.h" declline="126" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1ac9217e67b419bd45c1bd0e76fd5e9309" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::bind_texture_to_shader</definition>
+        <argsstring>(Texture2 *texture, ShaderProgram *shader, const ShaderUniform &amp;attribute, gl::Int index)</argsstring>
+        <name>bind_texture_to_shader</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> *</type>
+          <declname>texture</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> *</type>
+          <declname>shader</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+          <declname>attribute</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1render_1_1gl_1aabea7c99ef9874e216a2869f613b2955" kindref="member">gl::Int</ref></type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="129" column="5" declfile="libs/render/src/render/shader.h" declline="129" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1ab39a678913470bf93462a4444d76e09d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::render::operator==</definition>
+        <argsstring>(const ShaderAttribute &amp;lhs, const ShaderAttribute &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderattribute.h" line="65" column="5" declfile="libs/render/src/render/shaderattribute.h" declline="65" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1aa12a13bac0a6fbbbbcfb3740aa9cc9e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::render::operator==</definition>
+        <argsstring>(const ShaderUniform &amp;lhs, const ShaderUniform &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shaderuniform.h" line="40" column="5" declfile="libs/render/src/render/shaderuniform.h" declline="40" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1ab55a76b5c59fb46879691f74362ee6e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::use</definition>
+        <argsstring>(const TextureId *texture)</argsstring>
+        <name>use</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1TextureId" kindref="compound">TextureId</ref> *</type>
+          <declname>texture</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="72" column="5" declfile="libs/render/src/render/texture.h" declline="72" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1ad04c12ef06239399250c99266a7a53c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::activate</definition>
+        <argsstring>(const core::Viewport &amp;vp)</argsstring>
+        <name>activate</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Viewport" kindref="compound">core::Viewport</ref> &amp;</type>
+          <declname>vp</declname>
+        </param>
+        <briefdescription>
+<para>Sets the gl viewport. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewport.h" line="14" column="5" declfile="libs/render/src/render/viewport.h" declline="14" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/gui/src/gui/button.h" line="16" column="1"/>
+  </compounddef>
+</doxygen>

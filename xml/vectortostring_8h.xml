@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="vectortostring_8h" kind="file" language="C++">
+    <compoundname>vectortostring.h</compoundname>
+    <includedby refid="vectorequals_8h" local="yes">libs/tests/src/tests/vectorequals.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/tests/src/tests/vectorequals.h</label>
+        <link refid="vectorequals_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/tests/src/tests/vectortostring.h</label>
+        <link refid="vectortostring_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1tests">euphoria::tests</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/tests/src/tests/vectortostring.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,245 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1ViewportHandler" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::ViewportHandler</compoundname>
+    <includes refid="viewporthandler_8h" local="no">viewporthandler.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ViewportHandler_1a5bc3af163a127c7ad8c829ea42a5d49d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1render_1_1Init" kindref="compound">render::Init</ref> *</type>
+        <definition>render::Init* euphoria::render::ViewportHandler::init</definition>
+        <argsstring></argsstring>
+        <name>init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="21" column="22" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ViewportHandler_1a379ca2e8ecb5b6fa5420b5bf20d55447" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> * &gt;</type>
+        <definition>std::vector&lt;ShaderProgram*&gt; euphoria::render::ViewportHandler::shaders</definition>
+        <argsstring></argsstring>
+        <name>shaders</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="22" column="21" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ViewportHandler_1a755ce4013b07408aa146bde6f1ee4baa" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1render_1a0b3aaff6a12626a3e0106b8aee1c5004" kindref="member">ViewportType</ref></type>
+        <definition>ViewportType euphoria::render::ViewportHandler::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <initializer>= <ref refid="namespaceeuphoria_1_1render_1a0b3aaff6a12626a3e0106b8aee1c5004a2ff26f477fe6c0f2fcf8a4caf1b9128d" kindref="member">ViewportType::screen_pixel</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="24" column="22" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ViewportHandler_1a871b38d281d7ce01a9c67a5e83e4ea02" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::render::ViewportHandler::window_width</definition>
+        <argsstring></argsstring>
+        <name>window_width</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="25" column="13" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ViewportHandler_1af850e1074fb10c9c554b10475e756bd1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::render::ViewportHandler::window_height</definition>
+        <argsstring></argsstring>
+        <name>window_height</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="26" column="13" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ViewportHandler_1a0a49e4f841b28b3f41984c4c9b182b09" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::render::ViewportHandler::virtual_width</definition>
+        <argsstring></argsstring>
+        <name>virtual_width</name>
+        <initializer>= 800.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="29" column="15" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ViewportHandler_1a7ab1db5c0cf110090c7e4574eb9957db" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::render::ViewportHandler::virtual_height</definition>
+        <argsstring></argsstring>
+        <name>virtual_height</name>
+        <initializer>= 600.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="30" column="15" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1ViewportHandler_1ab455906afa3ba5edc8edbe4819ec6c10" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> *</type>
+        <definition>core::Rectf* euphoria::render::ViewportHandler::virtual_screen</definition>
+        <argsstring></argsstring>
+        <name>virtual_screen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="32" column="21" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ViewportHandler_1a7f07758aadb1f69e9a0c85d035ff3b56" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ViewportHandler::ViewportHandler</definition>
+        <argsstring>(render::Init *i, core::Rectf *s)</argsstring>
+        <name>ViewportHandler</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Init" kindref="compound">render::Init</ref> *</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> *</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ViewportHandler_1a44c364a8fd6bb3bd93bd6f743c65f16d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::ViewportHandler::add</definition>
+        <argsstring>(ShaderProgram *shader)</argsstring>
+        <name>add</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1ShaderProgram" kindref="compound">ShaderProgram</ref> *</type>
+          <declname>shader</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="37" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ViewportHandler_1a30ab5318a215cea304dde0d9b84a9f5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::ViewportHandler::set_size</definition>
+        <argsstring>(int width, int height)</argsstring>
+        <name>set_size</name>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ViewportHandler_1a43183fd28df19c37d0ff8645a86cdf4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::ViewportHandler::clear_black</definition>
+        <argsstring>()</argsstring>
+        <name>clear_black</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="43" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ViewportHandler_1a5a79e18b0772c115947fcd42b74ca19b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Viewport" kindref="compound">core::Viewport</ref></type>
+        <definition>core::Viewport euphoria::render::ViewportHandler::get_full_viewport</definition>
+        <argsstring>() const</argsstring>
+        <name>get_full_viewport</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/viewporthandler.h" line="46" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::render::ViewportHandler</label>
+        <link refid="structeuphoria_1_1render_1_1ViewportHandler"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>init</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>virtual_screen</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::Rect&lt; T &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Rect"/>
+      </node>
+      <node id="2">
+        <label>euphoria::render::Init</label>
+        <link refid="structeuphoria_1_1render_1_1Init"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/viewporthandler.h" line="20" column="1" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="19" bodyend="47"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a44c364a8fd6bb3bd93bd6f743c65f16d" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a43183fd28df19c37d0ff8645a86cdf4e" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>clear_black</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a5a79e18b0772c115947fcd42b74ca19b" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>get_full_viewport</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a5bc3af163a127c7ad8c829ea42a5d49d" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>init</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a30ab5318a215cea304dde0d9b84a9f5d" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>set_size</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a379ca2e8ecb5b6fa5420b5bf20d55447" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>shaders</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a755ce4013b07408aa146bde6f1ee4baa" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>type</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a7f07758aadb1f69e9a0c85d035ff3b56" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>ViewportHandler</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a7ab1db5c0cf110090c7e4574eb9957db" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>virtual_height</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1ab455906afa3ba5edc8edbe4819ec6c10" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>virtual_screen</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a0a49e4f841b28b3f41984c4c9b182b09" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>virtual_width</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1af850e1074fb10c9c554b10475e756bd1" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>window_height</name></member>
+      <member refid="structeuphoria_1_1render_1_1ViewportHandler_1a871b38d281d7ce01a9c67a5e83e4ea02" prot="public" virt="non-virtual"><scope>euphoria::render::ViewportHandler</scope><name>window_width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

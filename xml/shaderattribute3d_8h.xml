@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="shaderattribute3d_8h" kind="file" language="C++">
+    <compoundname>shaderattribute3d.h</compoundname>
+    <includes refid="shaderattribute_8h" local="yes">render/shaderattribute.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>render/shaderattribute.h</label>
+        <link refid="shaderattribute_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>render/gltypes.h</label>
+        <link refid="gltypes_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/shaderattribute3d.h</label>
+        <link refid="shaderattribute3d_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1render_1_1attributes3d">euphoria::render::attributes3d</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/shaderattribute3d.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1EnumValue" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::EnumValue</compoundname>
+    <includes refid="enum_8h" local="no">enum.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1EnumValue_1aa8fd986c1257e35f3b67f87b9df936a5" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1EnumType" kindref="compound">EnumType</ref> *</type>
+        <definition>EnumType* euphoria::core::EnumValue::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="83" column="18" bodyfile="libs/core/src/core/enum.h" bodystart="83" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1EnumValue_1aa046f2b2249a4d78e23cfedcf9821fbf" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::EnumValue::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="84" column="16" bodyfile="libs/core/src/core/enum.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumValue_1a0a0738c0559f8d261c20c1ad680f6f70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::EnumValue::EnumValue</definition>
+        <argsstring>(EnumType *t, size_t v)</argsstring>
+        <name>EnumValue</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EnumType" kindref="compound">EnumType</ref> *</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="63" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumValue_1ae4104edf255c3315b803208426c18c12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::EnumValue::to_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="68" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumValue_1a53412addaf2405b526915882f1565657" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::EnumValue::to_value</definition>
+        <argsstring>() const</argsstring>
+        <name>to_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="71" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumValue_1acdef1cb488aeaccd97bf001a4260c662" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::EnumValue::operator==</definition>
+        <argsstring>(const EnumValue &amp;other) const</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">EnumValue</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="74" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumValue_1a7d18e39db7a9bf40aa6c3374af32fe1f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::EnumValue::operator!=</definition>
+        <argsstring>(const EnumValue &amp;other) const</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">EnumValue</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="77" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumValue_1ad47be133dba2546f9096964c28e9223e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::EnumValue::operator&lt;</definition>
+        <argsstring>(const EnumValue &amp;other) const</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">EnumValue</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="79" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::EnumValue</label>
+        <link refid="structeuphoria_1_1core_1_1EnumValue"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>type</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::EnumType</label>
+        <link refid="structeuphoria_1_1core_1_1EnumType"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/enum.h" line="62" column="1" bodyfile="libs/core/src/core/enum.h" bodystart="61" bodyend="85"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1EnumValue_1a0a0738c0559f8d261c20c1ad680f6f70" prot="public" virt="non-virtual"><scope>euphoria::core::EnumValue</scope><name>EnumValue</name></member>
+      <member refid="structeuphoria_1_1core_1_1EnumValue_1a7d18e39db7a9bf40aa6c3374af32fe1f" prot="public" virt="non-virtual"><scope>euphoria::core::EnumValue</scope><name>operator!=</name></member>
+      <member refid="structeuphoria_1_1core_1_1EnumValue_1ad47be133dba2546f9096964c28e9223e" prot="public" virt="non-virtual"><scope>euphoria::core::EnumValue</scope><name>operator&lt;</name></member>
+      <member refid="structeuphoria_1_1core_1_1EnumValue_1acdef1cb488aeaccd97bf001a4260c662" prot="public" virt="non-virtual"><scope>euphoria::core::EnumValue</scope><name>operator==</name></member>
+      <member refid="structeuphoria_1_1core_1_1EnumValue_1ae4104edf255c3315b803208426c18c12" prot="public" virt="non-virtual"><scope>euphoria::core::EnumValue</scope><name>to_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1EnumValue_1a53412addaf2405b526915882f1565657" prot="public" virt="non-virtual"><scope>euphoria::core::EnumValue</scope><name>to_value</name></member>
+      <member refid="structeuphoria_1_1core_1_1EnumValue_1aa8fd986c1257e35f3b67f87b9df936a5" prot="public" virt="non-virtual"><scope>euphoria::core::EnumValue</scope><name>type</name></member>
+      <member refid="structeuphoria_1_1core_1_1EnumValue_1aa046f2b2249a4d78e23cfedcf9821fbf" prot="public" virt="non-virtual"><scope>euphoria::core::EnumValue</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

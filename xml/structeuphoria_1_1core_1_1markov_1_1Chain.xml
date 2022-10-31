@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1markov_1_1Chain" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::markov::Chain</compoundname>
+    <includes refid="markov_8h" local="no">markov.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1markov_1_1Chain_1a69810957f54dfd0a78315b990adc483c" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::deque&lt; T &gt;, <ref refid="structeuphoria_1_1core_1_1markov_1_1Probability" kindref="compound">Probability</ref>&lt; std::shared_ptr&lt; T &gt; &gt; &gt;</type>
+        <definition>std::map&lt;std::deque&lt;T&gt;, Probability&lt;std::shared_ptr&lt;T&gt; &gt; &gt; euphoria::core::markov::Chain&lt; T &gt;::next</definition>
+        <argsstring></argsstring>
+        <name>next</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="92" column="18" bodyfile="libs/core/src/core/markov.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1markov_1_1Chain_1a1bf4e1c38c958da3e5aa73edd1b45a6d" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::markov::Chain&lt; T &gt;::order</definition>
+        <argsstring></argsstring>
+        <name>order</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="93" column="16" bodyfile="libs/core/src/core/markov.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1markov_1_1Chain_1a59550db1787e6ba2653190e57f11b83c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; euphoria::core::markov::Chain&lt; T &gt;::generate</definition>
+        <argsstring>(core::Random *rnd) const</argsstring>
+        <name>generate</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">core::Random</ref> *</type>
+          <declname>rnd</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="96" column="9" bodyfile="libs/core/src/core/markov.h" bodystart="96" bodyend="113"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/markov.h" line="91" column="1" bodyfile="libs/core/src/core/markov.h" bodystart="90" bodyend="114"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1Chain_1a59550db1787e6ba2653190e57f11b83c" prot="public" virt="non-virtual"><scope>euphoria::core::markov::Chain</scope><name>generate</name></member>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1Chain_1a69810957f54dfd0a78315b990adc483c" prot="public" virt="non-virtual"><scope>euphoria::core::markov::Chain</scope><name>next</name></member>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1Chain_1a1bf4e1c38c958da3e5aa73edd1b45a6d" prot="public" virt="non-virtual"><scope>euphoria::core::markov::Chain</scope><name>order</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

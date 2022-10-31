@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="sdlglcontext_8h" kind="file" language="C++">
+    <compoundname>sdlglcontext.h</compoundname>
+    <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/window/src/window/sdlglcontext.h</label>
+        <link refid="sdlglcontext_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>core/noncopyable.h</label>
+        <link refid="noncopyable_8h"/>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeuphoria_1_1window_1_1SdlAndOpenglContext" prot="public">euphoria::window::SdlAndOpenglContext</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/sdlglcontext.h"/>
+  </compounddef>
+</doxygen>

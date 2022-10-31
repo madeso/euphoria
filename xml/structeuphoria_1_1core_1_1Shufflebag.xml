@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Shufflebag" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Shufflebag</compoundname>
+    <includes refid="shufflebag_8h" local="no">shufflebag.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Shufflebag_1a187d075dab8894ec13a4ad0a5ffcddfa" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; euphoria::core::Shufflebag&lt; T &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="62" column="21" bodyfile="libs/core/src/core/shufflebag.h" bodystart="62" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Shufflebag_1aa3c5b2cba9cc7a34dbc8202ff94b69a2" prot="private" static="no" mutable="no">
+        <type>unsigned long</type>
+        <definition>unsigned long euphoria::core::Shufflebag&lt; T &gt;::cursor</definition>
+        <argsstring></argsstring>
+        <name>cursor</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="63" column="23" bodyfile="libs/core/src/core/shufflebag.h" bodystart="63" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1ac29e93ed035151bf6814cbd21152afb4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::Shufflebag&lt; T &gt;::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="17" column="9" bodyfile="libs/core/src/core/shufflebag.h" bodystart="17" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1a6a8fe6ef11ea2b2d07f3375bedc0cc26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Shufflebag&lt; T &gt;::reserve</definition>
+        <argsstring>(int count)</argsstring>
+        <name>reserve</name>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="23" column="9" bodyfile="libs/core/src/core/shufflebag.h" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1a63f59220d80af8bc44acf488ec38be7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Shufflebag&lt; T &gt;::add</definition>
+        <argsstring>(const T &amp;item, int amount)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>amount</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="29" column="9" bodyfile="libs/core/src/core/shufflebag.h" bodystart="29" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1a59e020059168acd1dd7e703d03bfc8cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; euphoria::core::Shufflebag&lt; T &gt;::get_random_item</definition>
+        <argsstring>(Random *rand)</argsstring>
+        <name>get_random_item</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>rand</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="42" column="9" bodyfile="libs/core/src/core/shufflebag.h" bodystart="42" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/shufflebag.h" line="15" column="1" bodyfile="libs/core/src/core/shufflebag.h" bodystart="14" bodyend="64"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Shufflebag_1a63f59220d80af8bc44acf488ec38be7c" prot="public" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1Shufflebag_1aa3c5b2cba9cc7a34dbc8202ff94b69a2" prot="private" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>cursor</name></member>
+      <member refid="structeuphoria_1_1core_1_1Shufflebag_1a187d075dab8894ec13a4ad0a5ffcddfa" prot="private" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>data</name></member>
+      <member refid="structeuphoria_1_1core_1_1Shufflebag_1a59e020059168acd1dd7e703d03bfc8cc" prot="public" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>get_random_item</name></member>
+      <member refid="structeuphoria_1_1core_1_1Shufflebag_1ac29e93ed035151bf6814cbd21152afb4" prot="public" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>get_size</name></member>
+      <member refid="structeuphoria_1_1core_1_1Shufflebag_1a6a8fe6ef11ea2b2d07f3375bedc0cc26" prot="public" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>reserve</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

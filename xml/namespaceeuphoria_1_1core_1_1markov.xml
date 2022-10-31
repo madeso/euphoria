@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1markov" kind="namespace" language="C++">
+    <compoundname>euphoria::core::markov</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1markov_1_1Chain" prot="public">euphoria::core::markov::Chain</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1markov_1_1ChainBuilder" prot="public">euphoria::core::markov::ChainBuilder</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1markov_1_1Probability" prot="public">euphoria::core::markov::Probability</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder" prot="public">euphoria::core::markov::ProbabilityBuilder</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1markov_1_1Some" prot="public">euphoria::core::markov::Some</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/markov.h" line="12" column="1"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1window_1_1SdlLibrary" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::window::SdlLibrary</compoundname>
+    <includes refid="sdllibrary_8h" local="no">sdllibrary.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1window_1_1SdlLibrary_1a6bfa2c25ea7b4775ea6e704fb7446846" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::window::SdlLibrary::ok</definition>
+        <argsstring></argsstring>
+        <name>ok</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="15" column="14" bodyfile="libs/window/src/window/sdllibrary.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlLibrary_1a99f8603310d9c0b312171ffba9cb1c54" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::SdlLibrary::SdlLibrary</definition>
+        <argsstring>()</argsstring>
+        <name>SdlLibrary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="10" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlLibrary_1a16efafe7022d674fdff035f6255a65c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::SdlLibrary::~SdlLibrary</definition>
+        <argsstring>()</argsstring>
+        <name>~SdlLibrary</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="11" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlLibrary_1a7da78c61fe5b5a8b744cf82cf1cf08fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::SdlLibrary::NONCOPYABLE</definition>
+        <argsstring>(SdlLibrary)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1window_1_1SdlLibrary" kindref="compound">SdlLibrary</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdllibrary.h" line="13" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/sdllibrary.h" line="8" column="1" bodyfile="libs/window/src/window/sdllibrary.h" bodystart="7" bodyend="16"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1window_1_1SdlLibrary_1a7da78c61fe5b5a8b744cf82cf1cf08fe" prot="public" virt="non-virtual"><scope>euphoria::window::SdlLibrary</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlLibrary_1a6bfa2c25ea7b4775ea6e704fb7446846" prot="public" virt="non-virtual"><scope>euphoria::window::SdlLibrary</scope><name>ok</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlLibrary_1a99f8603310d9c0b312171ffba9cb1c54" prot="public" virt="non-virtual"><scope>euphoria::window::SdlLibrary</scope><name>SdlLibrary</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlLibrary_1a16efafe7022d674fdff035f6255a65c1" prot="public" virt="non-virtual"><scope>euphoria::window::SdlLibrary</scope><name>~SdlLibrary</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

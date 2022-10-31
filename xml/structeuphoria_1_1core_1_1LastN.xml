@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1LastN" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::LastN</compoundname>
+    <includes refid="last__n_8h" local="no">last_n.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1LastN_1a537a1f470b4a48569535e68388b15e63" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; euphoria::core::LastN&lt; T &gt;::d</definition>
+        <argsstring></argsstring>
+        <name>d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="39" column="21" bodyfile="libs/core/src/core/last_n.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1LastN_1a5930012cd6dbbc7a3da998f51e75c68f" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t euphoria::core::LastN&lt; T &gt;::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="40" column="21" bodyfile="libs/core/src/core/last_n.h" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1LastN_1a2ca91684081e4d9255e08abcc3425d3c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::LastN&lt; T &gt;::LastN</definition>
+        <argsstring>(std::size_t s)</argsstring>
+        <name>LastN</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="14" column="18" bodyfile="libs/core/src/core/last_n.h" bodystart="14" bodyend="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1LastN_1abbb2bd883ce7da4f47ef045369d89a83" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::LastN&lt; T &gt;::push</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>push</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="17" column="9" bodyfile="libs/core/src/core/last_n.h" bodystart="17" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1LastN_1af11b94c3b19c655d712e24fde96a64fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T *</type>
+        <definition>const T* euphoria::core::LastN&lt; T &gt;::data</definition>
+        <argsstring>() const</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="27" column="9" bodyfile="libs/core/src/core/last_n.h" bodystart="27" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1LastN_1a3f294e46013977b7da8faee8a5cf6d85" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::LastN&lt; T &gt;::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/last_n.h" line="34" column="9" bodyfile="libs/core/src/core/last_n.h" bodystart="34" bodyend="37"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/last_n.h" line="13" column="1" bodyfile="libs/core/src/core/last_n.h" bodystart="12" bodyend="41"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1LastN_1a537a1f470b4a48569535e68388b15e63" prot="public" virt="non-virtual"><scope>euphoria::core::LastN</scope><name>d</name></member>
+      <member refid="structeuphoria_1_1core_1_1LastN_1af11b94c3b19c655d712e24fde96a64fb" prot="public" virt="non-virtual"><scope>euphoria::core::LastN</scope><name>data</name></member>
+      <member refid="structeuphoria_1_1core_1_1LastN_1a2ca91684081e4d9255e08abcc3425d3c" prot="public" virt="non-virtual"><scope>euphoria::core::LastN</scope><name>LastN</name></member>
+      <member refid="structeuphoria_1_1core_1_1LastN_1a5930012cd6dbbc7a3da998f51e75c68f" prot="public" virt="non-virtual"><scope>euphoria::core::LastN</scope><name>max</name></member>
+      <member refid="structeuphoria_1_1core_1_1LastN_1abbb2bd883ce7da4f47ef045369d89a83" prot="public" virt="non-virtual"><scope>euphoria::core::LastN</scope><name>push</name></member>
+      <member refid="structeuphoria_1_1core_1_1LastN_1a3f294e46013977b7da8faee8a5cf6d85" prot="public" virt="non-virtual"><scope>euphoria::core::LastN</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

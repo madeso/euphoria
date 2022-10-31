@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1StructTmWrapper" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::StructTmWrapper</compoundname>
+    <includes refid="datetime_8h" local="no">datetime.h</includes>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="structeuphoria_1_1core_1_1StructTmWrapper_1a7604b57ae035915cd0309cd20353f56c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>friend struct</type>
+        <definition>friend struct TimetWrapper</definition>
+        <argsstring></argsstring>
+        <name>TimetWrapper</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="43" column="9" bodyfile="libs/core/src/core/datetime.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1StructTmWrapper_1ae7828227c2bc7164fe03628f79b6aab3" prot="public" static="no" mutable="no">
+        <type>struct tm</type>
+        <definition>struct tm euphoria::core::StructTmWrapper::time</definition>
+        <argsstring></argsstring>
+        <name>time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="66" column="22" bodyfile="libs/core/src/core/datetime.h" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="protected-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aead262543c41149637bf7e1f167aa6cb" prot="protected" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::StructTmWrapper::StructTmWrapper</definition>
+        <argsstring>(struct tm time)</argsstring>
+        <name>StructTmWrapper</name>
+        <param>
+          <type>struct tm</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="44" column="18"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a49957315c0fb9114e70c57cdf332800f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::StructTmWrapper::StructTmWrapper</definition>
+        <argsstring>(int year, core::Month month, int day)</argsstring>
+        <name>StructTmWrapper</name>
+        <param>
+          <type>int</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a6e9d54d933dc9e9c9314cd763a39d52a" kindref="member">core::Month</ref></type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>day</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="47" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aa44c1c3c71835ef3bef8f205417384c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::StructTmWrapper::StructTmWrapper</definition>
+        <argsstring>(int year, core::Month month, int day, int hour, int minute, int second, bool dst=false)</argsstring>
+        <name>StructTmWrapper</name>
+        <param>
+          <type>int</type>
+          <declname>year</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a6e9d54d933dc9e9c9314cd763a39d52a" kindref="member">core::Month</ref></type>
+          <declname>month</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>day</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>hour</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>minute</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>second</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>dst</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="48" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a05cf3fcc727666e715e393cdeba4f524" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::StructTmWrapper::set_seconds</definition>
+        <argsstring>(int seconds)</argsstring>
+        <name>set_seconds</name>
+        <param>
+          <type>int</type>
+          <declname>seconds</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="50" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a27851fe644bb96cfb0bad19ebd89ab23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::StructTmWrapper::set_minutes</definition>
+        <argsstring>(int minutes)</argsstring>
+        <name>set_minutes</name>
+        <param>
+          <type>int</type>
+          <declname>minutes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="51" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a9e4f37282b8cbfff2cfdb46646c0e0f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::StructTmWrapper::set_hour</definition>
+        <argsstring>(int hour)</argsstring>
+        <name>set_hour</name>
+        <param>
+          <type>int</type>
+          <declname>hour</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="52" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1af3a58fd29f6ed7c416a407c758dd9217" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::StructTmWrapper::set_day_of_moth</definition>
+        <argsstring>(int day_of_moth)</argsstring>
+        <name>set_day_of_moth</name>
+        <param>
+          <type>int</type>
+          <declname>day_of_moth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="53" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a24a4b7daa6a6c4367388b39835b73888" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::StructTmWrapper::set_month</definition>
+        <argsstring>(core::Month month)</argsstring>
+        <name>set_month</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a6e9d54d933dc9e9c9314cd763a39d52a" kindref="member">core::Month</ref></type>
+          <declname>month</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="54" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a64a9fb17d62728ab8f95cea69ca3743f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::StructTmWrapper::set_year</definition>
+        <argsstring>(int year)</argsstring>
+        <name>set_year</name>
+        <param>
+          <type>int</type>
+          <declname>year</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="55" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aa44b3dd4fde61bdc5a6cdd793868e240" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::StructTmWrapper::set_dst</definition>
+        <argsstring>(DstInfo dst)</argsstring>
+        <name>set_dst</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a694ea38f253fd5079cc1d7eb1acd757c" kindref="member">DstInfo</ref></type>
+          <declname>dst</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="56" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1ae61a45ff8d3b1639a333a7c4223fcffc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::StructTmWrapper::get_seconds</definition>
+        <argsstring>() const</argsstring>
+        <name>get_seconds</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="58" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aaaa9319ad1bfd3edb3688bfd11cf4e12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::StructTmWrapper::get_minutes</definition>
+        <argsstring>() const</argsstring>
+        <name>get_minutes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="59" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a182dee4f4587f4f75cfbb2c5576736a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::StructTmWrapper::get_hour</definition>
+        <argsstring>() const</argsstring>
+        <name>get_hour</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="60" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aaa4bdae3267005eed13b1c6752c77bc7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::StructTmWrapper::get_day_of_moth</definition>
+        <argsstring>() const</argsstring>
+        <name>get_day_of_moth</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="61" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aae9f844b17d6dd746edbc1bb572fce99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a6e9d54d933dc9e9c9314cd763a39d52a" kindref="member">Month</ref></type>
+        <definition>Month euphoria::core::StructTmWrapper::get_month</definition>
+        <argsstring>() const</argsstring>
+        <name>get_month</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="62" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1acd57cd86262ba4c5fc0cd0f0197638ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::StructTmWrapper::get_year</definition>
+        <argsstring>() const</argsstring>
+        <name>get_year</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="63" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a7e0a46e3e583580d3f85c7c663984269" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a694ea38f253fd5079cc1d7eb1acd757c" kindref="member">DstInfo</ref></type>
+        <definition>DstInfo euphoria::core::StructTmWrapper::get_dst</definition>
+        <argsstring>() const</argsstring>
+        <name>get_dst</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="64" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a92d85bd49ee5b1f831b7048331ef95f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::StructTmWrapper::to_debug_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_debug_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/datetime.h" line="66" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/datetime.h" line="41" column="1" bodyfile="libs/core/src/core/datetime.h" bodystart="40" bodyend="69"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aaa4bdae3267005eed13b1c6752c77bc7" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>get_day_of_moth</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a7e0a46e3e583580d3f85c7c663984269" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>get_dst</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a182dee4f4587f4f75cfbb2c5576736a0" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>get_hour</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aaaa9319ad1bfd3edb3688bfd11cf4e12" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>get_minutes</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aae9f844b17d6dd746edbc1bb572fce99" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>get_month</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1ae61a45ff8d3b1639a333a7c4223fcffc" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>get_seconds</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1acd57cd86262ba4c5fc0cd0f0197638ce" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>get_year</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1af3a58fd29f6ed7c416a407c758dd9217" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_day_of_moth</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aa44b3dd4fde61bdc5a6cdd793868e240" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_dst</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a9e4f37282b8cbfff2cfdb46646c0e0f0" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_hour</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a27851fe644bb96cfb0bad19ebd89ab23" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_minutes</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a24a4b7daa6a6c4367388b39835b73888" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_month</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a05cf3fcc727666e715e393cdeba4f524" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_seconds</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a64a9fb17d62728ab8f95cea69ca3743f" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_year</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aead262543c41149637bf7e1f167aa6cb" prot="protected" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a49957315c0fb9114e70c57cdf332800f" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aa44c1c3c71835ef3bef8f205417384c6" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1ae7828227c2bc7164fe03628f79b6aab3" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>time</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a7604b57ae035915cd0309cd20353f56c" prot="protected" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>TimetWrapper</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a92d85bd49ee5b1f831b7048331ef95f5" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>to_debug_string</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

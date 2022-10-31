@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="quicksort_8h" kind="file" language="C++">
+    <compoundname>quicksort.h</compoundname>
+    <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includedby refid="multisort_8h" local="yes">libs/core/src/core/multisort.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/quicksort.h</label>
+        <link refid="quicksort_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="2">
+        <label>core/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>cstddef</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/quicksort.h</label>
+        <link refid="quicksort_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/multisort.h</label>
+        <link refid="multisort_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/table_string.h</label>
+        <link refid="table__string_8h"/>
+      </node>
+    </invincdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/quicksort.h"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1RandomLcg" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::RandomLcg</compoundname>
+    <includes refid="rng_8h" local="no">rng.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename I</type>
+      </param>
+      <param>
+        <type>I</type>
+        <declname>a</declname>
+        <defname>a</defname>
+      </param>
+      <param>
+        <type>I</type>
+        <declname>c</declname>
+        <defname>c</defname>
+      </param>
+      <param>
+        <type>I</type>
+        <declname>modulus</declname>
+        <defname>modulus</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1RandomLcg_1a10cb8161c3b723fa4835fb8ffd05a604" prot="public" static="no" mutable="no">
+        <type>I</type>
+        <definition>I euphoria::core::RandomLcg&lt; I, a, c, modulus &gt;::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rng.h" line="17" column="11" bodyfile="libs/core/src/core/rng.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1RandomLcg_1a1b5a46b839940c24abe6df5f9b7e54a3" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::RandomLcg&lt; I, a, c, modulus &gt;::RandomLcg</definition>
+        <argsstring>(I s)</argsstring>
+        <name>RandomLcg</name>
+        <param>
+          <type>I</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rng.h" line="15" column="18" bodyfile="libs/core/src/core/rng.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1RandomLcg_1a37a7694c723bcd263ea0df3008e63b08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::core::RandomLcg&lt; I, a, c, modulus &gt;::get_next_float01</definition>
+        <argsstring>()</argsstring>
+        <name>get_next_float01</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rng.h" line="21" column="9" bodyfile="libs/core/src/core/rng.h" bodystart="21" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/rng.h" line="14" column="1" bodyfile="libs/core/src/core/rng.h" bodystart="13" bodyend="26"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1RandomLcg_1a37a7694c723bcd263ea0df3008e63b08" prot="public" virt="non-virtual"><scope>euphoria::core::RandomLcg</scope><name>get_next_float01</name></member>
+      <member refid="structeuphoria_1_1core_1_1RandomLcg_1a1b5a46b839940c24abe6df5f9b7e54a3" prot="public" virt="non-virtual"><scope>euphoria::core::RandomLcg</scope><name>RandomLcg</name></member>
+      <member refid="structeuphoria_1_1core_1_1RandomLcg_1a10cb8161c3b723fa4835fb8ffd05a604" prot="public" virt="non-virtual"><scope>euphoria::core::RandomLcg</scope><name>state</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

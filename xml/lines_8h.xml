@@ -1,0 +1,226 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="lines_8h" kind="file" language="C++">
+    <compoundname>lines.h</compoundname>
+    <includes refid="vec3_8h" local="yes">core/vec3.h</includes>
+    <includes refid="rgb_8h" local="yes">core/rgb.h</includes>
+    <includes local="no">tuple</includes>
+    <incdepgraph>
+      <node id="29">
+        <label>core/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
+      <node id="27">
+        <label>queue</label>
+      </node>
+      <node id="20">
+        <label>core/colors.h</label>
+        <link refid="colors_8h"/>
+      </node>
+      <node id="26">
+        <label>core/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>cstdint</label>
+      </node>
+      <node id="14">
+        <label>core/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>core/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>core/str.h</label>
+        <link refid="str_8h"/>
+      </node>
+      <node id="19">
+        <label>core/rgb.h</label>
+        <link refid="rgb_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>core/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>core/vec3.h</label>
+        <link refid="vec3_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="23">
+        <label>map</label>
+      </node>
+      <node id="18">
+        <label>core/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
+      </node>
+      <node id="5">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>core/easing.h</label>
+        <link refid="easing_8h"/>
+      </node>
+      <node id="4">
+        <label>core/vec2.h</label>
+        <link refid="vec2_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>tuple</label>
+      </node>
+      <node id="33">
+        <label>optional</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/lines.h</label>
+        <link refid="lines_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core/numeric.h</label>
+        <link refid="numeric_8h"/>
+      </node>
+      <node id="30">
+        <label>magic_enum/magic_enum.hpp</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="31">
+        <label>core/custom_parser.h</label>
+        <link refid="custom__parser_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>sstream</label>
+      </node>
+      <node id="15">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>iostream</label>
+      </node>
+      <node id="17">
+        <label>cstddef</label>
+      </node>
+      <node id="22">
+        <label>core/enumtostring.h</label>
+        <link refid="enumtostring_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>core/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>core/default_parse.h</label>
+        <link refid="default__parse_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>algorithm</label>
+      </node>
+      <node id="9">
+        <label>core/interpolate.h</label>
+        <link refid="interpolate_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1LinePoint" prot="public">euphoria::core::LinePoint</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Lines" prot="public">euphoria::core::Lines</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/lines.h"/>
+  </compounddef>
+</doxygen>

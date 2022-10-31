@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="cli__progress__dots_8h" kind="file" language="C++">
+    <compoundname>cli_progress_dots.h</compoundname>
+    <includes refid="timepoint_8h" local="yes">core/timepoint.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>core/timepoint.h</label>
+        <link refid="timepoint_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>chrono</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/cli_progress_dots.h</label>
+        <link refid="cli__progress__dots_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1CliProgressDots" prot="public">euphoria::core::CliProgressDots</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/cli_progress_dots.h"/>
+  </compounddef>
+</doxygen>

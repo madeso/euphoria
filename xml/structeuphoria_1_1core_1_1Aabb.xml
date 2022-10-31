@@ -1,0 +1,244 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Aabb" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Aabb</compoundname>
+    <includes refid="aabb_8h" local="no">aabb.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Aabb_1ae7c14d37599b489f176f83551bb65e2f" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f euphoria::core::Aabb::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="57" column="15" bodyfile="libs/core/src/core/aabb.h" bodystart="57" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Aabb_1ada80c2ce5260280e61cdf6a3005e9f91" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f euphoria::core::Aabb::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="58" column="15" bodyfile="libs/core/src/core/aabb.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a6c989ad0bbf86198121617799173caf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Aabb::Aabb</definition>
+        <argsstring>(const Vec3f &amp;amin, const Vec3f &amp;amax)</argsstring>
+        <name>Aabb</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>amin</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>amax</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="14" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1afb0162058d5f8c1fb527aa5421a816b9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f euphoria::core::Aabb::wrap</definition>
+        <argsstring>(const Vec3f &amp;vec) const</argsstring>
+        <name>wrap</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="18" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1aa296e37c72bbcf1d04defa358d6e6cdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Aabb::extend</definition>
+        <argsstring>(const Vec3f &amp;vec)</argsstring>
+        <name>extend</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="22" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a9f592e6d732bf484bf2d416b44ffcea4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Aabb::extend</definition>
+        <argsstring>(const Aabb &amp;aabb)</argsstring>
+        <name>extend</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref> &amp;</type>
+          <declname>aabb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="26" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1ad9316d5f7e81fd20f5bf2cf907de3d38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f euphoria::core::Aabb::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a5b4977549583d323f14a205d8503aab8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::Aabb::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="38" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1acdc38742689f95d45501ddec76f6392c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f euphoria::core::Aabb::get_offset</definition>
+        <argsstring>() const</argsstring>
+        <name>get_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="42" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a5f2432cf1ef4b6cb5ee6a056531f9c5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Aabb::offset</definition>
+        <argsstring>(const Vec3f &amp;vec)</argsstring>
+        <name>offset</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="46" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a3efa67faa8cb480e061a77dabc802925" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
+        <definition>Aabb euphoria::core::Aabb::offset_copy</definition>
+        <argsstring>(const Vec3f &amp;vec) const</argsstring>
+        <name>offset_copy</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="50" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a63781c7a6e53cbe186757602a6f74017" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &gt;</type>
+        <definition>std::vector&lt;Vec3f&gt; euphoria::core::Aabb::calculate_all_corners</definition>
+        <argsstring>() const</argsstring>
+        <name>calculate_all_corners</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="54" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a2d85fa1fe617982fd810f653124bdaba" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
+        <definition>static Aabb euphoria::core::Aabb::create_empty</definition>
+        <argsstring>()</argsstring>
+        <name>create_empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="30" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::Aabb</label>
+        <link refid="structeuphoria_1_1core_1_1Aabb"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>min</edgelabel>
+          <edgelabel>max</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::Vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/aabb.h" line="13" column="1" bodyfile="libs/core/src/core/aabb.h" bodystart="12" bodyend="59"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a6c989ad0bbf86198121617799173caf9" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>Aabb</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a63781c7a6e53cbe186757602a6f74017" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>calculate_all_corners</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a2d85fa1fe617982fd810f653124bdaba" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>create_empty</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1aa296e37c72bbcf1d04defa358d6e6cdb" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>extend</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a9f592e6d732bf484bf2d416b44ffcea4" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>extend</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1acdc38742689f95d45501ddec76f6392c" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>get_offset</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1ad9316d5f7e81fd20f5bf2cf907de3d38" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>get_size</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a5b4977549583d323f14a205d8503aab8" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>is_valid</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1ada80c2ce5260280e61cdf6a3005e9f91" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>max</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1ae7c14d37599b489f176f83551bb65e2f" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>min</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a5f2432cf1ef4b6cb5ee6a056531f9c5f" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>offset</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a3efa67faa8cb480e061a77dabc802925" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>offset_copy</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1afb0162058d5f8c1fb527aa5421a816b9" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>wrap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

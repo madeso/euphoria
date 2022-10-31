@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1vfs" kind="namespace" language="C++">
+    <compoundname>euphoria::core::vfs</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" prot="public">euphoria::core::vfs::DirPath</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FileList" prot="public">euphoria::core::vfs::FileList</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" prot="public">euphoria::core::vfs::FilePath</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" prot="public">euphoria::core::vfs::FileSystem</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ListedFile" prot="public">euphoria::core::vfs::ListedFile</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot" prot="public">euphoria::core::vfs::ReadRoot</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog" prot="public">euphoria::core::vfs::ReadRootCatalog</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator" prot="public">euphoria::core::vfs::ReadRootImageGenerator</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder" prot="public">euphoria::core::vfs::ReadRootPhysicalFolder</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1WriteRoot" prot="public">euphoria::core::vfs::WriteRoot</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1WriteRootPhysicalFolder" prot="public">euphoria::core::vfs::WriteRootPhysicalFolder</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1aa331a452f06442f11509cb0d6532a4ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::vfs::add_default_shaders</definition>
+        <argsstring>(FileSystem *fs, const DirPath &amp;base)</argsstring>
+        <name>add_default_shaders</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_defaultshaders.h" line="9" column="5" declfile="libs/core/src/core/vfs_defaultshaders.h" declline="9" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a5e21e1e056f1c0de1802115a07c6696d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &gt;</type>
+        <definition>std::optional&lt;DirPath&gt; euphoria::core::vfs::resolve_relative</definition>
+        <argsstring>(const DirPath &amp;base)</argsstring>
+        <name>resolve_relative</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="184" column="9" declfile="libs/core/src/core/vfs_path.h" declline="184" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a597310cdc0ff0eb0c87320ed13a6e716" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &gt;</type>
+        <definition>std::optional&lt;DirPath&gt; euphoria::core::vfs::resolve_relative</definition>
+        <argsstring>(const DirPath &amp;base, const DirPath &amp;root)</argsstring>
+        <name>resolve_relative</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="188" column="9" declfile="libs/core/src/core/vfs_path.h" declline="188" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a0a7beade0fdbba7180b4a0d02da5bef7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &gt;</type>
+        <definition>std::optional&lt;FilePath&gt; euphoria::core::vfs::resolve_relative</definition>
+        <argsstring>(const FilePath &amp;base)</argsstring>
+        <name>resolve_relative</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="192" column="9" declfile="libs/core/src/core/vfs_path.h" declline="192" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a766caa5924f8014a3d9d77d1a83fe753" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &gt;</type>
+        <definition>std::optional&lt;FilePath&gt; euphoria::core::vfs::resolve_relative</definition>
+        <argsstring>(const FilePath &amp;base, const DirPath &amp;root)</argsstring>
+        <name>resolve_relative</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>base</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>root</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="196" column="9" declfile="libs/core/src/core/vfs_path.h" declline="196" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a9f247cea3e947109876c594b692ef65a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
+        <definition>DirPath euphoria::core::vfs::join</definition>
+        <argsstring>(const DirPath &amp;lhs, const DirPath &amp;rhs)</argsstring>
+        <name>join</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="200" column="9" declfile="libs/core/src/core/vfs_path.h" declline="200" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1af8ea4f96858cc4430d6cbfdf4322203b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref></type>
+        <definition>FilePath euphoria::core::vfs::join</definition>
+        <argsstring>(const DirPath &amp;lhs, const FilePath &amp;rhs)</argsstring>
+        <name>join</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="204" column="9" declfile="libs/core/src/core/vfs_path.h" declline="204" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a782e39520063b1a024d55e29146fd3a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::vfs::operator==</definition>
+        <argsstring>(const DirPath &amp;lhs, const DirPath &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="208" column="9" declfile="libs/core/src/core/vfs_path.h" declline="208" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a0e5f01dbf2979c856be0679f70010265" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::vfs::operator==</definition>
+        <argsstring>(const FilePath &amp;lhs, const FilePath &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="212" column="9" declfile="libs/core/src/core/vfs_path.h" declline="212" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1af9aa39fbc872b78a7de212cdc4ed3c47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::vfs::operator!=</definition>
+        <argsstring>(const DirPath &amp;lhs, const DirPath &amp;rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="216" column="9" declfile="libs/core/src/core/vfs_path.h" declline="216" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1af731c2f98787bf6e6a754421dc8e1efb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::vfs::operator!=</definition>
+        <argsstring>(const FilePath &amp;lhs, const FilePath &amp;rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="220" column="9" declfile="libs/core/src/core/vfs_path.h" declline="220" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1acbcf751d24cb13570c2c57ce31058c55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::vfs::operator&lt;</definition>
+        <argsstring>(const DirPath &amp;lhs, const DirPath &amp;rhs)</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="223" column="9" declfile="libs/core/src/core/vfs_path.h" declline="223" declcolumn="9"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1adcd7e4d38c474e3aec8c2a9b41dfa295" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::vfs::operator&lt;</definition>
+        <argsstring>(const FilePath &amp;lhs, const FilePath &amp;rhs)</argsstring>
+        <name>operator&lt;</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="227" column="9" declfile="libs/core/src/core/vfs_path.h" declline="227" declcolumn="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/chatbot.h" line="15" column="1"/>
+  </compounddef>
+</doxygen>

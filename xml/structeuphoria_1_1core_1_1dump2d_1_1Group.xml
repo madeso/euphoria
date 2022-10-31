@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1Group" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::dump2d::Group</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper" prot="public" virt="non-virtual">euphoria::core::dump2d::AddWrapper&lt; Group &gt;</basecompoundref>
+    <includes refid="dump_8h" local="no">dump.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Group_1a32aa9c866ae5e64818d6d794ad29ce7c" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> &gt;</type>
+        <definition>std::vector&lt;Item&gt; euphoria::core::dump2d::Group::items</definition>
+        <argsstring></argsstring>
+        <name>items</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="96" column="21" bodyfile="libs/core/src/core/dump.h" bodystart="96" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Group_1ab9c0f2a53401bad7aea18ab8c2663faf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1Group" kindref="compound">Group</ref> &amp;</type>
+        <definition>Group&amp; euphoria::core::dump2d::Group::add</definition>
+        <argsstring>(const Item &amp;item)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> &amp;</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="98" column="15"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::dump2d::Group</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1Group"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::dump2d::AddWrapper&lt; Group &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::dump2d::Group</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1Group"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::dump2d::AddWrapper&lt; Group &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/dump.h" line="95" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="94" bodyend="99"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Group_1ab9c0f2a53401bad7aea18ab8c2663faf" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Group</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Group_1a32aa9c866ae5e64818d6d794ad29ce7c" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Group</scope><name>items</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper_1abf0448c6f1ac034594ae65105a3626b1" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Group</scope><name>operator&lt;&lt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

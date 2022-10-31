@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1search" kind="namespace" language="C++">
+    <compoundname>euphoria::core::search</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1search_1_1Match" prot="public">euphoria::core::search::Match</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1search_1_1Searcher" prot="public">euphoria::core::search::Searcher</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1search_1ab47191d602ab443f1daaf816e17635a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename F</type>
+          </param>
+          <param>
+            <type>typename L</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; euphoria::core::search::find_closest</definition>
+        <argsstring>(std::size_t max_size, const L &amp;list, F &amp;&amp;f)</argsstring>
+        <name>find_closest</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>max_size</declname>
+        </param>
+        <param>
+          <type>const L &amp;</type>
+          <declname>list</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/editdistance.search.h" line="48" column="5" bodyfile="libs/core/src/core/editdistance.search.h" bodystart="48" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/editdistance.search.h" line="12" column="1"/>
+  </compounddef>
+</doxygen>

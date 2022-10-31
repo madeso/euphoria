@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1Init" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::Init</compoundname>
+    <includes refid="init_8h" local="no">init.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="enum" id="structeuphoria_1_1render_1_1Init_1a57eb900180a4f88d666c7392a4b2be47" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>BlendHack</name>
+        <enumvalue id="structeuphoria_1_1render_1_1Init_1a57eb900180a4f88d666c7392a4b2be47ab674006f3edb1d9cd4d838c150b0567d" prot="public">
+          <name>no_hack</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="structeuphoria_1_1render_1_1Init_1a57eb900180a4f88d666c7392a4b2be47a813e54a86d8a2e0dd19e2892499f2937" prot="public">
+          <name>enable_hack</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="17" column="1" bodyfile="libs/render/src/render/init.h" bodystart="16" bodyend="20"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Init_1add09b35213d1c62aa287cc9e285449dd" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::render::Init::is_ok</definition>
+        <argsstring></argsstring>
+        <name>is_ok</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="38" column="14" bodyfile="libs/render/src/render/init.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a21036da93a231fbbc3f41f5d8398e204" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Init::Init</definition>
+        <argsstring>(LoaderFunction loader, BlendHack blend_hack=BlendHack::no_hack)</argsstring>
+        <name>Init</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1render_1a1844a3742ff4443264e0a31fc49583fb" kindref="member">LoaderFunction</ref></type>
+          <declname>loader</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Init_1a57eb900180a4f88d666c7392a4b2be47" kindref="member">BlendHack</ref></type>
+          <declname>blend_hack</declname>
+          <defval><ref refid="structeuphoria_1_1render_1_1Init_1a57eb900180a4f88d666c7392a4b2be47ab674006f3edb1d9cd4d838c150b0567d" kindref="member">BlendHack::no_hack</ref></defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="22" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a54658d641c69540492105d98783038d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Init::~Init</definition>
+        <argsstring>()</argsstring>
+        <name>~Init</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="23" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a3c12150df90f70e76df488252272a3fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Init::NONCOPYABLE</definition>
+        <argsstring>(Init)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Init" kindref="compound">Init</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="25" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a1a46dfcfbd4c298a564bf25706c57b65" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref></type>
+        <definition>core::Mat4f euphoria::render::Init::get_ortho_projection</definition>
+        <argsstring>(float width, float height) const</argsstring>
+        <name>get_ortho_projection</name>
+        <param>
+          <type>float</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="28" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a752934007c8d8810b78beebcee73249f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Init::use_2d</definition>
+        <argsstring>() const</argsstring>
+        <name>use_2d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="32" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a7a949ecb88cb39776886a58e56b41425" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Init::clear_screen</definition>
+        <argsstring>(const core::Rgb &amp;color) const</argsstring>
+        <name>clear_screen</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="36" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/init.h" line="14" column="1" bodyfile="libs/render/src/render/init.h" bodystart="13" bodyend="39"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1Init_1a57eb900180a4f88d666c7392a4b2be47" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>BlendHack</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a7a949ecb88cb39776886a58e56b41425" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>clear_screen</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a1a46dfcfbd4c298a564bf25706c57b65" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>get_ortho_projection</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a21036da93a231fbbc3f41f5d8398e204" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>Init</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1add09b35213d1c62aa287cc9e285449dd" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>is_ok</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a3c12150df90f70e76df488252272a3fc" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a752934007c8d8810b78beebcee73249f" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>use_2d</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a54658d641c69540492105d98783038d5" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>~Init</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="proto_8h" kind="file" language="C++">
+    <compoundname>proto.h</compoundname>
+    <includes local="no">variant</includes>
+    <includes local="no">optional</includes>
+    <includes refid="assert_8h" local="yes">assert/assert.h</includes>
+    <includes local="yes">gaf/lib_gaf.h</includes>
+    <includes local="yes">rapidjson/document.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/proto.h</label>
+        <link refid="proto_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>variant</label>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>rapidjson/document.h</label>
+      </node>
+      <node id="4">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>gaf/lib_gaf.h</label>
+      </node>
+      <node id="3">
+        <label>optional</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+      <node id="7">
+        <label>sstream</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1ReadErrorFileMissing" prot="public">euphoria::core::ReadErrorFileMissing</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1ReadErrorFileError" prot="public">euphoria::core::ReadErrorFileError</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/proto.h"/>
+  </compounddef>
+</doxygen>

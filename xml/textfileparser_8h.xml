@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="textfileparser_8h" kind="file" language="C++">
+    <compoundname>textfileparser.h</compoundname>
+    <includes local="no">memory</includes>
+    <includedby refid="table__string_8h" local="yes">libs/core/src/core/table_string.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/textfileparser.h</label>
+        <link refid="textfileparser_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/textfileparser.h</label>
+        <link refid="textfileparser_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/table_string.h</label>
+        <link refid="table__string_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Textfile" prot="public">euphoria::core::detail::Textfile</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile" prot="public">euphoria::core::detail::LocationInFile</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1TextfileParser" prot="public">euphoria::core::TextfileParser</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1detail">euphoria::core::detail</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/textfileparser.h"/>
+  </compounddef>
+</doxygen>

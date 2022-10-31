@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1tracery_1_1Modifier" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>euphoria::core::tracery::Modifier</compoundname>
+    <includes refid="tracery_8h" local="no">tracery.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab1a68ba8c1815e5fe70404ca4391b54f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::tracery::Modifier::Modifier</definition>
+        <argsstring>()=default</argsstring>
+        <name>Modifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ad82850298cda58889bff120eaf00d024" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::core::tracery::Modifier::~Modifier</definition>
+        <argsstring>()</argsstring>
+        <name>~Modifier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="68" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a87c8fdf59525c426bac19a7b08133348" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::tracery::Modifier::NONCOPYABLE</definition>
+        <argsstring>(Modifier)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" kindref="compound">Modifier</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="70" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab4ef585d2da1b2d4f64ac96f1e6d0bc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
+        <definition>virtual Result euphoria::core::tracery::Modifier::apply_modifier</definition>
+        <argsstring>(const std::string &amp;input)=0</argsstring>
+        <name>apply_modifier</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="73" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/tracery.h" line="66" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="65" bodyend="74"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab4ef585d2da1b2d4f64ac96f1e6d0bc4" prot="public" virt="pure-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>apply_modifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab1a68ba8c1815e5fe70404ca4391b54f" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>Modifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a87c8fdf59525c426bac19a7b08133348" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ad82850298cda58889bff120eaf00d024" prot="public" virt="virtual"><scope>euphoria::core::tracery::Modifier</scope><name>~Modifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

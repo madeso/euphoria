@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Defines" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Defines</compoundname>
+    <includes refid="texttemplate_8h" local="no">texttemplate.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Defines_1a595353375a377617bb6b384eb5571328" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, std::string &gt;</type>
+        <definition>std::map&lt;std::string, std::string&gt; euphoria::core::Defines::values</definition>
+        <argsstring></argsstring>
+        <name>values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="36" column="18" bodyfile="libs/core/src/core/texttemplate.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Defines_1a03c57631f871644a746653163938703e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Defines::Defines</definition>
+        <argsstring>()</argsstring>
+        <name>Defines</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="22" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Defines_1af06c89384c7dc09d5beae6fd3e8f2ee2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::Defines::is_defined</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>is_defined</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="25" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Defines_1af489654f0e8510ed0f368367d65e6e5a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::Defines::get_value</definition>
+        <argsstring>(const std::string &amp;name) const</argsstring>
+        <name>get_value</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="28" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Defines_1ab275e59ce5f2c2d702fe61c154f3b995" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Defines::undefine</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>undefine</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="31" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Defines_1a0e3b4953fe2a004c2539967dc5757740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Defines::define</definition>
+        <argsstring>(const std::string &amp;name, const std::string &amp;value)</argsstring>
+        <name>define</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="34" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/texttemplate.h" line="21" column="1" bodyfile="libs/core/src/core/texttemplate.h" bodystart="20" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Defines_1a0e3b4953fe2a004c2539967dc5757740" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>define</name></member>
+      <member refid="structeuphoria_1_1core_1_1Defines_1a03c57631f871644a746653163938703e" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>Defines</name></member>
+      <member refid="structeuphoria_1_1core_1_1Defines_1af489654f0e8510ed0f368367d65e6e5a" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>get_value</name></member>
+      <member refid="structeuphoria_1_1core_1_1Defines_1af06c89384c7dc09d5beae6fd3e8f2ee2" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>is_defined</name></member>
+      <member refid="structeuphoria_1_1core_1_1Defines_1ab275e59ce5f2c2d702fe61c154f3b995" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>undefine</name></member>
+      <member refid="structeuphoria_1_1core_1_1Defines_1a595353375a377617bb6b384eb5571328" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>values</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

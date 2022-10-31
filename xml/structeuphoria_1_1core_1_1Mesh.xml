@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Mesh" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Mesh</compoundname>
+    <includes refid="mesh_8h" local="no">mesh.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Mesh_1a6d9db7a68565e2a642321994049252a8" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1Material" kindref="compound">Material</ref> &gt;</type>
+        <definition>std::vector&lt;Material&gt; euphoria::core::Mesh::materials</definition>
+        <argsstring></argsstring>
+        <name>materials</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.h" line="107" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="107" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Mesh_1acd7c580521b3bd14dc261c4c480bc6d3" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1MeshPart" kindref="compound">MeshPart</ref> &gt;</type>
+        <definition>std::vector&lt;MeshPart&gt; euphoria::core::Mesh::parts</definition>
+        <argsstring></argsstring>
+        <name>parts</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.h" line="108" column="21" bodyfile="libs/core/src/core/mesh.h" bodystart="108" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Mesh_1a870ff79b770e88e3c25cbd1b87fd476d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
+        <definition>Aabb euphoria::core::Mesh::calculate_aabb</definition>
+        <argsstring>() const</argsstring>
+        <name>calculate_aabb</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.h" line="111" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/mesh.h" line="106" column="1" bodyfile="libs/core/src/core/mesh.h" bodystart="105" bodyend="112"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Mesh_1a870ff79b770e88e3c25cbd1b87fd476d" prot="public" virt="non-virtual"><scope>euphoria::core::Mesh</scope><name>calculate_aabb</name></member>
+      <member refid="structeuphoria_1_1core_1_1Mesh_1a6d9db7a68565e2a642321994049252a8" prot="public" virt="non-virtual"><scope>euphoria::core::Mesh</scope><name>materials</name></member>
+      <member refid="structeuphoria_1_1core_1_1Mesh_1acd7c580521b3bd14dc261c4c480bc6d3" prot="public" virt="non-virtual"><scope>euphoria::core::Mesh</scope><name>parts</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

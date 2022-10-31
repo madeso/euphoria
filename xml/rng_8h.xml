@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="rng_8h" kind="file" language="C++">
+    <compoundname>rng.h</compoundname>
+    <includes local="no">limits</includes>
+    <includes refid="ints_8h" local="yes">core/ints.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>limits</label>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/rng.h</label>
+        <link refid="rng_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1RandomLcg" prot="public">euphoria::core::RandomLcg</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1RandomXorShift" prot="public">euphoria::core::RandomXorShift</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/rng.h"/>
+  </compounddef>
+</doxygen>

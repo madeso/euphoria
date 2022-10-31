@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="open__color_8imgui_8h" kind="file" language="C++">
+    <compoundname>open_color.imgui.h</compoundname>
+    <includes local="yes">open-color.h</includes>
+    <includes local="yes">imgui/imgui.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>imgui/imgui.h</label>
+      </node>
+      <node id="2">
+        <label>open-color.h</label>
+      </node>
+      <node id="1">
+        <label>libs/window/src/window/open_color.imgui.h</label>
+        <link refid="open__color_8imgui_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/open_color.imgui.h"/>
+  </compounddef>
+</doxygen>

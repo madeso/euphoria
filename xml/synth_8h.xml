@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="synth_8h" kind="file" language="C++">
+    <compoundname>synth.h</compoundname>
+    <includes local="no">map</includes>
+    <includes refid="core_2src_2core_2key_8h" local="yes">core/key.h</includes>
+    <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>map</label>
+      </node>
+      <node id="1">
+        <label>libs/minsynth/src/minsynth/synth.h</label>
+        <link refid="synth_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>core/noncopyable.h</label>
+        <link refid="noncopyable_8h"/>
+      </node>
+      <node id="3">
+        <label>core/key.h</label>
+        <link refid="core_2src_2core_2key_8h"/>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1Node" prot="public">euphoria::minsynth::Node</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1ToneTaker" prot="public">euphoria::minsynth::ToneTaker</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1ToneSender" prot="public">euphoria::minsynth::ToneSender</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1FrequencyTaker" prot="public">euphoria::minsynth::FrequencyTaker</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1WaveOut" prot="public">euphoria::minsynth::WaveOut</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode" prot="public">euphoria::minsynth::ToneToFrequencyConverterNode</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1PianoKey" prot="public">euphoria::minsynth::PianoKey</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1MidiInNode" prot="public">euphoria::minsynth::MidiInNode</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1KeyboardInputNode" prot="public">euphoria::minsynth::KeyboardInputNode</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1SingleToneNode" prot="public">euphoria::minsynth::SingleToneNode</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode" prot="public">euphoria::minsynth::ArpegiatorNode</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1LiveFrequency" prot="public">euphoria::minsynth::LiveFrequency</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1DeadFrequency" prot="public">euphoria::minsynth::DeadFrequency</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1Envelope" prot="public">euphoria::minsynth::Envelope</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1OscilatorNode" prot="public">euphoria::minsynth::OscilatorNode</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1Effect" prot="public">euphoria::minsynth::Effect</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1VolumeNode" prot="public">euphoria::minsynth::VolumeNode</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1ScalerEffect" prot="public">euphoria::minsynth::ScalerEffect</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1minsynth">euphoria::minsynth</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1minsynth_1_1base__frequencies">euphoria::minsynth::base_frequencies</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/minsynth/src/minsynth/synth.h"/>
+  </compounddef>
+</doxygen>

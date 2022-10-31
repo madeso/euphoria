@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1tests_1_1custom_1_1Approx" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::tests::custom::Approx</compoundname>
+    <includes refid="approx_8h" local="no">approx.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a9343be3aa683c4bdea7ed10f9cafa096" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::tests::custom::Approx&lt; T &gt;::epsilon</definition>
+        <argsstring></argsstring>
+        <name>epsilon</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="110" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="110" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1ad15d7c18baf312a3a667a8d7f9757bc0" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::tests::custom::Approx&lt; T &gt;::margin</definition>
+        <argsstring></argsstring>
+        <name>margin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="111" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="111" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a047832ac047e01e46e07fbfcb45b7ff0" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::tests::custom::Approx&lt; T &gt;::scale</definition>
+        <argsstring></argsstring>
+        <name>scale</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="112" column="19" bodyfile="libs/tests/src/tests/approx.h" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a7ac844283df242164605f5661348c87e" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::tests::custom::Approx&lt; T &gt;::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="113" column="15" bodyfile="libs/tests/src/tests/approx.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a645b2e37b1d990e09e7ffae629b856cc" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::tests::custom::Approx&lt; T &gt;::Approx</definition>
+        <argsstring>(T v)</argsstring>
+        <name>Approx</name>
+        <param>
+          <type>T</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="43" column="22" bodyfile="libs/tests/src/tests/approx.h" bodystart="43" bodyend="49"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1aa6e1c640a463664ee80732ca645712ac" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref> &amp;</type>
+        <definition>Approx&amp; euphoria::tests::custom::Approx&lt; T &gt;::set_epsilon</definition>
+        <argsstring>(float new_epsilon)</argsstring>
+        <name>set_epsilon</name>
+        <param>
+          <type>float</type>
+          <declname>new_epsilon</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="80" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="80" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a060e7c913567ee269513c8143ec354a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref> &amp;</type>
+        <definition>Approx&amp; euphoria::tests::custom::Approx&lt; T &gt;::set_margin</definition>
+        <argsstring>(float new_margin)</argsstring>
+        <name>set_margin</name>
+        <param>
+          <type>float</type>
+          <declname>new_margin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="87" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="87" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a7e2b882b51dec1672776352203ce72e3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref> &amp;</type>
+        <definition>Approx&amp; euphoria::tests::custom::Approx&lt; T &gt;::set_scale</definition>
+        <argsstring>(float new_scale)</argsstring>
+        <name>set_scale</name>
+        <param>
+          <type>float</type>
+          <declname>new_scale</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="94" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="94" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a230eae61e74bc9e137afd1c4b1d51ef7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::tests::custom::Approx&lt; T &gt;::to_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="101" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="101" bodyend="107"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1ad4e89e4fc9539b3d1cd1087ecfa07985" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(T lhs, Approx&lt; T &gt; const &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>T</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref>&lt; T &gt; const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="52" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="52" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a66bc64b9f6ca0ed5c6256a10b59260df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend bool</type>
+        <definition>bool operator==</definition>
+        <argsstring>(Approx&lt; T &gt; const &amp;lhs, T rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref>&lt; T &gt; const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="62" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="62" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a98eb1ff7b0e1a2a9f75c35339f7185ea" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(T lhs, Approx&lt; T &gt; const &amp;rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type>T</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref>&lt; T &gt; const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="68" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="68" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="friend" id="structeuphoria_1_1tests_1_1custom_1_1Approx_1a28a5d2ba6f6162d86c8d6afd3b4618dc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>friend bool</type>
+        <definition>bool operator!=</definition>
+        <argsstring>(Approx&lt; T &gt; const &amp;lhs, T rhs)</argsstring>
+        <name>operator!=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1tests_1_1custom_1_1Approx" kindref="compound">Approx</ref>&lt; T &gt; const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.h" line="74" column="13" bodyfile="libs/tests/src/tests/approx.h" bodystart="74" bodyend="77"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/tests/src/tests/approx.h" line="41" column="1" bodyfile="libs/tests/src/tests/approx.h" bodystart="40" bodyend="114"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a645b2e37b1d990e09e7ffae629b856cc" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>Approx</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a9343be3aa683c4bdea7ed10f9cafa096" prot="private" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>epsilon</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1ad15d7c18baf312a3a667a8d7f9757bc0" prot="private" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>margin</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a98eb1ff7b0e1a2a9f75c35339f7185ea" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>operator!=</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a28a5d2ba6f6162d86c8d6afd3b4618dc" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>operator!=</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1ad4e89e4fc9539b3d1cd1087ecfa07985" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>operator==</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a66bc64b9f6ca0ed5c6256a10b59260df" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>operator==</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a047832ac047e01e46e07fbfcb45b7ff0" prot="private" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>scale</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1aa6e1c640a463664ee80732ca645712ac" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>set_epsilon</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a060e7c913567ee269513c8143ec354a8" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>set_margin</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a7e2b882b51dec1672776352203ce72e3" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>set_scale</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a230eae61e74bc9e137afd1c4b1d51ef7" prot="public" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>to_string</name></member>
+      <member refid="structeuphoria_1_1tests_1_1custom_1_1Approx_1a7ac844283df242164605f5661348c87e" prot="private" virt="non-virtual"><scope>euphoria::tests::custom::Approx</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

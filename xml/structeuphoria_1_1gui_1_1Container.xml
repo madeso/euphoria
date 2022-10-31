@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1gui_1_1Container" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::gui::Container</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1gui_1_1LayoutContainer" prot="public" virt="non-virtual">euphoria::gui::LayoutContainer</derivedcompoundref>
+    <includes refid="container_8h" local="no">container.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Container_1a0251e3351fc6bb950ab9a73817ce595d" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;Widget&gt; &gt; euphoria::gui::Container::widgets</definition>
+        <argsstring></argsstring>
+        <name>widgets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/container.h" line="41" column="21" bodyfile="libs/gui/src/gui/container.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Container_1a62095e2dbfa403543454a19c23f4f039" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::Container::Container</definition>
+        <argsstring>()</argsstring>
+        <name>Container</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/container.h" line="24" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Container_1a74dd7bc1dcdcb9b0db60c652101195af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::Container::~Container</definition>
+        <argsstring>()</argsstring>
+        <name>~Container</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/container.h" line="25" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Container_1ad3bd633e455a09d295fa7d1cbb3588ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::Container::NONCOPYABLE</definition>
+        <argsstring>(Container)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1Container" kindref="compound">Container</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/container.h" line="27" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Container_1a841fdb86cf3516c2529725d0ca8378b2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::gui::Container::has_any_widgets</definition>
+        <argsstring>() const</argsstring>
+        <name>has_any_widgets</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/container.h" line="30" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Container_1ae6d95e5081d0144c5afa49d62071017a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::Container::add</definition>
+        <argsstring>(std::shared_ptr&lt; Widget &gt; widget)</argsstring>
+        <name>add</name>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;</type>
+          <declname>widget</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/container.h" line="33" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Container_1afe9961ee8fb3d2ae2cad3c3263b29268" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::Container::step</definition>
+        <argsstring>(float dt)</argsstring>
+        <name>step</name>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/container.h" line="36" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Container_1a89c820864c2a7e51f1a9a2615ab9f161" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::Container::render</definition>
+        <argsstring>(render::SpriteRenderer *renderer) const</argsstring>
+        <name>render</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1SpriteRenderer" kindref="compound">render::SpriteRenderer</ref> *</type>
+          <declname>renderer</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/container.h" line="39" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::gui::Container</label>
+        <link refid="structeuphoria_1_1gui_1_1Container"/>
+      </node>
+      <node id="2">
+        <label>euphoria::gui::LayoutContainer</label>
+        <link refid="structeuphoria_1_1gui_1_1LayoutContainer"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/gui/src/gui/container.h" line="23" column="1" bodyfile="libs/gui/src/gui/container.h" bodystart="22" bodyend="42"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1gui_1_1Container_1ae6d95e5081d0144c5afa49d62071017a" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a62095e2dbfa403543454a19c23f4f039" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>Container</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a841fdb86cf3516c2529725d0ca8378b2" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>has_any_widgets</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1ad3bd633e455a09d295fa7d1cbb3588ab" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a89c820864c2a7e51f1a9a2615ab9f161" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>render</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1afe9961ee8fb3d2ae2cad3c3263b29268" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a0251e3351fc6bb950ab9a73817ce595d" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>widgets</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a74dd7bc1dcdcb9b0db60c652101195af" prot="public" virt="non-virtual"><scope>euphoria::gui::Container</scope><name>~Container</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

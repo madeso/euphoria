@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="sensitivity_8h" kind="file" language="C++">
+    <compoundname>sensitivity.h</compoundname>
+    <includedby refid="fpscontroller_8h" local="yes">libs/core/src/core/fpscontroller.h</includedby>
+    <includedby refid="orbitcontroller_8h" local="yes">libs/core/src/core/orbitcontroller.h</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/fpscontroller.h</label>
+        <link refid="fpscontroller_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libs/core/src/core/orbitcontroller.h</label>
+        <link refid="orbitcontroller_8h"/>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/camera3.editor.h</label>
+        <link refid="camera3_8editor_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/sensitivity.h</label>
+        <link refid="sensitivity_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1Sensitivity" prot="public">euphoria::core::Sensitivity</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/sensitivity.h"/>
+  </compounddef>
+</doxygen>

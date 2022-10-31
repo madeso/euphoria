@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::dump2d::AddWrapper</compoundname>
+    <includes refid="dump_8h" local="no">dump.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename TBase</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper_1abf0448c6f1ac034594ae65105a3626b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename TItem</type>
+          </param>
+        </templateparamlist>
+        <type>TBase &amp;</type>
+        <definition>TBase&amp; euphoria::core::dump2d::AddWrapper&lt; TBase &gt;::operator&lt;&lt;</definition>
+        <argsstring>(const TItem &amp;sub_item)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const TItem &amp;</type>
+          <declname>sub_item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="88" column="9" bodyfile="libs/core/src/core/dump.h" bodystart="88" bodyend="91"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/dump.h" line="86" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="85" bodyend="92"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper_1abf0448c6f1ac034594ae65105a3626b1" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::AddWrapper</scope><name>operator&lt;&lt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

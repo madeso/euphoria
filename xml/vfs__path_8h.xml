@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="vfs__path_8h" kind="file" language="C++">
+    <compoundname>vfs_path.h</compoundname>
+    <includes local="no">optional</includes>
+    <includes local="no">tuple</includes>
+    <includes local="no">type_traits</includes>
+    <includedby refid="mesh_8h" local="yes">libs/core/src/core/mesh.h</includedby>
+    <includedby refid="vfs__imagegenerator_8h" local="yes">libs/core/src/core/vfs_imagegenerator.h</includedby>
+    <includedby refid="skin_8h" local="yes">libs/gui/src/gui/skin.h</includedby>
+    <includedby refid="materialshader_8h" local="yes">libs/render/src/render/materialshader.h</includedby>
+    <includedby refid="materialshadercache_8h" local="yes">libs/render/src/render/materialshadercache.h</includedby>
+    <includedby refid="shader_8h" local="yes">libs/render/src/render/shader.h</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>tuple</label>
+      </node>
+      <node id="2">
+        <label>optional</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/vfs_path.h</label>
+        <link refid="vfs__path_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>type_traits</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>libs/render/src/render/spriterender.h</label>
+        <link refid="spriterender_8h"/>
+      </node>
+      <node id="7">
+        <label>libs/render/src/render/materialshader.h</label>
+        <link refid="materialshader_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>libs/render/src/render/materialshadercache.h</label>
+        <link refid="materialshadercache_8h"/>
+      </node>
+      <node id="9">
+        <label>libs/render/src/render/shader.h</label>
+        <link refid="shader_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/vfs_path.h</label>
+        <link refid="vfs__path_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libs/render/src/render/actor.h</label>
+        <link refid="actor_8h"/>
+      </node>
+      <node id="6">
+        <label>libs/gui/src/gui/skin.h</label>
+        <link refid="skin_8h"/>
+      </node>
+      <node id="3">
+        <label>libs/render/src/render/compiledmesh.h</label>
+        <link refid="compiledmesh_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>libs/core/src/core/vfs_imagegenerator.h</label>
+        <link refid="vfs__imagegenerator_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" prot="public">euphoria::core::vfs::FilePath</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" prot="public">euphoria::core::vfs::DirPath</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/vfs_path.h"/>
+  </compounddef>
+</doxygen>

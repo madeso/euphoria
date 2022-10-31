@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::markov::ProbabilityBuilder</compoundname>
+    <includes refid="markov_8h" local="no">markov.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder_1aa6bbd8ee325ba59b31a3dd382d6ddf89" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::markov::ProbabilityBuilder&lt; T &gt;::total</definition>
+        <argsstring></argsstring>
+        <name>total</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="58" column="13" bodyfile="libs/core/src/core/markov.h" bodystart="58" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder_1a6264737f45ea8d12016be04f993866ea" prot="public" static="no" mutable="no">
+        <type>std::map&lt; T, int &gt;</type>
+        <definition>std::map&lt;T, int&gt; euphoria::core::markov::ProbabilityBuilder&lt; T &gt;::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="59" column="18" bodyfile="libs/core/src/core/markov.h" bodystart="59" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder_1a5544f8a50e2e8798a23cbc41880e83d9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::markov::ProbabilityBuilder&lt; T &gt;::add</definition>
+        <argsstring>(const T &amp;t)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="62" column="9" bodyfile="libs/core/src/core/markov.h" bodystart="62" bodyend="75"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder_1aed85b248b0d3faed97911bc470493761" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1markov_1_1Probability" kindref="compound">Probability</ref>&lt; T &gt;</type>
+        <definition>Probability&lt;T&gt; euphoria::core::markov::ProbabilityBuilder&lt; T &gt;::build</definition>
+        <argsstring>() const</argsstring>
+        <name>build</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/markov.h" line="78" column="9" bodyfile="libs/core/src/core/markov.h" bodystart="78" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/markov.h" line="57" column="1" bodyfile="libs/core/src/core/markov.h" bodystart="56" bodyend="87"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder_1a5544f8a50e2e8798a23cbc41880e83d9" prot="public" virt="non-virtual"><scope>euphoria::core::markov::ProbabilityBuilder</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder_1aed85b248b0d3faed97911bc470493761" prot="public" virt="non-virtual"><scope>euphoria::core::markov::ProbabilityBuilder</scope><name>build</name></member>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder_1a6264737f45ea8d12016be04f993866ea" prot="public" virt="non-virtual"><scope>euphoria::core::markov::ProbabilityBuilder</scope><name>data</name></member>
+      <member refid="structeuphoria_1_1core_1_1markov_1_1ProbabilityBuilder_1aa6bbd8ee325ba59b31a3dd382d6ddf89" prot="public" virt="non-virtual"><scope>euphoria::core::markov::ProbabilityBuilder</scope><name>total</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

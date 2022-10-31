@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1colorbrewer_1_1Properties" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::colorbrewer::Properties</compoundname>
+    <includes refid="colorbrewer_8h" local="no">colorbrewer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1colorbrewer_1_1Properties_1a95d66fe9105776641a75f03f72532e19" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1colorbrewer_1ae78f6bdbba40ee92b00a932f06d68340" kindref="member">BlindProperties</ref></type>
+        <definition>BlindProperties euphoria::core::colorbrewer::Properties::blind</definition>
+        <argsstring></argsstring>
+        <name>blind</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="33" column="29" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1colorbrewer_1_1Properties_1a8129960a992f691da5a0e5d940cea709" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1colorbrewer_1a3be5fc1ccaf61faaba7d88451644327b" kindref="member">PrintProperties</ref></type>
+        <definition>PrintProperties euphoria::core::colorbrewer::Properties::print</definition>
+        <argsstring></argsstring>
+        <name>print</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="34" column="29" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1colorbrewer_1_1Properties_1a32c280259d3975719c3e844997d1a980" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1colorbrewer_1afd62f39b2e22b29f07ffbdec8953f6f5" kindref="member">CopyProperties</ref></type>
+        <definition>CopyProperties euphoria::core::colorbrewer::Properties::copy</definition>
+        <argsstring></argsstring>
+        <name>copy</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="35" column="28" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1colorbrewer_1_1Properties_1a92105746b6ae80f30b678ba4711ebe56" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1colorbrewer_1a62b7af8b5bbf57c1a468318c30de9792" kindref="member">ScreenProperties</ref></type>
+        <definition>ScreenProperties euphoria::core::colorbrewer::Properties::screen</definition>
+        <argsstring></argsstring>
+        <name>screen</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/colorbrewer.h" line="36" column="30" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/colorbrewer.h" line="32" column="1" bodyfile="libs/core/src/core/colorbrewer.h" bodystart="31" bodyend="37"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1colorbrewer_1_1Properties_1a95d66fe9105776641a75f03f72532e19" prot="public" virt="non-virtual"><scope>euphoria::core::colorbrewer::Properties</scope><name>blind</name></member>
+      <member refid="structeuphoria_1_1core_1_1colorbrewer_1_1Properties_1a32c280259d3975719c3e844997d1a980" prot="public" virt="non-virtual"><scope>euphoria::core::colorbrewer::Properties</scope><name>copy</name></member>
+      <member refid="structeuphoria_1_1core_1_1colorbrewer_1_1Properties_1a8129960a992f691da5a0e5d940cea709" prot="public" virt="non-virtual"><scope>euphoria::core::colorbrewer::Properties</scope><name>print</name></member>
+      <member refid="structeuphoria_1_1core_1_1colorbrewer_1_1Properties_1a92105746b6ae80f30b678ba4711ebe56" prot="public" virt="non-virtual"><scope>euphoria::core::colorbrewer::Properties</scope><name>screen</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo" kind="namespace" language="C++">
+    <compoundname>euphoria::window::imgui::guizmo</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1a28dcdcf44a195de5fc07d37e7de2c310" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::imgui::guizmo::setup</definition>
+        <argsstring>()</argsstring>
+        <name>setup</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imguizmo.h" line="13" column="10" declfile="libs/window/src/window/imguizmo.h" declline="13" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1aa69a92892b08654f81eab99691bbd7b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::imgui::guizmo::begin</definition>
+        <argsstring>()</argsstring>
+        <name>begin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imguizmo.h" line="14" column="10" declfile="libs/window/src/window/imguizmo.h" declline="14" declcolumn="10"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1acaada13424269a0d6c0d0e6017f3efb9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::window::imgui::guizmo::translate</definition>
+        <argsstring>(bool is_local, const std::optional&lt; core::Vec3f &gt; &amp;snap, const core::Mat4f &amp;camera_view, const core::Mat4f &amp;camera_projection, const core::Mat4f &amp;model, bool x, bool y, bool z, core::Vec3f *new_position)</argsstring>
+        <name>translate</name>
+        <param>
+          <type>bool</type>
+          <declname>is_local</declname>
+        </param>
+        <param>
+          <type>const std::optional&lt; <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> &gt; &amp;</type>
+          <declname>snap</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>camera_view</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>camera_projection</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>z</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> *</type>
+          <declname>new_position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imguizmo.h" line="17" column="5" declfile="libs/window/src/window/imguizmo.h" declline="17" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1aea1ed2cc367209f9cc1a2345cce2a41e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::window::imgui::guizmo::rotate</definition>
+        <argsstring>(bool is_local, const std::optional&lt; core::Angle &gt; &amp;snap, const core::Mat4f &amp;camera_view, const core::Mat4f &amp;camera_projection, const core::Mat4f &amp;model, bool y, bool p, bool r, core::Quatf *new_rotation)</argsstring>
+        <name>rotate</name>
+        <param>
+          <type>bool</type>
+          <declname>is_local</declname>
+        </param>
+        <param>
+          <type>const std::optional&lt; <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &gt; &amp;</type>
+          <declname>snap</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>camera_view</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>camera_projection</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <declname>model</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a4e667d7591aa51d3bbf27ab04de0d8c1" kindref="member">core::Quatf</ref> *</type>
+          <declname>new_rotation</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/imguizmo.h" line="29" column="5" declfile="libs/window/src/window/imguizmo.h" declline="29" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/imguizmo.h" line="12" column="1"/>
+  </compounddef>
+</doxygen>

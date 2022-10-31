@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1minsynth_1_1ToneTaker" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>euphoria::minsynth::ToneTaker</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode" prot="public" virt="non-virtual">euphoria::minsynth::ArpegiatorNode</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1SingleToneNode" prot="public" virt="non-virtual">euphoria::minsynth::SingleToneNode</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode" prot="public" virt="non-virtual">euphoria::minsynth::ToneToFrequencyConverterNode</derivedcompoundref>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a5fde99ebf7bfc578705d8122d7fb2111" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::minsynth::ToneTaker::ToneTaker</definition>
+        <argsstring>()=default</argsstring>
+        <name>ToneTaker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="131" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1af2f3ffe41b2badea9c1e7b89321f2dcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::minsynth::ToneTaker::~ToneTaker</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ToneTaker</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="132" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1acdf47ae10813bd9b49146f96f2fe3eac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::minsynth::ToneTaker::NONCOPYABLE</definition>
+        <argsstring>(ToneTaker)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1minsynth_1_1ToneTaker" kindref="compound">ToneTaker</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="134" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a48fc0d8fc0a2a021132a2ba9af568b0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void euphoria::minsynth::ToneTaker::on_tone</definition>
+        <argsstring>(int tone, bool down, float time)=0</argsstring>
+        <name>on_tone</name>
+        <reimplementedby refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1ab5ca243f34a0b60d5105536fafca9aed">on_tone</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1minsynth_1_1SingleToneNode_1a9b13db352886b5e4c8144deacd299d02">on_tone</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a619b88685c63d4e3419695e750a8fc41">on_tone</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>tone</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>down</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="137" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>euphoria::minsynth::ToneToFrequencyConverterNode</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::minsynth::ToneTaker</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ToneTaker"/>
+      </node>
+      <node id="3">
+        <label>euphoria::minsynth::SingleToneNode</label>
+        <link refid="structeuphoria_1_1minsynth_1_1SingleToneNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::minsynth::ArpegiatorNode</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="130" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="129" bodyend="138"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1acdf47ae10813bd9b49146f96f2fe3eac" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a48fc0d8fc0a2a021132a2ba9af568b0a" prot="public" virt="pure-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>on_tone</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a5fde99ebf7bfc578705d8122d7fb2111" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>ToneTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1af2f3ffe41b2badea9c1e7b89321f2dcf" prot="public" virt="virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>~ToneTaker</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

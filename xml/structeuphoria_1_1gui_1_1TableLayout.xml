@@ -1,0 +1,187 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1gui_1_1TableLayout" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::gui::TableLayout</compoundname>
+    <basecompoundref refid="structeuphoria_1_1gui_1_1Layout" prot="public" virt="non-virtual">euphoria::gui::Layout</basecompoundref>
+    <includes refid="layout_8h" local="no">layout.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1TableLayout_1a4eb2428bf0e6bfddae618d32e0430756" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; bool &gt;</type>
+        <definition>std::vector&lt;bool&gt; euphoria::gui::TableLayout::expandable_rows</definition>
+        <argsstring></argsstring>
+        <name>expandable_rows</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="69" column="21" bodyfile="libs/gui/src/gui/layout.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1TableLayout_1ae75ea2e6cbabc1d0c6409de583b6ba0e" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; bool &gt;</type>
+        <definition>std::vector&lt;bool&gt; euphoria::gui::TableLayout::expandable_cols</definition>
+        <argsstring></argsstring>
+        <name>expandable_cols</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="70" column="21" bodyfile="libs/gui/src/gui/layout.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1TableLayout_1a7c3b13a4b23e0f7c46c58cebfda75ea8" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::gui::TableLayout::combined_padding</definition>
+        <argsstring></argsstring>
+        <name>combined_padding</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="71" column="15" bodyfile="libs/gui/src/gui/layout.h" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1TableLayout_1a84f5286a055ffdad09edf88e65ddf085" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::TableLayout::TableLayout</definition>
+        <argsstring>(const std::vector&lt; bool &gt; &amp;er, const std::vector&lt; bool &gt; &amp;ec, float cp)</argsstring>
+        <name>TableLayout</name>
+        <param>
+          <type>const std::vector&lt; bool &gt; &amp;</type>
+          <declname>er</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; bool &gt; &amp;</type>
+          <declname>ec</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>cp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="45" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1TableLayout_1a5ca170146ff92faacd9bb8a4ff43f003" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::TableLayout::~TableLayout</definition>
+        <argsstring>() override=default</argsstring>
+        <name>~TableLayout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="52" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1TableLayout_1a2dfc37ae15e540ffb4aa2415e94dddab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::TableLayout::NONCOPYABLE</definition>
+        <argsstring>(TableLayout)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1TableLayout" kindref="compound">TableLayout</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="54" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1TableLayout_1aeb531b444a6d2d957d459f65f4912160" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a8c5f78c50315b8abde58b90d27490153" kindref="member">core::Size2f</ref></type>
+        <definition>core::Size2f euphoria::gui::TableLayout::calculate_minimum_area</definition>
+        <argsstring>(const std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; &amp;widgets) const override</argsstring>
+        <name>calculate_minimum_area</name>
+        <reimplements refid="structeuphoria_1_1gui_1_1Layout_1a42cfa0bb134f6810bc3cff4da107254a">calculate_minimum_area</reimplements>
+        <param>
+          <type>const std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; &amp;</type>
+          <declname>widgets</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="57" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1TableLayout_1ab80b0e601533d63421a1ef312cef3793" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::TableLayout::do_layout</definition>
+        <argsstring>(std::vector&lt; std::shared_ptr&lt; Widget &gt;&gt; *widgets, const core::Rectf &amp;area) const override</argsstring>
+        <name>do_layout</name>
+        <reimplements refid="structeuphoria_1_1gui_1_1Layout_1a59f1d59f5b936e31b12c8e25c4cd91a7">do_layout</reimplements>
+        <param>
+          <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Widget" kindref="compound">Widget</ref> &gt;&gt; *</type>
+          <declname>widgets</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <declname>area</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layout.h" line="63" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::gui::TableLayout</label>
+        <link refid="structeuphoria_1_1gui_1_1TableLayout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::gui::Layout</label>
+        <link refid="structeuphoria_1_1gui_1_1Layout"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::gui::TableLayout</label>
+        <link refid="structeuphoria_1_1gui_1_1TableLayout"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::gui::Layout</label>
+        <link refid="structeuphoria_1_1gui_1_1Layout"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/gui/src/gui/layout.h" line="44" column="1" bodyfile="libs/gui/src/gui/layout.h" bodystart="43" bodyend="72"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1gui_1_1TableLayout_1aeb531b444a6d2d957d459f65f4912160" prot="public" virt="virtual"><scope>euphoria::gui::TableLayout</scope><name>calculate_minimum_area</name></member>
+      <member refid="structeuphoria_1_1gui_1_1TableLayout_1a7c3b13a4b23e0f7c46c58cebfda75ea8" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>combined_padding</name></member>
+      <member refid="structeuphoria_1_1gui_1_1TableLayout_1ab80b0e601533d63421a1ef312cef3793" prot="public" virt="virtual"><scope>euphoria::gui::TableLayout</scope><name>do_layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1TableLayout_1ae75ea2e6cbabc1d0c6409de583b6ba0e" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>expandable_cols</name></member>
+      <member refid="structeuphoria_1_1gui_1_1TableLayout_1a4eb2428bf0e6bfddae618d32e0430756" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>expandable_rows</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1aab9118341d8c1aa1a34728681ce65402" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>Layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1TableLayout_1a2dfc37ae15e540ffb4aa2415e94dddab" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1ab2d7632c9c77d5cfd4e9a3c8181e27e3" prot="public" virt="non-virtual" ambiguityscope="euphoria::gui::Layout::"><scope>euphoria::gui::TableLayout</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1TableLayout_1a84f5286a055ffdad09edf88e65ddf085" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>TableLayout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1a3ea5e240526f7eac902caf96b3b20581" prot="public" virt="virtual"><scope>euphoria::gui::TableLayout</scope><name>~Layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1TableLayout_1a5ca170146ff92faacd9bb8a4ff43f003" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>~TableLayout</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

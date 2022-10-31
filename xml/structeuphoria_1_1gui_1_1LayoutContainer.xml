@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1gui_1_1LayoutContainer" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::gui::LayoutContainer</compoundname>
+    <basecompoundref refid="structeuphoria_1_1gui_1_1Container" prot="public" virt="non-virtual">euphoria::gui::Container</basecompoundref>
+    <includes refid="layoutcontainer_8h" local="no">layoutcontainer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1LayoutContainer_1afcabb57d235c45104b222e4fea5f2c4e" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Layout" kindref="compound">gui::Layout</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;gui::Layout&gt; euphoria::gui::LayoutContainer::layout</definition>
+        <argsstring></argsstring>
+        <name>layout</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.h" line="42" column="25" bodyfile="libs/gui/src/gui/layoutcontainer.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1LayoutContainer_1a252705770c77471fbc2c75b52d913830" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::LayoutContainer::LayoutContainer</definition>
+        <argsstring>()</argsstring>
+        <name>LayoutContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.h" line="31" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1LayoutContainer_1af1504b17925f222a14d036afe8c8d696" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::gui::LayoutContainer::~LayoutContainer</definition>
+        <argsstring>()</argsstring>
+        <name>~LayoutContainer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.h" line="32" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1LayoutContainer_1a66191767d63190213c2b4e68f03ed60d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::LayoutContainer::NONCOPYABLE</definition>
+        <argsstring>(LayoutContainer)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1LayoutContainer" kindref="compound">LayoutContainer</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1LayoutContainer_1a10353cebd2ab2068be3ca9a34b044841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::LayoutContainer::do_layout</definition>
+        <argsstring>(core::Rectf area)</argsstring>
+        <name>do_layout</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref></type>
+          <declname>area</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.h" line="37" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1LayoutContainer_1a1f586f9861c479b87a7b4c49cf9ce8e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a8c5f78c50315b8abde58b90d27490153" kindref="member">core::Size2f</ref></type>
+        <definition>core::Size2f euphoria::gui::LayoutContainer::calculate_minimum_area</definition>
+        <argsstring>() const</argsstring>
+        <name>calculate_minimum_area</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.h" line="40" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::gui::Container</label>
+        <link refid="structeuphoria_1_1gui_1_1Container"/>
+      </node>
+      <node id="1">
+        <label>euphoria::gui::LayoutContainer</label>
+        <link refid="structeuphoria_1_1gui_1_1LayoutContainer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::gui::Container</label>
+        <link refid="structeuphoria_1_1gui_1_1Container"/>
+      </node>
+      <node id="1">
+        <label>euphoria::gui::LayoutContainer</label>
+        <link refid="structeuphoria_1_1gui_1_1LayoutContainer"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/gui/src/gui/layoutcontainer.h" line="30" column="1" bodyfile="libs/gui/src/gui/layoutcontainer.h" bodystart="29" bodyend="43"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1gui_1_1Container_1ae6d95e5081d0144c5afa49d62071017a" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1a1f586f9861c479b87a7b4c49cf9ce8e2" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>calculate_minimum_area</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a62095e2dbfa403543454a19c23f4f039" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>Container</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1a10353cebd2ab2068be3ca9a34b044841" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>do_layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a841fdb86cf3516c2529725d0ca8378b2" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>has_any_widgets</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1afcabb57d235c45104b222e4fea5f2c4e" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1a252705770c77471fbc2c75b52d913830" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>LayoutContainer</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1a66191767d63190213c2b4e68f03ed60d" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1ad3bd633e455a09d295fa7d1cbb3588ab" prot="public" virt="non-virtual" ambiguityscope="euphoria::gui::Container::"><scope>euphoria::gui::LayoutContainer</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a89c820864c2a7e51f1a9a2615ab9f161" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>render</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1afe9961ee8fb3d2ae2cad3c3263b29268" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a0251e3351fc6bb950ab9a73817ce595d" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>widgets</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Container_1a74dd7bc1dcdcb9b0db60c652101195af" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>~Container</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1af1504b17925f222a14d036afe8c8d696" prot="public" virt="virtual"><scope>euphoria::gui::LayoutContainer</scope><name>~LayoutContainer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

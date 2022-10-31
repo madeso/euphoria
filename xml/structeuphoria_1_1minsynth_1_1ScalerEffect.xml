@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1minsynth_1_1ScalerEffect" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::minsynth::ScalerEffect</compoundname>
+    <basecompoundref refid="structeuphoria_1_1minsynth_1_1Effect" prot="public" virt="non-virtual">euphoria::minsynth::Effect</basecompoundref>
+    <basecompoundref refid="structeuphoria_1_1minsynth_1_1Node" prot="public" virt="non-virtual">euphoria::minsynth::Node</basecompoundref>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ScalerEffect_1aac55dbfc97d5d9b33235e6f076497ac1" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::minsynth::ScalerEffect::times</definition>
+        <argsstring></argsstring>
+        <name>times</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="392" column="13" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="392" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ScalerEffect_1a3f1789436a6d58d2740920ea0e778da2" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>float</type>
+        <definition>float euphoria::minsynth::ScalerEffect::on_wave</definition>
+        <argsstring>(float wave) override</argsstring>
+        <name>on_wave</name>
+        <reimplements refid="structeuphoria_1_1minsynth_1_1Effect_1ac2726b42fd6c7b514e0967416f66c169">on_wave</reimplements>
+        <param>
+          <type>float</type>
+          <declname>wave</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="390" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>euphoria::minsynth::WaveOut</label>
+        <link refid="structeuphoria_1_1minsynth_1_1WaveOut"/>
+      </node>
+      <node id="4">
+        <label>euphoria::minsynth::Node</label>
+        <link refid="structeuphoria_1_1minsynth_1_1Node"/>
+      </node>
+      <node id="2">
+        <label>euphoria::minsynth::Effect</label>
+        <link refid="structeuphoria_1_1minsynth_1_1Effect"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::minsynth::ScalerEffect</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ScalerEffect"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>euphoria::minsynth::WaveOut</label>
+        <link refid="structeuphoria_1_1minsynth_1_1WaveOut"/>
+      </node>
+      <node id="4">
+        <label>euphoria::minsynth::Node</label>
+        <link refid="structeuphoria_1_1minsynth_1_1Node"/>
+      </node>
+      <node id="2">
+        <label>euphoria::minsynth::Effect</label>
+        <link refid="structeuphoria_1_1minsynth_1_1Effect"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>in</edgelabel>
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::minsynth::ScalerEffect</label>
+        <link refid="structeuphoria_1_1minsynth_1_1ScalerEffect"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="388" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="385" bodyend="393"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1minsynth_1_1Effect_1a74e2ba10b4d914884c3c37815494a323" prot="public" virt="virtual"><scope>euphoria::minsynth::ScalerEffect</scope><name>get_output</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Effect_1ac23ae0faa1f4a61beae86c9c1f30f385" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ScalerEffect</scope><name>in</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ScalerEffect</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a3a6463d3db858165c565fa0d7b412929" prot="public" virt="non-virtual" ambiguityscope="euphoria::"><scope>euphoria::minsynth::ScalerEffect</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1aa87a484fbe760907f384f131ecdc1e5d" prot="public" virt="non-virtual" ambiguityscope="euphoria::minsynth::Node::"><scope>euphoria::minsynth::ScalerEffect</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ScalerEffect_1a3f1789436a6d58d2740920ea0e778da2" prot="public" virt="virtual"><scope>euphoria::minsynth::ScalerEffect</scope><name>on_wave</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ScalerEffect_1aac55dbfc97d5d9b33235e6f076497ac1" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ScalerEffect</scope><name>times</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1aff997db2a2a1f2c710275f94b7d108d7" prot="public" virt="virtual"><scope>euphoria::minsynth::ScalerEffect</scope><name>update</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a5b4bae5030f1aa1c8ebd733218fbb25e" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ScalerEffect</scope><name>WaveOut</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a4460379974e28cc6314cf2086ab9c0e0" prot="public" virt="virtual"><scope>euphoria::minsynth::ScalerEffect</scope><name>~Node</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a74f6dd617d227bcadd11ae4fd7ce9a06" prot="public" virt="virtual"><scope>euphoria::minsynth::ScalerEffect</scope><name>~WaveOut</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

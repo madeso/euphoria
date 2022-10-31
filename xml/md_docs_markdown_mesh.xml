@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md_docs_markdown_mesh" kind="page">
+    <compoundname>md_docs_markdown_mesh</compoundname>
+    <title>Mesh</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>There are 2 kinds of meshes the core(<computeroutput><ref refid="structeuphoria_1_1core_1_1Mesh" kindref="compound">euphoria::core::Mesh</ref></computeroutput>) and the render mesh(<computeroutput>euphoria::render::compiled_mesh</computeroutput>).</para>
+<para>The core can be loaded and compiled. The render mesh is a compiled core mesh and is only useful for rendering and animating. </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

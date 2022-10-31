@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1detail_1_1SingleResponse" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::detail::SingleResponse</compoundname>
+    <includes refid="chatbot_8h" local="no">chatbot.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1ad77e0a4d1032597b5df6f70cd931f59b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::detail::SingleResponse::to_say</definition>
+        <argsstring></argsstring>
+        <name>to_say</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="73" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1ace698e8a8740727a01a28ac8c9edae90" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::detail::SingleResponse::topics_mentioned</definition>
+        <argsstring></argsstring>
+        <name>topics_mentioned</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="74" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="74" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1a26186e104871e2266e0b2a34b62718aa" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::detail::SingleResponse::SingleResponse</definition>
+        <argsstring>(const std::string &amp;say)</argsstring>
+        <name>SingleResponse</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>say</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.h" line="71" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/chatbot.h" line="70" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="69" bodyend="75"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1a26186e104871e2266e0b2a34b62718aa" prot="public" virt="non-virtual"><scope>euphoria::core::detail::SingleResponse</scope><name>SingleResponse</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1ad77e0a4d1032597b5df6f70cd931f59b" prot="public" virt="non-virtual"><scope>euphoria::core::detail::SingleResponse</scope><name>to_say</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse_1ace698e8a8740727a01a28ac8c9edae90" prot="public" virt="non-virtual"><scope>euphoria::core::detail::SingleResponse</scope><name>topics_mentioned</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

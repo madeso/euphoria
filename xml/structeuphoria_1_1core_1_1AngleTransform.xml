@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1AngleTransform" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::AngleTransform</compoundname>
+    <includes refid="angle_8h" local="no">angle.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1AngleTransform_1ae8445deef3d5a8ded3200f8d17487230" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
+        <definition>static Angle euphoria::core::AngleTransform::transform</definition>
+        <argsstring>(const Angle &amp;from, float v, const Angle &amp;to)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/angle.h" line="211" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/angle.h" line="209" column="1" bodyfile="libs/core/src/core/angle.h" bodystart="208" bodyend="212"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1AngleTransform_1ae8445deef3d5a8ded3200f8d17487230" prot="public" virt="non-virtual"><scope>euphoria::core::AngleTransform</scope><name>transform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

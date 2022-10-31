@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1Texture2dLoadData" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::Texture2dLoadData</compoundname>
+    <includes refid="texture_8h" local="no">texture.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Texture2dLoadData_1a2b13963370e487972fe9c388740bd1bb" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1render_1aeae373119daee76a127f910b55bbad37" kindref="member">TextureWrap</ref></type>
+        <definition>TextureWrap euphoria::render::Texture2dLoadData::wrap</definition>
+        <argsstring></argsstring>
+        <name>wrap</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="48" column="21" bodyfile="libs/render/src/render/texture.h" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Texture2dLoadData_1a38253a896c23e9ddf092d220cd986a0d" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1render_1ab28cae4d12a53cbb4244452fe07229eb" kindref="member">FilterMinification</ref></type>
+        <definition>FilterMinification euphoria::render::Texture2dLoadData::minification</definition>
+        <argsstring></argsstring>
+        <name>minification</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="49" column="28" bodyfile="libs/render/src/render/texture.h" bodystart="49" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Texture2dLoadData_1a7cea753105dd22803ab74d42e795287a" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1render_1abf3b09d9bbcf00c16a54ac7c97ffb77d" kindref="member">FilterMagnification</ref></type>
+        <definition>FilterMagnification euphoria::render::Texture2dLoadData::magnification</definition>
+        <argsstring></argsstring>
+        <name>magnification</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="50" column="29" bodyfile="libs/render/src/render/texture.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2dLoadData_1ab3cabbfbe1970f083e42b710259d403c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Texture2dLoadData::Texture2dLoadData</definition>
+        <argsstring>()</argsstring>
+        <name>Texture2dLoadData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="37" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2dLoadData_1ae60b3133ede11673c776055d7196114b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1render_1_1Texture2dLoadData" kindref="compound">Texture2dLoadData</ref> &amp;</type>
+        <definition>Texture2dLoadData&amp; euphoria::render::Texture2dLoadData::set_wrap</definition>
+        <argsstring>(TextureWrap v)</argsstring>
+        <name>set_wrap</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1render_1aeae373119daee76a127f910b55bbad37" kindref="member">TextureWrap</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2dLoadData_1a38a636209d286aaa9a450661047f4cf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1render_1_1Texture2dLoadData" kindref="compound">Texture2dLoadData</ref> &amp;</type>
+        <definition>Texture2dLoadData&amp; euphoria::render::Texture2dLoadData::set_filter_magnification</definition>
+        <argsstring>(FilterMagnification v)</argsstring>
+        <name>set_filter_magnification</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1render_1abf3b09d9bbcf00c16a54ac7c97ffb77d" kindref="member">FilterMagnification</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="43" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Texture2dLoadData_1a23c8f7b96ad54cb959a53759e1c7f3bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1render_1_1Texture2dLoadData" kindref="compound">Texture2dLoadData</ref> &amp;</type>
+        <definition>Texture2dLoadData&amp; euphoria::render::Texture2dLoadData::set_filter_minification</definition>
+        <argsstring>(FilterMinification v)</argsstring>
+        <name>set_filter_minification</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1render_1ab28cae4d12a53cbb4244452fe07229eb" kindref="member">FilterMinification</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texture.h" line="46" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/texture.h" line="36" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="35" bodyend="51"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1Texture2dLoadData_1a7cea753105dd22803ab74d42e795287a" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2dLoadData</scope><name>magnification</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2dLoadData_1a38253a896c23e9ddf092d220cd986a0d" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2dLoadData</scope><name>minification</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2dLoadData_1a38a636209d286aaa9a450661047f4cf3" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2dLoadData</scope><name>set_filter_magnification</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2dLoadData_1a23c8f7b96ad54cb959a53759e1c7f3bc" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2dLoadData</scope><name>set_filter_minification</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2dLoadData_1ae60b3133ede11673c776055d7196114b" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2dLoadData</scope><name>set_wrap</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2dLoadData_1ab3cabbfbe1970f083e42b710259d403c" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2dLoadData</scope><name>Texture2dLoadData</name></member>
+      <member refid="structeuphoria_1_1render_1_1Texture2dLoadData_1a2b13963370e487972fe9c388740bd1bb" prot="public" virt="non-virtual"><scope>euphoria::render::Texture2dLoadData</scope><name>wrap</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

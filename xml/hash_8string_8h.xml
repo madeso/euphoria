@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="hash_8string_8h" kind="file" language="C++">
+    <compoundname>hash.string.h</compoundname>
+    <includes local="no">string_view</includes>
+    <includes refid="ints_8h" local="yes">core/ints.h</includes>
+    <includes refid="hash_8h" local="yes">core/hash.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/hash.string.h</label>
+        <link refid="hash_8string_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>cstdint</label>
+      </node>
+      <node id="2">
+        <label>string_view</label>
+      </node>
+      <node id="3">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>core/hash.h</label>
+        <link refid="hash_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1HashedStringView" prot="public">euphoria::core::HashedStringView</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/hash.string.h"/>
+  </compounddef>
+</doxygen>

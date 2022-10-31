@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1window_1_1SdlTimer" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::window::SdlTimer</compoundname>
+    <includes refid="timer_8h" local="no">timer.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1window_1_1SdlTimer_1a9588abba806394be383e701b44570ca9" prot="public" static="no" mutable="no">
+        <type>Uint64</type>
+        <definition>Uint64 euphoria::window::SdlTimer::current_time</definition>
+        <argsstring></argsstring>
+        <name>current_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/timer.h" line="15" column="16" bodyfile="libs/window/src/window/timer.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1window_1_1SdlTimer_1a45bdc1a3c573a0bd041258d499884ee6" prot="public" static="no" mutable="no">
+        <type>Uint64</type>
+        <definition>Uint64 euphoria::window::SdlTimer::last_time</definition>
+        <argsstring></argsstring>
+        <name>last_time</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/timer.h" line="16" column="16" bodyfile="libs/window/src/window/timer.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlTimer_1aafbe2667a735dfb860dbf9c25f3351de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::SdlTimer::SdlTimer</definition>
+        <argsstring>()</argsstring>
+        <name>SdlTimer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/timer.h" line="10" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlTimer_1acf80a050725ce2fd83c6da0804637bbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::window::SdlTimer::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/timer.h" line="13" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/timer.h" line="9" column="1" bodyfile="libs/window/src/window/timer.h" bodystart="8" bodyend="17"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1window_1_1SdlTimer_1a9588abba806394be383e701b44570ca9" prot="public" virt="non-virtual"><scope>euphoria::window::SdlTimer</scope><name>current_time</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlTimer_1a45bdc1a3c573a0bd041258d499884ee6" prot="public" virt="non-virtual"><scope>euphoria::window::SdlTimer</scope><name>last_time</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlTimer_1aafbe2667a735dfb860dbf9c25f3351de" prot="public" virt="non-virtual"><scope>euphoria::window::SdlTimer</scope><name>SdlTimer</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlTimer_1acf80a050725ce2fd83c6da0804637bbe" prot="public" virt="non-virtual"><scope>euphoria::window::SdlTimer</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

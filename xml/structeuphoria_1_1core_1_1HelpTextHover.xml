@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1HelpTextHover" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::HelpTextHover</compoundname>
+    <includes refid="helptexthover_8h" local="no">helptexthover.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1HelpTextHover_1a8c482b0a280f18f634f6009a66cf0b4b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::HelpTextHover::time_to_hover</definition>
+        <argsstring></argsstring>
+        <name>time_to_hover</name>
+        <initializer>= 0.8f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/helptexthover.h" line="10" column="15" bodyfile="libs/core/src/core/helptexthover.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1HelpTextHover_1a9848c5c6c0d8523dd4243f4c89f3806c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::HelpTextHover::time_to_hide</definition>
+        <argsstring></argsstring>
+        <name>time_to_hide</name>
+        <initializer>= 0.5f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/helptexthover.h" line="11" column="15" bodyfile="libs/core/src/core/helptexthover.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1HelpTextHover_1a8481b6bbbc665f2f2dc485c8a0200e04" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::HelpTextHover::state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/helptexthover.h" line="13" column="13" bodyfile="libs/core/src/core/helptexthover.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1HelpTextHover_1a599579f7259ce2c4bd4562c5ce4efafe" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::HelpTextHover::timer</definition>
+        <argsstring></argsstring>
+        <name>timer</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/helptexthover.h" line="14" column="15" bodyfile="libs/core/src/core/helptexthover.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1HelpTextHover_1aa310ca733f2c420e8f5677814a440084" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::HelpTextHover::display_hover</definition>
+        <argsstring></argsstring>
+        <name>display_hover</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/helptexthover.h" line="17" column="14" bodyfile="libs/core/src/core/helptexthover.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1HelpTextHover_1a5fc7cb96fe512198488b9548bc3822fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::HelpTextHover::step</definition>
+        <argsstring>(bool currently_hovering_over_widget, float dt)</argsstring>
+        <name>step</name>
+        <param>
+          <type>bool</type>
+          <declname>currently_hovering_over_widget</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/helptexthover.h" line="16" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Determines when to display help text in a hover ui. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/helptexthover.h" line="9" column="1" bodyfile="libs/core/src/core/helptexthover.h" bodystart="8" bodyend="18"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1HelpTextHover_1aa310ca733f2c420e8f5677814a440084" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>display_hover</name></member>
+      <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a8481b6bbbc665f2f2dc485c8a0200e04" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>state</name></member>
+      <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a5fc7cb96fe512198488b9548bc3822fa" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a9848c5c6c0d8523dd4243f4c89f3806c" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>time_to_hide</name></member>
+      <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a8c482b0a280f18f634f6009a66cf0b4b" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>time_to_hover</name></member>
+      <member refid="structeuphoria_1_1core_1_1HelpTextHover_1a599579f7259ce2c4bd4562c5ce4efafe" prot="public" virt="non-virtual"><scope>euphoria::core::HelpTextHover</scope><name>timer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

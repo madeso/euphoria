@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1DirectoryListing" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::DirectoryListing</compoundname>
+    <includes refid="os_8h" local="no">os.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1DirectoryListing_1a61e829562144206bdd2d4dcb6fd4a851" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::DirectoryListing::files</definition>
+        <argsstring></argsstring>
+        <name>files</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/os.h" line="15" column="21" bodyfile="libs/core/src/core/os.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1DirectoryListing_1aec1bfec28505d062a1c5335f35e06d82" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::DirectoryListing::directories</definition>
+        <argsstring></argsstring>
+        <name>directories</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/os.h" line="16" column="21" bodyfile="libs/core/src/core/os.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1DirectoryListing_1af62bcd4bc5e06eb96de503b072f210ee" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::DirectoryListing::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/os.h" line="17" column="14" bodyfile="libs/core/src/core/os.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/os.h" line="14" column="1" bodyfile="libs/core/src/core/os.h" bodystart="13" bodyend="18"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1DirectoryListing_1aec1bfec28505d062a1c5335f35e06d82" prot="public" virt="non-virtual"><scope>euphoria::core::DirectoryListing</scope><name>directories</name></member>
+      <member refid="structeuphoria_1_1core_1_1DirectoryListing_1a61e829562144206bdd2d4dcb6fd4a851" prot="public" virt="non-virtual"><scope>euphoria::core::DirectoryListing</scope><name>files</name></member>
+      <member refid="structeuphoria_1_1core_1_1DirectoryListing_1af62bcd4bc5e06eb96de503b072f210ee" prot="public" virt="non-virtual"><scope>euphoria::core::DirectoryListing</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

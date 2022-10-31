@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1SortAction" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::SortAction</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1Sortable" prot="public" virt="non-virtual">euphoria::core::Sortable&lt; T &gt;</basecompoundref>
+    <includes refid="multisort_8h" local="no">multisort.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+      <param>
+        <type>typename <ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref></type>
+      </param>
+      <param>
+        <type>typename SortFunc</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SortAction_1adc899499a36110460803ca8e7b0a0643" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref> T::*</type>
+        <definition>Value T::* euphoria::core::SortAction&lt; T, Value, SortFunc &gt;::member</definition>
+        <argsstring></argsstring>
+        <name>member</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/multisort.h" line="41" column="16" bodyfile="libs/core/src/core/multisort.h" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SortAction_1a913d2372351553309b39ba4ebe42ad30" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abfc67891bba4cfcbc72a6eaaeb6371dc" kindref="member">core::SortStyle</ref></type>
+        <definition>core::SortStyle euphoria::core::SortAction&lt; T, Value, SortFunc &gt;::sort_style</definition>
+        <argsstring></argsstring>
+        <name>sort_style</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/multisort.h" line="42" column="25" bodyfile="libs/core/src/core/multisort.h" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SortAction_1ac9be6d312aeb8eff27ee95d7674cfaf9" prot="public" static="no" mutable="no">
+        <type>SortFunc</type>
+        <definition>SortFunc euphoria::core::SortAction&lt; T, Value, SortFunc &gt;::sort_func</definition>
+        <argsstring></argsstring>
+        <name>sort_func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/multisort.h" line="43" column="18" bodyfile="libs/core/src/core/multisort.h" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1SortAction_1a9fab4ecd02d399ff5ff804c3df9e1e2e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::SortAction&lt; T, Value, SortFunc &gt;::SortAction</definition>
+        <argsstring>(Value T::*m, core::SortStyle s, SortFunc f)</argsstring>
+        <name>SortAction</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref> T::*</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1abfc67891bba4cfcbc72a6eaaeb6371dc" kindref="member">core::SortStyle</ref></type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>SortFunc</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/multisort.h" line="45" column="9" bodyfile="libs/core/src/core/multisort.h" bodystart="45" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1SortAction_1ab140c9c912c5c0148a7d937fbe2018d7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>int euphoria::core::SortAction&lt; T, Value, SortFunc &gt;::sort</definition>
+        <argsstring>(const T &amp;lhs, const T &amp;rhs) override</argsstring>
+        <name>sort</name>
+        <reimplements refid="structeuphoria_1_1core_1_1Sortable_1a57223b2299ebd13582c88cd4b951c8b0">sort</reimplements>
+        <param>
+          <type>const T &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const T &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/multisort.h" line="50" column="9" bodyfile="libs/core/src/core/multisort.h" bodystart="50" bodyend="54"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::SortAction&lt; T, Value, SortFunc &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1SortAction"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::Sortable&lt; T &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Sortable"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::SortAction&lt; T, Value, SortFunc &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1SortAction"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>member</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::Sortable&lt; T &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Sortable"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::Value</label>
+        <link refid="structeuphoria_1_1core_1_1Value"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/multisort.h" line="40" column="1" bodyfile="libs/core/src/core/multisort.h" bodystart="39" bodyend="55"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1SortAction_1adc899499a36110460803ca8e7b0a0643" prot="public" virt="non-virtual"><scope>euphoria::core::SortAction</scope><name>member</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sortable_1a29a860140e56ad19dd839792d1b37d27" prot="public" virt="non-virtual"><scope>euphoria::core::SortAction</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sortable_1a65bc1771d0f471de71316910464629bb" prot="public" virt="non-virtual"><scope>euphoria::core::SortAction</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortAction_1ab140c9c912c5c0148a7d937fbe2018d7" prot="public" virt="virtual"><scope>euphoria::core::SortAction</scope><name>sort</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortAction_1ac9be6d312aeb8eff27ee95d7674cfaf9" prot="public" virt="non-virtual"><scope>euphoria::core::SortAction</scope><name>sort_func</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortAction_1a913d2372351553309b39ba4ebe42ad30" prot="public" virt="non-virtual"><scope>euphoria::core::SortAction</scope><name>sort_style</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sortable_1abace60f255ffee68e8c66e9171159774" prot="public" virt="non-virtual"><scope>euphoria::core::SortAction</scope><name>Sortable</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sortable_1a522ce8d25ba502a7986783acc64bff67" prot="public" virt="non-virtual"><scope>euphoria::core::SortAction</scope><name>Sortable</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sortable_1a2ab75a461f8712cbbf99bb03a2a7a42f" prot="public" virt="non-virtual"><scope>euphoria::core::SortAction</scope><name>Sortable</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortAction_1a9fab4ecd02d399ff5ff804c3df9e1e2e" prot="public" virt="non-virtual"><scope>euphoria::core::SortAction</scope><name>SortAction</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sortable_1a963c84486e9a59899ba11b44869056a7" prot="public" virt="virtual"><scope>euphoria::core::SortAction</scope><name>~Sortable</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

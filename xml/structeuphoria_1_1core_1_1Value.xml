@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Value" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Value</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1FloatValue" prot="public" virt="non-virtual">euphoria::core::FloatValue</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1IntValue" prot="public" virt="non-virtual">euphoria::core::IntValue</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1MapValue" prot="public" virt="non-virtual">euphoria::core::MapValue</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1Vec3fValue" prot="public" virt="non-virtual">euphoria::core::Vec3fValue</derivedcompoundref>
+    <includes refid="propertytree_8h" local="no">propertytree.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Value_1a786ad162546b3f1fc69f4baadc6846f6" prot="public" static="no" mutable="no">
+        <type>const <ref refid="namespaceeuphoria_1_1core_1a2e8b7cc361c3a1f0fd3e547e2c1eaee7" kindref="member">ValueType</ref></type>
+        <definition>const ValueType euphoria::core::Value::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="30" column="25" bodyfile="libs/core/src/core/propertytree.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1ac301dfe56bb49c4082b62113f17ce917" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Value::Value</definition>
+        <argsstring>(ValueType vt)</argsstring>
+        <name>Value</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a2e8b7cc361c3a1f0fd3e547e2c1eaee7" kindref="member">ValueType</ref></type>
+          <declname>vt</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="21" column="18" bodyfile="libs/core/src/core/propertytree.h" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1ac5d2a64df6dab9d9c0fc8e008a166da1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::core::Value::~Value</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="23" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1ab17a2707af31fe9ad6705bd81b64b637" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Value::Value</definition>
+        <argsstring>(const Value &amp;)=delete</argsstring>
+        <name>Value</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="25" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1acad7e8fe83ad48591ef33cfefb8283be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Value::Value</definition>
+        <argsstring>(Value &amp;&amp;)=delete</argsstring>
+        <name>Value</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="26" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Value::operator=</definition>
+        <argsstring>(const Value &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="27" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Value::operator=</definition>
+        <argsstring>(Value &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/propertytree.h" line="28" column="14"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>euphoria::core::MapValue</label>
+        <link refid="structeuphoria_1_1core_1_1MapValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::FloatValue</label>
+        <link refid="structeuphoria_1_1core_1_1FloatValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>euphoria::core::Vec3fValue</label>
+        <link refid="structeuphoria_1_1core_1_1Vec3fValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::core::Value</label>
+        <link refid="structeuphoria_1_1core_1_1Value"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::IntValue</label>
+        <link refid="structeuphoria_1_1core_1_1IntValue"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/propertytree.h" line="20" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="19" bodyend="31"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" prot="public" virt="non-virtual"><scope>euphoria::core::Value</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" prot="public" virt="non-virtual"><scope>euphoria::core::Value</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1Value_1a786ad162546b3f1fc69f4baadc6846f6" prot="public" virt="non-virtual"><scope>euphoria::core::Value</scope><name>type</name></member>
+      <member refid="structeuphoria_1_1core_1_1Value_1ac301dfe56bb49c4082b62113f17ce917" prot="public" virt="non-virtual"><scope>euphoria::core::Value</scope><name>Value</name></member>
+      <member refid="structeuphoria_1_1core_1_1Value_1ab17a2707af31fe9ad6705bd81b64b637" prot="public" virt="non-virtual"><scope>euphoria::core::Value</scope><name>Value</name></member>
+      <member refid="structeuphoria_1_1core_1_1Value_1acad7e8fe83ad48591ef33cfefb8283be" prot="public" virt="non-virtual"><scope>euphoria::core::Value</scope><name>Value</name></member>
+      <member refid="structeuphoria_1_1core_1_1Value_1ac5d2a64df6dab9d9c0fc8e008a166da1" prot="public" virt="virtual"><scope>euphoria::core::Value</scope><name>~Value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

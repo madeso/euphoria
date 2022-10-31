@@ -1,0 +1,652 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1TextBox" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::TextBox</compoundname>
+    <includes refid="textbox_8h" local="no">textbox.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1TextBox_1a62e1e2fd617043dad3495934bda8fcbf" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::TextBox::data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="330" column="21" bodyfile="libs/core/src/core/textbox.h" bodystart="330" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a5277db15da6727b780c2bd7ce9419900" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>static TextBox euphoria::core::TextBox::create_empty</definition>
+        <argsstring>()</argsstring>
+        <name>create_empty</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="60" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1ac0a24149e31063d73fe37cb7c0550e57" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>static TextBox euphoria::core::TextBox::create_from_strings</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;str)</argsstring>
+        <name>create_from_strings</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="63" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1ab49f71b79ee21ee79f337ec301b1a7e5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>static TextBox euphoria::core::TextBox::from_string</definition>
+        <argsstring>(const std::string &amp;s, int x=0, int y=0)</argsstring>
+        <name>from_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+          <defval>0</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="91" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1ada70ba54945d08ca7061546b4c8bc374" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename ToStringFunction</type>
+          </param>
+          <param>
+            <type>typename ParamCountFunc</type>
+          </param>
+          <param>
+            <type>typename OneLinerFunc</type>
+          </param>
+          <param>
+            <type>typename SimpleTestFunc</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>static TextBox euphoria::core::TextBox::create_tree_graph</definition>
+        <argsstring>(const T &amp;e, int maxwidth, ToStringFunction &amp;&amp;to_string, ParamCountFunc &amp;&amp;count_children, OneLinerFunc &amp;&amp;oneliner_test, SimpleTestFunc &amp;&amp;simple_test, int margin=4, int firstx=2)</argsstring>
+        <name>create_tree_graph</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxwidth</declname>
+        </param>
+        <param>
+          <type>ToStringFunction &amp;&amp;</type>
+          <declname>to_string</declname>
+        </param>
+        <param>
+          <type>ParamCountFunc &amp;&amp;</type>
+          <declname>count_children</declname>
+        </param>
+        <param>
+          <type>OneLinerFunc &amp;&amp;</type>
+          <declname>oneliner_test</declname>
+        </param>
+        <param>
+          <type>SimpleTestFunc &amp;&amp;</type>
+          <declname>simple_test</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>margin</declname>
+          <defval>4</defval>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>firstx</declname>
+          <defval>2</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="230" column="9" bodyfile="libs/core/src/core/textbox.h" bodystart="231" bodyend="282"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1af2b4bdef5ccd609530bb0644d17a9bf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::TextBox::put_char</definition>
+        <argsstring>(int x, int y, char c)</argsstring>
+        <name>put_char</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Place a single character in the given coordinate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Notice that behavior is undefined if the character is in 00-1F range. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="72" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1ac9c8cfbbb6c542eac577df557fb10c28" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename F</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void euphoria::core::TextBox::mod_char</definition>
+        <argsstring>(int x, int y, F &amp;&amp;func)</argsstring>
+        <name>mod_char</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>F &amp;&amp;</type>
+          <declname>func</declname>
+        </param>
+        <briefdescription>
+<para>Modify a character using a callback. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="77" column="9" bodyfile="libs/core/src/core/textbox.h" bodystart="77" bodyend="81"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1ab5aa806a90be95153e2dfbd00198ab92" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::TextBox::put_string</definition>
+        <argsstring>(int x, int y, const std::string &amp;s)</argsstring>
+        <name>put_string</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+<para>Put a string of characters starting at the given coordinate. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Note that behavior is undefined if the string contains characters in 00-1F range or if the string includes multibyte characters. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="88" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a6aebe3fe43fccb041b33cbec2c4ea5f6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::TextBox::put_box</definition>
+        <argsstring>(int x, int y, const TextBox &amp;b)</argsstring>
+        <name>put_box</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="96" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a17dd0acf7b4003fd42f92e64ccdd8323" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref></type>
+        <definition>TextBox euphoria::core::TextBox::put_box_copy</definition>
+        <argsstring>(int x, int y, const TextBox &amp;b) const</argsstring>
+        <name>put_box_copy</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="99" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a7a3c7b3350dc95255b2cf2bb94afe4dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::TextBox::put_horizontal_line</definition>
+        <argsstring>(int x, int y, int width, bool bef, bool aft)</argsstring>
+        <name>put_horizontal_line</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bef</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>aft</declname>
+        </param>
+        <briefdescription>
+<para>Draw a horizontal line. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If bef=true, the line starts from the left edge of the first character cell, otherwise it starts from its center. If aft=true, the line ends in the right edge of the last character cell, otherwise it ends in its center </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="105" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1aff609884e99faed810032fdf26053627" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::TextBox::put_vertical_line</definition>
+        <argsstring>(int x, int y, int height, bool bef, bool aft)</argsstring>
+        <name>put_vertical_line</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>bef</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>aft</declname>
+        </param>
+        <briefdescription>
+<para>Draw a vertical line. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>If bef=true, the line starts from the top edge of the first character cell, otherwise it starts from its center. If aft=true, the line ends in the bottom edge of the last character cell, otherwise it ends in its center </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="118" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1ac0e495066b32015d65a653521d411867" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::TextBox::to_string</definition>
+        <argsstring>(const TextBoxStyle &amp;style=terminal_style()) const</argsstring>
+        <name>to_string</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1TextBoxStyle" kindref="compound">TextBoxStyle</ref> &amp;</type>
+          <declname>style</declname>
+          <defval><ref refid="namespaceeuphoria_1_1core_1a05915493fe83484dcce9bb7156240b67" kindref="member">terminal_style</ref>()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="132" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a83d4b82aa944cc1635ba943f2a4c872a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::TextBox::trim</definition>
+        <argsstring>()</argsstring>
+        <name>trim</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="136" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1af2c79d1336c4f700cf4c62f6effc68c5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::TextBox::get_height</definition>
+        <argsstring>() const</argsstring>
+        <name>get_height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="144" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1adb37bacc94841fcba5a4e66585c04e7c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::TextBox::get_width</definition>
+        <argsstring>() const</argsstring>
+        <name>get_width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="147" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a971d6bb40c50c9550216c97cfc333d8f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; int, int &gt;</type>
+        <definition>std::pair&lt;int, int&gt; euphoria::core::TextBox::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="151" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a131d2f772f6c648a55c6b4d9293758a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::TextBox::extend_to</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>extend_to</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="289" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1af11e0290620be3aec30972b8efa2cef2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::TextBox::get_horizontal_append_position</definition>
+        <argsstring>(int y, const TextBox &amp;b) const</argsstring>
+        <name>get_horizontal_append_position</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the earliest X coordinate where the given box could be placed. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>without colliding with existing content in this box. Guaranteed to be &lt;= width(). Find leftmost position where box b can be appended into *this without overlap </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="296" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a536dc86829d8eb28bed705cbaec90bb1" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::TextBox::get_vertical_append_position</definition>
+        <argsstring>(int x, const TextBox &amp;b) const</argsstring>
+        <name>get_vertical_append_position</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &amp;</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+<para>Calculate the earliest Y coordinate where the given box could be placed without colliding with existing content in this box. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Guaranteed to be &lt;= height(). Find topmost position where box b can be appended into *this without overlap </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="302" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a99a2dd3f947ebece451dd88f4a7529e0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::TextBox::find_left_padding</definition>
+        <argsstring>(int y) const</argsstring>
+        <name>find_left_padding</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="305" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a3926be3a3fcb89ca928042472deb8043" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::TextBox::find_right_padding</definition>
+        <argsstring>(int y) const</argsstring>
+        <name>find_right_padding</name>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="308" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a2ff88699dd39f689f9ea36c99285913a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::TextBox::find_top_padding</definition>
+        <argsstring>(int x) const</argsstring>
+        <name>find_top_padding</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="311" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a26655aa5210b04f4b5c9255c6c006773" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::TextBox::find_bottom_padding</definition>
+        <argsstring>(int x) const</argsstring>
+        <name>find_bottom_padding</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="314" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a05e2581435c25e14b52b836b341200f2" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>static void euphoria::core::TextBox::sub_create_tree_graph</definition>
+        <argsstring>(TextBox *result, int maxwidth, const std::vector&lt; TextBox &gt; &amp;boxes, bool oneliner_test, bool simple_test, const std::string &amp;label, int margin, int firstx)</argsstring>
+        <name>sub_create_tree_graph</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref> *</type>
+          <declname>result</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>maxwidth</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="structeuphoria_1_1core_1_1TextBox" kindref="compound">TextBox</ref> &gt; &amp;</type>
+          <declname>boxes</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>oneliner_test</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>simple_test</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>label</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>margin</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>firstx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="318" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TextBox_1a3c10c4b0157b5ff27b36823f45e45bb1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::TextBox::TextBox</definition>
+        <argsstring>()</argsstring>
+        <name>TextBox</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textbox.h" line="331" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/textbox.h" line="58" column="1" bodyfile="libs/core/src/core/textbox.h" bodystart="57" bodyend="332"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a5277db15da6727b780c2bd7ce9419900" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>create_empty</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1ac0a24149e31063d73fe37cb7c0550e57" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>create_from_strings</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1ada70ba54945d08ca7061546b4c8bc374" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>create_tree_graph</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a62e1e2fd617043dad3495934bda8fcbf" prot="private" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>data</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a131d2f772f6c648a55c6b4d9293758a9" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>extend_to</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a26655aa5210b04f4b5c9255c6c006773" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>find_bottom_padding</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a99a2dd3f947ebece451dd88f4a7529e0" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>find_left_padding</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a3926be3a3fcb89ca928042472deb8043" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>find_right_padding</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a2ff88699dd39f689f9ea36c99285913a" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>find_top_padding</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1ab49f71b79ee21ee79f337ec301b1a7e5" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>from_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1af2c79d1336c4f700cf4c62f6effc68c5" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>get_height</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1af11e0290620be3aec30972b8efa2cef2" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>get_horizontal_append_position</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a971d6bb40c50c9550216c97cfc333d8f" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>get_size</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a536dc86829d8eb28bed705cbaec90bb1" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>get_vertical_append_position</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1adb37bacc94841fcba5a4e66585c04e7c" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>get_width</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1ac9c8cfbbb6c542eac577df557fb10c28" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>mod_char</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a6aebe3fe43fccb041b33cbec2c4ea5f6" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>put_box</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a17dd0acf7b4003fd42f92e64ccdd8323" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>put_box_copy</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1af2b4bdef5ccd609530bb0644d17a9bf2" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>put_char</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a7a3c7b3350dc95255b2cf2bb94afe4dc" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>put_horizontal_line</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1ab5aa806a90be95153e2dfbd00198ab92" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>put_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1aff609884e99faed810032fdf26053627" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>put_vertical_line</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a05e2581435c25e14b52b836b341200f2" prot="private" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>sub_create_tree_graph</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a3c10c4b0157b5ff27b36823f45e45bb1" prot="private" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>TextBox</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1ac0e495066b32015d65a653521d411867" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>to_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1TextBox_1a83d4b82aa944cc1635ba943f2a4c872a" prot="public" virt="non-virtual"><scope>euphoria::core::TextBox</scope><name>trim</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

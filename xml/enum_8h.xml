@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="enum_8h" kind="file" language="C++">
+    <compoundname>enum.h</compoundname>
+    <includes local="no">map</includes>
+    <includedby refid="mesh_8h" local="yes">libs/core/src/core/mesh.h</includedby>
+    <includedby refid="texturetypes_8h" local="yes">libs/core/src/core/texturetypes.h</includedby>
+    <includedby refid="materialshader_8h" local="yes">libs/render/src/render/materialshader.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>map</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/enum.h</label>
+        <link refid="enum_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/mesh.h</label>
+        <link refid="mesh_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>libs/core/src/core/texturetypes.h</label>
+        <link refid="texturetypes_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/enum.h</label>
+        <link refid="enum_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libs/render/src/render/materialshader.h</label>
+        <link refid="materialshader_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>libs/render/src/render/materialshadercache.h</label>
+        <link refid="materialshadercache_8h"/>
+      </node>
+      <node id="4">
+        <label>libs/render/src/render/actor.h</label>
+        <link refid="actor_8h"/>
+      </node>
+      <node id="3">
+        <label>libs/render/src/render/compiledmesh.h</label>
+        <link refid="compiledmesh_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1EnumType" prot="public">euphoria::core::EnumType</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1EnumValue" prot="public">euphoria::core::EnumValue</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="enum_8h_1ad1827b2996cbb3dbf983f1de6aae16f8" prot="public" static="no">
+        <name>DECLARE_ENUM_TYPE</name>
+        <param><defname>NAME</defname></param>
+        <initializer>EnumType&amp; NAME##_EnumType();</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="101" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="101" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="enum_8h_1a018c762f8c2893d9285fcfdab135d603" prot="public" static="no">
+        <name>IMPLEMENT_ENUM_TYPE</name>
+        <param><defname>NAME</defname></param>
+        <initializer>    EnumType&amp; NAME##_EnumType() \
+    { \
+        static EnumType type {#NAME}; \
+        return type; \
+    }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="102" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="enum_8h_1a20d1eeef2d01949d711860bbd4699cd1" prot="public" static="no">
+        <name>DEFINE_ENUM_VALUE</name>
+        <param><defname>TYPE</defname></param>
+        <param><defname>NAME</defname></param>
+        <param><defname>STRING</defname></param>
+        <initializer>const ::<ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">euphoria::core::EnumValue</ref> NAME = TYPE##_EnumType().to_enum(STRING)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="113" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="define" id="enum_8h_1ae0190a7c558118ec5f74b26b4d1aa207" prot="public" static="no">
+        <name>SET_ENUM_FROM_FILE</name>
+        <param><defname>FS</defname></param>
+        <param><defname>PATH</defname></param>
+        <param><defname>TYPE</defname></param>
+        <initializer>load_enum_type(&amp;TYPE##_EnumType(), FS, PATH)</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="115" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="115" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/enum.h"/>
+  </compounddef>
+</doxygen>

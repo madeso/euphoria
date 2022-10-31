@@ -1,0 +1,454 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Image" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Image</compoundname>
+    <includes refid="image_8h" local="no">image.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Image_1afaac3459d5f5118e4321fdb87c278fe2" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; unsigned char &gt;</type>
+        <definition>std::vector&lt;unsigned char&gt; euphoria::core::Image::components</definition>
+        <argsstring></argsstring>
+        <name>components</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="144" column="21" bodyfile="libs/core/src/core/image.h" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Image_1a98e42aab99adc9d88ff9b50eb1af88f2" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::Image::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="145" column="13" bodyfile="libs/core/src/core/image.h" bodystart="145" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Image_1a879204999da3285e98394d38d3fa566e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::Image::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="146" column="13" bodyfile="libs/core/src/core/image.h" bodystart="146" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Image_1aab995ef173828b3efacad54c05df469b" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::Image::has_alpha</definition>
+        <argsstring></argsstring>
+        <name>has_alpha</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="147" column="14" bodyfile="libs/core/src/core/image.h" bodystart="147" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a8607e2aa71f44168218558a1793a88fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Image::make_invalid</definition>
+        <argsstring>()</argsstring>
+        <name>make_invalid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="31" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a608dfee2f1bd7d516aadc1dd8a5f3313" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::Image::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a4cc53f90ce9da64964617fd6c48bf830" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Image::setup_with_alpha_support</definition>
+        <argsstring>(int image_width, int image_height, int default_value=0)</argsstring>
+        <name>setup_with_alpha_support</name>
+        <param>
+          <type>int</type>
+          <declname>image_width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>image_height</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>default_value</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="41" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1aa899a093fe2b87a7a729ff5a08711ad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Image::setup_no_alpha_support</definition>
+        <argsstring>(int image_width, int image_height, int default_value=0)</argsstring>
+        <name>setup_no_alpha_support</name>
+        <param>
+          <type>int</type>
+          <declname>image_width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>image_height</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>default_value</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="49" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1ae0abc6ddf2601b2975e9b71f67fbeb12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Image::set_pixel</definition>
+        <argsstring>(int x, int y, const Rgbai &amp;color)</argsstring>
+        <name>set_pixel</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgbai" kindref="compound">Rgbai</ref> &amp;</type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="57" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a66eca93054fe4f4c26a314c2dd9dedc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Image::set_pixel</definition>
+        <argsstring>(int x, int y, unsigned char r, unsigned char g, unsigned char b, unsigned char a)</argsstring>
+        <name>set_pixel</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>unsigned char</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>unsigned char</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>unsigned char</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>unsigned char</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="60" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a9b0b8bc8c20faef2b3a07495b5731b7d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgbai" kindref="compound">Rgbai</ref></type>
+        <definition>Rgbai euphoria::core::Image::get_pixel</definition>
+        <argsstring>(int x, int y) const</argsstring>
+        <name>get_pixel</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="71" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a7d9787a934adeffb92143637eb8f9e8d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Func</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void euphoria::core::Image::filter</definition>
+        <argsstring>(Func f)</argsstring>
+        <name>filter</name>
+        <param>
+          <type>Func</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="75" column="9" bodyfile="libs/core/src/core/image.h" bodystart="75" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1ab32d04341d524e258c426c6a5610a139" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Func</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void euphoria::core::Image::for_all_top_bottom</definition>
+        <argsstring>(Func f)</argsstring>
+        <name>for_all_top_bottom</name>
+        <param>
+          <type>Func</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="88" column="9" bodyfile="libs/core/src/core/image.h" bodystart="88" bodyend="97"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a280453857e292ff8df6f107265524789" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Func</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void euphoria::core::Image::set_all_top_bottom</definition>
+        <argsstring>(Func f)</argsstring>
+        <name>set_all_top_bottom</name>
+        <param>
+          <type>Func</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="101" column="9" bodyfile="libs/core/src/core/image.h" bodystart="101" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a4bc7da0256c3a0dc0da4de52f68b5b4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Func</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void euphoria::core::Image::set_all_bottom_top</definition>
+        <argsstring>(Func f)</argsstring>
+        <name>set_all_bottom_top</name>
+        <param>
+          <type>Func</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="114" column="9" bodyfile="libs/core/src/core/image.h" bodystart="114" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a030745247e19727a45e2699f98349e56" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a18429a488f4a0c6d17b4a84fe0dac703" kindref="member">Recti</ref></type>
+        <definition>Recti euphoria::core::Image::get_indices</definition>
+        <argsstring>() const</argsstring>
+        <name>get_indices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="126" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a6ff0949f1eb131015e4ec94d6756b5ea" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const unsigned char *</type>
+        <definition>const unsigned char* euphoria::core::Image::get_pixel_data</definition>
+        <argsstring>() const</argsstring>
+        <name>get_pixel_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="129" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1ad36c8b2bb9e82f2866b9363bb4b4c6ec" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::Image::write</definition>
+        <argsstring>(ImageWriteFormat format, int jpeg_quality=100) const</argsstring>
+        <name>write</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a68fff98aaeca3d2cba3daf865a80eaa1" kindref="member">ImageWriteFormat</ref></type>
+          <declname>format</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>jpeg_quality</declname>
+          <defval>100</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="132" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1adf8e7c0ec7c4a9a33bfd21283bfbe1f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Image::setup</definition>
+        <argsstring>(int image_width, int image_height, bool alpha, int default_value)</argsstring>
+        <name>setup</name>
+        <param>
+          <type>int</type>
+          <declname>image_width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>image_height</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>alpha</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>default_value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="135" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a34c9282b79cdcd5f47009bda2598657a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::Image::get_pixel_byte_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_pixel_byte_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="138" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Image_1a7a8896ad77014b6ca50e71aa2a1436c8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::Image::get_pixel_index</definition>
+        <argsstring>(int x, int y) const</argsstring>
+        <name>get_pixel_index</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="141" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/image.h" line="29" column="1" bodyfile="libs/core/src/core/image.h" bodystart="28" bodyend="148"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Image_1afaac3459d5f5118e4321fdb87c278fe2" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>components</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a7d9787a934adeffb92143637eb8f9e8d" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>filter</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1ab32d04341d524e258c426c6a5610a139" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>for_all_top_bottom</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a030745247e19727a45e2699f98349e56" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>get_indices</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a9b0b8bc8c20faef2b3a07495b5731b7d" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>get_pixel</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a34c9282b79cdcd5f47009bda2598657a" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>get_pixel_byte_size</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a6ff0949f1eb131015e4ec94d6756b5ea" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>get_pixel_data</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a7a8896ad77014b6ca50e71aa2a1436c8" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>get_pixel_index</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1aab995ef173828b3efacad54c05df469b" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>has_alpha</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a879204999da3285e98394d38d3fa566e" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>height</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a608dfee2f1bd7d516aadc1dd8a5f3313" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>is_valid</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a8607e2aa71f44168218558a1793a88fc" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>make_invalid</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a4bc7da0256c3a0dc0da4de52f68b5b4d" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>set_all_bottom_top</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a280453857e292ff8df6f107265524789" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>set_all_top_bottom</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1ae0abc6ddf2601b2975e9b71f67fbeb12" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>set_pixel</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a66eca93054fe4f4c26a314c2dd9dedc6" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>set_pixel</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1adf8e7c0ec7c4a9a33bfd21283bfbe1f2" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>setup</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1aa899a093fe2b87a7a729ff5a08711ad7" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>setup_no_alpha_support</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a4cc53f90ce9da64964617fd6c48bf830" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>setup_with_alpha_support</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1a98e42aab99adc9d88ff9b50eb1af88f2" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>width</name></member>
+      <member refid="structeuphoria_1_1core_1_1Image_1ad36c8b2bb9e82f2866b9363bb4b4c6ec" prot="public" virt="non-virtual"><scope>euphoria::core::Image</scope><name>write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

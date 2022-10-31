@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1minsynth_1_1OscilatorNode" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::minsynth::OscilatorNode</compoundname>
+    <basecompoundref refid="structeuphoria_1_1minsynth_1_1WaveOut" prot="public" virt="virtual">euphoria::minsynth::WaveOut</basecompoundref>
+    <basecompoundref refid="structeuphoria_1_1minsynth_1_1FrequencyTaker" prot="public" virt="virtual">euphoria::minsynth::FrequencyTaker</basecompoundref>
+    <basecompoundref refid="structeuphoria_1_1minsynth_1_1Node" prot="public" virt="non-virtual">euphoria::minsynth::Node</basecompoundref>
+    <includes refid="synth_8h" local="no">synth.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1a47ca84342fa1c2801b2d06389c886f54" prot="public" static="no" mutable="no">
+        <type>std::map&lt; int, <ref refid="structeuphoria_1_1minsynth_1_1LiveFrequency" kindref="compound">LiveFrequency</ref> &gt;</type>
+        <definition>std::map&lt;int, LiveFrequency&gt; euphoria::minsynth::OscilatorNode::live</definition>
+        <argsstring></argsstring>
+        <name>live</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="335" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="335" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1a3fc399d1303acfb745a389cc3d60ad85" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1minsynth_1_1DeadFrequency" kindref="compound">DeadFrequency</ref> &gt;</type>
+        <definition>std::vector&lt;DeadFrequency&gt; euphoria::minsynth::OscilatorNode::dead</definition>
+        <argsstring></argsstring>
+        <name>dead</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="336" column="21" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="336" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1ab7e439c6fa3a2d54dffdd0df9702bfcc" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1minsynth_1aeb6c8add531ef27a96638373a90cea58" kindref="member">OscilatorType</ref></type>
+        <definition>OscilatorType euphoria::minsynth::OscilatorNode::oscilator</definition>
+        <argsstring></argsstring>
+        <name>oscilator</name>
+        <initializer>= <ref refid="namespaceeuphoria_1_1minsynth_1aeb6c8add531ef27a96638373a90cea58a80a88eaa47bfd7f08532da7c2070ec3f" kindref="member">OscilatorType::sawtooth</ref></initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="337" column="23" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="337" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1af8c8af6f127360a6faa39d3d95a8d299" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1minsynth_1_1Envelope" kindref="compound">minsynth::Envelope</ref></type>
+        <definition>minsynth::Envelope euphoria::minsynth::OscilatorNode::envelope</definition>
+        <argsstring></argsstring>
+        <name>envelope</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="338" column="28" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="338" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1a35b040638fc88dab5d66b1c99004e483" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::minsynth::OscilatorNode::get_total_tones</definition>
+        <argsstring>() const</argsstring>
+        <name>get_total_tones</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="341" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1a1e483b58a4acf574d3b0941c82b0f07d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::minsynth::OscilatorNode::get_alive_tones</definition>
+        <argsstring>() const</argsstring>
+        <name>get_alive_tones</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="344" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1a15b45ed13310101efbeeb041f987f47e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::minsynth::OscilatorNode::get_dead_tones</definition>
+        <argsstring>() const</argsstring>
+        <name>get_dead_tones</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="347" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1aa084a771f6452cf4b0df855376dbc508" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::OscilatorNode::update</definition>
+        <argsstring>(float dt, float current_time) override</argsstring>
+        <name>update</name>
+        <reimplements refid="structeuphoria_1_1minsynth_1_1Node_1aff997db2a2a1f2c710275f94b7d108d7">update</reimplements>
+        <param>
+          <type>float</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>current_time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="350" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1aed80c35cf2b69c62b4546935c0c22259" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::OscilatorNode::on_frequency_down</definition>
+        <argsstring>(int id, float freq, float time) override</argsstring>
+        <name>on_frequency_down</name>
+        <reimplements refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a1ca8b2bccefc9b10338444046b3c3dd2">on_frequency_down</reimplements>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>freq</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="353" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1a09cdaeef61b44cb2e449893248bc9e20" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::OscilatorNode::on_frequency_up</definition>
+        <argsstring>(int id, float frequency, float time) override</argsstring>
+        <name>on_frequency_up</name>
+        <reimplements refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a605b5b628ea3c4ee4b0adcf20f6c5ef2">on_frequency_up</reimplements>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>frequency</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="356" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1OscilatorNode_1a876eed42e09731c740fc1cc974ef2a65" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>float</type>
+        <definition>float euphoria::minsynth::OscilatorNode::get_output</definition>
+        <argsstring>(float time) override</argsstring>
+        <name>get_output</name>
+        <reimplements refid="structeuphoria_1_1minsynth_1_1WaveOut_1aa21b9ddec334bedf2c91e637ea7f6a13">get_output</reimplements>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="360" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para><ref refid="structeuphoria_1_1minsynth_1_1Node" kindref="compound">Node</ref> represents a single Oscilator. Frequency -&gt; WaveOutput. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::minsynth::WaveOut</label>
+        <link refid="structeuphoria_1_1minsynth_1_1WaveOut"/>
+      </node>
+      <node id="3">
+        <label>euphoria::minsynth::FrequencyTaker</label>
+        <link refid="structeuphoria_1_1minsynth_1_1FrequencyTaker"/>
+      </node>
+      <node id="4">
+        <label>euphoria::minsynth::Node</label>
+        <link refid="structeuphoria_1_1minsynth_1_1Node"/>
+      </node>
+      <node id="1">
+        <label>euphoria::minsynth::OscilatorNode</label>
+        <link refid="structeuphoria_1_1minsynth_1_1OscilatorNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::minsynth::WaveOut</label>
+        <link refid="structeuphoria_1_1minsynth_1_1WaveOut"/>
+      </node>
+      <node id="3">
+        <label>euphoria::minsynth::FrequencyTaker</label>
+        <link refid="structeuphoria_1_1minsynth_1_1FrequencyTaker"/>
+      </node>
+      <node id="4">
+        <label>euphoria::minsynth::Node</label>
+        <link refid="structeuphoria_1_1minsynth_1_1Node"/>
+      </node>
+      <node id="1">
+        <label>euphoria::minsynth::OscilatorNode</label>
+        <link refid="structeuphoria_1_1minsynth_1_1OscilatorNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>envelope</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>euphoria::minsynth::Envelope</label>
+        <link refid="structeuphoria_1_1minsynth_1_1Envelope"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="334" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="330" bodyend="361"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1a3fc399d1303acfb745a389cc3d60ad85" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>dead</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1af8c8af6f127360a6faa39d3d95a8d299" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>envelope</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1abdd93fab4c4febb2ae7c93583aafc2bf" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>FrequencyTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1a1e483b58a4acf574d3b0941c82b0f07d" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>get_alive_tones</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1a15b45ed13310101efbeeb041f987f47e" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>get_dead_tones</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1a876eed42e09731c740fc1cc974ef2a65" prot="public" virt="virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>get_output</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1a35b040638fc88dab5d66b1c99004e483" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>get_total_tones</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1a47ca84342fa1c2801b2d06389c886f54" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>live</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a3a6463d3db858165c565fa0d7b412929" prot="public" virt="non-virtual" ambiguityscope="euphoria::"><scope>euphoria::minsynth::OscilatorNode</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1ad401dae6ce2405c7cd84067d103076b5" prot="public" virt="non-virtual" ambiguityscope="euphoria::minsynth::FrequencyTaker::"><scope>euphoria::minsynth::OscilatorNode</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1aa87a484fbe760907f384f131ecdc1e5d" prot="public" virt="non-virtual" ambiguityscope="euphoria::minsynth::Node::"><scope>euphoria::minsynth::OscilatorNode</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1aed80c35cf2b69c62b4546935c0c22259" prot="public" virt="virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>on_frequency_down</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1a09cdaeef61b44cb2e449893248bc9e20" prot="public" virt="virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>on_frequency_up</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1ab7e439c6fa3a2d54dffdd0df9702bfcc" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>oscilator</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1OscilatorNode_1aa084a771f6452cf4b0df855376dbc508" prot="public" virt="virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>update</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a5b4bae5030f1aa1c8ebd733218fbb25e" prot="public" virt="non-virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>WaveOut</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a5b9f340369e8cf9b4b6f7019bf49d573" prot="public" virt="virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>~FrequencyTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a4460379974e28cc6314cf2086ab9c0e0" prot="public" virt="virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>~Node</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a74f6dd617d227bcadd11ae4fd7ce9a06" prot="public" virt="virtual"><scope>euphoria::minsynth::OscilatorNode</scope><name>~WaveOut</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

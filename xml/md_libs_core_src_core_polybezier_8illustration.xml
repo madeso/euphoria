@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md_libs_core_src_core_polybezier_8illustration" kind="page">
+    <compoundname>md_libs_core_src_core_polybezier.illustration</compoundname>
+    <title>PolyBezier</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para>&lt;svg width=&quot;195&quot; height=&quot;160&quot;&gt; &lt;path d=&quot;M 20 70 C 60 30, 90 110, 110 70 C 150 30, 170 60, 190 100&quot;
+        stroke=&quot;black&quot; fill=&quot;transparent&quot;&gt; &lt;circle cx=&quot;20&quot; cy=&quot;70&quot; r=&quot;3&quot;&gt; &lt;path d=&quot;M 20 70 L 60 30&quot; stroke=&quot;black&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;6&quot;&gt; &lt;circle cx=&quot;110&quot; cy=&quot;70&quot; r=&quot;3&quot;&gt; &lt;path d=&quot;M 90 110 L 110 70&quot; stroke=&quot;black&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;6&quot;&gt; &lt;path d=&quot;M 110 70 L 150 30&quot; stroke=&quot;black&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;6&quot;&gt; &lt;circle cx=&quot;190&quot; cy=&quot;100&quot; r=&quot;3&quot;&gt; &lt;path d=&quot;M 190 100 L 170 60&quot; stroke=&quot;black&quot; stroke-width=&quot;1&quot; stroke-dasharray=&quot;6&quot;&gt; &lt;/svg&gt; </para>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

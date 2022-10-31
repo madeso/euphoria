@@ -1,0 +1,777 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Quat" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Quat</compoundname>
+    <includes refid="quat_8h" local="no">quat.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" prot="public" static="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat" kindref="compound">Quat</ref>&lt; T &gt;</type>
+        <definition>using euphoria::core::Quat&lt; T &gt;::Self =  Quat&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>Self</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="15" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1Quat_1a13fed6b3e604d362c601cc09fdc4942b" prot="public" static="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Vec3" kindref="compound">Vec3</ref>&lt; T &gt;</type>
+        <definition>using euphoria::core::Quat&lt; T &gt;::Vec =  Vec3&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>Vec</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="16" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1Quat_1a5d30642cfc902ab728d41f0d41d55365" prot="public" static="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Vec3" kindref="compound">Vec3</ref>&lt; T &gt;</type>
+        <definition>using euphoria::core::Quat&lt; T &gt;::Point =  Vec3&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>Point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="17" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" prot="public" static="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Unit3" kindref="compound">Unit3</ref>&lt; T &gt;</type>
+        <definition>using euphoria::core::Quat&lt; T &gt;::Unit =  Unit3&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>Unit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="18" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Quat_1aead62f94425a983bd7844dee458f9d79" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Quat&lt; T &gt;::w</definition>
+        <argsstring></argsstring>
+        <name>w</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="20" column="11" bodyfile="libs/core/src/core/quat.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Quat_1a2311859cfcdd2128a16db080f96e25a9" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Quat&lt; T &gt;::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="21" column="11" bodyfile="libs/core/src/core/quat.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Quat_1ab3d9029e28cb57106ee61d566eeee960" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Quat&lt; T &gt;::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="22" column="11" bodyfile="libs/core/src/core/quat.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Quat_1a8bc9f3b4d96f93fc2269c49ef24f243a" prot="public" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::Quat&lt; T &gt;::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="23" column="11" bodyfile="libs/core/src/core/quat.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1ab4bd5f99a473ec38da93e5733e145617" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* euphoria::core::Quat&lt; T &gt;::get_data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="25" column="11" bodyfile="libs/core/src/core/quat.h" bodystart="25" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1aab52f5d7df27bf61b7d3cef7cba61803" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T *</type>
+        <definition>const T* euphoria::core::Quat&lt; T &gt;::get_data_ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="30" column="18" bodyfile="libs/core/src/core/quat.h" bodystart="30" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a22c8b2fad3b7cdc3b44b0f60cff180ae" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1a13fed6b3e604d362c601cc09fdc4942b" kindref="member">Vec</ref></type>
+        <definition>Vec euphoria::core::Quat&lt; T &gt;::get_vec_part</definition>
+        <argsstring>() const</argsstring>
+        <name>get_vec_part</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="36" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="36" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a210da020120ea221f140659f3990a450" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Quat&lt; T &gt;::Quat</definition>
+        <argsstring>(T aw, const Vec &amp;v)</argsstring>
+        <name>Quat</name>
+        <param>
+          <type>T</type>
+          <declname>aw</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1a13fed6b3e604d362c601cc09fdc4942b" kindref="member">Vec</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="42" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="42" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1aee282147fb3d1ee17ed4fa3dbb85243a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Mat4" kindref="compound">Mat4</ref>&lt; T &gt;</type>
+        <definition>Mat4&lt;T&gt; euphoria::core::Quat&lt; T &gt;::to_mat4</definition>
+        <argsstring>() const</argsstring>
+        <name>to_mat4</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="98" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="98" bodyend="101"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a94bb51bf87a09daf57a40b5ffbad26a5" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1AxisAngle" kindref="compound">AxisAngle</ref></type>
+        <definition>AxisAngle euphoria::core::Quat&lt; T &gt;::to_axis_angle</definition>
+        <argsstring>() const</argsstring>
+        <name>to_axis_angle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="105" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="105" bodyend="114"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1ab4c9df7b67fd048de0b56fc99b6668ad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>Self euphoria::core::Quat&lt; T &gt;::rotate</definition>
+        <argsstring>(const Self &amp;q) const</argsstring>
+        <name>rotate</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>q</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="138" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="138" bodyend="141"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a46c4c9ba14d3c5baea08cbacb2cb5a1d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>Self euphoria::core::Quat&lt; T &gt;::get_conjugate</definition>
+        <argsstring>() const</argsstring>
+        <name>get_conjugate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="145" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="145" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a889ab5c78529c28298ad4b53d0db382e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>Self euphoria::core::Quat&lt; T &gt;::get_inverse</definition>
+        <argsstring>() const</argsstring>
+        <name>get_inverse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="152" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="152" bodyend="157"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a9d0e6317c31d32baa55ed4f2a48866bf" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>Self euphoria::core::Quat&lt; T &gt;::get_negated</definition>
+        <argsstring>() const</argsstring>
+        <name>get_negated</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="162" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="162" bodyend="165"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1abe1c408bbef94238e99001089b4aa935" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>Self euphoria::core::Quat&lt; T &gt;::get_identity</definition>
+        <argsstring>() const</argsstring>
+        <name>get_identity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="169" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="169" bodyend="175"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1aad2005e25ef5a4498fae3602c5cb0204" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T euphoria::core::Quat&lt; T &gt;::get_length</definition>
+        <argsstring>() const</argsstring>
+        <name>get_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="179" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="179" bodyend="182"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1acb53b64a947d08e94b871a8753a0de5b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T euphoria::core::Quat&lt; T &gt;::get_length_squared</definition>
+        <argsstring>() const</argsstring>
+        <name>get_length_squared</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="186" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="186" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a54f6d91a875819dfb4047b1843b7784c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Quat&lt; T &gt;::normalize</definition>
+        <argsstring>()</argsstring>
+        <name>normalize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="193" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="193" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1aa5125cfc367a55224bb02b38d42a0a79" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>Self euphoria::core::Quat&lt; T &gt;::get_normalized</definition>
+        <argsstring>() const</argsstring>
+        <name>get_normalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="211" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="211" bodyend="216"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1abdbe42797810fb6a4fa498c7c1be340e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref></type>
+        <definition>Unit euphoria::core::Quat&lt; T &gt;::in</definition>
+        <argsstring>() const</argsstring>
+        <name>in</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="220" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="220" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1af10fce87ff03cda5dfc9071f8c3a8cff" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref></type>
+        <definition>Unit euphoria::core::Quat&lt; T &gt;::out</definition>
+        <argsstring>() const</argsstring>
+        <name>out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="227" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="227" bodyend="230"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a9f29b0403d7cc7cfd018aebb42a13fd4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref></type>
+        <definition>Unit euphoria::core::Quat&lt; T &gt;::right</definition>
+        <argsstring>() const</argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="234" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="234" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a6d3c5100ecd925a6d3b0c6c0968af6f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref></type>
+        <definition>Unit euphoria::core::Quat&lt; T &gt;::left</definition>
+        <argsstring>() const</argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="241" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="241" bodyend="244"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a2e53c5adeca8fd6ef21741aae79f9184" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref></type>
+        <definition>Unit euphoria::core::Quat&lt; T &gt;::up</definition>
+        <argsstring>() const</argsstring>
+        <name>up</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="248" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="248" bodyend="251"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a08e7757b1b6df8d94f3eb26709924177" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref></type>
+        <definition>Unit euphoria::core::Quat&lt; T &gt;::down</definition>
+        <argsstring>() const</argsstring>
+        <name>down</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="255" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="255" bodyend="258"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1afc6fccbfbab3e98b30e9a66ead521092" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1a13fed6b3e604d362c601cc09fdc4942b" kindref="member">Vec</ref></type>
+        <definition>Vec euphoria::core::Quat&lt; T &gt;::create_from_right_up_in</definition>
+        <argsstring>(const Vec v) const</argsstring>
+        <name>create_from_right_up_in</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1a13fed6b3e604d362c601cc09fdc4942b" kindref="member">Vec</ref></type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="263" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="263" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a4e5967e08ff954747668161b47ae002e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref></type>
+        <definition>Unit euphoria::core::Quat&lt; T &gt;::rotate_around_origo</definition>
+        <argsstring>(const Unit &amp;v) const</argsstring>
+        <name>rotate_around_origo</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="270" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="270" bodyend="277"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1abeafc760104ecea416cb4ea88280ac2c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Quat&lt; T &gt;::operator+=</definition>
+        <argsstring>(const Self &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="340" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="340" bodyend="346"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a8069fd293ddf1d6f260248772a5f7015" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Quat&lt; T &gt;::operator-=</definition>
+        <argsstring>(const Self &amp;rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="350" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="350" bodyend="356"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1afc9a06573401a350a6cffb705aba4e03" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Quat&lt; T &gt;::operator*=</definition>
+        <argsstring>(const T &amp;rhs)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="360" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="360" bodyend="366"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1aef29f45d376bbdebe953eed223131221" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Quat&lt; T &gt;::operator*=</definition>
+        <argsstring>(const Self &amp;rhs)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="370" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="370" bodyend="398"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a478fc5c0b0eafa226c0e410ca8734698" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Quat&lt; T &gt;::from_axis_angle</definition>
+        <argsstring>(const AxisAngle &amp;aa)</argsstring>
+        <name>from_axis_angle</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1AxisAngle" kindref="compound">AxisAngle</ref> &amp;</type>
+          <declname>aa</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="46" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="46" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a7dcc9ceb6f49a7d4c40db5dc5bf84a1e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Quat&lt; T &gt;::from_ypr</definition>
+        <argsstring>(const Angle &amp;yaw, const Angle &amp;pitch, const Angle &amp;roll)</argsstring>
+        <name>from_ypr</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>yaw</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>pitch</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref> &amp;</type>
+          <declname>roll</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="57" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="57" bodyend="76"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1a275679865ce98354b00d6079e0479e6a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Quat&lt; T &gt;::from_to</definition>
+        <argsstring>(const Self &amp;from, const Self &amp;to)</argsstring>
+        <name>from_to</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="80" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="80" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1aba60650ec07acaeae1fed3ee04d53fd2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Quat&lt; T &gt;::from_random</definition>
+        <argsstring>(Random *random)</argsstring>
+        <name>from_random</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="88" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="88" bodyend="94"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1af96d93de62b49b91a9bfeff870d45500" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Quat&lt; T &gt;::identity</definition>
+        <argsstring>()</argsstring>
+        <name>identity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="120" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1ace6c8785d7f8d3e87392619e94a5d25c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Quat&lt; T &gt;::look_at</definition>
+        <argsstring>(const Point &amp;from, const Point &amp;to, const typename Vec::Unit up)</argsstring>
+        <name>look_at</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1a5d30642cfc902ab728d41f0d41d55365" kindref="member">Point</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1a5d30642cfc902ab728d41f0d41d55365" kindref="member">Point</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>const typename <ref refid="structeuphoria_1_1core_1_1Vec3_1aed930dae549fde567b7c9ac774b55d46" kindref="member">Vec::Unit</ref></type>
+          <declname>up</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="127" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="127" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1af24b2ec609f564b51047684c76b7c55e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>Quat&lt; T &gt;::Self euphoria::core::Quat&lt; T &gt;::look_in_direction</definition>
+        <argsstring>(const Unit &amp;dir, const Unit &amp;up)</argsstring>
+        <name>look_in_direction</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref> &amp;</type>
+          <declname>dir</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" kindref="member">Unit</ref> &amp;</type>
+          <declname>up</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="134" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="402" bodyend="422"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1ae9f5d645f9ffdefcd3ab13a85f976285" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Quat&lt; T &gt;::lerp</definition>
+        <argsstring>(const Self &amp;f, const T scale, const Self &amp;t)</argsstring>
+        <name>lerp</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type>const T</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="281" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="281" bodyend="284"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1af005a9a7cd8a389599ca45abe830641c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Quat&lt; T &gt;::slerp</definition>
+        <argsstring>(const Self &amp;qa, const float t, const Self &amp;qb)</argsstring>
+        <name>slerp</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>qa</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>qb</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="288" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="288" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Quat_1ae8e839a0e4a16054b5ebb644d52baf62" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::Quat&lt; T &gt;::slerp_shortway</definition>
+        <argsstring>(const Self &amp;from, const T scale, const Self &amp;to)</argsstring>
+        <name>slerp_shortway</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const T</type>
+          <declname>scale</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" kindref="member">Self</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="326" column="9" bodyfile="libs/core/src/core/quat.h" bodystart="326" bodyend="336"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/quat.h" line="14" column="1" bodyfile="libs/core/src/core/quat.h" bodystart="13" bodyend="399"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Quat_1afc6fccbfbab3e98b30e9a66ead521092" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>create_from_right_up_in</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a08e7757b1b6df8d94f3eb26709924177" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>down</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a478fc5c0b0eafa226c0e410ca8734698" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>from_axis_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1aba60650ec07acaeae1fed3ee04d53fd2" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>from_random</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a275679865ce98354b00d6079e0479e6a" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>from_to</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a7dcc9ceb6f49a7d4c40db5dc5bf84a1e" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>from_ypr</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a46c4c9ba14d3c5baea08cbacb2cb5a1d" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_conjugate</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1ab4bd5f99a473ec38da93e5733e145617" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1aab52f5d7df27bf61b7d3cef7cba61803" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1abe1c408bbef94238e99001089b4aa935" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_identity</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a889ab5c78529c28298ad4b53d0db382e" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_inverse</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1aad2005e25ef5a4498fae3602c5cb0204" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_length</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1acb53b64a947d08e94b871a8753a0de5b" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_length_squared</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a9d0e6317c31d32baa55ed4f2a48866bf" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_negated</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1aa5125cfc367a55224bb02b38d42a0a79" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_normalized</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a22c8b2fad3b7cdc3b44b0f60cff180ae" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>get_vec_part</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1af96d93de62b49b91a9bfeff870d45500" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>identity</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1abdbe42797810fb6a4fa498c7c1be340e" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>in</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a6d3c5100ecd925a6d3b0c6c0968af6f3" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>left</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1ae9f5d645f9ffdefcd3ab13a85f976285" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>lerp</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1ace6c8785d7f8d3e87392619e94a5d25c" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>look_at</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1af24b2ec609f564b51047684c76b7c55e" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>look_in_direction</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a54f6d91a875819dfb4047b1843b7784c" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>normalize</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1afc9a06573401a350a6cffb705aba4e03" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>operator*=</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1aef29f45d376bbdebe953eed223131221" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>operator*=</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1abeafc760104ecea416cb4ea88280ac2c" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>operator+=</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a8069fd293ddf1d6f260248772a5f7015" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>operator-=</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1af10fce87ff03cda5dfc9071f8c3a8cff" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>out</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a5d30642cfc902ab728d41f0d41d55365" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>Point</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a210da020120ea221f140659f3990a450" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>Quat</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a9f29b0403d7cc7cfd018aebb42a13fd4" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>right</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1ab4c9df7b67fd048de0b56fc99b6668ad" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>rotate</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a4e5967e08ff954747668161b47ae002e" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>rotate_around_origo</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1ae0e9acb1ec144aec6d1954de83129fa0" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>Self</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1af005a9a7cd8a389599ca45abe830641c" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>slerp</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1ae8e839a0e4a16054b5ebb644d52baf62" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>slerp_shortway</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a94bb51bf87a09daf57a40b5ffbad26a5" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>to_axis_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1aee282147fb3d1ee17ed4fa3dbb85243a" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>to_mat4</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1acccf2ef0b8bcba4a039151fc2687f5f8" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>Unit</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a2e53c5adeca8fd6ef21741aae79f9184" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>up</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a13fed6b3e604d362c601cc09fdc4942b" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>Vec</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1aead62f94425a983bd7844dee458f9d79" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>w</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a2311859cfcdd2128a16db080f96e25a9" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>x</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1ab3d9029e28cb57106ee61d566eeee960" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>y</name></member>
+      <member refid="structeuphoria_1_1core_1_1Quat_1a8bc9f3b4d96f93fc2269c49ef24f243a" prot="public" virt="non-virtual"><scope>euphoria::core::Quat</scope><name>z</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

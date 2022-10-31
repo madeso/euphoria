@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1gui" kind="namespace" language="C++">
+    <compoundname>euphoria::gui</compoundname>
+    <innerclass refid="structeuphoria_1_1gui_1_1Button" prot="public">euphoria::gui::Button</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1ButtonState" prot="public">euphoria::gui::ButtonState</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1Container" prot="public">euphoria::gui::Container</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1Interpolation" prot="public">euphoria::gui::Interpolation</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1Layout" prot="public">euphoria::gui::Layout</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1LayoutContainer" prot="public">euphoria::gui::LayoutContainer</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1LayoutData" prot="public">euphoria::gui::LayoutData</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1PanelWidget" prot="public">euphoria::gui::PanelWidget</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1Root" prot="public">euphoria::gui::Root</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1SingleRowLayout" prot="public">euphoria::gui::SingleRowLayout</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1Skin" prot="public">euphoria::gui::Skin</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1State" prot="public">euphoria::gui::State</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1TableLayout" prot="public">euphoria::gui::TableLayout</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1TextData" prot="public">euphoria::gui::TextData</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1Visitor" prot="public">euphoria::gui::Visitor</innerclass>
+    <innerclass refid="structeuphoria_1_1gui_1_1Widget" prot="public">euphoria::gui::Widget</innerclass>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1gui_1abdaf556710977686346a040497a37ae4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Layout" kindref="compound">Layout</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Layout&gt; euphoria::gui::create_table_layout</definition>
+        <argsstring>(const std::vector&lt; bool &gt; &amp;expandable_rows, const std::vector&lt; bool &gt; &amp;expandable_cols, float combined_padding)</argsstring>
+        <name>create_table_layout</name>
+        <param>
+          <type>const std::vector&lt; bool &gt; &amp;</type>
+          <declname>expandable_rows</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; bool &gt; &amp;</type>
+          <declname>expandable_cols</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>combined_padding</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.h" line="19" column="5" declfile="libs/gui/src/gui/layoutcontainer.h" declline="19" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1gui_1a0c5050e800ff7d61f8a90d0ea99a96ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Layout" kindref="compound">Layout</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Layout&gt; euphoria::gui::create_single_row_layout</definition>
+        <argsstring>(float padding)</argsstring>
+        <name>create_single_row_layout</name>
+        <param>
+          <type>float</type>
+          <declname>padding</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutcontainer.h" line="27" column="5" declfile="libs/gui/src/gui/layoutcontainer.h" declline="27" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1gui_1abcbeb3e4ca1812f4ed4da278e33bd268" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::gui::load_gui</definition>
+        <argsstring>(Root *root, core::vfs::FileSystem *fs, render::FontCache *font, const core::vfs::FilePath &amp;path, render::TextureCache *cache)</argsstring>
+        <name>load_gui</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1Root" kindref="compound">Root</ref> *</type>
+          <declname>root</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1FontCache" kindref="compound">render::FontCache</ref> *</type>
+          <declname>font</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">render::TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/load.h" line="28" column="5" declfile="libs/gui/src/gui/load.h" declline="28" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/gui/src/gui/button.h" line="21" column="1"/>
+  </compounddef>
+</doxygen>

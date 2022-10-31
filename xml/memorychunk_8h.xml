@@ -1,0 +1,125 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="memorychunk_8h" kind="file" language="C++">
+    <compoundname>memorychunk.h</compoundname>
+    <includes local="no">memory</includes>
+    <includedby refid="base64_8h" local="yes">libs/core/src/core/base64.h</includedby>
+    <includedby refid="image_8h" local="yes">libs/core/src/core/image.h</includedby>
+    <includedby refid="io_8h" local="yes">libs/core/src/core/io.h</includedby>
+    <includedby refid="vfs_8h" local="yes">libs/core/src/core/vfs.h</includedby>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="6">
+        <label>libs/core/src/core/loadedfont.h</label>
+        <link refid="loadedfont_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>libs/render/src/render/spriterender.h</label>
+        <link refid="spriterender_8h"/>
+      </node>
+      <node id="7">
+        <label>libs/render/src/render/font.h</label>
+        <link refid="font_8h"/>
+      </node>
+      <node id="10">
+        <label>libs/render/src/render/texture.h</label>
+        <link refid="texture_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>libs/core/src/core/io.h</label>
+        <link refid="io_8h"/>
+      </node>
+      <node id="4">
+        <label>libs/core/src/core/generator_maze.h</label>
+        <link refid="generator__maze_8h"/>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/base64.h</label>
+        <link refid="base64_8h"/>
+      </node>
+      <node id="5">
+        <label>libs/core/src/core/image_draw.h</label>
+        <link refid="image__draw_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>libs/core/src/core/table_bool.h</label>
+        <link refid="table__bool_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>libs/core/src/core/generator_cell.h</label>
+        <link refid="generator__cell_8h"/>
+      </node>
+      <node id="13">
+        <label>libs/core/src/core/vfs.h</label>
+        <link refid="vfs_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/image.h</label>
+        <link refid="image_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>libs/core/src/core/vfs_defaultshaders.h</label>
+        <link refid="vfs__defaultshaders_8h"/>
+      </node>
+      <node id="15">
+        <label>libs/core/src/core/vfs_imagegenerator.h</label>
+        <link refid="vfs__imagegenerator_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1MemoryChunk" prot="public">euphoria::core::MemoryChunk</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1MemoryChunkFile" prot="public">euphoria::core::MemoryChunkFile</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/memorychunk.h"/>
+  </compounddef>
+</doxygen>

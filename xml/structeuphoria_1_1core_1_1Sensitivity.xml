@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Sensitivity" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Sensitivity</compoundname>
+    <includes refid="sensitivity_8h" local="no">sensitivity.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Sensitivity_1a06d7590676427e72f79f71a53b5e2bdc" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::Sensitivity::multiplier</definition>
+        <argsstring></argsstring>
+        <name>multiplier</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="12" column="15" bodyfile="libs/core/src/core/sensitivity.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Sensitivity_1ad760a375a3ee72674e19c2490d7b6cf4" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::Sensitivity::inverted</definition>
+        <argsstring></argsstring>
+        <name>inverted</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="13" column="14" bodyfile="libs/core/src/core/sensitivity.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Sensitivity_1aa6ff7184fc1eace3e4387adfbfb9fb50" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Sensitivity::Sensitivity</definition>
+        <argsstring>(float v=1.0f, bool i=false)</argsstring>
+        <name>Sensitivity</name>
+        <param>
+          <type>float</type>
+          <declname>v</declname>
+          <defval>1.0f</defval>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>i</declname>
+          <defval>false</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="7" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Sensitivity_1aaa61d4d0aeba57bd0dca496694b12e48" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::Sensitivity::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="9" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Sensitivity_1aaad35cffd24d59f4ac17e3de15989360" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::core::Sensitivity::get_multiplier_with_sign</definition>
+        <argsstring>() const</argsstring>
+        <name>get_multiplier_with_sign</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/sensitivity.h" line="10" column="16"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/sensitivity.h" line="6" column="1" bodyfile="libs/core/src/core/sensitivity.h" bodystart="5" bodyend="14"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Sensitivity_1aaad35cffd24d59f4ac17e3de15989360" prot="public" virt="non-virtual"><scope>euphoria::core::Sensitivity</scope><name>get_multiplier_with_sign</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sensitivity_1ad760a375a3ee72674e19c2490d7b6cf4" prot="public" virt="non-virtual"><scope>euphoria::core::Sensitivity</scope><name>inverted</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sensitivity_1aaa61d4d0aeba57bd0dca496694b12e48" prot="public" virt="non-virtual"><scope>euphoria::core::Sensitivity</scope><name>is_valid</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sensitivity_1a06d7590676427e72f79f71a53b5e2bdc" prot="public" virt="non-virtual"><scope>euphoria::core::Sensitivity</scope><name>multiplier</name></member>
+      <member refid="structeuphoria_1_1core_1_1Sensitivity_1aa6ff7184fc1eace3e4387adfbfb9fb50" prot="public" virt="non-virtual"><scope>euphoria::core::Sensitivity</scope><name>Sensitivity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

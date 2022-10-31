@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dotoutput_8h" kind="file" language="C++">
+    <compoundname>dotoutput.h</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Node" prot="public">euphoria::core::dot::Node</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Edge" prot="public">euphoria::core::dot::Edge</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Graph" prot="public">euphoria::core::dot::Graph</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1dot">euphoria::core::dot</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/dotoutput.h"/>
+  </compounddef>
+</doxygen>

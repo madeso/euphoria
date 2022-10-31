@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1ImageLoadResult" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::ImageLoadResult</compoundname>
+    <includes refid="image_8h" local="no">image.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1ImageLoadResult_1adae42cd61da1ee1f244b4b1fc6214abc" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Image" kindref="compound">core::Image</ref></type>
+        <definition>core::Image euphoria::core::ImageLoadResult::image</definition>
+        <argsstring></argsstring>
+        <name>image</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="153" column="21" bodyfile="libs/core/src/core/image.h" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1ImageLoadResult_1aa668d26ac19bb2fe991755ed24700c9c" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::ImageLoadResult::error</definition>
+        <argsstring></argsstring>
+        <name>error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image.h" line="154" column="21" bodyfile="libs/core/src/core/image.h" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::Image</label>
+        <link refid="structeuphoria_1_1core_1_1Image"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::ImageLoadResult</label>
+        <link refid="structeuphoria_1_1core_1_1ImageLoadResult"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>image</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/image.h" line="152" column="1" bodyfile="libs/core/src/core/image.h" bodystart="151" bodyend="155"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1ImageLoadResult_1aa668d26ac19bb2fe991755ed24700c9c" prot="public" virt="non-virtual"><scope>euphoria::core::ImageLoadResult</scope><name>error</name></member>
+      <member refid="structeuphoria_1_1core_1_1ImageLoadResult_1adae42cd61da1ee1f244b4b1fc6214abc" prot="public" virt="non-virtual"><scope>euphoria::core::ImageLoadResult</scope><name>image</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

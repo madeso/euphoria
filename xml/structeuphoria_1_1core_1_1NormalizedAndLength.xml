@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1NormalizedAndLength" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::NormalizedAndLength</compoundname>
+    <includes refid="vec_8base_8h" local="no">vec.base.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename Normalized</type>
+      </param>
+      <param>
+        <type>typename Length</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1NormalizedAndLength_1a37f78f237d7adc9ea3f86b6230b41c85" prot="public" static="no" mutable="no">
+        <type>Normalized</type>
+        <definition>Normalized euphoria::core::NormalizedAndLength&lt; Normalized, Length &gt;::normalized</definition>
+        <argsstring></argsstring>
+        <name>normalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec.base.h" line="8" column="20" bodyfile="libs/core/src/core/vec.base.h" bodystart="8" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1NormalizedAndLength_1afc99da74f8ffaa75191fa37db5a47b7f" prot="public" static="no" mutable="no">
+        <type>Length</type>
+        <definition>Length euphoria::core::NormalizedAndLength&lt; Normalized, Length &gt;::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec.base.h" line="9" column="16" bodyfile="libs/core/src/core/vec.base.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/vec.base.h" line="7" column="1" bodyfile="libs/core/src/core/vec.base.h" bodystart="6" bodyend="10"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1NormalizedAndLength_1afc99da74f8ffaa75191fa37db5a47b7f" prot="public" virt="non-virtual"><scope>euphoria::core::NormalizedAndLength</scope><name>length</name></member>
+      <member refid="structeuphoria_1_1core_1_1NormalizedAndLength_1a37f78f237d7adc9ea3f86b6230b41c85" prot="public" virt="non-virtual"><scope>euphoria::core::NormalizedAndLength</scope><name>normalized</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

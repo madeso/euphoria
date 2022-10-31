@@ -1,0 +1,167 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::generator::RecursiveBacktracker</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1generator_1_1Algorithm" prot="public" virt="non-virtual">euphoria::core::generator::Algorithm</basecompoundref>
+    <includes refid="generator__maze_8h" local="no">generator_maze.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a24480d6ba8c29da61299d54459f7db86" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1ac679e8d7c755ebc9dcac45eff0d0898d" kindref="member">generator::Maze</ref> *</type>
+        <definition>generator::Maze* euphoria::core::generator::RecursiveBacktracker::maze</definition>
+        <argsstring></argsstring>
+        <name>maze</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="69" column="25" bodyfile="libs/core/src/core/generator_maze.h" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1afd7652034b71cd7cfed133a076e788cd" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">core::Random</ref> *</type>
+        <definition>core::Random* euphoria::core::generator::RecursiveBacktracker::random</definition>
+        <argsstring></argsstring>
+        <name>random</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="70" column="22" bodyfile="libs/core/src/core/generator_maze.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a12b3468edc5be9ee670684f1ed41de8c" prot="public" static="no" mutable="no">
+        <type>std::stack&lt; <ref refid="namespaceeuphoria_1_1core_1a0cb40771b3579f3c7f3c2134fe4db2e9" kindref="member">Vec2i</ref> &gt;</type>
+        <definition>std::stack&lt;Vec2i&gt; euphoria::core::generator::RecursiveBacktracker::stack</definition>
+        <argsstring></argsstring>
+        <name>stack</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="72" column="20" bodyfile="libs/core/src/core/generator_maze.h" bodystart="72" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a77d2cb369f8aa05a2ee98c4a3ef31e5e" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::generator::RecursiveBacktracker::visited_cells</definition>
+        <argsstring></argsstring>
+        <name>visited_cells</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="73" column="13" bodyfile="libs/core/src/core/generator_maze.h" bodystart="73" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a8d6433d1a3c721a9c35f0e7c3b52f6ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::RecursiveBacktracker::setup</definition>
+        <argsstring>() override</argsstring>
+        <name>setup</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a2d1c271d09dc3baa09b37bfa759a1894">setup</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="76" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f8aeeae9ac1ba5aa9ac878c685c8952" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::generator::RecursiveBacktracker::has_more_work</definition>
+        <argsstring>() const override</argsstring>
+        <name>has_more_work</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1aadb707c44e21e5c093bf4cfd7d509c34">has_more_work</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="79" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f30e1de84eecf564070721b692a9aec" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::RecursiveBacktracker::work</definition>
+        <argsstring>() override</argsstring>
+        <name>work</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1ae937b77505c16a32eee57933307b716a">work</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="82" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::generator::Algorithm</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Algorithm"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::generator::RecursiveBacktracker</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>euphoria::core::Table&lt; T &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Table"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::Algorithm</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Algorithm"/>
+      </node>
+      <node id="4">
+        <label>euphoria::core::Random</label>
+        <link refid="structeuphoria_1_1core_1_1Random"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::generator::RecursiveBacktracker</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>maze</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>random</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_maze.h" line="68" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="67" bodyend="83"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a899b7369c8141c6158b50c600e057127" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>Algorithm</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a2ecf1f318083c1a04d83f4e5888ae69d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>Algorithm</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1abbef1857d28d477c36c2dd3987e53c99" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>Algorithm</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f8aeeae9ac1ba5aa9ac878c685c8952" prot="public" virt="virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>has_more_work</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a24480d6ba8c29da61299d54459f7db86" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>maze</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a3ca0b14c03c314b82527fa40d38d8b82" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a203df91d7e802b8f10ccf31231cd3cda" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1afd7652034b71cd7cfed133a076e788cd" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>random</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a8d6433d1a3c721a9c35f0e7c3b52f6ba" prot="public" virt="virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>setup</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a12b3468edc5be9ee670684f1ed41de8c" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>stack</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a77d2cb369f8aa05a2ee98c4a3ef31e5e" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>visited_cells</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f30e1de84eecf564070721b692a9aec" prot="public" virt="virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>work</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1adc82461106f49a4f76d0afd28ad01efb" prot="public" virt="virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>~Algorithm</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

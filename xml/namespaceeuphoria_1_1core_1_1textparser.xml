@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1textparser" kind="namespace" language="C++">
+    <compoundname>euphoria::core::textparser</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1Node" prot="public">euphoria::core::textparser::Node</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd" prot="public">euphoria::core::textparser::NodeBeginOrEnd</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1NodeImage" prot="public">euphoria::core::textparser::NodeImage</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1NodeText" prot="public">euphoria::core::textparser::NodeText</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" prot="public">euphoria::core::textparser::Visitor</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString" prot="public">euphoria::core::textparser::VisitorDebugString</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/ui_text.h" line="16" column="1"/>
+  </compounddef>
+</doxygen>

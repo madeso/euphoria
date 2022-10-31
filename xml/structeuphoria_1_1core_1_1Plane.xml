@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Plane" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Plane</compoundname>
+    <includes refid="plane_8h" local="no">plane.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Plane_1a11d11634073d5cad53fb28cc7cd06e22" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">Unit3f</ref></type>
+        <definition>Unit3f euphoria::core::Plane::normal</definition>
+        <argsstring></argsstring>
+        <name>normal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/plane.h" line="9" column="16" bodyfile="libs/core/src/core/plane.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Plane_1a8a09500f35f32b2eaca52bf0dd9f1640" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::Plane::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/plane.h" line="10" column="15" bodyfile="libs/core/src/core/plane.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Plane_1a716281c611b2a37c3ef8ff8ebda4ca87" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Plane::Plane</definition>
+        <argsstring>(const Unit3f &amp;n, float d)</argsstring>
+        <name>Plane</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">Unit3f</ref> &amp;</type>
+          <declname>n</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/plane.h" line="12" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Plane_1af2c0bdc691322d311606182cb02c6441" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Plane" kindref="compound">Plane</ref></type>
+        <definition>static Plane euphoria::core::Plane::from_normal_and_point</definition>
+        <argsstring>(const Unit3f &amp;normal, const Vec3f &amp;point)</argsstring>
+        <name>from_normal_and_point</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">Unit3f</ref> &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/plane.h" line="15" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Plane_1a8f523565a4d0ab71bf4938bada1f9b29" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Plane" kindref="compound">Plane</ref></type>
+        <definition>static Plane euphoria::core::Plane::from_points</definition>
+        <argsstring>(const Vec3f &amp;p0, const Vec3f &amp;p1, const Vec3f &amp;p2)</argsstring>
+        <name>from_points</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>p0</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>p1</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>p2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/plane.h" line="18" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::Unit3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Unit3"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::Plane</label>
+        <link refid="structeuphoria_1_1core_1_1Plane"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>normal</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/plane.h" line="8" column="1" bodyfile="libs/core/src/core/plane.h" bodystart="7" bodyend="19"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Plane_1a8a09500f35f32b2eaca52bf0dd9f1640" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>distance</name></member>
+      <member refid="structeuphoria_1_1core_1_1Plane_1af2c0bdc691322d311606182cb02c6441" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>from_normal_and_point</name></member>
+      <member refid="structeuphoria_1_1core_1_1Plane_1a8f523565a4d0ab71bf4938bada1f9b29" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>from_points</name></member>
+      <member refid="structeuphoria_1_1core_1_1Plane_1a11d11634073d5cad53fb28cc7cd06e22" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>normal</name></member>
+      <member refid="structeuphoria_1_1core_1_1Plane_1a716281c611b2a37c3ef8ff8ebda4ca87" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>Plane</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

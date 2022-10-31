@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria" kind="namespace" language="C++">
+    <compoundname>euphoria</compoundname>
+    <innernamespace refid="namespaceeuphoria_1_1assertlib">euphoria::assertlib</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1convert">euphoria::convert</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1gui">euphoria::gui</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1log">euphoria::log</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1minsynth">euphoria::minsynth</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1tests">euphoria::tests</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/assert/src/assert/assert.h" line="91" column="1"/>
+  </compounddef>
+</doxygen>

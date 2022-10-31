@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1gui_1_1Visitor" kind="struct" language="C++" prot="public" abstract="yes">
+    <compoundname>euphoria::gui::Visitor</compoundname>
+    <includes refid="visitor_8h" local="no">visitor.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1a343b59baffddb8ed4728d6a7a61f3640" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::Visitor::Visitor</definition>
+        <argsstring>()=default</argsstring>
+        <name>Visitor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/visitor.h" line="17" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1aae17dfafaa8b16a6266779da215b6663" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::gui::Visitor::~Visitor</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Visitor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/visitor.h" line="18" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1ae48b9e7af5840040edc969f8c4b17f1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::Visitor::NONCOPYABLE</definition>
+        <argsstring>(Visitor)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1Visitor" kindref="compound">Visitor</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/visitor.h" line="19" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1ad2a9d0d55210eb860d69e8e4962be8fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void euphoria::gui::Visitor::visit</definition>
+        <argsstring>(Button *button)=0</argsstring>
+        <name>visit</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1Button" kindref="compound">Button</ref> *</type>
+          <declname>button</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/visitor.h" line="23" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1a0f0cbf3ce477d5f7c89710f370177ead" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void euphoria::gui::Visitor::visit</definition>
+        <argsstring>(PanelWidget *button)=0</argsstring>
+        <name>visit</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1PanelWidget" kindref="compound">PanelWidget</ref> *</type>
+          <declname>button</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/visitor.h" line="27" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/gui/src/gui/visitor.h" line="16" column="1" bodyfile="libs/gui/src/gui/visitor.h" bodystart="15" bodyend="28"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1gui_1_1Visitor_1ae48b9e7af5840040edc969f8c4b17f1a" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Visitor_1ad2a9d0d55210eb860d69e8e4962be8fc" prot="public" virt="pure-virtual"><scope>euphoria::gui::Visitor</scope><name>visit</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Visitor_1a0f0cbf3ce477d5f7c89710f370177ead" prot="public" virt="pure-virtual"><scope>euphoria::gui::Visitor</scope><name>visit</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Visitor_1a343b59baffddb8ed4728d6a7a61f3640" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>Visitor</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Visitor_1aae17dfafaa8b16a6266779da215b6663" prot="public" virt="virtual"><scope>euphoria::gui::Visitor</scope><name>~Visitor</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

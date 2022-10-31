@@ -1,0 +1,494 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1ecs_1_1Registry" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::ecs::Registry</compoundname>
+    <includes refid="ecs_8h" local="no">ecs.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a27d582dbaf9fe39809cadb969d8e5119" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; RegistryPimpl &gt;</type>
+        <definition>std::unique_ptr&lt;RegistryPimpl&gt; euphoria::core::ecs::Registry::pimpl</definition>
+        <argsstring></argsstring>
+        <name>pimpl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="230" column="25" bodyfile="libs/core/src/core/ecs.h" bodystart="230" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a62aa832de46dd8c505a7f4ea19996203" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::ecs::Registry::Registry</definition>
+        <argsstring>()</argsstring>
+        <name>Registry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="135" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a424e5a9bb6759c4b41f7cee8728eb4cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::ecs::Registry::~Registry</definition>
+        <argsstring>()</argsstring>
+        <name>~Registry</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="136" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a94715b2ff2be431ab7b09fa2e4040b6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::ecs::Registry::Registry</definition>
+        <argsstring>(const Registry &amp;)=delete</argsstring>
+        <name>Registry</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="138" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c9f695cb438a4e972250dfe93900547" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::ecs::Registry::Registry</definition>
+        <argsstring>(Registry &amp;&amp;)=delete</argsstring>
+        <name>Registry</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="139" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a669287319613768b9319e532b66449a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
+        <definition>Registry&amp; euphoria::core::ecs::Registry::operator=</definition>
+        <argsstring>(const Registry &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="140" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a9646925ed791802b5d362a4d8ec06fca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
+        <definition>Registry&amp; euphoria::core::ecs::Registry::operator=</definition>
+        <argsstring>(Registry &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="141" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a83e8f5c3bf617236faf803d6cddc58ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::ecs::Registry::get_number_of_active_entities</definition>
+        <argsstring>() const</argsstring>
+        <name>get_number_of_active_entities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="144" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ab59822331dd0189096cbd48a26615d8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+        <definition>EntityHandle euphoria::core::ecs::Registry::create</definition>
+        <argsstring>()</argsstring>
+        <name>create</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="147" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae806e02178f928250b46baff6a908df8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::ecs::Registry::get_component_debug_name</definition>
+        <argsstring>(ComponentIndex c) const</argsstring>
+        <name>get_component_debug_name</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="150" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ad1d78e78034fe47240927cfcb1483d84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::ecs::Registry::destroy</definition>
+        <argsstring>(EntityHandle entity)</argsstring>
+        <name>destroy</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="153" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1143a47c3af49882b0fbefb96668749b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::ecs::Registry::has_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind) const</argsstring>
+        <name>has_component</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="156" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1abca3df2fad5b2dbafe30b2866952efc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+        <definition>ComponentIndex euphoria::core::ecs::Registry::set_component_array</definition>
+        <argsstring>(const std::string &amp;name, std::unique_ptr&lt; ComponentArrayBase &gt; &amp;&amp;components)</argsstring>
+        <name>set_component_array</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &gt; &amp;&amp;</type>
+          <declname>components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="159" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae645683cc6fe9e13cd6eb34f8cb5fe06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref> &gt;</type>
+        <definition>std::vector&lt;EntityHandle&gt; euphoria::core::ecs::Registry::view</definition>
+        <argsstring>(const std::vector&lt; ComponentIndex &gt; &amp;matching_components) const</argsstring>
+        <name>view</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref> &gt; &amp;</type>
+          <declname>matching_components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="163" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a5af3df1300a93e66d783389be4a232e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+        <definition>ComponentIndex euphoria::core::ecs::Registry::register_component</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>register_component</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="168" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="168" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c5b0d54e619036e5477a5da8543c69b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void euphoria::core::ecs::Registry::add_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind, T &amp;&amp;component)</argsstring>
+        <name>add_component</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <param>
+          <type>T &amp;&amp;</type>
+          <declname>component</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="176" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="176" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2ec669c09081f6beaa5b1e1f1f3595a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>void</type>
+        <definition>void euphoria::core::ecs::Registry::remove_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>remove_component</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="185" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="185" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2ef9e49514bfafbd9df74a06d8afeabf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T &amp;</type>
+        <definition>T&amp; euphoria::core::ecs::Registry::get_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>get_component</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="194" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="194" bodyend="197"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2f5accedd03e2efb7b6ab7323a00994f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T *</type>
+        <definition>T* euphoria::core::ecs::Registry::get_component_or_null</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>get_component_or_null</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="202" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="202" bodyend="205"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a99add8295d9aba9b4f076cdc8dfe857d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::ecs::Registry::get_component_name</definition>
+        <argsstring>(ComponentIndex comp_ind) const</argsstring>
+        <name>get_component_name</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="210" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae98aa23a048894da0db20a37554b1c2d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray" kindref="compound">GenericComponentArray</ref>&lt; T &gt; *</type>
+        <definition>GenericComponentArray&lt;T&gt;* euphoria::core::ecs::Registry::get_components</definition>
+        <argsstring>(ComponentIndex comp_ind)</argsstring>
+        <name>get_components</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="214" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="214" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2a4ffa395d614b0fa8a412ce17cbce2a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> *</type>
+        <definition>ComponentArrayBase* euphoria::core::ecs::Registry::get_components_base</definition>
+        <argsstring>(ComponentIndex comp_ind)</argsstring>
+        <name>get_components_base</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="222" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a3943d922c715f347ae859d7588fc7c9a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::ecs::Registry::on_added_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>on_added_component</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="225" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ad5f503379be6f31bcae8bd655dec7dea" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::ecs::Registry::on_removed_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind)</argsstring>
+        <name>on_removed_component</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="228" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/ecs.h" line="134" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="133" bodyend="231"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c5b0d54e619036e5477a5da8543c69b" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>add_component</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ab59822331dd0189096cbd48a26615d8f" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>create</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ad1d78e78034fe47240927cfcb1483d84" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>destroy</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2ef9e49514bfafbd9df74a06d8afeabf" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_component</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae806e02178f928250b46baff6a908df8" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_component_debug_name</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a99add8295d9aba9b4f076cdc8dfe857d" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_component_name</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2f5accedd03e2efb7b6ab7323a00994f" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_component_or_null</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae98aa23a048894da0db20a37554b1c2d" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_components</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2a4ffa395d614b0fa8a412ce17cbce2a" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_components_base</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a83e8f5c3bf617236faf803d6cddc58ed" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_number_of_active_entities</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1143a47c3af49882b0fbefb96668749b" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>has_component</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a3943d922c715f347ae859d7588fc7c9a" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>on_added_component</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ad5f503379be6f31bcae8bd655dec7dea" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>on_removed_component</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a669287319613768b9319e532b66449a4" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a9646925ed791802b5d362a4d8ec06fca" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a27d582dbaf9fe39809cadb969d8e5119" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>pimpl</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a5af3df1300a93e66d783389be4a232e8" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>register_component</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a62aa832de46dd8c505a7f4ea19996203" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>Registry</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a94715b2ff2be431ab7b09fa2e4040b6c" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>Registry</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c9f695cb438a4e972250dfe93900547" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>Registry</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2ec669c09081f6beaa5b1e1f1f3595a2" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>remove_component</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1abca3df2fad5b2dbafe30b2866952efc3" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>set_component_array</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae645683cc6fe9e13cd6eb34f8cb5fe06" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>view</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a424e5a9bb6759c4b41f7cee8728eb4cd" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>~Registry</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

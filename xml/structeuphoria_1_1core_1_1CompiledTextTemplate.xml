@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1CompiledTextTemplate" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::CompiledTextTemplate</compoundname>
+    <includes refid="texttemplate_8h" local="no">texttemplate.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a7bf12a9415da38b69eb9a1b0dab9c0ab" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1TemplateErrorList" kindref="compound">TemplateErrorList</ref></type>
+        <definition>TemplateErrorList euphoria::core::CompiledTextTemplate::errors</definition>
+        <argsstring></argsstring>
+        <name>errors</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="77" column="27" bodyfile="libs/core/src/core/texttemplate.h" bodystart="77" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a85215a562eec03121d3a7f4ede579461" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; TemplateNodeList &gt;</type>
+        <definition>std::shared_ptr&lt;TemplateNodeList&gt; euphoria::core::CompiledTextTemplate::nodes</definition>
+        <argsstring></argsstring>
+        <name>nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="78" column="25" bodyfile="libs/core/src/core/texttemplate.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a7501ab9e08dbba7d104d0044a73fd451" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::CompiledTextTemplate::CompiledTextTemplate</definition>
+        <argsstring>(const std::string &amp;text)</argsstring>
+        <name>CompiledTextTemplate</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>text</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="66" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a8bb800949110487eac2df429ca66db2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::CompiledTextTemplate::CompiledTextTemplate</definition>
+        <argsstring>(vfs::FileSystem *fs, const vfs::FilePath &amp;path)</argsstring>
+        <name>CompiledTextTemplate</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">vfs::FilePath</ref> &amp;</type>
+          <declname>path</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="67" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1ab1ac2d6642209cd8420c144dd24572a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::CompiledTextTemplate::~CompiledTextTemplate</definition>
+        <argsstring>()</argsstring>
+        <name>~CompiledTextTemplate</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="69" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a43a6bd35d1080e727392c23219b98e8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::CompiledTextTemplate::NONCOPYABLE</definition>
+        <argsstring>(CompiledTextTemplate)</argsstring>
+        <name>NONCOPYABLE</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1CompiledTextTemplate" kindref="compound">CompiledTextTemplate</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="71" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a55ec6882c84fc3bc28d14a85b3ecc1dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::CompiledTextTemplate::evaluate</definition>
+        <argsstring>(const Defines &amp;defines)</argsstring>
+        <name>evaluate</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Defines" kindref="compound">Defines</ref> &amp;</type>
+          <declname>defines</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.h" line="74" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::CompiledTextTemplate</label>
+        <link refid="structeuphoria_1_1core_1_1CompiledTextTemplate"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>errors</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::TemplateErrorList</label>
+        <link refid="structeuphoria_1_1core_1_1TemplateErrorList"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/texttemplate.h" line="64" column="1" bodyfile="libs/core/src/core/texttemplate.h" bodystart="63" bodyend="79"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a7501ab9e08dbba7d104d0044a73fd451" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a8bb800949110487eac2df429ca66db2b" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a7bf12a9415da38b69eb9a1b0dab9c0ab" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>errors</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a55ec6882c84fc3bc28d14a85b3ecc1dd" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>evaluate</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a85215a562eec03121d3a7f4ede579461" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>nodes</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a43a6bd35d1080e727392c23219b98e8b" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1ab1ac2d6642209cd8420c144dd24572a0" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>~CompiledTextTemplate</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

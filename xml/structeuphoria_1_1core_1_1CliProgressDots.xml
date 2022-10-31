@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1CliProgressDots" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::CliProgressDots</compoundname>
+    <includes refid="cli__progress__dots_8h" local="no">cli_progress_dots.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CliProgressDots_1a3e835b807e09a56340b2fa33dd97e1a8" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a41020bc8b8bbff3320d0f2f637cb0288" kindref="member">TimePoint</ref></type>
+        <definition>TimePoint euphoria::core::CliProgressDots::last</definition>
+        <argsstring></argsstring>
+        <name>last</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/cli_progress_dots.h" line="11" column="19" bodyfile="libs/core/src/core/cli_progress_dots.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CliProgressDots_1a18d49ddf1a02643baace643878272745" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::CliProgressDots::dots_on_line</definition>
+        <argsstring></argsstring>
+        <name>dots_on_line</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/cli_progress_dots.h" line="12" column="13" bodyfile="libs/core/src/core/cli_progress_dots.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CliProgressDots_1adc33b5a97935b6e516702994af3c7892" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::CliProgressDots::dots_per_line</definition>
+        <argsstring></argsstring>
+        <name>dots_per_line</name>
+        <initializer>= 80</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/cli_progress_dots.h" line="13" column="13" bodyfile="libs/core/src/core/cli_progress_dots.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CliProgressDots_1ab469c53f1f1d3b5a360f39f9c5407300" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::CliProgressDots::has_printed</definition>
+        <argsstring></argsstring>
+        <name>has_printed</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/cli_progress_dots.h" line="14" column="14" bodyfile="libs/core/src/core/cli_progress_dots.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CliProgressDots_1a07038a2e7bf504c506b0dacabaaed33f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::CliProgressDots::update</definition>
+        <argsstring>()</argsstring>
+        <name>update</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/cli_progress_dots.h" line="17" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Prints dots on the commandline for long running processes. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/cli_progress_dots.h" line="10" column="1" bodyfile="libs/core/src/core/cli_progress_dots.h" bodystart="9" bodyend="18"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1CliProgressDots_1a18d49ddf1a02643baace643878272745" prot="public" virt="non-virtual"><scope>euphoria::core::CliProgressDots</scope><name>dots_on_line</name></member>
+      <member refid="structeuphoria_1_1core_1_1CliProgressDots_1adc33b5a97935b6e516702994af3c7892" prot="public" virt="non-virtual"><scope>euphoria::core::CliProgressDots</scope><name>dots_per_line</name></member>
+      <member refid="structeuphoria_1_1core_1_1CliProgressDots_1ab469c53f1f1d3b5a360f39f9c5407300" prot="public" virt="non-virtual"><scope>euphoria::core::CliProgressDots</scope><name>has_printed</name></member>
+      <member refid="structeuphoria_1_1core_1_1CliProgressDots_1a3e835b807e09a56340b2fa33dd97e1a8" prot="public" virt="non-virtual"><scope>euphoria::core::CliProgressDots</scope><name>last</name></member>
+      <member refid="structeuphoria_1_1core_1_1CliProgressDots_1a07038a2e7bf504c506b0dacabaaed33f" prot="public" virt="non-virtual"><scope>euphoria::core::CliProgressDots</scope><name>update</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

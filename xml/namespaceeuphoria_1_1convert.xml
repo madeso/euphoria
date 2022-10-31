@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1convert" kind="namespace" language="C++">
+    <compoundname>euphoria::convert</compoundname>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1convert_1ae7428497be0bfccc9ceaf662a0a8c7c3" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
+        <definition>constexpr core::Angle euphoria::convert::operator&quot;&quot;_deg</definition>
+        <argsstring>(long double d)</argsstring>
+        <name>operator&quot;&quot;_deg</name>
+        <param>
+          <type>long double</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/angle.h" line="218" column="27" bodyfile="libs/core/src/core/angle.h" bodystart="218" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1convert_1a45211991b54f443b32b710f2efc69dbb" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
+        <definition>constexpr core::Angle euphoria::convert::operator&quot;&quot;_rad</definition>
+        <argsstring>(long double r)</argsstring>
+        <name>operator&quot;&quot;_rad</name>
+        <param>
+          <type>long double</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/angle.h" line="224" column="27" bodyfile="libs/core/src/core/angle.h" bodystart="224" bodyend="227"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/angle.h" line="217" column="1"/>
+  </compounddef>
+</doxygen>

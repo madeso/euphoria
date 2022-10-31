@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::generator::RandomTraversal::Entry</compoundname>
+    <includes refid="generator__maze_8h" local="no">generator_maze.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1a2fb112914eff421f6fa16b391ea2c879" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a0cb40771b3579f3c7f3c2134fe4db2e9" kindref="member">Vec2i</ref></type>
+        <definition>Vec2i euphoria::core::generator::RandomTraversal::Entry::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="92" column="19" bodyfile="libs/core/src/core/generator_maze.h" bodystart="92" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1a7404a12f1990a77d4b6f2141dfb0073d" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" kindref="member">Direction</ref></type>
+        <definition>Direction euphoria::core::generator::RandomTraversal::Entry::direction</definition>
+        <argsstring></argsstring>
+        <name>direction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="93" column="23" bodyfile="libs/core/src/core/generator_maze.h" bodystart="93" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::Vec2&lt; int &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Vec2"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::generator::RandomTraversal::Entry</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_maze.h" line="91" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="90" bodyend="94"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1a7404a12f1990a77d4b6f2141dfb0073d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal::Entry</scope><name>direction</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1a2fb112914eff421f6fa16b391ea2c879" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal::Entry</scope><name>position</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

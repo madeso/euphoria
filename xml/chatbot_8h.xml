@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="chatbot_8h" kind="file" language="C++">
+    <compoundname>chatbot.h</compoundname>
+    <includes local="no">map</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">deque</includes>
+    <includes local="no">optional</includes>
+    <includes refid="random_8h" local="yes">core/random.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/chatbot.h</label>
+        <link refid="chatbot_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>cstdint</label>
+      </node>
+      <node id="21">
+        <label>core/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>map</label>
+      </node>
+      <node id="7">
+        <label>range/v3/view/span.hpp</label>
+      </node>
+      <node id="6">
+        <label>core/random.h</label>
+        <link refid="random_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>core/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
+      </node>
+      <node id="8">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
+        <label>core/easing.h</label>
+        <link refid="easing_8h"/>
+      </node>
+      <node id="14">
+        <label>core/vec2.h</label>
+        <link refid="vec2_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>tuple</label>
+      </node>
+      <node id="5">
+        <label>optional</label>
+      </node>
+      <node id="20">
+        <label>core/numeric.h</label>
+        <link refid="numeric_8h"/>
+      </node>
+      <node id="10">
+        <label>vector</label>
+      </node>
+      <node id="11">
+        <label>sstream</label>
+      </node>
+      <node id="12">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>iostream</label>
+      </node>
+      <node id="22">
+        <label>cstddef</label>
+      </node>
+      <node id="4">
+        <label>deque</label>
+      </node>
+      <node id="24">
+        <label>core/range.h</label>
+        <link refid="range_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>core/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>type_traits</label>
+      </node>
+      <node id="16">
+        <label>core/interpolate.h</label>
+        <link refid="interpolate_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Input" prot="public">euphoria::core::detail::Input</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse" prot="public">euphoria::core::detail::SingleResponse</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Response" prot="public">euphoria::core::detail::Response</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" prot="public">euphoria::core::detail::ResponseBuilder</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Database" prot="public">euphoria::core::detail::Database</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Transposer" prot="public">euphoria::core::detail::Transposer</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics" prot="public">euphoria::core::detail::ConversationTopics</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus" prot="public">euphoria::core::detail::ConversationStatus</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry" prot="public">euphoria::core::detail::ConversationStatus::TopicEntry</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry" prot="public">euphoria::core::detail::ConversationStatus::LogEntry</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Chatbot" prot="public">euphoria::core::Chatbot</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1detail">euphoria::core::detail</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/chatbot.h"/>
+  </compounddef>
+</doxygen>

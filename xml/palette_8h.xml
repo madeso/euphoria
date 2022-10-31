@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="palette_8h" kind="file" language="C++">
+    <compoundname>palette.h</compoundname>
+    <includes local="no">string_view</includes>
+    <includes local="no">array</includes>
+    <includes local="yes">range/v3/view/span.hpp</includes>
+    <includes refid="rgb_8h" local="yes">core/rgb.h</includes>
+    <includedby refid="colorbrewer_8h" local="yes">libs/core/src/core/colorbrewer.h</includedby>
+    <includedby refid="palette__cubehelix_8h" local="yes">libs/core/src/core/palette_cubehelix.h</includedby>
+    <includedby refid="palette__lospec_8h" local="yes">libs/core/src/core/palette_lospec.h</includedby>
+    <includedby refid="palette__matplot_8h" local="yes">libs/core/src/core/palette_matplot.h</includedby>
+    <includedby refid="palette__mycarta_8h" local="yes">libs/core/src/core/palette_mycarta.h</includedby>
+    <includedby refid="palette__tableu_8h" local="yes">libs/core/src/core/palette_tableu.h</includedby>
+    <incdepgraph>
+      <node id="26">
+        <label>core/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
+      <node id="24">
+        <label>queue</label>
+      </node>
+      <node id="10">
+        <label>core/colors.h</label>
+        <link refid="colors_8h"/>
+      </node>
+      <node id="23">
+        <label>core/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cstdint</label>
+      </node>
+      <node id="6">
+        <label>core/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>core/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>core/str.h</label>
+        <link refid="str_8h"/>
+      </node>
+      <node id="5">
+        <label>core/rgb.h</label>
+        <link refid="rgb_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="29">
+        <label>core/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="30" relation="include">
+        </childnode>
+      </node>
+      <node id="18">
+        <label>string</label>
+      </node>
+      <node id="16">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>range/v3/view/span.hpp</label>
+      </node>
+      <node id="17">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>string_view</label>
+      </node>
+      <node id="30">
+        <label>optional</label>
+      </node>
+      <node id="13">
+        <label>core/numeric.h</label>
+        <link refid="numeric_8h"/>
+      </node>
+      <node id="27">
+        <label>magic_enum/magic_enum.hpp</label>
+      </node>
+      <node id="19">
+        <label>vector</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/palette.h</label>
+        <link refid="palette_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="28">
+        <label>core/custom_parser.h</label>
+        <link refid="custom__parser_8h"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>array</label>
+      </node>
+      <node id="20">
+        <label>sstream</label>
+      </node>
+      <node id="7">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>iostream</label>
+      </node>
+      <node id="9">
+        <label>cstddef</label>
+      </node>
+      <node id="15">
+        <label>core/enumtostring.h</label>
+        <link refid="enumtostring_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>core/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>core/default_parse.h</label>
+        <link refid="default__parse_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="25">
+        <label>algorithm</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>libs/core/src/core/palette_matplot.h</label>
+        <link refid="palette__matplot_8h"/>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/colorbrewer.h</label>
+        <link refid="colorbrewer_8h"/>
+      </node>
+      <node id="6">
+        <label>libs/core/src/core/palette_mycarta.h</label>
+        <link refid="palette__mycarta_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/palette.h</label>
+        <link refid="palette_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/palette_cubehelix.h</label>
+        <link refid="palette__cubehelix_8h"/>
+      </node>
+      <node id="4">
+        <label>libs/core/src/core/palette_lospec.h</label>
+        <link refid="palette__lospec_8h"/>
+      </node>
+      <node id="7">
+        <label>libs/core/src/core/palette_tableu.h</label>
+        <link refid="palette__tableu_8h"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1Palette" prot="public">euphoria::core::Palette</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1StaticPalette" prot="public">euphoria::core::StaticPalette</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1DynamicPalette" prot="public">euphoria::core::DynamicPalette</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1palettes">euphoria::core::palettes</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/palette.h"/>
+  </compounddef>
+</doxygen>

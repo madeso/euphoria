@@ -1,0 +1,943 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="group__string" kind="group">
+    <compoundname>string</compoundname>
+    <title>String utility functions.</title>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="group__string_1ga76be2d19e62a480036566314fba1fb03" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>CharToStringStyle</name>
+        <enumvalue id="group__string_1gga76be2d19e62a480036566314fba1fb03a8c319f28d81d1527a9428e9a5c2195f5" prot="public">
+          <name>smart</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="group__string_1gga76be2d19e62a480036566314fba1fb03afa2f1c8dc686b38506663647e5242622" prot="public">
+          <name>include_hex</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="115" column="1" bodyfile="libs/core/src/core/stringutils.h" bodystart="114" bodyend="117"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="group__string_1ga6b3b47e71d47e09860a94f43e2e4e443" prot="public" static="no" mutable="no">
+        <type>const std::string</type>
+        <definition>const std::string euphoria::core::space_characters</definition>
+        <argsstring></argsstring>
+        <name>space_characters</name>
+        <initializer>= &quot; \n\r\t&quot;</initializer>
+        <briefdescription>
+<para>Space characters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>the space characters. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="27" column="23" bodyfile="libs/core/src/core/stringutils.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="group__string_1gab50f5fe675ce4093d55027482701df4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::is_number</definition>
+        <argsstring>(char b)</argsstring>
+        <name>is_number</name>
+        <param>
+          <type>char</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="21" column="4" declfile="libs/core/src/core/stringutils.h" declline="21" declcolumn="4"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga26d61218d653c49249bf464d9c057d3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::strip_last_string</definition>
+        <argsstring>(const std::string &amp;str, char sep)</argsstring>
+        <name>strip_last_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>sep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="32" column="5" declfile="libs/core/src/core/stringutils.h" declline="32" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga5539d1b18d02096141c6a211706c114b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::pair&lt; std::string, std::string &gt;</type>
+        <definition>std::pair&lt;std::string, std::string&gt; euphoria::core::last_strings</definition>
+        <argsstring>(const std::string &amp;str, char sep)</argsstring>
+        <name>last_strings</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>sep</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="36" column="5" declfile="libs/core/src/core/stringutils.h" declline="36" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga6be8b04bf0610b57ceeeaedf3c69aa21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::first_chars</definition>
+        <argsstring>(const std::string &amp;str, std::size_t count)</argsstring>
+        <name>first_chars</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="40" column="5" declfile="libs/core/src/core/stringutils.h" declline="40" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gae5bc0b33c29ff3b304e0fa6bc6d158e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::first_chars_with_ellipsis</definition>
+        <argsstring>(const std::string &amp;str, unsigned int count=10)</argsstring>
+        <name>first_chars_with_ellipsis</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>unsigned int</type>
+          <declname>count</declname>
+          <defval>10</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="43" column="5" declfile="libs/core/src/core/stringutils.h" declline="43" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga24478fe47f06fbbcb7d75a59057a2d84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::trim_right</definition>
+        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
+        <name>trim_right</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_trim</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>trim_characters</declname>
+          <defval>space_characters</defval>
+        </param>
+        <briefdescription>
+<para>Remove characters from the right, stops at a invalid character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_trim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to remove characters from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trim_characters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the characters to remove. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the trimmed string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="52" column="5" declfile="libs/core/src/core/stringutils.h" declline="52" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gabb15f8b7df7a74973ad1e4bd3394b360" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::trim_left</definition>
+        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
+        <name>trim_left</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_trim</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>trim_characters</declname>
+          <defval>space_characters</defval>
+        </param>
+        <briefdescription>
+<para>Remove characters from the left, stops at invalid character. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_trim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to remove characters from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trim_characters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the characters to remove. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the trimmed string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="61" column="5" declfile="libs/core/src/core/stringutils.h" declline="61" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga8cb4fed283213699726e617f65f0a1ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::trim</definition>
+        <argsstring>(const std::string &amp;string_to_trim, const std::string &amp;trim_characters=space_characters)</argsstring>
+        <name>trim</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_trim</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>trim_characters</declname>
+          <defval>space_characters</defval>
+        </param>
+        <briefdescription>
+<para>Remove characters from both the start and the end. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_trim</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to remove characters from. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>trim_characters</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the characters to remove. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the trimmed string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="70" column="5" declfile="libs/core/src/core/stringutils.h" declline="70" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga814d397c4364b2205e073daabd20edec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::starts_with</definition>
+        <argsstring>(const std::string &amp;string_to_test, const std::string &amp;start)</argsstring>
+        <name>starts_with</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_test</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>start</declname>
+        </param>
+        <briefdescription>
+<para>Tests if a string starts with another string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_test</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to test. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>start</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the start of the string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the start match, false if not. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="79" column="5" declfile="libs/core/src/core/stringutils.h" declline="79" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga5a7f57fadc01161aced52da619c6998e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::ends_with</definition>
+        <argsstring>(const std::string &amp;string_to_test, const std::string &amp;end)</argsstring>
+        <name>ends_with</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string_to_test</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+<para>Tests if a string ends with another string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string_to_test</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to test. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>end</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the end of the string. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the end match, false if not. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="88" column="5" declfile="libs/core/src/core/stringutils.h" declline="88" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga7f126530d4c6f7f10fe540d291360217" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char euphoria::core::to_lower_char</definition>
+        <argsstring>(char b)</argsstring>
+        <name>to_lower_char</name>
+        <param>
+          <type>char</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="92" column="5" declfile="libs/core/src/core/stringutils.h" declline="92" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gaff7fc2ad77c5c8e152d588faa0a1f66f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>char</type>
+        <definition>char euphoria::core::to_upper_char</definition>
+        <argsstring>(char b)</argsstring>
+        <name>to_upper_char</name>
+        <param>
+          <type>char</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="95" column="5" declfile="libs/core/src/core/stringutils.h" declline="95" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga0969511cbbc86a70a94662d9e6365200" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::to_lower</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>to_lower</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+<para>Generate a string containing only lower characters. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>str</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to lower. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the lowered string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="103" column="5" declfile="libs/core/src/core/stringutils.h" declline="103" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gafa9a0e194dc9cbb578c0368fc06f0045" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::to_lower</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;str)</argsstring>
+        <name>to_lower</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="107" column="5" declfile="libs/core/src/core/stringutils.h" declline="107" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga67304dafab5cf1cbe5086c10cc105b51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::to_upper</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>to_upper</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="111" column="5" declfile="libs/core/src/core/stringutils.h" declline="111" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gad4f566f87b9d9904f2618d4b8d7355b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::char_to_string</definition>
+        <argsstring>(char c, CharToStringStyle style=CharToStringStyle::smart)</argsstring>
+        <name>char_to_string</name>
+        <param>
+          <type>char</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>CharToStringStyle</type>
+          <declname>style</declname>
+          <defval>CharToStringStyle::smart</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="121" column="5" declfile="libs/core/src/core/stringutils.h" declline="121" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga3f2cd303af1faf7a4a62fb3a933e83e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string::size_type</type>
+        <definition>std::string::size_type euphoria::core::find_first_index_of_mismatch</definition>
+        <argsstring>(const std::string &amp;lhs, const std::string &amp;rhs)</argsstring>
+        <name>find_first_index_of_mismatch</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="125" column="5" declfile="libs/core/src/core/stringutils.h" declline="125" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga1393c92069ffb1be8bc58af3e7212c58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::replace_all</definition>
+        <argsstring>(std::string *string, const std::string &amp;to_find, const std::string &amp;to_replace)</argsstring>
+        <name>replace_all</name>
+        <param>
+          <type>std::string *</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_find</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_replace</declname>
+        </param>
+        <briefdescription>
+<para>Replace all occurrences in a string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to_find</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to_replace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to replace it. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="134" column="5" declfile="libs/core/src/core/stringutils.h" declline="134" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga5aec424acbf5fe24a8ad2566f953986c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::replace_all</definition>
+        <argsstring>(const std::string &amp;string, const std::string &amp;to_find, const std::string &amp;to_replace)</argsstring>
+        <name>replace_all</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_find</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_replace</declname>
+        </param>
+        <briefdescription>
+<para>Replace all occurrences in a string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>string</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to_find</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to find. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>to_replace</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the string to replace it. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the modified string. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="144" column="5" declfile="libs/core/src/core/stringutils.h" declline="144" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga35252d7e93d1034c45f8fc02ec6ccaca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::replace_with_character</definition>
+        <argsstring>(const std::string &amp;string, const std::string &amp;to_find, char to_replace)</argsstring>
+        <name>replace_with_character</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>to_find</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>to_replace</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="148" column="5" declfile="libs/core/src/core/stringutils.h" declline="148" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gaf2c411eb368e2d2cd7c2486ffe8c70f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::copy</definition>
+        <argsstring>(char *dst, const std::string &amp;src, const std::string::size_type &amp;count)</argsstring>
+        <name>copy</name>
+        <param>
+          <type>char *</type>
+          <declname>dst</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>src</declname>
+        </param>
+        <param>
+          <type>const std::string::size_type &amp;</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+<para>Copy a string to a character buffer, adding null terminator at the end. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>dst</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the destination buffer. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>src</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the source string. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>count</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the maximum number of characters to copy (including null terminator) </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="158" column="5" declfile="libs/core/src/core/stringutils.h" declline="158" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gae9502e3020dd7a98866d821c41047020" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::remove_from_end</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;end)</argsstring>
+        <name>remove_from_end</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="161" column="5" declfile="libs/core/src/core/stringutils.h" declline="161" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga8017ea0795ca9ca4d868f667e6aa093e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Key</type>
+          </param>
+          <param>
+            <type>typename Value</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::to_string_vector</definition>
+        <argsstring>(const std::map&lt; Key, Value &gt; &amp;map)</argsstring>
+        <name>to_string_vector</name>
+        <param>
+          <type>const std::map&lt; Key, Value &gt; &amp;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="166" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="166" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga223a6d6672fb2d1c6bd56ec0c46394de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename Key</type>
+          </param>
+          <param>
+            <type>typename Value</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::key_to_string_vector</definition>
+        <argsstring>(const std::map&lt; Key, Value &gt; &amp;map)</argsstring>
+        <name>key_to_string_vector</name>
+        <param>
+          <type>const std::map&lt; Key, Value &gt; &amp;</type>
+          <declname>map</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="181" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="181" bodyend="190"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga1f4dae4c4ca084ca1c688167915bdb60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::to_string_vector</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;data)</argsstring>
+        <name>to_string_vector</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="195" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="195" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga1abe1f676616f8aa4f610866a7d60f40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+          <param>
+            <type>typename C</type>
+          </param>
+        </templateparamlist>
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::to_string_vector</definition>
+        <argsstring>(const std::vector&lt; T &gt; &amp;data, C callback)</argsstring>
+        <name>to_string_vector</name>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>C</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="210" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="210" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gafdeab9a423bfa7d2d9d92557e60917a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::strip</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;ch)</argsstring>
+        <name>strip</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="224" column="5" declfile="libs/core/src/core/stringutils.h" declline="224" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga73d3a9771d3a6c8d7bd9e526219f9cdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::remove_consecutive</definition>
+        <argsstring>(const std::string &amp;str, const std::string &amp;ch)</argsstring>
+        <name>remove_consecutive</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>ch</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="229" column="5" declfile="libs/core/src/core/stringutils.h" declline="229" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga513fcb2e37d819d2efa8990c63a94943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::split</definition>
+        <argsstring>(const std::string &amp;string, char delim)</argsstring>
+        <name>split</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <declname>delim</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="233" column="5" declfile="libs/core/src/core/stringutils.h" declline="233" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1ga056bafb62ff5e4476efbff39513341f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::split_on_spaces</definition>
+        <argsstring>(const std::string &amp;string)</argsstring>
+        <name>split_on_spaces</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>string</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="237" column="5" declfile="libs/core/src/core/stringutils.h" declline="237" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gac664e9d6a7bc3d57135fa05ca523350c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::optional_string</definition>
+        <argsstring>(bool b, const std::string &amp;str)</argsstring>
+        <name>optional_string</name>
+        <param>
+          <type>bool</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="241" column="5" declfile="libs/core/src/core/stringutils.h" declline="241" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="group__string_1gae5e8bde5cfc2903bc3ee7a1e8717f743" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::string_compare</definition>
+        <argsstring>(const std::string &amp;lhs, const std::string &amp;rhs)</argsstring>
+        <name>string_compare</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringutils.h" line="246" column="5" declfile="libs/core/src/core/stringutils.h" declline="246" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+  </compounddef>
+</doxygen>

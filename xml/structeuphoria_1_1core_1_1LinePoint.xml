@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1LinePoint" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::LinePoint</compoundname>
+    <includes refid="lines_8h" local="no">lines.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1LinePoint_1ac1e90d33916305e3441774f046465212" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
+        <definition>Vec3f euphoria::core::LinePoint::point</definition>
+        <argsstring></argsstring>
+        <name>point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="15" column="15" bodyfile="libs/core/src/core/lines.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1LinePoint_1a7293caf27ee9de8d8199816e11eaea6d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
+        <definition>Rgb euphoria::core::LinePoint::color</definition>
+        <argsstring></argsstring>
+        <name>color</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="16" column="13" bodyfile="libs/core/src/core/lines.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1LinePoint_1a5621a2ff29db8746c71350955b565810" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::LinePoint::LinePoint</definition>
+        <argsstring>(const Vec3f &amp;p, const Rgb &amp;c)</argsstring>
+        <name>LinePoint</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/lines.h" line="13" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::Rgb</label>
+        <link refid="structeuphoria_1_1core_1_1Rgb"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::Vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::LinePoint</label>
+        <link refid="structeuphoria_1_1core_1_1LinePoint"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>color</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>point</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/lines.h" line="12" column="1" bodyfile="libs/core/src/core/lines.h" bodystart="11" bodyend="17"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1LinePoint_1a7293caf27ee9de8d8199816e11eaea6d" prot="public" virt="non-virtual"><scope>euphoria::core::LinePoint</scope><name>color</name></member>
+      <member refid="structeuphoria_1_1core_1_1LinePoint_1a5621a2ff29db8746c71350955b565810" prot="public" virt="non-virtual"><scope>euphoria::core::LinePoint</scope><name>LinePoint</name></member>
+      <member refid="structeuphoria_1_1core_1_1LinePoint_1ac1e90d33916305e3441774f046465212" prot="public" virt="non-virtual"><scope>euphoria::core::LinePoint</scope><name>point</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

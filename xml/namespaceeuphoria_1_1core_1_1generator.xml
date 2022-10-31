@@ -1,0 +1,382 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1generator" kind="namespace" language="C++">
+    <compoundname>euphoria::core::generator</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Algorithm" prot="public">euphoria::core::generator::Algorithm</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" prot="public">euphoria::core::generator::CellularAutomata</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Drawer" prot="public">euphoria::core::generator::Drawer</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal" prot="public">euphoria::core::generator::RandomTraversal</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker" prot="public">euphoria::core::generator::RecursiveBacktracker</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public">euphoria::core::generator::Rule</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Rules" prot="public">euphoria::core::generator::Rules</innerclass>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1generator_1_1cell">euphoria::core::generator::cell</innernamespace>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>Direction</name>
+        <enumvalue id="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bba8d8d1437907bca79900ac5f0ea1f5c73" prot="public">
+          <name>north</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bba50fd76e33fe5b9617c5ca99008af8904" prot="public">
+          <name>south</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bba320381dbf7cd2f31c04baa6b36e1c682" prot="public">
+          <name>east</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bbada4f0053a5c13882268852ae2da2e466" prot="public">
+          <name>west</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="31" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="30" bodyend="36"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="typedef">
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1generator_1ae38b984f0569b05ec4cbc147ae02852a" prot="public" static="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1aff3502411f32d5f6edb01ab92f9016aa" kindref="member">BoolTable</ref></type>
+        <definition>using euphoria::core::generator::World = typedef BoolTable</definition>
+        <argsstring></argsstring>
+        <name>World</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="15" column="5" bodyfile="libs/core/src/core/generator_cell.h" bodystart="15" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1generator_1a870ae28eac49fdf014f885256933f2b3" prot="public" static="no">
+        <type>std::function&lt; std::optional&lt; bool &gt;(bool, const <ref refid="structeuphoria_1_1core_1_1WallCounter" kindref="compound">WallCounter</ref> &amp;) &gt;</type>
+        <definition>using euphoria::core::generator::ChangeFunction = typedef std::function &lt; std::optional&lt;bool&gt; (bool, const WallCounter&amp;) &gt;</definition>
+        <argsstring></argsstring>
+        <name>ChangeFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="60" column="5" bodyfile="libs/core/src/core/generator_cell.h" bodystart="64" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1generator_1ac679e8d7c755ebc9dcac45eff0d0898d" prot="public" static="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Table" kindref="compound">Table</ref>&lt; int &gt;</type>
+        <definition>using euphoria::core::generator::Maze = typedef Table&lt;int&gt;</definition>
+        <argsstring></argsstring>
+        <name>Maze</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="38" column="5" bodyfile="libs/core/src/core/generator_maze.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1afe2cebd2770c57f593238b454d63c14a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_random_fill</definition>
+        <argsstring>(Rules *cell, Random *random, float random_fill=0.5, Lrud&lt; BorderSetupRule &gt; border_control=Lrud&lt; BorderSetupRule &gt; { BorderSetupRule::always_wall })</argsstring>
+        <name>add_random_fill</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1Rules" kindref="compound">Rules</ref> *</type>
+          <declname>cell</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>random_fill</declname>
+          <defval>0.5</defval>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252" kindref="member">BorderSetupRule</ref> &gt;</type>
+          <declname>border_control</declname>
+          <defval><ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252" kindref="member">BorderSetupRule</ref> &gt; { <ref refid="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252ad91f00fc682feeec2c90d8399d62d8ef" kindref="member">BorderSetupRule::always_wall</ref> }</defval>
+        </param>
+        <briefdescription>
+<para>fills the world with random data </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="70" column="5" declfile="libs/core/src/core/generator_cell.h" declline="70" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a0f4240b41bc5618a82aad7f21c140ffb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_clear_rules</definition>
+        <argsstring>(Rules *ca, int times, int count, int range, bool include_self, NeighborhoodAlgorithm algorithm)</argsstring>
+        <name>add_clear_rules</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1Rules" kindref="compound">Rules</ref> *</type>
+          <declname>ca</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>times</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>range</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>include_self</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a30b337cc45a3f978a3cf405f37ca4d9f" kindref="member">NeighborhoodAlgorithm</ref></type>
+          <declname>algorithm</declname>
+        </param>
+        <briefdescription>
+<para>&apos;clears&apos; cells with less than &apos;count&apos; neighbours, good for removing &apos;blobs&apos; </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="83" column="5" declfile="libs/core/src/core/generator_cell.h" declline="83" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a9a8b44e296aa81a2be7fd5aabdfd5e97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_complex_rules</definition>
+        <argsstring>(Rules *ca, int times, ChangeFunction change)</argsstring>
+        <name>add_complex_rules</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1Rules" kindref="compound">Rules</ref> *</type>
+          <declname>ca</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>times</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1a870ae28eac49fdf014f885256933f2b3" kindref="member">ChangeFunction</ref></type>
+          <declname>change</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="94" column="5" declfile="libs/core/src/core/generator_cell.h" declline="94" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a1d696256628a2829c581f3f19cfcfd06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_simple_rules</definition>
+        <argsstring>(Rules *ca, int times, int count, bool include_self, NeighborhoodAlgorithm algorithm)</argsstring>
+        <name>add_simple_rules</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1Rules" kindref="compound">Rules</ref> *</type>
+          <declname>ca</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>times</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>include_self</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a30b337cc45a3f978a3cf405f37ca4d9f" kindref="member">NeighborhoodAlgorithm</ref></type>
+          <declname>algorithm</declname>
+        </param>
+        <briefdescription>
+<para>simple smoothing, less than count neighbours are removed, more -&gt; solid </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="103" column="5" declfile="libs/core/src/core/generator_cell.h" declline="103" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a34f66ca39c0ee89cce254f8e35e56652" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_horizontal_blank_rule</definition>
+        <argsstring>(Rules *ca, int y, int height)</argsstring>
+        <name>add_horizontal_blank_rule</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1Rules" kindref="compound">Rules</ref> *</type>
+          <declname>ca</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+<para>blanks out cells at &apos;y&apos; and &apos;height&apos; down </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="114" column="5" declfile="libs/core/src/core/generator_cell.h" declline="114" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1afad9f4a99cdfb245bd86473a2d55e733" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_spiky_rules</definition>
+        <argsstring>(Rules *ca, int times, int count, bool include_self, NeighborhoodAlgorithm algorithm)</argsstring>
+        <name>add_spiky_rules</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1Rules" kindref="compound">Rules</ref> *</type>
+          <declname>ca</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>times</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>include_self</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a30b337cc45a3f978a3cf405f37ca4d9f" kindref="member">NeighborhoodAlgorithm</ref></type>
+          <declname>algorithm</declname>
+        </param>
+        <briefdescription>
+<para>simple smoothing, but always set the cell, seems to provide spikes </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="123" column="5" declfile="libs/core/src/core/generator_cell.h" declline="123" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1acbe34801808636ac9bf474afcd4c5bf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_combo_rules</definition>
+        <argsstring>(Rules *ca, int times, int count, int big_count, bool include_self, NeighborhoodAlgorithm algorithm)</argsstring>
+        <name>add_combo_rules</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1Rules" kindref="compound">Rules</ref> *</type>
+          <declname>ca</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>times</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>count</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>big_count</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>include_self</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a30b337cc45a3f978a3cf405f37ca4d9f" kindref="member">NeighborhoodAlgorithm</ref></type>
+          <declname>algorithm</declname>
+        </param>
+        <briefdescription>
+<para>smooth but &apos;big_count&apos; is applied for R(2) </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="134" column="5" declfile="libs/core/src/core/generator_cell.h" declline="134" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a689a3b1b71235fa05a31391f785ce981" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_fill_small_holes_rule</definition>
+        <argsstring>(Rules *rules, bool allow_diagonals, int min_count)</argsstring>
+        <name>add_fill_small_holes_rule</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1Rules" kindref="compound">Rules</ref> *</type>
+          <declname>rules</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_diagonals</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>min_count</declname>
+        </param>
+        <briefdescription>
+<para>fills all open areas that are less than &apos;min_count&apos; </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="146" column="5" declfile="libs/core/src/core/generator_cell.h" declline="146" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1ad7da14d1a561da08bcefe7c04bfe02a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_fill_all_holes_rule</definition>
+        <argsstring>(Rules *rules, bool allow_diagonals, int holes_to_keep)</argsstring>
+        <name>add_fill_all_holes_rule</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1Rules" kindref="compound">Rules</ref> *</type>
+          <declname>rules</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>allow_diagonals</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>holes_to_keep</declname>
+        </param>
+        <briefdescription>
+<para>fills all open areas, but keeps &apos;holes_to_keep&apos; </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="150" column="5" declfile="libs/core/src/core/generator_cell.h" declline="150" declcolumn="5"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/generator_cell.h" line="14" column="1"/>
+  </compounddef>
+</doxygen>

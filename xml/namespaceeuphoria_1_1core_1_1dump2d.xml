@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1dump2d" kind="namespace" language="C++">
+    <compoundname>euphoria::core::dump2d</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper" prot="public">euphoria::core::dump2d::AddWrapper</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Circle" prot="public">euphoria::core::dump2d::Circle</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper" prot="public">euphoria::core::dump2d::Dumper</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Group" prot="public">euphoria::core::dump2d::Group</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Item" prot="public">euphoria::core::dump2d::Item</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Poly" prot="public">euphoria::core::dump2d::Poly</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Text" prot="public">euphoria::core::dump2d::Text</innerclass>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes">euphoria::core::dump2d::strokes</innernamespace>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1a5c6f2660d900a9c5d2bb3a9ba843db68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Poly" kindref="compound">Poly</ref> *</type>
+        <definition>const Poly* euphoria::core::dump2d::as_poly</definition>
+        <argsstring>(const Item *item)</argsstring>
+        <name>as_poly</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="79" column="16" declfile="libs/core/src/core/dump.h" declline="79" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1a599e8d2127e43a417d0c3663d418dbd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Text" kindref="compound">Text</ref> *</type>
+        <definition>const Text* euphoria::core::dump2d::as_text</definition>
+        <argsstring>(const Item *item)</argsstring>
+        <name>as_text</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="80" column="16" declfile="libs/core/src/core/dump.h" declline="80" declcolumn="16"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1abaaebc51be4491c3ca746a8d3148ced1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Group" kindref="compound">Group</ref> *</type>
+        <definition>const Group* euphoria::core::dump2d::as_group</definition>
+        <argsstring>(const Item *item)</argsstring>
+        <name>as_group</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="81" column="17" declfile="libs/core/src/core/dump.h" declline="81" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1a362f89352a85a0512783b056afd2bc2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Circle" kindref="compound">Circle</ref> *</type>
+        <definition>const Circle* euphoria::core::dump2d::as_circle</definition>
+        <argsstring>(const Item *item)</argsstring>
+        <name>as_circle</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Item" kindref="compound">Item</ref> *</type>
+          <declname>item</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.h" line="82" column="18" declfile="libs/core/src/core/dump.h" declline="82" declcolumn="18"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/dump.h" line="21" column="1"/>
+  </compounddef>
+</doxygen>

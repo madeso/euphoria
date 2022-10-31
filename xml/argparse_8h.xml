@@ -1,0 +1,188 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="argparse_8h" kind="file" language="C++">
+    <compoundname>argparse.h</compoundname>
+    <includes local="no">map</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">functional</includes>
+    <includes local="no">type_traits</includes>
+    <includes refid="default__parse_8h" local="yes">core/default_parse.h</includes>
+    <includes refid="stringmerger_8h" local="yes">core/stringmerger.h</includes>
+    <includes refid="result_8h" local="yes">core/result.h</includes>
+    <includedby refid="engine_8h" local="yes">libs/window/src/window/engine.h</includedby>
+    <incdepgraph>
+      <node id="18">
+        <label>core/editdistance.h</label>
+        <link refid="editdistance_8h"/>
+      </node>
+      <node id="5">
+        <label>functional</label>
+      </node>
+      <node id="16">
+        <label>queue</label>
+      </node>
+      <node id="15">
+        <label>core/editdistance.search.h</label>
+        <link refid="editdistance_8search_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>core/str.h</label>
+        <link refid="str_8h"/>
+      </node>
+      <node id="22">
+        <label>core/stringmerger.h</label>
+        <link refid="stringmerger_8h"/>
+        <childnode refid="23" relation="include">
+        </childnode>
+      </node>
+      <node id="21">
+        <label>core/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>map</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/argparse.h</label>
+        <link refid="argparse_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>string_view</label>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="19">
+        <label>magic_enum/magic_enum.hpp</label>
+      </node>
+      <node id="11">
+        <label>vector</label>
+      </node>
+      <node id="20">
+        <label>core/custom_parser.h</label>
+        <link refid="custom__parser_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>sstream</label>
+      </node>
+      <node id="8">
+        <label>core/enumtostring.h</label>
+        <link refid="enumtostring_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>core/default_parse.h</label>
+        <link refid="default__parse_8h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>type_traits</label>
+      </node>
+      <node id="17">
+        <label>algorithm</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/window/src/window/engine.h</label>
+        <link refid="engine_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/argparse.h</label>
+        <link refid="argparse_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1FileOutput" prot="public">euphoria::core::argparse::FileOutput</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" prot="public">euphoria::core::argparse::ParseResult</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" prot="public">euphoria::core::argparse::NameAndArguments</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentReader" prot="public">euphoria::core::argparse::ArgumentReader</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Printer" prot="public">euphoria::core::argparse::Printer</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter" prot="public">euphoria::core::argparse::ConsolePrinter</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Runner" prot="public">euphoria::core::argparse::Runner</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Name" prot="public">euphoria::core::argparse::Name</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Argument" prot="public">euphoria::core::argparse::Argument</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentAndName" prot="public">euphoria::core::argparse::ArgumentAndName</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ArgumentNoValue" prot="public">euphoria::core::argparse::ArgumentNoValue</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SingleArgument" prot="public">euphoria::core::argparse::SingleArgument</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument" prot="public">euphoria::core::argparse::MultiArgument</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserNames" prot="public">euphoria::core::argparse::SubParserNames</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserContainer" prot="public">euphoria::core::argparse::SubParserContainer</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup" prot="public">euphoria::core::argparse::SubParserGroup</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" prot="public">euphoria::core::argparse::ParserBase</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1SubParser" prot="public">euphoria::core::argparse::SubParser</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1argparse_1_1Parser" prot="public">euphoria::core::argparse::Parser</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1argparse">euphoria::core::argparse</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/argparse.h"/>
+  </compounddef>
+</doxygen>

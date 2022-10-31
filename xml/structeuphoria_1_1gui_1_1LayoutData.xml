@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1gui_1_1LayoutData" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::gui::LayoutData</compoundname>
+    <includes refid="layoutdata_8h" local="no">layoutdata.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1LayoutData_1ab9272cd0ab1dae364137734e336079a8" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::gui::LayoutData::column</definition>
+        <argsstring></argsstring>
+        <name>column</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="9" column="13" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1LayoutData_1aeac71e064e71ffc6cb55446e73d4b927" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::gui::LayoutData::row</definition>
+        <argsstring></argsstring>
+        <name>row</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="10" column="13" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1LayoutData_1a85430fb77aa6f928c928fe4df58cfb33" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::gui::LayoutData::preferred_width</definition>
+        <argsstring></argsstring>
+        <name>preferred_width</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="11" column="15" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="11" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1LayoutData_1aed3589419ff4b804a7e9d1404d5f92eb" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::gui::LayoutData::preferred_height</definition>
+        <argsstring></argsstring>
+        <name>preferred_height</name>
+        <initializer>= 0.0f</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="12" column="15" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1LayoutData_1a738adaf24cb8cc20dc7120a0a46906d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::LayoutData::LayoutData</definition>
+        <argsstring>()=default</argsstring>
+        <name>LayoutData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/layoutdata.h" line="7" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/gui/src/gui/layoutdata.h" line="6" column="1" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="5" bodyend="13"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1gui_1_1LayoutData_1ab9272cd0ab1dae364137734e336079a8" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutData</scope><name>column</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutData_1a738adaf24cb8cc20dc7120a0a46906d5" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutData</scope><name>LayoutData</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutData_1aed3589419ff4b804a7e9d1404d5f92eb" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutData</scope><name>preferred_height</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutData_1a85430fb77aa6f928c928fe4df58cfb33" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutData</scope><name>preferred_width</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutData_1aeac71e064e71ffc6cb55446e73d4b927" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutData</scope><name>row</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

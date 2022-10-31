@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1BezierSegment2" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::BezierSegment2</compoundname>
+    <includes refid="polybezier_8h" local="no">polybezier.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1BezierSegment2_1a47de567b0b6279117b8c9151e2f0fc83" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
+        <definition>Vec2f euphoria::core::BezierSegment2::a0</definition>
+        <argsstring></argsstring>
+        <name>a0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polybezier.h" line="35" column="15" bodyfile="libs/core/src/core/polybezier.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1BezierSegment2_1aedafd5683a1b426eca9de2e55e0ff196" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
+        <definition>Vec2f euphoria::core::BezierSegment2::c0</definition>
+        <argsstring></argsstring>
+        <name>c0</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polybezier.h" line="36" column="15" bodyfile="libs/core/src/core/polybezier.h" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1BezierSegment2_1af2c1a8fde20607268271679fcfc8486a" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
+        <definition>Vec2f euphoria::core::BezierSegment2::a1</definition>
+        <argsstring></argsstring>
+        <name>a1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polybezier.h" line="38" column="15" bodyfile="libs/core/src/core/polybezier.h" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1BezierSegment2_1aa2cb21fb4de0d038675c67ea89f414ea" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
+        <definition>Vec2f euphoria::core::BezierSegment2::c1</definition>
+        <argsstring></argsstring>
+        <name>c1</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/polybezier.h" line="39" column="15" bodyfile="libs/core/src/core/polybezier.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::BezierSegment2</label>
+        <link refid="structeuphoria_1_1core_1_1BezierSegment2"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>c0</edgelabel>
+          <edgelabel>c1</edgelabel>
+          <edgelabel>a0</edgelabel>
+          <edgelabel>a1</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::Vec2&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Vec2"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/polybezier.h" line="34" column="1" bodyfile="libs/core/src/core/polybezier.h" bodystart="33" bodyend="40"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1BezierSegment2_1a47de567b0b6279117b8c9151e2f0fc83" prot="public" virt="non-virtual"><scope>euphoria::core::BezierSegment2</scope><name>a0</name></member>
+      <member refid="structeuphoria_1_1core_1_1BezierSegment2_1af2c1a8fde20607268271679fcfc8486a" prot="public" virt="non-virtual"><scope>euphoria::core::BezierSegment2</scope><name>a1</name></member>
+      <member refid="structeuphoria_1_1core_1_1BezierSegment2_1aedafd5683a1b426eca9de2e55e0ff196" prot="public" virt="non-virtual"><scope>euphoria::core::BezierSegment2</scope><name>c0</name></member>
+      <member refid="structeuphoria_1_1core_1_1BezierSegment2_1aa2cb21fb4de0d038675c67ea89f414ea" prot="public" virt="non-virtual"><scope>euphoria::core::BezierSegment2</scope><name>c1</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
