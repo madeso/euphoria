@@ -41,5 +41,6 @@ docs/generated/doxygen-html/
 docs/generated/palettes.html
 docs/generated/stars.html
 docs/generated/three.html
+docs/generated/xml/
 
 cppcheck-result.txt
