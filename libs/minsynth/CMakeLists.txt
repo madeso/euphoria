@@ -17,6 +17,7 @@ target_link_libraries(minsynth
     PUBLIC
         euph::core
     PRIVATE
+        external::fmt
         euph::project_options
         euph::project_warnings
 )

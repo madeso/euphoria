@@ -1,8 +1,6 @@
-#include <fstream>
-
-
 #include "core/table_string.h"
 #include "core/argparse.h"
+#include "core/io.h"
 
 using namespace euphoria::core;
 
@@ -12,13 +10,6 @@ enum class Type
     grid
 };
 
-std::string
-stream_to_string(std::istream& out)
-{
-    std::stringstream ss;
-    ss << out.rdbuf();
-    return ss.str();
-}
 
 int
 main(int argc, char* argv[])
@@ -45,8 +36,8 @@ main(int argc, char* argv[])
     
     Table<std::string> table;
     {
-        std::ifstream stream {file};
-        if(!stream)
+        const auto contents = io::file_to_string(file);
+        if(!contents)
         {
             std::cerr << "Failed to load " << file << "\n";
             return -1;
@@ -55,7 +46,7 @@ main(int argc, char* argv[])
         options.delim = format[0];
         options.str = format[1];
         options.trim = trim;
-        table = table_from_csv(stream_to_string(stream), options);
+        table = table_from_csv(*contents, options);
     }
 
     switch(type)

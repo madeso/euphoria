@@ -153,12 +153,21 @@ get_color(std::shared_ptr<game::Color> c)
         return NamedColor::gray;
     }
 
-    if(c->hex != nullptr)
+    if (c->hex != nullptr)
     {
-        return Rgb::from_hex(colorutil::from_string_to_hex(*c->hex));
+        const auto parsed = crgbi(*c->hex);
+        if (parsed)
+        {
+            return crgb(*parsed);
+        }
+        else
+        {
+            LOG_ERROR("Unable to parse color hex: {}", parsed.get_error());
+            return NamedColor::cornflower_blue;
+        }
     }
 
-    LOG_ERROR("Unable to parse color");
+    LOG_ERROR("Invalid color");
     return NamedColor::cornflower_blue;
 }
 

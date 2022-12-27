@@ -2,7 +2,7 @@
 
 
 #include <memory>
-
+#include <optional>
 
 #include "core/memorychunk.h"
 
@@ -17,4 +17,7 @@ namespace euphoria::core::io
 
     std::shared_ptr<MemoryChunk>
     file_to_chunk(const std::string& full_path);
+
+    std::optional<std::string>
+    file_to_string(const std::string& full_path);
 }

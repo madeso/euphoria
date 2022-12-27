@@ -62,4 +62,19 @@ namespace euphoria::core::io
 
         return memory;
     }
+
+    std::optional<std::string>
+    file_to_string(const std::string& full_path)
+    {
+        std::ifstream in(full_path, std::ios::in | std::ios::binary);
+        if (!in) { return std::nullopt; }
+            
+        std::string contents;
+        in.seekg(0, std::ios::end);
+        contents.resize(in.tellg());
+        in.seekg(0, std::ios::beg);
+        in.read(&contents[0], contents.size());
+        in.close();
+        return(contents);
+    }
 }

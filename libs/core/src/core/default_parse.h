@@ -1,10 +1,8 @@
 #pragma once
 
-
-
-
 #include "core/enumtostring.h"
 #include "core/custom_parser.h"
+#include "core/numparse.h"
 
 
 namespace euphoria::core::argparse
@@ -61,16 +59,14 @@ namespace euphoria::core::argparse
         const std::string& value
     )
     {
-        auto stream = std::istringstream{value};
-        T t;
-        stream >> t;
-        if(stream.fail() || !stream.eof())
+        auto parsed = locale_parse_generic<T>(value);
+        if(parsed)
         {
-            return Result<T>::create_error();
+            return Result<T>::create_value(*parsed);
         }
         else
         {
-            return Result<T>::create_value(t);
+            return Result<T>::create_error();
         }
     }
 

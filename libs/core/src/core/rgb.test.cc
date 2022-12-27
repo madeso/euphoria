@@ -129,3 +129,34 @@ TEST_CASE("rgb-ShadeColor", "[rgb]")
     // uncomment checks that fail, might be bugs or might be numerical errors
     // caused by floats or int/float conversion errors in the js demo samples
 }
+
+
+TEST_CASE("rgb-js", "[rgb]")
+{
+    REQUIRE(euco::to_js_hex_color(euco::Rgbi{0,0,0 }) == "0x000000");
+    REQUIRE(euco::to_js_hex_color(euco::Rgbi{ 0,255,0 }) == "0x00ff00");
+    REQUIRE(euco::to_js_hex_color(euco::Rgbi{ 255,255,255 }) == "0xffffff");
+}
+
+TEST_CASE("rgb-from_string", "[rgb]")
+{
+    REQUIRE(*euco::crgbi("#fff") == euco::Rgbi{ 255,255,255 });
+    REQUIRE(*euco::crgbi("#ffffff") == euco::Rgbi{ 255,255,255 });
+
+    REQUIRE(*euco::crgbi("#002b36") == euco::Rgbi{  0,  43,  54}); // base03
+    REQUIRE(*euco::crgbi("#073642") == euco::Rgbi{  7,  54,  66}); // base02
+    REQUIRE(*euco::crgbi("#586e75") == euco::Rgbi{ 88, 110, 117}); // base01
+    REQUIRE(*euco::crgbi("#657b83") == euco::Rgbi{101, 123, 131}); // base00
+    REQUIRE(*euco::crgbi("#839496") == euco::Rgbi{131, 148, 150}); // base0
+    REQUIRE(*euco::crgbi("#93a1a1") == euco::Rgbi{147, 161, 161}); // base1
+    REQUIRE(*euco::crgbi("#eee8d5") == euco::Rgbi{238, 232, 213}); // base2
+    REQUIRE(*euco::crgbi("#fdf6e3") == euco::Rgbi{253, 246, 227}); // base3
+    REQUIRE(*euco::crgbi("#b58900") == euco::Rgbi{181, 137,   0}); // yellow
+    REQUIRE(*euco::crgbi("#cb4b16") == euco::Rgbi{203,  75,  22}); // orange
+    REQUIRE(*euco::crgbi("#dc322f") == euco::Rgbi{220,  50,  47}); // red
+    REQUIRE(*euco::crgbi("#d33682") == euco::Rgbi{211,  54, 130}); // magenta
+    REQUIRE(*euco::crgbi("#6c71c4") == euco::Rgbi{108, 113, 196}); // violet
+    REQUIRE(*euco::crgbi("#268bd2") == euco::Rgbi{ 38, 139, 210}); // blue
+    REQUIRE(*euco::crgbi("#2aa198") == euco::Rgbi{ 42, 161, 152}); // cyan
+    REQUIRE(*euco::crgbi("#859900") == euco::Rgbi{133, 153,   0}); // green
+}

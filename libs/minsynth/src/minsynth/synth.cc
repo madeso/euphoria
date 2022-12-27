@@ -1,5 +1,12 @@
 #include "minsynth/synth.h"
 
+#include <cmath>
+#include <set>
+#include <algorithm>
+
+#include <fmt/core.h>
+#include <fmt/format.h>
+
 #include "log/log.h"
 #include "assert/assert.h"
 #include "core/numeric.h"
@@ -7,9 +14,8 @@
 #include "core/angle.h"
 
 
-#include <cmath>
-#include <set>
-#include <algorithm>
+using namespace fmt::literals;
+
 
 /*
    Tone names:
@@ -232,9 +238,7 @@ namespace euphoria::minsynth
         std::string
         name_and_octave(const std::string& name, int octave)
         {
-            std::stringstream ss;
-            ss << name << octave;
-            return ss.str();
+            return "{}{}"_format(name, octave);
         }
     }
 

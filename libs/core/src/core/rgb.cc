@@ -423,6 +423,13 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
+    std::string to_js_hex_color(const Rgbi& c)
+    {
+        return "0x{:0>2x}{:0>2x}{:0>2x}"_format(c.r, c.g, c.b);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////
+
     Hsl
     saturate(const Hsl& ahsl, float amount, IsAbsolute method)
     {
@@ -508,52 +515,111 @@ namespace euphoria::core
 
     namespace
     {
+        constexpr std::optional<U8> parse_hex_char(char c)
+        {
+            switch (c)
+            {
+            case '0': return {static_cast<U8>(0)};
+            case '1': return {static_cast<U8>(1)};
+            case '2': return {static_cast<U8>(2)};
+            case '3': return {static_cast<U8>(3)};
+            case '4': return {static_cast<U8>(4)};
+            case '5': return {static_cast<U8>(5)};
+            case '6': return {static_cast<U8>(6)};
+            case '7': return {static_cast<U8>(7)};
+            case '8': return {static_cast<U8>(8)};
+            case '9': return {static_cast<U8>(9)};
+
+            case 'a': case 'A': return {static_cast<U8>(10)};
+            case 'b': case 'B': return {static_cast<U8>(11)};
+            case 'c': case 'C': return {static_cast<U8>(12)};
+            case 'd': case 'D': return {static_cast<U8>(13)};
+            case 'e': case 'E': return {static_cast<U8>(14)};
+            case 'f': case 'F': return {static_cast<U8>(15)};
+
+            default:
+                return std::nullopt;
+            }
+        }
+
+        constexpr std::optional<U8> combine_hex_char(std::optional<U8> pc, std::optional<U8> pd)
+        {
+            if (pc && pd)
+            {
+                return static_cast<U8>((*pc<<4) | *pd);
+            }
+            else
+            {
+                return std::nullopt;
+            }
+        }
+
+        // give a #fff or a #ffffff string (depending on size arg), interpret it as a array and parse a index
+        template<int size> // is each 1 or 2 chars
+        std::pair<std::optional<U8>, std::string_view>
+        parse_hex(const std::string_view& value, int index)
+        {
+            const auto s = value.substr(1 + index * size, size);
+
+            std::optional<U8> r;
+            if constexpr (size == 1)
+            {
+                const auto p = parse_hex_char(s[0]);
+                r = combine_hex_char(p, p);
+            }
+            else if constexpr (size == 2)
+            {
+                r = combine_hex_char
+                (
+                    parse_hex_char(s[0]),
+                    parse_hex_char(s[1])
+                );
+            }
+            else
+            {
+                ASSERT(false && "unreachable");
+            }
+
+            if (r) { return { *r, s }; }
+            else { return { std::nullopt, s }; };
+        };
+
+        using R = Result<Rgbi>;
+
+        // given a component sie, parses a #fff or a #ffffff string to a color
+        template<int size>
+        R parse_rgb_hex(const std::string_view& value)
+        {
+            const auto [r, r_value] = parse_hex<size>(value, 0);
+            const auto [g, g_value] = parse_hex<size>(value, 1);
+            const auto [b, b_value] = parse_hex<size>(value, 2);
+            if (r && r && b)
+            {
+                return R::create_value({ *r, *g, *b });
+            }
+            else
+            {
+                auto invalids = std::vector<std::string>{};
+                if (!r) { invalids.emplace_back(StringBuilder{} << "red(" << r_value << ")"); }
+                if (!g) { invalids.emplace_back(StringBuilder{} << "green(" << g_value << ")"); }
+                if (!b) { invalids.emplace_back(StringBuilder{} << "blue(" << b_value << ")"); }
+                return R::create_error
+                (
+                    StringBuilder() << "#color contains invalid hex for " <<
+                    string_mergers::english_and.merge(invalids)
+                );
+            }
+        };
+
         // parses a #fff or a #ffffff string as a color
-        Result<Rgbi>
+        R
         parse_hash_hex_rgbi(const std::string& value)
         {
-            using R = Result<Rgbi>;
-
-            auto parse_rgb_hex = [&](int size) -> R
-            {
-                auto parse_hex = [&](int index, int len) ->
-                    std::pair<std::optional<U8>, std::string>
-                {
-                    const auto s = value.substr(1+index*len, len);
-                    auto ss = std::istringstream(s);
-                    int hex = 0;
-                    ss >> std::hex >> hex;
-                    if(ss.eof() && ss.fail()==false)
-                    { return {static_cast<U8>(hex), s}; }
-                    else { return {std::nullopt, s}; };
-                };
-
-                const auto [r, r_value] = parse_hex(0, size);
-                const auto [g, g_value] = parse_hex(1, size);
-                const auto [b, b_value] = parse_hex(2, size);
-                if(r && r && b)
-                {
-                    return R::create_value({*r, *g, *b});
-                }
-                else
-                {
-                    auto invalids = std::vector<std::string>{};
-                    if(!r) { invalids.emplace_back(StringBuilder{} << "red(" << r_value << ")"); }
-                    if(!g) { invalids.emplace_back(StringBuilder{} << "green(" << g_value << ")"); }
-                    if(!b) { invalids.emplace_back(StringBuilder{} << "blue(" << b_value << ")"); }
-                    return R::create_error
-                    (
-                        StringBuilder() << "#color contains invalid hex for " <<
-                        string_mergers::english_and.merge(invalids)
-                    );
-                }
-            };
-
             const auto size = value.length();
             switch(size)
             {
-            case 4: return parse_rgb_hex(1);
-            case 7: return parse_rgb_hex(2);
+            case 4: return parse_rgb_hex<1>(value);
+            case 7: return parse_rgb_hex<2>(value);
             default: return R::create_error
                 (
                     StringBuilder() << "a hexadecimal color needs to be either #abc "
@@ -588,33 +654,6 @@ namespace euphoria::core
                     match.names
                 )
             );
-        }
-    }
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-    namespace colorutil
-    {
-
-        unsigned int
-        from_string_to_hex(const std::string& str)
-        {
-            auto s = trim(str);
-            ASSERT(!s.empty());
-            s = s[0] == '#' ? to_lower(s.substr(1)) : to_lower(s);
-            if(s.length() == 3)
-            {
-                s = StringBuilder() << s[0] << s[0] << s[1] << s[1] << s[2] << s[2];
-            }
-            if(s.length() != 6)
-            {
-                return 0;
-            }
-            std::istringstream ss {s};
-            unsigned int hex = 0;
-            ss >> std::hex >> hex;
-            ASSERTX(!ss.fail(), s, str, hex);
-            return hex;
         }
     }
 

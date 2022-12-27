@@ -127,6 +127,7 @@ set(app_src
     src/core/minmax.cc src/core/minmax.h
     src/core/mousebehaviour.cc src/core/mousebehaviour.h
     src/core/multisort.cc src/core/multisort.h
+    src/core/numparse.cc src/core/numparse.h
     src/core/nlp_line.cc src/core/nlp_line.h
     src/core/nlp_sentence.cc src/core/nlp_sentence.h
     src/core/noncopyable.cc src/core/noncopyable.h
@@ -149,6 +150,7 @@ set(app_src
     src/core/sol.cc src/core/sol.h
     src/core/stdutils.cc src/core/stdutils.h
     src/core/str.cc src/core/str.h
+    src/core/stringbuilder.cc src/core/stringbuilder.h
     src/core/stringmerger.cc src/core/stringmerger.h
     src/core/stringutils.cc src/core/stringutils.h
     src/core/subvec.cc src/core/subvec.h
@@ -207,6 +209,7 @@ target_link_libraries(core
         euph::assert
         libgaf::xml
         external::range
+        external::fmt
         external::lua
         external::rapidjson
         undef_windows::undef_windows
@@ -264,6 +267,7 @@ set(test_src
     src/core/multisort.test.cc
     src/core/nlp_line.test.cc
     src/core/nlp_sentence.test.cc
+    src/core/numparse.test.cc
     src/core/numeric.test.cc
     src/core/pack.test.cc
     src/core/quat.test.cc
@@ -273,6 +277,7 @@ set(test_src
     src/core/rect.test.cc
     src/core/rgb_blend.test.cc
     src/core/rgb.test.cc
+    src/core/stringbuilder.test.cc
     src/core/stringmerger.test.cc
     src/core/stringtable.test.cc
     src/core/stringutils.test.cc

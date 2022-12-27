@@ -1,14 +1,13 @@
 #include "core/stringutils.h"
 
-
 #include <algorithm>
 #include <cstring>
-
-
 #include <iterator>
 #include <type_traits>
 
 #include "assert/assert.h"
+
+#include "core/stringbuilder.h"
 
 
 namespace euphoria::core
@@ -336,15 +335,15 @@ remove_from_end(const std::string& str, const std::string& end)
 std::string
 strip(const std::string& str, const std::string& ch)
 {
-    std::stringstream ss;
+    auto ss = StringBuilder2{};
     for(const char c: str)
     {
         if(ch.find(c) == std::string::npos)
         {
-            ss << c;
+            ss.add_char(c);
         }
     }
-    return ss.str();
+    return ss.to_string();
 }
 
 
@@ -352,92 +351,95 @@ strip(const std::string& str, const std::string& ch)
 std::string
 remove_consecutive(const std::string& str, const std::string& ch)
 {
-    std::stringstream ss;
+    auto ss = StringBuilder2{};
     bool skip = false;
     for(const char c: str)
     {
         if(ch.find(c) == std::string::npos)
         {
-            ss << c;
+            ss.add_char(c);
             skip = false;
         }
         else
         {
             if(!skip)
             {
-                ss << c;
+                ss.add_char(c);
                 skip = true;
             }
         }
     }
-    return ss.str();
+    return ss.to_string();
 }
 
 
 namespace
 {
-    template<typename R, typename T>
-    struct SizeGetter
+    enum class AddEmpty
     {
-        static R get(const T& t) { return t.size(); }
+        NO, YES
     };
 
-    template<typename R>
-    struct SizeGetter<R, char>
+    enum class AddEmptyLast
     {
-        static R get(char) { return 1; }
+        NO, YES
     };
-
-    template<typename R, typename T>
-    R get_size(const T& t) { return SizeGetter<R, T>::get(t); }
 
     template
     <
-        typename ListType,
-        typename OffsetType,
-        typename StringType,
-        typename DelimType,
-        typename AddFunction
+        typename IsDelimFunction
     >
-    ListType
-    split_base(const StringType str, DelimType delim, bool add_final, AddFunction&& add_function)
+    std::vector<std::string>
+    split_base(const std::string& str, AddEmpty add_empty, AddEmptyLast add_empty_last, IsDelimFunction&& is_delim)
     {
-        ListType ret;
+        std::vector<std::string> ret;
+        if (str.empty()) { return ret; }
 
-        const auto delim_length = get_size<OffsetType>(delim);
-
-        OffsetType search_start = 0;
-        OffsetType index = 0;
+        auto buffer = StringBuilder2{};
         
-        while(true)
+        for(char c: str)
         {
-            const auto found_index = str.find(delim, search_start);
-            if(found_index == StringType::npos)
+            if (is_delim(c))
             {
-                // abort... add last?
-                // todo(Gustav): add argument to specify how to handle split on empty input
-                if(add_final && str.empty() == false)
+                if (buffer.has_content())
                 {
-                    add_function(ret, index, str.substr(search_start));
+                    ret.emplace_back(buffer.to_string());
+                    buffer.clear();
                 }
-                return ret;
+                else if (add_empty == AddEmpty::YES)
+                {
+                    ret.emplace_back("");
+                }
             }
-            add_function(ret, index, str.substr(search_start, found_index - search_start));
-            index += 1;
-            search_start = found_index + delim_length;
+            else
+            {
+                buffer.add_char(c);
+            }
         }
+
+        if (buffer.has_content())
+        {
+            ret.emplace_back(buffer.to_string());
+            buffer.clear();
+        }
+        else if(add_empty_last == AddEmptyLast::YES)
+        {
+            ret.emplace_back("");
+        }
+
+        return ret;
     }
 }
 
 
 std::vector<std::string>
-split(const std::string& s, char c)
+split(const std::string& s, char delim)
 {
-    return split_base<std::vector<std::string>, std::size_t>
+    return split_base
     (
-        s, c, true, [](std::vector<std::string>& v, std::size_t, const std::string& ss)
+        s, AddEmpty::YES, AddEmptyLast::YES, [&](char c)
         {
-            v.emplace_back(ss);
+            return c == delim;
         }
     );
 }
@@ -446,11 +448,12 @@ split(const std::string& s, char c)
 std::vector<std::string>
 split_on_spaces(const std::string& string)
 {
-    std::istringstream iss(string);
-    return std::vector<std::string>
+    return split_base
     (
-        std::istream_iterator<std::string>{iss},
-        std::istream_iterator<std::string>()
+        string, AddEmpty::NO, AddEmptyLast::NO, [](char c)
+        {
+            return space_characters.find(c) != std::string::npos;
+        }
     );
 }
 

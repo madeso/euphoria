@@ -4,6 +4,8 @@
 
 #include "core/image.h"
 #include "core/palette.h"
+#include "core/stringbuilder.h"
+
 
 namespace euphoria::core
 {
@@ -93,12 +95,12 @@ namespace euphoria::core
 
         for(int r = 0; r < table.get_height(); r += 1)
         {
-            std::stringstream ss;
+            StringBuilder2 ss;
             for(int c = 0; c < table.get_width(); c += 1)
             {
-                ss << table(c, r);
+                ss.add_char(table(c, r));
             }
-            ret.insert(ret.begin(), ss.str());
+            ret.insert(ret.begin(), ss.to_string());
         }
 
         return ret;

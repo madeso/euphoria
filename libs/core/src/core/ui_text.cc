@@ -2,6 +2,7 @@
 
 #include "log/log.h"
 
+#include "core/stringbuilder.h"
 
 
 namespace euphoria::core
@@ -132,14 +133,14 @@ namespace euphoria::core
 
             ParserState state = ParserState::text;
             bool escape = false;
-            std::stringstream buff;
+            StringBuilder2 buff;
             bool ok = true;
 
             void
             close()
             {
-                const std::string data = buff.str();
-                buff.str("");
+                const std::string data = buff.to_string();
+                buff.clear();
                 switch(state)
                 {
                 case ParserState::text:
@@ -170,7 +171,7 @@ namespace euphoria::core
                 case ParserState::text:
                     if(escape)
                     {
-                        buff << c;
+                        buff.add_char(c);
                         escape = false;
                     }
                     else
@@ -190,7 +191,7 @@ namespace euphoria::core
                             nodes->add_end();
                             break;
                         case '\\': escape = true; break;
-                        default: buff << c; break;
+                        default: buff.add_char(c); break;
                         }
                     }
                     break;
@@ -198,7 +199,7 @@ namespace euphoria::core
                     if(('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z')
                        || c == '-' || c == '_')
                     {
-                        buff << c;
+                        buff.add_char(c);
                     }
                     else
                     {

@@ -519,18 +519,6 @@ namespace euphoria::core::dump3d
     }
 
 
-    std::string to_js_hex_color(const Rgbi& c)
-    {
-        std::stringstream ss;
-        ss << "0x" << std::hex
-            << static_cast<unsigned int>(c.r)
-            << static_cast<unsigned int>(c.g)
-            << static_cast<unsigned int>(c.b)
-            ;
-        return ss.str();
-    }
-
-
     void
     Dumper::add_sphere(const Vec3f& p, float radius, const Rgbi& color)
     {
