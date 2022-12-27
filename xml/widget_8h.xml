@@ -110,9 +110,15 @@
         <childnode refid="18" relation="include">
         </childnode>
       </node>
-      <node id="37">
+      <node id="38">
         <label>gui/layoutdata.h</label>
         <link refid="layoutdata_8h"/>
+      </node>
+      <node id="33">
+        <label>core/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="32" relation="include">
+        </childnode>
       </node>
       <node id="8">
         <label>tuple</label>
@@ -146,11 +152,11 @@
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="35" relation="include">
-        </childnode>
         <childnode refid="36" relation="include">
         </childnode>
         <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
         </childnode>
       </node>
       <node id="15">
@@ -165,10 +171,10 @@
       <node id="17">
         <label>cstddef</label>
       </node>
-      <node id="33">
+      <node id="34">
         <label>core/range.h</label>
         <link refid="range_8h"/>
-        <childnode refid="34" relation="include">
+        <childnode refid="35" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
@@ -200,7 +206,7 @@
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="33" relation="include">
+        <childnode refid="34" relation="include">
         </childnode>
       </node>
       <node id="11">
@@ -211,7 +217,7 @@
         <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="35">
+      <node id="36">
         <label>core/noncopyable.h</label>
         <link refid="noncopyable_8h"/>
       </node>
@@ -222,8 +228,10 @@
         </childnode>
         <childnode refid="30" relation="include">
         </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
       </node>
-      <node id="34">
+      <node id="35">
         <label>type_traits</label>
       </node>
       <node id="27">
@@ -237,7 +245,7 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="36">
+      <node id="37">
         <label>core/fourway.h</label>
         <link refid="fourway_8h"/>
         <childnode refid="32" relation="include">

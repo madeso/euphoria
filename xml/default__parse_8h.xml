@@ -4,6 +4,7 @@
     <compoundname>default_parse.h</compoundname>
     <includes refid="enumtostring_8h" local="yes">core/enumtostring.h</includes>
     <includes refid="custom__parser_8h" local="yes">core/custom_parser.h</includes>
+    <includes refid="numparse_8h" local="yes">core/numparse.h</includes>
     <includedby refid="argparse_8h" local="yes">libs/core/src/core/argparse.h</includedby>
     <includedby refid="fourway_8h" local="yes">libs/core/src/core/fourway.h</includedby>
     <includedby refid="rgb_8h" local="yes">libs/core/src/core/rgb.h</includedby>
@@ -60,6 +61,12 @@
         <childnode refid="7" relation="include">
         </childnode>
       </node>
+      <node id="18">
+        <label>core/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+      </node>
       <node id="17">
         <label>optional</label>
       </node>
@@ -98,6 +105,8 @@
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="12">

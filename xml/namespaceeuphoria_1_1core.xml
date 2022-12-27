@@ -108,6 +108,7 @@
     <innerclass refid="structeuphoria_1_1core_1_1StepIterator" prot="public">euphoria::core::StepIterator</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StepIteratorCreator" prot="public">euphoria::core::StepIteratorCreator</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StringBuilder" prot="public">euphoria::core::StringBuilder</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1StringBuilder2" prot="public">euphoria::core::StringBuilder2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StringMerger" prot="public">euphoria::core::StringMerger</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StructTmWrapper" prot="public">euphoria::core::StructTmWrapper</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1SubVec" prot="public">euphoria::core::SubVec</innerclass>
@@ -8776,6 +8777,98 @@
         </inbodydescription>
         <location file="libs/core/src/core/numeric.h" line="141" column="5" bodyfile="libs/core/src/core/numeric.h" bodystart="141" bodyend="144"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5efb4886bf4b2e21f2f7bdcf49e7231d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; int &gt;</type>
+        <definition>std::optional&lt;int&gt; euphoria::core::locale_parse_int</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>locale_parse_int</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/numparse.h" line="9" column="15" declfile="libs/core/src/core/numparse.h" declline="9" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a21ea25701ef8a947d4738033383dd42d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; float &gt;</type>
+        <definition>std::optional&lt;float&gt; euphoria::core::locale_parse_float</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>locale_parse_float</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/numparse.h" line="10" column="15" declfile="libs/core/src/core/numparse.h" declline="10" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4fc591357b645a2b830d136b4b60c40b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; bool &gt;</type>
+        <definition>std::optional&lt;bool&gt; euphoria::core::locale_parse_bool</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>locale_parse_bool</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/numparse.h" line="11" column="15" declfile="libs/core/src/core/numparse.h" declline="11" declcolumn="15"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a836a8e75ad9a44c4476a4cca41e7ab2a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::optional&lt; T &gt;</type>
+        <definition>std::optional&lt;T&gt; euphoria::core::locale_parse_generic</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>locale_parse_generic</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/numparse.h" line="17" column="1" declfile="libs/core/src/core/numparse.h" declline="17" declcolumn="1"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a07600d27f210d04d78c425ddf3efaff2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::SPECIAlIZE</definition>
+        <argsstring>(int, locale_parse_int) SPECIAlIZE(float</argsstring>
+        <name>SPECIAlIZE</name>
+        <param>
+          <type>int</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a5efb4886bf4b2e21f2f7bdcf49e7231d" kindref="member">locale_parse_int</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/numparse.h" line="25" column="5"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1afbe85ae408075d8d9883a2478d1e73e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string euphoria::core::get_current_directory</definition>
@@ -11193,6 +11286,23 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="267" column="5" declfile="libs/core/src/core/rgb.h" declline="267" declcolumn="5"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2ba41009ce237cee5b3c02cee692f591" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::to_js_hex_color</definition>
+        <argsstring>(const Rgbi &amp;c)</argsstring>
+        <name>to_js_hex_color</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="282" column="17" declfile="libs/core/src/core/rgb.h" declline="282" declcolumn="17"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aacdcb7f882143bc165a80d777d464965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
         <definition>Result&lt;Rgbi&gt; euphoria::core::crgbi</definition>
@@ -11208,7 +11318,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="284" column="5" declfile="libs/core/src/core/rgb.h" declline="284" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="289" column="5" declfile="libs/core/src/core/rgb.h" declline="289" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad265ed209382ef6886b4adc6f31b90c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>

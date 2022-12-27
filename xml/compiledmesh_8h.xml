@@ -9,7 +9,7 @@
     <includes refid="buffer_8h" local="yes">render/buffer.h</includes>
     <includedby refid="actor_8h" local="yes">libs/render/src/render/actor.h</includedby>
     <incdepgraph>
-      <node id="41">
+      <node id="42">
         <label>core/vec4.h</label>
         <link refid="vec4_8h"/>
         <childnode refid="22" relation="include">
@@ -30,7 +30,7 @@
         <label>core/colors.h</label>
         <link refid="colors_8h"/>
       </node>
-      <node id="42">
+      <node id="43">
         <label>core/axisangle.h</label>
         <link refid="axisangle_8h"/>
         <childnode refid="15" relation="include">
@@ -64,11 +64,11 @@
         </childnode>
         <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
         <childnode refid="37" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
         </childnode>
       </node>
       <node id="17">
@@ -91,7 +91,7 @@
         <label>core/str.h</label>
         <link refid="str_8h"/>
       </node>
-      <node id="44">
+      <node id="45">
         <label>core/mat2.h</label>
         <link refid="mat2_8h"/>
         <childnode refid="6" relation="include">
@@ -139,34 +139,34 @@
       <node id="3">
         <label>map</label>
       </node>
-      <node id="45">
+      <node id="46">
         <label>render/buffer.h</label>
         <link refid="buffer_8h"/>
-        <childnode refid="46" relation="include">
-        </childnode>
         <childnode refid="47" relation="include">
         </childnode>
-        <childnode refid="49" relation="include">
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
         </childnode>
       </node>
-      <node id="36">
+      <node id="37">
         <label>core/enum.h</label>
         <link refid="enum_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="49">
+      <node id="50">
         <label>render/shaderattribute.h</label>
         <link refid="shaderattribute_8h"/>
-        <childnode refid="48" relation="include">
+        <childnode refid="49" relation="include">
         </childnode>
       </node>
-      <node id="47">
+      <node id="48">
         <label>render/id.h</label>
         <link refid="id_8h"/>
-        <childnode refid="46" relation="include">
+        <childnode refid="47" relation="include">
         </childnode>
-        <childnode refid="48" relation="include">
+        <childnode refid="49" relation="include">
         </childnode>
       </node>
       <node id="21">
@@ -205,6 +205,12 @@
         <childnode refid="21" relation="include">
         </childnode>
       </node>
+      <node id="36">
+        <label>core/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
       <node id="7">
         <label>tuple</label>
       </node>
@@ -236,22 +242,22 @@
         <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="48">
+      <node id="49">
         <label>render/gltypes.h</label>
         <link refid="gltypes_8h"/>
       </node>
-      <node id="40">
+      <node id="41">
         <label>core/mat4.h</label>
         <link refid="mat4_8h"/>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="41" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
         <childnode refid="43" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
         </childnode>
       </node>
       <node id="15">
@@ -260,20 +266,20 @@
       <node id="20">
         <label>cstddef</label>
       </node>
-      <node id="37">
+      <node id="38">
         <label>core/aabb.h</label>
         <link refid="aabb_8h"/>
         <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="38">
+      <node id="39">
         <label>core/vfs_path.h</label>
         <link refid="vfs__path_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="39" relation="include">
+        <childnode refid="40" relation="include">
         </childnode>
       </node>
       <node id="26">
@@ -298,7 +304,7 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="46">
+      <node id="47">
         <label>core/noncopyable.h</label>
         <link refid="noncopyable_8h"/>
       </node>
@@ -309,8 +315,10 @@
         </childnode>
         <childnode refid="34" relation="include">
         </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
       </node>
-      <node id="39">
+      <node id="40">
         <label>type_traits</label>
       </node>
       <node id="31">
@@ -333,15 +341,15 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="40" relation="include">
+        <childnode refid="41" relation="include">
         </childnode>
-        <childnode refid="45" relation="include">
+        <childnode refid="46" relation="include">
         </childnode>
       </node>
       <node id="2">
         <label>memory</label>
       </node>
-      <node id="43">
+      <node id="44">
         <label>core/mat3.h</label>
         <link refid="mat3_8h"/>
         <childnode refid="7" relation="include">
@@ -350,11 +358,11 @@
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="44" relation="include">
+        <childnode refid="45" relation="include">
         </childnode>
         <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="42" relation="include">
+        <childnode refid="43" relation="include">
         </childnode>
       </node>
     </incdepgraph>

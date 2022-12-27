@@ -321,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/default_parse.h" line="13" column="5" declfile="libs/core/src/core/default_parse.h" declline="13" declcolumn="5"/>
+        <location file="libs/core/src/core/default_parse.h" line="11" column="5" declfile="libs/core/src/core/default_parse.h" declline="11" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1acfe9425286b6e6ae5d598d4134dfbdf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -347,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/default_parse.h" line="22" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="23" bodyend="29"/>
+        <location file="libs/core/src/core/default_parse.h" line="20" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="21" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a7fd13ef03e5459e703f93401442e8a85" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -369,7 +369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/default_parse.h" line="114" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="114" bodyend="117"/>
+        <location file="libs/core/src/core/default_parse.h" line="110" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="110" bodyend="113"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a813a6a90d80cf259c3f6ea2730a51b1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -395,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/default_parse.h" line="143" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="143" bodyend="146"/>
+        <location file="libs/core/src/core/default_parse.h" line="139" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="139" bodyend="142"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

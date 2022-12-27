@@ -22,13 +22,13 @@
         <label>core/editdistance.h</label>
         <link refid="editdistance_8h"/>
       </node>
-      <node id="44">
+      <node id="45">
         <label>catch.hpp</label>
       </node>
       <node id="34">
         <label>queue</label>
       </node>
-      <node id="43">
+      <node id="44">
         <label>limits</label>
       </node>
       <node id="27">
@@ -74,7 +74,7 @@
         <childnode refid="32" relation="include">
         </childnode>
       </node>
-      <node id="42">
+      <node id="43">
         <label>cmath</label>
       </node>
       <node id="32">
@@ -129,14 +129,14 @@
       <node id="30">
         <label>map</label>
       </node>
-      <node id="41">
+      <node id="42">
         <label>tests/approx.h</label>
         <link refid="approx_8h"/>
-        <childnode refid="42" relation="include">
-        </childnode>
         <childnode refid="43" relation="include">
         </childnode>
         <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
         </childnode>
       </node>
       <node id="25">
@@ -158,7 +158,7 @@
         </childnode>
         <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="41" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
       </node>
       <node id="18">
@@ -195,6 +195,12 @@
         <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="41">
+        <label>core/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="40" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -292,6 +298,8 @@
         <childnode refid="29" relation="include">
         </childnode>
         <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
         </childnode>
       </node>
       <node id="35">

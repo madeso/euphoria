@@ -61,6 +61,12 @@
         <childnode refid="13" relation="include">
         </childnode>
       </node>
+      <node id="19">
+        <label>core/numparse.h</label>
+        <link refid="numparse_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
       <node id="2">
         <label>optional</label>
       </node>
@@ -99,6 +105,8 @@
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
       <node id="16">

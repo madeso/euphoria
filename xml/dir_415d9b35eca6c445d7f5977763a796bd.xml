@@ -80,6 +80,7 @@
     <innerfile refid="nlp__sentence_8h">nlp_sentence.h</innerfile>
     <innerfile refid="noncopyable_8h">noncopyable.h</innerfile>
     <innerfile refid="numeric_8h">numeric.h</innerfile>
+    <innerfile refid="numparse_8h">numparse.h</innerfile>
     <innerfile refid="orbitcontroller_8h">orbitcontroller.h</innerfile>
     <innerfile refid="os_8h">os.h</innerfile>
     <innerfile refid="pack_8h">pack.h</innerfile>
@@ -121,6 +122,7 @@
     <innerfile refid="sphere_8position_8h">sphere.position.h</innerfile>
     <innerfile refid="stdutils_8h">stdutils.h</innerfile>
     <innerfile refid="str_8h">str.h</innerfile>
+    <innerfile refid="stringbuilder_8h">stringbuilder.h</innerfile>
     <innerfile refid="stringmerger_8h">stringmerger.h</innerfile>
     <innerfile refid="stringutils_8h">stringutils.h</innerfile>
     <innerfile refid="subvec_8h">subvec.h</innerfile>
