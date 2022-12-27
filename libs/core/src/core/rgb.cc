@@ -633,7 +633,6 @@ namespace euphoria::core
     Result<Rgbi>
     crgbi(const std::string& original_value)
     {
-        using R = Result<Rgbi>;
         const auto value = trim(original_value);
 
         if(value.empty()) { return R::create_error("empty string is not a color");}
