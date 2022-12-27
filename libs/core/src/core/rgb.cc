@@ -582,7 +582,7 @@ namespace euphoria::core
 
             if (r) { return { *r, s }; }
             else { return { std::nullopt, s }; };
-        };
+        }
 
         using R = Result<Rgbi>;
 
@@ -609,7 +609,7 @@ namespace euphoria::core
                     string_mergers::english_and.merge(invalids)
                 );
             }
-        };
+        }
 
         // parses a #fff or a #ffffff string as a color
         R
