@@ -6,7 +6,6 @@ jobs:
     build:
         strategy:
             matrix:
-                cxx: [clang++-10]
                 build_type: [Debug, Release]
 
         runs-on: ubuntu-20.04
@@ -28,7 +27,7 @@ jobs:
           shell: bash
           working-directory: ${{github.workspace}}/build
           env:
-                CXX: ${{matrix.cxx}}
+                CXX: clang++-12
           run: cmake -DCMAKE_BUILD_TYPE=${{matrix.build_type}} $GITHUB_WORKSPACE
 
         - name: clang-tidy version
