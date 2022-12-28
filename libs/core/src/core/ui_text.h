@@ -1,12 +1,10 @@
 #pragma once
 
-
-
 #include <memory>
 
-
-
 #include "core/noncopyable.h"
+#include "core/stringbuilder.h"
+
 
 namespace euphoria::core
 {
@@ -81,7 +79,7 @@ namespace euphoria::core
 
         struct VisitorDebugString : public Visitor
         {
-            std::ostringstream ss;
+            StringBuilder2 ss;
 
             void
             on_text(const std::string& text) override;

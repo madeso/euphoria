@@ -96,9 +96,7 @@ namespace euphoria::core
         std::string
         to_string(const Size2<T>& s)
         {
-            std::ostringstream ss;
-            ss << s.width << "x" << s.height;
-            return ss.str();
+            return "{}x{}"_format(s.width, s.height);
         }
 
         static

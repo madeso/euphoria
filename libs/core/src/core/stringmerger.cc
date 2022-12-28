@@ -1,9 +1,9 @@
 #include "core/stringmerger.h"
 
-#include "core/str.h"
-
 #include <string_view>
 
+#include "core/str.h"
+#include "core/stringbuilder.h"
 
 
 namespace euphoria::core
@@ -16,39 +16,40 @@ namespace euphoria::core
             return StringBuilder() << start << empty << end;
         }
 
-        std::ostringstream ss;
+        auto ss = StringBuilder2{};
 
-        ss << start;
+        ss.add_view(start);
 
         const auto count = strings.size();
         for(std::vector<std::string>::size_type index = 0; index < count; ++index)
         {
-            ss << before_each << strings[index];
+            ss.add_view(before_each);
+            ss.add_string(strings[index]);
 
             if(index == count - 1)
             {
-                ss << final_after_each;
+                ss.add_view(final_after_each);
             }
             else
             {
-                ss << after_each;
+                ss.add_view(after_each);
             }
 
             if(count != index + 1)
             { // if this item isn't the last one in the list
                 if(count == index + 2)
                 {
-                    ss << final_separator;
+                    ss.add_view(final_separator);
                 }
                 else
                 {
-                    ss << separator;
+                    ss.add_view(separator);
                 }
             }
         }
 
-        ss << end;
+        ss.add_view(end);
 
-        return ss.str();
+        return ss.to_string();
     }
 }

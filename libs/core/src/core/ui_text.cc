@@ -48,25 +48,25 @@ namespace euphoria::core
         void
         VisitorDebugString::on_text(const std::string& text)
         {
-            ss << "{text " << text << "}";
+            ss.add_string("{{text {}}}"_format(text));
         }
 
         void
         VisitorDebugString::on_image(const std::string& img)
         {
-            ss << "{image " << img << "}";
+            ss.add_string( "{{image {}}}"_format(img));
         }
 
         void
         VisitorDebugString::on_begin()
         {
-            ss << "{begin}";
+            ss.add_view("{begin}");
         }
 
         void
         VisitorDebugString::on_end()
         {
-            ss << "{end}";
+            ss.add_view("{end}");
         }
 
         std::string
@@ -74,7 +74,7 @@ namespace euphoria::core
         {
             VisitorDebugString str;
             visitor->accept(&str);
-            return str.ss.str();
+            return str.ss.to_string();
         }
     }
 

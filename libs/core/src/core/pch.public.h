@@ -7,3 +7,5 @@
 #include <fmt/core.h>
 #include <fmt/format.h>
 #include <fmt/ranges.h>
+
+using namespace fmt::literals;

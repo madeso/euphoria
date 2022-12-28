@@ -154,11 +154,14 @@ namespace euphoria::core
 
     Rgba::Rgba(const Rgb& rgb, float alpha)
         : r(rgb.r), g(rgb.g), b(rgb.b), a(alpha)
-    {}
+    {
+    }
+    
 
     Rgba::Rgba(float red, float green, float blue, float alpha)
         : r(red), g(green), b(blue), a(alpha)
-    {}
+    {
+    }
 
     ////////////////////////////////////////////////////////////////////////////////
 
@@ -172,49 +175,26 @@ namespace euphoria::core
         return "({}, {}, {}, {})"_format(c.r, c.g, c.b, c.a);
     }
 
-    std::string to_string(const Rgb& v) { std::ostringstream ss; ss << v; return ss.str(); }
-    std::string to_string(const Rgba& v) { std::ostringstream ss; ss << v; return ss.str(); }
+    std::string to_string(const Rgb& v)
+    {
+        return "({}, {}, {})"_format(v.r, v.g, v.b);
+    }
+
+    std::string to_string(const Rgba& v)
+    {
+        return "({}, {}, {}, {})"_format(v.r, v.g, v.b, v.a);
+    }
 
     std::string to_string(const Hsl& v)
     {
         return "({:.0f}°, {:.0f}%, {:.0f}%)"_format(v.h.in_degrees(), v.s * 100, v.l * 100);
     }
 
-    std::ostream&
-    operator<<(std::ostream& stream, const Rgbi& v)
-    {
-        stream << to_string(v);
-        return stream;
-    }
-
-
-    std::ostream&
-    operator<<(std::ostream& stream, const Rgbai& v)
-    {
-        stream << to_string(v);
-        return stream;
-    }
-
-    std::ostream&
-    operator<<(std::ostream& stream, const Rgb& v)
-    {
-        return stream << "(" << v.r << ", " << v.g << ", " << v.b << ")";
-    }
-
-
-    std::ostream&
-    operator<<(std::ostream& stream, const Rgba& v)
-    {
-        return stream << "(" << v.r << ", " << v.g << ", " << v.b << ", " << v.a
-                      << ")";
-    }
-
-    std::ostream&
-    operator<<(std::ostream& stream, const Hsl& v)
-    {
-        stream << to_string(v);
-        return stream;
-    }
+    std::ostream& operator<<(std::ostream& stream, const Rgbi& v)  { stream << to_string(v); return stream; }
+    std::ostream& operator<<(std::ostream& stream, const Rgbai& v) { stream << to_string(v); return stream; }
+    std::ostream& operator<<(std::ostream& stream, const Rgb& v)   { stream << to_string(v); return stream; }
+    std::ostream& operator<<(std::ostream& stream, const Rgba& v)  { stream << to_string(v); return stream; }
+    std::ostream& operator<<(std::ostream& stream, const Hsl& v)   { stream << to_string(v); return stream; }
 
 
     ////////////////////////////////////////////////////////////////////////////////

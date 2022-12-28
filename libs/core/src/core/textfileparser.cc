@@ -1,9 +1,10 @@
 #include "core/textfileparser.h"
 
-#include "core/numeric.h"
 #include "assert/assert.h"
 
-
+#include "core/numeric.h"
+#include "core/stringutils.h"
+#include "core/stringbuilder.h"
 
 
 namespace euphoria::core
@@ -84,21 +85,6 @@ namespace euphoria::core
 
             return false;
         }
-
-        std::string
-        char_to_string(char c)
-        {
-            std::ostringstream ss;
-            switch (c)
-            {
-            case 0: ss << "<null>"; break;
-            case ' ': ss << "<space>"; break;
-            case '\n': ss << "<newline>"; break;
-            case '\t': ss << "<tab>"; break;
-            default: ss << c; break;
-            }
-            return ss.str();
-        }
     }
 
     TextfileParser::TextfileParser(std::shared_ptr<detail::Textfile> afile)
@@ -123,7 +109,7 @@ namespace euphoria::core
     TextfileParser::peek_string(int advance)
     {
         const auto c = peek_char(advance);
-        return char_to_string(c);
+        return char_to_string(c, CharToStringStyle::smart);
     }
 
     // if peekchar(0) is c then it is read and function returns true,
@@ -202,20 +188,20 @@ namespace euphoria::core
     std::string
     TextfileParser::read_ident()
     {
-        std::ostringstream ss;
+        auto ss = StringBuilder2{};
         bool first = true;
         while(is_ident_char(peek_char(), first))
         {
             first = false;
-            ss << read_char();
+            ss.add_char(read_char());
         }
-        return ss.str();
+        return ss.to_string();
     }
 
     std::string
     TextfileParser::read_string()
     {
-        std::ostringstream ss;
+        auto ss = StringBuilder2{};
         const char quote = '\"';
         if(peek_char() != quote)
         {
@@ -230,28 +216,28 @@ namespace euphoria::core
                 const char nc = read_char();
                 if(nc == '\\')
                 {
-                    ss << '\\';
+                    ss.add_char('\\');
                 }
                 else if(nc == 't')
                 {
-                    ss << '\t';
+                    ss.add_char('\t');
                 }
                 else if(nc == '\n')
                 {
-                    ss << '\n';
+                    ss.add_char('\n');
                 }
                 else if(nc == '\"')
                 {
-                    ss << '\"';
+                    ss.add_char('\"');
                 }
                 else
                 {
-                    ss << nc;
+                    ss.add_char(nc);
                 }
             }
             else
             {
-                ss << c;
+                ss.add_char(c);
             }
         }
         const char c = read_char();
@@ -259,24 +245,24 @@ namespace euphoria::core
         {
             return "";
         }
-        return ss.str();
+        return ss.to_string();
     }
 
     std::string
     TextfileParser::read_to_end_of_line()
     {
-        std::ostringstream ss;
+        auto ss = StringBuilder2{};
         while(!is_newline(peek_char()))
         {
             const char c = read_char();
             if(c == 0)
             {
-                return ss.str();
+                return ss.to_string();
             }
-            ss << c;
+            ss.add_char(c);
         }
         advance_char(); // skip the newline
-        return ss.str();
+        return ss.to_string();
     }
 
     namespace

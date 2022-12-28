@@ -311,9 +311,7 @@ namespace euphoria::core
         std::string
         to_string(const Rgbi& c)
         {
-            std::ostringstream ss;
-            ss << c;
-            return ss.str();
+            return to_string(c);
         }
 
         static

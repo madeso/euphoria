@@ -1,19 +1,18 @@
 #pragma once
 
 #include <map>
-
-
 #include <memory>
-
 #include <optional>
 
 #include "core/noncopyable.h"
+
 
 namespace euphoria::core::vfs
 {
     struct FileSystem;
     struct FilePath;
 }
+
 
 namespace euphoria::core
 {

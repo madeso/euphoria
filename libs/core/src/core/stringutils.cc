@@ -166,6 +166,57 @@ to_upper(const std::string& str)
 std::string
 char_to_string(char c, CharToStringStyle style)
 {
+    const auto name = [&]() -> std::string
+    {
+        switch (c)
+        {
+        case 0: return "<null>";
+        case '\n': return "<\\n>";
+        case '\r': return "<\\r>";
+        case '\t': return "<tab>";
+        // source: http://www.asciitable.com/
+        case  1: return "<start of heading>";
+        case  2: return "<start of text>";
+        case  3: return "<end of text>";
+        case  4: return "<end of transmission>";
+        case  5: return "<enquiry>";
+        case  6: return "<acknowledge>";
+        case  7: return "<bell>";
+        case  8: return "<backspace>";
+        // case  9: return "<horizontal tab>";
+        // case 10: return "<newline>";
+        case 11: return "<vertical tab>";
+        case 12: return "<new page>";
+        // case 13: return "<carriage return>";
+        case 14: return "<shift out>";
+        case 15: return "<shift in>";
+        case 16: return "<data link esqape>";
+        case 17: return "<device control 1>";
+        case 18: return "<device control 2>";
+        case 19: return "<device control 3>";
+        case 20: return "<device control 4>";
+        case 21: return "<negative acknowledge>";
+        case 22: return "<synchronous idle>";
+        case 23: return "<end of trans. block>";
+        case 24: return "<cancel>";
+        case 25: return "<end of medium>";
+        case 26: return "<substitute>";
+        case 27: return "<escape>";
+        case 28: return "<file separator>";
+        case 29: return "<group separator>";
+        case 30: return "<record separator>";
+        case 31: return "<unit separator>";
+        case 127: return "<DEL>";
+        case ' ': return "<space>";
+        default: return "{}"_format(c);
+        }
+    }();
+
+    if (c == 0 && style == CharToStringStyle::smart)
+    {
+        return name;
+    }
+
     constexpr std::string_view smart_characters =
         "abcdefghijklmnopqrstuwxyz"
         "ABCDEFGHIJKLMNOPQRSTUWXYZ"
@@ -176,72 +227,15 @@ char_to_string(char c, CharToStringStyle style)
         "{}[]:;\"'\\|"
         "\n\r\t"
         ;
-    std::ostringstream ss;
-    switch(c)
-    {
-    case 0:
-        ss << "<null>";
-        if(style == CharToStringStyle::smart)
-        {
-            return ss.str();
-        }
-        break;
-    case '\n':
-        ss << "<\\n>";
-        break;
-    case '\r':
-        ss << "<\\r>";
-        break;
-    case '\t':
-        ss << "<tab>";
-        break;
-    // source: http://www.asciitable.com/
-    case  1: ss << "<start of heading>"; break;
-    case  2: ss << "<start of text>"; break;
-    case  3: ss << "<end of text>"; break;
-    case  4: ss << "<end of transmission>"; break;
-    case  5: ss << "<enquiry>"; break;
-    case  6: ss << "<acknowledge>"; break;
-    case  7: ss << "<bell>"; break;
-    case  8: ss << "<backspace>"; break;
-    // case  9: ss << "<horizontal tab>"; break;
-    // case 10: ss << "<newline>"; break;
-    case 11: ss << "<vertical tab>"; break;
-    case 12: ss << "<new page>"; break;
-    // case 13: ss << "<carriage return>"; break;
-    case 14: ss << "<shift out>"; break;
-    case 15: ss << "<shift in>"; break;
-    case 16: ss << "<data link esqape>"; break;
-    case 17: ss << "<device control 1>"; break;
-    case 18: ss << "<device control 2>"; break;
-    case 19: ss << "<device control 3>"; break;
-    case 20: ss << "<device control 4>"; break;
-    case 21: ss << "<negative acknowledge>"; break;
-    case 22: ss << "<synchronous idle>"; break;
-    case 23: ss << "<end of trans. block>"; break;
-    case 24: ss << "<cancel>"; break;
-    case 25: ss << "<end of medium>"; break;
-    case 26: ss << "<substitute>"; break;
-    case 27: ss << "<escape>"; break;
-    case 28: ss << "<file separator>"; break;
-    case 29: ss << "<group separator>"; break;
-    case 30: ss << "<record separator>"; break;
-    case 31: ss << "<unit separator>"; break;
-    case 127: ss << "<DEL>"; break;
-
-    case ' ':
-        ss << "<space>";
-        break;
-    default:
-        ss << c;
-        break;
-    }
 
     if(style == CharToStringStyle::include_hex || smart_characters.find(c) == std::string_view::npos)
     {
-        ss << "(0x" << std::hex << static_cast<int>(c) << ")";
+        return "{}({:#x})"_format(name, c);
     }
-    return ss.str();
+    else
+    {
+        return name;
+    }
 }
 
 

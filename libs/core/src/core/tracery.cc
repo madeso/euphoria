@@ -1,22 +1,20 @@
-// ----------------------------------------------------------------
-// Includes
-
 #include "core/tracery.h"
 
-
-
-#include "core/random.h"
+#include "rapidjson/document.h"
 
 #include "assert/assert.h"
+
+#include "core/random.h"
 #include "core/textfileparser.h"
 #include "core/str.h"
 #include "core/proto.h"
 #include "core/stringutils.h"
+#include "core/stringbuilder.h"
 
 #include "gaf_tracery.h"
 #include "gaf_rapidjson_tracery.h"
 
-#include "rapidjson/document.h"
+
 
 namespace euphoria::core::tracery
 {
@@ -212,12 +210,12 @@ namespace euphoria::core::tracery
     std::string
     Result::get_text() const
     {
-        std::ostringstream ss;
+        auto ss = StringBuilder2{};
         for(const auto& s: text)
         {
-            ss << s;
+            ss.add_string(s);
         }
-        return ss.str();
+        return ss.to_string();
     }
 
     std::ostream&
@@ -269,12 +267,12 @@ namespace euphoria::core::tracery
                   "0123456789"
                   "_-+";
 
-        std::ostringstream ss;
+        auto ss = StringBuilder2{};
         while(valid.find(parser->peek_char()) != std::string::npos)
         {
-            ss << parser->read_char();
+            ss.add_char(parser->read_char());
         }
-        return ss.str();
+        return ss.to_string();
     }
 
     Result
@@ -299,20 +297,20 @@ namespace euphoria::core::tracery
     } while(false)
 
         auto parser = TextfileParser::from_string(s);
-        std::ostringstream buffer;
+        auto buffer = StringBuilder2{};
         while(parser.has_more())
         {
             switch(parser.peek_char())
             {
             case '\\':
                 parser.read_char();
-                buffer << parser.read_char();
+                buffer.add_char(parser.read_char());
                 break;
 
             case '#': {
                 parser.read_char();
-                const auto text = buffer.str();
-                buffer.str("");
+                const auto text = buffer.to_string();
+                buffer.clear();
                 if(text.empty() == false)
                 {
                     add(std::make_shared<LiteralStringNode>(text));
@@ -348,24 +346,26 @@ namespace euphoria::core::tracery
                 {
                     switch(parser.peek_char())
                     {
-                    case '.': {
+                    case '.':
+                        {
                         parser.read_char();
                         const auto mod = read_tracery_ident(&parser);
                         n->modifiers.push_back(mod);
-                    }
-                    break;
+                        }
+                        break;
 
                     case '#':
                         parser.read_char();
                         run = false;
                         break;
 
-                    default: {
+                    default:
+                        {
                         const auto c = parser.read_char();
                         return Result(Result::general_rule_parse_error)
-                               << "Unknown character inside ##: "
-                               << (StringBuilder() << c);
-                    }
+                                << "Unknown character inside ##: "
+                                << (StringBuilder() << c);
+                        }
                     }
                 }
                 add(n);
@@ -376,11 +376,13 @@ namespace euphoria::core::tracery
             }
             break;
 
-            default: buffer << parser.read_char(); break;
+            default:
+                buffer.add_char(parser.read_char());
+                break;
             }
         }
 
-        const auto text = buffer.str();
+        const auto text = buffer.to_string();
         if(text.empty() == false)
         {
             add(std::make_shared<LiteralStringNode>(text));
