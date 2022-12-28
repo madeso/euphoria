@@ -10,7 +10,7 @@ TEST_CASE("stringbuilder", "[stringbuilder]")
     SECTION("empty")
     {
         StringBuilder2 ss;
-        REQUIRE(ss.to_string() == "");
+        REQUIRE(ss.to_string().empty());
     }
 
     SECTION("chars")

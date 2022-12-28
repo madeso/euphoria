@@ -44,15 +44,15 @@ std::optional<bool> locale_parse_bool(const std::string& str)
 }
 
 
-#define SPECIAlIZE(TYPE, FUN) \
+#define SPECIALIZE(TYPE, FUN) \
     template<> std::optional<TYPE> \
     locale_parse_generic<TYPE>(const std::string& str) { return FUN(str); }
 
-SPECIAlIZE(int, locale_parse_int)
-SPECIAlIZE(float, locale_parse_float)
-SPECIAlIZE(bool, locale_parse_bool)
-SPECIAlIZE(std::string, [](const std::string& s) { return s; })
-#undef SPECIAlIZE
+    SPECIALIZE(int, locale_parse_int)
+    SPECIALIZE(float, locale_parse_float)
+    SPECIALIZE(bool, locale_parse_bool)
+    SPECIALIZE(std::string, [](const std::string& s) { return s; })
+#undef SPECIALIZE
 
 
 }

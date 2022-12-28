@@ -377,12 +377,12 @@ namespace
 {
     enum class AddEmpty
     {
-        NO, YES
+        no, yes
     };
 
     enum class AddEmptyLast
     {
-        NO, YES
+        no, yes
     };
 
     template
@@ -406,7 +406,7 @@ namespace
                     ret.emplace_back(buffer.to_string());
                     buffer.clear();
                 }
-                else if (add_empty == AddEmpty::YES)
+                else if (add_empty == AddEmpty::yes)
                 {
                     ret.emplace_back("");
                 }
@@ -422,7 +422,7 @@ namespace
             ret.emplace_back(buffer.to_string());
             buffer.clear();
         }
-        else if(add_empty_last == AddEmptyLast::YES)
+        else if(add_empty_last == AddEmptyLast::yes)
         {
             ret.emplace_back("");
         }
@@ -437,7 +437,7 @@ split(const std::string& s, char delim)
 {
     return split_base
     (
-        s, AddEmpty::YES, AddEmptyLast::YES, [&](char c)
+        s, AddEmpty::yes, AddEmptyLast::yes, [&](char c)
         {
             return c == delim;
         }
@@ -450,7 +450,7 @@ split_on_spaces(const std::string& string)
 {
     return split_base
     (
-        string, AddEmpty::NO, AddEmptyLast::NO, [](char c)
+        string, AddEmpty::no, AddEmptyLast::no, [](char c)
         {
             return space_characters.find(c) != std::string::npos;
         }

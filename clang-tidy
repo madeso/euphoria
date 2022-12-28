@@ -49,6 +49,9 @@ google-*
 -google-runtime-int
 -google-readability-namespace-comments
 
+# sensible, but we allow using namespace for litteral namespaces so we can use ""_format(...) as if it was a builtin
+-google-global-names-in-headers
+
 # seems sensible but as far as I can tell it fails to detect good recursions (unless it's not supposed to)
 -misc-no-recursion
 

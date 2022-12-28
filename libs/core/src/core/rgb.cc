@@ -593,7 +593,7 @@ namespace euphoria::core
             const auto [r, r_value] = parse_hex<size>(value, 0);
             const auto [g, g_value] = parse_hex<size>(value, 1);
             const auto [b, b_value] = parse_hex<size>(value, 2);
-            if (r && r && b)
+            if (r && g && b)
             {
                 return R::create_value({ *r, *g, *b });
             }

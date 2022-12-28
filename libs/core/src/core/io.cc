@@ -71,9 +71,10 @@ namespace euphoria::core::io
             
         std::string contents;
         in.seekg(0, std::ios::end);
-        contents.resize(in.tellg());
+        const auto file_size = in.tellg();
+        contents.resize(file_size);
         in.seekg(0, std::ios::beg);
-        in.read(&contents[0], contents.size());
+        in.read(&contents[0], file_size);
         in.close();
         return(contents);
     }
