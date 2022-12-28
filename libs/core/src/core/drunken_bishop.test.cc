@@ -78,7 +78,7 @@ int_equals_bin
     const std::vector<T>& rhs
 )
 {
-    auto to_string = [](const T& t)
+    const auto to_string = [](const T& t)
     {
         return int_to_binary_string_representation
         (
