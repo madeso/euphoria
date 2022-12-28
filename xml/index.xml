@@ -3807,7 +3807,6 @@
     <member refid="namespaceeuphoria_1_1core_1a21ea25701ef8a947d4738033383dd42d" kind="function"><name>locale_parse_float</name></member>
     <member refid="namespaceeuphoria_1_1core_1a4fc591357b645a2b830d136b4b60c40b" kind="function"><name>locale_parse_bool</name></member>
     <member refid="namespaceeuphoria_1_1core_1a836a8e75ad9a44c4476a4cca41e7ab2a" kind="function"><name>locale_parse_generic</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a07600d27f210d04d78c425ddf3efaff2" kind="function"><name>SPECIAlIZE</name></member>
     <member refid="namespaceeuphoria_1_1core_1afbe85ae408075d8d9883a2478d1e73e7" kind="function"><name>get_current_directory</name></member>
     <member refid="namespaceeuphoria_1_1core_1a84c02039437a0197f6960cd84438f8f6" kind="function"><name>list_directory</name></member>
     <member refid="namespaceeuphoria_1_1core_1ab81ad001decb30501e6e7db63c588f0e" kind="function"><name>ends_with</name></member>
@@ -4825,7 +4824,7 @@
   <compound refid="numeric_8h" kind="file"><name>numeric.h</name>
   </compound>
   <compound refid="numparse_8h" kind="file"><name>numparse.h</name>
-    <member refid="numparse_8h_1a1715fb85f8a6f058057a66b5a21ff1b3" kind="define"><name>SPECIAlIZE</name></member>
+    <member refid="numparse_8h_1a07254478368edb4c4074b5d3b0a512d5" kind="define"><name>SPECIALIZE</name></member>
   </compound>
   <compound refid="orbitcontroller_8h" kind="file"><name>orbitcontroller.h</name>
   </compound>

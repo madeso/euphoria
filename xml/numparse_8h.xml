@@ -460,8 +460,8 @@
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
       <sectiondef kind="define">
-      <memberdef kind="define" id="numparse_8h_1a1715fb85f8a6f058057a66b5a21ff1b3" prot="public" static="no">
-        <name>SPECIAlIZE</name>
+      <memberdef kind="define" id="numparse_8h_1a07254478368edb4c4074b5d3b0a512d5" prot="public" static="no">
+        <name>SPECIALIZE</name>
         <param><defname>TYPE</defname></param>
         <param><defname>FUN</defname></param>
         <initializer>    template&lt;&gt; std::optional&lt;TYPE&gt; \

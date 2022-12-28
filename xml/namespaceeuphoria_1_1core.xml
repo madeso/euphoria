@@ -8850,25 +8850,6 @@
         </inbodydescription>
         <location file="libs/core/src/core/numparse.h" line="17" column="1" declfile="libs/core/src/core/numparse.h" declline="17" declcolumn="1"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a07600d27f210d04d78c425ddf3efaff2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>euphoria::core::SPECIAlIZE</definition>
-        <argsstring>(int, locale_parse_int) SPECIAlIZE(float</argsstring>
-        <name>SPECIAlIZE</name>
-        <param>
-          <type>int</type>
-        </param>
-        <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a5efb4886bf4b2e21f2f7bdcf49e7231d" kindref="member">locale_parse_int</ref></type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/numparse.h" line="25" column="5"/>
-      </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1afbe85ae408075d8d9883a2478d1e73e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
         <definition>std::string euphoria::core::get_current_directory</definition>
