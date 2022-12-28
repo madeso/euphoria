@@ -56,17 +56,17 @@
       }
 
       // add_wire(new THREE.BoxGeometry( 1, 1, 1 ));
-        scene.add( new THREE.PlaneHelper( new THREE.Plane( new THREE.Vector3(-0.408248, 0.816497, -0.408248), 2.38419e-07), 5, 0xffffff) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(-0.408248, 0.816497, -0.408248), new THREE.Vector3(0, 0, 0), 1, 0x1d6914) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.408248, -0.816497, 0.408248), new THREE.Vector3(2, 6, 1), 3.67423, 0x000000) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.408248, -0.816497, 0.408248), new THREE.Vector3(3, 1, -3), 0.816496, 0x000000) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(-0.408248, 0.816497, -0.408248), new THREE.Vector3(-2, -1, 2), 0.816497, 0x000000) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.408248, -0.816497, 0.408248), new THREE.Vector3(7, 7, -7), 5.71548, 0x000000) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.408248, -0.816497, 0.408248), new THREE.Vector3(3, 2, -1), 0.816496, 0x000000) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.408248, -0.816497, 0.408248), new THREE.Vector3(10, 3, -10), 2.44949, 0x000000) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.408248, -0.816497, 0.408248), new THREE.Vector3(2, 8, -7), 8.57321, 0x000000) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.408248, -0.816497, 0.408248), new THREE.Vector3(-1.63299, 3.26599, -1.63299), 4, 0x000000) );
-        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.408248, -0.816497, 0.408248), new THREE.Vector3(-1.02062, 3.26599, -2.24537), 4, 0x000000) );
+        scene.add( new THREE.PlaneHelper( new THREE.Plane( new THREE.Vector3(-0.40824828, 0.81649655, -0.40824828), 2.38419e-07), 5, 0xffffff) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(-0.4082483, 0.8164966, -0.4082483), new THREE.Vector3(0, 0, 0), 1, 0x1d6914) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.4082483, -0.81649655, 0.4082483), new THREE.Vector3(2, 6, 1), 3.67423, 0x000000) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.40824834, -0.8164966, 0.40824834), new THREE.Vector3(3, 1, -3), 0.816496, 0x000000) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(-0.4082484, 0.81649655, -0.40824825), new THREE.Vector3(-2, -1, 2), 0.816497, 0x000000) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.40824825, -0.81649655, 0.40824825), new THREE.Vector3(7, 7, -7), 5.71548, 0x000000) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.4082483, -0.8164966, 0.4082483), new THREE.Vector3(3, 2, -1), 0.816496, 0x000000) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.40824836, -0.81649655, 0.40824836), new THREE.Vector3(10, 3, -10), 2.44949, 0x000000) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.4082483, -0.81649655, 0.40824828), new THREE.Vector3(2, 8, -7), 8.57321, 0x000000) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.4082483, -0.8164966, 0.4082483), new THREE.Vector3(-1.632993, 3.265986, -1.632993), 4, 0x000000) );
+        scene.add(new THREE.ArrowHelper(new THREE.Vector3(0.4082483, -0.8164966, 0.4082483), new THREE.Vector3(-1.020621, 3.265986, -2.245366), 4, 0x000000) );
 
       camera.position.z = 5;
       new THREE.OrbitControls( camera, renderer.domElement );

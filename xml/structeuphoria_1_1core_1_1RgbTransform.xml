@@ -27,14 +27,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="276" column="9"/>
+        <location file="libs/core/src/core/rgb.h" line="288" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rgb.h" line="274" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="273" bodyend="277"/>
+    <location file="libs/core/src/core/rgb.h" line="286" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="285" bodyend="289"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1RgbTransform_1a25a0d71e82af8dfc53670607caa5c82f" prot="public" virt="non-virtual"><scope>euphoria::core::RgbTransform</scope><name>transform</name></member>
     </listofallmembers>

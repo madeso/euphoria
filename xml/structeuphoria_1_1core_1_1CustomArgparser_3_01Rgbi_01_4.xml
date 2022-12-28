@@ -23,7 +23,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="294" column="14" bodyfile="libs/core/src/core/rgb.h" bodystart="294" bodyend="294"/>
+        <location file="libs/core/src/core/rgb.h" line="307" column="14" bodyfile="libs/core/src/core/rgb.h" bodystart="307" bodyend="307"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="298" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="298" bodyend="303"/>
+        <location file="libs/core/src/core/rgb.h" line="311" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="311" bodyend="316"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01Rgbi_01_4_1abc534a7600127bc52b1d2190c49acdd1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
@@ -59,14 +59,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="307" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="307" bodyend="310"/>
+        <location file="libs/core/src/core/rgb.h" line="320" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="320" bodyend="323"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rgb.h" line="293" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="292" bodyend="311"/>
+    <location file="libs/core/src/core/rgb.h" line="306" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="305" bodyend="324"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Rgbi_01_4_1abc534a7600127bc52b1d2190c49acdd1" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Rgbi &gt;</scope><name>parse</name></member>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Rgbi_01_4_1a942d6b9afaa57e6acd3b1353e36ce757" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Rgbi &gt;</scope><name>to_string</name></member>

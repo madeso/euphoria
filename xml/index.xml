@@ -2126,6 +2126,8 @@
     <member refid="structeuphoria_1_1core_1_1Rgbai_1ac84ae58b90a817d62decdeac7af5c77f" kind="variable"><name>b</name></member>
     <member refid="structeuphoria_1_1core_1_1Rgbai_1a0c9e7ec50a38bfc17f96689f140ba30e" kind="variable"><name>a</name></member>
     <member refid="structeuphoria_1_1core_1_1Rgbai_1a1448ba791f1980390483dd3b8b436980" kind="function"><name>Rgbai</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rgbai_1af7087bc958181fc855ed5c6750be1c8e" kind="function"><name>Rgbai</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rgbai_1a50249ce7525852084b2f64d4317b7834" kind="function"><name>Rgbai</name></member>
     <member refid="structeuphoria_1_1core_1_1Rgbai_1a92026d73f1e79867179edfec7a5eb20f" kind="function"><name>Rgbai</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1Rgbi" kind="struct"><name>euphoria::core::Rgbi</name>
@@ -3892,6 +3894,11 @@
     <member refid="namespaceeuphoria_1_1core_1aaa8f8a56fe7d7aae0544c6ef75d6b5b6" kind="function"><name>lighten</name></member>
     <member refid="namespaceeuphoria_1_1core_1a06575f0141ef972846d6409c7d57b5da" kind="function"><name>darken</name></member>
     <member refid="namespaceeuphoria_1_1core_1a35c53bdd41324fd3b5f1e05517ade6ef" kind="function"><name>shade_color</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a63cad2dfd0587d9ca8c919f67278e6b5" kind="function"><name>to_string</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a125766e81c908f2cee2c0457dfc9f9f4" kind="function"><name>to_string</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a9d164ef0b702eb888d29e643a2ee4055" kind="function"><name>to_string</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a3ae4e7da952f6285d10554bbd698073b" kind="function"><name>to_string</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ae34a976ff93bdf6a2d9694320bc4f6cc" kind="function"><name>to_string</name></member>
     <member refid="namespaceeuphoria_1_1core_1ac4fd9ddea85a150509a39f8a2290d63c" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespaceeuphoria_1_1core_1a3dfa37c148c364639d965207e4b91ea0" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespaceeuphoria_1_1core_1af6a72476041a104bac727ffd50c1fc69" kind="function"><name>operator&lt;&lt;</name></member>
@@ -3912,6 +3919,7 @@
     <member refid="namespaceeuphoria_1_1core_1ab7cd11b5813cfd4642207a5e2dfbc7df" kind="function"><name>crgba</name></member>
     <member refid="namespaceeuphoria_1_1core_1a587199975f0cb2c7c4692f2b0dd5d6c6" kind="function"><name>crgbai</name></member>
     <member refid="namespaceeuphoria_1_1core_1a2ba41009ce237cee5b3c02cee692f591" kind="function"><name>to_js_hex_color</name></member>
+    <member refid="namespaceeuphoria_1_1core_1add46be2d770ee99266b4aabbfc7709bb" kind="function"><name>to_html_rgb</name></member>
     <member refid="namespaceeuphoria_1_1core_1aacdcb7f882143bc165a80d777d464965" kind="function"><name>crgbi</name></member>
     <member refid="namespaceeuphoria_1_1core_1ad265ed209382ef6886b4adc6f31b90c0" kind="function"><name>blend</name></member>
     <member refid="namespaceeuphoria_1_1core_1adcecf10d4e6148aa9341465b89c6d98c" kind="function"><name>blend</name></member>
