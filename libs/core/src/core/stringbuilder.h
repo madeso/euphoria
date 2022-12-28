@@ -11,6 +11,7 @@ struct StringBuilder2
     std::vector<char> data;
 
     // has add_ been called without a clear?
+    [[nodiscard]]
     bool has_content() const;
 
     void clear();
