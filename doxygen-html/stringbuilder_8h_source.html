@@ -67,20 +67,21 @@
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1StringBuilder2.html#aff730e2eb3cc786a29f37e5de8447ee1">   11</a></span>&#160;    std::vector&lt;char&gt; <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#aff730e2eb3cc786a29f37e5de8447ee1">data</a>;</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="comment">// has add_ been called without a clear?</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#a53edbe246ce33821211fe947964f6030">has_content</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#aabb0412f9dbb9b60ea82b0726fb250f6">clear</a>();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#a6ddb82a2dab02ade34cb6caf786b21f6">add_char</a>(<span class="keywordtype">char</span> c);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#ab4a1531ca02ba6b99321951bc057a219">add_string</a>(<span class="keyword">const</span> std::string&amp; str);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#aba4c678f3a8230782241de9194b1589e">add_view</a>(<span class="keyword">const</span> std::string_view&amp; str);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    std::string <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#ae1fd28891db80692dc27c0f5cd76023e">to_string</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;};</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    [[nodiscard]]</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#a53edbe246ce33821211fe947964f6030">has_content</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#aabb0412f9dbb9b60ea82b0726fb250f6">clear</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#a6ddb82a2dab02ade34cb6caf786b21f6">add_char</a>(<span class="keywordtype">char</span> c);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#ab4a1531ca02ba6b99321951bc057a219">add_string</a>(<span class="keyword">const</span> std::string&amp; str);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#aba4c678f3a8230782241de9194b1589e">add_view</a>(<span class="keyword">const</span> std::string_view&amp; str);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::string <a class="code" href="structeuphoria_1_1core_1_1StringBuilder2.html#ae1fd28891db80692dc27c0f5cd76023e">to_string</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructeuphoria_1_1core_1_1StringBuilder2_html_ae1fd28891db80692dc27c0f5cd76023e"><div class="ttname"><a href="structeuphoria_1_1core_1_1StringBuilder2.html#ae1fd28891db80692dc27c0f5cd76023e">euphoria::core::StringBuilder2::to_string</a></div><div class="ttdeci">std::string to_string()</div><div class="ttdoc">Complete the builder and return the resulting string.</div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1StringBuilder2_html_aabb0412f9dbb9b60ea82b0726fb250f6"><div class="ttname"><a href="structeuphoria_1_1core_1_1StringBuilder2.html#aabb0412f9dbb9b60ea82b0726fb250f6">euphoria::core::StringBuilder2::clear</a></div><div class="ttdeci">void clear()</div></div>

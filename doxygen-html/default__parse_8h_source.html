@@ -211,27 +211,25 @@
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    std::string</div>
 <div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core_1_1argparse.html#a813a6a90d80cf259c3f6ea2730a51b1d">default_value_to_string</a>(<span class="keyword">const</span> T&amp; t)</div>
 <div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    {</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        std::ostringstream ss;</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        ss &lt;&lt; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">return</span> ss.str();</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    }</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="comment">// default value for enums</span></div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">template</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    &lt;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        <span class="keyword">typename</span> T,</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        std::enable_if_t</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        &lt;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            std::is_enum&lt;T&gt;::value == <span class="keyword">true</span> &amp;&amp; <a class="code" href="structeuphoria_1_1core_1_1CustomArgparser.html#a32a559735824900ac90cc68e2abd9c42abef708ecaf92eb137983abc02b8c2ac7">CustomArgparser&lt;T&gt;::value</a> == 0,</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;        &gt; = 0</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    &gt;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    std::string</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core_1_1argparse.html#a813a6a90d80cf259c3f6ea2730a51b1d">default_value_to_string</a>(<span class="keyword">const</span> T&amp; t)</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a5831989eaaa7149c87f7da76f44fde03">core::enum_to_string</a>(t);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    }</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;}</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">return</span> fmt::format(<span class="stringliteral">&quot;{}&quot;</span>, t);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="comment">// default value for enums</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">template</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    &lt;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        <span class="keyword">typename</span> T,</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        std::enable_if_t</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        &lt;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            std::is_enum&lt;T&gt;::value == <span class="keyword">true</span> &amp;&amp; <a class="code" href="structeuphoria_1_1core_1_1CustomArgparser.html#a32a559735824900ac90cc68e2abd9c42abef708ecaf92eb137983abc02b8c2ac7">CustomArgparser&lt;T&gt;::value</a> == 0,</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        &gt; = 0</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    &gt;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    std::string</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core_1_1argparse.html#a813a6a90d80cf259c3f6ea2730a51b1d">default_value_to_string</a>(<span class="keyword">const</span> T&amp; t)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a5831989eaaa7149c87f7da76f44fde03">core::enum_to_string</a>(t);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="astructeuphoria_1_1core_1_1StringBuilder_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1StringBuilder.html">euphoria::core::StringBuilder</a></div><div class="ttdoc">Basic string builder.</div><div class="ttdef"><b>Definition:</b> <a href="str_8h_source.html#l00010">str.h:10</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_1_1argparse_html_a813a6a90d80cf259c3f6ea2730a51b1d"><div class="ttname"><a href="namespaceeuphoria_1_1core_1_1argparse.html#a813a6a90d80cf259c3f6ea2730a51b1d">euphoria::core::argparse::default_value_to_string</a></div><div class="ttdeci">std::string default_value_to_string(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> <a href="default__parse_8h_source.html#l00139">default_parse.h:139</a></div></div>
