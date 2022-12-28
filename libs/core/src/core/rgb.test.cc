@@ -20,7 +20,7 @@ TEST_CASE("rgb-test_basic", "[rgb]")
     REQUIRE(euco::colorutil::get_red(color_red) == 255);
     REQUIRE(euco::colorutil::get_green(color_red) == 0);
     REQUIRE(euco::colorutil::get_blue(color_red) == 0);
-    
+
     const auto red = euco::Rgbi::from_hex(color_red);
     REQUIRE(red.r == 255);
     REQUIRE(red.g == 0);
@@ -160,3 +160,4 @@ TEST_CASE("rgb-from_string", "[rgb]")
     REQUIRE(*euco::crgbi("#2aa198") == euco::Rgbi{ 42, 161, 152}); // cyan
     REQUIRE(*euco::crgbi("#859900") == euco::Rgbi{133, 153,   0}); // green
 }
+
