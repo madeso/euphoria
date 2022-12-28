@@ -10,7 +10,8 @@ import itertools
 def list_files_in_dir(dir):
     for dp, dn, filenames in os.walk(dir):
         for f in filenames:
-            if os.path.splitext(f)[1] in ['.cc', '.h']:
+            valid_ext = os.path.splitext(f)[1] in ['.cc', '.h']
+            if valid_ext and not f.startswith('pch.'):
                 yield os.path.join(dp, f)
 
 
