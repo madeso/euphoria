@@ -55,6 +55,12 @@ namespace euphoria::core
         constexpr
         Rgbai(const Rgbi& rgb, U8 alpha = 255);
 
+        constexpr
+        Rgbai(U8 red, U8 green, U8 blue, U8 alpha = 255);
+
+        constexpr
+        Rgbai(U8 gray, U8 alpha = 255);
+
         constexpr explicit
         Rgbai(const Rgba& rgba);
 
@@ -186,6 +192,7 @@ namespace euphoria::core
     struct Rgba
     {
     public:
+        Rgba(float red, float green, float blue, float alpha = 1.0f);
         Rgba(const Rgb& rgb, float alpha = 1.0f);
 
         float r;
@@ -197,6 +204,12 @@ namespace euphoria::core
 
     //////////////////////////////////////////////////////////////////////////
     // For printing
+
+    std::string to_string(const Rgbi& v);
+    std::string to_string(const Rgbai& v);
+    std::string to_string(const Rgb& v);
+    std::string to_string(const Rgba& v);
+    std::string to_string(const Hsl& v);
 
     std::ostream&
     operator<<(std::ostream& stream, const Rgbi& v);
@@ -280,6 +293,7 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // Printing/Exporting
     std::string to_js_hex_color(const Rgbi& c);
+    std::string to_html_rgb(const Rgbi& c);
 
 
     //////////////////////////////////////////////////////////////////////////
@@ -490,6 +504,19 @@ namespace euphoria::core
     constexpr
     Rgbai::Rgbai(const Rgbi& rgb, U8 alpha)
         : r(rgb.r), g(rgb.g), b(rgb.b), a(alpha)
+    {
+    }
+
+
+    constexpr
+    Rgbai::Rgbai(U8 red, U8 green, U8 blue, U8 alpha)
+        : r(red), g(green), b(blue), a(alpha)
+    {
+    }
+
+    constexpr
+    Rgbai::Rgbai(U8 gray, U8 alpha)
+        : r(gray), g(gray), b(gray), a(alpha)
     {
     }
 

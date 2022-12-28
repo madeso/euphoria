@@ -106,7 +106,7 @@ namespace euphoria::core
     }
 
 
-    /** Parses a fourway according to the CSS spec.
+    /** Parses a Lrud according to the CSS spec.
       Either all, ver/hor or up/right/down/left
     */
     template<typename T>
@@ -120,14 +120,15 @@ namespace euphoria::core
         std::string
         to_string(const Lrud<T>& fw)
         {
-            std::ostringstream ss;
-            ss
-                << argparse::default_value_to_string(fw.up) << separator
-                << argparse::default_value_to_string(fw.right) << separator
-                << argparse::default_value_to_string(fw.down) << separator
-                << argparse::default_value_to_string(fw.left)
-                ;
-            return ss.str();
+            return fmt::format
+            (
+                "{1}{0}{2}{0}{3}{0}{4}",
+                separator,
+                argparse::default_value_to_string(fw.up),
+                argparse::default_value_to_string(fw.right),
+                argparse::default_value_to_string(fw.down),
+                argparse::default_value_to_string(fw.left)
+            );
         }
 
         static

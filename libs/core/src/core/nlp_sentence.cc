@@ -5,6 +5,7 @@
 #include <string_view>
 
 #include "core/stringutils.h"
+#include "core/stringbuilder.h"
 
 
 namespace euphoria::core
@@ -206,7 +207,7 @@ parse_sentences(std::istream& data, OnSentenceFunction on_sentence)
 std::string
 sentence_to_string(const TextSentence& s)
 {
-    std::ostringstream ss;
+    auto ss = StringBuilder2{};
     bool first = true;
 
     for(const auto& w: s)
@@ -222,14 +223,14 @@ sentence_to_string(const TextSentence& s)
             }
             else
             {
-                ss << " ";
+                ss.add_char(' ');
             }
         }
 
-        ss << w;
+        ss.add_string(w);
     }
 
-    return ss.str();
+    return ss.to_string();
 }
 
 }

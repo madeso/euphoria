@@ -677,6 +677,7 @@ namespace euphoria::core
         Mesh
         create_sphere(float size, const std::string& texture)
         {
+            // todo(Gustav): replace with a custom generator instead of generating source and parsing
             std::ostringstream ss;
             ss
                 << "shader " << texture << "\n"
@@ -689,6 +690,7 @@ namespace euphoria::core
         Mesh
         create_box(float width, float height, float depth)
         {
+            // todo(Gustav): replace with a custom generator instead of generating source and parsing
             const float x = width / 2;
             const float y = height / 2;
             const float z = depth / 2;

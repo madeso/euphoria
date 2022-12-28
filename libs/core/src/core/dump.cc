@@ -11,16 +11,6 @@
 
 namespace euphoria::core::dump2d
 {
-    std::string to_html(const Rgbi& c)
-    {
-        std::ostringstream s;
-        s << "rgb("
-            << static_cast<unsigned int>(c.r) << ","
-            << static_cast<unsigned int>(c.g) << ","
-            << static_cast<unsigned int>(c.b) << ")";
-        return s.str();
-    }
-
     std::string to_html_or_none_string(const std::optional<Rgbi>& c)
     {
         if(!c)
@@ -29,7 +19,7 @@ namespace euphoria::core::dump2d
         }
         else
         {
-            return to_html(*c);
+            return to_html_rgb(*c);
         }
     }
 
@@ -155,7 +145,7 @@ namespace euphoria::core::dump2d
             writer->file << "\" style=\"fill:";
             writer->file << to_html_or_none_string(poly->fill_color);
             writer->file << ";stroke:";
-            writer->file << to_html(poly->stroke_color);
+            writer->file << to_html_rgb(poly->stroke_color);
             if(poly->stroke_width <= 0.0f)
             {
                 writer->file << ";stroke-width:0\"";
@@ -182,7 +172,7 @@ namespace euphoria::core::dump2d
         void write_text(Writer* writer, const Text* text)
         {
             writer->file << "<text x=\"" << writer->px(text->point.x)
-                         << "\" y=\"" << writer->py(text->point.y) << "\" fill=\"" << to_html(text->color) << "\">" << text->label << "</text>\n";
+                         << "\" y=\"" << writer->py(text->point.y) << "\" fill=\"" << to_html_rgb(text->color) << "\">" << text->label << "</text>\n";
         }
 
         void write_circle(Writer* writer, const Circle* circle)
@@ -333,14 +323,14 @@ namespace euphoria::core::dump2d
         writer.scale = scale;
 
         writer.file << "<html style=\"height: 100%\">\n";
-        writer.file << "<body style=\"background-color:" << to_html(NamedColor::dark_gray) << "; height: 100%\">\n";
+        writer.file << "<body style=\"background-color:" << to_html_rgb(NamedColor::dark_gray) << "; height: 100%\">\n";
 
         writer.file << "<div style=\"display: grid; grid-template-columns: 1fr auto 1fr; grid-template-rows: 1fr auto 1fr; width:100%; height:100%\">\n";
         writer.file << "<div style=\"grid-row-start: 2; grid-column-start: 2;\">\n";
 
         writer.file << "<svg width=\""  << width << "\" height=\"" << height << "\">\n";
         writer.file << "<rect width=\"" << width << "\" height=\"" << height << "\""
-                " style=\"fill:" << to_html(canvas_color) << ";stroke-width:0\" />\n";
+                " style=\"fill:" << to_html_rgb(canvas_color) << ";stroke-width:0\" />\n";
 
         for(const auto& item: items)
         {
@@ -359,7 +349,7 @@ namespace euphoria::core::dump2d
                     int index = 0;
                     for(const auto p: poly->points)
                     {
-                        writer.file << "<circle cx=\"" << px(p.x) << "\" cy=\"" << py(p.y) << "\" r=\"" << point_size << "\" stroke=\"none\" fill=\"" << to_html(c) << "\""
+                        writer.file << "<circle cx=\"" << px(p.x) << "\" cy=\"" << py(p.y) << "\" r=\"" << point_size << "\" stroke=\"none\" fill=\"" << to_html_rgb(c) << "\""
                             << " title=\""
                             // << "index: " << index
                             << index << "(" << p.x << " " << p.y << ")"
@@ -382,7 +372,7 @@ namespace euphoria::core::dump2d
                     int index = 0;
                     for(const auto p: poly->points)
                     {
-                        writer.file << "<text x=\"" << px(p.x) << "\" y=\"" << py(p.y) << "\" fill=\"" << to_html(c) << "\">"
+                        writer.file << "<text x=\"" << px(p.x) << "\" y=\"" << py(p.y) << "\" fill=\"" << to_html_rgb(c) << "\">"
                             << index << "(" << p.x << " " << p.y << ")"
                             << "</text>";
                         index += 1;
@@ -391,8 +381,8 @@ namespace euphoria::core::dump2d
             }
         }
 
-        auto vline = [&](float x, const Rgbi& c) { writer.file << "<line x1=\"" << px(x) << "\" y1=\"0\""           " x2=\"" << px(x) << "\" y2=\"" << height << "\" style=\"stroke:" << to_html(c) << ";stroke-width:1\" />\n"; };
-        auto hline = [&](float y, const Rgbi& c) { writer.file << "<line x1=\"0\""            " y1=\"" << py(y) << "\" x2=\"" << width << "\" y2=\"" << py(y) << "\" style=\"stroke:" << to_html(c) << ";stroke-width:1\" />\n"; };
+        auto vline = [&](float x, const Rgbi& c) { writer.file << "<line x1=\"" << px(x) << "\" y1=\"0\""           " x2=\"" << px(x) << "\" y2=\"" << height << "\" style=\"stroke:" << to_html_rgb(c) << ";stroke-width:1\" />\n"; };
+        auto hline = [&](float y, const Rgbi& c) { writer.file << "<line x1=\"0\""            " y1=\"" << py(y) << "\" x2=\"" << width << "\" y2=\"" << py(y) << "\" style=\"stroke:" << to_html_rgb(c) << ";stroke-width:1\" />\n"; };
 
         const auto grid_color = NamedColor::light_gray;
 
@@ -553,9 +543,7 @@ namespace euphoria::core::dump3d
     std::string
     to_three_vector_source(const Vec3f& v)
     {
-        std::ostringstream ss;
-        ss << "new THREE.Vector3(" << v.x << ", " << v.y << ", " << v.z << ")";
-        return ss.str();
+        return "new THREE.Vector3({}, {}, {})"_format(v.x, v.y, v.z);
     }
 
 

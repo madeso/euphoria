@@ -6,6 +6,7 @@
 
 namespace euco = euphoria::core;
 using namespace euphoria::tests;
+using namespace euphoria::convert;
 
 constexpr unsigned int darkslate_grey = 0x2f4f4f;
 constexpr unsigned int phtalo_green = 0x123524;
@@ -136,6 +137,94 @@ TEST_CASE("rgb-js", "[rgb]")
     REQUIRE(euco::to_js_hex_color(euco::Rgbi{0,0,0 }) == "0x000000");
     REQUIRE(euco::to_js_hex_color(euco::Rgbi{ 0,255,0 }) == "0x00ff00");
     REQUIRE(euco::to_js_hex_color(euco::Rgbi{ 255,255,255 }) == "0xffffff");
+}
+
+TEST_CASE("rgb-html", "[rgb]")
+{
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{  0,  43,  54}) == "rgb(0, 43, 54)"); // base03
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{  7,  54,  66}) == "rgb(7, 54, 66)"); // base02
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{ 88, 110, 117}) == "rgb(88, 110, 117)"); // base01
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{101, 123, 131}) == "rgb(101, 123, 131)"); // base00
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{131, 148, 150}) == "rgb(131, 148, 150)"); // base0
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{147, 161, 161}) == "rgb(147, 161, 161)"); // base1
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{238, 232, 213}) == "rgb(238, 232, 213)"); // base2
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{253, 246, 227}) == "rgb(253, 246, 227)"); // base3
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{181, 137,   0}) == "rgb(181, 137, 0)"); // yellow
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{203,  75,  22}) == "rgb(203, 75, 22)"); // orange
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{220,  50,  47}) == "rgb(220, 50, 47)"); // red
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{211,  54, 130}) == "rgb(211, 54, 130)"); // magenta
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{108, 113, 196}) == "rgb(108, 113, 196)"); // violet
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{ 38, 139, 210}) == "rgb(38, 139, 210)"); // blue
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{ 42, 161, 152}) == "rgb(42, 161, 152)"); // cyan
+    REQUIRE(euco::to_html_rgb(euco::Rgbi{133, 153,   0}) == "rgb(133, 153, 0)"); // green
+}
+
+TEST_CASE("rgb-to_string", "[rgb]")
+{
+    REQUIRE(euco::to_string(euco::Rgbi{  0,  43,  54}) == "#002b36"); // base03
+    REQUIRE(euco::to_string(euco::Rgbi{  7,  54,  66}) == "#073642"); // base02
+    REQUIRE(euco::to_string(euco::Rgbi{ 88, 110, 117}) == "#586e75"); // base01
+    REQUIRE(euco::to_string(euco::Rgbi{101, 123, 131}) == "#657b83"); // base00
+    REQUIRE(euco::to_string(euco::Rgbi{131, 148, 150}) == "#839496"); // base0
+    REQUIRE(euco::to_string(euco::Rgbi{147, 161, 161}) == "#93a1a1"); // base1
+    REQUIRE(euco::to_string(euco::Rgbi{238, 232, 213}) == "#eee8d5"); // base2
+    REQUIRE(euco::to_string(euco::Rgbi{253, 246, 227}) == "#fdf6e3"); // base3
+    REQUIRE(euco::to_string(euco::Rgbi{181, 137,   0}) == "#b58900"); // yellow
+    REQUIRE(euco::to_string(euco::Rgbi{203,  75,  22}) == "#cb4b16"); // orange
+    REQUIRE(euco::to_string(euco::Rgbi{220,  50,  47}) == "#dc322f"); // red
+    REQUIRE(euco::to_string(euco::Rgbi{211,  54, 130}) == "#d33682"); // magenta
+    REQUIRE(euco::to_string(euco::Rgbi{108, 113, 196}) == "#6c71c4"); // violet
+    REQUIRE(euco::to_string(euco::Rgbi{ 38, 139, 210}) == "#268bd2"); // blue
+    REQUIRE(euco::to_string(euco::Rgbi{ 42, 161, 152}) == "#2aa198"); // cyan
+    REQUIRE(euco::to_string(euco::Rgbi{133, 153,   0}) == "#859900"); // green
+
+    REQUIRE(euco::to_string(euco::Rgbai{  0,  43,  54}) == "(0, 43, 54, 255)"); // base03
+    REQUIRE(euco::to_string(euco::Rgbai{  7,  54,  66}) == "(7, 54, 66, 255)"); // base02
+    REQUIRE(euco::to_string(euco::Rgbai{ 88, 110, 117}) == "(88, 110, 117, 255)"); // base01
+    REQUIRE(euco::to_string(euco::Rgbai{101, 123, 131}) == "(101, 123, 131, 255)"); // base00
+    REQUIRE(euco::to_string(euco::Rgbai{131, 148, 150}) == "(131, 148, 150, 255)"); // base0
+    REQUIRE(euco::to_string(euco::Rgbai{147, 161, 161}) == "(147, 161, 161, 255)"); // base1
+    REQUIRE(euco::to_string(euco::Rgbai{238, 232, 213}) == "(238, 232, 213, 255)"); // base2
+    REQUIRE(euco::to_string(euco::Rgbai{253, 246, 227}) == "(253, 246, 227, 255)"); // base3
+    REQUIRE(euco::to_string(euco::Rgbai{181, 137,   0}) == "(181, 137, 0, 255)"); // yellow
+    REQUIRE(euco::to_string(euco::Rgbai{203,  75,  22}) == "(203, 75, 22, 255)"); // orange
+    REQUIRE(euco::to_string(euco::Rgbai{220,  50,  47}) == "(220, 50, 47, 255)"); // red
+    REQUIRE(euco::to_string(euco::Rgbai{211,  54, 130}) == "(211, 54, 130, 255)"); // magenta
+    REQUIRE(euco::to_string(euco::Rgbai{108, 113, 196}) == "(108, 113, 196, 255)"); // violet
+    REQUIRE(euco::to_string(euco::Rgbai{ 38, 139, 210}) == "(38, 139, 210, 255)"); // blue
+    REQUIRE(euco::to_string(euco::Rgbai{ 42, 161, 152}) == "(42, 161, 152, 255)"); // cyan
+    REQUIRE(euco::to_string(euco::Rgbai{133, 153,   0}) == "(133, 153, 0, 255)"); // green
+
+    // doesn't really match solarized since hsb is not the same as hsv but they are
+    // the same types and I just need some test values for roundtripping :)
+    CHECK(euco::to_string(euco::Hsl{193.0_deg, 100.0f / 100.0f, 21.0f/100.0f}) == "(193°, 100%, 21%)"); // base03 
+    CHECK(euco::to_string(euco::Hsl{192.0_deg,  90.0f / 100.0f, 26.0f/100.0f}) == "(192°, 90%, 26%)"); // base02 
+    CHECK(euco::to_string(euco::Hsl{194.0_deg,  25.0f / 100.0f, 46.0f/100.0f}) == "(194°, 25%, 46%)"); // base01 
+    CHECK(euco::to_string(euco::Hsl{195.0_deg,  23.0f / 100.0f, 51.0f/100.0f}) == "(195°, 23%, 51%)"); // base00 
+    CHECK(euco::to_string(euco::Hsl{186.0_deg,  13.0f / 100.0f, 59.0f/100.0f}) == "(186°, 13%, 59%)"); // base0  
+    CHECK(euco::to_string(euco::Hsl{180.0_deg,   9.0f / 100.0f, 63.0f/100.0f}) == "(180°, 9%, 63%)"); // base1  
+    CHECK(euco::to_string(euco::Hsl{ 44.0_deg,  11.0f / 100.0f, 93.0f/100.0f}) == "(44°, 11%, 93%)"); // base2  
+    CHECK(euco::to_string(euco::Hsl{ 44.0_deg,  10.0f / 100.0f, 99.0f/100.0f}) == "(44°, 10%, 99%)"); // base3  
+    CHECK(euco::to_string(euco::Hsl{ 45.0_deg, 100.0f / 100.0f, 71.0f/100.0f}) == "(45°, 100%, 71%)"); // yellow 
+    CHECK(euco::to_string(euco::Hsl{ 18.0_deg,  89.0f / 100.0f, 80.0f/100.0f}) == "(18°, 89%, 80%)"); // orange 
+    CHECK(euco::to_string(euco::Hsl{  1.0_deg,  79.0f / 100.0f, 86.0f/100.0f}) == "(1°, 79%, 86%)"); // red    
+    CHECK(euco::to_string(euco::Hsl{331.0_deg,  74.0f / 100.0f, 83.0f/100.0f}) == "(331°, 74%, 83%)"); // magenta
+    CHECK(euco::to_string(euco::Hsl{237.0_deg,  45.0f / 100.0f, 77.0f/100.0f}) == "(237°, 45%, 77%)"); // violet 
+    CHECK(euco::to_string(euco::Hsl{205.0_deg,  82.0f / 100.0f, 82.0f/100.0f}) == "(205°, 82%, 82%)"); // blue   
+    CHECK(euco::to_string(euco::Hsl{175.0_deg,  74.0f / 100.0f, 63.0f/100.0f}) == "(175°, 74%, 63%)"); // cyan   
+    CHECK(euco::to_string(euco::Hsl{ 68.0_deg, 100.0f / 100.0f, 60.0f/100.0f}) == "(68°, 100%, 60%)"); // green  
+
+    CHECK(euco::to_string(euco::Rgb{ 0.5f, 0.5f, 0.5f }) == "(0.5, 0.5, 0.5)");
+    CHECK(euco::to_string(euco::Rgb{ 0.25f, 0.25f, 0.25f }) == "(0.25, 0.25, 0.25)");
+    CHECK(euco::to_string(euco::Rgb{ 1.0f, 0.0f, 0.0f }) == "(1, 0, 0)");
+    CHECK(euco::to_string(euco::Rgb{ 0.0f, 1.0f, 0.0f }) == "(0, 1, 0)");
+    CHECK(euco::to_string(euco::Rgb{ 0.0f, 0.0f, 1.0f }) == "(0, 0, 1)");
+
+    CHECK(euco::to_string(euco::Rgba{ 0.5f, 0.5f, 0.5f }) == "(0.5, 0.5, 0.5, 1)");
+    CHECK(euco::to_string(euco::Rgba{ 0.25f, 0.25f, 0.25f }) == "(0.25, 0.25, 0.25, 1)");
+    CHECK(euco::to_string(euco::Rgba{ 1.0f, 0.0f, 0.0f }) == "(1, 0, 0, 1)");
+    CHECK(euco::to_string(euco::Rgba{ 0.0f, 1.0f, 0.0f }) == "(0, 1, 0, 1)");
+    CHECK(euco::to_string(euco::Rgba{ 0.0f, 0.0f, 1.0f }) == "(0, 0, 1, 1)");
 }
 
 TEST_CASE("rgb-from_string", "[rgb]")

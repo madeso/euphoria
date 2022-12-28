@@ -156,19 +156,34 @@ namespace euphoria::core
         : r(rgb.r), g(rgb.g), b(rgb.b), a(alpha)
     {}
 
+    Rgba::Rgba(float red, float green, float blue, float alpha)
+        : r(red), g(green), b(blue), a(alpha)
+    {}
+
     ////////////////////////////////////////////////////////////////////////////////
 
-#define IV(x) static_cast<int>(x)
+    std::string to_string(const Rgbi& c)
+    {
+        return "#{:0>2x}{:0>2x}{:0>2x}"_format(c.r, c.g, c.b);
+    }
+
+    std::string to_string(const Rgbai& c)
+    {
+        return "({}, {}, {}, {})"_format(c.r, c.g, c.b, c.a);
+    }
+
+    std::string to_string(const Rgb& v) { std::ostringstream ss; ss << v; return ss.str(); }
+    std::string to_string(const Rgba& v) { std::ostringstream ss; ss << v; return ss.str(); }
+
+    std::string to_string(const Hsl& v)
+    {
+        return "({:.0f}°, {:.0f}%, {:.0f}%)"_format(v.h.in_degrees(), v.s * 100, v.l * 100);
+    }
 
     std::ostream&
     operator<<(std::ostream& stream, const Rgbi& v)
     {
-        const auto flags = std::ios_base::fmtflags {stream.flags()};
-        stream << "#" << std::hex
-            << std::setfill('0') << std::setw(2) << +v.r
-            << std::setfill('0') << std::setw(2) << +v.g
-            << std::setfill('0') << std::setw(2) << +v.b;
-        stream.flags(flags);
+        stream << to_string(v);
         return stream;
     }
 
@@ -176,11 +191,9 @@ namespace euphoria::core
     std::ostream&
     operator<<(std::ostream& stream, const Rgbai& v)
     {
-        return stream << "(" << IV(v.r) << ", " << IV(v.g) << ", " << IV(v.b)
-                      << ", " << IV(v.a) << ")";
+        stream << to_string(v);
+        return stream;
     }
-
-#undef IV
 
     std::ostream&
     operator<<(std::ostream& stream, const Rgb& v)
@@ -199,8 +212,8 @@ namespace euphoria::core
     std::ostream&
     operator<<(std::ostream& stream, const Hsl& v)
     {
-        return stream << "(" << v.h.in_degrees() << "°, " << v.s * 100 << "%, "
-                      << v.l * 100 << "%)";
+        stream << to_string(v);
+        return stream;
     }
 
 
@@ -426,6 +439,11 @@ namespace euphoria::core
     std::string to_js_hex_color(const Rgbi& c)
     {
         return "0x{:0>2x}{:0>2x}{:0>2x}"_format(c.r, c.g, c.b);
+    }
+
+    std::string to_html_rgb(const Rgbi& c)
+    {
+        return "rgb({}, {}, {})"_format(c.r, c.g, c.b);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
