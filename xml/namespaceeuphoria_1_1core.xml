@@ -10923,7 +10923,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="207" column="17" declfile="libs/core/src/core/rgb.h" declline="207" declcolumn="17"/>
+        <location file="libs/core/src/core/rgb.h" line="208" column="17" declfile="libs/core/src/core/rgb.h" declline="208" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a125766e81c908f2cee2c0457dfc9f9f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -10940,7 +10940,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="208" column="17" declfile="libs/core/src/core/rgb.h" declline="208" declcolumn="17"/>
+        <location file="libs/core/src/core/rgb.h" line="209" column="17" declfile="libs/core/src/core/rgb.h" declline="209" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a9d164ef0b702eb888d29e643a2ee4055" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -10957,7 +10957,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="209" column="17" declfile="libs/core/src/core/rgb.h" declline="209" declcolumn="17"/>
+        <location file="libs/core/src/core/rgb.h" line="210" column="17" declfile="libs/core/src/core/rgb.h" declline="210" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3ae4e7da952f6285d10554bbd698073b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -10974,7 +10974,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="210" column="17" declfile="libs/core/src/core/rgb.h" declline="210" declcolumn="17"/>
+        <location file="libs/core/src/core/rgb.h" line="211" column="17" declfile="libs/core/src/core/rgb.h" declline="211" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae34a976ff93bdf6a2d9694320bc4f6cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -10991,7 +10991,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="211" column="17" declfile="libs/core/src/core/rgb.h" declline="211" declcolumn="17"/>
+        <location file="libs/core/src/core/rgb.h" line="212" column="17" declfile="libs/core/src/core/rgb.h" declline="212" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac4fd9ddea85a150509a39f8a2290d63c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -11012,7 +11012,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="213" column="5" declfile="libs/core/src/core/rgb.h" declline="213" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="214" column="5" declfile="libs/core/src/core/rgb.h" declline="214" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3dfa37c148c364639d965207e4b91ea0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -11033,7 +11033,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="216" column="5" declfile="libs/core/src/core/rgb.h" declline="216" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="217" column="5" declfile="libs/core/src/core/rgb.h" declline="217" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1af6a72476041a104bac727ffd50c1fc69" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -11054,7 +11054,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="219" column="5" declfile="libs/core/src/core/rgb.h" declline="219" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="220" column="5" declfile="libs/core/src/core/rgb.h" declline="220" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a20b4b6c34348fddcc9a0ce79fc06b545" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -11075,7 +11075,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="222" column="5" declfile="libs/core/src/core/rgb.h" declline="222" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="223" column="5" declfile="libs/core/src/core/rgb.h" declline="223" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aad3210c0c162f2d61696ae418e05ca6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -11096,7 +11096,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="225" column="5" declfile="libs/core/src/core/rgb.h" declline="225" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="226" column="5" declfile="libs/core/src/core/rgb.h" declline="226" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa54c938278acc6bc6dc66f0060ef6693" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -11117,7 +11117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="232" column="5" declfile="libs/core/src/core/rgb.h" declline="232" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="233" column="5" declfile="libs/core/src/core/rgb.h" declline="233" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae7c38f46b4d6d514c5d669b67ca43384" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -11138,7 +11138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="235" column="5" declfile="libs/core/src/core/rgb.h" declline="235" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="236" column="5" declfile="libs/core/src/core/rgb.h" declline="236" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad6a12e72f7a6bee3725f293fa745d86a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -11159,7 +11159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="238" column="5" declfile="libs/core/src/core/rgb.h" declline="238" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="239" column="5" declfile="libs/core/src/core/rgb.h" declline="239" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a384140eb844b6417cc017b23c812bf00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -11180,7 +11180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="241" column="5" declfile="libs/core/src/core/rgb.h" declline="241" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="242" column="5" declfile="libs/core/src/core/rgb.h" declline="242" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3bba73907b4a12aceadc4437de2707f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -11197,7 +11197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="247" column="5" declfile="libs/core/src/core/rgb.h" declline="247" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="248" column="5" declfile="libs/core/src/core/rgb.h" declline="248" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a6e93c99c958ebc4950cd46e99cb1b13b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -11214,7 +11214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="250" column="5" declfile="libs/core/src/core/rgb.h" declline="250" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="251" column="5" declfile="libs/core/src/core/rgb.h" declline="251" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a113b190a40903d6f8930fe5ef0bd08f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -11231,7 +11231,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="253" column="5" declfile="libs/core/src/core/rgb.h" declline="253" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="254" column="5" declfile="libs/core/src/core/rgb.h" declline="254" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a800d067390889ccd6fa960076396f726" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
@@ -11248,7 +11248,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="256" column="5" declfile="libs/core/src/core/rgb.h" declline="256" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="257" column="5" declfile="libs/core/src/core/rgb.h" declline="257" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac5275c9c6a602d8b9eb15ae2513419eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Hsl" kindref="compound">Hsl</ref></type>
@@ -11265,7 +11265,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="261" column="5" declfile="libs/core/src/core/rgb.h" declline="261" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="262" column="5" declfile="libs/core/src/core/rgb.h" declline="262" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a6cfe08f768e26cea65e3030bde66df2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
@@ -11282,7 +11282,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="266" column="5" declfile="libs/core/src/core/rgb.h" declline="266" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="267" column="5" declfile="libs/core/src/core/rgb.h" declline="267" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3714f9d931d2a053baa6af27802e8712" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
@@ -11299,7 +11299,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="269" column="5" declfile="libs/core/src/core/rgb.h" declline="269" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="270" column="5" declfile="libs/core/src/core/rgb.h" declline="270" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a16f9f679801a0cab3661e7204a6eef7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
@@ -11316,7 +11316,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="272" column="5" declfile="libs/core/src/core/rgb.h" declline="272" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="273" column="5" declfile="libs/core/src/core/rgb.h" declline="273" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ab7cd11b5813cfd4642207a5e2dfbc7df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">Rgba</ref></type>
@@ -11333,7 +11333,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="276" column="5" declfile="libs/core/src/core/rgb.h" declline="276" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="277" column="5" declfile="libs/core/src/core/rgb.h" declline="277" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a587199975f0cb2c7c4692f2b0dd5d6c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgbai" kindref="compound">Rgbai</ref></type>
@@ -11350,7 +11350,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="279" column="5" declfile="libs/core/src/core/rgb.h" declline="279" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="280" column="5" declfile="libs/core/src/core/rgb.h" declline="280" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2ba41009ce237cee5b3c02cee692f591" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -11367,7 +11367,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="294" column="17" declfile="libs/core/src/core/rgb.h" declline="294" declcolumn="17"/>
+        <location file="libs/core/src/core/rgb.h" line="295" column="17" declfile="libs/core/src/core/rgb.h" declline="295" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1add46be2d770ee99266b4aabbfc7709bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -11384,7 +11384,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="295" column="17" declfile="libs/core/src/core/rgb.h" declline="295" declcolumn="17"/>
+        <location file="libs/core/src/core/rgb.h" line="296" column="17" declfile="libs/core/src/core/rgb.h" declline="296" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aacdcb7f882143bc165a80d777d464965" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
@@ -11401,7 +11401,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="302" column="5" declfile="libs/core/src/core/rgb.h" declline="302" declcolumn="5"/>
+        <location file="libs/core/src/core/rgb.h" line="303" column="5" declfile="libs/core/src/core/rgb.h" declline="303" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad265ed209382ef6886b4adc6f31b90c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>

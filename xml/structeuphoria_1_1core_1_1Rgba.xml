@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="197" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="197" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="198" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="198" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Rgba_1a6d30c6bf830dad737fd1f7fce77a3c9a" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="198" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="198" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="199" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="199" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Rgba_1aebb69093d67e4fcb7b9a49b073cb445b" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="199" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="199" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="200" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="200" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Rgba_1a9230409d70b759d5c57c42ad392214e2" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -54,10 +54,40 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="200" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="200" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="201" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="201" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rgba_1a9a359767b32a4856b506773bdd968872" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Rgba::Rgba</definition>
+        <argsstring>(float red, float green, float blue, float alpha=1.0f)</argsstring>
+        <name>Rgba</name>
+        <param>
+          <type>float</type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>blue</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>alpha</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="195" column="9"/>
+      </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Rgba_1a694137c50c95a5ef8403ccaf3fb4f513" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::Rgba::Rgba</definition>
@@ -78,19 +108,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="195" column="9"/>
+        <location file="libs/core/src/core/rgb.h" line="196" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rgb.h" line="193" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="192" bodyend="201"/>
+    <location file="libs/core/src/core/rgb.h" line="193" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="192" bodyend="202"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Rgba_1a9230409d70b759d5c57c42ad392214e2" prot="public" virt="non-virtual"><scope>euphoria::core::Rgba</scope><name>a</name></member>
       <member refid="structeuphoria_1_1core_1_1Rgba_1aebb69093d67e4fcb7b9a49b073cb445b" prot="public" virt="non-virtual"><scope>euphoria::core::Rgba</scope><name>b</name></member>
       <member refid="structeuphoria_1_1core_1_1Rgba_1a6d30c6bf830dad737fd1f7fce77a3c9a" prot="public" virt="non-virtual"><scope>euphoria::core::Rgba</scope><name>g</name></member>
       <member refid="structeuphoria_1_1core_1_1Rgba_1a06d51c80e23f2a436b1207867b85902a" prot="public" virt="non-virtual"><scope>euphoria::core::Rgba</scope><name>r</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rgba_1a9a359767b32a4856b506773bdd968872" prot="public" virt="non-virtual"><scope>euphoria::core::Rgba</scope><name>Rgba</name></member>
       <member refid="structeuphoria_1_1core_1_1Rgba_1a694137c50c95a5ef8403ccaf3fb4f513" prot="public" virt="non-virtual"><scope>euphoria::core::Rgba</scope><name>Rgba</name></member>
     </listofallmembers>
   </compounddef>

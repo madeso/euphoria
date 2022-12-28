@@ -2118,6 +2118,7 @@
     <member refid="structeuphoria_1_1core_1_1Rgba_1a6d30c6bf830dad737fd1f7fce77a3c9a" kind="variable"><name>g</name></member>
     <member refid="structeuphoria_1_1core_1_1Rgba_1aebb69093d67e4fcb7b9a49b073cb445b" kind="variable"><name>b</name></member>
     <member refid="structeuphoria_1_1core_1_1Rgba_1a9230409d70b759d5c57c42ad392214e2" kind="variable"><name>a</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rgba_1a9a359767b32a4856b506773bdd968872" kind="function"><name>Rgba</name></member>
     <member refid="structeuphoria_1_1core_1_1Rgba_1a694137c50c95a5ef8403ccaf3fb4f513" kind="function"><name>Rgba</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1Rgbai" kind="struct"><name>euphoria::core::Rgbai</name>
