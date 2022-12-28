@@ -11,6 +11,7 @@
 #include "core/proto.h"
 #include "log/log.h"
 #include "core/cint.h"
+#include "core/stringbuilder.h"
 
 #include "gaf_chatbot.h"
 #include "gaf_rapidjson_chatbot.h"
@@ -794,30 +795,30 @@ namespace euphoria::core
         }
 
         const auto& last = *history.rbegin();
-        std::ostringstream ss;
+        auto ss = StringBuilder2{};
 
-        ss << "INPUT: " << last.input << "\n";
-        ss << "SECTION: " << last.section << "\n";
-        ss << "RESPONSE: " << last.response << "\n";
+        ss.add_string("INPUT: {}\n"_format(last.input));
+        ss.add_string("SECTION: {}\n"_format(last.section));
+        ss.add_string("RESPONSE: {}\n"_format(last.response));
 
         if(!last.topics.empty())
         {
-            ss << "\n";
-            ss << "TOPICS:\n";
+            ss.add_char('\n');
+            ss.add_view("TOPICS:\n");
             for(const auto& t: last.topics)
             {
-                ss << t.topic << "(" << t.time << ")\n";
+                ss.add_string("{}({})\n"_format(t.topic, t.time));
             }
-            ss << "\n";
+            ss.add_char('\n');
         }
 
         if(!last.logs.empty())
         {
-            ss << "\n";
-            ss << "---------------\n";
-            ss << "LOGS\n";
-            ss << "---------------\n";
-            ss << "\n";
+            ss.add_char('\n');
+            ss.add_view("---------------\n");
+            ss.add_view("LOGS\n");
+            ss.add_view("---------------\n");
+            ss.add_char('\n');
 
             for(const auto& l: last.logs)
             {
@@ -831,13 +832,13 @@ namespace euphoria::core
                 {
                     for(const auto& li: l.lines)
                     {
-                        ss << "  " << li << "\n";
+                        ss.add_string("  {}\n"_format(li));
                     }
-                    ss << "\n";
+                    ss.add_char('\n');
                 }
             }
         }
 
-        return ss.str();
+        return ss.to_string();
     }
 }

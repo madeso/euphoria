@@ -1,10 +1,11 @@
 #include "core/cypher.h"
 
-
+#include "assert/assert.h"
 
 #include "core/stringutils.h"
 #include "core/range.h"
-#include "assert/assert.h"
+#include "core/stringbuilder.h"
+
 
 
 namespace euphoria::core
@@ -22,9 +23,9 @@ ceasar_cypher
     char invalid
 )
 {
-    ASSERT(steps > 0); // todo(Gustav): ass support for negative steps
+    ASSERT(steps > 0); // todo(Gustav): add support for negative steps
     const auto alph = case_sensitive ? alphabet : to_lower(alphabet);
-    std::ostringstream ret;
+    auto ret = StringBuilder2{};
 
     for(const auto c: input)
     {
@@ -36,8 +37,9 @@ ceasar_cypher
         {
             const auto new_index = (static_cast<int>(index) + steps) % static_cast<int>(alph.size());
             const auto new_char = alph[new_index];
-            const auto transformed_char = case_sensitive == false && is_upper ? to_upper_char(new_char) : new_char;
-            ret << transformed_char;
+            const auto transformed_char = case_sensitive == false && is_upper
+                ? to_upper_char(new_char) : new_char;
+            ret.add_char(transformed_char);
         }
         else
         {
@@ -46,10 +48,10 @@ ceasar_cypher
             case ActionWhenMissingInAlphabet::ignore:
                 continue;
             case ActionWhenMissingInAlphabet::pass_through:
-                ret << c;
+                ret.add_char(c);
                 break;
             case ActionWhenMissingInAlphabet::replace:
-                ret << invalid;
+                ret.add_char(invalid);
                 break;
             default:
                 DIE("Unhandled case");
@@ -57,7 +59,7 @@ ceasar_cypher
         }
     }
 
-    return ret.str();
+    return ret.to_string();
 }
 
 

@@ -1,171 +1,176 @@
 #include "core/console.h"
-#include "core/stringutils.h"
 
-#include "core/str.h"
+#include "core/stringutils.h"
+#include "core/stringbuilder.h"
+
 
 namespace euphoria::core
 {
-    VirtualConsole::VirtualConsole()
+
+
+VirtualConsole::VirtualConsole()
+{
+    register_command("help", [this](PrintFunction print, const Args& arg) {
+        this->print_help(print, arg);
+    });
+}
+
+
+void
+VirtualConsole::register_command(const std::string& name, ActionFunction callback)
+{
+    callbacks[to_lower(name)] = callback;
+}
+
+
+void
+VirtualConsole::run(PrintFunction print, const std::string& cmd)
+{
+    if(cmd.empty())
     {
-        register_command("help", [this](PrintFunction print, const Args& arg) {
-            this->print_help(print, arg);
-        });
+        return;
+    }
+    const auto line = parse_commandline(cmd);
+    if(line.empty())
+    {
+        return;
+    }
+    const auto name = line[0];
+    auto found = callbacks.find(to_lower(name));
+    if(found == callbacks.end())
+    {
+        // unable to find cmd
+        print("Unknown command {}"_format(name));
+        // todo(Gustav): list commands that are the closest match
+        return;
     }
 
+    ActionFunction callback = found->second;
+    callback(print, std::vector<std::string> {line.begin() + 1, line.end()});
+}
 
-    void
-    VirtualConsole::register_command(const std::string& name, ActionFunction callback)
+
+void
+VirtualConsole::print_help(VirtualConsole::PrintFunction print, const Args&)
+{
+    print("Available commands:");
+    for(const auto& c: callbacks)
     {
-        callbacks[to_lower(name)] = callback;
+        print("  {}"_format(c.first));
+    }
+    print("");
+}
+
+
+namespace
+{
+    bool
+    is_space(char c)
+    {
+        switch (c)
+        {
+        case '\t':
+        case ' ': return true;
+        default: return false;
+        }
     }
 
-
-    void
-    VirtualConsole::run(PrintFunction print, const std::string& cmd)
+    bool
+    is_quote(char c)
     {
-        if(cmd.empty())
+        switch (c)
         {
-            return;
+        case '\"':
+        case '\'': return true;
+        default: return false;
         }
-        const auto line = parse_commandline(cmd);
-        if(line.empty())
-        {
-            return;
-        }
-        const auto name = line[0];
-        auto found = callbacks.find(to_lower(name));
-        if(found == callbacks.end())
-        {
-            // unable to find cmd
-            print(StringBuilder {} << "Unknown command " << name);
-            // todo(Gustav): list commands that are the closest match
-            return;
-        }
-
-        ActionFunction callback = found->second;
-        callback(
-                print, std::vector<std::string> {line.begin() + 1, line.end()});
     }
 
-
-    void
-    VirtualConsole::print_help(VirtualConsole::PrintFunction print, const Args&)
+    char
+    handle_escape_character(char c)
     {
-        print("Available commands:");
-        for(const auto& c: callbacks)
+        switch (c)
         {
-            print(StringBuilder {} << "  " << c.first);
+        case 'n': return '\n';
+        case 't': return '\t';
+        default: return c;
         }
-        print("");
     }
+}
 
 
-    namespace
+std::vector<std::string>
+parse_commandline(const std::string& str)
+{
+    std::vector<std::string> ret;
+
+    bool escape = false;
+    char current_string_character = 0;
+    auto buffer = StringBuilder2{};
+
+    for (char c : str)
     {
-        bool
-        is_space(char c)
+        if (escape)
         {
-            switch (c)
+            buffer.add_char(handle_escape_character(c));
+            escape = false;
+        }
+        else
+        {
+            if (c == '\\')
             {
-            case '\t':
-            case ' ': return true;
-            default: return false;
-            }
-        }
-
-        bool
-        is_quote(char c)
-        {
-            switch (c)
-            {
-            case '\"':
-            case '\'': return true;
-            default: return false;
-            }
-        }
-
-        char
-        handle_escape_character(char c)
-        {
-            switch (c)
-            {
-            case 'n': return '\n';
-            case 't': return '\t';
-            default: return c;
-            }
-        }
-    }
-
-
-    std::vector<std::string>
-    parse_commandline(const std::string& str)
-    {
-        std::vector<std::string> ret;
-
-        bool escape = false;
-        char current_string_character = 0;
-        std::ostringstream buffer;
-
-        for (char c : str)
-        {
-            if (escape)
-            {
-                buffer << handle_escape_character(c);
-                escape = false;
+                escape = true;
             }
             else
             {
-                if (c == '\\')
+                if (current_string_character != 0)
                 {
-                    escape = true;
+                    if (c == current_string_character)
+                    {
+                        current_string_character = 0;
+                        ret.emplace_back(buffer.to_string());
+                        buffer.clear();
+                    }
+                    else
+                    {
+                        buffer.add_char(c);
+                    }
                 }
                 else
                 {
-                    if (current_string_character != 0)
+                    // not within string
+                    if (is_quote(c) || is_space(c))
                     {
-                        if (c == current_string_character)
+                        if (is_quote(c))
                         {
-                            current_string_character = 0;
-                            ret.emplace_back(buffer.str());
-                            buffer.str("");
+                            current_string_character = c;
                         }
-                        else
+                        const auto b = buffer.to_string();
+                        buffer.clear();
+                        if (!b.empty())
                         {
-                            buffer << c;
+                            ret.emplace_back(b);
                         }
                     }
                     else
                     {
-                        // not within string
-                        if (is_quote(c) || is_space(c))
-                        {
-                            if (is_quote(c))
-                            {
-                                current_string_character = c;
-                            }
-                            const auto b = buffer.str();
-                            if (!b.empty())
-                            {
-                                ret.emplace_back(b);
-                                buffer.str("");
-                            }
-                        }
-                        else
-                        {
-                            // neither quote nor space
-                            buffer << c;
-                        }
+                        // neither quote nor space
+                        buffer.add_char(c);
                     }
                 }
             }
         }
-
-        const auto rest = buffer.str();
-        if (!rest.empty() || current_string_character != 0)
-        {
-            ret.emplace_back(rest);
-        }
-
-        return ret;
     }
+
+    const auto rest = buffer.to_string();
+    if (!rest.empty() || current_string_character != 0)
+    {
+        ret.emplace_back(rest);
+    }
+
+    return ret;
+}
+
+
+
 }

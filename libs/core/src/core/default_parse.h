@@ -155,9 +155,7 @@ namespace euphoria::core::argparse
     std::string
     default_value_to_string(const T& t)
     {
-        std::ostringstream ss;
-        ss << t;
-        return ss.str();
+        return fmt::format("{}", t);
     }
 
     // default value for enums

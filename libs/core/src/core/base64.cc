@@ -2,7 +2,7 @@
 
 #include "assert/assert.h"
 #include "core/cint.h"
-
+#include "core/stringbuilder.h"
 
 #include <string_view>
 #include <array>
@@ -20,39 +20,39 @@ namespace euphoria::core::base64
     encode(std::shared_ptr<MemoryChunk> memory)
     {
         MemoryChunk& in = *memory;
-        std::ostringstream out;
+        auto out = StringBuilder2{};
 
         for(int i = 0; i < in.get_size(); i += 3)
         {
             int b = (in[i] & 0xFC) >> 2;
-            out << codes[b];
+            out.add_char(codes[b]);
             b = (in[i] & 0x03) << 4;
             if(i + 1 < in.get_size())
             {
                 b |= (in[i + 1] & 0xF0) >> 4;
-                out << codes[b];
+                out.add_char(codes[b]);
                 b = (in[i + 1] & 0x0F) << 2;
                 if(i + 2 < in.get_size())
                 {
                     b |= (in[i + 2] & 0xC0) >> 6;
-                    out << codes[b];
+                    out.add_char(codes[b]);
                     b = in[i + 2] & 0x3F;
-                    out << codes[b];
+                    out.add_char(codes[b]);
                 }
                 else
                 {
-                    out << codes[b];
-                    out << '=';
+                    out.add_char(codes[b]);
+                    out.add_char('=');
                 }
             }
             else
             {
-                out << codes[b];
-                out << "==";
+                out.add_char(codes[b]);
+                out.add_view("==");
             }
         }
 
-        return out.str();
+        return out.to_string();
     }
 
     std::shared_ptr<MemoryChunk>

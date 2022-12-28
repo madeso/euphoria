@@ -83,16 +83,14 @@ namespace euphoria::core::argparse
             return file;
         }
 
-        std::ostringstream ss;
         index += 1;
         if(print)
         {
-            std::cout << "Generating " << index << "...\n";
+            fmt::print("Generating {}...\n", index);
         }
 
         // todo(Gustav): provide option for file extension
-        ss << file << std::setfill('0') << std::setw(5) << index << ".png";
-        return ss.str();
+        return "{}{:0>5}.png"_format(file, index);
     }
 
 
@@ -570,15 +568,17 @@ namespace euphoria::core::argparse
         {
             if( aa.name.is_optional() )
             {
-                std::ostringstream ss;
-                ss << "[" << aa.name.names[0];
+                // todo(Gustav): include any attributes (vector input)
+                const auto first_name = aa.name.names[0];
+                
                 if(aa.argument->have_nargs())
                 {
-                    ss << " " << aa.argument->nargs;
+                    return "[{} {}]"_format(first_name, aa.argument->nargs);
                 }
-                ss << "]";
-                // todo(Gustav): include any attributes (vector input)
-                return ss.str();
+                else
+                {
+                    return "[{}]"_format(first_name);
+                }
             }
             else
             {
@@ -730,17 +730,17 @@ namespace euphoria::core::argparse
                 ? names
                 : StringBuilder() << names << " " << a.argument->nargs
                 ;
-            std::ostringstream default_text;
-            if(a.argument->default_value.empty() == false)
-            {
-                default_text << " (default: " << a.argument->default_value << ")";
-            }
+            
+            const auto desc = a.argument->default_value.empty() == false
+                ? "{} (default: {})"_format(a.argument->help, a.argument->default_value)
+                : a.argument->help
+                ;
 
             add
             (
                 &optionals,
                 names_with_narg,
-                a.argument->help + default_text.str(),
+                desc,
                 a.argument->get_second_line()
             );
         }
