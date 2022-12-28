@@ -20,4 +20,4 @@ jobs:
           packages: cpplint
 
       - name: Cpplint run
-        run: ./tools/run-cpplint.sh
+        run: ./tools/run-cpplint.py run
