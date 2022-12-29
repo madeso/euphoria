@@ -31,13 +31,15 @@ namespace euphoria::tests
         auto size_equal = FalseString::create_true();
         if(lhs.size() != rhs.size())
         {
-            std::ostringstream ss;
-            ss << "Size mismatch: "
-                << lhs.size()
-                << " vs "
-                << rhs.size();
-            ss << vector_to_string(lhs, to_string_functor) << " " << vector_to_string(rhs, to_string_functor);
-            size_equal = FalseString::create_false(ss.str());
+            size_equal = FalseString::create_false
+            (
+                "Size mismatch: {} vs {}{} {}"_format
+                (
+                    lhs.size(), rhs.size(),
+                    vector_to_string(lhs, to_string_functor),
+                    vector_to_string(rhs, to_string_functor)
+                )
+            );
         }
 
         const auto size = std::min(lhs.size(), rhs.size());
@@ -46,32 +48,31 @@ namespace euphoria::tests
             const FalseString equals = compare_functor(lhs[i], rhs[i]);
             if(!equals)
             {
-                std::ostringstream ss;
-
-                if(!size_equal)
-                {
-                    ss << size_equal.str << ", and first invalid";
-                }
-                else
-                {
-                    const auto alhs = vector_to_string_ex(lhs, to_string_functor);
-                    const auto arhs = vector_to_string_ex(rhs, to_string_functor);
-                    const auto same = alhs.second == arhs.second;
-                    const auto lhsstr = same || alhs.second==false? alhs.first : vector_to_string_impl(lhs, false, to_string_functor);
-                    const auto rhsstr = same || arhs.second==false? arhs.first : vector_to_string_impl(rhs, false, to_string_functor);
-                    const auto oneliner = same && alhs.second == true;
-                    const auto vs = oneliner ? " vs " : "vs";
-                    if(oneliner == false) { ss << "  "; }
-                    ss << lhsstr << vs << rhsstr;
-                    if(oneliner) { ss << " "; }
-                    ss << "First invalid";
-                }
-
-
-                ss << " value at index ";
-                ss << i << ", "
-                    << equals.str;
-                return FalseString::create_false(ss.str());
+                const auto first_invalid = !size_equal
+                    ? "{}, and first invalid"_format(size_equal.str)
+                    : ([&]()
+                    {
+                        const auto alhs = vector_to_string_ex(lhs, to_string_functor);
+                        const auto arhs = vector_to_string_ex(rhs, to_string_functor);
+                        const auto same = alhs.second == arhs.second;
+                        const auto lhsstr = same || alhs.second==false? alhs.first : vector_to_string_impl(lhs, false, to_string_functor);
+                        const auto rhsstr = same || arhs.second==false? arhs.first : vector_to_string_impl(rhs, false, to_string_functor);
+                        const auto oneliner = same && alhs.second == true;
+                        
+                        if(oneliner)
+                        {
+                            return "{} vs {} First invalid"_format(lhsstr, rhsstr);
+                        }
+                        else
+                        {
+                            return "  {}vs{}First invalid"_format(lhsstr, rhsstr);
+                        }
+                    })()
+                    ;
+                return FalseString::create_false
+                (
+                    "{} value at index {}, {}"_format(first_invalid, i, equals.str)
+                );
             }
         }
 

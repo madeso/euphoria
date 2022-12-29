@@ -13,26 +13,6 @@ using namespace euphoria::core;
 using namespace euphoria::tests;
 
 
-std::string
-int_to_binary_string_representation(U8 t)
-{
-    std::ostringstream ss;
-    std::bitset<2> x(t);
-    ss << x;
-    return ss.str();
-}
-
-
-template<typename T>
-std::string
-int_to_hex_string_representation(const T& t)
-{
-    std::ostringstream ss;
-    ss << std::hex << static_cast<int>(t);
-    return ss.str();
-}
-
-
 template<typename T, typename F>
 FalseString
 compare_ints(const T& lhs, const T& rhs, F to_string)
@@ -43,9 +23,10 @@ compare_ints(const T& lhs, const T& rhs, F to_string)
     }
     else
     {
-        std::ostringstream ss;
-        ss << to_string(lhs) << " != " << to_string(rhs);
-        return FalseString::create_false(ss.str());
+        return FalseString::create_false
+        (
+            "{} != {}"_format(to_string(lhs), to_string(rhs))
+        );
     }
 }
 
@@ -58,7 +39,10 @@ int_equals_hex
     const std::vector<T>& rhs
 )
 {
-    auto to_string = [](const T& t) { return int_to_hex_string_representation(t); };
+    auto to_string = [](const T& t)
+    {
+        return "{:x}"_format(t);
+    };
     return vector_is_equal<T>
     (
         lhs,
@@ -80,10 +64,7 @@ int_equals_bin
 {
     const auto to_string = [](const T& t)
     {
-        return int_to_binary_string_representation
-        (
-            static_cast<U8>(t)
-        );
+        return "{0>2:x}"_format(static_cast<U8>(t));
     };
     return vector_is_equal<T>
     (
