@@ -401,7 +401,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/vectorequals.h" line="23" column="5" bodyfile="libs/tests/src/tests/vectorequals.h" bodystart="24" bodyend="84"/>
+        <location file="libs/tests/src/tests/vectorequals.h" line="23" column="5" bodyfile="libs/tests/src/tests/vectorequals.h" bodystart="24" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a1a8ab251abd8122e0ec6133bb9f946f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
