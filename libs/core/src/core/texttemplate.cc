@@ -92,7 +92,7 @@ TemplateErrorList::add_error
 std::string
 TemplateErrorList::get_combined_errors() const
 {
-    auto ss = StringBuilder2{};
+    auto ss = StringBuilder{};
 
     for(const auto& mess: errors)
     {
@@ -121,7 +121,7 @@ struct TemplateNode
     evaluate
     (
         Defines* defines,
-        StringBuilder2* out,
+        StringBuilder* out,
         TemplateErrorList* error
     ) = 0;
 };
@@ -138,7 +138,7 @@ struct TemplateNodeString : TemplateNode
     }
 
     void
-    evaluate(Defines* /*defines*/, StringBuilder2* out, TemplateErrorList* /*error*/) override
+    evaluate(Defines* /*defines*/, StringBuilder* out, TemplateErrorList* /*error*/) override
     {
         ASSERT(out);
         out->add_string(text);
@@ -156,7 +156,7 @@ struct TemplateNodeList : TemplateNode
     TemplateNodeList() = default;
 
     void
-    evaluate(Defines* defines, StringBuilder2* out, TemplateErrorList* error) override
+    evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         for(const auto& node: nodes)
         {
@@ -182,7 +182,7 @@ struct TemplateNodeScopedList : TemplateNodeList
     TemplateNodeScopedList() = default;
 
     void
-    evaluate(core::Defines* defines, StringBuilder2* out, TemplateErrorList* error) override
+    evaluate(core::Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         ASSERT(defines);
         core::Defines my_defines = *defines;
@@ -203,7 +203,7 @@ struct TemplateNodeIfdef : TemplateNode
     }
 
     void
-    evaluate(Defines* defines, StringBuilder2* out, TemplateErrorList* error) override
+    evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         ASSERT(defines);
         if(defines->is_defined(name))
@@ -228,7 +228,7 @@ struct TemplateNodeEval : TemplateNode
     }
 
     void
-    evaluate(Defines* defines, StringBuilder2* out, TemplateErrorList* error) override
+    evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         ASSERT(out);
         ASSERT(defines);
@@ -262,7 +262,7 @@ struct TemplateNodeSet : TemplateNode
     }
 
     void
-    evaluate(Defines* defines, StringBuilder2* out, TemplateErrorList* /*error*/) override
+    evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* /*error*/) override
     {
         ASSERT(out);
         ASSERT(defines);
@@ -351,7 +351,7 @@ lexer
 
     bool inside = false;
 
-    StringBuilder2 buffer;
+    StringBuilder buffer;
     int buffer_line = parser.get_line();
     int buffer_column = parser.get_column();
 
@@ -864,7 +864,7 @@ CompiledTextTemplate::~CompiledTextTemplate() = default;
 std::string
 CompiledTextTemplate::evaluate(const core::Defines& defines)
 {
-    StringBuilder2 ss;
+    StringBuilder ss;
 
     if(errors.has_errors())
     {

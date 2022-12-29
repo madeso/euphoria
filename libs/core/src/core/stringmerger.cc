@@ -15,7 +15,7 @@ namespace euphoria::core
             return "{}{}{}"_format(start, empty, end);
         }
 
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
 
         ss.add_view(start);
 

@@ -95,7 +95,7 @@ namespace euphoria::core
 
         for(int r = 0; r < table.get_height(); r += 1)
         {
-            StringBuilder2 ss;
+            StringBuilder ss;
             for(int c = 0; c < table.get_width(); c += 1)
             {
                 ss.add_char(table(c, r));

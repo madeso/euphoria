@@ -792,7 +792,7 @@ namespace euphoria::core
         }
 
         const auto& last = *history.rbegin();
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
 
         ss.add_string("INPUT: {}\n"_format(last.input));
         ss.add_string("SECTION: {}\n"_format(last.section));

@@ -329,7 +329,7 @@ remove_from_end(const std::string& str, const std::string& end)
 std::string
 strip(const std::string& str, const std::string& ch)
 {
-    auto ss = StringBuilder2{};
+    auto ss = StringBuilder{};
     for(const char c: str)
     {
         if(ch.find(c) == std::string::npos)
@@ -345,7 +345,7 @@ strip(const std::string& str, const std::string& ch)
 std::string
 remove_consecutive(const std::string& str, const std::string& ch)
 {
-    auto ss = StringBuilder2{};
+    auto ss = StringBuilder{};
     bool skip = false;
     for(const char c: str)
     {
@@ -389,7 +389,7 @@ namespace
         std::vector<std::string> ret;
         if (str.empty()) { return ret; }
 
-        auto buffer = StringBuilder2{};
+        auto buffer = StringBuilder{};
         
         for(char c: str)
         {

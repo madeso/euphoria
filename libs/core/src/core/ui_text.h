@@ -79,7 +79,7 @@ namespace euphoria::core
 
         struct VisitorDebugString : public Visitor
         {
-            StringBuilder2 ss;
+            StringBuilder ss;
 
             void
             on_text(const std::string& text) override;

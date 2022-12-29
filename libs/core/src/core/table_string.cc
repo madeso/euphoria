@@ -25,7 +25,7 @@ table_from_csv(const std::string& csv_data, const CsvParserOptions& options)
     StringTable table;
 
     std::vector<std::string> row;
-    auto ss = StringBuilder2{};
+    auto ss = StringBuilder{};
     bool inside_string = false;
     bool added = false;
     bool was_from_string = false;

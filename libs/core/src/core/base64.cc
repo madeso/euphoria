@@ -20,7 +20,7 @@ namespace euphoria::core::base64
     encode(std::shared_ptr<MemoryChunk> memory)
     {
         MemoryChunk& in = *memory;
-        auto out = StringBuilder2{};
+        auto out = StringBuilder{};
 
         for(int i = 0; i < in.get_size(); i += 3)
         {

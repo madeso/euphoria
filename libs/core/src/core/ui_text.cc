@@ -133,7 +133,7 @@ namespace euphoria::core
 
             ParserState state = ParserState::text;
             bool escape = false;
-            StringBuilder2 buff;
+            StringBuilder buff;
             bool ok = true;
 
             void

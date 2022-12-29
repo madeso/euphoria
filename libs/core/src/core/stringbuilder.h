@@ -5,7 +5,7 @@ namespace euphoria::core
 {
 
 
-struct StringBuilder2
+struct StringBuilder
 {
     // non-null terminated string, null-teminated if "completed"
     std::vector<char> data;
@@ -16,9 +16,9 @@ struct StringBuilder2
 
     void clear();
 
-    StringBuilder2& add_char(char c);
-    StringBuilder2& add_string(const std::string& str);
-    StringBuilder2& add_view(const std::string_view& str);
+    StringBuilder& add_char(char c);
+    StringBuilder& add_string(const std::string& str);
+    StringBuilder& add_view(const std::string_view& str);
 
     /** Complete the builder and return the resulting string.
      * No strings can be added after this operation.

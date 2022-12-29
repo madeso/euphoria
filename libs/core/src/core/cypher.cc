@@ -25,7 +25,7 @@ ceasar_cypher
 {
     ASSERT(steps > 0); // todo(Gustav): add support for negative steps
     const auto alph = case_sensitive ? alphabet : to_lower(alphabet);
-    auto ret = StringBuilder2{};
+    auto ret = StringBuilder{};
 
     for(const auto c: input)
     {

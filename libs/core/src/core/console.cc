@@ -106,7 +106,7 @@ parse_commandline(const std::string& str)
 
     bool escape = false;
     char current_string_character = 0;
-    auto buffer = StringBuilder2{};
+    auto buffer = StringBuilder{};
 
     for (char c : str)
     {

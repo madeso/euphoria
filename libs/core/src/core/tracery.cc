@@ -209,7 +209,7 @@ namespace euphoria::core::tracery
     std::string
     Result::get_text() const
     {
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
         for(const auto& s: text)
         {
             ss.add_string(s);
@@ -266,7 +266,7 @@ namespace euphoria::core::tracery
                   "0123456789"
                   "_-+";
 
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
         while(valid.find(parser->peek_char()) != std::string::npos)
         {
             ss.add_char(parser->read_char());
@@ -296,7 +296,7 @@ namespace euphoria::core::tracery
     } while(false)
 
         auto parser = TextfileParser::from_string(s);
-        auto buffer = StringBuilder2{};
+        auto buffer = StringBuilder{};
         while(parser.has_more())
         {
             switch(parser.peek_char())

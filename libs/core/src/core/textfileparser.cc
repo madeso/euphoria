@@ -188,7 +188,7 @@ namespace euphoria::core
     std::string
     TextfileParser::read_ident()
     {
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
         bool first = true;
         while(is_ident_char(peek_char(), first))
         {
@@ -201,7 +201,7 @@ namespace euphoria::core
     std::string
     TextfileParser::read_string()
     {
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
         const char quote = '\"';
         if(peek_char() != quote)
         {
@@ -251,7 +251,7 @@ namespace euphoria::core
     std::string
     TextfileParser::read_to_end_of_line()
     {
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
         while(!is_newline(peek_char()))
         {
             const char c = read_char();

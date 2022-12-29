@@ -19,19 +19,19 @@ namespace
 }
 
 
-bool StringBuilder2::has_content() const
+bool StringBuilder::has_content() const
 {
     return data.empty() == false;
 }
 
 
-void StringBuilder2::clear()
+void StringBuilder::clear()
 {
     data.clear();
 }
 
 
-StringBuilder2& StringBuilder2::add_char(char c)
+StringBuilder& StringBuilder::add_char(char c)
 {
     ASSERT(can_add_to(data));
     data.emplace_back(c);
@@ -39,7 +39,7 @@ StringBuilder2& StringBuilder2::add_char(char c)
 }
 
 
-StringBuilder2& StringBuilder2::add_string(const std::string& str)
+StringBuilder& StringBuilder::add_string(const std::string& str)
 {
     ASSERT(can_add_to(data));
     for(char c: str)
@@ -51,7 +51,7 @@ StringBuilder2& StringBuilder2::add_string(const std::string& str)
 }
 
 
-StringBuilder2& StringBuilder2::add_view(const std::string_view& str)
+StringBuilder& StringBuilder::add_view(const std::string_view& str)
 {
     ASSERT(can_add_to(data));
     for(char c: str)
@@ -63,7 +63,7 @@ StringBuilder2& StringBuilder2::add_view(const std::string_view& str)
 }
 
 
-std::string StringBuilder2::to_string()
+std::string StringBuilder::to_string()
 {
     ASSERT(can_add_to(data));
     data.emplace_back('\0'); // now we no longer can add to it!

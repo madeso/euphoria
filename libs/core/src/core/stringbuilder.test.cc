@@ -9,13 +9,13 @@ TEST_CASE("stringbuilder", "[stringbuilder]")
 {
     SECTION("empty")
     {
-        StringBuilder2 ss;
+        StringBuilder ss;
         REQUIRE(ss.to_string().empty());
     }
 
     SECTION("chars")
     {
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
         ss.add_char('d');
         ss.add_char('o');
         ss.add_char('g');
@@ -24,7 +24,7 @@ TEST_CASE("stringbuilder", "[stringbuilder]")
 
     SECTION("strings")
     {
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
         ss.add_string("dog");
         ss.add_string(" is ");
         ss.add_string("good");
@@ -33,7 +33,7 @@ TEST_CASE("stringbuilder", "[stringbuilder]")
 
     SECTION("string view")
     {
-        auto ss = StringBuilder2{};
+        auto ss = StringBuilder{};
         ss.add_view("good ");
         ss.add_view("dog!");
         REQUIRE(ss.to_string() == "good dog!");

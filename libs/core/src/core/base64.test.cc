@@ -21,7 +21,7 @@ TEST_CASE("base64-decode", "[base64]")
     char m = *(chunk->get_data() + 0);
     char a = *(chunk->get_data() + 1);
     char n = *(chunk->get_data() + 2);
-    std::string decoded = euco::StringBuilder2{}
+    std::string decoded = euco::StringBuilder{}
         .add_char(m)
         .add_char(a)
         .add_char(n)
