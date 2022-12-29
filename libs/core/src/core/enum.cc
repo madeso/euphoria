@@ -51,9 +51,8 @@ namespace euphoria::core
         (
             to_string_vector(name_to_value)
         );
-        const std::string invalid = StringBuilder() << "<invalid value " << v << " of "
-                                          << values << ">";
-        return invalid;
+        
+        return "<invalid value {} of {}>"_format(v, values);
     }
 
 

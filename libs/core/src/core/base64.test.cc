@@ -1,7 +1,10 @@
 #include "core/base64.h"
-#include "core/str.h"
 
 #include "catch.hpp"
+
+#include "core/str.h"
+#include "core/stringbuilder.h"
+
 
 namespace euco = euphoria::core;
 
@@ -19,6 +22,10 @@ TEST_CASE("base64-decode", "[base64]")
     char m = *(chunk->get_data() + 0);
     char a = *(chunk->get_data() + 1);
     char n = *(chunk->get_data() + 2);
-    std::string decoded = euco::StringBuilder() << m << a << n;
+    std::string decoded = euco::StringBuilder2{}
+        .add_char(m)
+        .add_char(a)
+        .add_char(n)
+        .to_string();
     REQUIRE(decoded == "Man");
 }

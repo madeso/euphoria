@@ -37,7 +37,7 @@ namespace euphoria::core
         std::vector<std::string> strings;
         for(const auto& x: m)
         {
-            strings.push_back(StringBuilder() << x.first);
+            strings.push_back("{}"_format(x.first));
         }
         return strings;
     }

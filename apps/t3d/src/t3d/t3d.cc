@@ -613,8 +613,8 @@ namespace euphoria::t3d
             {
                 for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
                 {
-                    const auto label = (core::StringBuilder() << "Save " << i).to_string();
-                    const auto shortcut = (core::StringBuilder() << "Ctrl+" << i).to_string();
+                    const auto label = "Save {}"_format(i);
+                    const auto shortcut = "Ctrl+{}"_format(i);
                     if(ImGui::MenuItem(label.c_str(), shortcut.c_str()))
                     {
                         editor_camera.save_camera(i);
@@ -626,8 +626,8 @@ namespace euphoria::t3d
             {
                 for(int i=0; i<core::EditorCamera3::max_stored_index; i+=1)
                 {
-                    const auto label = (core::StringBuilder() << "Load " << i).to_string();
-                    const auto shortcut = (core::StringBuilder() << i).to_string();
+                    const auto label = "Load "_format(i);
+                    const auto shortcut =  "{}"_format(i);
                     if(ImGui::MenuItem(label.c_str(), shortcut.c_str()))
                     {
                         editor_camera.load_camera(i);
@@ -655,10 +655,7 @@ namespace euphoria::t3d
             ASSERT(mesh->tile);
             ASSERT(mesh->tile);
             const auto p = mesh->actor->position;
-            std::string display = core::StringBuilder {}
-                << mesh->tile->name
-                << " "
-                << p;
+            std::string display = "{} {}"_format(mesh->tile->name, p);
             if (ImGui::Selectable(display.c_str(), mesh->is_selected))
             {
                 if (calculate_keyboard_state().ctrl == false)
@@ -706,7 +703,7 @@ namespace euphoria::t3d
         bool dirty = false;
 
 
-        const std::string str = core::StringBuilder{} << grid_data.small_step;
+        const std::string str = "{}"_format(grid_data.small_step);
         constexpr auto popup_grid = "popup_grid";
         if(ImGui::Button(str.c_str()))
         {

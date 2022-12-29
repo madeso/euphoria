@@ -112,16 +112,14 @@ namespace euphoria::core
                 {
                     return R::create_error
                     (
-                        StringBuilder{} << value << " contains less than one x"
+                        "{} contains less than one x"_format(value)
                     );
                 }
                 else
                 {
                     return R::create_error
                     (
-                        StringBuilder{}
-                            << value << " contains more than one x: "
-                            << (xes-1)
+                        "{} contains more than one x: {}"_format(value, xes-1)
                     );
                 }
             }

@@ -311,7 +311,7 @@ namespace euphoria::core
         std::string
         to_string(const Rgbi& c)
         {
-            return to_string(c);
+            return euphoria::core::to_string(c);
         }
 
         static

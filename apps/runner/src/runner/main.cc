@@ -105,8 +105,7 @@ run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& pa
     const bool loaded = fs->read_file_to_string(path, &content);
     if(!loaded)
     {
-        const std::string error_message = StringBuilder() << "Unable to open " << path
-                                                << " for running";
+        const std::string error_message = "Unable to open {} for running"_format(path);
         LOG_ERROR("{0}", error_message);
         return RunResult::create_error(error_message);
     }
@@ -118,7 +117,7 @@ run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& pa
     if(!eval.valid())
     {
         const sol::error err = eval;
-        const std::string error_message = StringBuilder() << "Failed to run " << path << ": " << err.what();
+        const std::string error_message = "Failed to run {}: {}"_format(path, err.what());
         LOG_ERROR("{0}", error_message);
         return RunResult::create_error(error_message);
     }

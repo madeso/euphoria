@@ -31,30 +31,35 @@ void StringBuilder2::clear()
 }
 
 
-void StringBuilder2::add_char(char c)
+StringBuilder2& StringBuilder2::add_char(char c)
 {
     ASSERT(can_add_to(data));
     data.emplace_back(c);
+    return *this;
 }
 
 
-void StringBuilder2::add_string(const std::string& str)
+StringBuilder2& StringBuilder2::add_string(const std::string& str)
 {
     ASSERT(can_add_to(data));
     for(char c: str)
     {
         data.emplace_back(c);
     }
+
+    return *this;
 }
 
 
-void StringBuilder2::add_view(const std::string_view& str)
+StringBuilder2& StringBuilder2::add_view(const std::string_view& str)
 {
     ASSERT(can_add_to(data));
     for(char c: str)
     {
         data.emplace_back(c);
     }
+
+    return *this;
 }
 
 

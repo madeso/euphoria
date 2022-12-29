@@ -8,8 +8,6 @@
 
 namespace euphoria::core
 {
-    struct StringBuilder;
-
     namespace vfs
     {
         // here lies the definitions of a virtual path
@@ -90,11 +88,7 @@ namespace euphoria::core
 
             template
             <
-                typename OStream,
-                typename X = std::enable_if_t
-                <
-                    !std::is_same<OStream, core::StringBuilder>::value
-                >
+                typename OStream
             >
             friend OStream& operator<<(OStream& os, const FilePath& p)
             {
@@ -162,11 +156,7 @@ namespace euphoria::core
 
             template
             <
-                typename OStream,
-                typename X = std::enable_if_t
-                <
-                    !std::is_same<OStream, core::StringBuilder>::value
-                >
+                typename OStream
             >
             friend OStream& operator<<(OStream& os, const DirPath& p)
             {

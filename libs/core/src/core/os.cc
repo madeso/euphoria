@@ -55,7 +55,7 @@ namespace euphoria::core
     DirectoryListing
     list_directory(const std::string& path)
     {
-        const std::string search_path = StringBuilder() << path << "*.*";
+        const std::string search_path = "{}*.*"_format(path);
         WIN32_FIND_DATA fd;
         HANDLE hFind = ::FindFirstFile(search_path.c_str(), &fd);
 

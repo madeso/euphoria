@@ -20,7 +20,7 @@ namespace euphoria::core
     std::string
     get_string_from_path(const vfs::FilePath& p)
     {
-        return StringBuilder() << p;
+        return "{}"_format(p);
     }
 
     std::string
@@ -53,12 +53,10 @@ namespace euphoria::core
                 return m.name;
             }
         );
+
         const auto all_entries = string_mergers::array.merge(map<std::string>(files, [](const auto& f) { return f.name; }));
         const auto closest = string_mergers::english_or.merge(values);
-
-        return StringBuilder()
-            << "File " << p << " is requrested with roots: "
-            << fs->get_roots_as_string() << ". All entries: " << all_entries << ". Did you mean " << closest << "?";
+        return "File {} is requrested with roots: {}. All entries: {}. Did you mean {}?"_format(p, fs->get_roots_as_string(), all_entries, closest);
     }
 
     std::optional<std::string>
@@ -127,9 +125,15 @@ namespace euphoria::core
             const auto error_offset = doc->GetErrorOffset();
             const auto location = get_location_from_offset(source, error_offset);
             // todo(Gustav): make the source offset string better looking, like a compiler error with a "here: ^~~~~~~" text
-            return StringBuilder {}
-                << "JSON error: " << rapidjson::GetParseError_En(err) << "\n"
-                << "Error offset: (" << location.line << ":" << location.offset << ") (error at [..." << source.substr(error_offset, 10) << "]";
+            return
+                "JSON error: {}\n"
+                "Error offset: ({}:{}) (error at [...{}]"_format
+                (
+                    rapidjson::GetParseError_En(err),
+                    location.line,
+                    location.offset,
+                    source.substr(error_offset, 10)
+                );
         }
 
         return std::nullopt;

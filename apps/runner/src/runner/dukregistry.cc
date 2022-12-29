@@ -59,7 +59,7 @@ namespace euphoria::runner
         {
             return core::Result<core::ecs::ComponentIndex>::create_error
             (
-                core::StringBuilder{} << "Unable to find " <<  name
+                "Unable to find {}"_format(name)
             );
         }
     }

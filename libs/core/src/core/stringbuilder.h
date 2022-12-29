@@ -16,9 +16,9 @@ struct StringBuilder2
 
     void clear();
 
-    void add_char(char c);
-    void add_string(const std::string& str);
-    void add_view(const std::string_view& str);
+    StringBuilder2& add_char(char c);
+    StringBuilder2& add_string(const std::string& str);
+    StringBuilder2& add_view(const std::string_view& str);
 
     /** Complete the builder and return the resulting string.
      * No strings can be added after this operation.

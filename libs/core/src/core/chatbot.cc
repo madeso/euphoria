@@ -657,7 +657,7 @@ namespace euphoria::core
                     {
                         log.emplace_back
                         (
-                            StringBuilder() << "Doesnt have topic " << topic
+                            "Doesnt have topic {}"_format(topic)
                         );
                         valid_response = false;
                         break;
@@ -684,11 +684,11 @@ namespace euphoria::core
                 // strings when the OpString is false
                 log.emplace_back
                 (
-                        StringBuilder()
-                        << "Checking keyword "
-                        << StringMerger() .set_separator(" ").set_start_and_end("\"").merge(keyword.words)
-                        << " ("
-                        << string_mergers::english_or.merge
+                    "Checking keyword {} {{}}"_format
+                    (
+                        // todo(Gustav): use map and a escape string function here
+                        StringMerger().set_separator(" ").set_start_and_end("\"").merge(keyword.words),
+                        string_mergers::english_or.merge
                         (
                             std::vector<std::string>
                             {
@@ -696,7 +696,7 @@ namespace euphoria::core
                                 optional_string(same_size_but_better, "same size but better")
                             }
                         )
-                        << ")"
+                    )
                 );
                 const bool should_check_keyword = longer_keyword || same_size_but_better;
                 if(!should_check_keyword)
@@ -720,9 +720,7 @@ namespace euphoria::core
                         match_location = keyword.location;
                         log.emplace_back
                         (
-                            StringBuilder() << "Matched at" << matched_index
-                                    << " of length " << match_length
-                                    << " with " << match_location
+                            "Matched at {} of length {} with {}"_format(matched_index, match_length, match_location)
                         );
                         if(last_event == resp.event_id)
                         {

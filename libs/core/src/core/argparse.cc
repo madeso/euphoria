@@ -36,6 +36,8 @@
 
    * add real-world tests in unit tests, like fake-git and fake-compiler
 
+   * replae ' with ` in help output
+
    * if bored, get ideas from https://www.npmjs.com/package/commander
 
 */
@@ -471,7 +473,7 @@ namespace euphoria::core::argparse
             (
                 runner,
                 caller,
-                StringBuilder() << "missing value for '" << name << '\''
+                "missing value for '{}'"_format(name)
             );
             return argparse::error;
         }
@@ -728,7 +730,7 @@ namespace euphoria::core::argparse
             const auto names = string_mergers::comma.merge(a.name.names);
             const auto names_with_narg = a.argument->have_nargs() == false
                 ? names
-                : StringBuilder() << names << " " << a.argument->nargs
+                : "{} {}"_format(names, a.argument->nargs)
                 ;
             
             const auto desc = a.argument->default_value.empty() == false
@@ -1054,13 +1056,11 @@ namespace euphoria::core::argparse
                     {
                         print_error
                         (
-                            StringBuilder() << '\'' << arg << "' was unexpected"
+                            "'{}' was unexpected"_format(arg)
                         );
                         return argparse::error;
                     }
 
-                    const std::string invalid_command = StringBuilder()
-                        << "Invalid command '" << arg << "'";
                     const auto names = quote_and_combine_english_or(match.names);
 
                     // todo(Gustav): switch between 'did you mean' and
@@ -1068,8 +1068,7 @@ namespace euphoria::core::argparse
                     // edit distance is?
                     print_error
                     (
-                        StringBuilder() << invalid_command <<
-                        ", did you mean " << names << '?'
+                        "Invalid command '{}', did you mean {}?"_format(arg, names)
                     );
                     return argparse::error;
                 }
@@ -1149,7 +1148,7 @@ namespace euphoria::core::argparse
                     {
                         print_error
                         (
-                            StringBuilder() << "unknown argument: '" << arg << '\''
+                            "unknown argument: '{}'"_format(arg)
                         );
                     }
                     else
@@ -1157,8 +1156,7 @@ namespace euphoria::core::argparse
                         const auto closest_match_name = closest_match->first;
                         print_error
                         (
-                            StringBuilder() << "unknown argument: '" << arg <<
-                            "', did you mean '" << closest_match_name << "'?"
+                            "unknown argument: '{}', did you mean '{}'?"_format(arg, closest_match_name)
                         );
                     }
 
@@ -1243,14 +1241,9 @@ namespace euphoria::core::argparse
             const auto text = string_mergers::english_and.merge(missing);
             parser.print_error
             (
-                missing.size() == 1 ?
-                (
-                    StringBuilder() << "Positional " << text << " was not specified."
-                )
-                :
-                (
-                    StringBuilder() << "Positionals " << text << " were not specified."
-                )
+                missing.size() == 1
+                ? "Positional {} was not specified."_format(text)
+                : "Positionals {} were not specified."_format(text)
             );
             return argparse::error;
         }

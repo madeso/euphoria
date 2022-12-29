@@ -598,13 +598,15 @@ namespace euphoria::core
             else
             {
                 auto invalids = std::vector<std::string>{};
-                if (!r) { invalids.emplace_back(StringBuilder{} << "red(" << r_value << ")"); }
-                if (!g) { invalids.emplace_back(StringBuilder{} << "green(" << g_value << ")"); }
-                if (!b) { invalids.emplace_back(StringBuilder{} << "blue(" << b_value << ")"); }
+                if (!r) { invalids.emplace_back("red({})"_format(r_value)); }
+                if (!g) { invalids.emplace_back("green({})"_format(g_value)); }
+                if (!b) { invalids.emplace_back("blue({})"_format(b_value)); }
                 return R::create_error
                 (
-                    StringBuilder() << "#color contains invalid hex for " <<
-                    string_mergers::english_and.merge(invalids)
+                    "#color contains invalid hex for {}"_format
+                    (
+                        string_mergers::english_and.merge(invalids)
+                    )
                 );
             }
         }
@@ -618,10 +620,11 @@ namespace euphoria::core
             {
             case 4: return parse_rgb_hex<1>(value);
             case 7: return parse_rgb_hex<2>(value);
-            default: return R::create_error
+            default:
+                return R::create_error
                 (
-                    StringBuilder() << "a hexadecimal color needs to be either #abc "
-                    "or #aabbcc. current count: " << (size-1)
+                    "a hexadecimal color needs to be either #abc or #aabbcc. "
+                    "current count: {}"_format(size-1)
                 );
             }
         }
@@ -645,10 +648,12 @@ namespace euphoria::core
             if(match.single_match) { return R::create_value(crgbi(match.values[0])); }
             return R::create_error
             (
-                StringBuilder() << "bad name. Hex values require a #, but it could also be either " <<
-                string_mergers::english_or.merge
+                "bad name. Hex values require a #, but it could also be either {}"_format
                 (
-                    match.names
+                    string_mergers::english_or.merge
+                    (
+                        match.names
+                    )
                 )
             );
         }

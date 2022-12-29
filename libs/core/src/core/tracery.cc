@@ -364,7 +364,7 @@ namespace euphoria::core::tracery
                         const auto c = parser.read_char();
                         return Result(Result::general_rule_parse_error)
                                 << "Unknown character inside ##: "
-                                << (StringBuilder() << c);
+                                << "{}"_format(c);
                         }
                     }
                 }

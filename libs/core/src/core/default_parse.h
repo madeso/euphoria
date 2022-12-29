@@ -93,10 +93,7 @@ namespace euphoria::core::argparse
         }
         else
         {
-            return Result<T>::create_error(StringBuilder() << "did you mean " <<
-                quote_and_combine_english_or(matches.names)
-                << '?'
-            );
+            return Result<T>::create_error("did you mean {}?"_format(quote_and_combine_english_or(matches.names)));
         }
     }
 
@@ -121,11 +118,12 @@ namespace euphoria::core::argparse
     std::optional<std::string>
     default_describe()
     {
-        const std::string r = StringBuilder() << "can be either " <<
+        const std::string r = "can be either {}"_format(
             quote_and_combine_english_or
             (
                 enum_to_string<T>()
-            );
+            )
+        );
 
         return r;
     }

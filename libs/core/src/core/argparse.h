@@ -522,13 +522,11 @@ namespace euphoria::core::argparse
                 }
                 else
                 {
-                    const std::string base = StringBuilder()
-                        << '\'' << value << "' is not accepted for '"
-                        << argument_name << '\'';
+                    const std::string base = "'{}' is not accepted for '{}'"_format(value, argument_name);
                     const auto parsed_error = parsed.get_error();
                     const std::string message = parsed_error.empty()
                         ? base
-                        : (StringBuilder() << base << ", " << parsed_error)
+                        : "{}, {}"_format(base, parsed_error)
                         ;
                     print_parse_error(runner, caller, message);
 
@@ -570,13 +568,11 @@ namespace euphoria::core::argparse
                 }
                 else
                 {
-                    const std::string base = StringBuilder()
-                        << '\'' << value << "' is not accepted for '"
-                        << argument_name << '\'';
+                    const std::string base = "\'{}' is not accepted for '{}'"_format(value, argument_name);
                     const auto parsed_error = parsed.get_error();
                     const std::string message = parsed_error.empty()
                         ? base
-                        : (StringBuilder() << base << ", " << parsed_error)
+                        : "{}, {}"_format(base, parsed_error)
                         ;
                     print_parse_error(runner, caller, message);
 

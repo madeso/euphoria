@@ -22,7 +22,7 @@ namespace
             lhs,
             rhs,
             [](unsigned int f) -> std::string
-            { return StringBuilder() << f; },
+            { return "{}"_format(f); },
             [](unsigned int a, unsigned int b) -> FalseString
             {
                 if (a == b)
@@ -32,7 +32,7 @@ namespace
                 {
                     return FalseString::create_false
                     (
-                        StringBuilder() << a << " != " << b
+                        "{} != {}"_format(a, b)
                     );
                 }
             }
@@ -48,7 +48,7 @@ namespace
             lhs,
             rhs,
             [](float f) -> std::string
-            { return StringBuilder() << f; },
+            { return "{}"_format(f); },
             [](float a, float b) -> FalseString
             {
                 if (euphoria::tests::approx(a) == b)
@@ -58,7 +58,7 @@ namespace
                 {
                     return FalseString::create_false
                     (
-                        StringBuilder() << a << " != " << b
+                        "{} != {}"_format(a, b)
                     );
                 }
             }

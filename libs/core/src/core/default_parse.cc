@@ -14,7 +14,8 @@ namespace euphoria::core::argparse
             {
                 return static_cast<std::string>
                 (
-                    StringBuilder() << '\'' << s << '\''
+                    // todo(Gustav): improve quote function
+                    "'{}'"_format(s)
                 );
             });
 

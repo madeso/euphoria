@@ -94,7 +94,7 @@ void run_main
         {
             if(number_of_images > 1)
             {
-                file_name = StringBuilder() << "identicon_" << (i + 1) << ".png";
+                file_name = "identicon_{}.png"_format(i + 1);
                 std::cout << "Writing " << file_name << "\n";
             }
 
@@ -159,7 +159,7 @@ void run_sprator_collage
         std::string file_name = "identicon.png";
         if(frames > 1)
         {
-            file_name = StringBuilder() << "identicon_" << anim_index << ".png";
+            file_name = "identicon_{}.png"_format(anim_index);
         }
         io::chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
     }

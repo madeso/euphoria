@@ -131,7 +131,7 @@ main(int argc, char* argv[])
                     );
                     const std::string file_name = count == 1
                         ? std::string("bishop.png")
-                        : (StringBuilder() << "bishop_" << (c+1) << ".png")
+                        : "bishop_{}.png"_format(c+1)
                         ;
                     io::chunk_to_file(image.write(ImageWriteFormat::png), file_name);
                 }

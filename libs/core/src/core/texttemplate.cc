@@ -85,8 +85,7 @@ TemplateErrorList::add_error
         ? file.value().path
         : "<no_file>"
     ;
-    const std::string message = StringBuilder() << file_name << ":" << line << ":"
-                                        << " " << error;
+    const std::string message = "{}({}): {}"_format(file_name, line, error);
     errors.push_back(message);
 }
 
@@ -243,7 +242,7 @@ struct TemplateNodeEval : TemplateNode
                 std::nullopt,
                 0,
                 0,
-                StringBuilder() << name << " is not defined"
+                "{} is not defined"_format(name)
             );
         }
 
@@ -328,7 +327,7 @@ struct Token
     [[nodiscard]] std::string
     to_string() const
     {
-        return StringBuilder() << lex_type_to_string(type) << "(" << first_chars_with_ellipsis(value) << ")";
+        return "{}({})"_format(lex_type_to_string(type), first_chars_with_ellipsis(value));
     }
 
     TokenType type;
@@ -553,7 +552,7 @@ load_from_filesystem_to_node_list
             path,
             0,
             0,
-            StringBuilder() << "Missing filesystem, Failed to read " << path
+            "Missing filesystem, Failed to read {}"_format(path)
         );
         return;
     }
@@ -561,7 +560,7 @@ load_from_filesystem_to_node_list
     std::string content;
     if(!fs->read_file_to_string(path, &content))
     {
-        error->add_error(path, 0, 0, StringBuilder() << "Failed to open " << path);
+        error->add_error(path, 0, 0, "Failed to open {}"_format(path));
         return;
     }
     TokenReader reader(lexer(content, error, path));
@@ -614,7 +613,7 @@ parse_eval
         file,
         reader->get_line(),
         reader->get_column(),
-        StringBuilder() << "Reading EVAL, expected IDENT but found " << lex.to_string()
+        "Reading EVAL, expected IDENT but found {}"_format(lex.to_string())
     );
     std::shared_ptr<TemplateNodeEval> ret{new TemplateNodeEval{"parse_error"}};
     return ret;
@@ -640,7 +639,7 @@ parse_set
             file,
             reader->get_line(),
             reader->get_column(),
-            StringBuilder() << "Reading SET, expected IDENT but found " << name.to_string()
+            "Reading SET, expected IDENT but found {}"_format(name.to_string())
         );
         std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{"parse_error", "parse_error"}};
         return ret;
@@ -655,7 +654,7 @@ parse_set
             file,
             reader->get_line(),
             reader->get_column(),
-            StringBuilder() << "Reading SET, expected STRING but found " << val.to_string()
+            "Reading SET, expected STRING but found {}"_format(val.to_string())
         );
         std::shared_ptr<TemplateNodeSet> ret{new TemplateNodeSet{name.value, "parse_error"}};
         return ret;
@@ -690,7 +689,7 @@ parse_ifdef
         file,
         reader->get_line(),
         reader->get_column(),
-        StringBuilder() << "Reading IFDEF, expected IDENT but found " << lex.to_string()
+        "Reading IFDEF, expected IDENT but found {}"_format(lex.to_string())
     );
     std::shared_ptr<TemplateNodeString> dummy { new TemplateNodeString {"parse_error"}};
     std::shared_ptr<TemplateNodeIfdef> ret { new TemplateNodeIfdef {"parse_error", dummy}};
@@ -724,8 +723,7 @@ parse_include
                 file,
                 reader->get_line(),
                 reader->get_column(),
-                StringBuilder() << "Invalid path "
-                    << lex.value
+                "Invalid path {}"_format(lex.value)
             );
             return ret;
         }
@@ -751,7 +749,7 @@ parse_include
                 file,
                 reader->get_line(),
                 reader->get_column(),
-                StringBuilder() << "Unable to open " << file_argument.value()
+                "Unable to open {}"_format(file_argument.value())
             );
         }
 
@@ -762,7 +760,7 @@ parse_include
         file,
         reader->get_line(),
         reader->get_column(),
-        StringBuilder() << "Reading INCLUDE, expected STRING but found " << lex.to_string()
+        "Reading INCLUDE, expected STRING but found {}"_format(lex.to_string())
     );
     std::shared_ptr<TemplateNodeList> ret {new TemplateNodeList {}};
     return ret;
@@ -813,7 +811,7 @@ parse_template_list
                 file,
                 reader->get_line(),
                 reader->get_column(),
-                StringBuilder() << "Reading LIST " << expect_end << ", Found " << reader->peek().to_string()
+                "Reading LIST {}, Found unexpected {}"_format(expect_end, reader->peek().to_string())
             );
             return;
         }
@@ -834,7 +832,7 @@ parse_template_list
                 file,
                 reader->get_line(),
                 reader->get_column(),
-                StringBuilder() << "Reading LIST, expected END but found " << end.to_string()
+                "Reading LIST, expected END but found {}"_format(end.to_string())
             );
         }
     }

@@ -58,7 +58,7 @@ namespace euphoria::core::vfs
     void
     ReadRootImageGenerator::add_description(std::vector<std::string>* strings)
     {
-        strings->emplace_back(StringBuilder() << base << "<color>");
+        strings->emplace_back("{}<color>"_format(base));
     }
 
 

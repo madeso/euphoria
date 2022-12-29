@@ -159,8 +159,8 @@ namespace euphoria::core
                     const auto vert = parse(vvert);
                     const auto hor = parse(vhor);
 
-                    if(!hor) { return R::create_error(StringBuilder() << "invalid hor(" << vhor << "): " << hor.get_error()); }
-                    if(!vert) { return R::create_error(StringBuilder() << "invalid vert(" << vvert << "): " << vert.get_error()); }
+                    if(!hor) { return R::create_error("invalid hor({}): {}"_format(vhor, hor.get_error())); }
+                    if(!vert) { return R::create_error("invalid vert({}): {}"_format(vvert, vert.get_error())); }
 
                     return R::create_value(Lrud<T>::from_lrud(*hor, *vert));
                 }
@@ -176,10 +176,10 @@ namespace euphoria::core
                     const auto down = parse(vdown);
                     const auto left = parse(vleft);
 
-                    if(!left) { return R::create_error(StringBuilder() << "invalid left(" << vleft << "): " << left.get_error()); }
-                    if(!right) { return R::create_error(StringBuilder() << "invalid right(" << vright << "): " << right.get_error()); }
-                    if(!up) { return R::create_error(StringBuilder() << "invalid up(" << vup << "): " << up.get_error()); }
-                    if(!down) { return R::create_error(StringBuilder() << "invalid down(" << vdown << "): " << down.get_error()); }
+                    if(!left) { return R::create_error("invalid left({}): {}"_format(vleft, left.get_error())); }
+                    if(!right) { return R::create_error("invalid right({}): {}"_format(vright, right.get_error())); }
+                    if(!up) { return R::create_error("invalid up({}): {}"_format(vup, up.get_error())); }
+                    if(!down) { return R::create_error("invalid down({}): {}"_format(vdown, down.get_error())); }
 
                     return R::create_value(Lrud<T>::from_lrud
                     (
