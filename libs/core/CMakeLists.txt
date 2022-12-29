@@ -149,7 +149,6 @@ set(app_src
     src/core/sol_forward.cc src/core/sol_forward.h
     src/core/sol.cc src/core/sol.h
     src/core/stdutils.cc src/core/stdutils.h
-    src/core/str.cc src/core/str.h
     src/core/stringbuilder.cc src/core/stringbuilder.h
     src/core/stringmerger.cc src/core/stringmerger.h
     src/core/stringutils.cc src/core/stringutils.h

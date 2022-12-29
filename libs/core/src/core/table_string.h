@@ -7,7 +7,6 @@
 #include <functional>
 
 #include "core/table.h"
-#include "core/str.h"
 #include "core/textfileparser.h"
 #include "core/multisort.h"
 

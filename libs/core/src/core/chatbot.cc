@@ -6,7 +6,6 @@
 
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
-#include "core/str.h"
 #include "core/findstring.h"
 #include "core/proto.h"
 #include "log/log.h"

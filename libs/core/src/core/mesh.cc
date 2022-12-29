@@ -10,7 +10,6 @@
 #include "assimp/postprocess.h"
 
 #include "core/cint.h"
-#include "core/str.h"
 #include "core/texturetypes.h"
 #include "core/stdutils.h"
 #include "core/proto.h"

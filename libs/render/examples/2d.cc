@@ -1,7 +1,6 @@
 #include "SDL.h"
 
 #include "log/log.h"
-#include "core/str.h"
 #include "core/interpolate.h"
 #include "core/os.h"
 #include "core/vfs_imagegenerator.h"

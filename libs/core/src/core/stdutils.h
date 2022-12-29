@@ -1,11 +1,10 @@
 #pragma once
 
-#include "core/str.h"
+#include <map>
+#include <algorithm>
+
 #include "assert/assert.h"
 
-#include <map>
-
-#include <algorithm>
 
 namespace euphoria::core
 {

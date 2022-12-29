@@ -9,7 +9,6 @@
 #include "core/palette.h"
 #include "core/palette_tableu.h"
 #include "core/shufflebag.h"
-#include "core/str.h"
 #include "core/os.h"
 #include "core/argparse.h"
 

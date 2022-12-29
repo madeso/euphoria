@@ -6,7 +6,6 @@
 #include "core/hashgen.h"
 #include "core/argparse.h"
 #include "core/random.h"
-#include "core/str.h"
 #include "core/collage.h"
 #include "core/palette.h"
 

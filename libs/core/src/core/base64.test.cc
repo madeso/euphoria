@@ -2,7 +2,6 @@
 
 #include "catch.hpp"
 
-#include "core/str.h"
 #include "core/stringbuilder.h"
 
 

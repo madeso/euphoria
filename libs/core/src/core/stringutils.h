@@ -4,11 +4,8 @@ String utility functions
 
 #pragma once
 
-
-
 #include <map>
 
-#include "core/str.h"
 
 namespace euphoria::core
 {

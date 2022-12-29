@@ -2,7 +2,6 @@
 
 #include "log/log.h"
 
-#include "core/str.h"
 #include "core/cint.h"
 #include "core/interpolate.h"
 #include "core/os.h"

@@ -5,7 +5,6 @@
 #include <utility>
 
 #include "assert/assert.h"
-#include "core/str.h"
 #include "core/stringmerger.h"
 #include "core/stringutils.h"
 #include "core/proto.h"

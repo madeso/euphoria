@@ -2,7 +2,6 @@
 
 #include "core/range.h"
 #include "core/canvaslogic.h"
-#include "core/str.h"
 #include "core/numeric.h"
 
 #include "render/texture.h"

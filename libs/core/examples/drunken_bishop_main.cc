@@ -9,7 +9,6 @@
 #include "core/palette_all.h"
 #include "core/image.h"
 #include "core/image_draw.h"
-#include "core/str.h"
 
 #include "core/io.h"
 

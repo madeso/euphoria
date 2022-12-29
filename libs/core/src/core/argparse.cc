@@ -1,17 +1,16 @@
 #include "core/argparse.h"
 
+#include <iostream>
+#include <iomanip>
+#include <algorithm>
+
 #include "core/cint.h"
 #include "core/stringutils.h"
 #include "core/stringmerger.h"
 #include "core/table.h"
 #include "core/cint.h"
-#include "core/str.h"
 #include "core/wordwrap.h"
 #include "core/functional.h"
-
-#include <iostream>
-#include <iomanip>
-#include <algorithm>
 
 
 /*

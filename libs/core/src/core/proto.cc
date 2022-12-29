@@ -4,7 +4,6 @@
 
 #include "assert/assert.h"
 #include "core/vfs.h"
-#include "core/str.h"
 #include "core/vfs_path.h"
 #include "log/log.h"
 #include "core/editdistance.search.h"

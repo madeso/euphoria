@@ -2,7 +2,6 @@
 
 #include <string_view>
 
-#include "core/str.h"
 #include "core/stringbuilder.h"
 
 

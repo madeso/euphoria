@@ -6,7 +6,6 @@
 
 #include "core/random.h"
 #include "core/textfileparser.h"
-#include "core/str.h"
 #include "core/proto.h"
 #include "core/stringutils.h"
 #include "core/stringbuilder.h"

@@ -1,7 +1,5 @@
 #include "core/bufferbuilder2d.h"
 
-#include "core/str.h"
-
 #include "tests/vectorequals.h"
 #include "tests/approx.h"
 

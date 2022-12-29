@@ -1,7 +1,5 @@
 #include "core/subvec.h"
 
-#include "core/str.h"
-
 #include "tests/utils.h"
 #include "tests/vectorequals.h"
 

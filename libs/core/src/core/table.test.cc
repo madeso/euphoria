@@ -1,5 +1,4 @@
 #include "core/table.h"
-#include "core/str.h"
 
 #include "catch.hpp"
 

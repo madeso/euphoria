@@ -5,7 +5,6 @@
 #include "assert/assert.h"
 
 #include "core/textfileparser.h"
-#include "core/str.h"
 #include "core/noncopyable.h"
 #include "core/vfs.h"
 #include "core/vfs_path.h"

@@ -1,9 +1,9 @@
 #include "core/dotoutput.h"
 
-#include "core/stdutils.h"
-#include "core/str.h"
-
 #include <iostream>
+
+#include "core/stdutils.h"
+
 
 
 namespace euphoria::core::dot
