@@ -2,108 +2,129 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="structeuphoria_1_1core_1_1StringBuilder" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::StringBuilder</compoundname>
-    <includes refid="str_8h" local="no">str.h</includes>
-      <sectiondef kind="private-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1StringBuilder_1a667b2e98fe7107cc191afd1008430cfe" prot="private" static="no" mutable="no">
-        <type>std::ostringstream</type>
-        <definition>std::ostringstream euphoria::core::StringBuilder::stream</definition>
+    <includes refid="stringbuilder_8h" local="no">stringbuilder.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1StringBuilder_1a11ac32dda66651dafcb5f20bc42fab0f" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; char &gt;</type>
+        <definition>std::vector&lt;char&gt; euphoria::core::StringBuilder::data</definition>
         <argsstring></argsstring>
-        <name>stream</name>
+        <name>data</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/str.h" line="38" column="24" bodyfile="libs/core/src/core/str.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/core/src/core/stringbuilder.h" line="11" column="17" bodyfile="libs/core/src/core/stringbuilder.h" bodystart="11" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1StringBuilder_1a2186236c3f4cf2434a946cb66eef4dbc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>euphoria::core::StringBuilder::operator std::string</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StringBuilder_1af99e58cace62805e974879eebaf56e91" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::StringBuilder::has_content</definition>
         <argsstring>() const</argsstring>
-        <name>operator std::string</name>
+        <name>has_content</name>
         <briefdescription>
-<para>Generate a string. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="see"><para>toString() </para>
-</simplesect>
-<simplesect kind="return"><para>the generated string. </para>
-</simplesect>
-</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/str.h" line="16" column="5"/>
+        <location file="libs/core/src/core/stringbuilder.h" line="15" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1StringBuilder_1a28b3cbaab971f100f3bb32323af6a6e5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string euphoria::core::StringBuilder::to_string</definition>
-        <argsstring>() const</argsstring>
-        <name>to_string</name>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StringBuilder_1a5faba7e12fcd7d6481c6dbd58e027a47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::StringBuilder::clear</definition>
+        <argsstring>()</argsstring>
+        <name>clear</name>
         <briefdescription>
-<para>Generate a string. </para>
         </briefdescription>
         <detaileddescription>
-<para><simplesect kind="see"><para>operator std::string() </para>
-</simplesect>
-<simplesect kind="return"><para>the generated string. </para>
-</simplesect>
-</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/str.h" line="23" column="5"/>
+        <location file="libs/core/src/core/stringbuilder.h" line="17" column="10"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1StringBuilder_1a36fa7db8de6766ba2c1575cb59e692fd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename Type</type>
-          </param>
-        </templateparamlist>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StringBuilder_1ad1e88c78d4374e366a4d631290505a8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1StringBuilder" kindref="compound">StringBuilder</ref> &amp;</type>
-        <definition>StringBuilder&amp; euphoria::core::StringBuilder::operator&lt;&lt;</definition>
-        <argsstring>(const Type &amp;t)</argsstring>
-        <name>operator&lt;&lt;</name>
+        <definition>StringBuilder&amp; euphoria::core::StringBuilder::add_char</definition>
+        <argsstring>(char c)</argsstring>
+        <name>add_char</name>
         <param>
-          <type>const Type &amp;</type>
-          <declname>t</declname>
+          <type>char</type>
+          <declname>c</declname>
         </param>
         <briefdescription>
-<para>Add stuff to the stream. </para>
         </briefdescription>
         <detaileddescription>
-<para><parameterlist kind="param"><parameteritem>
-<parameternamelist>
-<parametername>t</parametername>
-</parameternamelist>
-<parameterdescription>
-<para>object to add to the stream. </para>
-</parameterdescription>
-</parameteritem>
-</parameterlist>
-<simplesect kind="return"><para>this </para>
-</simplesect>
-</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/str.h" line="30" column="5" bodyfile="libs/core/src/core/str.h" bodystart="31" bodyend="35"/>
+        <location file="libs/core/src/core/stringbuilder.h" line="19" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StringBuilder_1ac762e620175d23967c61cd783abf2733" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1StringBuilder" kindref="compound">StringBuilder</ref> &amp;</type>
+        <definition>StringBuilder&amp; euphoria::core::StringBuilder::add_string</definition>
+        <argsstring>(const std::string &amp;str)</argsstring>
+        <name>add_string</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringbuilder.h" line="20" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StringBuilder_1a94c72635a16ee9bc39f786dbdfa739e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1StringBuilder" kindref="compound">StringBuilder</ref> &amp;</type>
+        <definition>StringBuilder&amp; euphoria::core::StringBuilder::add_view</definition>
+        <argsstring>(const std::string_view &amp;str)</argsstring>
+        <name>add_view</name>
+        <param>
+          <type>const std::string_view &amp;</type>
+          <declname>str</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringbuilder.h" line="21" column="19"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StringBuilder_1abec6b839b647299594eb4e72914a18ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::StringBuilder::to_string</definition>
+        <argsstring>()</argsstring>
+        <name>to_string</name>
+        <briefdescription>
+<para>Complete the builder and return the resulting string. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>No strings can be added after this operation. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/stringbuilder.h" line="26" column="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
-<para>Basic string builder. </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/str.h" line="11" column="1" bodyfile="libs/core/src/core/str.h" bodystart="10" bodyend="39"/>
+    <location file="libs/core/src/core/stringbuilder.h" line="9" column="1" bodyfile="libs/core/src/core/stringbuilder.h" bodystart="8" bodyend="27"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1StringBuilder_1a2186236c3f4cf2434a946cb66eef4dbc" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>operator std::string</name></member>
-      <member refid="structeuphoria_1_1core_1_1StringBuilder_1a36fa7db8de6766ba2c1575cb59e692fd" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>operator&lt;&lt;</name></member>
-      <member refid="structeuphoria_1_1core_1_1StringBuilder_1a667b2e98fe7107cc191afd1008430cfe" prot="private" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>stream</name></member>
-      <member refid="structeuphoria_1_1core_1_1StringBuilder_1a28b3cbaab971f100f3bb32323af6a6e5" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>to_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1StringBuilder_1ad1e88c78d4374e366a4d631290505a8f" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>add_char</name></member>
+      <member refid="structeuphoria_1_1core_1_1StringBuilder_1ac762e620175d23967c61cd783abf2733" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>add_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1StringBuilder_1a94c72635a16ee9bc39f786dbdfa739e5" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>add_view</name></member>
+      <member refid="structeuphoria_1_1core_1_1StringBuilder_1a5faba7e12fcd7d6481c6dbd58e027a47" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>clear</name></member>
+      <member refid="structeuphoria_1_1core_1_1StringBuilder_1a11ac32dda66651dafcb5f20bc42fab0f" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>data</name></member>
+      <member refid="structeuphoria_1_1core_1_1StringBuilder_1af99e58cace62805e974879eebaf56e91" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>has_content</name></member>
+      <member refid="structeuphoria_1_1core_1_1StringBuilder_1abec6b839b647299594eb4e72914a18ed" prot="public" virt="non-virtual"><scope>euphoria::core::StringBuilder</scope><name>to_string</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

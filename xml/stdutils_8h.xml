@@ -2,10 +2,9 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="stdutils_8h" kind="file" language="C++">
     <compoundname>stdutils.h</compoundname>
-    <includes refid="str_8h" local="yes">core/str.h</includes>
-    <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes local="no">map</includes>
     <includes local="no">algorithm</includes>
+    <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/stdutils.h</label>
@@ -14,38 +13,32 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>core/str.h</label>
-        <link refid="str_8h"/>
-      </node>
-      <node id="4">
-        <label>string</label>
-      </node>
-      <node id="7">
-        <label>map</label>
-      </node>
-      <node id="3">
-        <label>assert/assert.h</label>
-        <link refid="assert_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>map</label>
+      </node>
+      <node id="4">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-      </node>
-      <node id="5">
-        <label>vector</label>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
       <node id="6">
+        <label>vector</label>
+      </node>
+      <node id="7">
         <label>sstream</label>
       </node>
-      <node id="8">
+      <node id="3">
         <label>algorithm</label>
       </node>
     </incdepgraph>

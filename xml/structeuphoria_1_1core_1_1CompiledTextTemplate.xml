@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="77" column="27" bodyfile="libs/core/src/core/texttemplate.h" bodystart="77" bodyend="-1"/>
+        <location file="libs/core/src/core/texttemplate.h" line="76" column="27" bodyfile="libs/core/src/core/texttemplate.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a85215a562eec03121d3a7f4ede579461" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; TemplateNodeList &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="78" column="25" bodyfile="libs/core/src/core/texttemplate.h" bodystart="78" bodyend="-1"/>
+        <location file="libs/core/src/core/texttemplate.h" line="77" column="25" bodyfile="libs/core/src/core/texttemplate.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="66" column="18"/>
+        <location file="libs/core/src/core/texttemplate.h" line="65" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a8bb800949110487eac2df429ca66db2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="67" column="9"/>
+        <location file="libs/core/src/core/texttemplate.h" line="66" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1ab1ac2d6642209cd8420c144dd24572a0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="69" column="9"/>
+        <location file="libs/core/src/core/texttemplate.h" line="68" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a43a6bd35d1080e727392c23219b98e8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -97,7 +97,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="71" column="9"/>
+        <location file="libs/core/src/core/texttemplate.h" line="70" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledTextTemplate_1a55ec6882c84fc3bc28d14a85b3ecc1dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="74" column="9"/>
+        <location file="libs/core/src/core/texttemplate.h" line="73" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -134,7 +134,7 @@
         <link refid="structeuphoria_1_1core_1_1TemplateErrorList"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/texttemplate.h" line="64" column="1" bodyfile="libs/core/src/core/texttemplate.h" bodystart="63" bodyend="79"/>
+    <location file="libs/core/src/core/texttemplate.h" line="63" column="1" bodyfile="libs/core/src/core/texttemplate.h" bodystart="62" bodyend="78"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a7501ab9e08dbba7d104d0044a73fd451" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>
       <member refid="structeuphoria_1_1core_1_1CompiledTextTemplate_1a8bb800949110487eac2df429ca66db2b" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledTextTemplate</scope><name>CompiledTextTemplate</name></member>

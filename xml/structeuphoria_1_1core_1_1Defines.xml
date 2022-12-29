@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="36" column="18" bodyfile="libs/core/src/core/texttemplate.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/core/src/core/texttemplate.h" line="35" column="18" bodyfile="libs/core/src/core/texttemplate.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="22" column="9"/>
+        <location file="libs/core/src/core/texttemplate.h" line="21" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Defines_1af06c89384c7dc09d5beae6fd3e8f2ee2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="25" column="9"/>
+        <location file="libs/core/src/core/texttemplate.h" line="24" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Defines_1af489654f0e8510ed0f368367d65e6e5a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="28" column="9"/>
+        <location file="libs/core/src/core/texttemplate.h" line="27" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Defines_1ab275e59ce5f2c2d702fe61c154f3b995" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="31" column="9"/>
+        <location file="libs/core/src/core/texttemplate.h" line="30" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Defines_1a0e3b4953fe2a004c2539967dc5757740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -102,14 +102,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/texttemplate.h" line="34" column="9"/>
+        <location file="libs/core/src/core/texttemplate.h" line="33" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/texttemplate.h" line="21" column="1" bodyfile="libs/core/src/core/texttemplate.h" bodystart="20" bodyend="37"/>
+    <location file="libs/core/src/core/texttemplate.h" line="20" column="1" bodyfile="libs/core/src/core/texttemplate.h" bodystart="19" bodyend="36"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Defines_1a0e3b4953fe2a004c2539967dc5757740" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>define</name></member>
       <member refid="structeuphoria_1_1core_1_1Defines_1a03c57631f871644a746653163938703e" prot="public" virt="non-virtual"><scope>euphoria::core::Defines</scope><name>Defines</name></member>

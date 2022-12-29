@@ -2,7 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="pch_8private_8h" kind="file" language="C++">
     <compoundname>pch.private.h</compoundname>
-    <innernamespace refid="namespacefmt_1_1literals">fmt::literals</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

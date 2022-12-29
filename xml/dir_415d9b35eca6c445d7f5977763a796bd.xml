@@ -121,7 +121,6 @@
     <innerfile refid="sphere_8h">sphere.h</innerfile>
     <innerfile refid="sphere_8position_8h">sphere.position.h</innerfile>
     <innerfile refid="stdutils_8h">stdutils.h</innerfile>
-    <innerfile refid="str_8h">str.h</innerfile>
     <innerfile refid="stringbuilder_8h">stringbuilder.h</innerfile>
     <innerfile refid="stringmerger_8h">stringmerger.h</innerfile>
     <innerfile refid="stringutils_8h">stringutils.h</innerfile>

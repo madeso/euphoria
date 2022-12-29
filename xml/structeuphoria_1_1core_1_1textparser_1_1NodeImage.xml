@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="44" column="25" bodyfile="libs/core/src/core/ui_text.h" bodystart="44" bodyend="-1"/>
+        <location file="libs/core/src/core/ui_text.h" line="42" column="25" bodyfile="libs/core/src/core/ui_text.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="46" column="22"/>
+        <location file="libs/core/src/core/ui_text.h" line="44" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1NodeImage_1a962dabc7bb8808eb3de31d0284b144df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="49" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="47" column="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -84,7 +84,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/ui_text.h" line="43" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="42" bodyend="50"/>
+    <location file="libs/core/src/core/ui_text.h" line="41" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="40" bodyend="48"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeImage_1a962dabc7bb8808eb3de31d0284b144df" prot="public" virt="virtual"><scope>euphoria::core::textparser::NodeImage</scope><name>accept</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeImage_1ac64242919ed4c33a991f5c61e822e92f" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeImage</scope><name>image</name></member>

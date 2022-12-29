@@ -108,7 +108,6 @@
     <innerclass refid="structeuphoria_1_1core_1_1StepIterator" prot="public">euphoria::core::StepIterator</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StepIteratorCreator" prot="public">euphoria::core::StepIteratorCreator</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StringBuilder" prot="public">euphoria::core::StringBuilder</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1StringBuilder2" prot="public">euphoria::core::StringBuilder2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StringMerger" prot="public">euphoria::core::StringMerger</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StructTmWrapper" prot="public">euphoria::core::StructTmWrapper</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1SubVec" prot="public">euphoria::core::SubVec</innerclass>
@@ -2901,7 +2900,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="115" column="1" bodyfile="libs/core/src/core/stringutils.h" bodystart="114" bodyend="117"/>
+        <location file="libs/core/src/core/stringutils.h" line="112" column="1" bodyfile="libs/core/src/core/stringutils.h" bodystart="111" bodyend="114"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252" prot="public" static="no" strong="yes">
         <type></type>
@@ -3029,7 +3028,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="64" column="1" bodyfile="libs/core/src/core/table_string.h" bodystart="63" bodyend="67"/>
+        <location file="libs/core/src/core/table_string.h" line="63" column="1" bodyfile="libs/core/src/core/table_string.h" bodystart="62" bodyend="66"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -3418,7 +3417,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="215" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="215" bodyend="-1"/>
+        <location file="libs/core/src/core/size2.h" line="211" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="211" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1a8c5f78c50315b8abde58b90d27490153" prot="public" static="no">
         <type><ref refid="structeuphoria_1_1core_1_1Size2" kindref="compound">Size2</ref>&lt; float &gt;</type>
@@ -3431,7 +3430,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="216" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="216" bodyend="-1"/>
+        <location file="libs/core/src/core/size2.h" line="212" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="212" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1aff3502411f32d5f6edb01ab92f9016aa" prot="public" static="no">
         <type><ref refid="structeuphoria_1_1core_1_1Table" kindref="compound">Table</ref>&lt; bool &gt;</type>
@@ -3457,7 +3456,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="17" column="5" bodyfile="libs/core/src/core/table_string.h" bodystart="17" bodyend="-1"/>
+        <location file="libs/core/src/core/table_string.h" line="16" column="5" bodyfile="libs/core/src/core/table_string.h" bodystart="16" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1a41020bc8b8bbff3320d0f2f637cb0288" prot="public" static="no">
         <type>std::chrono::time_point&lt; std::chrono::steady_clock &gt;</type>
@@ -3775,7 +3774,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="27" column="23" bodyfile="libs/core/src/core/stringutils.h" bodystart="27" bodyend="-1"/>
+        <location file="libs/core/src/core/stringutils.h" line="24" column="23" bodyfile="libs/core/src/core/stringutils.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1aa7c2fcd6521a50ba45dea90436066f4f" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr unsigned char</type>
@@ -11583,7 +11582,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="150" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="150" bodyend="154"/>
+        <location file="libs/core/src/core/size2.h" line="146" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="146" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1acc800f715b901e82d721bb4d64ec071d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11609,7 +11608,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="158" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="158" bodyend="162"/>
+        <location file="libs/core/src/core/size2.h" line="154" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="154" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a45cab40a736fbc9df4953a908cb1f560" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11635,7 +11634,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="166" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="166" bodyend="171"/>
+        <location file="libs/core/src/core/size2.h" line="162" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="162" bodyend="167"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a474c831575b4abe9eb698e15c6b74dd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11661,7 +11660,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="175" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="175" bodyend="180"/>
+        <location file="libs/core/src/core/size2.h" line="171" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="171" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1afb67b588781f8643076d79bdb71eec36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11687,7 +11686,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="183" column="11" bodyfile="libs/core/src/core/size2.h" bodystart="183" bodyend="188"/>
+        <location file="libs/core/src/core/size2.h" line="179" column="11" bodyfile="libs/core/src/core/size2.h" bodystart="179" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa456a234ad6a790f136b66208cec6b2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11713,7 +11712,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="191" column="11" bodyfile="libs/core/src/core/size2.h" bodystart="191" bodyend="196"/>
+        <location file="libs/core/src/core/size2.h" line="187" column="11" bodyfile="libs/core/src/core/size2.h" bodystart="187" bodyend="192"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a850c2037b79357492f78cb00fa55e2f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11739,7 +11738,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="200" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="200" bodyend="205"/>
+        <location file="libs/core/src/core/size2.h" line="196" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="196" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a23ec9ac7e929cd0bbb77bda973da9cfb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11768,7 +11767,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="208" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="209" bodyend="213"/>
+        <location file="libs/core/src/core/size2.h" line="204" column="5" bodyfile="libs/core/src/core/size2.h" bodystart="205" bodyend="209"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2ddcbb8c269fbae542c9d290e1babcda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1SphereAndPosition" kindref="compound">SphereAndPosition</ref></type>
@@ -11810,7 +11809,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stdutils.h" line="14" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="14" bodyend="22"/>
+        <location file="libs/core/src/core/stdutils.h" line="13" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="13" bodyend="21"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ace77957dd3b94b7d0c80c25b3e94354f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11832,7 +11831,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stdutils.h" line="26" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="26" bodyend="31"/>
+        <location file="libs/core/src/core/stdutils.h" line="25" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="25" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1adc0fad77ffc15c88bc8907c1e6ece387" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11857,7 +11856,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stdutils.h" line="35" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="35" bodyend="43"/>
+        <location file="libs/core/src/core/stdutils.h" line="34" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="34" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a436bb72e3eafb57479e92472faae50d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11883,7 +11882,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stdutils.h" line="47" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="47" bodyend="64"/>
+        <location file="libs/core/src/core/stdutils.h" line="46" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="46" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad9846609c1912a46bd61fdf0e068bd95" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11912,7 +11911,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stdutils.h" line="68" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="68" bodyend="71"/>
+        <location file="libs/core/src/core/stdutils.h" line="67" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="67" bodyend="70"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3b4bf5522c4b3452a5caa0c60e7577a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -11941,7 +11940,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stdutils.h" line="75" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="75" bodyend="86"/>
+        <location file="libs/core/src/core/stdutils.h" line="74" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="74" bodyend="85"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4cfd6289e860c61f4f20aa8a90443335" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" noexcept="yes" virt="non-virtual">
         <templateparamlist>
@@ -11963,7 +11962,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stdutils.h" line="93" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="93" bodyend="96"/>
+        <location file="libs/core/src/core/stdutils.h" line="92" column="5" bodyfile="libs/core/src/core/stdutils.h" bodystart="92" bodyend="95"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gab50f5fe675ce4093d55027482701df4b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -11980,7 +11979,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="21" column="4" declfile="libs/core/src/core/stringutils.h" declline="21" declcolumn="4"/>
+        <location file="libs/core/src/core/stringutils.h" line="18" column="4" declfile="libs/core/src/core/stringutils.h" declline="18" declcolumn="4"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga26d61218d653c49249bf464d9c057d3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12001,7 +12000,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="32" column="5" declfile="libs/core/src/core/stringutils.h" declline="32" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="29" column="5" declfile="libs/core/src/core/stringutils.h" declline="29" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga5539d1b18d02096141c6a211706c114b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::pair&lt; std::string, std::string &gt;</type>
@@ -12022,7 +12021,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="36" column="5" declfile="libs/core/src/core/stringutils.h" declline="36" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="33" column="5" declfile="libs/core/src/core/stringutils.h" declline="33" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga6be8b04bf0610b57ceeeaedf3c69aa21" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12043,7 +12042,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="40" column="5" declfile="libs/core/src/core/stringutils.h" declline="40" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="37" column="5" declfile="libs/core/src/core/stringutils.h" declline="37" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gae5bc0b33c29ff3b304e0fa6bc6d158e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12065,7 +12064,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="43" column="5" declfile="libs/core/src/core/stringutils.h" declline="43" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="40" column="5" declfile="libs/core/src/core/stringutils.h" declline="40" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga24478fe47f06fbbcb7d75a59057a2d84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12108,7 +12107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="52" column="5" declfile="libs/core/src/core/stringutils.h" declline="52" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="49" column="5" declfile="libs/core/src/core/stringutils.h" declline="49" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gabb15f8b7df7a74973ad1e4bd3394b360" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12151,7 +12150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="61" column="5" declfile="libs/core/src/core/stringutils.h" declline="61" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="58" column="5" declfile="libs/core/src/core/stringutils.h" declline="58" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga8cb4fed283213699726e617f65f0a1ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12194,7 +12193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="70" column="5" declfile="libs/core/src/core/stringutils.h" declline="70" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="67" column="5" declfile="libs/core/src/core/stringutils.h" declline="67" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga814d397c4364b2205e073daabd20edec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -12236,7 +12235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="79" column="5" declfile="libs/core/src/core/stringutils.h" declline="79" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="76" column="5" declfile="libs/core/src/core/stringutils.h" declline="76" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga5a7f57fadc01161aced52da619c6998e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -12278,7 +12277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="88" column="5" declfile="libs/core/src/core/stringutils.h" declline="88" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="85" column="5" declfile="libs/core/src/core/stringutils.h" declline="85" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga7f126530d4c6f7f10fe540d291360217" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char</type>
@@ -12295,7 +12294,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="92" column="5" declfile="libs/core/src/core/stringutils.h" declline="92" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="89" column="5" declfile="libs/core/src/core/stringutils.h" declline="89" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gaff7fc2ad77c5c8e152d588faa0a1f66f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char</type>
@@ -12312,7 +12311,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="95" column="5" declfile="libs/core/src/core/stringutils.h" declline="95" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="92" column="5" declfile="libs/core/src/core/stringutils.h" declline="92" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga0969511cbbc86a70a94662d9e6365200" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12342,7 +12341,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="103" column="5" declfile="libs/core/src/core/stringutils.h" declline="103" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="100" column="5" declfile="libs/core/src/core/stringutils.h" declline="100" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gafa9a0e194dc9cbb578c0368fc06f0045" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
@@ -12359,7 +12358,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="107" column="5" declfile="libs/core/src/core/stringutils.h" declline="107" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="104" column="5" declfile="libs/core/src/core/stringutils.h" declline="104" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga67304dafab5cf1cbe5086c10cc105b51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12376,7 +12375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="111" column="5" declfile="libs/core/src/core/stringutils.h" declline="111" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="108" column="5" declfile="libs/core/src/core/stringutils.h" declline="108" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gad4f566f87b9d9904f2618d4b8d7355b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12398,7 +12397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="121" column="5" declfile="libs/core/src/core/stringutils.h" declline="121" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="118" column="5" declfile="libs/core/src/core/stringutils.h" declline="118" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga3f2cd303af1faf7a4a62fb3a933e83e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string::size_type</type>
@@ -12419,7 +12418,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="125" column="5" declfile="libs/core/src/core/stringutils.h" declline="125" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="122" column="5" declfile="libs/core/src/core/stringutils.h" declline="122" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga1393c92069ffb1be8bc58af3e7212c58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -12471,7 +12470,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="134" column="5" declfile="libs/core/src/core/stringutils.h" declline="134" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="131" column="5" declfile="libs/core/src/core/stringutils.h" declline="131" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga5aec424acbf5fe24a8ad2566f953986c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12525,7 +12524,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="144" column="5" declfile="libs/core/src/core/stringutils.h" declline="144" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="141" column="5" declfile="libs/core/src/core/stringutils.h" declline="141" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga35252d7e93d1034c45f8fc02ec6ccaca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12550,7 +12549,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="148" column="5" declfile="libs/core/src/core/stringutils.h" declline="148" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="145" column="5" declfile="libs/core/src/core/stringutils.h" declline="145" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gaf2c411eb368e2d2cd7c2486ffe8c70f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -12602,7 +12601,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="158" column="5" declfile="libs/core/src/core/stringutils.h" declline="158" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="155" column="5" declfile="libs/core/src/core/stringutils.h" declline="155" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gae9502e3020dd7a98866d821c41047020" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12623,7 +12622,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="161" column="5" declfile="libs/core/src/core/stringutils.h" declline="161" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="158" column="5" declfile="libs/core/src/core/stringutils.h" declline="158" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga8017ea0795ca9ca4d868f667e6aa093e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -12648,7 +12647,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="166" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="166" bodyend="176"/>
+        <location file="libs/core/src/core/stringutils.h" line="163" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="163" bodyend="172"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga223a6d6672fb2d1c6bd56ec0c46394de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -12673,7 +12672,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="181" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="181" bodyend="190"/>
+        <location file="libs/core/src/core/stringutils.h" line="177" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="177" bodyend="186"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga1f4dae4c4ca084ca1c688167915bdb60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -12695,7 +12694,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="195" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="195" bodyend="205"/>
+        <location file="libs/core/src/core/stringutils.h" line="191" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="191" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga1abe1f676616f8aa4f610866a7d60f40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -12724,7 +12723,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="210" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="210" bodyend="219"/>
+        <location file="libs/core/src/core/stringutils.h" line="206" column="5" bodyfile="libs/core/src/core/stringutils.h" bodystart="206" bodyend="215"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gafdeab9a423bfa7d2d9d92557e60917a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12745,7 +12744,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="224" column="5" declfile="libs/core/src/core/stringutils.h" declline="224" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="220" column="5" declfile="libs/core/src/core/stringutils.h" declline="220" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga73d3a9771d3a6c8d7bd9e526219f9cdc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12766,7 +12765,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="229" column="5" declfile="libs/core/src/core/stringutils.h" declline="229" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="225" column="5" declfile="libs/core/src/core/stringutils.h" declline="225" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga513fcb2e37d819d2efa8990c63a94943" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
@@ -12787,7 +12786,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="233" column="5" declfile="libs/core/src/core/stringutils.h" declline="233" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="229" column="5" declfile="libs/core/src/core/stringutils.h" declline="229" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1ga056bafb62ff5e4476efbff39513341f9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
@@ -12804,7 +12803,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="237" column="5" declfile="libs/core/src/core/stringutils.h" declline="237" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="233" column="5" declfile="libs/core/src/core/stringutils.h" declline="233" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gac664e9d6a7bc3d57135fa05ca523350c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -12825,7 +12824,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="241" column="5" declfile="libs/core/src/core/stringutils.h" declline="241" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="237" column="5" declfile="libs/core/src/core/stringutils.h" declline="237" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="group__string_1gae5e8bde5cfc2903bc3ee7a1e8717f743" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -12846,7 +12845,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/stringutils.h" line="246" column="5" declfile="libs/core/src/core/stringutils.h" declline="246" declcolumn="5"/>
+        <location file="libs/core/src/core/stringutils.h" line="242" column="5" declfile="libs/core/src/core/stringutils.h" declline="242" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa1add8a3ce38110f5544d7d2a10b7272" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -13177,7 +13176,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="77" column="5" declfile="libs/core/src/core/table_string.h" declline="77" declcolumn="5"/>
+        <location file="libs/core/src/core/table_string.h" line="76" column="5" declfile="libs/core/src/core/table_string.h" declline="76" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5b981aa64b4a67758a94b9fea52847f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -13198,7 +13197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="93" column="5" declfile="libs/core/src/core/table_string.h" declline="93" declcolumn="5"/>
+        <location file="libs/core/src/core/table_string.h" line="92" column="5" declfile="libs/core/src/core/table_string.h" declline="92" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a6841ec9b3fe3441e4c6e00c3be424f04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -13219,7 +13218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="106" column="5" declfile="libs/core/src/core/table_string.h" declline="106" declcolumn="5"/>
+        <location file="libs/core/src/core/table_string.h" line="105" column="5" declfile="libs/core/src/core/table_string.h" declline="105" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a600146103db748d996eecd1d9f52811c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

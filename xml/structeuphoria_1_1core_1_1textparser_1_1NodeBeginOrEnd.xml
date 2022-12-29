@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="54" column="18" bodyfile="libs/core/src/core/ui_text.h" bodystart="54" bodyend="-1"/>
+        <location file="libs/core/src/core/ui_text.h" line="52" column="18" bodyfile="libs/core/src/core/ui_text.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="56" column="22"/>
+        <location file="libs/core/src/core/ui_text.h" line="54" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1abe6ed38d6a0c0e62d45ab5acbb2a3449" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="59" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="57" column="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -84,7 +84,7 @@
         <link refid="structeuphoria_1_1core_1_1textparser_1_1Node"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/ui_text.h" line="53" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="52" bodyend="60"/>
+    <location file="libs/core/src/core/ui_text.h" line="51" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="50" bodyend="58"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1abe6ed38d6a0c0e62d45ab5acbb2a3449" prot="public" virt="virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>accept</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1a620c45dd7f3e16c6f4fa9c77d201e281" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>begin</name></member>

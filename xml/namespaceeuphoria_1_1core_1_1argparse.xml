@@ -304,7 +304,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="660" column="5" declfile="libs/core/src/core/argparse.h" declline="660" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.h" line="656" column="5" declfile="libs/core/src/core/argparse.h" declline="656" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a4426a067e286c7ebc4cbe8455fd4e104" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -369,7 +369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/default_parse.h" line="110" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="110" bodyend="113"/>
+        <location file="libs/core/src/core/default_parse.h" line="107" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="107" bodyend="110"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a813a6a90d80cf259c3f6ea2730a51b1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -395,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/default_parse.h" line="139" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="139" bodyend="142"/>
+        <location file="libs/core/src/core/default_parse.h" line="137" column="5" bodyfile="libs/core/src/core/default_parse.h" bodystart="137" bodyend="140"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

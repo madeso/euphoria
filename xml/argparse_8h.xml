@@ -12,24 +12,24 @@
     <includes refid="result_8h" local="yes">core/result.h</includes>
     <includedby refid="engine_8h" local="yes">libs/window/src/window/engine.h</includedby>
     <incdepgraph>
-      <node id="18">
+      <node id="17">
         <label>core/editdistance.h</label>
         <link refid="editdistance_8h"/>
       </node>
       <node id="5">
         <label>functional</label>
       </node>
-      <node id="16">
+      <node id="15">
         <label>queue</label>
       </node>
-      <node id="15">
+      <node id="14">
         <label>core/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
         <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="13">
@@ -37,20 +37,14 @@
         <link refid="stringutils_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
-        </childnode>
       </node>
-      <node id="14">
-        <label>core/str.h</label>
-        <link refid="str_8h"/>
-      </node>
-      <node id="23">
+      <node id="22">
         <label>core/stringmerger.h</label>
         <link refid="stringmerger_8h"/>
-        <childnode refid="24" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
       </node>
-      <node id="21">
+      <node id="20">
         <label>core/result.h</label>
         <link refid="result_8h"/>
         <childnode refid="4" relation="include">
@@ -77,9 +71,9 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -92,10 +86,10 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="23">
         <label>string_view</label>
       </node>
-      <node id="22">
+      <node id="21">
         <label>core/numparse.h</label>
         <link refid="numparse_8h"/>
         <childnode refid="4" relation="include">
@@ -104,16 +98,16 @@
       <node id="4">
         <label>optional</label>
       </node>
-      <node id="19">
+      <node id="18">
         <label>magic_enum/magic_enum.hpp</label>
       </node>
       <node id="11">
         <label>vector</label>
       </node>
-      <node id="20">
+      <node id="19">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
-        <childnode refid="21" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
       </node>
       <node id="12">
@@ -128,9 +122,9 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -138,15 +132,15 @@
         <link refid="default__parse_8h"/>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
       </node>
       <node id="6">
         <label>type_traits</label>
       </node>
-      <node id="17">
+      <node id="16">
         <label>algorithm</label>
       </node>
       <node id="3">

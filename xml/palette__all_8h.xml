@@ -6,21 +6,21 @@
     <includes refid="enumtostring_8h" local="yes">core/enumtostring.h</includes>
     <includes refid="compiler__warning_8h" local="yes">core/compiler_warning.h</includes>
     <incdepgraph>
-      <node id="14">
+      <node id="13">
         <label>core/editdistance.h</label>
         <link refid="editdistance_8h"/>
       </node>
-      <node id="12">
+      <node id="11">
         <label>queue</label>
       </node>
-      <node id="11">
+      <node id="10">
         <label>core/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
         <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -28,12 +28,6 @@
         <link refid="stringutils_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="10">
-        <label>core/str.h</label>
-        <link refid="str_8h"/>
       </node>
       <node id="6">
         <label>string</label>
@@ -51,7 +45,7 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="15">
+      <node id="14">
         <label>magic_enum/magic_enum.hpp</label>
       </node>
       <node id="7">
@@ -63,7 +57,7 @@
       <node id="8">
         <label>sstream</label>
       </node>
-      <node id="16">
+      <node id="15">
         <label>core/compiler_warning.h</label>
         <link refid="compiler__warning_8h"/>
       </node>
@@ -74,7 +68,7 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -86,12 +80,12 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="13">
+      <node id="12">
         <label>algorithm</label>
       </node>
     </incdepgraph>

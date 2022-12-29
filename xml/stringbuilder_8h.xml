@@ -2,7 +2,26 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="stringbuilder_8h" kind="file" language="C++">
     <compoundname>stringbuilder.h</compoundname>
-    <innerclass refid="structeuphoria_1_1core_1_1StringBuilder2" prot="public">euphoria::core::StringBuilder2</innerclass>
+    <includedby refid="ui__text_8h" local="yes">libs/core/src/core/ui_text.h</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/render/src/render/font.h</label>
+        <link refid="font_8h"/>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/ui_text.h</label>
+        <link refid="ui__text_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1StringBuilder" prot="public">euphoria::core::StringBuilder</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

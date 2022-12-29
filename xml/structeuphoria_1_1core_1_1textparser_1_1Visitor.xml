@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="64" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="62" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a07e0830a17089d8617bea079e7989157" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="65" column="21"/>
+        <location file="libs/core/src/core/ui_text.h" line="63" column="21"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb691a854b081e203bb171babe754516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="67" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="65" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a7128c343c381606f3093f8ee8f7eaa60" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="70" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="68" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a144ca7508eb801a16e40c9664f6e6001" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="73" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="71" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a332931d55e39bf813e97404ab087af80" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="76" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="74" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a9524752d4e30341956e5c6aaf76462fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="79" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="77" column="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -128,7 +128,7 @@
         <link refid="structeuphoria_1_1core_1_1textparser_1_1Visitor"/>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/ui_text.h" line="63" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="62" bodyend="80"/>
+    <location file="libs/core/src/core/ui_text.h" line="61" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="60" bodyend="78"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb691a854b081e203bb171babe754516" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a332931d55e39bf813e97404ab087af80" prot="public" virt="pure-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>on_begin</name></member>

@@ -3,7 +3,6 @@
   <compounddef id="stringutils_8h" kind="file" language="C++">
     <compoundname>stringutils.h</compoundname>
     <includes local="no">map</includes>
-    <includes refid="str_8h" local="yes">core/str.h</includes>
     <includedby refid="enumtostring_8h" local="yes">libs/core/src/core/enumtostring.h</includedby>
     <includedby refid="fourway_8h" local="yes">libs/core/src/core/fourway.h</includedby>
     <includedby refid="size2_8h" local="yes">libs/core/src/core/size2.h</includedby>
@@ -13,12 +12,6 @@
         <link refid="stringutils_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>core/str.h</label>
-        <link refid="str_8h"/>
       </node>
       <node id="2">
         <label>map</label>

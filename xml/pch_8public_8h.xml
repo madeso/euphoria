@@ -9,9 +9,13 @@
     <includes local="no">fmt/core.h</includes>
     <includes local="no">fmt/format.h</includes>
     <includes local="no">fmt/ranges.h</includes>
+    <includes local="no">fmt/ostream.h</includes>
     <incdepgraph>
       <node id="7">
         <label>fmt/format.h</label>
+      </node>
+      <node id="9">
+        <label>fmt/ostream.h</label>
       </node>
       <node id="4">
         <label>string</label>
@@ -48,8 +52,11 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
     </incdepgraph>
+    <innernamespace refid="namespacefmt_1_1literals">fmt::literals</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="108" column="25" bodyfile="libs/core/src/core/vfs_path.h" bodystart="108" bodyend="-1"/>
+        <location file="libs/core/src/core/vfs_path.h" line="102" column="25" bodyfile="libs/core/src/core/vfs_path.h" bodystart="102" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="44" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="42" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a8b74d261f30be00acce1ec57c4f6dfd0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &gt;</type>
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="50" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="48" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a46d422b0281c61e4c8a51255118ae4f3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &gt;</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="56" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="54" column="13"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="60" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="58" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1ab86a24fff9fa9df0e92c66814bee7b8b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
@@ -96,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="64" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="62" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1aca8ccb9934301df96d77245e7d0be0ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="68" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="66" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a9f37d845599f9392e0093aa7c4adbd89" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -122,7 +122,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="72" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="70" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a790d60ca5119ade2ef587a06842b5c98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -135,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="76" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="74" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a2d7738879b49aa19fbe233b86161ecd7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref></type>
@@ -152,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="80" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="78" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a53f70d8776d1b72ce98934c0c3480c9a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref></type>
@@ -169,7 +169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="84" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="82" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a81ab72ad4f6a037d02aba2c925950e56" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -186,18 +186,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="88" column="13"/>
+        <location file="libs/core/src/core/vfs_path.h" line="86" column="13"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="friend">
-      <memberdef kind="friend" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a902885675ea8edf6c5c56e048efef746" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="friend" id="structeuphoria_1_1core_1_1vfs_1_1FilePath_1abe59ff3cb96c5ff110dfa2014bb90fcb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename OStream</type>
-          </param>
-          <param>
-            <type>typename X</type>
-            <defval>std::enable_if_t &lt;                    !std::is_same&lt;OStream, <ref refid="structeuphoria_1_1core_1_1StringBuilder" kindref="compound">core::StringBuilder</ref>&gt;::value                &gt;</defval>
           </param>
         </templateparamlist>
         <type>friend OStream &amp;</type>
@@ -218,14 +214,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="99" column="20" bodyfile="libs/core/src/core/vfs_path.h" bodystart="99" bodyend="103"/>
+        <location file="libs/core/src/core/vfs_path.h" line="93" column="20" bodyfile="libs/core/src/core/vfs_path.h" bodystart="93" bodyend="97"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vfs_path.h" line="40" column="1" bodyfile="libs/core/src/core/vfs_path.h" bodystart="39" bodyend="109"/>
+    <location file="libs/core/src/core/vfs_path.h" line="38" column="1" bodyfile="libs/core/src/core/vfs_path.h" bodystart="37" bodyend="103"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a53f70d8776d1b72ce98934c0c3480c9a" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>extend_extension_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a81ab72ad4f6a037d02aba2c925950e56" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>FilePath</name></member>
@@ -236,7 +232,7 @@
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a790d60ca5119ade2ef587a06842b5c98" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>get_extension</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1aca8ccb9934301df96d77245e7d0be0ba" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>get_file_with_extension</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a9f37d845599f9392e0093aa7c4adbd89" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>get_filename_without_extension</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a902885675ea8edf6c5c56e048efef746" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>operator&lt;&lt;</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1abe59ff3cb96c5ff110dfa2014bb90fcb" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>operator&lt;&lt;</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a2f4cddb9e28920f8a7a629304f981c8b" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>path</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a2d7738879b49aa19fbe233b86161ecd7" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>set_extension_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a9afaca6c1d3045aea72ed61331260413" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FilePath</scope><name>split_directories_and_file</name></member>

@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="97" column="9" bodyfile="libs/core/src/core/size2.h" bodystart="97" bodyend="102"/>
+        <location file="libs/core/src/core/size2.h" line="97" column="9" bodyfile="libs/core/src/core/size2.h" bodystart="97" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01Size2_3_01T_01_4_01_4_1acf24c4cfdf863c62cf789cc29bd424c4" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeuphoria_1_1core_1_1Size2" kindref="compound">Size2</ref>&lt; T &gt; &gt;</type>
@@ -62,14 +62,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="106" column="9" bodyfile="libs/core/src/core/size2.h" bodystart="106" bodyend="145"/>
+        <location file="libs/core/src/core/size2.h" line="104" column="9" bodyfile="libs/core/src/core/size2.h" bodystart="104" bodyend="141"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/size2.h" line="92" column="1" bodyfile="libs/core/src/core/size2.h" bodystart="91" bodyend="146"/>
+    <location file="libs/core/src/core/size2.h" line="92" column="1" bodyfile="libs/core/src/core/size2.h" bodystart="91" bodyend="142"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Size2_3_01T_01_4_01_4_1acf24c4cfdf863c62cf789cc29bd424c4" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Size2&lt; T &gt; &gt;</scope><name>parse</name></member>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Size2_3_01T_01_4_01_4_1a52221f2b7a66ec094ccde8403b39ceef" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; Size2&lt; T &gt; &gt;</scope><name>to_string</name></member>

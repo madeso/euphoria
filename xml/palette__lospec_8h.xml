@@ -4,25 +4,25 @@
     <compoundname>palette_lospec.h</compoundname>
     <includes refid="palette_8h" local="yes">core/palette.h</includes>
     <incdepgraph>
-      <node id="27">
+      <node id="26">
         <label>core/editdistance.h</label>
         <link refid="editdistance_8h"/>
       </node>
-      <node id="25">
+      <node id="24">
         <label>queue</label>
       </node>
       <node id="11">
         <label>core/colors.h</label>
         <link refid="colors_8h"/>
       </node>
-      <node id="24">
+      <node id="23">
         <label>core/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
         <childnode refid="25" relation="include">
         </childnode>
         <childnode refid="26" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -41,12 +41,6 @@
         <link refid="stringutils_8h"/>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-      </node>
-      <node id="23">
-        <label>core/str.h</label>
-        <link refid="str_8h"/>
       </node>
       <node id="6">
         <label>core/rgb.h</label>
@@ -60,10 +54,10 @@
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="30">
+      <node id="29">
         <label>core/result.h</label>
         <link refid="result_8h"/>
-        <childnode refid="31" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
       <node id="19">
@@ -88,20 +82,20 @@
       <node id="3">
         <label>string_view</label>
       </node>
-      <node id="32">
+      <node id="31">
         <label>core/numparse.h</label>
         <link refid="numparse_8h"/>
-        <childnode refid="31" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
-      <node id="31">
+      <node id="30">
         <label>optional</label>
       </node>
       <node id="14">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
       </node>
-      <node id="28">
+      <node id="27">
         <label>magic_enum/magic_enum.hpp</label>
       </node>
       <node id="20">
@@ -119,10 +113,10 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="28">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
-        <childnode refid="30" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -158,9 +152,9 @@
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="28" relation="include">
+        <childnode refid="27" relation="include">
         </childnode>
       </node>
       <node id="12">
@@ -176,12 +170,12 @@
         <link refid="default__parse_8h"/>
         <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
+        <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="32" relation="include">
+        <childnode refid="31" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="25">
         <label>algorithm</label>
       </node>
     </incdepgraph>

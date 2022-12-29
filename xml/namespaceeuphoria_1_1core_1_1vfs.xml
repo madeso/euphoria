@@ -50,7 +50,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="184" column="9" declfile="libs/core/src/core/vfs_path.h" declline="184" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="174" column="9" declfile="libs/core/src/core/vfs_path.h" declline="174" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a597310cdc0ff0eb0c87320ed13a6e716" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &gt;</type>
@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="188" column="9" declfile="libs/core/src/core/vfs_path.h" declline="188" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="178" column="9" declfile="libs/core/src/core/vfs_path.h" declline="178" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a0a7beade0fdbba7180b4a0d02da5bef7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &gt;</type>
@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="192" column="9" declfile="libs/core/src/core/vfs_path.h" declline="192" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="182" column="9" declfile="libs/core/src/core/vfs_path.h" declline="182" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a766caa5924f8014a3d9d77d1a83fe753" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &gt;</type>
@@ -109,7 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="196" column="9" declfile="libs/core/src/core/vfs_path.h" declline="196" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="186" column="9" declfile="libs/core/src/core/vfs_path.h" declline="186" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a9f247cea3e947109876c594b692ef65a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="200" column="9" declfile="libs/core/src/core/vfs_path.h" declline="200" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="190" column="9" declfile="libs/core/src/core/vfs_path.h" declline="190" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1af8ea4f96858cc4430d6cbfdf4322203b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref></type>
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="204" column="9" declfile="libs/core/src/core/vfs_path.h" declline="204" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="194" column="9" declfile="libs/core/src/core/vfs_path.h" declline="194" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a782e39520063b1a024d55e29146fd3a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="208" column="9" declfile="libs/core/src/core/vfs_path.h" declline="208" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="198" column="9" declfile="libs/core/src/core/vfs_path.h" declline="198" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1a0e5f01dbf2979c856be0679f70010265" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -193,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="212" column="9" declfile="libs/core/src/core/vfs_path.h" declline="212" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="202" column="9" declfile="libs/core/src/core/vfs_path.h" declline="202" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1af9aa39fbc872b78a7de212cdc4ed3c47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -214,7 +214,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="216" column="9" declfile="libs/core/src/core/vfs_path.h" declline="216" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="206" column="9" declfile="libs/core/src/core/vfs_path.h" declline="206" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1af731c2f98787bf6e6a754421dc8e1efb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="220" column="9" declfile="libs/core/src/core/vfs_path.h" declline="220" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="210" column="9" declfile="libs/core/src/core/vfs_path.h" declline="210" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1acbcf751d24cb13570c2c57ce31058c55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -256,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="223" column="9" declfile="libs/core/src/core/vfs_path.h" declline="223" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="213" column="9" declfile="libs/core/src/core/vfs_path.h" declline="213" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1vfs_1adcd7e4d38c474e3aec8c2a9b41dfa295" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -277,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="227" column="9" declfile="libs/core/src/core/vfs_path.h" declline="227" declcolumn="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="217" column="9" declfile="libs/core/src/core/vfs_path.h" declline="217" declcolumn="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

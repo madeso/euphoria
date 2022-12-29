@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="34" column="25" bodyfile="libs/core/src/core/ui_text.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/core/src/core/ui_text.h" line="32" column="25" bodyfile="libs/core/src/core/ui_text.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="36" column="22"/>
+        <location file="libs/core/src/core/ui_text.h" line="34" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1NodeText_1a3e64fef3df448f85abc160006906da70" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="39" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="37" column="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -84,7 +84,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/ui_text.h" line="33" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="32" bodyend="40"/>
+    <location file="libs/core/src/core/ui_text.h" line="31" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="30" bodyend="38"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeText_1a3e64fef3df448f85abc160006906da70" prot="public" virt="virtual"><scope>euphoria::core::textparser::NodeText</scope><name>accept</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1aad5fbbcf326567a811cd9d9cd2b06da9" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeText</scope><name>Node</name></member>

@@ -54,43 +54,119 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structeuphoria_1_1core_1_1StringBuilder-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">euphoria::core::StringBuilder Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Basic string builder.  
- <a href="structeuphoria_1_1core_1_1StringBuilder.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="str_8h_source.html">str.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="stringbuilder_8h_source.html">stringbuilder.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2186236c3f4cf2434a946cb66eef4dbc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#a2186236c3f4cf2434a946cb66eef4dbc">operator std::string</a> () const</td></tr>
-<tr class="memdesc:a2186236c3f4cf2434a946cb66eef4dbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a string.  <a href="structeuphoria_1_1core_1_1StringBuilder.html#a2186236c3f4cf2434a946cb66eef4dbc">More...</a><br /></td></tr>
-<tr class="separator:a2186236c3f4cf2434a946cb66eef4dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28b3cbaab971f100f3bb32323af6a6e5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#a28b3cbaab971f100f3bb32323af6a6e5">to_string</a> () const</td></tr>
-<tr class="memdesc:a28b3cbaab971f100f3bb32323af6a6e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a string.  <a href="structeuphoria_1_1core_1_1StringBuilder.html#a28b3cbaab971f100f3bb32323af6a6e5">More...</a><br /></td></tr>
-<tr class="separator:a28b3cbaab971f100f3bb32323af6a6e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a36fa7db8de6766ba2c1575cb59e692fd"><td class="memTemplParams" colspan="2">template&lt;typename Type &gt; </td></tr>
-<tr class="memitem:a36fa7db8de6766ba2c1575cb59e692fd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#a36fa7db8de6766ba2c1575cb59e692fd">operator&lt;&lt;</a> (const Type &amp;t)</td></tr>
-<tr class="memdesc:a36fa7db8de6766ba2c1575cb59e692fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add stuff to the stream.  <a href="structeuphoria_1_1core_1_1StringBuilder.html#a36fa7db8de6766ba2c1575cb59e692fd">More...</a><br /></td></tr>
-<tr class="separator:a36fa7db8de6766ba2c1575cb59e692fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af99e58cace62805e974879eebaf56e91"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#af99e58cace62805e974879eebaf56e91">has_content</a> () const</td></tr>
+<tr class="separator:af99e58cace62805e974879eebaf56e91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5faba7e12fcd7d6481c6dbd58e027a47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#a5faba7e12fcd7d6481c6dbd58e027a47">clear</a> ()</td></tr>
+<tr class="separator:a5faba7e12fcd7d6481c6dbd58e027a47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e88c78d4374e366a4d631290505a8f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#ad1e88c78d4374e366a4d631290505a8f">add_char</a> (char c)</td></tr>
+<tr class="separator:ad1e88c78d4374e366a4d631290505a8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac762e620175d23967c61cd783abf2733"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#ac762e620175d23967c61cd783abf2733">add_string</a> (const std::string &amp;str)</td></tr>
+<tr class="separator:ac762e620175d23967c61cd783abf2733"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94c72635a16ee9bc39f786dbdfa739e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#a94c72635a16ee9bc39f786dbdfa739e5">add_view</a> (const std::string_view &amp;str)</td></tr>
+<tr class="separator:a94c72635a16ee9bc39f786dbdfa739e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abec6b839b647299594eb4e72914a18ed"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#abec6b839b647299594eb4e72914a18ed">to_string</a> ()</td></tr>
+<tr class="memdesc:abec6b839b647299594eb4e72914a18ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Complete the builder and return the resulting string.  <a href="structeuphoria_1_1core_1_1StringBuilder.html#abec6b839b647299594eb4e72914a18ed">More...</a><br /></td></tr>
+<tr class="separator:abec6b839b647299594eb4e72914a18ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:a11ac32dda66651dafcb5f20bc42fab0f"><td class="memItemLeft" align="right" valign="top">std::vector&lt; char &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html#a11ac32dda66651dafcb5f20bc42fab0f">data</a></td></tr>
+<tr class="separator:a11ac32dda66651dafcb5f20bc42fab0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Basic string builder. </p>
-
-<p class="definition">Definition at line <a class="el" href="str_8h_source.html#l00010">10</a> of file <a class="el" href="str_8h_source.html">str.h</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="stringbuilder_8h_source.html#l00008">8</a> of file <a class="el" href="stringbuilder_8h_source.html">stringbuilder.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a2186236c3f4cf2434a946cb66eef4dbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2186236c3f4cf2434a946cb66eef4dbc">&#9670;&nbsp;</a></span>operator std::string()</h2>
+<a id="ad1e88c78d4374e366a4d631290505a8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e88c78d4374e366a4d631290505a8f">&#9670;&nbsp;</a></span>add_char()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">euphoria::core::StringBuilder::operator std::string </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a>&amp; euphoria::core::StringBuilder::add_char </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac762e620175d23967c61cd783abf2733"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac762e620175d23967c61cd783abf2733">&#9670;&nbsp;</a></span>add_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a>&amp; euphoria::core::StringBuilder::add_string </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a94c72635a16ee9bc39f786dbdfa739e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94c72635a16ee9bc39f786dbdfa739e5">&#9670;&nbsp;</a></span>add_view()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a>&amp; euphoria::core::StringBuilder::add_view </td>
+          <td>(</td>
+          <td class="paramtype">const std::string_view &amp;&#160;</td>
+          <td class="paramname"><em>str</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5faba7e12fcd7d6481c6dbd58e027a47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5faba7e12fcd7d6481c6dbd58e027a47">&#9670;&nbsp;</a></span>clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::core::StringBuilder::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af99e58cace62805e974879eebaf56e91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af99e58cace62805e974879eebaf56e91">&#9670;&nbsp;</a></span>has_content()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool euphoria::core::StringBuilder::has_content </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -98,53 +174,10 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generate a string. </p>
-<dl class="section see"><dt>See also</dt><dd>toString() </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>the generated string. </dd></dl>
-
 </div>
 </div>
-<a id="a36fa7db8de6766ba2c1575cb59e692fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a36fa7db8de6766ba2c1575cb59e692fd">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Type &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1StringBuilder.html">StringBuilder</a>&amp; euphoria::core::StringBuilder::operator&lt;&lt; </td>
-          <td>(</td>
-          <td class="paramtype">const Type &amp;&#160;</td>
-          <td class="paramname"><em>t</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Add stuff to the stream. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">t</td><td>object to add to the stream. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>this </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="str_8h_source.html#l00031">31</a> of file <a class="el" href="str_8h_source.html">str.h</a>.</p>
-
-</div>
-</div>
-<a id="a28b3cbaab971f100f3bb32323af6a6e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a28b3cbaab971f100f3bb32323af6a6e5">&#9670;&nbsp;</a></span>to_string()</h2>
+<a id="abec6b839b647299594eb4e72914a18ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abec6b839b647299594eb4e72914a18ed">&#9670;&nbsp;</a></span>to_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,19 +186,35 @@ template&lt;typename Type &gt; </div>
           <td class="memname">std::string euphoria::core::StringBuilder::to_string </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generate a string. </p>
-<dl class="section see"><dt>See also</dt><dd>operator std::string() </dd></dl>
-<dl class="section return"><dt>Returns</dt><dd>the generated string. </dd></dl>
+<p>Complete the builder and return the resulting string. </p>
+<p>No strings can be added after this operation. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a11ac32dda66651dafcb5f20bc42fab0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11ac32dda66651dafcb5f20bc42fab0f">&#9670;&nbsp;</a></span>data</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;char&gt; euphoria::core::StringBuilder::data</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="stringbuilder_8h_source.html#l00011">11</a> of file <a class="el" href="stringbuilder_8h_source.html">stringbuilder.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>libs/core/src/core/<a class="el" href="str_8h_source.html">str.h</a></li>
+<li>libs/core/src/core/<a class="el" href="stringbuilder_8h_source.html">stringbuilder.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

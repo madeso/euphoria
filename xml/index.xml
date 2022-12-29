@@ -592,7 +592,7 @@
     <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a6db288b0ce34f21edb38524350b33553" kind="function"><name>split_directories</name></member>
     <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ab5574ce1df2283852c8fe06961c21528" kind="function"><name>single_cd_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a4994a91f064eba3c61244059e88db185" kind="function"><name>DirPath</name></member>
-    <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a4446c4fb88fb4bca6daf6c1556a92550" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ac09ae19fd889c9412775bc789aae1ecb" kind="friend"><name>operator&lt;&lt;</name></member>
   </compound>
   <compound refid="structeuphoria_1_1render_1_1DrawableFont" kind="struct"><name>euphoria::render::DrawableFont</name>
     <member refid="structeuphoria_1_1render_1_1DrawableFont_1a72c5cdf8ddac7716829d3a7913fea839" kind="variable"><name>line_height</name></member>
@@ -849,7 +849,7 @@
     <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a2d7738879b49aa19fbe233b86161ecd7" kind="function"><name>set_extension_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a53f70d8776d1b72ce98934c0c3480c9a" kind="function"><name>extend_extension_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a81ab72ad4f6a037d02aba2c925950e56" kind="function"><name>FilePath</name></member>
-    <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1a902885675ea8edf6c5c56e048efef746" kind="friend"><name>operator&lt;&lt;</name></member>
+    <member refid="structeuphoria_1_1core_1_1vfs_1_1FilePath_1abe59ff3cb96c5ff110dfa2014bb90fcb" kind="friend"><name>operator&lt;&lt;</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kind="struct"><name>euphoria::core::vfs::FileSystem</name>
     <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1af1e75f61356399ea496ceaea4707ddef" kind="variable"><name>read_roots</name></member>
@@ -2161,6 +2161,13 @@
     <member refid="structeuphoria_1_1gui_1_1Root_1a8f61ee06214da5661847d56a2013d99a" kind="function"><name>resize</name></member>
     <member refid="structeuphoria_1_1gui_1_1Root_1af5d1ae69ba49fff09f60b819991db7b0" kind="function"><name>render</name></member>
   </compound>
+  <compound refid="structeuphoria_1_1core_1_1tracery_1_1Rule" kind="struct"><name>euphoria::core::tracery::Rule</name>
+    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1a8b1cbec4715151b321501dcc04dc3e98" kind="variable"><name>syntax</name></member>
+    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1a35477193cbeab22e2175e36c12d6d0bd" kind="function"><name>Rule</name></member>
+    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1acba58725cc4d7020791092adf0cc3af6" kind="function"><name>compile</name></member>
+    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1a18895a7f7cb07105ddd4d9b100ca6e32" kind="function"><name>flatten</name></member>
+    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1a00712a2b18e1a050b22a9701c0a22f2d" kind="function"><name>add</name></member>
+  </compound>
   <compound refid="structeuphoria_1_1core_1_1generator_1_1Rule" kind="struct"><name>euphoria::core::generator::Rule</name>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1acee66f1f21e44dd69b1f3e6fb54174c5" kind="function"><name>Rule</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1adcac939654ffb9fcd2bbe5879ccbe6b4" kind="function"><name>~Rule</name></member>
@@ -2169,13 +2176,6 @@
     <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a1041138a9a1e771c027c997e4ebfe11d" kind="function"><name>operator=</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a7c949b42ed60b5af4a1c5e6410410502" kind="function"><name>operator=</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a04bde9b4d49e0a19c91b5bfd334a2e34" kind="function"><name>step</name></member>
-  </compound>
-  <compound refid="structeuphoria_1_1core_1_1tracery_1_1Rule" kind="struct"><name>euphoria::core::tracery::Rule</name>
-    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1a8b1cbec4715151b321501dcc04dc3e98" kind="variable"><name>syntax</name></member>
-    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1a35477193cbeab22e2175e36c12d6d0bd" kind="function"><name>Rule</name></member>
-    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1acba58725cc4d7020791092adf0cc3af6" kind="function"><name>compile</name></member>
-    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1a18895a7f7cb07105ddd4d9b100ca6e32" kind="function"><name>flatten</name></member>
-    <member refid="structeuphoria_1_1core_1_1tracery_1_1Rule_1a00712a2b18e1a050b22a9701c0a22f2d" kind="function"><name>add</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1generator_1_1Rules" kind="struct"><name>euphoria::core::generator::Rules</name>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Rules_1afdbbc30aeb2a7d99d844ab39669ae495" kind="variable"><name>rules</name></member>
@@ -2515,19 +2515,13 @@
     <member refid="structeuphoria_1_1core_1_1StepIteratorCreator_1a3a601240b55f4bd4faa1543db5c92340" kind="function"><name>end</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1StringBuilder" kind="struct"><name>euphoria::core::StringBuilder</name>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder_1a667b2e98fe7107cc191afd1008430cfe" kind="variable"><name>stream</name></member>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder_1a2186236c3f4cf2434a946cb66eef4dbc" kind="function"><name>operator std::string</name></member>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder_1a28b3cbaab971f100f3bb32323af6a6e5" kind="function"><name>to_string</name></member>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder_1a36fa7db8de6766ba2c1575cb59e692fd" kind="function"><name>operator&lt;&lt;</name></member>
-  </compound>
-  <compound refid="structeuphoria_1_1core_1_1StringBuilder2" kind="struct"><name>euphoria::core::StringBuilder2</name>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder2_1aff730e2eb3cc786a29f37e5de8447ee1" kind="variable"><name>data</name></member>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder2_1a53edbe246ce33821211fe947964f6030" kind="function"><name>has_content</name></member>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder2_1aabb0412f9dbb9b60ea82b0726fb250f6" kind="function"><name>clear</name></member>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder2_1a6ddb82a2dab02ade34cb6caf786b21f6" kind="function"><name>add_char</name></member>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder2_1ab4a1531ca02ba6b99321951bc057a219" kind="function"><name>add_string</name></member>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder2_1aba4c678f3a8230782241de9194b1589e" kind="function"><name>add_view</name></member>
-    <member refid="structeuphoria_1_1core_1_1StringBuilder2_1ae1fd28891db80692dc27c0f5cd76023e" kind="function"><name>to_string</name></member>
+    <member refid="structeuphoria_1_1core_1_1StringBuilder_1a11ac32dda66651dafcb5f20bc42fab0f" kind="variable"><name>data</name></member>
+    <member refid="structeuphoria_1_1core_1_1StringBuilder_1af99e58cace62805e974879eebaf56e91" kind="function"><name>has_content</name></member>
+    <member refid="structeuphoria_1_1core_1_1StringBuilder_1a5faba7e12fcd7d6481c6dbd58e027a47" kind="function"><name>clear</name></member>
+    <member refid="structeuphoria_1_1core_1_1StringBuilder_1ad1e88c78d4374e366a4d631290505a8f" kind="function"><name>add_char</name></member>
+    <member refid="structeuphoria_1_1core_1_1StringBuilder_1ac762e620175d23967c61cd783abf2733" kind="function"><name>add_string</name></member>
+    <member refid="structeuphoria_1_1core_1_1StringBuilder_1a94c72635a16ee9bc39f786dbdfa739e5" kind="function"><name>add_view</name></member>
+    <member refid="structeuphoria_1_1core_1_1StringBuilder_1abec6b839b647299594eb4e72914a18ed" kind="function"><name>to_string</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1StringMerger" kind="struct"><name>euphoria::core::StringMerger</name>
     <member refid="structeuphoria_1_1core_1_1StringMerger_1a5c41dd331da3a76af852c057cccf2159" kind="variable"><name>separator</name></member>
@@ -3035,13 +3029,6 @@
     <member refid="structeuphoria_1_1core_1_1VirtualConsole_1acab004af3bf810fce53c5cb845291dd9" kind="function"><name>run</name></member>
     <member refid="structeuphoria_1_1core_1_1VirtualConsole_1a9746eda031ff8d5c7e9dae4f5b3f26ed" kind="function"><name>print_help</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1gui_1_1Visitor" kind="struct"><name>euphoria::gui::Visitor</name>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1a343b59baffddb8ed4728d6a7a61f3640" kind="function"><name>Visitor</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1aae17dfafaa8b16a6266779da215b6663" kind="function"><name>~Visitor</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1ae48b9e7af5840040edc969f8c4b17f1a" kind="function"><name>NONCOPYABLE</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1ad2a9d0d55210eb860d69e8e4962be8fc" kind="function"><name>visit</name></member>
-    <member refid="structeuphoria_1_1gui_1_1Visitor_1a0f0cbf3ce477d5f7c89710f370177ead" kind="function"><name>visit</name></member>
-  </compound>
   <compound refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" kind="struct"><name>euphoria::core::textparser::Visitor</name>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb60b911945f69c8d56cb528edc8e4f3" kind="function"><name>Visitor</name></member>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a07e0830a17089d8617bea079e7989157" kind="function"><name>~Visitor</name></member>
@@ -3051,8 +3038,15 @@
     <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a332931d55e39bf813e97404ab087af80" kind="function"><name>on_begin</name></member>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a9524752d4e30341956e5c6aaf76462fe" kind="function"><name>on_end</name></member>
   </compound>
+  <compound refid="structeuphoria_1_1gui_1_1Visitor" kind="struct"><name>euphoria::gui::Visitor</name>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1a343b59baffddb8ed4728d6a7a61f3640" kind="function"><name>Visitor</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1aae17dfafaa8b16a6266779da215b6663" kind="function"><name>~Visitor</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1ae48b9e7af5840040edc969f8c4b17f1a" kind="function"><name>NONCOPYABLE</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1ad2a9d0d55210eb860d69e8e4962be8fc" kind="function"><name>visit</name></member>
+    <member refid="structeuphoria_1_1gui_1_1Visitor_1a0f0cbf3ce477d5f7c89710f370177ead" kind="function"><name>visit</name></member>
+  </compound>
   <compound refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString" kind="struct"><name>euphoria::core::textparser::VisitorDebugString</name>
-    <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a080979ad4d57edf136fbb7a15150f119" kind="variable"><name>ss</name></member>
+    <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a9154ec100930c83ea966e4d5e69d3358" kind="variable"><name>ss</name></member>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a0c1ad0f14c1a8fa37bf264071abafa11" kind="function"><name>on_text</name></member>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a0ff105ec76cd58fd1218a2e350c26f16" kind="function"><name>on_image</name></member>
     <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a17ade779771c6250f09a18fdb954ac2d" kind="function"><name>on_begin</name></member>
@@ -4918,8 +4912,6 @@
   <compound refid="sphere_8position_8h" kind="file"><name>sphere.position.h</name>
   </compound>
   <compound refid="stdutils_8h" kind="file"><name>stdutils.h</name>
-  </compound>
-  <compound refid="str_8h" kind="file"><name>str.h</name>
   </compound>
   <compound refid="stringbuilder_8h" kind="file"><name>stringbuilder.h</name>
   </compound>
