@@ -64,8 +64,8 @@ target_link_libraries(window
         euph::project_warnings
         euph::core
         euph::render
+        euph::fmt
         external::imgui
-        external::fmt
         external::icon_font_cpp_headers
         external::sdl2
         external::glad

@@ -203,12 +203,12 @@ target_precompile_headers(core
 )
 target_link_libraries(core
     PUBLIC
-        external::magic_enum
         euph::log
         euph::assert
+        euph::fmt
         libgaf::xml
         external::range
-        external::fmt
+        external::magic_enum
         external::lua
         external::rapidjson
         undef_windows::undef_windows

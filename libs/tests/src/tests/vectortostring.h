@@ -1,10 +1,6 @@
 #pragma once
 
 
-
-
-
-
 namespace euphoria::tests
 {
     template

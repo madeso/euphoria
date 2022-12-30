@@ -32,8 +32,8 @@ target_link_libraries(musikmaskin
         euph::minsynth
         euph::render
         euph::window
+        euph::fmt
         external::imgui
         external::sdl2
-        external::fmt
 )
 

@@ -1,3 +1,4 @@
+add_subdirectory(fmt)
 add_subdirectory(log)
 add_subdirectory(assert)
 add_subdirectory(core)

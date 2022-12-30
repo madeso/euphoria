@@ -26,8 +26,8 @@ target_compile_definitions(log
 
 target_link_libraries(log
     PUBLIC
+        euph::fmt
         external::spdlog
-        external::fmt
         undef_windows::undef_windows
     PRIVATE
         euph::project_options
