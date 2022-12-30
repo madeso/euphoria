@@ -87,18 +87,17 @@ namespace euphoria
                     --begin;
                 }
 
-                std::ostringstream ss;
                 if(begin != symbol)
                 {
-                    ss << std::string(symbol, ++begin - symbol);
+                    const auto first_symbol = std::string(symbol, ++begin - symbol);
                     *end++ = '\0';
-                    ss << demangle_symbol(begin) << '+' << end;
+                    const auto second_symbol = demangle_symbol(begin);
+                    ret.push_back("{}{}+{}"_format(first_symbol, second_symbol, end));
                 }
                 else
                 {
-                    ss << symbol;
+                    ret.push_back(symbol);
                 }
-                ret.push_back(ss.str());
             }
 
             return ret;
@@ -129,6 +128,11 @@ namespace euphoria::assertlib
         return should_throw_variable();
     }
 
+    std::ostream& operator<<(std::ostream& ss, const AssertArgumentValue& val)
+    {
+        return ss << val.value;
+    }
+
     void
     on_assert
     (
@@ -140,51 +144,31 @@ namespace euphoria::assertlib
         const char* function
     )
     {
-        std::ostringstream ss;
-        ss << "Assertion failed: " << expression << "\n"
-            << "Function: " << function << "\n"
-            << "File: " << file << ":" << line << "\n";
+        const auto start =
+            "Assertion failed: {}\n"
+            "Function: {}\n"
+            "File: {}:{}\n"_format(expression, function, file, line);
 
-        if(!arguments.empty())
-        {
-            ss << "(" << argstr << ")";
-
-            // append args array
-            {
-                ss << " = [";
-                bool first = true;
-                for(const auto& a: arguments)
-                {
-                    if(first) { first = false; }
-                    else { ss << ", "; }
-
-                    ss << a.value;
-                }
-                ss << ']';
-            }
-            ss << "\n";
-        }
+        const auto with_arguments = arguments.empty()
+            ? start
+            : "{}({}) = {}\n"_format(start, argstr, arguments)
+            ;
 
         const auto trace = run_backtrace(2);
-        if(!trace.empty())
-        {
-            ss << "Backtrace:\n";
-            for(const auto& b: trace)
-            {
-                ss << b << "\n";
-            }
-        }
+        const auto message = trace.empty()
+            ? with_arguments
+            : "{}Backtrace:\n{}\n"_format(with_arguments, fmt::join(trace, "\n"))
+            ;
 
         if(should_throw_variable())
         {
-            throw ss.str();
+            throw message;
         }
         else
         {
-            std::cerr << ss.str();
+            std::cerr << message;
+            exit(-1);
         }
-
-        exit(-1);
     }
 }
 

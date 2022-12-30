@@ -1,5 +1,7 @@
 #pragma once
 
+#include "core/stringbuilder.h"
+
 
 namespace euphoria::tests
 {
@@ -16,25 +18,25 @@ namespace euphoria::tests
         TConverter converter
     )
     {
-        std::ostringstream ss;
+        auto ss = core::StringBuilder{};
         bool first = true;
 
-        std::string newline = one_line ? "" : "\n";
+        const std::string_view newline = one_line ? "" : "\n";
 
-        ss << newline << "{" << newline;
+        ss.add_view(newline).add_char('{').add_view(newline);
         int index = 0;
         for(const auto& s: v)
         {
             if(first) { first = false; }
-            else { ss << ", " << newline; }
-            if(one_line == false) { ss << "  " << index << ": "; }
-            ss << '\'' << converter(s) << '\'';
+            else { ss.add_view(", ").add_view(newline); }
+            if (one_line == false) { ss.add_string("  {}: "_format(index)); }
+            ss.add_char('\'').add_string(converter(s)).add_char('\'');
             index += 1;
         }
-        if(!v.empty()) { ss << newline; }
-        ss << "}" << newline;
+        if(!v.empty()) { ss.add_view(newline); }
+        ss.add_char('}').add_view(newline);
 
-        return ss.str();
+        return ss.to_string();
     }
 
 

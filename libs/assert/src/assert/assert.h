@@ -2,7 +2,6 @@
 
 #include <string>
 #include <vector>
-#include <sstream>
 
 #ifdef _MSC_VER
 #define __PRETTY_FUNCTION__ __FUNCSIG__
@@ -96,9 +95,7 @@ namespace euphoria::assertlib
         template <typename T>
         AssertArgumentValue(const T& t)
         {
-            std::ostringstream ss;
-            ss << t;
-            value = ss.str();
+            value = "{}"_format(t);
         }
     };
 

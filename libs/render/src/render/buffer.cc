@@ -184,7 +184,7 @@ namespace euphoria::render
         ASSERT(vao);
         ASSERT(shader);
 
-        ASSERTX(get_bound() == this, get_bound(), this);
+        ASSERTX(get_bound() == this, static_cast<const void*>(get_bound()), static_cast<const void*>(this));
 
         const auto& a = shader->get_attributes();
         for(const auto& attribute: vao->attributes)
