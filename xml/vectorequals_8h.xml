@@ -10,6 +10,10 @@
       <node id="2">
         <label>functional</label>
       </node>
+      <node id="7">
+        <label>core/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
+      </node>
       <node id="5">
         <label>ostream</label>
       </node>
@@ -31,6 +35,8 @@
       <node id="6">
         <label>tests/vectortostring.h</label>
         <link refid="vectortostring_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
       <node id="4">
         <label>tests/falsestring.h</label>

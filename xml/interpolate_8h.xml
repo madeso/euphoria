@@ -18,8 +18,6 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
       </node>
       <node id="2">
         <label>core/easing.h</label>
@@ -27,9 +25,6 @@
       </node>
       <node id="5">
         <label>vector</label>
-      </node>
-      <node id="6">
-        <label>sstream</label>
       </node>
       <node id="1">
         <label>libs/core/src/core/interpolate.h</label>

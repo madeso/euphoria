@@ -11,55 +11,55 @@
     <includedby refid="image__canvas_8h" local="yes">libs/core/src/core/image_canvas.h</includedby>
     <includedby refid="mat4_8h" local="yes">libs/core/src/core/mat4.h</includedby>
     <incdepgraph>
-      <node id="20">
+      <node id="19">
         <label>core/axisangle.h</label>
         <link refid="axisangle_8h"/>
-        <childnode refid="11" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
-      <node id="15">
+      <node id="14">
         <label>cstdint</label>
       </node>
-      <node id="13">
+      <node id="12">
         <label>core/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="19">
+      <node id="18">
         <label>core/mat2.h</label>
         <link refid="mat2_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="2" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="17">
         <label>core/vec3.h</label>
         <link refid="vec3_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="5">
         <label>string</label>
       </node>
-      <node id="17">
+      <node id="16">
         <label>core/vec.base.h</label>
         <link refid="vec_8base_8h"/>
       </node>
@@ -70,10 +70,8 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
       </node>
-      <node id="9">
+      <node id="8">
         <label>core/easing.h</label>
         <link refid="easing_8h"/>
       </node>
@@ -84,54 +82,51 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="2">
         <label>tuple</label>
       </node>
-      <node id="12">
+      <node id="11">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
       </node>
       <node id="6">
         <label>vector</label>
       </node>
-      <node id="7">
-        <label>sstream</label>
-      </node>
-      <node id="14">
+      <node id="13">
         <label>core/ints.h</label>
         <link refid="ints_8h"/>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-      </node>
-      <node id="11">
-        <label>iostream</label>
-      </node>
-      <node id="16">
-        <label>cstddef</label>
       </node>
       <node id="10">
+        <label>iostream</label>
+      </node>
+      <node id="15">
+        <label>cstddef</label>
+      </node>
+      <node id="9">
         <label>core/angle.h</label>
         <link refid="angle_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
       </node>
-      <node id="8">
+      <node id="7">
         <label>core/interpolate.h</label>
         <link refid="interpolate_8h"/>
-        <childnode refid="9" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
@@ -143,13 +138,13 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
         <childnode refid="18" relation="include">
         </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
         <childnode refid="19" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
         </childnode>
       </node>
     </incdepgraph>

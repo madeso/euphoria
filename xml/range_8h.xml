@@ -12,15 +12,15 @@
     <includedby refid="raytracer_8h" local="yes">libs/core/src/core/raytracer.h</includedby>
     <includedby refid="rect_8h" local="yes">libs/core/src/core/rect.h</includedby>
     <incdepgraph>
-      <node id="12">
+      <node id="11">
         <label>cstdint</label>
       </node>
-      <node id="10">
+      <node id="9">
         <label>core/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="11" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -33,8 +33,6 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
       </node>
       <node id="5">
         <label>core/numeric.h</label>
@@ -43,19 +41,16 @@
       <node id="8">
         <label>vector</label>
       </node>
-      <node id="9">
-        <label>sstream</label>
-      </node>
-      <node id="11">
+      <node id="10">
         <label>core/ints.h</label>
         <link refid="ints_8h"/>
-        <childnode refid="12" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
       </node>
       <node id="4">
         <label>iostream</label>
       </node>
-      <node id="13">
+      <node id="12">
         <label>cstddef</label>
       </node>
       <node id="1">
@@ -67,7 +62,7 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="3">

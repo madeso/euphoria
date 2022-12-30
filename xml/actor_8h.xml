@@ -10,120 +10,120 @@
     <includes refid="instance_8h" local="yes">render/instance.h</includes>
     <includes refid="compiledmesh_8h" local="yes">render/compiledmesh.h</includes>
     <incdepgraph>
-      <node id="21">
+      <node id="20">
         <label>core/vec4.h</label>
         <link refid="vec4_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="36">
+      <node id="35">
         <label>core/editdistance.h</label>
         <link refid="editdistance_8h"/>
       </node>
-      <node id="34">
+      <node id="33">
         <label>queue</label>
       </node>
-      <node id="28">
+      <node id="27">
         <label>core/colors.h</label>
         <link refid="colors_8h"/>
       </node>
-      <node id="22">
+      <node id="21">
         <label>core/axisangle.h</label>
         <link refid="axisangle_8h"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="33">
+      <node id="32">
         <label>core/editdistance.search.h</label>
         <link refid="editdistance_8search_8h"/>
+        <childnode refid="33" relation="include">
+        </childnode>
         <childnode refid="34" relation="include">
         </childnode>
         <childnode refid="35" relation="include">
         </childnode>
-        <childnode refid="36" relation="include">
-        </childnode>
       </node>
-      <node id="18">
+      <node id="17">
         <label>cstdint</label>
       </node>
-      <node id="45">
+      <node id="44">
         <label>core/mesh.h</label>
         <link refid="mesh_8h"/>
-        <childnode refid="40" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
         </childnode>
         <childnode refid="46" relation="include">
         </childnode>
         <childnode refid="47" relation="include">
         </childnode>
-        <childnode refid="48" relation="include">
-        </childnode>
       </node>
-      <node id="16">
+      <node id="15">
         <label>core/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="17" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
-      <node id="32">
+      <node id="31">
         <label>core/stringutils.h</label>
         <link refid="stringutils_8h"/>
-        <childnode refid="31" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
-      <node id="24">
+      <node id="23">
         <label>core/mat2.h</label>
         <link refid="mat2_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="27">
+      <node id="26">
         <label>core/rgb.h</label>
         <link refid="rgb_8h"/>
-        <childnode refid="16" relation="include">
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
       </node>
-      <node id="42">
+      <node id="41">
         <label>render/instance.h</label>
         <link refid="instance_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
-        <childnode refid="43" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
       </node>
-      <node id="39">
+      <node id="38">
         <label>core/result.h</label>
         <link refid="result_8h"/>
-        <childnode refid="40" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -133,58 +133,58 @@
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="8">
         <label>string</label>
       </node>
-      <node id="31">
+      <node id="30">
         <label>map</label>
       </node>
-      <node id="50">
+      <node id="49">
         <label>render/buffer.h</label>
         <link refid="buffer_8h"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
-        <childnode refid="51" relation="include">
+        <childnode refid="50" relation="include">
         </childnode>
-        <childnode refid="53" relation="include">
+        <childnode refid="52" relation="include">
         </childnode>
       </node>
-      <node id="46">
+      <node id="45">
         <label>core/enum.h</label>
         <link refid="enum_8h"/>
-        <childnode refid="31" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
-      <node id="26">
+      <node id="25">
         <label>core/polarcoord.h</label>
         <link refid="polarcoord_8h"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="53">
+      <node id="52">
         <label>render/shaderattribute.h</label>
         <link refid="shaderattribute_8h"/>
-        <childnode refid="52" relation="include">
+        <childnode refid="51" relation="include">
         </childnode>
       </node>
-      <node id="51">
+      <node id="50">
         <label>render/id.h</label>
         <link refid="id_8h"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
-        <childnode refid="52" relation="include">
+        <childnode refid="51" relation="include">
         </childnode>
       </node>
-      <node id="20">
+      <node id="19">
         <label>core/vec.base.h</label>
         <link refid="vec_8base_8h"/>
       </node>
@@ -195,10 +195,8 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
       </node>
-      <node id="12">
+      <node id="11">
         <label>core/easing.h</label>
         <link refid="easing_8h"/>
       </node>
@@ -209,72 +207,69 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="41">
+      <node id="40">
         <label>core/numparse.h</label>
         <link refid="numparse_8h"/>
-        <childnode refid="40" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
       </node>
       <node id="5">
         <label>tuple</label>
       </node>
-      <node id="40">
+      <node id="39">
         <label>optional</label>
       </node>
-      <node id="15">
+      <node id="14">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
       </node>
-      <node id="37">
+      <node id="36">
         <label>magic_enum/magic_enum.hpp</label>
       </node>
       <node id="9">
         <label>vector</label>
       </node>
-      <node id="38">
+      <node id="37">
         <label>core/custom_parser.h</label>
         <link refid="custom__parser_8h"/>
-        <childnode refid="39" relation="include">
+        <childnode refid="38" relation="include">
         </childnode>
       </node>
-      <node id="10">
-        <label>sstream</label>
-      </node>
-      <node id="17">
+      <node id="16">
         <label>core/ints.h</label>
         <link refid="ints_8h"/>
-        <childnode refid="18" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="52">
+      <node id="51">
         <label>render/gltypes.h</label>
         <link refid="gltypes_8h"/>
       </node>
-      <node id="25">
+      <node id="24">
         <label>core/quat.h</label>
         <link refid="quat_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
       </node>
       <node id="3">
@@ -282,49 +277,49 @@
         <link refid="mat4_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
       </node>
-      <node id="14">
+      <node id="13">
         <label>iostream</label>
       </node>
-      <node id="19">
+      <node id="18">
         <label>cstddef</label>
       </node>
-      <node id="47">
+      <node id="46">
         <label>core/aabb.h</label>
         <link refid="aabb_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="48">
+      <node id="47">
         <label>core/vfs_path.h</label>
         <link refid="vfs__path_8h"/>
-        <childnode refid="40" relation="include">
+        <childnode refid="39" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="49" relation="include">
+        <childnode refid="48" relation="include">
         </childnode>
       </node>
-      <node id="30">
+      <node id="29">
         <label>core/enumtostring.h</label>
         <link refid="enumtostring_8h"/>
-        <childnode refid="31" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
         <childnode refid="32" relation="include">
         </childnode>
-        <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="37" relation="include">
+        <childnode refid="36" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -336,69 +331,69 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="25" relation="include">
+        <childnode refid="24" relation="include">
         </childnode>
-        <childnode refid="27" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
-        </childnode>
-        <childnode refid="44" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="43">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
-      </node>
-      <node id="29">
-        <label>core/default_parse.h</label>
-        <link refid="default__parse_8h"/>
-        <childnode refid="30" relation="include">
-        </childnode>
-        <childnode refid="38" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
         <childnode refid="41" relation="include">
         </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
       </node>
-      <node id="49">
+      <node id="12">
+        <label>core/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="42">
+        <label>core/noncopyable.h</label>
+        <link refid="noncopyable_8h"/>
+      </node>
+      <node id="28">
+        <label>core/default_parse.h</label>
+        <link refid="default__parse_8h"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
         <label>type_traits</label>
       </node>
-      <node id="35">
+      <node id="34">
         <label>algorithm</label>
       </node>
-      <node id="11">
+      <node id="10">
         <label>core/interpolate.h</label>
         <link refid="interpolate_8h"/>
-        <childnode refid="12" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
       </node>
-      <node id="44">
+      <node id="43">
         <label>render/compiledmesh.h</label>
         <link refid="compiledmesh_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="31" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
-        <childnode refid="45" relation="include">
+        <childnode refid="44" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="50" relation="include">
+        <childnode refid="49" relation="include">
         </childnode>
       </node>
       <node id="2">
         <label>memory</label>
       </node>
-      <node id="23">
+      <node id="22">
         <label>core/mat3.h</label>
         <link refid="mat3_8h"/>
         <childnode refid="5" relation="include">
@@ -407,11 +402,11 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
       </node>
     </incdepgraph>
