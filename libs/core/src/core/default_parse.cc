@@ -12,11 +12,8 @@ namespace euphoria::core::argparse
         const auto quoted_names =
             map<std::string>(matches, [](const std::string& s)
             {
-                return static_cast<std::string>
-                (
-                    // todo(Gustav): improve quote function
-                    "'{}'"_format(s)
-                );
+                // todo(Gustav): improve quote function
+                return "'{}'"_format(s);
             });
 
         return string_mergers::english_or.merge(quoted_names);
