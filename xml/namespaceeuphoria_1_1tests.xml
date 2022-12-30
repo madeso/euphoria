@@ -434,7 +434,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/vectortostring.h" line="16" column="5" bodyfile="libs/tests/src/tests/vectortostring.h" bodystart="17" bodyend="42"/>
+        <location file="libs/tests/src/tests/vectortostring.h" line="12" column="5" bodyfile="libs/tests/src/tests/vectortostring.h" bodystart="13" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a6d887d1b17e0683f939e273080cd8daf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -463,7 +463,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/vectortostring.h" line="51" column="5" bodyfile="libs/tests/src/tests/vectortostring.h" bodystart="51" bodyend="66"/>
+        <location file="libs/tests/src/tests/vectortostring.h" line="47" column="5" bodyfile="libs/tests/src/tests/vectortostring.h" bodystart="47" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1aea430be31175cac1a8ed712253dd19ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -492,7 +492,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/vectortostring.h" line="74" column="5" bodyfile="libs/tests/src/tests/vectortostring.h" bodystart="74" bodyend="77"/>
+        <location file="libs/tests/src/tests/vectortostring.h" line="70" column="5" bodyfile="libs/tests/src/tests/vectortostring.h" bodystart="70" bodyend="73"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

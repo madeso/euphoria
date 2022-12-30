@@ -4853,7 +4853,9 @@
   </compound>
   <compound refid="pch_8private_8h" kind="file"><name>pch.private.h</name>
   </compound>
-  <compound refid="pch_8public_8h" kind="file"><name>pch.public.h</name>
+  <compound refid="core_2src_2core_2pch_8public_8h" kind="file"><name>pch.public.h</name>
+  </compound>
+  <compound refid="fmt_2src_2pch_8public_8h" kind="file"><name>pch.public.h</name>
   </compound>
   <compound refid="plane_8h" kind="file"><name>plane.h</name>
   </compound>
@@ -5177,6 +5179,8 @@
   </compound>
   <compound refid="dir_49e56c817e5e54854c35e136979f97ca" kind="dir"><name>docs</name>
   </compound>
+  <compound refid="dir_c48d6870f00bd6cec871dec0a01d8f04" kind="dir"><name>libs/fmt</name>
+  </compound>
   <compound refid="dir_d16cd4c060e1b5bebe1c023937f3c146" kind="dir"><name>libs/gui</name>
   </compound>
   <compound refid="dir_71565dd5ca082ea0b2ee87845f008484" kind="dir"><name>libs/gui/src/gui</name>
@@ -5193,33 +5197,35 @@
   </compound>
   <compound refid="dir_d2bedf640491a87313754753b7ff28ef" kind="dir"><name>libs/minsynth/src/minsynth</name>
   </compound>
+  <compound refid="dir_146da238a240638cdf54363209817292" kind="dir"><name>libs/render/src/render</name>
+  </compound>
   <compound refid="dir_5ff146e0f6e8e07917ded14199fb1c6f" kind="dir"><name>libs/render</name>
   </compound>
-  <compound refid="dir_146da238a240638cdf54363209817292" kind="dir"><name>libs/render/src/render</name>
+  <compound refid="dir_ccce5c7bfdb575666c322ea4a56d00ce" kind="dir"><name>libs/fmt/src</name>
   </compound>
   <compound refid="dir_b3bbf4d7e1da97d9fc90c1440ff0d019" kind="dir"><name>libs/gui/src</name>
   </compound>
-  <compound refid="dir_ed7bb2dedfc9e161afbec5dafb6f7738" kind="dir"><name>libs/tests/src</name>
-  </compound>
-  <compound refid="dir_232ab8dc75117fda122ab855789b1b2c" kind="dir"><name>libs/core/src</name>
-  </compound>
-  <compound refid="dir_0546a52d63b71702b9134fb880d109fe" kind="dir"><name>libs/assert/src</name>
+  <compound refid="dir_95dc3cc0a7a420dd18aa45b0124daefa" kind="dir"><name>libs/render/src</name>
   </compound>
   <compound refid="dir_ff8d66b38a64997d3d536f0a283a72d2" kind="dir"><name>libs/window/src</name>
   </compound>
+  <compound refid="dir_ed7bb2dedfc9e161afbec5dafb6f7738" kind="dir"><name>libs/tests/src</name>
+  </compound>
+  <compound refid="dir_0546a52d63b71702b9134fb880d109fe" kind="dir"><name>libs/assert/src</name>
+  </compound>
   <compound refid="dir_ece11d4103acec48e46840fa170a730e" kind="dir"><name>libs/minsynth/src</name>
   </compound>
-  <compound refid="dir_95dc3cc0a7a420dd18aa45b0124daefa" kind="dir"><name>libs/render/src</name>
+  <compound refid="dir_232ab8dc75117fda122ab855789b1b2c" kind="dir"><name>libs/core/src</name>
   </compound>
   <compound refid="dir_5771a0408c28f1ea6597b6610e4f91cc" kind="dir"><name>libs/log/src</name>
   </compound>
-  <compound refid="dir_88d4f5e9589230f13756167b1d1fbb72" kind="dir"><name>libs/tests</name>
-  </compound>
   <compound refid="dir_4250b825e2d70c719ce4732ee07efd2e" kind="dir"><name>libs/tests/src/tests</name>
   </compound>
-  <compound refid="dir_12193faf9598ea6080d029797e2c4fa0" kind="dir"><name>libs/window/src/window</name>
+  <compound refid="dir_88d4f5e9589230f13756167b1d1fbb72" kind="dir"><name>libs/tests</name>
   </compound>
   <compound refid="dir_bbee8afadf8cc28d659a13bb6f0669f2" kind="dir"><name>libs/window</name>
+  </compound>
+  <compound refid="dir_12193faf9598ea6080d029797e2c4fa0" kind="dir"><name>libs/window/src/window</name>
   </compound>
   <compound refid="indexpage" kind="page"><name>index</name>
   </compound>

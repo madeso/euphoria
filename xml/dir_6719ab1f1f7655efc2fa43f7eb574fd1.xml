@@ -4,6 +4,7 @@
     <compoundname>libs</compoundname>
     <innerdir refid="dir_be4889e00cf19717698d04e08b906024">libs/assert</innerdir>
     <innerdir refid="dir_6f77a39b07c019ccd7492ea87272f732">libs/core</innerdir>
+    <innerdir refid="dir_c48d6870f00bd6cec871dec0a01d8f04">libs/fmt</innerdir>
     <innerdir refid="dir_d16cd4c060e1b5bebe1c023937f3c146">libs/gui</innerdir>
     <innerdir refid="dir_29a5e1422e0fbab2769746d85f117cd7">libs/log</innerdir>
     <innerdir refid="dir_a1e79f3806ef92ed87013fe5b66ee637">libs/minsynth</innerdir>

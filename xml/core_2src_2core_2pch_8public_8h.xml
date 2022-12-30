@@ -1,33 +1,17 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
-  <compounddef id="pch_8public_8h" kind="file" language="C++">
+  <compounddef id="core_2src_2core_2pch_8public_8h" kind="file" language="C++">
     <compoundname>pch.public.h</compoundname>
     <includes local="no">ostream</includes>
     <includes local="no">sstream</includes>
     <includes local="no">string</includes>
     <includes local="no">vector</includes>
-    <includes local="no">fmt/core.h</includes>
-    <includes local="no">fmt/format.h</includes>
-    <includes local="no">fmt/ranges.h</includes>
-    <includes local="no">fmt/ostream.h</includes>
     <incdepgraph>
-      <node id="7">
-        <label>fmt/format.h</label>
-      </node>
-      <node id="9">
-        <label>fmt/ostream.h</label>
-      </node>
       <node id="4">
         <label>string</label>
       </node>
       <node id="2">
         <label>ostream</label>
-      </node>
-      <node id="6">
-        <label>fmt/core.h</label>
-      </node>
-      <node id="8">
-        <label>fmt/ranges.h</label>
       </node>
       <node id="5">
         <label>vector</label>
@@ -37,7 +21,7 @@
       </node>
       <node id="1">
         <label>libs/core/src/core/pch.public.h</label>
-        <link refid="pch_8public_8h"/>
+        <link refid="core_2src_2core_2pch_8public_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
@@ -46,17 +30,8 @@
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
-        </childnode>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
       </node>
     </incdepgraph>
-    <innernamespace refid="namespacefmt_1_1literals">fmt::literals</innernamespace>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

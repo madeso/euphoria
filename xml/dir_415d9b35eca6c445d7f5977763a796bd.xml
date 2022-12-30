@@ -93,7 +93,7 @@
     <innerfile refid="palette__mycarta_8h">palette_mycarta.h</innerfile>
     <innerfile refid="palette__tableu_8h">palette_tableu.h</innerfile>
     <innerfile refid="pch_8private_8h">pch.private.h</innerfile>
-    <innerfile refid="pch_8public_8h">pch.public.h</innerfile>
+    <innerfile refid="core_2src_2core_2pch_8public_8h">pch.public.h</innerfile>
     <innerfile refid="plane_8h">plane.h</innerfile>
     <innerfile refid="poisson_8h">poisson.h</innerfile>
     <innerfile refid="polarcoord_8h">polarcoord.h</innerfile>
