@@ -144,8 +144,7 @@ namespace euphoria::core
         Rect
         center_inside_other(const Rect& other) const
         {
-            const auto lower_left = other.get_absolute_center_pos()
-                                    - get_relative_center_pos_from_bottom_left();
+            const auto lower_left = other.get_absolute_center_pos() - get_relative_center_pos_from_bottom_left();
             return Rect::from_top_left_width_height
             (
                 Vec2<T> {lower_left.x, lower_left.y + get_height()},
