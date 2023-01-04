@@ -3352,7 +3352,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="558" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="558" bodyend="-1"/>
+        <location file="libs/core/src/core/rect.h" line="557" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="557" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" prot="public" static="no">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref>&lt; float &gt;</type>
@@ -3365,7 +3365,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="559" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="559" bodyend="-1"/>
+        <location file="libs/core/src/core/rect.h" line="558" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="558" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1a719f8d7ee521c1ddadd6151452ede535" prot="public" static="no">
         <type><ref refid="structeuphoria_1_1core_1_1RandomLcg" kindref="compound">RandomLcg</ref>&lt; <ref refid="namespaceeuphoria_1_1core_1a9a78daf2d2b390a0bac9e43d7119d916" kindref="member">U64</ref>, std::numeric_limits&lt; <ref refid="namespaceeuphoria_1_1core_1a9a78daf2d2b390a0bac9e43d7119d916" kindref="member">U64</ref> &gt;::<ref refid="namespaceeuphoria_1_1core_1ace73dc23f7e3bd11ee16bc5b458a702c" kindref="member">max</ref>(), 6364136223846793005, 1442695040888963407 &gt;</type>
@@ -10466,7 +10466,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="506" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="506" bodyend="511"/>
+        <location file="libs/core/src/core/rect.h" line="505" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="505" bodyend="510"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ab679095ba3cb64d66862608a19c503ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -10495,7 +10495,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="515" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="515" bodyend="520"/>
+        <location file="libs/core/src/core/rect.h" line="514" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="514" bodyend="519"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1af1c16037d8d1dd133abcb3caa1194af1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -10521,7 +10521,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="524" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="524" bodyend="529"/>
+        <location file="libs/core/src/core/rect.h" line="523" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="523" bodyend="528"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a688148bbafb644a0c5497587c2ec4eba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -10547,7 +10547,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="533" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="533" bodyend="540"/>
+        <location file="libs/core/src/core/rect.h" line="532" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="532" bodyend="539"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a47f5fae7d69ef05e3d36f135b6c244eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -10576,7 +10576,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="543" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="544" bodyend="553"/>
+        <location file="libs/core/src/core/rect.h" line="542" column="5" bodyfile="libs/core/src/core/rect.h" bodystart="543" bodyend="552"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae0087dd806ee5a9f91dda6aa1124fa8d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
@@ -10597,7 +10597,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="555" column="11" declfile="libs/core/src/core/rect.h" declline="555" declcolumn="11"/>
+        <location file="libs/core/src/core/rect.h" line="554" column="11" declfile="libs/core/src/core/rect.h" declline="554" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5673973fb85647a1f6a75c4f523f89cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a0cb40771b3579f3c7f3c2134fe4db2e9" kindref="member">Vec2i</ref></type>
@@ -10618,7 +10618,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="556" column="11" declfile="libs/core/src/core/rect.h" declline="556" declcolumn="11"/>
+        <location file="libs/core/src/core/rect.h" line="555" column="11" declfile="libs/core/src/core/rect.h" declline="555" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aff698cc42d4e46617faf7d41d5bd588c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
