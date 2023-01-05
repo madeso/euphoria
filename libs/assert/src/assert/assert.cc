@@ -92,11 +92,11 @@ namespace euphoria
                     const auto first_symbol = std::string(symbol, ++begin - symbol);
                     *end++ = '\0';
                     const auto second_symbol = demangle_symbol(begin);
-                    ret.push_back("{}{}+{}"_format(first_symbol, second_symbol, end));
+                    ret.emplace_back("{}{}+{}"_format(first_symbol, second_symbol, end));
                 }
                 else
                 {
-                    ret.push_back(symbol);
+                    ret.emplace_back(symbol);
                 }
             }
 
