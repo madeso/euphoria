@@ -9,8 +9,7 @@
 [![run-cpplint](https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-cpplint.yml)
 
 [![run-coverage](https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml/badge.svg)](https://github.com/madeso/euphoria/actions/workflows/run-coverage.yml)
-[![codecov](https://codecov.io/gh/madeso/euphoria/branch/master/graph/badge.svg?token=V9K2H0U03G)](https://codecov.io/gh/madeso/euphoria) [![Coverage Status](https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master)](https://coveralls.io/github/madeso/euphoria?branch=master) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/6383de4f5f4645a2a63eb47e2ab045e6)](https://www.codacy.com/gh/madeso/euphoria/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=madeso/euphoria&amp;utm_campaign=Badge_Grade)
-
+[![codecov](https://codecov.io/gh/madeso/euphoria/branch/master/graph/badge.svg?token=V9K2H0U03G)](https://codecov.io/gh/madeso/euphoria) [![Coverage Status](https://coveralls.io/repos/github/madeso/euphoria/badge.svg?branch=master)](https://coveralls.io/github/madeso/euphoria?branch=master)
 
 Euphoria is a data-driven "game engine". It's in quotes because
 
