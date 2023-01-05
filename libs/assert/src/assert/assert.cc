@@ -162,7 +162,7 @@ namespace euphoria::assertlib
 
         if(should_throw_variable())
         {
-            throw message;
+            throw std::move(message);
         }
         else
         {
