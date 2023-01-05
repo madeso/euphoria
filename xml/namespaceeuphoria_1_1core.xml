@@ -13371,6 +13371,76 @@
         </inbodydescription>
         <location file="libs/core/src/core/timepoint.h" line="14" column="5" declfile="libs/core/src/core/timepoint.h" declline="14" declcolumn="5"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa39bbcdca22a9f2d323d70db622fe3d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::core::tor_curve</definition>
+        <argsstring>(float x, float a, float b, float c)</argsstring>
+        <name>tor_curve</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>A generalized curve formula. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>tor curve is a generalized, parameterized curve shaping function, especially useful for easing functions and interpolation. DESMOS DEMO: <ulink url="https://www.desmos.com/calculator/yvbmqxxphj">https://www.desmos.com/calculator/yvbmqxxphj</ulink></para>
+<para>Originally based on Colugo&apos;s curve editor: <ulink url="https://twitter.com/ColugoMusic/status/1363071439679729665?s=20">https://twitter.com/ColugoMusic/status/1363071439679729665?s=20</ulink> which is based off of Yann van der Cruyssen&apos;s sCurve formula: <ulink url="https://twitter.com/Morusque/status/1352569197499441155">https://twitter.com/Morusque/status/1352569197499441155</ulink> which is based off of this paper: <ulink url="https://arxiv.org/pdf/2010.09714.pdf">https://arxiv.org/pdf/2010.09714.pdf</ulink></para>
+<para>tor curve expands upon this by adding a third parameter controlling the falloffs/asymptotes, for both the horizontal and vertical axes. <simplesect kind="author"><para>torcado, 2021 (javascript) </para>
+</simplesect>
+<simplesect kind="author"><para>madeso (c++ port)</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>x</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the input value, range 0-1 </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>a</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>defines the general slope of the curve </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>b</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>defines the midpoint location </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>defines the flatness of the curve at the midpoint/ends </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/torcurve.h" line="29" column="7" declfile="libs/core/src/core/torcurve.h" declline="29" declcolumn="7"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a0db9800e07c5d137f8b82939eb4d8aea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>

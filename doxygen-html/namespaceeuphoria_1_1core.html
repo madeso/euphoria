@@ -1953,6 +1953,9 @@ Functions</h2></td></tr>
 <tr class="separator:ad45f0136fd1c951b4958b7d95cb15ef6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b25ff4404e21793b3c174495dee427d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a1b25ff4404e21793b3c174495dee427d">get_seconds_between</a> (const <a class="el" href="namespaceeuphoria_1_1core.html#a41020bc8b8bbff3320d0f2f637cb0288">TimePoint</a> &amp;start, const <a class="el" href="namespaceeuphoria_1_1core.html#a41020bc8b8bbff3320d0f2f637cb0288">TimePoint</a> &amp;end)</td></tr>
 <tr class="separator:a1b25ff4404e21793b3c174495dee427d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa39bbcdca22a9f2d323d70db622fe3d6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa39bbcdca22a9f2d323d70db622fe3d6">tor_curve</a> (float x, float a, float b, float c)</td></tr>
+<tr class="memdesc:aa39bbcdca22a9f2d323d70db622fe3d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">A generalized curve formula.  <a href="namespaceeuphoria_1_1core.html#aa39bbcdca22a9f2d323d70db622fe3d6">More...</a><br /></td></tr>
+<tr class="separator:aa39bbcdca22a9f2d323d70db622fe3d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0db9800e07c5d137f8b82939eb4d8aea"><td class="memTemplParams" colspan="2">template&lt;typename String , typename OnCodepoint &gt; </td></tr>
 <tr class="memitem:a0db9800e07c5d137f8b82939eb4d8aea"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a0db9800e07c5d137f8b82939eb4d8aea">utf8_to_codepoints</a> (const String &amp;string, OnCodepoint on_codepoint)</td></tr>
 <tr class="separator:a0db9800e07c5d137f8b82939eb4d8aea"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -15400,6 +15403,62 @@ template&lt;typename T , typename R &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa39bbcdca22a9f2d323d70db622fe3d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa39bbcdca22a9f2d323d70db622fe3d6">&#9670;&nbsp;</a></span>tor_curve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float euphoria::core::tor_curve </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>c</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A generalized curve formula. </p>
+<p>tor curve is a generalized, parameterized curve shaping function, especially useful for easing functions and interpolation. DESMOS DEMO: <a href="https://www.desmos.com/calculator/yvbmqxxphj">https://www.desmos.com/calculator/yvbmqxxphj</a></p>
+<p>Originally based on Colugo's curve editor: <a href="https://twitter.com/ColugoMusic/status/1363071439679729665?s=20">https://twitter.com/ColugoMusic/status/1363071439679729665?s=20</a> which is based off of Yann van der Cruyssen's sCurve formula: <a href="https://twitter.com/Morusque/status/1352569197499441155">https://twitter.com/Morusque/status/1352569197499441155</a> which is based off of this paper: <a href="https://arxiv.org/pdf/2010.09714.pdf">https://arxiv.org/pdf/2010.09714.pdf</a></p>
+<p>tor curve expands upon this by adding a third parameter controlling the falloffs/asymptotes, for both the horizontal and vertical axes. </p><dl class="section author"><dt>Author</dt><dd>torcado, 2021 (javascript) </dd>
+<dd>
+madeso (c++ port)</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>the input value, range 0-1 </td></tr>
+    <tr><td class="paramname">a</td><td>defines the general slope of the curve </td></tr>
+    <tr><td class="paramname">b</td><td>defines the midpoint location </td></tr>
+    <tr><td class="paramname">c</td><td>defines the flatness of the curve at the midpoint/ends </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

@@ -3993,6 +3993,7 @@
     <member refid="namespaceeuphoria_1_1core_1aded4d4a4ba49f34ea452a873c289b41a" kind="function"><name>is_ident_start</name></member>
     <member refid="namespaceeuphoria_1_1core_1ad45f0136fd1c951b4958b7d95cb15ef6" kind="function"><name>time_point_now</name></member>
     <member refid="namespaceeuphoria_1_1core_1a1b25ff4404e21793b3c174495dee427d" kind="function"><name>get_seconds_between</name></member>
+    <member refid="namespaceeuphoria_1_1core_1aa39bbcdca22a9f2d323d70db622fe3d6" kind="function"><name>tor_curve</name></member>
     <member refid="namespaceeuphoria_1_1core_1a0db9800e07c5d137f8b82939eb4d8aea" kind="function"><name>utf8_to_codepoints</name></member>
     <member refid="namespaceeuphoria_1_1core_1ae59af018249db154be922bca4442f603" kind="function"><name>operator+</name></member>
     <member refid="namespaceeuphoria_1_1core_1add3e52723eecfec645d13ffe11b59c0b" kind="function"><name>operator-</name></member>
@@ -4940,6 +4941,8 @@
   <compound refid="texturetypes_8h" kind="file"><name>texturetypes.h</name>
   </compound>
   <compound refid="timepoint_8h" kind="file"><name>timepoint.h</name>
+  </compound>
+  <compound refid="torcurve_8h" kind="file"><name>torcurve.h</name>
   </compound>
   <compound refid="tracery_8h" kind="file"><name>tracery.h</name>
   </compound>

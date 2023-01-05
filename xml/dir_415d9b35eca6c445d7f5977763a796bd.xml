@@ -134,6 +134,7 @@
     <innerfile refid="texttemplate_8h">texttemplate.h</innerfile>
     <innerfile refid="texturetypes_8h">texturetypes.h</innerfile>
     <innerfile refid="timepoint_8h">timepoint.h</innerfile>
+    <innerfile refid="torcurve_8h">torcurve.h</innerfile>
     <innerfile refid="tracery_8h">tracery.h</innerfile>
     <innerfile refid="ui__text_8h">ui_text.h</innerfile>
     <innerfile refid="utf8_8h">utf8.h</innerfile>
