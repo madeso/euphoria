@@ -23,7 +23,6 @@ set(app_src_math
     src/core/aabb.cc src/core/aabb.h
     src/core/angle.cc src/core/angle.h
     src/core/axisangle.cc src/core/axisangle.h
-    src/core/polybezier.cc src/core/polybezier.h
     src/core/collage.cc src/core/collage.h
     src/core/easing.cc src/core/easing.h
     src/core/lines.cc src/core/lines.h
@@ -34,14 +33,16 @@ set(app_src_math
     src/core/plane.cc src/core/plane.h
     src/core/poisson.cc src/core/poisson.h
     src/core/polarcoord.cc src/core/polarcoord.h
+    src/core/polybezier.cc src/core/polybezier.h
     src/core/quat.cc src/core/quat.h
     src/core/ray.cc src/core/ray.h
     src/core/rect.cc src/core/rect.h
     src/core/rgb_blend.cc src/core/rgb_blend.h
     src/core/rgb.cc src/core/rgb.h
+    src/core/sphere.builder.cc src/core/sphere.builder.h
     src/core/sphere.cc src/core/sphere.h
     src/core/sphere.position.cc src/core/sphere.position.h
-    src/core/sphere.builder.cc src/core/sphere.builder.h
+    src/core/torcurve.cc src/core/torcurve.h
     src/core/vec.base.cc src/core/vec.base.h
     src/core/vec2.cc src/core/vec2.h
     src/core/vec3.cc src/core/vec3.h
@@ -286,6 +287,7 @@ set(test_src
     src/core/template.test.cc
     src/core/textbox.test.cc
     src/core/textfileparser.test.cc
+    src/core/torcurve.test.cc
     src/core/tracery.test.cc
     src/core/ui_text.test.cc
     src/core/utf8.test.cc
