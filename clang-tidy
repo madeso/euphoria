@@ -116,14 +116,16 @@ END_CHECKS
     // UPPER_CASE
     {"key": "readability-identifier-naming.MacroDefinitionCase",          "value": "UPPER_CASE"},
 
+    // lower_case (for types with operators) or CamelCase (for other types)
+    {"key": "readability-identifier-naming.ClassCase",                    "value": "aNy_CasE"},
+    {"key": "readability-identifier-naming.TypeAliasCase",                "value": "aNy_CasE"},
+    {"key": "readability-identifier-naming.StructCase",                   "value": "aNy_CasE"},
+
     // CamelCase
     {"key": "readability-identifier-naming.AbstractClassCase",            "value": "CamelCase"},
-    {"key": "readability-identifier-naming.ClassCase",                    "value": "CamelCase"},
     {"key": "readability-identifier-naming.EnumCase",                     "value": "CamelCase"},
-    {"key": "readability-identifier-naming.TypeAliasCase",                "value": "CamelCase"},
     {"key": "readability-identifier-naming.TypedefCase",                  "value": "CamelCase"},
     {"key": "readability-identifier-naming.UnionCase",                    "value": "CamelCase"},
-    {"key": "readability-identifier-naming.StructCase",                   "value": "CamelCase"},
 
     // template <typename THIS> class Foo {};
     {"key": "readability-identifier-naming.TemplateParameterCase",        "value": "CamelCase"},
