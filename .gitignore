@@ -46,3 +46,4 @@ docs/generated/xml/
 cppcheck-result.txt
 .lite_workspace.lua
 
+.vs/
