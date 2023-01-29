@@ -10,13 +10,13 @@ using namespace euphoria::tests;
 
 TEST_CASE("quat-identity", "[quat]")
 {
-    const auto q = euco::quati::identity();
-    REQUIRE(q == euco::quati(1, euco::vec3i(0, 0, 0)));
+    const auto q = euco::quatf::identity();
+    REQUIRE(q == approx(euco::quatf(1, euco::vec3f(0, 0, 0))));
 }
 
 TEST_CASE("quat-testVecOp", "[quat]")
 {
-    REQUIRE(euco::quati(4, euco::vec3i(1, 2, 3)).get_vec_part() == euco::vec3i(1, 2, 3));
+    REQUIRE(euco::quatf(4, euco::vec3f(1, 2, 3)).get_vec_part() == approx(euco::vec3f(1, 2, 3)));
 }
 
 #define EXPECT_PRED_FORMAT2(a, b) REQUIRE(b == approx(a))
