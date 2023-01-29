@@ -17,6 +17,7 @@ namespace euphoria::core
         float y;
         float z;
 
+
         ///////////////////////////////////////////////////////////////////////////////////////////
         // construction
 
@@ -45,19 +46,20 @@ namespace euphoria::core
 
 
         ///////////////////////////////////////////////////////////////////////////////////////////
-        // To functions
+        // getters and converters
 
-        [[nodiscard]] mat4<float>
-        to_mat4() const;
+        [[nodiscard]] mat4<float> to_mat4() const;
 
-        [[nodiscard]] AxisAngle
-        to_axis_angle() const;
+        [[nodiscard]] AxisAngle to_axis_angle() const;
 
         float* get_data_ptr();
-
         [[nodiscard]] const float* get_data_ptr() const;
 
         vec3f get_vec_part() const;
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // ops
 
         quatf rotate(const quatf& q) const;
 
@@ -76,6 +78,21 @@ namespace euphoria::core
         void normalize();
         quatf get_normalized() const;
 
+        unit3f rotate_around_origo(const unit3f& v) const;
+
+        [[nodiscard]] static quatf
+        lerp(const quatf& f, const float scale, const quatf& t);
+
+        [[nodiscard]] static quatf
+        slerp_fast(const quatf& qa, const float t, const quatf& qb);
+
+        [[nodiscard]] static quatf
+        slerp_shortway(const quatf& from, const float scale, const quatf& to);
+
+
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // axis related
+
         unit3f in() const;
         unit3f out() const;
         unit3f right() const;
@@ -87,18 +104,9 @@ namespace euphoria::core
         vec3f
         create_from_right_up_in(const vec3f v) const;
 
-        unit3f
-        rotate_around_origo(const unit3f& v) const;
-
-        [[nodiscard]] static quatf
-        lerp(const quatf& f, const float scale, const quatf& t);
-
-        [[nodiscard]] static quatf
-        slerp(const quatf& qa, const float t, const quatf& qb);
-
-        // todo(Gustav): rename this to slerp and slerp to slerp_fast or slerp_base
-        [[nodiscard]] static quatf
-        slerp_shortway(const quatf& from, const float scale, const quatf& to);
+        
+        ///////////////////////////////////////////////////////////////////////////////////////////
+        // math
 
         void operator+=(const quatf& rhs);
         void operator-=(const quatf& rhs);
@@ -106,10 +114,10 @@ namespace euphoria::core
         void operator*=(const quatf& rhs);
     };
 
-    
-    std::ostream& operator<<(std::ostream& stream, const quatf& v);
 
     float dot(const quatf& lhs, const quatf& rhs);
+    
+    std::ostream& operator<<(std::ostream& stream, const quatf& v);
 
     quatf operator*(const quatf& lhs, const quatf& rhs);
     quatf operator*(float scale, const quatf& q);

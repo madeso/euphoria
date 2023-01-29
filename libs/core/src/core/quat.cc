@@ -267,7 +267,7 @@ namespace euphoria::core
 
 
     [[nodiscard]] quatf
-    quatf::slerp(const quatf& qa, const float t, const quatf& qb)
+    quatf::slerp_fast(const quatf& qa, const float t, const quatf& qb)
     {
         // from:
         // http://www.euclideanspace.com/maths/algebra/realNormedAlgebra/quaternions/slerp/
@@ -308,11 +308,11 @@ namespace euphoria::core
     {
         if(dot(from, to) < 0)
         {
-            return slerp(from.get_negated(), scale, to);
+            return slerp_fast(from.get_negated(), scale, to);
         }
         else
         {
-            return slerp(from, scale, to);
+            return slerp_fast(from, scale, to);
         }
     }
 
