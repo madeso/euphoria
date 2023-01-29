@@ -116,7 +116,7 @@
           <declname>r</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">core::quatf</ref> *</type>
+          <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">core::quatf</ref> *</type>
           <declname>new_rotation</declname>
         </param>
         <briefdescription>

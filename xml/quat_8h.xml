@@ -269,24 +269,9 @@
         <link refid="actor_8h"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1quat" prot="public">euphoria::core::quat</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1quatf" prot="public">euphoria::core::quatf</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-      <sectiondef kind="define">
-      <memberdef kind="define" id="quat_8h_1a8d0db73225fbc80f01b8366f19dbb884" prot="public" static="no">
-        <name>VAR</name>
-        <param><defname>a</defname></param>
-        <param><defname>b</defname></param>
-        <initializer>const T a##1##b##2 = a * rhs.b</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="374" column="9"/>
-      </memberdef>
-      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

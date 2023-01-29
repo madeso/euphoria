@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/camera3.h" line="45" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1aa68c68844a1e95e1c0893e09892850cb" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">quatf</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>quatf euphoria::core::Camera3::rotation</definition>
         <argsstring></argsstring>
         <name>rotation</name>
@@ -114,17 +114,17 @@
           <edgelabel>position</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>fov</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
           <edgelabel>rotation</edgelabel>
         </childnode>
-      </node>
-      <node id="4">
-        <label>euphoria::core::quat&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1quat"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>fov</edgelabel>
+        </childnode>
       </node>
       <node id="3">
+        <label>euphoria::core::quatf</label>
+        <link refid="structeuphoria_1_1core_1_1quatf"/>
+      </node>
+      <node id="4">
         <label>euphoria::core::angle</label>
         <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>

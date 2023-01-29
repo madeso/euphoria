@@ -138,7 +138,7 @@
         <location file="libs/core/src/core/orbitcontroller.h" line="12" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1OrbitController_1a186c825696ca47f2e538a9551f1c95e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">quatf</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>quatf euphoria::core::OrbitController::get_rotation</definition>
         <argsstring>() const</argsstring>
         <name>get_rotation</name>

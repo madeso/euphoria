@@ -254,11 +254,11 @@
         <argsstring>(core::quatf const &amp;lhs, core::quatf const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>approximately_equal</name>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">core::quatf</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">core::quatf</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">core::quatf</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">core::quatf</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>

@@ -262,7 +262,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Polyline2.html">Polyline2</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Random.html">Random</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">WEL512 <a class="el" href="structeuphoria_1_1core_1_1Random.html" title="WEL512 Random Number Generator.">Random</a> Number Generator.  <a href="structeuphoria_1_1core_1_1Random.html#details">More...</a><br /></td></tr>
@@ -430,10 +430,6 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a1c291e953f27d604436fdae47ddca0d4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a1c291e953f27d604436fdae47ddca0d4"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a1c291e953f27d604436fdae47ddca0d4">ReadResult</a> = std::variant&lt; T, <a class="el" href="structeuphoria_1_1core_1_1ReadErrorFileMissing.html">ReadErrorFileMissing</a>, <a class="el" href="structeuphoria_1_1core_1_1ReadErrorFileError.html">ReadErrorFileError</a> &gt;</td></tr>
 <tr class="separator:a1c291e953f27d604436fdae47ddca0d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a036e0b62e34d102ab8049a7ef3c6f7f8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a036e0b62e34d102ab8049a7ef3c6f7f8">quatf</a> = <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; float &gt;</td></tr>
-<tr class="separator:a036e0b62e34d102ab8049a7ef3c6f7f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f3fe76707ee0cd04d2de08b6366cda7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a8f3fe76707ee0cd04d2de08b6366cda7">quati</a> = <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; int &gt;</td></tr>
-<tr class="separator:a8f3fe76707ee0cd04d2de08b6366cda7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18429a488f4a0c6d17b4a84fe0dac703"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a18429a488f4a0c6d17b4a84fe0dac703">Recti</a> = <a class="el" href="structeuphoria_1_1core_1_1Rect.html">Rect</a>&lt; int &gt;</td></tr>
 <tr class="separator:a18429a488f4a0c6d17b4a84fe0dac703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36217bfc978879cdbc151f5c8759bf86"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a36217bfc978879cdbc151f5c8759bf86">Rectf</a> = <a class="el" href="structeuphoria_1_1core_1_1Rect.html">Rect</a>&lt; float &gt;</td></tr>
@@ -1554,30 +1550,22 @@ Functions</h2></td></tr>
 <tr class="memitem:ae5a8d602ab310286b200aa68255b961f"><td class="memTemplParams" colspan="2">template&lt;typename T , typename ReadJsonElementFun &gt; </td></tr>
 <tr class="memitem:ae5a8d602ab310286b200aa68255b961f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#a1c291e953f27d604436fdae47ddca0d4">ReadResult</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae5a8d602ab310286b200aa68255b961f">read_json_file_to_gaf_struct</a> (<a class="el" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">vfs::FileSystem</a> *fs, const <a class="el" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">vfs::FilePath</a> &amp;file_name, ReadJsonElementFun read_json_element)</td></tr>
 <tr class="separator:ae5a8d602ab310286b200aa68255b961f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6bf6557e66306ae9f3082e0839f0b1e6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6bf6557e66306ae9f3082e0839f0b1e6"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a6bf6557e66306ae9f3082e0839f0b1e6">operator&lt;&lt;</a> (std::ostream &amp;stream, const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;v)</td></tr>
-<tr class="separator:a6bf6557e66306ae9f3082e0839f0b1e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20c7a1c89fe9f0f99911a70ad585f001"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a20c7a1c89fe9f0f99911a70ad585f001"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a20c7a1c89fe9f0f99911a70ad585f001">dot</a> (const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:a20c7a1c89fe9f0f99911a70ad585f001"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa1623624cee26c56547cda6412862885"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aa1623624cee26c56547cda6412862885"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa1623624cee26c56547cda6412862885">operator*</a> (const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:aa1623624cee26c56547cda6412862885"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7cea318e0b1286cf6ba7c6d13c471c4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ab7cea318e0b1286cf6ba7c6d13c471c4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ab7cea318e0b1286cf6ba7c6d13c471c4">operator*</a> (T scale, const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;q)</td></tr>
-<tr class="separator:ab7cea318e0b1286cf6ba7c6d13c471c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4490c6f5976acf7231fc6b8efadb571b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a4490c6f5976acf7231fc6b8efadb571b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a4490c6f5976acf7231fc6b8efadb571b">operator*</a> (const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;q, T scale)</td></tr>
-<tr class="separator:a4490c6f5976acf7231fc6b8efadb571b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13805a2d786486331f3053362be3b8a6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a13805a2d786486331f3053362be3b8a6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a13805a2d786486331f3053362be3b8a6">operator+</a> (const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:a13805a2d786486331f3053362be3b8a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5aa8d891b7fc2fc97f932956c9a4594"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac5aa8d891b7fc2fc97f932956c9a4594"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ac5aa8d891b7fc2fc97f932956c9a4594">operator-</a> (const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:ac5aa8d891b7fc2fc97f932956c9a4594"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac66545484def43aa3b64347764718493"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac66545484def43aa3b64347764718493"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ac66545484def43aa3b64347764718493">operator==</a> (const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:ac66545484def43aa3b64347764718493"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa484888d5f11864179852bec09b4f341"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa484888d5f11864179852bec09b4f341">dot</a> (const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;rhs)</td></tr>
+<tr class="separator:aa484888d5f11864179852bec09b4f341"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afadde5b8dcb37f0d88145d846573bb68"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#afadde5b8dcb37f0d88145d846573bb68">operator&lt;&lt;</a> (std::ostream &amp;stream, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;v)</td></tr>
+<tr class="separator:afadde5b8dcb37f0d88145d846573bb68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a428feaa7b5dd248ce5bbf95c51b0714f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a428feaa7b5dd248ce5bbf95c51b0714f">operator*</a> (const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;rhs)</td></tr>
+<tr class="separator:a428feaa7b5dd248ce5bbf95c51b0714f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5319c58fdbba09cecf96c79d1eeb417c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a5319c58fdbba09cecf96c79d1eeb417c">operator*</a> (float scale, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;q)</td></tr>
+<tr class="separator:a5319c58fdbba09cecf96c79d1eeb417c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0629a0ebabd898ac468bc89ba4ef9565"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a0629a0ebabd898ac468bc89ba4ef9565">operator*</a> (const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;q, float scale)</td></tr>
+<tr class="separator:a0629a0ebabd898ac468bc89ba4ef9565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79144e4b06f914152fd65a105c3cc8da"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a79144e4b06f914152fd65a105c3cc8da">operator+</a> (const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;rhs)</td></tr>
+<tr class="separator:a79144e4b06f914152fd65a105c3cc8da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0c845ac879674d557acea29d0eef81b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ac0c845ac879674d557acea29d0eef81b">operator-</a> (const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;rhs)</td></tr>
+<tr class="separator:ac0c845ac879674d557acea29d0eef81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2966bbd0393bfe04ee434dae311f6c43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a2966bbd0393bfe04ee434dae311f6c43">operator==</a> (const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;rhs)</td></tr>
+<tr class="separator:a2966bbd0393bfe04ee434dae311f6c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c93ca6065f521a10b4fe5f7ef3c7529"><td class="memTemplParams" colspan="2">template&lt;typename T , typename SortFunc &gt; </td></tr>
 <tr class="memitem:a3c93ca6065f521a10b4fe5f7ef3c7529"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a3c93ca6065f521a10b4fe5f7ef3c7529">get_hoare_partition</a> (SortFunc sort_func, std::vector&lt; T &gt; &amp;array, int lo, int hi)</td></tr>
 <tr class="separator:a3c93ca6065f521a10b4fe5f7ef3c7529"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2324,38 +2312,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="nlp__sentence_8h_source.html#l00012">12</a> of file <a class="el" href="nlp__sentence_8h_source.html">nlp_sentence.h</a>.</p>
-
-</div>
-</div>
-<a id="a036e0b62e34d102ab8049a7ef3c6f7f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a036e0b62e34d102ab8049a7ef3c6f7f8">&#9670;&nbsp;</a></span>quatf</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceeuphoria_1_1core.html#a036e0b62e34d102ab8049a7ef3c6f7f8">euphoria::core::quatf</a> = typedef <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt;float&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00500">500</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
-
-</div>
-</div>
-<a id="a8f3fe76707ee0cd04d2de08b6366cda7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8f3fe76707ee0cd04d2de08b6366cda7">&#9670;&nbsp;</a></span>quati</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceeuphoria_1_1core.html#a8f3fe76707ee0cd04d2de08b6366cda7">euphoria::core::quati</a> = typedef <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt;int&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00501">501</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -6023,24 +5979,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a20c7a1c89fe9f0f99911a70ad585f001"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20c7a1c89fe9f0f99911a70ad585f001">&#9670;&nbsp;</a></span>dot() <span class="overload">[1/4]</span></h2>
+<a id="aa484888d5f11864179852bec09b4f341"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa484888d5f11864179852bec09b4f341">&#9670;&nbsp;</a></span>dot() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">T euphoria::core::dot </td>
+          <td class="memname">float euphoria::core::dot </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -6050,8 +6004,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00438">438</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -11243,24 +11195,22 @@ template&lt;typename T , typename O &gt; </div>
 
 </div>
 </div>
-<a id="aa1623624cee26c56547cda6412862885"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1623624cee26c56547cda6412862885">&#9670;&nbsp;</a></span>operator*() <span class="overload">[10/22]</span></h2>
+<a id="a428feaa7b5dd248ce5bbf95c51b0714f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a428feaa7b5dd248ce5bbf95c51b0714f">&#9670;&nbsp;</a></span>operator*() <span class="overload">[10/22]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt;T&gt; euphoria::core::operator* </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> euphoria::core::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -11271,28 +11221,24 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00445">445</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
-
 </div>
 </div>
-<a id="a4490c6f5976acf7231fc6b8efadb571b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4490c6f5976acf7231fc6b8efadb571b">&#9670;&nbsp;</a></span>operator*() <span class="overload">[11/22]</span></h2>
+<a id="a0629a0ebabd898ac468bc89ba4ef9565"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0629a0ebabd898ac468bc89ba4ef9565">&#9670;&nbsp;</a></span>operator*() <span class="overload">[11/22]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt;T&gt; euphoria::core::operator* </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> euphoria::core::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>q</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
+          <td class="paramtype">float&#160;</td>
           <td class="paramname"><em>scale</em>&#160;</td>
         </tr>
         <tr>
@@ -11302,8 +11248,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00463">463</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -11579,8 +11523,36 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a5319c58fdbba09cecf96c79d1eeb417c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5319c58fdbba09cecf96c79d1eeb417c">&#9670;&nbsp;</a></span>operator*() <span class="overload">[21/22]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> euphoria::core::operator* </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>scale</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
+          <td class="paramname"><em>q</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a2ad2f757304d19d56d11ff5ce84675a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2ad2f757304d19d56d11ff5ce84675a3">&#9670;&nbsp;</a></span>operator*() <span class="overload">[21/22]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ad2f757304d19d56d11ff5ce84675a3">&#9670;&nbsp;</a></span>operator*() <span class="overload">[22/22]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -11608,38 +11580,6 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="vec3_8h_source.html#l00293">293</a> of file <a class="el" href="vec3_8h_source.html">vec3.h</a>.</p>
-
-</div>
-</div>
-<a id="ab7cea318e0b1286cf6ba7c6d13c471c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7cea318e0b1286cf6ba7c6d13c471c4">&#9670;&nbsp;</a></span>operator*() <span class="overload">[22/22]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt;T&gt; euphoria::core::operator* </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>scale</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>q</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00454">454</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -11767,24 +11707,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a13805a2d786486331f3053362be3b8a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13805a2d786486331f3053362be3b8a6">&#9670;&nbsp;</a></span>operator+() <span class="overload">[5/9]</span></h2>
+<a id="a79144e4b06f914152fd65a105c3cc8da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79144e4b06f914152fd65a105c3cc8da">&#9670;&nbsp;</a></span>operator+() <span class="overload">[5/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt;T&gt; euphoria::core::operator+ </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> euphoria::core::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -11794,8 +11732,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00473">473</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -12051,24 +11987,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ac5aa8d891b7fc2fc97f932956c9a4594"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5aa8d891b7fc2fc97f932956c9a4594">&#9670;&nbsp;</a></span>operator-() <span class="overload">[5/9]</span></h2>
+<a id="ac0c845ac879674d557acea29d0eef81b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0c845ac879674d557acea29d0eef81b">&#9670;&nbsp;</a></span>operator-() <span class="overload">[5/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt;T&gt; euphoria::core::operator- </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> euphoria::core::operator- </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -12078,8 +12012,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00483">483</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -12789,13 +12721,11 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a6bf6557e66306ae9f3082e0839f0b1e6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6bf6557e66306ae9f3082e0839f0b1e6">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[13/22]</span></h2>
+<a id="afadde5b8dcb37f0d88145d846573bb68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afadde5b8dcb37f0d88145d846573bb68">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[13/22]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::ostream&amp; euphoria::core::operator&lt;&lt; </td>
@@ -12806,7 +12736,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>v</em>&#160;</td>
         </tr>
         <tr>
@@ -12816,8 +12746,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00429">429</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>
@@ -13252,24 +13180,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ac66545484def43aa3b64347764718493"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac66545484def43aa3b64347764718493">&#9670;&nbsp;</a></span>operator==() <span class="overload">[5/15]</span></h2>
+<a id="a2966bbd0393bfe04ee434dae311f6c43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2966bbd0393bfe04ee434dae311f6c43">&#9670;&nbsp;</a></span>operator==() <span class="overload">[5/15]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">bool euphoria::core::operator== </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quat.html">quat</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -13279,8 +13205,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="quat_8h_source.html#l00493">493</a> of file <a class="el" href="quat_8h_source.html">quat.h</a>.</p>
 
 </div>
 </div>

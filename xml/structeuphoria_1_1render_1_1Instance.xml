@@ -34,7 +34,7 @@
         <location file="libs/render/src/render/instance.h" line="34" column="21" bodyfile="libs/render/src/render/instance.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Instance_1afcfee5f48ac62a7ad645a24acc25a41a" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">core::quatf</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">core::quatf</ref></type>
         <definition>core::quatf euphoria::render::Instance::rotation</definition>
         <argsstring></argsstring>
         <name>rotation</name>
@@ -157,6 +157,19 @@
         </childnode>
       </node>
     </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::render::Instance</label>
+        <link refid="structeuphoria_1_1render_1_1Instance"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::quatf</label>
+        <link refid="structeuphoria_1_1core_1_1quatf"/>
+      </node>
+    </collaborationgraph>
     <location file="libs/render/src/render/instance.h" line="14" column="1" bodyfile="libs/render/src/render/instance.h" bodystart="13" bodyend="36"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Instance_1afa992d97f0c0581b85bc36dcf98e01d9" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>calculate_model_matrix</name></member>

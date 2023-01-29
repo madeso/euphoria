@@ -76,7 +76,7 @@
     <innerclass refid="structeuphoria_1_1core_1_1PolarCoordinate" prot="public">euphoria::core::PolarCoordinate</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1PolyBezier2" prot="public">euphoria::core::PolyBezier2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Polyline2" prot="public">euphoria::core::Polyline2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1quat" prot="public">euphoria::core::quat</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1quatf" prot="public">euphoria::core::quatf</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Random" prot="public">euphoria::core::Random</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1RandomLcg" prot="public">euphoria::core::RandomLcg</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1RandomXorShift" prot="public">euphoria::core::RandomXorShift</innerclass>
@@ -3314,32 +3314,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/core/src/core/proto.h" line="44" column="5" bodyfile="libs/core/src/core/proto.h" bodystart="44" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" prot="public" static="no">
-        <type><ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; float &gt;</type>
-        <definition>using euphoria::core::quatf = typedef quat&lt;float&gt;</definition>
-        <argsstring></argsstring>
-        <name>quatf</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="500" column="5" bodyfile="libs/core/src/core/quat.h" bodystart="500" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1a8f3fe76707ee0cd04d2de08b6366cda7" prot="public" static="no">
-        <type><ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; int &gt;</type>
-        <definition>using euphoria::core::quati = typedef quat&lt;int&gt;</definition>
-        <argsstring></argsstring>
-        <name>quati</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="501" column="5" bodyfile="libs/core/src/core/quat.h" bodystart="501" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1a18429a488f4a0c6d17b4a84fe0dac703" prot="public" static="no">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref>&lt; int &gt;</type>
@@ -9411,22 +9385,38 @@
         </inbodydescription>
         <location file="libs/core/src/core/proto.h" line="233" column="5" bodyfile="libs/core/src/core/proto.h" bodystart="234" bodyend="259"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a6bf6557e66306ae9f3082e0839f0b1e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa484888d5f11864179852bec09b4f341" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::core::dot</definition>
+        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
+        <name>dot</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/quat.h" line="118" column="11" declfile="libs/core/src/core/quat.h" declline="118" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1afadde5b8dcb37f0d88145d846573bb68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
         <definition>std::ostream&amp; euphoria::core::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;stream, const quat&lt; T &gt; &amp;v)</argsstring>
+        <argsstring>(std::ostream &amp;stream, const quatf &amp;v)</argsstring>
         <name>operator&lt;&lt;</name>
         <param>
           <type>std::ostream &amp;</type>
           <declname>stream</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -9435,24 +9425,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="428" column="5" bodyfile="libs/core/src/core/quat.h" bodystart="429" bodyend="433"/>
+        <location file="libs/core/src/core/quat.h" line="120" column="5" declfile="libs/core/src/core/quat.h" declline="120" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a20c7a1c89fe9f0f99911a70ad585f001" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>T</type>
-        <definition>T euphoria::core::dot</definition>
-        <argsstring>(const quat&lt; T &gt; &amp;lhs, const quat&lt; T &gt; &amp;rhs)</argsstring>
-        <name>dot</name>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a428feaa7b5dd248ce5bbf95c51b0714f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf euphoria::core::operator*</definition>
+        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
+        <name>operator*</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -9461,50 +9446,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="438" column="5" bodyfile="libs/core/src/core/quat.h" bodystart="438" bodyend="441"/>
+        <location file="libs/core/src/core/quat.h" line="122" column="11" declfile="libs/core/src/core/quat.h" declline="122" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa1623624cee26c56547cda6412862885" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt;</type>
-        <definition>quat&lt;T&gt; euphoria::core::operator*</definition>
-        <argsstring>(const quat&lt; T &gt; &amp;lhs, const quat&lt; T &gt; &amp;rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5319c58fdbba09cecf96c79d1eeb417c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf euphoria::core::operator*</definition>
+        <argsstring>(float scale, const quatf &amp;q)</argsstring>
         <name>operator*</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="445" column="10" bodyfile="libs/core/src/core/quat.h" bodystart="445" bodyend="450"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ab7cea318e0b1286cf6ba7c6d13c471c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt;</type>
-        <definition>quat&lt;T&gt; euphoria::core::operator*</definition>
-        <argsstring>(T scale, const quat&lt; T &gt; &amp;q)</argsstring>
-        <name>operator*</name>
-        <param>
-          <type>T</type>
+          <type>float</type>
           <declname>scale</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>q</declname>
         </param>
         <briefdescription>
@@ -9513,24 +9467,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="454" column="10" bodyfile="libs/core/src/core/quat.h" bodystart="454" bodyend="459"/>
+        <location file="libs/core/src/core/quat.h" line="123" column="11" declfile="libs/core/src/core/quat.h" declline="123" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4490c6f5976acf7231fc6b8efadb571b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt;</type>
-        <definition>quat&lt;T&gt; euphoria::core::operator*</definition>
-        <argsstring>(const quat&lt; T &gt; &amp;q, T scale)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a0629a0ebabd898ac468bc89ba4ef9565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf euphoria::core::operator*</definition>
+        <argsstring>(const quatf &amp;q, float scale)</argsstring>
         <name>operator*</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>q</declname>
         </param>
         <param>
-          <type>T</type>
+          <type>float</type>
           <declname>scale</declname>
         </param>
         <briefdescription>
@@ -9539,24 +9488,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="463" column="10" bodyfile="libs/core/src/core/quat.h" bodystart="463" bodyend="468"/>
+        <location file="libs/core/src/core/quat.h" line="124" column="11" declfile="libs/core/src/core/quat.h" declline="124" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a13805a2d786486331f3053362be3b8a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt;</type>
-        <definition>quat&lt;T&gt; euphoria::core::operator+</definition>
-        <argsstring>(const quat&lt; T &gt; &amp;lhs, const quat&lt; T &gt; &amp;rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a79144e4b06f914152fd65a105c3cc8da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf euphoria::core::operator+</definition>
+        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
         <name>operator+</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -9565,24 +9509,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="473" column="5" bodyfile="libs/core/src/core/quat.h" bodystart="473" bodyend="478"/>
+        <location file="libs/core/src/core/quat.h" line="125" column="11" declfile="libs/core/src/core/quat.h" declline="125" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac5aa8d891b7fc2fc97f932956c9a4594" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt;</type>
-        <definition>quat&lt;T&gt; euphoria::core::operator-</definition>
-        <argsstring>(const quat&lt; T &gt; &amp;lhs, const quat&lt; T &gt; &amp;rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac0c845ac879674d557acea29d0eef81b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf euphoria::core::operator-</definition>
+        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
         <name>operator-</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -9591,24 +9530,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="483" column="5" bodyfile="libs/core/src/core/quat.h" bodystart="483" bodyend="488"/>
+        <location file="libs/core/src/core/quat.h" line="126" column="11" declfile="libs/core/src/core/quat.h" declline="126" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac66545484def43aa3b64347764718493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2966bbd0393bfe04ee434dae311f6c43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::core::operator==</definition>
-        <argsstring>(const quat&lt; T &gt; &amp;lhs, const quat&lt; T &gt; &amp;rhs)</argsstring>
+        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
         <name>operator==</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quat" kindref="compound">quat</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -9617,7 +9551,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="493" column="5" bodyfile="libs/core/src/core/quat.h" bodystart="493" bodyend="497"/>
+        <location file="libs/core/src/core/quat.h" line="127" column="10" declfile="libs/core/src/core/quat.h" declline="127" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3c93ca6065f521a10b4fe5f7ef3c7529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

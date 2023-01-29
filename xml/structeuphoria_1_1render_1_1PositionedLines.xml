@@ -88,6 +88,13 @@
       <node id="2">
         <label>euphoria::render::Instance</label>
         <link refid="structeuphoria_1_1render_1_1Instance"/>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::quatf</label>
+        <link refid="structeuphoria_1_1core_1_1quatf"/>
       </node>
       <node id="1">
         <label>euphoria::render::PositionedLines</label>
