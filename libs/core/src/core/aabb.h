@@ -11,15 +11,15 @@ namespace euphoria::core
 
     struct Aabb
     {
-        Aabb(const Vec3f& amin, const Vec3f& amax);
+        Aabb(const vec3f& amin, const vec3f& amax);
 
 
-        [[nodiscard]] Vec3f
-        wrap(const Vec3f& vec) const;
+        [[nodiscard]] vec3f
+        wrap(const vec3f& vec) const;
 
 
         void
-        extend(const Vec3f& vec);
+        extend(const vec3f& vec);
 
 
         void
@@ -30,7 +30,7 @@ namespace euphoria::core
         create_empty();
 
 
-        [[nodiscard]] Vec3f
+        [[nodiscard]] vec3f
         get_size() const;
 
 
@@ -38,24 +38,24 @@ namespace euphoria::core
         is_valid() const;
 
 
-        [[nodiscard]] Vec3f
+        [[nodiscard]] vec3f
         get_offset() const;
 
 
         void
-        offset(const Vec3f& vec);
+        offset(const vec3f& vec);
 
 
         [[nodiscard]] Aabb
-        offset_copy(const Vec3f& vec) const;
+        offset_copy(const vec3f& vec) const;
 
 
-        [[nodiscard]] std::vector<Vec3f>
+        [[nodiscard]] std::vector<vec3f>
         calculate_all_corners() const;
 
 
-        Vec3f min;
-        Vec3f max;
+        vec3f min;
+        vec3f max;
     };
 
     template <typename Stream>
@@ -66,7 +66,7 @@ namespace euphoria::core
         return s;
     }
 
-    Vec3f
+    vec3f
     get_random_point(Random* rand, const Aabb&);
 
 }

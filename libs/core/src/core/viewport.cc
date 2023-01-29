@@ -18,10 +18,10 @@ namespace euphoria::core
     }
 
 
-    Vec2f
-    Viewport::to_clip_coord(const Vec2i& p) const
+    vec2f
+    Viewport::to_clip_coord(const vec2i& p) const
     {
-        const auto p01 = to01(static_cast<Rectf>(bounds), static_cast<Vec2f>(p));
+        const auto p01 = to01(static_cast<Rectf>(bounds), static_cast<vec2f>(p));
         const auto clip = from01(Rectf::from_left_right_top_bottom(-1, 1, 1, -1), p01);
         return clip;
     }
@@ -31,7 +31,7 @@ namespace euphoria::core
     (
         const core::CompiledCamera3& camera,
         const core::Viewport& viewport,
-        const core::Vec2i& position
+        const core::vec2i& position
     )
     {
         return camera.clip_to_world_ray
@@ -48,7 +48,7 @@ namespace euphoria::core
     (
         const core::CompiledCamera3& camera,
         const core::Viewport& viewport,
-        const core::Vec2i& position
+        const core::vec2i& position
     )
     {
         const auto ray = mouse_to_ray(camera, viewport, position);

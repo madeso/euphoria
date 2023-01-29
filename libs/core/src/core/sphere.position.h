@@ -9,7 +9,7 @@ namespace euphoria::core
     struct SphereAndPosition
     {
         Sphere sphere;
-        Vec3f center;
+        vec3f center;
     };
 }
 

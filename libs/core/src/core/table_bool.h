@@ -127,18 +127,18 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////
     // FloodFill
 
-    std::vector<Vec2i>
+    std::vector<vec2i>
     find_empty_blocks(const BoolTable& world);
 
-    std::vector<Vec2i>
+    std::vector<vec2i>
     find_flood_fill_items
     (
         const BoolTable& world,
-        const Vec2i& start,
+        const vec2i& start,
         bool allow_diagonals
     );
 
-    std::vector<std::vector<Vec2i>>
+    std::vector<std::vector<vec2i>>
     find_empty_regions(const BoolTable& world, bool allow_diagonals);
 
     ///////////////////////////////////////////////////////////////////////////
@@ -146,17 +146,17 @@ namespace euphoria::core
 
     struct BorderSettings
     {
-        explicit BorderSettings(const Rgbai& c);
+        explicit BorderSettings(const rgbai& c);
 
-        Rgbai color;
+        rgbai color;
     };
 
     Image
     draw
     (
         const BoolTable& world,
-        Rgbai wall_color,
-        Rgbai space_color,
+        rgbai wall_color,
+        rgbai space_color,
         int scale,
         // if nullopt, no border
         std::optional<BorderSettings> border

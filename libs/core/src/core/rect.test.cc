@@ -8,7 +8,7 @@ namespace euco = euphoria::core;
 
 TEST_CASE("rect-constructor_topleftwidthheight", "[rect]")
 {
-    auto r = euco::Rect<int>::from_top_left_width_height(euco::Vec2i{1, 2}, 3, 4);
+    auto r = euco::Rect<int>::from_top_left_width_height(euco::vec2i{1, 2}, 3, 4);
 
     CHECK(r.left == 1);
     CHECK(r.top == 2);
@@ -190,7 +190,7 @@ TEST_CASE("rect-offset", "[rect]")
 
 TEST_CASE("rect-offset_to", "[rect]")
 {
-    const auto r = euco::Rect<int>::from_top_left_width_height(euco::Vec2i{12, 10}, 5, 10)
+    const auto r = euco::Rect<int>::from_top_left_width_height(euco::vec2i{12, 10}, 5, 10)
                            .set_top_left_to_copy(1, 2);
 
     REQUIRE(r.is_valid());
@@ -227,7 +227,7 @@ TEST_CASE("rect-sizes", "[rect]")
 
 TEST_CASE("rect-center", "[rect]")
 {
-    const auto r = euco::Rect<int>::from_top_left_width_height(euco::Vec2i{2, 3}, 6, 10);
+    const auto r = euco::Rect<int>::from_top_left_width_height(euco::vec2i{2, 3}, 6, 10);
     REQUIRE(r.get_relative_center_x_from_bottom_left() == 3);
     REQUIRE(r.get_relative_center_y_from_bottom_left() == 5);
 
@@ -239,7 +239,7 @@ TEST_CASE("rect-from-anchor", "[rect]")
 {
     const int height = 3;
     const int width = 4;
-    const euco::Vec2i origo = euco::Vec2i::zero();
+    const euco::vec2i origo = euco::vec2i::zero();
 
     SECTION("lower left at origo")
     {
@@ -268,7 +268,7 @@ TEST_CASE("rect-from-anchor-center", "[rect]")
 {
     const float half_height = 3;
     const float half_width = 4;
-    const euco::Vec2f origo = euco::Vec2f::zero();
+    const euco::vec2f origo = euco::vec2f::zero();
 
     SECTION("lower left at origo")
     {

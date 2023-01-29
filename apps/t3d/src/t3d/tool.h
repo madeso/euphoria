@@ -33,7 +33,7 @@ namespace euphoria::t3d
         
         
         virtual void
-        on_scroll(t3d::Editor* editor, const core::Vec2i& scroll) = 0;
+        on_scroll(t3d::Editor* editor, const core::vec2i& scroll) = 0;
         
         
         virtual void

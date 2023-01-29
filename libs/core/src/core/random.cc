@@ -130,22 +130,22 @@ better numbers than Mersenne. How can you go wrong? :)
         return get_next_bool() ? 1 : -1;
     }
 
-    Vec2f
+    vec2f
     get_random_point_on_unit_circle_center_focused(Random* r)
     {
-        const auto angle = Angle::from_percent_of_360(r->get_next_float01());
+        const auto angle = angle::from_percent_of_360(r->get_next_float01());
         const auto dist = r->get_next_float01() * 0.5f;
 
-        return Vec2f {dist * cos(angle) + 0.5f, dist * sin(angle) + 0.5f};
+        return vec2f {dist * cos(angle) + 0.5f, dist * sin(angle) + 0.5f};
     }
 
-    Vec2f
+    vec2f
     get_random_point_on_unit_circle_uniform(Random* r)
     {
         // http://xdpixel.com/random-points-in-a-circle/
-        const auto angle = Angle::from_percent_of_360(r->get_next_float01());
+        const auto angle = angle::from_percent_of_360(r->get_next_float01());
         const auto dist = sqrt(r->get_next_float01()) * 0.5f;
 
-        return Vec2f {dist * cos(angle) + 0.5f, dist * sin(angle) + 0.5f};
+        return vec2f {dist * cos(angle) + 0.5f, dist * sin(angle) + 0.5f};
     }
 }

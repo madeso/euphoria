@@ -85,10 +85,10 @@ namespace euphoria::render
     ScalableSprite::~ScalableSprite() = default;
 
 
-    core::Size2f
+    core::size2f
     ScalableSprite::get_minimum_size() const
     {
-        return core::Size2f::create_from_width_height
+        return core::size2f::create_from_width_height
         (
             get_constant_size(columns),
             get_constant_size(rows)
@@ -97,7 +97,7 @@ namespace euphoria::render
 
 
     void
-    ScalableSprite::render(SpriteRenderer* renderer, const core::Rectf& rect, const core::Rgba& tint) const
+    ScalableSprite::render(SpriteRenderer* renderer, const core::Rectf& rect, const core::rgba& tint) const
     {
         const auto size = rect.get_size();
         const auto pos = rect.get_bottom_left();

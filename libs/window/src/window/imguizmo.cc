@@ -52,12 +52,12 @@ namespace euphoria::window::imgui::guizmo
     translate
     (
         bool is_local,
-        const std::optional<core::Vec3f>& snap,
-        const core::Mat4f& camera_view,
-        const core::Mat4f& camera_projection,
-        const core::Mat4f& model,
+        const std::optional<core::vec3f>& snap,
+        const core::mat4f& camera_view,
+        const core::mat4f& camera_projection,
+        const core::mat4f& model,
         bool tx, bool ty, bool tz,
-        core::Vec3f* new_position
+        core::vec3f* new_position
     )
     {
         const auto current_gizmo_mode = is_local ? ImGuizmo::LOCAL : ImGuizmo::WORLD;
@@ -112,12 +112,12 @@ namespace euphoria::window::imgui::guizmo
     rotate
     (
         bool is_local,
-        const std::optional<core::Angle>& snap,
-        const core::Mat4f& camera_view,
-        const core::Mat4f& camera_projection,
-        const core::Mat4f& model,
+        const std::optional<core::angle>& snap,
+        const core::mat4f& camera_view,
+        const core::mat4f& camera_projection,
+        const core::mat4f& model,
         bool rx, bool ry, bool rz,
-        core::Quatf* new_rotation
+        core::quatf* new_rotation
     )
     {
         const auto current_gizmo_mode = is_local ? ImGuizmo::LOCAL : ImGuizmo::WORLD;
@@ -141,7 +141,7 @@ namespace euphoria::window::imgui::guizmo
 
         auto model_to_modify = model;
 
-        const auto snap_degrees = snap.value_or(core::Angle::zero()).in_degrees();
+        const auto snap_degrees = snap.value_or(core::angle::zero()).in_degrees();
 
         const auto was_modified = ImGuizmo::Manipulate
         (
@@ -166,11 +166,11 @@ namespace euphoria::window::imgui::guizmo
                 matrix_position, matrix_rotation, matrix_scale
             );
 
-            *new_rotation = core::Quatf::from_ypr
+            *new_rotation = core::quatf::from_ypr
             (
-                core::Angle::from_degrees(matrix_rotation[2]),
-                core::Angle::from_degrees(matrix_rotation[1]),
-                core::Angle::from_degrees(matrix_rotation[0])
+                core::angle::from_degrees(matrix_rotation[2]),
+                core::angle::from_degrees(matrix_rotation[1]),
+                core::angle::from_degrees(matrix_rotation[0])
             );
         }
 

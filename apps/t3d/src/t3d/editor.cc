@@ -24,9 +24,9 @@ namespace euphoria::t3d
         : grid(agrid)
         , world(aworld)
         , tile_library(atile_library)
-        , camera(core::Mat4f::identity(), core::Mat4f::identity())
+        , camera(core::mat4f::identity(), core::mat4f::identity())
         , viewport(core::Recti::from_width_height(10, 10))
-        , mouse(core::Vec2i{ 0, 0 })
+        , mouse(core::vec2i{ 0, 0 })
     {
     }
 
@@ -58,7 +58,7 @@ namespace euphoria::t3d
     [[nodiscard]] std::optional<core::SphereAndPosition>
     Editor::calculate_selected_bounding_sphere() const
     {
-        std::vector<core::Vec3f> points;
+        std::vector<core::vec3f> points;
 
         for (auto mesh : placed_meshes)
         {
@@ -105,10 +105,10 @@ namespace euphoria::t3d
     }
 
 
-    std::optional<core::Vec3f>
+    std::optional<core::vec3f>
     Editor::raycast_closest_point(const core::UnitRay3f& ray)
     {
-        std::optional<core::Vec3f> r;
+        std::optional<core::vec3f> r;
 
         for (auto mesh : placed_meshes)
         {
@@ -127,8 +127,8 @@ namespace euphoria::t3d
                     {
                         if
                         (
-                            core::Vec3f::from_to(ray.from, *r).get_length_squared() >
-                            core::Vec3f::from_to(ray.from, this_point).get_length_squared()
+                            core::vec3f::from_to(ray.from, *r).get_length_squared() >
+                            core::vec3f::from_to(ray.from, this_point).get_length_squared()
                         )
                         {
                             r = this_point;
@@ -176,7 +176,7 @@ namespace euphoria::t3d
 
 
     void
-     Editor::on_scroll(const core::Vec2i& scroll)
+     Editor::on_scroll(const core::vec2i& scroll)
     {
         tools.get_current_tool()->on_scroll(this, scroll);
     }
@@ -211,12 +211,12 @@ namespace euphoria::t3d
 
     namespace
     {
-        std::optional<core::Vec3f>
+        std::optional<core::vec3f>
         get_position_snap(const Grid& grid)
         {
             if (grid.snap_enabled)
             {
-                return core::Vec3f{ grid.small_step, grid.small_step , grid.small_step };
+                return core::vec3f{ grid.small_step, grid.small_step , grid.small_step };
             }
             else
             {
@@ -225,7 +225,7 @@ namespace euphoria::t3d
         }
 
 
-        std::optional<core::Angle>
+        std::optional<core::angle>
         get_angle_snap(const Grid& grid)
         {
             if (grid.snap_enabled)
@@ -277,7 +277,7 @@ namespace euphoria::t3d
         }
 
 
-        core::Vec3f
+        core::vec3f
         get_common_position
         (
             const std::vector<std::shared_ptr<PlacedMesh>>& meshes,
@@ -286,7 +286,7 @@ namespace euphoria::t3d
         {
             ASSERT(selections.empty() == false);
 
-            auto p = core::Vec3f{ 0.0f, 0.0f, 0.0f };
+            auto p = core::vec3f{ 0.0f, 0.0f, 0.0f };
             int count = 0;
 
             for (auto selection : selections)
@@ -299,7 +299,7 @@ namespace euphoria::t3d
         }
 
 
-        core::Quatf
+        core::quatf
         get_common_rotation
         (
             const std::vector<std::shared_ptr<PlacedMesh>>& meshes,
@@ -314,16 +314,16 @@ namespace euphoria::t3d
         }
 
 
-        core::Vec3f
+        core::vec3f
         snap_or_not
         (
-            std::optional<core::Vec3f> snap,
-            const core::Vec3f& point
+            std::optional<core::vec3f> snap,
+            const core::vec3f& point
         )
         {
             if (snap.has_value())
             {
-                return core::Vec3f
+                return core::vec3f
                 {
                     snap_to(point.x, snap->x),
                     snap_to(point.y, snap->y),
@@ -366,7 +366,7 @@ namespace euphoria::t3d
 
             if (has_been_translated)
             {
-                const auto translation = core::Vec3f::from_to(original_position, position);
+                const auto translation = core::vec3f::from_to(original_position, position);
 
                 for (auto selection : selections)
                 {
@@ -403,7 +403,7 @@ namespace euphoria::t3d
 
             if (has_been_rotated)
             {
-                const auto change = core::Quatf::from_to(original_rotation, rotation);
+                const auto change = core::quatf::from_to(original_rotation, rotation);
 
                 for (auto selection : selections)
                 {

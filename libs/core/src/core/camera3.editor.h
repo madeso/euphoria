@@ -24,9 +24,9 @@ namespace euphoria::core
         // represents a stored position and rotation of the editor camera
         struct CameraFrame
         {
-            Angle rotation_angle;
-            Angle look_angle;
-            Vec3f position;
+            angle rotation_angle;
+            angle look_angle;
+            vec3f position;
         };
 
         struct EditorCameraState3
@@ -45,7 +45,7 @@ namespace euphoria::core
             (
                 EditorCamera3* owner,
                 bool shift_state,
-                const Vec2i& mouse,
+                const vec2i& mouse,
                 const CompiledCamera3& camera,
                 const Viewport& viewport,
                 float dt
@@ -81,7 +81,7 @@ namespace euphoria::core
         void step
         (
             bool shift_state,
-            const Vec2i& mouse,
+            const vec2i& mouse,
             const CompiledCamera3& camera,
             const Viewport& viewport,
             float dt
@@ -118,7 +118,7 @@ namespace euphoria::core
         focus(const SphereAndPosition& s, const Camera3& cam);
 
         virtual
-        std::optional<Vec3f>
+        std::optional<vec3f>
         raycast
         (
             const UnitRay3f& ray

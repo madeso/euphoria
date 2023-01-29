@@ -57,11 +57,11 @@ namespace euphoria::render
     Init::~Init() = default;
 
 
-    core::Mat4f
+    core::mat4f
     Init::get_ortho_projection(float width, float height) const
     {
         ASSERT(is_ok);
-        return core::Mat4f::create_ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
+        return core::mat4f::create_ortho(0.0f, width, 0.0f, height, -1.0f, 1.0f);
     }
 
 
@@ -74,7 +74,7 @@ namespace euphoria::render
 
 
     void
-    Init::clear_screen(const core::Rgb& color) const
+    Init::clear_screen(const core::rgb& color) const
     {
         ASSERT(is_ok);
         glClearColor(color.r, color.g, color.b, 1.0f);

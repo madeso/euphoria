@@ -6,7 +6,7 @@ namespace euphoria::core
 {
 
 
-    UnitRay3f::UnitRay3f(const Vec3f& f, const Unit3f& d)
+    UnitRay3f::UnitRay3f(const vec3f& f, const unit3f& d)
         : from(f)
         , dir(d)
     {
@@ -14,20 +14,20 @@ namespace euphoria::core
 
 
     [[nodiscard]] UnitRay3f
-    UnitRay3f::from_to(const Vec3f& afrom, const Vec3f& ato)
+    UnitRay3f::from_to(const vec3f& afrom, const vec3f& ato)
     {
-        return UnitRay3f{afrom, Vec3f::from_to(afrom, ato).get_normalized()};
+        return UnitRay3f{afrom, vec3f::from_to(afrom, ato).get_normalized()};
     }
 
 
     [[nodiscard]] UnitRay3f
-    UnitRay3f::from_direction(const Unit3f& adir)
+    UnitRay3f::from_direction(const unit3f& adir)
     {
-        return UnitRay3f{Vec3f::zero(), adir};
+        return UnitRay3f{vec3f::zero(), adir};
     }
 
 
-    Vec3f
+    vec3f
     UnitRay3f::get_point(float at) const
     {
         return from + dir * at;
@@ -35,7 +35,7 @@ namespace euphoria::core
 
 
     [[nodiscard]] UnitRay3f
-    UnitRay3f::get_transform(const Mat4f& m) const
+    UnitRay3f::get_transform(const mat4f& m) const
     {
         return
         {
@@ -46,30 +46,30 @@ namespace euphoria::core
 
     
     [[nodiscard]] Ray2f
-    Ray2f::from_direction(const Vec2f& direction, const Vec2f& pos)
+    Ray2f::from_direction(const vec2f& direction, const vec2f& pos)
     {
         return Ray2f(pos, direction);
     }
 
 
     [[nodiscard]] Ray2f
-    Ray2f::from_to(const Vec2f& from, const Vec2f& to)
+    Ray2f::from_to(const vec2f& from, const vec2f& to)
     {
-        return Ray2f(from, Vec2f::from_to(from, to));
+        return Ray2f(from, vec2f::from_to(from, to));
     }
 
 
-    Vec2f
+    vec2f
     Ray2f::get_position(float d) const
     {
         return position + d * direction;
     }
     
 
-    Ray2f::Ray2f(const Vec2f& p, const Vec2f& d) : position(p), direction(d) {}
+    Ray2f::Ray2f(const vec2f& p, const vec2f& d) : position(p), direction(d) {}
 
     
-    Ray3f::Ray3f(const Vec3f& f, const Vec3f& d)
+    Ray3f::Ray3f(const vec3f& f, const vec3f& d)
         : from(f)
         , dir(d)
     {
@@ -77,20 +77,20 @@ namespace euphoria::core
 
 
     [[nodiscard]] Ray3f
-    Ray3f::from_to(const Vec3f& from, const Vec3f& to)
+    Ray3f::from_to(const vec3f& from, const vec3f& to)
     {
-        return Ray3f{from, Vec3f::from_to(from, to)};
+        return Ray3f{from, vec3f::from_to(from, to)};
     }
 
 
     [[nodiscard]] Ray3f
-    Ray3f::from_direction(const Vec3f& dir)
+    Ray3f::from_direction(const vec3f& dir)
     {
-        return Ray3f{Vec3f::zero(), dir};
+        return Ray3f{vec3f::zero(), dir};
     }
 
 
-    Vec3f
+    vec3f
     Ray3f::get_point(float at) const
     {
         return from + dir * at;

@@ -26,7 +26,7 @@ TEST_CASE("camera-clip2world", "[camera]")
             {
                 for(float z: values)
                 {
-                    const auto start = euco::Vec3f {x, y, z};
+                    const auto start = euco::vec3f {x, y, z};
                     const auto world = cc.clip_to_world(start);
                     const auto clip = cc.world_to_clip(world);
                     REQUIRE(approx(start) == clip);
@@ -58,8 +58,8 @@ TEST_CASE("camera-world2clip", "[camera]")
           {
             Camera camera;
             camera.position = vec3f{cx, cy, cz};
-            camera.rotation = Quatf::FromAxisAngle(AxisAngle::RightHandAround(
-                vec3f::YAxis(), Angle::FromDegrees(angle)));
+            camera.rotation = quatf::FromAxisAngle(AxisAngle::RightHandAround(
+                vec3f::YAxis(), angle::FromDegrees(angle)));
             const auto cc = camera.Compile(aspect);
 
             CAPTURE(camera.position);

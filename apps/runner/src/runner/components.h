@@ -19,8 +19,8 @@ namespace euphoria::runner
     struct ComponentPosition2
     {
         ComponentPosition2();
-        explicit ComponentPosition2(const core::Vec2f& p);
-        core::Vec2f pos;
+        explicit ComponentPosition2(const core::vec2f& p);
+        core::vec2f pos;
     };
 
     struct ComponentSprite
@@ -39,7 +39,7 @@ namespace euphoria::runner
     core::Rectf
     get_sprite_rect
     (
-        const core::Vec2f& position,
+        const core::vec2f& position,
         const render::Texture2& texture
     );
 }

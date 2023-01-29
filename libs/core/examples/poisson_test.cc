@@ -57,7 +57,7 @@ png_dump(int extra_images)
 
     const auto world_to_image = image_size / world_size;
 
-    auto write_image = [&](std::optional<std::tuple<Vec2f, Vec2f>> line)
+    auto write_image = [&](std::optional<std::tuple<vec2f, vec2f>> line)
     {
         // auto svg = Dumper{};
         // svg.canvas_color = Color::Black;
@@ -78,7 +78,7 @@ png_dump(int extra_images)
             ) != worker.active.end();
             const auto circle_color = is_active ? NamedColor::blue : NamedColor::white;
             const auto cp = worker.samples[i]*world_to_image;
-            const auto circle_position = static_cast<Vec2i>(cp);
+            const auto circle_position = static_cast<vec2i>(cp);
             const auto circle_radius = radius * world_to_image;
             draw_circle(&result, circle_color, circle_position, circle_radius);
         }

@@ -28,7 +28,7 @@ namespace euphoria::window
         virtual void on_gui();
 
         bool running = true;
-        core::Rgb clear_color;
+        core::rgb clear_color;
     };
 
 

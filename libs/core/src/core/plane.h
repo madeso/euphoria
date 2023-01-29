@@ -6,15 +6,15 @@ namespace euphoria::core
 {
     struct Plane
     {
-        Unit3f normal;
+        unit3f normal;
         float distance;
 
-        Plane(const Unit3f& n, float d);
+        Plane(const unit3f& n, float d);
 
         static Plane
-        from_normal_and_point(const Unit3f& normal, const Vec3f& point);
+        from_normal_and_point(const unit3f& normal, const vec3f& point);
 
         static Plane
-        from_points(const Vec3f& p0, const Vec3f& p1, const Vec3f& p2);
+        from_points(const vec3f& p0, const vec3f& p1, const vec3f& p2);
     };
 }

@@ -50,7 +50,7 @@ namespace euphoria::t3d
         core::CompiledCamera3 camera;
         core::Viewport viewport;
 
-        core::Vec2i mouse;
+        core::vec2i mouse;
         ToolStack tools;
 
         std::vector<std::shared_ptr<PlacedMesh>> placed_meshes;
@@ -78,7 +78,7 @@ namespace euphoria::t3d
         std::vector<std::shared_ptr<PlacedMesh>>
         raycast(const core::UnitRay3f& ray);
 
-        std::optional<core::Vec3f>
+        std::optional<core::vec3f>
         raycast_closest_point(const core::UnitRay3f& ray);
 
 
@@ -100,7 +100,7 @@ namespace euphoria::t3d
 
 
         void
-        on_scroll(const core::Vec2i& scroll);
+        on_scroll(const core::vec2i& scroll);
 
 
         void

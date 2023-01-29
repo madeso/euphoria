@@ -342,10 +342,10 @@ namespace euphoria::core
     }
 
 
-    std::vector<Vec2i>
+    std::vector<vec2i>
     find_empty_blocks(const BoolTable& world)
     {
-        auto ret = std::vector<Vec2i>{};
+        auto ret = std::vector<vec2i>{};
 
         for (int y = 0; y < world.get_height(); y += 1)
         {
@@ -361,11 +361,11 @@ namespace euphoria::core
         return ret;
     }
 
-    std::vector<Vec2i>
+    std::vector<vec2i>
     find_flood_fill_items
     (
         const BoolTable& world,
-        const Vec2i& start,
+        const vec2i& start,
         bool allow_diagonals
     )
     {
@@ -375,10 +375,10 @@ namespace euphoria::core
             world.get_height(),
             false
         );
-        auto stack = std::vector<Vec2i>{};
-        auto ret = std::vector<Vec2i>{};
+        auto stack = std::vector<vec2i>{};
+        auto ret = std::vector<vec2i>{};
 
-        auto add_to_stack = [&](const Vec2i& p)
+        auto add_to_stack = [&](const vec2i& p)
         {
             if(p.x < 0) { return; }
             if(p.x >= world.get_width()) { return; }
@@ -418,10 +418,10 @@ namespace euphoria::core
         return ret;
     }
 
-    std::vector<std::vector<Vec2i>>
+    std::vector<std::vector<vec2i>>
     find_empty_regions(const BoolTable& world, bool allow_diagonals)
     {
-        auto ret = std::vector<std::vector<Vec2i>>{};
+        auto ret = std::vector<std::vector<vec2i>>{};
 
         auto visited = BoolTable::from_width_height
         (
@@ -448,7 +448,7 @@ namespace euphoria::core
 
 
 
-    BorderSettings::BorderSettings(const Rgbai& c)
+    BorderSettings::BorderSettings(const rgbai& c)
         : color(c)
     {
     }
@@ -458,8 +458,8 @@ namespace euphoria::core
     draw
     (
         const BoolTable& world,
-        Rgbai wall_color,
-        Rgbai space_color,
+        rgbai wall_color,
+        rgbai space_color,
         int scale,
         std::optional<BorderSettings> border
     )
@@ -483,7 +483,7 @@ namespace euphoria::core
             image.setup_no_alpha_support(image_width, image_height);
         }
 
-        auto get_space_color = [&](int x, int y) -> Rgbai
+        auto get_space_color = [&](int x, int y) -> rgbai
         {
             if(border.has_value() == false) { return space_color; }
 

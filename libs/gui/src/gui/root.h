@@ -35,7 +35,7 @@ namespace euphoria::gui
 
     struct Root
     {
-        explicit Root(const core::Size2f& s);
+        explicit Root(const core::size2f& s);
         ~Root();
 
         NONCOPYABLE(Root);
@@ -50,19 +50,19 @@ namespace euphoria::gui
         );
 
         void
-        set_input_mouse(const core::Vec2f& pos, bool down);
+        set_input_mouse(const core::vec2f& pos, bool down);
 
         void
         step(float dt);
 
         void
-        resize(const core::Size2f& new_size);
+        resize(const core::size2f& new_size);
 
         void
         render(render::SpriteRenderer* sp) const;
 
         std::vector<std::shared_ptr<Skin>> skins;
-        core::Size2f size;
+        core::size2f size;
         State state;
         LayoutContainer container;
         std::shared_ptr<render::Texture2> cursor_image;

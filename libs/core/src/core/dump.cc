@@ -11,7 +11,7 @@
 
 namespace euphoria::core::dump2d
 {
-    std::string to_html_or_none_string(const std::optional<Rgbi>& c)
+    std::string to_html_or_none_string(const std::optional<rgbi>& c)
     {
         if(!c)
         {
@@ -37,7 +37,7 @@ namespace euphoria::core::dump2d
         return *this;
     }
 
-    Poly& Poly::fill(const Rgbi& a_fill_color)
+    Poly& Poly::fill(const rgbi& a_fill_color)
     {
         fill_color = a_fill_color;
         return *this;
@@ -49,16 +49,16 @@ namespace euphoria::core::dump2d
         return *this;
     }
 
-    Text::Text(const Vec2f& p, const std::string& t, const Rgbi& c)
+    Text::Text(const vec2f& p, const std::string& t, const rgbi& c)
         : point(p), label(t), color(c) {}
 
     Circle&
-    Circle::set_line_color(const Rgbi& lc)
+    Circle::set_line_color(const rgbi& lc)
     {
         line_color = lc;
         return *this;
     }
-    Circle::Circle(const Vec2f& p, float r, std::optional<Rgbi> fill)
+    Circle::Circle(const vec2f& p, float r, std::optional<rgbi> fill)
         : point(p), radius(r), fill_color(fill) {}
 
     Item::Item(const dump2d::Poly& p) : poly(std::make_shared<dump2d::Poly>(p)) {}
@@ -95,10 +95,10 @@ namespace euphoria::core::dump2d
         // todo(Gustav): merge with MinMax in core
         struct MinMaxer
         {
-            Vec2f min = Vec2f::zero();
-            Vec2f max = Vec2f::zero();
+            vec2f min = vec2f::zero();
+            vec2f max = vec2f::zero();
 
-            MinMaxer& include(const Vec2f& point, float extra=0)
+            MinMaxer& include(const vec2f& point, float extra=0)
             {
                 min.x = std::min(min.x, point.x - extra);
                 min.y = std::min(min.y, point.y - extra);
@@ -109,7 +109,7 @@ namespace euphoria::core::dump2d
                 return *this;
             }
 
-            MinMaxer& operator<<(const Vec2f& point)
+            MinMaxer& operator<<(const vec2f& point)
             {
                 return include(point);
             }
@@ -121,7 +121,7 @@ namespace euphoria::core::dump2d
             {
                 bool first = true;
 
-                auto write_point = [&writer](const Vec2f& p)
+                auto write_point = [&writer](const vec2f& p)
                 {
                     writer->file << writer->px(p.x) << ","
                                 << writer->py(p.y);
@@ -279,7 +279,7 @@ namespace euphoria::core::dump2d
     }
 
     // calculate total area size and offset so that x+offset will never be lower than 0
-    std::pair<Vec2f,Vec2f> Dumper::calculate_size_and_offset() const
+    std::pair<vec2f,vec2f> Dumper::calculate_size_and_offset() const
     {
         detail::MinMaxer minmax;
 
@@ -291,8 +291,8 @@ namespace euphoria::core::dump2d
         const auto& min = minmax.min;
         const auto& max = minmax.max;
 
-        const auto offset = Vec2f{-std::min(min.x,0.0f), -std::min(min.y, 0.0f)};
-        const auto size = Vec2f{max.x - min.x, max.y-min.y};
+        const auto offset = vec2f{-std::min(min.x,0.0f), -std::min(min.y, 0.0f)};
+        const auto size = vec2f{max.x - min.x, max.y-min.y};
 
         return {size, offset};
     }
@@ -381,8 +381,8 @@ namespace euphoria::core::dump2d
             }
         }
 
-        auto vline = [&](float x, const Rgbi& c) { writer.file << "<line x1=\"" << px(x) << "\" y1=\"0\""           " x2=\"" << px(x) << "\" y2=\"" << height << "\" style=\"stroke:" << to_html_rgb(c) << ";stroke-width:1\" />\n"; };
-        auto hline = [&](float y, const Rgbi& c) { writer.file << "<line x1=\"0\""            " y1=\"" << py(y) << "\" x2=\"" << width << "\" y2=\"" << py(y) << "\" style=\"stroke:" << to_html_rgb(c) << ";stroke-width:1\" />\n"; };
+        auto vline = [&](float x, const rgbi& c) { writer.file << "<line x1=\"" << px(x) << "\" y1=\"0\""           " x2=\"" << px(x) << "\" y2=\"" << height << "\" style=\"stroke:" << to_html_rgb(c) << ";stroke-width:1\" />\n"; };
+        auto hline = [&](float y, const rgbi& c) { writer.file << "<line x1=\"0\""            " y1=\"" << py(y) << "\" x2=\"" << width << "\" y2=\"" << py(y) << "\" style=\"stroke:" << to_html_rgb(c) << ";stroke-width:1\" />\n"; };
 
         const auto grid_color = NamedColor::light_gray;
 
@@ -510,7 +510,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::add_sphere(const Vec3f& p, float radius, const Rgbi& color)
+    Dumper::add_sphere(const vec3f& p, float radius, const rgbi& color)
     {
         file << s << "add_geom(new THREE.SphereGeometry(" << radius << "), " << to_js_hex_color(color) << ")\n"
              << s << "  .position.set("<<p.x<<", "<<p.y<<", "<<p.z<<");\n";
@@ -518,7 +518,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::add_lines(const std::vector<Vec3f>& points, const Rgbi& color)
+    Dumper::add_lines(const std::vector<vec3f>& points, const rgbi& color)
     {
         file
                 << s << "(function() {\n"
@@ -541,14 +541,14 @@ namespace euphoria::core::dump3d
 
 
     std::string
-    to_three_vector_source(const Vec3f& v)
+    to_three_vector_source(const vec3f& v)
     {
         return "new THREE.Vector3({}, {}, {})"_format(v.x, v.y, v.z);
     }
 
 
     void
-    Dumper::add_plane(const Plane& plane, const Rgbi& color)
+    Dumper::add_plane(const Plane& plane, const rgbi& color)
     {
         constexpr auto size = 5;
         file
@@ -560,7 +560,7 @@ namespace euphoria::core::dump3d
 
 
     void
-    Dumper::add_arrow(const Ray3f& ray, const Rgbi& color)
+    Dumper::add_arrow(const Ray3f& ray, const rgbi& color)
     {
         file
                 << s << "scene.add(new THREE.ArrowHelper("

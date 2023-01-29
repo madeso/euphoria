@@ -26,12 +26,12 @@ namespace euphoria::render
         void
         quad
         (
-            const core::Vec2f& pos,
-            const core::Size2f& quad,
+            const core::vec2f& pos,
+            const core::size2f& quad,
             const core::Rectf& uv,
             const core::Scale2f& center,
-            const core::Angle& rotation,
-            const core::Rgba& color
+            const core::angle& rotation,
+            const core::rgba& color
         );
 
         void

@@ -237,7 +237,7 @@ namespace euphoria::render
             core::paste_image
             (
                 &image,
-                core::Vec2i
+                core::vec2i
                 {
                     src_rect.x + half_margin,
                     src_rect.y + half_margin
@@ -298,7 +298,7 @@ namespace euphoria::render
             core::Rectf::from_width_height(1, 1),
             0.0_rad,
             core::Scale2f{0, 0},
-            core::Rgba{core::NamedColor::black, alpha}
+            core::rgba{core::NamedColor::black, alpha}
         );
     }
 
@@ -335,9 +335,9 @@ namespace euphoria::render
     ListOfTextDrawCommands::draw
     (
         SpriteRenderer* renderer,
-        const core::Vec2f& start_position,
-        const core::Rgb& base_color,
-        const core::Rgb& hi_color
+        const core::vec2f& start_position,
+        const core::rgb& base_color,
+        const core::rgb& hi_color
     )
     {
         for(const auto& cmd: commands)
@@ -350,7 +350,7 @@ namespace euphoria::render
                 cmd.texture_rect,
                 0.0_rad,
                 core::Scale2f{0.5f, 0.5f},
-                core::Rgba{tint}
+                core::rgba{tint}
             );
         }
     }
@@ -361,7 +361,7 @@ namespace euphoria::render
         const DrawableFont& font;
         float size;
         bool apply_highlight;
-        core::Vec2f position; // todo(Gustav): rename to offset
+        core::vec2f position; // todo(Gustav): rename to offset
         int last_char_index = 0;
 
         // return value
@@ -546,7 +546,7 @@ namespace euphoria::render
     }
 
 
-    core::Vec2f
+    core::vec2f
     get_offset(Align alignment, const core::Rectf& extent)
     {
         // todo(Gustav): test this more
@@ -557,16 +557,16 @@ namespace euphoria::render
 
         switch(alignment)
         {
-        case Align::top_left: return core::Vec2f(0.0f, top);
-        case Align::top_center: return core::Vec2f(middle, top);
-        case Align::top_right: return core::Vec2f(right, top);
-        case Align::baseline_left: return core::Vec2f(0.0f, 0.0f);
-        case Align::baseline_center: return core::Vec2f(middle, 0.0f);
-        case Align::baseline_right: return core::Vec2f(right, 0.0f);
-        case Align::bottom_left: return core::Vec2f(0.0f, bottom);
-        case Align::bottom_center: return core::Vec2f(middle, bottom);
-        case Align::bottom_right: return core::Vec2f(right, bottom);
-        default: DIE("Unhandled case"); return core::Vec2f(0.0f, 0.0f);
+        case Align::top_left: return core::vec2f(0.0f, top);
+        case Align::top_center: return core::vec2f(middle, top);
+        case Align::top_right: return core::vec2f(right, top);
+        case Align::baseline_left: return core::vec2f(0.0f, 0.0f);
+        case Align::baseline_center: return core::vec2f(middle, 0.0f);
+        case Align::baseline_right: return core::vec2f(right, 0.0f);
+        case Align::bottom_left: return core::vec2f(0.0f, bottom);
+        case Align::bottom_center: return core::vec2f(middle, bottom);
+        case Align::bottom_right: return core::vec2f(right, bottom);
+        default: DIE("Unhandled case"); return core::vec2f(0.0f, 0.0f);
         }
     }
 
@@ -575,8 +575,8 @@ namespace euphoria::render
     DrawableText::draw
     (
         SpriteRenderer* renderer,
-        const core::Vec2f& p,
-        const core::Rgb& base_hi_color
+        const core::vec2f& p,
+        const core::rgb& base_hi_color
     ) const
     {
         draw(renderer, p, base_hi_color, base_hi_color);
@@ -587,9 +587,9 @@ namespace euphoria::render
     DrawableText::draw
     (
         SpriteRenderer* renderer,
-        const core::Vec2f& p,
-        const core::Rgb& base_color,
-        const core::Rgb& hi_color
+        const core::vec2f& p,
+        const core::rgb& base_color,
+        const core::rgb& hi_color
     ) const
     {
         compile();

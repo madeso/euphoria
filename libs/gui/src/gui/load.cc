@@ -205,10 +205,10 @@ namespace euphoria::gui
         }
     }
 
-    core::Rgb
+    core::rgb
     load(const ::gui::Rgb& src)
     {
-        return core::Rgb(src.r, src.g, src.b);
+        return core::rgb(src.r, src.g, src.b);
     }
 
     core::easing::Function

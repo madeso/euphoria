@@ -8,14 +8,14 @@
 namespace euphoria::core
 {
     PolarCoordinate::PolarCoordinate(float azimuthal01, float polar01)
-        : azimuthal(Angle::from_percent_of_360(azimuthal01))
-        , polar(Angle::from_percent_of_180(polar01))
+        : azimuthal(angle::from_percent_of_360(azimuthal01))
+        , polar(angle::from_percent_of_180(polar01))
     {
         ASSERT(is_within(r01, azimuthal01));
         ASSERT(is_within(Range<float> {0, 2}, polar01));
     }
 
-    Unit3f
+    unit3f
     PolarCoordinate::to_unit_vector() const
     {
         const float cos_a = cos(azimuthal);
@@ -27,7 +27,7 @@ namespace euphoria::core
         const float y = sin_a * sin_p;
         const float z = cos_p;
 
-        return Unit3f::to_unit(x, y, z);
+        return unit3f::to_unit(x, y, z);
     }
 
     PolarCoordinate
@@ -38,7 +38,7 @@ namespace euphoria::core
         return {az, polar};
     }
 
-    Unit3f
+    unit3f
     get_random_unit3(Random* random)
     {
         return PolarCoordinate::create_random(random).to_unit_vector();

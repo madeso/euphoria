@@ -5,30 +5,30 @@
 namespace euphoria::core
 {
     OrbitController::OrbitController()
-        : center(Vec3f::zero())
-        , horizontal_rotation(Angle::from_degrees(45.0f))
-        , vertical_rotation(Angle::from_degrees(45.0f))
+        : center(vec3f::zero())
+        , horizontal_rotation(angle::from_degrees(45.0f))
+        , vertical_rotation(angle::from_degrees(45.0f))
     {}
 
 
-    Quatf
+    quatf
     OrbitController::get_rotation() const
     {
         const auto hor =
-            Quatf::from_axis_angle
+            quatf::from_axis_angle
             (
                 AxisAngle::right_hand_around
                 (
-                    Unit3f::up(),
+                    unit3f::up(),
                     -horizontal_rotation
                 )
             );
         const auto vert =
-            Quatf::from_axis_angle
+            quatf::from_axis_angle
             (
                 AxisAngle::right_hand_around
                 (
-                    Unit3f::right(),
+                    unit3f::right(),
                     -vertical_rotation
                 )
             );
@@ -39,7 +39,7 @@ namespace euphoria::core
     void
     OrbitController::on_pan_input(float dx, float dy)
     {
-        const auto movement = get_rotation().create_from_right_up_in(Vec3f
+        const auto movement = get_rotation().create_from_right_up_in(vec3f
         {
             dx * pan_dx.get_multiplier_with_sign(),
             -dy * pan_dy.get_multiplier_with_sign(),
@@ -52,18 +52,18 @@ namespace euphoria::core
     void
     OrbitController::on_rotate_input(float dx, float dy)
     {
-        horizontal_rotation += Angle::from_degrees
+        horizontal_rotation += angle::from_degrees
         (
             -dx * rotate_dx.get_multiplier_with_sign()
         );
         horizontal_rotation.wrap();
 
-        vertical_rotation += Angle::from_degrees
+        vertical_rotation += angle::from_degrees
         (
             -dy * rotate_dy.get_multiplier_with_sign()
         );
 
-        const auto r = make_range(-Angle::quarter(), Angle::quarter());
+        const auto r = make_range(-angle::quarter(), angle::quarter());
         vertical_rotation = keep_within(r, vertical_rotation);
     }
 
@@ -74,7 +74,7 @@ namespace euphoria::core
     }
 
 
-    Vec3f
+    vec3f
     OrbitController::get_camera_position() const
     {
         return center - get_rotation().in() * distance;

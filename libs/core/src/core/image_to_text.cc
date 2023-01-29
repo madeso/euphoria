@@ -29,7 +29,7 @@ namespace euphoria::core
             [&pal, &map, &img](int x, int y)
             {
                 const auto p = img.get_pixel(x, y);
-                const auto index = pal.to_palette().get_index_closest(Rgbi {p.r, p.g, p.b});
+                const auto index = pal.to_palette().get_index_closest(rgbi {p.r, p.g, p.b});
                 return map[index].to;
             }
         );
@@ -42,7 +42,7 @@ namespace euphoria::core
             const Image& img,
             const std::vector<ImageMapAction>& map, char missing)
     {
-        auto find_match = [&](const Rgbi& c) -> char
+        auto find_match = [&](const rgbi& c) -> char
         {
             for(const auto& m: map)
             {
@@ -58,7 +58,7 @@ namespace euphoria::core
                 img.width, img.height, ' ');
         ret.set_all([&](int x, int y) {
             const auto p = img.get_pixel(x, y);
-            const auto c = Rgbi {p.r, p.g, p.b};
+            const auto c = rgbi {p.r, p.g, p.b};
             const auto r = find_match(c);
             return r;
         });

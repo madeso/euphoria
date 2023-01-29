@@ -18,13 +18,13 @@ namespace euphoria::render
     DrawData::DrawData()
         : rotation(0.0_rad)
         , scale(core::Scale2f(1, 1))
-        , tint(core::Rgba(core::NamedColor::white))
+        , tint(core::rgba(core::NamedColor::white))
     {
     }
 
 
     DrawData&
-    DrawData::set_rotation(const core::Angle& r)
+    DrawData::set_rotation(const core::angle& r)
     {
         rotation = r;
         return *this;
@@ -40,7 +40,7 @@ namespace euphoria::render
 
 
     DrawData&
-    DrawData::set_tint(const core::Rgba& t)
+    DrawData::set_tint(const core::rgba& t)
     {
         tint = t;
         return *this;
@@ -73,29 +73,29 @@ namespace euphoria::render
         const Texture2& texture,
         const core::Rectf& sprite_area,
         const core::Rectf& texture_region,
-        const core::Angle& rotation_angle,
+        const core::angle& rotation_angle,
         const core::Scale2f& rotation_anchor,
-        const core::Rgba& tint_color
+        const core::rgba& tint_color
     )
     {
         use(sprite_shader);
 
-        core::Vec3f rotation_anchor_displacement
+        core::vec3f rotation_anchor_displacement
         {
             -rotation_anchor.x * sprite_area.get_width(),
             (rotation_anchor.y - 1) * sprite_area.get_height(),
             0.0f
         };
 
-        const core::Mat4f model = core::Mat4f::identity()
-            .translate(core::Vec3f(sprite_area.get_bottom_left(), 0.0f))
+        const core::mat4f model = core::mat4f::identity()
+            .translate(core::vec3f(sprite_area.get_bottom_left(), 0.0f))
             .translate(-rotation_anchor_displacement)
             // rotate around center
             .rotate
             (
                 core::AxisAngle::right_hand_around
                 (
-                    core::Unit3f::z_axis(), 
+                    core::unit3f::z_axis(), 
                     rotation_angle
                 )
             )
@@ -133,7 +133,7 @@ namespace euphoria::render
         (
             texture,
             position,
-            core::Rectf::from_top_left_width_height(core::Vec2f{0, 1}, 1, 1),
+            core::Rectf::from_top_left_width_height(core::vec2f{0, 1}, 1, 1),
             data.rotation,
             core::Scale2f{0.5f, 0.5f},
             data.tint
@@ -146,7 +146,7 @@ namespace euphoria::render
     (
         const ScalableSprite& ninepatch,
         const core::Rectf& rect,
-        const core::Rgba& tint
+        const core::rgba& tint
     )
     {
         ninepatch.render(this, rect, tint);

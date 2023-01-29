@@ -54,10 +54,10 @@ namespace euphoria::render
         void
         apply
         (
-            const core::Mat4f& model_matrix,
-            const core::Mat4f& projection_matrix,
-            const core::Mat4f& view_matrix,
-            const core::Vec3f& camera,
+            const core::mat4f& model_matrix,
+            const core::mat4f& projection_matrix,
+            const core::mat4f& view_matrix,
+            const core::vec3f& camera,
             const Light& light
         ) const;
 
@@ -75,9 +75,9 @@ namespace euphoria::render
         validate() const;
 
 
-        core::Rgb ambient;
-        core::Rgb diffuse;
-        core::Rgb specular;
+        core::rgb ambient;
+        core::rgb diffuse;
+        core::rgb specular;
         float shininess;
         std::shared_ptr<MaterialShader> shader;
         std::map<core::EnumValue, std::shared_ptr<Texture2>> textures;
@@ -95,10 +95,10 @@ namespace euphoria::render
         void
         render
         (
-            const core::Mat4f& model_matrix,
-            const core::Mat4f& projection_matrix,
-            const core::Mat4f& view_matrix,
-            const core::Vec3f& camera,
+            const core::mat4f& model_matrix,
+            const core::mat4f& projection_matrix,
+            const core::mat4f& view_matrix,
+            const core::vec3f& camera,
             const Light& light,
             const std::shared_ptr<MaterialOverride>& overridden_materials
         );

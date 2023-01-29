@@ -43,10 +43,10 @@ namespace euphoria::core
         // https://www.scratchapixel.com/lessons/3d-basic-rendering/minimal-ray-tracer-rendering-simple-shapes/ray-box-intersection
 
         // todo(Gustav): refactor aabb class?
-        const Vec3f bounds[] {aabb.min, aabb.max};
+        const vec3f bounds[] {aabb.min, aabb.max};
 
         // todo(Gustav): move to ray class?
-        const Vec3f r_invdir = 1.0f / static_cast<Vec3f>(r.dir);
+        const vec3f r_invdir = 1.0f / static_cast<vec3f>(r.dir);
         const int r_sign[3] =
         {
             r_invdir.x < 0 ? 1 : 0,
@@ -109,17 +109,17 @@ namespace euphoria::core
         Ray2Ray2Result
         ray2_ray2_result_parallel()
         {
-            return {false, true, Vec2f::zero(), -1.0f, -1.0f};
+            return {false, true, vec2f::zero(), -1.0f, -1.0f};
         }
 
         Ray2Ray2Result
         ray2_ray2_result_no_collision()
         {
-            return {false, false, Vec2f::zero(), -1.0f, -1.0f};
+            return {false, false, vec2f::zero(), -1.0f, -1.0f};
         }
 
         Ray2Ray2Result
-        ray2_ray2_result_collided(const Vec2f& p, float a, float b)
+        ray2_ray2_result_collided(const vec2f& p, float a, float b)
         {
             return {false, true, p, a, b};
         }
@@ -134,10 +134,10 @@ namespace euphoria::core
     )
     {
         // https://stackoverflow.com/a/1968345/180307
-        const Vec2f p1 = lhs.position;
-        const Vec2f p2 = lhs.position + lhs.direction;
-        const Vec2f p3 = rhs.position;
-        const Vec2f p4 = rhs.position + rhs.direction;
+        const vec2f p1 = lhs.position;
+        const vec2f p2 = lhs.position + lhs.direction;
+        const vec2f p3 = rhs.position;
+        const vec2f p4 = rhs.position + rhs.direction;
 
         const float p0_x = p1.x;
         const float p0_y = p1.y;
@@ -168,7 +168,7 @@ namespace euphoria::core
         {
             const float x = p0_x + (t * s1_x);
             const float y = p0_y + (t * s1_y);
-            return ray2_ray2_result_collided(Vec2f(x, y), s, t);
+            return ray2_ray2_result_collided(vec2f(x, y), s, t);
         }
 
         return ray2_ray2_result_no_collision();
@@ -178,17 +178,17 @@ namespace euphoria::core
     get_distance_between
     (
         const Plane& plane,
-        const Vec3f& p
+        const vec3f& p
     )
     {
         return dot(plane.normal, p) + plane.distance;
     }
 
-    Vec3f
+    vec3f
     get_closest_point
     (
         const Plane& plane,
-        const Vec3f& point
+        const vec3f& point
     )
     {
         const auto distance = dot(plane.normal, point) - plane.distance;
@@ -200,7 +200,7 @@ namespace euphoria::core
     get_distance_between
     (
         const UnitRay3f& ray,
-        const Vec3f& point
+        const vec3f& point
     )
     {
         const auto new_normalized = (point - ray.from).get_normalized();
@@ -209,11 +209,11 @@ namespace euphoria::core
         return abs(1.0f - d);
     }
 
-    Vec3f
+    vec3f
     get_closest_point
     (
         const UnitRay3f& ray,
-        const Vec3f& c
+        const vec3f& c
     )
     {
         const auto ab = ray;
@@ -233,12 +233,12 @@ namespace euphoria::core
     get_intersection
     (
         const Sphere& lhs,
-        const Vec3f& lhs_center,
+        const vec3f& lhs_center,
         const Sphere& rhs,
-        const Vec3f& rhs_center
+        const vec3f& rhs_center
     )
     {
-        return Vec3f::from_to(lhs_center, rhs_center).get_length_squared() < square(lhs.radius + rhs.radius);
+        return vec3f::from_to(lhs_center, rhs_center).get_length_squared() < square(lhs.radius + rhs.radius);
     }
 
 
@@ -246,20 +246,20 @@ namespace euphoria::core
     contains_point
     (
         const Sphere& sphere,
-        const Vec3f& sphere_center,
-        const Vec3f& point
+        const vec3f& sphere_center,
+        const vec3f& point
     )
     {
-        return Vec3f::from_to(sphere_center, point).get_length_squared() < square(sphere.radius);
+        return vec3f::from_to(sphere_center, point).get_length_squared() < square(sphere.radius);
     }
 
 
-    Vec3f
+    vec3f
     get_closest_point
     (
         const Sphere& sphere,
-        const Vec3f& sphere_center,
-        const Vec3f& point
+        const vec3f& sphere_center,
+        const vec3f& point
     )
     {
         return UnitRay3f::from_to(sphere_center, point).get_point(sphere.radius);
@@ -271,10 +271,10 @@ namespace euphoria::core
     (
         const UnitRay3f& ray,
         const Sphere& sphere,
-        const Vec3f& sphere_center
+        const vec3f& sphere_center
     )
     {
-        const Vec3f oc = ray.from - sphere_center;
+        const vec3f oc = ray.from - sphere_center;
         const auto a = dot(ray.dir, ray.dir);
         const auto b = 2.0f * dot(oc, ray.dir);
         const auto c = dot(oc, oc) - sphere.radius*sphere.radius;
@@ -292,7 +292,7 @@ namespace euphoria::core
     contains_point
     (
         const Aabb& aabb,
-        const Vec3f& point
+        const vec3f& point
     )
     {
         ASSERT(aabb.is_valid());
@@ -309,11 +309,11 @@ namespace euphoria::core
     }
 
 
-    Vec3f
+    vec3f
     get_closest_point
     (
         const Aabb& aabb,
-        const Vec3f& point
+        const vec3f& point
     )
     {
         ASSERT(aabb.is_valid());
@@ -327,10 +327,10 @@ namespace euphoria::core
     bool
     is_point_in_triangle
     (
-        const Vec2f& a,
-        const Vec2f& b,
-        const Vec2f& c,
-        const Vec2f& p
+        const vec2f& a,
+        const vec2f& b,
+        const vec2f& c,
+        const vec2f& p
     )
     {
         const auto s1 = c.y - a.y;
@@ -352,7 +352,7 @@ namespace euphoria::core
     get_intersection_ray_triangle
     (
         const UnitRay3f& ray,
-        const Vec3f& v0, const Vec3f& v1, const Vec3f& v2
+        const vec3f& v0, const vec3f& v1, const vec3f& v2
     )
     {
         constexpr float epsilon = 0.0000001f;

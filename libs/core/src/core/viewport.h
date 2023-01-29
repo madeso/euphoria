@@ -13,8 +13,8 @@ namespace euphoria::core
         [[nodiscard]] float
         get_aspect_ratio() const;
 
-        [[nodiscard]] Vec2f
-        to_clip_coord(const Vec2i& p) const;
+        [[nodiscard]] vec2f
+        to_clip_coord(const vec2i& p) const;
 
         Recti bounds;
     };
@@ -25,13 +25,13 @@ namespace euphoria::core
     (
         const CompiledCamera3& camera,
         const Viewport& viewport,
-        const Vec2i& position
+        const vec2i& position
     );
 
     UnitRay3f mouse_to_unit_ray
     (
         const CompiledCamera3& camera,
         const Viewport& viewport,
-        const Vec2i& position
+        const vec2i& position
     );
 }

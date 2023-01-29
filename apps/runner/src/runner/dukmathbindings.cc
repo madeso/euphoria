@@ -13,7 +13,7 @@ namespace euphoria::runner
     void
     bind_vec2(LuaState* sol, const std::string& name)
     {
-        using V = core::Vec2<T>;
+        using V = core::vec2<T>;
 
         sol::usertype<V> t = sol->state.new_usertype<V>
         (

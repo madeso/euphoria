@@ -6,9 +6,9 @@
 namespace euphoria::core
 {
     struct Image;
-    struct Rgb;
+    struct rgb;
     struct Palette;
-    struct Angle;
+    struct angle;
 
     enum class Grayscale
     {
@@ -22,8 +22,8 @@ namespace euphoria::core
         average
     };
 
-    Rgbai
-    make_grayscale(Rgbai color, Grayscale grayscale);
+    rgbai
+    make_grayscale(rgbai color, Grayscale grayscale);
 
     void
     make_grayscale(Image* image, Grayscale grayscale);
@@ -38,13 +38,13 @@ namespace euphoria::core
     edge_detection(Image* image, float r);
 
     void
-    color_detection(Image* image, Rgb color, float r);
+    color_detection(Image* image, rgb color, float r);
 
     void
     change_brightness(Image* image, int change);
 
     void
-    change_contrast(Image* image, const Angle& contrast);
+    change_contrast(Image* image, const angle& contrast);
 
     // todo(Gustav):
     // https://www.processing.org/tutorials/pixels/

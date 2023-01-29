@@ -51,7 +51,7 @@ handle_grid
 (
     const std::string& output_file,
     int padding,
-    Rgbi background_color,
+    rgbi background_color,
     const std::vector<std::string>& src_files,
     bool top_to_bottom,
     bool sort_files
@@ -100,9 +100,9 @@ bool
 handle_pack
 (
     const std::string& output_file,
-    const Size2i& requested_size,
+    const size2i& requested_size,
     int padding,
-    Rgbi background_color,
+    rgbi background_color,
     bool should_pack_image,
     const std::vector<std::string>& files
 )
@@ -114,7 +114,7 @@ handle_pack
         return false;
     }
 
-    const auto image_size = Size2i::create_from_width_height
+    const auto image_size = size2i::create_from_width_height
     (
         requested_size.width - padding,
         requested_size.height - padding
@@ -168,7 +168,7 @@ main(int argc, char* argv[])
         "grid", "lay put images in a grid",
         [](argparse::SubParser* sub)
         {
-            Rgbi background_color = NamedColor::gray;
+            rgbi background_color = NamedColor::gray;
             std::string output_file = "collage.png";
             int padding = 5;
             bool top_to_bottom = true;
@@ -227,8 +227,8 @@ main(int argc, char* argv[])
         "pack", "pack images according to the stb rect-pack algorithm",
         [](argparse::SubParser* sub)
         {
-            auto image_size = Size2i::create_from_width_height(1024, 1024);
-            Rgbi background_color = NamedColor::gray;
+            auto image_size = size2i::create_from_width_height(1024, 1024);
+            rgbi background_color = NamedColor::gray;
             std::string output_file = "collage.png";
             int padding = 5;
             bool pack_image = true;

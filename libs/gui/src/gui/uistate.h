@@ -13,7 +13,7 @@ namespace euphoria::gui
     {
         State() = default;
 
-        core::Vec2f mouse = core::Vec2f(0.0f, 0.0f);
+        core::vec2f mouse = core::vec2f(0.0f, 0.0f);
         bool mouse_down = false;
 
         Widget* hot = nullptr;

@@ -36,7 +36,7 @@ using namespace euphoria::window;
 
 
 ImU32
-con(const Rgbai& c)
+con(const rgbai& c)
 {
     return IM_COL32(c.r, c.g, c.b, c.a);
 }
@@ -57,9 +57,9 @@ enum class Tool
 
 
 void
-flood_fill(Image* image, int x, int y, const Rgbai& target_color, const Rgbai& replacement_color)
+flood_fill(Image* image, int x, int y, const rgbai& target_color, const rgbai& replacement_color)
 {
-    if(is_within(image->get_indices(), Vec2i(x, y)) == false) { return; }
+    if(is_within(image->get_indices(), vec2i(x, y)) == false) { return; }
     if(target_color == replacement_color) { return; }
     if(image->get_pixel(x, y) != target_color) { return; }
 
@@ -88,7 +88,7 @@ struct PixelApp : App
         image.setup_no_alpha_support(64, 64);
         image.set_all_top_bottom([&](int, int)
         {
-            return Rgbai{palette.colors[background]};
+            return rgbai{palette.colors[background]};
         });
     }
 
@@ -236,7 +236,7 @@ struct PixelApp : App
 
                 // draw image
                 ImDrawList* draw_list = ImGui::GetWindowDrawList();
-                image.for_all_top_bottom([&](int x, int y, const Rgbai& c)
+                image.for_all_top_bottom([&](int x, int y, const rgbai& c)
                 {
                     const auto pixel_size = 5;
                     const auto p = ImVec2(core::c_int_to_float(x * pixel_size), core::c_int_to_float(y*pixel_size));

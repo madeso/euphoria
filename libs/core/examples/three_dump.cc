@@ -15,13 +15,13 @@
 using namespace euphoria::core;
 using namespace euphoria::core::dump3d;
 
-void add_spiral(Dumper* dump, int number_of_steps, float number_of_spins, float height, float size, const Rgbi& color)
+void add_spiral(Dumper* dump, int number_of_steps, float number_of_spins, float height, float size, const rgbi& color)
 {
-    std::vector<Vec3f> points;
+    std::vector<vec3f> points;
     for(int step_index=0; step_index<number_of_steps; step_index+=1)
     {
         const auto step = static_cast<float>(step_index) / static_cast<float>(number_of_steps);
-        const auto angle = Angle::from_percent_of_360(step * number_of_spins);
+        const auto angle = angle::from_percent_of_360(step * number_of_spins);
         points.emplace_back(sin(angle)*size, step*height, cos(angle)*size);
     }
     dump->add_lines(points, color);
@@ -49,7 +49,7 @@ main(int argc, char* argv[])
     auto pal = create_shuffle_bag(palettes::tableau::color_blind_10->colors, 2);
 
     const auto size = 15.0f;
-    auto area = Aabb{Vec3f{-size, -size, -size}, Vec3f{size, size, size}};
+    auto area = Aabb{vec3f{-size, -size, -size}, vec3f{size, size, size}};
     auto dump = Dumper{current_directory + "/three.html"};
 
     for(int i=0; i<30; i+=1)
@@ -59,9 +59,9 @@ main(int argc, char* argv[])
 
     add_spiral(&dump, 100, 4, 5, 2.5f, pal.get_random_item(&rand));
 
-    dump.add_plane(Plane::from_normal_and_point(Unit3f::right(), Vec3f(1, 2, 3)), pal.get_random_item(&rand));
+    dump.add_plane(Plane::from_normal_and_point(unit3f::right(), vec3f(1, 2, 3)), pal.get_random_item(&rand));
 
-    dump.add_arrow(Ray3f::from_to(Vec3f{3, 2, 1}, Vec3f{0,0,0}), pal.get_random_item(&rand));
+    dump.add_arrow(Ray3f::from_to(vec3f{3, 2, 1}, vec3f{0,0,0}), pal.get_random_item(&rand));
 
     dump.add_axis();
     dump.add_grid();

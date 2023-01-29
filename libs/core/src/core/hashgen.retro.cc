@@ -37,7 +37,7 @@ namespace
         const auto dx = image->width / (size - 1);
         const auto dy = image->height / size;
 
-        auto rect = [&](const Vec2i& top_left)
+        auto rect = [&](const vec2i& top_left)
         {
             draw_rect
             (
@@ -62,10 +62,10 @@ namespace
                 const auto filled = generator.get_next_float01() < 0.5f;
                 if(filled)
                 {
-                    rect(Vec2i{x*dx, (y+1)*dy});
+                    rect(vec2i{x*dx, (y+1)*dy});
                     if(x != half_size-1)
                     {
-                        rect(Vec2i{image->width - ((x+1)*dx + 2), (y+1)*dy});
+                        rect(vec2i{image->width - ((x+1)*dx + 2), (y+1)*dy});
                     }
                 }
             }

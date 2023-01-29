@@ -23,7 +23,7 @@ namespace euphoria::core
 
         struct ScatterResult
         {
-            Rgb attenuation;
+            rgb attenuation;
             UnitRay3f scattered;
         };
 
@@ -50,14 +50,14 @@ namespace euphoria::core
             HitResult
             (
                 float aray_distance,
-                const Vec3f& aposition,
-                const Unit3f& anormal,
+                const vec3f& aposition,
+                const unit3f& anormal,
                 std::shared_ptr<raytracer::Material> amaterial
             );
 
             float ray_distance;
-            Vec3f position;
-            Unit3f normal;
+            vec3f position;
+            unit3f normal;
             std::shared_ptr<raytracer::Material> material;
         };
 
@@ -78,7 +78,7 @@ namespace euphoria::core
         create_sphere
         (
             const Sphere& sphere,
-            const Vec3f& position,
+            const vec3f& position,
             std::shared_ptr<Material> material
         );
 
@@ -86,14 +86,14 @@ namespace euphoria::core
         std::shared_ptr<Material>
         create_diffuse_material
         (
-            const Rgb& albedo
+            const rgb& albedo
         );
 
 
         std::shared_ptr<Material>
         create_metal_material
         (
-            const Rgb& albedo,
+            const rgb& albedo,
             // 0-1, 0=clear
             float fuzz
         );
@@ -102,7 +102,7 @@ namespace euphoria::core
         std::shared_ptr<Material>
         create_dielectric_material
         (
-            const Rgb& albedo,
+            const rgb& albedo,
             float refractive_index
         );
 

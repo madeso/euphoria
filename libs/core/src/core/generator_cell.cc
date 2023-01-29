@@ -111,7 +111,7 @@ namespace euphoria::core::generator
         {
             BoolTable& world = *self->world;
             auto regions = find_empty_regions(world, allow_diagonals);
-            using V = std::vector<Vec2i>;
+            using V = std::vector<vec2i>;
             std::sort
             (
                 regions.begin(),

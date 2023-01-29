@@ -312,7 +312,7 @@ namespace euphoria::runner
                     {
                         return p.pos;
                     },
-                    [](ComponentPosition2& p, const core::Vec2f& np)
+                    [](ComponentPosition2& p, const core::vec2f& np)
                     {
                         p.pos = np;
                     }
@@ -335,7 +335,7 @@ namespace euphoria::runner
                 {
                     return r.contains_exclusive(rr);
                 },
-                [](const core::Rectf& r, const core::Vec2f& p) -> bool
+                [](const core::Rectf& r, const core::vec2f& p) -> bool
                 {
                     return r.contains_exclusive(p);
                 },
@@ -354,7 +354,7 @@ namespace euphoria::runner
                 return core::c_float_to_double(get_random_in_range(&r, core::c_double_to_float(f)));
             };
             random_type["next_bool"] = &core::Random::get_next_bool;
-            random_type["next_point2"] = [](core::Random& r, core::Rectf& rect) -> core::Vec2f
+            random_type["next_point2"] = [](core::Random& r, core::Rectf& rect) -> core::vec2f
             {
                 return get_random_point(&r, rect);
             };

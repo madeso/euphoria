@@ -50,13 +50,13 @@ struct CanvasWithControls
         canvas.end(cc);
     }
 
-    std::pair<bool, Vec2f> handle(const ImVec2& p, int id, ImU32 hover_color, ImU32 default_color)
+    std::pair<bool, vec2f> handle(const ImVec2& p, int id, ImU32 hover_color, ImU32 default_color)
     {
         const auto radius = 6.0f;
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
         const auto screen_position = canvas.world_to_screen(p);
         const auto mouse = ImGui::GetMousePos();
-        const auto sq_dist_to_mouse = Vec2f::from_to(con(mouse), con(screen_position)).get_length_squared();
+        const auto sq_dist_to_mouse = vec2f::from_to(con(mouse), con(screen_position)).get_length_squared();
         const auto is_over = sq_dist_to_mouse < radius * radius;
         const auto is_hover = is_over || id == index;
         if(index == -1 && is_over && ImGui::IsMouseDown(0))
@@ -72,18 +72,18 @@ struct CanvasWithControls
                 const auto d = ImGui::GetMouseDragDelta();
                 ImGui::ResetMouseDragDelta();
                 // todo(Gustav): handle scale/zoom
-                return std::make_pair(true, Vec2f(d.x, d.y) / canvas.view.scale);
+                return std::make_pair(true, vec2f(d.x, d.y) / canvas.view.scale);
             }
         }
-        return std::make_pair(false, Vec2f(0, 0));
+        return std::make_pair(false, vec2f(0, 0));
     }
 
-    void line(const Vec2f& from, const Vec2f& to, ImU32 line_color) const
+    void line(const vec2f& from, const vec2f& to, ImU32 line_color) const
     {
         ::line(canvas.world_to_screen(con(from)), canvas.world_to_screen(con(to)), line_color);
     }
 
-    void bezier_cubic(const Vec2f& a0, const Vec2f& c0, const Vec2f& c1, const Vec2f& a1, ImU32 curve_color, float thickness = 1.0f) const
+    void bezier_cubic(const vec2f& a0, const vec2f& c0, const vec2f& c1, const vec2f& a1, ImU32 curve_color, float thickness = 1.0f) const
     {
         auto* dl = ImGui::GetWindowDrawList();
         dl->AddBezierCubic
@@ -232,7 +232,7 @@ struct PainterApp : App
 {
     CanvasConfig cc;
     CanvasWithControls canvas;
-    PolyBezier2 path = Vec2f{0, 0};
+    PolyBezier2 path = vec2f{0, 0};
 
     void on_gui() override
     {

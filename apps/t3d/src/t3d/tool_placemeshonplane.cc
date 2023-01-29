@@ -15,7 +15,7 @@ namespace euphoria::t3d
 {
     ToolPlaceMeshOnAPlane::ToolPlaceMeshOnAPlane(std::shared_ptr<PlacedMesh> mesh_to_place)
         : placed_mesh(mesh_to_place)
-        , plane(core::Plane::from_normal_and_point(core::Unit3f::up(), core::Vec3f::zero()))
+        , plane(core::Plane::from_normal_and_point(core::unit3f::up(), core::vec3f::zero()))
     {
     }
 
@@ -95,7 +95,7 @@ namespace euphoria::t3d
 
 
     void
-    ToolPlaceMeshOnAPlane::on_scroll(Editor*, const core::Vec2i&)
+    ToolPlaceMeshOnAPlane::on_scroll(Editor*, const core::vec2i&)
     {
     }
 

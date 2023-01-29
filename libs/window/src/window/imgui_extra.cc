@@ -24,16 +24,16 @@
 namespace euphoria::window
 {
     ImVec2
-    con(const core::Vec2f& v)
+    con(const core::vec2f& v)
     {
         return ImVec2 {v.x, v.y};
     }
 
 
-    core::Vec2f
+    core::vec2f
     con(const ImVec2& v)
     {
-        return core::Vec2f {v.x, v.y};
+        return core::vec2f {v.x, v.y};
     }
 }
 
@@ -73,9 +73,9 @@ namespace euphoria::window::imgui
     angle_slider
     (
         const char* name,
-        core::Angle* angle,
-        const core::Angle& mindeg,
-        const core::Angle& maxdeg
+        core::angle* angle,
+        const core::angle& mindeg,
+        const core::angle& maxdeg
     )
     {
         ASSERT(angle);
@@ -91,7 +91,7 @@ namespace euphoria::window::imgui
 
         if(value_was_changed)
         {
-            *angle = core::Angle::from_degrees(degrees);
+            *angle = core::angle::from_degrees(degrees);
         }
 
         return value_was_changed;
@@ -102,7 +102,7 @@ namespace euphoria::window::imgui
     angle_slider
     (
         const char* name,
-        core::Angle* angle
+        core::angle* angle
     )
     {
         ASSERT(angle);
@@ -116,7 +116,7 @@ namespace euphoria::window::imgui
 
         if(value_was_changed)
         {
-            *angle = core::Angle::from_degrees(degrees);
+            *angle = core::angle::from_degrees(degrees);
             angle->wrap();
         }
 
@@ -143,19 +143,19 @@ namespace euphoria::window::imgui
     }
 
     bool
-    color_edit(const char* name, core::Rgb* c)
+    color_edit(const char* name, core::rgb* c)
     {
         return ImGui::ColorEdit3(name, &c->r);
     }
 
     bool
-    color_edit(const char* name, core::Rgba* c)
+    color_edit(const char* name, core::rgba* c)
     {
         return ImGui::ColorEdit4(name, &c->r);
     }
 
     bool
-    color_edit(const char* name, core::Rgbai* c)
+    color_edit(const char* name, core::rgbai* c)
     {
         auto cc = crgba(*c);
         const auto changed = ImGui::ColorEdit4(name, &cc.r);

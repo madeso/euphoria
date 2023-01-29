@@ -51,7 +51,7 @@ using namespace euphoria::window;
 
 // todo(Gustav): move to window/imgui_ext
 bool
-imgui_widget(const char* title, Size2f* s)
+imgui_widget(const char* title, size2f* s)
 {
     return ImGui::DragFloat2(title, &s->width);
 }
@@ -63,7 +63,7 @@ imgui_widget(const char* title, std::string* str)
 }
 
 bool
-imgui_widget(const char* title, Vec2f* v)
+imgui_widget(const char* title, vec2f* v)
 {
     return ImGui::DragFloat2(title, &v->x);
 }
@@ -361,7 +361,7 @@ main(int argc, char* argv[])
 
     auto root = euphoria::gui::Root
     {
-        Size2f::create_from_width_height
+        size2f::create_from_width_height
         (
             c_int_to_float(window_width),
             c_int_to_float(window_height)
@@ -422,7 +422,7 @@ main(int argc, char* argv[])
                 viewport_handler.set_size(window_width, window_height);
                 root.resize
                 (
-                    Size2f::create_from_width_height
+                    size2f::create_from_width_height
                     (
                         c_int_to_float(window_width),
                         c_int_to_float(window_height)
@@ -470,7 +470,7 @@ main(int argc, char* argv[])
         {
             root.set_input_mouse
             (
-                Vec2f
+                vec2f
                 {
                     static_cast<float>(window_mouse_x),
                     static_cast<float>(window_height - window_mouse_y)

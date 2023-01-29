@@ -143,7 +143,7 @@ con(game::ViewportType type)
 }
 
 
-Rgb
+rgb
 get_color(std::shared_ptr<game::Color> c)
 {
     if(c == nullptr)

@@ -40,7 +40,7 @@ namespace euphoria::editor
 
         std::shared_ptr<render::Texture2> texture;
         window::Canvas canvas;
-        core::Vec2i mouse_popup = core::Vec2i {0, 0};
+        core::vec2i mouse_popup = core::vec2i {0, 0};
         LineHoverData hover;
 
         bool

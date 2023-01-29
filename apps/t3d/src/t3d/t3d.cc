@@ -40,7 +40,7 @@
 
 namespace euphoria::t3d
 {
-    std::optional<core::Vec3f>
+    std::optional<core::vec3f>
     EditorCamera3::raycast
     (
         const core::UnitRay3f& ray
@@ -53,7 +53,7 @@ namespace euphoria::t3d
 
         const auto ground = core::Plane::from_normal_and_point
         (
-            core::Unit3f::y_axis(), core::Vec3f::zero()
+            core::unit3f::y_axis(), core::vec3f::zero()
         );
 
         const auto where = core::get_intersection(ray, ground);
@@ -155,13 +155,13 @@ namespace euphoria::t3d
         core::Lines* def,
         float size,
         float x,
-        const core::Rgb& color
+        const core::rgb& color
     )
     {
-        def->add_line(core::Vec3f {x, 0, -size}, core::Vec3f {x, 0, size}, color);
-        def->add_line(core::Vec3f {-size, 0, x}, core::Vec3f {size, 0, x}, color);
-        def->add_line(core::Vec3f {-x, 0, -size}, core::Vec3f {-x, 0, size}, color);
-        def->add_line(core::Vec3f {-size, 0, -x}, core::Vec3f {size, 0, -x}, color);
+        def->add_line(core::vec3f {x, 0, -size}, core::vec3f {x, 0, size}, color);
+        def->add_line(core::vec3f {-size, 0, x}, core::vec3f {size, 0, x}, color);
+        def->add_line(core::vec3f {-x, 0, -size}, core::vec3f {-x, 0, size}, color);
+        def->add_line(core::vec3f {-size, 0, -x}, core::vec3f {size, 0, -x}, color);
     }
 
 
@@ -194,7 +194,7 @@ namespace euphoria::t3d
 
         if(normal > 0)
         {
-            def.add_line(core::Vec3f {0, 0, 0}, core::Vec3f {0, normal, 0}, y_color);
+            def.add_line(core::vec3f {0, 0, 0}, core::vec3f {0, normal, 0}, y_color);
         }
 
         for(int index = 0; index < grid_data.size; index += 1)
@@ -212,8 +212,8 @@ namespace euphoria::t3d
             add_single_grid_line(&def, size, x, color);
         }
 
-        def.add_line(core::Vec3f{-size, 0, 0}, core::Vec3f{size, 0, 0}, x_color);
-        def.add_line(core::Vec3f{0, 0, -size}, core::Vec3f{0, 0, size}, z_color);
+        def.add_line(core::vec3f{-size, 0, 0}, core::vec3f{size, 0, 0}, x_color);
+        def.add_line(core::vec3f{0, 0, -size}, core::vec3f{0, 0, size}, z_color);
 
         auto compiled = compile(material_shader_cache.get(), def);
         grid = std::make_shared<render::PositionedLines>(compiled);
@@ -257,12 +257,12 @@ namespace euphoria::t3d
 
         case SDL_MOUSEMOTION:
             {
-                const auto mouse_position = core::Vec2i
+                const auto mouse_position = core::vec2i
                 (
                     e.motion.x,
                     viewport_handler->window_height - e.motion.y
                 );
-                const auto mouse_movement = core::Vec2i
+                const auto mouse_movement = core::vec2i
                 (
                     e.motion.xrel,
                     e.motion.yrel
@@ -312,7 +312,7 @@ namespace euphoria::t3d
 
 
     void
-    Application::on_mouse_movement(const core::Vec2i& position, const core::Vec2i& movement, bool forward_mouse)
+    Application::on_mouse_movement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse)
     {
         if(forward_mouse)
         {
@@ -458,7 +458,7 @@ namespace euphoria::t3d
     {
         if(forward_mouse)
         {
-            editor->on_scroll(core::Vec2i(e.wheel.x, e.wheel.y));
+            editor->on_scroll(core::vec2i(e.wheel.x, e.wheel.y));
             editor_camera.on_scroll(e.wheel.x, e.wheel.y);
         }
     }
@@ -738,10 +738,10 @@ namespace euphoria::t3d
 
             dirty = window::imgui::angle_slider
             (
-                "Angle snap",
+                "angle snap",
                 &grid_data.angle_snap,
-                core::Angle::zero(),
-                core::Angle::one_turn()
+                core::angle::zero(),
+                core::angle::one_turn()
             ) || dirty;
 
             dirty = ImGui::DragInt("lines on grid", &grid_data.size) || dirty;
@@ -798,8 +798,8 @@ namespace euphoria::t3d
         (
             "Look (up/down)",
             &editor_camera.fps.look_angle,
-            -core::Angle::quarter(),
-            core::Angle::quarter()
+            -core::angle::quarter(),
+            core::angle::quarter()
         );
         ImGui::DragFloat3("Position", editor_camera.fps.position.get_data_ptr());
         ImGui::Spacing();

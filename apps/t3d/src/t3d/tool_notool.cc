@@ -76,7 +76,7 @@ namespace euphoria::t3d
 
 
     void
-    ToolNoTool::on_scroll(Editor*, const core::Vec2i&)
+    ToolNoTool::on_scroll(Editor*, const core::vec2i&)
     {
     }
 

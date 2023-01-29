@@ -37,10 +37,10 @@ namespace euphoria::runner
 
     struct PositionComponentCreator : ComponentCreator
     {
-        core::Vec2f p;
+        core::vec2f p;
         runner::Components* components;
 
-        PositionComponentCreator(const core::Vec2f& pp, runner::Components* cs)
+        PositionComponentCreator(const core::vec2f& pp, runner::Components* cs)
             : p(pp)
             , components(cs)
         {
@@ -51,7 +51,7 @@ namespace euphoria::runner
         std::shared_ptr<PositionComponentCreator>
         create(const game::vec2f& p, runner::Components* components)
         {
-            return std::make_shared<PositionComponentCreator>(core::Vec2f {p.x, p.y}, components);
+            return std::make_shared<PositionComponentCreator>(core::vec2f {p.x, p.y}, components);
         }
 
         void

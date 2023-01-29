@@ -31,10 +31,10 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Vec3fValue::Vec3fValue(const Vec3f& v) : core::Value(ValueType::vec3f_type), value(v)
+    Vec3fValue::Vec3fValue(const vec3f& v) : core::Value(ValueType::vec3f_type), value(v)
     {}
 
-    Vec3f&
+    vec3f&
     Vec3fValue::cast(core::Value* value)
     {
         ASSERT(value);

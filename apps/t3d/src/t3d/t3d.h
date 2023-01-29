@@ -62,7 +62,7 @@ namespace euphoria::t3d
     {
         Application* parent = nullptr;
 
-        std::optional<core::Vec3f>
+        std::optional<core::vec3f>
         raycast
         (
             const core::UnitRay3f& ray
@@ -145,7 +145,7 @@ namespace euphoria::t3d
 
 
         void
-        on_mouse_movement(const core::Vec2i& position, const core::Vec2i& movement, bool forward_mouse);
+        on_mouse_movement(const core::vec2i& position, const core::vec2i& movement, bool forward_mouse);
 
 
         void

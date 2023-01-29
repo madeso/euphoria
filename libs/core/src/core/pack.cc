@@ -14,8 +14,8 @@ namespace euphoria::core
     std::vector<std::optional<Recti>>
     pack
     (
-        const Size2i& container,
-        const std::vector<Size2i>& to_pack
+        const size2i& container,
+        const std::vector<size2i>& to_pack
     )
     {
         //init data
@@ -62,7 +62,7 @@ namespace euphoria::core
             }
             ret[i] = Recti::from_top_left_width_height
             (
-                core::Vec2i{rect.x, container.height - rect.y - 1},
+                core::vec2i{rect.x, container.height - rect.y - 1},
                 rect.w,
                 rect.h
             );

@@ -71,10 +71,10 @@ namespace euphoria::window
         }
     }
 
-    [[nodiscard]] core::Vec2i
+    [[nodiscard]] core::vec2i
     SdlWindow::get_mouse_position() const
     {
-        core::Vec2i ret {0, 0};
+        core::vec2i ret {0, 0};
         int width = 0;
         int height = 0;
         SDL_GetWindowSize(window, &width, &height);

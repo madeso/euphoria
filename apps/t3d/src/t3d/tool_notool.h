@@ -52,7 +52,7 @@ namespace euphoria::t3d
 
 
         void
-        on_scroll(Editor*, const core::Vec2i&) override;
+        on_scroll(Editor*, const core::vec2i&) override;
 
 
         void

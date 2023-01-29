@@ -34,17 +34,17 @@ namespace euphoria::core
         void
         update(float delta);
 
-        static Quatf
-        calculate_rotation(const Angle& rotation_angle, const Angle& look_angle);
+        static quatf
+        calculate_rotation(const angle& rotation_angle, const angle& look_angle);
 
-        [[nodiscard]] Quatf
+        [[nodiscard]] quatf
         get_rotation() const;
         
         void
-        look_in_direction(const Unit3f& v);
+        look_in_direction(const unit3f& v);
 
-        Angle rotation_angle;
-        Angle look_angle;
+        angle rotation_angle;
+        angle look_angle;
 
         bool is_left_down = false;
         bool is_right_down = false;
@@ -53,7 +53,7 @@ namespace euphoria::core
         bool is_up_down = false;
         bool is_down_down = false;
 
-        Vec3f position;
+        vec3f position;
         float move_speed = 3.0f;
         Sensitivity look_sensitivity;
     };

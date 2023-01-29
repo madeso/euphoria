@@ -25,25 +25,25 @@ namespace euphoria::core
         float w;
         Table<int> grid;
         std::vector<int> active;
-        std::vector<Vec2f> samples;
+        std::vector<vec2f> samples;
 
         [[nodiscard]] bool
         is_done() const;
 
-        std::optional<std::tuple<Vec2f, Vec2f>>
+        std::optional<std::tuple<vec2f, vec2f>>
         step();
 
-        [[nodiscard]] Vec2f random_point() const;
-        [[nodiscard]] Vec2i point_to_index(const Vec2f& p) const;
+        [[nodiscard]] vec2f random_point() const;
+        [[nodiscard]] vec2i point_to_index(const vec2f& p) const;
 
         bool
-        can_place_at(const Vec2f& potential_sample, const Vec2i& potential_sample_pos);
+        can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos);
 
-        std::tuple<bool, Vec2f>
+        std::tuple<bool, vec2f>
         try_place(int active_index);
     };
 
     // r = minimum distance
-    std::vector<Vec2f> poisson_sample(const Rectf& area, Random* random, float r, float bs=-1.0f, int k=30);
+    std::vector<vec2f> poisson_sample(const Rectf& area, Random* random, float r, float bs=-1.0f, int k=30);
 }
 

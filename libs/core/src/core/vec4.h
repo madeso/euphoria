@@ -11,39 +11,39 @@ namespace euphoria::core
 {
     // represents a homogeneous coordinate
     template <typename T>
-    struct Vec4
+    struct vec4
     {
         T x;
         T y;
         T z;
         T w;
 
-        explicit Vec4(const T& a) : x(a), y(a), z(a), w(a) {}
-        Vec4(const T& ax, const T& ay, const T& az, const T& aw)
+        explicit vec4(const T& a) : x(a), y(a), z(a), w(a) {}
+        vec4(const T& ax, const T& ay, const T& az, const T& aw)
             : x(ax), y(ay), z(az), w(aw)
         {}
 
         // w for point is 1
         // w for vector is 0
-        Vec4(const Vec3<T>& a, T aw) : x(a.x), y(a.y), z(a.z), w(aw) {}
+        vec4(const vec3<T>& a, T aw) : x(a.x), y(a.y), z(a.z), w(aw) {}
 
-        Vec4(const Scale3<T>& a) : x(a.x), y(a.y), z(a.z), w(1) {}
+        vec4(const Scale3<T>& a) : x(a.x), y(a.y), z(a.z), w(1) {}
 
-        Vec3<T>
+        vec3<T>
         to_vec3(T ww) const
         {
             ASSERTX(is_equal(w, ww), w, ww);
-            return Vec3<T>(x, y, z);
+            return vec3<T>(x, y, z);
         }
 
         // todo(Gustav): replace this and actually call the assert version always
-        Vec3<T>
+        vec3<T>
         to_vec3() const
         {
-            return Vec3<T>(x, y, z);
+            return vec3<T>(x, y, z);
         }
 
-        explicit Vec4(const T* a) : x(a[0]), y(a[1]), z(a[2]), w(a[3]) {}
+        explicit vec4(const T* a) : x(a[0]), y(a[1]), z(a[2]), w(a[3]) {}
 
         T*
         get_data_ptr()
@@ -66,7 +66,7 @@ namespace euphoria::core
 
     template <typename T>
     bool
-    operator==(const Vec4<T>& lhs, const Vec4<T>& rhs)
+    operator==(const vec4<T>& lhs, const vec4<T>& rhs)
     {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
                && lhs.w == rhs.w;
@@ -74,21 +74,21 @@ namespace euphoria::core
 
     template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const Vec4<T>& v)
+    operator<<(std::ostream& stream, const vec4<T>& v)
     {
         return stream << "(" << v.x << ", " << v.y << ", " << v.z << ", " << v.w
                       << ")";
     }
 
     template <typename T>
-    Vec4<T>
-    component_multiply(const Vec4<T>& lhs, const Vec4<T>& rhs)
+    vec4<T>
+    component_multiply(const vec4<T>& lhs, const vec4<T>& rhs)
     {
-        return Vec4<T>(
+        return vec4<T>(
                 lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w);
     }
 
-    using Vec4f = Vec4<float>;
-    using Vec4i = Vec4<int>;
+    using vec4f = vec4<float>;
+    using vec4i = vec4<int>;
 
 }

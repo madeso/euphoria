@@ -11,10 +11,10 @@ namespace euphoria::core
     struct BufferPoint2
     {
         BufferPoint2(float x, float y, float u, float v);
-        BufferPoint2(const Vec2f& p, const Vec2f& u);
+        BufferPoint2(const vec2f& p, const vec2f& u);
 
-        const Vec2f pos;
-        const Vec2f uv;
+        const vec2f pos;
+        const vec2f uv;
     };
 
     struct BufferBuilder2

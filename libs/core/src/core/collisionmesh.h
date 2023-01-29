@@ -14,8 +14,8 @@ struct UnitRay3f;
 
 struct CollisionMesh
 {
-    std::vector<core::Vec3f> points;
-    std::vector<core::Vec3i> faces;
+    std::vector<core::vec3f> points;
+    std::vector<core::vec3i> faces;
 
     void add(const Mesh& mesh);
 };

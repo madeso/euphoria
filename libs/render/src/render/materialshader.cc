@@ -182,24 +182,24 @@ namespace euphoria::render
     }
 
     void
-    MaterialShader::set_projection(const core::Mat4f& projection_data)
+    MaterialShader::set_projection(const core::mat4f& projection_data)
     {
         shader.set_uniform(projection, projection_data);
     }
 
     void
-    MaterialShader::set_view(const core::Mat4f& view_data)
+    MaterialShader::set_view(const core::mat4f& view_data)
     {
         shader.set_uniform(view, view_data);
     }
 
     void
-    MaterialShader::set_model(const core::Mat4f& model_data)
+    MaterialShader::set_model(const core::mat4f& model_data)
     {
         shader.set_uniform(model, model_data);
         if(has_light)
         {
-            core::Mat4f normal = model_data;
+            core::mat4f normal = model_data;
             const bool inverted = normal.invert();
             ASSERT(inverted);
             normal = normal.get_transposed();
@@ -208,7 +208,7 @@ namespace euphoria::render
     }
 
     void
-    MaterialShader::setup_light(const Light& light, const core::Vec3f& camera)
+    MaterialShader::setup_light(const Light& light, const core::vec3f& camera)
     {
         if(!has_light)
         {
@@ -235,9 +235,9 @@ namespace euphoria::render
     void
     MaterialShader::set_colors
     (
-        const core::Rgb& ambient_data,
-        const core::Rgb& diffuse_data,
-        const core::Rgb& specular_data,
+        const core::rgb& ambient_data,
+        const core::rgb& diffuse_data,
+        const core::rgb& specular_data,
         float shininess_data
     )
     {
@@ -255,7 +255,7 @@ namespace euphoria::render
         {
             const auto the_specular = shininess_data > 0
                 ? specular_data
-                : core::Rgb {core::NamedColor::black}
+                : core::rgb {core::NamedColor::black}
                 ;
             shader.set_uniform(specular, the_specular);
         }

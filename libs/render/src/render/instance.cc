@@ -3,24 +3,24 @@
 namespace euphoria::render
 {
     Instance::Instance()
-        : position(core::Vec3f::zero())
-        , rotation(core::Quatf::identity())
+        : position(core::vec3f::zero())
+        , rotation(core::quatf::identity())
     {
     }
 
-    core::Mat4f
+    core::mat4f
     Instance::calculate_model_matrix() const
     {
         return render::calculate_model_matrix(position, rotation);
     }
 
-    [[nodiscard]] core::Mat4f
+    [[nodiscard]] core::mat4f
     calculate_model_matrix
     (
-        const core::Vec3f& position,
-        const core::Quatf& rotation
+        const core::vec3f& position,
+        const core::quatf& rotation
     )
     {
-        return core::Mat4f::from_translation(position) * rotation.to_mat4();
+        return core::mat4f::from_translation(position) * rotation.to_mat4();
     }
 }

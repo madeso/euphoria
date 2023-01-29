@@ -15,7 +15,7 @@ namespace euphoria::core::vfs
 
 namespace euphoria::core
 {
-    struct Rgba;
+    struct rgba;
 }
 
 namespace euphoria::render
@@ -38,11 +38,11 @@ namespace euphoria::render
 
         NONCOPYABLE(ScalableSprite);
 
-        [[nodiscard]] core::Size2f
+        [[nodiscard]] core::size2f
         get_minimum_size() const;
 
         void
-        render(SpriteRenderer* renderer, const core::Rectf& rect, const core::Rgba& tint) const;
+        render(SpriteRenderer* renderer, const core::Rectf& rect, const core::rgba& tint) const;
 
         std::shared_ptr<Texture2> texture;
 

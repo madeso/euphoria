@@ -49,10 +49,10 @@ namespace euphoria::render
     void
     CompiledMeshMaterial::apply
     (
-        const core::Mat4f& model_matrix,
-        const core::Mat4f& projection_matrix,
-        const core::Mat4f& view_matrix,
-        const core::Vec3f& camera,
+        const core::mat4f& model_matrix,
+        const core::mat4f& projection_matrix,
+        const core::mat4f& view_matrix,
+        const core::vec3f& camera,
         const Light& light
     ) const
     {
@@ -165,12 +165,12 @@ namespace euphoria::render
             VertexBuffer* vb
     )
     {
-        constexpr auto add_float2 = [](std::vector<float>* dst, const core::Vec2f& src)
+        constexpr auto add_float2 = [](std::vector<float>* dst, const core::vec2f& src)
         {
             dst->emplace_back(src.x);
             dst->emplace_back(src.y);
         };
-        constexpr auto add_float3 = [](std::vector<float>* dst, const core::Vec3f& src)
+        constexpr auto add_float3 = [](std::vector<float>* dst, const core::vec3f& src)
         {
             dst->emplace_back(src.x);
             dst->emplace_back(src.y);
@@ -357,10 +357,10 @@ namespace euphoria::render
     void
     CompiledMesh::render
     (
-        const core::Mat4f& model_matrix,
-        const core::Mat4f& projection_matrix,
-        const core::Mat4f& view_matrix,
-        const core::Vec3f& camera,
+        const core::mat4f& model_matrix,
+        const core::mat4f& projection_matrix,
+        const core::mat4f& view_matrix,
+        const core::vec3f& camera,
         const Light& light,
         const std::shared_ptr<MaterialOverride>& overridden_materials
     )

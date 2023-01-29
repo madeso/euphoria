@@ -33,13 +33,13 @@ namespace euphoria::core
     {
         MeshPoint
         (
-            const Vec3f& a_vertex,
-            const Vec3f& a_normal,
-            const Vec2f& a_uv
+            const vec3f& a_vertex,
+            const vec3f& a_normal,
+            const vec2f& a_uv
         );
-        Vec3f vertex;
-        Vec3f normal;
-        Vec2f uv;
+        vec3f vertex;
+        vec3f normal;
+        vec2f uv;
     };
 
 
@@ -89,9 +89,9 @@ namespace euphoria::core
         std::optional<core::vfs::FilePath> shader;
 
         // tints
-        Rgb ambient;
-        Rgb diffuse;
-        Rgb specular;
+        rgb ambient;
+        rgb diffuse;
+        rgb specular;
 
         float shininess;
 

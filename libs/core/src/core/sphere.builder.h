@@ -9,6 +9,6 @@
 namespace euphoria::core
 {
     SphereAndPosition
-    build_bounding_sphere(const std::vector<Vec3f>& positions);
+    build_bounding_sphere(const std::vector<vec3f>& positions);
 }
 

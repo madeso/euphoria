@@ -16,9 +16,9 @@ namespace euphoria::gui
         , last_state(nullptr)
         , skin(nullptr)
         , scale(1.0f)
-        , image_color(core::Rgb(1.0f))
-        , text_color(core::Rgb(1.0f))
-        , position_displacement(core::Vec2f::zero())
+        , image_color(core::rgb(1.0f))
+        , text_color(core::rgb(1.0f))
+        , position_displacement(core::vec2f::zero())
     {
     }
 
@@ -78,7 +78,7 @@ namespace euphoria::gui
                 position_displacement.set
                 (
                     state->interpolation_position.type,
-                    core::Vec2f(state->dx, state->dy),
+                    core::vec2f(state->dx, state->dy),
                     state->interpolation_position.time
                 );
             }
@@ -92,10 +92,10 @@ namespace euphoria::gui
     }
 
 
-    core::Size2f
+    core::size2f
     Button::calculate_minimum_size() const
     {
-        auto size = core::Size2f::create_from_width_height(0, 0);
+        auto size = core::size2f::create_from_width_height(0, 0);
         if(sprite != nullptr)
         {
             const auto ms = sprite->get_minimum_size();
@@ -106,7 +106,7 @@ namespace euphoria::gui
         if(text.has_text())
         {
             const auto extents = text.get_text().get_extents();
-            const auto ms = core::Size2f::create_from_width_height
+            const auto ms = core::size2f::create_from_width_height
             (
                 extents.get_width(),
                 extents.get_height()

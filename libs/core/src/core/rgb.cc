@@ -13,44 +13,44 @@
 
 namespace euphoria::core
 {
-    Rgb::Rgb(float red, float green, float blue) : r(red), g(green), b(blue) {}
+    rgb::rgb(float red, float green, float blue) : r(red), g(green), b(blue) {}
 
-    Rgb::Rgb(float gray) : r(gray), g(gray), b(gray) {}
+    rgb::rgb(float gray) : r(gray), g(gray), b(gray) {}
 
-    Rgb::Rgb(NamedColor color) : Rgb(Rgb::from_hex(colorutil::to_color_hex(color))) {}
+    rgb::rgb(NamedColor color) : rgb(rgb::from_hex(colorutil::to_color_hex(color))) {}
 
-    Rgb
-    Rgb::from_hex(unsigned int hex)
+    rgb
+    rgb::from_hex(unsigned int hex)
     {
         const auto b = colorutil::to_float(colorutil::get_blue(hex));
         const auto g = colorutil::to_float(colorutil::get_green(hex));
         const auto r = colorutil::to_float(colorutil::get_red(hex));
-        return Rgb {r, g, b};
+        return rgb {r, g, b};
     }
 
 
     float
-    Rgb::get_length() const
+    rgb::get_length() const
     {
         return sqrt(get_length_squared());
     }
 
     float
-    Rgb::get_length_squared() const
+    rgb::get_length_squared() const
     {
         return square(r) + square(g) + square(b);
     }
 
 
     float
-    Rgb::calc_luminance() const
+    rgb::calc_luminance() const
     {
         // 0.3 0.59 0.11?
         return 0.2126f*r + 0.7152f*b + 0.0722f*b;
     }
 
     void
-    Rgb::operator+=(const Rgb& rhs)
+    rgb::operator+=(const rgb& rhs)
     {
         r += rhs.r;
         g += rhs.g;
@@ -59,7 +59,7 @@ namespace euphoria::core
 
 
     void
-    Rgb::operator-=(const Rgb& rhs)
+    rgb::operator-=(const rgb& rhs)
     {
         r -= rhs.r;
         g -= rhs.g;
@@ -68,7 +68,7 @@ namespace euphoria::core
 
 
     void
-    Rgb::operator*=(const Rgb& rhs)
+    rgb::operator*=(const rgb& rhs)
     {
         r *= rhs.r;
         g *= rhs.g;
@@ -77,7 +77,7 @@ namespace euphoria::core
 
 
     void
-    Rgb::operator/=(float rhs)
+    rgb::operator/=(float rhs)
     {
         r /= rhs;
         g /= rhs;
@@ -85,32 +85,32 @@ namespace euphoria::core
     }
 
 
-    Rgb
-    operator+(const Rgb& lhs, const Rgb& rhs)
+    rgb
+    operator+(const rgb& lhs, const rgb& rhs)
     {
         auto r = lhs;
         r += rhs;
         return r;
     }
 
-    Rgb
-    operator-(const Rgb& lhs, const Rgb& rhs)
+    rgb
+    operator-(const rgb& lhs, const rgb& rhs)
     {
         auto r = lhs;
         r -= rhs;
         return r;
     }
 
-    Rgb
-    operator*(const Rgb& lhs, const Rgb& rhs)
+    rgb
+    operator*(const rgb& lhs, const rgb& rhs)
     {
         auto r = lhs;
         r *= rhs;
         return r;
     }
 
-    Rgb
-    operator/(const Rgb& lhs, float rhs)
+    rgb
+    operator/(const rgb& lhs, float rhs)
     {
         auto r = lhs;
         r /= rhs;
@@ -118,15 +118,15 @@ namespace euphoria::core
     }
 
 
-    Rgb
-    operator*(const Rgb& lhs, float rhs)
+    rgb
+    operator*(const rgb& lhs, float rhs)
     {
         return {lhs.r*rhs, lhs.g*rhs, lhs.b*rhs};
     }
 
 
-    Rgb
-    operator*(float lhs, const Rgb& rhs)
+    rgb
+    operator*(float lhs, const rgb& rhs)
     {
         return {rhs.r*lhs, rhs.g*lhs, rhs.b*lhs};
     }
@@ -135,15 +135,15 @@ namespace euphoria::core
 
 
     float
-    dot(const Rgb& lhs, const Rgb& rhs)
+    dot(const rgb& lhs, const rgb& rhs)
     {
         return lhs.r * rhs.r + lhs.g * rhs.g + lhs.b * rhs.b;
     }
 
-    Rgb
-    clamp(const Rgb& c)
+    rgb
+    clamp(const rgb& c)
     {
-        return Rgb(
+        return rgb(
                 keep_within(r01, c.r),
                 keep_within(r01, c.g),
                 keep_within(r01, c.b));
@@ -152,35 +152,35 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Rgba::Rgba(const Rgb& rgb, float alpha)
-        : r(rgb.r), g(rgb.g), b(rgb.b), a(alpha)
+    rgba::rgba(const rgb& c, float alpha)
+        : r(c.r), g(c.g), b(c.b), a(alpha)
     {
     }
     
 
-    Rgba::Rgba(float red, float green, float blue, float alpha)
+    rgba::rgba(float red, float green, float blue, float alpha)
         : r(red), g(green), b(blue), a(alpha)
     {
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    std::string to_string(const Rgbi& c)
+    std::string to_string(const rgbi& c)
     {
         return "#{:0>2x}{:0>2x}{:0>2x}"_format(c.r, c.g, c.b);
     }
 
-    std::string to_string(const Rgbai& c)
+    std::string to_string(const rgbai& c)
     {
         return "({}, {}, {}, {})"_format(c.r, c.g, c.b, c.a);
     }
 
-    std::string to_string(const Rgb& v)
+    std::string to_string(const rgb& v)
     {
         return "({}, {}, {})"_format(v.r, v.g, v.b);
     }
 
-    std::string to_string(const Rgba& v)
+    std::string to_string(const rgba& v)
     {
         return "({}, {}, {}, {})"_format(v.r, v.g, v.b, v.a);
     }
@@ -190,10 +190,10 @@ namespace euphoria::core
         return "({:.0f}°, {:.0f}%, {:.0f}%)"_format(v.h.in_degrees(), v.s * 100, v.l * 100);
     }
 
-    std::ostream& operator<<(std::ostream& stream, const Rgbi& v)  { stream << to_string(v); return stream; }
-    std::ostream& operator<<(std::ostream& stream, const Rgbai& v) { stream << to_string(v); return stream; }
-    std::ostream& operator<<(std::ostream& stream, const Rgb& v)   { stream << to_string(v); return stream; }
-    std::ostream& operator<<(std::ostream& stream, const Rgba& v)  { stream << to_string(v); return stream; }
+    std::ostream& operator<<(std::ostream& stream, const rgbi& v)  { stream << to_string(v); return stream; }
+    std::ostream& operator<<(std::ostream& stream, const rgbai& v) { stream << to_string(v); return stream; }
+    std::ostream& operator<<(std::ostream& stream, const rgb& v)   { stream << to_string(v); return stream; }
+    std::ostream& operator<<(std::ostream& stream, const rgba& v)  { stream << to_string(v); return stream; }
     std::ostream& operator<<(std::ostream& stream, const Hsl& v)   { stream << to_string(v); return stream; }
 
 
@@ -201,63 +201,63 @@ namespace euphoria::core
     // Default compare
 
     bool
-    operator==(const Rgbi& lhs, const Rgbi& rhs)
+    operator==(const rgbi& lhs, const rgbi& rhs)
     {
         return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b;
     }
 
 
     bool
-    operator!=(const Rgbi& lhs, const Rgbi& rhs)
+    operator!=(const rgbi& lhs, const rgbi& rhs)
     {
         return !(lhs == rhs);
     }
 
 
     bool
-    operator==(const Rgbai& lhs, const Rgbai& rhs)
+    operator==(const rgbai& lhs, const rgbai& rhs)
     {
         return lhs.r == rhs.r && lhs.g == rhs.g && lhs.b == rhs.b && lhs.a == rhs.a;
     }
 
 
     bool
-    operator!=(const Rgbai& lhs, const Rgbai& rhs)
+    operator!=(const rgbai& lhs, const rgbai& rhs)
     {
         return !(lhs == rhs);
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Rgb
-    crgb(const Rgbi& rgb)
+    rgb
+    crgb(const rgbi& c)
     {
-        return {colorutil::to_float(rgb.r),
-                colorutil::to_float(rgb.g),
-                colorutil::to_float(rgb.b)};
+        return {colorutil::to_float(c.r),
+                colorutil::to_float(c.g),
+                colorutil::to_float(c.b)};
     }
 
-    Rgb
-    crgb(const Rgba& rgb)
+    rgb
+    crgb(const rgba& c)
     {
-        return {rgb.r, rgb.g, rgb.b};
+        return {c.r, c.g, c.b};
     }
 
-    Rgb
-    crgb(const Rgbai& rgb)
+    rgb
+    crgb(const rgbai& c)
     {
-        return {colorutil::to_float(rgb.r),
-                colorutil::to_float(rgb.g),
-                colorutil::to_float(rgb.b)};
+        return {colorutil::to_float(c.r),
+                colorutil::to_float(c.g),
+                colorutil::to_float(c.b)};
     }
 
-    Rgb
+    rgb
     crgb(const Hsl& hsl)
     {
         // based on https://gist.github.com/mjackson/5311256
         if(hsl.s == 0)
         {
-            return Rgb {hsl.l}; // achromatic
+            return rgb {hsl.l}; // achromatic
         }
         else
         {
@@ -285,7 +285,7 @@ namespace euphoria::core
     // Convert functions (hsl)
 
     Hsl
-    chsl(const Rgb& c)
+    chsl(const rgb& c)
     {
         // based on https://gist.github.com/mjackson/5311256
         const auto max = core::max(c.r, core::max(c.g, c.b));
@@ -321,7 +321,7 @@ namespace euphoria::core
 
         if(cl == BiggestValue::same)
         {
-            return {Angle::from_radians(0), 0, l}; // achromatic
+            return {angle::from_radians(0), 0, l}; // achromatic
         }
         else
         {
@@ -338,73 +338,73 @@ namespace euphoria::core
                 default: DIE("Unreachable"); return 0.0f;
                 }
             }() / 6;
-            return {Angle::from_percent_of_360(h), s, l};
+            return {angle::from_percent_of_360(h), s, l};
         }
     }
 
     // Convert functions (rgbi)
 
-    Rgbi
-    crgbi(const Rgb& rgb)
+    rgbi
+    crgbi(const rgb& c)
     {
         return
         {
-            colorutil::to_unsigned_char(rgb.r),
-            colorutil::to_unsigned_char(rgb.g),
-            colorutil::to_unsigned_char(rgb.b)
+            colorutil::to_unsigned_char(c.r),
+            colorutil::to_unsigned_char(c.g),
+            colorutil::to_unsigned_char(c.b)
         };
     }
 
-    Rgbi
-    crgbi(const Rgba& rgb)
+    rgbi
+    crgbi(const rgba& c)
     {
         return
         {
-            colorutil::to_unsigned_char(rgb.r),
-            colorutil::to_unsigned_char(rgb.g),
-            colorutil::to_unsigned_char(rgb.b)
+            colorutil::to_unsigned_char(c.r),
+            colorutil::to_unsigned_char(c.g),
+            colorutil::to_unsigned_char(c.b)
         };
     }
 
-    Rgbi
-    crgbi(const Rgbai& rgb)
+    rgbi
+    crgbi(const rgbai& c)
     {
-        return {rgb.r, rgb.g, rgb.b};
+        return {c.r, c.g, c.b};
     }
 
     //
-    Rgba
-    crgba(const Rgbai& rgb)
+    rgba
+    crgba(const rgbai& c)
     {
         return
         {
             {
-                colorutil::to_float(rgb.r),
-                colorutil::to_float(rgb.g),
-                colorutil::to_float(rgb.b),
+                colorutil::to_float(c.r),
+                colorutil::to_float(c.g),
+                colorutil::to_float(c.b),
             },
-            colorutil::to_float(rgb.a)
+            colorutil::to_float(c.a)
         };
     }
 
-    Rgbai
-    crgbai(const Rgba& rgb)
+    rgbai
+    crgbai(const rgba& c)
     {
         return
         {
             {
-                colorutil::to_unsigned_char(rgb.r),
-                colorutil::to_unsigned_char(rgb.g),
-                colorutil::to_unsigned_char(rgb.b),
+                colorutil::to_unsigned_char(c.r),
+                colorutil::to_unsigned_char(c.g),
+                colorutil::to_unsigned_char(c.b),
             },
-            colorutil::to_unsigned_char(rgb.a)
+            colorutil::to_unsigned_char(c.a)
         };
     }
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    Rgb
-    RgbTransform::transform(const Rgb& from, float v, const Rgb& to)
+    rgb
+    RgbTransform::transform(const rgb& from, float v, const rgb& to)
     {
         return
         {
@@ -416,12 +416,12 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    std::string to_js_hex_color(const Rgbi& c)
+    std::string to_js_hex_color(const rgbi& c)
     {
         return "0x{:0>2x}{:0>2x}{:0>2x}"_format(c.r, c.g, c.b);
     }
 
-    std::string to_html_rgb(const Rgbi& c)
+    std::string to_html_rgb(const rgbi& c)
     {
         return "rgb({}, {}, {})"_format(c.r, c.g, c.b);
     }
@@ -496,8 +496,8 @@ namespace euphoria::core
         return hsl;
     }
 
-    Rgb
-    shade_color(const Rgb& color, float percentage)
+    rgb
+    shade_color(const rgb& color, float percentage)
     {
         // //
         // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
@@ -506,7 +506,7 @@ namespace euphoria::core
         const float r = (t - color.r) * p + color.r;
         const float g = (t - color.g) * p + color.g;
         const float b = (t - color.b) * p + color.b;
-        return Rgb{r, g, b};
+        return rgb{r, g, b};
     }
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -582,7 +582,7 @@ namespace euphoria::core
             else { return { std::nullopt, s }; };
         }
 
-        using R = Result<Rgbi>;
+        using R = Result<rgbi>;
 
         // given a component sie, parses a #fff or a #ffffff string to a color
         template<int size>
@@ -631,7 +631,7 @@ namespace euphoria::core
     }
 
     [[nodiscard]]
-    Result<Rgbi>
+    Result<rgbi>
     crgbi(const std::string& original_value)
     {
         const auto value = trim(original_value);

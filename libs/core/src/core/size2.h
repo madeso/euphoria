@@ -9,14 +9,14 @@
 namespace euphoria::core
 {
     template <typename T>
-    struct Size2
+    struct size2
     {
-        using Self = Size2<T>;
+        using Self = size2<T>;
 
         T width;
         T height;
 
-        Size2()
+        size2()
             : width(-1)
             , height(-1)
         {
@@ -74,36 +74,36 @@ namespace euphoria::core
             height /= rhs;
         }
 
-        Vec2<T>
+        vec2<T>
         calculate_center_offset_for(const Self& o)
         {
             const T x = (width - o.width) / 2;
             const T y = (height - o.height) / 2;
-            return Vec2<T>(x, y);
+            return vec2<T>(x, y);
         }
 
     private:
-        Size2(T w, T h) : width(w), height(h) {}
+        size2(T w, T h) : width(w), height(h) {}
     };
 
 
     template<typename T>
-    struct CustomArgparser<Size2<T>>
+    struct CustomArgparser<size2<T>>
     {
         enum { value = 1 };
 
         static
         std::string
-        to_string(const Size2<T>& s)
+        to_string(const size2<T>& s)
         {
             return "{}x{}"_format(s.width, s.height);
         }
 
         static
-        Result<Size2<T>>
+        Result<size2<T>>
         parse(const std::string& value)
         {
-            using R = Result<Size2<T>>;
+            using R = Result<size2<T>>;
             const auto values = split(value, 'x');
             const auto xes = values.size();
             if(xes != 2)
@@ -137,77 +137,77 @@ namespace euphoria::core
             if(!lhs) { return R::create_error(lhs.get_error()); }
             if(!rhs) { return R::create_error(rhs.get_error()); }
 
-            return R::create_value(Size2<T>::create_from_width_height(*lhs, *rhs));
+            return R::create_value(size2<T>::create_from_width_height(*lhs, *rhs));
         }
     };
 
     template <typename T>
-    Size2<T>
-    min(const Size2<T> lhs, const Size2<T> rhs)
+    size2<T>
+    min(const size2<T> lhs, const size2<T> rhs)
     {
-        return Size2<T>::create_from_width_height(
+        return size2<T>::create_from_width_height(
                 min(lhs.width, rhs.width), min(lhs.height, rhs.height));
     }
 
     template <typename T>
-    Size2<T>
-    max(const Size2<T> lhs, const Size2<T> rhs)
+    size2<T>
+    max(const size2<T> lhs, const size2<T> rhs)
     {
-        return Size2<T>::create_from_width_height(
+        return size2<T>::create_from_width_height(
                 max(lhs.width, rhs.width), max(lhs.height, rhs.height));
     }
 
     template <typename T>
-    Size2<T>
-    operator+(const Size2<T>& lhs, const Size2<T>& rhs)
+    size2<T>
+    operator+(const size2<T>& lhs, const size2<T>& rhs)
     {
-        Size2<T> t = lhs;
+        size2<T> t = lhs;
         t += rhs;
         return t;
     }
 
     template <typename T>
-    Size2<T>
-    operator-(const Size2<T>& lhs, const Size2<T>& rhs)
+    size2<T>
+    operator-(const size2<T>& lhs, const size2<T>& rhs)
     {
-        Size2<T> t = lhs;
+        size2<T> t = lhs;
         t -= rhs;
         return t;
     }
 
     template <typename T>
-    Size2<T> operator*(const Size2<T>& lhs, const T& rhs)
+    size2<T> operator*(const size2<T>& lhs, const T& rhs)
     {
-        Size2<T> t = lhs;
+        size2<T> t = lhs;
         t *= rhs;
         return t;
     }
 
     template <typename T>
-    Size2<T> operator*(const T& lhs, const Size2<T>& rhs)
+    size2<T> operator*(const T& lhs, const size2<T>& rhs)
     {
-        Size2<T> t = rhs;
+        size2<T> t = rhs;
         t *= lhs;
         return t;
     }
 
     template <typename T>
-    Size2<T>
-    operator/(const Size2<T>& lhs, const T& rhs)
+    size2<T>
+    operator/(const size2<T>& lhs, const T& rhs)
     {
-        Size2<T> t = lhs;
+        size2<T> t = lhs;
         t /= rhs;
         return t;
     }
 
     template <typename S, typename T>
     S&
-    operator<<(S& s, const Size2<T>& r)
+    operator<<(S& s, const size2<T>& r)
     {
         s << "(" << r.width << " x " << r.height << ")";
         return s;
     }
 
-    using Size2i = Size2<int>;
-    using Size2f = Size2<float>;
+    using size2i = size2<int>;
+    using size2f = size2<float>;
 }

@@ -21,7 +21,7 @@ main(int, char*[])
         clear(&image, {NamedColor::white});
     }
 
-    const auto center = Vec2i(width/2, height/2);
+    const auto center = vec2i(width/2, height/2);
 
     for(auto& image : images)
     {
@@ -37,8 +37,8 @@ main(int, char*[])
     auto draw = [&]
         (
             const NamedColor color,
-            const Vec2i& from,
-            const Vec2i& to
+            const vec2i& from,
+            const vec2i& to
         )
     {
         draw_line_antialiased(&(images[0]), color, from, to);
@@ -48,17 +48,17 @@ main(int, char*[])
         draw_line_fast(&(images[3]), {color}, to, from);
     };
 
-    draw(NamedColor::pure_blue, center, center + Vec2i{center.x, offset});
-    draw(NamedColor::pure_yellow, center, center - Vec2i{center.x, offset});
+    draw(NamedColor::pure_blue, center, center + vec2i{center.x, offset});
+    draw(NamedColor::pure_yellow, center, center - vec2i{center.x, offset});
 
-    draw(NamedColor::pure_pink, center, center + Vec2i{offset, center.y});
-    draw(NamedColor::pure_brown, center, center - Vec2i{offset, center.y});
+    draw(NamedColor::pure_pink, center, center + vec2i{offset, center.y});
+    draw(NamedColor::pure_brown, center, center - vec2i{offset, center.y});
 
     Image composite;
     composite.setup_no_alpha_support(width * 2, height * 2);
     for(int i=0; i<4; i+=1)
     {
-        const auto p = Vec2i{i%2 * width, i/2 * height};
+        const auto p = vec2i{i%2 * width, i/2 * height};
         paste_image(&composite, p, images[i]);
     }
 

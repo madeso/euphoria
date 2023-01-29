@@ -18,9 +18,9 @@ namespace euphoria::core
         /** the name of the palette */
         std::string_view name;
 
-        ranges::span<const Rgbi> colors;
+        ranges::span<const rgbi> colors;
 
-        constexpr Palette(const std::string_view& n, const ranges::span<const Rgbi>& c)
+        constexpr Palette(const std::string_view& n, const ranges::span<const rgbi>& c)
             : name(n)
             , colors(c)
         {
@@ -30,7 +30,7 @@ namespace euphoria::core
          * @param r the random generator to use
          * @returns a random color
          */
-        const Rgbi&
+        const rgbi&
         get_random_color(Random* r) const;
 
         /** Get a color based on the index.
@@ -38,14 +38,14 @@ namespace euphoria::core
          * @param i the index
          * @returns the color
         */
-        [[nodiscard]] const Rgbi&
+        [[nodiscard]] const rgbi&
         get_safe_index(unsigned int i) const;
 
-        [[nodiscard]] const Rgbi&
-        get_closest_color(const Rgbi& c) const;
+        [[nodiscard]] const rgbi&
+        get_closest_color(const rgbi& c) const;
 
         [[nodiscard]] int
-        get_index_closest(const Rgbi& c) const;
+        get_index_closest(const rgbi& c) const;
 
         // todo(Gustav): provide a function that takes a (void) lambda
         // returing a index, and we return a (safe) color from that index
@@ -58,13 +58,13 @@ namespace euphoria::core
     struct StaticPalette
     {
         std::string_view name;
-        std::array<const Rgbi, size> colors;
+        std::array<const rgbi, size> colors;
         Palette pal;
 
         constexpr StaticPalette
         (
             std::string_view n,
-            const std::array<const Rgbi, size>& c
+            const std::array<const rgbi, size>& c
         )
             : name(n), colors(c), pal{n, colors}
         {
@@ -98,19 +98,19 @@ namespace euphoria::core
         std::string name;
 
         /** list of the colors */
-        std::vector<Rgbi> colors;
+        std::vector<rgbi> colors;
 
         [[nodiscard]] Palette
         to_palette() const;
 
         template <typename... R>
-        DynamicPalette(const std::string& n, const Rgbi& c0, const R&... c)
+        DynamicPalette(const std::string& n, const rgbi& c0, const R&... c)
             : name(n)
             , colors {c0, c...}
         {
         }
 
-        DynamicPalette(const std::string& n, const std::vector<Rgbi>& c);
+        DynamicPalette(const std::string& n, const std::vector<rgbi>& c);
 
         /** Create a empty palette with a name.
          * @param name the name of the palette
@@ -134,8 +134,8 @@ namespace euphoria::core
         create_rainbow
         (
             int count,
-            const Angle& from,
-            const Angle& to,
+            const angle& from,
+            const angle& to,
             float saturation,
             float lightness
         );

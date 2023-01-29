@@ -18,7 +18,7 @@ namespace euphoria::render
         explicit Sprite
         (
             std::shared_ptr<Texture2> texture,
-            const core::Vec2f& position = core::Vec2f::zero()
+            const core::vec2f& position = core::vec2f::zero()
         );
 
         [[nodiscard]] float
@@ -31,10 +31,10 @@ namespace euphoria::render
         render(SpriteRenderer* render) const;
 
         std::shared_ptr<Texture2> texture;
-        core::Vec2f position;
-        core::Angle rotation;
+        core::vec2f position;
+        core::angle rotation;
         core::Scale2f scale = core::Scale2f(1, 1);
-        core::Rgb color = core::Rgb(1.0f);
+        core::rgb color = core::rgb(1.0f);
         float alpha = 1.0f;
     };
 

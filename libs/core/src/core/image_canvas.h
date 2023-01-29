@@ -14,17 +14,17 @@ namespace euphoria::core
     // https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
     struct Canvas
     {
-        Rgbi fill_style;
+        rgbi fill_style;
 
         Image* target_image;
 
-        Mat3f transform;
+        mat3f transform;
 
         bool building_path;
-        std::vector<Vec2f> path;
+        std::vector<vec2f> path;
 
-        [[nodiscard]] Vec2f
-        transform_position(const Vec2f& v) const;
+        [[nodiscard]] vec2f
+        transform_position(const vec2f& v) const;
 
         Canvas(Image* i);
 

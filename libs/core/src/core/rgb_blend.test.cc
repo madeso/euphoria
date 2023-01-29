@@ -4,8 +4,8 @@
 
 using namespace euphoria::core;
 
-using R = Rgbi;
-using A = Rgbai;
+using R = rgbi;
+using A = rgbai;
 
 TEST_CASE("rgb_blend")
 {

@@ -24,9 +24,9 @@ namespace euphoria::render
         void
         render
         (
-            const core::Mat4f& projection_matrix,
-            const core::Mat4f& view_matrix,
-            const core::Vec3f& camera,
+            const core::mat4f& projection_matrix,
+            const core::mat4f& view_matrix,
+            const core::vec3f& camera,
             const Light& light
         ) override;
 

@@ -69,7 +69,7 @@ namespace euphoria::core::generator
         generator::Maze* maze = nullptr;
         core::Random* random = nullptr;
 
-        std::stack<Vec2i> stack;
+        std::stack<vec2i> stack;
         int visited_cells = 0;
 
         void
@@ -89,7 +89,7 @@ namespace euphoria::core::generator
 
         struct Entry
         {
-            Vec2i position;
+            vec2i position;
             Direction direction;
         };
         std::vector<Entry> frontier;
@@ -114,13 +114,13 @@ namespace euphoria::core::generator
         RecursiveBacktracker* tracker = nullptr;
         RandomTraversal* traversal = nullptr;
 
-        Rgbi wall_color;
-        Rgbi cell_color;
-        Rgbi cell_visited_color;
-        Rgbi unit_color;
-        Rgbi corridor_color;
+        rgbi wall_color;
+        rgbi cell_color;
+        rgbi cell_visited_color;
+        rgbi unit_color;
+        rgbi corridor_color;
 
-        [[nodiscard]] Rgbi
+        [[nodiscard]] rgbi
         calculate_cell_color(int x, int y) const;
 
         core::Image image;

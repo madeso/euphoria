@@ -542,7 +542,7 @@ namespace euphoria::editor
         {
             ImGui::OpenPopup("asd");
             const auto w = canvas.screen_to_world(ImGui::GetMousePos());
-            mouse_popup = Vec2i {static_cast<int>(w.x), static_cast<int>(w.y)};
+            mouse_popup = vec2i {static_cast<int>(w.x), static_cast<int>(w.y)};
         }
 
         if(ImGui::BeginPopup("asd"))

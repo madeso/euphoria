@@ -28,9 +28,9 @@ namespace euphoria::render
         void
         render
         (
-            const core::Mat4f& model_matrix,
-            const core::Mat4f& projection_matrix,
-            const core::Mat4f& view_matrix
+            const core::mat4f& model_matrix,
+            const core::mat4f& projection_matrix,
+            const core::mat4f& view_matrix
         );
     };
     

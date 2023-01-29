@@ -39,7 +39,7 @@ namespace euphoria::render
         VertexBuffer* vb
     )
     {
-        constexpr auto add_float3 = [](std::vector<float>* dst, const core::Vec3f& src)
+        constexpr auto add_float3 = [](std::vector<float>* dst, const core::vec3f& src)
         {
             dst->emplace_back(src.x);
             dst->emplace_back(src.y);
@@ -71,7 +71,7 @@ namespace euphoria::render
                     ASSERT(att.type == ShaderAttributeType::float3);
                     add_float3
                     (
-                        &data, core::Vec3f
+                        &data, core::vec3f
                         {
                             point.color.r,
                             point.color.g,
@@ -91,9 +91,9 @@ namespace euphoria::render
     void
     CompiledLines::render
     (
-        const core::Mat4f& model_matrix,
-        const core::Mat4f& projection_matrix,
-        const core::Mat4f& view_matrix
+        const core::mat4f& model_matrix,
+        const core::mat4f& projection_matrix,
+        const core::mat4f& view_matrix
     )
     {
         shader->use_shader();

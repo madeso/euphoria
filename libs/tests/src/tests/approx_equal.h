@@ -13,22 +13,22 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::Vec3f const& lhs,
-            core::Vec3f const& rhs,
+            core::vec3f const& lhs,
+            core::vec3f const& rhs,
             const ApproxData& data);
 
     template <>
     bool
     approximately_equal(
-            core::Rgb const& lhs,
-            core::Rgb const& rhs,
+            core::rgb const& lhs,
+            core::rgb const& rhs,
             const ApproxData& data);
 
     template <>
     bool
     approximately_equal(
-            core::Rgba const& lhs,
-            core::Rgba const& rhs,
+            core::rgba const& lhs,
+            core::rgba const& rhs,
             const ApproxData& data);
 
     template <>
@@ -41,15 +41,15 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
-            core::Unit3f const& lhs,
-            core::Unit3f const& rhs,
+            core::unit3f const& lhs,
+            core::unit3f const& rhs,
             const ApproxData& data);
 
     template <>
     bool
     approximately_equal(
-            core::Quatf const& lhs,
-            core::Quatf const& rhs,
+            core::quatf const& lhs,
+            core::quatf const& rhs,
             const ApproxData& data);
 
     template <>

@@ -140,15 +140,15 @@ write_palettes_to_html(const std::string& wd)
 
 
 
-dump2d::Poly create_box(const Vec2f& p, float width, float height, const Rgbi& c, bool border)
+dump2d::Poly create_box(const vec2f& p, float width, float height, const rgbi& c, bool border)
 {
     dump2d::Poly r;
     r.points =
     {
         p,
-        p + Vec2f{width, 0},
-        p + Vec2f{width, height},
-        p + Vec2f{0, height}
+        p + vec2f{width, 0},
+        p + vec2f{width, height},
+        p + vec2f{0, height}
     };
     r.close();
     r.fill(c);
@@ -184,7 +184,7 @@ write_palettes_to_single_svg(const std::string& path, float height, bool border)
         )
         {
             const auto s = border ? ss : size-spacing*2;
-            const auto box_position = Vec2f{x + s * euphoria::core::c_int_to_float(i), y};
+            const auto box_position = vec2f{x + s * euphoria::core::c_int_to_float(i), y};
             d << create_box(box_position, size, height, pal.colors[i], border);
         }
 

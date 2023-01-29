@@ -6,16 +6,16 @@
 
 namespace euphoria::core::generator
 {
-    Vec2i
+    vec2i
     dir_to_offset(const Direction d)
     {
         switch(d)
         {
-        case Direction::south: return Vec2i { 0, -1};
-        case Direction::north: return Vec2i { 0, 1};
-        case Direction::west: return Vec2i {-1, 0};
-        case Direction::east: return Vec2i { 1, 0};
-        default: return Vec2i(0, 0);
+        case Direction::south: return vec2i { 0, -1};
+        case Direction::north: return vec2i { 0, 1};
+        case Direction::west: return vec2i {-1, 0};
+        case Direction::east: return vec2i { 1, 0};
+        default: return vec2i(0, 0);
         }
     }
 
@@ -60,14 +60,14 @@ namespace euphoria::core::generator
 
 
     void
-    visit(Maze* maze, const Vec2i& np)
+    visit(Maze* maze, const vec2i& np)
     {
         (*maze)(np.x, np.y) |= cell::visited;
     }
 
 
-    Vec2i
-    add_step_to_maze(Maze* maze, const Vec2i& c, Direction dir)
+    vec2i
+    add_step_to_maze(Maze* maze, const vec2i& c, Direction dir)
     {
         const auto o = dir_to_offset(dir);
         const auto np = c + o;
@@ -78,14 +78,14 @@ namespace euphoria::core::generator
 
 
     bool
-    has_visited(Maze* maze, const Vec2i& np)
+    has_visited(Maze* maze, const vec2i& np)
     {
         return ((*maze)(np.x, np.y) & cell::visited) != 0;
     }
 
 
     bool
-    can_visit_without_making_loop(Maze* maze, const Vec2i& np)
+    can_visit_without_making_loop(Maze* maze, const vec2i& np)
     {
         const auto world_size = Recti::from_width_height
         (
@@ -108,7 +108,7 @@ namespace euphoria::core::generator
     }
 
 
-    Vec2i
+    vec2i
     random_position_on_maze(Random* random, Maze* maze)
     {
         return
@@ -178,7 +178,7 @@ namespace euphoria::core::generator
     (
         Maze* maze,
         std::vector<RandomTraversal::Entry>* frontier,
-        const Vec2i& p
+        const vec2i& p
     )
     {
         visit(maze, p);
@@ -236,7 +236,7 @@ namespace euphoria::core::generator
     }
 
 
-    Rgbi
+    rgbi
     Drawer::calculate_cell_color(int x, int y) const
     {
         const auto cell_value = (*maze)(x, y);
@@ -304,7 +304,7 @@ namespace euphoria::core::generator
 
                 const auto xywh = [](int ax, int ay, int aw, int ah)
                 {
-                    return Recti::from_top_left_width_height(Vec2i{ax, ay + 1}, aw, ah);
+                    return Recti::from_top_left_width_height(vec2i{ax, ay + 1}, aw, ah);
                 };
 
                 const auto cell_value = (*maze)(x, y);

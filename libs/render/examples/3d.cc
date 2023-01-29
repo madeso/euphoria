@@ -52,15 +52,15 @@ using namespace euphoria::window;
 struct CubeAnimation
 {
     CubeAnimation()
-        : from(Quatf::identity())
-        , to(Quatf::identity())
+        : from(quatf::identity())
+        , to(quatf::identity())
     {
     }
 
     std::shared_ptr<euphoria::render::Actor> actor;
     float timer = 0.0f;
-    Quatf from;
-    Quatf to;
+    quatf from;
+    quatf to;
     float rotation_speed = 1.0f;
     float move_speed = 1.0f;
 };
@@ -101,7 +101,7 @@ main(int argc, char** argv)
 
     for(int i = 0; i < 20; i += 1)
     {
-        const Rgb color = crgb(palettes::dawnbringer().get_random_color(&rand));
+        const rgb color = crgb(palettes::dawnbringer().get_random_color(&rand));
         const auto pos = get_random_point(&rand, wi);
         const auto outer = get_random_in_range(&rand, 55.0f, 100.0f);
         const auto inner = get_random_in_range(&rand, make_range(50.0f));
@@ -112,7 +112,7 @@ main(int argc, char** argv)
     (
         &image,
         {NamedColor::blue},
-        Recti::from_top_left_width_height(Vec2i{0, 256}, 100, 25)
+        Recti::from_top_left_width_height(vec2i{0, 256}, 100, 25)
     );
     draw_line_antialiased(&image, NamedColor::black, wi.get_bottom_left(), wi.get_top_right());
     // todo(Gustav): fix text drawing...
@@ -177,8 +177,8 @@ main(int argc, char** argv)
     const float box_extent_value = 4;
     auto box_extents = Aabb
     {
-        Vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
-        Vec3f{box_extent_value, box_extent_value, box_extent_value}
+        vec3f{-box_extent_value, -box_extent_value, -box_extent_value},
+        vec3f{box_extent_value, box_extent_value, box_extent_value}
     };
 
     std::vector<CubeAnimation> animation_handler;
@@ -195,15 +195,15 @@ main(int argc, char** argv)
 
         CubeAnimation anim;
         anim.actor = actor;
-        anim.from = Quatf::from_random(&rand);
-        anim.to = Quatf::from_random(&rand);
+        anim.from = quatf::from_random(&rand);
+        anim.to = quatf::from_random(&rand);
         anim.rotation_speed = get_random_in_range(&rand, 0.5f, 1.0f);
         anim.move_speed = get_random_in_range(&rand, 0.5f, 1.0f);
         anim.timer = rand.get_next_float01();
 
 
         // generate a position not too close to the center
-        Vec3f position = Vec3f::zero();
+        vec3f position = vec3f::zero();
         do
         {
             position = get_random_point(&rand, box_extents);
@@ -236,10 +236,10 @@ main(int argc, char** argv)
 #endif
 
     Camera3 camera;
-    camera.position = Vec3f::zero();
+    camera.position = vec3f::zero();
 
     FpsController fps;
-    fps.position = Vec3f(0, 0, 3);
+    fps.position = vec3f(0, 0, 3);
 
     auto viewport_handler = euphoria::render::ViewportHandler
     {
@@ -282,17 +282,17 @@ main(int argc, char** argv)
 
         imgui::angle_slider
         (
-            "Cutoff Angle Inner",
+            "Cutoff angle Inner",
             &world.light.cutoff_angle_inner,
-            Angle::zero(),
-            Angle::quarter() / 2
+            angle::zero(),
+            angle::quarter() / 2
         );
         imgui::angle_slider
         (
-            "Cutoff Angle Outer",
+            "Cutoff angle Outer",
             &world.light.cutoff_angle_outer,
-            Angle::zero(),
-            Angle::quarter()
+            angle::zero(),
+            angle::quarter()
         );
 
         imgui::image(debug_texture.get());
@@ -339,12 +339,12 @@ main(int argc, char** argv)
                     count += 1;
                     anim.timer -= 1.0f;
                     anim.from = anim.to;
-                    anim.to = Quatf::from_random(&rand);
+                    anim.to = quatf::from_random(&rand);
                     anim.rotation_speed = get_random_in_range(&rand, 0.3f, 1.0f);
                     anim.move_speed = get_random_in_range(&rand, 0.2f, 3.0f);
                 }
                 ASSERT(count < 2);
-                Quatf q = Quatf::slerp_shortway(anim.from, anim.timer, anim.to);
+                quatf q = quatf::slerp_shortway(anim.from, anim.timer, anim.to);
                 anim.actor->rotation = q;
                 const auto movement = q.in() * anim.move_speed * delta;
                 const auto new_pos = box_extents.wrap

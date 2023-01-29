@@ -44,7 +44,7 @@ namespace euphoria::gui
     }
 
 
-    core::Size2f
+    core::size2f
     TableLayout::calculate_minimum_area
     (
         const std::vector<std::shared_ptr<Widget>>& widgets
@@ -62,7 +62,7 @@ namespace euphoria::gui
             update_max(&height[d.row], s.height);
         }
 
-        const auto s = core::Size2f::create_from_width_height
+        const auto s = core::size2f::create_from_width_height
         (
             std::accumulate(width.begin(), width.end(), 0.0f),
             std::accumulate(height.begin(), height.end(), 0.0f)
@@ -179,7 +179,7 @@ namespace euphoria::gui
             (
                 core::Rectf::from_top_left_width_height
                 (
-                    core::Vec2f{x, y},
+                    core::vec2f{x, y},
                     width[d.column],
                     height[d.row]
                 )
@@ -194,7 +194,7 @@ namespace euphoria::gui
     }
 
 
-    core::Size2f
+    core::size2f
     SingleRowLayout::calculate_minimum_area
     (
         const std::vector<std::shared_ptr<Widget>>& widgets
@@ -216,7 +216,7 @@ namespace euphoria::gui
             update_max(&height, s.height);
         }
 
-        const auto s = core::Size2f::create_from_width_height(width, height);
+        const auto s = core::size2f::create_from_width_height(width, height);
         LOG_INFO("Single row layout min size: {0}", s);
         return s;
     }
@@ -239,7 +239,7 @@ namespace euphoria::gui
             (
                 core::Rectf::from_top_left_width_height
                 (
-                    core::Vec2f{x, tl.y},
+                    core::vec2f{x, tl.y},
                     s.width,
                     s.height
                 )

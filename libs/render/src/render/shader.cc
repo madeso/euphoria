@@ -296,7 +296,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Rgb& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::rgb& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -309,7 +309,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Rgba& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::rgba& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -322,7 +322,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Vec3f& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::vec3f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -335,7 +335,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Vec4f& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::vec4f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -348,7 +348,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Mat3f& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::mat3f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));
@@ -361,7 +361,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::Mat4f& val)
+    ShaderProgram::set_uniform(const ShaderUniform& attribute, const core::mat4f& val)
     {
         ASSERT(is_currently_bound());
         ASSERT(has_bound_uniform(attribute));

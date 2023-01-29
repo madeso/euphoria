@@ -9,13 +9,15 @@
 
 namespace euphoria::core
 {
+    // todo(Gustav): remove template... a integer quaternion doesn't make sense...
+
     template <typename T>
-    struct Quat
+    struct quat
     {
-        using Self = Quat<T>;
-        using Vec = Vec3<T>;
-        using Point = Vec3<T>;
-        using Unit = Unit3<T>;
+        using Self = quat<T>;
+        using Vec = vec3<T>;
+        using Point = vec3<T>;
+        using Unit = unit3<T>;
 
         T w;
         T x;
@@ -39,7 +41,7 @@ namespace euphoria::core
         }
 
 
-        Quat(T aw, const Vec& v) : w(aw), x(v.x), y(v.y), z(v.z) {}
+        quat(T aw, const Vec& v) : w(aw), x(v.x), y(v.y), z(v.z) {}
 
 
         [[nodiscard]] static Self
@@ -54,7 +56,7 @@ namespace euphoria::core
 
 
         [[nodiscard]] static Self
-        from_ypr(const Angle& yaw, const Angle& pitch, const Angle& roll)
+        from_ypr(const angle& yaw, const angle& pitch, const angle& roll)
         {
             // Abbreviations for the various angular functions
             const auto cy = cos(yaw * 0.5);
@@ -88,16 +90,16 @@ namespace euphoria::core
         from_random(Random* random)
         {
             const auto axis = get_random_unit3(random);
-            const auto angle = Angle::random(random);
+            const auto angle = angle::random(random);
 
             return Self::from_axis_angle(AxisAngle::right_hand_around(axis, angle));
         }
 
 
-        [[nodiscard]] Mat4<T>
+        [[nodiscard]] mat4<T>
         to_mat4() const
         {
-            return Mat4<T>::from_axis_angle(to_axis_angle());
+            return mat4<T>::from_axis_angle(to_axis_angle());
         }
 
 
@@ -144,7 +146,7 @@ namespace euphoria::core
         Self
         get_conjugate() const
         {
-            return Quat(w, -get_vec_part());
+            return quat(w, -get_vec_part());
         }
 
 
@@ -161,7 +163,7 @@ namespace euphoria::core
         Self
         get_negated() const
         {
-            return Quat(-w, -get_vec_part());
+            return quat(-w, -get_vec_part());
         }
 
 
@@ -171,7 +173,7 @@ namespace euphoria::core
             const T l2 = get_length_squared();
             if(is_equal(l2, 0)) { return identity(); }
             else if(is_equal(l2, 1)) { return get_conjugate(); }
-            else { return Quat(w / sqrt(l2), -get_vec_part()); }
+            else { return quat(w / sqrt(l2), -get_vec_part()); }
         }
 
 
@@ -399,7 +401,7 @@ namespace euphoria::core
     };
 
     template <typename T>
-    typename Quat<T>::Self Quat<T>::look_in_direction(const Unit& dir, const Unit& up)
+    typename quat<T>::Self quat<T>::look_in_direction(const Unit& dir, const Unit& up)
     {
         const Vec in = Unit::in();
         float dot_value = dot(in, dir);
@@ -424,7 +426,7 @@ namespace euphoria::core
 
     template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const Quat<T>& v)
+    operator<<(std::ostream& stream, const quat<T>& v)
     {
         return stream << "(" << v.w << " (" << v.x << ", " << v.y << ", " << v.z
                       << "))";
@@ -433,54 +435,54 @@ namespace euphoria::core
 
     template <typename T>
     T
-    dot(const Quat<T>& lhs, const Quat<T>& rhs)
+    dot(const quat<T>& lhs, const quat<T>& rhs)
     {
         return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
     }
 
 
     template <typename T>
-    Quat<T> operator*(const Quat<T>& lhs, const Quat<T>& rhs)
+    quat<T> operator*(const quat<T>& lhs, const quat<T>& rhs)
     {
-        Quat<T> r = lhs;
+        quat<T> r = lhs;
         r *= rhs;
         return r;
     }
 
 
     template <typename T>
-    Quat<T> operator*(T scale, const Quat<T>& q)
+    quat<T> operator*(T scale, const quat<T>& q)
     {
-        Quat<T> r = q;
+        quat<T> r = q;
         r *= scale;
         return r;
     }
 
 
     template <typename T>
-    Quat<T> operator*(const Quat<T>& q, T scale)
+    quat<T> operator*(const quat<T>& q, T scale)
     {
-        Quat<T> r = q;
+        quat<T> r = q;
         r *= scale;
         return r;
     }
 
 
     template <typename T>
-    Quat<T>
-    operator+(const Quat<T>& lhs, const Quat<T>& rhs)
+    quat<T>
+    operator+(const quat<T>& lhs, const quat<T>& rhs)
     {
-        Quat<T> r = rhs;
+        quat<T> r = rhs;
         r += lhs;
         return r;
     }
 
 
     template <typename T>
-    Quat<T>
-    operator-(const Quat<T>& lhs, const Quat<T>& rhs)
+    quat<T>
+    operator-(const quat<T>& lhs, const quat<T>& rhs)
     {
-        Quat<T> r = rhs;
+        quat<T> r = rhs;
         r -= lhs;
         return r;
     }
@@ -488,14 +490,14 @@ namespace euphoria::core
 
     template <typename T>
     bool
-    operator==(const Quat<T>& lhs, const Quat<T>& rhs)
+    operator==(const quat<T>& lhs, const quat<T>& rhs)
     {
         return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
                && lhs.w == rhs.w;
     }
 
 
-    using Quatf = Quat<float>;
-    using Quati = Quat<int>;
+    using quatf = quat<float>;
+    using quati = quat<int>;
 }
 

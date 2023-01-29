@@ -11,31 +11,31 @@
 namespace euphoria::core
 {
     // U8 colors: 0 - 255
-    struct Rgbi;
-    struct Rgbai;
+    struct rgbi;
+    struct rgbai;
 
     // float based colors: 0.0 - 1.0
-    struct Rgb;
-    struct Rgba;
+    struct rgb;
+    struct rgba;
 
 
     //////////////////////////////////////////////////////////////////////////
-    // Rgb no alpha support - int based
-    struct Rgbi
+    // rgb no alpha support - int based
+    struct rgbi
     {
         constexpr
-        Rgbi(U8 red, U8 green, U8 blue);
+        rgbi(U8 red, U8 green, U8 blue);
 
         constexpr explicit
-        Rgbi(U8 gray);
+        rgbi(U8 gray);
 
         constexpr
-        Rgbi(NamedColor color);
+        rgbi(NamedColor color);
 
         constexpr explicit
-        Rgbi(const Rgb& rgb);
+        rgbi(const rgb& c);
 
-        [[nodiscard]] constexpr static Rgbi
+        [[nodiscard]] constexpr static rgbi
         from_hex(unsigned int hex);
 
         [[nodiscard]] constexpr int
@@ -48,21 +48,21 @@ namespace euphoria::core
 
 
     //////////////////////////////////////////////////////////////////////////
-    // Rgb with alpha - int based
+    // rgb with alpha - int based
 
-    struct Rgbai
+    struct rgbai
     {
         constexpr
-        Rgbai(const Rgbi& rgb, U8 alpha = 255);
+        rgbai(const rgbi& c, U8 alpha = 255);
 
         constexpr
-        Rgbai(U8 red, U8 green, U8 blue, U8 alpha = 255);
+        rgbai(U8 red, U8 green, U8 blue, U8 alpha = 255);
 
         constexpr
-        Rgbai(U8 gray, U8 alpha = 255);
+        rgbai(U8 gray, U8 alpha = 255);
 
         constexpr explicit
-        Rgbai(const Rgba& rgba);
+        rgbai(const rgba& c);
 
         U8 r;
         U8 g;
@@ -72,17 +72,17 @@ namespace euphoria::core
 
 
     //////////////////////////////////////////////////////////////////////////
-    // Rgb no alpha support - float based
+    // rgb no alpha support - float based
 
-    struct Rgb
+    struct rgb
     {
-        Rgb(float red, float green, float blue);
-        explicit Rgb(float gray);
+        rgb(float red, float green, float blue);
+        explicit rgb(float gray);
 
-        Rgb(NamedColor color);
+        rgb(NamedColor color);
 
         [[nodiscard]]
-        static Rgb
+        static rgb
         from_hex(unsigned int hex);
 
         [[nodiscard]] float
@@ -95,17 +95,17 @@ namespace euphoria::core
         calc_luminance() const;
 
         void
-        operator+=(const Rgb& rhs);
+        operator+=(const rgb& rhs);
 
         void
-        operator-=(const Rgb& rhs);
+        operator-=(const rgb& rhs);
 
         void
         operator/=(float rhs);
 
         // memberwise multiplication
         void
-        operator*=(const Rgb& rhs);
+        operator*=(const rgb& rhs);
 
         float r;
         float g;
@@ -113,30 +113,30 @@ namespace euphoria::core
     };
 
 
-    Rgb
-    operator+(const Rgb& lhs, const Rgb& rhs);
+    rgb
+    operator+(const rgb& lhs, const rgb& rhs);
 
-    Rgb
-    operator-(const Rgb& lhs, const Rgb& rhs);
+    rgb
+    operator-(const rgb& lhs, const rgb& rhs);
 
     // memberwise multiplication
-    Rgb
-    operator*(const Rgb& lhs, const Rgb& rhs);
+    rgb
+    operator*(const rgb& lhs, const rgb& rhs);
 
-    Rgb
-    operator/(const Rgb& lhs, float rhs);
+    rgb
+    operator/(const rgb& lhs, float rhs);
 
-    Rgb
-    operator*(const Rgb& lhs, float rhs);
+    rgb
+    operator*(const rgb& lhs, float rhs);
 
-    Rgb
-    operator*(float lhs, const Rgb& rhs);
+    rgb
+    operator*(float lhs, const rgb& rhs);
 
     float
-    dot(const Rgb& lhs, const Rgb& rhs);
+    dot(const rgb& lhs, const rgb& rhs);
 
-    Rgb
-    clamp(const Rgb& r);
+    rgb
+    clamp(const rgb& r);
 
 
     //////////////////////////////////////////////////////////////////////////
@@ -145,17 +145,17 @@ namespace euphoria::core
     struct Hsl
     {
         // hue, saturation, lightness
-        Angle h; // the most noticeable color that stands out to your eye
+        angle h; // the most noticeable color that stands out to your eye
         float s; // the "brilliance" (0-1)
         float l; // the light or darkness (0-1)
 
         // todo(Gustav): why are these angles and not a Hsl?
-        static constexpr Angle red = Angle::from_percent_of_360(0.0f);
-        static constexpr Angle yellow = Angle::from_percent_of_360(1 / 6.0f);
-        static constexpr Angle green = Angle::from_percent_of_360(2 / 6.0f);
-        static constexpr Angle cyan = Angle::from_percent_of_360(3 / 6.0f);
-        static constexpr Angle blue = Angle::from_percent_of_360(4 / 6.0f);
-        static constexpr Angle magenta = Angle::from_percent_of_360(5 / 6.0f);
+        static constexpr angle red = angle::from_percent_of_360(0.0f);
+        static constexpr angle yellow = angle::from_percent_of_360(1 / 6.0f);
+        static constexpr angle green = angle::from_percent_of_360(2 / 6.0f);
+        static constexpr angle cyan = angle::from_percent_of_360(3 / 6.0f);
+        static constexpr angle blue = angle::from_percent_of_360(4 / 6.0f);
+        static constexpr angle magenta = angle::from_percent_of_360(5 / 6.0f);
     };
 
     enum class IsAbsolute
@@ -182,18 +182,18 @@ namespace euphoria::core
     /** Makes a color brighter or darker.
      * The +1 makes it white, 0% is no change, -1 makes it black.
      */
-    Rgb
-    shade_color(const Rgb& color, float percentage);
+    rgb
+    shade_color(const rgb& color, float percentage);
 
 
     //////////////////////////////////////////////////////////////////////////
-    // Rgb with alpha - float based
+    // rgb with alpha - float based
 
-    struct Rgba
+    struct rgba
     {
     public:
-        Rgba(float red, float green, float blue, float alpha = 1.0f);
-        Rgba(const Rgb& rgb, float alpha = 1.0f);
+        rgba(float red, float green, float blue, float alpha = 1.0f);
+        rgba(const rgb& c, float alpha = 1.0f);
 
         float r;
         float g;
@@ -205,23 +205,23 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // For printing
 
-    std::string to_string(const Rgbi& v);
-    std::string to_string(const Rgbai& v);
-    std::string to_string(const Rgb& v);
-    std::string to_string(const Rgba& v);
+    std::string to_string(const rgbi& v);
+    std::string to_string(const rgbai& v);
+    std::string to_string(const rgb& v);
+    std::string to_string(const rgba& v);
     std::string to_string(const Hsl& v);
 
     std::ostream&
-    operator<<(std::ostream& stream, const Rgbi& v);
+    operator<<(std::ostream& stream, const rgbi& v);
 
     std::ostream&
-    operator<<(std::ostream& stream, const Rgbai& v);
+    operator<<(std::ostream& stream, const rgbai& v);
 
     std::ostream&
-    operator<<(std::ostream& stream, const Rgb& v);
+    operator<<(std::ostream& stream, const rgb& v);
 
     std::ostream&
-    operator<<(std::ostream& stream, const Rgba& v);
+    operator<<(std::ostream& stream, const rgba& v);
 
     std::ostream&
     operator<<(std::ostream& stream, const Hsl& v);
@@ -230,54 +230,54 @@ namespace euphoria::core
     // Default compare
 
     bool
-    operator==(const Rgbi& lhs, const Rgbi& rhs);
+    operator==(const rgbi& lhs, const rgbi& rhs);
 
     bool
-    operator!=(const Rgbi& lhs, const Rgbi& rhs);
+    operator!=(const rgbi& lhs, const rgbi& rhs);
 
     bool
-    operator==(const Rgbai& lhs, const Rgbai& rhs);
+    operator==(const rgbai& lhs, const rgbai& rhs);
 
     bool
-    operator!=(const Rgbai& lhs, const Rgbai& rhs);
+    operator!=(const rgbai& lhs, const rgbai& rhs);
 
     //////////////////////////////////////////////////////////////////////////
     // Convert functions (rgb)
 
-    Rgb
-    crgb(const Rgbi& rgb);
+    rgb
+    crgb(const rgbi& c);
 
-    Rgb
-    crgb(const Rgba& rgb);
+    rgb
+    crgb(const rgba& c);
 
-    Rgb
-    crgb(const Rgbai& rgb);
+    rgb
+    crgb(const rgbai& c);
 
-    Rgb
+    rgb
     crgb(const Hsl& c);
 
     // Convert functions (hsl)
 
     Hsl
-    chsl(const Rgb& c);
+    chsl(const rgb& c);
 
     // Convert functions (rgbi)
 
-    Rgbi
-    crgbi(const Rgb& rgb);
+    rgbi
+    crgbi(const rgb& c);
 
-    Rgbi
-    crgbi(const Rgba& rgb);
+    rgbi
+    crgbi(const rgba& c);
 
-    Rgbi
-    crgbi(const Rgbai& rgb);
+    rgbi
+    crgbi(const rgbai& c);
 
     // convert functions rgba
-    Rgba
-    crgba(const Rgbai& rgb);
+    rgba
+    crgba(const rgbai& c);
 
-    Rgbai
-    crgbai(const Rgba& rgb);
+    rgbai
+    crgbai(const rgba& c);
 
 
     //////////////////////////////////////////////////////////////////////////
@@ -285,37 +285,37 @@ namespace euphoria::core
 
     struct RgbTransform
     {
-        static Rgb
-        transform(const Rgb& from, float v, const Rgb& to);
+        static rgb
+        transform(const rgb& from, float v, const rgb& to);
     };
 
 
     //////////////////////////////////////////////////////////////////////////
     // Printing/Exporting
-    std::string to_js_hex_color(const Rgbi& c);
-    std::string to_html_rgb(const Rgbi& c);
+    std::string to_js_hex_color(const rgbi& c);
+    std::string to_html_rgb(const rgbi& c);
 
 
     //////////////////////////////////////////////////////////////////////////
     // Parsing
     [[nodiscard]]
-    Result<Rgbi>
+    Result<rgbi>
     crgbi(const std::string& value);
 
     template<>
-    struct CustomArgparser<Rgbi>
+    struct CustomArgparser<rgbi>
     {
         enum { value = 1 };
 
         static
         std::string
-        to_string(const Rgbi& c)
+        to_string(const rgbi& c)
         {
             return euphoria::core::to_string(c);
         }
 
         static
-        Result<Rgbi>
+        Result<rgbi>
         parse(const std::string& value)
         {
             return crgbi(value);
@@ -340,23 +340,23 @@ namespace euphoria::core
 
         constexpr
         U8
-        get_red(unsigned int rgb)
+        get_red(unsigned int c)
         {
-            return get_component(rgb, 2);
+            return get_component(c, 2);
         }
 
         constexpr
         U8
-        get_green(unsigned int rgb)
+        get_green(unsigned int c)
         {
-            return get_component(rgb, 1);
+            return get_component(c, 1);
         }
 
         constexpr
         U8
-        get_blue(unsigned int rgb)
+        get_blue(unsigned int c)
         {
-            return get_component(rgb, 0);
+            return get_component(c, 0);
         }
 
         constexpr
@@ -450,36 +450,36 @@ namespace euphoria::core
     // implementation
 
     constexpr
-    Rgbi::Rgbi(U8 red, U8 green, U8 blue)
+    rgbi::rgbi(U8 red, U8 green, U8 blue)
         : r(red), g(green), b(blue)
     {
     }
 
 
     constexpr
-    Rgbi::Rgbi(U8 gray)
+    rgbi::rgbi(U8 gray)
         : r(gray), g(gray), b(gray)
     {
     }
 
 
     constexpr
-    Rgbi::Rgbi(NamedColor color)
-        : Rgbi(Rgbi::from_hex(colorutil::to_color_hex(color)))
+    rgbi::rgbi(NamedColor color)
+        : rgbi(rgbi::from_hex(colorutil::to_color_hex(color)))
     {
     }
 
 
     constexpr
-    Rgbi::Rgbi(const Rgb& rgb)
-        : r(colorutil::to_unsigned_char(rgb.r))
-        , g(colorutil::to_unsigned_char(rgb.g))
-        , b(colorutil::to_unsigned_char(rgb.b))
+    rgbi::rgbi(const rgb& c)
+        : r(colorutil::to_unsigned_char(c.r))
+        , g(colorutil::to_unsigned_char(c.g))
+        , b(colorutil::to_unsigned_char(c.b))
     {}
 
 
-    [[nodiscard]] constexpr Rgbi
-    Rgbi::from_hex(unsigned int hex)
+    [[nodiscard]] constexpr rgbi
+    rgbi::from_hex(unsigned int hex)
     {
         return
         {
@@ -492,7 +492,7 @@ namespace euphoria::core
 
     constexpr
     int
-    Rgbi::to_hex() const
+    rgbi::to_hex() const
     {
         const auto value = [](int i, int steps) -> int { return i << (8 * steps); };
         return value(r, 2) | value(g, 1) | value(b, 0);
@@ -500,31 +500,31 @@ namespace euphoria::core
 
 
     constexpr
-    Rgbai::Rgbai(const Rgbi& rgb, U8 alpha)
-        : r(rgb.r), g(rgb.g), b(rgb.b), a(alpha)
+    rgbai::rgbai(const rgbi& c, U8 alpha)
+        : r(c.r), g(c.g), b(c.b), a(alpha)
     {
     }
 
 
     constexpr
-    Rgbai::Rgbai(U8 red, U8 green, U8 blue, U8 alpha)
+    rgbai::rgbai(U8 red, U8 green, U8 blue, U8 alpha)
         : r(red), g(green), b(blue), a(alpha)
     {
     }
 
     constexpr
-    Rgbai::Rgbai(U8 gray, U8 alpha)
+    rgbai::rgbai(U8 gray, U8 alpha)
         : r(gray), g(gray), b(gray), a(alpha)
     {
     }
 
 
     constexpr
-    Rgbai::Rgbai(const Rgba& rgba)
-        : r(colorutil::to_unsigned_char(rgba.r))
-        , g(colorutil::to_unsigned_char(rgba.g))
-        , b(colorutil::to_unsigned_char(rgba.b))
-        , a(colorutil::to_unsigned_char(rgba.a))
+    rgbai::rgbai(const rgba& c)
+        : r(colorutil::to_unsigned_char(c.r))
+        , g(colorutil::to_unsigned_char(c.g))
+        , b(colorutil::to_unsigned_char(c.b))
+        , a(colorutil::to_unsigned_char(c.a))
     {
     }
 

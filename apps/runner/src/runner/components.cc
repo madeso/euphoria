@@ -17,7 +17,7 @@ namespace euphoria::runner
     {
     }
 
-    ComponentPosition2::ComponentPosition2(const core::Vec2f& p)
+    ComponentPosition2::ComponentPosition2(const core::vec2f& p)
         : pos(p)
     {
     }
@@ -29,7 +29,7 @@ namespace euphoria::runner
     }
 
     core::Rectf
-    get_sprite_rect(const core::Vec2f& position, const render::Texture2& texture)
+    get_sprite_rect(const core::vec2f& position, const render::Texture2& texture)
     {
         return core::Rectf::from_position_anchor_width_and_height
         (

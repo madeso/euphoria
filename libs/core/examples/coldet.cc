@@ -20,19 +20,19 @@ using namespace euphoria::core::dump3d;
 struct PlaneDemo
 {
     const euphoria::core::Plane plane = euphoria::core::Plane::from_points
-    (Vec3f(5, 6, 7), Vec3f(6, 5, 4), Vec3f(1, 2, 3));
-    const std::vector<Vec3f> points =
+    (vec3f(5, 6, 7), vec3f(6, 5, 4), vec3f(1, 2, 3));
+    const std::vector<vec3f> points =
     {
-        Vec3f(0.0f, 0.0f, 0.0f),
-        Vec3f(2.0f, 6.0f, 1.0f),
-        Vec3f(3.0f, 1.0f, -3.0f),
-        Vec3f(-2.0f, -1.0f, 2.0f),
-        Vec3f(7.0f, 7.0f, -7.0f),
-        Vec3f(3.0f, 2.0f, -1.0f),
-        Vec3f(10.0f, 3.0f, -10.0f),
-        Vec3f(2.0f, 8.0f, -7.0f),
-        Vec3f(-1.632993f, 3.265986f, -1.632993f),
-        Vec3f(-1.020621f, 3.265986f, -2.245366f)
+        vec3f(0.0f, 0.0f, 0.0f),
+        vec3f(2.0f, 6.0f, 1.0f),
+        vec3f(3.0f, 1.0f, -3.0f),
+        vec3f(-2.0f, -1.0f, 2.0f),
+        vec3f(7.0f, 7.0f, -7.0f),
+        vec3f(3.0f, 2.0f, -1.0f),
+        vec3f(10.0f, 3.0f, -10.0f),
+        vec3f(2.0f, 8.0f, -7.0f),
+        vec3f(-1.632993f, 3.265986f, -1.632993f),
+        vec3f(-1.020621f, 3.265986f, -2.245366f)
     };
 
     void
@@ -41,7 +41,7 @@ struct PlaneDemo
         auto d = Dumper{ cd + "/coldet-distance-to-plane.html" };
 
         d.add_plane(plane, NamedColor::white);
-        d.add_arrow(Ray3f(Vec3f::zero(), plane.normal), NamedColor::green);
+        d.add_arrow(Ray3f(vec3f::zero(), plane.normal), NamedColor::green);
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
@@ -55,7 +55,7 @@ struct PlaneDemo
         auto d = Dumper{ cd + "/coldet-point-to-plane.html" };
 
         d.add_plane(plane, NamedColor::white);
-        d.add_arrow(Ray3f(Vec3f::zero(), plane.normal), NamedColor::green);
+        d.add_arrow(Ray3f(vec3f::zero(), plane.normal), NamedColor::green);
         for (const auto& p : points)
         {
             const auto dist = get_distance_between(plane, p);
@@ -69,20 +69,20 @@ struct PlaneDemo
 
 struct RayDemo
 {
-    const Ray3f ray = {Vec3f(-3, -2, -1), Vec3f(3, 2, 1)};
-    const std::vector<Vec3f> points =
+    const Ray3f ray = {vec3f(-3, -2, -1), vec3f(3, 2, 1)};
+    const std::vector<vec3f> points =
     {
-        Vec3f(-3, -2, -1),
-        Vec3f(12, 8, 4),
-        Vec3f(0, 0, 0),
-        Vec3f(-18, -12, -6),
-        Vec3f(-4, -7, -8),
-        Vec3f(7, 8, 5),
-        Vec3f(1, 5, -5),
-        Vec3f(-6, 5, 7),
-        Vec3f(1, 6, 8),
-        Vec3f(-7, -10, -4),
-        Vec3f(-4.5f, -3.0f, -1.5f)
+        vec3f(-3, -2, -1),
+        vec3f(12, 8, 4),
+        vec3f(0, 0, 0),
+        vec3f(-18, -12, -6),
+        vec3f(-4, -7, -8),
+        vec3f(7, 8, 5),
+        vec3f(1, 5, -5),
+        vec3f(-6, 5, 7),
+        vec3f(1, 6, 8),
+        vec3f(-7, -10, -4),
+        vec3f(-4.5f, -3.0f, -1.5f)
     };
 
     void
@@ -133,9 +133,9 @@ ray_sphere()
     )
     {
         // todo(Gustav): add scene support to dumper...
-        const auto ray = Ray3f(Vec3f(ray_x, ray_y, ray_z), Vec3f(norm_x, norm_y, norm_z).get_normalized());
+        const auto ray = Ray3f(vec3f(ray_x, ray_y, ray_z), vec3f(norm_x, norm_y, norm_z).get_normalized());
         const auto sphere = ::Sphere{rad};
-        const auto sphere_center = Vec3f(sphere_x, sphere_y, sphere_z);
+        const auto sphere_center = vec3f(sphere_x, sphere_y, sphere_z);
         const auto collision = get_intersection(ray.get_normalized(), sphere, sphere_center);
         const auto collided = collision >= 0.0f;
         if(collided != res)

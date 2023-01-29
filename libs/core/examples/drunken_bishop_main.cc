@@ -60,7 +60,7 @@ generate_image(const Table<int>& table, int scale, const Palette& pal)
     Image image;
     image.setup_no_alpha_support(scale * table.get_width(), scale * table.get_height());
 
-    auto rect = [&](const Rgbi& color, const Vec2i& top_left)
+    auto rect = [&](const rgbi& color, const vec2i& top_left)
     {
         draw_rect
         (
@@ -88,7 +88,7 @@ generate_image(const Table<int>& table, int scale, const Palette& pal)
                         c_sizet_to_int(pal.colors.size())
                 )
             );
-            rect(pal.colors[v], Vec2i{x*scale, (y+1)*scale});
+            rect(pal.colors[v], vec2i{x*scale, (y+1)*scale});
         }
     }
 

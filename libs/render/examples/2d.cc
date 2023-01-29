@@ -108,8 +108,8 @@ main(int argc, char* argv[])
         constexpr int s = 5;
 
         clear(&image, {NamedColor::white});
-        draw_arrow(&image, Vec2f{h, 0}, Vec2f{h, m}, {NamedColor::blue}, s);
-        draw_arrow(&image, Vec2f{0, h}, Vec2f{m, h}, {NamedColor::red}, s);
+        draw_arrow(&image, vec2f{h, 0}, vec2f{h, m}, {NamedColor::blue}, s);
+        draw_arrow(&image, vec2f{0, h}, vec2f{m, h}, {NamedColor::red}, s);
 
         engine.catalog->register_file_data
         (
@@ -183,7 +183,7 @@ main(int argc, char* argv[])
         engine.init->clear_screen(clear_color);
         const auto r = Rectf::from_position_anchor_width_and_height
         (
-            Vec2f{sprite_x, sprite_y},
+            vec2f{sprite_x, sprite_y},
             Scale2f{0.5f, 0.5f},
             euphoria::core::max(0.0f, sprite_width),
             euphoria::core::max(0.0f, sprite_height)

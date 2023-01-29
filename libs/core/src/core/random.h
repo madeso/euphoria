@@ -52,10 +52,10 @@ namespace euphoria::core
     */
 
     // move to point class or a circle class?
-    Vec2f
+    vec2f
     get_random_point_on_unit_circle_center_focused(Random* r);
 
-    Vec2f
+    vec2f
     get_random_point_on_unit_circle_uniform(Random* r );
 
     template <typename T>

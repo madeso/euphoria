@@ -50,10 +50,10 @@ namespace euphoria::core
 
     struct Vec3fValue : public Value
     {
-        explicit Vec3fValue(const Vec3f& v);
-        Vec3f value;
+        explicit Vec3fValue(const vec3f& v);
+        vec3f value;
 
-        [[nodiscard]] static Vec3f&
+        [[nodiscard]] static vec3f&
         cast(core::Value* value);
     };
 

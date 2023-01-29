@@ -20,31 +20,31 @@ namespace euphoria::core
 
     // a 2d vector
     template <typename T>
-    struct Vec2;
+    struct vec2;
 
 
     // a 2d unit (vector)
     template <typename T>
-    struct Unit2;
+    struct unit2;
 
 
     ////////////////////////////////////////////////////////////////////////////////
 
     template <typename T>
-    struct Vec2
+    struct vec2
     {
-        Vec2(const T& ax, const T& ay) : x(ax), y(ay)
+        vec2(const T& ax, const T& ay) : x(ax), y(ay)
         {
         }
 
-        explicit Vec2(const std::tuple<T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a))
+        explicit vec2(const std::tuple<T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a))
         {
         }
 
-        [[nodiscard]] static Vec2 zero() { return {0, 0}; }
+        [[nodiscard]] static vec2 zero() { return {0, 0}; }
 
-        using Self = Vec2<T>;
-        using Unit = Unit2<T>;
+        using Self = vec2<T>;
+        using Unit = unit2<T>;
 
         T x;
         T y;
@@ -54,9 +54,9 @@ namespace euphoria::core
         const T* get_data_ptr() const { return &x; }
 
         template <typename F>
-        explicit operator Vec2<F>() const { return Vec2<F>(static_cast<F>(x), static_cast<F>(y)); }
+        explicit operator vec2<F>() const { return vec2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
-        Self get_rotated(const Angle& a) const
+        Self get_rotated(const angle& a) const
         {
             const T nx = x * cos(a) - y * sin(a);
             const T ny = x * sin(a) + y * cos(a);
@@ -67,14 +67,14 @@ namespace euphoria::core
         T get_component_sum() const { return x + y; }
 
         template <typename O>
-        void operator+=(const Vec2<O>& rhs)
+        void operator+=(const vec2<O>& rhs)
         {
             x = x + rhs.x;
             y = y + rhs.y;
         }
 
         template <typename O>
-        void operator-=(const Vec2<O>& rhs)
+        void operator-=(const vec2<O>& rhs)
         {
             x = x - rhs.x;
             y = y - rhs.y;
@@ -84,12 +84,12 @@ namespace euphoria::core
         T get_length_squared() const { return x * x + y * y; }
 
 
-        explicit Vec2(const Unit& u) : x(u.x), y(u.y) {}
+        explicit vec2(const Unit& u) : x(u.x), y(u.y) {}
 
-        Vec2() = default;
+        vec2() = default;
 
         [[nodiscard]] static Self
-        from_to(const Vec2<T>& from, const Vec2<T>& to)
+        from_to(const vec2<T>& from, const vec2<T>& to)
         {
             return Self {to.x - from.x, to.y - from.y};
         }
@@ -141,9 +141,9 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
 
     template <typename T>
-    struct Unit2
+    struct unit2
     {
-        using Self = Unit2<T>;
+        using Self = unit2<T>;
 
         T x;
         T y;
@@ -153,9 +153,9 @@ namespace euphoria::core
         const T* get_data_ptr() const { return &x; }
 
         template <typename F>
-        explicit operator Unit2<F>() const { return Unit2<F>(static_cast<F>(x), static_cast<F>(y)); }
+        explicit operator unit2<F>() const { return unit2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
-        Self get_rotated(const Angle& a) const
+        Self get_rotated(const angle& a) const
         {
             const T nx = x * cos(a) - y * sin(a);
             const T ny = x * sin(a) + y * cos(a);
@@ -167,15 +167,15 @@ namespace euphoria::core
         Self operator-() const { return Self(-x, -y); }
         T get_length_squared() const { return x * x + y * y; }
 
-        operator Vec2<T>() const
+        operator vec2<T>() const
         {
-            return Vec2<T>(x, y);
+            return vec2<T>(x, y);
         }
 
-        Vec2<T>
+        vec2<T>
         to_vec() const
         {
-            return Vec2<T>(x, y);
+            return vec2<T>(x, y);
         }
 
         [[nodiscard]] bool
@@ -184,18 +184,18 @@ namespace euphoria::core
             return is_equal(get_length_squared(), c_int_to_t<T>(1));
         }
 
-        explicit Unit2(T ax, T ay) : x(ax), y(ay)
+        explicit unit2(T ax, T ay) : x(ax), y(ay)
         {
             ASSERT(is_valid());
         }
 
     private:
-        explicit Unit2(const Vec2<T>& v) : x(v.x), y(v.y)
+        explicit unit2(const vec2<T>& v) : x(v.x), y(v.y)
         {
             ASSERT(is_valid());
         }
 
-        friend struct Vec2<T>;
+        friend struct vec2<T>;
     };
 
 
@@ -224,7 +224,7 @@ namespace euphoria::core
         template <typename F>
         explicit operator Scale2<F>() const { return Scale2<F>(static_cast<F>(x), static_cast<F>(y)); }
 
-        Self get_rotated(const Angle& a) const
+        Self get_rotated(const angle& a) const
         {
             const T nx = x * cos(a) - y * sin(a);
             const T ny = x * sin(a) + y * cos(a);
@@ -240,26 +240,26 @@ namespace euphoria::core
     /// Math operators
 
     template <typename T, typename O>
-    Vec2<T>
-    operator+(const Vec2<T>& lhs, const Vec2<O>& rhs)
+    vec2<T>
+    operator+(const vec2<T>& lhs, const vec2<O>& rhs)
     {
-        Vec2<T> r = lhs;
+        vec2<T> r = lhs;
         r += rhs;
         return r;
     }
 
     template <typename T, typename O>
-    Vec2<T>
-    operator-(const Vec2<T>& lhs, const Vec2<O>& rhs)
+    vec2<T>
+    operator-(const vec2<T>& lhs, const vec2<O>& rhs)
     {
-        Vec2<T> r = lhs;
+        vec2<T> r = lhs;
         r -= rhs;
         return r;
     }
 
     template <typename T, typename O>
     bool
-    operator==(const Vec2<T>& lhs, const Vec2<O>& rhs)
+    operator==(const vec2<T>& lhs, const vec2<O>& rhs)
     {
         return
             lhs.x == rhs.x &&
@@ -269,57 +269,57 @@ namespace euphoria::core
 
     template <typename T, typename O>
     bool
-    operator!=(const Vec2<T>& lhs, const Vec2<O>& rhs)
+    operator!=(const vec2<T>& lhs, const vec2<O>& rhs)
     {
         return !(lhs == rhs);
     }
 
     template <typename T, typename O>
-    Vec2<T> operator*(const Vec2<T>& lhs, const O& rhs)
+    vec2<T> operator*(const vec2<T>& lhs, const O& rhs)
     {
-        Vec2<T> r = lhs;
+        vec2<T> r = lhs;
         r *= rhs;
         return r;
     }
 
     template <typename T, typename O>
-    Vec2<T> operator*(const O& lhs, const Vec2<T>& rhs)
+    vec2<T> operator*(const O& lhs, const vec2<T>& rhs)
     {
-        Vec2<T> r = rhs;
+        vec2<T> r = rhs;
         r *= lhs;
         return r;
     }
 
     template <typename T, typename O>
-    Vec2<T> operator*(const Unit2<T>& lhs, const O& rhs)
+    vec2<T> operator*(const unit2<T>& lhs, const O& rhs)
     {
-        Vec2<T> r = lhs;
+        vec2<T> r = lhs;
         r *= rhs;
         return r;
     }
 
     template <typename T, typename O>
-    Vec2<T> operator*(const O& lhs, const Unit2<T>& rhs)
+    vec2<T> operator*(const O& lhs, const unit2<T>& rhs)
     {
-        Vec2<T> r = rhs;
+        vec2<T> r = rhs;
         r *= lhs;
         return r;
     }
 
     template <typename T, typename O>
-    Vec2<T>
-    operator/(const Vec2<T>& lhs, const O& rhs)
+    vec2<T>
+    operator/(const vec2<T>& lhs, const O& rhs)
     {
-        Vec2<T> r = lhs;
+        vec2<T> r = lhs;
         r /= rhs;
         return r;
     }
 
     template <typename T>
-    Vec2<T>
-    component_multiply(const Vec2<T>& lhs, const Vec2<T>& rhs)
+    vec2<T>
+    component_multiply(const vec2<T>& lhs, const vec2<T>& rhs)
     {
-        return Vec2<T>(lhs.x * rhs.x, lhs.y * rhs.y);
+        return vec2<T>(lhs.x * rhs.x, lhs.y * rhs.y);
     }
 
 
@@ -328,14 +328,14 @@ namespace euphoria::core
 
     template <typename T>
     bool
-    operator==(const Vec2<T>& lhs, const Vec2<T>& rhs)
+    operator==(const vec2<T>& lhs, const vec2<T>& rhs)
     {
         return lhs.x == rhs.x && lhs.y == rhs.y;
     }
 
     template <typename T>
     bool
-    operator==(const Unit2<T>& lhs, const Unit2<T>& rhs)
+    operator==(const unit2<T>& lhs, const unit2<T>& rhs)
     {
         return lhs.x == rhs.x && lhs.y == rhs.y;
     }
@@ -346,7 +346,7 @@ namespace euphoria::core
 
     template <typename T>
     T
-    dot(const Vec2<T>& lhs, const Vec2<T>& rhs)
+    dot(const vec2<T>& lhs, const vec2<T>& rhs)
     {
         return lhs.x * rhs.x + lhs.y * rhs.y;
     }
@@ -357,10 +357,10 @@ namespace euphoria::core
     template <typename T>
     struct Vec2Transform
     {
-        static Vec2<T>
-        transform(const Vec2<T>& from, float v, const Vec2<T> to)
+        static vec2<T>
+        transform(const vec2<T>& from, float v, const vec2<T> to)
         {
-            return Vec2<T>(
+            return vec2<T>(
                     FloatTransform::transform(from.x, v, to.x),
                     FloatTransform::transform(from.y, v, to.y));
         }
@@ -374,7 +374,7 @@ namespace euphoria::core
 
     template <typename S, typename T>
     S&
-    operator<<(S& s, const Vec2<T>& v)
+    operator<<(S& s, const vec2<T>& v)
     {
         s << "(" << v.x << ", " << v.y << ")";
         return s;
@@ -382,7 +382,7 @@ namespace euphoria::core
 
     template <typename S, typename T>
     S&
-    operator<<(S& s, const Unit2<T>& v)
+    operator<<(S& s, const unit2<T>& v)
     {
         s << "(" << v.x << ", " << v.y << ")";
         return s;
@@ -392,17 +392,17 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     /// Typedefs
 
-    using Vec2f = Vec2<float>;
+    using vec2f = vec2<float>;
     using Scale2f = Scale2<float>;
-    using Unit2f = Unit2<float>;
+    using unit2f = unit2<float>;
     using Vec2fTransform = Vec2Transform<float>;
-    using Vec2i = Vec2<int>;
+    using vec2i = vec2<int>;
     using Scale2i = Scale2<int>;
-    using Unit2i = Unit2<int>;
+    using Unit2i = unit2<int>;
     using Vec2iTransform = Vec2Transform<int>;
 
     // util functions
-    Unit2f create_random_unit(Random* random);
+    unit2f create_random_unit(Random* random);
 
 }
 

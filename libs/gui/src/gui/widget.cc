@@ -67,7 +67,7 @@ namespace euphoria::gui
     }
 
 
-    core::Size2f
+    core::size2f
     Widget::get_preferred_size() const
     {
         const auto min = calculate_minimum_size();
@@ -76,7 +76,7 @@ namespace euphoria::gui
         const auto margin_width = margin.left + margin.right;
         const auto margin_height = margin.up + margin.down;
 
-        return core::Size2f::create_from_width_height
+        return core::size2f::create_from_width_height
         (
             core::max
             (

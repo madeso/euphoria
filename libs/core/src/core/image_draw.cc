@@ -22,21 +22,21 @@ namespace euphoria::core
     {
         return Recti::from_top_left_width_height
         (
-            Vec2i{0, image.height},
+            vec2i{0, image.height},
             image.width,
             image.height
         );
     }
 
     void
-    clear(Image* image, const Rgbai& color)
+    clear(Image* image, const rgbai& color)
     {
         ASSERT(image);
         return draw_rect(image, color, whole_image(*image));
     }
 
     void
-    draw_rect(Image* image, const Rgbai& color, const Recti& rect)
+    draw_rect(Image* image, const rgbai& color, const Recti& rect)
     {
         ASSERT(image);
         const int left = rect.get_top_left().x;
@@ -64,7 +64,7 @@ namespace euphoria::core
 
 
     void
-    draw_square(Image* image, const Rgbai& color, int x, int y, int size)
+    draw_square(Image* image, const rgbai& color, int x, int y, int size)
     {
         ASSERT(image);
         draw_rect
@@ -72,7 +72,7 @@ namespace euphoria::core
             image,
             color,
             // is the +1 right?
-            Recti::from_top_left_width_height(Vec2i{x, y + 1}, size, size)
+            Recti::from_top_left_width_height(vec2i{x, y + 1}, size, size)
         );
     }
 
@@ -80,14 +80,14 @@ namespace euphoria::core
     namespace
     {
         Rectf
-        calculate_bounding_rect(const std::vector<Vec2f>& poly)
+        calculate_bounding_rect(const std::vector<vec2f>& poly)
         {
-            const auto [min, max] = find_min_max<Vec2f>
+            const auto [min, max] = find_min_max<vec2f>
             (
                 poly,
                 [](const auto& lhs, const auto& rhs)
                 {
-                    return Vec2f
+                    return vec2f
                     {
                         std::min(lhs.x, rhs.x),
                         std::min(lhs.y, rhs.y)
@@ -95,7 +95,7 @@ namespace euphoria::core
                 },
                 [](const auto& lhs, const auto& rhs)
                 {
-                    return Vec2f
+                    return vec2f
                     {
                         std::max(lhs.x, rhs.x),
                         std::max(lhs.y, rhs.y)
@@ -107,7 +107,7 @@ namespace euphoria::core
         }
 
         bool
-        does_ray_intersect_segment(const Vec2f& u, const Vec2f& a, const Vec2f& b)
+        does_ray_intersect_segment(const vec2f& u, const vec2f& a, const vec2f& b)
         {
             // todo(Gustav): move to math
             return
@@ -117,7 +117,7 @@ namespace euphoria::core
         }
 
         bool
-        point_is_in_poly(const Vec2f& p, const std::vector<Vec2f>& poly)
+        point_is_in_poly(const vec2f& p, const std::vector<vec2f>& poly)
         {
             // todo(Gustav): make pretty and move to custom struct
             if(poly.size() < 3)
@@ -143,7 +143,7 @@ namespace euphoria::core
     }
 
     void
-    fill_poly(Image* image, const Rgbai& color, const std::vector<Vec2f>& poly)
+    fill_poly(Image* image, const rgbai& color, const std::vector<vec2f>& poly)
     {
         ASSERT(image);
 
@@ -162,7 +162,7 @@ namespace euphoria::core
             {
                 if(x < 0 || x >= image->width) { continue; }
 
-                if(point_is_in_poly(Vec2f{c_int_to_float(x), c_int_to_float(y)}, poly))
+                if(point_is_in_poly(vec2f{c_int_to_float(x), c_int_to_float(y)}, poly))
                 {
                     image->set_pixel(x, y, color);
                 }
@@ -174,8 +174,8 @@ namespace euphoria::core
     draw_circle
     (
         Image* image,
-        const Rgb& color,
-        const Vec2i& center,
+        const rgb& color,
+        const vec2i& center,
         float radius,
         float softness,
         float inner
@@ -203,10 +203,10 @@ namespace euphoria::core
             for(int x = left; x < right; ++x)
             {
                 // todo(Gustav): use length squared!
-                const float sq = Vec2f::from_to
+                const float sq = vec2f::from_to
                 (
-                    Vec2f{static_cast<float>(x), static_cast<float>(y)},
-                    static_cast<Vec2f>(center)
+                    vec2f{static_cast<float>(x), static_cast<float>(y)},
+                    static_cast<vec2f>(center)
                 ).get_length();
                 bool blend = false;
                 float blend_factor = 1.0f;
@@ -234,7 +234,7 @@ namespace euphoria::core
                     continue;
                 }
 
-                const Rgb paint_color = blend
+                const rgb paint_color = blend
                     ? RgbTransform::transform
                     (
                         crgb(image->get_pixel(x, y)),
@@ -244,7 +244,7 @@ namespace euphoria::core
                     : color
                     ;
 
-                image->set_pixel(x, y, Rgbai{paint_color});
+                image->set_pixel(x, y, rgbai{paint_color});
             }
         }
     }
@@ -253,9 +253,9 @@ namespace euphoria::core
     draw_line_fast
     (
         Image* image,
-        const Rgbai& color,
-        const Vec2i& from,
-        const Vec2i& to
+        const rgbai& color,
+        const vec2i& from,
+        const vec2i& to
     )
     {
         ASSERT(image);
@@ -341,9 +341,9 @@ namespace euphoria::core
     draw_line_antialiased
     (
         Image* image,
-        const Rgb& color,
-        const Vec2i& from,
-        const Vec2i& to
+        const rgb& color,
+        const vec2i& from,
+        const vec2i& to
     )
     {
         ASSERT(image);
@@ -351,8 +351,8 @@ namespace euphoria::core
         (
              image,
              color,
-             static_cast<Vec2f>(from),
-             static_cast<Vec2f>(to)
+             static_cast<vec2f>(from),
+             static_cast<vec2f>(to)
         );
     }
 
@@ -361,9 +361,9 @@ namespace euphoria::core
     draw_line_antialiased
     (
         Image* image,
-        const Rgb& color,
-        const Vec2f& from,
-        const Vec2f& to
+        const rgb& color,
+        const vec2f& from,
+        const vec2f& to
     )
     {
         // reference:
@@ -381,13 +381,13 @@ namespace euphoria::core
             const bool valid_y = is_within_inclusive_as_int(0, y, image->height - 1);
             if(valid_x && valid_y)
             {
-                const Rgb paint_color = RgbTransform::transform
+                const rgb paint_color = RgbTransform::transform
                 (
                     crgb(image->get_pixel(x, y)),
                     c,
                     color
                 );
-                image->set_pixel(x, y, Rgbai{paint_color});
+                image->set_pixel(x, y, rgbai{paint_color});
             }
         };
 
@@ -478,12 +478,12 @@ namespace euphoria::core
         }
     }
 
-    Rgba tint_color(const Rgba& c, const Rgb& tint)
+    rgba tint_color(const rgba& c, const rgb& tint)
     {
         return {{c.r * tint.r, c.g * tint.g, c.b * tint.b}, c.a};
     }
 
-    Rgbai tint_color(const Rgbai& c, const Rgbai& tint)
+    rgbai tint_color(const rgbai& c, const rgbai& tint)
     {
         return crgbai(tint_color(crgba(c), crgb(tint)));
     }
@@ -492,9 +492,9 @@ namespace euphoria::core
     simple_image_blend
     (
         Image* dst,
-        const Vec2i& p,
+        const vec2i& p,
         const Image& src,
-        const Rgbai& tint
+        const rgbai& tint
     )
     {
         for(int y=0; y<src.height; y+=1)
@@ -518,15 +518,15 @@ namespace euphoria::core
     draw_text
     (
         Image* image,
-        const Vec2i& start_pos,
+        const vec2i& start_pos,
         const std::string& text,
-        const Rgbai& color,
+        const rgbai& color,
         const LoadedFont& font
     )
     {
         ASSERT(image);
 
-        Vec2i pos = start_pos;
+        vec2i pos = start_pos;
         utf8_to_codepoints(text, [&](int cp)
         {
             if(cp == '\n')
@@ -552,7 +552,7 @@ namespace euphoria::core
     paste_image
     (
         Image* dest_image,
-        const Vec2i& position,
+        const vec2i& position,
         const Image& source_image,
         BlendMode blend_mode,
         PixelsOutside clip
@@ -569,7 +569,7 @@ namespace euphoria::core
                 if
                 (
                     clip == PixelsOutside::discard &&
-                    is_within(dest_image->get_indices(), Vec2i(dest_x, dest_y)) == false
+                    is_within(dest_image->get_indices(), vec2i(dest_x, dest_y)) == false
                 )
                 {
                     // nop
@@ -590,27 +590,27 @@ namespace euphoria::core
     fill_triangle
     (
         Image* image,
-        const Vec2f& a,
-        const Vec2f& b,
-        const Vec2f& c,
-        const Rgbai& color
+        const vec2f& a,
+        const vec2f& b,
+        const vec2f& c,
+        const rgbai& color
     )
     {
-        const auto [minf, maxf] = find_min_max<Vec2f, std::vector<Vec2f> >
+        const auto [minf, maxf] = find_min_max<vec2f, std::vector<vec2f> >
         (
             {a, b, c},
-            [](const Vec2f& lhs, const Vec2f& rhs) -> Vec2f
+            [](const vec2f& lhs, const vec2f& rhs) -> vec2f
             {
                 return {std::min(lhs.x, rhs.x), std::min(lhs.y, rhs.y)};
             },
-            [](const Vec2f& lhs, const Vec2f& rhs) -> Vec2f
+            [](const vec2f& lhs, const vec2f& rhs) -> vec2f
             {
                 return {std::max(lhs.x, rhs.x), std::max(lhs.y, rhs.y)};
             }
         );
 
-        const auto min = static_cast<Vec2i>(minf);
-        const auto max = static_cast<Vec2i>(maxf);
+        const auto min = static_cast<vec2i>(minf);
+        const auto max = static_cast<vec2i>(maxf);
 
         for(int y=min.y; y<=max.y; y+=1)
         {
@@ -631,7 +631,7 @@ namespace euphoria::core
                         a,
                         b,
                         c,
-                        Vec2f{static_cast<float>(x), static_cast<float>(y)}
+                        vec2f{static_cast<float>(x), static_cast<float>(y)}
                     );
                     if(inside_triangle)
                     {
@@ -647,9 +647,9 @@ namespace euphoria::core
     draw_arrow
     (
         Image* image,
-        const Vec2f& from,
-        const Vec2f& to,
-        const Rgbai& color,
+        const vec2f& from,
+        const vec2f& to,
+        const rgbai& color,
         float size
     )
     {
@@ -657,7 +657,7 @@ namespace euphoria::core
         // todo(Gustav): this is too complicated, and hard to customize, different pointy arrows that ain't 90 degrees
         // there must be a better way to do it
         // also generalize it so we can have arrows in dvg/dummper code too
-        const Vec2f arrow_point = to;
+        const vec2f arrow_point = to;
 
         const auto arrow_length = sqrt(square(abs(from.x - to.x)) +
                                        square(abs(from.y - to.y)));
@@ -666,7 +666,7 @@ namespace euphoria::core
         const auto angle_b = atan2((3 * size), (arrow_length - (3 * size)));
         const auto secondary_length = (3 * size) / sin(angle_b);
 
-        auto angle_c = Angle::from_degrees(90) - arrow_angle - angle_b;
+        auto angle_c = angle::from_degrees(90) - arrow_angle - angle_b;
         const auto arrow_point_left_x = from.x > to.x
             ? from.x - (sin(angle_c) * secondary_length)
             : (sin(angle_c) * secondary_length) + from.x
@@ -675,7 +675,7 @@ namespace euphoria::core
             ? from.y - (cos(angle_c) * secondary_length)
             : (cos(angle_c) * secondary_length) + from.y
             ;
-        const auto arrow_point_left = Vec2f
+        const auto arrow_point_left = vec2f
         {
             arrow_point_left_x,
             arrow_point_left_y
@@ -692,7 +692,7 @@ namespace euphoria::core
             ? from.y - (sin(angle_c) * secondary_length)
             : (sin(angle_c) * secondary_length) + from.y
             ;
-        const auto arrow_point_right = Vec2f
+        const auto arrow_point_right = vec2f
         {
             arrow_point_right_x,
             arrow_point_right_y

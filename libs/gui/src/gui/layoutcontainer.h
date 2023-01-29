@@ -36,7 +36,7 @@ namespace euphoria::gui
         void
         do_layout(core::Rectf area);
 
-        [[nodiscard]] core::Size2f
+        [[nodiscard]] core::size2f
         calculate_minimum_area() const;
 
         std::shared_ptr<gui::Layout> layout;

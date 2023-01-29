@@ -54,7 +54,7 @@ namespace euphoria::core
         );
 
         void
-        set_pixel(int x, int y, const Rgbai& color);
+        set_pixel(int x, int y, const rgbai& color);
 
         void
         set_pixel
@@ -67,7 +67,7 @@ namespace euphoria::core
             unsigned char a
         );
 
-        [[nodiscard]] Rgbai
+        [[nodiscard]] rgbai
         get_pixel(int x, int y) const;
 
         template <typename Func>

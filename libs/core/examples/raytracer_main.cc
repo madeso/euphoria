@@ -35,10 +35,10 @@ main(int argc, char* argv[])
         raytracer::create_sphere
         (
             Sphere{0.5f},
-            Vec3f(0.0f, 0.0f, -1.0f),
+            vec3f(0.0f, 0.0f, -1.0f),
             raytracer::create_diffuse_material
             (
-                Rgb(0.1f, 0.2f, 0.5f)
+                rgb(0.1f, 0.2f, 0.5f)
             )
         )
     );
@@ -47,10 +47,10 @@ main(int argc, char* argv[])
         raytracer::create_sphere
         (
             Sphere{100.0f},
-            Vec3f(0.0f, -100.5f, -1.0f),
+            vec3f(0.0f, -100.5f, -1.0f),
             raytracer::create_diffuse_material
             (
-                Rgb(0.8f, 0.8f, 0.0f)
+                rgb(0.8f, 0.8f, 0.0f)
             )
         )
     );
@@ -59,10 +59,10 @@ main(int argc, char* argv[])
         raytracer::create_sphere
         (
             Sphere{0.5f},
-            Vec3f(1.0f, 0.0f, -1.0f),
+            vec3f(1.0f, 0.0f, -1.0f),
             raytracer::create_metal_material
             (
-                Rgb(0.8f, 0.6f, 0.2f),
+                rgb(0.8f, 0.6f, 0.2f),
                 0.3f
             )
         )
@@ -72,10 +72,10 @@ main(int argc, char* argv[])
         raytracer::create_sphere
         (
             Sphere{0.5f},
-            Vec3f(-1.0f, 0.0f, -1.0f),
+            vec3f(-1.0f, 0.0f, -1.0f),
             raytracer::create_dielectric_material
             (
-                Rgb(1.0f, 1.0f, 1.0f),
+                rgb(1.0f, 1.0f, 1.0f),
                 1.5f
             )
         )

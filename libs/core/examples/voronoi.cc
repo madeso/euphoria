@@ -23,9 +23,9 @@ i2f(int i)
     return static_cast<float>(i);
 }
 
-std::vector<Vec2f> generate_random_points(int count, const Rectf& size, euco::Random* random)
+std::vector<vec2f> generate_random_points(int count, const Rectf& size, euco::Random* random)
 {
-    std::vector<Vec2f> r;
+    std::vector<vec2f> r;
     for(int i=0; i<count; i+=1)
     {
         r.emplace_back( get_random_point(random, size) );
@@ -43,35 +43,35 @@ enum class PointGeneration
     random, poisson
 };
 
-Vec2f abs(const Vec2f& a)
+vec2f abs(const vec2f& a)
 {
     return {euphoria::core::abs(a.x), euphoria::core::abs(a.y)};
 }
 
-float euclidian_distance(const Vec2f& lhs, const Vec2f& rhs)
+float euclidian_distance(const vec2f& lhs, const vec2f& rhs)
 {
     return (lhs-rhs).get_length_squared();
 }
 
-float manhattan_distance(const Vec2f& lhs, const Vec2f& rhs)
+float manhattan_distance(const vec2f& lhs, const vec2f& rhs)
 {
     const auto d = abs(lhs-rhs);
     return d.x + d.y;
 }
 
-float min_distance(const Vec2f& lhs, const Vec2f& rhs)
+float min_distance(const vec2f& lhs, const vec2f& rhs)
 {
     const auto d = abs(lhs-rhs);
     return min(d.x, d.y);
 }
 
-float max_distance(const Vec2f& lhs, const Vec2f& rhs)
+float max_distance(const vec2f& lhs, const vec2f& rhs)
 {
     const auto d = abs(lhs-rhs);
     return max(d.x, d.y);
 }
 
-float get_distance(DistanceFunction f, const Vec2f& lhs, const Vec2f& rhs)
+float get_distance(DistanceFunction f, const vec2f& lhs, const vec2f& rhs)
 {
     switch(f)
     {
@@ -134,14 +134,14 @@ main(int argc, char* argv[])
     Image image;
     image.setup_no_alpha_support(size, size);
 
-    auto points = ClosestPointCollector<Vec2f, int, std::function<float (const Vec2f&, const Vec2f&)>, float>
+    auto points = ClosestPointCollector<vec2f, int, std::function<float (const vec2f&, const vec2f&)>, float>
         {
-            [&](const Vec2f& lhs, const Vec2f& rhs)
+            [&](const vec2f& lhs, const vec2f& rhs)
             {
                 const auto dist = get_distance(distance_function, lhs, rhs);
                 if(cos_distance)
                 {
-                    return cos(Angle::from_degrees(dist/crazy_distance));
+                    return cos(angle::from_degrees(dist/crazy_distance));
                 }
                 else
                 {
@@ -160,7 +160,7 @@ main(int argc, char* argv[])
     }
 
     image.set_all_bottom_top([&](int x, int y) {
-        const auto index = points.find_closest(Vec2f{i2f(x), i2f(y)});
+        const auto index = points.find_closest(vec2f{i2f(x), i2f(y)});
         return pal.get_safe_index(index);
     });
 

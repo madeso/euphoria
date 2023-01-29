@@ -24,7 +24,7 @@ namespace euphoria::render
 
         NONCOPYABLE(Init);
 
-        [[nodiscard]] core::Mat4f
+        [[nodiscard]] core::mat4f
         get_ortho_projection(float width, float height) const;
 
         // todo(Gustav): move to some better place
@@ -33,7 +33,7 @@ namespace euphoria::render
 
         // todo(Gustav): move to some place better
         void
-        clear_screen(const core::Rgb& color) const;
+        clear_screen(const core::rgb& color) const;
 
         bool is_ok;
     };

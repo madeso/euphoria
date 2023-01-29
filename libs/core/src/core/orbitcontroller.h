@@ -12,11 +12,11 @@ namespace euphoria::core
         OrbitController();
 
 
-        [[nodiscard]] Quatf
+        [[nodiscard]] quatf
         get_rotation() const;
 
 
-        [[nodiscard]] Vec3f
+        [[nodiscard]] vec3f
         get_camera_position() const;
 
 
@@ -32,10 +32,10 @@ namespace euphoria::core
         on_zoom_input(float z);
 
 
-        Vec3f center;
+        vec3f center;
 
-        Angle horizontal_rotation;
-        Angle vertical_rotation;
+        angle horizontal_rotation;
+        angle vertical_rotation;
 
         float distance = 10.0f;
 

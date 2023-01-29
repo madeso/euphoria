@@ -36,7 +36,7 @@ namespace euphoria::gui
         void
         step(float dt) override;
 
-        [[nodiscard]] core::Size2f
+        [[nodiscard]] core::size2f
         calculate_minimum_size() const override;
 
         void
@@ -57,8 +57,8 @@ namespace euphoria::gui
         Skin* skin;
 
         core::Interpolate<float, core::FloatTransform> scale;
-        core::Interpolate<core::Rgb, core::RgbTransform> image_color;
-        core::Interpolate<core::Rgb, core::RgbTransform> text_color;
-        core::Interpolate<core::Vec2f, core::Vec2fTransform> position_displacement;
+        core::Interpolate<core::rgb, core::RgbTransform> image_color;
+        core::Interpolate<core::rgb, core::RgbTransform> text_color;
+        core::Interpolate<core::vec2f, core::Vec2fTransform> position_displacement;
     };
 }

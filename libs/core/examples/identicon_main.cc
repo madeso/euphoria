@@ -173,23 +173,23 @@ main(int argc, char* argv[])
         "",
         std::array
         {
-            Rgbi{NamedColor::red},
-            Rgbi{NamedColor::white},
-            Rgbi{NamedColor::blue},
+            rgbi{NamedColor::red},
+            rgbi{NamedColor::white},
+            rgbi{NamedColor::blue},
 
-            Rgbi{NamedColor::light_green},
-            Rgbi{NamedColor::yellow},
-            Rgbi{NamedColor::light_blue},
+            rgbi{NamedColor::light_green},
+            rgbi{NamedColor::yellow},
+            rgbi{NamedColor::light_blue},
 
-            Rgbi{NamedColor::pink},
-            Rgbi{NamedColor::orange},
-            Rgbi{NamedColor::tan},
+            rgbi{NamedColor::pink},
+            rgbi{NamedColor::orange},
+            rgbi{NamedColor::tan},
 
-            Rgbi{NamedColor::brown},
-            Rgbi{NamedColor::green},
-            Rgbi{NamedColor::purple},
-            Rgbi{NamedColor::cornflower_blue},
-            Rgbi{NamedColor::cyan}
+            rgbi{NamedColor::brown},
+            rgbi{NamedColor::green},
+            rgbi{NamedColor::purple},
+            rgbi{NamedColor::cornflower_blue},
+            rgbi{NamedColor::cyan}
         }
     };
 

@@ -25,9 +25,9 @@ namespace euphoria::core
 {
     MeshPoint::MeshPoint
     (
-        const Vec3f& a_vertex,
-        const Vec3f& a_normal,
-        const Vec2f& a_uv
+        const vec3f& a_vertex,
+        const vec3f& a_normal,
+        const vec2f& a_uv
     )
         : vertex(a_vertex)
         , normal(a_normal)
@@ -152,10 +152,10 @@ namespace euphoria::core
         }
 
 
-        Rgb
+        rgb
         con(const aiColor3D c)
         {
-            return Rgb {c.r, c.g, c.b};
+            return rgb {c.r, c.g, c.b};
         }
 
 
@@ -279,9 +279,9 @@ namespace euphoria::core
                 (
                     MeshPoint
                     {
-                        Vec3f{vertex.x, vertex.y, vertex.z},
-                        Vec3f{normal.x, normal.y, normal.z},
-                        Vec2f{u, v}
+                        vec3f{vertex.x, vertex.y, vertex.z},
+                        vec3f{normal.x, normal.y, normal.z},
+                        vec2f{u, v}
                     }
                 );
             }

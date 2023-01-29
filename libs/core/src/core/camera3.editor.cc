@@ -13,14 +13,14 @@
 
 namespace euphoria::core
 {
-    Angle lerp(const Angle& f, float v, const Angle& t)
+    angle lerp(const angle& f, float v, const angle& t)
     {
         return AngleTransform::transform(f, v, t);
     }
 
-    Vec3f lerp(const Vec3f& f, float v, const Vec3f& t)
+    vec3f lerp(const vec3f& f, float v, const vec3f& t)
     {
-        return Vec3f
+        return vec3f
         {
             lerp(f.x, v, t.x),
             lerp(f.y, v, t.y),
@@ -100,7 +100,7 @@ namespace euphoria::core
             const CameraFrame& start,
             const CompiledCamera3& latest_camera,
             const Viewport& latest_viewport,
-            const Vec2i& latest_mouse,
+            const vec2i& latest_mouse,
             bool latest_shift
         );
         std::unique_ptr<detail::EditorCameraState3> make_default_camera();
@@ -110,21 +110,21 @@ namespace euphoria::core
 
         struct PanData
         {
-            std::optional<Vec3f> collision;
+            std::optional<vec3f> collision;
         };
 
         struct OrbitData
         {
             bool valid;
-            Vec3f center;
+            vec3f center;
             float distance;
-            Angle rotation_angle;
-            Angle look_angle;
+            angle rotation_angle;
+            angle look_angle;
 
-            OrbitData(std::optional<Vec3f> collision, const CameraFrame& f)
+            OrbitData(std::optional<vec3f> collision, const CameraFrame& f)
                 : valid(collision.has_value())
-                , center(collision.has_value() ? *collision : Vec3f::zero())
-                , distance( Vec3f::from_to(center, f.position).get_length() )
+                , center(collision.has_value() ? *collision : vec3f::zero())
+                , distance( vec3f::from_to(center, f.position).get_length() )
                 , rotation_angle(f.rotation_angle)
                 , look_angle(f.look_angle)
             {
@@ -150,8 +150,8 @@ namespace euphoria::core
             CompiledCamera3 camera;
             CompiledCamera3 latest_camera;
             Viewport viewport;
-            Vec2i start_mouse;
-            Vec2i mouse;
+            vec2i start_mouse;
+            vec2i mouse;
             bool shift;
             
             std::optional<PanData> pan;
@@ -163,7 +163,7 @@ namespace euphoria::core
                 const CameraFrame& start,
                 const CompiledCamera3& latest_c,
                 const Viewport& latest_viewport,
-                const Vec2i& latest_mouse,
+                const vec2i& latest_mouse,
                 bool latest_shift
             )
                 : start_frame(start)
@@ -203,7 +203,7 @@ namespace euphoria::core
                     pan.reset();
                     if(orbit.has_value() == false)
                     {
-                        const auto ray = camera.clip_to_world_ray(Vec2f{0.0f, 0.0f}).get_normalized();
+                        const auto ray = camera.clip_to_world_ray(vec2f{0.0f, 0.0f}).get_normalized();
                         orbit = OrbitData
                         {
                             owner->raycast(ray),
@@ -213,8 +213,8 @@ namespace euphoria::core
                 }
             }
 
-            [[nodiscard]] Vec3f
-            get_far_point(const Vec2i& p, const CompiledCamera3& cc) const
+            [[nodiscard]] vec3f
+            get_far_point(const vec2i& p, const CompiledCamera3& cc) const
             {
                 return mouse_to_ray(cc, viewport, p).get_point(1.0f);
             }
@@ -228,11 +228,11 @@ namespace euphoria::core
                 // based on https://prideout.net/blog/perfect_panning/
 
                 const auto far_start = get_far_point(start_mouse, camera);
-                const auto u = Vec3f::from_to(start_frame.position, *pan->collision).get_length();
-                const auto v = Vec3f::from_to(*pan->collision, far_start).get_length();
+                const auto u = vec3f::from_to(start_frame.position, *pan->collision).get_length();
+                const auto v = vec3f::from_to(*pan->collision, far_start).get_length();
 
                 const auto far_point = get_far_point(mouse, latest_camera);
-                const auto offset = Vec3f::from_to(far_start, far_point) * (-u / v);
+                const auto offset = vec3f::from_to(far_start, far_point) * (-u / v);
                 
                 auto new_frame = start_frame;
                 new_frame.position += offset;
@@ -248,7 +248,7 @@ namespace euphoria::core
                 const auto out = FpsController::calculate_rotation
                 (
                     orbit->rotation_angle, orbit->look_angle
-                ).create_from_right_up_in(Vec3f{0.0f, 0.0f, -1.0f});
+                ).create_from_right_up_in(vec3f{0.0f, 0.0f, -1.0f});
 
                 const auto new_frame = CameraFrame
                 {
@@ -281,8 +281,8 @@ namespace euphoria::core
                 {
                     const auto x = core::c_int_to_float(dx);
                     const auto y = core::c_int_to_float(dy);
-                    orbit->rotation_angle += Angle::from_degrees(-x * owner->fps.look_sensitivity.get_multiplier_with_sign());
-                    orbit->look_angle += Angle::from_degrees(-y * owner->fps.look_sensitivity.get_multiplier_with_sign());
+                    orbit->rotation_angle += angle::from_degrees(-x * owner->fps.look_sensitivity.get_multiplier_with_sign());
+                    orbit->look_angle += angle::from_degrees(-y * owner->fps.look_sensitivity.get_multiplier_with_sign());
 
                     orbit->rotation_angle.wrap();
                 }
@@ -313,7 +313,7 @@ namespace euphoria::core
             (
                 EditorCamera3* owner,
                 bool shift_state,
-                const Vec2i& m,
+                const vec2i& m,
                 const CompiledCamera3& cc,
                 const Viewport&,
                 float
@@ -367,7 +367,7 @@ namespace euphoria::core
         struct DefaultCamera : EditorCameraState3
         {
             bool latest_shift = false;
-            Vec2i latest_mouse = {0,0};
+            vec2i latest_mouse = {0,0};
             CompiledCamera3 latest_camera;
             Viewport latest_viewport;
             bool looking = false;
@@ -375,8 +375,8 @@ namespace euphoria::core
             DefaultCamera()
                 : latest_camera
                 (
-                    Mat4f::identity(),
-                    Mat4f::identity()
+                    mat4f::identity(),
+                    mat4f::identity()
                 )
                 , latest_viewport
                 (
@@ -410,7 +410,7 @@ namespace euphoria::core
                 // todo(Gustav): implement basic zoom if no collision
                 if(collision.has_value() == false) { return; }
 
-                const auto dir = Vec3f::from_to(owner->fps.position, *collision);
+                const auto dir = vec3f::from_to(owner->fps.position, *collision);
                 const auto length = dir.get_length();
                 const auto unit = dir.get_normalized();
 
@@ -439,7 +439,7 @@ namespace euphoria::core
             (
                 EditorCamera3* owner,
                 bool shift,
-                const Vec2i& mouse,
+                const vec2i& mouse,
                 const CompiledCamera3& camera,
                 const Viewport& viewport,
                 float dt
@@ -523,7 +523,7 @@ namespace euphoria::core
             (
                 EditorCamera3* owner,
                 bool,
-                const Vec2i&,
+                const vec2i&,
                 const CompiledCamera3&,
                 const Viewport&,
                 float dt
@@ -572,7 +572,7 @@ namespace euphoria::core
             const detail::CameraFrame& start,
             const CompiledCamera3& latest_camera,
             const Viewport& latest_viewport,
-            const Vec2i& latest_mouse,
+            const vec2i& latest_mouse,
             bool latest_shift
         )
         {
@@ -599,7 +599,7 @@ namespace euphoria::core
     {
         // todo(Gustav): default to inverted? or don't subtract delta values
         fps.look_sensitivity.inverted = true;
-        fps.look_angle = Angle::from_degrees(-30.0f);
+        fps.look_angle = angle::from_degrees(-30.0f);
         detail::set_default_state(this);
 
         const auto default_frame = detail::frame_from_editor(this);
@@ -614,7 +614,7 @@ namespace euphoria::core
     EditorCamera3::step
     (
         bool shift_state,
-        const Vec2i& mouse,
+        const vec2i& mouse,
         const CompiledCamera3& camera,
         const Viewport& viewport,
         float dt
@@ -718,7 +718,7 @@ namespace euphoria::core
         const auto from = detail::frame_from_editor(this);
 
         // algorithm: https://stackoverflow.com/a/32836605
-        fps.look_in_direction(Vec3f::from_to(fps.position, s.center).get_normalized());
+        fps.look_in_direction(vec3f::from_to(fps.position, s.center).get_normalized());
         const auto distance = (s.sphere.radius * 2.0f) / core::tan(cam.fov / 2.0f);
         fps.position = s.center  + fps.get_rotation().out() * distance;
         

@@ -6,11 +6,11 @@
 
 namespace euphoria::core
 {
-    Unit2f create_random_unit(Random* random)
+    unit2f create_random_unit(Random* random)
     {
-        const auto angle = Angle::random(random);
+        const auto angle = angle::random(random);
         const auto x = cos(angle);
         const auto y = sin(angle);
-        return Unit2f{x, y};
+        return unit2f{x, y};
     }
 }

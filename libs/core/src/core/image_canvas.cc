@@ -14,17 +14,17 @@
 
 namespace euphoria::core
 {
-    Vec2f
-    Canvas::transform_position(const Vec2f& v) const
+    vec2f
+    Canvas::transform_position(const vec2f& v) const
     {
-        const auto vv = transform * Vec3f {v, 1};
-        return Vec2f {vv.x, static_cast<float>(target_image->height) - vv.y};
+        const auto vv = transform * vec3f {v, 1};
+        return vec2f {vv.x, static_cast<float>(target_image->height) - vv.y};
     }
 
     Canvas::Canvas(Image* i)
         : fill_style(NamedColor::black)
         , target_image(i)
-        , transform(Mat3f::identity())
+        , transform(mat3f::identity())
         , building_path(false)
     {
     }
@@ -37,20 +37,20 @@ namespace euphoria::core
         draw_rect(
                 target_image,
                 fill_style,
-                Recti::from_top_left_width_height(Vec2i{x, target_image->height - y}, w, h));
+                Recti::from_top_left_width_height(vec2i{x, target_image->height - y}, w, h));
     }
 
     void
     Canvas::translate(float x, float y)
     {
-        const auto m = Mat3f::from_translation2d(Vec2f {x, y});
+        const auto m = mat3f::from_translation2d(vec2f {x, y});
         transform = transform * m;
     }
 
     void
     Canvas::rotate(float r)
     {
-        transform = transform * Mat3f{Mat2f::from_rotation(Angle::from_radians(r))};
+        transform = transform * mat3f{mat2f::from_rotation(angle::from_radians(r))};
     }
 
     void
@@ -73,7 +73,7 @@ namespace euphoria::core
     {
         ASSERT(building_path);
         ASSERT(path.empty());
-        path.push_back(transform_position(Vec2f(x, y)));
+        path.push_back(transform_position(vec2f(x, y)));
     }
 
     void
@@ -82,9 +82,9 @@ namespace euphoria::core
         ASSERT(building_path);
         if(path.empty())
         {
-            path.push_back(transform_position(Vec2f::zero()));
+            path.push_back(transform_position(vec2f::zero()));
         }
-        path.push_back(transform_position(Vec2f(dx, dy)));
+        path.push_back(transform_position(vec2f(dx, dy)));
     }
 
     void

@@ -13,7 +13,7 @@ namespace euphoria::render
     Sprite::Sprite
     (
         std::shared_ptr<Texture2> t,
-        const core::Vec2f& p
+        const core::vec2f& p
     )
         : texture(t)
         , position(p)
@@ -52,7 +52,7 @@ namespace euphoria::render
             DrawData{}
                 .set_rotation(rotation)
                 .set_scale(scale)
-                .set_tint(core::Rgba(color, alpha))
+                .set_tint(core::rgba(color, alpha))
         );
     }
 

@@ -10,10 +10,10 @@ namespace euphoria::core
 {
     struct LinePoint
     {
-        LinePoint(const Vec3f& p, const Rgb& c);
+        LinePoint(const vec3f& p, const rgb& c);
 
-        Vec3f point;
-        Rgb color;
+        vec3f point;
+        rgb color;
     };
 
 
@@ -23,6 +23,6 @@ namespace euphoria::core
         std::vector<LinePoint> points;
         std::vector<FromToIndices> indices;
 
-        void add_line(const Vec3f& from, const Vec3f& to, const Rgb& c);
+        void add_line(const vec3f& from, const vec3f& to, const rgb& c);
     };
 }

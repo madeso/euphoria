@@ -17,23 +17,23 @@ namespace euphoria::window::imgui::guizmo
     translate
     (
         bool is_local,
-        const std::optional<core::Vec3f>& snap,
-        const core::Mat4f& camera_view,
-        const core::Mat4f& camera_projection,
-        const core::Mat4f& model,
+        const std::optional<core::vec3f>& snap,
+        const core::mat4f& camera_view,
+        const core::mat4f& camera_projection,
+        const core::mat4f& model,
         bool x, bool y, bool z,
-        core::Vec3f* new_position
+        core::vec3f* new_position
     );
 
     bool
     rotate
     (
         bool is_local,
-        const std::optional<core::Angle>& snap,
-        const core::Mat4f& camera_view,
-        const core::Mat4f& camera_projection,
-        const core::Mat4f& model,
+        const std::optional<core::angle>& snap,
+        const core::mat4f& camera_view,
+        const core::mat4f& camera_projection,
+        const core::mat4f& model,
         bool y, bool p, bool r,
-        core::Quatf* new_rotation
+        core::quatf* new_rotation
     );
 }

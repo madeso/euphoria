@@ -8,12 +8,12 @@
 
 namespace euphoria::core
 {
-    Vec3f
-    calculate_center(const std::vector<Vec3f>& positions)
+    vec3f
+    calculate_center(const std::vector<vec3f>& positions)
     {
         ASSERT(positions.empty() == false);
 
-        auto center = Vec3f::zero();
+        auto center = vec3f::zero();
 
         for(const auto& p: positions)
         {
@@ -24,7 +24,7 @@ namespace euphoria::core
     }
     
     SphereAndPosition
-    build_bounding_sphere(const std::vector<Vec3f>& positions)
+    build_bounding_sphere(const std::vector<vec3f>& positions)
     {
         ASSERT(positions.empty() == false);
 
@@ -33,7 +33,7 @@ namespace euphoria::core
 
         for(const auto& p: positions)
         {
-            const auto lensq = Vec3f::from_to(p, center).get_length_squared();
+            const auto lensq = vec3f::from_to(p, center).get_length_squared();
             if(lensq > radius_squared)
             {
                 radius_squared = lensq;

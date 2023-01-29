@@ -21,18 +21,18 @@ namespace euphoria::render
     struct DrawData
     {
         DrawData();
-        core::Angle rotation;
+        core::angle rotation;
         core::Scale2f scale;
-        core::Rgba tint;
+        core::rgba tint;
 
         DrawData&
-        set_rotation(const core::Angle& r);
+        set_rotation(const core::angle& r);
 
         DrawData&
         set_scale(const core::Scale2f& s);
 
         DrawData&
-        set_tint(const core::Rgba& t);
+        set_tint(const core::rgba& t);
     };
 
 
@@ -49,9 +49,9 @@ namespace euphoria::render
             const Texture2& texture,
             const core::Rectf& sprite_area,
             const core::Rectf& texture_region,
-            const core::Angle& rotation_angle,
+            const core::angle& rotation_angle,
             const core::Scale2f& rotation_anchor,
-            const core::Rgba& tint_color
+            const core::rgba& tint_color
         );
 
         // position is center
@@ -69,7 +69,7 @@ namespace euphoria::render
         (
             const ScalableSprite& ninepatch,
             const core::Rectf& rect,
-            const core::Rgba& tint
+            const core::rgba& tint
         );
 
     private:

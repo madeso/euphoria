@@ -26,8 +26,8 @@ namespace euphoria::core::dump2d
 
     struct Poly
     {
-        Rgbi stroke_color = NamedColor::black;
-        std::optional<Rgbi> fill_color;
+        rgbi stroke_color = NamedColor::black;
+        std::optional<rgbi> fill_color;
         bool is_closed = false;
         float stroke_width = 1.0f;
         std::vector<int> stroke;
@@ -35,30 +35,30 @@ namespace euphoria::core::dump2d
         Poly& set_stroke(const std::vector<int>& new_stroke);
 
         Poly& close();
-        Poly& fill(const Rgbi& fill_color);
+        Poly& fill(const rgbi& fill_color);
 
-        std::vector<Vec2f> points;
+        std::vector<vec2f> points;
     };
 
     struct Text
     {
-        Vec2f point;
+        vec2f point;
         std::string label;
-        Rgbi color;
+        rgbi color;
 
-        Text(const Vec2f& p, const std::string& t, const Rgbi& c = NamedColor::black);
+        Text(const vec2f& p, const std::string& t, const rgbi& c = NamedColor::black);
     };
 
     struct Circle
     {
-        Vec2f point;
+        vec2f point;
         float radius;
-        std::optional<Rgbi> line_color;
-        std::optional<Rgbi> fill_color;
+        std::optional<rgbi> line_color;
+        std::optional<rgbi> fill_color;
 
-        Circle& set_line_color(const Rgbi& lc);
+        Circle& set_line_color(const rgbi& lc);
 
-        Circle(const Vec2f& p, float r, std::optional<Rgbi> fill = std::nullopt);
+        Circle(const vec2f& p, float r, std::optional<rgbi> fill = std::nullopt);
     };
 
     struct Group;
@@ -100,7 +100,7 @@ namespace euphoria::core::dump2d
 
     struct Dumper : AddWrapper<Dumper>
     {
-        Rgbi canvas_color = NamedColor::white;
+        rgbi canvas_color = NamedColor::white;
         std::vector<Item> items;
 
         bool add_axis_when_writing = false;
@@ -119,7 +119,7 @@ namespace euphoria::core::dump2d
         Dumper& add(const Item& item);
 
         // calculate total area size and offset so that x+offset will never be lower than 0
-        [[nodiscard]] std::pair<Vec2f,Vec2f> calculate_size_and_offset() const;
+        [[nodiscard]] std::pair<vec2f,vec2f> calculate_size_and_offset() const;
 
         void write(const std::string& path, int width=1280, int height=1024, int space = 6) const;
     };
@@ -137,10 +137,10 @@ namespace euphoria::core::dump3d
         void operator=(const Dumper&) = delete;
         void operator=(Dumper&&) = delete;
 
-        void add_sphere(const Vec3f& p, float radius, const Rgbi& color);
-        auto add_lines(const std::vector<Vec3f>& lines, const Rgbi& color) -> void;
-        void add_plane(const Plane& plane, const Rgbi& color);
-        void add_arrow(const Ray3f& ray, const Rgbi& color);
+        void add_sphere(const vec3f& p, float radius, const rgbi& color);
+        auto add_lines(const std::vector<vec3f>& lines, const rgbi& color) -> void;
+        void add_plane(const Plane& plane, const rgbi& color);
+        void add_arrow(const Ray3f& ray, const rgbi& color);
 
         void add_axis();
         void add_grid();

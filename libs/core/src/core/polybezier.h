@@ -32,11 +32,11 @@ namespace euphoria::core
     
     struct BezierSegment2
     {
-        Vec2f a0;
-        Vec2f c0;
+        vec2f a0;
+        vec2f c0;
 
-        Vec2f a1;
-        Vec2f c1;
+        vec2f a1;
+        vec2f c1;
     };
 
     /*
@@ -44,13 +44,13 @@ namespace euphoria::core
     */
     struct PolyBezier2
     {
-        std::vector<Vec2f> points;
+        std::vector<vec2f> points;
         bool is_closed = false;
 
         // todo(Gustav): move out to a controller?
         bool is_autoset_enabled = false;
 
-        PolyBezier2(const Vec2f& center);
+        PolyBezier2(const vec2f& center);
 
         [[nodiscard]] static bool
         is_anchor_point(size_t i);
@@ -62,10 +62,10 @@ namespace euphoria::core
         iterate_points() const;
 
         void
-        add_point(const Vec2f& p);
+        add_point(const vec2f& p);
 
         void
-        move_point(int i, const Vec2f& delta);
+        move_point(int i, const vec2f& delta);
 
         [[nodiscard]] StepIteratorCreator<int>
         iterate_segments() const;
@@ -101,7 +101,7 @@ namespace euphoria::core
     */
     struct Polyline2
     {
-        std::vector<Vec2f> points;
+        std::vector<vec2f> points;
         bool is_closed = false;
     };
 

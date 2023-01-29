@@ -304,7 +304,7 @@ namespace euphoria::core { namespace
         }
     };
 
-    PolyBezierWrapper<Vec2f, BezierSegment2, Unit2f, false> make_wrapper(euphoria::core::PolyBezier2* self)
+    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, false> make_wrapper(euphoria::core::PolyBezier2* self)
     {
         return
         {
@@ -314,7 +314,7 @@ namespace euphoria::core { namespace
         };
     }
 
-    PolyBezierWrapper<Vec2f, BezierSegment2, Unit2f, true> make_wrapper(const euphoria::core::PolyBezier2* self)
+    PolyBezierWrapper<vec2f, BezierSegment2, unit2f, true> make_wrapper(const euphoria::core::PolyBezier2* self)
     {
         return
         {
@@ -328,12 +328,12 @@ namespace euphoria::core { namespace
 
 namespace euphoria::core
 {
-    PolyBezier2::PolyBezier2(const Vec2f& center)
+    PolyBezier2::PolyBezier2(const vec2f& center)
     {
-        const auto left = Vec2f(-1, 0);
-        const auto right = Vec2f(1, 0);
-        const auto up = Vec2f(0, 1);
-        const auto down = Vec2f(0, -1);
+        const auto left = vec2f(-1, 0);
+        const auto right = vec2f(1, 0);
+        const auto up = vec2f(0, 1);
+        const auto down = vec2f(0, -1);
 
         make_wrapper(this).reset(left, right, up, down, center, 50.0f);
     }
@@ -345,7 +345,7 @@ namespace euphoria::core
     }
 
     void
-    PolyBezier2::add_point(const Vec2f& p)
+    PolyBezier2::add_point(const vec2f& p)
     {
         make_wrapper(this).add_point(p);
     }
@@ -364,7 +364,7 @@ namespace euphoria::core
 
 
     void
-    PolyBezier2::move_point(int i, const Vec2f& delta)
+    PolyBezier2::move_point(int i, const vec2f& delta)
     {
         make_wrapper(this).move_point(i, delta);
     }

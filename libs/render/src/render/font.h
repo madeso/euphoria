@@ -97,9 +97,9 @@ namespace euphoria::render
         draw
         (
                 SpriteRenderer* renderer,
-                const core::Vec2f& start_position,
-                const core::Rgb& base_color,
-                const core::Rgb& hi_color
+                const core::vec2f& start_position,
+                const core::rgb& base_color,
+                const core::rgb& hi_color
         );
 
         [[nodiscard]] core::Rectf
@@ -131,17 +131,17 @@ namespace euphoria::render
         draw
         (
             SpriteRenderer* renderer,
-            const core::Vec2f& p,
-            const core::Rgb& base_hi_color
+            const core::vec2f& p,
+            const core::rgb& base_hi_color
         ) const;
 
         void
         draw
         (
             SpriteRenderer* renderer,
-            const core::Vec2f& p,
-            const core::Rgb& base_color,
-            const core::Rgb& hi_color
+            const core::vec2f& p,
+            const core::rgb& base_color,
+            const core::rgb& hi_color
         ) const;
 
         core::Rectf
