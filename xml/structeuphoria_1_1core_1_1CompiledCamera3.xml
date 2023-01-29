@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::CompiledCamera3</compoundname>
     <includes refid="camera3_8h" local="no">camera3.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1abcbd2990bc2abd390623face6da817a1" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">Mat4f</ref></type>
-        <definition>Mat4f euphoria::core::CompiledCamera3::view</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1ac920953756136eb7889f82a99cea6959" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref></type>
+        <definition>mat4f euphoria::core::CompiledCamera3::view</definition>
         <argsstring></argsstring>
         <name>view</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="30" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="30" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1a60030d348a2da0cbdd3173edfce2e96e" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">Mat4f</ref></type>
-        <definition>Mat4f euphoria::core::CompiledCamera3::projection</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1a5f2eae5fae69a7f8cd9f4e18c171c738" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref></type>
+        <definition>mat4f euphoria::core::CompiledCamera3::projection</definition>
         <argsstring></argsstring>
         <name>projection</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="31" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="31" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1a1999c7304ccc8676f05d471e60694b1f" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">Mat4f</ref></type>
-        <definition>Mat4f euphoria::core::CompiledCamera3::combined</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1a97e6db893de2ba6df1d28143092c2382" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref></type>
+        <definition>mat4f euphoria::core::CompiledCamera3::combined</definition>
         <argsstring></argsstring>
         <name>combined</name>
         <briefdescription>
@@ -43,9 +43,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="32" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="32" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1ac0922384727daccd964a09a5301ead2b" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">Mat4f</ref></type>
-        <definition>Mat4f euphoria::core::CompiledCamera3::combined_inverted</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1a55bcc413191fa14bc5d9da7d51a21a35" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref></type>
+        <definition>mat4f euphoria::core::CompiledCamera3::combined_inverted</definition>
         <argsstring></argsstring>
         <name>combined_inverted</name>
         <briefdescription>
@@ -58,17 +58,17 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1abc74027546e9718d97f96cc69ac0e5f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1a8a89f1b27fa82c437a3e7f93f19cb5ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::CompiledCamera3::CompiledCamera3</definition>
-        <argsstring>(const Mat4f &amp;v, const Mat4f &amp;p)</argsstring>
+        <argsstring>(const mat4f &amp;v, const mat4f &amp;p)</argsstring>
         <name>CompiledCamera3</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">Mat4f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">Mat4f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -79,13 +79,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="16" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1adabcf4b1124c3dc92cb8e781d479a702" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::CompiledCamera3::world_to_clip</definition>
-        <argsstring>(const Vec3f &amp;in_world) const</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1af442a044ac641c4af70f416deca13d61" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::CompiledCamera3::world_to_clip</definition>
+        <argsstring>(const vec3f &amp;in_world) const</argsstring>
         <name>world_to_clip</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>in_world</declname>
         </param>
         <briefdescription>
@@ -96,13 +96,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="20" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1a11dea993cfb12bcb057c0188d151c6aa" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::CompiledCamera3::clip_to_world</definition>
-        <argsstring>(const Vec3f &amp;in_clip) const</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1ac56017d2c7c5e4d4b461f294a4b61c41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::CompiledCamera3::clip_to_world</definition>
+        <argsstring>(const vec3f &amp;in_clip) const</argsstring>
         <name>clip_to_world</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>in_clip</declname>
         </param>
         <briefdescription>
@@ -113,13 +113,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="24" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1a20090e4d3a2a22260aed7aeb7c54f6ab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1af613f3aec3d918f867d5b12891e4f6e4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Ray3f" kindref="compound">Ray3f</ref></type>
         <definition>Ray3f euphoria::core::CompiledCamera3::clip_to_world_ray</definition>
-        <argsstring>(const Vec2f &amp;p) const</argsstring>
+        <argsstring>(const vec2f &amp;p) const</argsstring>
         <name>clip_to_world_ray</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -137,8 +137,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>euphoria::core::Mat4&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Mat4"/>
+        <label>euphoria::core::mat4&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1mat4"/>
       </node>
       <node id="1">
         <label>euphoria::core::CompiledCamera3</label>
@@ -153,14 +153,14 @@
     </collaborationgraph>
     <location file="libs/core/src/core/camera3.h" line="14" column="1" bodyfile="libs/core/src/core/camera3.h" bodystart="13" bodyend="34"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a11dea993cfb12bcb057c0188d151c6aa" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>clip_to_world</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a20090e4d3a2a22260aed7aeb7c54f6ab" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>clip_to_world_ray</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a1999c7304ccc8676f05d471e60694b1f" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>combined</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1ac0922384727daccd964a09a5301ead2b" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>combined_inverted</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1abc74027546e9718d97f96cc69ac0e5f4" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>CompiledCamera3</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a60030d348a2da0cbdd3173edfce2e96e" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>projection</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1abcbd2990bc2abd390623face6da817a1" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>view</name></member>
-      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1adabcf4b1124c3dc92cb8e781d479a702" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>world_to_clip</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1ac56017d2c7c5e4d4b461f294a4b61c41" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>clip_to_world</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1af613f3aec3d918f867d5b12891e4f6e4" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>clip_to_world_ray</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a97e6db893de2ba6df1d28143092c2382" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>combined</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a55bcc413191fa14bc5d9da7d51a21a35" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>combined_inverted</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a8a89f1b27fa82c437a3e7f93f19cb5ff" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>CompiledCamera3</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1a5f2eae5fae69a7f8cd9f4e18c171c738" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>projection</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1ac920953756136eb7889f82a99cea6959" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>view</name></member>
+      <member refid="structeuphoria_1_1core_1_1CompiledCamera3_1af442a044ac641c4af70f416deca13d61" prot="public" virt="non-virtual"><scope>euphoria::core::CompiledCamera3</scope><name>world_to_clip</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -74,9 +74,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_maze.h" line="115" column="25" bodyfile="libs/core/src/core/generator_maze.h" bodystart="115" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1ad89253e40d905d89fa32f8a0d473139e" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
-        <definition>Rgbi euphoria::core::generator::Drawer::wall_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1ad6feb323d4e6d9282ee6bb25c0609d57" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
+        <definition>rgbi euphoria::core::generator::Drawer::wall_color</definition>
         <argsstring></argsstring>
         <name>wall_color</name>
         <briefdescription>
@@ -87,9 +87,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_maze.h" line="117" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="117" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1aad7819c910653ad98e00914a663039c6" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
-        <definition>Rgbi euphoria::core::generator::Drawer::cell_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a7deb4f5377f5c1093cc65e0cc5a3c0f4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
+        <definition>rgbi euphoria::core::generator::Drawer::cell_color</definition>
         <argsstring></argsstring>
         <name>cell_color</name>
         <briefdescription>
@@ -100,9 +100,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_maze.h" line="118" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="118" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a1df5e2695deff26d994f508111951b85" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
-        <definition>Rgbi euphoria::core::generator::Drawer::cell_visited_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a052d926e2d1201eb5c4ebb2b103ea77b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
+        <definition>rgbi euphoria::core::generator::Drawer::cell_visited_color</definition>
         <argsstring></argsstring>
         <name>cell_visited_color</name>
         <briefdescription>
@@ -113,9 +113,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_maze.h" line="119" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="119" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a4247fbc461966a4af00ce1664178bf42" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
-        <definition>Rgbi euphoria::core::generator::Drawer::unit_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a408b0c03dff8135a080090d8aff7f969" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
+        <definition>rgbi euphoria::core::generator::Drawer::unit_color</definition>
         <argsstring></argsstring>
         <name>unit_color</name>
         <briefdescription>
@@ -126,9 +126,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_maze.h" line="120" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="120" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a351d4ca7838c9fde5f1631b2b89110c8" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
-        <definition>Rgbi euphoria::core::generator::Drawer::corridor_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a473ee0021aabc82258927411eecc06ce" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
+        <definition>rgbi euphoria::core::generator::Drawer::corridor_color</definition>
         <argsstring></argsstring>
         <name>corridor_color</name>
         <briefdescription>
@@ -154,9 +154,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1ab8190927bd79dd6322994fb995a2182f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
-        <definition>Rgbi euphoria::core::generator::Drawer::calculate_cell_color</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a64d0779c6d126c2505330a7663b395e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
+        <definition>rgbi euphoria::core::generator::Drawer::calculate_cell_color</definition>
         <argsstring>(int x, int y) const</argsstring>
         <name>calculate_cell_color</name>
         <param>
@@ -207,10 +207,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
-        <label>euphoria::core::Rgbi</label>
-        <link refid="structeuphoria_1_1core_1_1Rgbi"/>
-      </node>
       <node id="3">
         <label>euphoria::core::Table&lt; T &gt;</label>
         <link refid="structeuphoria_1_1core_1_1Table"/>
@@ -274,22 +270,26 @@
           <edgelabel>random</edgelabel>
         </childnode>
       </node>
+      <node id="2">
+        <label>euphoria::core::rgbi</label>
+        <link refid="structeuphoria_1_1core_1_1rgbi"/>
+      </node>
     </collaborationgraph>
     <location file="libs/core/src/core/generator_maze.h" line="108" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="107" bodyend="132"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1ab8190927bd79dd6322994fb995a2182f" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>calculate_cell_color</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1aad7819c910653ad98e00914a663039c6" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>cell_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a64d0779c6d126c2505330a7663b395e3" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>calculate_cell_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a7deb4f5377f5c1093cc65e0cc5a3c0f4" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>cell_color</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1aa2d8ff45dec59addc67c3a5654249606" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>cell_size</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a1df5e2695deff26d994f508111951b85" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>cell_visited_color</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a351d4ca7838c9fde5f1631b2b89110c8" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>corridor_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a052d926e2d1201eb5c4ebb2b103ea77b" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>cell_visited_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a473ee0021aabc82258927411eecc06ce" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>corridor_color</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a4502cc158f5cfc4a0ca92335c886d972" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>draw</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a341bca36ab7f270f9cd8c1af430e77f4" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>Drawer</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1abc3bcc5a77d402350e5185bbe9a8ce9c" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>image</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a1ddae52b73cd6c012acbdc791c77ce86" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>maze</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1ab7489b33474abc6b1dc222fbffa70ca0" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>tracker</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a8af54dbe0387366ec65959ab4fcab954" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>traversal</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a4247fbc461966a4af00ce1664178bf42" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>unit_color</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1ad89253e40d905d89fa32f8a0d473139e" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>wall_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a408b0c03dff8135a080090d8aff7f969" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>unit_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1ad6feb323d4e6d9282ee6bb25c0609d57" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>wall_color</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1af81c5da2bfe4e067d46da15437c29ecb" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>wall_size</name></member>
     </listofallmembers>
   </compounddef>

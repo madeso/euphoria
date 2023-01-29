@@ -760,10 +760,10 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Vec2" prot="public">euphoria::core::Vec2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Unit2" prot="public">euphoria::core::Unit2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Vec2" prot="public">euphoria::core::Vec2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Unit2" prot="public">euphoria::core::Unit2</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vec2" prot="public">euphoria::core::vec2</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1unit2" prot="public">euphoria::core::unit2</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vec2" prot="public">euphoria::core::vec2</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1unit2" prot="public">euphoria::core::unit2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Scale2" prot="public">euphoria::core::Scale2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Vec2Transform" prot="public">euphoria::core::Vec2Transform</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>

@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.h" line="58" column="19" bodyfile="libs/core/src/core/raytracer.h" bodystart="58" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1add9ccd6131024951b60376b59cd16f3b" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::raytracer::HitResult::position</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a2e1704fd3b692e3d7bc07926bfc9af6f" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::raytracer::HitResult::position</definition>
         <argsstring></argsstring>
         <name>position</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/raytracer.h" line="59" column="19" bodyfile="libs/core/src/core/raytracer.h" bodystart="59" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1af1e2b4fbb567f151db05491f1b0aca2a" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">Unit3f</ref></type>
-        <definition>Unit3f euphoria::core::raytracer::HitResult::normal</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a4598340edfc341db5859585bdb473578" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref></type>
+        <definition>unit3f euphoria::core::raytracer::HitResult::normal</definition>
         <argsstring></argsstring>
         <name>normal</name>
         <briefdescription>
@@ -58,21 +58,21 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a9a81820c3f47f87b6ddfb60e15a3b428" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1aae14d7570e86873c3fafd93ad14eeac1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::raytracer::HitResult::HitResult</definition>
-        <argsstring>(float aray_distance, const Vec3f &amp;aposition, const Unit3f &amp;anormal, std::shared_ptr&lt; raytracer::Material &gt; amaterial)</argsstring>
+        <argsstring>(float aray_distance, const vec3f &amp;aposition, const unit3f &amp;anormal, std::shared_ptr&lt; raytracer::Material &gt; amaterial)</argsstring>
         <name>HitResult</name>
         <param>
           <type>float</type>
           <declname>aray_distance</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>aposition</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">Unit3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref> &amp;</type>
           <declname>anormal</declname>
         </param>
         <param>
@@ -94,12 +94,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="3">
-        <label>euphoria::core::Unit3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Unit3"/>
-      </node>
-      <node id="2">
-        <label>euphoria::core::Vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+        <label>euphoria::core::unit3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1unit3"/>
       </node>
       <node id="1">
         <label>euphoria::core::raytracer::HitResult</label>
@@ -111,13 +107,17 @@
           <edgelabel>normal</edgelabel>
         </childnode>
       </node>
+      <node id="2">
+        <label>euphoria::core::vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec3"/>
+      </node>
     </collaborationgraph>
     <location file="libs/core/src/core/raytracer.h" line="49" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="48" bodyend="62"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a9a81820c3f47f87b6ddfb60e15a3b428" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>HitResult</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1aae14d7570e86873c3fafd93ad14eeac1" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>HitResult</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a1c53a5319c5776ad819ca1a61c2ec0b1" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>material</name></member>
-      <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1af1e2b4fbb567f151db05491f1b0aca2a" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>normal</name></member>
-      <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1add9ccd6131024951b60376b59cd16f3b" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a4598340edfc341db5859585bdb473578" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>normal</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a2e1704fd3b692e3d7bc07926bfc9af6f" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>position</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a238b8f6382eab45b127868fd8c3ea505" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>ray_distance</name></member>
     </listofallmembers>
   </compounddef>

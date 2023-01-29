@@ -33,9 +33,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/generator_maze.h" line="70" column="22" bodyfile="libs/core/src/core/generator_maze.h" bodystart="70" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a12b3468edc5be9ee670684f1ed41de8c" prot="public" static="no" mutable="no">
-        <type>std::stack&lt; <ref refid="namespaceeuphoria_1_1core_1a0cb40771b3579f3c7f3c2134fe4db2e9" kindref="member">Vec2i</ref> &gt;</type>
-        <definition>std::stack&lt;Vec2i&gt; euphoria::core::generator::RecursiveBacktracker::stack</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a2c782e77a2a74829b77829c0f0529f16" prot="public" static="no" mutable="no">
+        <type>std::stack&lt; <ref refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kindref="member">vec2i</ref> &gt;</type>
+        <definition>std::stack&lt;vec2i&gt; euphoria::core::generator::RecursiveBacktracker::stack</definition>
         <argsstring></argsstring>
         <name>stack</name>
         <briefdescription>
@@ -158,7 +158,7 @@
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a203df91d7e802b8f10ccf31231cd3cda" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1afd7652034b71cd7cfed133a076e788cd" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>random</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a8d6433d1a3c721a9c35f0e7c3b52f6ba" prot="public" virt="virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>setup</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a12b3468edc5be9ee670684f1ed41de8c" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>stack</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a2c782e77a2a74829b77829c0f0529f16" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>stack</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a77d2cb369f8aa05a2ee98c4a3ef31e5e" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>visited_cells</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f30e1de84eecf564070721b692a9aec" prot="public" virt="virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>work</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1adc82461106f49a4f76d0afd28ad01efb" prot="public" virt="virtual"><scope>euphoria::core::generator::RecursiveBacktracker</scope><name>~Algorithm</name></member>

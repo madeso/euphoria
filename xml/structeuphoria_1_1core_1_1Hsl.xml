@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::Hsl</compoundname>
     <includes refid="rgb_8h" local="no">rgb.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a5cdfe730cfda768b6b7abe49405f86a4" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle euphoria::core::Hsl::h</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a529cffd055d07e480cda92b2636ac1d2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::Hsl::h</definition>
         <argsstring></argsstring>
         <name>h</name>
         <briefdescription>
@@ -45,12 +45,12 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a82fa6724a65dbc55c254516ec719a5a7" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle euphoria::core::Hsl::red</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a2ef7428474c4afa5ec6d35781ce21b9b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>constexpr angle euphoria::core::Hsl::red</definition>
         <argsstring></argsstring>
         <name>red</name>
-        <initializer>= <ref refid="structeuphoria_1_1core_1_1Angle_1abb1276047afbd4ea5af6cac6068bbde5" kindref="member">Angle::from_percent_of_360</ref>(0.0f)</initializer>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1angle_1ab0e95107162945725c40bf854e703462" kindref="member">angle::from_percent_of_360</ref>(0.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -59,12 +59,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="153" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="153" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a6496f5f055c8e01b4788d2526b444347" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle euphoria::core::Hsl::yellow</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a8a5a8cde88ce9ff0b1a736ea2d0b40ce" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>constexpr angle euphoria::core::Hsl::yellow</definition>
         <argsstring></argsstring>
         <name>yellow</name>
-        <initializer>= <ref refid="structeuphoria_1_1core_1_1Angle_1abb1276047afbd4ea5af6cac6068bbde5" kindref="member">Angle::from_percent_of_360</ref>(1 / 6.0f)</initializer>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1angle_1ab0e95107162945725c40bf854e703462" kindref="member">angle::from_percent_of_360</ref>(1 / 6.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -73,12 +73,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="154" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="154" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1ac071d4ee055d97063055d64bb9f7b923" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle euphoria::core::Hsl::green</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1ae6364f243510d7a2848bd102400658eb" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>constexpr angle euphoria::core::Hsl::green</definition>
         <argsstring></argsstring>
         <name>green</name>
-        <initializer>= <ref refid="structeuphoria_1_1core_1_1Angle_1abb1276047afbd4ea5af6cac6068bbde5" kindref="member">Angle::from_percent_of_360</ref>(2 / 6.0f)</initializer>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1angle_1ab0e95107162945725c40bf854e703462" kindref="member">angle::from_percent_of_360</ref>(2 / 6.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -87,12 +87,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="155" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="155" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1ae8adbb903907cd46e6aa2be8196344c7" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle euphoria::core::Hsl::cyan</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a34a6c6ba88e89ac7d24d93ece86a144c" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>constexpr angle euphoria::core::Hsl::cyan</definition>
         <argsstring></argsstring>
         <name>cyan</name>
-        <initializer>= <ref refid="structeuphoria_1_1core_1_1Angle_1abb1276047afbd4ea5af6cac6068bbde5" kindref="member">Angle::from_percent_of_360</ref>(3 / 6.0f)</initializer>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1angle_1ab0e95107162945725c40bf854e703462" kindref="member">angle::from_percent_of_360</ref>(3 / 6.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -101,12 +101,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="156" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="156" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a32d86a00f046360fad8d4e5b8455477b" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle euphoria::core::Hsl::blue</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a96d24e08672aa918e29a9675b8dae7b0" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>constexpr angle euphoria::core::Hsl::blue</definition>
         <argsstring></argsstring>
         <name>blue</name>
-        <initializer>= <ref refid="structeuphoria_1_1core_1_1Angle_1abb1276047afbd4ea5af6cac6068bbde5" kindref="member">Angle::from_percent_of_360</ref>(4 / 6.0f)</initializer>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1angle_1ab0e95107162945725c40bf854e703462" kindref="member">angle::from_percent_of_360</ref>(4 / 6.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -115,12 +115,12 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="157" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="157" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1ab13b8eaf725c607d5b65a31e918f957e" prot="public" static="yes" constexpr="yes" mutable="no">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>constexpr Angle euphoria::core::Hsl::magenta</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a6854ea38a42f30308bea3c93c8d17033" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>constexpr angle euphoria::core::Hsl::magenta</definition>
         <argsstring></argsstring>
         <name>magenta</name>
-        <initializer>= <ref refid="structeuphoria_1_1core_1_1Angle_1abb1276047afbd4ea5af6cac6068bbde5" kindref="member">Angle::from_percent_of_360</ref>(5 / 6.0f)</initializer>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1angle_1ab0e95107162945725c40bf854e703462" kindref="member">angle::from_percent_of_360</ref>(5 / 6.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -136,8 +136,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>euphoria::core::Angle</label>
-        <link refid="structeuphoria_1_1core_1_1Angle"/>
+        <label>euphoria::core::angle</label>
+        <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="1">
         <label>euphoria::core::Hsl</label>
@@ -155,15 +155,15 @@
     </collaborationgraph>
     <location file="libs/core/src/core/rgb.h" line="146" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="145" bodyend="159"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Hsl_1a32d86a00f046360fad8d4e5b8455477b" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>blue</name></member>
-      <member refid="structeuphoria_1_1core_1_1Hsl_1ae8adbb903907cd46e6aa2be8196344c7" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>cyan</name></member>
-      <member refid="structeuphoria_1_1core_1_1Hsl_1ac071d4ee055d97063055d64bb9f7b923" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>green</name></member>
-      <member refid="structeuphoria_1_1core_1_1Hsl_1a5cdfe730cfda768b6b7abe49405f86a4" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>h</name></member>
+      <member refid="structeuphoria_1_1core_1_1Hsl_1a96d24e08672aa918e29a9675b8dae7b0" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>blue</name></member>
+      <member refid="structeuphoria_1_1core_1_1Hsl_1a34a6c6ba88e89ac7d24d93ece86a144c" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>cyan</name></member>
+      <member refid="structeuphoria_1_1core_1_1Hsl_1ae6364f243510d7a2848bd102400658eb" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>green</name></member>
+      <member refid="structeuphoria_1_1core_1_1Hsl_1a529cffd055d07e480cda92b2636ac1d2" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>h</name></member>
       <member refid="structeuphoria_1_1core_1_1Hsl_1a45f32a624834fdd000fb0714a0a793c9" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>l</name></member>
-      <member refid="structeuphoria_1_1core_1_1Hsl_1ab13b8eaf725c607d5b65a31e918f957e" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>magenta</name></member>
-      <member refid="structeuphoria_1_1core_1_1Hsl_1a82fa6724a65dbc55c254516ec719a5a7" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>red</name></member>
+      <member refid="structeuphoria_1_1core_1_1Hsl_1a6854ea38a42f30308bea3c93c8d17033" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>magenta</name></member>
+      <member refid="structeuphoria_1_1core_1_1Hsl_1a2ef7428474c4afa5ec6d35781ce21b9b" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>red</name></member>
       <member refid="structeuphoria_1_1core_1_1Hsl_1a31087d081c8f484a5f5932ee12e70816" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>s</name></member>
-      <member refid="structeuphoria_1_1core_1_1Hsl_1a6496f5f055c8e01b4788d2526b444347" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>yellow</name></member>
+      <member refid="structeuphoria_1_1core_1_1Hsl_1a8a5a8cde88ce9ff0b1a736ea2d0b40ce" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>yellow</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -4,13 +4,13 @@
     <compoundname>euphoria::core::RgbTransform</compoundname>
     <includes refid="rgb_8h" local="no">rgb.h</includes>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1RgbTransform_1a25a0d71e82af8dfc53670607caa5c82f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
-        <definition>static Rgb euphoria::core::RgbTransform::transform</definition>
-        <argsstring>(const Rgb &amp;from, float v, const Rgb &amp;to)</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1RgbTransform_1a55187f389d6017ba80556117116cd079" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+        <definition>static rgb euphoria::core::RgbTransform::transform</definition>
+        <argsstring>(const rgb &amp;from, float v, const rgb &amp;to)</argsstring>
         <name>transform</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
@@ -18,7 +18,7 @@
           <declname>v</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <briefdescription>
@@ -36,7 +36,7 @@
     </detaileddescription>
     <location file="libs/core/src/core/rgb.h" line="287" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="286" bodyend="290"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1RgbTransform_1a25a0d71e82af8dfc53670607caa5c82f" prot="public" virt="non-virtual"><scope>euphoria::core::RgbTransform</scope><name>transform</name></member>
+      <member refid="structeuphoria_1_1core_1_1RgbTransform_1a55187f389d6017ba80556117116cd079" prot="public" virt="non-virtual"><scope>euphoria::core::RgbTransform</scope><name>transform</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

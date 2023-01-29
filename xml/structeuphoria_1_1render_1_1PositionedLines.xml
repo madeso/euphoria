@@ -37,22 +37,22 @@
         </inbodydescription>
         <location file="libs/render/src/render/positionedlines.h" line="12" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1PositionedLines_1a48fe6c43d1d1c8fe2257f88f6984a371" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1PositionedLines_1adc5572b68a4a02ea442582e8038ce586" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void euphoria::render::PositionedLines::render</definition>
-        <argsstring>(const core::Mat4f &amp;projection_matrix, const core::Mat4f &amp;view_matrix, const core::Vec3f &amp;camera, const render::Light &amp;light) override</argsstring>
+        <argsstring>(const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix, const core::vec3f &amp;camera, const render::Light &amp;light) override</argsstring>
         <name>render</name>
-        <reimplements refid="structeuphoria_1_1render_1_1Instance_1a41a79ce6b4a204613f98bf0db2a19236">render</reimplements>
+        <reimplements refid="structeuphoria_1_1render_1_1Instance_1aa651df19e0bc5a58557bbd99f62ca02d">render</reimplements>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
           <declname>projection_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
           <declname>view_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> &amp;</type>
           <declname>camera</declname>
         </param>
         <param>
@@ -98,15 +98,15 @@
     </collaborationgraph>
     <location file="libs/render/src/render/positionedlines.h" line="11" column="1" bodyfile="libs/render/src/render/positionedlines.h" bodystart="10" bodyend="24"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1render_1_1Instance_1ac3142f5a387954a79f70a55b462a41c3" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>calculate_model_matrix</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1afa992d97f0c0581b85bc36dcf98e01d9" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>calculate_model_matrix</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1a605b012975c03862c2f772718ee29f6b" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>Instance</name></member>
       <member refid="structeuphoria_1_1render_1_1PositionedLines_1ad4b4e2ab94ecdb48bfb20b40089f43c1" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>lines</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1ac7c94bbaa128b1d2f00ca10a346f7beb" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1render_1_1Instance_1a0fdfab8cc9e4de197452be5349a49770" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1a2dfbae9d4604b87fa25a1941678526b0" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>position</name></member>
       <member refid="structeuphoria_1_1render_1_1PositionedLines_1a5360792e3d8d9eac52f5974278605354" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>PositionedLines</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1aa8b9db17cb0fb1ddc2587b0a82a2538d" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>remove_this</name></member>
-      <member refid="structeuphoria_1_1render_1_1PositionedLines_1a48fe6c43d1d1c8fe2257f88f6984a371" prot="public" virt="virtual"><scope>euphoria::render::PositionedLines</scope><name>render</name></member>
-      <member refid="structeuphoria_1_1render_1_1Instance_1a5d1e8b13b3bbd65e3dc5b1a5a73e6d64" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>rotation</name></member>
+      <member refid="structeuphoria_1_1render_1_1PositionedLines_1adc5572b68a4a02ea442582e8038ce586" prot="public" virt="virtual"><scope>euphoria::render::PositionedLines</scope><name>render</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1afcfee5f48ac62a7ad645a24acc25a41a" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>rotation</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1ae050d276f1fdd05b3035b6d4c93319a6" prot="public" virt="virtual"><scope>euphoria::render::PositionedLines</scope><name>~Instance</name></member>
     </listofallmembers>
   </compounddef>

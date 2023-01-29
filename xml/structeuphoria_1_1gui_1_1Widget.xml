@@ -235,9 +235,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="61" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a5a2156fd2d823d5d24905ac10fe951de" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a8c5f78c50315b8abde58b90d27490153" kindref="member">core::Size2f</ref></type>
-        <definition>core::Size2f euphoria::gui::Widget::get_preferred_size</definition>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a9ca439de78ec9af54a1a153c537352b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref></type>
+        <definition>core::size2f euphoria::gui::Widget::get_preferred_size</definition>
         <argsstring>() const</argsstring>
         <name>get_preferred_size</name>
         <briefdescription>
@@ -248,13 +248,13 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="64" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a18a47ba739fa84583923ab3a668154f7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a8c5f78c50315b8abde58b90d27490153" kindref="member">core::Size2f</ref></type>
-        <definition>virtual core::Size2f euphoria::gui::Widget::calculate_minimum_size</definition>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a48e7352c736424d3887d8c07ae57338d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref></type>
+        <definition>virtual core::size2f euphoria::gui::Widget::calculate_minimum_size</definition>
         <argsstring>() const =0</argsstring>
         <name>calculate_minimum_size</name>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1ab71f906681190b07fca5ce5de5aa59d3">calculate_minimum_size</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a1b7aae9f7608907dd6bc9efe34eb42ce">calculate_minimum_size</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1a7f991a044e6bf0300b546bd48fcf0593">calculate_minimum_size</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1Button_1a9bcff32380a7aeb8a71da0cbab400963">calculate_minimum_size</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -376,13 +376,13 @@
           <edgelabel>layout</edgelabel>
         </childnode>
       </node>
-      <node id="4">
-        <label>euphoria::core::Vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec2"/>
-      </node>
       <node id="5">
         <label>euphoria::core::Lrud&lt; float &gt;</label>
         <link refid="structeuphoria_1_1core_1_1Lrud"/>
+      </node>
+      <node id="4">
+        <label>euphoria::core::vec2&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec2"/>
       </node>
       <node id="3">
         <label>euphoria::gui::State</label>
@@ -398,10 +398,10 @@
     </collaborationgraph>
     <location file="libs/gui/src/gui/widget.h" line="27" column="1" bodyfile="libs/gui/src/gui/widget.h" bodystart="26" bodyend="88"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1a18a47ba739fa84583923ab3a668154f7" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>calculate_minimum_size</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1a48e7352c736424d3887d8c07ae57338d" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>calculate_minimum_size</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a612b9df04f3ad944e2fbb724af8b9e3c" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_background_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aaa5ef093b28493ac7ab9d595ee32603c" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_client_rect</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1a5a2156fd2d823d5d24905ac10fe951de" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_preferred_size</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1a9ca439de78ec9af54a1a153c537352b0" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_preferred_size</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aaaa330020189ba391f262ced17969bf5" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_state</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a51254124a46bb322060c40de2f7ff9c0" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_state_ptr</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a4935e88b3a9952a9b0d5dd29c2fb4897" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>is_active</name></member>

@@ -281,7 +281,7 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Vec4" prot="public">euphoria::core::Vec4</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vec4" prot="public">euphoria::core::vec4</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

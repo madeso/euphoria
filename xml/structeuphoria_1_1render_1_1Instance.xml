@@ -20,9 +20,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/instance.h" line="32" column="14" bodyfile="libs/render/src/render/instance.h" bodystart="32" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Instance_1a0fdfab8cc9e4de197452be5349a49770" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref></type>
-        <definition>core::Vec3f euphoria::render::Instance::position</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Instance_1a2dfbae9d4604b87fa25a1941678526b0" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref></type>
+        <definition>core::vec3f euphoria::render::Instance::position</definition>
         <argsstring></argsstring>
         <name>position</name>
         <briefdescription>
@@ -33,9 +33,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/instance.h" line="34" column="21" bodyfile="libs/render/src/render/instance.h" bodystart="34" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Instance_1a5d1e8b13b3bbd65e3dc5b1a5a73e6d64" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a4e667d7591aa51d3bbf27ab04de0d8c1" kindref="member">core::Quatf</ref></type>
-        <definition>core::Quatf euphoria::render::Instance::rotation</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1Instance_1afcfee5f48ac62a7ad645a24acc25a41a" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">core::quatf</ref></type>
+        <definition>core::quatf euphoria::render::Instance::rotation</definition>
         <argsstring></argsstring>
         <name>rotation</name>
         <briefdescription>
@@ -90,9 +90,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/instance.h" line="18" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1ac3142f5a387954a79f70a55b462a41c3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref></type>
-        <definition>core::Mat4f euphoria::render::Instance::calculate_model_matrix</definition>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1afa992d97f0c0581b85bc36dcf98e01d9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref></type>
+        <definition>core::mat4f euphoria::render::Instance::calculate_model_matrix</definition>
         <argsstring>() const</argsstring>
         <name>calculate_model_matrix</name>
         <briefdescription>
@@ -103,23 +103,23 @@
         </inbodydescription>
         <location file="libs/render/src/render/instance.h" line="21" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1a41a79ce6b4a204613f98bf0db2a19236" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1aa651df19e0bc5a58557bbd99f62ca02d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
         <definition>virtual void euphoria::render::Instance::render</definition>
-        <argsstring>(const core::Mat4f &amp;projection_matrix, const core::Mat4f &amp;view_matrix, const core::Vec3f &amp;camera, const Light &amp;light)=0</argsstring>
+        <argsstring>(const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix, const core::vec3f &amp;camera, const Light &amp;light)=0</argsstring>
         <name>render</name>
-        <reimplementedby refid="structeuphoria_1_1render_1_1Actor_1a9864026d2df0eff4897144fa2f120ead">render</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1render_1_1PositionedLines_1a48fe6c43d1d1c8fe2257f88f6984a371">render</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1render_1_1Actor_1aa6193ba640674d4419aaa06181fab071">render</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1render_1_1PositionedLines_1adc5572b68a4a02ea442582e8038ce586">render</reimplementedby>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
           <declname>projection_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
           <declname>view_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> &amp;</type>
           <declname>camera</declname>
         </param>
         <param>
@@ -159,13 +159,13 @@
     </inheritancegraph>
     <location file="libs/render/src/render/instance.h" line="14" column="1" bodyfile="libs/render/src/render/instance.h" bodystart="13" bodyend="36"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1render_1_1Instance_1ac3142f5a387954a79f70a55b462a41c3" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>calculate_model_matrix</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1afa992d97f0c0581b85bc36dcf98e01d9" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>calculate_model_matrix</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1a605b012975c03862c2f772718ee29f6b" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>Instance</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1ac7c94bbaa128b1d2f00ca10a346f7beb" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1render_1_1Instance_1a0fdfab8cc9e4de197452be5349a49770" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1a2dfbae9d4604b87fa25a1941678526b0" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>position</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1aa8b9db17cb0fb1ddc2587b0a82a2538d" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>remove_this</name></member>
-      <member refid="structeuphoria_1_1render_1_1Instance_1a41a79ce6b4a204613f98bf0db2a19236" prot="public" virt="pure-virtual"><scope>euphoria::render::Instance</scope><name>render</name></member>
-      <member refid="structeuphoria_1_1render_1_1Instance_1a5d1e8b13b3bbd65e3dc5b1a5a73e6d64" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>rotation</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1aa651df19e0bc5a58557bbd99f62ca02d" prot="public" virt="pure-virtual"><scope>euphoria::render::Instance</scope><name>render</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1afcfee5f48ac62a7ad645a24acc25a41a" prot="public" virt="non-virtual"><scope>euphoria::render::Instance</scope><name>rotation</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1ae050d276f1fdd05b3035b6d4c93319a6" prot="public" virt="virtual"><scope>euphoria::render::Instance</scope><name>~Instance</name></member>
     </listofallmembers>
   </compounddef>

@@ -440,13 +440,13 @@
         <link refid="palette__tableu_8h"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Rgbi" prot="public">euphoria::core::Rgbi</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Rgbai" prot="public">euphoria::core::Rgbai</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Rgb" prot="public">euphoria::core::Rgb</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1rgbi" prot="public">euphoria::core::rgbi</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1rgbai" prot="public">euphoria::core::rgbai</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1rgb" prot="public">euphoria::core::rgb</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Hsl" prot="public">euphoria::core::Hsl</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Rgba" prot="public">euphoria::core::Rgba</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1rgba" prot="public">euphoria::core::rgba</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1RgbTransform" prot="public">euphoria::core::RgbTransform</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01Rgbi_01_4" prot="public">euphoria::core::CustomArgparser&lt; Rgbi &gt;</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01rgbi_01_4" prot="public">euphoria::core::CustomArgparser&lt; rgbi &gt;</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1colorutil">euphoria::core::colorutil</innernamespace>

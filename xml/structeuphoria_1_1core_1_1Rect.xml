@@ -94,9 +94,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="44" column="18" bodyfile="libs/core/src/core/rect.h" bodystart="44" bodyend="53"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1aa562f4d6bd8bdc84e686681f3929b250" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
-        <definition>Vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_bottom_left</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a0ac14f9a6778f2eac88da04731ecb21b" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
+        <definition>vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_bottom_left</definition>
         <argsstring>() const</argsstring>
         <name>get_bottom_left</name>
         <briefdescription>
@@ -124,13 +124,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="145" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="145" bodyend="154"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a07c1eca071ce3ede2f5a366ee240323c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
-        <definition>Vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_position_from_bottom_left</definition>
-        <argsstring>(const Vec2&lt; T &gt; v) const</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a46c7f50e6eecec7b6f7c1c8f39f38298" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
+        <definition>vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_position_from_bottom_left</definition>
+        <argsstring>(const vec2&lt; T &gt; v) const</argsstring>
         <name>get_position_from_bottom_left</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -167,9 +167,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="169" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="169" bodyend="172"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1ab5fe971b15a22b5f4f46c07bfdb20a1d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
-        <definition>Vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_relative_center_pos_from_bottom_left</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a670322814e443e31fa565a66a17a6f36" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
+        <definition>vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_relative_center_pos_from_bottom_left</definition>
         <argsstring>() const</argsstring>
         <name>get_relative_center_pos_from_bottom_left</name>
         <briefdescription>
@@ -206,9 +206,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="191" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="191" bodyend="194"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a139713e33873f3ddf73ff3f1ed5e9b76" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
-        <definition>Vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_absolute_center_pos</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1adea020c161b519ba04368772a0d29fad" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
+        <definition>vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_absolute_center_pos</definition>
         <argsstring>() const</argsstring>
         <name>get_absolute_center_pos</name>
         <briefdescription>
@@ -236,13 +236,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="204" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="204" bodyend="214"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1aa8402572cd32dfe15b48d68380c12b15" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a3bbe7323be17aa38804e8bca32828062" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::core::Rect&lt; T &gt;::contains_exclusive</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;p) const</argsstring>
+        <argsstring>(const vec2&lt; T &gt; &amp;p) const</argsstring>
         <name>contains_exclusive</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -274,13 +274,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="225" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="225" bodyend="233"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a8bf9f985e247aca16f414c013532efde" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a5478c63518fa566f57add3369b782b5c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::core::Rect&lt; T &gt;::contains_inclusive</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;p) const</argsstring>
+        <argsstring>(const vec2&lt; T &gt; &amp;p) const</argsstring>
         <name>contains_inclusive</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -649,13 +649,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="387" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="387" bodyend="392"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1ac1316c9114460d4a0bc77cdd50f303b2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1ab58ef3de99d36ba3f1ec1ef90e11c2fa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref>&lt; T &gt;</type>
         <definition>Rect&lt;T&gt; euphoria::core::Rect&lt; T &gt;::offset_copy</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;d) const</argsstring>
+        <argsstring>(const vec2&lt; T &gt; &amp;d) const</argsstring>
         <name>offset_copy</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>d</declname>
         </param>
         <briefdescription>
@@ -708,13 +708,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="407" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="407" bodyend="415"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1ac880711cbe258e0d68a7b86f14cb6a31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a3e6c71336e1553ed9a0c724d9efdf50a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref>&lt; T &gt;</type>
         <definition>Rect&lt; T &gt; euphoria::core::Rect&lt; T &gt;::set_top_left_to_copy</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;v) const</argsstring>
+        <argsstring>(const vec2&lt; T &gt; &amp;v) const</argsstring>
         <name>set_top_left_to_copy</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -746,13 +746,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="421" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="421" bodyend="429"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a194c4afcc0bc874f10179425183d3eaa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1af939916b05ec7566565c3a83b2289398" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref>&lt; T &gt;</type>
         <definition>Rect&lt;T&gt; euphoria::core::Rect&lt; T &gt;::set_bottom_left_to_copy</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;v) const</argsstring>
+        <argsstring>(const vec2&lt; T &gt; &amp;v) const</argsstring>
         <name>set_bottom_left_to_copy</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -828,9 +828,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="467" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="467" bodyend="470"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a6634f170d2192b5678832c65e2b1eb8f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Size2" kindref="compound">Size2</ref>&lt; T &gt;</type>
-        <definition>Size2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_size</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a28f04f05a66c0a6be77bcbef42840fc7" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2" kindref="compound">size2</ref>&lt; T &gt;</type>
+        <definition>size2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_size</definition>
         <argsstring>() const</argsstring>
         <name>get_size</name>
         <briefdescription>
@@ -841,9 +841,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="473" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="473" bodyend="476"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a6ff4f0e9a487be4819ddb8934302e66d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
-        <definition>Vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_top_left</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1ae06c464a3f9e859a162ea5abcc299d24" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
+        <definition>vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_top_left</definition>
         <argsstring>() const</argsstring>
         <name>get_top_left</name>
         <briefdescription>
@@ -854,9 +854,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="479" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="479" bodyend="482"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1affe07a286e44ee0cb285d36c482e260a" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
-        <definition>Vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_top_right</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1aa4ab15f9fc84154e01c50fc3ac311e80" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
+        <definition>vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_top_right</definition>
         <argsstring>() const</argsstring>
         <name>get_top_right</name>
         <briefdescription>
@@ -867,9 +867,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="485" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="485" bodyend="488"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a507f841e021e8779c419756e173e32a3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
-        <definition>Vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_bottom_right</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a1942b0a3bbfa537096bcd4ea09d9dd85" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
+        <definition>vec2&lt;T&gt; euphoria::core::Rect&lt; T &gt;::get_bottom_right</definition>
         <argsstring>() const</argsstring>
         <name>get_bottom_right</name>
         <briefdescription>
@@ -971,13 +971,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="64" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="64" bodyend="69"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1ab64fbc83ec72310e5191d31a0c7cf919" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a3d47b2993db66c0f8c6b49438496f324" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref></type>
         <definition>static Rect euphoria::core::Rect&lt; T &gt;::from_position_anchor_width_and_height</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;pos, const Scale2&lt; T &gt; &amp;anchor, T width, T height)</argsstring>
+        <argsstring>(const vec2&lt; T &gt; &amp;pos, const Scale2&lt; T &gt; &amp;anchor, T width, T height)</argsstring>
         <name>from_position_anchor_width_and_height</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>pos</declname>
         </param>
         <param>
@@ -1000,13 +1000,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="72" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="73" bodyend="88"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1aad9fd7c774c3285fdbcb8cc2e1f31b84" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1ac3a17982f61d0e8f63ca06a273521af3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref></type>
         <definition>static Rect euphoria::core::Rect&lt; T &gt;::from_bottom_left_width_height</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;bl, T width, T height)</argsstring>
+        <argsstring>(const vec2&lt; T &gt; &amp;bl, T width, T height)</argsstring>
         <name>from_bottom_left_width_height</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>bl</declname>
         </param>
         <param>
@@ -1025,13 +1025,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="93" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="93" bodyend="102"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a77ed5eb4fab7774973701c56ee35d17a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a11e343ac01dfdccdd701ec8b957a4654" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref></type>
         <definition>static Rect euphoria::core::Rect&lt; T &gt;::from_top_left_width_height</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;topleft, T width, T height)</argsstring>
+        <argsstring>(const vec2&lt; T &gt; &amp;topleft, T width, T height)</argsstring>
         <name>from_top_left_width_height</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>topleft</declname>
         </param>
         <param>
@@ -1071,13 +1071,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="117" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="117" bodyend="122"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1af4881bb54b090714c4d1eb38917f82bc" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1ac77d09368f836e772b2c76e69254842e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref></type>
         <definition>static Rect euphoria::core::Rect&lt; T &gt;::from_width_height</definition>
-        <argsstring>(const Size2&lt; T &gt; &amp;s)</argsstring>
+        <argsstring>(const size2&lt; T &gt; &amp;s)</argsstring>
         <name>from_width_height</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Size2" kindref="compound">Size2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2" kindref="compound">size2</ref>&lt; T &gt; &amp;</type>
           <declname>s</declname>
         </param>
         <briefdescription>
@@ -1088,13 +1088,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/rect.h" line="125" column="9" bodyfile="libs/core/src/core/rect.h" bodystart="125" bodyend="128"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a9e98d6d88a40c40840317ffe1957129d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Rect_1a114aa0d539104ffc097684bc2646c4e1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rect" kindref="compound">Rect</ref></type>
         <definition>static Rect euphoria::core::Rect&lt; T &gt;::from_point</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;point)</argsstring>
+        <argsstring>(const vec2&lt; T &gt; &amp;point)</argsstring>
         <name>from_point</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>point</declname>
         </param>
         <briefdescription>
@@ -1115,39 +1115,39 @@
       <member refid="structeuphoria_1_1core_1_1Rect_1a46bded5dfc943791feac068fafe907c7" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>bottom</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a6139e9b6e4fb1bab22a037eec7022a53" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>center_inside_other</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a80cee46770fdf4d0b26e3b864eab2028" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>contains_exclusive</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1aa8402572cd32dfe15b48d68380c12b15" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>contains_exclusive</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a3bbe7323be17aa38804e8bca32828062" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>contains_exclusive</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1ab8efa156a9a698a9820b38431bf13a67" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>contains_exclusive</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1a8bf9f985e247aca16f414c013532efde" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>contains_inclusive</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a5478c63518fa566f57add3369b782b5c" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>contains_inclusive</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a0adcc635fd8e6a45a977bcd5e758be94" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>contains_inclusive</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1af41a309b3f9cf283b070ac03a3f5a30f" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>expand</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a1898416f5749841c29b471e60b1e3640" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>expand_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a09310bd14a8e85c1c5bba1d9bb108117" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>extend</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a2e9c3da5681adcabdd8767635c1030d5" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>extend_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1ae0ce43672b6609fc513ccd584593b686" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>extend_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1aad9fd7c774c3285fdbcb8cc2e1f31b84" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_bottom_left_width_height</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1ac3a17982f61d0e8f63ca06a273521af3" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_bottom_left_width_height</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a561018814b1b2f0a28fcd8f1585927e7" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_left_right_bottom_top</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a29170257822706bd7d7b3d9b75dc57ce" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_left_right_top_bottom</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1a9e98d6d88a40c40840317ffe1957129d" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_point</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1ab64fbc83ec72310e5191d31a0c7cf919" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_position_anchor_width_and_height</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1a77ed5eb4fab7774973701c56ee35d17a" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_top_left_width_height</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a114aa0d539104ffc097684bc2646c4e1" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_point</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a3d47b2993db66c0f8c6b49438496f324" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_position_anchor_width_and_height</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a11e343ac01dfdccdd701ec8b957a4654" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_top_left_width_height</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a92c93c2b5a080fc04cffc61bc576ffe7" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_width_height</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1af4881bb54b090714c4d1eb38917f82bc" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_width_height</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1a139713e33873f3ddf73ff3f1ed5e9b76" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_absolute_center_pos</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1ac77d09368f836e772b2c76e69254842e" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>from_width_height</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1adea020c161b519ba04368772a0d29fad" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_absolute_center_pos</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1ab0e25d4feae3acfdd09e305f41583929" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_absolute_center_x</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a99e116296b316b869632567e3e9a3ee0" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_absolute_center_y</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1aa562f4d6bd8bdc84e686681f3929b250" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_bottom_left</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1a507f841e021e8779c419756e173e32a3" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_bottom_right</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a0ac14f9a6778f2eac88da04731ecb21b" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_bottom_left</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a1942b0a3bbfa537096bcd4ea09d9dd85" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_bottom_right</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a50685e482306d78a405079ab5ca52146" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_height</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1a07c1eca071ce3ede2f5a366ee240323c" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_position_from_bottom_left</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a46c7f50e6eecec7b6f7c1c8f39f38298" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_position_from_bottom_left</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a40516b746a5104f09a7580aaae28e43d" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_range_x</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a86cf607014f1a21310ec8268eca2935c" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_range_y</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1ab5fe971b15a22b5f4f46c07bfdb20a1d" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_relative_center_pos_from_bottom_left</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a670322814e443e31fa565a66a17a6f36" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_relative_center_pos_from_bottom_left</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1aa4f9394a2c2d2a7359e15e0cdf173c7e" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_relative_center_x_from_bottom_left</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a3f470040450ff49713fc8f33fbc69706" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_relative_center_y_from_bottom_left</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1af46c2e78a461ac1c7eb38fd3ec922772" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_scaled_around_center_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1a6634f170d2192b5678832c65e2b1eb8f" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_size</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1a6ff4f0e9a487be4819ddb8934302e66d" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_top_left</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1affe07a286e44ee0cb285d36c482e260a" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_top_right</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a28f04f05a66c0a6be77bcbef42840fc7" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_size</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1ae06c464a3f9e859a162ea5abcc299d24" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_top_left</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1aa4ab15f9fc84154e01c50fc3ac311e80" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_top_right</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1acdcc26f2fd80e4c9fa3307017cd08d8d" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>get_width</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a804a1c027fdd617bcf4f530e1b86ddb6" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>include</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a0cc28139861dfa68c28e9c0e3d6efc38" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>inset</name></member>
@@ -1159,7 +1159,7 @@
       <member refid="structeuphoria_1_1core_1_1Rect_1a706e4bd55ef56241a8fb2ffa7ffc575b" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>left</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a7a3b27d0a5e8aba3a4b105d4158aff04" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>offset</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1af9b49f2cac8cbbc716f2006103de5088" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>offset_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1ac1316c9114460d4a0bc77cdd50f303b2" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>offset_copy</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1ab58ef3de99d36ba3f1ec1ef90e11c2fa" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>offset_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1ad4cfa9a8578f519bb689fc80fcbb7342" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>offset_to</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1aee43bf120d1382781bfc8201456af039" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>operator Rect&lt; Y &gt;</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a4fe302dc51e99fed8ebc3ecaedc0d995" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>Rect</name></member>
@@ -1168,10 +1168,10 @@
       <member refid="structeuphoria_1_1core_1_1Rect_1af1011ed573330394b13df09d9212f61a" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>scale</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1abb54fb64647d4a35916a533f12294de3" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>scale_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1afd76cf92977fb26b61b2a29fbccc5ec3" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>set_bottom_left_to_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1a194c4afcc0bc874f10179425183d3eaa" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>set_bottom_left_to_copy</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1af939916b05ec7566565c3a83b2289398" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>set_bottom_left_to_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1abcdf6028967b0224b5fd60e0b8bae33f" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>set_empty</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1ae6d9a4633deebae249e8d05e575292e7" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>set_top_left_to_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1Rect_1ac880711cbe258e0d68a7b86f14cb6a31" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>set_top_left_to_copy</name></member>
+      <member refid="structeuphoria_1_1core_1_1Rect_1a3e6c71336e1553ed9a0c724d9efdf50a" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>set_top_left_to_copy</name></member>
       <member refid="structeuphoria_1_1core_1_1Rect_1a3497d56e14320ad01050ed561dd02a78" prot="public" virt="non-virtual"><scope>euphoria::core::Rect</scope><name>top</name></member>
     </listofallmembers>
   </compounddef>

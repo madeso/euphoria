@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::BufferPoint2</compoundname>
     <includes refid="bufferbuilder2d_8h" local="no">bufferbuilder2d.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1BufferPoint2_1a69c5d6ba1aab2918dbbee4beb6bd784b" prot="public" static="no" mutable="no">
-        <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
-        <definition>const Vec2f euphoria::core::BufferPoint2::pos</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1BufferPoint2_1a3fccfe1584855cccfe71a55fb07f87fd" prot="public" static="no" mutable="no">
+        <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <definition>const vec2f euphoria::core::BufferPoint2::pos</definition>
         <argsstring></argsstring>
         <name>pos</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/bufferbuilder2d.h" line="16" column="21" bodyfile="libs/core/src/core/bufferbuilder2d.h" bodystart="16" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1BufferPoint2_1acb5fc739c5d917f866d8f0a3cbf30a4e" prot="public" static="no" mutable="no">
-        <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
-        <definition>const Vec2f euphoria::core::BufferPoint2::uv</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1BufferPoint2_1afbd702c6a7e99a818eb5095aea5b4efd" prot="public" static="no" mutable="no">
+        <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <definition>const vec2f euphoria::core::BufferPoint2::uv</definition>
         <argsstring></argsstring>
         <name>uv</name>
         <briefdescription>
@@ -61,17 +61,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/bufferbuilder2d.h" line="13" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1BufferPoint2_1a8dfb7f2eb719c6a6ac2022bbddef17e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1BufferPoint2_1a91ba66ad51b41bb43461842fd8971762" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::BufferPoint2::BufferPoint2</definition>
-        <argsstring>(const Vec2f &amp;p, const Vec2f &amp;u)</argsstring>
+        <argsstring>(const vec2f &amp;p, const vec2f &amp;u)</argsstring>
         <name>BufferPoint2</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
           <declname>u</declname>
         </param>
         <briefdescription>
@@ -97,16 +97,16 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::Vec2&lt; T &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec2"/>
+        <label>euphoria::core::vec2&lt; T &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec2"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/bufferbuilder2d.h" line="12" column="1" bodyfile="libs/core/src/core/bufferbuilder2d.h" bodystart="11" bodyend="18"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1BufferPoint2_1a14f59a52764fa35d7281f3a51aaa05bd" prot="public" virt="non-virtual"><scope>euphoria::core::BufferPoint2</scope><name>BufferPoint2</name></member>
-      <member refid="structeuphoria_1_1core_1_1BufferPoint2_1a8dfb7f2eb719c6a6ac2022bbddef17e5" prot="public" virt="non-virtual"><scope>euphoria::core::BufferPoint2</scope><name>BufferPoint2</name></member>
-      <member refid="structeuphoria_1_1core_1_1BufferPoint2_1a69c5d6ba1aab2918dbbee4beb6bd784b" prot="public" virt="non-virtual"><scope>euphoria::core::BufferPoint2</scope><name>pos</name></member>
-      <member refid="structeuphoria_1_1core_1_1BufferPoint2_1acb5fc739c5d917f866d8f0a3cbf30a4e" prot="public" virt="non-virtual"><scope>euphoria::core::BufferPoint2</scope><name>uv</name></member>
+      <member refid="structeuphoria_1_1core_1_1BufferPoint2_1a91ba66ad51b41bb43461842fd8971762" prot="public" virt="non-virtual"><scope>euphoria::core::BufferPoint2</scope><name>BufferPoint2</name></member>
+      <member refid="structeuphoria_1_1core_1_1BufferPoint2_1a3fccfe1584855cccfe71a55fb07f87fd" prot="public" virt="non-virtual"><scope>euphoria::core::BufferPoint2</scope><name>pos</name></member>
+      <member refid="structeuphoria_1_1core_1_1BufferPoint2_1afbd702c6a7e99a818eb5095aea5b4efd" prot="public" virt="non-virtual"><scope>euphoria::core::BufferPoint2</scope><name>uv</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

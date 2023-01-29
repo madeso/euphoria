@@ -1,0 +1,413 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1mat2" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::mat2</compoundname>
+    <includes refid="mat2_8h" local="no">mat2.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1mat2_1a1e3c7d65fc74ebaf87625022df11188c" prot="private" static="no">
+        <type>std::tuple&lt; T, T &gt;</type>
+        <definition>using euphoria::core::mat2&lt; T &gt;::Tuple2 =  std::tuple&lt;T, T&gt;</definition>
+        <argsstring></argsstring>
+        <name>Tuple2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="14" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1mat2_1a43bd8a7c157efe4a57395125759790d7" prot="private" static="no" mutable="no">
+        <type>T</type>
+        <definition>T euphoria::core::mat2&lt; T &gt;::data[4]</definition>
+        <argsstring>[4]</argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="16" column="11" bodyfile="libs/core/src/core/mat2.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1ad3a6f11639f2da4c82db37268fef810e" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::mat2&lt; T &gt;::mat2</definition>
+        <argsstring>()=default</argsstring>
+        <name>mat2</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="18" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1a24901af691dcc55918d0a198acc0a411" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::mat2&lt; T &gt;::mat2</definition>
+        <argsstring>(T t00, T t01, T t10, T t11)</argsstring>
+        <name>mat2</name>
+        <param>
+          <type>T</type>
+          <declname>t00</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t01</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t10</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t11</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="20" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="21" bodyend="31"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1a2d14091aeb9694d7b49fbeda552623a1" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat2" kindref="compound">mat2</ref>&lt; T &gt;</type>
+        <definition>static mat2&lt;T&gt; euphoria::core::mat2&lt; T &gt;::from_col_major</definition>
+        <argsstring>(T t00, T t01, T t10, T t11)</argsstring>
+        <name>from_col_major</name>
+        <param>
+          <type>T</type>
+          <declname>t00</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t01</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t10</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t11</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="38" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="39" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1a9709f60d4eea56e9bb11a8666e7c3fb7" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat2" kindref="compound">mat2</ref>&lt; T &gt;</type>
+        <definition>static mat2&lt;T&gt; euphoria::core::mat2&lt; T &gt;::from_row_major</definition>
+        <argsstring>(T t00, T t10, T t01, T t11)</argsstring>
+        <name>from_row_major</name>
+        <param>
+          <type>T</type>
+          <declname>t00</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t10</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t01</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t11</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="50" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="51" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1a855f25ab363c133f708f970d0eb432ae" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat2" kindref="compound">mat2</ref>&lt; T &gt;</type>
+        <definition>static mat2&lt;T&gt; euphoria::core::mat2&lt; T &gt;::from_scalar</definition>
+        <argsstring>(T scalar)</argsstring>
+        <name>from_scalar</name>
+        <param>
+          <type>T</type>
+          <declname>scalar</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="66" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="66" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1ade321947d8db39eedade7953206f40ec" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat2" kindref="compound">mat2</ref>&lt; T &gt;</type>
+        <definition>static mat2&lt;T&gt; euphoria::core::mat2&lt; T &gt;::from_stretch_x</definition>
+        <argsstring>(T k)</argsstring>
+        <name>from_stretch_x</name>
+        <param>
+          <type>T</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="79" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="79" bodyend="86"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1a9cb20aab96f4a9e590db3a1d47a10f4d" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat2" kindref="compound">mat2</ref>&lt; T &gt;</type>
+        <definition>static mat2&lt;T&gt; euphoria::core::mat2&lt; T &gt;::from_stretch_y</definition>
+        <argsstring>(T k)</argsstring>
+        <name>from_stretch_y</name>
+        <param>
+          <type>T</type>
+          <declname>k</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="91" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="91" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1ab9797d29ec18b6bb2816b5ae36780d53" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat2" kindref="compound">mat2</ref>&lt; T &gt;</type>
+        <definition>static mat2&lt;T&gt; euphoria::core::mat2&lt; T &gt;::from_rotation</definition>
+        <argsstring>(const angle &amp;a)</argsstring>
+        <name>from_rotation</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="103" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="103" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1a844b93464e0aa41d97cd4cacf98923a2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat2" kindref="compound">mat2</ref>&lt; T &gt;</type>
+        <definition>static mat2&lt;T&gt; euphoria::core::mat2&lt; T &gt;::identity</definition>
+        <argsstring>()</argsstring>
+        <name>identity</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="117" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="117" bodyend="120"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1a8efb26a346cd447bbbe0d81779e79622" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::mat2&lt; T &gt;::operator+=</definition>
+        <argsstring>(const mat2&lt; T &gt; rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat2" kindref="compound">mat2</ref>&lt; T &gt;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="124" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="124" bodyend="130"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1a19ed40d141eafa5f138268bf8fc9b812" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::mat2&lt; T &gt;::operator-=</definition>
+        <argsstring>(const mat2&lt; T &gt; rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat2" kindref="compound">mat2</ref>&lt; T &gt;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="133" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="133" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1af9bc84e5b76bab057185eb1aef6fe670" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T *</type>
+        <definition>const T* euphoria::core::mat2&lt; T &gt;::get_data_ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="142" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="142" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1ab614669d8cf4c61aa127085ba8cb288e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* euphoria::core::mat2&lt; T &gt;::get_data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="148" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1abd4577327d6fb4edeb28d6df2a3b87cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; euphoria::core::mat2&lt; T &gt;::operator()</definition>
+        <argsstring>(int row, int col)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="155" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="155" bodyend="158"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1a55bf6724af3b4fa60dad460d05e4a0e6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T euphoria::core::mat2&lt; T &gt;::operator()</definition>
+        <argsstring>(int row, int col) const</argsstring>
+        <name>operator()</name>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="161" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="161" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1af4530573fc0a4e89de121223fe7f36ed" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T euphoria::core::mat2&lt; T &gt;::get</definition>
+        <argsstring>(int row, int col) const</argsstring>
+        <name>get</name>
+        <param>
+          <type>int</type>
+          <declname>row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="167" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="167" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1adcda2e67286f0a3cd3e6caf950dfafd8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Tuple2</type>
+        <definition>Tuple2 euphoria::core::mat2&lt; T &gt;::get_column</definition>
+        <argsstring>(int c) const</argsstring>
+        <name>get_column</name>
+        <param>
+          <type>int</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="173" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="173" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat2_1ae9ce6881cbc492de7a3418517794775c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>Tuple2</type>
+        <definition>Tuple2 euphoria::core::mat2&lt; T &gt;::get_row</definition>
+        <argsstring>(int r) const</argsstring>
+        <name>get_row</name>
+        <param>
+          <type>int</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mat2.h" line="179" column="9" bodyfile="libs/core/src/core/mat2.h" bodystart="179" bodyend="182"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/mat2.h" line="12" column="1" bodyfile="libs/core/src/core/mat2.h" bodystart="11" bodyend="183"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a43bd8a7c157efe4a57395125759790d7" prot="private" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>data</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a2d14091aeb9694d7b49fbeda552623a1" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>from_col_major</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1ab9797d29ec18b6bb2816b5ae36780d53" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>from_rotation</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a9709f60d4eea56e9bb11a8666e7c3fb7" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>from_row_major</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a855f25ab363c133f708f970d0eb432ae" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>from_scalar</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1ade321947d8db39eedade7953206f40ec" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>from_stretch_x</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a9cb20aab96f4a9e590db3a1d47a10f4d" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>from_stretch_y</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1af4530573fc0a4e89de121223fe7f36ed" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>get</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1adcda2e67286f0a3cd3e6caf950dfafd8" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>get_column</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1af9bc84e5b76bab057185eb1aef6fe670" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1ab614669d8cf4c61aa127085ba8cb288e" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1ae9ce6881cbc492de7a3418517794775c" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>get_row</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a844b93464e0aa41d97cd4cacf98923a2" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>identity</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1ad3a6f11639f2da4c82db37268fef810e" prot="private" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>mat2</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a24901af691dcc55918d0a198acc0a411" prot="private" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>mat2</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1abd4577327d6fb4edeb28d6df2a3b87cc" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>operator()</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a55bf6724af3b4fa60dad460d05e4a0e6" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>operator()</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a8efb26a346cd447bbbe0d81779e79622" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>operator+=</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a19ed40d141eafa5f138268bf8fc9b812" prot="public" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>operator-=</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat2_1a1e3c7d65fc74ebaf87625022df11188c" prot="private" virt="non-virtual"><scope>euphoria::core::mat2</scope><name>Tuple2</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

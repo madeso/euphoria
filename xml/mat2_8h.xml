@@ -276,7 +276,7 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Mat2" prot="public">euphoria::core::Mat2</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1mat2" prot="public">euphoria::core::mat2</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
       <sectiondef kind="define">
@@ -308,7 +308,7 @@
         <name>OP</name>
         <param><defname>r</defname></param>
         <param><defname>c</defname></param>
-        <initializer>component_multiply(Vec2&lt;T&gt;(lhs.GetRow(r)), Vec2&lt;T&gt;(rhs.GetColumn(c))).get_component_sum()</initializer>
+        <initializer>component_multiply(vec2&lt;T&gt;(lhs.GetRow(r)), vec2&lt;T&gt;(rhs.GetColumn(c))).get_component_sum()</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -320,7 +320,7 @@
       <memberdef kind="define" id="mat2_8h_1ad3fad4870192fbb33f78583fbb0cc502" prot="public" static="no">
         <name>OP</name>
         <param><defname>r</defname></param>
-        <initializer>component_multiply(Vec2&lt;T&gt;(lhs.GetRow(r)), rhs).get_component_sum()</initializer>
+        <initializer>component_multiply(vec2&lt;T&gt;(lhs.GetRow(r)), rhs).get_component_sum()</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

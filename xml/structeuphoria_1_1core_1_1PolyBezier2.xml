@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::PolyBezier2</compoundname>
     <includes refid="polybezier_8h" local="no">polybezier.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1PolyBezier2_1a53fc8574fa0df561c6ffb0fe44119965" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &gt;</type>
-        <definition>std::vector&lt;Vec2f&gt; euphoria::core::PolyBezier2::points</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1PolyBezier2_1a75b552109af60a3ff869652f4e7bf5e7" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &gt;</type>
+        <definition>std::vector&lt;vec2f&gt; euphoria::core::PolyBezier2::points</definition>
         <argsstring></argsstring>
         <name>points</name>
         <briefdescription>
@@ -47,13 +47,13 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolyBezier2_1ae4ea5ce2cc6d1ae16d44154a5abba017" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolyBezier2_1a54e0cec3a6556fe6f00747cfa22be3b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::PolyBezier2::PolyBezier2</definition>
-        <argsstring>(const Vec2f &amp;center)</argsstring>
+        <argsstring>(const vec2f &amp;center)</argsstring>
         <name>PolyBezier2</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
           <declname>center</declname>
         </param>
         <briefdescription>
@@ -77,13 +77,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/polybezier.h" line="62" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolyBezier2_1a8b15241b09a38b33607893a452c2369b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolyBezier2_1a8e449a14a74d9a1d3011bfa608ee7665" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::core::PolyBezier2::add_point</definition>
-        <argsstring>(const Vec2f &amp;p)</argsstring>
+        <argsstring>(const vec2f &amp;p)</argsstring>
         <name>add_point</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -94,17 +94,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/polybezier.h" line="65" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolyBezier2_1ac035f15081e85cbcd5b5684a9f479317" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolyBezier2_1a31d492e16951596ef930b182ce78bb1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::core::PolyBezier2::move_point</definition>
-        <argsstring>(int i, const Vec2f &amp;delta)</argsstring>
+        <argsstring>(int i, const vec2f &amp;delta)</argsstring>
         <name>move_point</name>
         <param>
           <type>int</type>
           <declname>i</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
           <declname>delta</declname>
         </param>
         <briefdescription>
@@ -248,7 +248,7 @@
     </detaileddescription>
     <location file="libs/core/src/core/polybezier.h" line="46" column="1" bodyfile="libs/core/src/core/polybezier.h" bodystart="45" bodyend="87"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a8b15241b09a38b33607893a452c2369b" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>add_point</name></member>
+      <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a8e449a14a74d9a1d3011bfa608ee7665" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>add_point</name></member>
       <member refid="structeuphoria_1_1core_1_1PolyBezier2_1ab019a4c58980034cceef1e673e21568e" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>get_segment</name></member>
       <member refid="structeuphoria_1_1core_1_1PolyBezier2_1ae6ed89f1e3a7dec738a92fca279e7029" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>is_anchor_point</name></member>
       <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a85877b1ccaf50246ec5c40d679cae669" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>is_autoset_enabled</name></member>
@@ -256,9 +256,9 @@
       <member refid="structeuphoria_1_1core_1_1PolyBezier2_1aa045506f35343bb0435635b0b731d060" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>is_control_point</name></member>
       <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a24386354fb0da7afdc32ecd4b57f2b12" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>iterate_points</name></member>
       <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a096ad6d06cde8ba0a845fc418ee705ed" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>iterate_segments</name></member>
-      <member refid="structeuphoria_1_1core_1_1PolyBezier2_1ac035f15081e85cbcd5b5684a9f479317" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>move_point</name></member>
-      <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a53fc8574fa0df561c6ffb0fe44119965" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>points</name></member>
-      <member refid="structeuphoria_1_1core_1_1PolyBezier2_1ae4ea5ce2cc6d1ae16d44154a5abba017" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>PolyBezier2</name></member>
+      <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a31d492e16951596ef930b182ce78bb1f" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>move_point</name></member>
+      <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a75b552109af60a3ff869652f4e7bf5e7" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>points</name></member>
+      <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a54e0cec3a6556fe6f00747cfa22be3b3" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>PolyBezier2</name></member>
       <member refid="structeuphoria_1_1core_1_1PolyBezier2_1ac927b104fb9635f352d062b49539346e" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>set_auto_set_control_points</name></member>
       <member refid="structeuphoria_1_1core_1_1PolyBezier2_1aba3aeb6054e00fef032a08b8a53ef0db" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>set_closed</name></member>
       <member refid="structeuphoria_1_1core_1_1PolyBezier2_1a0d406c3c1715a24405d8c972391e8f72" prot="public" virt="non-virtual"><scope>euphoria::core::PolyBezier2</scope><name>toggle_auto_set_control_points</name></member>

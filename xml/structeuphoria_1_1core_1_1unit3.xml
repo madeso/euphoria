@@ -1,0 +1,265 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1unit3" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::unit3</compoundname>
+    <includes refid="vec3_8h" local="no">vec3.h</includes>
+    <templateparamlist>
+      <param>
+        <type>typename T</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" prot="public" static="no">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3" kindref="compound">unit3</ref>&lt; T &gt;</type>
+        <definition>using euphoria::core::unit3&lt; T &gt;::Self =  unit3&lt;T&gt;</definition>
+        <argsstring></argsstring>
+        <name>Self</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="187" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="187" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1ad21dd588130932aa3a54e4a0aca0936f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>Self euphoria::core::unit3&lt; T &gt;::operator-</definition>
+        <argsstring>() const</argsstring>
+        <name>operator-</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="189" column="14" bodyfile="libs/core/src/core/vec3.h" bodystart="189" bodyend="189"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1a26e6e42941a32e78659b7fe130c11e3f" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::unit3&lt; T &gt;::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="192" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="192" bodyend="195"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1a4fcd733a18f6651c146b95f37deb008e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::x_axis</definition>
+        <argsstring>()</argsstring>
+        <name>x_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="198" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="198" bodyend="201"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1ad72433e198c2b29f165b94212f6d0975" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::y_axis</definition>
+        <argsstring>()</argsstring>
+        <name>y_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="204" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="204" bodyend="207"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1a6f188927a2eb6d0208357380f975fcf6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::z_axis</definition>
+        <argsstring>()</argsstring>
+        <name>z_axis</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="210" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="210" bodyend="213"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1af552d9f2999b8b98ee787f954d022f47" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::up</definition>
+        <argsstring>()</argsstring>
+        <name>up</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="216" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="216" bodyend="219"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1ace9209d0ec45c11afcba7666ce8aeb6f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::down</definition>
+        <argsstring>()</argsstring>
+        <name>down</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="222" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="222" bodyend="225"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1af003aaafd1b19862d85f84a7e71670c5" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::right</definition>
+        <argsstring>()</argsstring>
+        <name>right</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="228" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="228" bodyend="231"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1a339da1383f0626611ab6b82c5f257409" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::left</definition>
+        <argsstring>()</argsstring>
+        <name>left</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="234" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="234" bodyend="237"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1a26a11d6cef9f3f23d33d16a9ca78bc5e" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::in</definition>
+        <argsstring>()</argsstring>
+        <name>in</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="240" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="240" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1a8401f6d94aa9054dbaf66c215eafcc08" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::out</definition>
+        <argsstring>()</argsstring>
+        <name>out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="246" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="246" bodyend="249"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1a4f82f78c42b8be34eed9174c12d61b5c" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::to_unit</definition>
+        <argsstring>(T x, T y, T z)</argsstring>
+        <name>to_unit</name>
+        <param>
+          <type>T</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>y</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>z</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="252" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="252" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1a9af030e658713633aa6fd3f05b452b03" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kindref="member">Self</ref></type>
+        <definition>static Self euphoria::core::unit3&lt; T &gt;::to_unit</definition>
+        <argsstring>(const vec3&lt; T &gt; &amp;v)</argsstring>
+        <name>to_unit</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt; &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="258" column="9" bodyfile="libs/core/src/core/vec3.h" bodystart="258" bodyend="261"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1unit3_1a4a8de25d158440826e46fcfad4ff81e5" prot="private" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::unit3&lt; T &gt;::unit3</definition>
+        <argsstring>(T a, T b, T c)</argsstring>
+        <name>unit3</name>
+        <param>
+          <type>T</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="264" column="18" bodyfile="libs/core/src/core/vec3.h" bodystart="264" bodyend="267"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/vec3.h" line="22" column="5" bodyfile="libs/core/src/core/vec3.h" bodystart="22" bodyend="-1"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1unit3_1ace9209d0ec45c11afcba7666ce8aeb6f" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>down</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1a26a11d6cef9f3f23d33d16a9ca78bc5e" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>in</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1a26e6e42941a32e78659b7fe130c11e3f" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>is_valid</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1a339da1383f0626611ab6b82c5f257409" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>left</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1ad21dd588130932aa3a54e4a0aca0936f" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>operator-</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1a8401f6d94aa9054dbaf66c215eafcc08" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>out</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1af003aaafd1b19862d85f84a7e71670c5" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>right</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>Self</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1a4f82f78c42b8be34eed9174c12d61b5c" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>to_unit</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1a9af030e658713633aa6fd3f05b452b03" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>to_unit</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1a4a8de25d158440826e46fcfad4ff81e5" prot="private" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>unit3</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1af552d9f2999b8b98ee787f954d022f47" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>up</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1a4fcd733a18f6651c146b95f37deb008e" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>x_axis</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1ad72433e198c2b29f165b94212f6d0975" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>y_axis</name></member>
+      <member refid="structeuphoria_1_1core_1_1unit3_1a6f188927a2eb6d0208357380f975fcf6" prot="public" virt="non-virtual"><scope>euphoria::core::unit3</scope><name>z_axis</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

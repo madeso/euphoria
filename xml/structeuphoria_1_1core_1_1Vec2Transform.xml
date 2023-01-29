@@ -9,13 +9,13 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec2Transform_1a119829838df574bf0a3cbd59b7c92ff9" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
-        <definition>static Vec2&lt;T&gt; euphoria::core::Vec2Transform&lt; T &gt;::transform</definition>
-        <argsstring>(const Vec2&lt; T &gt; &amp;from, float v, const Vec2&lt; T &gt; to)</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec2Transform_1ab0a082bd176db7fb94f8034aba968861" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
+        <definition>static vec2&lt;T&gt; euphoria::core::Vec2Transform&lt; T &gt;::transform</definition>
+        <argsstring>(const vec2&lt; T &gt; &amp;from, float v, const vec2&lt; T &gt; to)</argsstring>
         <name>transform</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt; &amp;</type>
           <declname>from</declname>
         </param>
         <param>
@@ -23,7 +23,7 @@
           <declname>v</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Vec2" kindref="compound">Vec2</ref>&lt; T &gt;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2" kindref="compound">vec2</ref>&lt; T &gt;</type>
           <declname>to</declname>
         </param>
         <briefdescription>
@@ -42,7 +42,7 @@
     </detaileddescription>
     <location file="libs/core/src/core/vec2.h" line="359" column="1" bodyfile="libs/core/src/core/vec2.h" bodystart="358" bodyend="367"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Vec2Transform_1a119829838df574bf0a3cbd59b7c92ff9" prot="public" virt="non-virtual"><scope>euphoria::core::Vec2Transform</scope><name>transform</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec2Transform_1ab0a082bd176db7fb94f8034aba968861" prot="public" virt="non-virtual"><scope>euphoria::core::Vec2Transform</scope><name>transform</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

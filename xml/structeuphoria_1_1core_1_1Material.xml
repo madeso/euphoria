@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mesh.h" line="89" column="23" bodyfile="libs/core/src/core/mesh.h" bodystart="89" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Material_1adeb304d9c1c9b4b7b01fbd2e17336228" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
-        <definition>Rgb euphoria::core::Material::ambient</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Material_1ac514b2ed76b9bf802325b715fa962e86" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+        <definition>rgb euphoria::core::Material::ambient</definition>
         <argsstring></argsstring>
         <name>ambient</name>
         <briefdescription>
@@ -43,9 +43,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mesh.h" line="92" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="92" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Material_1a3f40df19ea44fb79c76e744a3b3304db" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
-        <definition>Rgb euphoria::core::Material::diffuse</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Material_1a5c5ade093061bb5fac2778e51248eb1e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+        <definition>rgb euphoria::core::Material::diffuse</definition>
         <argsstring></argsstring>
         <name>diffuse</name>
         <briefdescription>
@@ -56,9 +56,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mesh.h" line="93" column="13" bodyfile="libs/core/src/core/mesh.h" bodystart="93" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Material_1a736a03340f4bcc4e4e9f26f73b6a2d10" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">Rgb</ref></type>
-        <definition>Rgb euphoria::core::Material::specular</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Material_1a48153c0801f13f3a0596ccc9c66c5df6" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+        <definition>rgb euphoria::core::Material::specular</definition>
         <argsstring></argsstring>
         <name>specular</name>
         <briefdescription>
@@ -186,21 +186,21 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::Rgb</label>
-        <link refid="structeuphoria_1_1core_1_1Rgb"/>
+        <label>euphoria::core::rgb</label>
+        <link refid="structeuphoria_1_1core_1_1rgb"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/mesh.h" line="77" column="1" bodyfile="libs/core/src/core/mesh.h" bodystart="76" bodyend="102"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Material_1a9d9c9b84c90e033d2bb8c1c351985bb8" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>alpha</name></member>
-      <member refid="structeuphoria_1_1core_1_1Material_1adeb304d9c1c9b4b7b01fbd2e17336228" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>ambient</name></member>
-      <member refid="structeuphoria_1_1core_1_1Material_1a3f40df19ea44fb79c76e744a3b3304db" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>diffuse</name></member>
+      <member refid="structeuphoria_1_1core_1_1Material_1ac514b2ed76b9bf802325b715fa962e86" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>ambient</name></member>
+      <member refid="structeuphoria_1_1core_1_1Material_1a5c5ade093061bb5fac2778e51248eb1e" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>diffuse</name></member>
       <member refid="structeuphoria_1_1core_1_1Material_1a5d4840a8b0bb8fef2c923978ac74f98a" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>Material</name></member>
       <member refid="structeuphoria_1_1core_1_1Material_1ad776a2ee076fd6351d0a79b679eae78c" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>name</name></member>
       <member refid="structeuphoria_1_1core_1_1Material_1a432f79312c4bd1bf2bbf643b13f9f59e" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>set_texture</name></member>
       <member refid="structeuphoria_1_1core_1_1Material_1ae7d3e66a1bcaaca1edba5fa4cf06825c" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>shader</name></member>
       <member refid="structeuphoria_1_1core_1_1Material_1afede8c41f37a46fa1dc662eb0a3e1908" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>shininess</name></member>
-      <member refid="structeuphoria_1_1core_1_1Material_1a736a03340f4bcc4e4e9f26f73b6a2d10" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>specular</name></member>
+      <member refid="structeuphoria_1_1core_1_1Material_1a48153c0801f13f3a0596ccc9c66c5df6" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>specular</name></member>
       <member refid="structeuphoria_1_1core_1_1Material_1a0ca85af5241a1362f05007c6bd55861b" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>textures</name></member>
       <member refid="structeuphoria_1_1core_1_1Material_1a818acb7324062579afc3790f4974d042" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>wrap_s</name></member>
       <member refid="structeuphoria_1_1core_1_1Material_1a47323bc2f96c0b5c838c5203bed774e7" prot="public" virt="non-virtual"><scope>euphoria::core::Material</scope><name>wrap_t</name></member>

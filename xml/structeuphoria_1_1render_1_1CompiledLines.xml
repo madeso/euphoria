@@ -71,21 +71,21 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledLines_1ac910a0ae331701e2e4db0510a035a190" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledLines_1af290092f037ae70ca32cb03c7328bea0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::CompiledLines::render</definition>
-        <argsstring>(const core::Mat4f &amp;model_matrix, const core::Mat4f &amp;projection_matrix, const core::Mat4f &amp;view_matrix)</argsstring>
+        <argsstring>(const core::mat4f &amp;model_matrix, const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix)</argsstring>
         <name>render</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
           <declname>model_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
           <declname>projection_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
           <declname>view_matrix</declname>
         </param>
         <briefdescription>
@@ -144,7 +144,7 @@
       <member refid="structeuphoria_1_1render_1_1CompiledLines_1a289551eff3b8aee07584f2e1cf64f101" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledLines</scope><name>data</name></member>
       <member refid="structeuphoria_1_1render_1_1CompiledLines_1ab41a2a0ceb824e80b0d41c8dd53ea1df" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledLines</scope><name>line_count</name></member>
       <member refid="structeuphoria_1_1render_1_1CompiledLines_1a52b3ce89768b36106184efcc61720a95" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledLines</scope><name>lines</name></member>
-      <member refid="structeuphoria_1_1render_1_1CompiledLines_1ac910a0ae331701e2e4db0510a035a190" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledLines</scope><name>render</name></member>
+      <member refid="structeuphoria_1_1render_1_1CompiledLines_1af290092f037ae70ca32cb03c7328bea0" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledLines</scope><name>render</name></member>
       <member refid="structeuphoria_1_1render_1_1CompiledLines_1a9b925282027fc175d875603041699287" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledLines</scope><name>shader</name></member>
     </listofallmembers>
   </compounddef>

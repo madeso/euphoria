@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::detail::CameraFrame</compoundname>
     <includes refid="camera3_8editor_8h" local="no">camera3.editor.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1ad7bc9e39803a6facac82bb2e1d203e97" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle euphoria::core::detail::CameraFrame::rotation_angle</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1aa038c9479ceb6673fa88f48a12ed1a73" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::detail::CameraFrame::rotation_angle</definition>
         <argsstring></argsstring>
         <name>rotation_angle</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.editor.h" line="27" column="19" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="27" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1a8fe4b37021df5c22f3596c2f584a19a1" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle euphoria::core::detail::CameraFrame::look_angle</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1ab30edb5cb2fc89520d77f15ac0dc1a4b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::detail::CameraFrame::look_angle</definition>
         <argsstring></argsstring>
         <name>look_angle</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.editor.h" line="28" column="19" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="28" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1abdf00b500f988304ecc75cd2908566ec" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::detail::CameraFrame::position</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1a01275f4bc552c2bee720d4a098f8dfe5" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::detail::CameraFrame::position</definition>
         <argsstring></argsstring>
         <name>position</name>
         <briefdescription>
@@ -50,12 +50,12 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="3">
-        <label>euphoria::core::Angle</label>
-        <link refid="structeuphoria_1_1core_1_1Angle"/>
+        <label>euphoria::core::angle</label>
+        <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="2">
-        <label>euphoria::core::Vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+        <label>euphoria::core::vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec3"/>
       </node>
       <node id="1">
         <label>euphoria::core::detail::CameraFrame</label>
@@ -71,9 +71,9 @@
     </collaborationgraph>
     <location file="libs/core/src/core/camera3.editor.h" line="26" column="1" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="25" bodyend="30"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1a8fe4b37021df5c22f3596c2f584a19a1" prot="public" virt="non-virtual"><scope>euphoria::core::detail::CameraFrame</scope><name>look_angle</name></member>
-      <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1abdf00b500f988304ecc75cd2908566ec" prot="public" virt="non-virtual"><scope>euphoria::core::detail::CameraFrame</scope><name>position</name></member>
-      <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1ad7bc9e39803a6facac82bb2e1d203e97" prot="public" virt="non-virtual"><scope>euphoria::core::detail::CameraFrame</scope><name>rotation_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1ab30edb5cb2fc89520d77f15ac0dc1a4b" prot="public" virt="non-virtual"><scope>euphoria::core::detail::CameraFrame</scope><name>look_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1a01275f4bc552c2bee720d4a098f8dfe5" prot="public" virt="non-virtual"><scope>euphoria::core::detail::CameraFrame</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1aa038c9479ceb6673fa88f48a12ed1a73" prot="public" virt="non-virtual"><scope>euphoria::core::detail::CameraFrame</scope><name>rotation_angle</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

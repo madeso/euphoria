@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::Camera3</compoundname>
     <includes refid="camera3_8h" local="no">camera3.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1ac4ffddc15cb4db564fcf5306f64592be" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::Camera3::position</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1a8ae84c7f4436e1face7aa20e75c9cbc2" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::Camera3::position</definition>
         <argsstring></argsstring>
         <name>position</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="45" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="45" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1a5b7b5587687af58c43641ad013c9d2bb" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a4e667d7591aa51d3bbf27ab04de0d8c1" kindref="member">Quatf</ref></type>
-        <definition>Quatf euphoria::core::Camera3::rotation</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1aa68c68844a1e95e1c0893e09892850cb" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">quatf</ref></type>
+        <definition>quatf euphoria::core::Camera3::rotation</definition>
         <argsstring></argsstring>
         <name>rotation</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/camera3.h" line="46" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="46" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1a5d54977e27738d28e38ffb30f71e2ef1" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle euphoria::core::Camera3::fov</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1ac9c352fe50dcfcf314cb745c76521b9a" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::Camera3::fov</definition>
         <argsstring></argsstring>
         <name>fov</name>
         <briefdescription>
@@ -107,10 +107,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="4">
-        <label>euphoria::core::Quat&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Quat"/>
-      </node>
       <node id="1">
         <label>euphoria::core::Camera3</label>
         <link refid="structeuphoria_1_1core_1_1Camera3"/>
@@ -124,13 +120,17 @@
           <edgelabel>rotation</edgelabel>
         </childnode>
       </node>
+      <node id="4">
+        <label>euphoria::core::quat&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1quat"/>
+      </node>
       <node id="3">
-        <label>euphoria::core::Angle</label>
-        <link refid="structeuphoria_1_1core_1_1Angle"/>
+        <label>euphoria::core::angle</label>
+        <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="2">
-        <label>euphoria::core::Vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+        <label>euphoria::core::vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec3"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/camera3.h" line="38" column="1" bodyfile="libs/core/src/core/camera3.h" bodystart="37" bodyend="50"/>
@@ -138,10 +138,10 @@
       <member refid="structeuphoria_1_1core_1_1Camera3_1a80764cd51826d56fe77b374b301a7803" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>Camera3</name></member>
       <member refid="structeuphoria_1_1core_1_1Camera3_1ac0e5ca0be028e273bc221b7e9f017c05" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>compile</name></member>
       <member refid="structeuphoria_1_1core_1_1Camera3_1ae1e8411bfeddddac79765c6f3e67fb6b" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>far</name></member>
-      <member refid="structeuphoria_1_1core_1_1Camera3_1a5d54977e27738d28e38ffb30f71e2ef1" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>fov</name></member>
+      <member refid="structeuphoria_1_1core_1_1Camera3_1ac9c352fe50dcfcf314cb745c76521b9a" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>fov</name></member>
       <member refid="structeuphoria_1_1core_1_1Camera3_1a1f876fde2327dbece58a37bb8cfe8e2f" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>near</name></member>
-      <member refid="structeuphoria_1_1core_1_1Camera3_1ac4ffddc15cb4db564fcf5306f64592be" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>position</name></member>
-      <member refid="structeuphoria_1_1core_1_1Camera3_1a5b7b5587687af58c43641ad013c9d2bb" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>rotation</name></member>
+      <member refid="structeuphoria_1_1core_1_1Camera3_1a8ae84c7f4436e1face7aa20e75c9cbc2" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1core_1_1Camera3_1aa68c68844a1e95e1c0893e09892850cb" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>rotation</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

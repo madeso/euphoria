@@ -110,33 +110,33 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>euphoria::core::Rgb</label>
-        <link refid="structeuphoria_1_1core_1_1Rgb"/>
-      </node>
-      <node id="4">
-        <label>euphoria::core::Angle</label>
-        <link refid="structeuphoria_1_1core_1_1Angle"/>
+      <node id="5">
+        <label>euphoria::core::rgb</label>
+        <link refid="structeuphoria_1_1core_1_1rgb"/>
       </node>
       <node id="2">
         <label>euphoria::render::Light</label>
         <link refid="structeuphoria_1_1render_1_1Light"/>
         <childnode refid="3" relation="usage">
+          <edgelabel>cutoff_angle_inner</edgelabel>
+          <edgelabel>cutoff_angle_outer</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>attenuation</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
           <edgelabel>ambient</edgelabel>
           <edgelabel>diffuse</edgelabel>
           <edgelabel>specular</edgelabel>
         </childnode>
-        <childnode refid="4" relation="usage">
-          <edgelabel>cutoff_angle_inner</edgelabel>
-          <edgelabel>cutoff_angle_outer</edgelabel>
-        </childnode>
-        <childnode refid="5" relation="usage">
-          <edgelabel>attenuation</edgelabel>
-        </childnode>
       </node>
-      <node id="5">
+      <node id="4">
         <label>euphoria::render::LightAttenuation</label>
         <link refid="structeuphoria_1_1render_1_1LightAttenuation"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::angle</label>
+        <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="1">
         <label>euphoria::render::World</label>

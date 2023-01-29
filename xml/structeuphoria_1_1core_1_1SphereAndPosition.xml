@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/sphere.position.h" line="11" column="16" bodyfile="libs/core/src/core/sphere.position.h" bodystart="11" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SphereAndPosition_1ade2f3a00ba6c443f71c212b2b50e3dfa" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::SphereAndPosition::center</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SphereAndPosition_1a1988c9c56517262aba5f2f3e81b029fb" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::SphereAndPosition::center</definition>
         <argsstring></argsstring>
         <name>center</name>
         <briefdescription>
@@ -51,13 +51,13 @@
         <link refid="structeuphoria_1_1core_1_1Sphere"/>
       </node>
       <node id="2">
-        <label>euphoria::core::Vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+        <label>euphoria::core::vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec3"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/sphere.position.h" line="10" column="1" bodyfile="libs/core/src/core/sphere.position.h" bodystart="9" bodyend="13"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1SphereAndPosition_1ade2f3a00ba6c443f71c212b2b50e3dfa" prot="public" virt="non-virtual"><scope>euphoria::core::SphereAndPosition</scope><name>center</name></member>
+      <member refid="structeuphoria_1_1core_1_1SphereAndPosition_1a1988c9c56517262aba5f2f3e81b029fb" prot="public" virt="non-virtual"><scope>euphoria::core::SphereAndPosition</scope><name>center</name></member>
       <member refid="structeuphoria_1_1core_1_1SphereAndPosition_1acea8519e9066ebb5cd7f2fc6f7789b83" prot="public" virt="non-virtual"><scope>euphoria::core::SphereAndPosition</scope><name>sphere</name></member>
     </listofallmembers>
   </compounddef>

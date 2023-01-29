@@ -165,25 +165,25 @@
         </inbodydescription>
         <location file="libs/window/src/window/imgui_extra.h" line="89" column="5" declfile="libs/window/src/window/imgui_extra.h" declline="89" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a26c31c0b2ef08876ccca07da05350315" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a16b369e5b72c1b9bae0b25fddd0fd1a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::window::imgui::angle_slider</definition>
-        <argsstring>(const char *name, core::Angle *angle, const core::Angle &amp;min_deg, const core::Angle &amp;max_deg)</argsstring>
+        <argsstring>(const char *name, core::angle *angle, const core::angle &amp;min_deg, const core::angle &amp;max_deg)</argsstring>
         <name>angle_slider</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> *</type>
+          <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref> *</type>
           <declname>angle</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref> &amp;</type>
           <declname>min_deg</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref> &amp;</type>
           <declname>max_deg</declname>
         </param>
         <briefdescription>
@@ -194,17 +194,17 @@
         </inbodydescription>
         <location file="libs/window/src/window/imgui_extra.h" line="92" column="5" declfile="libs/window/src/window/imgui_extra.h" declline="92" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a0efea22c59d677cb6cb15c7710f42d67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1ab3edcb14b56acf64f1459b6897883796" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::window::imgui::angle_slider</definition>
-        <argsstring>(const char *name, core::Angle *angle)</argsstring>
+        <argsstring>(const char *name, core::angle *angle)</argsstring>
         <name>angle_slider</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> *</type>
+          <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref> *</type>
           <declname>angle</declname>
         </param>
         <briefdescription>
@@ -274,17 +274,17 @@
         </inbodydescription>
         <location file="libs/window/src/window/imgui_extra.h" line="116" column="5" declfile="libs/window/src/window/imgui_extra.h" declline="116" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1acf364e3536431669fa0414d1d315ea62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a3a4ebc018a2c9442f1af9c990cd49628" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::window::imgui::color_edit</definition>
-        <argsstring>(const char *name, core::Rgb *rgb)</argsstring>
+        <argsstring>(const char *name, core::rgb *rgb)</argsstring>
         <name>color_edit</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> *</type>
+          <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> *</type>
           <declname>rgb</declname>
         </param>
         <briefdescription>
@@ -295,17 +295,17 @@
         </inbodydescription>
         <location file="libs/window/src/window/imgui_extra.h" line="119" column="5" declfile="libs/window/src/window/imgui_extra.h" declline="119" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1acae673dbfe7245f195e83f20ebc98235" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1a572c2df512eeb11923b0f5b6612c1ed8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::window::imgui::color_edit</definition>
-        <argsstring>(const char *name, core::Rgba *rgb)</argsstring>
+        <argsstring>(const char *name, core::rgba *rgb)</argsstring>
         <name>color_edit</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> *</type>
+          <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> *</type>
           <declname>rgb</declname>
         </param>
         <briefdescription>
@@ -316,17 +316,17 @@
         </inbodydescription>
         <location file="libs/window/src/window/imgui_extra.h" line="122" column="5" declfile="libs/window/src/window/imgui_extra.h" declline="122" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1aa23738dab22cd106db927bdb450f9cb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1af34f191738b4b3bf41b5f32458f9a999" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::window::imgui::color_edit</definition>
-        <argsstring>(const char *name, core::Rgbai *rgb)</argsstring>
+        <argsstring>(const char *name, core::rgbai *rgb)</argsstring>
         <name>color_edit</name>
         <param>
           <type>const char *</type>
           <declname>name</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgbai" kindref="compound">core::Rgbai</ref> *</type>
+          <type><ref refid="structeuphoria_1_1core_1_1rgbai" kindref="compound">core::rgbai</ref> *</type>
           <declname>rgb</declname>
         </param>
         <briefdescription>

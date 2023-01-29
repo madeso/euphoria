@@ -125,9 +125,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/scalablesprite.h" line="39" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1a27783d62535080837f93e2ba07b8f7a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a8c5f78c50315b8abde58b90d27490153" kindref="member">core::Size2f</ref></type>
-        <definition>core::Size2f euphoria::render::ScalableSprite::get_minimum_size</definition>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1a5d9152071bcc635dda134fe561b2af5d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref></type>
+        <definition>core::size2f euphoria::render::ScalableSprite::get_minimum_size</definition>
         <argsstring>() const</argsstring>
         <name>get_minimum_size</name>
         <briefdescription>
@@ -138,10 +138,10 @@
         </inbodydescription>
         <location file="libs/render/src/render/scalablesprite.h" line="42" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1ada69f798dabec1c7c1e377a4ce825b45" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1ad0a4b15d59f42428de976ec5b4b2af98" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::ScalableSprite::render</definition>
-        <argsstring>(SpriteRenderer *renderer, const core::Rectf &amp;rect, const core::Rgba &amp;tint) const</argsstring>
+        <argsstring>(SpriteRenderer *renderer, const core::Rectf &amp;rect, const core::rgba &amp;tint) const</argsstring>
         <name>render</name>
         <param>
           <type><ref refid="structeuphoria_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
@@ -152,7 +152,7 @@
           <declname>rect</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> &amp;</type>
           <declname>tint</declname>
         </param>
         <briefdescription>
@@ -173,9 +173,9 @@
       <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a3303f05a4f15123d7a29836bb7d981d0" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>calculated_texture_size_columns</name></member>
       <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a9c64e705a4c43e391ddf0359754ddeaf" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>calculated_texture_size_rows</name></member>
       <member refid="structeuphoria_1_1render_1_1ScalableSprite_1ad36a3b3049b3deae75eb85f4c2ddac3e" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>columns</name></member>
-      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a27783d62535080837f93e2ba07b8f7a3" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>get_minimum_size</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a5d9152071bcc635dda134fe561b2af5d" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>get_minimum_size</name></member>
       <member refid="structeuphoria_1_1render_1_1ScalableSprite_1ac67e1403a8606f27cf09001b1228446a" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1ada69f798dabec1c7c1e377a4ce825b45" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>render</name></member>
+      <member refid="structeuphoria_1_1render_1_1ScalableSprite_1ad0a4b15d59f42428de976ec5b4b2af98" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>render</name></member>
       <member refid="structeuphoria_1_1render_1_1ScalableSprite_1aaccbe902570019a893006609ddd65858" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>rows</name></member>
       <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a269b71382674ab32b61cfb992ec47878" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>ScalableSprite</name></member>
       <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a0807194e57fddfd91de7c2ee4d7e1634" prot="public" virt="non-virtual"><scope>euphoria::render::ScalableSprite</scope><name>texture</name></member>

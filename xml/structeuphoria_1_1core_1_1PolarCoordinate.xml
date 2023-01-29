@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::PolarCoordinate</compoundname>
     <includes refid="polarcoord_8h" local="no">polarcoord.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1PolarCoordinate_1a0185a3bffe5dd3ef8d4781a50594ce53" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle euphoria::core::PolarCoordinate::azimuthal</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1PolarCoordinate_1a289325ebce3d0a6d1de4ae269b0573a8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::PolarCoordinate::azimuthal</definition>
         <argsstring></argsstring>
         <name>azimuthal</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/polarcoord.h" line="21" column="15" bodyfile="libs/core/src/core/polarcoord.h" bodystart="21" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1PolarCoordinate_1a74b3206554d07cb4a5ec54c55e85c73e" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle euphoria::core::PolarCoordinate::polar</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1PolarCoordinate_1acac2d5741d872638482cbede70e34487" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::PolarCoordinate::polar</definition>
         <argsstring></argsstring>
         <name>polar</name>
         <briefdescription>
@@ -53,9 +53,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/polarcoord.h" line="13" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolarCoordinate_1aca51b81023dbb1f26f20357e627fb8dd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">Unit3f</ref></type>
-        <definition>Unit3f euphoria::core::PolarCoordinate::to_unit_vector</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolarCoordinate_1afb400154a4079245d5c2444626496497" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref></type>
+        <definition>unit3f euphoria::core::PolarCoordinate::to_unit_vector</definition>
         <argsstring>() const</argsstring>
         <name>to_unit_vector</name>
         <briefdescription>
@@ -91,10 +91,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
-        <label>euphoria::core::Angle</label>
-        <link refid="structeuphoria_1_1core_1_1Angle"/>
-      </node>
       <node id="1">
         <label>euphoria::core::PolarCoordinate</label>
         <link refid="structeuphoria_1_1core_1_1PolarCoordinate"/>
@@ -103,14 +99,18 @@
           <edgelabel>azimuthal</edgelabel>
         </childnode>
       </node>
+      <node id="2">
+        <label>euphoria::core::angle</label>
+        <link refid="structeuphoria_1_1core_1_1angle"/>
+      </node>
     </collaborationgraph>
     <location file="libs/core/src/core/polarcoord.h" line="12" column="1" bodyfile="libs/core/src/core/polarcoord.h" bodystart="11" bodyend="23"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1a0185a3bffe5dd3ef8d4781a50594ce53" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>azimuthal</name></member>
+      <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1a289325ebce3d0a6d1de4ae269b0573a8" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>azimuthal</name></member>
       <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1a06fd38a9afc8395b6bcbe149330bb2a3" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>create_random</name></member>
-      <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1a74b3206554d07cb4a5ec54c55e85c73e" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>polar</name></member>
+      <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1acac2d5741d872638482cbede70e34487" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>polar</name></member>
       <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1a6cab0193d0eeeaebc34b86649cab56b6" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>PolarCoordinate</name></member>
-      <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1aca51b81023dbb1f26f20357e627fb8dd" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>to_unit_vector</name></member>
+      <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1afb400154a4079245d5c2444626496497" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>to_unit_vector</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

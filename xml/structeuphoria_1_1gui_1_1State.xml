@@ -4,12 +4,12 @@
     <compoundname>euphoria::gui::State</compoundname>
     <includes refid="uistate_8h" local="no">uistate.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1State_1a1a3f6bde5dcbb19ffd52c2aa2184e7aa" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">core::Vec2f</ref></type>
-        <definition>core::Vec2f euphoria::gui::State::mouse</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1State_1a963f2c9ae75af8aa69c7a51cc149027a" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref></type>
+        <definition>core::vec2f euphoria::gui::State::mouse</definition>
         <argsstring></argsstring>
         <name>mouse</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">core::Vec2f</ref>(0.0f, 0.0f)</initializer>
+        <initializer>= <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref>(0.0f, 0.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -193,13 +193,13 @@
           <edgelabel>layout</edgelabel>
         </childnode>
       </node>
-      <node id="2">
-        <label>euphoria::core::Vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec2"/>
-      </node>
       <node id="5">
         <label>euphoria::core::Lrud&lt; float &gt;</label>
         <link refid="structeuphoria_1_1core_1_1Lrud"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::vec2&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec2"/>
       </node>
       <node id="1">
         <label>euphoria::gui::State</label>
@@ -221,7 +221,7 @@
       <member refid="structeuphoria_1_1gui_1_1State_1ae040dd644c47e52f6a4f7a56be8d2664" prot="public" virt="non-virtual"><scope>euphoria::gui::State</scope><name>has_active</name></member>
       <member refid="structeuphoria_1_1gui_1_1State_1a56b2b3ab9a4acd37f530dc9acf3ac0af" prot="public" virt="non-virtual"><scope>euphoria::gui::State</scope><name>hot</name></member>
       <member refid="structeuphoria_1_1gui_1_1State_1acb65035d76edb6f4d91b9fc6a082e25a" prot="public" virt="non-virtual"><scope>euphoria::gui::State</scope><name>is_mouse_down</name></member>
-      <member refid="structeuphoria_1_1gui_1_1State_1a1a3f6bde5dcbb19ffd52c2aa2184e7aa" prot="public" virt="non-virtual"><scope>euphoria::gui::State</scope><name>mouse</name></member>
+      <member refid="structeuphoria_1_1gui_1_1State_1a963f2c9ae75af8aa69c7a51cc149027a" prot="public" virt="non-virtual"><scope>euphoria::gui::State</scope><name>mouse</name></member>
       <member refid="structeuphoria_1_1gui_1_1State_1a49203be775cc4dcdbac9ceec32c0a31b" prot="public" virt="non-virtual"><scope>euphoria::gui::State</scope><name>mouse_down</name></member>
       <member refid="structeuphoria_1_1gui_1_1State_1a388a9bf6018b0a3a7cd8a34ff7c335d4" prot="public" virt="non-virtual"><scope>euphoria::gui::State</scope><name>set_active</name></member>
       <member refid="structeuphoria_1_1gui_1_1State_1a993184b7a18a77547366b167c0a9591a" prot="public" virt="non-virtual"><scope>euphoria::gui::State</scope><name>set_hot</name></member>

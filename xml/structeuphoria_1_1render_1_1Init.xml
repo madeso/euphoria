@@ -97,9 +97,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/init.h" line="25" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a1a46dfcfbd4c298a564bf25706c57b65" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0652f9600dc461d914bd5ecfdd4d3924" kindref="member">core::Mat4f</ref></type>
-        <definition>core::Mat4f euphoria::render::Init::get_ortho_projection</definition>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a27e0de7de1b9d5e848ef36dd80579603" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref></type>
+        <definition>core::mat4f euphoria::render::Init::get_ortho_projection</definition>
         <argsstring>(float width, float height) const</argsstring>
         <name>get_ortho_projection</name>
         <param>
@@ -131,13 +131,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/init.h" line="32" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a7a949ecb88cb39776886a58e56b41425" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a8c72041ce56669e2840b44b28b2a2ec2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::Init::clear_screen</definition>
-        <argsstring>(const core::Rgb &amp;color) const</argsstring>
+        <argsstring>(const core::rgb &amp;color) const</argsstring>
         <name>clear_screen</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
           <declname>color</declname>
         </param>
         <briefdescription>
@@ -156,8 +156,8 @@
     <location file="libs/render/src/render/init.h" line="14" column="1" bodyfile="libs/render/src/render/init.h" bodystart="13" bodyend="39"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Init_1a57eb900180a4f88d666c7392a4b2be47" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>BlendHack</name></member>
-      <member refid="structeuphoria_1_1render_1_1Init_1a7a949ecb88cb39776886a58e56b41425" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>clear_screen</name></member>
-      <member refid="structeuphoria_1_1render_1_1Init_1a1a46dfcfbd4c298a564bf25706c57b65" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>get_ortho_projection</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a8c72041ce56669e2840b44b28b2a2ec2" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>clear_screen</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a27e0de7de1b9d5e848ef36dd80579603" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>get_ortho_projection</name></member>
       <member refid="structeuphoria_1_1render_1_1Init_1a21036da93a231fbbc3f41f5d8398e204" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>Init</name></member>
       <member refid="structeuphoria_1_1render_1_1Init_1add09b35213d1c62aa287cc9e285449dd" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>is_ok</name></member>
       <member refid="structeuphoria_1_1render_1_1Init_1a3c12150df90f70e76df488252272a3fc" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>NONCOPYABLE</name></member>

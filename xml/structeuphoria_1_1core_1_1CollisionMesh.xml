@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::CollisionMesh</compoundname>
     <includes refid="collisionmesh_8h" local="no">collisionmesh.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CollisionMesh_1ab46f21b63c3b03b442961797bed9af44" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> &gt;</type>
-        <definition>std::vector&lt;core::Vec3f&gt; euphoria::core::CollisionMesh::points</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CollisionMesh_1a508d279dbb13c332fdc6e0a292745d33" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> &gt;</type>
+        <definition>std::vector&lt;core::vec3f&gt; euphoria::core::CollisionMesh::points</definition>
         <argsstring></argsstring>
         <name>points</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/collisionmesh.h" line="17" column="17" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="17" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CollisionMesh_1a90b86055490cc42fe5cfd7a79c47b33a" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1a5672025103c21c7865df698df78094f8" kindref="member">core::Vec3i</ref> &gt;</type>
-        <definition>std::vector&lt;core::Vec3i&gt; euphoria::core::CollisionMesh::faces</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1CollisionMesh_1a6babb24f531c39dd45b2711a6e210abc" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1ac9ec61ba7ff957795b07f3b5ed12256b" kindref="member">core::vec3i</ref> &gt;</type>
+        <definition>std::vector&lt;core::vec3i&gt; euphoria::core::CollisionMesh::faces</definition>
         <argsstring></argsstring>
         <name>faces</name>
         <briefdescription>
@@ -57,8 +57,8 @@
     <location file="libs/core/src/core/collisionmesh.h" line="16" column="1" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="15" bodyend="21"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CollisionMesh_1a74d0c026ff824888a6b4dcf2587dcd2f" prot="public" virt="non-virtual"><scope>euphoria::core::CollisionMesh</scope><name>add</name></member>
-      <member refid="structeuphoria_1_1core_1_1CollisionMesh_1a90b86055490cc42fe5cfd7a79c47b33a" prot="public" virt="non-virtual"><scope>euphoria::core::CollisionMesh</scope><name>faces</name></member>
-      <member refid="structeuphoria_1_1core_1_1CollisionMesh_1ab46f21b63c3b03b442961797bed9af44" prot="public" virt="non-virtual"><scope>euphoria::core::CollisionMesh</scope><name>points</name></member>
+      <member refid="structeuphoria_1_1core_1_1CollisionMesh_1a6babb24f531c39dd45b2711a6e210abc" prot="public" virt="non-virtual"><scope>euphoria::core::CollisionMesh</scope><name>faces</name></member>
+      <member refid="structeuphoria_1_1core_1_1CollisionMesh_1a508d279dbb13c332fdc6e0a292745d33" prot="public" virt="non-virtual"><scope>euphoria::core::CollisionMesh</scope><name>points</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

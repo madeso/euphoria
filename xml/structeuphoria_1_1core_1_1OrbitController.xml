@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::OrbitController</compoundname>
     <includes refid="orbitcontroller_8h" local="no">orbitcontroller.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1OrbitController_1a06203bc7a319ea7a8f2cd79c9d8b0e8f" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::OrbitController::center</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1OrbitController_1addcbda45d74604a6dfe02ecb488ad3d7" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::OrbitController::center</definition>
         <argsstring></argsstring>
         <name>center</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/orbitcontroller.h" line="35" column="15" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="35" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1OrbitController_1a52daae9147d103ad92bab2754e07e7a2" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle euphoria::core::OrbitController::horizontal_rotation</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1OrbitController_1a69af9b0d1eaa2af8aced2adb8017dbbc" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::OrbitController::horizontal_rotation</definition>
         <argsstring></argsstring>
         <name>horizontal_rotation</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/orbitcontroller.h" line="37" column="15" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="37" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1OrbitController_1ab623bc75abfe4b2b180b17712d5e25f1" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">Angle</ref></type>
-        <definition>Angle euphoria::core::OrbitController::vertical_rotation</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1OrbitController_1a2ea8976ccfc68acbaa2b57bc0281b0b8" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::OrbitController::vertical_rotation</definition>
         <argsstring></argsstring>
         <name>vertical_rotation</name>
         <briefdescription>
@@ -137,9 +137,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/orbitcontroller.h" line="12" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1OrbitController_1aa226fcad6e35bfae24f935c2300e3f5e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a4e667d7591aa51d3bbf27ab04de0d8c1" kindref="member">Quatf</ref></type>
-        <definition>Quatf euphoria::core::OrbitController::get_rotation</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1OrbitController_1a186c825696ca47f2e538a9551f1c95e7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">quatf</ref></type>
+        <definition>quatf euphoria::core::OrbitController::get_rotation</definition>
         <argsstring>() const</argsstring>
         <name>get_rotation</name>
         <briefdescription>
@@ -150,9 +150,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/orbitcontroller.h" line="16" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1OrbitController_1aff1feac383502aa3e18fb74b5b915ea5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::OrbitController::get_camera_position</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1OrbitController_1ae95804b8dc7531d2ac821cad85517b25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::OrbitController::get_camera_position</definition>
         <argsstring>() const</argsstring>
         <name>get_camera_position</name>
         <briefdescription>
@@ -233,12 +233,12 @@
         <link refid="structeuphoria_1_1core_1_1Sensitivity"/>
       </node>
       <node id="3">
-        <label>euphoria::core::Angle</label>
-        <link refid="structeuphoria_1_1core_1_1Angle"/>
+        <label>euphoria::core::angle</label>
+        <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="2">
-        <label>euphoria::core::Vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+        <label>euphoria::core::vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec3"/>
       </node>
       <node id="1">
         <label>euphoria::core::OrbitController</label>
@@ -261,11 +261,11 @@
     </collaborationgraph>
     <location file="libs/core/src/core/orbitcontroller.h" line="11" column="1" bodyfile="libs/core/src/core/orbitcontroller.h" bodystart="10" bodyend="47"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1OrbitController_1a06203bc7a319ea7a8f2cd79c9d8b0e8f" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>center</name></member>
+      <member refid="structeuphoria_1_1core_1_1OrbitController_1addcbda45d74604a6dfe02ecb488ad3d7" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>center</name></member>
       <member refid="structeuphoria_1_1core_1_1OrbitController_1aa5181a93eda5c5f1235365c8f0ceb5cf" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>distance</name></member>
-      <member refid="structeuphoria_1_1core_1_1OrbitController_1aff1feac383502aa3e18fb74b5b915ea5" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>get_camera_position</name></member>
-      <member refid="structeuphoria_1_1core_1_1OrbitController_1aa226fcad6e35bfae24f935c2300e3f5e" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>get_rotation</name></member>
-      <member refid="structeuphoria_1_1core_1_1OrbitController_1a52daae9147d103ad92bab2754e07e7a2" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>horizontal_rotation</name></member>
+      <member refid="structeuphoria_1_1core_1_1OrbitController_1ae95804b8dc7531d2ac821cad85517b25" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>get_camera_position</name></member>
+      <member refid="structeuphoria_1_1core_1_1OrbitController_1a186c825696ca47f2e538a9551f1c95e7" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>get_rotation</name></member>
+      <member refid="structeuphoria_1_1core_1_1OrbitController_1a69af9b0d1eaa2af8aced2adb8017dbbc" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>horizontal_rotation</name></member>
       <member refid="structeuphoria_1_1core_1_1OrbitController_1a99777de884716deee86b09f52ef3de47" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>on_pan_input</name></member>
       <member refid="structeuphoria_1_1core_1_1OrbitController_1a0b5fcc5241c08feed201309e8771cf6c" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>on_rotate_input</name></member>
       <member refid="structeuphoria_1_1core_1_1OrbitController_1ae8806aa3fafdf2d9fe94284cd19a5627" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>on_zoom_input</name></member>
@@ -274,7 +274,7 @@
       <member refid="structeuphoria_1_1core_1_1OrbitController_1a299b3a19c8cebfdf04a3b7c062fffde2" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>pan_dy</name></member>
       <member refid="structeuphoria_1_1core_1_1OrbitController_1ab2a69865ab46275337ce0c5f81e51d5a" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>rotate_dx</name></member>
       <member refid="structeuphoria_1_1core_1_1OrbitController_1aca945fc225d0edb8debc21a01982e3ee" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>rotate_dy</name></member>
-      <member refid="structeuphoria_1_1core_1_1OrbitController_1ab623bc75abfe4b2b180b17712d5e25f1" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>vertical_rotation</name></member>
+      <member refid="structeuphoria_1_1core_1_1OrbitController_1a2ea8976ccfc68acbaa2b57bc0281b0b8" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>vertical_rotation</name></member>
       <member refid="structeuphoria_1_1core_1_1OrbitController_1af0e9eebac40d1c2bc66f6f1d49fce3cf" prot="public" virt="non-virtual"><scope>euphoria::core::OrbitController</scope><name>zoom</name></member>
     </listofallmembers>
   </compounddef>

@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::Aabb</compoundname>
     <includes refid="aabb_8h" local="no">aabb.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Aabb_1ae7c14d37599b489f176f83551bb65e2f" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::Aabb::min</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Aabb_1a17a8aaca10a782b97236a943627dfb7f" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::Aabb::min</definition>
         <argsstring></argsstring>
         <name>min</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/aabb.h" line="57" column="15" bodyfile="libs/core/src/core/aabb.h" bodystart="57" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Aabb_1ada80c2ce5260280e61cdf6a3005e9f91" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::Aabb::max</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Aabb_1a09b9b525e919634bad8fb7bc7b09506d" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::Aabb::max</definition>
         <argsstring></argsstring>
         <name>max</name>
         <briefdescription>
@@ -32,17 +32,17 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a6c989ad0bbf86198121617799173caf9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a4cc91056779896a9a0eca79ac71c0779" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::Aabb::Aabb</definition>
-        <argsstring>(const Vec3f &amp;amin, const Vec3f &amp;amax)</argsstring>
+        <argsstring>(const vec3f &amp;amin, const vec3f &amp;amax)</argsstring>
         <name>Aabb</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>amin</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>amax</declname>
         </param>
         <briefdescription>
@@ -53,13 +53,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/aabb.h" line="14" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1afb0162058d5f8c1fb527aa5421a816b9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::Aabb::wrap</definition>
-        <argsstring>(const Vec3f &amp;vec) const</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1aed774ece37a89cb5c57f74bf182e0ec9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::Aabb::wrap</definition>
+        <argsstring>(const vec3f &amp;vec) const</argsstring>
         <name>wrap</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>vec</declname>
         </param>
         <briefdescription>
@@ -70,13 +70,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/aabb.h" line="18" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1aa296e37c72bbcf1d04defa358d6e6cdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a84e652d66728b0cd1a1e61de7e04ca84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::core::Aabb::extend</definition>
-        <argsstring>(const Vec3f &amp;vec)</argsstring>
+        <argsstring>(const vec3f &amp;vec)</argsstring>
         <name>extend</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>vec</declname>
         </param>
         <briefdescription>
@@ -104,9 +104,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/aabb.h" line="26" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1ad9316d5f7e81fd20f5bf2cf907de3d38" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::Aabb::get_size</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1ad7f1bf63a320ed88d754105d19d5626b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::Aabb::get_size</definition>
         <argsstring>() const</argsstring>
         <name>get_size</name>
         <briefdescription>
@@ -130,9 +130,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/aabb.h" line="38" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1acdc38742689f95d45501ddec76f6392c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::Aabb::get_offset</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a969a515534d9eeacda85e89a32931c7a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::Aabb::get_offset</definition>
         <argsstring>() const</argsstring>
         <name>get_offset</name>
         <briefdescription>
@@ -143,13 +143,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/aabb.h" line="42" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a5f2432cf1ef4b6cb5ee6a056531f9c5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a986fa9eff325c1173aa59bcc1dd84530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::core::Aabb::offset</definition>
-        <argsstring>(const Vec3f &amp;vec)</argsstring>
+        <argsstring>(const vec3f &amp;vec)</argsstring>
         <name>offset</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>vec</declname>
         </param>
         <briefdescription>
@@ -160,13 +160,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/aabb.h" line="46" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a3efa67faa8cb480e061a77dabc802925" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a7ff5a7553b4f07726fc3622efa52c635" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
         <definition>Aabb euphoria::core::Aabb::offset_copy</definition>
-        <argsstring>(const Vec3f &amp;vec) const</argsstring>
+        <argsstring>(const vec3f &amp;vec) const</argsstring>
         <name>offset_copy</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>vec</declname>
         </param>
         <briefdescription>
@@ -177,9 +177,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/aabb.h" line="50" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a63781c7a6e53cbe186757602a6f74017" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &gt;</type>
-        <definition>std::vector&lt;Vec3f&gt; euphoria::core::Aabb::calculate_all_corners</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a6698470eb44bd0056aad49cca3ec0f8d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &gt;</type>
+        <definition>std::vector&lt;vec3f&gt; euphoria::core::Aabb::calculate_all_corners</definition>
         <argsstring>() const</argsstring>
         <name>calculate_all_corners</name>
         <briefdescription>
@@ -220,25 +220,25 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::Vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+        <label>euphoria::core::vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec3"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/aabb.h" line="13" column="1" bodyfile="libs/core/src/core/aabb.h" bodystart="12" bodyend="59"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1a6c989ad0bbf86198121617799173caf9" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>Aabb</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1a63781c7a6e53cbe186757602a6f74017" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>calculate_all_corners</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a4cc91056779896a9a0eca79ac71c0779" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>Aabb</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a6698470eb44bd0056aad49cca3ec0f8d" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>calculate_all_corners</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a2d85fa1fe617982fd810f653124bdaba" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>create_empty</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1aa296e37c72bbcf1d04defa358d6e6cdb" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>extend</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a84e652d66728b0cd1a1e61de7e04ca84" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>extend</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a9f592e6d732bf484bf2d416b44ffcea4" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>extend</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1acdc38742689f95d45501ddec76f6392c" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>get_offset</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1ad9316d5f7e81fd20f5bf2cf907de3d38" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>get_size</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a969a515534d9eeacda85e89a32931c7a" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>get_offset</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1ad7f1bf63a320ed88d754105d19d5626b" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>get_size</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a5b4977549583d323f14a205d8503aab8" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>is_valid</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1ada80c2ce5260280e61cdf6a3005e9f91" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>max</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1ae7c14d37599b489f176f83551bb65e2f" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>min</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1a5f2432cf1ef4b6cb5ee6a056531f9c5f" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>offset</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1a3efa67faa8cb480e061a77dabc802925" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>offset_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1afb0162058d5f8c1fb527aa5421a816b9" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>wrap</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a09b9b525e919634bad8fb7bc7b09506d" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>max</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a17a8aaca10a782b97236a943627dfb7f" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>min</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a986fa9eff325c1173aa59bcc1dd84530" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>offset</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a7ff5a7553b4f07726fc3622efa52c635" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>offset_copy</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1aed774ece37a89cb5c57f74bf182e0ec9" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>wrap</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

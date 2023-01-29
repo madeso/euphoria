@@ -48,25 +48,25 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="88" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1ListOfTextDrawCommands_1af89dabc19cbbdeb9b21b7572a5fc4c35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ListOfTextDrawCommands_1a99175489522ae5e89d1450c46f68cd39" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::ListOfTextDrawCommands::draw</definition>
-        <argsstring>(SpriteRenderer *renderer, const core::Vec2f &amp;start_position, const core::Rgb &amp;base_color, const core::Rgb &amp;hi_color)</argsstring>
+        <argsstring>(SpriteRenderer *renderer, const core::vec2f &amp;start_position, const core::rgb &amp;base_color, const core::rgb &amp;hi_color)</argsstring>
         <name>draw</name>
         <param>
           <type><ref refid="structeuphoria_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
           <declname>renderer</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">core::Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref> &amp;</type>
           <declname>start_position</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
           <declname>base_color</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
           <declname>hi_color</declname>
         </param>
         <briefdescription>
@@ -99,7 +99,7 @@
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands_1a1320819d3a61352610114579bc4a94bd" prot="public" virt="non-virtual"><scope>euphoria::render::ListOfTextDrawCommands</scope><name>add</name></member>
       <member refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands_1a6db52ca858d24b4ae56a7eeefdd66ebf" prot="public" virt="non-virtual"><scope>euphoria::render::ListOfTextDrawCommands</scope><name>commands</name></member>
-      <member refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands_1af89dabc19cbbdeb9b21b7572a5fc4c35" prot="public" virt="non-virtual"><scope>euphoria::render::ListOfTextDrawCommands</scope><name>draw</name></member>
+      <member refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands_1a99175489522ae5e89d1450c46f68cd39" prot="public" virt="non-virtual"><scope>euphoria::render::ListOfTextDrawCommands</scope><name>draw</name></member>
       <member refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands_1af17c7bae956edd4fe0c57405d878e197" prot="public" virt="non-virtual"><scope>euphoria::render::ListOfTextDrawCommands</scope><name>get_extents</name></member>
     </listofallmembers>
   </compounddef>

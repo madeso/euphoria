@@ -314,7 +314,7 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Mat3" prot="public">euphoria::core::Mat3</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1mat3" prot="public">euphoria::core::mat3</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
       <sectiondef kind="define">
@@ -346,7 +346,7 @@
         <name>OP</name>
         <param><defname>r</defname></param>
         <param><defname>c</defname></param>
-        <initializer>component_multiply(Vec3{lhs.get_row(r)}, Vec3{rhs.get_column(c)}).get_component_sum()</initializer>
+        <initializer>component_multiply(vec3{lhs.get_row(r)}, vec3{rhs.get_column(c)}).get_component_sum()</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -358,7 +358,7 @@
       <memberdef kind="define" id="mat3_8h_1ad3fad4870192fbb33f78583fbb0cc502" prot="public" static="no">
         <name>OP</name>
         <param><defname>r</defname></param>
-        <initializer>component_multiply(Vec3{lhs.get_row(r)}, rhs).get_component_sum()</initializer>
+        <initializer>component_multiply(vec3{lhs.get_row(r)}, rhs).get_component_sum()</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

@@ -24,14 +24,14 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="334" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="334" bodyend="339"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1ad8e4916201388d47ea31230e8799f297" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1abd05acc65b2dcfd57af5861fd4641f56" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
         <definition>constexpr U8 euphoria::core::colorutil::get_red</definition>
-        <argsstring>(unsigned int rgb)</argsstring>
+        <argsstring>(unsigned int c)</argsstring>
         <name>get_red</name>
         <param>
           <type>unsigned int</type>
-          <declname>rgb</declname>
+          <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -41,14 +41,14 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="343" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="343" bodyend="346"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a120f838b8584ffbd50bbc41e792c872e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a314c6440eb28fad6e85936ba6f4e513f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
         <definition>constexpr U8 euphoria::core::colorutil::get_green</definition>
-        <argsstring>(unsigned int rgb)</argsstring>
+        <argsstring>(unsigned int c)</argsstring>
         <name>get_green</name>
         <param>
           <type>unsigned int</type>
-          <declname>rgb</declname>
+          <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -58,14 +58,14 @@
         </inbodydescription>
         <location file="libs/core/src/core/rgb.h" line="350" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="350" bodyend="353"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1af20ed28fbe8160b486fb33375bdd458f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1aede8682cfad87f9dbc6dc13d14c36a8d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
         <definition>constexpr U8 euphoria::core::colorutil::get_blue</definition>
-        <argsstring>(unsigned int rgb)</argsstring>
+        <argsstring>(unsigned int c)</argsstring>
         <name>get_blue</name>
         <param>
           <type>unsigned int</type>
-          <declname>rgb</declname>
+          <declname>c</declname>
         </param>
         <briefdescription>
         </briefdescription>

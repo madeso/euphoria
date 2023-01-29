@@ -24,9 +24,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="60" column="26" bodyfile="libs/core/src/core/palette.h" bodystart="60" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1StaticPalette_1a9eb918e8a2b7a0ac980bf0b9e92363cb" prot="public" static="no" mutable="no">
-        <type>std::array&lt; const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref>, size &gt;</type>
-        <definition>std::array&lt;const Rgbi, size&gt; euphoria::core::StaticPalette&lt; size &gt;::colors</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1StaticPalette_1aed0436145ddedc35e3933ac25b2bd00c" prot="public" static="no" mutable="no">
+        <type>std::array&lt; const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref>, size &gt;</type>
+        <definition>std::array&lt;const rgbi, size&gt; euphoria::core::StaticPalette&lt; size &gt;::colors</definition>
         <argsstring></argsstring>
         <name>colors</name>
         <briefdescription>
@@ -52,17 +52,17 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1StaticPalette_1a834cc512ba8bbad2ddf057903587fd64" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StaticPalette_1aa5c9efaa71d71b77ca22b47f9ee5c7b2" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr</type>
         <definition>constexpr euphoria::core::StaticPalette&lt; size &gt;::StaticPalette</definition>
-        <argsstring>(std::string_view n, const std::array&lt; const Rgbi, size &gt; &amp;c)</argsstring>
+        <argsstring>(std::string_view n, const std::array&lt; const rgbi, size &gt; &amp;c)</argsstring>
         <name>StaticPalette</name>
         <param>
           <type>std::string_view</type>
           <declname>n</declname>
         </param>
         <param>
-          <type>const std::array&lt; const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref>, size &gt; &amp;</type>
+          <type>const std::array&lt; const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref>, size &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -119,12 +119,12 @@
     </collaborationgraph>
     <location file="libs/core/src/core/palette.h" line="59" column="1" bodyfile="libs/core/src/core/palette.h" bodystart="58" bodyend="82"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1StaticPalette_1a9eb918e8a2b7a0ac980bf0b9e92363cb" prot="public" virt="non-virtual"><scope>euphoria::core::StaticPalette</scope><name>colors</name></member>
+      <member refid="structeuphoria_1_1core_1_1StaticPalette_1aed0436145ddedc35e3933ac25b2bd00c" prot="public" virt="non-virtual"><scope>euphoria::core::StaticPalette</scope><name>colors</name></member>
       <member refid="structeuphoria_1_1core_1_1StaticPalette_1a3210296e83cd75a47d8d291fda534aef" prot="public" virt="non-virtual"><scope>euphoria::core::StaticPalette</scope><name>name</name></member>
       <member refid="structeuphoria_1_1core_1_1StaticPalette_1a14aa158760c450bd9a7403d680d047ee" prot="public" virt="non-virtual"><scope>euphoria::core::StaticPalette</scope><name>operator*</name></member>
       <member refid="structeuphoria_1_1core_1_1StaticPalette_1ab50af3b1065de139569cf471029751e8" prot="public" virt="non-virtual"><scope>euphoria::core::StaticPalette</scope><name>operator-&gt;</name></member>
       <member refid="structeuphoria_1_1core_1_1StaticPalette_1a3a359650669c0649d47a4344c8ec3198" prot="public" virt="non-virtual"><scope>euphoria::core::StaticPalette</scope><name>pal</name></member>
-      <member refid="structeuphoria_1_1core_1_1StaticPalette_1a834cc512ba8bbad2ddf057903587fd64" prot="public" virt="non-virtual"><scope>euphoria::core::StaticPalette</scope><name>StaticPalette</name></member>
+      <member refid="structeuphoria_1_1core_1_1StaticPalette_1aa5c9efaa71d71b77ca22b47f9ee5c7b2" prot="public" virt="non-virtual"><scope>euphoria::core::StaticPalette</scope><name>StaticPalette</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/intersection.h" line="136" column="14" bodyfile="libs/core/src/core/intersection.h" bodystart="136" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Ray2Ray2Result_1af7ce56995fd9e5b89036f84b1b04e0de" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
-        <definition>Vec2f euphoria::core::Ray2Ray2Result::point</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Ray2Ray2Result_1af55c2b21060e76aa61d19673e5132bc9" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <definition>vec2f euphoria::core::Ray2Ray2Result::point</definition>
         <argsstring></argsstring>
         <name>point</name>
         <briefdescription>
@@ -83,15 +83,15 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::Vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec2"/>
+        <label>euphoria::core::vec2&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec2"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/intersection.h" line="134" column="1" bodyfile="libs/core/src/core/intersection.h" bodystart="133" bodyend="141"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Ray2Ray2Result_1a960a43e5df2cca120fc17e45b91a57e8" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2Ray2Result</scope><name>collision</name></member>
       <member refid="structeuphoria_1_1core_1_1Ray2Ray2Result_1a7a810c44ac262c9a4e26af85e6b38492" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2Ray2Result</scope><name>is_parallel</name></member>
-      <member refid="structeuphoria_1_1core_1_1Ray2Ray2Result_1af7ce56995fd9e5b89036f84b1b04e0de" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2Ray2Result</scope><name>point</name></member>
+      <member refid="structeuphoria_1_1core_1_1Ray2Ray2Result_1af55c2b21060e76aa61d19673e5132bc9" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2Ray2Result</scope><name>point</name></member>
       <member refid="structeuphoria_1_1core_1_1Ray2Ray2Result_1a057fd6ee156eabbd45153a406eedae58" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2Ray2Result</scope><name>u</name></member>
       <member refid="structeuphoria_1_1core_1_1Ray2Ray2Result_1a4a2779d43c9c2cac5fce1f027864686a" prot="public" virt="non-virtual"><scope>euphoria::core::Ray2Ray2Result</scope><name>v</name></member>
     </listofallmembers>

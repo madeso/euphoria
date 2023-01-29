@@ -238,7 +238,7 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
+      <node id="4">
         <label>euphoria::core::Range&lt; float &gt;</label>
         <link refid="structeuphoria_1_1core_1_1Range"/>
       </node>
@@ -246,15 +246,15 @@
         <label>euphoria::core::CanvasLogic</label>
         <link refid="structeuphoria_1_1core_1_1CanvasLogic"/>
         <childnode refid="3" relation="usage">
-          <edgelabel>scale_range</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
           <edgelabel>scroll</edgelabel>
         </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>scale_range</edgelabel>
+        </childnode>
       </node>
-      <node id="4">
-        <label>euphoria::core::Vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec2"/>
+      <node id="3">
+        <label>euphoria::core::vec2&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec2"/>
       </node>
       <node id="1">
         <label>euphoria::window::Canvas</label>

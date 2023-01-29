@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::generator::RandomTraversal::Entry</compoundname>
     <includes refid="generator__maze_8h" local="no">generator_maze.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1a2fb112914eff421f6fa16b391ea2c879" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0cb40771b3579f3c7f3c2134fe4db2e9" kindref="member">Vec2i</ref></type>
-        <definition>Vec2i euphoria::core::generator::RandomTraversal::Entry::position</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1ad7d57b17030aafba9092e466a1d5a36a" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kindref="member">vec2i</ref></type>
+        <definition>vec2i euphoria::core::generator::RandomTraversal::Entry::position</definition>
         <argsstring></argsstring>
         <name>position</name>
         <briefdescription>
@@ -37,8 +37,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>euphoria::core::Vec2&lt; int &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec2"/>
+        <label>euphoria::core::vec2&lt; int &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec2"/>
       </node>
       <node id="1">
         <label>euphoria::core::generator::RandomTraversal::Entry</label>
@@ -51,7 +51,7 @@
     <location file="libs/core/src/core/generator_maze.h" line="91" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="90" bodyend="94"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1a7404a12f1990a77d4b6f2141dfb0073d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal::Entry</scope><name>direction</name></member>
-      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1a2fb112914eff421f6fa16b391ea2c879" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal::Entry</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1ad7d57b17030aafba9092e466a1d5a36a" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal::Entry</scope><name>position</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

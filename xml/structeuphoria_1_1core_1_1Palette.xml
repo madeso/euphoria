@@ -18,9 +18,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="19" column="26" bodyfile="libs/core/src/core/palette.h" bodystart="19" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Palette_1a3bc21e64003199c81a8b732c8e8e6a81" prot="public" static="no" mutable="no">
-        <type>ranges::span&lt; const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
-        <definition>ranges::span&lt;const Rgbi&gt; euphoria::core::Palette::colors</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Palette_1aeacf098b5ee4f8d76b363aba4ffed8d2" prot="public" static="no" mutable="no">
+        <type>ranges::span&lt; const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &gt;</type>
+        <definition>ranges::span&lt;const rgbi&gt; euphoria::core::Palette::colors</definition>
         <argsstring></argsstring>
         <name>colors</name>
         <briefdescription>
@@ -33,17 +33,17 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1ac2f5356bad2ca2612013eac0f1baa8b3" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1a385230ba5803dafe44214ef431409e17" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr</type>
         <definition>constexpr euphoria::core::Palette::Palette</definition>
-        <argsstring>(const std::string_view &amp;n, const ranges::span&lt; const Rgbi &gt; &amp;c)</argsstring>
+        <argsstring>(const std::string_view &amp;n, const ranges::span&lt; const rgbi &gt; &amp;c)</argsstring>
         <name>Palette</name>
         <param>
           <type>const std::string_view &amp;</type>
           <declname>n</declname>
         </param>
         <param>
-          <type>const ranges::span&lt; const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt; &amp;</type>
+          <type>const ranges::span&lt; const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &gt; &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -54,9 +54,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="23" column="19" bodyfile="libs/core/src/core/palette.h" bodystart="23" bodyend="27"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1adbd8409970c73f4aba06fd39bd335a0c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
-        <definition>const Rgbi&amp; euphoria::core::Palette::get_random_color</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1ac53c6792558e6050fee500c40ae7877f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &amp;</type>
+        <definition>const rgbi&amp; euphoria::core::Palette::get_random_color</definition>
         <argsstring>(Random *r) const</argsstring>
         <name>get_random_color</name>
         <param>
@@ -84,9 +84,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="34" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1ad1eb3051870a4b28021e8b6e17d524cc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
-        <definition>const Rgbi&amp; euphoria::core::Palette::get_safe_index</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1a37bd52a09bb78af9dab4d93358c060ac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &amp;</type>
+        <definition>const rgbi&amp; euphoria::core::Palette::get_safe_index</definition>
         <argsstring>(unsigned int i) const</argsstring>
         <name>get_safe_index</name>
         <param>
@@ -114,13 +114,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="42" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1a662df6aac61c64f6052855d789ca5577" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
-        <definition>const Rgbi&amp; euphoria::core::Palette::get_closest_color</definition>
-        <argsstring>(const Rgbi &amp;c) const</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1a849a22bd3a41858773d9aa5c3af0eb9b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &amp;</type>
+        <definition>const rgbi&amp; euphoria::core::Palette::get_closest_color</definition>
+        <argsstring>(const rgbi &amp;c) const</argsstring>
         <name>get_closest_color</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -131,13 +131,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/palette.h" line="45" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1ae57873bcc32859e3960c90623456ea16" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Palette_1ab9de6eeeb1d67ef3e3d88bee2c17b463" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
         <definition>int euphoria::core::Palette::get_index_closest</definition>
-        <argsstring>(const Rgbi &amp;c) const</argsstring>
+        <argsstring>(const rgbi &amp;c) const</argsstring>
         <name>get_index_closest</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &amp;</type>
           <declname>c</declname>
         </param>
         <briefdescription>
@@ -155,13 +155,13 @@
     </detaileddescription>
     <location file="libs/core/src/core/palette.h" line="15" column="1" bodyfile="libs/core/src/core/palette.h" bodystart="14" bodyend="54"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Palette_1a3bc21e64003199c81a8b732c8e8e6a81" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>colors</name></member>
-      <member refid="structeuphoria_1_1core_1_1Palette_1a662df6aac61c64f6052855d789ca5577" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_closest_color</name></member>
-      <member refid="structeuphoria_1_1core_1_1Palette_1ae57873bcc32859e3960c90623456ea16" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_index_closest</name></member>
-      <member refid="structeuphoria_1_1core_1_1Palette_1adbd8409970c73f4aba06fd39bd335a0c" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_random_color</name></member>
-      <member refid="structeuphoria_1_1core_1_1Palette_1ad1eb3051870a4b28021e8b6e17d524cc" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_safe_index</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1aeacf098b5ee4f8d76b363aba4ffed8d2" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>colors</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1a849a22bd3a41858773d9aa5c3af0eb9b" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_closest_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1ab9de6eeeb1d67ef3e3d88bee2c17b463" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_index_closest</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1ac53c6792558e6050fee500c40ae7877f" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_random_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1a37bd52a09bb78af9dab4d93358c060ac" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>get_safe_index</name></member>
       <member refid="structeuphoria_1_1core_1_1Palette_1aca42d14f2b7e2a06214eedcf3fd0326b" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>name</name></member>
-      <member refid="structeuphoria_1_1core_1_1Palette_1ac2f5356bad2ca2612013eac0f1baa8b3" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>Palette</name></member>
+      <member refid="structeuphoria_1_1core_1_1Palette_1a385230ba5803dafe44214ef431409e17" prot="public" virt="non-virtual"><scope>euphoria::core::Palette</scope><name>Palette</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

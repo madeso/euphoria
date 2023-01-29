@@ -269,7 +269,7 @@
         <link refid="actor_8h"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Quat" prot="public">euphoria::core::Quat</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1quat" prot="public">euphoria::core::quat</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
       <sectiondef kind="define">
@@ -284,7 +284,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="372" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="374" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

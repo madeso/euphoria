@@ -79,9 +79,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layoutcontainer.h" line="37" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1LayoutContainer_1a1f586f9861c479b87a7b4c49cf9ce8e2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a8c5f78c50315b8abde58b90d27490153" kindref="member">core::Size2f</ref></type>
-        <definition>core::Size2f euphoria::gui::LayoutContainer::calculate_minimum_area</definition>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1LayoutContainer_1a9bc9f5a859a1fe259f6b06a68d43e09d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref></type>
+        <definition>core::size2f euphoria::gui::LayoutContainer::calculate_minimum_area</definition>
         <argsstring>() const</argsstring>
         <name>calculate_minimum_area</name>
         <briefdescription>
@@ -124,7 +124,7 @@
     <location file="libs/gui/src/gui/layoutcontainer.h" line="30" column="1" bodyfile="libs/gui/src/gui/layoutcontainer.h" bodystart="29" bodyend="43"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1Container_1ae6d95e5081d0144c5afa49d62071017a" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>add</name></member>
-      <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1a1f586f9861c479b87a7b4c49cf9ce8e2" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>calculate_minimum_area</name></member>
+      <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1a9bc9f5a859a1fe259f6b06a68d43e09d" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>calculate_minimum_area</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1a62095e2dbfa403543454a19c23f4f039" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>Container</name></member>
       <member refid="structeuphoria_1_1gui_1_1LayoutContainer_1a10353cebd2ab2068be3ca9a34b044841" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>do_layout</name></member>
       <member refid="structeuphoria_1_1gui_1_1Container_1a841fdb86cf3516c2529725d0ca8378b2" prot="public" virt="non-virtual"><scope>euphoria::gui::LayoutContainer</scope><name>has_any_widgets</name></member>

@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::dump2d::Circle</compoundname>
     <includes refid="dump_8h" local="no">dump.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1ae0ed57cf6e3579c8e2a24385fce88568" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
-        <definition>Vec2f euphoria::core::dump2d::Circle::point</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1aa2e4c5f865f7aece4e50096601f78bd0" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <definition>vec2f euphoria::core::dump2d::Circle::point</definition>
         <argsstring></argsstring>
         <name>point</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/dump.h" line="55" column="15" bodyfile="libs/core/src/core/dump.h" bodystart="55" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a5eaecfa0ea84cc80db222d14d3ea4299" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
-        <definition>std::optional&lt;Rgbi&gt; euphoria::core::dump2d::Circle::line_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a8c7514a659e31d91691bd03d99ff5a72" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &gt;</type>
+        <definition>std::optional&lt;rgbi&gt; euphoria::core::dump2d::Circle::line_color</definition>
         <argsstring></argsstring>
         <name>line_color</name>
         <briefdescription>
@@ -43,9 +43,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/dump.h" line="56" column="23" bodyfile="libs/core/src/core/dump.h" bodystart="56" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a967417e75796636918422a5f5c6b2909" prot="public" static="no" mutable="no">
-        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
-        <definition>std::optional&lt;Rgbi&gt; euphoria::core::dump2d::Circle::fill_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a9a61e5237822f4313ec820909ab1df2e" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &gt;</type>
+        <definition>std::optional&lt;rgbi&gt; euphoria::core::dump2d::Circle::fill_color</definition>
         <argsstring></argsstring>
         <name>fill_color</name>
         <briefdescription>
@@ -58,13 +58,13 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a5b2be1b1525caf264f9f321e3d6d95cc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a46bbda258b0153e23c3ff726e78e9dd6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1Circle" kindref="compound">Circle</ref> &amp;</type>
         <definition>Circle&amp; euphoria::core::dump2d::Circle::set_line_color</definition>
-        <argsstring>(const Rgbi &amp;lc)</argsstring>
+        <argsstring>(const rgbi &amp;lc)</argsstring>
         <name>set_line_color</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &amp;</type>
           <declname>lc</declname>
         </param>
         <briefdescription>
@@ -75,13 +75,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/dump.h" line="59" column="16"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a358ebd06cc10c32ba923a4f49ea9dc6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a2be871ad36480e56cd9d1ea5dc2eea98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::dump2d::Circle::Circle</definition>
-        <argsstring>(const Vec2f &amp;p, float r, std::optional&lt; Rgbi &gt; fill=std::nullopt)</argsstring>
+        <argsstring>(const vec2f &amp;p, float r, std::optional&lt; rgbi &gt; fill=std::nullopt)</argsstring>
         <name>Circle</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
@@ -89,7 +89,7 @@
           <declname>r</declname>
         </param>
         <param>
-          <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref> &gt;</type>
+          <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &gt;</type>
           <declname>fill</declname>
           <defval>std::nullopt</defval>
         </param>
@@ -115,18 +115,18 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::Vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec2"/>
+        <label>euphoria::core::vec2&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec2"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/dump.h" line="53" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="52" bodyend="62"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a358ebd06cc10c32ba923a4f49ea9dc6e" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>Circle</name></member>
-      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a967417e75796636918422a5f5c6b2909" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>fill_color</name></member>
-      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a5eaecfa0ea84cc80db222d14d3ea4299" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>line_color</name></member>
-      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1ae0ed57cf6e3579c8e2a24385fce88568" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>point</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a2be871ad36480e56cd9d1ea5dc2eea98" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>Circle</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a9a61e5237822f4313ec820909ab1df2e" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>fill_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a8c7514a659e31d91691bd03d99ff5a72" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>line_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1aa2e4c5f865f7aece4e50096601f78bd0" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>point</name></member>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a798db0bc36c4f281045aa80d9d305248" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>radius</name></member>
-      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a5b2be1b1525caf264f9f321e3d6d95cc" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>set_line_color</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1Circle_1a46bbda258b0153e23c3ff726e78e9dd6" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::Circle</scope><name>set_line_color</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

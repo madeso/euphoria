@@ -18,9 +18,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/skin.h" line="29" column="15" bodyfile="libs/gui/src/gui/skin.h" bodystart="29" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1ButtonState_1a66b5ce13041e3bb965016d4a10e2cc0b" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb euphoria::gui::ButtonState::image_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1ButtonState_1a97f8cdf41081e50623ab49b2abcd16ef" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
+        <definition>core::rgb euphoria::gui::ButtonState::image_color</definition>
         <argsstring></argsstring>
         <name>image_color</name>
         <initializer>{0.0f}</initializer>
@@ -32,9 +32,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/skin.h" line="30" column="19" bodyfile="libs/gui/src/gui/skin.h" bodystart="30" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1ButtonState_1aba0fe7c7a3c0a99cc3af5ede1202ac84" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref></type>
-        <definition>core::Rgb euphoria::gui::ButtonState::text_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1ButtonState_1ac87fd4b32d3f37ef6ff5392974213170" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
+        <definition>core::rgb euphoria::gui::ButtonState::text_color</definition>
         <argsstring></argsstring>
         <name>text_color</name>
         <initializer>{1.0f}</initializer>
@@ -119,11 +119,11 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
-        <label>euphoria::core::Rgb</label>
-        <link refid="structeuphoria_1_1core_1_1Rgb"/>
-      </node>
       <node id="3">
+        <label>euphoria::core::rgb</label>
+        <link refid="structeuphoria_1_1core_1_1rgb"/>
+      </node>
+      <node id="2">
         <label>euphoria::gui::Interpolation</label>
         <link refid="structeuphoria_1_1gui_1_1Interpolation"/>
       </node>
@@ -131,13 +131,13 @@
         <label>euphoria::gui::ButtonState</label>
         <link refid="structeuphoria_1_1gui_1_1ButtonState"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>image_color</edgelabel>
-          <edgelabel>text_color</edgelabel>
-        </childnode>
-        <childnode refid="3" relation="usage">
           <edgelabel>interpolation_color</edgelabel>
           <edgelabel>interpolation_position</edgelabel>
           <edgelabel>interpolation_size</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>image_color</edgelabel>
+          <edgelabel>text_color</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>
@@ -145,12 +145,12 @@
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1ButtonState_1afc7ab8c1f5c5019fa6d715f958154759" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>dx</name></member>
       <member refid="structeuphoria_1_1gui_1_1ButtonState_1aaec25d803f580c711e81ccb7ea2773f6" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>dy</name></member>
-      <member refid="structeuphoria_1_1gui_1_1ButtonState_1a66b5ce13041e3bb965016d4a10e2cc0b" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>image_color</name></member>
+      <member refid="structeuphoria_1_1gui_1_1ButtonState_1a97f8cdf41081e50623ab49b2abcd16ef" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>image_color</name></member>
       <member refid="structeuphoria_1_1gui_1_1ButtonState_1a78b3938d093ea666f6f6b6fba1cfcf5b" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>interpolation_color</name></member>
       <member refid="structeuphoria_1_1gui_1_1ButtonState_1a1f001c0e6c2573e6ffff5cfa064fbe3f" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>interpolation_position</name></member>
       <member refid="structeuphoria_1_1gui_1_1ButtonState_1a29059e45338a6012be4b867643ba2894" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>interpolation_size</name></member>
       <member refid="structeuphoria_1_1gui_1_1ButtonState_1a68a6f0f30a42cd7aad046411345bbf6d" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>scale</name></member>
-      <member refid="structeuphoria_1_1gui_1_1ButtonState_1aba0fe7c7a3c0a99cc3af5ede1202ac84" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>text_color</name></member>
+      <member refid="structeuphoria_1_1gui_1_1ButtonState_1ac87fd4b32d3f37ef6ff5392974213170" prot="public" virt="non-virtual"><scope>euphoria::gui::ButtonState</scope><name>text_color</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

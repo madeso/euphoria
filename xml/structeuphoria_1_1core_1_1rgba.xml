@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1rgba" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::rgba</compoundname>
+    <includes refid="rgb_8h" local="no">rgb.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1rgba_1ad9ec57141c7f66101efec00dac99050c" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::rgba::r</definition>
+        <argsstring></argsstring>
+        <name>r</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="198" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="198" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1rgba_1aa23d4d93df44cad9e7c659a165ef6096" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::rgba::g</definition>
+        <argsstring></argsstring>
+        <name>g</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="199" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="199" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1rgba_1a04b47ae5322242f524eff3928b81ef65" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::rgba::b</definition>
+        <argsstring></argsstring>
+        <name>b</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="200" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="200" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1rgba_1aaf7c0dff677b3137b7d5517a61d2721f" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::rgba::a</definition>
+        <argsstring></argsstring>
+        <name>a</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="201" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="201" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1rgba_1a560950c0a0becd01603ecb02c8ba7a52" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::rgba::rgba</definition>
+        <argsstring>(float red, float green, float blue, float alpha=1.0f)</argsstring>
+        <name>rgba</name>
+        <param>
+          <type>float</type>
+          <declname>red</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>green</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>blue</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>alpha</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="195" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1rgba_1a3918aa00005ac21ae0d8341595a526a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::rgba::rgba</definition>
+        <argsstring>(const rgb &amp;c, float alpha=1.0f)</argsstring>
+        <name>rgba</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>alpha</declname>
+          <defval>1.0f</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rgb.h" line="196" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/rgb.h" line="193" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="192" bodyend="202"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1rgba_1aaf7c0dff677b3137b7d5517a61d2721f" prot="public" virt="non-virtual"><scope>euphoria::core::rgba</scope><name>a</name></member>
+      <member refid="structeuphoria_1_1core_1_1rgba_1a04b47ae5322242f524eff3928b81ef65" prot="public" virt="non-virtual"><scope>euphoria::core::rgba</scope><name>b</name></member>
+      <member refid="structeuphoria_1_1core_1_1rgba_1aa23d4d93df44cad9e7c659a165ef6096" prot="public" virt="non-virtual"><scope>euphoria::core::rgba</scope><name>g</name></member>
+      <member refid="structeuphoria_1_1core_1_1rgba_1ad9ec57141c7f66101efec00dac99050c" prot="public" virt="non-virtual"><scope>euphoria::core::rgba</scope><name>r</name></member>
+      <member refid="structeuphoria_1_1core_1_1rgba_1a560950c0a0becd01603ecb02c8ba7a52" prot="public" virt="non-virtual"><scope>euphoria::core::rgba</scope><name>rgba</name></member>
+      <member refid="structeuphoria_1_1core_1_1rgba_1a3918aa00005ac21ae0d8341595a526a7" prot="public" virt="non-virtual"><scope>euphoria::core::rgba</scope><name>rgba</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

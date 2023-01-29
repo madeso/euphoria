@@ -4,9 +4,9 @@
     <compoundname>euphoria::core::MeshPoint</compoundname>
     <includes refid="mesh_8h" local="no">mesh.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1MeshPoint_1ae038957a50428869b48f02648c0c3250" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::MeshPoint::vertex</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1MeshPoint_1adb17458086c8595a5b584adb6856a254" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::MeshPoint::vertex</definition>
         <argsstring></argsstring>
         <name>vertex</name>
         <briefdescription>
@@ -17,9 +17,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mesh.h" line="40" column="15" bodyfile="libs/core/src/core/mesh.h" bodystart="40" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1MeshPoint_1afce0914ba321598d4651f67f46455505" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref></type>
-        <definition>Vec3f euphoria::core::MeshPoint::normal</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1MeshPoint_1a28186ef66112f64e2096e0e4aaa4c08c" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <definition>vec3f euphoria::core::MeshPoint::normal</definition>
         <argsstring></argsstring>
         <name>normal</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mesh.h" line="41" column="15" bodyfile="libs/core/src/core/mesh.h" bodystart="41" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1MeshPoint_1a5854cb44d80668cb0d0fcbd5571aa785" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref></type>
-        <definition>Vec2f euphoria::core::MeshPoint::uv</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1MeshPoint_1a1a2ed95048afbf8b987c272de46dcfb3" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <definition>vec2f euphoria::core::MeshPoint::uv</definition>
         <argsstring></argsstring>
         <name>uv</name>
         <briefdescription>
@@ -45,21 +45,21 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1MeshPoint_1a8dc7f9b89ef52a8837fc2b398ad368e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1MeshPoint_1ad0fe1ff5b53f4439920ad838a1787242" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::MeshPoint::MeshPoint</definition>
-        <argsstring>(const Vec3f &amp;a_vertex, const Vec3f &amp;a_normal, const Vec2f &amp;a_uv)</argsstring>
+        <argsstring>(const vec3f &amp;a_vertex, const vec3f &amp;a_normal, const vec2f &amp;a_uv)</argsstring>
         <name>MeshPoint</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>a_vertex</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">Vec3f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
           <declname>a_normal</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
           <declname>a_uv</declname>
         </param>
         <briefdescription>
@@ -76,10 +76,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>euphoria::core::Vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec2"/>
-      </node>
       <node id="1">
         <label>euphoria::core::MeshPoint</label>
         <link refid="structeuphoria_1_1core_1_1MeshPoint"/>
@@ -91,17 +87,21 @@
           <edgelabel>uv</edgelabel>
         </childnode>
       </node>
+      <node id="3">
+        <label>euphoria::core::vec2&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec2"/>
+      </node>
       <node id="2">
-        <label>euphoria::core::Vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Vec3"/>
+        <label>euphoria::core::vec3&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1vec3"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/mesh.h" line="33" column="1" bodyfile="libs/core/src/core/mesh.h" bodystart="32" bodyend="43"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1MeshPoint_1a8dc7f9b89ef52a8837fc2b398ad368e2" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPoint</scope><name>MeshPoint</name></member>
-      <member refid="structeuphoria_1_1core_1_1MeshPoint_1afce0914ba321598d4651f67f46455505" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPoint</scope><name>normal</name></member>
-      <member refid="structeuphoria_1_1core_1_1MeshPoint_1a5854cb44d80668cb0d0fcbd5571aa785" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPoint</scope><name>uv</name></member>
-      <member refid="structeuphoria_1_1core_1_1MeshPoint_1ae038957a50428869b48f02648c0c3250" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPoint</scope><name>vertex</name></member>
+      <member refid="structeuphoria_1_1core_1_1MeshPoint_1ad0fe1ff5b53f4439920ad838a1787242" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPoint</scope><name>MeshPoint</name></member>
+      <member refid="structeuphoria_1_1core_1_1MeshPoint_1a28186ef66112f64e2096e0e4aaa4c08c" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPoint</scope><name>normal</name></member>
+      <member refid="structeuphoria_1_1core_1_1MeshPoint_1a1a2ed95048afbf8b987c272de46dcfb3" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPoint</scope><name>uv</name></member>
+      <member refid="structeuphoria_1_1core_1_1MeshPoint_1adb17458086c8595a5b584adb6856a254" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPoint</scope><name>vertex</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

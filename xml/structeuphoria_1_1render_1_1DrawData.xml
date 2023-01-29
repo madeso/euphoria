@@ -4,9 +4,9 @@
     <compoundname>euphoria::render::DrawData</compoundname>
     <includes refid="spriterender_8h" local="no">spriterender.h</includes>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawData_1abe9e4fdd6d175bbcf3e6fbf5df3e841a" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref></type>
-        <definition>core::Angle euphoria::render::DrawData::rotation</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawData_1a9b83058acbfd0af3531bb03ec7fadc71" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref></type>
+        <definition>core::angle euphoria::render::DrawData::rotation</definition>
         <argsstring></argsstring>
         <name>rotation</name>
         <briefdescription>
@@ -30,9 +30,9 @@
         </inbodydescription>
         <location file="libs/render/src/render/spriterender.h" line="25" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="25" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawData_1a37a5ca9ae0a8dd6e7e7c9a2fe46f0e46" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref></type>
-        <definition>core::Rgba euphoria::render::DrawData::tint</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawData_1a92ddb41e250c90241d6522dd7ec1b3b5" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref></type>
+        <definition>core::rgba euphoria::render::DrawData::tint</definition>
         <argsstring></argsstring>
         <name>tint</name>
         <briefdescription>
@@ -58,13 +58,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/spriterender.h" line="23" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawData_1abf1c5cc79ed40466719ec07bcbc4586c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawData_1a9a70dd94ce71c0080e92818499d84ced" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1render_1_1DrawData" kindref="compound">DrawData</ref> &amp;</type>
         <definition>DrawData&amp; euphoria::render::DrawData::set_rotation</definition>
-        <argsstring>(const core::Angle &amp;r)</argsstring>
+        <argsstring>(const core::angle &amp;r)</argsstring>
         <name>set_rotation</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Angle" kindref="compound">core::Angle</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref> &amp;</type>
           <declname>r</declname>
         </param>
         <briefdescription>
@@ -92,13 +92,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/spriterender.h" line="32" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawData_1a81a33336a72a3ea29293fd14b842e95b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawData_1a52f2259bca3387c79f05be25dc36dbbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1render_1_1DrawData" kindref="compound">DrawData</ref> &amp;</type>
         <definition>DrawData&amp; euphoria::render::DrawData::set_tint</definition>
-        <argsstring>(const core::Rgba &amp;t)</argsstring>
+        <argsstring>(const core::rgba &amp;t)</argsstring>
         <name>set_tint</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> &amp;</type>
           <declname>t</declname>
         </param>
         <briefdescription>
@@ -115,10 +115,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="3">
-        <label>euphoria::core::Rgba</label>
-        <link refid="structeuphoria_1_1core_1_1Rgba"/>
-      </node>
       <node id="1">
         <label>euphoria::render::DrawData</label>
         <link refid="structeuphoria_1_1render_1_1DrawData"/>
@@ -130,19 +126,23 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::Angle</label>
-        <link refid="structeuphoria_1_1core_1_1Angle"/>
+        <label>euphoria::core::angle</label>
+        <link refid="structeuphoria_1_1core_1_1angle"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::rgba</label>
+        <link refid="structeuphoria_1_1core_1_1rgba"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/spriterender.h" line="22" column="1" bodyfile="libs/render/src/render/spriterender.h" bodystart="21" bodyend="36"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1DrawData_1a053cdc9091ede2fc78ca814cb6ad9125" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>DrawData</name></member>
-      <member refid="structeuphoria_1_1render_1_1DrawData_1abe9e4fdd6d175bbcf3e6fbf5df3e841a" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>rotation</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawData_1a9b83058acbfd0af3531bb03ec7fadc71" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>rotation</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawData_1a72204521d6ac9fb02ea408c8de2733ed" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>scale</name></member>
-      <member refid="structeuphoria_1_1render_1_1DrawData_1abf1c5cc79ed40466719ec07bcbc4586c" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>set_rotation</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawData_1a9a70dd94ce71c0080e92818499d84ced" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>set_rotation</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawData_1afb202751a40643769f5cb7c34b1abe1d" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>set_scale</name></member>
-      <member refid="structeuphoria_1_1render_1_1DrawData_1a81a33336a72a3ea29293fd14b842e95b" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>set_tint</name></member>
-      <member refid="structeuphoria_1_1render_1_1DrawData_1a37a5ca9ae0a8dd6e7e7c9a2fe46f0e46" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>tint</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawData_1a52f2259bca3387c79f05be25dc36dbbe" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>set_tint</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawData_1a92ddb41e250c90241d6522dd7ec1b3b5" prot="public" virt="non-virtual"><scope>euphoria::render::DrawData</scope><name>tint</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

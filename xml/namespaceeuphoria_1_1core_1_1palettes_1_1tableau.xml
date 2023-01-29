@@ -13,15 +13,15 @@
         
         &quot;Tableau_10&quot;,
         con(31, 119, 180),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 127, 14),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(44, 160, 44),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(214, 39, 40),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(148, 103, 189),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(140, 86, 75),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(227, 119, 194),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(127, 127, 127),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(188, 189, 34),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(23, 190, 207)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 127, 14),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(44, 160, 44),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(214, 39, 40),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(148, 103, 189),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(140, 86, 75),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(227, 119, 194),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(127, 127, 127),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(188, 189, 34),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(23, 190, 207)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -41,15 +41,15 @@
         
         &quot;TableauLight_10&quot;,
         con(174, 199, 232),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 187, 120),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(152, 223, 138),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 152, 150),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(197, 176, 213),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(196, 156, 148),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(247, 182, 210),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(199, 199, 199),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(219, 219, 141),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(158, 218, 229)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 187, 120),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(152, 223, 138),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 152, 150),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(197, 176, 213),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(196, 156, 148),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(247, 182, 210),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(199, 199, 199),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(219, 219, 141),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(158, 218, 229)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -69,15 +69,15 @@
         
         &quot;TableauMedium_10&quot;,
         con(114, 158, 206),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 158, 74),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(103, 191, 92),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(237, 102, 93),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(173, 139, 201),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(168, 120, 110),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(237, 151, 202),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(162, 162, 162),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(205, 204, 93),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(109, 204, 218)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 158, 74),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(103, 191, 92),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(237, 102, 93),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(173, 139, 201),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(168, 120, 110),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(237, 151, 202),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(162, 162, 162),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(205, 204, 93),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(109, 204, 218)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -96,13 +96,13 @@
     (
         
         &quot;Tableau_20&quot;,
-        con(31, 119, 180), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(174, 199, 232),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 127, 14), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 187, 120), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(44, 160, 44),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(152, 223, 138), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(214, 39, 40), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 152, 150),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(148, 103, 189), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(197, 176, 213), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(140, 86, 75),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(196, 156, 148), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(227, 119, 194), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(247, 182, 210),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(127, 127, 127), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(199, 199, 199), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(188, 189, 34),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(219, 219, 141), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(23, 190, 207), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(158, 218, 229)
+        con(31, 119, 180), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(174, 199, 232),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 127, 14), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 187, 120), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(44, 160, 44),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(152, 223, 138), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(214, 39, 40), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 152, 150),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(148, 103, 189), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(197, 176, 213), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(140, 86, 75),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(196, 156, 148), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(227, 119, 194), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(247, 182, 210),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(127, 127, 127), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(199, 199, 199), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(188, 189, 34),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(219, 219, 141), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(23, 190, 207), <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(158, 218, 229)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -122,10 +122,10 @@
         
         &quot;Gray_5&quot;,
         con(96, 99, 106),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(165, 172, 175),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(65, 68, 81),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(143, 135, 130),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(207, 207, 207)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(165, 172, 175),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(65, 68, 81),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(143, 135, 130),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(207, 207, 207)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -145,15 +145,15 @@
         
         &quot;ColorBlind_10&quot;,
         con(0, 107, 164),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 128, 14),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(171, 171, 171),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(89, 89, 89),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(95, 158, 209),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(200, 82, 0),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(137, 137, 137),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(162, 200, 236),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 188, 121),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(207, 207, 207)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 128, 14),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(171, 171, 171),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(89, 89, 89),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(95, 158, 209),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(200, 82, 0),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(137, 137, 137),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(162, 200, 236),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 188, 121),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(207, 207, 207)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -173,14 +173,14 @@
         
         &quot;TrafficLight_9&quot;,
         con(177, 3, 24),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(219, 161, 58),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(48, 147, 67),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(216, 37, 38),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 193, 86),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(105, 183, 100),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(242, 108, 100),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 221, 113),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(159, 205, 153)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(219, 161, 58),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(48, 147, 67),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(216, 37, 38),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 193, 86),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(105, 183, 100),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(242, 108, 100),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 221, 113),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(159, 205, 153)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -200,11 +200,11 @@
         
         &quot;PurpleGray_6&quot;,
         con(123, 102, 210),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(220, 95, 189),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(148, 145, 123),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(153, 86, 136),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(208, 152, 238),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(215, 213, 197)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(220, 95, 189),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(148, 145, 123),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(153, 86, 136),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(208, 152, 238),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(215, 213, 197)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -224,17 +224,17 @@
         
         &quot;PurpleGray_12&quot;,
         con(123, 102, 210),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(166, 153, 232),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(220, 95, 189),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 192, 218),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(95, 90, 65),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(180, 177, 155),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(153, 86, 136),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(216, 152, 186),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(171, 106, 213),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(208, 152, 238),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(139, 124, 110),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(219, 212, 197)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(166, 153, 232),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(220, 95, 189),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 192, 218),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(95, 90, 65),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(180, 177, 155),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(153, 86, 136),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(216, 152, 186),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(171, 106, 213),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(208, 152, 238),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(139, 124, 110),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(219, 212, 197)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -254,11 +254,11 @@
         
         &quot;BlueRed_6&quot;,
         con(44, 105, 176),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(240, 39, 32),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(172, 97, 60),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(107, 163, 214),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(234, 107, 115),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(233, 195, 155)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(240, 39, 32),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(172, 97, 60),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(107, 163, 214),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(234, 107, 115),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(233, 195, 155)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -278,17 +278,17 @@
         
         &quot;BlueRed_12&quot;,
         con(44, 105, 176),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(181, 200, 226),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(240, 39, 32),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 182, 176),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(172, 97, 60),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(233, 195, 155),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(107, 163, 214),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(181, 223, 253),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(172, 135, 99),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(221, 201, 180),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(189, 10, 54),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(244, 115, 122)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(181, 200, 226),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(240, 39, 32),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 182, 176),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(172, 97, 60),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(233, 195, 155),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(107, 163, 214),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(181, 223, 253),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(172, 135, 99),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(221, 201, 180),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(189, 10, 54),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(244, 115, 122)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -308,11 +308,11 @@
         
         &quot;GreenOrange_6&quot;,
         con(50, 162, 81),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 127, 15),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(60, 183, 204),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 217, 74),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(57, 115, 124),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(184, 90, 13)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 127, 15),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(60, 183, 204),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 217, 74),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(57, 115, 124),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(184, 90, 13)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -332,17 +332,17 @@
         
         &quot;GreenOrange_12&quot;,
         con(50, 162, 81),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(172, 217, 141),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 127, 15),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 185, 119),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(60, 183, 204),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(152, 217, 228),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(184, 90, 13),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(255, 217, 74),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(57, 115, 124),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(134, 180, 169),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(130, 133, 59),
-        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" kindref="member">con</ref>(204, 201, 77)
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(172, 217, 141),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 127, 15),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 185, 119),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(60, 183, 204),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(152, 217, 228),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(184, 90, 13),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(255, 217, 74),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(57, 115, 124),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(134, 180, 169),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(130, 133, 59),
+        <ref refid="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" kindref="member">con</ref>(204, 201, 77)
     )</initializer>
         <briefdescription>
         </briefdescription>
@@ -354,9 +354,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a2818e0899b9a5bc68c6f79a24f91701f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Rgbi" kindref="compound">Rgbi</ref></type>
-        <definition>constexpr Rgbi euphoria::core::palettes::tableau::con</definition>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1_1tableau_1a44fb326caf507be91e0693da3f3e06b4" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
+        <definition>constexpr rgbi euphoria::core::palettes::tableau::con</definition>
         <argsstring>(unsigned char r, unsigned char g, unsigned char b)</argsstring>
         <name>con</name>
         <param>

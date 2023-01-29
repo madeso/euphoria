@@ -111,19 +111,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx.h" line="129" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="129" bodyend="132"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a67448857760abbfa2c72de3989860e97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ad2449d090dda79bcab54d64c6469ccb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool euphoria::tests::approximately_equal</definition>
-        <argsstring>(core::Vec3f const &amp;lhs, core::Vec3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(core::vec3f const &amp;lhs, core::vec3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>approximately_equal</name>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> const &amp;</type>
+          <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1abba9338710ab9852b3876cb4a495abab" kindref="member">core::Vec3f</ref> const &amp;</type>
+          <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -138,19 +138,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.h" line="15" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="15" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a826bb465d9c772823fbbedc9a7a1a20e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1af89fa7893836f092389d02ee23f92894" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool euphoria::tests::approximately_equal</definition>
-        <argsstring>(core::Rgb const &amp;lhs, core::Rgb const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(core::rgb const &amp;lhs, core::rgb const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>approximately_equal</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -165,19 +165,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.h" line="22" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="22" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ade0ce0914ae43935e838aec3e22e3012" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1acfe8efcdbb5116fdb8940e9ac6091c75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool euphoria::tests::approximately_equal</definition>
-        <argsstring>(core::Rgba const &amp;lhs, core::Rgba const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(core::rgba const &amp;lhs, core::rgba const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>approximately_equal</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Rgba" kindref="compound">core::Rgba</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -219,19 +219,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.h" line="36" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="36" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1af21434c1d481f548836f762c5604ee86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ac5a241fcd9a5beddb0770582e2c31df1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool euphoria::tests::approximately_equal</definition>
-        <argsstring>(core::Unit3f const &amp;lhs, core::Unit3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(core::unit3f const &amp;lhs, core::unit3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>approximately_equal</name>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">core::Unit3f</ref> const &amp;</type>
+          <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">core::unit3f</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a05bb87e4918e13835245f049556061f1" kindref="member">core::Unit3f</ref> const &amp;</type>
+          <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">core::unit3f</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -246,19 +246,19 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx_equal.h" line="43" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="43" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a5737135e2686e094e5c867bb49cccca3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ad532f0a39976620d5b180fc4274c6610" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
         <type>bool</type>
         <definition>bool euphoria::tests::approximately_equal</definition>
-        <argsstring>(core::Quatf const &amp;lhs, core::Quatf const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <argsstring>(core::quatf const &amp;lhs, core::quatf const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>approximately_equal</name>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a4e667d7591aa51d3bbf27ab04de0d8c1" kindref="member">core::Quatf</ref> const &amp;</type>
+          <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">core::quatf</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a4e667d7591aa51d3bbf27ab04de0d8c1" kindref="member">core::Quatf</ref> const &amp;</type>
+          <type><ref refid="namespaceeuphoria_1_1core_1a036e0b62e34d102ab8049a7ef3c6f7f8" kindref="member">core::quatf</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>

@@ -229,21 +229,21 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="128" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1a1515fabd8da0584f338e16b779225fcb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1aa09e67a758f7ed7bf062f8e15e7a14fd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::DrawableText::draw</definition>
-        <argsstring>(SpriteRenderer *renderer, const core::Vec2f &amp;p, const core::Rgb &amp;base_hi_color) const</argsstring>
+        <argsstring>(SpriteRenderer *renderer, const core::vec2f &amp;p, const core::rgb &amp;base_hi_color) const</argsstring>
         <name>draw</name>
         <param>
           <type><ref refid="structeuphoria_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
           <declname>renderer</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">core::Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
           <declname>base_hi_color</declname>
         </param>
         <briefdescription>
@@ -254,25 +254,25 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="131" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1af601bd70bc91a9a898096ab3e4e4b05c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1a4c019ce1c1aff7911cddbdd64b775831" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::render::DrawableText::draw</definition>
-        <argsstring>(SpriteRenderer *renderer, const core::Vec2f &amp;p, const core::Rgb &amp;base_color, const core::Rgb &amp;hi_color) const</argsstring>
+        <argsstring>(SpriteRenderer *renderer, const core::vec2f &amp;p, const core::rgb &amp;base_color, const core::rgb &amp;hi_color) const</argsstring>
         <name>draw</name>
         <param>
           <type><ref refid="structeuphoria_1_1render_1_1SpriteRenderer" kindref="compound">SpriteRenderer</ref> *</type>
           <declname>renderer</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a0fac06348fb78bf037c7279ac205036c" kindref="member">core::Vec2f</ref> &amp;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
           <declname>base_color</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rgb" kindref="compound">core::Rgb</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &amp;</type>
           <declname>hi_color</declname>
         </param>
         <briefdescription>
@@ -320,8 +320,8 @@
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a4d1dbf3c4a6e5990207bc197fd4e8ffc" prot="private" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>background_alpha</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a7f97923b7c4aa713be1c2463244db50a" prot="private" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>commands</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a6e56450079331e299ccec80cc8e61cbb" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>compile</name></member>
-      <member refid="structeuphoria_1_1render_1_1DrawableText_1a1515fabd8da0584f338e16b779225fcb" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>draw</name></member>
-      <member refid="structeuphoria_1_1render_1_1DrawableText_1af601bd70bc91a9a898096ab3e4e4b05c" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>draw</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawableText_1aa09e67a758f7ed7bf062f8e15e7a14fd" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>draw</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawableText_1a4c019ce1c1aff7911cddbdd64b775831" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>draw</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1ac8a61d2a9d0f13cf159180861c7e5a31" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>DrawableText</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1ac7a678b2d5bd1c92df295b23c532aea7" prot="private" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>font</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1acc9972f627b86f453ce41b58f0db5beb" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>get_extents</name></member>
