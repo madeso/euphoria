@@ -23,40 +23,80 @@ TEST_CASE("quat-testVecOp", "[quat]")
 
 TEST_CASE("quat-testLocalAxis", "[quat]")
 {
-    euco::quatf q = euco::quatf::identity();
-    REQUIRE(q.right() == approx(euco::unit3f::right()));
-    REQUIRE(q.up() == approx(euco::unit3f::up()));
-    REQUIRE(q.in() == approx(euco::unit3f::in()));
+    SECTION("identity")
+    {
+        const auto q = euco::quatf::identity();
+        REQUIRE(q.right() == approx(euco::unit3f::right()));
+        REQUIRE(q.up() == approx(euco::unit3f::up()));
+        REQUIRE(q.in() == approx(euco::unit3f::in()));
+    }
 
-    q = euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
-            euco::unit3f::up(), euco::angle::from_degrees(90)));
-    REQUIRE(q.right() == approx(euco::unit3f::in()));
-    REQUIRE(q.up() == approx(euco::unit3f::up()));
-    REQUIRE(q.in() == approx(euco::unit3f::left()));
+    SECTION("look left")
+    {
+        const auto q = euco::quatf::from_axis_angle
+        (
+            euco::AxisAngle::right_hand_around
+            (
+                euco::unit3f::up(),
+                euco::angle::from_degrees(90)
+            )
+        );
+        REQUIRE(q.right() == approx(euco::unit3f::in()));
+        REQUIRE(q.up() == approx(euco::unit3f::up()));
+        REQUIRE(q.in() == approx(euco::unit3f::left()));
+    }
 
-    q = euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
-            euco::unit3f::right(), euco::angle::from_degrees(90)));
-    REQUIRE(q.right() == approx(euco::unit3f::right()));
-    REQUIRE(q.up() == approx(euco::unit3f::out()));
-    REQUIRE(q.in() == approx(euco::unit3f::up()));
+    SECTION("look up")
+    {
+        const auto q = euco::quatf::from_axis_angle
+        (
+            euco::AxisAngle::right_hand_around
+            (
+                euco::unit3f::right(),
+                euco::angle::from_degrees(90)
+            )
+        );
+        REQUIRE(q.right() == approx(euco::unit3f::right()));
+        REQUIRE(q.up() == approx(euco::unit3f::out()));
+        REQUIRE(q.in() == approx(euco::unit3f::up()));
+    }
 
-    q = euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
-            euco::unit3f::in(), euco::angle::from_degrees(90)));
-    REQUIRE(q.right() == approx(euco::unit3f::down()));
-    REQUIRE(q.up() == approx(euco::unit3f::right()));
-    REQUIRE(q.in() == approx(euco::unit3f::in()));
+    SECTION("roll right")
+    {
+        const auto q = euco::quatf::from_axis_angle
+        (
+            euco::AxisAngle::right_hand_around
+            (
+                euco::unit3f::in(),
+                euco::angle::from_degrees(90)
+            )
+        );
+        REQUIRE(q.right() == approx(euco::unit3f::down()));
+        REQUIRE(q.up() == approx(euco::unit3f::right()));
+        REQUIRE(q.in() == approx(euco::unit3f::in()));
+    }
 }
 
 
 TEST_CASE("quat-testLook", "[quat]")
 {
-    EXPECT_PRED_FORMAT2(
-            euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
-                    euco::unit3f::up(), euco::angle::from_degrees(-90))),
-            euco::quatf::look_at(
-                    euco::vec3f(0, 0, 0),
-                    euco::vec3f(5, 0, 0),
-                    euco::unit3f::up()));
+    EXPECT_PRED_FORMAT2
+    (
+        euco::quatf::from_axis_angle
+        (
+            euco::AxisAngle::right_hand_around
+            (
+                euco::unit3f::up(),
+                euco::angle::from_degrees(-90)
+            )
+        ),
+        euco::quatf::look_at
+        (
+            euco::vec3f(0, 0, 0),
+            euco::vec3f(5, 0, 0),
+            euco::unit3f::up()
+        )
+    );
     EXPECT_PRED_FORMAT2(
             euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
                     euco::unit3f::up(), euco::angle::from_degrees(-90))),
