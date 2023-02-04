@@ -48,7 +48,7 @@ namespace euphoria::core
         ///////////////////////////////////////////////////////////////////////////////////////////
         // getters and converters
 
-        [[nodiscard]] mat4<float> to_mat4() const;
+        [[nodiscard]] mat4f to_mat4() const;
 
         [[nodiscard]] AxisAngle to_axis_angle() const;
 

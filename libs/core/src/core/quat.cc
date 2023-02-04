@@ -80,10 +80,10 @@ namespace euphoria::core
     }
 
 
-    [[nodiscard]] mat4<float>
+    [[nodiscard]] mat4f
     quatf::to_mat4() const
     {
-        return mat4<float>::from_axis_angle(to_axis_angle());
+        return mat4f::from_axis_angle(to_axis_angle());
     }
 
 
