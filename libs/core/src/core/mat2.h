@@ -3,16 +3,12 @@
 #include "core/vec2.h"
 #include "core/angle.h"
 
-#include <tuple>
-
 namespace euphoria::core
 {
     template<typename T>
     struct mat2
     {
     private:
-        using Tuple2 = std::tuple<T, T>;
-
         T data[4];
 
         mat2() = default;
@@ -169,16 +165,16 @@ namespace euphoria::core
             return data[col * 2 + row];
         }
 
-        Tuple2
+        vec2<T>
         get_column(int c) const
         {
-            return Tuple2(get(0, c), get(1, c));
+            return vec2<T>(get(0, c), get(1, c));
         }
 
-        Tuple2
+        vec2<T>
         get_row(int r) const
         {
-            return Tuple2(get(r, 0), get(r, 1));
+            return vec2<T>(get(r, 0), get(r, 1));
         }
     };
 

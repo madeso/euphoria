@@ -1,8 +1,5 @@
 #pragma once
 
-
-#include <tuple>
-
 #include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/mat2.h"
@@ -15,8 +12,6 @@ namespace euphoria::core
     struct mat3
     {
     private:
-        using Tuple3 = std::tuple<T, T, T>;
-
         T data[9]; // col-major
 
         mat3() = default;
@@ -209,17 +204,17 @@ namespace euphoria::core
             return from_scalar(1);
         }
 
-        Tuple3
+        vec3<T>
         get_major() const
         {
             const mat3<T>& self = *this;
-            return Tuple3(self(0, 0), self(1, 1), self(2, 2));
+            return vec3<T>(self(0, 0), self(1, 1), self(2, 2));
         }
 
         vec3<T>
         get_axis(int col) const
         {
-            return static_cast<vec3<T>>(get_column(col));
+            return get_column(col);
         }
 
         vec3<T>
@@ -315,16 +310,16 @@ namespace euphoria::core
             return data[col * 3 + row];
         }
 
-        Tuple3
+        vec3<T>
         get_column(int c) const
         {
-            return Tuple3(get(0, c), get(1, c), get(2, c));
+            return vec3<T>(get(0, c), get(1, c), get(2, c));
         }
 
-        Tuple3
+        vec3<T>
         get_row(int r) const
         {
-            return Tuple3(get(r, 0), get(r, 1), get(r, 2));
+            return vec3<T>(get(r, 0), get(r, 1), get(r, 2));
         }
     };
 
