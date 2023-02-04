@@ -257,9 +257,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat4.h" line="254" column="9" bodyfile="libs/core/src/core/mat4.h" bodystart="254" bodyend="258"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4_1a460f4267673530628647f1883802a2dd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt;</type>
-        <definition>vec3&lt;T&gt; euphoria::core::mat4&lt; T &gt;::get_axis</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4_1a38ff865001b79b80d44e56b2dc9bd1cd" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3" kindref="compound">unit3</ref>&lt; T &gt;</type>
+        <definition>unit3&lt;T&gt; euphoria::core::mat4&lt; T &gt;::get_axis</definition>
         <argsstring>(int col) const</argsstring>
         <name>get_axis</name>
         <param>
@@ -274,9 +274,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat4.h" line="261" column="9" bodyfile="libs/core/src/core/mat4.h" bodystart="261" bodyend="264"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4_1a73db467c294483b7aa1c86fc7f669cb3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt;</type>
-        <definition>vec3&lt;T&gt; euphoria::core::mat4&lt; T &gt;::get_x_axis</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4_1ae99e28073514806d718fa683abe11baa" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3" kindref="compound">unit3</ref>&lt; T &gt;</type>
+        <definition>unit3&lt;T&gt; euphoria::core::mat4&lt; T &gt;::get_x_axis</definition>
         <argsstring>() const</argsstring>
         <name>get_x_axis</name>
         <briefdescription>
@@ -287,9 +287,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat4.h" line="267" column="9" bodyfile="libs/core/src/core/mat4.h" bodystart="267" bodyend="270"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4_1ac67ea38b02eaf4e70459aa7150f853fb" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt;</type>
-        <definition>vec3&lt;T&gt; euphoria::core::mat4&lt; T &gt;::get_y_axis</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4_1acb3fc1188610ee3504280db44d91f84c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3" kindref="compound">unit3</ref>&lt; T &gt;</type>
+        <definition>unit3&lt;T&gt; euphoria::core::mat4&lt; T &gt;::get_y_axis</definition>
         <argsstring>() const</argsstring>
         <name>get_y_axis</name>
         <briefdescription>
@@ -300,9 +300,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat4.h" line="273" column="9" bodyfile="libs/core/src/core/mat4.h" bodystart="273" bodyend="276"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4_1ae88c8ff220cb8109745c1db96807b3e9" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec3" kindref="compound">vec3</ref>&lt; T &gt;</type>
-        <definition>vec3&lt;T&gt; euphoria::core::mat4&lt; T &gt;::get_z_axis</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1mat4_1a720564d1a7195f634650955de9c37e7c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3" kindref="compound">unit3</ref>&lt; T &gt;</type>
+        <definition>unit3&lt;T&gt; euphoria::core::mat4&lt; T &gt;::get_z_axis</definition>
         <argsstring>() const</argsstring>
         <name>get_z_axis</name>
         <briefdescription>
@@ -965,7 +965,7 @@
       <member refid="structeuphoria_1_1core_1_1mat4_1a0f8812181286158364250ccf285e896f" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>from_scale</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1a4904d0e9bed86ff21580d31ec25a5557" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>from_translation</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1a4ecc72dd82d1fad21d837ad2bb7fc537" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat4_1a460f4267673530628647f1883802a2dd" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_axis</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat4_1a38ff865001b79b80d44e56b2dc9bd1cd" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_axis</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1aca45636545523fd908400c3f1244e2e6" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_column</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1ad7dbcaa9f873e2d18a91f819b8871381" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_column_major</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1a92af453b9e1e3d65062ba1609347a1a3" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_column_major</name></member>
@@ -982,9 +982,9 @@
       <member refid="structeuphoria_1_1core_1_1mat4_1aa1974f2240d5a7d19c971e95091eb9f7" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_transform_vec</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1a79720cc596b32c916a074dbb31ba2e21" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_translation</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1aea76601e0e69b153e3c0c76bfb9d3af7" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_transposed</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat4_1a73db467c294483b7aa1c86fc7f669cb3" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_x_axis</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat4_1ac67ea38b02eaf4e70459aa7150f853fb" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_y_axis</name></member>
-      <member refid="structeuphoria_1_1core_1_1mat4_1ae88c8ff220cb8109745c1db96807b3e9" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_z_axis</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat4_1ae99e28073514806d718fa683abe11baa" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_x_axis</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat4_1acb3fc1188610ee3504280db44d91f84c" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_y_axis</name></member>
+      <member refid="structeuphoria_1_1core_1_1mat4_1a720564d1a7195f634650955de9c37e7c" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>get_z_axis</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1a2cab8bb9f943189d53e7a22892a1a211" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>identity</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1aa37973c60c5ba4564cd6dcb8c60aef64" prot="public" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>invert</name></member>
       <member refid="structeuphoria_1_1core_1_1mat4_1a735f509f8d36e6fd6d95cea1de3d4a6d" prot="private" virt="non-virtual"><scope>euphoria::core::mat4</scope><name>mat4</name></member>

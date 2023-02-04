@@ -2,7 +2,6 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="mat3_8h" kind="file" language="C++">
     <compoundname>mat3.h</compoundname>
-    <includes local="no">tuple</includes>
     <includes refid="vec2_8h" local="yes">core/vec2.h</includes>
     <includes refid="vec3_8h" local="yes">core/vec3.h</includes>
     <includes refid="mat2_8h" local="yes">core/mat2.h</includes>
@@ -35,19 +34,17 @@
       <node id="18">
         <label>core/mat2.h</label>
         <link refid="mat2_8h"/>
-        <childnode refid="3" relation="include">
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="9" relation="include">
-        </childnode>
-        <childnode refid="2" relation="include">
         </childnode>
       </node>
       <node id="17">
         <label>core/vec3.h</label>
         <link refid="vec3_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
         <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
@@ -75,10 +72,10 @@
         <label>core/easing.h</label>
         <link refid="easing_8h"/>
       </node>
-      <node id="3">
+      <node id="2">
         <label>core/vec2.h</label>
         <link refid="vec2_8h"/>
-        <childnode refid="2" relation="include">
+        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
@@ -93,7 +90,7 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="2">
+      <node id="3">
         <label>tuple</label>
       </node>
       <node id="11">
@@ -135,8 +132,6 @@
         <label>libs/core/src/core/mat3.h</label>
         <link refid="mat3_8h"/>
         <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
@@ -328,7 +323,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.h" line="258" column="9"/>
+        <location file="libs/core/src/core/mat3.h" line="253" column="9"/>
       </memberdef>
       <memberdef kind="define" id="mat3_8h_1a52267107dd1016c80abd3e27e445e437" prot="public" static="no">
         <name>OP</name>
@@ -340,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.h" line="268" column="9"/>
+        <location file="libs/core/src/core/mat3.h" line="263" column="9"/>
       </memberdef>
       <memberdef kind="define" id="mat3_8h_1a6c80fab70a39bdaff699abc7fd6f7c29" prot="public" static="no">
         <name>OP</name>
@@ -353,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.h" line="374" column="9"/>
+        <location file="libs/core/src/core/mat3.h" line="369" column="9"/>
       </memberdef>
       <memberdef kind="define" id="mat3_8h_1ad3fad4870192fbb33f78583fbb0cc502" prot="public" static="no">
         <name>OP</name>
@@ -365,7 +360,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.h" line="388" column="9"/>
+        <location file="libs/core/src/core/mat3.h" line="383" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
