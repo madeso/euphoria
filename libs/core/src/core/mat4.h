@@ -190,7 +190,6 @@ namespace euphoria::core
     };
 
     
-    bool operator==(const mat4f& lhs, const mat4f& rhs);
     std::ostream& operator<<(std::ostream& stream, const mat4f& m);
     mat4f operator+(const mat4f& lhs, const mat4f rhs);
     mat4f operator-(const mat4f& lhs, const mat4f rhs);

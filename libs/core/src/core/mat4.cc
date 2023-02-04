@@ -541,18 +541,6 @@ namespace euphoria::core
     }
 
     
-    bool
-    operator==(const mat4f& lhs, const mat4f& rhs)
-    {
-        return
-            lhs.get_column(0) == rhs.get_column(0) &&
-            lhs.get_column(1) == rhs.get_column(1) &&
-            lhs.get_column(2) == rhs.get_column(2) &&
-            lhs.get_column(3) == rhs.get_column(3)
-            ;
-    }
-
-    
     std::ostream&
     operator<<(std::ostream& stream, const mat4f& m)
     {

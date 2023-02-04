@@ -456,13 +456,5 @@ namespace euphoria::core
         r -= lhs;
         return r;
     }
-
-
-    bool
-    operator==(const quatf& lhs, const quatf& rhs)
-    {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
-               && lhs.w == rhs.w;
-    }
 }
 

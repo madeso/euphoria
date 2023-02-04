@@ -124,6 +124,5 @@ namespace euphoria::core
     quatf operator*(const quatf& q, float scale);
     quatf operator+(const quatf& lhs, const quatf& rhs);
     quatf operator-(const quatf& lhs, const quatf& rhs);
-    bool operator==(const quatf& lhs, const quatf& rhs);
 }
 
