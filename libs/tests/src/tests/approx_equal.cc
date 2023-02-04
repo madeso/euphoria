@@ -24,6 +24,20 @@ namespace euphoria::tests
     template <>
     bool
     approximately_equal(
+            core::vec4f const& lhs,
+            core::vec4f const& rhs,
+            const ApproxData& data)
+    {
+        return approximately_equal(lhs.x, rhs.x, data)
+               && approximately_equal(lhs.y, rhs.y, data)
+               && approximately_equal(lhs.z, rhs.z, data)
+               && approximately_equal(lhs.w, rhs.w, data)
+            ;
+    }
+
+    template <>
+    bool
+    approximately_equal(
             core::rgb const& lhs,
             core::rgb const& rhs,
             const ApproxData& data)
@@ -93,17 +107,33 @@ namespace euphoria::tests
             return true; // zero rotation is always equal zero
         }
 
-        const bool a
-                = (approximately_equal(rhs.axis, lhs.axis, data)
-                   && approximately_equal(
-                           rhs.angle.in_degrees(), lhs.angle.in_degrees(), data));
-        const bool inv
-                = (approximately_equal(rhs.axis, -lhs.axis, data)
-                   && approximately_equal(
-                           rhs.angle.in_degrees(),
-                           -lhs.angle.in_degrees(),
-                           data));
+        const bool a =
+        (
+            approximately_equal(rhs.axis, lhs.axis, data) &&
+            approximately_equal(rhs.angle.in_degrees(), lhs.angle.in_degrees(), data)
+        );
+        const bool inv =
+        (
+            approximately_equal(rhs.axis, -lhs.axis, data) &&
+            approximately_equal(rhs.angle.in_degrees(), -lhs.angle.in_degrees(), data)
+        );
         return a || inv;
+    }
+
+
+    template <>
+    bool
+    approximately_equal(core::mat4f const& lhs, core::mat4f const& rhs, const ApproxData& data)
+    {
+        for (int r = 0; r < 4; r += 1)
+        for (int c = 0; c < 4; c += 1)
+        {
+            if (approximately_equal(lhs.get(r,c), rhs.get(r, c), data) == false)
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
 }

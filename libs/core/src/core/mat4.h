@@ -257,25 +257,25 @@ namespace euphoria::core
             return vec4<T>(self(0, 0), self(1, 1), self(2, 2), self(3, 3));
         }
 
-        vec3<T>
+        unit3<T>
         get_axis(int col) const
         {
-            return get_column(col).to_vec3();
+            return unit3<T>::to_unit(get_column(col).to_vec3());
         }
 
-        vec3<T>
+        unit3<T>
         get_x_axis() const
         {
             return get_axis(0);
         }
 
-        vec3<T>
+        unit3<T>
         get_y_axis() const
         {
             return get_axis(1);
         }
 
-        vec3<T>
+        unit3<T>
         get_z_axis() const
         {
             return get_axis(2);
