@@ -190,7 +190,6 @@ TEST_CASE("mat4-math", "[mat]")
     }
 }
 
-#if 0
 TEST_CASE("mat4-mat3", "[mat]")
 {
     const auto m4 = euco::mat4f::from_col_major
@@ -201,11 +200,10 @@ TEST_CASE("mat4-mat3", "[mat]")
         12.0f, 13.0f, 14.0f, 15.0f
     );
     const auto m3 = m4.get_mat3();
-    REQUIRE(m3.get_column(0) == approx(std::make_tuple(0.0f, 1.0f,  2.0f)));
-    REQUIRE(m3.get_column(1) == approx(std::make_tuple(4.0f, 5.0f,  6.0f)));
-    REQUIRE(m3.get_column(2) == approx(std::make_tuple(8.0f, 9.0f, 10.0f)));
+    REQUIRE(m3.get_column(0) == approx(euco::vec3f(0.0f, 1.0f,  2.0f)));
+    REQUIRE(m3.get_column(1) == approx(euco::vec3f(4.0f, 5.0f,  6.0f)));
+    REQUIRE(m3.get_column(2) == approx(euco::vec3f(8.0f, 9.0f, 10.0f)));
 }
-#endif
 
 
 TEST_CASE("mat4-inverse", "[mat]")
