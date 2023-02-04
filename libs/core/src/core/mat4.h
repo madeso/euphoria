@@ -643,6 +643,4 @@ namespace euphoria::core
     }
 
     using mat4f = mat4<float>;
-    using mat4i = mat4<int>;
-
 }
