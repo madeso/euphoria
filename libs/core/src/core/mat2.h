@@ -3,243 +3,65 @@
 #include "core/vec2.h"
 #include "core/angle.h"
 
+
 namespace euphoria::core
 {
-    template<typename T>
-    struct mat2
+    struct mat2f
     {
     private:
-        T data[4];
+        float data[4];
 
-        mat2() = default;
+        mat2f() = default;
 
-        mat2
+        mat2f
         (
-            T t00, T t01,
-            T t10, T t11
-        )
-            : data
-            {
-                t00, t01,
-                t10, t11
-            }
-        {
-        }
+            float t00, float t01,
+            float t10, float t11
+        );
 
     public:
 
-        [[nodiscard]]
-        static
-        mat2<T>
-        from_col_major
+        [[nodiscard]] static mat2f from_col_major
         (
-            T t00, T t01,
-            T t10, T t11
-        )
-        {
-            return mat2<T>(t00, t01, t10, t11);
-        }
+            float t00, float t01,
+            float t10, float t11
+        );
 
-        [[nodiscard]]
-        static
-        mat2<T>
-        from_row_major
+        [[nodiscard]] static mat2f from_row_major
         (
-            T t00, T t10,
-            T t01, T t11
-        )
-        {
-            return mat2<T>
-            (
-                t00, t01,
-                t10, t11
-            );
-        }
+            float t00, float t10,
+            float t01, float t11
+        );
 
-        [[nodiscard]]
-        static
-        mat2<T>
-        from_scalar(T scalar)
-        {
-            const T z = 0;
-            return from_row_major
-            (
-                scalar, z,
-                z, scalar
-            );
-        }
+        [[nodiscard]] static mat2f from_scalar(float scalar);
+        [[nodiscard]] static mat2f from_stretch_x(float k);
+        [[nodiscard]] static mat2f from_stretch_y(float k);
+        [[nodiscard]] static mat2f from_rotation(const angle& a);
+        [[nodiscard]] static mat2f identity();
 
-        [[nodiscard]]
-        static
-        mat2<T>
-        from_stretch_x(T k)
-        {
-            return from_row_major
-            (
-                k, 0,
-                0, 1
-            );
-        }
+        void operator+=(const mat2f rhs);
+        void operator-=(const mat2f rhs);
 
-        [[nodiscard]]
-        static
-        mat2<T>
-        from_stretch_y(T k)
-        {
-            return from_row_major
-            (
-                1, 0,
-                0, k
-            );
-        }
-
-        [[nodiscard]]
-        static
-        mat2<T>
-        from_rotation(const angle& a)
-        {
-            const auto s = sin(a);
-            const auto c = cos(a);
-            return from_row_major
-            (
-                c, s,
-                -s, c
-            );
-        }
-
-        [[nodiscard]]
-        static
-        mat2<T>
-        identity()
-        {
-            return from_scalar(1);
-        }
-
-
-        void
-        operator+=(const mat2<T> rhs)
-        {
-#define OP(i) data[i] += rhs.data[i]
-            OP(0); OP(1);
-            OP(2); OP(3);
-#undef OP
-        }
-
-        void
-        operator-=(const mat2<T> rhs)
-        {
-#define OP(i) data[i] -= rhs.data[i]
-            OP(0); OP(1);
-            OP(2); OP(3);
-#undef OP
-        }
-
-        const T*
-        get_data_ptr() const
-        {
-            return data;
-        }
-
-        T*
-        get_data_ptr()
-        {
-            return data;
-        }
+        const float* get_data_ptr() const;
+        float* get_data_ptr();
 
         // index operator use () as [] only expects one argument
-        T&
-        operator()(int row, int col)
-        {
-            return data[col * 2 + row];
-        }
+        float& operator()(int row, int col);
+        float operator()(int row, int col) const;
+        float get(int row, int col) const;
 
-        T
-        operator()(int row, int col) const
-        {
-            return get(row, col);
-        }
+        vec2f get_column(int c) const;
+        vec2f get_row(int r) const;
 
-        T
-        get(int row, int col) const
-        {
-            return data[col * 2 + row];
-        }
-
-        vec2<T>
-        get_column(int c) const
-        {
-            return vec2<T>(get(0, c), get(1, c));
-        }
-
-        vec2<T>
-        get_row(int r) const
-        {
-            return vec2<T>(get(r, 0), get(r, 1));
-        }
+        bool operator==(const mat2f& rhs) = delete;
     };
 
 
-    template <typename T>
-    bool
-    operator==(const mat2<T>& lhs, const mat2<T>& rhs)
-    {
-        return
-            lhs.GetColumn(0) == rhs.GetColumn(0) &&
-            lhs.GetColumn(1) == rhs.GetColumn(1) &&
-            lhs.GetColumn(2) == rhs.GetColumn(2)
-            ;
-    }
-
-    template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const mat2<T>& m)
-    {
-        return stream
-            << "("
-            << m.GetRow(0) << ", " << m.GetRow(1)
-            << ")"
-            ;
-    }
+    operator<<(std::ostream& stream, const mat2f& m);
 
-    template <typename T>
-    mat2<T>
-    operator+(const mat2<T>& lhs, const mat2<T> rhs)
-    {
-        mat2<T> t = lhs;
-        t += rhs;
-        return t;
-    }
-
-    template <typename T>
-    mat2<T>
-    operator-(const mat2<T>& lhs, const mat2<T> rhs)
-    {
-        mat2<T> t = lhs;
-        t -= rhs;
-        return t;
-    }
-
-    template <typename T>
-    mat2<T> operator*(const mat2<T>& lhs, const mat2<T> rhs)
-    {
-#define OP(r, c) \
-    component_multiply(vec2<T>(lhs.GetRow(r)), vec2<T>(rhs.GetColumn(c))).get_component_sum()
-        return mat2<T>::FromRowMajor
-        (
-            OP(0, 0), OP(0, 1),
-            OP(1, 0), OP(1, 1)
-        );
-#undef OP
-    }
-
-    template <typename T>
-    vec2<T> operator*(const mat2<T>& lhs, const vec2<T> rhs)
-    {
-#define OP(r) component_multiply(vec2<T>(lhs.GetRow(r)), rhs).get_component_sum()
-        return vec2<T>(OP(0), OP(1));
-#undef OP
-    }
-
-    using mat2f = mat2<float>;
-    using mat2i = mat2<int>;
+    mat2f operator+(const mat2f& lhs, const mat2f rhs);
+    mat2f operator-(const mat2f& lhs, const mat2f rhs);
+    mat2f operator*(const mat2f& lhs, const mat2f rhs);
+    vec2f operator*(const mat2f& lhs, const vec2f rhs);
 }

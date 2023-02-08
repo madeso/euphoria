@@ -10,8 +10,6 @@
 
 namespace euphoria::core
 {
-    // todo(Gustav): remove template... integer is only used in tests
-
     struct mat4f
     {
     private:

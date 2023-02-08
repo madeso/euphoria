@@ -28,7 +28,7 @@ namespace euphoria::core
     }
 
     
-    mat3f::mat3f(const mat2<float>& mat)
+    mat3f::mat3f(const mat2f& mat)
         : data
         {
             mat(0,0), mat(0,1), 0,

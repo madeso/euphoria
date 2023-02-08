@@ -24,7 +24,7 @@ namespace euphoria::core
 
     public:
         explicit
-        mat3f(const mat2<float>& mat);
+        mat3f(const mat2f& mat);
 
 
         [[nodiscard]]
