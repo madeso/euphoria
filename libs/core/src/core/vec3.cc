@@ -24,7 +24,7 @@ namespace euphoria::core
     }
 
 
-    Scale3f::Scale3f(const float& a)
+    Scale3f::Scale3f(float a)
         : x(a)
         , y(a)
         , z(a)
@@ -40,7 +40,7 @@ namespace euphoria::core
     }
 
 
-    Scale3f::Scale3f(const float& ax, const float& ay, const float& az)
+    Scale3f::Scale3f(float ax, float ay, float az)
         : x(ax)
         , y(ay)
         , z(az)
@@ -80,7 +80,7 @@ namespace euphoria::core
     }
 
 
-    vec3f::vec3f(const float& a)
+    vec3f::vec3f(float a)
         : x(a)
         , y(a)
         , z(a)
@@ -96,7 +96,7 @@ namespace euphoria::core
     }
 
 
-    vec3f::vec3f(const float& ax, const float& ay, const float& az)
+    vec3f::vec3f(float ax, float ay, float az)
         : x(ax)
         , y(ay)
         , z(az)
@@ -112,7 +112,7 @@ namespace euphoria::core
     }
 
 
-    vec3f::vec3f(const vec2<float>& a, const float& az)
+    vec3f::vec3f(const vec2<float>& a, float az)
         : x(a.x)
         , y(a.y)
         , z(az)
@@ -167,7 +167,7 @@ namespace euphoria::core
 
 
     void
-    vec3f::operator/=(const float& rhs)
+    vec3f::operator/=(float rhs)
     {
         x /= rhs;
         y /= rhs;
@@ -176,7 +176,7 @@ namespace euphoria::core
 
 
     void
-    vec3f::operator*=(const float& rhs)
+    vec3f::operator*=(float rhs)
     {
         x *= rhs;
         y *= rhs;

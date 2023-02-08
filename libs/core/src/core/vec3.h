@@ -29,9 +29,9 @@ namespace euphoria::core
         float y;
         float z;
 
-        explicit Scale3f(const float& a);
+        explicit Scale3f(float a);
         explicit Scale3f(const std::tuple<float, float, float>& a);
-        Scale3f(const float& ax, const float& ay, const float& az);
+        Scale3f(float ax, float ay, float az);
         explicit Scale3f(const float* a);
 
         float* get_data_ptr();
@@ -52,19 +52,19 @@ namespace euphoria::core
         float y;
         float z;
 
-        explicit vec3f(const float& a);
+        explicit vec3f(float a);
         explicit vec3f(const std::tuple<float, float, float>& a);
-        vec3f(const float& ax, const float& ay, const float& az);
+        vec3f(float ax, float ay, float az);
         explicit vec3f(const float* a);
-        vec3f(const vec2<float>& a, const float& az);
+        vec3f(const vec2<float>& a, float az);
 
         static vec3f from_to(const vec3f& from, const vec3f& to);
         static vec3f zero();
 
         void operator+=(const vec3f& rhs);
         void operator-=(const vec3f& rhs);
-        void operator/=(const float& rhs);
-        void operator*=(const float& rhs);
+        void operator/=(float rhs);
+        void operator*=(float rhs);
         vec3f operator-() const;
 
         [[nodiscard]] float get_component_sum() const;

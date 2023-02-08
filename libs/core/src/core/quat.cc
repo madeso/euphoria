@@ -338,7 +338,7 @@ namespace euphoria::core
 
 
     void
-    quatf::operator*=(const float& rhs)
+    quatf::operator*=(float rhs)
     {
         x *= rhs;
         y *= rhs;

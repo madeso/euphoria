@@ -110,7 +110,7 @@ namespace euphoria::core
 
         void operator+=(const quatf& rhs);
         void operator-=(const quatf& rhs);
-        void operator*=(const float& rhs);
+        void operator*=(float rhs);
         void operator*=(const quatf& rhs);
     };
 
