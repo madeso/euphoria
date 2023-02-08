@@ -1,66 +1,67 @@
 #include "core/vec3.h"
 
+#include "tests/approx_equal.h"
+
 #include "catch.hpp"
 
+using namespace euphoria::tests;
 namespace euco = euphoria::core;
 
-TEST_CASE("axis_test", "[vec3]")
-{
-    REQUIRE(euco::vec3i(1, 0, 0) == euco::Unit3i::x_axis());
-    REQUIRE(euco::vec3i(0, 1, 0) == euco::Unit3i::y_axis());
-    REQUIRE(euco::vec3i(0, 0, 1) == euco::Unit3i::z_axis());
-}
 
-TEST_CASE("vec3-constructor_same", "[vec3]")
+TEST_CASE("vec3-to-unit-test", "[vec3]")
 {
-    const auto v = euco::vec3i(42);
-    REQUIRE(v.x == 42);
-    REQUIRE(v.y == 42);
-    REQUIRE(v.z == 42);
-}
-
-TEST_CASE("vec3-constructor_unique", "[vec3]")
-{
-    const auto v = euco::vec3i(1, 2, 3);
-    REQUIRE(v.x == 1);
-    REQUIRE(v.y == 2);
-    REQUIRE(v.z == 3);
-}
-
-TEST_CASE("vec3-constructor_vec2", "[vec3]")
-{
-    const auto v = euco::vec3i(euco::vec2i(1, 2), 3);
-    REQUIRE(v.x == 1);
-    REQUIRE(v.y == 2);
-    REQUIRE(v.z == 3);
-}
-
-TEST_CASE("vec3-equal", "[vec3]")
-{
-    REQUIRE(euco::vec3i(1, 2, 3) == euco::vec3i(1, 2, 3));
-    REQUIRE_FALSE(euco::vec3i(1, 2, 3) == euco::vec3i(3, 2, 1));
+    REQUIRE(euco::unit3f::to_unit(euco::vec3f(1.0f, 0.0f, 0.0f)) == approx(euco::unit3f::x_axis()));
+    REQUIRE(euco::unit3f::to_unit(euco::vec3f(0.0f, 1.0f, 0.0f)) == approx(euco::unit3f::y_axis()));
+    REQUIRE(euco::unit3f::to_unit(euco::vec3f(0.0f, 0.0f, 1.0f)) == approx(euco::unit3f::z_axis()));
 }
 
 TEST_CASE("vec3-axis_test", "[vec3]")
 {
-    REQUIRE(euco::Unit3i::x_axis() == euco::vec3i(1, 0, 0));
-    REQUIRE(euco::Unit3i::y_axis() == euco::vec3i(0, 1, 0));
-    REQUIRE(euco::Unit3i::z_axis() == euco::vec3i(0, 0, 1));
+    REQUIRE(euco::unit3f::x_axis() == approx(euco::vec3f(1.0f, 0.0f, 0.0f)));
+    REQUIRE(euco::unit3f::y_axis() == approx(euco::vec3f(0.0f, 1.0f, 0.0f)));
+    REQUIRE(euco::unit3f::z_axis() == approx(euco::vec3f(0.0f, 0.0f, 1.0f)));
+}
+
+TEST_CASE("vec3-constructor_same", "[vec3]")
+{
+    const auto v = euco::vec3f(42.0f);
+    REQUIRE(v.x == approx(42.0f));
+    REQUIRE(v.y == approx(42.0f));
+    REQUIRE(v.z == approx(42.0f));
+}
+
+TEST_CASE("vec3-constructor_unique", "[vec3]")
+{
+    const auto v = euco::vec3f(1.0f, 2.0f, 3.0f);
+    REQUIRE(v.x == approx(1.0f));
+    REQUIRE(v.y == approx(2.0f));
+    REQUIRE(v.z == approx(3.0f));
+}
+
+TEST_CASE("vec3-constructor_vec2", "[vec3]")
+{
+    const auto v = euco::vec3f(euco::vec2f(1.0f, 2.0f), 3.0f);
+    REQUIRE(v.x == approx(1.0f));
+    REQUIRE(v.y == approx(2.0f));
+    REQUIRE(v.z == approx(3.0f));
+}
+
+TEST_CASE("vec3-equal", "[vec3]")
+{
+    REQUIRE(euco::vec3f(1.0f, 2.0f, 3.0f) == approx(euco::vec3f(1.0f, 2.0f, 3.0f)));
+    REQUIRE_FALSE(euco::vec3f(1.0f, 2.0f, 3.0f) == approx(euco::vec3f(3.0f, 2.0f, 1.0f)));
 }
 
 TEST_CASE("vec3-neg_test", "[vec3]")
 {
-    REQUIRE(-euco::vec3i(1, 2, 3) == euco::vec3i(-1, -2, -3));
-    REQUIRE(-euco::vec3i(-1, 2, 3) == euco::vec3i(1, -2, -3));
-    REQUIRE(-euco::vec3i(-1, -2, -3) == euco::vec3i(1, 2, 3));
+    REQUIRE(-euco::vec3f( 1.0f,  2.0f,  3.0f) == approx(euco::vec3f(-1.0f, -2.0f, -3.0f)));
+    REQUIRE(-euco::vec3f(-1.0f,  2.0f,  3.0f) == approx(euco::vec3f( 1.0f, -2.0f, -3.0f)));
+    REQUIRE(-euco::vec3f(-1.0f, -2.0f, -3.0f) == approx(euco::vec3f( 1.0f,  2.0f,  3.0f)));
 }
 
 TEST_CASE("vec3-from_to", "[vec3]")
 {
-    REQUIRE(euco::vec3i::from_to(euco::vec3i(0, 0, 0), euco::vec3i(0, 0, 0))
-            == euco::vec3i(0, 0, 0));
-    REQUIRE(euco::vec3i::from_to(euco::vec3i(0, 0, 0), euco::vec3i(1, 0, 0))
-            == euco::vec3i(1, 0, 0));
-    REQUIRE(euco::vec3i::from_to(euco::vec3i(0, -5, 0), euco::vec3i(0, 25, 0))
-            == euco::vec3i(0, 30, 0));
+    REQUIRE(euco::vec3f::from_to(euco::vec3f(0.0f,  0.0f, 0.0f), euco::vec3f(0.0f,  0.0f, 0.0f)) == approx(euco::vec3f(0.0f,  0.0f, 0.0f)));
+    REQUIRE(euco::vec3f::from_to(euco::vec3f(0.0f,  0.0f, 0.0f), euco::vec3f(1.0f,  0.0f, 0.0f)) == approx(euco::vec3f(1.0f,  0.0f, 0.0f)));
+    REQUIRE(euco::vec3f::from_to(euco::vec3f(0.0f, -5.0f, 0.0f), euco::vec3f(0.0f, 25.0f, 0.0f)) == approx(euco::vec3f(0.0f, 30.0f, 0.0f)));
 }
