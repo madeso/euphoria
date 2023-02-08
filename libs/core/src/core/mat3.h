@@ -321,18 +321,9 @@ namespace euphoria::core
         {
             return vec3<T>(get(r, 0), get(r, 1), get(r, 2));
         }
-    };
 
-    template <typename T>
-    bool
-    operator==(const mat3<T>& lhs, const mat3<T>& rhs)
-    {
-        return
-            lhs.get_column(0) == rhs.get_column(0) &&
-            lhs.get_column(1) == rhs.get_column(1) &&
-            lhs.get_column(2) == rhs.get_column(2)
-            ;
-    }
+        bool operator==(const mat3<T>& rhs) = delete;
+    };
 
     template <typename T>
     std::ostream&
@@ -386,6 +377,4 @@ namespace euphoria::core
     }
 
     using mat3f = mat3<float>;
-    using mat3i = mat3<int>;
-
 }
