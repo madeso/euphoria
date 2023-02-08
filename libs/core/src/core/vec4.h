@@ -10,79 +10,48 @@
 namespace euphoria::core
 {
     // represents a homogeneous coordinate
-    template <typename T>
-    struct vec4
+    struct vec4f
     {
-        T x;
-        T y;
-        T z;
-        T w;
+        float x;
+        float y;
+        float z;
+        float w;
 
-        explicit vec4(const T& a) : x(a), y(a), z(a), w(a) {}
-        vec4(const T& ax, const T& ay, const T& az, const T& aw)
-            : x(ax), y(ay), z(az), w(aw)
-        {}
+        explicit vec4f(float a);
+        vec4f(float ax, float ay, float az, float aw);
 
         // w for point is 1
         // w for vector is 0
-        vec4(const vec3<T>& a, T aw) : x(a.x), y(a.y), z(a.z), w(aw) {}
+        vec4f(const vec3f& a, float aw);
 
-        vec4(const Scale3<T>& a) : x(a.x), y(a.y), z(a.z), w(1) {}
+        // todo(Gustav): make explicit?
+        vec4f(const Scale3<float>& a);
 
-        vec3<T>
-        to_vec3(T ww) const
-        {
-            ASSERTX(is_equal(w, ww), w, ww);
-            return vec3<T>(x, y, z);
-        }
+        explicit vec4f(const float* a);
 
-        // todo(Gustav): replace this and actually call the assert version always
-        vec3<T>
-        to_vec3() const
-        {
-            return vec3<T>(x, y, z);
-        }
+        /// asserts that the w component is what is expected
+        vec3f
+        to_vec3(float ww) const;
 
-        explicit vec4(const T* a) : x(a[0]), y(a[1]), z(a[2]), w(a[3]) {}
+        // todo(Gustav): replace this and instead always call the assert version (above)
+        vec3f
+        to_vec3() const;
 
-        T*
-        get_data_ptr()
-        {
-            return &x;
-        }
+        float*
+        get_data_ptr();
 
-        const T*
-        get_data_ptr() const
-        {
-            return &x;
-        }
+        const float*
+        get_data_ptr() const;
 
-        T
-        get_component_sum() const
-        {
-            return x + y + z + w;
-        }
+        float
+        get_component_sum() const;
 
-
-        bool operator==(const vec4<T>& rhs) = delete;
+        bool operator==(const vec4f& rhs) = delete;
     };
 
-    template <typename T>
     std::ostream&
-    operator<<(std::ostream& stream, const vec4<T>& v)
-    {
-        return stream << "(" << v.x << ", " << v.y << ", " << v.z << ", " << v.w
-                      << ")";
-    }
+    operator<<(std::ostream& stream, const vec4f& v);
 
-    template <typename T>
-    vec4<T>
-    component_multiply(const vec4<T>& lhs, const vec4<T>& rhs)
-    {
-        return vec4<T>(
-                lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w);
-    }
-
-    using vec4f = vec4<float>;
-
+    vec4f
+    component_multiply(const vec4f& lhs, const vec4f& rhs);
 }
