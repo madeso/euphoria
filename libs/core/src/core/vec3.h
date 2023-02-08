@@ -56,6 +56,8 @@ namespace euphoria::core
         explicit Scale3(const T* a) : x(a[0]), y(a[1]), z(a[2])
         {
         }
+
+        bool operator==(const Scale3<T>& rhs) = delete;
     };
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -176,6 +178,8 @@ namespace euphoria::core
         {
             return Unit::to_unit(*this);
         }
+
+        bool operator==(const vec3<T>& rhs) = delete;
     };
 
 
@@ -260,6 +264,7 @@ namespace euphoria::core
             return Self {v.x, v.y, v.z};
         }
 
+        bool operator==(const unit3<T>& rhs) = delete;
     private:
         explicit unit3(T a, T b, T c) : vec3<T>(a, b, c)
         {
@@ -331,28 +336,6 @@ namespace euphoria::core
 
 
     ////////////////////////////////////////////////////////////////////////////////
-    /// Equality operators
-
-    template <typename T, typename K = std::enable_if_t<std::is_integral<T>::value>>
-    bool operator==(const vec3<T>& lhs, const vec3<T>& rhs)
-    {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
-    }
-
-    template <typename T, typename K = std::enable_if_t<std::is_integral<T>::value>>
-    bool operator==(const unit3<T>& lhs, const unit3<T>& rhs)
-    {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
-    }
-
-    template <typename T, typename K = std::enable_if_t<std::is_integral<T>::value>>
-    bool operator==(const Scale3<T>& lhs, const Scale3<T>& rhs)
-    {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z;
-    }
-
-
-    ////////////////////////////////////////////////////////////////////////////////
     /// Functions
 
     template <typename T>
@@ -411,8 +394,4 @@ namespace euphoria::core
     using vec3f = vec3<float>;
     using unit3f = unit3<float>;
     using Scale3f = Scale3<float>;
-
-    using vec3i = vec3<int>;
-    using Unit3i = unit3<int>;
-    using Scale3i = Scale3<int>;
 }
