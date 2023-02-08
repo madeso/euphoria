@@ -50,12 +50,12 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat3f
-        from_major(const Scale3<float>& major);
+        from_major(const Scale3f& major);
 
         [[nodiscard]]
         static
         mat3f
-        from_scale(const Scale3<float>& scale);
+        from_scale(const Scale3f& scale);
 
         [[nodiscard]]
         static
@@ -120,7 +120,7 @@ namespace euphoria::core
         rotate(const AxisAngle& aa) const;
 
         mat3f
-        scale(const Scale3<float>& scale) const;
+        scale(const Scale3f& scale) const;
 
         const float*
         get_data_ptr() const;

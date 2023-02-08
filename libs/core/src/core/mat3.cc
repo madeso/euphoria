@@ -77,7 +77,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat3f
-    mat3f::from_major(const Scale3<float>& major)
+    mat3f::from_major(const Scale3f& major)
     {
         const float zero = 0;
         return from_row_major
@@ -91,7 +91,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat3f
-    mat3f::from_scale(const Scale3<float>& scale)
+    mat3f::from_scale(const Scale3f& scale)
     {
         return from_major(scale);
     }
@@ -279,7 +279,7 @@ namespace euphoria::core
 
 
     mat3f
-    mat3f::scale(const Scale3<float>& scale) const
+    mat3f::scale(const Scale3f& scale) const
     {
         return *this * from_scale(scale);
     }
@@ -366,7 +366,7 @@ namespace euphoria::core
     mat3f operator*(const mat3f& lhs, const mat3f rhs)
     {
 #define OP(r, c) \
-    component_multiply(vec3{lhs.get_row(r)}, vec3{rhs.get_column(c)}).get_component_sum()
+    component_multiply(vec3f{lhs.get_row(r)}, vec3f{rhs.get_column(c)}).get_component_sum()
         return mat3f::from_row_major
         (
             OP(0, 0), OP(0, 1), OP(0, 2),
@@ -379,7 +379,7 @@ namespace euphoria::core
 
     vec3f operator*(const mat3f& lhs, const vec3f rhs)
     {
-#define OP(r) component_multiply(vec3{lhs.get_row(r)}, rhs).get_component_sum()
+#define OP(r) component_multiply(vec3f{lhs.get_row(r)}, rhs).get_component_sum()
         return vec3f(OP(0), OP(1), OP(2));
 #undef OP
     }

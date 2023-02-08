@@ -25,7 +25,7 @@ namespace euphoria::core
         vec4f(const vec3f& a, float aw);
 
         // todo(Gustav): make explicit?
-        vec4f(const Scale3<float>& a);
+        vec4f(const Scale3f& a);
 
         explicit vec4f(const float* a);
 

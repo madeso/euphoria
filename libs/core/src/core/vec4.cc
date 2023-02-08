@@ -30,7 +30,7 @@ namespace euphoria::core
     }
 
 
-    vec4f::vec4f(const Scale3<float>& a)
+    vec4f::vec4f(const Scale3f& a)
         : x(a.x)
         , y(a.y)
         , z(a.z)

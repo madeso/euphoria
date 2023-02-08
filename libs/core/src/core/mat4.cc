@@ -78,7 +78,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat4f
-    mat4f::from_scale(const Scale3<float>& scale)
+    mat4f::from_scale(const Scale3f& scale)
     {
         return from_major(vec4f(scale));
     }
@@ -122,10 +122,10 @@ namespace euphoria::core
         return get_transform(p, 0);
     }
 
-    unit3<float>
-    mat4f::get_transform_vec(const unit3<float>& p) const
+    unit3f
+    mat4f::get_transform_vec(const unit3f& p) const
     {
-        return unit3<float>::to_unit(get_transform_vec(static_cast<vec3f>(p)));
+        return unit3f::to_unit(get_transform_vec(static_cast<vec3f>(p)));
     }
 
     vec3f
@@ -240,25 +240,25 @@ namespace euphoria::core
         return vec4f(self(0, 0), self(1, 1), self(2, 2), self(3, 3));
     }
 
-    unit3<float>
+    unit3f
     mat4f::get_axis(int col) const
     {
-        return unit3<float>::to_unit(get_column(col).to_vec3());
+        return unit3f::to_unit(get_column(col).to_vec3());
     }
 
-    unit3<float>
+    unit3f
     mat4f::get_x_axis() const
     {
         return get_axis(0);
     }
 
-    unit3<float>
+    unit3f
     mat4f::get_y_axis() const
     {
         return get_axis(1);
     }
 
-    unit3<float>
+    unit3f
     mat4f::get_z_axis() const
     {
         return get_axis(2);
@@ -489,7 +489,7 @@ namespace euphoria::core
     }
 
     mat4f
-    mat4f::scale(const Scale3<float>& scale) const
+    mat4f::scale(const Scale3f& scale) const
     {
         return *this * from_scale(scale);
     }

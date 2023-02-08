@@ -61,7 +61,7 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat4f
-        from_scale(const Scale3<float>& scale);
+        from_scale(const Scale3f& scale);
 
         [[nodiscard]]
         static
@@ -80,8 +80,8 @@ namespace euphoria::core
         vec3f
         get_transform_vec(const vec3f& p) const;
 
-        unit3<float>
-        get_transform_vec(const unit3<float>& p) const;
+        unit3f
+        get_transform_vec(const unit3f& p) const;
 
         vec3f
         get_translation() const;
@@ -117,16 +117,16 @@ namespace euphoria::core
         vec4f
         get_major() const;
 
-        unit3<float>
+        unit3f
         get_axis(int col) const;
 
-        unit3<float>
+        unit3f
         get_x_axis() const;
 
-        unit3<float>
+        unit3f
         get_y_axis() const;
 
-        unit3<float>
+        unit3f
         get_z_axis() const;
 
         mat4f
@@ -164,7 +164,7 @@ namespace euphoria::core
         rotate(const AxisAngle& aa) const;
 
         mat4f
-        scale(const Scale3<float>& scale) const;
+        scale(const Scale3f& scale) const;
 
         const float*
         get_data_ptr() const;

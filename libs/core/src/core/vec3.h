@@ -15,345 +15,124 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     /// Forward declarations
 
-    template <typename T>
-    struct vec3;
+    struct vec3f;
+    struct unit3f;
+    struct Scale3f;
 
-    template <typename T>
-    struct unit3;
-
-    template <typename T>
-    struct Scale3;
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    template <typename T>
-    struct Scale3
+
+    struct Scale3f
     {
-        using Self = Scale3<T>;
+        float x;
+        float y;
+        float z;
 
-        T x;
-        T y;
-        T z;
+        explicit Scale3f(const float& a);
+        explicit Scale3f(const std::tuple<float, float, float>& a);
+        Scale3f(const float& ax, const float& ay, const float& az);
+        explicit Scale3f(const float* a);
 
-        T* get_data_ptr() { return &x; }
+        float* get_data_ptr();
+        [[nodiscard]] const float* get_data_ptr() const;
 
-        [[nodiscard]] const T* get_data_ptr() const { return &x; }
+        [[nodiscard]] float get_component_sum() const;
 
-        [[nodiscard]] T get_component_sum() const { return x + y + z; }
-
-        explicit Scale3(const T& a) : x(a), y(a), z(a)
-        {
-        }
-
-        explicit Scale3(const std::tuple<T, T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a)), z(std::get<2>(a))
-        {
-        }
-
-        Scale3(const T& ax, const T& ay, const T& az) : x(ax), y(ay), z(az)
-        {
-        }
-
-        explicit Scale3(const T* a) : x(a[0]), y(a[1]), z(a[2])
-        {
-        }
-
-        bool operator==(const Scale3<T>& rhs) = delete;
-    };
-
-    ////////////////////////////////////////////////////////////////////////////////
-
-    template <typename T>
-    struct vec3
-    {
-        using Self = vec3<T>;
-        using Unit = unit3<T>;
-
-        T x;
-        T y;
-        T z;
-
-        T* get_data_ptr() { return &x; }
-
-        [[nodiscard]] const T* get_data_ptr() const { return &x; }
-
-        [[nodiscard]] T get_component_sum() const { return x + y + z; }
-
-        explicit vec3(const T& a) : x(a), y(a), z(a)
-        {
-        }
-
-        explicit vec3(const std::tuple<T, T, T>& a) : x(std::get<0>(a)), y(std::get<1>(a)), z(std::get<2>(a))
-        {
-        }
-
-        vec3(const T& ax, const T& ay, const T& az) : x(ax), y(ay), z(az)
-        {
-        }
-
-        explicit vec3(const T* a) : x(a[0]), y(a[1]), z(a[2])
-        {
-        }
-
-        vec3(const vec2<T>& a, const T& az) : x(a.x), y(a.y), z(az)
-        {
-        }
-
-        void operator+=(const vec3<T>& rhs)
-        {
-            x += rhs.x;
-            y += rhs.y;
-            z += rhs.z;
-        }
-
-        void operator-=(const vec3<T>& rhs)
-        {
-            x -= rhs.x;
-            y -= rhs.y;
-            z -= rhs.z;
-        }
-
-        Self operator-() const { return Self(-this->x, -this->y, -this->z); }
-
-        T get_length_squared() const { return x * x + y * y + z * z; }
-
-        static Self
-        from_to(const vec3<T>& from, const vec3<T>& to)
-        {
-            return Self {to.x - from.x, to.y - from.y, to.z - from.z};
-        }
-
-        static Self
-        zero()
-        {
-            return Self {0, 0, 0};
-        }
-
-        void
-        operator/=(const T& rhs)
-        {
-            x /= rhs;
-            y /= rhs;
-            z /= rhs;
-        }
-
-        void
-        operator*=(const T& rhs)
-        {
-            x *= rhs;
-            y *= rhs;
-            z *= rhs;
-        }
-
-        [[nodiscard]] T
-        get_length() const
-        {
-            return sqrt(get_length_squared());
-        }
-
-        void
-        normalize()
-        {
-            const T l2 = get_length_squared();
-            if(is_equal(l2, c_int_to_t<T>(0)))
-            {
-                *this = Unit::up();
-            }
-            else
-            {
-                *this /= sqrt(l2);
-            }
-        }
-
-
-        [[nodiscard]] Unit
-        get_normalized() const
-        {
-            Self r = *this;
-            r.normalize();
-            return Unit::to_unit(r);
-        }
-
-        [[nodiscard]] Unit
-        as_normalized() const
-        {
-            return Unit::to_unit(*this);
-        }
-
-        bool operator==(const vec3<T>& rhs) = delete;
+        bool operator==(const Scale3f& rhs) = delete;
     };
 
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    template <typename T>
-    struct unit3 : public vec3<T>
-    {
-        using Self = unit3<T>;
 
-        Self operator-() const { return Self(-this->x, -this->y, -this->z); }
+    struct vec3f
+    {
+        float x;
+        float y;
+        float z;
+
+        explicit vec3f(const float& a);
+        explicit vec3f(const std::tuple<float, float, float>& a);
+        vec3f(const float& ax, const float& ay, const float& az);
+        explicit vec3f(const float* a);
+        vec3f(const vec2<float>& a, const float& az);
+
+        static vec3f from_to(const vec3f& from, const vec3f& to);
+        static vec3f zero();
+
+        void operator+=(const vec3f& rhs);
+        void operator-=(const vec3f& rhs);
+        void operator/=(const float& rhs);
+        void operator*=(const float& rhs);
+        vec3f operator-() const;
+
+        [[nodiscard]] float get_component_sum() const;
+        
+        float* get_data_ptr();
+        [[nodiscard]] const float* get_data_ptr() const;
+
+        float get_length_squared() const;
+        [[nodiscard]] float get_length() const;
+
+        void normalize();
+        [[nodiscard]] unit3f get_normalized() const;
+
+        // todo(Gustav): rename to assume_normalized
+        [[nodiscard]] unit3f as_normalized() const;
+
+        bool operator==(const vec3f& rhs) = delete;
+    };
+
+
+    ////////////////////////////////////////////////////////////////////////////////
+
+
+    struct unit3f : public vec3f
+    {
+        unit3f operator-() const;
 
         [[nodiscard]] bool
-        is_valid() const
-        {
-            return is_equal(this->get_length_squared(), c_int_to_t<T>(1));
-        }
+        is_valid() const;
 
-        static Self
-        x_axis()
-        {
-            return Self {1, 0, 0};
-        }
+        static unit3f x_axis();
+        static unit3f y_axis();
+        static unit3f z_axis();
+        
+        static unit3f up();     static unit3f down();
+        static unit3f right();  static unit3f left();
+        static unit3f in();     static unit3f out();
 
-        static Self
-        y_axis()
-        {
-            return Self {0, 1, 0};
-        }
+        static unit3f to_unit(float x, float y, float z);
+        static unit3f to_unit(const vec3f& v);
 
-        static Self
-        z_axis()
-        {
-            return Self(0, 0, 1);
-        }
+        bool operator==(const unit3f& rhs) = delete;
 
-        static Self
-        up()
-        {
-            return y_axis();
-        }
-
-        static Self
-        down()
-        {
-            return -y_axis();
-        }
-
-        static Self
-        right()
-        {
-            return x_axis();
-        }
-
-        static Self
-        left()
-        {
-            return -x_axis();
-        }
-
-        static Self
-        in()
-        {
-            return -z_axis();
-        }
-
-        static Self
-        out()
-        {
-            return z_axis();
-        }
-
-        static Self
-        to_unit(T x, T y, T z)
-        {
-            return Self {x, y, z};
-        }
-
-        static Self
-        to_unit(const vec3<T>& v)
-        {
-            return Self {v.x, v.y, v.z};
-        }
-
-        bool operator==(const unit3<T>& rhs) = delete;
     private:
-        explicit unit3(T a, T b, T c) : vec3<T>(a, b, c)
-        {
-            ASSERT(is_valid());
-        }
+        explicit unit3f(float a, float b, float c);
     };
 
 
     ////////////////////////////////////////////////////////////////////////////////
     /// Math operators
 
-    template <typename T>
-    vec3<T>
-    operator+(const vec3<T>& lhs, const vec3<T>& rhs)
-    {
-        vec3<T> r = lhs;
-        r += rhs;
-        return r;
-    }
+    vec3f operator+(const vec3f& lhs, const vec3f& rhs);
+    vec3f operator-(const vec3f& lhs, const vec3f& rhs);
 
-    template <typename T>
-    vec3<T>
-    operator-(const vec3<T>& lhs, const vec3<T>& rhs)
-    {
-        vec3<T> r = lhs;
-        r -= rhs;
-        return r;
-    }
+    vec3f operator*(float lhs, const vec3f& rhs);
+    vec3f operator*(const vec3f& lhs, float rhs);
 
-    template <typename T>
-    vec3<T> operator*(T lhs, const vec3<T>& rhs)
-    {
-        vec3<T> r = rhs;
-        r *= lhs;
-        return r;
-    }
+    vec3f operator/(const vec3f& lhs, float rhs);
+    vec3f operator/(float lhs, const vec3f& rhs);
 
-    template <typename T>
-    vec3<T> operator*(const vec3<T>& lhs, T rhs)
-    {
-        vec3<T> r = lhs;
-        r *= rhs;
-        return r;
-    }
-
-    template <typename T>
-    vec3<T>
-    operator/(const vec3<T>& lhs, T rhs)
-    {
-        vec3<T> r = lhs;
-        r /= rhs;
-        return r;
-    }
-
-    template <typename T>
-    vec3<T>
-    operator/(T lhs, const vec3<T>& rhs)
-    {
-        const vec3<T> r {lhs / rhs.x, lhs / rhs.y, lhs / rhs.z};
-        return r;
-    }
-
-    template <typename T>
-    vec3<T>
-    component_multiply(const vec3<T>& lhs, const vec3<T>& rhs)
-    {
-        return vec3<T>(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
-    }
+    vec3f component_multiply(const vec3f& lhs, const vec3f& rhs);
 
 
     ////////////////////////////////////////////////////////////////////////////////
     /// Functions
 
-    template <typename T>
-    T
-    dot(const vec3<T>& lhs, const vec3<T>& rhs)
-    {
-        return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
-    }
-
-    template <typename T>
-    vec3<T>
-    cross(const vec3<T>& v, const vec3<T> u)
-    {
-        return vec3<T>(
-                (v.y * u.z) - (v.z * u.y),
-                (v.z * u.x) - (v.x * u.z),
-                (v.x * u.y) - (v.y * u.x));
-    }
+    float dot(const vec3f& lhs, const vec3f& rhs);
+    vec3f cross(const vec3f& v, const vec3f u);
 
 
     ////////////////////////////////////////////////////////////////////////////////
@@ -365,33 +144,7 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     /// Printing
 
-    template <typename T>
-    std::ostream&
-    operator<<(std::ostream& stream, const vec3<T>& v)
-    {
-        return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
-    }
-
-    template <typename T>
-    std::ostream&
-    operator<<(std::ostream& stream, const unit3<T>& v)
-    {
-        return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
-    }
-
-    template <typename T>
-    std::ostream&
-    operator<<(std::ostream& stream, const Scale3<T>& v)
-    {
-        return stream << "(" << v.x << ", " << v.y << ", " << v.z << ")";
-    }
-
-
-    ////////////////////////////////////////////////////////////////////////////////
-    /// Typedefs
-
-
-    using vec3f = vec3<float>;
-    using unit3f = unit3<float>;
-    using Scale3f = Scale3<float>;
+    std::ostream& operator<<(std::ostream& stream, const vec3f& v);
+    std::ostream& operator<<(std::ostream& stream, const unit3f& v);
+    std::ostream& operator<<(std::ostream& stream, const Scale3f& v);
 }
