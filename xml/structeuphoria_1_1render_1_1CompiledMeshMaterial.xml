@@ -124,15 +124,15 @@
         <argsstring>(const core::mat4f &amp;model_matrix, const core::mat4f &amp;projection_matrix, const core::mat4f &amp;view_matrix, const core::vec3f &amp;camera, const Light &amp;light) const</argsstring>
         <name>apply</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>model_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>projection_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>view_matrix</declname>
         </param>
         <param>

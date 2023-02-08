@@ -5,7 +5,7 @@
     <includes refid="camera3_8h" local="no">camera3.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1ac920953756136eb7889f82a99cea6959" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::CompiledCamera3::view</definition>
         <argsstring></argsstring>
         <name>view</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/camera3.h" line="30" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1a5f2eae5fae69a7f8cd9f4e18c171c738" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::CompiledCamera3::projection</definition>
         <argsstring></argsstring>
         <name>projection</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/camera3.h" line="31" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1a97e6db893de2ba6df1d28143092c2382" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::CompiledCamera3::combined</definition>
         <argsstring></argsstring>
         <name>combined</name>
@@ -44,7 +44,7 @@
         <location file="libs/core/src/core/camera3.h" line="32" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1CompiledCamera3_1a55bcc413191fa14bc5d9da7d51a21a35" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::CompiledCamera3::combined_inverted</definition>
         <argsstring></argsstring>
         <name>combined_inverted</name>
@@ -64,11 +64,11 @@
         <argsstring>(const mat4f &amp;v, const mat4f &amp;p)</argsstring>
         <name>CompiledCamera3</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -136,10 +136,6 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
-        <label>euphoria::core::mat4&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1mat4"/>
-      </node>
       <node id="1">
         <label>euphoria::core::CompiledCamera3</label>
         <link refid="structeuphoria_1_1core_1_1CompiledCamera3"/>
@@ -149,6 +145,10 @@
           <edgelabel>view</edgelabel>
           <edgelabel>projection</edgelabel>
         </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::mat4f</label>
+        <link refid="structeuphoria_1_1core_1_1mat4f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/camera3.h" line="14" column="1" bodyfile="libs/core/src/core/camera3.h" bodystart="13" bodyend="34"/>

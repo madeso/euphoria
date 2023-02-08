@@ -371,7 +371,7 @@
         <argsstring>(const core::mat4f &amp;projection_data)</argsstring>
         <name>set_projection</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>projection_data</declname>
         </param>
         <briefdescription>
@@ -388,7 +388,7 @@
         <argsstring>(const core::mat4f &amp;view_data)</argsstring>
         <name>set_view</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>view_data</declname>
         </param>
         <briefdescription>
@@ -405,7 +405,7 @@
         <argsstring>(const core::mat4f &amp;model_data)</argsstring>
         <name>set_model</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>model_data</declname>
         </param>
         <briefdescription>

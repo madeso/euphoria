@@ -44,11 +44,11 @@
         <name>render</name>
         <reimplements refid="structeuphoria_1_1render_1_1Instance_1aa651df19e0bc5a58557bbd99f62ca02d">render</reimplements>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>projection_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>view_matrix</declname>
         </param>
         <param>

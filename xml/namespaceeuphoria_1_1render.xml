@@ -517,7 +517,7 @@
         <location file="libs/render/src/render/defaultfiles.h" line="17" column="9" declfile="libs/render/src/render/defaultfiles.h" declline="17" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1a1c09c5a0e9b680744d32503b9caa1a86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>
         <definition>core::mat4f euphoria::render::calculate_model_matrix</definition>
         <argsstring>(const core::vec3f &amp;position, const core::quatf &amp;rotation)</argsstring>
         <name>calculate_model_matrix</name>

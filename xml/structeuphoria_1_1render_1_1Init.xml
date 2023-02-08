@@ -98,7 +98,7 @@
         <location file="libs/render/src/render/init.h" line="25" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a27e0de7de1b9d5e848ef36dd80579603" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>
         <definition>core::mat4f euphoria::render::Init::get_ortho_projection</definition>
         <argsstring>(float width, float height) const</argsstring>
         <name>get_ortho_projection</name>

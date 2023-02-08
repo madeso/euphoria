@@ -76,7 +76,7 @@
         <argsstring>(const mat4f &amp;m) const</argsstring>
         <name>get_transform</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>m</declname>
         </param>
         <briefdescription>

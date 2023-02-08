@@ -326,7 +326,7 @@
           <declname>attribute</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>val</declname>
         </param>
         <briefdescription>

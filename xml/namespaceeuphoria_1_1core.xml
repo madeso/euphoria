@@ -58,7 +58,7 @@
     <innerclass refid="structeuphoria_1_1core_1_1MapValue" prot="public">euphoria::core::MapValue</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1mat2" prot="public">euphoria::core::mat2</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1mat3" prot="public">euphoria::core::mat3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1mat4" prot="public">euphoria::core::mat4</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1mat4f" prot="public">euphoria::core::mat4f</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1MatchedEnum" prot="public">euphoria::core::MatchedEnum</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Material" prot="public">euphoria::core::Material</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1MaterialTexture" prot="public">euphoria::core::MaterialTexture</innerclass>
@@ -3213,32 +3213,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/core/src/core/mat3.h" line="389" column="5" bodyfile="libs/core/src/core/mat3.h" bodystart="389" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" prot="public" static="no">
-        <type><ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; float &gt;</type>
-        <definition>using euphoria::core::mat4f = typedef mat4&lt;float&gt;</definition>
-        <argsstring></argsstring>
-        <name>mat4f</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="645" column="5" bodyfile="libs/core/src/core/mat4.h" bodystart="645" bodyend="-1"/>
-      </memberdef>
-      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1af2bcc8cfa5f3eac98d6ed3a4fddc61a7" prot="public" static="no">
-        <type><ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; int &gt;</type>
-        <definition>using euphoria::core::mat4i = typedef mat4&lt;int&gt;</definition>
-        <argsstring></argsstring>
-        <name>mat4i</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="646" column="5" bodyfile="libs/core/src/core/mat4.h" bodystart="646" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1aa7b5cb44c97d3860db511720967d640f" prot="public" static="no">
         <templateparamlist>
@@ -7755,48 +7729,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat3.h" line="381" column="10" bodyfile="libs/core/src/core/mat3.h" bodystart="381" bodyend="386"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3d533b478c227a358a72e9b7608ffc15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type>bool</type>
-        <definition>bool euphoria::core::operator==</definition>
-        <argsstring>(const mat4&lt; T &gt; &amp;lhs, const mat4&lt; T &gt; &amp;rhs)</argsstring>
-        <name>operator==</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt; &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt; &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="577" column="5" bodyfile="libs/core/src/core/mat4.h" bodystart="577" bodyend="585"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4c189629017435a49b37c513b9f1cd23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a320f9e67e1e9676b0a5b761e4a3955b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
         <definition>std::ostream&amp; euphoria::core::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;stream, const mat4&lt; T &gt; &amp;m)</argsstring>
+        <argsstring>(std::ostream &amp;stream, const mat4f &amp;m)</argsstring>
         <name>operator&lt;&lt;</name>
         <param>
           <type>std::ostream &amp;</type>
           <declname>stream</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>m</declname>
         </param>
         <briefdescription>
@@ -7805,24 +7748,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="588" column="5" bodyfile="libs/core/src/core/mat4.h" bodystart="589" bodyend="598"/>
+        <location file="libs/core/src/core/mat4.h" line="193" column="5" declfile="libs/core/src/core/mat4.h" declline="193" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2bb792dd8448a37ed24aaf2585e604b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt;</type>
-        <definition>mat4&lt;T&gt; euphoria::core::operator+</definition>
-        <argsstring>(const mat4&lt; T &gt; &amp;lhs, const mat4&lt; T &gt; rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a90ecdf0fdccfbe10d80eb8bbdf53796d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <definition>mat4f euphoria::core::operator+</definition>
+        <argsstring>(const mat4f &amp;lhs, const mat4f rhs)</argsstring>
         <name>operator+</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7831,24 +7769,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="602" column="5" bodyfile="libs/core/src/core/mat4.h" bodystart="602" bodyend="607"/>
+        <location file="libs/core/src/core/mat4.h" line="194" column="11" declfile="libs/core/src/core/mat4.h" declline="194" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a0348c1edc534db486a25ed4d4a66ef15" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt;</type>
-        <definition>mat4&lt;T&gt; euphoria::core::operator-</definition>
-        <argsstring>(const mat4&lt; T &gt; &amp;lhs, const mat4&lt; T &gt; rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a39d38650a743367a84a8f6ed28a4ab34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <definition>mat4f euphoria::core::operator-</definition>
+        <argsstring>(const mat4f &amp;lhs, const mat4f rhs)</argsstring>
         <name>operator-</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7857,24 +7790,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="611" column="5" bodyfile="libs/core/src/core/mat4.h" bodystart="611" bodyend="616"/>
+        <location file="libs/core/src/core/mat4.h" line="195" column="11" declfile="libs/core/src/core/mat4.h" declline="195" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ab9a89518f88829ffec24f75fe287bf6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt;</type>
-        <definition>mat4&lt;T&gt; euphoria::core::operator*</definition>
-        <argsstring>(const mat4&lt; T &gt; &amp;lhs, const mat4&lt; T &gt; rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a8a53cd9ec9ef999c9e3c401e4b2f2865" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+        <definition>mat4f euphoria::core::operator*</definition>
+        <argsstring>(const mat4f &amp;lhs, const mat4f rhs)</argsstring>
         <name>operator*</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7883,24 +7811,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="619" column="10" bodyfile="libs/core/src/core/mat4.h" bodystart="619" bodyend="632"/>
+        <location file="libs/core/src/core/mat4.h" line="196" column="11" declfile="libs/core/src/core/mat4.h" declline="196" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac626e91d60e11e88c9bccabff760a196" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename T</type>
-          </param>
-        </templateparamlist>
-        <type><ref refid="structeuphoria_1_1core_1_1vec4" kindref="compound">vec4</ref>&lt; T &gt;</type>
-        <definition>vec4&lt;T&gt; euphoria::core::operator*</definition>
-        <argsstring>(const mat4&lt; T &gt; &amp;lhs, const vec4&lt; T &gt; rhs)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aef55a2052f06a74e23ab0304f9a0c528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1aa3e50883b071f99ac987b6699bad8a1d" kindref="member">vec4f</ref></type>
+        <definition>vec4f euphoria::core::operator*</definition>
+        <argsstring>(const mat4f &amp;lhs, const vec4f rhs)</argsstring>
         <name>operator*</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4" kindref="compound">mat4</ref>&lt; T &gt; &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec4" kindref="compound">vec4</ref>&lt; T &gt;</type>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1aa3e50883b071f99ac987b6699bad8a1d" kindref="member">vec4f</ref></type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7909,7 +7832,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="635" column="10" bodyfile="libs/core/src/core/mat4.h" bodystart="635" bodyend="643"/>
+        <location file="libs/core/src/core/mat4.h" line="197" column="11" declfile="libs/core/src/core/mat4.h" declline="197" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae78195f4430b477e0cefaaee20b768eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -9531,27 +9454,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/core/src/core/quat.h" line="126" column="11" declfile="libs/core/src/core/quat.h" declline="126" declcolumn="11"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2966bbd0393bfe04ee434dae311f6c43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::operator==</definition>
-        <argsstring>(const quatf &amp;lhs, const quatf &amp;rhs)</argsstring>
-        <name>operator==</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="127" column="10" declfile="libs/core/src/core/quat.h" declline="127" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3c93ca6065f521a10b4fe5f7ef3c7529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>

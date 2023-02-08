@@ -226,7 +226,7 @@ Classes</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1mat3.html">mat3</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1MatchedEnum.html">MatchedEnum</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -414,10 +414,6 @@ Typedefs</h2></td></tr>
 <tr class="separator:a8bd846ca11a82406a9ab443ded9100bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae137a6c3877993b64183b19c46a1cf88"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae137a6c3877993b64183b19c46a1cf88">mat3i</a> = <a class="el" href="structeuphoria_1_1core_1_1mat3.html">mat3</a>&lt; int &gt;</td></tr>
 <tr class="separator:ae137a6c3877993b64183b19c46a1cf88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a844fc76692f08ead8caef7a9d6ff5d10"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a844fc76692f08ead8caef7a9d6ff5d10">mat4f</a> = <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; float &gt;</td></tr>
-<tr class="separator:a844fc76692f08ead8caef7a9d6ff5d10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2bcc8cfa5f3eac98d6ed3a4fddc61a7"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#af2bcc8cfa5f3eac98d6ed3a4fddc61a7">mat4i</a> = <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; int &gt;</td></tr>
-<tr class="separator:af2bcc8cfa5f3eac98d6ed3a4fddc61a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa7b5cb44c97d3860db511720967d640f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa7b5cb44c97d3860db511720967d640f"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa7b5cb44c97d3860db511720967d640f">SortableList</a> = std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1Sortable.html">Sortable</a>&lt; T &gt; &gt;&gt;</td></tr>
 <tr class="separator:aa7b5cb44c97d3860db511720967d640f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1377,24 +1373,16 @@ Functions</h2></td></tr>
 <tr class="memitem:ad346f877855031be3684b2e5fcccaa30"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ad346f877855031be3684b2e5fcccaa30"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec3.html">vec3</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad346f877855031be3684b2e5fcccaa30">operator*</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat3.html">mat3</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1vec3.html">vec3</a>&lt; T &gt; rhs)</td></tr>
 <tr class="separator:ad346f877855031be3684b2e5fcccaa30"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d533b478c227a358a72e9b7608ffc15"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3d533b478c227a358a72e9b7608ffc15"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a3d533b478c227a358a72e9b7608ffc15">operator==</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:a3d533b478c227a358a72e9b7608ffc15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c189629017435a49b37c513b9f1cd23"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a4c189629017435a49b37c513b9f1cd23"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a4c189629017435a49b37c513b9f1cd23">operator&lt;&lt;</a> (std::ostream &amp;stream, const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;m)</td></tr>
-<tr class="separator:a4c189629017435a49b37c513b9f1cd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bb792dd8448a37ed24aaf2585e604b4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2bb792dd8448a37ed24aaf2585e604b4"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a2bb792dd8448a37ed24aaf2585e604b4">operator+</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; rhs)</td></tr>
-<tr class="separator:a2bb792dd8448a37ed24aaf2585e604b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0348c1edc534db486a25ed4d4a66ef15"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a0348c1edc534db486a25ed4d4a66ef15"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a0348c1edc534db486a25ed4d4a66ef15">operator-</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; rhs)</td></tr>
-<tr class="separator:a0348c1edc534db486a25ed4d4a66ef15"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab9a89518f88829ffec24f75fe287bf6f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ab9a89518f88829ffec24f75fe287bf6f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ab9a89518f88829ffec24f75fe287bf6f">operator*</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; rhs)</td></tr>
-<tr class="separator:ab9a89518f88829ffec24f75fe287bf6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac626e91d60e11e88c9bccabff760a196"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ac626e91d60e11e88c9bccabff760a196"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec4.html">vec4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ac626e91d60e11e88c9bccabff760a196">operator*</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1vec4.html">vec4</a>&lt; T &gt; rhs)</td></tr>
-<tr class="separator:ac626e91d60e11e88c9bccabff760a196"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a320f9e67e1e9676b0a5b761e4a3955b1"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a320f9e67e1e9676b0a5b761e4a3955b1">operator&lt;&lt;</a> (std::ostream &amp;stream, const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;m)</td></tr>
+<tr class="separator:a320f9e67e1e9676b0a5b761e4a3955b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ecdf0fdccfbe10d80eb8bbdf53796d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a90ecdf0fdccfbe10d80eb8bbdf53796d">operator+</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> rhs)</td></tr>
+<tr class="separator:a90ecdf0fdccfbe10d80eb8bbdf53796d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39d38650a743367a84a8f6ed28a4ab34"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a39d38650a743367a84a8f6ed28a4ab34">operator-</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> rhs)</td></tr>
+<tr class="separator:a39d38650a743367a84a8f6ed28a4ab34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a53cd9ec9ef999c9e3c401e4b2f2865"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a8a53cd9ec9ef999c9e3c401e4b2f2865">operator*</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> rhs)</td></tr>
+<tr class="separator:a8a53cd9ec9ef999c9e3c401e4b2f2865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef55a2052f06a74e23ab0304f9a0c528"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#aa3e50883b071f99ac987b6699bad8a1d">vec4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aef55a2052f06a74e23ab0304f9a0c528">operator*</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;lhs, const <a class="el" href="namespaceeuphoria_1_1core.html#aa3e50883b071f99ac987b6699bad8a1d">vec4f</a> rhs)</td></tr>
+<tr class="separator:aef55a2052f06a74e23ab0304f9a0c528"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae78195f4430b477e0cefaaee20b768eb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae78195f4430b477e0cefaaee20b768eb">copy_to_memory</a> (<a class="el" href="structeuphoria_1_1core_1_1MemoryChunk.html">MemoryChunk</a> *memory, const void *src)</td></tr>
 <tr class="separator:ae78195f4430b477e0cefaaee20b768eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3a226038042a9d9ca05360fc541606e1"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1MemoryChunk.html">MemoryChunk</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a3a226038042a9d9ca05360fc541606e1">create_memory_chunk_from_string</a> (const std::string &amp;content)</td></tr>
@@ -1564,8 +1552,6 @@ Functions</h2></td></tr>
 <tr class="separator:a79144e4b06f914152fd65a105c3cc8da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac0c845ac879674d557acea29d0eef81b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ac0c845ac879674d557acea29d0eef81b">operator-</a> (const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;rhs)</td></tr>
 <tr class="separator:ac0c845ac879674d557acea29d0eef81b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2966bbd0393bfe04ee434dae311f6c43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a2966bbd0393bfe04ee434dae311f6c43">operator==</a> (const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;lhs, const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;rhs)</td></tr>
-<tr class="separator:a2966bbd0393bfe04ee434dae311f6c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3c93ca6065f521a10b4fe5f7ef3c7529"><td class="memTemplParams" colspan="2">template&lt;typename T , typename SortFunc &gt; </td></tr>
 <tr class="memitem:a3c93ca6065f521a10b4fe5f7ef3c7529"><td class="memTemplItemLeft" align="right" valign="top">int&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a3c93ca6065f521a10b4fe5f7ef3c7529">get_hoare_partition</a> (SortFunc sort_func, std::vector&lt; T &gt; &amp;array, int lo, int hi)</td></tr>
 <tr class="separator:a3c93ca6065f521a10b4fe5f7ef3c7529"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2264,38 +2250,6 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p class="definition">Definition at line <a class="el" href="mat3_8h_source.html#l00389">389</a> of file <a class="el" href="mat3_8h_source.html">mat3.h</a>.</p>
-
-</div>
-</div>
-<a id="a844fc76692f08ead8caef7a9d6ff5d10"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a844fc76692f08ead8caef7a9d6ff5d10">&#9670;&nbsp;</a></span>mat4f</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceeuphoria_1_1core.html#a844fc76692f08ead8caef7a9d6ff5d10">euphoria::core::mat4f</a> = typedef <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt;float&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00645">645</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
-
-</div>
-</div>
-<a id="af2bcc8cfa5f3eac98d6ed3a4fddc61a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af2bcc8cfa5f3eac98d6ed3a4fddc61a7">&#9670;&nbsp;</a></span>mat4i</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="namespaceeuphoria_1_1core.html#af2bcc8cfa5f3eac98d6ed3a4fddc61a7">euphoria::core::mat4i</a> = typedef <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt;int&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00646">646</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -11067,24 +11021,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="ab9a89518f88829ffec24f75fe287bf6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab9a89518f88829ffec24f75fe287bf6f">&#9670;&nbsp;</a></span>operator*() <span class="overload">[6/22]</span></h2>
+<a id="a8a53cd9ec9ef999c9e3c401e4b2f2865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a53cd9ec9ef999c9e3c401e4b2f2865">&#9670;&nbsp;</a></span>operator*() <span class="overload">[6/22]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt;T&gt; euphoria::core::operator* </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> euphoria::core::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a>&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -11095,28 +11047,24 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00619">619</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
-
 </div>
 </div>
-<a id="ac626e91d60e11e88c9bccabff760a196"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac626e91d60e11e88c9bccabff760a196">&#9670;&nbsp;</a></span>operator*() <span class="overload">[7/22]</span></h2>
+<a id="aef55a2052f06a74e23ab0304f9a0c528"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef55a2052f06a74e23ab0304f9a0c528">&#9670;&nbsp;</a></span>operator*() <span class="overload">[7/22]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1vec4.html">vec4</a>&lt;T&gt; euphoria::core::operator* </td>
+          <td class="memname"><a class="el" href="namespaceeuphoria_1_1core.html#aa3e50883b071f99ac987b6699bad8a1d">vec4f</a> euphoria::core::operator* </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1vec4.html">vec4</a>&lt; T &gt;&#160;</td>
+          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#aa3e50883b071f99ac987b6699bad8a1d">vec4f</a>&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -11126,8 +11074,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00635">635</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -11675,24 +11621,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a2bb792dd8448a37ed24aaf2585e604b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bb792dd8448a37ed24aaf2585e604b4">&#9670;&nbsp;</a></span>operator+() <span class="overload">[4/9]</span></h2>
+<a id="a90ecdf0fdccfbe10d80eb8bbdf53796d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90ecdf0fdccfbe10d80eb8bbdf53796d">&#9670;&nbsp;</a></span>operator+() <span class="overload">[4/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt;T&gt; euphoria::core::operator+ </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> euphoria::core::operator+ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a>&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -11702,8 +11646,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00602">602</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -11955,24 +11897,22 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a0348c1edc534db486a25ed4d4a66ef15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0348c1edc534db486a25ed4d4a66ef15">&#9670;&nbsp;</a></span>operator-() <span class="overload">[4/9]</span></h2>
+<a id="a39d38650a743367a84a8f6ed28a4ab34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39d38650a743367a84a8f6ed28a4ab34">&#9670;&nbsp;</a></span>operator-() <span class="overload">[4/9]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt;T&gt; euphoria::core::operator- </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> euphoria::core::operator- </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;&#160;</td>
           <td class="paramname"><em>lhs</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a>&#160;</td>
           <td class="paramname"><em>rhs</em>&#160;</td>
         </tr>
         <tr>
@@ -11982,8 +11922,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00611">611</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -12689,13 +12627,11 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a4c189629017435a49b37c513b9f1cd23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c189629017435a49b37c513b9f1cd23">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[12/22]</span></h2>
+<a id="a320f9e67e1e9676b0a5b761e4a3955b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a320f9e67e1e9676b0a5b761e4a3955b1">&#9670;&nbsp;</a></span>operator&lt;&lt;() <span class="overload">[12/22]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::ostream&amp; euphoria::core::operator&lt;&lt; </td>
@@ -12706,7 +12642,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">mat4f</a> &amp;&#160;</td>
           <td class="paramname"><em>m</em>&#160;</td>
         </tr>
         <tr>
@@ -12716,8 +12652,6 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00589">589</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
 
 </div>
 </div>
@@ -13053,7 +12987,7 @@ template&lt;typename Stream &gt; </div>
 </div>
 </div>
 <a id="a13a6b01b8adee3895897512e83904be8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13a6b01b8adee3895897512e83904be8">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a6b01b8adee3895897512e83904be8">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13085,7 +13019,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a8d4c11392b692ab3d0c166e833172782"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d4c11392b692ab3d0c166e833172782">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d4c11392b692ab3d0c166e833172782">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13117,7 +13051,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="ad5bae0df89a004c59402d968c0c833ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad5bae0df89a004c59402d968c0c833ba">&#9670;&nbsp;</a></span>operator==() <span class="overload">[3/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5bae0df89a004c59402d968c0c833ba">&#9670;&nbsp;</a></span>operator==() <span class="overload">[3/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13148,68 +13082,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a3d533b478c227a358a72e9b7608ffc15"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d533b478c227a358a72e9b7608ffc15">&#9670;&nbsp;</a></span>operator==() <span class="overload">[4/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">bool euphoria::core::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1mat4.html">mat4</a>&lt; T &gt; &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="mat4_8h_source.html#l00577">577</a> of file <a class="el" href="mat4_8h_source.html">mat4.h</a>.</p>
-
-</div>
-</div>
-<a id="a2966bbd0393bfe04ee434dae311f6c43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2966bbd0393bfe04ee434dae311f6c43">&#9670;&nbsp;</a></span>operator==() <span class="overload">[5/15]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool euphoria::core::operator== </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
-          <td class="paramname"><em>lhs</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1quatf.html">quatf</a> &amp;&#160;</td>
-          <td class="paramname"><em>rhs</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a688148bbafb644a0c5497587c2ec4eba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a688148bbafb644a0c5497587c2ec4eba">&#9670;&nbsp;</a></span>operator==() <span class="overload">[6/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a688148bbafb644a0c5497587c2ec4eba">&#9670;&nbsp;</a></span>operator==() <span class="overload">[4/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13241,7 +13115,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a5d2643739d46e9c449ebeae5401b06ad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d2643739d46e9c449ebeae5401b06ad">&#9670;&nbsp;</a></span>operator==() <span class="overload">[7/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2643739d46e9c449ebeae5401b06ad">&#9670;&nbsp;</a></span>operator==() <span class="overload">[5/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13269,7 +13143,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a18c6f91df3caf2ac06cb3f6e98b7d0bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a18c6f91df3caf2ac06cb3f6e98b7d0bc">&#9670;&nbsp;</a></span>operator==() <span class="overload">[8/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a18c6f91df3caf2ac06cb3f6e98b7d0bc">&#9670;&nbsp;</a></span>operator==() <span class="overload">[6/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13297,7 +13171,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="af89679eb304e9eb1ace4f97fcbd4d443"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af89679eb304e9eb1ace4f97fcbd4d443">&#9670;&nbsp;</a></span>operator==() <span class="overload">[9/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af89679eb304e9eb1ace4f97fcbd4d443">&#9670;&nbsp;</a></span>operator==() <span class="overload">[7/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13329,7 +13203,7 @@ template&lt;typename T , typename K  = std::enable_if_t&lt;std::is_integral&lt;T
 </div>
 </div>
 <a id="aeda9670497efe938f9e8795a97b9566b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeda9670497efe938f9e8795a97b9566b">&#9670;&nbsp;</a></span>operator==() <span class="overload">[10/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aeda9670497efe938f9e8795a97b9566b">&#9670;&nbsp;</a></span>operator==() <span class="overload">[8/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13361,7 +13235,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="a9ab8b768093231a79bc2c48801e16e1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ab8b768093231a79bc2c48801e16e1b">&#9670;&nbsp;</a></span>operator==() <span class="overload">[11/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ab8b768093231a79bc2c48801e16e1b">&#9670;&nbsp;</a></span>operator==() <span class="overload">[9/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13393,7 +13267,7 @@ template&lt;typename T , typename K  = std::enable_if_t&lt;std::is_integral&lt;T
 </div>
 </div>
 <a id="ababef4cd9f4fe06437a306b1a9d58fd5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ababef4cd9f4fe06437a306b1a9d58fd5">&#9670;&nbsp;</a></span>operator==() <span class="overload">[12/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ababef4cd9f4fe06437a306b1a9d58fd5">&#9670;&nbsp;</a></span>operator==() <span class="overload">[10/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13425,7 +13299,7 @@ template&lt;typename T , typename O &gt; </div>
 </div>
 </div>
 <a id="af8b505346cfe1a5031a6f1c7867a7b61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af8b505346cfe1a5031a6f1c7867a7b61">&#9670;&nbsp;</a></span>operator==() <span class="overload">[13/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af8b505346cfe1a5031a6f1c7867a7b61">&#9670;&nbsp;</a></span>operator==() <span class="overload">[11/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13459,7 +13333,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="abe01fac4a1e1b3ca2a1f47ce1e73c6dc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe01fac4a1e1b3ca2a1f47ce1e73c6dc">&#9670;&nbsp;</a></span>operator==() <span class="overload">[14/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abe01fac4a1e1b3ca2a1f47ce1e73c6dc">&#9670;&nbsp;</a></span>operator==() <span class="overload">[12/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -13493,7 +13367,7 @@ template&lt;typename T , typename K  = std::enable_if_t&lt;std::is_integral&lt;T
 </div>
 </div>
 <a id="ab3ddda260d5632a97a49cc4a93715791"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab3ddda260d5632a97a49cc4a93715791">&#9670;&nbsp;</a></span>operator==() <span class="overload">[15/15]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ab3ddda260d5632a97a49cc4a93715791">&#9670;&nbsp;</a></span>operator==() <span class="overload">[13/13]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

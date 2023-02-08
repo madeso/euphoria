@@ -91,7 +91,7 @@
         <location file="libs/render/src/render/instance.h" line="18" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1Instance_1afa992d97f0c0581b85bc36dcf98e01d9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>
         <definition>core::mat4f euphoria::render::Instance::calculate_model_matrix</definition>
         <argsstring>() const</argsstring>
         <name>calculate_model_matrix</name>
@@ -111,11 +111,11 @@
         <reimplementedby refid="structeuphoria_1_1render_1_1Actor_1aa6193ba640674d4419aaa06181fab071">render</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1render_1_1PositionedLines_1adc5572b68a4a02ea442582e8038ce586">render</reimplementedby>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>projection_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a844fc76692f08ead8caef7a9d6ff5d10" kindref="member">core::mat4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> &amp;</type>
           <declname>view_matrix</declname>
         </param>
         <param>
