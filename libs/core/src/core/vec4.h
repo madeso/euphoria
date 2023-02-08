@@ -92,3 +92,4 @@ namespace euphoria::core
     using vec4i = vec4<int>;
 
 }
+
