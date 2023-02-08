@@ -62,15 +62,10 @@ namespace euphoria::core
         {
             return x + y + z + w;
         }
-    };
 
-    template <typename T>
-    bool
-    operator==(const vec4<T>& lhs, const vec4<T>& rhs)
-    {
-        return lhs.x == rhs.x && lhs.y == rhs.y && lhs.z == rhs.z
-               && lhs.w == rhs.w;
-    }
+
+        bool operator==(const vec4<T>& rhs) = delete;
+    };
 
     template <typename T>
     std::ostream&
@@ -89,7 +84,5 @@ namespace euphoria::core
     }
 
     using vec4f = vec4<float>;
-    using vec4i = vec4<int>;
 
 }
-
