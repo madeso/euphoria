@@ -412,11 +412,11 @@ namespace euphoria::core
         return r;
     }
 
-    mat3<float>
+    mat3f
     mat4f::get_mat3() const
     {
         const mat4f& m = *this;
-        return mat3<float>::from_row_major
+        return mat3f::from_row_major
         (
             m(0, 0), m(0, 1), m(0, 2),
             m(1, 0), m(1, 1), m(1, 2),

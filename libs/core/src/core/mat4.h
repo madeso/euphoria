@@ -138,7 +138,7 @@ namespace euphoria::core
         mat4f
         get_inverted() const;
 
-        mat3<float>
+        mat3f
         get_mat3() const;
 
         void
