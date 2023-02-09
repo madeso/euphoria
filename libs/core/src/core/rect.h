@@ -14,546 +14,538 @@ namespace euphoria::core
 {
     struct Random;
 
-    template <typename T>
-    struct Rect
-    {
-        T left;
-        T right;
-        T top;
-        T bottom;
+    struct Rectf;
+    struct Recti;
 
-        Rect()
-            : left(0)
-            , right(0)
-            , top(0)
-            , bottom(0)
-        {
-        }
+    struct Rectf
+    {
+        float left;
+        float right;
+        float top;
+        float bottom;
+
+        Rectf();
 
     private:
-        Rect(T left_side, T right_side, T top_side, T bottom_side)
-            : left(left_side)
-            , right(right_side)
-            , top(top_side)
-            , bottom(bottom_side)
-        {
-        }
+        Rectf(float left_side, float right_side, float top_side, float bottom_side);
 
     public:
-        template<typename Y>
-        explicit operator Rect<Y>() const
-        {
-            return Rect<Y>::from_left_right_top_bottom
-            (
-                static_cast<Y>(left),
-                static_cast<Y>(right),
-                static_cast<Y>(top),
-                static_cast<Y>(bottom)
-            );
-        }
+        Recti toi() const;
 
-        [[nodiscard]] static Rect
-        from_left_right_bottom_top(T left_side, T right_side, T bottom_side, T top_side)
-        {
-            ASSERTX(left_side <= right_side, left_side, right_side);
-            ASSERTX(top_side >= bottom_side, top_side, bottom_side);
-            return Rect(left_side, right_side, top_side, bottom_side);
-        }
+        [[nodiscard]] static Rectf
+        from_left_right_bottom_top(float left_side, float right_side, float bottom_side, float top_side);
 
-        [[nodiscard]] static Rect
-        from_left_right_top_bottom(T left_side, T right_side, T top_side, T bottom_side)
-        {
-            ASSERTX(left_side <= right_side, left_side, right_side);
-            ASSERTX(top_side >= bottom_side, top_side, bottom_side);
-            return Rect(left_side, right_side, top_side, bottom_side);
-        }
+        [[nodiscard]] static Rectf
+        from_left_right_top_bottom(float left_side, float right_side, float top_side, float bottom_side);
 
-        [[nodiscard]] static Rect
+        [[nodiscard]] static Rectf
         from_position_anchor_width_and_height
         (
-            const vec2<T>& pos,
-            const Scale2<T>& anchor,
-            T width,
-            T height
-        )
-        {
-            // todo(Gustav): change anchor type to some anchor type instead
-            const T left = pos.x - width * anchor.x;
-            const T bottom = pos.y - height * anchor.y;
-            return from_left_right_bottom_top
-            (
-                left, left + width,
-                bottom, bottom + height
-            );
-        }
+            const vec2f& pos,
+            const Scale2<float>& anchor,
+            float width,
+            float height
+        );
 
         [[nodiscard]]
         static
-        Rect
-        from_bottom_left_width_height(const vec2<T>& bl, T width, T height)
-        {
-            ASSERT(width >= 0);
-            ASSERT(height >= 0);
-            return from_left_right_top_bottom
-            (
-                bl.x, bl.x + width,
-                bl.y + height, bl.y
-            );
-        }
+        Rectf
+        from_bottom_left_width_height(const vec2f& bl, float width, float height);
 
-        [[nodiscard]] static Rect
-        from_top_left_width_height(const vec2<T>& topleft, T width, T height)
-        {
-            ASSERT(width >= 0);
-            ASSERT(height >= 0);
-            return from_left_right_top_bottom
-            (
-                topleft.x, topleft.x + width,
-                topleft.y, topleft.y - height
-            );
-        }
+        [[nodiscard]] static Rectf
+        from_top_left_width_height(const vec2f& topleft, float width, float height);
 
-        [[nodiscard]] static Rect
-        from_width_height(T width, T height)
-        {
-            ASSERTX(width >= 0, width);
-            ASSERTX(height >= 0, height);
-            return from_left_right_bottom_top(0, width, 0, height);
-        }
+        [[nodiscard]] static Rectf
+        from_width_height(float width, float height);
 
-        [[nodiscard]] static Rect
-        from_width_height(const size2<T>& s)
-        {
-            return from_width_height(s.width, s.height);
-        }
+        [[nodiscard]] static Rectf
+        from_width_height(const size2f& s);
 
-        [[nodiscard]] static Rect
-        from_point(const vec2<T>& point)
-        {
-            return from_top_left_width_height(point.y, point.x, 0, 0);
-        }
+        [[nodiscard]] static Rectf
+        from_point(const vec2f& point);
 
-        vec2<T>
-        get_bottom_left() const
-        {
-            return vec2<T>(left, bottom);
-        }
+        vec2f
+        get_bottom_left() const;
 
         // centers this rectangle inside the other rectangle and returns it without
         // modifying this
-        Rect
-        center_inside_other(const Rect& other) const
-        {
-            const auto lower_left = other.get_absolute_center_pos() - get_relative_center_pos_from_bottom_left();
-            return Rect::from_top_left_width_height
-            (
-                vec2<T> {lower_left.x, lower_left.y + get_height()},
-                get_width(),
-                get_height()
-            );
-        }
+        Rectf center_inside_other(const Rectf& other) const ;
 
-        vec2<T>
-        get_position_from_bottom_left(const vec2<T> v) const
-        {
-            return get_bottom_left() + v;
-        }
+        vec2f get_position_from_bottom_left(const vec2f v) const ;
 
-        T
-        get_relative_center_x_from_bottom_left() const
-        {
-            return get_width() / 2;
-        }
+        float get_relative_center_x_from_bottom_left() const ;
 
-        T
-        get_relative_center_y_from_bottom_left() const
-        {
-            return get_height() / 2;
-        }
+        float get_relative_center_y_from_bottom_left() const ;
 
-        vec2<T>
+        vec2f
         get_relative_center_pos_from_bottom_left() const
-        {
-            return vec2<T>
-            (
-                get_relative_center_x_from_bottom_left(),
-                get_relative_center_y_from_bottom_left()
-            );
-        }
+        ;
 
-        T
+        float
         get_absolute_center_x() const
-        {
-            return left + get_relative_center_x_from_bottom_left();
-        }
+        ;
 
-        T
+        float
         get_absolute_center_y() const
-        {
-            return bottom + get_relative_center_y_from_bottom_left();
-        }
+        ;
 
-        vec2<T>
+        vec2f
         get_absolute_center_pos() const
-        {
-            return vec2<T>(get_absolute_center_x(), get_absolute_center_y());
-        }
+        ;
 
         // does this contains the argument?
         bool
-        contains_exclusive(const Rect<T>& r) const
-        {
-            ASSERT(is_valid());
-            ASSERT(r.is_valid());
-
-            return left < r.left
-                && right > r.right
-                && top > r.top
-                && bottom < r.bottom
-                ;
-        }
+        contains_exclusive(const Rectf& r) const
+        ;
 
         // on the border is NOT considered included
         bool
-        contains_exclusive(const vec2<T>& p) const
-        {
-            ASSERT(is_valid());
-            return contains_exclusive(p.x, p.y);
-        }
+        contains_exclusive(const vec2f& p) const
+        ;
 
         bool
-        contains_exclusive(T x, T y) const
-        {
-            ASSERT(is_valid());
-            return left < x
-                && x < right
-                && bottom < y
-                && y < top
-                ;
-        }
+        contains_exclusive(float x, float y) const
+        ;
 
         // on the border is considered included
         bool
-        contains_inclusive(const vec2<T>& p) const
-        {
-            return contains_inclusive(p.x, p.y);
-        }
+        contains_inclusive(const vec2f& p) const
+        ;
 
         bool
-        contains_inclusive(T x, T y) const
-        {
-            ASSERT(is_valid());
-            return left <= x
-                && x <= right
-                && bottom <= y
-                && y <= top
-                ;
-        }
+        contains_inclusive(float x, float y) const
+        ;
 
-        Rect
-        get_scaled_around_center_copy(T scale) const
-        {
-            const auto s = get_size();
-            const auto ns = s * scale;
-            return inset_copy
-            (
-                (s.width - ns.width) / 2,
-                (s.height - ns.height) / 2
-            );
-        }
+        Rectf
+        get_scaled_around_center_copy(float scale) const
+        ;
 
         void
-        scale(T dx, T dy)
-        {
-            left *= dx;
-            right *= dx;
-            top *= dy;
-            bottom *= dy;
-        }
+        scale(float dx, float dy)
+        ;
 
-        Rect
-        scale_copy(T dx, T dy) const
-        {
-            Rect r = *this;
-            r.scale(dx, dy);
-            return r;
-        }
+        Rectf
+        scale_copy(float dx, float dy) const
+        ;
 
         void
-        inset(T dx, T dy)
-        {
-            left += dx;
-            right -= dx;
-            top -= dy;
-            bottom += dy;
-        }
+        inset(float dx, float dy)
+        ;
 
         void
-        inset(T l, T r, T t, T b)
-        {
-            left += l;
-            right -= r;
-            top -= t;
-            bottom += b;
-        }
+        inset(float l, float r, float t, float b)
+        ;
 
-        Rect<T>
-        inset_copy(T dx, T dy) const
-        {
-            Rect<T> ret = *this;
-            ret.inset(dx, dy);
-            return ret;
-        }
+        Rectf
+        inset_copy(float dx, float dy) const
+        ;
 
-        Rect<T>
-        inset_copy(T l, T r, T t, T b) const
-        {
-            Rect<T> ret = *this;
-            ret.inset(l, r, t, b);
-            return ret;
-        }
+        Rectf
+        inset_copy(float l, float r, float t, float b) const
+        ;
 
         void
-        extend(T dx, T dy)
-        {
-            inset(-dx, -dy);
-        }
+        extend(float dx, float dy)
+        ;
 
-        Rect<T>
-        extend_copy(T dx, T dy) const
-        {
-            Rect<T> ret = *this;
-            ret.extend(dx, dy);
-            return ret;
-        }
+        Rectf
+        extend_copy(float dx, float dy) const
+        ;
 
-        Rect<T>
-        extend_copy(T d) const
-        {
-            return extend_copy(d, d);
-        }
+        Rectf
+        extend_copy(float d) const
+        ;
 
         void
-        include(const Rect& o)
-        {
-            left = min(left, o.left);
-            right = max(right, o.right);
-            top = max(top, o.top);
-            bottom = min(bottom, o.bottom);
-        }
+        include(const Rectf& o)
+        ;
 
         // Returns true if the rectangle is empty (left >= right or top <= bottom)
         [[nodiscard]] bool
         is_empty() const
-        {
-            return left >= right || top <= bottom;
-        }
+        ;
 
         // does this represent a rectangle? A 0 width/height is also considered valid
         [[nodiscard]] bool
         is_valid() const
-        {
-            return get_width() >= 0 && get_height() >= 0;
-        }
+        ;
 
         // Translate
         void
-        offset(T dx, T dy)
-        {
-            left += dx;
-            right += dx;
-            top += dy;
-            bottom += dy;
-        }
+        offset(float dx, float dy)
+        ;
 
         void
-        expand(T expand)
-        {
-            left -= expand;
-            right += expand;
-            top -= expand;
-            bottom += expand;
-        }
+        expand(float expand)
+        ;
 
-        Rect<T>
-        expand_copy(T expand)
-        {
-            Rect<T> r = *this;
-            r.expand(expand);
-            return r;
-        }
+        Rectf
+        expand_copy(float expand)
+        ;
 
-        Rect<T>
-        offset_copy(T dx, T dy) const
-        {
-            Rect<T> ret = *this;
-            ret.offset(dx, dy);
-            return ret;
-        }
+        Rectf
+        offset_copy(float dx, float dy) const
+        ;
 
-        Rect<T>
-        offset_copy(const vec2<T>& d) const
-        {
-            return offset_copy(d.x, d.y);
-        }
+        Rectf
+        offset_copy(const vec2f& d) const
+        ;
 
         void
-        offset_to(T new_left, T new_top)
-        {
-            *this = set_top_left_to_copy(new_top, new_left);
-        }
+        offset_to(float new_left, float new_top)
+        ;
 
-        Rect<T>
-        set_top_left_to_copy(T new_left, T new_top) const
-        {
-            return from_top_left_width_height
-            (
-                vec2<T>{new_left, new_top},
-                get_width(),
-                get_height()
-            );
-        }
+        Rectf
+        set_top_left_to_copy(float new_left, float new_top) const
+        ;
 
-        Rect<T>
-        set_top_left_to_copy(const vec2<T>& v) const;
+        Rectf
+        set_top_left_to_copy(const vec2f& v) const;
 
-        Rect<T>
-        set_bottom_left_to_copy(T new_left, T new_bottom) const
-        {
-            return from_top_left_width_height
-            (
-                vec2<T>{new_left, new_bottom + get_height()},
-                get_width(),
-                get_height()
-            );
-        }
+        Rectf
+        set_bottom_left_to_copy(float new_left, float new_bottom) const
+        ;
 
-        Rect<T>
-        set_bottom_left_to_copy(const vec2<T>& v) const
-        {
-            return set_bottom_left_to_copy(v.x, v.y);
-        }
+        Rectf
+        set_bottom_left_to_copy(const vec2f& v) const
+        ;
 
         void
         set_empty()
-        {
-            left = right = top = bottom = 0;
-        }
+        ;
 
         // todo(Gustav): add union and intersection functions
 
-        T
+        float
         get_height() const
-        {
-            return top - bottom;
-        }
+        ;
 
-        T
+        float
         get_width() const
-        {
-            return right - left;
-        }
+        ;
 
         // todo(Gustav): provide a keep_within, WrapWithin functions
         // like is_within below
 
-        Range<T>
+        Range<float>
         get_range_y() const
-        {
-            return Range<T>{bottom, top};
-        }
+        ;
 
-        Range<T>
+        Range<float>
         get_range_x() const
-        {
-            return Range<T>{left, right};
-        }
+        ;
 
-        size2<T>
+        size2f
         get_size() const
-        {
-            return size2<T>::create_from_width_height(get_width(), get_height());
-        }
+        ;
 
-        [[nodiscard]] vec2<T>
+        [[nodiscard]] vec2f
         get_top_left() const
-        {
-            return vec2<T>(left, top);
-        }
+        ;
 
-        [[nodiscard]] vec2<T>
+        [[nodiscard]] vec2f
         get_top_right() const
-        {
-            return vec2<T>(right, top);
-        }
+        ;
 
-        [[nodiscard]] vec2<T>
+        [[nodiscard]] vec2f
         get_bottom_right() const
-        {
-            return vec2<T>(right, bottom);
-        }
+        ;
+
+        bool operator==(const Rectf& rhs) = delete;
     };
 
-    template <typename T>
-    Rect<T> Rect<T>::set_top_left_to_copy(const vec2<T>& v) const
-    {
-        return set_top_left_to_copy(v.x, v.y);
-    }
 
-    template <typename T, typename R>
-    [[nodiscard]] vec2<R>
-    to01(const Rect<T>& r, const vec2<R>& from)
-    {
-        const auto x = to01(make_range(r.left, r.right), from.x);
-        const auto y = to01(make_range(r.bottom, r.top), from.y);
-        return vec2<R> {x, y};
-    }
 
-    template <typename T, typename R>
-    [[nodiscard]] vec2<R>
-    from01(const Rect<T>& r, const vec2<R>& from)
+    struct Recti
     {
-        const auto x = from01(make_range(r.left, r.right), from.x);
-        const auto y = from01(make_range(r.bottom, r.top), from.y);
-        return vec2<R> {x, y};
-    }
+        int left;
+        int right;
+        int top;
+        int bottom;
 
-    template<typename T>
+        Recti();
+
+    private:
+        Recti(int left_side, int right_side, int top_side, int bottom_side);
+
+    public:
+        Rectf tof() const
+        ;
+
+        [[nodiscard]] static Recti
+        from_left_right_bottom_top(int left_side, int right_side, int bottom_side, int top_side)
+        ;
+
+        [[nodiscard]] static Recti
+        from_left_right_top_bottom(int left_side, int right_side, int top_side, int bottom_side)
+        ;
+
+        [[nodiscard]] static Recti
+        from_position_anchor_width_and_height
+        (
+            const vec2i& pos,
+            const Scale2<int>& anchor,
+            int width,
+            int height
+        )
+        ;
+
+        [[nodiscard]]
+        static
+        Recti
+        from_bottom_left_width_height(const vec2i& bl, int width, int height)
+        ;
+
+        [[nodiscard]] static Recti
+        from_top_left_width_height(const vec2i& topleft, int width, int height)
+        ;
+
+        [[nodiscard]] static Recti
+        from_width_height(int width, int height)
+        ;
+
+        [[nodiscard]] static Recti
+        from_width_height(const size2i& s)
+        ;
+
+        [[nodiscard]] static Recti
+        from_point(const vec2i& point)
+        ;
+
+        vec2i
+        get_bottom_left() const
+        ;
+
+        // centers this rectangle inside the other rectangle and returns it without
+        // modifying this
+        Recti
+        center_inside_other(const Recti& other) const
+        ;
+
+        vec2i
+        get_position_from_bottom_left(const vec2i v) const
+        ;
+
+        int
+        get_relative_center_x_from_bottom_left() const
+        ;
+
+        int
+        get_relative_center_y_from_bottom_left() const
+        ;
+
+        vec2i
+        get_relative_center_pos_from_bottom_left() const
+        ;
+
+        int
+        get_absolute_center_x() const
+        ;
+
+        int
+        get_absolute_center_y() const
+        ;
+
+        vec2i
+        get_absolute_center_pos() const
+        ;
+
+        // does this contains the argument?
+        bool
+        contains_exclusive(const Recti& r) const
+        ;
+
+        // on the border is NOT considered included
+        bool
+        contains_exclusive(const vec2i& p) const
+        ;
+
+        bool
+        contains_exclusive(int x, int y) const
+        ;
+
+        // on the border is considered included
+        bool
+        contains_inclusive(const vec2i& p) const
+        ;
+
+        bool
+        contains_inclusive(int x, int y) const
+        ;
+
+        Recti
+        get_scaled_around_center_copy(int scale) const
+        ;
+
+        void
+        scale(int dx, int dy)
+        ;
+
+        Recti
+        scale_copy(int dx, int dy) const
+        ;
+
+        void
+        inset(int dx, int dy)
+        ;
+
+        void
+        inset(int l, int r, int t, int b)
+        ;
+
+        Recti
+        inset_copy(int dx, int dy) const
+        ;
+
+        Recti
+        inset_copy(int l, int r, int t, int b) const
+        ;
+
+        void
+        extend(int dx, int dy)
+        ;
+
+        Recti
+        extend_copy(int dx, int dy) const
+        ;
+
+        Recti
+        extend_copy(int d) const
+        ;
+
+        void
+        include(const Recti& o)
+        ;
+
+        // Returns true if the rectangle is empty (left >= right or top <= bottom)
+        [[nodiscard]] bool
+        is_empty() const
+        ;
+
+        // does this represent a rectangle? A 0 width/height is also considered valid
+        [[nodiscard]] bool
+        is_valid() const
+        ;
+
+        // Translate
+        void
+        offset(int dx, int dy)
+        ;
+
+        void
+        expand(int expand)
+        ;
+
+        Recti
+        expand_copy(int expand)
+        ;
+
+        Recti
+        offset_copy(int dx, int dy) const
+        ;
+
+        Recti
+        offset_copy(const vec2i& d) const
+        ;
+
+        void
+        offset_to(int new_left, int new_top)
+        ;
+
+        Recti
+        set_top_left_to_copy(int new_left, int new_top) const
+        ;
+
+        Recti
+        set_top_left_to_copy(const vec2i& v) const;
+
+        Recti
+        set_bottom_left_to_copy(int new_left, int new_bottom) const
+        ;
+
+        Recti
+        set_bottom_left_to_copy(const vec2i& v) const
+        ;
+
+        void
+        set_empty()
+        ;
+
+        // todo(Gustav): add union and intersection functions
+
+        int
+        get_height() const
+        ;
+
+        int
+        get_width() const
+        ;
+
+        // todo(Gustav): provide a keep_within, WrapWithin functions
+        // like is_within below
+
+        Range<int>
+        get_range_y() const
+        ;
+
+        Range<int>
+        get_range_x() const
+        ;
+
+        size2i
+        get_size() const
+        ;
+
+        [[nodiscard]] vec2i
+        get_top_left() const
+        ;
+
+        [[nodiscard]] vec2i
+        get_top_right() const
+        ;
+
+        [[nodiscard]] vec2i
+        get_bottom_right() const
+        ;
+    };
+
+
+    [[nodiscard]] vec2f
+    to01(const Rectf& r, const vec2f& from)
+    ;
+
+    [[nodiscard]] vec2f
+    from01(const Rectf& r, const vec2f& from)
+    ;
+
     bool
-    is_within(const Rect<T>& r, const vec2<T>& p)
-    {
-        return
-            is_within(r.get_range_x(), p.x) &&
-            is_within(r.get_range_y(), p.y) ;
-    }
+    is_within(const Rectf& r, const vec2f& p)
+    ;
 
-    template <typename T>
+    std::ostream&
+    operator<<(std::ostream& s, const Rectf& r)
+    ;
+
+    [[nodiscard]] vec2f
+    to01(const Recti& r, const vec2i& from)
+    ;
+
+    [[nodiscard]] vec2i
+    from01(const Recti& r, const vec2f& from)
+    ;
+
     bool
-    operator==(const Rect<T>& lhs, const Rect<T>& rhs)
-    {
-        return lhs.left == rhs.left
-            && lhs.right == rhs.right
-            && lhs.top == rhs.top
-            && lhs.bottom == rhs.bottom
-            ;
-    }
+    is_within(const Recti& r, const vec2i& p)
+    ;
 
-    template <typename S, typename T>
-    S&
-    operator<<(S& s, const Rect<T>& r)
-    {
-        s
-            << "("
-            << r.left << ", " << r.bottom << " / "
-            << r.get_width() << " x " << r.get_height()
-            << ")"
-            ;
-        return s;
-    }
+    bool
+    operator==(const Recti& lhs, const Recti& rhs)
+    ;
 
-    vec2f get_random_point(Random* random, const Rect<float>& r);
-    vec2i get_random_point(Random* random, const Rect<int>& r);
+    std::ostream&
+    operator<<(std::ostream& s, const Recti& r)
+    ;
 
-    using Recti = Rect<int>;
-    using Rectf = Rect<float>;
+    vec2f get_random_point(Random* random, const Rectf& r);
+    vec2i get_random_point(Random* random, const Recti& r);
 }
