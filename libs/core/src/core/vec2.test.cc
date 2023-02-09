@@ -1,7 +1,10 @@
 #include "core/vec2.h"
 
+#include "tests/approx_equal.h"
+
 #include "catch.hpp"
 
+using namespace euphoria::tests;
 namespace euco = euphoria::core;
 
 TEST_CASE("vec2-add", "[vec2]")
@@ -57,7 +60,7 @@ TEST_CASE("vec2-times_assign-value", "[vec2]")
 
 TEST_CASE("vec2-div", "[vec2]")
 {
-    const auto v = euco::vec2i(2, 4) / 2;
+    const auto v = (euco::vec2i(2, 4).tof() / 2.0f).toi();
     REQUIRE(v.x == 1);
     REQUIRE(v.y == 2);
 }
@@ -65,10 +68,10 @@ TEST_CASE("vec2-div", "[vec2]")
 
 TEST_CASE("vec2-div_assign", "[vec2]")
 {
-    auto v = euco::vec2i(2, 4);
+    auto v = euco::vec2f(2.0f, 4.0f);
     v /= 2;
-    REQUIRE(v.x == 1);
-    REQUIRE(v.y == 2);
+    REQUIRE(v.x == approx(1.0f));
+    REQUIRE(v.y == approx(2.0f));
 }
 
 

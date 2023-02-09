@@ -244,7 +244,7 @@ TEST_CASE("rect-from-anchor", "[rect]")
     SECTION("lower left at origo")
     {
         const auto r = euco::Recti::from_position_anchor_width_and_height(
-                origo, euco::Scale2i {0, 0}, width, height);
+                origo, euco::Scale2f {0, 0}, width, height);
         REQUIRE(r.left == 0);
         REQUIRE(r.right == width);
 
@@ -255,7 +255,7 @@ TEST_CASE("rect-from-anchor", "[rect]")
     SECTION("upper right at origo")
     {
         const auto r = euco::Recti::from_position_anchor_width_and_height(
-                origo, euco::Scale2i {1, 1}, width, height);
+                origo, euco::Scale2f {1, 1}, width, height);
         REQUIRE(r.left == -width);
         REQUIRE(r.right == 0);
 

@@ -9,16 +9,15 @@
 namespace euphoria::runner
 {
 
-    template <typename T>
     void
     bind_vec2(LuaState* sol, const std::string& name)
     {
-        using V = core::vec2<T>;
+        using V = core::vec2f;
 
         sol::usertype<V> t = sol->state.new_usertype<V>
         (
             name,
-            sol::constructors<V(T, T)>()
+            sol::constructors<V(float, float)>()
         );
 
         t["x"] = sol::property
@@ -49,7 +48,7 @@ namespace euphoria::runner
     void
     bind_math(LuaState* duk)
     {
-        bind_vec2<float>(duk, "vec2f");
+        bind_vec2(duk, "vec2f");
         // bind_vec2<int>(duk, "vec2i");
     }
 

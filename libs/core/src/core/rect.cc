@@ -55,7 +55,7 @@ namespace euphoria::core
     Rectf::from_position_anchor_width_and_height
     (
         const vec2f& pos,
-        const Scale2<float>& anchor,
+        const Scale2f& anchor,
         float width,
         float height
     )
@@ -535,14 +535,14 @@ namespace euphoria::core
     Recti::from_position_anchor_width_and_height
     (
         const vec2i& pos,
-        const Scale2<int>& anchor,
+        const Scale2f& anchor,
         int width,
         int height
     )
     {
         // todo(Gustav): change anchor type to some anchor type instead
-        const int left = pos.x - width * anchor.x;
-        const int bottom = pos.y - height * anchor.y;
+        const int left = pos.x - static_cast<int>(width * anchor.x);
+        const int bottom = pos.y - static_cast<int>(height * anchor.y);
         return from_left_right_bottom_top
         (
             left, left + width,

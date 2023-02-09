@@ -99,7 +99,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat3f
-    mat3f::from_translation2d(const vec2<float>& t)
+    mat3f::from_translation2d(const vec2f& t)
     {
         return from_row_major
         (

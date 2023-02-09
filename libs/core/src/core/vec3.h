@@ -56,7 +56,7 @@ namespace euphoria::core
         explicit vec3f(const std::tuple<float, float, float>& a);
         vec3f(float ax, float ay, float az);
         explicit vec3f(const float* a);
-        vec3f(const vec2<float>& a, float az);
+        vec3f(const vec2f& a, float az);
 
         static vec3f from_to(const vec3f& from, const vec3f& to);
         static vec3f zero();

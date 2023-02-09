@@ -44,7 +44,7 @@ namespace euphoria::core
         operator/=(float rhs)
         ;
 
-        vec2<float>
+        vec2f
         calculate_center_offset_for(const size2f& o)
         ;
 
@@ -128,7 +128,7 @@ namespace euphoria::core
         operator*=(int rhs)
         ;
 
-        vec2<int>
+        vec2i
         calculate_center_offset_for(const size2i& o)
         ;
 

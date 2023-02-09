@@ -60,7 +60,7 @@ namespace euphoria::core
         [[nodiscard]]
         static
         mat3f
-        from_translation2d(const vec2<float>& t);
+        from_translation2d(const vec2f& t);
 
         [[nodiscard]]
         static

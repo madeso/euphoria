@@ -42,7 +42,7 @@ namespace euphoria::core
         from_position_anchor_width_and_height
         (
             const vec2f& pos,
-            const Scale2<float>& anchor,
+            const Scale2f& anchor,
             float width,
             float height
         );
@@ -284,7 +284,7 @@ namespace euphoria::core
         from_position_anchor_width_and_height
         (
             const vec2i& pos,
-            const Scale2<int>& anchor,
+            const Scale2f& anchor,
             int width,
             int height
         )

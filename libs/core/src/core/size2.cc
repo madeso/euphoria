@@ -56,12 +56,12 @@ namespace euphoria::core
         height /= rhs;
     }
 
-    vec2<float>
+    vec2f
     size2f::calculate_center_offset_for(const size2f& o)
     {
         const float x = (width - o.width) / 2;
         const float y = (height - o.height) / 2;
-        return vec2<float>(x, y);
+        return vec2f(x, y);
     }
 
     size2f::size2f(float w, float h)
@@ -234,12 +234,12 @@ namespace euphoria::core
         height *= rhs;
     }
 
-    vec2<int>
+    vec2i
     size2i::calculate_center_offset_for(const size2i& o)
     {
         const int x = (width - o.width) / 2;
         const int y = (height - o.height) / 2;
-        return vec2<int>(x, y);
+        return vec2i(x, y);
     }
 
 

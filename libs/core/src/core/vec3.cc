@@ -112,7 +112,7 @@ namespace euphoria::core
     }
 
 
-    vec3f::vec3f(const vec2<float>& a, float az)
+    vec3f::vec3f(const vec2f& a, float az)
         : x(a.x)
         , y(a.y)
         , z(az)

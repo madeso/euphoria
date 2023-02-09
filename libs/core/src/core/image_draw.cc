@@ -206,7 +206,7 @@ namespace euphoria::core
                 const float sq = vec2f::from_to
                 (
                     vec2f{static_cast<float>(x), static_cast<float>(y)},
-                    static_cast<vec2f>(center)
+                    center.tof()
                 ).get_length();
                 bool blend = false;
                 float blend_factor = 1.0f;
@@ -351,8 +351,8 @@ namespace euphoria::core
         (
              image,
              color,
-             static_cast<vec2f>(from),
-             static_cast<vec2f>(to)
+             from.tof(),
+             to.tof()
         );
     }
 
@@ -609,8 +609,8 @@ namespace euphoria::core
             }
         );
 
-        const auto min = static_cast<vec2i>(minf);
-        const auto max = static_cast<vec2i>(maxf);
+        const auto min = minf.toi();
+        const auto max = maxf.toi();
 
         for(int y=min.y; y<=max.y; y+=1)
         {
