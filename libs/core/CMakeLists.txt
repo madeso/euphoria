@@ -39,6 +39,7 @@ set(app_src_math
     src/core/rect.cc src/core/rect.h
     src/core/rgb_blend.cc src/core/rgb_blend.h
     src/core/rgb.cc src/core/rgb.h
+    src/core/size2.cc src/core/size2.h
     src/core/sphere.builder.cc src/core/sphere.builder.h
     src/core/sphere.cc src/core/sphere.h
     src/core/sphere.position.cc src/core/sphere.position.h
@@ -146,7 +147,6 @@ set(app_src
     src/core/rng.cc src/core/rng.h
     src/core/sensitivity.cc src/core/sensitivity.h
     src/core/shufflebag.cc src/core/shufflebag.h
-    src/core/size2.cc src/core/size2.h
     src/core/sol_forward.cc src/core/sol_forward.h
     src/core/sol.cc src/core/sol.h
     src/core/stdutils.cc src/core/stdutils.h
