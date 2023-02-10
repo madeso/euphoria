@@ -2,14 +2,6 @@
 
 
 
-#pragma once
-
-#include "core/vec2.h"
-#include "core/vec3.h"
-#include "core/mat2.h"
-#include "core/angle.h"
-#include "core/axisangle.h"
-
 namespace euphoria::core
 {
     mat3f::mat3f
