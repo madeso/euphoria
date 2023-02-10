@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: libs/core/src/core/mat3.h File Reference</title>
+<title>Euphoria: libs/core/src/core/guid.h File Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -52,23 +52,20 @@
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
-<a href="#namespaces">Namespaces</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#namespaces">Namespaces</a>  </div>
   <div class="headertitle">
-<div class="title">mat3.h File Reference</div>  </div>
+<div class="title">guid.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="vec2_8h_source.html">core/vec2.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="vec3_8h_source.html">core/vec3.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="mat2_8h_source.html">core/mat2.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="angle_8h_source.html">core/angle.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="axisangle_8h_source.html">core/axisangle.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
 </div>
-<p><a href="mat3_8h_source.html">Go to the source code of this file.</a></p>
+<p><a href="guid_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1mat3f.html">euphoria::core::mat3f</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Guid.html">euphoria::core::Guid</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -77,19 +74,6 @@ Namespaces</h2></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:namespaceeuphoria_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html">euphoria::core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a17892c8b5b8098d485a6b6a9bb324f0d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a17892c8b5b8098d485a6b6a9bb324f0d">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;stream, const mat3f &amp;m)</td></tr>
-<tr class="separator:a17892c8b5b8098d485a6b6a9bb324f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a407ba21d94a8cce31d9049d3330025de"><td class="memItemLeft" align="right" valign="top">mat3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a407ba21d94a8cce31d9049d3330025de">euphoria::core::operator+</a> (const mat3f &amp;lhs, const mat3f &amp;rhs)</td></tr>
-<tr class="separator:a407ba21d94a8cce31d9049d3330025de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7c4be2a98bcea93692e21f7615ac3db"><td class="memItemLeft" align="right" valign="top">mat3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad7c4be2a98bcea93692e21f7615ac3db">euphoria::core::operator-</a> (const mat3f &amp;lhs, const mat3f &amp;rhs)</td></tr>
-<tr class="separator:ad7c4be2a98bcea93692e21f7615ac3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfb767a25aaa1406031f00f3d2ba6f8e"><td class="memItemLeft" align="right" valign="top">mat3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#acfb767a25aaa1406031f00f3d2ba6f8e">euphoria::core::operator*</a> (const mat3f &amp;lhs, const mat3f &amp;rhs)</td></tr>
-<tr class="separator:acfb767a25aaa1406031f00f3d2ba6f8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb67c25438322d04ac78eef9289312e8"><td class="memItemLeft" align="right" valign="top">vec3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aeb67c25438322d04ac78eef9289312e8">euphoria::core::operator*</a> (const mat3f &amp;lhs, const vec3f &amp;rhs)</td></tr>
-<tr class="separator:aeb67c25438322d04ac78eef9289312e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

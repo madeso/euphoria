@@ -120,10 +120,20 @@
         <briefdescription>
         </briefdescription>
         <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>w</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>point is 1, vector is 0 </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="25" column="9"/>
+        <location file="libs/core/src/core/vec4.h" line="24" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a65a8f31c892b9a231b276c57072f529a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -140,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="28" column="9"/>
+        <location file="libs/core/src/core/vec4.h" line="27" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1ad0e12c15ce2ef19a6cbf2b616ed3cd97" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -157,7 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="30" column="18"/>
+        <location file="libs/core/src/core/vec4.h" line="29" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a54ed66778ec1f6833f1198889412f212" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -175,7 +185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="34" column="9"/>
+        <location file="libs/core/src/core/vec4.h" line="32" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1ae203269f55890816898416e48b46c3a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -188,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="38" column="9"/>
+        <location file="libs/core/src/core/vec4.h" line="35" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a206a4f792c6e8f924a4492e4c3c6b139" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float *</type>
@@ -201,7 +211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="41" column="9"/>
+        <location file="libs/core/src/core/vec4.h" line="37" column="15"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a93f577ef0a52d8bcde0bb6ab6cb9b3d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const float *</type>
@@ -214,7 +224,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="44" column="9"/>
+        <location file="libs/core/src/core/vec4.h" line="39" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a48789b3fc6f0a87d574180457920832c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -227,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="47" column="9"/>
+        <location file="libs/core/src/core/vec4.h" line="41" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a6d5c292989ae40d352a590f5ed112a8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -244,14 +254,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="49" column="14"/>
+        <location file="libs/core/src/core/vec4.h" line="43" column="14"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vec4.h" line="14" column="1" bodyfile="libs/core/src/core/vec4.h" bodystart="13" bodyend="50"/>
+    <location file="libs/core/src/core/vec4.h" line="14" column="1" bodyfile="libs/core/src/core/vec4.h" bodystart="13" bodyend="44"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vec4f_1a48789b3fc6f0a87d574180457920832c" prot="public" virt="non-virtual"><scope>euphoria::core::vec4f</scope><name>get_component_sum</name></member>
       <member refid="structeuphoria_1_1core_1_1vec4f_1a206a4f792c6e8f924a4492e4c3c6b139" prot="public" virt="non-virtual"><scope>euphoria::core::vec4f</scope><name>get_data_ptr</name></member>

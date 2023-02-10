@@ -4,10 +4,10 @@
     <compoundname>euphoria::core::Vec2iTransform</compoundname>
     <includes refid="vec2_8h" local="no">vec2.h</includes>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec2iTransform_1a139dc80a7bbaca131209f64af9f86df5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec2iTransform_1a3148ff85eaa5163dc9055370607abd1b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
         <definition>static vec2i euphoria::core::Vec2iTransform::transform</definition>
-        <argsstring>(const vec2i &amp;from, float v, const vec2i to)</argsstring>
+        <argsstring>(const vec2i &amp;from, float v, const vec2i &amp;to)</argsstring>
         <name>transform</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
@@ -18,7 +18,7 @@
           <declname>v</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <briefdescription>
@@ -36,7 +36,7 @@
     </detaileddescription>
     <location file="libs/core/src/core/vec2.h" line="190" column="1" bodyfile="libs/core/src/core/vec2.h" bodystart="189" bodyend="192"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Vec2iTransform_1a139dc80a7bbaca131209f64af9f86df5" prot="public" virt="non-virtual"><scope>euphoria::core::Vec2iTransform</scope><name>transform</name></member>
+      <member refid="structeuphoria_1_1core_1_1Vec2iTransform_1a3148ff85eaa5163dc9055370607abd1b" prot="public" virt="non-virtual"><scope>euphoria::core::Vec2iTransform</scope><name>transform</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

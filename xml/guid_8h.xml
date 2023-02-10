@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="guid_8h" kind="file" language="C++">
+    <compoundname>guid.h</compoundname>
+    <includes local="no">string</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">array</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>optional</label>
+      </node>
+      <node id="4">
+        <label>array</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/guid.h</label>
+        <link refid="guid_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1Guid" prot="public">euphoria::core::Guid</innerclass>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/guid.h"/>
+  </compounddef>
+</doxygen>

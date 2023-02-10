@@ -421,8 +421,8 @@
       </node>
     </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1size2f" prot="public">euphoria::core::size2f</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4" prot="public">euphoria::core::CustomArgparser&lt; size2f &gt;</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1size2i" prot="public">euphoria::core::size2i</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4" prot="public">euphoria::core::CustomArgparser&lt; size2f &gt;</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4" prot="public">euphoria::core::CustomArgparser&lt; size2i &gt;</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

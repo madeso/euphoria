@@ -23,7 +23,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="49" column="14" bodyfile="libs/core/src/core/size2.h" bodystart="49" bodyend="49"/>
+        <location file="libs/core/src/core/size2.h" line="59" column="14" bodyfile="libs/core/src/core/size2.h" bodystart="59" bodyend="59"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="52" column="9"/>
+        <location file="libs/core/src/core/size2.h" line="61" column="28"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4_1adf73a11c810deda71ab56b1101e6f52a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &gt;</type>
@@ -59,14 +59,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="55" column="9"/>
+        <location file="libs/core/src/core/size2.h" line="62" column="23"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/size2.h" line="48" column="1" bodyfile="libs/core/src/core/size2.h" bodystart="47" bodyend="56"/>
+    <location file="libs/core/src/core/size2.h" line="58" column="1" bodyfile="libs/core/src/core/size2.h" bodystart="57" bodyend="63"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4_1adf73a11c810deda71ab56b1101e6f52a" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; size2f &gt;</scope><name>parse</name></member>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4_1a6ea9ae5a8ccf431277a874ef0c565a5a" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; size2f &gt;</scope><name>to_string</name></member>

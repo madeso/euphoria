@@ -42,6 +42,7 @@
     <innerclass refid="structeuphoria_1_1core_1_1FloatTransform" prot="public">euphoria::core::FloatTransform</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1FloatValue" prot="public">euphoria::core::FloatValue</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1FpsController" prot="public">euphoria::core::FpsController</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Guid" prot="public">euphoria::core::Guid</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1HashedStringView" prot="public">euphoria::core::HashedStringView</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1HelpTextHover" prot="public">euphoria::core::HelpTextHover</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1Hsl" prot="public">euphoria::core::Hsl</innerclass>
@@ -7130,17 +7131,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat2.h" line="60" column="5" declfile="libs/core/src/core/mat2.h" declline="60" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a621610d2342c0ac9eac721a6d546dc64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa0bb815b5e82cb7a0cc25afeccc2ca07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref></type>
         <definition>mat2f euphoria::core::operator+</definition>
-        <argsstring>(const mat2f &amp;lhs, const mat2f rhs)</argsstring>
+        <argsstring>(const mat2f &amp;lhs, const mat2f &amp;rhs)</argsstring>
         <name>operator+</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7151,17 +7152,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat2.h" line="63" column="11" declfile="libs/core/src/core/mat2.h" declline="63" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad8711861b01b4561ca04039e17b306bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a046813ea26fd294d07ce7b3fbc117b91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref></type>
         <definition>mat2f euphoria::core::operator-</definition>
-        <argsstring>(const mat2f &amp;lhs, const mat2f rhs)</argsstring>
+        <argsstring>(const mat2f &amp;lhs, const mat2f &amp;rhs)</argsstring>
         <name>operator-</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7172,17 +7173,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat2.h" line="64" column="11" declfile="libs/core/src/core/mat2.h" declline="64" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1afe60324d68c4fe1c02ffe734e121b14f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a38c81675ac41652373c66534edaf3d64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref></type>
         <definition>mat2f euphoria::core::operator*</definition>
-        <argsstring>(const mat2f &amp;lhs, const mat2f rhs)</argsstring>
+        <argsstring>(const mat2f &amp;lhs, const mat2f &amp;rhs)</argsstring>
         <name>operator*</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7193,17 +7194,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/mat2.h" line="65" column="11" declfile="libs/core/src/core/mat2.h" declline="65" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a9f6abb32c17089f2bbbe1bc87d4d0d65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa5d3421355bae56ac9b6248388afe016" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::operator*</definition>
-        <argsstring>(const mat2f &amp;lhs, const vec2f rhs)</argsstring>
+        <argsstring>(const mat2f &amp;lhs, const vec2f &amp;rhs)</argsstring>
         <name>operator*</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat2f" kindref="compound">mat2f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7233,19 +7234,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.h" line="150" column="5" declfile="libs/core/src/core/mat3.h" declline="150" declcolumn="5"/>
+        <location file="libs/core/src/core/mat3.h" line="79" column="5" declfile="libs/core/src/core/mat3.h" declline="79" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad9b0d60e5e48cef4fe4333af0e6dee7b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a407ba21d94a8cce31d9049d3330025de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref></type>
         <definition>mat3f euphoria::core::operator+</definition>
-        <argsstring>(const mat3f &amp;lhs, const mat3f rhs)</argsstring>
+        <argsstring>(const mat3f &amp;lhs, const mat3f &amp;rhs)</argsstring>
         <name>operator+</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7254,19 +7255,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.h" line="153" column="11" declfile="libs/core/src/core/mat3.h" declline="153" declcolumn="11"/>
+        <location file="libs/core/src/core/mat3.h" line="80" column="11" declfile="libs/core/src/core/mat3.h" declline="80" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a9001055c58254ab3819b63abaeb793e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad7c4be2a98bcea93692e21f7615ac3db" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref></type>
         <definition>mat3f euphoria::core::operator-</definition>
-        <argsstring>(const mat3f &amp;lhs, const mat3f rhs)</argsstring>
+        <argsstring>(const mat3f &amp;lhs, const mat3f &amp;rhs)</argsstring>
         <name>operator-</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7275,19 +7276,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.h" line="155" column="11" declfile="libs/core/src/core/mat3.h" declline="155" declcolumn="11"/>
+        <location file="libs/core/src/core/mat3.h" line="81" column="11" declfile="libs/core/src/core/mat3.h" declline="81" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a57dbf725d428f38a285e2ec6fb884bc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1acfb767a25aaa1406031f00f3d2ba6f8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref></type>
         <definition>mat3f euphoria::core::operator*</definition>
-        <argsstring>(const mat3f &amp;lhs, const mat3f rhs)</argsstring>
+        <argsstring>(const mat3f &amp;lhs, const mat3f &amp;rhs)</argsstring>
         <name>operator*</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7296,19 +7297,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.h" line="157" column="11" declfile="libs/core/src/core/mat3.h" declline="157" declcolumn="11"/>
+        <location file="libs/core/src/core/mat3.h" line="82" column="11" declfile="libs/core/src/core/mat3.h" declline="82" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5e5b7f2c0d4caa1c38dd06f12370b6be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aeb67c25438322d04ac78eef9289312e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::operator*</definition>
-        <argsstring>(const mat3f &amp;lhs, const vec3f rhs)</argsstring>
+        <argsstring>(const mat3f &amp;lhs, const vec3f &amp;rhs)</argsstring>
         <name>operator*</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7317,7 +7318,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat3.h" line="159" column="11" declfile="libs/core/src/core/mat3.h" declline="159" declcolumn="11"/>
+        <location file="libs/core/src/core/mat3.h" line="83" column="11" declfile="libs/core/src/core/mat3.h" declline="83" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a320f9e67e1e9676b0a5b761e4a3955b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -7338,19 +7339,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="191" column="5" declfile="libs/core/src/core/mat4.h" declline="191" declcolumn="5"/>
+        <location file="libs/core/src/core/mat4.h" line="98" column="5" declfile="libs/core/src/core/mat4.h" declline="98" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a90ecdf0fdccfbe10d80eb8bbdf53796d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a54586f222022b7465db8249836fba4c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::operator+</definition>
-        <argsstring>(const mat4f &amp;lhs, const mat4f rhs)</argsstring>
+        <argsstring>(const mat4f &amp;lhs, const mat4f &amp;rhs)</argsstring>
         <name>operator+</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7359,19 +7360,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="192" column="11" declfile="libs/core/src/core/mat4.h" declline="192" declcolumn="11"/>
+        <location file="libs/core/src/core/mat4.h" line="100" column="11" declfile="libs/core/src/core/mat4.h" declline="100" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a39d38650a743367a84a8f6ed28a4ab34" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a98b01fe1217931712c37425ae356a328" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::operator-</definition>
-        <argsstring>(const mat4f &amp;lhs, const mat4f rhs)</argsstring>
+        <argsstring>(const mat4f &amp;lhs, const mat4f &amp;rhs)</argsstring>
         <name>operator-</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7380,19 +7381,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="193" column="11" declfile="libs/core/src/core/mat4.h" declline="193" declcolumn="11"/>
+        <location file="libs/core/src/core/mat4.h" line="101" column="11" declfile="libs/core/src/core/mat4.h" declline="101" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a8a53cd9ec9ef999c9e3c401e4b2f2865" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae07f32520dfd0fa628d1f6356bc7df05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
         <definition>mat4f euphoria::core::operator*</definition>
-        <argsstring>(const mat4f &amp;lhs, const mat4f rhs)</argsstring>
+        <argsstring>(const mat4f &amp;lhs, const mat4f &amp;rhs)</argsstring>
         <name>operator*</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7401,19 +7402,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="194" column="11" declfile="libs/core/src/core/mat4.h" declline="194" declcolumn="11"/>
+        <location file="libs/core/src/core/mat4.h" line="102" column="11" declfile="libs/core/src/core/mat4.h" declline="102" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aef55a2052f06a74e23ab0304f9a0c528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1abe8b6da376e06fca090be259a69452d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec4f" kindref="compound">vec4f</ref></type>
         <definition>vec4f euphoria::core::operator*</definition>
-        <argsstring>(const mat4f &amp;lhs, const vec4f rhs)</argsstring>
+        <argsstring>(const mat4f &amp;lhs, const vec4f &amp;rhs)</argsstring>
         <name>operator*</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">mat4f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec4f" kindref="compound">vec4f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec4f" kindref="compound">vec4f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -7422,7 +7423,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mat4.h" line="195" column="11" declfile="libs/core/src/core/mat4.h" declline="195" declcolumn="11"/>
+        <location file="libs/core/src/core/mat4.h" line="103" column="11" declfile="libs/core/src/core/mat4.h" declline="103" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae78195f4430b477e0cefaaee20b768eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -8917,7 +8918,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="118" column="11" declfile="libs/core/src/core/quat.h" declline="118" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.h" line="99" column="11" declfile="libs/core/src/core/quat.h" declline="99" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1afadde5b8dcb37f0d88145d846573bb68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -8938,7 +8939,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="120" column="5" declfile="libs/core/src/core/quat.h" declline="120" declcolumn="5"/>
+        <location file="libs/core/src/core/quat.h" line="101" column="5" declfile="libs/core/src/core/quat.h" declline="101" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a428feaa7b5dd248ce5bbf95c51b0714f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -8959,7 +8960,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="122" column="11" declfile="libs/core/src/core/quat.h" declline="122" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.h" line="103" column="11" declfile="libs/core/src/core/quat.h" declline="103" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5319c58fdbba09cecf96c79d1eeb417c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -8980,7 +8981,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="123" column="11" declfile="libs/core/src/core/quat.h" declline="123" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.h" line="104" column="11" declfile="libs/core/src/core/quat.h" declline="104" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a0629a0ebabd898ac468bc89ba4ef9565" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -9001,7 +9002,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="124" column="11" declfile="libs/core/src/core/quat.h" declline="124" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.h" line="105" column="11" declfile="libs/core/src/core/quat.h" declline="105" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a79144e4b06f914152fd65a105c3cc8da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -9022,7 +9023,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="125" column="11" declfile="libs/core/src/core/quat.h" declline="125" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.h" line="106" column="11" declfile="libs/core/src/core/quat.h" declline="106" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac0c845ac879674d557acea29d0eef81b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -9043,7 +9044,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="126" column="11" declfile="libs/core/src/core/quat.h" declline="126" declcolumn="11"/>
+        <location file="libs/core/src/core/quat.h" line="107" column="11" declfile="libs/core/src/core/quat.h" declline="107" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3c93ca6065f521a10b4fe5f7ef3c7529" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -9884,70 +9885,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="418" column="5" declfile="libs/core/src/core/rect.h" declline="418" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a1e27eacd6cae7404ffa77e874c1901b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
-        <definition>vec2f euphoria::core::from01</definition>
-        <argsstring>(const Rectf &amp;r, const vec2f &amp;from)</argsstring>
-        <name>from01</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
-          <declname>r</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
-          <declname>from</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="421" column="5" declfile="libs/core/src/core/rect.h" declline="421" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae2203d34077ab21de090f91d3506e25f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::is_within</definition>
-        <argsstring>(const Rectf &amp;r, const vec2f &amp;p)</argsstring>
-        <name>is_within</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
-          <declname>r</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
-          <declname>p</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="424" column="5" declfile="libs/core/src/core/rect.h" declline="424" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a635e316a676453cf38cbf58f7ab72ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::ostream &amp;</type>
-        <definition>std::ostream&amp; euphoria::core::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;s, const Rectf &amp;r)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>s</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
-          <declname>r</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="426" column="5" declfile="libs/core/src/core/rect.h" declline="426" declcolumn="5"/>
+        <location file="libs/core/src/core/rect.h" line="228" column="12" declfile="libs/core/src/core/rect.h" declline="228" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a6b046d9340d04fce848e23068f797f30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -9968,7 +9906,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="430" column="5" declfile="libs/core/src/core/rect.h" declline="430" declcolumn="5"/>
+        <location file="libs/core/src/core/rect.h" line="229" column="12" declfile="libs/core/src/core/rect.h" declline="229" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a1e27eacd6cae7404ffa77e874c1901b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f euphoria::core::from01</definition>
+        <argsstring>(const Rectf &amp;r, const vec2f &amp;from)</argsstring>
+        <name>from01</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rect.h" line="230" column="12" declfile="libs/core/src/core/rect.h" declline="230" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a50e629065a5dcc7c84a038ea9810b83d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
@@ -9989,7 +9948,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="433" column="5" declfile="libs/core/src/core/rect.h" declline="433" declcolumn="5"/>
+        <location file="libs/core/src/core/rect.h" line="231" column="12" declfile="libs/core/src/core/rect.h" declline="231" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae2203d34077ab21de090f91d3506e25f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::is_within</definition>
+        <argsstring>(const Rectf &amp;r, const vec2f &amp;p)</argsstring>
+        <name>is_within</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rect.h" line="237" column="10" declfile="libs/core/src/core/rect.h" declline="237" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a0dbeaf90d966c35743cf3b6c3534bdc7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -10010,49 +9990,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="436" column="5" declfile="libs/core/src/core/rect.h" declline="436" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a30dad7f1e5327e0edd065964deb1138d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::operator==</definition>
-        <argsstring>(const Recti &amp;lhs, const Recti &amp;rhs)</argsstring>
-        <name>operator==</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="439" column="5" declfile="libs/core/src/core/rect.h" declline="439" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a01dcbfbf4aac804e56785024942c0cea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::ostream &amp;</type>
-        <definition>std::ostream&amp; euphoria::core::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;s, const Recti &amp;r)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>s</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref> &amp;</type>
-          <declname>r</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="441" column="5" declfile="libs/core/src/core/rect.h" declline="441" declcolumn="5"/>
+        <location file="libs/core/src/core/rect.h" line="238" column="10" declfile="libs/core/src/core/rect.h" declline="238" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a535553d16ae865fb8d716a91db9e0e94" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -10073,7 +10011,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="444" column="11" declfile="libs/core/src/core/rect.h" declline="444" declcolumn="11"/>
+        <location file="libs/core/src/core/rect.h" line="240" column="11" declfile="libs/core/src/core/rect.h" declline="240" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3f01e5ed97f0a45b2be03320d4c315e9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
@@ -10094,7 +10032,70 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rect.h" line="445" column="11" declfile="libs/core/src/core/rect.h" declline="445" declcolumn="11"/>
+        <location file="libs/core/src/core/rect.h" line="241" column="11" declfile="libs/core/src/core/rect.h" declline="241" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a635e316a676453cf38cbf58f7ab72ddf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; euphoria::core::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;s, const Rectf &amp;r)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rect.h" line="243" column="5" declfile="libs/core/src/core/rect.h" declline="243" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a01dcbfbf4aac804e56785024942c0cea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; euphoria::core::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;s, const Recti &amp;r)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rect.h" line="244" column="5" declfile="libs/core/src/core/rect.h" declline="244" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a30dad7f1e5327e0edd065964deb1138d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::operator==</definition>
+        <argsstring>(const Recti &amp;lhs, const Recti &amp;rhs)</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/rect.h" line="246" column="10" declfile="libs/core/src/core/rect.h" declline="246" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a1b50250e7301c3c69070fbc53986f227" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
@@ -11034,17 +11035,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/shufflebag.h" line="85" column="5" bodyfile="libs/core/src/core/shufflebag.h" bodystart="85" bodyend="88"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a8fba1252862c388e9edb762a60fd3c99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a3448a5ce1dca1a0030b305243060a3b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
         <definition>size2f euphoria::core::min</definition>
-        <argsstring>(const size2f lhs, const size2f rhs)</argsstring>
+        <argsstring>(const size2f &amp;lhs, const size2f &amp;rhs)</argsstring>
         <name>min</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -11053,19 +11054,40 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="59" column="5" declfile="libs/core/src/core/size2.h" declline="59" declcolumn="5"/>
+        <location file="libs/core/src/core/size2.h" line="75" column="12" declfile="libs/core/src/core/size2.h" declline="75" declcolumn="12"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a491faf0ef89b0ce2ddb6f5bf9da16c13" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae1352a798e1a6cec3e192107f219865a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
+        <definition>size2i euphoria::core::min</definition>
+        <argsstring>(const size2i &amp;lhs, const size2i &amp;rhs)</argsstring>
+        <name>min</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="76" column="12" declfile="libs/core/src/core/size2.h" declline="76" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aefca655131d6edc8a49133cd691d4b20" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
         <definition>size2f euphoria::core::max</definition>
-        <argsstring>(const size2f lhs, const size2f rhs)</argsstring>
+        <argsstring>(const size2f &amp;lhs, const size2f &amp;rhs)</argsstring>
         <name>max</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
           <declname>rhs</declname>
         </param>
         <briefdescription>
@@ -11074,7 +11096,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="62" column="5" declfile="libs/core/src/core/size2.h" declline="62" declcolumn="5"/>
+        <location file="libs/core/src/core/size2.h" line="77" column="12" declfile="libs/core/src/core/size2.h" declline="77" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1acb3de598d0986758058eef16936021d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
+        <definition>size2i euphoria::core::max</definition>
+        <argsstring>(const size2i &amp;lhs, const size2i &amp;rhs)</argsstring>
+        <name>max</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="78" column="12" declfile="libs/core/src/core/size2.h" declline="78" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ab6dad39b8ff41e5dbe1e9b412ffebb07" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
@@ -11095,154 +11138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="65" column="5" declfile="libs/core/src/core/size2.h" declline="65" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1abd9365f3bbf89d30de3032cfcb5f39a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
-        <definition>size2f euphoria::core::operator-</definition>
-        <argsstring>(const size2f &amp;lhs, const size2f &amp;rhs)</argsstring>
-        <name>operator-</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="68" column="5" declfile="libs/core/src/core/size2.h" declline="68" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a8ed74a86ada700cc9cde479c97753082" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
-        <definition>size2f euphoria::core::operator*</definition>
-        <argsstring>(const size2f &amp;lhs, float rhs)</argsstring>
-        <name>operator*</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="70" column="12" declfile="libs/core/src/core/size2.h" declline="70" declcolumn="12"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1abb872fdfbecc5ace8a139105c1740b08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
-        <definition>size2f euphoria::core::operator*</definition>
-        <argsstring>(float lhs, const size2f &amp;rhs)</argsstring>
-        <name>operator*</name>
-        <param>
-          <type>float</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="72" column="12" declfile="libs/core/src/core/size2.h" declline="72" declcolumn="12"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4eef4e847b1f55570882c2d674d71a9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
-        <definition>size2f euphoria::core::operator/</definition>
-        <argsstring>(const size2f &amp;lhs, float rhs)</argsstring>
-        <name>operator/</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="75" column="5" declfile="libs/core/src/core/size2.h" declline="75" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a16a801a8bbcc2cff790ad47e4fb2ce45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::ostream &amp;</type>
-        <definition>std::ostream&amp; euphoria::core::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;s, const size2f &amp;r)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>std::ostream &amp;</type>
-          <declname>s</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
-          <declname>r</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="77" column="5" declfile="libs/core/src/core/size2.h" declline="77" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a1a207d40c5e85802d6d12931eecbb2a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
-        <definition>size2i euphoria::core::min</definition>
-        <argsstring>(const size2i lhs, const size2i rhs)</argsstring>
-        <name>min</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="127" column="5" declfile="libs/core/src/core/size2.h" declline="127" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1af79969c403576bf886f1983774097f19" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
-        <definition>size2i euphoria::core::max</definition>
-        <argsstring>(const size2i lhs, const size2i rhs)</argsstring>
-        <name>max</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="130" column="5" declfile="libs/core/src/core/size2.h" declline="130" declcolumn="5"/>
+        <location file="libs/core/src/core/size2.h" line="80" column="12" declfile="libs/core/src/core/size2.h" declline="80" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad3b9e2ccc06ad576bcc1143654771136" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
@@ -11263,7 +11159,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="133" column="5" declfile="libs/core/src/core/size2.h" declline="133" declcolumn="5"/>
+        <location file="libs/core/src/core/size2.h" line="81" column="12" declfile="libs/core/src/core/size2.h" declline="81" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1abd9365f3bbf89d30de3032cfcb5f39a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f euphoria::core::operator-</definition>
+        <argsstring>(const size2f &amp;lhs, const size2f &amp;rhs)</argsstring>
+        <name>operator-</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="82" column="12" declfile="libs/core/src/core/size2.h" declline="82" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a70f618dca03511ef3f2fba1b2908f98b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
@@ -11284,7 +11201,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="136" column="5" declfile="libs/core/src/core/size2.h" declline="136" declcolumn="5"/>
+        <location file="libs/core/src/core/size2.h" line="83" column="12" declfile="libs/core/src/core/size2.h" declline="83" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a8ed74a86ada700cc9cde479c97753082" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f euphoria::core::operator*</definition>
+        <argsstring>(const size2f &amp;lhs, float rhs)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="85" column="12" declfile="libs/core/src/core/size2.h" declline="85" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa55115decd273f5e85daa71014915997" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
@@ -11305,7 +11243,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="138" column="12" declfile="libs/core/src/core/size2.h" declline="138" declcolumn="12"/>
+        <location file="libs/core/src/core/size2.h" line="86" column="12" declfile="libs/core/src/core/size2.h" declline="86" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1abb872fdfbecc5ace8a139105c1740b08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f euphoria::core::operator*</definition>
+        <argsstring>(float lhs, const size2f &amp;rhs)</argsstring>
+        <name>operator*</name>
+        <param>
+          <type>float</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="87" column="12" declfile="libs/core/src/core/size2.h" declline="87" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4c56d0e373347a6ae556d9da5c54fe02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref></type>
@@ -11326,7 +11285,49 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="140" column="12" declfile="libs/core/src/core/size2.h" declline="140" declcolumn="12"/>
+        <location file="libs/core/src/core/size2.h" line="88" column="12" declfile="libs/core/src/core/size2.h" declline="88" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4eef4e847b1f55570882c2d674d71a9f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>size2f euphoria::core::operator/</definition>
+        <argsstring>(const size2f &amp;lhs, float rhs)</argsstring>
+        <name>operator/</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="90" column="12" declfile="libs/core/src/core/size2.h" declline="90" declcolumn="12"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a16a801a8bbcc2cff790ad47e4fb2ce45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; euphoria::core::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;s, const size2f &amp;r)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="92" column="5" declfile="libs/core/src/core/size2.h" declline="92" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a187b16253a137e4b1d2ee40928f084f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -11347,7 +11348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="142" column="5" declfile="libs/core/src/core/size2.h" declline="142" declcolumn="5"/>
+        <location file="libs/core/src/core/size2.h" line="93" column="5" declfile="libs/core/src/core/size2.h" declline="93" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4d89f3242c552cf7958b47bb8eaf9e5e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1SphereAndPosition" kindref="compound">SphereAndPosition</ref></type>
@@ -13640,17 +13641,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec3.h" line="134" column="11" declfile="libs/core/src/core/vec3.h" declline="134" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a1b53b7937c4e1133400ca78e9a84dee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2de67e779d1a0b5a0bd588f3710d7db6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::cross</definition>
-        <argsstring>(const vec3f &amp;v, const vec3f u)</argsstring>
+        <argsstring>(const vec3f &amp;v, const vec3f &amp;u)</argsstring>
         <name>cross</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>u</declname>
         </param>
         <briefdescription>
@@ -13745,7 +13746,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="52" column="5" declfile="libs/core/src/core/vec4.h" declline="52" declcolumn="5"/>
+        <location file="libs/core/src/core/vec4.h" line="46" column="5" declfile="libs/core/src/core/vec4.h" declline="46" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1af42e8a35bcd835194be7dafd8eb2b4f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec4f" kindref="compound">vec4f</ref></type>
@@ -13766,7 +13767,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="56" column="5" declfile="libs/core/src/core/vec4.h" declline="56" declcolumn="5"/>
+        <location file="libs/core/src/core/vec4.h" line="47" column="11" declfile="libs/core/src/core/vec4.h" declline="47" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a874c6ab98ff7192cdae73b0723d4c402" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Ray3f" kindref="compound">Ray3f</ref></type>

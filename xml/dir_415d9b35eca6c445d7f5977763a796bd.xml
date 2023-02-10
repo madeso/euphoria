@@ -47,6 +47,7 @@
     <innerfile refid="functional_8h">functional.h</innerfile>
     <innerfile refid="generator__cell_8h">generator_cell.h</innerfile>
     <innerfile refid="generator__maze_8h">generator_maze.h</innerfile>
+    <innerfile refid="guid_8h">guid.h</innerfile>
     <innerfile refid="hash_8h">hash.h</innerfile>
     <innerfile refid="hash_8string_8h">hash.string.h</innerfile>
     <innerfile refid="hashgen_8h">hashgen.h</innerfile>

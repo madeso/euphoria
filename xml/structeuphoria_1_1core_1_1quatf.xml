@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="51" column="16"/>
+        <location file="libs/core/src/core/quat.h" line="38" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a96f20e464e1c32040f9a03cf3db26002" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1AxisAngle" kindref="compound">AxisAngle</ref></type>
@@ -103,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="53" column="20"/>
+        <location file="libs/core/src/core/quat.h" line="40" column="20"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a19a498c5ba90fa676c12acda047a1e96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float *</type>
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="55" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="42" column="15"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a9dff9fd37ccf8b2d87808a8a90be1cd6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const float *</type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="56" column="22"/>
+        <location file="libs/core/src/core/quat.h" line="42" column="41"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1ac41f69152ffaac18d27a31e69aff6897" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="58" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="44" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a01d2ca25af8db847cbcd5f5307ad1643" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -159,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="64" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="50" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1aec55d04303a5bf33984130ee956eb11c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="66" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="52" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a0c863912e4fcc170993242d937441eac" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -185,7 +185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="68" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="54" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a95a0701cb4444253a810cb9854bb2e9f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="71" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="57" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a0bdabcf24b3685326304eaa654cb974b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -211,7 +211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="73" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="59" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a8bdd6f42ea10aa67bc5416d0591e51dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -224,7 +224,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="75" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="61" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a356f477705f4b68cf913c36bf0c2c085" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -237,7 +237,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="76" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="62" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a0ee475cf3ba652ffd872e13bff4a5168" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -250,7 +250,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="78" column="14"/>
+        <location file="libs/core/src/core/quat.h" line="64" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a05d4a57055d1005bcaa281879d6adb19" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -263,7 +263,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="79" column="15"/>
+        <location file="libs/core/src/core/quat.h" line="65" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a2bb38931a67a8adccf2d9fa59b6d853d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
@@ -280,7 +280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="81" column="16"/>
+        <location file="libs/core/src/core/quat.h" line="67" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a7837bb0bc2650caf4f49eefd90631189" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
@@ -293,7 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="96" column="16"/>
+        <location file="libs/core/src/core/quat.h" line="77" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a2494bd39478d1defb859cb430ff7344d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
@@ -306,7 +306,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="97" column="16"/>
+        <location file="libs/core/src/core/quat.h" line="78" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a76432bbd269a758d06ff522faef45e4e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
@@ -319,7 +319,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="98" column="16"/>
+        <location file="libs/core/src/core/quat.h" line="79" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1ae87ae1c1509bf64a900b822d8b7d9ccc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
@@ -332,7 +332,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="99" column="16"/>
+        <location file="libs/core/src/core/quat.h" line="80" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a9703b6274e3fdcaced7644a095e750e4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
@@ -345,7 +345,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="100" column="16"/>
+        <location file="libs/core/src/core/quat.h" line="81" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a0f3496f4aa3b4d8d0fc6a88e69dc02c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
@@ -358,15 +358,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="101" column="16"/>
+        <location file="libs/core/src/core/quat.h" line="82" column="17"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a068b1135c974c41f507276c99fc2cf11" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1adb597f9c7830625b4e64932ddf8f0668" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::quatf::create_from_right_up_in</definition>
-        <argsstring>(const vec3f v) const</argsstring>
+        <argsstring>(const vec3f &amp;v) const</argsstring>
         <name>create_from_right_up_in</name>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -375,7 +375,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="105" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="86" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a082ae9674691cfe48f2b4f27e93524d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -392,7 +392,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="111" column="14"/>
+        <location file="libs/core/src/core/quat.h" line="92" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a5fe05e85e6afbbc693b2bc6805a0f9b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -409,7 +409,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="112" column="14"/>
+        <location file="libs/core/src/core/quat.h" line="93" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1aaa2d599413cb176074644b6c75da06a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -426,7 +426,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="113" column="14"/>
+        <location file="libs/core/src/core/quat.h" line="94" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1aa2d49ed15463b0d45b92ec15535aa5f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -443,7 +443,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="114" column="14"/>
+        <location file="libs/core/src/core/quat.h" line="95" column="14"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -462,7 +462,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="27" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="26" column="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a7f0fa24f412049e9fdcc2caa1704211d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -487,7 +487,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="30" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="27" column="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a1fee4edd6e1ddcb433431274be8e5b1f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -508,7 +508,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="33" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="28" column="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1aca9f6545638eede386399de61a39f50a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -525,7 +525,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="36" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="29" column="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a34d7422157e97902e3a471fb86368891" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -538,12 +538,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="39" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="30" column="23"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a53beb5844f67adaab1cef573979890f4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a35a8da8f9a80db6d1578576c7b46d0ea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>static quatf euphoria::core::quatf::look_at</definition>
-        <argsstring>(const vec3f &amp;from, const vec3f &amp;to, const unit3f up)</argsstring>
+        <argsstring>(const vec3f &amp;from, const vec3f &amp;to, const unit3f &amp;up)</argsstring>
         <name>look_at</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
@@ -554,7 +554,7 @@
           <declname>to</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>up</declname>
         </param>
         <briefdescription>
@@ -563,7 +563,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="42" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="31" column="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a3defc9b87d766ef8c9e308e030a04887" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -584,19 +584,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="45" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="32" column="23"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a25f745a919e8710e6de23162c48d7edb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1aad30ba021857686e37c692f67b5d01a7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>static quatf euphoria::core::quatf::lerp</definition>
-        <argsstring>(const quatf &amp;f, const float scale, const quatf &amp;t)</argsstring>
+        <argsstring>(const quatf &amp;f, float scale, const quatf &amp;t)</argsstring>
         <name>lerp</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>f</declname>
         </param>
         <param>
-          <type>const float</type>
+          <type>float</type>
           <declname>scale</declname>
         </param>
         <param>
@@ -609,19 +609,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="84" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="69" column="23"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a0645562c499ca1017eece3a6531643f6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1af30c358cf25c8204e45f74f24ad50cb6" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>static quatf euphoria::core::quatf::slerp_fast</definition>
-        <argsstring>(const quatf &amp;qa, const float t, const quatf &amp;qb)</argsstring>
+        <argsstring>(const quatf &amp;qa, float t, const quatf &amp;qb)</argsstring>
         <name>slerp_fast</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>qa</declname>
         </param>
         <param>
-          <type>const float</type>
+          <type>float</type>
           <declname>t</declname>
         </param>
         <param>
@@ -634,19 +634,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="87" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="70" column="23"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a18a3fc8ad146d0539cc5eca8ed472fea" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1quatf_1a8705e70b309814871e9bf963510f8e28" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
         <definition>static quatf euphoria::core::quatf::slerp_shortway</definition>
-        <argsstring>(const quatf &amp;from, const float scale, const quatf &amp;to)</argsstring>
+        <argsstring>(const quatf &amp;from, float scale, const quatf &amp;to)</argsstring>
         <name>slerp_shortway</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type>const float</type>
+          <type>float</type>
           <declname>scale</declname>
         </param>
         <param>
@@ -659,16 +659,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/quat.h" line="90" column="9"/>
+        <location file="libs/core/src/core/quat.h" line="71" column="23"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/quat.h" line="14" column="1" bodyfile="libs/core/src/core/quat.h" bodystart="13" bodyend="115"/>
+    <location file="libs/core/src/core/quat.h" line="14" column="1" bodyfile="libs/core/src/core/quat.h" bodystart="13" bodyend="96"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1quatf_1a068b1135c974c41f507276c99fc2cf11" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>create_from_right_up_in</name></member>
+      <member refid="structeuphoria_1_1core_1_1quatf_1adb597f9c7830625b4e64932ddf8f0668" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>create_from_right_up_in</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1a0f3496f4aa3b4d8d0fc6a88e69dc02c0" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>down</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1ad534179f9b4afc99095b33964863b39b" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>from_axis_angle</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1aca9f6545638eede386399de61a39f50a" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>from_random</name></member>
@@ -687,8 +687,8 @@
       <member refid="structeuphoria_1_1core_1_1quatf_1a34d7422157e97902e3a471fb86368891" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>identity</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1a7837bb0bc2650caf4f49eefd90631189" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>in</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1ae87ae1c1509bf64a900b822d8b7d9ccc" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>left</name></member>
-      <member refid="structeuphoria_1_1core_1_1quatf_1a25f745a919e8710e6de23162c48d7edb" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>lerp</name></member>
-      <member refid="structeuphoria_1_1core_1_1quatf_1a53beb5844f67adaab1cef573979890f4" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>look_at</name></member>
+      <member refid="structeuphoria_1_1core_1_1quatf_1aad30ba021857686e37c692f67b5d01a7" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>lerp</name></member>
+      <member refid="structeuphoria_1_1core_1_1quatf_1a35a8da8f9a80db6d1578576c7b46d0ea" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>look_at</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1a3defc9b87d766ef8c9e308e030a04887" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>look_in_direction</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1a0ee475cf3ba652ffd872e13bff4a5168" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>normalize</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1aaa2d599413cb176074644b6c75da06a3" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>operator*=</name></member>
@@ -700,8 +700,8 @@
       <member refid="structeuphoria_1_1core_1_1quatf_1a76432bbd269a758d06ff522faef45e4e" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>right</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1a01d2ca25af8db847cbcd5f5307ad1643" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>rotate</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1a2bb38931a67a8adccf2d9fa59b6d853d" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>rotate_around_origo</name></member>
-      <member refid="structeuphoria_1_1core_1_1quatf_1a0645562c499ca1017eece3a6531643f6" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>slerp_fast</name></member>
-      <member refid="structeuphoria_1_1core_1_1quatf_1a18a3fc8ad146d0539cc5eca8ed472fea" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>slerp_shortway</name></member>
+      <member refid="structeuphoria_1_1core_1_1quatf_1af30c358cf25c8204e45f74f24ad50cb6" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>slerp_fast</name></member>
+      <member refid="structeuphoria_1_1core_1_1quatf_1a8705e70b309814871e9bf963510f8e28" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>slerp_shortway</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1a96f20e464e1c32040f9a03cf3db26002" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>to_axis_angle</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1a07cf897800aa5af7fd114301878db333" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>to_mat4</name></member>
       <member refid="structeuphoria_1_1core_1_1quatf_1a9703b6274e3fdcaced7644a095e750e4" prot="public" virt="non-virtual"><scope>euphoria::core::quatf</scope><name>up</name></member>

@@ -218,7 +218,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="54" column="21"/>
+        <location file="libs/core/src/core/vec2.h" line="54" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a4a832f2ff705d6d79d5c922840253fe2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -235,7 +235,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="56" column="15"/>
+        <location file="libs/core/src/core/vec2.h" line="56" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a3a918558803d2e3e5a3b800700f60da3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -248,7 +248,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="57" column="15"/>
+        <location file="libs/core/src/core/vec2.h" line="57" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a6e4f5371e2394e2df2988171a9af1952" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -261,7 +261,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="58" column="15"/>
+        <location file="libs/core/src/core/vec2.h" line="58" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a478fa938b6bed05ead24b08247fa2073" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -274,7 +274,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="60" column="15"/>
+        <location file="libs/core/src/core/vec2.h" line="60" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a3fb3ddc8a6d2e42d719c73f398430c1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -287,7 +287,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="61" column="15"/>
+        <location file="libs/core/src/core/vec2.h" line="61" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a84113eff5193f31dbc8121dcce39fd2c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -313,7 +313,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="63" column="29"/>
+        <location file="libs/core/src/core/vec2.h" line="63" column="30"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec2f_1a5591d874a9542e00055b99617fb3020f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit2f" kindref="compound">unit2f</ref></type>
@@ -326,7 +326,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="64" column="16"/>
+        <location file="libs/core/src/core/vec2.h" line="64" column="17"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
