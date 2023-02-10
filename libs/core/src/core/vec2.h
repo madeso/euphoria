@@ -51,17 +51,17 @@ namespace euphoria::core
         void operator*=(float rhs);
         
         float* get_data_ptr();
-        const float* get_data_ptr() const;
+        [[nodiscard]] const float* get_data_ptr() const;
 
-        vec2f get_rotated(const angle& a) const;
-        vec2f get_flipped_y() const;
-        float get_component_sum() const;
+        [[nodiscard]] vec2f get_rotated(const angle& a) const;
+        [[nodiscard]] vec2f get_flipped_y() const;
+        [[nodiscard]] float get_component_sum() const;
 
-        float get_length_squared() const;
-        float get_length() const;
+        [[nodiscard]] float get_length_squared() const;
+        [[nodiscard]] float get_length() const;
         float normalize();
-        NormalizedAndLength<unit2f, float> get_normalized_and_length() const;
-        unit2f get_normalized() const;
+        [[nodiscard]] NormalizedAndLength<unit2f, float> get_normalized_and_length() const;
+        [[nodiscard]] unit2f get_normalized() const;
     };
 
 
@@ -86,10 +86,10 @@ namespace euphoria::core
         void operator*=(int rhs);
 
         int* get_data_ptr();
-        const int* get_data_ptr() const;
+        [[nodiscard]] const int* get_data_ptr() const;
 
-        vec2i get_flipped_y() const;
-        int get_component_sum() const;
+        [[nodiscard]] vec2i get_flipped_y() const;
+        [[nodiscard]] int get_component_sum() const;
     };
 
 
@@ -106,15 +106,15 @@ namespace euphoria::core
         unit2f operator-() const;
 
         float* get_data_ptr();
-        const float* get_data_ptr() const;
+        [[nodiscard]] const float* get_data_ptr() const;
 
-        vec2f to_vec() const;
-        unit2f get_rotated(const angle& a) const;
-        unit2f get_flipped_y() const;
-        float get_component_sum() const;
+        [[nodiscard]] vec2f to_vec() const;
+        [[nodiscard]] unit2f get_rotated(const angle& a) const;
+        [[nodiscard]] unit2f get_flipped_y() const;
+        [[nodiscard]] float get_component_sum() const;
 
         // todo(Gustav): remove this...
-        float get_length_squared() const;
+        [[nodiscard]] float get_length_squared() const;
         [[nodiscard]] bool is_valid() const;
 
     private:
@@ -137,10 +137,10 @@ namespace euphoria::core
         Scale2f operator-() const;
 
         float* get_data_ptr();
-        const float* get_data_ptr() const;
-        Scale2f get_rotated(const angle& a) const;
-        Scale2f get_flipped_y() const;
-        float get_component_sum() const;
+        [[nodiscard]] const float* get_data_ptr() const;
+        [[nodiscard]] Scale2f get_rotated(const angle& a) const;
+        [[nodiscard]] Scale2f get_flipped_y() const;
+        [[nodiscard]] float get_component_sum() const;
 
         bool operator==(const Scale2f& rhs) = delete;
     };
@@ -188,7 +188,7 @@ namespace euphoria::core
 
     struct Vec2iTransform
     {
-        static vec2i transform(const vec2i& from, float v, const vec2i to);
+        static vec2i transform(const vec2i& from, float v, const vec2i& to);
     };
 
     // todo(Gustav): add one lerp and one slerp unit transform?

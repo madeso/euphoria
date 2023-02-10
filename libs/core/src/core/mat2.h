@@ -39,19 +39,19 @@ namespace euphoria::core
         [[nodiscard]] static mat2f from_rotation(const angle& a);
         [[nodiscard]] static mat2f identity();
 
-        void operator+=(const mat2f rhs);
-        void operator-=(const mat2f rhs);
+        void operator+=(const mat2f& rhs);
+        void operator-=(const mat2f& rhs);
 
-        const float* get_data_ptr() const;
+        [[nodiscard]] const float* get_data_ptr() const;
         float* get_data_ptr();
 
         // index operator use () as [] only expects one argument
         float& operator()(int row, int col);
         float operator()(int row, int col) const;
-        float get(int row, int col) const;
+        [[nodiscard]] float get(int row, int col) const;
 
-        vec2f get_column(int c) const;
-        vec2f get_row(int r) const;
+        [[nodiscard]] vec2f get_column(int c) const;
+        [[nodiscard]] vec2f get_row(int r) const;
 
         bool operator==(const mat2f& rhs) = delete;
     };
@@ -60,8 +60,8 @@ namespace euphoria::core
     std::ostream&
     operator<<(std::ostream& stream, const mat2f& m);
 
-    mat2f operator+(const mat2f& lhs, const mat2f rhs);
-    mat2f operator-(const mat2f& lhs, const mat2f rhs);
-    mat2f operator*(const mat2f& lhs, const mat2f rhs);
-    vec2f operator*(const mat2f& lhs, const vec2f rhs);
+    mat2f operator+(const mat2f& lhs, const mat2f& rhs);
+    mat2f operator-(const mat2f& lhs, const mat2f& rhs);
+    mat2f operator*(const mat2f& lhs, const mat2f& rhs);
+    vec2f operator*(const mat2f& lhs, const vec2f& rhs);
 }

@@ -72,7 +72,7 @@ namespace euphoria::core
         float* get_data_ptr();
         [[nodiscard]] const float* get_data_ptr() const;
 
-        float get_length_squared() const;
+        [[nodiscard]] float get_length_squared() const;
         [[nodiscard]] float get_length() const;
 
         void normalize();
@@ -132,7 +132,7 @@ namespace euphoria::core
     /// Functions
 
     float dot(const vec3f& lhs, const vec3f& rhs);
-    vec3f cross(const vec3f& v, const vec3f u);
+    vec3f cross(const vec3f& v, const vec3f& u);
 
 
     ////////////////////////////////////////////////////////////////////////////////

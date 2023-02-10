@@ -396,7 +396,7 @@ namespace euphoria::core
 
 
     vec3f
-    cross(const vec3f& v, const vec3f u)
+    cross(const vec3f& v, const vec3f& u)
     {
         return vec3f(
                 (v.y * u.z) - (v.z * u.y),

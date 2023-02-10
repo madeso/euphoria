@@ -16,7 +16,7 @@ namespace euphoria::core
         float data[16]; // col-major
 
         mat4f() = default;
-
+        
         mat4f
         (
             float t00, float t01, float t02, float t03,
@@ -27,12 +27,9 @@ namespace euphoria::core
 
     public:
         float* get_column_major();
-        const float* get_column_major() const;
+        [[nodiscard]] const float* get_column_major() const;
 
-        [[nodiscard]]
-        static
-        mat4f
-        from_col_major
+        [[nodiscard]] static mat4f from_col_major
         (
             float t00, float t01, float t02, float t03,
             float t10, float t11, float t12, float t13,
@@ -40,10 +37,7 @@ namespace euphoria::core
             float t30, float t31, float t32, float t33
         );
 
-        [[nodiscard]]
-        static
-        mat4f
-        from_row_major
+        [[nodiscard]] static mat4f from_row_major
         (
             float t00, float t10, float t20, float t30,
             float t01, float t11, float t21, float t31,
@@ -51,146 +45,60 @@ namespace euphoria::core
             float t03, float t13, float t23, float t33
         );
 
-        [[nodiscard]]
-        static
-        mat4f
-        from_major(const vec4f& major);
+        [[nodiscard]] static mat4f from_major(const vec4f& major);
+        [[nodiscard]] static mat4f from_scale(const Scale3f& scale);
+        [[nodiscard]] static mat4f from_translation(const vec3f& v);
+        [[nodiscard]] static mat4f from_scalar(float scalar);
+        [[nodiscard]] static mat4f from_rot_x(const angle& a);
+        [[nodiscard]] static mat4f from_rot_y(const angle& a);
+        [[nodiscard]] static mat4f from_rot_z(const angle& a);
+        [[nodiscard]] static mat4f from_axis_angle(const AxisAngle& aa);
+        [[nodiscard]] static mat4f identity();
+        [[nodiscard]] static mat4f create_ortho(float l, float r, float b, float t, float n, float f);
+        [[nodiscard]] static mat4f create_perspective(const angle& fov, float a, float near, float far);
 
-        [[nodiscard]]
-        static
-        mat4f
-        from_scale(const Scale3f& scale);
+        [[nodiscard]] vec4f get_transform(const vec4f& p) const;
+        [[nodiscard]] vec3f get_transform(const vec3f& p, float w) const;
+        [[nodiscard]] vec3f get_transform_point(const vec3f& p) const;
+        [[nodiscard]] vec3f get_transform_vec(const vec3f& p) const;
+        [[nodiscard]] unit3f get_transform_vec(const unit3f& p) const;
+        [[nodiscard]] vec3f get_translation() const;
+        [[nodiscard]] vec4f get_major() const;
+        [[nodiscard]] unit3f get_axis(int col) const;
+        [[nodiscard]] unit3f get_x_axis() const;
+        [[nodiscard]] unit3f get_y_axis() const;
+        [[nodiscard]] unit3f get_z_axis() const;
+        [[nodiscard]] mat4f get_transposed() const;
+        [[nodiscard]] mat4f get_inverted() const;
+        [[nodiscard]] mat3f get_mat3() const;
 
-        [[nodiscard]]
-        static
-        mat4f
-        from_translation(const vec3f& v);
+        bool invert();
 
-        vec4f
-        get_transform(const vec4f& p) const;
+        void operator+=(const mat4f& rhs);
 
-        vec3f
-        get_transform(const vec3f& p, float w) const;
+        void operator-=(const mat4f& rhs);
 
-        vec3f
-        get_transform_point(const vec3f& p) const;
+        [[nodiscard]] mat4f translate(const vec3f& t) const;
+        [[nodiscard]] mat4f rotate(const AxisAngle& aa) const;
+        [[nodiscard]] mat4f scale(const Scale3f& scale) const;
 
-        vec3f
-        get_transform_vec(const vec3f& p) const;
-
-        unit3f
-        get_transform_vec(const unit3f& p) const;
-
-        vec3f
-        get_translation() const;
-
-        [[nodiscard]] static mat4f
-        from_scalar(float scalar);
-
-        [[nodiscard]]
-        static
-        mat4f
-        from_rot_x(const angle& a);
-
-        [[nodiscard]]
-        static
-        mat4f
-        from_rot_y(const angle& a);
-
-        [[nodiscard]]
-        static
-        mat4f
-        from_rot_z(const angle& a);
-
-        [[nodiscard]]
-        static
-        mat4f
-        from_axis_angle(const AxisAngle aa);
-
-        [[nodiscard]]
-        static
-        mat4f
-        identity();
-
-        vec4f
-        get_major() const;
-
-        unit3f
-        get_axis(int col) const;
-
-        unit3f
-        get_x_axis() const;
-
-        unit3f
-        get_y_axis() const;
-
-        unit3f
-        get_z_axis() const;
-
-        mat4f
-        get_transposed() const;
-
-        bool
-        invert();
-
-        mat4f
-        get_inverted() const;
-
-        mat3f
-        get_mat3() const;
-
-        void
-        operator+=(const mat4f rhs);
-
-        void
-        operator-=(const mat4f rhs);
-
-        [[nodiscard]]
-        static
-        mat4f
-        create_ortho(float l, float r, float b, float t, float n, float f);
-
-        [[nodiscard]]
-        static
-        mat4f
-        create_perspective(const angle& fov, float a, float near, float far);
-
-        mat4f
-        translate(const vec3f& t) const;
-
-        mat4f
-        rotate(const AxisAngle& aa) const;
-
-        mat4f
-        scale(const Scale3f& scale) const;
-
-        const float*
-        get_data_ptr() const;
-
-        float*
-        get_data_ptr();
+        const [[nodiscard]] float* get_data_ptr() const;
+        float* get_data_ptr();
 
         // index operator use () as [] only expects one argument
-        float&
-        operator()(int row, int col);
+        float& operator()(int row, int col);
+        float operator()(int row, int col) const;
+        [[nodiscard]] float get(int row, int col) const;
 
-        float
-        operator()(int row, int col) const;
-
-        float
-        get(int row, int col) const;
-
-        vec4f
-        get_column(int c) const;
-
-        vec4f
-        get_row(int r) const;
+        [[nodiscard]] vec4f get_column(int c) const;
+        [[nodiscard]] vec4f get_row(int r) const;
     };
 
     
     std::ostream& operator<<(std::ostream& stream, const mat4f& m);
-    mat4f operator+(const mat4f& lhs, const mat4f rhs);
-    mat4f operator-(const mat4f& lhs, const mat4f rhs);
-    mat4f operator*(const mat4f& lhs, const mat4f rhs);
-    vec4f operator*(const mat4f& lhs, const vec4f rhs);
+
+    mat4f operator+(const mat4f& lhs, const mat4f& rhs);
+    mat4f operator-(const mat4f& lhs, const mat4f& rhs);
+    mat4f operator*(const mat4f& lhs, const mat4f& rhs);
+    vec4f operator*(const mat4f& lhs, const vec4f& rhs);
 }

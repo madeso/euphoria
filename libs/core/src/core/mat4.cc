@@ -193,7 +193,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat4f
-    mat4f::from_axis_angle(const AxisAngle aa)
+    mat4f::from_axis_angle(const AxisAngle& aa)
     {
         const float rcos = cos(aa.angle);
         const float rsin = sin(aa.angle);
@@ -425,7 +425,7 @@ namespace euphoria::core
     }
 
     void
-    mat4f::operator+=(const mat4f rhs)
+    mat4f::operator+=(const mat4f& rhs)
     {
 #define OP(i) data[i] += rhs.data[i]
         OP(0); OP(1); OP(2); OP(3);
@@ -436,7 +436,7 @@ namespace euphoria::core
     }
 
     void
-    mat4f::operator-=(const mat4f rhs)
+    mat4f::operator-=(const mat4f& rhs)
     {
 #define OP(i) data[i] -= rhs.data[i]
         OP(0); OP(1); OP(2); OP(3);
@@ -555,7 +555,7 @@ namespace euphoria::core
 
     
     mat4f
-    operator+(const mat4f& lhs, const mat4f rhs)
+    operator+(const mat4f& lhs, const mat4f& rhs)
     {
         mat4f t = lhs;
         t += rhs;
@@ -564,7 +564,7 @@ namespace euphoria::core
 
     
     mat4f
-    operator-(const mat4f& lhs, const mat4f rhs)
+    operator-(const mat4f& lhs, const mat4f& rhs)
     {
         mat4f t = lhs;
         t -= rhs;
@@ -572,7 +572,7 @@ namespace euphoria::core
     }
 
     
-    mat4f operator*(const mat4f& lhs, const mat4f rhs)
+    mat4f operator*(const mat4f& lhs, const mat4f& rhs)
     {
         const auto op = [&lhs, &rhs](int r, int c) -> float
         {
@@ -588,7 +588,7 @@ namespace euphoria::core
     }
 
     
-    vec4f operator*(const mat4f& lhs, const vec4f rhs)
+    vec4f operator*(const mat4f& lhs, const vec4f& rhs)
     {
         const auto op = [&lhs, &rhs](int r) -> float
         {

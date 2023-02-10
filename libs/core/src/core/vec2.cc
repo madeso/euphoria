@@ -477,7 +477,7 @@ namespace euphoria::core
     }
 
     vec2i
-    Vec2iTransform::transform(const vec2i& from, float v, const vec2i to)
+    Vec2iTransform::transform(const vec2i& from, float v, const vec2i& to)
     {
         return vec2i
         (

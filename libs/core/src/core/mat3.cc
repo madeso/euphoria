@@ -158,7 +158,7 @@ namespace euphoria::core
 
     [[nodiscard]]
     mat3f
-    mat3f::from_axis_angle(const AxisAngle aa)
+    mat3f::from_axis_angle(const AxisAngle& aa)
     {
         const float rcos = cos(aa.angle);
         const float rsin = sin(aa.angle);
@@ -242,7 +242,7 @@ namespace euphoria::core
 
 
     void
-    mat3f::operator+=(const mat3f rhs)
+    mat3f::operator+=(const mat3f& rhs)
     {
 #define OP(i) data[i] += rhs.data[i]
         OP(0); OP(1); OP(2);
@@ -253,7 +253,7 @@ namespace euphoria::core
 
 
     void
-    mat3f::operator-=(const mat3f rhs)
+    mat3f::operator-=(const mat3f& rhs)
     {
 #define OP(i) data[i] -= rhs.data[i]
         OP(0); OP(1); OP(2);
@@ -338,7 +338,7 @@ namespace euphoria::core
 
 
     mat3f
-    operator+(const mat3f& lhs, const mat3f rhs)
+    operator+(const mat3f& lhs, const mat3f& rhs)
     {
         mat3f t = lhs;
         t += rhs;
@@ -347,7 +347,7 @@ namespace euphoria::core
 
 
     mat3f
-    operator-(const mat3f& lhs, const mat3f rhs)
+    operator-(const mat3f& lhs, const mat3f& rhs)
     {
         mat3f t = lhs;
         t -= rhs;
@@ -355,7 +355,7 @@ namespace euphoria::core
     }
 
 
-    mat3f operator*(const mat3f& lhs, const mat3f rhs)
+    mat3f operator*(const mat3f& lhs, const mat3f& rhs)
     {
 #define OP(r, c) \
     component_multiply(vec3f{lhs.get_row(r)}, vec3f{rhs.get_column(c)}).get_component_sum()
@@ -369,7 +369,7 @@ namespace euphoria::core
     }
 
 
-    vec3f operator*(const mat3f& lhs, const vec3f rhs)
+    vec3f operator*(const mat3f& lhs, const vec3f& rhs)
     {
 #define OP(r) component_multiply(vec3f{lhs.get_row(r)}, rhs).get_component_sum()
         return vec3f(OP(0), OP(1), OP(2));

@@ -15,67 +15,21 @@ namespace euphoria::core
 
         size2f();
 
-        [[nodiscard]] static size2f
-        create_from_width_height(float w, float h);
+        [[nodiscard]] static size2f create_from_width_height(float w, float h);
+        [[nodiscard]] static size2f create_from_height_width(float h, float w);
+        [[nodiscard]] static size2f create_from_square(float s);
 
-        [[nodiscard]] static size2f
-        create_from_height_width(float h, float w);
+        void operator+=(const size2f& rhs);
+        void operator-=(const size2f& rhs);
+        void operator*=(float rhs);
 
-        [[nodiscard]] static size2f
-        create_from_square(float s);
+        void operator/=(float rhs);
 
-        void
-        operator+=(const size2f& rhs);
-
-        void
-        operator-=(const size2f& rhs);
-
-        void
-        operator*=(float rhs);
-
-        void
-        operator/=(float rhs);
-
-        vec2f
-        calculate_center_offset_for(const size2f& o);
+        [[nodiscard]] vec2f calculate_center_offset_for(const size2f& o) const;
 
     private:
         size2f(float w, float h);
     };
-
-    template<>
-    struct CustomArgparser<size2f>
-    {
-        enum { value = 1 };
-
-        static std::string
-        to_string(const size2f& s);
-
-        static Result<size2f>
-        parse(const std::string& value);
-    };
-
-    size2f
-    min(const size2f lhs, const size2f rhs);
-
-    size2f
-    max(const size2f lhs, const size2f rhs);
-
-    size2f
-    operator+(const size2f& lhs, const size2f& rhs);
-
-    size2f
-    operator-(const size2f& lhs, const size2f& rhs);
-
-    size2f operator*(const size2f& lhs, float rhs);
-
-    size2f operator*(float lhs, const size2f& rhs);
-
-    size2f
-    operator/(const size2f& lhs, float rhs);
-
-    std::ostream&
-    operator<<(std::ostream& s, const size2f& r);
 
 
     struct size2i
@@ -84,30 +38,28 @@ namespace euphoria::core
         int height;
 
         size2i();
+        [[nodiscard]] static size2i create_from_width_height(int w, int h);
+        [[nodiscard]] static size2i create_from_height_width(int h, int w);
+        [[nodiscard]] static size2i create_from_square(int s);
 
-        [[nodiscard]] static size2i
-        create_from_width_height(int w, int h);
+        void operator+=(const size2i& rhs);
+        void operator-=(const size2i& rhs);
+        void operator*=(int rhs);
 
-        [[nodiscard]] static size2i
-        create_from_height_width(int h, int w);
-
-        [[nodiscard]] static size2i
-        create_from_square(int s);
-
-        void
-        operator+=(const size2i& rhs);
-
-        void
-        operator-=(const size2i& rhs);
-
-        void
-        operator*=(int rhs);
-
-        vec2i
-        calculate_center_offset_for(const size2i& o);
+        [[nodiscard]] vec2i calculate_center_offset_for(const size2i& o) const;
 
     private:
         size2i(int w, int h);
+    };
+
+
+    template<>
+    struct CustomArgparser<size2f>
+    {
+        enum { value = 1 };
+
+        static std::string to_string(const size2f& s);
+        static Result<size2f> parse(const std::string& value);
     };
 
 
@@ -116,29 +68,27 @@ namespace euphoria::core
     {
         enum { value = 1 };
 
-        static std::string
-        to_string(const size2i& s);
-
-        static Result<size2i>
-        parse(const std::string& value);
+        static std::string to_string(const size2i& s);
+        static Result<size2i> parse(const std::string& value);
     };
 
-    size2i
-    min(const size2i lhs, const size2i rhs);
+    size2f min(const size2f& lhs, const size2f& rhs);
+    size2i min(const size2i& lhs, const size2i& rhs);
+    size2f max(const size2f& lhs, const size2f& rhs);
+    size2i max(const size2i& lhs, const size2i& rhs);
 
-    size2i
-    max(const size2i lhs, const size2i rhs);
+    size2f operator+(const size2f& lhs, const size2f& rhs);
+    size2i operator+(const size2i& lhs, const size2i& rhs);
+    size2f operator-(const size2f& lhs, const size2f& rhs);
+    size2i operator-(const size2i& lhs, const size2i& rhs);
 
-    size2i
-    operator+(const size2i& lhs, const size2i& rhs);
-
-    size2i
-    operator-(const size2i& lhs, const size2i& rhs);
-
+    size2f operator*(const size2f& lhs, float rhs);
     size2i operator*(const size2i& lhs, int rhs);
-
+    size2f operator*(float lhs, const size2f& rhs);
     size2i operator*(int lhs, const size2i& rhs);
 
-    std::ostream&
-    operator<<(std::ostream& s, const size2i& r);
+    size2f operator/(const size2f& lhs, float rhs);
+
+    std::ostream& operator<<(std::ostream& s, const size2f& r);
+    std::ostream& operator<<(std::ostream& s, const size2i& r);
 }

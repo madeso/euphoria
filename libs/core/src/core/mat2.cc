@@ -98,7 +98,7 @@ namespace euphoria::core
 
 
     void
-    mat2f::operator+=(const mat2f rhs)
+    mat2f::operator+=(const mat2f& rhs)
     {
 #define OP(i) data[i] += rhs.data[i]
         OP(0); OP(1);
@@ -108,7 +108,7 @@ namespace euphoria::core
 
 
     void
-    mat2f::operator-=(const mat2f rhs)
+    mat2f::operator-=(const mat2f& rhs)
     {
 #define OP(i) data[i] -= rhs.data[i]
         OP(0); OP(1);
@@ -178,7 +178,7 @@ namespace euphoria::core
 
 
     mat2f
-    operator+(const mat2f& lhs, const mat2f rhs)
+    operator+(const mat2f& lhs, const mat2f& rhs)
     {
         mat2f t = lhs;
         t += rhs;
@@ -187,7 +187,7 @@ namespace euphoria::core
 
 
     mat2f
-    operator-(const mat2f& lhs, const mat2f rhs)
+    operator-(const mat2f& lhs, const mat2f& rhs)
     {
         mat2f t = lhs;
         t -= rhs;
@@ -195,7 +195,7 @@ namespace euphoria::core
     }
 
 
-    mat2f operator*(const mat2f& lhs, const mat2f rhs)
+    mat2f operator*(const mat2f& lhs, const mat2f& rhs)
     {
 #define OP(r, c) \
     component_multiply(lhs.get_row(r), rhs.get_column(c)).get_component_sum()
@@ -208,7 +208,7 @@ namespace euphoria::core
     }
 
 
-    vec2f operator*(const mat2f& lhs, const vec2f rhs)
+    vec2f operator*(const mat2f& lhs, const vec2f& rhs)
     {
 #define OP(r) component_multiply(lhs.get_row(r), rhs).get_component_sum()
         return vec2f(OP(0), OP(1));

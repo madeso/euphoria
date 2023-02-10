@@ -133,7 +133,7 @@ namespace euphoria::core
     }
 
     vec2f
-    Rectf::get_position_from_bottom_left(const vec2f v) const
+    Rectf::get_position_from_bottom_left(const vec2f& v) const
     {
         return get_bottom_left() + v;
     }
@@ -361,7 +361,7 @@ namespace euphoria::core
 
 
     Rectf
-    Rectf::expand_copy(float expand)
+    Rectf::expand_copy(float expand) const
     {
         Rectf r = *this;
         r.expand(expand);
@@ -541,8 +541,8 @@ namespace euphoria::core
     )
     {
         // todo(Gustav): change anchor type to some anchor type instead
-        const int left = pos.x - static_cast<int>(width * anchor.x);
-        const int bottom = pos.y - static_cast<int>(height * anchor.y);
+        const int left = pos.x - static_cast<int>(static_cast<float>(width) * anchor.x);
+        const int bottom = pos.y - static_cast<int>(static_cast<float>(height) * anchor.y);
         return from_left_right_bottom_top
         (
             left, left + width,
@@ -615,7 +615,7 @@ namespace euphoria::core
     }
 
     vec2i
-    Recti::get_position_from_bottom_left(const vec2i v) const
+    Recti::get_position_from_bottom_left(const vec2i& v) const
     {
         return get_bottom_left() + v;
     }
@@ -831,7 +831,7 @@ namespace euphoria::core
     }
 
     Recti
-    Recti::expand_copy(int expand)
+    Recti::expand_copy(int expand) const
     {
         Recti r = *this;
         r.expand(expand);

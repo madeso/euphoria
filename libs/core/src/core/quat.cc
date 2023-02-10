@@ -92,7 +92,7 @@ namespace euphoria::core
     {
         const float cos_a = w;
         const auto angle = acos(cos_a) * 2;
-        const float sin_a = get_default_if_close_to_zero<float>(
+        const auto sin_a = get_default_if_close_to_zero<float>(
                 sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
         // todo(Gustav): do we need to normalize here?
         return AxisAngle::right_hand_around(
@@ -110,7 +110,7 @@ namespace euphoria::core
 
 
     [[nodiscard]] quatf
-    quatf::look_at(const vec3f& from, const vec3f& to, const unit3f up)
+    quatf::look_at(const vec3f& from, const vec3f& to, const unit3f& up)
     {
         return look_in_direction(vec3f::from_to(from, to).get_normalized(), up);
     }
@@ -242,7 +242,7 @@ namespace euphoria::core
 
     // In*Z + Right*X + Up*Y
     vec3f
-    quatf::create_from_right_up_in(const vec3f v) const
+    quatf::create_from_right_up_in(const vec3f& v) const
     {
         return in() * v.z + right() * v.x + up() * v.y;
     }
