@@ -30,6 +30,23 @@ add_library(external::stb_image ALIAS stb_image)
 
 
 ###################################################################################################
+## guid
+add_library(guid INTERFACE)
+# using pkg-config to configure uuid
+if(WIN32)
+    # no work is needed
+else()
+    find_package(PkgConfig REQUIRED)
+    find_package(Threads REQUIRED)
+    pkg_search_module(UUID REQUIRED uuid)
+    target_include_directories(guid SYSTEM INTERFACE ${UUID_INCLUDE_DIRS})
+    target_link_libraries(guid INTERFACE ${UUID_LIBRARIES} ${CMAKE_THREAD_LIBS_INIT})
+endif()
+add_library(external::guid ALIAS guid)
+
+
+
+###################################################################################################
 ## stb image write
 add_library(stb_image_write STATIC stb_image_write.cc)
 set_target_properties(stb_image_write PROPERTIES FOLDER "Dependencies")
