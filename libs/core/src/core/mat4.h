@@ -16,7 +16,7 @@ namespace euphoria::core
         float data[16]; // col-major
 
         mat4f() = default;
-        
+
         mat4f
         (
             float t00, float t01, float t02, float t03,
@@ -82,7 +82,7 @@ namespace euphoria::core
         [[nodiscard]] mat4f rotate(const AxisAngle& aa) const;
         [[nodiscard]] mat4f scale(const Scale3f& scale) const;
 
-        const [[nodiscard]] float* get_data_ptr() const;
+        [[nodiscard]] const float* get_data_ptr() const;
         float* get_data_ptr();
 
         // index operator use () as [] only expects one argument
