@@ -113,6 +113,7 @@ set(app_src
     src/core/findstring.cc src/core/findstring.h
     src/core/fpscontroller.cc src/core/fpscontroller.h
     src/core/functional.cc src/core/functional.h
+    src/core/guid.cc src/core/guid.h
     src/core/helptexthover.cc src/core/helptexthover.h
     src/core/insertionsort.cc src/core/insertionsort.h
     src/core/interpolate.cc src/core/interpolate.h
@@ -129,11 +130,11 @@ set(app_src
     src/core/minmax.cc src/core/minmax.h
     src/core/mousebehaviour.cc src/core/mousebehaviour.h
     src/core/multisort.cc src/core/multisort.h
-    src/core/numparse.cc src/core/numparse.h
     src/core/nlp_line.cc src/core/nlp_line.h
     src/core/nlp_sentence.cc src/core/nlp_sentence.h
     src/core/noncopyable.cc src/core/noncopyable.h
     src/core/numeric.cc src/core/numeric.h
+    src/core/numparse.cc src/core/numparse.h
     src/core/orbitcontroller.cc src/core/orbitcontroller.h
     src/core/os.cc src/core/os.h
     src/core/propertytree.cc src/core/propertytree.h
@@ -165,8 +166,8 @@ set(app_src
     src/core/vfs_imagegenerator.cc src/core/vfs_imagegenerator.h
     src/core/vfs_path.cc src/core/vfs_path.h
     src/core/vfs.cc src/core/vfs.h
-    src/core/viewportdef.cc src/core/viewportdef.h
     src/core/viewport.cc src/core/viewport.h
+    src/core/viewportdef.cc src/core/viewportdef.h
     src/core/wordwrap.cc src/core/wordwrap.h
 
     src/core/pch.private.h
@@ -225,6 +226,7 @@ target_link_libraries(core
         external::stb_truetype
         external::font8x8
         external::font8x13
+        external::guid
 )
 set_target_properties(core PROPERTIES FOLDER "Libraries")
 
@@ -252,10 +254,11 @@ set(test_src
     src/core/cypher.test.cc
     src/core/date.test.cc
     src/core/drunken_bishop.test.cc
-    src/core/editdistance.test.cc
     src/core/ecs.test.cc
+    src/core/editdistance.test.cc
     src/core/enumtostring.test.cc
     src/core/findstring.test.cc
+    src/core/guid.test.cc
     src/core/hash.test.cc
     src/core/image.test.cc
     src/core/insertionsort.test.cc
@@ -267,8 +270,8 @@ set(test_src
     src/core/multisort.test.cc
     src/core/nlp_line.test.cc
     src/core/nlp_sentence.test.cc
-    src/core/numparse.test.cc
     src/core/numeric.test.cc
+    src/core/numparse.test.cc
     src/core/pack.test.cc
     src/core/quat.test.cc
     src/core/quicksort.test.cc
