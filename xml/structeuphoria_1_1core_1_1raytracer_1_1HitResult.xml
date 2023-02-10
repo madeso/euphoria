@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/raytracer.h" line="58" column="19" bodyfile="libs/core/src/core/raytracer.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a2e1704fd3b692e3d7bc07926bfc9af6f" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::raytracer::HitResult::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/raytracer.h" line="59" column="19" bodyfile="libs/core/src/core/raytracer.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a4598340edfc341db5859585bdb473578" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
         <definition>unit3f euphoria::core::raytracer::HitResult::normal</definition>
         <argsstring></argsstring>
         <name>normal</name>
@@ -68,11 +68,11 @@
           <declname>aray_distance</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>aposition</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>anormal</declname>
         </param>
         <param>
@@ -94,8 +94,10 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="3">
-        <label>euphoria::core::unit3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1unit3"/>
+        <label>euphoria::core::unit3f</label>
+        <link refid="structeuphoria_1_1core_1_1unit3f"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
       </node>
       <node id="1">
         <label>euphoria::core::raytracer::HitResult</label>
@@ -108,8 +110,8 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/raytracer.h" line="49" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="48" bodyend="62"/>

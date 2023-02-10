@@ -462,12 +462,9 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1vec3" prot="public">euphoria::core::vec3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1unit3" prot="public">euphoria::core::unit3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Scale3" prot="public">euphoria::core::Scale3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Scale3" prot="public">euphoria::core::Scale3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vec3" prot="public">euphoria::core::vec3</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1unit3" prot="public">euphoria::core::unit3</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Scale3f" prot="public">euphoria::core::Scale3f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vec3f" prot="public">euphoria::core::vec3f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1unit3f" prot="public">euphoria::core::unit3f</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

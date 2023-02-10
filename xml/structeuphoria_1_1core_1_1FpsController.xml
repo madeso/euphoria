@@ -115,7 +115,7 @@
         <location file="libs/core/src/core/fpscontroller.h" line="54" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1ad32bc4e0cd957ba97f75c6584d9f0658" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::FpsController::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -349,7 +349,7 @@
         <argsstring>(const unit3f &amp;v)</argsstring>
         <name>look_in_direction</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -412,8 +412,8 @@
         <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="2">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/fpscontroller.h" line="12" column="1" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="11" bodyend="59"/>

@@ -5,7 +5,7 @@
     <includes refid="axisangle_8h" local="no">axisangle.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1AxisAngle_1a8d0d22073bffd85f0c8378d9e646375f" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
         <definition>unit3f euphoria::core::AxisAngle::axis</definition>
         <argsstring></argsstring>
         <name>axis</name>
@@ -40,7 +40,7 @@
         <argsstring>(const unit3f &amp;axis, const core::angle &amp;angle)</argsstring>
         <name>right_hand_around</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>axis</declname>
         </param>
         <param>
@@ -63,7 +63,7 @@
         <argsstring>(const unit3f &amp;ax, const core::angle &amp;ang)</argsstring>
         <name>AxisAngle</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>ax</declname>
         </param>
         <param>
@@ -85,8 +85,10 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="3">
-        <label>euphoria::core::unit3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1unit3"/>
+        <label>euphoria::core::unit3f</label>
+        <link refid="structeuphoria_1_1core_1_1unit3f"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
       </node>
       <node id="1">
         <label>euphoria::core::AxisAngle</label>
@@ -101,6 +103,10 @@
       <node id="2">
         <label>euphoria::core::angle</label>
         <link refid="structeuphoria_1_1core_1_1angle"/>
+      </node>
+      <node id="4">
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/axisangle.h" line="11" column="1" bodyfile="libs/core/src/core/axisangle.h" bodystart="10" bodyend="25"/>

@@ -95,7 +95,7 @@
         <location file="libs/window/src/window/sdlwindow.h" line="33" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a015fc0f764ceaedf1037faae15f9bbbf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kindref="member">core::vec2i</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">core::vec2i</ref></type>
         <definition>core::vec2i euphoria::window::SdlWindow::get_mouse_position</definition>
         <argsstring>() const</argsstring>
         <name>get_mouse_position</name>

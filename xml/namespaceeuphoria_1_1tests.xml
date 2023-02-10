@@ -119,11 +119,11 @@
         <argsstring>(core::vec3f const &amp;lhs, core::vec3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>approximately_equal</name>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -146,11 +146,11 @@
         <argsstring>(core::vec4f const &amp;lhs, core::vec4f const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>approximately_equal</name>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1aa3e50883b071f99ac987b6699bad8a1d" kindref="member">core::vec4f</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1vec4f" kindref="compound">core::vec4f</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1aa3e50883b071f99ac987b6699bad8a1d" kindref="member">core::vec4f</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1vec4f" kindref="compound">core::vec4f</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>
@@ -254,11 +254,11 @@
         <argsstring>(core::unit3f const &amp;lhs, core::unit3f const &amp;rhs, const ApproxData &amp;data)</argsstring>
         <name>approximately_equal</name>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">core::unit3f</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">core::unit3f</ref> const &amp;</type>
           <declname>lhs</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">core::unit3f</ref> const &amp;</type>
+          <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">core::unit3f</ref> const &amp;</type>
           <declname>rhs</declname>
         </param>
         <param>

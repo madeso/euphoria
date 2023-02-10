@@ -5,7 +5,7 @@
     <includes refid="viewportdef_8h" local="no">viewportdef.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1ViewportDefinition_1ac268808a69d5578b5bef4309cfb2768a" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a18429a488f4a0c6d17b4a84fe0dac703" kindref="member">Recti</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref></type>
         <definition>Recti euphoria::core::ViewportDefinition::screen_rect</definition>
         <argsstring></argsstring>
         <name>screen_rect</name>
@@ -137,7 +137,7 @@
         <argsstring>(const Recti &amp;screen, float w, float h)</argsstring>
         <name>ViewportDefinition</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a18429a488f4a0c6d17b4a84fe0dac703" kindref="member">Recti</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref> &amp;</type>
           <declname>screen</declname>
         </param>
         <param>
@@ -170,8 +170,8 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::Rect&lt; int &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Rect"/>
+        <label>euphoria::core::Recti</label>
+        <link refid="structeuphoria_1_1core_1_1Recti"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/viewportdef.h" line="9" column="1" bodyfile="libs/core/src/core/viewportdef.h" bodystart="8" bodyend="45"/>

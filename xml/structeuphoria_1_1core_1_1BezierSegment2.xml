@@ -5,7 +5,7 @@
     <includes refid="polybezier_8h" local="no">polybezier.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1BezierSegment2_1abac7e549f6944879590989b7ab1884e3" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::BezierSegment2::a0</definition>
         <argsstring></argsstring>
         <name>a0</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/polybezier.h" line="35" column="15" bodyfile="libs/core/src/core/polybezier.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1BezierSegment2_1a77d5adc4e6b5ca7697af577f32509c9e" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::BezierSegment2::c0</definition>
         <argsstring></argsstring>
         <name>c0</name>
@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/polybezier.h" line="36" column="15" bodyfile="libs/core/src/core/polybezier.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1BezierSegment2_1ab6720a8c6b711ff738eebe56f7408052" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::BezierSegment2::a1</definition>
         <argsstring></argsstring>
         <name>a1</name>
@@ -44,7 +44,7 @@
         <location file="libs/core/src/core/polybezier.h" line="38" column="15" bodyfile="libs/core/src/core/polybezier.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1BezierSegment2_1ad2b9e9a04e415b6af1ffce59c5653fc3" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::BezierSegment2::c1</definition>
         <argsstring></argsstring>
         <name>c1</name>
@@ -73,8 +73,8 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec2"/>
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/polybezier.h" line="34" column="1" bodyfile="libs/core/src/core/polybezier.h" bodystart="33" bodyend="40"/>

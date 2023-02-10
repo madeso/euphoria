@@ -5,7 +5,7 @@
     <includes refid="ray_8h" local="no">ray.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1UnitRay3f_1acc79f7274dcfe4998b058244b0dceaa6" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::UnitRay3f::from</definition>
         <argsstring></argsstring>
         <name>from</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/ray.h" line="24" column="15" bodyfile="libs/core/src/core/ray.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1UnitRay3f_1a9431ea589949dbde0dc8ed0f4d9197bd" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
         <definition>unit3f euphoria::core::UnitRay3f::dir</definition>
         <argsstring></argsstring>
         <name>dir</name>
@@ -38,11 +38,11 @@
         <argsstring>(const vec3f &amp;from, const unit3f &amp;dir)</argsstring>
         <name>UnitRay3f</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>dir</declname>
         </param>
         <briefdescription>
@@ -54,7 +54,7 @@
         <location file="libs/core/src/core/ray.h" line="10" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1UnitRay3f_1a610059ea8e8eb61152996a510c210261" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::UnitRay3f::get_point</definition>
         <argsstring>(float at) const</argsstring>
         <name>get_point</name>
@@ -95,11 +95,11 @@
         <argsstring>(const vec3f &amp;from, const vec3f &amp;to)</argsstring>
         <name>from_to</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <briefdescription>
@@ -116,7 +116,7 @@
         <argsstring>(const unit3f &amp;dir)</argsstring>
         <name>from_direction</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
           <declname>dir</declname>
         </param>
         <briefdescription>
@@ -133,6 +133,12 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
+      <node id="3">
+        <label>euphoria::core::unit3f</label>
+        <link refid="structeuphoria_1_1core_1_1unit3f"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
       <node id="1">
         <label>euphoria::core::UnitRay3f</label>
         <link refid="structeuphoria_1_1core_1_1UnitRay3f"/>
@@ -143,13 +149,9 @@
           <edgelabel>dir</edgelabel>
         </childnode>
       </node>
-      <node id="3">
-        <label>euphoria::core::unit3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1unit3"/>
-      </node>
       <node id="2">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/ray.h" line="9" column="1" bodyfile="libs/core/src/core/ray.h" bodystart="8" bodyend="26"/>

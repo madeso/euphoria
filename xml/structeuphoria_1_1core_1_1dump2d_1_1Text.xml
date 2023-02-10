@@ -5,7 +5,7 @@
     <includes refid="dump_8h" local="no">dump.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Text_1a491d33a20e0bc93d84b95305de66a854" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::dump2d::Text::point</definition>
         <argsstring></argsstring>
         <name>point</name>
@@ -51,7 +51,7 @@
         <argsstring>(const vec2f &amp;p, const std::string &amp;t, const rgbi &amp;c=NamedColor::black)</argsstring>
         <name>Text</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
@@ -77,11 +77,11 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
-        <label>euphoria::core::vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec2"/>
-      </node>
       <node id="3">
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
+      </node>
+      <node id="2">
         <label>euphoria::core::rgbi</label>
         <link refid="structeuphoria_1_1core_1_1rgbi"/>
       </node>
@@ -89,10 +89,10 @@
         <label>euphoria::core::dump2d::Text</label>
         <link refid="structeuphoria_1_1core_1_1dump2d_1_1Text"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>point</edgelabel>
+          <edgelabel>color</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>color</edgelabel>
+          <edgelabel>point</edgelabel>
         </childnode>
       </node>
     </collaborationgraph>

@@ -263,7 +263,7 @@
           <declname>attribute</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
           <declname>val</declname>
         </param>
         <briefdescription>
@@ -284,7 +284,7 @@
           <declname>attribute</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1aa3e50883b071f99ac987b6699bad8a1d" kindref="member">core::vec4f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec4f" kindref="compound">core::vec4f</ref> &amp;</type>
           <declname>val</declname>
         </param>
         <briefdescription>
@@ -305,7 +305,7 @@
           <declname>attribute</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a8bd846ca11a82406a9ab443ded9100bf" kindref="member">core::mat3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">core::mat3f</ref> &amp;</type>
           <declname>val</declname>
         </param>
         <briefdescription>
@@ -347,7 +347,7 @@
           <declname>attribute</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>val</declname>
         </param>
         <briefdescription>

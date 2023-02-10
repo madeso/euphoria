@@ -78,7 +78,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7c8c49293322d397e1ff5a7fe32deb59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a412fb5211afe2a45cecbc5bf3d8ce8d8"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a412fb5211afe2a45cecbc5bf3d8ce8d8">~EditorCamera3</a> ()=default</td></tr>
 <tr class="separator:a412fb5211afe2a45cecbc5bf3d8ce8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5345ab4ae325ffc808cd20655f4a5652"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a5345ab4ae325ffc808cd20655f4a5652">step</a> (bool shift_state, const <a class="el" href="namespaceeuphoria_1_1core.html#af50456d11db5207097e7aa1ead9fac6b">vec2i</a> &amp;mouse, const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;camera, const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;viewport, float dt)</td></tr>
+<tr class="memitem:a5345ab4ae325ffc808cd20655f4a5652"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a5345ab4ae325ffc808cd20655f4a5652">step</a> (bool shift_state, const <a class="el" href="structeuphoria_1_1core_1_1vec2i.html">vec2i</a> &amp;mouse, const <a class="el" href="structeuphoria_1_1core_1_1CompiledCamera3.html">CompiledCamera3</a> &amp;camera, const <a class="el" href="structeuphoria_1_1core_1_1Viewport.html">Viewport</a> &amp;viewport, float dt)</td></tr>
 <tr class="separator:a5345ab4ae325ffc808cd20655f4a5652"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2f3456cb992295fa6ef7a45320ff083"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571d">MouseBehaviour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#af2f3456cb992295fa6ef7a45320ff083">get_mouse</a> ()</td></tr>
 <tr class="separator:af2f3456cb992295fa6ef7a45320ff083"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -102,7 +102,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a27812127e7dc33052bd50b861b521036"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16302b4efd5324f7351fbcb6fcdf7afa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a16302b4efd5324f7351fbcb6fcdf7afa">focus</a> (const <a class="el" href="structeuphoria_1_1core_1_1SphereAndPosition.html">SphereAndPosition</a> &amp;s, const <a class="el" href="structeuphoria_1_1core_1_1Camera3.html">Camera3</a> &amp;cam)</td></tr>
 <tr class="separator:a16302b4efd5324f7351fbcb6fcdf7afa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9808b86a056e0f420bdbeee2286cf11"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="namespaceeuphoria_1_1core.html#ad1c134b79d76607b80bbb0302dd8ac45">vec3f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#ac9808b86a056e0f420bdbeee2286cf11">raycast</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray)=0</td></tr>
+<tr class="memitem:ac9808b86a056e0f420bdbeee2286cf11"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#ac9808b86a056e0f420bdbeee2286cf11">raycast</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray)=0</td></tr>
 <tr class="separator:ac9808b86a056e0f420bdbeee2286cf11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a708bdcc80a0de003b9c9ece9160d6d05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html#a708bdcc80a0de003b9c9ece9160d6d05">apply_frame</a> (const <a class="el" href="structeuphoria_1_1core_1_1detail_1_1CameraFrame.html">detail::CameraFrame</a> &amp;frame)</td></tr>
 <tr class="separator:a708bdcc80a0de003b9c9ece9160d6d05"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -514,7 +514,7 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::optional&lt;<a class="el" href="namespaceeuphoria_1_1core.html#ad1c134b79d76607b80bbb0302dd8ac45">vec3f</a>&gt; euphoria::core::EditorCamera3::raycast </td>
+          <td class="memname">virtual std::optional&lt;<a class="el" href="structeuphoria_1_1core_1_1vec3f.html">vec3f</a>&gt; euphoria::core::EditorCamera3::raycast </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;&#160;</td>
           <td class="paramname"><em>ray</em></td><td>)</td>
@@ -563,7 +563,7 @@ Static Public Attributes</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#af50456d11db5207097e7aa1ead9fac6b">vec2i</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1vec2i.html">vec2i</a> &amp;&#160;</td>
           <td class="paramname"><em>mouse</em>, </td>
         </tr>
         <tr>

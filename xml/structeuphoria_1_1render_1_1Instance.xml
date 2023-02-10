@@ -21,7 +21,7 @@
         <location file="libs/render/src/render/instance.h" line="32" column="14" bodyfile="libs/render/src/render/instance.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Instance_1a2dfbae9d4604b87fa25a1941678526b0" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref></type>
         <definition>core::vec3f euphoria::render::Instance::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -119,7 +119,7 @@
           <declname>view_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
           <declname>camera</declname>
         </param>
         <param>
@@ -162,12 +162,19 @@
         <label>euphoria::render::Instance</label>
         <link refid="structeuphoria_1_1render_1_1Instance"/>
         <childnode refid="2" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
           <edgelabel>rotation</edgelabel>
         </childnode>
       </node>
-      <node id="2">
+      <node id="3">
         <label>euphoria::core::quatf</label>
         <link refid="structeuphoria_1_1core_1_1quatf"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/instance.h" line="14" column="1" bodyfile="libs/render/src/render/instance.h" bodystart="13" bodyend="36"/>

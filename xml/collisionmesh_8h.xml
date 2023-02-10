@@ -117,6 +117,7 @@
         </childnode>
       </node>
     </incdepgraph>
+    <innerclass refid="structeuphoria_1_1core_1_1CollisionFace" prot="public">euphoria::core::CollisionFace</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1CollisionMesh" prot="public">euphoria::core::CollisionMesh</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

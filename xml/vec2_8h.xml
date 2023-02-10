@@ -760,12 +760,12 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1vec2" prot="public">euphoria::core::vec2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1unit2" prot="public">euphoria::core::unit2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1vec2" prot="public">euphoria::core::vec2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1unit2" prot="public">euphoria::core::unit2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Scale2" prot="public">euphoria::core::Scale2</innerclass>
-    <innerclass refid="structeuphoria_1_1core_1_1Vec2Transform" prot="public">euphoria::core::Vec2Transform</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vec2f" prot="public">euphoria::core::vec2f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1vec2i" prot="public">euphoria::core::vec2i</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1unit2f" prot="public">euphoria::core::unit2f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Scale2f" prot="public">euphoria::core::Scale2f</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Vec2fTransform" prot="public">euphoria::core::Vec2fTransform</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Vec2iTransform" prot="public">euphoria::core::Vec2iTransform</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

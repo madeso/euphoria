@@ -101,7 +101,7 @@
         <location file="libs/render/src/render/viewporthandler.h" line="30" column="15" bodyfile="libs/render/src/render/viewporthandler.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1ViewportHandler_1ab455906afa3ba5edc8edbe4819ec6c10" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> *</type>
+        <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> *</type>
         <definition>core::Rectf* euphoria::render::ViewportHandler::virtual_screen</definition>
         <argsstring></argsstring>
         <name>virtual_screen</name>
@@ -125,7 +125,7 @@
           <declname>i</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> *</type>
+          <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> *</type>
           <declname>s</declname>
         </param>
         <briefdescription>
@@ -217,8 +217,8 @@
         </childnode>
       </node>
       <node id="3">
-        <label>euphoria::core::Rect&lt; T &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Rect"/>
+        <label>euphoria::core::Rectf</label>
+        <link refid="structeuphoria_1_1core_1_1Rectf"/>
       </node>
       <node id="2">
         <label>euphoria::render::Init</label>

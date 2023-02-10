@@ -5,7 +5,7 @@
     <includes refid="dump_8h" local="no">dump.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Circle_1aa2e4c5f865f7aece4e50096601f78bd0" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::dump2d::Circle::point</definition>
         <argsstring></argsstring>
         <name>point</name>
@@ -81,7 +81,7 @@
         <argsstring>(const vec2f &amp;p, float r, std::optional&lt; rgbi &gt; fill=std::nullopt)</argsstring>
         <name>Circle</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
@@ -115,8 +115,8 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec2"/>
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/dump.h" line="53" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="52" bodyend="62"/>

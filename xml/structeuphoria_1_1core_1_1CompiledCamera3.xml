@@ -80,12 +80,12 @@
         <location file="libs/core/src/core/camera3.h" line="16" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1af442a044ac641c4af70f416deca13d61" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::CompiledCamera3::world_to_clip</definition>
         <argsstring>(const vec3f &amp;in_world) const</argsstring>
         <name>world_to_clip</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>in_world</declname>
         </param>
         <briefdescription>
@@ -97,12 +97,12 @@
         <location file="libs/core/src/core/camera3.h" line="20" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1CompiledCamera3_1ac56017d2c7c5e4d4b461f294a4b61c41" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::CompiledCamera3::clip_to_world</definition>
         <argsstring>(const vec3f &amp;in_clip) const</argsstring>
         <name>clip_to_world</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>in_clip</declname>
         </param>
         <briefdescription>
@@ -119,7 +119,7 @@
         <argsstring>(const vec2f &amp;p) const</argsstring>
         <name>clip_to_world_ray</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>

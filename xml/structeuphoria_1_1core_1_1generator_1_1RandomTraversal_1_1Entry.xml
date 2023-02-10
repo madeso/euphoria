@@ -5,7 +5,7 @@
     <includes refid="generator__maze_8h" local="no">generator_maze.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry_1ad7d57b17030aafba9092e466a1d5a36a" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kindref="member">vec2i</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
         <definition>vec2i euphoria::core::generator::RandomTraversal::Entry::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -36,16 +36,16 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
-        <label>euphoria::core::vec2&lt; int &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec2"/>
-      </node>
       <node id="1">
         <label>euphoria::core::generator::RandomTraversal::Entry</label>
         <link refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry"/>
         <childnode refid="2" relation="usage">
           <edgelabel>position</edgelabel>
         </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::vec2i</label>
+        <link refid="structeuphoria_1_1core_1_1vec2i"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/generator_maze.h" line="91" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="90" bodyend="94"/>

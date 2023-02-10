@@ -18,7 +18,7 @@
         <location file="libs/render/src/render/sprite.h" line="33" column="25" bodyfile="libs/render/src/render/sprite.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1a997f4f231369cdadf8d47bf7e2c863ca" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
         <definition>core::vec2f euphoria::render::Sprite::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -44,11 +44,11 @@
         <location file="libs/render/src/render/sprite.h" line="35" column="21" bodyfile="libs/render/src/render/sprite.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1a75f49d2c60f693d0a0800b583f9aae24" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a8b5a6dd14d0dfa498bde24a677e6faff" kindref="member">core::Scale2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref></type>
         <definition>core::Scale2f euphoria::render::Sprite::scale</definition>
         <argsstring></argsstring>
         <name>scale</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1core_1a8b5a6dd14d0dfa498bde24a677e6faff" kindref="member">core::Scale2f</ref>(1, 1)</initializer>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref>(1, 1)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -97,9 +97,9 @@
           <declname>texture</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
           <declname>position</declname>
-          <defval><ref refid="structeuphoria_1_1core_1_1vec2_1a6cabcd416c866d8115dc3bd228ca2927" kindref="member">core::vec2f::zero</ref>()</defval>
+          <defval><ref refid="structeuphoria_1_1core_1_1vec2f_1a2439a884cb0e19150f763c46ed2fea3b" kindref="member">core::vec2f::zero</ref>()</defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -162,19 +162,33 @@
         <label>euphoria::render::Sprite</label>
         <link refid="structeuphoria_1_1render_1_1Sprite"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>rotation</edgelabel>
+          <edgelabel>position</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
+          <edgelabel>rotation</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>scale</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
           <edgelabel>color</edgelabel>
         </childnode>
       </node>
-      <node id="3">
+      <node id="5">
         <label>euphoria::core::rgb</label>
         <link refid="structeuphoria_1_1core_1_1rgb"/>
       </node>
-      <node id="2">
+      <node id="3">
         <label>euphoria::core::angle</label>
         <link refid="structeuphoria_1_1core_1_1angle"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
+      </node>
+      <node id="4">
+        <label>euphoria::core::Scale2f</label>
+        <link refid="structeuphoria_1_1core_1_1Scale2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/sprite.h" line="17" column="1" bodyfile="libs/render/src/render/sprite.h" bodystart="16" bodyend="39"/>

@@ -5,7 +5,7 @@
     <includes refid="lines_8h" local="no">lines.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1LinePoint_1ab164866337baa7a9f36ab84336dc4cd9" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::LinePoint::point</definition>
         <argsstring></argsstring>
         <name>point</name>
@@ -38,7 +38,7 @@
         <argsstring>(const vec3f &amp;p, const rgb &amp;c)</argsstring>
         <name>LinePoint</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
@@ -74,8 +74,8 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/lines.h" line="12" column="1" bodyfile="libs/core/src/core/lines.h" bodystart="11" bodyend="17"/>

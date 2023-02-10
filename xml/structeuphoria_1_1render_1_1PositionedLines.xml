@@ -52,7 +52,7 @@
           <declname>view_matrix</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
           <declname>camera</declname>
         </param>
         <param>
@@ -89,10 +89,13 @@
         <label>euphoria::render::Instance</label>
         <link refid="structeuphoria_1_1render_1_1Instance"/>
         <childnode refid="3" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
           <edgelabel>rotation</edgelabel>
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>euphoria::core::quatf</label>
         <link refid="structeuphoria_1_1core_1_1quatf"/>
       </node>
@@ -101,6 +104,10 @@
         <link refid="structeuphoria_1_1render_1_1PositionedLines"/>
         <childnode refid="2" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/positionedlines.h" line="11" column="1" bodyfile="libs/render/src/render/positionedlines.h" bodystart="10" bodyend="24"/>

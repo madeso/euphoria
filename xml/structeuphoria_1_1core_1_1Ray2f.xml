@@ -5,7 +5,7 @@
     <includes refid="ray_8h" local="no">ray.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Ray2f_1abcf76d3a1c715a41e6d58824f778fb54" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::Ray2f::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/ray.h" line="42" column="15" bodyfile="libs/core/src/core/ray.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Ray2f_1a61d41fdaab67f2c4e3533d207671ad14" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::Ray2f::direction</definition>
         <argsstring></argsstring>
         <name>direction</name>
@@ -38,11 +38,11 @@
         <argsstring>(const vec2f &amp;p, const vec2f &amp;d)</argsstring>
         <name>Ray2f</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>d</declname>
         </param>
         <briefdescription>
@@ -54,7 +54,7 @@
         <location file="libs/core/src/core/ray.h" line="31" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Ray2f_1a730f6280c9bc21c26a704c4056b7a1c6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::Ray2f::get_position</definition>
         <argsstring>(float d) const</argsstring>
         <name>get_position</name>
@@ -78,11 +78,11 @@
         <argsstring>(const vec2f &amp;from, const vec2f &amp;to)</argsstring>
         <name>from_to</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>from</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>to</declname>
         </param>
         <briefdescription>
@@ -99,13 +99,13 @@
         <argsstring>(const vec2f &amp;direction, const vec2f &amp;pos=vec2f::zero())</argsstring>
         <name>from_direction</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>direction</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>pos</declname>
-          <defval><ref refid="structeuphoria_1_1core_1_1vec2_1a6cabcd416c866d8115dc3bd228ca2927" kindref="member">vec2f::zero</ref>()</defval>
+          <defval><ref refid="structeuphoria_1_1core_1_1vec2f_1a2439a884cb0e19150f763c46ed2fea3b" kindref="member">vec2f::zero</ref>()</defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -122,8 +122,8 @@
     </detaileddescription>
     <collaborationgraph>
       <node id="2">
-        <label>euphoria::core::vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec2"/>
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
       <node id="1">
         <label>euphoria::core::Ray2f</label>

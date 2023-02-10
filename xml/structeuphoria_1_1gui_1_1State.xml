@@ -5,11 +5,11 @@
     <includes refid="uistate_8h" local="no">uistate.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1gui_1_1State_1a963f2c9ae75af8aa69c7a51cc149027a" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
         <definition>core::vec2f euphoria::gui::State::mouse</definition>
         <argsstring></argsstring>
         <name>mouse</name>
-        <initializer>= <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref>(0.0f, 0.0f)</initializer>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref>(0.0f, 0.0f)</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -172,34 +172,30 @@
         <label>euphoria::gui::LayoutData</label>
         <link refid="structeuphoria_1_1gui_1_1LayoutData"/>
       </node>
-      <node id="4">
-        <label>euphoria::core::Rect&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Rect"/>
-      </node>
       <node id="3">
         <label>euphoria::gui::Widget</label>
         <link refid="structeuphoria_1_1gui_1_1Widget"/>
-        <childnode refid="4" relation="usage">
-          <edgelabel>rect</edgelabel>
-        </childnode>
         <childnode refid="1" relation="usage">
           <edgelabel>ui_state</edgelabel>
         </childnode>
-        <childnode refid="5" relation="usage">
+        <childnode refid="4" relation="usage">
           <edgelabel>padding</edgelabel>
           <edgelabel>margin</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>rect</edgelabel>
         </childnode>
         <childnode refid="6" relation="usage">
           <edgelabel>layout</edgelabel>
         </childnode>
       </node>
       <node id="5">
+        <label>euphoria::core::Rectf</label>
+        <link refid="structeuphoria_1_1core_1_1Rectf"/>
+      </node>
+      <node id="4">
         <label>euphoria::core::Lrud&lt; float &gt;</label>
         <link refid="structeuphoria_1_1core_1_1Lrud"/>
-      </node>
-      <node id="2">
-        <label>euphoria::core::vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec2"/>
       </node>
       <node id="1">
         <label>euphoria::gui::State</label>
@@ -211,6 +207,10 @@
           <edgelabel>hot</edgelabel>
           <edgelabel>active</edgelabel>
         </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/gui/src/gui/uistate.h" line="13" column="1" bodyfile="libs/gui/src/gui/uistate.h" bodystart="12" bodyend="37"/>

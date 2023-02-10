@@ -273,60 +273,9 @@
         </childnode>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1mat2" prot="public">euphoria::core::mat2</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1mat2f" prot="public">euphoria::core::mat2f</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
-      <sectiondef kind="define">
-      <memberdef kind="define" id="mat2_8h_1a52267107dd1016c80abd3e27e445e437" prot="public" static="no">
-        <name>OP</name>
-        <param><defname>i</defname></param>
-        <initializer>data[i] += rhs.data[i]</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/mat2.h" line="122" column="9"/>
-      </memberdef>
-      <memberdef kind="define" id="mat2_8h_1a52267107dd1016c80abd3e27e445e437" prot="public" static="no">
-        <name>OP</name>
-        <param><defname>i</defname></param>
-        <initializer>data[i] -= rhs.data[i]</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/mat2.h" line="131" column="9"/>
-      </memberdef>
-      <memberdef kind="define" id="mat2_8h_1a6c80fab70a39bdaff699abc7fd6f7c29" prot="public" static="no">
-        <name>OP</name>
-        <param><defname>r</defname></param>
-        <param><defname>c</defname></param>
-        <initializer>component_multiply(vec2&lt;T&gt;(lhs.GetRow(r)), vec2&lt;T&gt;(rhs.GetColumn(c))).get_component_sum()</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/mat2.h" line="225" column="9"/>
-      </memberdef>
-      <memberdef kind="define" id="mat2_8h_1ad3fad4870192fbb33f78583fbb0cc502" prot="public" static="no">
-        <name>OP</name>
-        <param><defname>r</defname></param>
-        <initializer>component_multiply(vec2&lt;T&gt;(lhs.GetRow(r)), rhs).get_component_sum()</initializer>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/mat2.h" line="238" column="9"/>
-      </memberdef>
-      </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

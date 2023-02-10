@@ -126,7 +126,7 @@
         <location file="libs/render/src/render/scalablesprite.h" line="39" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ScalableSprite_1a5d9152071bcc635dda134fe561b2af5d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
         <definition>core::size2f euphoria::render::ScalableSprite::get_minimum_size</definition>
         <argsstring>() const</argsstring>
         <name>get_minimum_size</name>
@@ -148,7 +148,7 @@
           <declname>renderer</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>rect</declname>
         </param>
         <param>

@@ -210,7 +210,7 @@
         <location file="libs/core/src/core/table.h" line="56" column="9" bodyfile="libs/core/src/core/table.h" bodystart="56" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a6cb8c8f1dc3e864c14f24d886a3406f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a18429a488f4a0c6d17b4a84fe0dac703" kindref="member">Recti</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref></type>
         <definition>Recti euphoria::core::Table&lt; T &gt;::get_indices</definition>
         <argsstring>() const</argsstring>
         <name>get_indices</name>

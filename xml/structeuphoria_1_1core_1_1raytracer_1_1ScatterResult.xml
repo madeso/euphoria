@@ -46,6 +46,12 @@
           <edgelabel>attenuation</edgelabel>
         </childnode>
       </node>
+      <node id="4">
+        <label>euphoria::core::unit3f</label>
+        <link refid="structeuphoria_1_1core_1_1unit3f"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
       <node id="2">
         <label>euphoria::core::UnitRay3f</label>
         <link refid="structeuphoria_1_1core_1_1UnitRay3f"/>
@@ -60,13 +66,9 @@
         <label>euphoria::core::rgb</label>
         <link refid="structeuphoria_1_1core_1_1rgb"/>
       </node>
-      <node id="4">
-        <label>euphoria::core::unit3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1unit3"/>
-      </node>
       <node id="3">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/raytracer.h" line="25" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="24" bodyend="28"/>

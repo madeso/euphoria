@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1size2f" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::size2f</compoundname>
+    <includes refid="size2_8h" local="no">size2.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1size2f_1ac31e1f17f6334352d1a1fdc0ac38d302" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::size2f::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="13" column="15" bodyfile="libs/core/src/core/size2.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1size2f_1aa7b9bf6ab5a918a387dbcd42f8a6681b" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::size2f::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="14" column="15" bodyfile="libs/core/src/core/size2.h" bodystart="14" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1a21d6de8f77a5e9dff36a464b8860ae33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::size2f::size2f</definition>
+        <argsstring>()</argsstring>
+        <name>size2f</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="16" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1abf58ba1f09962bddcaafcd05133f4970" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::size2f::operator+=</definition>
+        <argsstring>(const size2f &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="32" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1a2bbed877c16552426ec821e1b77e1043" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::size2f::operator-=</definition>
+        <argsstring>(const size2f &amp;rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="36" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1a83c8897a5809ce9396d2733e5ae4bc99" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::size2f::operator*=</definition>
+        <argsstring>(float rhs)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>float</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="40" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1a0673d664634161dc90929a68207fdb8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::size2f::operator/=</definition>
+        <argsstring>(float rhs)</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>float</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="44" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1a9a1528c3e853c88cba7d6b26d9e54cb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f euphoria::core::size2f::calculate_center_offset_for</definition>
+        <argsstring>(const size2f &amp;o)</argsstring>
+        <name>calculate_center_offset_for</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref> &amp;</type>
+          <declname>o</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="48" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1a0d32ccd83910e2d4cd3b7d7f69cb9632" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>static size2f euphoria::core::size2f::create_from_width_height</definition>
+        <argsstring>(float w, float h)</argsstring>
+        <name>create_from_width_height</name>
+        <param>
+          <type>float</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="20" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1a20728b292bba182d2e313b403a9632c7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>static size2f euphoria::core::size2f::create_from_height_width</definition>
+        <argsstring>(float h, float w)</argsstring>
+        <name>create_from_height_width</name>
+        <param>
+          <type>float</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>w</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="24" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1a7eec11a86cd324d1cf6f3ed8e62671fa" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">size2f</ref></type>
+        <definition>static size2f euphoria::core::size2f::create_from_square</definition>
+        <argsstring>(float s)</argsstring>
+        <name>create_from_square</name>
+        <param>
+          <type>float</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="28" column="9"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1size2f_1ace19faa0823e92f4ca2ec66ab479b389" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::size2f::size2f</definition>
+        <argsstring>(float w, float h)</argsstring>
+        <name>size2f</name>
+        <param>
+          <type>float</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/size2.h" line="52" column="9"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/size2.h" line="12" column="1" bodyfile="libs/core/src/core/size2.h" bodystart="11" bodyend="53"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1size2f_1a9a1528c3e853c88cba7d6b26d9e54cb5" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>calculate_center_offset_for</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1a20728b292bba182d2e313b403a9632c7" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>create_from_height_width</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1a7eec11a86cd324d1cf6f3ed8e62671fa" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>create_from_square</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1a0d32ccd83910e2d4cd3b7d7f69cb9632" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>create_from_width_height</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1aa7b9bf6ab5a918a387dbcd42f8a6681b" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>height</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1a83c8897a5809ce9396d2733e5ae4bc99" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>operator*=</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1abf58ba1f09962bddcaafcd05133f4970" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>operator+=</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1a2bbed877c16552426ec821e1b77e1043" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>operator-=</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1a0673d664634161dc90929a68207fdb8f" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>operator/=</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1a21d6de8f77a5e9dff36a464b8860ae33" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>size2f</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1ace19faa0823e92f4ca2ec66ab479b389" prot="private" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>size2f</name></member>
+      <member refid="structeuphoria_1_1core_1_1size2f_1ac31e1f17f6334352d1a1fdc0ac38d302" prot="public" virt="non-virtual"><scope>euphoria::core::size2f</scope><name>width</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

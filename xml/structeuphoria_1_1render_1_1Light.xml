@@ -52,7 +52,7 @@
         <location file="libs/render/src/render/light.h" line="30" column="14" bodyfile="libs/render/src/render/light.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1ae0cf4c315d5a88a50c8bee3e543e9e2f" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref></type>
         <definition>core::vec3f euphoria::render::Light::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -65,7 +65,7 @@
         <location file="libs/render/src/render/light.h" line="31" column="21" bodyfile="libs/render/src/render/light.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1ac20ff1d8161ad3cd35b26f126aeed678" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">core::unit3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">core::unit3f</ref></type>
         <definition>core::unit3f euphoria::render::Light::direction</definition>
         <argsstring></argsstring>
         <name>direction</name>
@@ -176,7 +176,13 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="4">
+      <node id="5">
+        <label>euphoria::core::unit3f</label>
+        <link refid="structeuphoria_1_1core_1_1unit3f"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
         <label>euphoria::core::rgb</label>
         <link refid="structeuphoria_1_1core_1_1rgb"/>
       </node>
@@ -184,25 +190,35 @@
         <label>euphoria::render::Light</label>
         <link refid="structeuphoria_1_1render_1_1Light"/>
         <childnode refid="2" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
           <edgelabel>cutoff_angle_inner</edgelabel>
           <edgelabel>cutoff_angle_outer</edgelabel>
         </childnode>
-        <childnode refid="3" relation="usage">
+        <childnode refid="4" relation="usage">
           <edgelabel>attenuation</edgelabel>
         </childnode>
-        <childnode refid="4" relation="usage">
+        <childnode refid="5" relation="usage">
+          <edgelabel>direction</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
           <edgelabel>ambient</edgelabel>
           <edgelabel>diffuse</edgelabel>
           <edgelabel>specular</edgelabel>
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>euphoria::render::LightAttenuation</label>
         <link refid="structeuphoria_1_1render_1_1LightAttenuation"/>
       </node>
-      <node id="2">
+      <node id="3">
         <label>euphoria::core::angle</label>
         <link refid="structeuphoria_1_1core_1_1angle"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/light.h" line="18" column="1" bodyfile="libs/render/src/render/light.h" bodystart="17" bodyend="40"/>

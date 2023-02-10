@@ -272,7 +272,7 @@
           <declname>shift_state</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kindref="member">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>mouse</declname>
         </param>
         <param>
@@ -479,7 +479,7 @@
         <location file="libs/core/src/core/camera3.editor.h" line="118" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1ac9808b86a056e0f420bdbeee2286cf11" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type>std::optional&lt; <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &gt;</type>
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
         <definition>virtual std::optional&lt;vec3f&gt; euphoria::core::EditorCamera3::raycast</definition>
         <argsstring>(const UnitRay3f &amp;ray)=0</argsstring>
         <name>raycast</name>
@@ -548,8 +548,8 @@
         <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="3">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/camera3.editor.h" line="70" column="1" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="69" bodyend="142"/>

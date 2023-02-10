@@ -170,7 +170,7 @@
         <location file="libs/core/src/core/dump.h" line="119" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1Dumper_1a31a5626c085684bb56a49ed46959aaaf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::pair&lt; <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref>, <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &gt;</type>
+        <type>std::pair&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref>, <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::pair&lt;vec2f,vec2f&gt; euphoria::core::dump2d::Dumper::calculate_size_and_offset</definition>
         <argsstring>() const</argsstring>
         <name>calculate_size_and_offset</name>

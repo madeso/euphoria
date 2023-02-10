@@ -6,7 +6,7 @@
     <includes refid="propertytree_8h" local="no">propertytree.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Vec3fValue_1a3c8c83df1ec04744bbe13e85be96d66b" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::Vec3fValue::value</definition>
         <argsstring></argsstring>
         <name>value</name>
@@ -26,7 +26,7 @@
         <argsstring>(const vec3f &amp;v)</argsstring>
         <name>Vec3fValue</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -40,7 +40,7 @@
       </sectiondef>
       <sectiondef kind="public-static-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec3fValue_1af108b6731e1be3b574a6f84046321be7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
         <definition>static vec3f&amp; euphoria::core::Vec3fValue::cast</definition>
         <argsstring>(core::Value *value)</argsstring>
         <name>cast</name>
@@ -84,8 +84,8 @@
         </childnode>
       </node>
       <node id="3">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
       <node id="2">
         <label>euphoria::core::Value</label>

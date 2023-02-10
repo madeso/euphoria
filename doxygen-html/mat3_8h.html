@@ -53,8 +53,6 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#define-members">Macros</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">mat3.h File Reference</div>  </div>
@@ -70,7 +68,7 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1mat3.html">euphoria::core::mat3&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1mat3f.html">euphoria::core::mat3f</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -80,128 +78,19 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceeuphoria_1_1core"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html">euphoria::core</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a52267107dd1016c80abd3e27e445e437"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat3_8h.html#a52267107dd1016c80abd3e27e445e437">OP</a>(i)&#160;&#160;&#160;data[i] += rhs.data[i]</td></tr>
-<tr class="separator:a52267107dd1016c80abd3e27e445e437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52267107dd1016c80abd3e27e445e437"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat3_8h.html#a52267107dd1016c80abd3e27e445e437">OP</a>(i)&#160;&#160;&#160;data[i] -= rhs.data[i]</td></tr>
-<tr class="separator:a52267107dd1016c80abd3e27e445e437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c80fab70a39bdaff699abc7fd6f7c29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat3_8h.html#a6c80fab70a39bdaff699abc7fd6f7c29">OP</a>(r,  c)&#160;&#160;&#160;component_multiply(vec3{lhs.get_row(r)}, vec3{rhs.get_column(c)}).get_component_sum()</td></tr>
-<tr class="separator:a6c80fab70a39bdaff699abc7fd6f7c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3fad4870192fbb33f78583fbb0cc502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat3_8h.html#ad3fad4870192fbb33f78583fbb0cc502">OP</a>(r)&#160;&#160;&#160;component_multiply(vec3{lhs.get_row(r)}, rhs).get_component_sum()</td></tr>
-<tr class="separator:ad3fad4870192fbb33f78583fbb0cc502"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a8bd846ca11a82406a9ab443ded9100bf"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a8bd846ca11a82406a9ab443ded9100bf">euphoria::core::mat3f</a> = mat3&lt; float &gt;</td></tr>
-<tr class="separator:a8bd846ca11a82406a9ab443ded9100bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae137a6c3877993b64183b19c46a1cf88"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae137a6c3877993b64183b19c46a1cf88">euphoria::core::mat3i</a> = mat3&lt; int &gt;</td></tr>
-<tr class="separator:ae137a6c3877993b64183b19c46a1cf88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad5bae0df89a004c59402d968c0c833ba"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad5bae0df89a004c59402d968c0c833ba"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad5bae0df89a004c59402d968c0c833ba">euphoria::core::operator==</a> (const mat3&lt; T &gt; &amp;lhs, const mat3&lt; T &gt; &amp;rhs)</td></tr>
-<tr class="separator:ad5bae0df89a004c59402d968c0c833ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2f2e30360ba3479b9141de28aaaa5bb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:af2f2e30360ba3479b9141de28aaaa5bb"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#af2f2e30360ba3479b9141de28aaaa5bb">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;stream, const mat3&lt; T &gt; &amp;m)</td></tr>
-<tr class="separator:af2f2e30360ba3479b9141de28aaaa5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3067c8a922af7d03d4021258c4b31909"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a3067c8a922af7d03d4021258c4b31909"><td class="memTemplItemLeft" align="right" valign="top">mat3&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a3067c8a922af7d03d4021258c4b31909">euphoria::core::operator+</a> (const mat3&lt; T &gt; &amp;lhs, const mat3&lt; T &gt; rhs)</td></tr>
-<tr class="separator:a3067c8a922af7d03d4021258c4b31909"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56ab5226f483bf71e3b14e6be0a52ed7"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a56ab5226f483bf71e3b14e6be0a52ed7"><td class="memTemplItemLeft" align="right" valign="top">mat3&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a56ab5226f483bf71e3b14e6be0a52ed7">euphoria::core::operator-</a> (const mat3&lt; T &gt; &amp;lhs, const mat3&lt; T &gt; rhs)</td></tr>
-<tr class="separator:a56ab5226f483bf71e3b14e6be0a52ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad485081994b6615da9ad5f8c76fa2568"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad485081994b6615da9ad5f8c76fa2568"><td class="memTemplItemLeft" align="right" valign="top">mat3&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad485081994b6615da9ad5f8c76fa2568">euphoria::core::operator*</a> (const mat3&lt; T &gt; &amp;lhs, const mat3&lt; T &gt; rhs)</td></tr>
-<tr class="separator:ad485081994b6615da9ad5f8c76fa2568"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad346f877855031be3684b2e5fcccaa30"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad346f877855031be3684b2e5fcccaa30"><td class="memTemplItemLeft" align="right" valign="top">vec3&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad346f877855031be3684b2e5fcccaa30">euphoria::core::operator*</a> (const mat3&lt; T &gt; &amp;lhs, const vec3&lt; T &gt; rhs)</td></tr>
-<tr class="separator:ad346f877855031be3684b2e5fcccaa30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a17892c8b5b8098d485a6b6a9bb324f0d"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a17892c8b5b8098d485a6b6a9bb324f0d">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;stream, const mat3f &amp;m)</td></tr>
+<tr class="separator:a17892c8b5b8098d485a6b6a9bb324f0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9b0d60e5e48cef4fe4333af0e6dee7b"><td class="memItemLeft" align="right" valign="top">mat3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ad9b0d60e5e48cef4fe4333af0e6dee7b">euphoria::core::operator+</a> (const mat3f &amp;lhs, const mat3f rhs)</td></tr>
+<tr class="separator:ad9b0d60e5e48cef4fe4333af0e6dee7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9001055c58254ab3819b63abaeb793e7"><td class="memItemLeft" align="right" valign="top">mat3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a9001055c58254ab3819b63abaeb793e7">euphoria::core::operator-</a> (const mat3f &amp;lhs, const mat3f rhs)</td></tr>
+<tr class="separator:a9001055c58254ab3819b63abaeb793e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57dbf725d428f38a285e2ec6fb884bc7"><td class="memItemLeft" align="right" valign="top">mat3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a57dbf725d428f38a285e2ec6fb884bc7">euphoria::core::operator*</a> (const mat3f &amp;lhs, const mat3f rhs)</td></tr>
+<tr class="separator:a57dbf725d428f38a285e2ec6fb884bc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e5b7f2c0d4caa1c38dd06f12370b6be"><td class="memItemLeft" align="right" valign="top">vec3f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a5e5b7f2c0d4caa1c38dd06f12370b6be">euphoria::core::operator*</a> (const mat3f &amp;lhs, const vec3f rhs)</td></tr>
+<tr class="separator:a5e5b7f2c0d4caa1c38dd06f12370b6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a52267107dd1016c80abd3e27e445e437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52267107dd1016c80abd3e27e445e437">&#9670;&nbsp;</a></span>OP <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OP</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">i</td><td>)</td>
-          <td>&#160;&#160;&#160;data[i] += rhs.data[i]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a52267107dd1016c80abd3e27e445e437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52267107dd1016c80abd3e27e445e437">&#9670;&nbsp;</a></span>OP <span class="overload">[2/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OP</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">i</td><td>)</td>
-          <td>&#160;&#160;&#160;data[i] -= rhs.data[i]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ad3fad4870192fbb33f78583fbb0cc502"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad3fad4870192fbb33f78583fbb0cc502">&#9670;&nbsp;</a></span>OP <span class="overload">[3/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OP</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">r</td><td>)</td>
-          <td>&#160;&#160;&#160;component_multiply(vec3{lhs.get_row(r)}, rhs).get_component_sum()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a6c80fab70a39bdaff699abc7fd6f7c29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c80fab70a39bdaff699abc7fd6f7c29">&#9670;&nbsp;</a></span>OP <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OP</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">r, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">c&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td>&#160;&#160;&#160;component_multiply(vec3{lhs.get_row(r)}, vec3{rhs.get_column(c)}).get_component_sum()</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

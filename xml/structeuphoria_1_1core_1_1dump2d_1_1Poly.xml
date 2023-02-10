@@ -73,7 +73,7 @@
         <location file="libs/core/src/core/dump.h" line="33" column="21" bodyfile="libs/core/src/core/dump.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1Poly_1ae95d9d7be1743616c87190d8386eb2b5" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::vector&lt;vec2f&gt; euphoria::core::dump2d::Poly::points</definition>
         <argsstring></argsstring>
         <name>points</name>

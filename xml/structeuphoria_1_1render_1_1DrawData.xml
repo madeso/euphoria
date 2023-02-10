@@ -18,7 +18,7 @@
         <location file="libs/render/src/render/spriterender.h" line="24" column="21" bodyfile="libs/render/src/render/spriterender.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawData_1a72204521d6ac9fb02ea408c8de2733ed" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a8b5a6dd14d0dfa498bde24a677e6faff" kindref="member">core::Scale2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref></type>
         <definition>core::Scale2f euphoria::render::DrawData::scale</definition>
         <argsstring></argsstring>
         <name>scale</name>
@@ -81,7 +81,7 @@
         <argsstring>(const core::Scale2f &amp;s)</argsstring>
         <name>set_scale</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a8b5a6dd14d0dfa498bde24a677e6faff" kindref="member">core::Scale2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref> &amp;</type>
           <declname>s</declname>
         </param>
         <briefdescription>
@@ -122,6 +122,9 @@
           <edgelabel>rotation</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
+          <edgelabel>scale</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
           <edgelabel>tint</edgelabel>
         </childnode>
       </node>
@@ -129,9 +132,13 @@
         <label>euphoria::core::angle</label>
         <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
-      <node id="3">
+      <node id="4">
         <label>euphoria::core::rgba</label>
         <link refid="structeuphoria_1_1core_1_1rgba"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::Scale2f</label>
+        <link refid="structeuphoria_1_1core_1_1Scale2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/render/src/render/spriterender.h" line="22" column="1" bodyfile="libs/render/src/render/spriterender.h" bodystart="21" bodyend="36"/>

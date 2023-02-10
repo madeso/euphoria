@@ -68,7 +68,7 @@
         <argsstring>(core::Rectf area)</argsstring>
         <name>do_layout</name>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
           <declname>area</declname>
         </param>
         <briefdescription>
@@ -80,7 +80,7 @@
         <location file="libs/gui/src/gui/layoutcontainer.h" line="37" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1LayoutContainer_1a9bc9f5a859a1fe259f6b06a68d43e09d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
         <definition>core::size2f euphoria::gui::LayoutContainer::calculate_minimum_area</definition>
         <argsstring>() const</argsstring>
         <name>calculate_minimum_area</name>

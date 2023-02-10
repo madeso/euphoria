@@ -1,0 +1,429 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1vec3f" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::vec3f</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1unit3f" prot="public" virt="non-virtual">euphoria::core::unit3f</derivedcompoundref>
+    <includes refid="vec3_8h" local="no">vec3.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1vec3f_1ad7ad982fc92538514fb1632afae1c684" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::vec3f::x</definition>
+        <argsstring></argsstring>
+        <name>x</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="51" column="15" bodyfile="libs/core/src/core/vec3.h" bodystart="51" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1vec3f_1abd7df2141e91b424fdfed7a4606462e9" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::vec3f::y</definition>
+        <argsstring></argsstring>
+        <name>y</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="52" column="15" bodyfile="libs/core/src/core/vec3.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1vec3f_1a47cdad5aa1182e33d47dc134c88ded3d" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::vec3f::z</definition>
+        <argsstring></argsstring>
+        <name>z</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="53" column="15" bodyfile="libs/core/src/core/vec3.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1aa2b6680577d69f7cece624b861ef93e6" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::vec3f::vec3f</definition>
+        <argsstring>(float a)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="55" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a2f097a326c912377e54c5aa30483c0cb" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::vec3f::vec3f</definition>
+        <argsstring>(const std::tuple&lt; float, float, float &gt; &amp;a)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>const std::tuple&lt; float, float, float &gt; &amp;</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="56" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a523d3546d5e2c18c56f4403ef27fba64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::vec3f::vec3f</definition>
+        <argsstring>(float ax, float ay, float az)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>float</type>
+          <declname>ax</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>ay</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>az</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="57" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a11e61cd406033cf605002a70c0adeeb7" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::vec3f::vec3f</definition>
+        <argsstring>(const float *a)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>const float *</type>
+          <declname>a</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="58" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a37c1dca60b85337ce41bdc056c0d69ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::vec3f::vec3f</definition>
+        <argsstring>(const vec2f &amp;a, float az)</argsstring>
+        <name>vec3f</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>az</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="59" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a27fc03f33a011baeeece423970a9a202" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::vec3f::operator+=</definition>
+        <argsstring>(const vec3f &amp;rhs)</argsstring>
+        <name>operator+=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="64" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a600514063ab66a368b1f427b58cdf5e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::vec3f::operator-=</definition>
+        <argsstring>(const vec3f &amp;rhs)</argsstring>
+        <name>operator-=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="65" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1af13dc287c66c44c8ad8b9c7ccf167c0c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::vec3f::operator/=</definition>
+        <argsstring>(float rhs)</argsstring>
+        <name>operator/=</name>
+        <param>
+          <type>float</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="66" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a1b6f9c977c8fe91e7800089b0d2c28bc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::vec3f::operator*=</definition>
+        <argsstring>(float rhs)</argsstring>
+        <name>operator*=</name>
+        <param>
+          <type>float</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="67" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a3d70f8ca899bbd74b77f72a9772da8da" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::vec3f::operator-</definition>
+        <argsstring>() const</argsstring>
+        <name>operator-</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="68" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a23941d80835ffc50dd09acc7d0b5c7dc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::core::vec3f::get_component_sum</definition>
+        <argsstring>() const</argsstring>
+        <name>get_component_sum</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="70" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a23cb3db8c144ded0965be183f6855241" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float *</type>
+        <definition>float* euphoria::core::vec3f::get_data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="72" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1aa28c7cbc01178e792633ca252797edbb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>const float *</type>
+        <definition>const float* euphoria::core::vec3f::get_data_ptr</definition>
+        <argsstring>() const</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="73" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1ac9f1aed5d4de9d9cab26e1e42a1eb6fe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::core::vec3f::get_length_squared</definition>
+        <argsstring>() const</argsstring>
+        <name>get_length_squared</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="75" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1aef0537cd1db5279ffc6b2c694b3a38ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::core::vec3f::get_length</definition>
+        <argsstring>() const</argsstring>
+        <name>get_length</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="76" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1ad842f991e2c08b9068483708872f9ea2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::vec3f::normalize</definition>
+        <argsstring>()</argsstring>
+        <name>normalize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="78" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1a5e01795cc55c188bd4c8fac936868b31" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f euphoria::core::vec3f::get_normalized</definition>
+        <argsstring>() const</argsstring>
+        <name>get_normalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="79" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1acf826c8b096c8838f6d9dbb699b11f08" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
+        <definition>unit3f euphoria::core::vec3f::as_normalized</definition>
+        <argsstring>() const</argsstring>
+        <name>as_normalized</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="82" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1afaba6b8c740e24863c0f65af93a34cd5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::vec3f::operator==</definition>
+        <argsstring>(const vec3f &amp;rhs)=delete</argsstring>
+        <name>operator==</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="84" column="14"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1abac57e199c628d85dd4f92afccca1aaf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>static vec3f euphoria::core::vec3f::from_to</definition>
+        <argsstring>(const vec3f &amp;from, const vec3f &amp;to)</argsstring>
+        <name>from_to</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="61" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec3f_1af77ec468b82d68a095ab5b3c91cc6a73" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>static vec3f euphoria::core::vec3f::zero</definition>
+        <argsstring>()</argsstring>
+        <name>zero</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec3.h" line="62" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::unit3f</label>
+        <link refid="structeuphoria_1_1core_1_1unit3f"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/vec3.h" line="50" column="1" bodyfile="libs/core/src/core/vec3.h" bodystart="49" bodyend="85"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1acf826c8b096c8838f6d9dbb699b11f08" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>as_normalized</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1abac57e199c628d85dd4f92afccca1aaf" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>from_to</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a23941d80835ffc50dd09acc7d0b5c7dc" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_component_sum</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a23cb3db8c144ded0965be183f6855241" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1aa28c7cbc01178e792633ca252797edbb" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_data_ptr</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1aef0537cd1db5279ffc6b2c694b3a38ed" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_length</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1ac9f1aed5d4de9d9cab26e1e42a1eb6fe" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_length_squared</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a5e01795cc55c188bd4c8fac936868b31" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>get_normalized</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1ad842f991e2c08b9068483708872f9ea2" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>normalize</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a1b6f9c977c8fe91e7800089b0d2c28bc" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>operator*=</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a27fc03f33a011baeeece423970a9a202" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>operator+=</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a3d70f8ca899bbd74b77f72a9772da8da" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>operator-</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a600514063ab66a368b1f427b58cdf5e3" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>operator-=</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1af13dc287c66c44c8ad8b9c7ccf167c0c" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>operator/=</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1afaba6b8c740e24863c0f65af93a34cd5" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>operator==</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1aa2b6680577d69f7cece624b861ef93e6" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a2f097a326c912377e54c5aa30483c0cb" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a523d3546d5e2c18c56f4403ef27fba64" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a11e61cd406033cf605002a70c0adeeb7" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a37c1dca60b85337ce41bdc056c0d69ee" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>vec3f</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1ad7ad982fc92538514fb1632afae1c684" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>x</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1abd7df2141e91b424fdfed7a4606462e9" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>y</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1a47cdad5aa1182e33d47dc134c88ded3d" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>z</name></member>
+      <member refid="structeuphoria_1_1core_1_1vec3f_1af77ec468b82d68a095ab5b3c91cc6a73" prot="public" virt="non-virtual"><scope>euphoria::core::vec3f</scope><name>zero</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -137,7 +137,7 @@
           <declname>alpha</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>where</declname>
         </param>
         <briefdescription>

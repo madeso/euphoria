@@ -366,7 +366,7 @@
         <argsstring>(const core::vec2f &amp;v)</argsstring>
         <name>con</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -378,7 +378,7 @@
         <location file="libs/window/src/window/imgui_extra.h" line="45" column="5" declfile="libs/window/src/window/imgui_extra.h" declline="45" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1af7d69f16131fa15d643017e2c0be2c14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
         <definition>core::vec2f euphoria::window::con</definition>
         <argsstring>(const ImVec2 &amp;v)</argsstring>
         <name>con</name>

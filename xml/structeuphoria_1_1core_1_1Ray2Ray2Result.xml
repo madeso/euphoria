@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/intersection.h" line="136" column="14" bodyfile="libs/core/src/core/intersection.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Ray2Ray2Result_1af55c2b21060e76aa61d19673e5132bc9" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::Ray2Ray2Result::point</definition>
         <argsstring></argsstring>
         <name>point</name>
@@ -83,8 +83,8 @@
         </childnode>
       </node>
       <node id="2">
-        <label>euphoria::core::vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec2"/>
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/intersection.h" line="134" column="1" bodyfile="libs/core/src/core/intersection.h" bodystart="133" bodyend="141"/>

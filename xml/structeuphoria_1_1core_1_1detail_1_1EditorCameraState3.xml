@@ -158,7 +158,7 @@
           <declname>shift_state</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kindref="member">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>mouse</declname>
         </param>
         <param>

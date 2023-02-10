@@ -127,11 +127,11 @@
           <declname>texture</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>sprite_area</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>texture_region</declname>
         </param>
         <param>
@@ -139,7 +139,7 @@
           <declname>rotation_angle</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a8b5a6dd14d0dfa498bde24a677e6faff" kindref="member">core::Scale2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref> &amp;</type>
           <declname>rotation_anchor</declname>
         </param>
         <param>
@@ -164,7 +164,7 @@
           <declname>texture</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>position</declname>
         </param>
         <param>
@@ -190,7 +190,7 @@
           <declname>ninepatch</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>rect</declname>
         </param>
         <param>

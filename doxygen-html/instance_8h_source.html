@@ -81,25 +81,24 @@
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        (</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;            <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a>&amp; projection_matrix,</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a>&amp; view_matrix,</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vec3.html">core::vec3f</a>&amp; camera,</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;            <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vec3f.html">core::vec3f</a>&amp; camera,</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;            <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1render_1_1Light.html">Light</a>&amp; light</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        ) = 0;</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structeuphoria_1_1render_1_1Instance.html#aa8b9db17cb0fb1ddc2587b0a82a2538d">   32</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structeuphoria_1_1render_1_1Instance.html#aa8b9db17cb0fb1ddc2587b0a82a2538d">remove_this</a> = <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structeuphoria_1_1render_1_1Instance.html#a2dfbae9d4604b87fa25a1941678526b0">   34</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1vec3.html">core::vec3f</a> <a class="code" href="structeuphoria_1_1render_1_1Instance.html#a2dfbae9d4604b87fa25a1941678526b0">position</a>;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structeuphoria_1_1render_1_1Instance.html#a2dfbae9d4604b87fa25a1941678526b0">   34</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1vec3f.html">core::vec3f</a> <a class="code" href="structeuphoria_1_1render_1_1Instance.html#a2dfbae9d4604b87fa25a1941678526b0">position</a>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structeuphoria_1_1render_1_1Instance.html#afcfee5f48ac62a7ad645a24acc25a41a">   35</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1quatf.html">core::quatf</a> <a class="code" href="structeuphoria_1_1render_1_1Instance.html#afcfee5f48ac62a7ad645a24acc25a41a">rotation</a>;</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    };</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    [[nodiscard]] <a class="code" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <a class="code" href="namespaceeuphoria_1_1render.html#a1c09c5a0e9b680744d32503b9caa1a86">calculate_model_matrix</a></div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    (</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vec3.html">core::vec3f</a>&amp; position,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vec3f.html">core::vec3f</a>&amp; position,</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1quatf.html">core::quatf</a>&amp; rotation</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    );</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructeuphoria_1_1core_1_1vec3_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1vec3.html">euphoria::core::vec3&lt; float &gt;</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1render_1_1Instance_html_afa992d97f0c0581b85bc36dcf98e01d9"><div class="ttname"><a href="structeuphoria_1_1render_1_1Instance.html#afa992d97f0c0581b85bc36dcf98e01d9">euphoria::render::Instance::calculate_model_matrix</a></div><div class="ttdeci">core::mat4f calculate_model_matrix() const</div></div>
 <div class="ttc" id="avec3_8h_html"><div class="ttname"><a href="vec3_8h.html">vec3.h</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1render_1_1Instance_html_a2dfbae9d4604b87fa25a1941678526b0"><div class="ttname"><a href="structeuphoria_1_1render_1_1Instance.html#a2dfbae9d4604b87fa25a1941678526b0">euphoria::render::Instance::position</a></div><div class="ttdeci">core::vec3f position</div><div class="ttdef"><b>Definition:</b> <a href="instance_8h_source.html#l00034">instance.h:34</a></div></div>
@@ -109,6 +108,7 @@
 <div class="ttc" id="astructeuphoria_1_1render_1_1Instance_html_ae050d276f1fdd05b3035b6d4c93319a6"><div class="ttname"><a href="structeuphoria_1_1render_1_1Instance.html#ae050d276f1fdd05b3035b6d4c93319a6">euphoria::render::Instance::~Instance</a></div><div class="ttdeci">virtual ~Instance()=default</div></div>
 <div class="ttc" id="astructeuphoria_1_1render_1_1Instance_html_aa8b9db17cb0fb1ddc2587b0a82a2538d"><div class="ttname"><a href="structeuphoria_1_1render_1_1Instance.html#aa8b9db17cb0fb1ddc2587b0a82a2538d">euphoria::render::Instance::remove_this</a></div><div class="ttdeci">bool remove_this</div><div class="ttdef"><b>Definition:</b> <a href="instance_8h_source.html#l00032">instance.h:32</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1render_html"><div class="ttname"><a href="namespaceeuphoria_1_1render.html">euphoria::render</a></div><div class="ttdef"><b>Definition:</b> <a href="button_8h_source.html#l00015">button.h:15</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1vec3f_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1vec3f.html">euphoria::core::vec3f</a></div><div class="ttdef"><b>Definition:</b> <a href="vec3_8h_source.html#l00049">vec3.h:49</a></div></div>
 <div class="ttc" id="aquat_8h_html"><div class="ttname"><a href="quat_8h.html">quat.h</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1render_1_1Instance_html_afcfee5f48ac62a7ad645a24acc25a41a"><div class="ttname"><a href="structeuphoria_1_1render_1_1Instance.html#afcfee5f48ac62a7ad645a24acc25a41a">euphoria::render::Instance::rotation</a></div><div class="ttdeci">core::quatf rotation</div><div class="ttdef"><b>Definition:</b> <a href="instance_8h_source.html#l00035">instance.h:35</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1render_1_1Instance_html"><div class="ttname"><a href="structeuphoria_1_1render_1_1Instance.html">euphoria::render::Instance</a></div><div class="ttdef"><b>Definition:</b> <a href="instance_8h_source.html#l00013">instance.h:13</a></div></div>
@@ -117,7 +117,7 @@
 <div class="ttc" id="astructeuphoria_1_1render_1_1Instance_html_a605b012975c03862c2f772718ee29f6b"><div class="ttname"><a href="structeuphoria_1_1render_1_1Instance.html#a605b012975c03862c2f772718ee29f6b">euphoria::render::Instance::Instance</a></div><div class="ttdeci">Instance()</div></div>
 <div class="ttc" id="astructeuphoria_1_1render_1_1Light_html"><div class="ttname"><a href="structeuphoria_1_1render_1_1Light.html">euphoria::render::Light</a></div><div class="ttdef"><b>Definition:</b> <a href="light_8h_source.html#l00017">light.h:17</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1render_1_1Instance_html_ac7c94bbaa128b1d2f00ca10a346f7beb"><div class="ttname"><a href="structeuphoria_1_1render_1_1Instance.html#ac7c94bbaa128b1d2f00ca10a346f7beb">euphoria::render::Instance::NONCOPYABLE</a></div><div class="ttdeci">NONCOPYABLE(Instance)</div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1mat4f_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1mat4f.html">euphoria::core::mat4f</a></div><div class="ttdef"><b>Definition:</b> <a href="mat4_8h_source.html#l00015">mat4.h:15</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1mat4f_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1mat4f.html">euphoria::core::mat4f</a></div><div class="ttdef"><b>Definition:</b> <a href="mat4_8h_source.html#l00013">mat4.h:13</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

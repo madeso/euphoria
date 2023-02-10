@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Vec2fTransform" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Vec2fTransform</compoundname>
+    <includes refid="vec2_8h" local="no">vec2.h</includes>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Vec2fTransform_1a2189ef941052e0987c827e34c6a703e4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>static vec2f euphoria::core::Vec2fTransform::transform</definition>
+        <argsstring>(const vec2f &amp;from, float v, const vec2f &amp;to)</argsstring>
+        <name>transform</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>from</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec2.h" line="186" column="22"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Transform. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/vec2.h" line="185" column="1" bodyfile="libs/core/src/core/vec2.h" bodystart="184" bodyend="187"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Vec2fTransform_1a2189ef941052e0987c827e34c6a703e4" prot="public" virt="non-virtual"><scope>euphoria::core::Vec2fTransform</scope><name>transform</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

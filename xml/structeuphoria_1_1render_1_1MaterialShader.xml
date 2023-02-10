@@ -426,7 +426,7 @@
           <declname>light</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">core::vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> &amp;</type>
           <declname>camera</declname>
         </param>
         <briefdescription>

@@ -436,7 +436,8 @@
         <link refid="table__string_8h"/>
       </node>
     </invincdepgraph>
-    <innerclass refid="structeuphoria_1_1core_1_1Rect" prot="public">euphoria::core::Rect</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Rectf" prot="public">euphoria::core::Rectf</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1Recti" prot="public">euphoria::core::Recti</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

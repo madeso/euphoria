@@ -54,7 +54,7 @@
         <location file="libs/core/src/core/polarcoord.h" line="13" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1PolarCoordinate_1afb400154a4079245d5c2444626496497" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kindref="member">unit3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
         <definition>unit3f euphoria::core::PolarCoordinate::to_unit_vector</definition>
         <argsstring>() const</argsstring>
         <name>to_unit_vector</name>

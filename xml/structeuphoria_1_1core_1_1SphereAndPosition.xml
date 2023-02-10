@@ -18,7 +18,7 @@
         <location file="libs/core/src/core/sphere.position.h" line="11" column="16" bodyfile="libs/core/src/core/sphere.position.h" bodystart="11" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1SphereAndPosition_1a1988c9c56517262aba5f2f3e81b029fb" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::SphereAndPosition::center</definition>
         <argsstring></argsstring>
         <name>center</name>
@@ -51,8 +51,8 @@
         <link refid="structeuphoria_1_1core_1_1Sphere"/>
       </node>
       <node id="2">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
     <location file="libs/core/src/core/sphere.position.h" line="10" column="1" bodyfile="libs/core/src/core/sphere.position.h" bodystart="9" bodyend="13"/>

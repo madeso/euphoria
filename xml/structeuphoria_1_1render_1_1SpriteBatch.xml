@@ -132,19 +132,19 @@
         <argsstring>(const core::vec2f &amp;pos, const core::size2f &amp;quad, const core::Rectf &amp;uv, const core::Scale2f &amp;center, const core::angle &amp;rotation, const core::rgba &amp;color)</argsstring>
         <name>quad</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">core::vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
           <declname>pos</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref> &amp;</type>
           <declname>quad</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>uv</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a8b5a6dd14d0dfa498bde24a677e6faff" kindref="member">core::Scale2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref> &amp;</type>
           <declname>center</declname>
         </param>
         <param>

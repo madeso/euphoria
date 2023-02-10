@@ -34,7 +34,7 @@
         <location file="libs/core/src/core/generator_maze.h" line="70" column="22" bodyfile="libs/core/src/core/generator_maze.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a2c782e77a2a74829b77829c0f0529f16" prot="public" static="no" mutable="no">
-        <type>std::stack&lt; <ref refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kindref="member">vec2i</ref> &gt;</type>
+        <type>std::stack&lt; <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &gt;</type>
         <definition>std::stack&lt;vec2i&gt; euphoria::core::generator::RecursiveBacktracker::stack</definition>
         <argsstring></argsstring>
         <name>stack</name>

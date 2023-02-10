@@ -5,7 +5,7 @@
     <includes refid="poisson_8h" local="no">poisson.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1acca7b2f02a12af990148b61a62d5f07c" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">Rectf</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref></type>
         <definition>Rectf euphoria::core::PoissonWorker::area</definition>
         <argsstring></argsstring>
         <name>area</name>
@@ -109,7 +109,7 @@
         <location file="libs/core/src/core/poisson.h" line="27" column="21" bodyfile="libs/core/src/core/poisson.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1a822eb711790b9946991990c5cb68b842" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::vector&lt;vec2f&gt; euphoria::core::PoissonWorker::samples</definition>
         <argsstring></argsstring>
         <name>samples</name>
@@ -129,7 +129,7 @@
         <argsstring>(const Rectf &amp;area, Random *random, float r, float bs, int k)</argsstring>
         <name>PoissonWorker</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">Rectf</ref> &amp;</type>
           <declname>area</declname>
         </param>
         <param>
@@ -170,7 +170,7 @@
         <location file="libs/core/src/core/poisson.h" line="31" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a81aff12f67baabb4d0a425264e86d661" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::optional&lt; std::tuple&lt; <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref>, <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &gt; &gt;</type>
+        <type>std::optional&lt; std::tuple&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref>, <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt; &gt;</type>
         <definition>std::optional&lt;std::tuple&lt;vec2f, vec2f&gt; &gt; euphoria::core::PoissonWorker::step</definition>
         <argsstring>()</argsstring>
         <name>step</name>
@@ -183,7 +183,7 @@
         <location file="libs/core/src/core/poisson.h" line="34" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1ab12994a2fe6904e40965c1e906331569" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::PoissonWorker::random_point</definition>
         <argsstring>() const</argsstring>
         <name>random_point</name>
@@ -196,12 +196,12 @@
         <location file="libs/core/src/core/poisson.h" line="36" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a0b544f70cf42b8be2c351ab10acd90f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kindref="member">vec2i</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
         <definition>vec2i euphoria::core::PoissonWorker::point_to_index</definition>
         <argsstring>(const vec2f &amp;p) const</argsstring>
         <name>point_to_index</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <briefdescription>
@@ -218,11 +218,11 @@
         <argsstring>(const vec2f &amp;potential_sample, const vec2i &amp;potential_sample_pos)</argsstring>
         <name>can_place_at</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>potential_sample</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kindref="member">vec2i</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
           <declname>potential_sample_pos</declname>
         </param>
         <briefdescription>
@@ -234,7 +234,7 @@
         <location file="libs/core/src/core/poisson.h" line="40" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1aa86a420b94e504de61cb52217f741760" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::tuple&lt; bool, <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &gt;</type>
+        <type>std::tuple&lt; bool, <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::tuple&lt;bool, vec2f&gt; euphoria::core::PoissonWorker::try_place</definition>
         <argsstring>(int active_index)</argsstring>
         <name>try_place</name>
@@ -256,26 +256,26 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
-        <label>euphoria::core::Rect&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Rect"/>
-      </node>
       <node id="4">
         <label>euphoria::core::Random</label>
         <link refid="structeuphoria_1_1core_1_1Random"/>
       </node>
-      <node id="3">
+      <node id="2">
         <label>euphoria::core::Table&lt; int &gt;</label>
         <link refid="structeuphoria_1_1core_1_1Table"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::Rectf</label>
+        <link refid="structeuphoria_1_1core_1_1Rectf"/>
       </node>
       <node id="1">
         <label>euphoria::core::PoissonWorker</label>
         <link refid="structeuphoria_1_1core_1_1PoissonWorker"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>area</edgelabel>
+          <edgelabel>grid</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>grid</edgelabel>
+          <edgelabel>area</edgelabel>
         </childnode>
         <childnode refid="4" relation="usage">
           <edgelabel>rand</edgelabel>

@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/camera3.editor.h" line="28" column="19" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1CameraFrame_1a01275f4bc552c2bee720d4a098f8dfe5" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::detail::CameraFrame::position</definition>
         <argsstring></argsstring>
         <name>position</name>
@@ -54,8 +54,8 @@
         <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="2">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
       <node id="1">
         <label>euphoria::core::detail::CameraFrame</label>

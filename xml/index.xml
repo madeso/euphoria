@@ -375,9 +375,15 @@
     <member refid="structeuphoria_1_1core_1_1ClosestPointCollector_1a689b69e7696b2f50b476ad9c13da0cf7" kind="function"><name>add</name></member>
     <member refid="structeuphoria_1_1core_1_1ClosestPointCollector_1aa0e60b450857a870148089510d445a98" kind="function"><name>find_closest</name></member>
   </compound>
+  <compound refid="structeuphoria_1_1core_1_1CollisionFace" kind="struct"><name>euphoria::core::CollisionFace</name>
+    <member refid="structeuphoria_1_1core_1_1CollisionFace_1ac8d5ae8c1d4559d6c0cd639bc6726899" kind="variable"><name>x</name></member>
+    <member refid="structeuphoria_1_1core_1_1CollisionFace_1a723269d1915f048dab6f7304d32d7a32" kind="variable"><name>y</name></member>
+    <member refid="structeuphoria_1_1core_1_1CollisionFace_1aff678d88743012dbab33f72154159847" kind="variable"><name>z</name></member>
+    <member refid="structeuphoria_1_1core_1_1CollisionFace_1a4d97c79733424d73689c3a3d053e12e5" kind="function"><name>CollisionFace</name></member>
+  </compound>
   <compound refid="structeuphoria_1_1core_1_1CollisionMesh" kind="struct"><name>euphoria::core::CollisionMesh</name>
     <member refid="structeuphoria_1_1core_1_1CollisionMesh_1a508d279dbb13c332fdc6e0a292745d33" kind="variable"><name>points</name></member>
-    <member refid="structeuphoria_1_1core_1_1CollisionMesh_1a6babb24f531c39dd45b2711a6e210abc" kind="variable"><name>faces</name></member>
+    <member refid="structeuphoria_1_1core_1_1CollisionMesh_1a192525cb4c9c6c04eeb57d2bfa813c80" kind="variable"><name>faces</name></member>
     <member refid="structeuphoria_1_1core_1_1CollisionMesh_1a74d0c026ff824888a6b4dcf2587dcd2f" kind="function"><name>add</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kind="struct"><name>euphoria::core::colorbrewer::Colorbrewer</name>
@@ -500,11 +506,17 @@
     <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01rgbi_01_4_1adff7a23b544379b07c5d9b00d556ca37" kind="function"><name>to_string</name></member>
     <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01rgbi_01_4_1ac12dd1809ab40c47054aeffe9ba46268" kind="function"><name>parse</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2_3_01T_01_4_01_4" kind="struct"><name>euphoria::core::CustomArgparser&lt; size2&lt; T &gt; &gt;</name>
-    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2_3_01T_01_4_01_4_1a16116196c3596979b3f7bddfaf15f222" kind="enum"><name>@3</name></member>
-    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2_3_01T_01_4_01_4_1a16116196c3596979b3f7bddfaf15f222a4dd1780e162ee1bc0cf9062f924e496e" kind="enumvalue"><name>value</name></member>
-    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2_3_01T_01_4_01_4_1a58bd45dd29ea5418414b53bc9eda2e59" kind="function"><name>to_string</name></member>
-    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2_3_01T_01_4_01_4_1a3ac8dc37bb748225fdd575832740239c" kind="function"><name>parse</name></member>
+  <compound refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4" kind="struct"><name>euphoria::core::CustomArgparser&lt; size2f &gt;</name>
+    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4_1a72ba3d8484d52bfffb49f107a834ccc2" kind="enum"><name>@3</name></member>
+    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4_1a72ba3d8484d52bfffb49f107a834ccc2aae108ab9736798db11c41885c6bf1ee7" kind="enumvalue"><name>value</name></member>
+    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4_1a6ea9ae5a8ccf431277a874ef0c565a5a" kind="function"><name>to_string</name></member>
+    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2f_01_4_1adf73a11c810deda71ab56b1101e6f52a" kind="function"><name>parse</name></member>
+  </compound>
+  <compound refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4" kind="struct"><name>euphoria::core::CustomArgparser&lt; size2i &gt;</name>
+    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a230322ac62d7d9beb2ce94b2eb0a8afe" kind="enum"><name>@4</name></member>
+    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a230322ac62d7d9beb2ce94b2eb0a8afeafcec4800d11d22ab856988c6bfccd697" kind="enumvalue"><name>value</name></member>
+    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a2699b3d6bf36c3500396082ae05c70ee" kind="function"><name>to_string</name></member>
+    <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a8cd99aae2bd549e6bd7cfee4f5f79e3c" kind="function"><name>parse</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1detail_1_1Database" kind="struct"><name>euphoria::core::detail::Database</name>
     <member refid="structeuphoria_1_1core_1_1detail_1_1Database_1ad4b58f6c3f7da1ac90dc0d2a47da4466" kind="variable"><name>signon</name></member>
@@ -1260,60 +1272,62 @@
     <member refid="structeuphoria_1_1core_1_1MapValue_1a4eba7070caaa477073402a6f75fc2b43" kind="function"><name>set</name></member>
     <member refid="structeuphoria_1_1core_1_1MapValue_1ab743df337af8434ce328b83543dcf14a" kind="function"><name>get_or_null</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1mat2" kind="struct"><name>euphoria::core::mat2</name>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a43bd8a7c157efe4a57395125759790d7" kind="variable"><name>data</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1ad3a6f11639f2da4c82db37268fef810e" kind="function"><name>mat2</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a24901af691dcc55918d0a198acc0a411" kind="function"><name>mat2</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a2d14091aeb9694d7b49fbeda552623a1" kind="function"><name>from_col_major</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a9709f60d4eea56e9bb11a8666e7c3fb7" kind="function"><name>from_row_major</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a855f25ab363c133f708f970d0eb432ae" kind="function"><name>from_scalar</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1ade321947d8db39eedade7953206f40ec" kind="function"><name>from_stretch_x</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a9cb20aab96f4a9e590db3a1d47a10f4d" kind="function"><name>from_stretch_y</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1ab9797d29ec18b6bb2816b5ae36780d53" kind="function"><name>from_rotation</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a844b93464e0aa41d97cd4cacf98923a2" kind="function"><name>identity</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a8efb26a346cd447bbbe0d81779e79622" kind="function"><name>operator+=</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a19ed40d141eafa5f138268bf8fc9b812" kind="function"><name>operator-=</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1af9bc84e5b76bab057185eb1aef6fe670" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1ab614669d8cf4c61aa127085ba8cb288e" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1abd4577327d6fb4edeb28d6df2a3b87cc" kind="function"><name>operator()</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a55bf6724af3b4fa60dad460d05e4a0e6" kind="function"><name>operator()</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1af4530573fc0a4e89de121223fe7f36ed" kind="function"><name>get</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a14fd0d627aaf4f92d024fe1b4440ec1f" kind="function"><name>get_column</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat2_1a4b2388aa49b5126c35f7043574620e19" kind="function"><name>get_row</name></member>
+  <compound refid="structeuphoria_1_1core_1_1mat2f" kind="struct"><name>euphoria::core::mat2f</name>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1aed27b73ea52c55acc135be124fcc7ffd" kind="variable"><name>data</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1aec7e5a740d5f3712d7e5ca04766f2db4" kind="function"><name>mat2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a2a1c769b44ba2f3ccf24ca607543995e" kind="function"><name>mat2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a641821277a264f22d63d14bfa290ef91" kind="function"><name>from_col_major</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a362c85d2cc67f2463be5000c7973aff0" kind="function"><name>from_row_major</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a48930ee97a9c4a1abcc47272011b4f00" kind="function"><name>from_scalar</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1ae9b0fee7144980d79cda383a1ec2ff96" kind="function"><name>from_stretch_x</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a577721c4788f8ef41ae6a96467fb07cb" kind="function"><name>from_stretch_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1aabf69fa3cc86a3631ee2ccb6832ed5f8" kind="function"><name>from_rotation</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a35a5d93affc8583dbf28eb515a7bbf68" kind="function"><name>identity</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a0eb130a44c9df6958e5f15f3d2c66a98" kind="function"><name>operator+=</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1ac218c01d0bc3e47e46a5b5d25cfcac1f" kind="function"><name>operator-=</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a5bcf754eb640089dd01308108054f0c5" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1aa68b9e7af9eca741df066a3e87ec8ceb" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a6254e04a52932b72870f06bf9f021f52" kind="function"><name>operator()</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1aeb89f2326dd0436257cb897b1491f51b" kind="function"><name>operator()</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1a6f4fea61917bca0b7c3d7c8c29f115dc" kind="function"><name>get</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1aa0a48d7f9212678f9369593fa3313373" kind="function"><name>get_column</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1ae3b6c0ef342b026d243b3eafdaf8a6bf" kind="function"><name>get_row</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat2f_1aaab29cd1ed5881816cde5637b496340b" kind="function"><name>operator==</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1mat3" kind="struct"><name>euphoria::core::mat3</name>
-    <member refid="structeuphoria_1_1core_1_1mat3_1aafe7b85e2d8abdf30865d7402f1535c5" kind="variable"><name>data</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1ab1432d5c4a1a1aa938f0616eb9267d07" kind="function"><name>mat3</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a3064c48b23be572f207f22973cea94fb" kind="function"><name>mat3</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a5e1cd3c4bc626de4e1878d8e6b3fb6f3" kind="function"><name>mat3</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1ac94d3ea4e3eb25ab7fe276f6a95fb3b5" kind="function"><name>get_major</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1abfa79dfef3d5d0f6d925a8b3027b7fab" kind="function"><name>get_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a7a42ba6446fd940270be307134e6fc7a" kind="function"><name>get_x_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a121a70408c0c9fa5ae95425959333be2" kind="function"><name>get_y_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a53461c4957443557cb09fe10687a0a34" kind="function"><name>get_z_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a3227d2a5382d17dabddc55abf9f9079a" kind="function"><name>get_transposed</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1aa06af8b341223f4e8945698d54e88258" kind="function"><name>operator+=</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a5f83474d024842322502335ea2ef147f" kind="function"><name>operator-=</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a0ae1266d0fd9e41d403eab20e6693904" kind="function"><name>rotate</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a0e2c2f7947293625ab05a1a90515deec" kind="function"><name>scale</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1ab892e5d6936f3be305061de5661bc47d" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1af54dc7b369f1e1db2228bdaa02162131" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a05571a9335c0bf4d3b1b0ff583324c1c" kind="function"><name>operator()</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a27789f33b7ee205e483a6c6546f81fb3" kind="function"><name>operator()</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1af3aded0e98f9160767c535d452ea19e5" kind="function"><name>get</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1aabe25882999ea02480dae9162f066ae3" kind="function"><name>get_column</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1af854b73af913278188baee5f2e310fc4" kind="function"><name>get_row</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1aeb11ecfac0f706574359ab646400b9b3" kind="function"><name>from_col_major</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a3b43de57ec842c4ae4b0f29e74f4cbf8" kind="function"><name>from_row_major</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a373f5f875a9ad447e7f74b199778983b" kind="function"><name>from_major</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a6561d99fe4a440f99b2dc456f3fb233a" kind="function"><name>from_scale</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a2e7d4e7cd10eb2a6d66a24ca0c85b0e8" kind="function"><name>from_translation2d</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1ab1475fc37edb26e0a43fb9a2a31c234f" kind="function"><name>from_scalar</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a49ca7ac7edfbf506646a322706b3f862" kind="function"><name>from_rot_x</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1adafb52fdfaecfdfb3099fa01d15b49ab" kind="function"><name>from_rot_y</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a15a7c861a46d9e86038b49182ff8616f" kind="function"><name>from_rot_z</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1a7eeef99852bb606d20497ad95395de25" kind="function"><name>from_axis_angle</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat3_1ab37e5f321a74853ac02b06af64d1a875" kind="function"><name>identity</name></member>
+  <compound refid="structeuphoria_1_1core_1_1mat3f" kind="struct"><name>euphoria::core::mat3f</name>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a17d559a9872781b85dc34c4f07b3a35f" kind="variable"><name>data</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a7beb7d7c840f6af9cf2cba090dfa7f6f" kind="function"><name>mat3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a0b1bcf1d7b70f24e5205584b79a91945" kind="function"><name>mat3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1adcd9a12473fb89f4572cf0d5a4916436" kind="function"><name>mat3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a8763168edfbf066de05e5eac19514ca9" kind="function"><name>get_major</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a48bc1e6dd4cd74f1eaa7bccf9bd976b9" kind="function"><name>get_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a8cdb6ea389366edc894da70a54f8261c" kind="function"><name>get_x_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a856f223f5696f9a9ba8a5ea9ec9e0afb" kind="function"><name>get_y_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a21ca4889ec46c16f2fb35aa117609e89" kind="function"><name>get_z_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a98cb3626000ebbb0219a5b3307b041b7" kind="function"><name>get_transposed</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1aa69a33e53618ebafd5d62aaef193c164" kind="function"><name>operator+=</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a64b4efc5e54040fbab02d61b7a3ad70a" kind="function"><name>operator-=</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a01be73e0fc80e7fb21b728b65aa4386b" kind="function"><name>rotate</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1ab8b4157dd3a18336c75b98106cbfd0a5" kind="function"><name>scale</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1aad4f7eeb9729833b77b1df8a59b1b56a" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a6111c1b348f8c0bc3b3a85cc38a8c718" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a5fd9a8ea1a4cc6d91476818c9fbecd0f" kind="function"><name>operator()</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a232fd94959a43872bc9c726d479e09d0" kind="function"><name>operator()</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a6a366c22c0f09a9e060f2779facdc410" kind="function"><name>get</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1aec26c7f4d7b6faa14bfcbb92d0e27547" kind="function"><name>get_column</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1ac08fe1d4585e425ff4d86dbd0d479a8f" kind="function"><name>get_row</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a8996293a598e37b65f03e3bf5c8147f2" kind="function"><name>operator==</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a0d551c253fbc344c459a3fe69e9bb49f" kind="function"><name>from_col_major</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1aa1faa378ee27f2b0c13d1388bba34ca3" kind="function"><name>from_row_major</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a478af2f7b645d820330f63298ddac8b2" kind="function"><name>from_major</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1aa60c13bd2b7256866725f0bc499db312" kind="function"><name>from_scale</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a13d88f816bf0663b9e504eb9ecf115c2" kind="function"><name>from_translation2d</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1aeec09a09b66a5999efe75b6591f35204" kind="function"><name>from_scalar</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a33c42aba624a45db9756c2067fae1bbb" kind="function"><name>from_rot_x</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a7c58660f0296c24e85a3a5ed32b35889" kind="function"><name>from_rot_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1ae1558b90a1a3fec94dd3a33a4c3fbc18" kind="function"><name>from_rot_z</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a5da61161950337e4f35cb1f5f3f46c98" kind="function"><name>from_axis_angle</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat3f_1a10e1909b9c8de749cc1cd0d21f6436e6" kind="function"><name>identity</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1mat4f" kind="struct"><name>euphoria::core::mat4f</name>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a85bf3b5fd7d6e1e81519ade4115e5ec3" kind="variable"><name>data</name></member>
@@ -1325,22 +1339,22 @@
     <member refid="structeuphoria_1_1core_1_1mat4f_1a884382778bfec5f7abb19b861b88501a" kind="function"><name>get_transform</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a48e09c81bde75e75f8cb1a26c4ecbf32" kind="function"><name>get_transform_point</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1acaf1f30484299aad269fb62e8f146f4d" kind="function"><name>get_transform_vec</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1ab3ed52041febe741479b3a218cfc44b6" kind="function"><name>get_transform_vec</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1ac9c145c9c8af2ba718085daa31d78a55" kind="function"><name>get_transform_vec</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a5bfcb927745f75fe8553d14e9e38be98" kind="function"><name>get_translation</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a828d4a730ca73c0c650ebd2076f672a2" kind="function"><name>get_major</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1a35ff6a31cca3cb02991fe588edcc8560" kind="function"><name>get_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1af68fbf41e5adf6360c4df18c8a4aee99" kind="function"><name>get_x_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1aae2a8da4bdc3e09c6784693f6595d115" kind="function"><name>get_y_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1a4fe5b70e47fc6e2abc60a813d43ca9da" kind="function"><name>get_z_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1affe209eab7343c0ccbd956bcc677a21c" kind="function"><name>get_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1a0bd915ac0e239b5dfee09ce695b66a03" kind="function"><name>get_x_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1abdd5bb43fd386dd09b7eb99c5eb2d3a5" kind="function"><name>get_y_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1aad385a12456c3582404a19f253b628c7" kind="function"><name>get_z_axis</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a0912939201b5cc8e3660e11d609e6cd8" kind="function"><name>get_transposed</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1ae5e91fbfbecc7a8702ecfb418dd6a81a" kind="function"><name>invert</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1ab4d454e34f92f662437f9c8976026f68" kind="function"><name>get_inverted</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1af50ce799ffa8e13c0a8fb6a3bc966460" kind="function"><name>get_mat3</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1a8846dacdc0d77cf985bb4d863071ffc5" kind="function"><name>get_mat3</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a4114896c4b2237188b98cec859deb8d1" kind="function"><name>operator+=</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a8f423622778c5f32ebbbdcc1876ae512" kind="function"><name>operator-=</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a1e70c4a7581e1614e858319d49556121" kind="function"><name>translate</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a8438b6ee8f189b18a83000f992c35376" kind="function"><name>rotate</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1a816db10bf9645518cce3db8cca7e22bc" kind="function"><name>scale</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1a4b6b5826319bcd8cf2c344973dc2a7bb" kind="function"><name>scale</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a3876fd41549641a88d28092bbe4db43e" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a015f28ec1b255ad4f8a6dde50b456fda" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a2d8d618818a7bca11d796140d1ef6f8c" kind="function"><name>operator()</name></member>
@@ -1351,7 +1365,7 @@
     <member refid="structeuphoria_1_1core_1_1mat4f_1a981869e90c863e421f8e6aa2c82d419c" kind="function"><name>from_col_major</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a8d95e53c27d6c32416a84e4f14921de8" kind="function"><name>from_row_major</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1af2f6a56dc0888cdb319aa55a688b4a81" kind="function"><name>from_major</name></member>
-    <member refid="structeuphoria_1_1core_1_1mat4f_1a4b1ccd84245f99dbedabe6f09555a156" kind="function"><name>from_scale</name></member>
+    <member refid="structeuphoria_1_1core_1_1mat4f_1a5e23e475ee658e923c1238823638f42c" kind="function"><name>from_scale</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1a1a1ad4535a1562a3e30a6e01761340d5" kind="function"><name>from_translation</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1af322ef8921f8a9416bed21a85d37a936" kind="function"><name>from_scalar</name></member>
     <member refid="structeuphoria_1_1core_1_1mat4f_1abf95e0653a69deed6f6279516b3618af" kind="function"><name>from_rot_x</name></member>
@@ -1819,7 +1833,7 @@
     <member refid="structeuphoria_1_1core_1_1quatf_1a068b1135c974c41f507276c99fc2cf11" kind="function"><name>create_from_right_up_in</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1a082ae9674691cfe48f2b4f27e93524d2" kind="function"><name>operator+=</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1a5fe05e85e6afbbc693b2bc6805a0f9b6" kind="function"><name>operator-=</name></member>
-    <member refid="structeuphoria_1_1core_1_1quatf_1a12e71d491b11811b84245d3ffe2b2025" kind="function"><name>operator*=</name></member>
+    <member refid="structeuphoria_1_1core_1_1quatf_1aaa2d599413cb176074644b6c75da06a3" kind="function"><name>operator*=</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1aa2d49ed15463b0d45b92ec15535aa5f5" kind="function"><name>operator*=</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1ad534179f9b4afc99095b33964863b39b" kind="function"><name>from_axis_angle</name></member>
     <member refid="structeuphoria_1_1core_1_1quatf_1a7f0fa24f412049e9fdcc2caa1704211d" kind="function"><name>from_ypr</name></member>
@@ -1948,68 +1962,132 @@
     <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder_1ad64e5374106659faaccb525f5b75a4a6" kind="function"><name>add</name></member>
     <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder_1a94362f2edde068689ae3d367b778422b" kind="function"><name>add_current_directory</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1Rect" kind="struct"><name>euphoria::core::Rect</name>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a706e4bd55ef56241a8fb2ffa7ffc575b" kind="variable"><name>left</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ae3988569722446c411ad36c1a80ccca3" kind="variable"><name>right</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a3497d56e14320ad01050ed561dd02a78" kind="variable"><name>top</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a46bded5dfc943791feac068fafe907c7" kind="variable"><name>bottom</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a4fe302dc51e99fed8ebc3ecaedc0d995" kind="function"><name>Rect</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1aee43bf120d1382781bfc8201456af039" kind="function"><name>operator Rect&lt; Y &gt;</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a0ac14f9a6778f2eac88da04731ecb21b" kind="function"><name>get_bottom_left</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a6139e9b6e4fb1bab22a037eec7022a53" kind="function"><name>center_inside_other</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a46c7f50e6eecec7b6f7c1c8f39f38298" kind="function"><name>get_position_from_bottom_left</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1aa4f9394a2c2d2a7359e15e0cdf173c7e" kind="function"><name>get_relative_center_x_from_bottom_left</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a3f470040450ff49713fc8f33fbc69706" kind="function"><name>get_relative_center_y_from_bottom_left</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a670322814e443e31fa565a66a17a6f36" kind="function"><name>get_relative_center_pos_from_bottom_left</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ab0e25d4feae3acfdd09e305f41583929" kind="function"><name>get_absolute_center_x</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a99e116296b316b869632567e3e9a3ee0" kind="function"><name>get_absolute_center_y</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1adea020c161b519ba04368772a0d29fad" kind="function"><name>get_absolute_center_pos</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a80cee46770fdf4d0b26e3b864eab2028" kind="function"><name>contains_exclusive</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a3bbe7323be17aa38804e8bca32828062" kind="function"><name>contains_exclusive</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ab8efa156a9a698a9820b38431bf13a67" kind="function"><name>contains_exclusive</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a5478c63518fa566f57add3369b782b5c" kind="function"><name>contains_inclusive</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a0adcc635fd8e6a45a977bcd5e758be94" kind="function"><name>contains_inclusive</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1af46c2e78a461ac1c7eb38fd3ec922772" kind="function"><name>get_scaled_around_center_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1af1011ed573330394b13df09d9212f61a" kind="function"><name>scale</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1abb54fb64647d4a35916a533f12294de3" kind="function"><name>scale_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a0cc28139861dfa68c28e9c0e3d6efc38" kind="function"><name>inset</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ab65abdddbc0fd3910259d9836a2f9706" kind="function"><name>inset</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1afcc4be98f4fd7162eb1546c61da79599" kind="function"><name>inset_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a02d3fc4de3d3794282c6e26321019e8b" kind="function"><name>inset_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a09310bd14a8e85c1c5bba1d9bb108117" kind="function"><name>extend</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a2e9c3da5681adcabdd8767635c1030d5" kind="function"><name>extend_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ae0ce43672b6609fc513ccd584593b686" kind="function"><name>extend_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a804a1c027fdd617bcf4f530e1b86ddb6" kind="function"><name>include</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a102a2a9c124c2b55c4a8784dd6f8fa6d" kind="function"><name>is_empty</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a3d30d2a1d2dedd0c65cf455dc43d7a26" kind="function"><name>is_valid</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a7a3b27d0a5e8aba3a4b105d4158aff04" kind="function"><name>offset</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1af41a309b3f9cf283b070ac03a3f5a30f" kind="function"><name>expand</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a1898416f5749841c29b471e60b1e3640" kind="function"><name>expand_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1af9b49f2cac8cbbc716f2006103de5088" kind="function"><name>offset_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ab58ef3de99d36ba3f1ec1ef90e11c2fa" kind="function"><name>offset_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ad4cfa9a8578f519bb689fc80fcbb7342" kind="function"><name>offset_to</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ae6d9a4633deebae249e8d05e575292e7" kind="function"><name>set_top_left_to_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a3e6c71336e1553ed9a0c724d9efdf50a" kind="function"><name>set_top_left_to_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1afd76cf92977fb26b61b2a29fbccc5ec3" kind="function"><name>set_bottom_left_to_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1af939916b05ec7566565c3a83b2289398" kind="function"><name>set_bottom_left_to_copy</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1abcdf6028967b0224b5fd60e0b8bae33f" kind="function"><name>set_empty</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a50685e482306d78a405079ab5ca52146" kind="function"><name>get_height</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1acdcc26f2fd80e4c9fa3307017cd08d8d" kind="function"><name>get_width</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a86cf607014f1a21310ec8268eca2935c" kind="function"><name>get_range_y</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a40516b746a5104f09a7580aaae28e43d" kind="function"><name>get_range_x</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a28f04f05a66c0a6be77bcbef42840fc7" kind="function"><name>get_size</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ae06c464a3f9e859a162ea5abcc299d24" kind="function"><name>get_top_left</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1aa4ab15f9fc84154e01c50fc3ac311e80" kind="function"><name>get_top_right</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a1942b0a3bbfa537096bcd4ea09d9dd85" kind="function"><name>get_bottom_right</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1aa569e8686da427edf38a5a542926726e" kind="function"><name>Rect</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a561018814b1b2f0a28fcd8f1585927e7" kind="function"><name>from_left_right_bottom_top</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a29170257822706bd7d7b3d9b75dc57ce" kind="function"><name>from_left_right_top_bottom</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a3d47b2993db66c0f8c6b49438496f324" kind="function"><name>from_position_anchor_width_and_height</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ac3a17982f61d0e8f63ca06a273521af3" kind="function"><name>from_bottom_left_width_height</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a11e343ac01dfdccdd701ec8b957a4654" kind="function"><name>from_top_left_width_height</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a92c93c2b5a080fc04cffc61bc576ffe7" kind="function"><name>from_width_height</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1ac77d09368f836e772b2c76e69254842e" kind="function"><name>from_width_height</name></member>
-    <member refid="structeuphoria_1_1core_1_1Rect_1a114aa0d539104ffc097684bc2646c4e1" kind="function"><name>from_point</name></member>
+  <compound refid="structeuphoria_1_1core_1_1Rectf" kind="struct"><name>euphoria::core::Rectf</name>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a709eb341758577d27b598c38226e117c" kind="variable"><name>left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1aa8f47d40fbe8b63aa235ce6b85d171e1" kind="variable"><name>right</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1af79515e31d2dda3371bdfbb0bb90910b" kind="variable"><name>top</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a47d00360bdaf7e0a897a76a6ef6cb4e0" kind="variable"><name>bottom</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ad0e4b09b8d08b534e3d3ab461aa42abd" kind="function"><name>Rectf</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a1e61895c6e822bebc0fc43cad3cbe366" kind="function"><name>toi</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1abb46d3f6a221d872c3151282076c94be" kind="function"><name>get_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ab5a474497ffe67ad8853bf9790a10529" kind="function"><name>center_inside_other</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a3c3cec852fc57ff006f15bfb37e94186" kind="function"><name>get_position_from_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1af92f82aca3e4973c6aa5e8a0d9212855" kind="function"><name>get_relative_center_x_from_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a958d90914cb24a5e5934f02a54b4aecf" kind="function"><name>get_relative_center_y_from_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a8268b949b3157cbb62b68c676798670b" kind="function"><name>get_relative_center_pos_from_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1af527943c8a287f1b3d822614c1889294" kind="function"><name>get_absolute_center_x</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a7469990694789a7d2c32e1264ce54f4c" kind="function"><name>get_absolute_center_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a7f8c0af6c9c0e2f91a8e704de9e6a186" kind="function"><name>get_absolute_center_pos</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a30d143123a816356a11150c20efc4f32" kind="function"><name>contains_exclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a97b0475c917313f0f7ff4b04b5ea0a6b" kind="function"><name>contains_exclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a95f3153f2fd7c7f5aafbf23b84abc626" kind="function"><name>contains_exclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ab65451bc6ce7cc15bb43c4266e3f2867" kind="function"><name>contains_inclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a905e13cb48a136d7864fb479972c71c2" kind="function"><name>contains_inclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1aacfaaaacad85490ac2b474da7c41a870" kind="function"><name>get_scaled_around_center_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1aceb40dfb3ab49b1031c690d9ee9214ab" kind="function"><name>scale</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a04e478e24d5139c973afceebe3816935" kind="function"><name>scale_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ac7fabf5d49433de6c0b12bd615614ba8" kind="function"><name>inset</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a43047ed6ce3b3920627453756b35962d" kind="function"><name>inset</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a2a02452a3a1453d13365f930ab737001" kind="function"><name>inset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a06b5ab63809d09b1455bbd9bffbcf94d" kind="function"><name>inset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a9c33ac97b114a7edc46c51ff03f77bcc" kind="function"><name>extend</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a10ffd909e9bacdd34253c94b848e9f76" kind="function"><name>extend_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1aacdc35d272b132bd8fc657449fdcbf6a" kind="function"><name>extend_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a287c75a466d1f1eba484585589c8efe0" kind="function"><name>include</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a5d7096de6de4f10962a088e261e78c93" kind="function"><name>is_empty</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a0621455a9a1fde23b9efd45349460434" kind="function"><name>is_valid</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a9823ead28bba85b7ff9b331942d2ac83" kind="function"><name>offset</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a331b8abf975091872f0e87d4cdf98ccd" kind="function"><name>expand</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ae21f852552da8babda5c1d10c726c960" kind="function"><name>expand_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a8e0ff7591ae1a69c5549d981272cebe1" kind="function"><name>offset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a719e638ec8869cbe0e3d9247834042dc" kind="function"><name>offset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ae6e3420f4f151338cb667c13004aa070" kind="function"><name>offset_to</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ad29af627d744ce69647f2c5c588b4a8c" kind="function"><name>set_top_left_to_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ad16ec49f435294e73e8b9f00df05b112" kind="function"><name>set_top_left_to_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a9995c14ad5f1ce356d10eeccc0942714" kind="function"><name>set_bottom_left_to_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a9d88eaef0f1cb9477d56f01b4f71818c" kind="function"><name>set_bottom_left_to_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a14cff5b5f0feaddcbadc9d6c0499c32d" kind="function"><name>set_empty</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a37c7cff71accc39dfceb50ec8f7e8c6d" kind="function"><name>get_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1afe4631628dcac94724e843976965689e" kind="function"><name>get_width</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a4320662951146eb5149f81be19cadaeb" kind="function"><name>get_range_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1afcd8b3e0af810ec3a7258f4983636cd7" kind="function"><name>get_range_x</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ab83afbd711fcd0d81f6845ab538d7557" kind="function"><name>get_size</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a31af0f8512af81b260bcf51f7881f368" kind="function"><name>get_top_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a98c7ac261c5b57c87c37cf452540bff9" kind="function"><name>get_top_right</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a206ea821be44f2ae91dbfdb688c53a77" kind="function"><name>get_bottom_right</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a93314931355e49c707bdca7e824e1b41" kind="function"><name>operator==</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1afaa3bd15d83bbe0abd81f27b02748e3c" kind="function"><name>Rectf</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a23787bfb0877efd64ba3121c946418a8" kind="function"><name>from_left_right_bottom_top</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1af60f13d51023a9dd59cf9e832c63160f" kind="function"><name>from_left_right_top_bottom</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a89aa5bb5959afa63cbd88f13fa3eeda8" kind="function"><name>from_position_anchor_width_and_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a1f77d443005c2da4b074f079e17e113b" kind="function"><name>from_bottom_left_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1aa6c422b3aed713520161e12cd3cac6e5" kind="function"><name>from_top_left_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1ad0afb232c2955af3ef6e7082e8548550" kind="function"><name>from_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a67b8edde38b091b228621c05c90348d9" kind="function"><name>from_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Rectf_1a19a50a15145cea1c857a2c4b70bcc0fa" kind="function"><name>from_point</name></member>
+  </compound>
+  <compound refid="structeuphoria_1_1core_1_1Recti" kind="struct"><name>euphoria::core::Recti</name>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a4f05ffb33d4ec14946274b8bdc374df0" kind="variable"><name>left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a61f79ff02cdf42bf82d67a53ed888a35" kind="variable"><name>right</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1ad87648f0a919848285d6c6442abd554e" kind="variable"><name>top</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a4ed571a43bed58ab09e489ec35fcd864" kind="variable"><name>bottom</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a9686a4efa72b14b57d5ae16daaf425a6" kind="function"><name>Recti</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a14cfbaf0c2defe1a6a41829ad91a724b" kind="function"><name>tof</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a64b1d9769ba3ed6ec17670869c9b3496" kind="function"><name>get_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1aabe0ff87bbbb4f773f607c03df3ca58f" kind="function"><name>center_inside_other</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a0cb1a67fa0c5a511cca75dd753e7d84f" kind="function"><name>get_position_from_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1aff8a3f1a8459c6c4e42174a88074a0d6" kind="function"><name>get_relative_center_x_from_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a55f1d01889f23d85c8bb50b24738e49b" kind="function"><name>get_relative_center_y_from_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a7af96f386ccd0a806601a96a4d23a341" kind="function"><name>get_relative_center_pos_from_bottom_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1abbf1f5f748a67b35c10da2dd4c4fafc4" kind="function"><name>get_absolute_center_x</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1ac231354bb42e47b2b4d929d908ab4585" kind="function"><name>get_absolute_center_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1abe814e725cc87171836dbfdaa825a738" kind="function"><name>get_absolute_center_pos</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1aef40437ac78598d6fe08dcb09814f154" kind="function"><name>contains_exclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1aa6cff7b71892188f01454fb5bf416fc9" kind="function"><name>contains_exclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1ae8e842a9ef9b11b74e42cf9bdb006c71" kind="function"><name>contains_exclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a46cc48b704909b52aecd7d92d26ea1bc" kind="function"><name>contains_inclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a53b15ce4396cfd6d1afc301da00a1e94" kind="function"><name>contains_inclusive</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a556b7c0ef5709cf207ead8a6f9113180" kind="function"><name>get_scaled_around_center_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a538afbbe3e3770650aeaeac42778591b" kind="function"><name>scale</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a896f8eb3f657fa7fa5d17580b485c709" kind="function"><name>scale_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a9d0ddd1e4d1c58449dbc7479c0359d82" kind="function"><name>inset</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a3acec3e313382672045567c31ce35090" kind="function"><name>inset</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a439380d170ca9dadfd7ddf0d41f86269" kind="function"><name>inset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a1f58769578e4b5b08041214e31776b05" kind="function"><name>inset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1acf4974e3b6b55ecec50ff06176060e0b" kind="function"><name>extend</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1ac1b7ed3bf50a1ad5b51c8be51dc39af3" kind="function"><name>extend_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a23396290571b59582c1c3f8032720e20" kind="function"><name>extend_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a12dbc69e318a5da1e35c1cb9d462cb16" kind="function"><name>include</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a994b0a2becbb577a1a94d335b6427008" kind="function"><name>is_empty</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1aa789940c0ab1867ea937ac3cda938e2c" kind="function"><name>is_valid</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a7853dcbdf2ab48b46db1f234e99b820b" kind="function"><name>offset</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1ac7986ff1886e099c0ca33f065c76fa2b" kind="function"><name>expand</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a8f26f096480d7df05420acd6b32021c5" kind="function"><name>expand_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1ad6c003cd6d8c7cf87ff9de9af182360c" kind="function"><name>offset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a199cb65c8a3bd6c63a7876d79954490e" kind="function"><name>offset_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a185019048b856f0464b9362e91949ce9" kind="function"><name>offset_to</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a1f5396bef0e610b89e8624fcf0efc27f" kind="function"><name>set_top_left_to_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1ad449bec4a06366d2b44e46fbf36cf314" kind="function"><name>set_top_left_to_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a1e196fced7f5eaaecc0baab133cad696" kind="function"><name>set_bottom_left_to_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1aca382e8d5dc8d0bed44ddf082792852f" kind="function"><name>set_bottom_left_to_copy</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a9bc7428b1972db4c5f79397a92933596" kind="function"><name>set_empty</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1af19f7e0d61a4d6e46f8867c9f1b158c7" kind="function"><name>get_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a50094626fafd43a6c7e442307a694f4e" kind="function"><name>get_width</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1ad86d9a61685292b6080a4cf5e74976fe" kind="function"><name>get_range_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a480423b611b25aae01c82d9bd797913b" kind="function"><name>get_range_x</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a733a1b998929529fc315a5ab602a37e9" kind="function"><name>get_size</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a8ed8cf0ba9c828424d1ac40f31c7c607" kind="function"><name>get_top_left</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1abcc7548d52e9024f4cf8f998a97cdcf4" kind="function"><name>get_top_right</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1aff18b9c7d29416ee70ba7dffb78a265c" kind="function"><name>get_bottom_right</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a2e561bc2df4386671f552364ceda9d8d" kind="function"><name>Recti</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a5f27e5a4d337e28625cf642211c3855d" kind="function"><name>from_left_right_bottom_top</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a6b0f41b96f442136bf762216968336da" kind="function"><name>from_left_right_top_bottom</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a7bfea706393da6239f216dedfbf52ef1" kind="function"><name>from_position_anchor_width_and_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a54a89f33e3a94103fb0a5ace5a4ffa18" kind="function"><name>from_bottom_left_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a572bc5d2499ed25f80e161d917fc95da" kind="function"><name>from_top_left_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a9e234cc42d0971d75a86b90e66a30950" kind="function"><name>from_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1ae3fc561e11888f26a3f82a604e5e94e6" kind="function"><name>from_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1Recti_1a21bfb3db3268c9492e0dbb89fdfbf053" kind="function"><name>from_point</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker" kind="struct"><name>euphoria::core::generator::RecursiveBacktracker</name>
     <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a24480d6ba8c29da61299d54459f7db86" kind="variable"><name>maze</name></member>
@@ -2191,32 +2269,31 @@
     <member refid="structeuphoria_1_1render_1_1ScalableSprite_1a5d9152071bcc635dda134fe561b2af5d" kind="function"><name>get_minimum_size</name></member>
     <member refid="structeuphoria_1_1render_1_1ScalableSprite_1ad0a4b15d59f42428de976ec5b4b2af98" kind="function"><name>render</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1Scale2" kind="struct"><name>euphoria::core::Scale2</name>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a928ade2c282f29e10117a7050d43fda6" kind="typedef"><name>Self</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a70804c56ae26f4e5fb0aa17da6dea4ad" kind="variable"><name>x</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a90c8e2e5d351ebee27b025281c560186" kind="variable"><name>y</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a7ad044ed103160199bc331c86aa4efd1" kind="function"><name>Scale2</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a5db280e6467e368c723650b0e7cdee74" kind="function"><name>Scale2</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a7f28feb7194b507cce964f919c61217d" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a38058124a692182077942ff7c6937089" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a32fa06ed579c9d4c5c4b6919eacf290d" kind="function"><name>operator Scale2&lt; F &gt;</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a543b330a37d22204755b68e2fc6327ae" kind="function"><name>get_rotated</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1a232110e7d25ca8fdd02cfe424db984a4" kind="function"><name>get_flipped_y</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1ac9d3dc39c757986586cee03bb32ea306" kind="function"><name>get_component_sum</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale2_1aa6e615e65cfbdbcbf9fd0b70dc5d068f" kind="function"><name>operator-</name></member>
+  <compound refid="structeuphoria_1_1core_1_1Scale2f" kind="struct"><name>euphoria::core::Scale2f</name>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1abecc4ea04a16da85b755aca9d4eff005" kind="variable"><name>x</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1a725b44882b3179b711ea4c3d272c94dc" kind="variable"><name>y</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1a0cfd95f659da07d742422a339b830574" kind="function"><name>Scale2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1a0cf8d1cf1adeba10b860d26bd0211ba6" kind="function"><name>Scale2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1aa70707cf3db4f81d13c3fb21be721b7a" kind="function"><name>operator-</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1a96328dbb2aa5c0596328cd71b29ec075" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1ab5ed2366c4a472dee64bdf5a97ea87d6" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1a8133dff14b41ee91add5290a4ab91572" kind="function"><name>get_rotated</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1ade0590208a913821378cfe267586132a" kind="function"><name>get_flipped_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1ab457b5cb7c82fea3e46e3bcf3ec1ee27" kind="function"><name>get_component_sum</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale2f_1a63fced704ab59488054b713d4a6acca0" kind="function"><name>operator==</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1Scale3" kind="struct"><name>euphoria::core::Scale3</name>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1aaf8ca166f2e436cc2d4697a64cc473d9" kind="typedef"><name>Self</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1ab83e04162bc3b4cadabbc1948301e09c" kind="variable"><name>x</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1a2c1a60726155a2f512b638da05f4a3d7" kind="variable"><name>y</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1ad63571870cfdcf9b6a5942fb434d74d7" kind="variable"><name>z</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1a25b1a3c94416b99f344287fce4d0d198" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1af6cd30a16183b1189ecd5ab9c6c4ceb5" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1a690f585a219c3869acf3e443b881f1d3" kind="function"><name>get_component_sum</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1aad3e021ffb9dc903598c9f5ef71e13a9" kind="function"><name>Scale3</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1a69118682eb02c44e5d1c8447d544cfcf" kind="function"><name>Scale3</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1a5b384b8096c312e1e5d3aa970b9b202e" kind="function"><name>Scale3</name></member>
-    <member refid="structeuphoria_1_1core_1_1Scale3_1acbcdcbe33d447d1b649a6fb5edef888b" kind="function"><name>Scale3</name></member>
+  <compound refid="structeuphoria_1_1core_1_1Scale3f" kind="struct"><name>euphoria::core::Scale3f</name>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a06bcb006ad25de6265b5bab87f15b37d" kind="variable"><name>x</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a63da310952da4e15d783aee05e105e13" kind="variable"><name>y</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1ad60ea811a3a4efabdb134f32bf577baf" kind="variable"><name>z</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1ac48105610eb0c636b597358bc198b264" kind="function"><name>Scale3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a690ae0309cbaf864462c35ca5b0791b2" kind="function"><name>Scale3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a9abd4192deba28ae0d97e6b15cd89cea" kind="function"><name>Scale3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a0d526fdd36990bba0a900471a262c9a7" kind="function"><name>Scale3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a798528b584e97bac0219d1ff8df523c5" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a5f7c8d44e344e8d76cb469204acd8f70" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1ad2073d9ab67d00343bd6f4c7fc628455" kind="function"><name>get_component_sum</name></member>
+    <member refid="structeuphoria_1_1core_1_1Scale3f_1a12ea3d47d71e25bc51b744f78fe03cfa" kind="function"><name>operator==</name></member>
   </compound>
   <compound refid="structeuphoria_1_1minsynth_1_1ScalerEffect" kind="struct"><name>euphoria::minsynth::ScalerEffect</name>
     <member refid="structeuphoria_1_1minsynth_1_1ScalerEffect_1aac55dbfc97d5d9b33235e6f076497ac1" kind="variable"><name>times</name></member>
@@ -2365,20 +2442,32 @@
     <member refid="structeuphoria_1_1minsynth_1_1SingleToneNode_1a9b13db352886b5e4c8144deacd299d02" kind="function"><name>on_tone</name></member>
     <member refid="structeuphoria_1_1minsynth_1_1SingleToneNode_1a4d1bd65214ec214b0c8163016f380b44" kind="function"><name>get_current_tone</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1size2" kind="struct"><name>euphoria::core::size2</name>
-    <member refid="structeuphoria_1_1core_1_1size2_1a3fa4c91e4842ae917ef6e3cd8db72c8d" kind="typedef"><name>Self</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1a4dc59fcd96a17be9b3484b45a1c13e74" kind="variable"><name>width</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1a223af02ddae956387300cf0fef3a41f6" kind="variable"><name>height</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1aa1da6fca63f062f297086be8237088a5" kind="function"><name>size2</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1afe33e8a051f6f1737683ffae96429c0b" kind="function"><name>operator+=</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1a43970052fbfb23c7ee83e785682de59a" kind="function"><name>operator-=</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1a55035b352159feb8cd1d209f9b7c0121" kind="function"><name>operator*=</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1ae9c721c8112cd1e6f6ff5bb8e79994f0" kind="function"><name>operator/=</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1a96ee65e68a6fba6e681ecd9644a4b80e" kind="function"><name>calculate_center_offset_for</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1a52d063aa6ade22eae8a4dd63341bcd4e" kind="function"><name>create_from_width_height</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1ac3b7f1a232666e0bc1f18dad9d95b5f3" kind="function"><name>create_from_height_width</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1a08a879671ee2dbd00d8bc5004628fb46" kind="function"><name>create_from_square</name></member>
-    <member refid="structeuphoria_1_1core_1_1size2_1a8294aab06805eda9e35fc6cfa999b4ea" kind="function"><name>size2</name></member>
+  <compound refid="structeuphoria_1_1core_1_1size2f" kind="struct"><name>euphoria::core::size2f</name>
+    <member refid="structeuphoria_1_1core_1_1size2f_1ac31e1f17f6334352d1a1fdc0ac38d302" kind="variable"><name>width</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1aa7b9bf6ab5a918a387dbcd42f8a6681b" kind="variable"><name>height</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1a21d6de8f77a5e9dff36a464b8860ae33" kind="function"><name>size2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1abf58ba1f09962bddcaafcd05133f4970" kind="function"><name>operator+=</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1a2bbed877c16552426ec821e1b77e1043" kind="function"><name>operator-=</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1a83c8897a5809ce9396d2733e5ae4bc99" kind="function"><name>operator*=</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1a0673d664634161dc90929a68207fdb8f" kind="function"><name>operator/=</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1a9a1528c3e853c88cba7d6b26d9e54cb5" kind="function"><name>calculate_center_offset_for</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1a0d32ccd83910e2d4cd3b7d7f69cb9632" kind="function"><name>create_from_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1a20728b292bba182d2e313b403a9632c7" kind="function"><name>create_from_height_width</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1a7eec11a86cd324d1cf6f3ed8e62671fa" kind="function"><name>create_from_square</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2f_1ace19faa0823e92f4ca2ec66ab479b389" kind="function"><name>size2f</name></member>
+  </compound>
+  <compound refid="structeuphoria_1_1core_1_1size2i" kind="struct"><name>euphoria::core::size2i</name>
+    <member refid="structeuphoria_1_1core_1_1size2i_1ad0d472844a1fc2ddf6d576df923fe929" kind="variable"><name>width</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1a59e15153fa5cd3dfa554765de6ce780d" kind="variable"><name>height</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1ae30b6fbb96903dbb4363e2fa913bf4d3" kind="function"><name>size2i</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1a285baac6da121763104f03f05fa1e381" kind="function"><name>operator+=</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1ab4234de44ae15feac5d6e096491601cd" kind="function"><name>operator-=</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1a5d934dc948b7a98dd10bafbd71c9c119" kind="function"><name>operator*=</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1a61b828e0d8a8482f06e6330db4838828" kind="function"><name>calculate_center_offset_for</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1a918abda2dde04760257c9810efee9521" kind="function"><name>create_from_width_height</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1aa0006e29edbed4b97f45466a17211c7b" kind="function"><name>create_from_height_width</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1a09841cec6bda2fb05536c2336242b8d1" kind="function"><name>create_from_square</name></member>
+    <member refid="structeuphoria_1_1core_1_1size2i_1af1a8939a39f9d585b7321f00c6a5a4e7" kind="function"><name>size2i</name></member>
   </compound>
   <compound refid="structeuphoria_1_1gui_1_1Skin" kind="struct"><name>euphoria::gui::Skin</name>
     <member refid="structeuphoria_1_1gui_1_1Skin_1abab805a37f86e4d78f11334609ca7366" kind="variable"><name>name</name></member>
@@ -2842,41 +2931,38 @@
     <member refid="structeuphoria_1_1core_1_1UiText_1a7e54568529d024a4c1e554346574113a" kind="function"><name>accept</name></member>
     <member refid="structeuphoria_1_1core_1_1UiText_1a598dfab5297c6853a10ecc4dfa113c4c" kind="function"><name>create_from_text</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1unit2" kind="struct"><name>euphoria::core::unit2</name>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a69342bf2f6ebc96e6f072610165249ce" kind="typedef"><name>Self</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a3e2990bfdaf8d5f6a4f8b0b2351477c1" kind="variable"><name>x</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a098f896e74aab4e13ffc50d71aaff141" kind="variable"><name>y</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a36786885b739448707560f91d094dede" kind="friend"><name>vec2&lt; T &gt;</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1aa9b6176510396ede39f6c459622a967c" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a4cee80574dab99257669c0fcb0c91c50" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a5fff14ec358d52965a4ca75fc6ced380" kind="function"><name>operator unit2&lt; F &gt;</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1aa64ff7792e286c468b65d265f67820ed" kind="function"><name>get_rotated</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a99bf5676f242ad35534b8b3901d53558" kind="function"><name>get_flipped_y</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a1ee32e100669146847613a972d31c061" kind="function"><name>get_component_sum</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a7903a37deafbe71b7f5dbc76325d9cf8" kind="function"><name>operator-</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1acbbd070eeb290df0e04b5e90a635341d" kind="function"><name>get_length_squared</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1ac1e27a6a902d5ec7e42024b0bd5f8078" kind="function"><name>operator vec2&lt; T &gt;</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a339291d440663722258377fd47c046a6" kind="function"><name>to_vec</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1a7d7627633d0c8c2a989b3d6ae8870aad" kind="function"><name>is_valid</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1af36f28f3e76038a383a2693a44449d95" kind="function"><name>unit2</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit2_1ac26fd5f005ec738b16af2104b2474053" kind="function"><name>unit2</name></member>
+  <compound refid="structeuphoria_1_1core_1_1unit2f" kind="struct"><name>euphoria::core::unit2f</name>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a69f9b8d71762871d850b30eed8e5c433" kind="variable"><name>x</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a2dc7b0129af9018209791f3b5e8802d8" kind="variable"><name>y</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a792e4c9f03b61cf32259f81a8e495c74" kind="friend"><name>vec2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a6f3d4268a2c44ee88b14c9bf27633957" kind="function"><name>unit2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1adf1ebed70120b48745f25bbf896d5585" kind="function"><name>operator-</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a213ed25cc9f7829f2fe91b2325b07a40" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a592f305678a76512fadf95bb11010b05" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1aafc2aacde9eb6a49a678b0f822e46f7a" kind="function"><name>to_vec</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a754a4123462699795e1a92fdf9f758b5" kind="function"><name>get_rotated</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a32b67d985dc2dc7aec9621914aabde2e" kind="function"><name>get_flipped_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1aa4936f8b510d93006c61adff4fbd2dd7" kind="function"><name>get_component_sum</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1ad510363a8ac5b1a150ce7cfef5f14335" kind="function"><name>get_length_squared</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1a1fc77cfa387a666a9b9db6b4b5c82477" kind="function"><name>is_valid</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit2f_1ace22ea4cc01fddf44fd8767440069705" kind="function"><name>unit2f</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1unit3" kind="struct"><name>euphoria::core::unit3</name>
-    <member refid="structeuphoria_1_1core_1_1unit3_1ad03df22c4622ea7a1aefad510b91e6aa" kind="typedef"><name>Self</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1ad21dd588130932aa3a54e4a0aca0936f" kind="function"><name>operator-</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1a26e6e42941a32e78659b7fe130c11e3f" kind="function"><name>is_valid</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1a4fcd733a18f6651c146b95f37deb008e" kind="function"><name>x_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1ad72433e198c2b29f165b94212f6d0975" kind="function"><name>y_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1a6f188927a2eb6d0208357380f975fcf6" kind="function"><name>z_axis</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1af552d9f2999b8b98ee787f954d022f47" kind="function"><name>up</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1ace9209d0ec45c11afcba7666ce8aeb6f" kind="function"><name>down</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1af003aaafd1b19862d85f84a7e71670c5" kind="function"><name>right</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1a339da1383f0626611ab6b82c5f257409" kind="function"><name>left</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1a26a11d6cef9f3f23d33d16a9ca78bc5e" kind="function"><name>in</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1a8401f6d94aa9054dbaf66c215eafcc08" kind="function"><name>out</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1a4f82f78c42b8be34eed9174c12d61b5c" kind="function"><name>to_unit</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1a9af030e658713633aa6fd3f05b452b03" kind="function"><name>to_unit</name></member>
-    <member refid="structeuphoria_1_1core_1_1unit3_1a4a8de25d158440826e46fcfad4ff81e5" kind="function"><name>unit3</name></member>
+  <compound refid="structeuphoria_1_1core_1_1unit3f" kind="struct"><name>euphoria::core::unit3f</name>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1ad16ff685431961bda4c77f0e4740372a" kind="function"><name>operator-</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1a75dc4a248293a339b26a4bc4c6d5bf1e" kind="function"><name>is_valid</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1a21ae37b2b0234c5e7d3ad0fd7a61621c" kind="function"><name>operator==</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1a57959815d409bb36ccabcd1339f7614b" kind="function"><name>x_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1acac074a6d8c5a5d8434010d1c6502748" kind="function"><name>y_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1ac1ec218f09b7a4610abbececde12216b" kind="function"><name>z_axis</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1a2455a07718038308d15881c47363e262" kind="function"><name>up</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1ad01edc0fdfa8c091904639d68fff851b" kind="function"><name>down</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1a90b1097a7392fefac2dff339a7db29cc" kind="function"><name>right</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1aa6663c506dfc1260db4248a8c7c69613" kind="function"><name>left</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1a89cd050bef9d05cbbe44068d9223b6a5" kind="function"><name>in</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1ab042ce97fcd8129d240ad3aea3f3398a" kind="function"><name>out</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1a22ab1245ac5950eedb4458503ee48da3" kind="function"><name>to_unit</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1aa12e1038989be72f167b3f685025f720" kind="function"><name>to_unit</name></member>
+    <member refid="structeuphoria_1_1core_1_1unit3f_1a8ab3f9a90a00513951a2cac67043d36a" kind="function"><name>unit3f</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1UnitRay3f" kind="struct"><name>euphoria::core::UnitRay3f</name>
     <member refid="structeuphoria_1_1core_1_1UnitRay3f_1acc79f7274dcfe4998b058244b0dceaa6" kind="variable"><name>from</name></member>
@@ -2896,84 +2982,104 @@
     <member refid="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" kind="function"><name>operator=</name></member>
     <member refid="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" kind="function"><name>operator=</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1vec2" kind="struct"><name>euphoria::core::vec2</name>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a18f4da7e0066fbf169995853b371799e" kind="typedef"><name>Self</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a7dadd3bb05cbeb2b728278614b3141cb" kind="typedef"><name>Unit</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a4a1ce93e4ffbcdec85a560788772c277" kind="variable"><name>x</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a5f906297030062a57a9362b9097b72b6" kind="variable"><name>y</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a7e339aa44249eec1a351868350d73703" kind="function"><name>vec2</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1aa054032e2d349d869d0a9e22edb998e4" kind="function"><name>vec2</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a3f427cb3ea66842ff17770c6c287ef39" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a8bbb881b2378656ef376db4416b05fd3" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a845fa4bdb3b0c7f056066aa4201eb975" kind="function"><name>operator vec2&lt; F &gt;</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a1cdc65b7eb6daeb0bce5749962e5621a" kind="function"><name>get_rotated</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a52a230b03ba16b9983f49dc870cd4086" kind="function"><name>get_flipped_y</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a2fc3de78c651757e3894e5431f364e86" kind="function"><name>get_component_sum</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a4da9b48263a08ebf7dd3103e7c88a02d" kind="function"><name>operator+=</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1ac4fc2aafa151742e2c0afd343b6206b7" kind="function"><name>operator-=</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a6482d641bb7689cb531a43a178bbed26" kind="function"><name>operator-</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a9b70556f747d5eec5c71a0fb5b102153" kind="function"><name>get_length_squared</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1adf8121b09d06f77e71a77d3a8fad3785" kind="function"><name>vec2</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a69a608dd7872d310ed8039a1caee340f" kind="function"><name>vec2</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a5bbc5ad3211941be3fede3733ad94c67" kind="function"><name>operator/=</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1aa4c22c697c187f4fdcbf8b15abc9345f" kind="function"><name>operator*=</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1aa4393f7db42c4f5b0e75c5e737faa893" kind="function"><name>get_length</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1ac76affb837e97b5f95626ca38694ce6e" kind="function"><name>normalize</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1ac0a395086a08e32ba7cdde14b2f5cca6" kind="function"><name>get_normalized_and_length</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a3f98c116b5426e6de0cecfeb9db4f20d" kind="function"><name>get_normalized</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a6cabcd416c866d8115dc3bd228ca2927" kind="function"><name>zero</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec2_1a914a7e3f6ca03a9337774a62d8fd54ff" kind="function"><name>from_to</name></member>
+  <compound refid="structeuphoria_1_1core_1_1vec2f" kind="struct"><name>euphoria::core::vec2f</name>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a81957e066b1bd1e6212368c8dc850fab" kind="variable"><name>x</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1af5d467e5e20daaf1e93058a6202b4b32" kind="variable"><name>y</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a06dc637d33d14d123edaf6c6a815eb49" kind="function"><name>vec2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a33aa17a2e1d4b17fbf23cc832cd9d9a0" kind="function"><name>vec2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1adf3fdf2fa3725184e0dc4066c0672a23" kind="function"><name>vec2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a94623f1d9a66d0bcb732c0ab0a88cd55" kind="function"><name>vec2f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a2095649ef504d9d5fa179708ec0ff9f9" kind="function"><name>toi</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1ab304ddfc8bf280acc4192bf496b74383" kind="function"><name>operator+=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a389a615f701e75a3571abb1adcb99f08" kind="function"><name>operator-=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1af233b996aa06e28400d31af802b5065e" kind="function"><name>operator-</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1ace1d2dd4a16228a60ff5440e1ec22916" kind="function"><name>operator/=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1afe23815c042602a0b68e866244927f0a" kind="function"><name>operator*=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a78ba6750d308a56069bb8c1375b2ed3e" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1ab88413d960aa084c2f224466d6c0a826" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a4a832f2ff705d6d79d5c922840253fe2" kind="function"><name>get_rotated</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a3a918558803d2e3e5a3b800700f60da3" kind="function"><name>get_flipped_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a6e4f5371e2394e2df2988171a9af1952" kind="function"><name>get_component_sum</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a478fa938b6bed05ead24b08247fa2073" kind="function"><name>get_length_squared</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a3fb3ddc8a6d2e42d719c73f398430c1d" kind="function"><name>get_length</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a84113eff5193f31dbc8121dcce39fd2c" kind="function"><name>normalize</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a0a07017cf8285fbb0245bcd89019ce49" kind="function"><name>get_normalized_and_length</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a5591d874a9542e00055b99617fb3020f" kind="function"><name>get_normalized</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1a2439a884cb0e19150f763c46ed2fea3b" kind="function"><name>zero</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2f_1ae94ec03f31fa1f88ab370dee6c5d6190" kind="function"><name>from_to</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1Vec2Transform" kind="struct"><name>euphoria::core::Vec2Transform</name>
-    <member refid="structeuphoria_1_1core_1_1Vec2Transform_1ab0a082bd176db7fb94f8034aba968861" kind="function"><name>transform</name></member>
+  <compound refid="structeuphoria_1_1core_1_1Vec2fTransform" kind="struct"><name>euphoria::core::Vec2fTransform</name>
+    <member refid="structeuphoria_1_1core_1_1Vec2fTransform_1a2189ef941052e0987c827e34c6a703e4" kind="function"><name>transform</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1vec3" kind="struct"><name>euphoria::core::vec3</name>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a328b9ebc38acd44d72c79cee04132c66" kind="typedef"><name>Self</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a2196cd74267e8e5f1542ddcd4bfc7235" kind="typedef"><name>Unit</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a0d6126e92ca48997cbb71578d55e728f" kind="variable"><name>x</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a479b8a639f68edd3f59aaf497a028065" kind="variable"><name>y</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1af89d5da35cc899b51bd2e695af081991" kind="variable"><name>z</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1adba077136ff795858c1b37bcc8915cdf" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a419bd5c4e31cd8fe3dfc542ed59fc479" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1af072b88ddfdff4b6907527220475aa5e" kind="function"><name>get_component_sum</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1acd9cb28902a787e4eff4220fae1c5178" kind="function"><name>vec3</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1ac00cb0bf40febf6498623a101e456a24" kind="function"><name>vec3</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1aa575f7aaf63a3b36aae8528114d1f5e1" kind="function"><name>vec3</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1afcee40b4ade2ac85debacb2c3d22f40b" kind="function"><name>vec3</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1ad8c4683a31ef9907bb717ebd55369d86" kind="function"><name>vec3</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1ad72bdb02aa33da5868412116ced794c9" kind="function"><name>operator+=</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a1949ca4700a456da71263b01e738a86f" kind="function"><name>operator-=</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a86c617122c37d0057070bc43e376439f" kind="function"><name>operator-</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1abe7e54c45ce29acc7b3ddf1749537539" kind="function"><name>get_length_squared</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1adab754371f948ef20c3f2a4c8848884e" kind="function"><name>operator/=</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a32e8f60d927a1464d6c543a5f050747d" kind="function"><name>operator*=</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a101bf0a28a0c90124334f88428a61d85" kind="function"><name>get_length</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a3e42461f2d81272b2e2581a1b9b85376" kind="function"><name>normalize</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a9133c0f52022320f287749055606e432" kind="function"><name>get_normalized</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a17a4d26a94692644fcf9329dbcf37119" kind="function"><name>as_normalized</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1a53c1499b1578187c69b3584084d1dc4f" kind="function"><name>from_to</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec3_1adcb049a1e08ef871a8a33feb56d71a1e" kind="function"><name>zero</name></member>
+  <compound refid="structeuphoria_1_1core_1_1vec2i" kind="struct"><name>euphoria::core::vec2i</name>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a3f0584e6845752830628cdb1d96a72c5" kind="variable"><name>x</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a193302188b03ffac0f8161d96cfea1c0" kind="variable"><name>y</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1af2011f538162b9067453a14d2ad1ddd2" kind="function"><name>vec2i</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a3cf38f66c760b75730a9ad7b6a5bc425" kind="function"><name>vec2i</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a94cc096736d5c104ae174c6de05c8aa5" kind="function"><name>vec2i</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1adc8abbe74ed5e48315e4353045f9df27" kind="function"><name>vec2i</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a913680f8016945b65fb6352d00431283" kind="function"><name>tof</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1ac4488ff970ba69ba38f14f41bbe6b7dd" kind="function"><name>operator+=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a88e12bf89bb20117fea04d3ac4e4d73a" kind="function"><name>operator-=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a4f0650669db28f5062ac862fbd482d7f" kind="function"><name>operator-</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a626db587e21ff6c0201166d7233a93ae" kind="function"><name>operator*=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1ac3d3bf66513da15d91d4540d32daf703" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a90aafb91451976d790ce85fa1c1cfef9" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1aa9eb0ba006fe5ed49841753f205cf85f" kind="function"><name>get_flipped_y</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1ae680d0b1768de36268cb8f31fd7635fb" kind="function"><name>get_component_sum</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a66d546d4e5779d197e14a26fd13f95fc" kind="function"><name>zero</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec2i_1a37850ece6ed8c9953c388cf71d064201" kind="function"><name>from_to</name></member>
+  </compound>
+  <compound refid="structeuphoria_1_1core_1_1Vec2iTransform" kind="struct"><name>euphoria::core::Vec2iTransform</name>
+    <member refid="structeuphoria_1_1core_1_1Vec2iTransform_1a139dc80a7bbaca131209f64af9f86df5" kind="function"><name>transform</name></member>
+  </compound>
+  <compound refid="structeuphoria_1_1core_1_1vec3f" kind="struct"><name>euphoria::core::vec3f</name>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1ad7ad982fc92538514fb1632afae1c684" kind="variable"><name>x</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1abd7df2141e91b424fdfed7a4606462e9" kind="variable"><name>y</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a47cdad5aa1182e33d47dc134c88ded3d" kind="variable"><name>z</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1aa2b6680577d69f7cece624b861ef93e6" kind="function"><name>vec3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a2f097a326c912377e54c5aa30483c0cb" kind="function"><name>vec3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a523d3546d5e2c18c56f4403ef27fba64" kind="function"><name>vec3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a11e61cd406033cf605002a70c0adeeb7" kind="function"><name>vec3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a37c1dca60b85337ce41bdc056c0d69ee" kind="function"><name>vec3f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a27fc03f33a011baeeece423970a9a202" kind="function"><name>operator+=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a600514063ab66a368b1f427b58cdf5e3" kind="function"><name>operator-=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1af13dc287c66c44c8ad8b9c7ccf167c0c" kind="function"><name>operator/=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a1b6f9c977c8fe91e7800089b0d2c28bc" kind="function"><name>operator*=</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a3d70f8ca899bbd74b77f72a9772da8da" kind="function"><name>operator-</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a23941d80835ffc50dd09acc7d0b5c7dc" kind="function"><name>get_component_sum</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a23cb3db8c144ded0965be183f6855241" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1aa28c7cbc01178e792633ca252797edbb" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1ac9f1aed5d4de9d9cab26e1e42a1eb6fe" kind="function"><name>get_length_squared</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1aef0537cd1db5279ffc6b2c694b3a38ed" kind="function"><name>get_length</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1ad842f991e2c08b9068483708872f9ea2" kind="function"><name>normalize</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1a5e01795cc55c188bd4c8fac936868b31" kind="function"><name>get_normalized</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1acf826c8b096c8838f6d9dbb699b11f08" kind="function"><name>as_normalized</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1afaba6b8c740e24863c0f65af93a34cd5" kind="function"><name>operator==</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1abac57e199c628d85dd4f92afccca1aaf" kind="function"><name>from_to</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec3f_1af77ec468b82d68a095ab5b3c91cc6a73" kind="function"><name>zero</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1Vec3fValue" kind="struct"><name>euphoria::core::Vec3fValue</name>
     <member refid="structeuphoria_1_1core_1_1Vec3fValue_1a3c8c83df1ec04744bbe13e85be96d66b" kind="variable"><name>value</name></member>
     <member refid="structeuphoria_1_1core_1_1Vec3fValue_1a3423c8af73e37b67cc343b1ac345fab5" kind="function"><name>Vec3fValue</name></member>
     <member refid="structeuphoria_1_1core_1_1Vec3fValue_1af108b6731e1be3b574a6f84046321be7" kind="function"><name>cast</name></member>
   </compound>
-  <compound refid="structeuphoria_1_1core_1_1vec4" kind="struct"><name>euphoria::core::vec4</name>
-    <member refid="structeuphoria_1_1core_1_1vec4_1a8ab69b7b7b099482c463f708c92c4707" kind="variable"><name>x</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1ad854fa54569c4005e6eac03142472f3b" kind="variable"><name>y</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1aa207cd8a7b88f79f5a4601b174f839a6" kind="variable"><name>z</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1a1aee40c8c0e8a6a2f1185eb172908dc9" kind="variable"><name>w</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1a39667c9c267096fdc4269513d88d866b" kind="function"><name>vec4</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1ad1d17edde5d8fc3289db4c9737826f93" kind="function"><name>vec4</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1acd5753471b3a83dd40f942f5cdcc2d38" kind="function"><name>vec4</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1af5d32e4065e0e6aac00f7af3da6e5781" kind="function"><name>vec4</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1a8e3d35bda20e987504aafdc7d1a318ae" kind="function"><name>to_vec3</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1aa1c36e7ed1badb7538775e9d342c438f" kind="function"><name>to_vec3</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1a079c4e12449cc1d50f295bd229f0aa85" kind="function"><name>vec4</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1a060843267f9209fcba48a89e57da3d5b" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1a259581bc9b6565f455cfb8e6aeffefa8" kind="function"><name>get_data_ptr</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4_1a9f30b2869aa1c9130fc163dd578a476f" kind="function"><name>get_component_sum</name></member>
+  <compound refid="structeuphoria_1_1core_1_1vec4f" kind="struct"><name>euphoria::core::vec4f</name>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a0f69f22cad6a9e1cd544ececa4782140" kind="variable"><name>x</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1aa99c0c62d7bb7424afe536461a6e0f38" kind="variable"><name>y</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1acae276d46e400de6bc8275423eeb3c1f" kind="variable"><name>z</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a0d84dcdb5a87ab37760f3662e05fe144" kind="variable"><name>w</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1aa5c95d1c13ad964e59621f0a45c09265" kind="function"><name>vec4f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a2976f7360255d25767f2f16284287628" kind="function"><name>vec4f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a6c58ef3c2238277869dfe7c742365c84" kind="function"><name>vec4f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a65a8f31c892b9a231b276c57072f529a" kind="function"><name>vec4f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1ad0e12c15ce2ef19a6cbf2b616ed3cd97" kind="function"><name>vec4f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a54ed66778ec1f6833f1198889412f212" kind="function"><name>to_vec3</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1ae203269f55890816898416e48b46c3a3" kind="function"><name>to_vec3</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a206a4f792c6e8f924a4492e4c3c6b139" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a93f577ef0a52d8bcde0bb6ab6cb9b3d6" kind="function"><name>get_data_ptr</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a48789b3fc6f0a87d574180457920832c" kind="function"><name>get_component_sum</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a6d5c292989ae40d352a590f5ed112a8b" kind="function"><name>operator==</name></member>
   </compound>
   <compound refid="structeuphoria_1_1render_1_1VertexBuffer" kind="struct"><name>euphoria::render::VertexBuffer</name>
     <member refid="structeuphoria_1_1render_1_1VertexBuffer_1af3622a33ddcab31e1a5a249e5c2f1133" kind="function"><name>VertexBuffer</name></member>
@@ -3535,41 +3641,17 @@
     <member refid="namespaceeuphoria_1_1core_1ac1ab516b63c6083618b5085e1e66c973" kind="typedef"><name>U16</name></member>
     <member refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kind="typedef"><name>U8</name></member>
     <member refid="namespaceeuphoria_1_1core_1a82ac3ebd0dd8ae0ce4a3f6f532117579" kind="typedef"><name>KerningMap</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a97c5d9ca5092829dad0b7b75d3eefc55" kind="typedef"><name>mat2f</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a1af08b4a3b490173545e5d790649f5f2" kind="typedef"><name>mat2i</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a8bd846ca11a82406a9ab443ded9100bf" kind="typedef"><name>mat3f</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ae137a6c3877993b64183b19c46a1cf88" kind="typedef"><name>mat3i</name></member>
     <member refid="namespaceeuphoria_1_1core_1aa7b5cb44c97d3860db511720967d640f" kind="typedef"><name>SortableList</name></member>
     <member refid="namespaceeuphoria_1_1core_1a2dc87cb41fd6236adfbaee88b2746bf0" kind="typedef"><name>TextLine</name></member>
     <member refid="namespaceeuphoria_1_1core_1a648a0683fcf7056c08734142a24e653a" kind="typedef"><name>TextSentence</name></member>
     <member refid="namespaceeuphoria_1_1core_1a1c3acd5fd095ea1e72c187b4b0c955bf" kind="typedef"><name>OnSentenceFunction</name></member>
     <member refid="namespaceeuphoria_1_1core_1a1c291e953f27d604436fdae47ddca0d4" kind="typedef"><name>ReadResult</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a18429a488f4a0c6d17b4a84fe0dac703" kind="typedef"><name>Recti</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kind="typedef"><name>Rectf</name></member>
     <member refid="namespaceeuphoria_1_1core_1a719f8d7ee521c1ddadd6151452ede535" kind="typedef"><name>RandomLnuthLcg</name></member>
     <member refid="namespaceeuphoria_1_1core_1a5f0fee2396291b49b449a8fc52489598" kind="typedef"><name>RandomXorShift32</name></member>
     <member refid="namespaceeuphoria_1_1core_1ad8850be5e3361568d3970e1db3ff30ae" kind="typedef"><name>RandomXorShift64</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a9f15c79bcff9c5fcd9984b1b531aeda6" kind="typedef"><name>size2i</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kind="typedef"><name>size2f</name></member>
     <member refid="namespaceeuphoria_1_1core_1aff3502411f32d5f6edb01ab92f9016aa" kind="typedef"><name>BoolTable</name></member>
     <member refid="namespaceeuphoria_1_1core_1a51bbf4c8bfd3a69ac3c1bf95b58ba5ca" kind="typedef"><name>StringTable</name></member>
     <member refid="namespaceeuphoria_1_1core_1a41020bc8b8bbff3320d0f2f637cb0288" kind="typedef"><name>TimePoint</name></member>
-    <member refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kind="typedef"><name>vec2f</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a8b5a6dd14d0dfa498bde24a677e6faff" kind="typedef"><name>Scale2f</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a34ba754dd4f3eac1d7da7b9bf81410bc" kind="typedef"><name>unit2f</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a535cdec5073145060843e7200f37c167" kind="typedef"><name>Vec2fTransform</name></member>
-    <member refid="namespaceeuphoria_1_1core_1af50456d11db5207097e7aa1ead9fac6b" kind="typedef"><name>vec2i</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a3e444c309c2aca23e25fca3eaff3e730" kind="typedef"><name>Scale2i</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a9d62c0cb509447ca39958fee77278a64" kind="typedef"><name>Unit2i</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a1af05e58e18008da1339011fc6268733" kind="typedef"><name>Vec2iTransform</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kind="typedef"><name>vec3f</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a02e5c432ae266a51e230d77ead5a3a59" kind="typedef"><name>unit3f</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a5884936cc210f8d8174b2798b8089931" kind="typedef"><name>Scale3f</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ac9ec61ba7ff957795b07f3b5ed12256b" kind="typedef"><name>vec3i</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ae6247d15c77b7116fccbd6978042c4b9" kind="typedef"><name>Unit3i</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a15769bf7a6f5be3ce0326015f8ca7ee8" kind="typedef"><name>Scale3i</name></member>
-    <member refid="namespaceeuphoria_1_1core_1aa3e50883b071f99ac987b6699bad8a1d" kind="typedef"><name>vec4f</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a8560c886a3567298877dcd9f3f194032" kind="typedef"><name>vec4i</name></member>
     <member refid="namespaceeuphoria_1_1core_1ad4a8e371c07d563694baaf2060f7fd5a" kind="variable"><name>pi</name></member>
     <member refid="namespaceeuphoria_1_1core_1a1b71bd0b682f0a76b13a63e162bcc831" kind="variable"><name>path_separator</name></member>
     <member refid="namespaceeuphoria_1_1core_1aaed82f4d51028b1f13d9daefab60e3ef" kind="variable"><name>always_false_v</name></member>
@@ -3736,18 +3818,16 @@
     <member refid="namespaceeuphoria_1_1core_1a87d203b00f5d23a7b322936aa0b54d47" kind="function"><name>get_characters_from_font</name></member>
     <member refid="namespaceeuphoria_1_1core_1a519d1ce1780e3e930f9b97a97488f748" kind="function"><name>get_characters_from_single_image</name></member>
     <member refid="namespaceeuphoria_1_1core_1a5531443ba854f0eccaf25c5d391cdbbe" kind="function"><name>get_characters_from_single_image</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a8d4c11392b692ab3d0c166e833172782" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a307ac74b772a6aaab78bf7561566770c" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceeuphoria_1_1core_1aba69b17bc52598632e9a904d47bd9f0d" kind="function"><name>operator+</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ad5aa3ca4477404b873d4048402313f9c" kind="function"><name>operator-</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a81ba2a20241854d2c645ed0eb30873ec" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a4c293f1739b131bd70e85025a4cdc2d6" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ad5bae0df89a004c59402d968c0c833ba" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1af2f2e30360ba3479b9141de28aaaa5bb" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a3067c8a922af7d03d4021258c4b31909" kind="function"><name>operator+</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a56ab5226f483bf71e3b14e6be0a52ed7" kind="function"><name>operator-</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ad485081994b6615da9ad5f8c76fa2568" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ad346f877855031be3684b2e5fcccaa30" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1adfc16152a48d8b3243bd35716f3f699f" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a621610d2342c0ac9eac721a6d546dc64" kind="function"><name>operator+</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ad8711861b01b4561ca04039e17b306bc" kind="function"><name>operator-</name></member>
+    <member refid="namespaceeuphoria_1_1core_1afe60324d68c4fe1c02ffe734e121b14f" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a9f6abb32c17089f2bbbe1bc87d4d0d65" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a17892c8b5b8098d485a6b6a9bb324f0d" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ad9b0d60e5e48cef4fe4333af0e6dee7b" kind="function"><name>operator+</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a9001055c58254ab3819b63abaeb793e7" kind="function"><name>operator-</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a57dbf725d428f38a285e2ec6fb884bc7" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a5e5b7f2c0d4caa1c38dd06f12370b6be" kind="function"><name>operator*</name></member>
     <member refid="namespaceeuphoria_1_1core_1a320f9e67e1e9676b0a5b761e4a3955b1" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespaceeuphoria_1_1core_1a90ecdf0fdccfbe10d80eb8bbdf53796d" kind="function"><name>operator+</name></member>
     <member refid="namespaceeuphoria_1_1core_1a39d38650a743367a84a8f6ed28a4ab34" kind="function"><name>operator-</name></member>
@@ -3857,13 +3937,17 @@
     <member refid="namespaceeuphoria_1_1core_1a5f61bf6e2a37f15847a668f14e230280" kind="function"><name>is_within</name></member>
     <member refid="namespaceeuphoria_1_1core_1a38b2e3a8790e089c7bf1fdb3cc4b8581" kind="function"><name>keep_within</name></member>
     <member refid="namespaceeuphoria_1_1core_1a8608fd1d423c6d7c90786fe3994f1b6d" kind="function"><name>wrap</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a7fc3f3cf47dbd58dbab373b9d07a9041" kind="function"><name>to01</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a2c27cbe3449bf4fc5d5e16fbe745f6db" kind="function"><name>from01</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a39aa1dd27b2684d52ca7c4790a80b293" kind="function"><name>is_within</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a688148bbafb644a0c5497587c2ec4eba" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a47f5fae7d69ef05e3d36f135b6c244eb" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a7ed0c09caac2c12f153ade18799a3fcc" kind="function"><name>get_random_point</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a75d697cf27a65cd3c3dbeadca7ad4009" kind="function"><name>get_random_point</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a178c02897b5ff7620eebe3c57d79f7bf" kind="function"><name>to01</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a1e27eacd6cae7404ffa77e874c1901b2" kind="function"><name>from01</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ae2203d34077ab21de090f91d3506e25f" kind="function"><name>is_within</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a635e316a676453cf38cbf58f7ab72ddf" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a6b046d9340d04fce848e23068f797f30" kind="function"><name>to01</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a50e629065a5dcc7c84a038ea9810b83d" kind="function"><name>from01</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a0dbeaf90d966c35743cf3b6c3534bdc7" kind="function"><name>is_within</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a30dad7f1e5327e0edd065964deb1138d" kind="function"><name>operator==</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a01dcbfbf4aac804e56785024942c0cea" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a535553d16ae865fb8d716a91db9e0e94" kind="function"><name>get_random_point</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a3f01e5ed97f0a45b2be03320d4c315e9" kind="function"><name>get_random_point</name></member>
     <member refid="namespaceeuphoria_1_1core_1a1b50250e7301c3c69070fbc53986f227" kind="function"><name>operator+</name></member>
     <member refid="namespaceeuphoria_1_1core_1a0eb203963f1a274dbafeb5ec88f6079c" kind="function"><name>operator-</name></member>
     <member refid="namespaceeuphoria_1_1core_1a1caf557c4ba4800dcc554299cb6ec3b3" kind="function"><name>operator*</name></member>
@@ -3910,14 +3994,21 @@
     <member refid="namespaceeuphoria_1_1core_1a2e282c8c80b77eecadc05fc50929e198" kind="function"><name>blend</name></member>
     <member refid="namespaceeuphoria_1_1core_1a1818049e8846510ee29c8f45436d7139" kind="function"><name>create_shuffle_bag</name></member>
     <member refid="namespaceeuphoria_1_1core_1af45a7d165e270d7c33c813723ca3a0bd" kind="function"><name>create_shuffle_bag</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a3080057fdc6908a029afac7780f32759" kind="function"><name>min</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a566b88ec7bcd6483f9fb87888764753a" kind="function"><name>max</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a5d232cfcf3919f92d5100f626ca009f1" kind="function"><name>operator+</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a1dfcb873786f4e022209945481f93b04" kind="function"><name>operator-</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a792f6fb674db98f8cdf26e521d0ca54d" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a2ccd5f341608fc62738ccdd59eb24dd3" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1af3b23410fde4d5c2a139e991d1476d28" kind="function"><name>operator/</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a6b056997c239950d53a00836c82fb4e5" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a8fba1252862c388e9edb762a60fd3c99" kind="function"><name>min</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a491faf0ef89b0ce2ddb6f5bf9da16c13" kind="function"><name>max</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ab6dad39b8ff41e5dbe1e9b412ffebb07" kind="function"><name>operator+</name></member>
+    <member refid="namespaceeuphoria_1_1core_1abd9365f3bbf89d30de3032cfcb5f39a2" kind="function"><name>operator-</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a8ed74a86ada700cc9cde479c97753082" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1abb872fdfbecc5ace8a139105c1740b08" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a4eef4e847b1f55570882c2d674d71a9f" kind="function"><name>operator/</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a16a801a8bbcc2cff790ad47e4fb2ce45" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a1a207d40c5e85802d6d12931eecbb2a5" kind="function"><name>min</name></member>
+    <member refid="namespaceeuphoria_1_1core_1af79969c403576bf886f1983774097f19" kind="function"><name>max</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ad3b9e2ccc06ad576bcc1143654771136" kind="function"><name>operator+</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a70f618dca03511ef3f2fba1b2908f98b" kind="function"><name>operator-</name></member>
+    <member refid="namespaceeuphoria_1_1core_1aa55115decd273f5e85daa71014915997" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a4c56d0e373347a6ae556d9da5c54fe02" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a187b16253a137e4b1d2ee40928f084f5" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespaceeuphoria_1_1core_1a4d89f3242c552cf7958b47bb8eaf9e5e" kind="function"><name>build_bounding_sphere</name></member>
     <member refid="namespaceeuphoria_1_1core_1a2de5c25d793092c8ba66f5ef16dc8995" kind="function"><name>get_keys</name></member>
     <member refid="namespaceeuphoria_1_1core_1ace77957dd3b94b7d0c80c25b3e94354f" kind="function"><name>get_sorted</name></member>
@@ -3983,40 +4074,40 @@
     <member refid="namespaceeuphoria_1_1core_1a1b25ff4404e21793b3c174495dee427d" kind="function"><name>get_seconds_between</name></member>
     <member refid="namespaceeuphoria_1_1core_1aa39bbcdca22a9f2d323d70db622fe3d6" kind="function"><name>tor_curve</name></member>
     <member refid="namespaceeuphoria_1_1core_1a0db9800e07c5d137f8b82939eb4d8aea" kind="function"><name>utf8_to_codepoints</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a0a3b61bfdb45a1438da51d35366d3ec9" kind="function"><name>operator+</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a607990fcd340b35049d075cdc4e2f12d" kind="function"><name>operator-</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ababef4cd9f4fe06437a306b1a9d58fd5" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a072a91f9b2b50aea86afab50aa07d9f1" kind="function"><name>operator!=</name></member>
-    <member refid="namespaceeuphoria_1_1core_1abb15e9efe71183d2ad57fa0ba432d5d9" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a3ca884bae9a6ad47c9bd70d5cae90cb0" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1afbf9f1113dda567bcf3acbf8e6e54f7f" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ad45e38438f2373ce8f5a36dc9dd69712" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a445bce2404873e3fdf98c4d8acfe7cd2" kind="function"><name>operator/</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ab044fed5f6632b569daa0a58a86a347e" kind="function"><name>component_multiply</name></member>
-    <member refid="namespaceeuphoria_1_1core_1af8b505346cfe1a5031a6f1c7867a7b61" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1aeda9670497efe938f9e8795a97b9566b" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a2d64e6e9a90ea6a9fbbe0ca649905ad2" kind="function"><name>dot</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a630b4a6c01189821fe6b22206a78d5f5" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceeuphoria_1_1core_1af3363838a127e9bb54637409fa7ec691" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ab97a7af5cf1b5c4bede91f4e1c2e3fd7" kind="function"><name>operator+</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a0e6b6ae94a87eda854efbc6210a0c96b" kind="function"><name>operator-</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ab9b275bcfd8a47b184a8e2573d7c4222" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1affcd959c79b4d275eabf7e59dfd4f49b" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1aa1948b53904ccc3889975a31913faad7" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1adcf7be56f7c4c901fd24b0c574af944b" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1aa1dcdb78d2bbeb8cbb2048d0547e6991" kind="function"><name>operator/</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ad2357281961eb873a23a67a17b1bf052" kind="function"><name>component_multiply</name></member>
+    <member refid="namespaceeuphoria_1_1core_1aec2d64b269b013b6100f0ab8a38a630a" kind="function"><name>operator+</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ae25c09769cd9bcab2e2c36505cd11bc5" kind="function"><name>operator-</name></member>
+    <member refid="namespaceeuphoria_1_1core_1af0b7bbaaa9c04f82bc6ced806221f2d7" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a7a7e96f55cbc8428ab15ba05d8440d16" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ad2392e57e6097e1a89a095cc2b1f56cb" kind="function"><name>component_multiply</name></member>
+    <member refid="namespaceeuphoria_1_1core_1afed34b14f956c40318dd4a1e15e1913d" kind="function"><name>operator==</name></member>
+    <member refid="namespaceeuphoria_1_1core_1af9850d77657894a2314d5ab265348311" kind="function"><name>operator!=</name></member>
+    <member refid="namespaceeuphoria_1_1core_1aec6265dbc1ffb0acd14b677a246b30cd" kind="function"><name>dot</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a2c03ea93b1c68234facc85b0848a2485" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a4ae1032c909ccd4883cd36815353f695" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a4d0cd4bed2e20941849e1d3f3ab7c760" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespaceeuphoria_1_1core_1a67af454c35be95be33b8122b0b7ec702" kind="function"><name>create_random_unit</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ac3e308f8e5d48a3cc43316a3a3b1d031" kind="function"><name>operator+</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a7b7878479ba21e5fcb3cf67757e672fe" kind="function"><name>operator-</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a2ad2f757304d19d56d11ff5ce84675a3" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1aed936e869a019ab36edccc00dcb5924b" kind="function"><name>operator*</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ae75d32c6561b1028d54e2a5c216bde2c" kind="function"><name>operator/</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ad66a0424317b47ec3354d88474c8d820" kind="function"><name>operator/</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a42fd8bf42c03059bb835b0129238349f" kind="function"><name>component_multiply</name></member>
-    <member refid="namespaceeuphoria_1_1core_1abe01fac4a1e1b3ca2a1f47ce1e73c6dc" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a9ab8b768093231a79bc2c48801e16e1b" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1af89679eb304e9eb1ace4f97fcbd4d443" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a4256b0e331ca0124235b323d66d4f82b" kind="function"><name>dot</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a97abca29ecaaca3385929e99ea240217" kind="function"><name>cross</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a70305d230d78f9abb7b578b40f6ea898" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ab2e3e84b7cee9878589dd530b4b7dc85" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a34a5055297ce70f1753cbae221f68638" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ab3ddda260d5632a97a49cc4a93715791" kind="function"><name>operator==</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a8a2f5510ab0c00cfbee35bf3bd298a1c" kind="function"><name>operator&lt;&lt;</name></member>
-    <member refid="namespaceeuphoria_1_1core_1a317f2b1d751ca22fad3a7ed76074763f" kind="function"><name>component_multiply</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ae50a586758a08e1a1b00397ff48a8662" kind="function"><name>operator+</name></member>
+    <member refid="namespaceeuphoria_1_1core_1afb2a1fc61ae18df05b8d4299aee06081" kind="function"><name>operator-</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a16b8820fa5243f1e424c18bb438c7321" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1af3c232ef71ab0114bd788ffba44bf367" kind="function"><name>operator*</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a773e7f5fc4c9bd355cf0ae0050de2a3c" kind="function"><name>operator/</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ae8552c50df9d34b3ae7d74e519461bce" kind="function"><name>operator/</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a576b1f5585f1a0da165e99e8cb77e106" kind="function"><name>component_multiply</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a2d7ddae0a4bbfee5f18170603d5b4db3" kind="function"><name>dot</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a1b53b7937c4e1133400ca78e9a84dee6" kind="function"><name>cross</name></member>
+    <member refid="namespaceeuphoria_1_1core_1aef5f2c7b6bce93439d0996be4a6dff92" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1aeca76e217d0c4a6c1f3310b1e57c479c" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1a45d329faa1c5c68085bea297382e8330" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1ae93910025cfecd9c78d1b73295dd3a57" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1af42e8a35bcd835194be7dafd8eb2b4f4" kind="function"><name>component_multiply</name></member>
     <member refid="namespaceeuphoria_1_1core_1a874c6ab98ff7192cdae73b0723d4c402" kind="function"><name>mouse_to_ray</name></member>
     <member refid="namespaceeuphoria_1_1core_1a26517637037f85cbe2392249e63bea2a" kind="function"><name>mouse_to_unit_ray</name></member>
     <member refid="namespaceeuphoria_1_1core_1a78ee0507372ffc4a8e169633a19f0eb9" kind="function"><name>word_wrap</name></member>
@@ -4778,16 +4869,8 @@
   <compound refid="markov_8h" kind="file"><name>markov.h</name>
   </compound>
   <compound refid="mat2_8h" kind="file"><name>mat2.h</name>
-    <member refid="mat2_8h_1a52267107dd1016c80abd3e27e445e437" kind="define"><name>OP</name></member>
-    <member refid="mat2_8h_1a52267107dd1016c80abd3e27e445e437" kind="define"><name>OP</name></member>
-    <member refid="mat2_8h_1a6c80fab70a39bdaff699abc7fd6f7c29" kind="define"><name>OP</name></member>
-    <member refid="mat2_8h_1ad3fad4870192fbb33f78583fbb0cc502" kind="define"><name>OP</name></member>
   </compound>
   <compound refid="mat3_8h" kind="file"><name>mat3.h</name>
-    <member refid="mat3_8h_1a52267107dd1016c80abd3e27e445e437" kind="define"><name>OP</name></member>
-    <member refid="mat3_8h_1a52267107dd1016c80abd3e27e445e437" kind="define"><name>OP</name></member>
-    <member refid="mat3_8h_1a6c80fab70a39bdaff699abc7fd6f7c29" kind="define"><name>OP</name></member>
-    <member refid="mat3_8h_1ad3fad4870192fbb33f78583fbb0cc502" kind="define"><name>OP</name></member>
   </compound>
   <compound refid="mat4_8h" kind="file"><name>mat4.h</name>
   </compound>

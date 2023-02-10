@@ -119,7 +119,7 @@
         <argsstring>(const vec3f &amp;p, float radius, const rgbi &amp;color)</argsstring>
         <name>add_sphere</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
           <declname>p</declname>
         </param>
         <param>
@@ -144,7 +144,7 @@
         <argsstring>(const std::vector&lt; vec3f &gt; &amp;lines, const rgbi &amp;color) -&gt; void</argsstring>
         <name>add_lines</name>
         <param>
-          <type>const std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref> &gt; &amp;</type>
+          <type>const std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt; &amp;</type>
           <declname>lines</declname>
         </param>
         <param>

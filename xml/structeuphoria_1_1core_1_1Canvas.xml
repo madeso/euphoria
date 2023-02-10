@@ -31,7 +31,7 @@
         <location file="libs/core/src/core/image_canvas.h" line="19" column="15" bodyfile="libs/core/src/core/image_canvas.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Canvas_1aa8fd10e842de8ddf6289aefcc6aecf33" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a8bd846ca11a82406a9ab443ded9100bf" kindref="member">mat3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref></type>
         <definition>mat3f euphoria::core::Canvas::transform</definition>
         <argsstring></argsstring>
         <name>transform</name>
@@ -57,7 +57,7 @@
         <location file="libs/core/src/core/image_canvas.h" line="23" column="14" bodyfile="libs/core/src/core/image_canvas.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Canvas_1aff5d70e104ecb53a3423f3e5eb34136c" prot="public" static="no" mutable="no">
-        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &gt;</type>
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
         <definition>std::vector&lt;vec2f&gt; euphoria::core::Canvas::path</definition>
         <argsstring></argsstring>
         <name>path</name>
@@ -72,12 +72,12 @@
       </sectiondef>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a3e4748a2aa1fe5e01048d399279b4746" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
         <definition>vec2f euphoria::core::Canvas::transform_position</definition>
         <argsstring>(const vec2f &amp;v) const</argsstring>
         <name>transform_position</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1abde36313e7b77643f708dcd5702ae5fc" kindref="member">vec2f</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
           <declname>v</declname>
         </param>
         <briefdescription>
@@ -266,19 +266,19 @@
           <edgelabel>fill_style</edgelabel>
         </childnode>
         <childnode refid="3" relation="usage">
-          <edgelabel>target_image</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
           <edgelabel>transform</edgelabel>
         </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>target_image</edgelabel>
+        </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>euphoria::core::Image</label>
         <link refid="structeuphoria_1_1core_1_1Image"/>
       </node>
-      <node id="4">
-        <label>euphoria::core::mat3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1mat3"/>
+      <node id="3">
+        <label>euphoria::core::mat3f</label>
+        <link refid="structeuphoria_1_1core_1_1mat3f"/>
       </node>
       <node id="2">
         <label>euphoria::core::rgbi</label>

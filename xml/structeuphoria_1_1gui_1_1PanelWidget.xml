@@ -117,7 +117,7 @@
         <location file="libs/gui/src/gui/panelwidget.h" line="26" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1PanelWidget_1a7f991a044e6bf0300b546bd48fcf0593" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
         <definition>core::size2f euphoria::gui::PanelWidget::calculate_minimum_size</definition>
         <argsstring>() const override</argsstring>
         <name>calculate_minimum_size</name>
@@ -170,26 +170,26 @@
         <label>euphoria::gui::LayoutData</label>
         <link refid="structeuphoria_1_1gui_1_1LayoutData"/>
       </node>
-      <node id="3">
-        <label>euphoria::core::Rect&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Rect"/>
-      </node>
       <node id="2">
         <label>euphoria::gui::Widget</label>
         <link refid="structeuphoria_1_1gui_1_1Widget"/>
         <childnode refid="3" relation="usage">
-          <edgelabel>rect</edgelabel>
-        </childnode>
-        <childnode refid="4" relation="usage">
           <edgelabel>ui_state</edgelabel>
         </childnode>
-        <childnode refid="6" relation="usage">
+        <childnode refid="5" relation="usage">
           <edgelabel>padding</edgelabel>
           <edgelabel>margin</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>rect</edgelabel>
         </childnode>
         <childnode refid="7" relation="usage">
           <edgelabel>layout</edgelabel>
         </childnode>
+      </node>
+      <node id="6">
+        <label>euphoria::core::Rectf</label>
+        <link refid="structeuphoria_1_1core_1_1Rectf"/>
       </node>
       <node id="9">
         <label>euphoria::gui::Container</label>
@@ -201,24 +201,24 @@
         <childnode refid="9" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="6">
+      <node id="5">
         <label>euphoria::core::Lrud&lt; float &gt;</label>
         <link refid="structeuphoria_1_1core_1_1Lrud"/>
       </node>
-      <node id="5">
-        <label>euphoria::core::vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec2"/>
-      </node>
-      <node id="4">
+      <node id="3">
         <label>euphoria::gui::State</label>
         <link refid="structeuphoria_1_1gui_1_1State"/>
-        <childnode refid="5" relation="usage">
+        <childnode refid="4" relation="usage">
           <edgelabel>mouse</edgelabel>
         </childnode>
         <childnode refid="2" relation="usage">
           <edgelabel>hot</edgelabel>
           <edgelabel>active</edgelabel>
         </childnode>
+      </node>
+      <node id="4">
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
       <node id="1">
         <label>euphoria::gui::PanelWidget</label>

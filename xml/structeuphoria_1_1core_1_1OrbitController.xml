@@ -5,7 +5,7 @@
     <includes refid="orbitcontroller_8h" local="no">orbitcontroller.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1OrbitController_1addcbda45d74604a6dfe02ecb488ad3d7" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::OrbitController::center</definition>
         <argsstring></argsstring>
         <name>center</name>
@@ -151,7 +151,7 @@
         <location file="libs/core/src/core/orbitcontroller.h" line="16" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1OrbitController_1ae95804b8dc7531d2ac821cad85517b25" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad1c134b79d76607b80bbb0302dd8ac45" kindref="member">vec3f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::OrbitController::get_camera_position</definition>
         <argsstring>() const</argsstring>
         <name>get_camera_position</name>
@@ -237,8 +237,8 @@
         <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
       <node id="2">
-        <label>euphoria::core::vec3&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec3"/>
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
       <node id="1">
         <label>euphoria::core::OrbitController</label>

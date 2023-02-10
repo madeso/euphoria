@@ -72,7 +72,7 @@
         <location file="libs/gui/src/gui/widget.h" line="86" column="20" bodyfile="libs/gui/src/gui/widget.h" bodystart="86" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Widget_1adaeaa96945b0d21a6bb304a152a06e8e" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
         <definition>core::Rectf euphoria::gui::Widget::rect</definition>
         <argsstring></argsstring>
         <name>rect</name>
@@ -193,7 +193,7 @@
         <location file="libs/gui/src/gui/widget.h" line="52" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1aaa5ef093b28493ac7ab9d595ee32603c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
         <definition>core::Rectf euphoria::gui::Widget::get_client_rect</definition>
         <argsstring>() const</argsstring>
         <name>get_client_rect</name>
@@ -206,7 +206,7 @@
         <location file="libs/gui/src/gui/widget.h" line="55" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a612b9df04f3ad944e2fbb724af8b9e3c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
         <definition>core::Rectf euphoria::gui::Widget::get_background_rect</definition>
         <argsstring>() const</argsstring>
         <name>get_background_rect</name>
@@ -224,7 +224,7 @@
         <argsstring>(const core::Rectf &amp;r)</argsstring>
         <name>set_rect</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>r</declname>
         </param>
         <briefdescription>
@@ -236,7 +236,7 @@
         <location file="libs/gui/src/gui/widget.h" line="61" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a9ca439de78ec9af54a1a153c537352b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
         <definition>core::size2f euphoria::gui::Widget::get_preferred_size</definition>
         <argsstring>() const</argsstring>
         <name>get_preferred_size</name>
@@ -249,7 +249,7 @@
         <location file="libs/gui/src/gui/widget.h" line="64" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a48e7352c736424d3887d8c07ae57338d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a383e78dffae3cd1e11e66452087e6808" kindref="member">core::size2f</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
         <definition>virtual core::size2f euphoria::gui::Widget::calculate_minimum_size</definition>
         <argsstring>() const =0</argsstring>
         <name>calculate_minimum_size</name>
@@ -355,45 +355,45 @@
         <label>euphoria::gui::LayoutData</label>
         <link refid="structeuphoria_1_1gui_1_1LayoutData"/>
       </node>
-      <node id="2">
-        <label>euphoria::core::Rect&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Rect"/>
-      </node>
       <node id="1">
         <label>euphoria::gui::Widget</label>
         <link refid="structeuphoria_1_1gui_1_1Widget"/>
         <childnode refid="2" relation="usage">
-          <edgelabel>rect</edgelabel>
-        </childnode>
-        <childnode refid="3" relation="usage">
           <edgelabel>ui_state</edgelabel>
         </childnode>
-        <childnode refid="5" relation="usage">
+        <childnode refid="4" relation="usage">
           <edgelabel>padding</edgelabel>
           <edgelabel>margin</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>rect</edgelabel>
         </childnode>
         <childnode refid="6" relation="usage">
           <edgelabel>layout</edgelabel>
         </childnode>
       </node>
       <node id="5">
+        <label>euphoria::core::Rectf</label>
+        <link refid="structeuphoria_1_1core_1_1Rectf"/>
+      </node>
+      <node id="4">
         <label>euphoria::core::Lrud&lt; float &gt;</label>
         <link refid="structeuphoria_1_1core_1_1Lrud"/>
       </node>
-      <node id="4">
-        <label>euphoria::core::vec2&lt; float &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1vec2"/>
-      </node>
-      <node id="3">
+      <node id="2">
         <label>euphoria::gui::State</label>
         <link refid="structeuphoria_1_1gui_1_1State"/>
-        <childnode refid="4" relation="usage">
+        <childnode refid="3" relation="usage">
           <edgelabel>mouse</edgelabel>
         </childnode>
         <childnode refid="1" relation="usage">
           <edgelabel>hot</edgelabel>
           <edgelabel>active</edgelabel>
         </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
     </collaborationgraph>
     <location file="libs/gui/src/gui/widget.h" line="27" column="1" bodyfile="libs/gui/src/gui/widget.h" bodystart="26" bodyend="88"/>

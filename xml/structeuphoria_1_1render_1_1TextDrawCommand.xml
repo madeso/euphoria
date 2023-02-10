@@ -18,7 +18,7 @@
         <location file="libs/render/src/render/font.h" line="68" column="24" bodyfile="libs/render/src/render/font.h" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1TextDrawCommand_1a63cb9c72a5765555ccdfa039f91c691d" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
         <definition>core::Rectf euphoria::render::TextDrawCommand::sprite_rect</definition>
         <argsstring></argsstring>
         <name>sprite_rect</name>
@@ -31,7 +31,7 @@
         <location file="libs/render/src/render/font.h" line="69" column="21" bodyfile="libs/render/src/render/font.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1TextDrawCommand_1a3e5d31c0c76225bb26380d72d8b7fcce" prot="public" static="no" mutable="no">
-        <type><ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref></type>
+        <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
         <definition>core::Rectf euphoria::render::TextDrawCommand::texture_rect</definition>
         <argsstring></argsstring>
         <name>texture_rect</name>
@@ -68,11 +68,11 @@
           <declname>texture</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>sprite_rect</declname>
         </param>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1a36217bfc978879cdbc151f5c8759bf86" kindref="member">core::Rectf</ref> &amp;</type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &amp;</type>
           <declname>texture_rect</declname>
         </param>
         <param>
@@ -93,20 +93,28 @@
     <detaileddescription>
     </detaileddescription>
     <collaborationgraph>
-      <node id="2">
+      <node id="3">
         <label>euphoria::render::Texture2</label>
         <link refid="structeuphoria_1_1render_1_1Texture2"/>
-        <childnode refid="3" relation="public-inheritance">
+        <childnode refid="4" relation="public-inheritance">
         </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::Rectf</label>
+        <link refid="structeuphoria_1_1core_1_1Rectf"/>
       </node>
       <node id="1">
         <label>euphoria::render::TextDrawCommand</label>
         <link refid="structeuphoria_1_1render_1_1TextDrawCommand"/>
         <childnode refid="2" relation="usage">
+          <edgelabel>sprite_rect</edgelabel>
+          <edgelabel>texture_rect</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
           <edgelabel>texture</edgelabel>
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>euphoria::render::TextureId</label>
         <link refid="structeuphoria_1_1render_1_1TextureId"/>
       </node>
