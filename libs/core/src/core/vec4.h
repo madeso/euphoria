@@ -20,7 +20,7 @@ namespace euphoria::core
         explicit vec4f(float a);
         vec4f(float ax, float ay, float az, float aw);
 
-        /// @param w point is 1, vector is 0
+        /// @param aw point is 1, vector is 0
         vec4f(const vec3f& a, float aw);
 
         // todo(Gustav): make explicit?
