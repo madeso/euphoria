@@ -20,7 +20,7 @@ namespace euphoria::core
 #ifndef _WIN32
     std::optional<Guid> Guid::create()
     {
-        Guid guid;
+        Guid guid {};
         uuid_generate(guid.data.data());
         return guid;
     }
@@ -107,7 +107,7 @@ namespace euphoria::core
         parser.skip_spaces(false);
         skip(&parser, '{');
 
-        Guid ret;
+        Guid ret {};
         for(int index=0; index<16; index+=1)
         {
             if(parser.has_more() == false) { return std::nullopt; }
