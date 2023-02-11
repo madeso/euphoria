@@ -4947,8 +4947,6 @@
   </compound>
   <compound refid="polybezier_8h" kind="file"><name>polybezier.h</name>
   </compound>
-  <compound refid="polybezier_8illustration_8md" kind="file"><name>polybezier.illustration.md</name>
-  </compound>
   <compound refid="propertytree_8h" kind="file"><name>propertytree.h</name>
   </compound>
   <compound refid="proto_8h" kind="file"><name>proto.h</name>
@@ -5249,8 +5247,6 @@
   <compound refid="md_docs_markdown_coordinate-system" kind="page"><name>md_docs_markdown_coordinate-system</name>
   </compound>
   <compound refid="md_docs_markdown_mesh" kind="page"><name>md_docs_markdown_mesh</name>
-  </compound>
-  <compound refid="md_libs_core_src_core_polybezier_8illustration" kind="page"><name>md_libs_core_src_core_polybezier.illustration</name>
   </compound>
   <compound refid="dir_be4889e00cf19717698d04e08b906024" kind="dir"><name>libs/assert</name>
   </compound>

@@ -122,7 +122,7 @@
         <detaileddescription>
 <para><parameterlist kind="param"><parameteritem>
 <parameternamelist>
-<parametername>w</parametername>
+<parametername>aw</parametername>
 </parameternamelist>
 <parameterdescription>
 <para>point is 1, vector is 0 </para>
