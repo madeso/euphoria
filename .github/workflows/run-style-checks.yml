@@ -23,6 +23,13 @@ jobs:
         - name: Create Build Environment
           run: cmake -E make_directory ${{github.workspace}}/build
 
+        - name: Cache clang-tidy
+          id: cache-primes
+          uses: actions/cache@v3
+          with:
+            path: ${{github.workspace}}/build/clang-tidy-store.json
+            key: clang-tidy
+
         - name: Configure
           shell: bash
           working-directory: ${{github.workspace}}/build
