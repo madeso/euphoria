@@ -169,6 +169,19 @@
         </inbodydescription>
         <location file="libs/core/src/core/vec4.h" line="29" column="18"/>
       </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a206a4f792c6e8f924a4492e4c3c6b139" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float *</type>
+        <definition>float* euphoria::core::vec4f::get_data_ptr</definition>
+        <argsstring>()</argsstring>
+        <name>get_data_ptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vec4.h" line="31" column="15"/>
+      </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a54ed66778ec1f6833f1198889412f212" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
         <definition>vec3f euphoria::core::vec4f::to_vec3</definition>
@@ -185,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="32" column="16"/>
+        <location file="libs/core/src/core/vec4.h" line="34" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1ae203269f55890816898416e48b46c3a3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -198,20 +211,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="35" column="16"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a206a4f792c6e8f924a4492e4c3c6b139" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>float *</type>
-        <definition>float* euphoria::core::vec4f::get_data_ptr</definition>
-        <argsstring>()</argsstring>
-        <name>get_data_ptr</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vec4.h" line="37" column="15"/>
+        <location file="libs/core/src/core/vec4.h" line="37" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vec4f_1a93f577ef0a52d8bcde0bb6ab6cb9b3d6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const float *</type>

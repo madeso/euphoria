@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="109" column="25" bodyfile="libs/core/src/core/generator_maze.h" bodystart="109" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="94" column="25" bodyfile="libs/core/src/core/generator_maze.h" bodystart="94" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1aa2d8ff45dec59addc67c3a5654249606" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="111" column="13" bodyfile="libs/core/src/core/generator_maze.h" bodystart="111" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="96" column="13" bodyfile="libs/core/src/core/generator_maze.h" bodystart="96" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1af81c5da2bfe4e067d46da15437c29ecb" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="112" column="13" bodyfile="libs/core/src/core/generator_maze.h" bodystart="112" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="97" column="13" bodyfile="libs/core/src/core/generator_maze.h" bodystart="97" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1ab7489b33474abc6b1dc222fbffa70ca0" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker" kindref="compound">RecursiveBacktracker</ref> *</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="114" column="30" bodyfile="libs/core/src/core/generator_maze.h" bodystart="114" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="99" column="30" bodyfile="libs/core/src/core/generator_maze.h" bodystart="99" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a8af54dbe0387366ec65959ab4fcab954" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal" kindref="compound">RandomTraversal</ref> *</type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="115" column="25" bodyfile="libs/core/src/core/generator_maze.h" bodystart="115" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="100" column="25" bodyfile="libs/core/src/core/generator_maze.h" bodystart="100" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1ad6feb323d4e6d9282ee6bb25c0609d57" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="117" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="117" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="102" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="102" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a7deb4f5377f5c1093cc65e0cc5a3c0f4" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="118" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="118" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="103" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="103" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a052d926e2d1201eb5c4ebb2b103ea77b" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="119" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="119" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="104" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="104" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a408b0c03dff8135a080090d8aff7f969" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="120" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="120" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="105" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="105" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a473ee0021aabc82258927411eecc06ce" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="121" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="121" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="106" column="14" bodyfile="libs/core/src/core/generator_maze.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1abc3bcc5a77d402350e5185bbe9a8ce9c" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1Image" kindref="compound">core::Image</ref></type>
@@ -150,10 +150,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="126" column="21" bodyfile="libs/core/src/core/generator_maze.h" bodystart="126" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="108" column="21" bodyfile="libs/core/src/core/generator_maze.h" bodystart="108" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a341bca36ab7f270f9cd8c1af430e77f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::generator::Drawer::Drawer</definition>
+        <argsstring>()</argsstring>
+        <name>Drawer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="110" column="9"/>
+      </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a64d0779c6d126c2505330a7663b395e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
         <definition>rgbi euphoria::core::generator::Drawer::calculate_cell_color</definition>
@@ -173,20 +186,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="124" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a341bca36ab7f270f9cd8c1af430e77f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>euphoria::core::generator::Drawer::Drawer</definition>
-        <argsstring>()</argsstring>
-        <name>Drawer</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="128" column="9"/>
+        <location file="libs/core/src/core/generator_maze.h" line="112" column="15"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a4502cc158f5cfc4a0ca92335c886d972" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="131" column="9"/>
+        <location file="libs/core/src/core/generator_maze.h" line="115" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -275,7 +275,7 @@
         <link refid="structeuphoria_1_1core_1_1rgbi"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/generator_maze.h" line="108" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="107" bodyend="132"/>
+    <location file="libs/core/src/core/generator_maze.h" line="93" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="92" bodyend="116"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a64d0779c6d126c2505330a7663b395e3" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>calculate_cell_color</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a7deb4f5377f5c1093cc65e0cc5a3c0f4" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>cell_color</name></member>

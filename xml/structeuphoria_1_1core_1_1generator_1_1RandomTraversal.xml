@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="87" column="25" bodyfile="libs/core/src/core/generator_maze.h" bodystart="87" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="77" column="25" bodyfile="libs/core/src/core/generator_maze.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a808153e7b61d2adc9a77cdd2e5878080" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">core::Random</ref> *</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="88" column="22" bodyfile="libs/core/src/core/generator_maze.h" bodystart="88" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="78" column="22" bodyfile="libs/core/src/core/generator_maze.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1ad65c182fff143305f99283be8f6403eb" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry" kindref="compound">Entry</ref> &gt;</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="95" column="21" bodyfile="libs/core/src/core/generator_maze.h" bodystart="95" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_maze.h" line="85" column="21" bodyfile="libs/core/src/core/generator_maze.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -61,21 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="98" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a26980f500e9414f8e47b848a4e578b1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::generator::RandomTraversal::has_more_work</definition>
-        <argsstring>() const override</argsstring>
-        <name>has_more_work</name>
-        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1aadb707c44e21e5c093bf4cfd7d509c34">has_more_work</reimplements>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="101" column="9"/>
+        <location file="libs/core/src/core/generator_maze.h" line="87" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a9b0aec4c5c21c81d2620db65df801ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -89,7 +75,21 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="104" column="9"/>
+        <location file="libs/core/src/core/generator_maze.h" line="88" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a26980f500e9414f8e47b848a4e578b1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::generator::RandomTraversal::has_more_work</definition>
+        <argsstring>() const override</argsstring>
+        <name>has_more_work</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1aadb707c44e21e5c093bf4cfd7d509c34">has_more_work</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="89" column="15"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -134,7 +134,7 @@
         <link refid="structeuphoria_1_1core_1_1Random"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/generator_maze.h" line="86" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="85" bodyend="105"/>
+    <location file="libs/core/src/core/generator_maze.h" line="76" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="75" bodyend="90"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a899b7369c8141c6158b50c600e057127" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>Algorithm</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a2ecf1f318083c1a04d83f4e5888ae69d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomTraversal</scope><name>Algorithm</name></member>

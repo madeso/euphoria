@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="57" column="15" bodyfile="libs/core/src/core/aabb.h" bodystart="57" bodyend="-1"/>
+        <location file="libs/core/src/core/aabb.h" line="14" column="15" bodyfile="libs/core/src/core/aabb.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Aabb_1a09b9b525e919634bad8fb7bc7b09506d" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="58" column="15" bodyfile="libs/core/src/core/aabb.h" bodystart="58" bodyend="-1"/>
+        <location file="libs/core/src/core/aabb.h" line="15" column="15" bodyfile="libs/core/src/core/aabb.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -51,24 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="14" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1aed774ece37a89cb5c57f74bf182e0ec9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
-        <definition>vec3f euphoria::core::Aabb::wrap</definition>
-        <argsstring>(const vec3f &amp;vec) const</argsstring>
-        <name>wrap</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
-          <declname>vec</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="18" column="9"/>
+        <location file="libs/core/src/core/aabb.h" line="17" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a84e652d66728b0cd1a1e61de7e04ca84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -85,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="22" column="9"/>
+        <location file="libs/core/src/core/aabb.h" line="20" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a9f592e6d732bf484bf2d416b44ffcea4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -102,46 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="26" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1ad7f1bf63a320ed88d754105d19d5626b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
-        <definition>vec3f euphoria::core::Aabb::get_size</definition>
-        <argsstring>() const</argsstring>
-        <name>get_size</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="34" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a5b4977549583d323f14a205d8503aab8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::Aabb::is_valid</definition>
-        <argsstring>() const</argsstring>
-        <name>is_valid</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="38" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a969a515534d9eeacda85e89a32931c7a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
-        <definition>vec3f euphoria::core::Aabb::get_offset</definition>
-        <argsstring>() const</argsstring>
-        <name>get_offset</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="42" column="9"/>
+        <location file="libs/core/src/core/aabb.h" line="21" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a986fa9eff325c1173aa59bcc1dd84530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -158,7 +102,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="46" column="9"/>
+        <location file="libs/core/src/core/aabb.h" line="22" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1aed774ece37a89cb5c57f74bf182e0ec9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::Aabb::wrap</definition>
+        <argsstring>(const vec3f &amp;vec) const</argsstring>
+        <name>wrap</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>vec</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="24" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a7ff5a7553b4f07726fc3622efa52c635" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
@@ -175,7 +136,46 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="50" column="9"/>
+        <location file="libs/core/src/core/aabb.h" line="25" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1ad7f1bf63a320ed88d754105d19d5626b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::Aabb::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="27" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a5b4977549583d323f14a205d8503aab8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::Aabb::is_valid</definition>
+        <argsstring>() const</argsstring>
+        <name>is_valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="28" column="15"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a969a515534d9eeacda85e89a32931c7a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::Aabb::get_offset</definition>
+        <argsstring>() const</argsstring>
+        <name>get_offset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/aabb.h" line="29" column="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a6698470eb44bd0056aad49cca3ec0f8d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
@@ -188,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="54" column="9"/>
+        <location file="libs/core/src/core/aabb.h" line="32" column="22"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -203,7 +203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="30" column="9"/>
+        <location file="libs/core/src/core/aabb.h" line="18" column="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -224,7 +224,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/aabb.h" line="13" column="1" bodyfile="libs/core/src/core/aabb.h" bodystart="12" bodyend="59"/>
+    <location file="libs/core/src/core/aabb.h" line="13" column="1" bodyfile="libs/core/src/core/aabb.h" bodystart="12" bodyend="33"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a4cc91056779896a9a0eca79ac71c0779" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>Aabb</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a6698470eb44bd0056aad49cca3ec0f8d" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>calculate_all_corners</name></member>

@@ -27,14 +27,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="211" column="9"/>
+        <location file="libs/core/src/core/angle.h" line="188" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/angle.h" line="209" column="1" bodyfile="libs/core/src/core/angle.h" bodystart="208" bodyend="212"/>
+    <location file="libs/core/src/core/angle.h" line="186" column="1" bodyfile="libs/core/src/core/angle.h" bodystart="185" bodyend="189"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1AngleTransform_1a5283ab87d19c34e66100fef6d03f1e4d" prot="public" virt="non-virtual"><scope>euphoria::core::AngleTransform</scope><name>transform</name></member>
     </listofallmembers>

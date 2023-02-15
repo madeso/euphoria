@@ -4,14 +4,14 @@
     <member refid="structeuphoria_1_1core_1_1Aabb_1a17a8aaca10a782b97236a943627dfb7f" kind="variable"><name>min</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a09b9b525e919634bad8fb7bc7b09506d" kind="variable"><name>max</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a4cc91056779896a9a0eca79ac71c0779" kind="function"><name>Aabb</name></member>
-    <member refid="structeuphoria_1_1core_1_1Aabb_1aed774ece37a89cb5c57f74bf182e0ec9" kind="function"><name>wrap</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a84e652d66728b0cd1a1e61de7e04ca84" kind="function"><name>extend</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a9f592e6d732bf484bf2d416b44ffcea4" kind="function"><name>extend</name></member>
+    <member refid="structeuphoria_1_1core_1_1Aabb_1a986fa9eff325c1173aa59bcc1dd84530" kind="function"><name>offset</name></member>
+    <member refid="structeuphoria_1_1core_1_1Aabb_1aed774ece37a89cb5c57f74bf182e0ec9" kind="function"><name>wrap</name></member>
+    <member refid="structeuphoria_1_1core_1_1Aabb_1a7ff5a7553b4f07726fc3622efa52c635" kind="function"><name>offset_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1ad7f1bf63a320ed88d754105d19d5626b" kind="function"><name>get_size</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a5b4977549583d323f14a205d8503aab8" kind="function"><name>is_valid</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a969a515534d9eeacda85e89a32931c7a" kind="function"><name>get_offset</name></member>
-    <member refid="structeuphoria_1_1core_1_1Aabb_1a986fa9eff325c1173aa59bcc1dd84530" kind="function"><name>offset</name></member>
-    <member refid="structeuphoria_1_1core_1_1Aabb_1a7ff5a7553b4f07726fc3622efa52c635" kind="function"><name>offset_copy</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a6698470eb44bd0056aad49cca3ec0f8d" kind="function"><name>calculate_all_corners</name></member>
     <member refid="structeuphoria_1_1core_1_1Aabb_1a2d85fa1fe617982fd810f653124bdaba" kind="function"><name>create_empty</name></member>
   </compound>
@@ -33,33 +33,33 @@
     <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a3ca0b14c03c314b82527fa40d38d8b82" kind="function"><name>operator=</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a203df91d7e802b8f10ccf31231cd3cda" kind="function"><name>operator=</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a2d1c271d09dc3baa09b37bfa759a1894" kind="function"><name>setup</name></member>
-    <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1aadb707c44e21e5c093bf4cfd7d509c34" kind="function"><name>has_more_work</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1ae937b77505c16a32eee57933307b716a" kind="function"><name>work</name></member>
+    <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1aadb707c44e21e5c093bf4cfd7d509c34" kind="function"><name>has_more_work</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1angle" kind="struct"><name>euphoria::core::angle</name>
     <member refid="structeuphoria_1_1core_1_1angle_1a7ae30bf44a226d60af69f5e5ac1d99ed" kind="variable"><name>radians</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1a05322e37013ba210dfd3b3e280db3951" kind="function"><name>from_degrees</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1a1e5c3875e12142f09f3ab0c47a7cded0" kind="function"><name>from_radians</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1ab0e95107162945725c40bf854e703462" kind="function"><name>from_percent_of_360</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1a49707acbcf7d2e7fe253347f2558e8ed" kind="function"><name>from_percent_of_180</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1a761816a54621ebaf76494bc570c1aad1" kind="function"><name>one_turn</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1a05556227be5731889c87c61390801295" kind="function"><name>half</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1a6457ed4fcfa10953b0c6b56af17366ea" kind="function"><name>quarter</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1afa3c6789f97d1983bfed2f11945f84a8" kind="function"><name>zero</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1aaaeddf1a5c47a886c3bd8050c522207e" kind="function"><name>random</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1a32b39a4289c98dbf67b4c12f0aca404c" kind="function"><name>wrap</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1a6b801df5232e94d32e9f9375fffc6210" kind="function"><name>in_degrees</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1aef8d7210f1d84c30152f7c232e719a10" kind="function"><name>in_radians</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1ac82620f7f04e1bbb28a8d911376ec78d" kind="function"><name>in_percent_of_360</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1a4febd5e5c75178fcecbf6aba89192a10" kind="function"><name>get_wrapped</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1a32b39a4289c98dbf67b4c12f0aca404c" kind="function"><name>wrap</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1ac0057dfd71da8ea6675d1762fc7bedc5" kind="function"><name>operator+=</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1aaf74abb3ff4315b43c9f6d7fc0c97799" kind="function"><name>operator-=</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1a29b0de40d4a1faadd16e9125108d12de" kind="function"><name>operator*=</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1a03ad1cae5ae456c5007f1a30483b6382" kind="function"><name>operator/=</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1a5de2b1676724575b45953dc10d45614f" kind="function"><name>operator-</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1a05322e37013ba210dfd3b3e280db3951" kind="function"><name>from_degrees</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1a1e5c3875e12142f09f3ab0c47a7cded0" kind="function"><name>from_radians</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1ab0e95107162945725c40bf854e703462" kind="function"><name>from_percent_of_360</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1a761816a54621ebaf76494bc570c1aad1" kind="function"><name>one_turn</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1a05556227be5731889c87c61390801295" kind="function"><name>half</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1a6457ed4fcfa10953b0c6b56af17366ea" kind="function"><name>quarter</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1afa3c6789f97d1983bfed2f11945f84a8" kind="function"><name>zero</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1a49707acbcf7d2e7fe253347f2558e8ed" kind="function"><name>from_percent_of_180</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1aaaeddf1a5c47a886c3bd8050c522207e" kind="function"><name>random</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1a4febd5e5c75178fcecbf6aba89192a10" kind="function"><name>get_wrapped</name></member>
+    <member refid="structeuphoria_1_1core_1_1angle_1af11399cfbbf5f40e083019ba63c9cea6" kind="function"><name>angle</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1ae8072369511a7f99ed09ac0915117ae3" kind="function"><name>radian_to_degrees</name></member>
     <member refid="structeuphoria_1_1core_1_1angle_1a0e86d78bf6f8f41aeb8d2b8196f82fad" kind="function"><name>degrees_to_radian</name></member>
-    <member refid="structeuphoria_1_1core_1_1angle_1af11399cfbbf5f40e083019ba63c9cea6" kind="function"><name>angle</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1AngleTransform" kind="struct"><name>euphoria::core::AngleTransform</name>
     <member refid="structeuphoria_1_1core_1_1AngleTransform_1a5283ab87d19c34e66100fef6d03f1e4d" kind="function"><name>transform</name></member>
@@ -660,8 +660,8 @@
     <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a408b0c03dff8135a080090d8aff7f969" kind="variable"><name>unit_color</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a473ee0021aabc82258927411eecc06ce" kind="variable"><name>corridor_color</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1abc3bcc5a77d402350e5185bbe9a8ce9c" kind="variable"><name>image</name></member>
-    <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a64d0779c6d126c2505330a7663b395e3" kind="function"><name>calculate_cell_color</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a341bca36ab7f270f9cd8c1af430e77f4" kind="function"><name>Drawer</name></member>
+    <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a64d0779c6d126c2505330a7663b395e3" kind="function"><name>calculate_cell_color</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a4502cc158f5cfc4a0ca92335c886d972" kind="function"><name>draw</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1dump2d_1_1Dumper" kind="struct"><name>euphoria::core::dump2d::Dumper</name>
@@ -1876,8 +1876,8 @@
     <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a808153e7b61d2adc9a77cdd2e5878080" kind="variable"><name>random</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1ad65c182fff143305f99283be8f6403eb" kind="variable"><name>frontier</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1ae78ba9ce6fc7acc3d511deeb9cca8e0a" kind="function"><name>setup</name></member>
-    <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a26980f500e9414f8e47b848a4e578b1d" kind="function"><name>has_more_work</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a9b0aec4c5c21c81d2620db65df801ec9" kind="function"><name>work</name></member>
+    <member refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a26980f500e9414f8e47b848a4e578b1d" kind="function"><name>has_more_work</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1RandomXorShift" kind="struct"><name>euphoria::core::RandomXorShift</name>
     <member refid="structeuphoria_1_1core_1_1RandomXorShift_1a096f5022f8b2bd654c2b3396d07ed5b0" kind="variable"><name>state</name></member>
@@ -2104,8 +2104,8 @@
     <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a2c782e77a2a74829b77829c0f0529f16" kind="variable"><name>stack</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a77d2cb369f8aa05a2ee98c4a3ef31e5e" kind="variable"><name>visited_cells</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a8d6433d1a3c721a9c35f0e7c3b52f6ba" kind="function"><name>setup</name></member>
-    <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f8aeeae9ac1ba5aa9ac878c685c8952" kind="function"><name>has_more_work</name></member>
     <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f30e1de84eecf564070721b692a9aec" kind="function"><name>work</name></member>
+    <member refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f8aeeae9ac1ba5aa9ac878c685c8952" kind="function"><name>has_more_work</name></member>
   </compound>
   <compound refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kind="struct"><name>euphoria::core::ecs::Registry</name>
     <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a27d582dbaf9fe39809cadb969d8e5119" kind="variable"><name>pimpl</name></member>
@@ -3083,9 +3083,9 @@
     <member refid="structeuphoria_1_1core_1_1vec4f_1a6c58ef3c2238277869dfe7c742365c84" kind="function"><name>vec4f</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1a65a8f31c892b9a231b276c57072f529a" kind="function"><name>vec4f</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1ad0e12c15ce2ef19a6cbf2b616ed3cd97" kind="function"><name>vec4f</name></member>
+    <member refid="structeuphoria_1_1core_1_1vec4f_1a206a4f792c6e8f924a4492e4c3c6b139" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1a54ed66778ec1f6833f1198889412f212" kind="function"><name>to_vec3</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1ae203269f55890816898416e48b46c3a3" kind="function"><name>to_vec3</name></member>
-    <member refid="structeuphoria_1_1core_1_1vec4f_1a206a4f792c6e8f924a4492e4c3c6b139" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1a93f577ef0a52d8bcde0bb6ab6cb9b3d6" kind="function"><name>get_data_ptr</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1a48789b3fc6f0a87d574180457920832c" kind="function"><name>get_component_sum</name></member>
     <member refid="structeuphoria_1_1core_1_1vec4f_1a6d5c292989ae40d352a590f5ed112a8b" kind="function"><name>operator==</name></member>
@@ -3672,7 +3672,7 @@
     <member refid="namespaceeuphoria_1_1core_1a664318ae7dd0a8f15f9ace98fceecebc" kind="variable"><name>bit_left</name></member>
     <member refid="namespaceeuphoria_1_1core_1abd1d23b042d95930fc87f61edcada57f" kind="variable"><name>bit_right</name></member>
     <member refid="namespaceeuphoria_1_1core_1a3b02050bb8b242036e35292ba9978467" kind="variable"><name>bit_no_line</name></member>
-    <member refid="namespaceeuphoria_1_1core_1ae05a7c45a30c073c706720de288b3ef4" kind="function"><name>operator&lt;&lt;</name></member>
+    <member refid="namespaceeuphoria_1_1core_1aa355d4d79ef0c853fa9b97e932c87bf2" kind="function"><name>operator&lt;&lt;</name></member>
     <member refid="namespaceeuphoria_1_1core_1a68c8b222feeb8ddd60cd3958155f0b08" kind="function"><name>get_random_point</name></member>
     <member refid="namespaceeuphoria_1_1core_1ac20ef44cbcccfe56a953a860222305ce" kind="function"><name>sin</name></member>
     <member refid="namespaceeuphoria_1_1core_1a859873588626bde22a4c686886af69d4" kind="function"><name>cos</name></member>

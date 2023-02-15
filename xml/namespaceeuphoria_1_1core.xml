@@ -3489,19 +3489,14 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae05a7c45a30c073c706720de288b3ef4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename Stream</type>
-          </param>
-        </templateparamlist>
-        <type>Stream &amp;</type>
-        <definition>Stream&amp; euphoria::core::operator&lt;&lt;</definition>
-        <argsstring>(Stream &amp;s, const Aabb &amp;a)</argsstring>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa355d4d79ef0c853fa9b97e932c87bf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; euphoria::core::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;stream, const Aabb &amp;a)</argsstring>
         <name>operator&lt;&lt;</name>
         <param>
-          <type>Stream &amp;</type>
-          <declname>s</declname>
+          <type>std::ostream &amp;</type>
+          <declname>stream</declname>
         </param>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref> &amp;</type>
@@ -3513,7 +3508,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="62" column="5" bodyfile="libs/core/src/core/aabb.h" bodystart="63" bodyend="67"/>
+        <location file="libs/core/src/core/aabb.h" line="35" column="5" declfile="libs/core/src/core/aabb.h" declline="35" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a68c8b222feeb8ddd60cd3958155f0b08" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -3533,7 +3528,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="70" column="5" declfile="libs/core/src/core/aabb.h" declline="70" declcolumn="5"/>
+        <location file="libs/core/src/core/aabb.h" line="36" column="11" declfile="libs/core/src/core/aabb.h" declline="36" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ac20ef44cbcccfe56a953a860222305ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -3550,7 +3545,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="141" column="5" declfile="libs/core/src/core/angle.h" declline="141" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="118" column="5" declfile="libs/core/src/core/angle.h" declline="118" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a859873588626bde22a4c686886af69d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -3567,7 +3562,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="145" column="5" declfile="libs/core/src/core/angle.h" declline="145" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="122" column="5" declfile="libs/core/src/core/angle.h" declline="122" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ace8799f410e622ef6f360a2d23344ada" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -3584,7 +3579,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="149" column="5" declfile="libs/core/src/core/angle.h" declline="149" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="126" column="5" declfile="libs/core/src/core/angle.h" declline="126" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a26cf669ebf02b7ae8cc57d1d428bd1c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -3601,7 +3596,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="153" column="5" declfile="libs/core/src/core/angle.h" declline="153" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="130" column="5" declfile="libs/core/src/core/angle.h" declline="130" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a462d85ccfead35a3691f1fc1152b56a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -3618,7 +3613,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="157" column="5" declfile="libs/core/src/core/angle.h" declline="157" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="134" column="5" declfile="libs/core/src/core/angle.h" declline="134" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a487479866dc7bc3304896ecac2ca73ef" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -3635,7 +3630,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="161" column="5" declfile="libs/core/src/core/angle.h" declline="161" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="138" column="5" declfile="libs/core/src/core/angle.h" declline="138" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae19affc08bbf84f9e87817cb7dad47fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -3656,7 +3651,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="165" column="5" declfile="libs/core/src/core/angle.h" declline="165" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="142" column="5" declfile="libs/core/src/core/angle.h" declline="142" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a4631b95b3c278d4a6918ad7fa14aceb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -3677,7 +3672,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="169" column="5" declfile="libs/core/src/core/angle.h" declline="169" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="146" column="5" declfile="libs/core/src/core/angle.h" declline="146" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae3874ab09204da48999105dedb2f73be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -3698,7 +3693,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="173" column="5" declfile="libs/core/src/core/angle.h" declline="173" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="150" column="5" declfile="libs/core/src/core/angle.h" declline="150" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a753949d7a9a3ead9784fec78c962ec90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -3719,7 +3714,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="177" column="5" declfile="libs/core/src/core/angle.h" declline="177" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="154" column="5" declfile="libs/core/src/core/angle.h" declline="154" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1afa710ea5f92d20401ab83334317b8e0e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -3740,7 +3735,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="181" column="5" declfile="libs/core/src/core/angle.h" declline="181" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="158" column="5" declfile="libs/core/src/core/angle.h" declline="158" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae44eddb7c56b8603fbb41a5967600929" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -3761,7 +3756,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="185" column="5" declfile="libs/core/src/core/angle.h" declline="185" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="162" column="5" declfile="libs/core/src/core/angle.h" declline="162" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ab88247b7f913d7948b6bf9ed1d609ab3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -3782,7 +3777,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="188" column="5" declfile="libs/core/src/core/angle.h" declline="188" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="165" column="5" declfile="libs/core/src/core/angle.h" declline="165" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a184598b68f572e4ae76dd07ea2c54440" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3803,7 +3798,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="192" column="5" declfile="libs/core/src/core/angle.h" declline="192" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="169" column="5" declfile="libs/core/src/core/angle.h" declline="169" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a92e9841b9d4f736d168ba2ab1f7f475e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3824,7 +3819,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="196" column="5" declfile="libs/core/src/core/angle.h" declline="196" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="173" column="5" declfile="libs/core/src/core/angle.h" declline="173" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a8799fdc6e9886ddf4c92f92c3fb8a249" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3845,7 +3840,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="201" column="5" declfile="libs/core/src/core/angle.h" declline="201" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="178" column="5" declfile="libs/core/src/core/angle.h" declline="178" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1afcacd9988df8094772fbbd498cdf2e1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -3866,7 +3861,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="205" column="5" declfile="libs/core/src/core/angle.h" declline="205" declcolumn="5"/>
+        <location file="libs/core/src/core/angle.h" line="182" column="5" declfile="libs/core/src/core/angle.h" declline="182" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae3c3712e31cb676fc48e2af9ba4511be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>

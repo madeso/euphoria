@@ -109,22 +109,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="58" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Algorithm_1aadb707c44e21e5c093bf4cfd7d509c34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
-        <type>bool</type>
-        <definition>virtual bool euphoria::core::generator::Algorithm::has_more_work</definition>
-        <argsstring>() const =0</argsstring>
-        <name>has_more_work</name>
-        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f8aeeae9ac1ba5aa9ac878c685c8952">has_more_work</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a26980f500e9414f8e47b848a4e578b1d">has_more_work</reimplementedby>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="61" column="9"/>
+        <location file="libs/core/src/core/generator_maze.h" line="57" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Algorithm_1ae937b77505c16a32eee57933307b716a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -139,7 +124,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="64" column="9"/>
+        <location file="libs/core/src/core/generator_maze.h" line="58" column="22"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Algorithm_1aadb707c44e21e5c093bf4cfd7d509c34" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool euphoria::core::generator::Algorithm::has_more_work</definition>
+        <argsstring>() const =0</argsstring>
+        <name>has_more_work</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker_1a4f8aeeae9ac1ba5aa9ac878c685c8952">has_more_work</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a26980f500e9414f8e47b848a4e578b1d">has_more_work</reimplementedby>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="59" column="23"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -164,7 +164,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/generator_maze.h" line="48" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="47" bodyend="65"/>
+    <location file="libs/core/src/core/generator_maze.h" line="48" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="47" bodyend="60"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a899b7369c8141c6158b50c600e057127" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Algorithm</scope><name>Algorithm</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Algorithm_1a2ecf1f318083c1a04d83f4e5888ae69d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Algorithm</scope><name>Algorithm</name></member>
