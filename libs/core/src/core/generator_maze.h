@@ -54,14 +54,9 @@ namespace euphoria::core::generator
         void operator=(const Algorithm&) = delete;
         void operator=(Algorithm&&) = delete;
 
-        virtual void
-        setup() = 0;
-
-        [[nodiscard]] virtual bool
-        has_more_work() const = 0;
-
-        virtual void
-        work() = 0;
+        virtual void setup() = 0;
+        virtual void work() = 0;
+        [[nodiscard]] virtual bool has_more_work() const = 0;
     };
 
     struct RecursiveBacktracker : public Algorithm
@@ -72,14 +67,9 @@ namespace euphoria::core::generator
         std::stack<vec2i> stack;
         int visited_cells = 0;
 
-        void
-        setup() override;
-
-        [[nodiscard]] bool
-        has_more_work() const override;
-
-        void
-        work() override;
+        void setup() override;
+        void work() override;
+        [[nodiscard]] bool has_more_work() const override;
     };
 
     struct RandomTraversal : public Algorithm
@@ -94,14 +84,9 @@ namespace euphoria::core::generator
         };
         std::vector<Entry> frontier;
 
-        void
-        setup() override;
-
-        [[nodiscard]] bool
-        has_more_work() const override;
-
-        void
-        work() override;
+        void setup() override;
+        void work() override;
+        [[nodiscard]] bool has_more_work() const override;
     };
 
     struct Drawer
@@ -120,12 +105,11 @@ namespace euphoria::core::generator
         rgbi unit_color;
         rgbi corridor_color;
 
-        [[nodiscard]] rgbi
-        calculate_cell_color(int x, int y) const;
-
         core::Image image;
 
         Drawer();
+
+        [[nodiscard]] rgbi calculate_cell_color(int x, int y) const;
 
         void
         draw();

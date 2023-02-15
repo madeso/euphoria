@@ -124,6 +124,12 @@ namespace euphoria::core
         };
     }
 
+    std::ostream&
+    operator<<(std::ostream& s, const Aabb& a)
+    {
+        s << "{" << a.min << ", " << a.max << "}";
+        return s;
+    }
 
     vec3f
     get_random_point(Random* rand, const Aabb& a)

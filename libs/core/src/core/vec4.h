@@ -28,13 +28,13 @@ namespace euphoria::core
 
         explicit vec4f(const float* a);
 
+        float* get_data_ptr();
+
         /// asserts that the w component is what is expected
         [[nodiscard]] vec3f to_vec3(float ww) const;
 
         // todo(Gustav): replace this and instead always call the assert version (above)
         [[nodiscard]] vec3f to_vec3() const;
-
-        float* get_data_ptr();
 
         [[nodiscard]] const float* get_data_ptr() const;
 
