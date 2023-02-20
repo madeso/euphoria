@@ -19,37 +19,19 @@ namespace euphoria::window
         core::CanvasLogic view;
         ImVec2 position = ImVec2 {0, 0};
 
-        void
-        show_grid(const CanvasConfig& cc) const;
+        void begin(const CanvasConfig& cc);
+        void end(const CanvasConfig& cc);
 
-        void
-        vertical_line(float rx, ImU32 grid_color) const;
+        void show_grid(const CanvasConfig& cc) const;
+        void vertical_line(float rx, ImU32 grid_color) const;
+        void horizontal_line(float ry, ImU32 grid_color) const;
+        void show_ruler(float ruler_interval, ImU32 ruler_color, float length) const;
+        void show_ruler(const CanvasConfig& cc) const;
 
-        void
-        horizontal_line(float ry, ImU32 grid_color) const;
+        [[nodiscard]] ImVec2 world_to_screen(const ImVec2& v) const;
+        [[nodiscard]] ImVec2 world_to_screen_size(const ImVec2& v) const;
+        [[nodiscard]] ImVec2 screen_to_world(const ImVec2& v) const;
 
-        void
-        show_ruler(float ruler_interval, ImU32 ruler_color, float length) const;
-
-        void
-        show_ruler(const CanvasConfig& cc) const;
-
-        void
-        begin(const CanvasConfig& cc);
-
-        void
-        end(const CanvasConfig& cc);
-
-        [[nodiscard]] ImVec2
-        world_to_screen(const ImVec2& v) const;
-
-        [[nodiscard]] ImVec2
-        world_to_screen_size(const ImVec2& v) const;
-
-        [[nodiscard]] ImVec2
-        screen_to_world(const ImVec2& v) const;
-
-        [[nodiscard]] ImVec2
-        get_mouse() const;
+        [[nodiscard]] ImVec2 get_mouse() const;
     };
 }

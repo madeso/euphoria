@@ -400,13 +400,13 @@ namespace euphoria::render
         const auto load_path = [](core::vfs::FileSystem* afs, const core::vfs::FilePath& path) -> std::string
         {
             // todo(Gustav): replace with a template instead of basic string
-            std::string content;
-            if(!afs->read_file_to_string(path, &content))
+            auto content = afs->read_file_to_string(path);
+            if(!content)
             {
                 return "";
             }
 
-            return content;
+            return *content;
         };
 
         auto vert = load_path(fs, file_path.set_extension_copy("vert"));

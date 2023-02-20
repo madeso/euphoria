@@ -24,7 +24,18 @@ namespace euphoria::core
         std::vector<ToStringFunction> column_to_string;
         std::vector<std::string> column_titles;
 
-        explicit TableGenerator(const std::vector<T>& d) : data(d) {}
+        explicit TableGenerator(const std::vector<T>& d)
+            : data(d)
+        {
+        }
+
+        TableGenerator<T>&
+        add_column(const std::string& title, ToStringFunction to_string)
+        {
+            column_titles.emplace_back(title);
+            column_to_string.emplace_back(to_string);
+            return *this;
+        }
 
         [[nodiscard]] StringTable
         to_table() const
@@ -49,14 +60,6 @@ namespace euphoria::core
 
             return ret;
         }
-
-        TableGenerator<T>&
-        add_column(const std::string& title, ToStringFunction to_string)
-        {
-            column_titles.emplace_back(title);
-            column_to_string.emplace_back(to_string);
-            return *this;
-        }
     };
 
     enum class CsvTrim
@@ -72,8 +75,7 @@ namespace euphoria::core
         CsvTrim trim = CsvTrim::dont_trim;
     };
 
-    StringTable
-    table_from_csv
+    StringTable table_from_csv
     (
         const std::string& data,
         const CsvParserOptions& options = CsvParserOptions()
@@ -88,8 +90,7 @@ namespace euphoria::core
         Cosmo          Kramer
         George         Costanza
         */
-    void
-    print_table_simple(std::ostream& out, const StringTable& table);
+    void print_table_simple(std::ostream& out, const StringTable& table);
 
     /*
         +------------+-----------+
@@ -101,7 +102,6 @@ namespace euphoria::core
         | George     | Costanza  |
         +------------+-----------+
         */
-    void
-    print_table_grid(std::ostream& out, const StringTable& table);
+    void print_table_grid(std::ostream& out, const StringTable& table);
 
 }

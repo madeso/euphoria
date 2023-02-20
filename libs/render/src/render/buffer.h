@@ -14,20 +14,19 @@ namespace euphoria::render
      */
     struct VertexBuffer : public Id
     {
-    public:
         VertexBuffer();
         ~VertexBuffer();
 
-        NONCOPYABLE(VertexBuffer);
+        VertexBuffer(const VertexBuffer&) = delete;
+        VertexBuffer(VertexBuffer&&) = delete;
+        void operator=(const VertexBuffer&) = delete;
+        void operator=(VertexBuffer&&) = delete;
 
-        void
-        set_data(const std::vector<float>& data);
+        void set_data(const std::vector<float>& data);
 
-        static void
-        bind(const VertexBuffer* vbo);
+        static void bind(const VertexBuffer* vbo);
 
-        static const VertexBuffer*&
-        get_bound();
+        static const VertexBuffer*& get_bound();
     };
 
 
@@ -36,23 +35,21 @@ namespace euphoria::render
      */
     struct PointLayout : public Id
     {
-    public:
+        std::vector<ShaderAttribute> attributes;
+
         PointLayout();
         ~PointLayout();
 
-        NONCOPYABLE(PointLayout);
+        PointLayout(const PointLayout&) = delete;
+        PointLayout(PointLayout&&) = delete;
+        void operator=(const PointLayout&) = delete;
+        void operator=(PointLayout&&) = delete;
 
-        void
-        bind_data(const ShaderAttribute& attribute, int stride, int offset);
+        static const PointLayout*& get_bound();
 
-        static void
-        bind(const PointLayout* vao);
+        void bind_data(const ShaderAttribute& attribute, int stride, int offset);
 
-        static const PointLayout*&
-        get_bound();
-
-        // debug
-        std::vector<ShaderAttribute> attributes;
+        static void bind(const PointLayout* vao);
     };
 
 
@@ -68,24 +65,22 @@ namespace euphoria::render
      */
     struct IndexBuffer : public Id
     {
-    public:
         IndexBuffer();
         ~IndexBuffer();
 
-        NONCOPYABLE(IndexBuffer);
+        IndexBuffer(const IndexBuffer&) = delete;
+        IndexBuffer(IndexBuffer&&) = delete;
+        void operator=(const IndexBuffer&) = delete;
+        void operator=(IndexBuffer&&) = delete;
 
-        void
-        set_data(const std::vector<unsigned int>& indices);
+        static const IndexBuffer*& get_bound();
 
-        // count = the number of triangles
-        void
-        draw(RenderMode mode, int count) const;
+        void set_data(const std::vector<unsigned int>& indices);
 
-        static void
-        bind(const IndexBuffer* ebo);
+        /// @param count the number of triangles
+        void draw(RenderMode mode, int count) const;
 
-        static const IndexBuffer*&
-        get_bound();
+        static void bind(const IndexBuffer* ebo);
     };
 
 }

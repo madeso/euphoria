@@ -318,6 +318,19 @@ namespace euphoria::core::vfs
         return r;
     }
 
+    std::ostream& operator<<(std::ostream& os, const FilePath& p)
+    {
+        os << p.path;
+        return os;
+    }
+
+
+    std::ostream& operator<<(std::ostream& os, const DirPath& p)
+    {
+        os << p.path;
+        return os;
+    }
+
 
     DirPath
     DirPath::single_cd_copy(const std::string& single) const

@@ -264,14 +264,14 @@ namespace euphoria::core
 
 
     mat3f
-    mat3f::rotate(const AxisAngle& aa) const
+    mat3f::get_rotated(const AxisAngle& aa) const
     {
         return *this * from_axis_angle(aa);
     }
 
 
     mat3f
-    mat3f::scale(const Scale3f& scale) const
+    mat3f::get_scaled(const Scale3f& scale) const
     {
         return *this * from_scale(scale);
     }

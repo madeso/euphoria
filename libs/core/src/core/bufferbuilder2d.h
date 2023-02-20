@@ -10,15 +10,18 @@ namespace euphoria::core
 {
     struct BufferPoint2
     {
-        BufferPoint2(float x, float y, float u, float v);
-        BufferPoint2(const vec2f& p, const vec2f& u);
-
         const vec2f pos;
         const vec2f uv;
+
+        BufferPoint2(float x, float y, float u, float v);
+        BufferPoint2(const vec2f& p, const vec2f& u);
     };
 
     struct BufferBuilder2
     {
+        std::vector<float> data;
+        std::vector<unsigned int> tris;
+
         BufferBuilder2();
 
         void
@@ -37,8 +40,5 @@ namespace euphoria::core
 
         void
         dump(const std::string& filename) const;
-
-        std::vector<float> data;
-        std::vector<unsigned int> tris;
     };
 }

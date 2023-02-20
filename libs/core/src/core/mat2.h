@@ -8,18 +8,7 @@ namespace euphoria::core
 {
     struct mat2f
     {
-    private:
-        float data[4];
-
-        mat2f() = default;
-
-        mat2f
-        (
-            float t00, float t01,
-            float t10, float t11
-        );
-
-    public:
+        bool operator==(const mat2f& rhs) = delete;
 
         [[nodiscard]] static mat2f from_col_major
         (
@@ -39,21 +28,30 @@ namespace euphoria::core
         [[nodiscard]] static mat2f from_rotation(const angle& a);
         [[nodiscard]] static mat2f identity();
 
-        void operator+=(const mat2f& rhs);
-        void operator-=(const mat2f& rhs);
-
-        [[nodiscard]] const float* get_data_ptr() const;
         float* get_data_ptr();
 
-        // index operator use () as [] only expects one argument
-        float& operator()(int row, int col);
-        float operator()(int row, int col) const;
         [[nodiscard]] float get(int row, int col) const;
-
         [[nodiscard]] vec2f get_column(int c) const;
         [[nodiscard]] vec2f get_row(int r) const;
 
-        bool operator==(const mat2f& rhs) = delete;
+        [[nodiscard]] const float* get_data_ptr() const;
+
+        void operator+=(const mat2f& rhs);
+        void operator-=(const mat2f& rhs);
+        // index operator use () as [] only expects one argument
+        float& operator()(int row, int col);
+        float operator()(int row, int col) const;
+
+    private:
+        float data[4];
+
+        mat2f() = default;
+
+        mat2f
+        (
+            float t00, float t01,
+            float t10, float t11
+        );
     };
 
 

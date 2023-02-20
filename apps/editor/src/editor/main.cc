@@ -230,12 +230,12 @@ open_or_focus_text_file
         "File: {}"_format(path),
         [&]()
         {
-            std::string str;
-            if(!fs->read_file_to_string(path, &str))
+            auto str = fs->read_file_to_string(path);
+            if(!str)
             {
                 str = "Failed to open {}"_format(path);
             }
-            return std::make_shared<TextEditorWindow>(str);
+            return std::make_shared<TextEditorWindow>(*str);
         }
     );
 }

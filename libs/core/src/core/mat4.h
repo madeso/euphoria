@@ -12,23 +12,6 @@ namespace euphoria::core
 {
     struct mat4f
     {
-    private:
-        float data[16]; // col-major
-
-        mat4f() = default;
-
-        mat4f
-        (
-            float t00, float t01, float t02, float t03,
-            float t10, float t11, float t12, float t13,
-            float t20, float t21, float t22, float t23,
-            float t30, float t31, float t32, float t33
-        );
-
-    public:
-        float* get_column_major();
-        [[nodiscard]] const float* get_column_major() const;
-
         [[nodiscard]] static mat4f from_col_major
         (
             float t00, float t01, float t02, float t03,
@@ -57,14 +40,29 @@ namespace euphoria::core
         [[nodiscard]] static mat4f create_ortho(float l, float r, float b, float t, float n, float f);
         [[nodiscard]] static mat4f create_perspective(const angle& fov, float a, float near, float far);
 
+        float* get_data_ptr();
+        float* get_column_major();
+
+        bool invert();
+
+        [[nodiscard]] float get(int row, int col) const;
         [[nodiscard]] vec4f get_transform(const vec4f& p) const;
         [[nodiscard]] vec3f get_transform(const vec3f& p, float w) const;
         [[nodiscard]] vec3f get_transform_point(const vec3f& p) const;
         [[nodiscard]] vec3f get_transform_vec(const vec3f& p) const;
         [[nodiscard]] unit3f get_transform_vec(const unit3f& p) const;
+        [[nodiscard]] unit3f get_axis(int col) const;
+        [[nodiscard]] mat4f get_translated(const vec3f& t) const;
+        [[nodiscard]] mat4f get_rotated(const AxisAngle& aa) const;
+        [[nodiscard]] mat4f get_scaled(const Scale3f& scale) const;
+        [[nodiscard]] vec4f get_column(int c) const;
+        [[nodiscard]] vec4f get_row(int r) const;
+
+        [[nodiscard]] const float* get_column_major() const;
+        [[nodiscard]] const float* get_data_ptr() const;
+
         [[nodiscard]] vec3f get_translation() const;
         [[nodiscard]] vec4f get_major() const;
-        [[nodiscard]] unit3f get_axis(int col) const;
         [[nodiscard]] unit3f get_x_axis() const;
         [[nodiscard]] unit3f get_y_axis() const;
         [[nodiscard]] unit3f get_z_axis() const;
@@ -72,26 +70,25 @@ namespace euphoria::core
         [[nodiscard]] mat4f get_inverted() const;
         [[nodiscard]] mat3f get_mat3() const;
 
-        bool invert();
-
         void operator+=(const mat4f& rhs);
-
         void operator-=(const mat4f& rhs);
-
-        [[nodiscard]] mat4f translate(const vec3f& t) const;
-        [[nodiscard]] mat4f rotate(const AxisAngle& aa) const;
-        [[nodiscard]] mat4f scale(const Scale3f& scale) const;
-
-        [[nodiscard]] const float* get_data_ptr() const;
-        float* get_data_ptr();
-
         // index operator use () as [] only expects one argument
         float& operator()(int row, int col);
         float operator()(int row, int col) const;
-        [[nodiscard]] float get(int row, int col) const;
+        
+        
+    private:
+        float data[16]; // col-major
 
-        [[nodiscard]] vec4f get_column(int c) const;
-        [[nodiscard]] vec4f get_row(int r) const;
+        mat4f() = default;
+
+        mat4f
+        (
+            float t00, float t01, float t02, float t03,
+            float t10, float t11, float t12, float t13,
+            float t20, float t21, float t22, float t23,
+            float t30, float t31, float t32, float t33
+        );
     };
 
     

@@ -25,6 +25,15 @@ namespace euphoria::core
      */
     struct EnumType
     {
+        using ValueToNameMap = std::map<size_t, std::string>;
+        using NameToValueMap = std::map<std::string, size_t>;
+
+        std::string type_name;
+        ValueToNameMap value_to_name;
+        NameToValueMap name_to_value;
+        bool is_adding;
+        size_t next_index;
+
         EnumType(std::string name);
         ~EnumType();
 
@@ -33,55 +42,28 @@ namespace euphoria::core
         void operator=(const EnumType&) = delete;
         void operator=(EnumType&&) = delete;
 
-        [[nodiscard]] std::string
-        to_string(size_t v) const;
+        [[nodiscard]] EnumValue to_enum(const std::string& name);
+        void add_enums(const std::vector<std::string>& names);
+        void add_enum(const std::string& name);
 
-        [[nodiscard]] EnumValue
-        to_enum(const std::string& name);
-
-        void
-        add_enums(const std::vector<std::string>& names);
-
-
-        using ValueToNameMap = std::map<size_t, std::string>;
-        using NameToValueMap = std::map<std::string, size_t>;
-
-        void
-        add_enum(const std::string& name);
-
-        std::string type_name;
-
-        ValueToNameMap value_to_name;
-        NameToValueMap name_to_value;
-
-        bool is_adding;
-        size_t next_index;
+        [[nodiscard]] std::string to_string(size_t v) const;
     };
 
     struct EnumValue
     {
-        EnumValue(EnumType* t, size_t v);
-
-        // todo(Gustav): add enum_type to the parameter to verify against stored member
-        // so
-        [[nodiscard]] std::string
-        to_string() const;
-
-        [[nodiscard]] size_t
-        to_value() const;
-
-        bool
-        operator==(const EnumValue& other) const;
-
-        bool
-        operator!=(const EnumValue& other) const;
-
-        bool
-        operator<(const EnumValue& other) const;
-
         // todo(Gustav): only have the type in debug/test builds
         EnumType* type;
         size_t value;
+
+        EnumValue(EnumType* t, size_t v);
+
+        // todo(Gustav): add enum_type to the parameter to verify against stored member
+        [[nodiscard]] std::string to_string() const;
+        [[nodiscard]] size_t to_value() const;
+
+        bool operator==(const EnumValue& other) const;
+        bool operator!=(const EnumValue& other) const;
+        bool operator<(const EnumValue& other) const;
     };
 
 

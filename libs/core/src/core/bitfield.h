@@ -5,17 +5,15 @@
 namespace euphoria::core
 {
 
+
     template<typename T, typename I = std::underlying_type_t<T>>
     struct Bitfield
     {
-        Bitfield()
-        : value(static_cast<T>(0))
-        {}
+        T value;
 
-        [[nodiscard]] bool
-        has_any_values() const
+        Bitfield()
+            : value(static_cast<T>(0))
         {
-            return value != static_cast<T>(0);
         }
 
         void
@@ -50,7 +48,11 @@ namespace euphoria::core
             return bit == static_cast<T>(i);
         }
 
-        T value;
+        [[nodiscard]] bool
+        has_any_values() const
+        {
+            return value != static_cast<T>(0);
+        }
     };
 
 }

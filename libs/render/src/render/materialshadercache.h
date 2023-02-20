@@ -10,6 +10,8 @@ namespace euphoria::render
     struct MaterialShaderCache
         : core::Cache<core::vfs::FilePath, MaterialShader, MaterialShaderCache>
     {
+        core::vfs::FileSystem* file_system;
+
         MaterialShaderCache(core::vfs::FileSystem* fs) : file_system(fs)
         {
             ASSERT(fs);
@@ -22,8 +24,6 @@ namespace euphoria::render
             ret->load(file_system, path);
             return ret;
         }
-
-        core::vfs::FileSystem* file_system;
     };
 
 }

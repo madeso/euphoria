@@ -48,34 +48,6 @@ namespace euphoria::tests
             {
             }
 
-            friend bool
-            operator==(T lhs, Approx<T> const& rhs)
-            {
-                auto data = ApproxData{};
-                data.epsilon = rhs.epsilon;
-                data.scale = rhs.scale;
-                data.margin = rhs.margin;
-                return approximately_equal(lhs, rhs.value, data);
-            }
-
-            friend bool
-            operator==(Approx<T> const& lhs, T rhs)
-            {
-                return operator==(rhs, lhs);
-            }
-
-            friend bool
-            operator!=(T lhs, Approx<T> const& rhs)
-            {
-                return !operator==(lhs, rhs);
-            }
-
-            friend bool
-            operator!=(Approx<T> const& lhs, T rhs)
-            {
-                return !operator==(rhs, lhs);
-            }
-
             Approx&
             set_epsilon(float new_epsilon)
             {
@@ -104,6 +76,34 @@ namespace euphoria::tests
                 rss << "Approx( " << ::Catch::Detail::stringify(value)
                     << " )";
                 return rss.str();
+            }
+
+            friend bool
+            operator==(T lhs, Approx<T> const& rhs)
+            {
+                auto data = ApproxData{};
+                data.epsilon = rhs.epsilon;
+                data.scale = rhs.scale;
+                data.margin = rhs.margin;
+                return approximately_equal(lhs, rhs.value, data);
+            }
+
+            friend bool
+            operator==(Approx<T> const& lhs, T rhs)
+            {
+                return operator==(rhs, lhs);
+            }
+
+            friend bool
+            operator!=(T lhs, Approx<T> const& rhs)
+            {
+                return !operator==(lhs, rhs);
+            }
+
+            friend bool
+            operator!=(Approx<T> const& lhs, T rhs)
+            {
+                return !operator==(rhs, lhs);
             }
 
         private:

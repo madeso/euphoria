@@ -31,6 +31,11 @@ namespace euphoria::render
 
     struct Glyph
     {
+        core::Rectf sprite_rect; // relative to 0,0
+        core::Rectf texture_rect; // image texture uvs
+        int code_point; // the character or string id
+        float advance;
+
         Glyph
         (
             const core::Rectf& sprite,
@@ -38,11 +43,6 @@ namespace euphoria::render
             int ch,
             float ad
         );
-
-        core::Rectf sprite_rect; // relative to 0,0
-        core::Rectf texture_rect; // image texture uvs
-        int code_point; // the character or string id
-        float advance;
     };
 
     using CharToGlyphMap = std::map<int, std::shared_ptr<Glyph>>;
@@ -170,7 +170,13 @@ namespace euphoria::render
 
     struct DrawableFont
     {
-    public:
+        float line_height = 1;
+        std::unique_ptr<Texture2> texture;
+        std::shared_ptr<Texture2> background;
+        CharToGlyphMap char_to_glyph;
+        core::KerningMap kernings;
+        std::map<std::string, int> private_use_aliases;
+
         DrawableFont
         (
             core::vfs::FileSystem* fs,
@@ -187,16 +193,7 @@ namespace euphoria::render
             const core::Rectf& where
         ) const;
 
-        [[nodiscard]] ListOfTextDrawCommands
-        compile_list(const core::UiText& text, float size) const;
-
-        float line_height=1;
-
-        friend ui_text_compile_visitor;
-        std::unique_ptr<Texture2> texture;
-        std::shared_ptr<Texture2> background;
-        CharToGlyphMap char_to_glyph;
-        core::KerningMap kernings;
-        std::map<std::string, int> private_use_aliases;
+        [[nodiscard]] ListOfTextDrawCommands compile_list
+            (const core::UiText& text, float size) const;
     };
 }

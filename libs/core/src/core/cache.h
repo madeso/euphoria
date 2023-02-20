@@ -13,8 +13,9 @@ namespace euphoria::core
     template <typename Key, typename Data, typename Loader>
     struct Cache
     {
-        std::shared_ptr<Data>
-        get(const Key& key)
+        std::map<Key, std::weak_ptr<Data>> store;
+        
+        std::shared_ptr<Data> get(const Key& key)
         {
             auto found = store.find(key);
             if(found != store.end())
@@ -34,7 +35,5 @@ namespace euphoria::core
             store.insert(std::pair<Key, std::weak_ptr<Data>>(key, data));
             return data;
         }
-
-        std::map<Key, std::weak_ptr<Data>> store;
     };
 }

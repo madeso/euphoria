@@ -17,10 +17,6 @@ namespace euphoria::core
         float y;
         float z;
 
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // construction
-
         quatf(float aw, const vec3f& v);
 
         [[nodiscard]] static quatf from_axis_angle(const AxisAngle& aa);
@@ -30,49 +26,31 @@ namespace euphoria::core
         [[nodiscard]] static quatf identity();
         [[nodiscard]] static quatf look_at(const vec3f& from, const vec3f& to, const unit3f& up);
         [[nodiscard]] static quatf look_in_direction(const unit3f& dir, const unit3f& up);
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // getters and converters
-
-        [[nodiscard]] mat4f to_mat4() const;
-
-        [[nodiscard]] AxisAngle to_axis_angle() const;
-
-        float* get_data_ptr(); [[nodiscard]] const float* get_data_ptr() const;
-
-        [[nodiscard]] vec3f get_vec_part() const;
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // ops
-
-        [[nodiscard]] quatf rotate(const quatf& q) const;
-
-        [[nodiscard]] quatf get_conjugate() const;
-
-        [[nodiscard]] quatf get_inverse() const;
-
-        // the negated represents the same rotation
-        [[nodiscard]] quatf get_negated() const;
-
-        [[nodiscard]] quatf get_identity() const;
-
-        [[nodiscard]] float get_length() const;
-        [[nodiscard]] float get_length_squared() const;
-
-        void normalize();
-        [[nodiscard]] quatf get_normalized() const;
-
-        [[nodiscard]] unit3f rotate_around_origo(const unit3f& v) const;
-
         [[nodiscard]] static quatf lerp(const quatf& f, float scale, const quatf& t);
         [[nodiscard]] static quatf slerp_fast(const quatf& qa, float t, const quatf& qb);
         [[nodiscard]] static quatf slerp_shortway(const quatf& from, float scale, const quatf& to);
 
+        float* get_data_ptr();
+        void normalize();
 
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // axis related
+        /// returns In*Z + Right*X + Up*Y
+        [[nodiscard]] vec3f create_from_right_up_in(const vec3f& v) const;
+        [[nodiscard]] quatf get_rotated(const quatf& q) const;
+        [[nodiscard]] unit3f rotate_around_origo(const unit3f& v) const;
+
+        // the negated represents the same rotation
+        [[nodiscard]] quatf get_negated() const;
+
+        [[nodiscard]] mat4f to_mat4() const;
+        [[nodiscard]] AxisAngle to_axis_angle() const;
+        [[nodiscard]] const float* get_data_ptr() const;
+        [[nodiscard]] vec3f get_vec_part() const;
+        [[nodiscard]] quatf get_conjugate() const;
+        [[nodiscard]] quatf get_inverse() const;
+        [[nodiscard]] quatf get_identity() const;
+        [[nodiscard]] float get_length() const;
+        [[nodiscard]] float get_length_squared() const;
+        [[nodiscard]] quatf get_normalized() const;
 
         [[nodiscard]] unit3f in() const;
         [[nodiscard]] unit3f out() const;
@@ -80,14 +58,6 @@ namespace euphoria::core
         [[nodiscard]] unit3f left() const;
         [[nodiscard]] unit3f up() const;
         [[nodiscard]] unit3f down() const;
-
-        // In*Z + Right*X + Up*Y
-        [[nodiscard]] vec3f
-        create_from_right_up_in(const vec3f& v) const;
-
-        
-        ///////////////////////////////////////////////////////////////////////////////////////////
-        // math
 
         void operator+=(const quatf& rhs);
         void operator-=(const quatf& rhs);

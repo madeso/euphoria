@@ -9,41 +9,35 @@
 
 namespace euphoria::core
 {
+    // NewCol function??? probably less useful than insert functions
+    // todo(Gustav): add insert before/after row/col
+    // todo(Gustav): add remove row/col
+
     template <typename T>
     struct Table
     {
         using I = int;
 
-        [[nodiscard]] static constexpr I
-        conv(size_t t)
-        {
-            return c_sizet_to_int(t);
-        }
-
         Table() = default;
 
-        [[nodiscard]] static Table
-        from_width_height(I width, I height, T d = T())
+        [[nodiscard]] static Table from_width_height(I width, I height, T d = T())
         {
             return Table(width, height, d);
         }
 
-        [[nodiscard]] static Table
-        from_height_width(I height, I width, T d = T())
+        [[nodiscard]] static Table from_height_width(I height, I width, T d = T())
         {
             return Table(width, height, d);
         }
 
-        void
-        new_row(T d = T())
+        void new_row(T d = T())
         {
             ASSERT(width > 0);
             data.resize(data.size() + width, d);
             height += 1;
         }
 
-        void
-        clear(T d = T())
+        void clear(T d = T())
         {
             for(size_t i = 0; i < data.size(); i += 1)
             {
@@ -52,8 +46,7 @@ namespace euphoria::core
         }
 
         template <typename Func>
-        void
-        set_all(Func f)
+        void set_all(Func f)
         {
             for(I y = 0; y < height; y += 1)
             {
@@ -64,26 +57,13 @@ namespace euphoria::core
             }
         }
 
-        [[nodiscard]] Recti
-        get_indices() const
-        {
-            return Recti::from_width_height(width - 1, height - 1);
-        }
-
-        [[nodiscard]] bool
-        is_inside(I x, I y) const
-        {
-            return get_indices().contains_inclusive(x, y);
-        }
-
         /** Add a new row to the table.
          * Places the new row at the bottom left and resizes the table if necessary.
          * Fills the (new) empty space with default values.
          * @param row the new row
          * @param d the default value (if needed)
          */
-        void
-        new_row(const std::vector<T>& row, T d = T())
+        void new_row(const std::vector<T>& row, T d = T())
         {
             // do nothing on empty rows
             if(row.empty())
@@ -130,8 +110,7 @@ namespace euphoria::core
          * @param new_width the new width
          * @param d the default value
          */
-        void
-        expand_width(I new_width, T d = T())
+        void expand_width(I new_width, T d = T())
         {
             // todo(Gustav): only insert the columns we need
             ASSERT(width != 0);
@@ -148,43 +127,13 @@ namespace euphoria::core
             *this = t;
         }
 
-        // NewCol function??? probably less useful than insert functions
 
-        // todo(Gustav): add insert before/after row/col
-        // todo(Gustav): add remove row/col
-
-
-        T
-        operator()(I x, I y) const
+        [[nodiscard]] bool is_inside(I x, I y) const
         {
-            const auto index = data_index(x, y);
-            ASSERTX(index < data.size(), index, data.size());
-            return data[index];
+            return get_indices().contains_inclusive(x, y);
         }
 
-        typename std::vector<T>::reference
-        operator()(I x, I y)
-        {
-            const auto index = data_index(x, y);
-            ASSERTX(index < data.size(), index, data.size());
-            return data[index];
-        }
-
-        // todo(Gustav): figure out a better name
-        [[nodiscard]] I
-        get_width() const
-        {
-            return width;
-        }
-
-        [[nodiscard]] I
-        get_height() const
-        {
-            return height;
-        }
-
-        [[nodiscard]] size_t
-        data_index(I x, I y) const
+        [[nodiscard]] size_t data_index(I x, I y) const
         {
             ASSERTX
             (
@@ -195,21 +144,60 @@ namespace euphoria::core
             return y * width + x;
         }
 
-    private:
-        Table(I c, I r, T d = T()) : data(c * r, d), width(c), height(r)
+
+        [[nodiscard]] Recti get_indices() const
         {
-            ASSERTX(width >= 0 && height >= 0, width, height);
+            return Recti::from_width_height(width - 1, height - 1);
         }
 
+        [[nodiscard]] I get_width() const
+        {
+            return width;
+        }
+
+        [[nodiscard]] I get_height() const
+        {
+            return height;
+        }
+
+        
+
+        T operator()(I x, I y) const
+        {
+            const auto index = data_index(x, y);
+            ASSERTX(index < data.size(), index, data.size());
+            return data[index];
+        }
+
+        typename std::vector<T>::reference operator()(I x, I y)
+        {
+            const auto index = data_index(x, y);
+            ASSERTX(index < data.size(), index, data.size());
+            return data[index];
+        }
+
+
+        [[nodiscard]] static constexpr I
+        conv(size_t t)
+        {
+            return c_sizet_to_int(t);
+        }
+
+    private:
         // table is stored in in place like [row, row, ...row]
         std::vector<T> data;
         I width = 0;
         I height = 0;
+
+
+        Table(I c, I r, T d = T()) : data(c * r, d), width(c), height(r)
+        {
+            ASSERTX(width >= 0 && height >= 0, width, height);
+        }
     };
 
     template <typename T>
-    std::vector<T>
-    calc_column_as_vector(const Table<T>& t, typename Table<T>::I x)
+    std::vector<T> calc_column_as_vector(const Table<T>& t, typename Table<T>::I x)
     {
         ASSERTX(x < t.get_width(), x, t.get_width());
         std::vector<T> r;
@@ -222,8 +210,7 @@ namespace euphoria::core
     }
 
     template <typename T>
-    std::vector<T>
-    calc_row_as_vector(const Table<T>& t, typename Table<T>::I y)
+    std::vector<T> calc_row_as_vector(const Table<T>& t, typename Table<T>::I y)
     {
         ASSERTX(y < t.get_height(), y, t.get_height());
 

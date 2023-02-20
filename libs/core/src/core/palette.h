@@ -100,9 +100,6 @@ namespace euphoria::core
         /** list of the colors */
         std::vector<rgbi> colors;
 
-        [[nodiscard]] Palette
-        to_palette() const;
-
         template <typename... R>
         DynamicPalette(const std::string& n, const rgbi& c0, const R&... c)
             : name(n)
@@ -116,22 +113,15 @@ namespace euphoria::core
          * @param name the name of the palette
          * @returns a empty palette
          */
-        [[nodiscard]]
-        static
-        DynamicPalette
+        [[nodiscard]] static DynamicPalette
         create_empty(const std::string& name);
 
-        // rainbow functions based on the r documentation https://rdrr.io/r/grDevices/palettes.html
-
-        [[nodiscard]]
-        static
-        DynamicPalette
+        /// based on the r documentation https://rdrr.io/r/grDevices/palettes.html
+        [[nodiscard]] static DynamicPalette
         create_rainbow(int count, float saturation = 0.5f, float lightness = 0.5f);
 
-        [[nodiscard]]
-        static
-        DynamicPalette
-        create_rainbow
+        /// based on the r documentation https://rdrr.io/r/grDevices/palettes.html
+        [[nodiscard]] static DynamicPalette create_rainbow
         (
             int count,
             const angle& from,
@@ -139,6 +129,8 @@ namespace euphoria::core
             float saturation,
             float lightness
         );
+
+        [[nodiscard]] Palette to_palette() const;
 
     private:
         explicit DynamicPalette(const std::string& n);

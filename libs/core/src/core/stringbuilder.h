@@ -10,10 +10,6 @@ struct StringBuilder
     // non-null terminated string, null-teminated if "completed"
     std::vector<char> data;
 
-    // has add_ been called without a clear?
-    [[nodiscard]]
-    bool has_content() const;
-
     void clear();
 
     StringBuilder& add_char(char c);
@@ -24,6 +20,9 @@ struct StringBuilder
      * No strings can be added after this operation.
     */
     std::string to_string();
+
+    // has add_ been called without a clear?
+    [[nodiscard]] bool has_content() const;
 };
 
 

@@ -146,3 +146,9 @@ include(tools/cmake/generate-header-test.cmake)
 add_subdirectory(external)
 add_subdirectory(libs)
 add_subdirectory(apps)
+
+# run workbench
+add_custom_target(workbench_order_in_file
+    ${CMAKE_CURRENT_SOURCE_DIR}/tools/buildtools/Workbench/bin/Debug/net7.0/wb.exe order-in-file check ${CMAKE_CURRENT_SOURCE_DIR}/docs/generated/xml/
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+)

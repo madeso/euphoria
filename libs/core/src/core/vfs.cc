@@ -163,24 +163,20 @@ namespace euphoria::core::vfs
     }
 
 
-    bool
+    std::optional<std::string>
     FileSystem::read_file_to_string
     (
-        const FilePath& path,
-        std::string* source
+        const FilePath& path
     )
     {
-        ASSERT(source);
-
         std::shared_ptr<MemoryChunk> file = read_file(path);
         if(file == nullptr)
         {
-            return false;
+            return std::nullopt;
         }
 
         // data is unsigned char, cast it to char and assume it is a string
-        *source = std::string(file->get_data(), file->get_size() - 1);
-        return true;
+        return std::string(file->get_data(), file->get_size() - 1);
     }
 
 

@@ -117,7 +117,7 @@ namespace euphoria::core
 
 
     quatf
-    quatf::rotate(const quatf& q) const
+    quatf::get_rotated(const quatf& q) const
     {
         return q * *this;
     }

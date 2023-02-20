@@ -14,21 +14,19 @@ namespace euphoria::window
 {
     struct App
     {
+        bool running = true;
+        core::rgb clear_color;
+
         App();
+        virtual ~App() = default;
 
         App(const App&) = delete;
         App(App&&) = delete;
-
         void operator=(const App&) = delete;
         void operator=(App&&) = delete;
 
-        virtual ~App() = default;
-
         virtual void on_quit();
         virtual void on_gui();
-
-        bool running = true;
-        core::rgb clear_color;
     };
 
 

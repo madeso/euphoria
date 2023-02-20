@@ -21,24 +21,22 @@ namespace euphoria::gui
 {
     struct Container
     {
+        std::vector<std::shared_ptr<Widget>> widgets;
+
         Container();
         ~Container();
 
-        NONCOPYABLE(Container);
+        Container(const Container&) = delete;
+        Container(Container&&) = delete;
+        void operator=(const Container&) = delete;
+        void operator=(Container&&) = delete;
 
-        [[nodiscard]] bool
-        has_any_widgets() const;
+        void add(std::shared_ptr<Widget> widget);
+        void step(float dt);
 
-        void
-        add(std::shared_ptr<Widget> widget);
+        void render(render::SpriteRenderer* renderer) const;
 
-        void
-        step(float dt);
-
-        void
-        render(render::SpriteRenderer* renderer) const;
-
-        std::vector<std::shared_ptr<Widget>> widgets;
+        [[nodiscard]] bool has_any_widgets() const;
     };
 }
 

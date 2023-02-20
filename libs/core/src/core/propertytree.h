@@ -18,56 +18,52 @@ namespace euphoria::core
 
     struct Value
     {
-        explicit Value(ValueType vt) : type(vt) {}
+        const ValueType type;
 
+        explicit Value(ValueType vt) : type(vt) {}
         virtual ~Value() = default;
 
         Value(const Value&) = delete;
         Value(Value&&) = delete;
         void operator=(const Value&) = delete;
         void operator=(Value&&) = delete;
-
-        const ValueType type;
     };
 
     struct IntValue : public Value
     {
-        explicit IntValue(int i);
         int value;
 
-        [[nodiscard]] static int&
-        cast(core::Value* value);
+        explicit IntValue(int i);
+
+        [[nodiscard]] static int& cast(core::Value* value);
     };
 
     struct FloatValue : public Value
     {
-        explicit FloatValue(float f);
         float value;
 
-        [[nodiscard]] static float&
-        cast(core::Value* value);
+        explicit FloatValue(float f);
+
+        [[nodiscard]] static float& cast(core::Value* value);
     };
 
     struct Vec3fValue : public Value
     {
-        explicit Vec3fValue(const vec3f& v);
         vec3f value;
 
-        [[nodiscard]] static vec3f&
-        cast(core::Value* value);
+        explicit Vec3fValue(const vec3f& v);
+
+        [[nodiscard]] static vec3f& cast(core::Value* value);
     };
 
     struct MapValue : public Value
     {
+        std::map<std::string, std::shared_ptr<Value>> properties;
+
         MapValue();
 
-        void
-        set(const std::string& name, std::shared_ptr<Value> value);
-
-        std::shared_ptr<Value>
-        get_or_null(const std::string& name);
-
-        std::map<std::string, std::shared_ptr<Value>> properties;
+        void set(const std::string& name, std::shared_ptr<Value> value);
+        std::shared_ptr<Value> get_or_null(const std::string& name);
     };
 
 }

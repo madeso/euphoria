@@ -9,6 +9,15 @@ namespace euphoria::core
 {
     struct StringMerger
     {
+        std::string_view separator;
+        std::string_view final_separator;
+        std::string_view empty;
+        std::string_view start;
+        std::string_view end;
+        std::string_view before_each;
+        std::string_view after_each;
+        std::string_view final_after_each;
+
         [[nodiscard]] std::string
         merge(const std::vector<std::string>& strings) const;
 
@@ -74,16 +83,8 @@ namespace euphoria::core
             final_after_each = the_final;
             return *this;
         }
-
-        std::string_view separator;
-        std::string_view final_separator;
-        std::string_view empty;
-        std::string_view start;
-        std::string_view end;
-        std::string_view before_each;
-        std::string_view after_each;
-        std::string_view final_after_each;
     };
+
 
     namespace string_mergers
     {

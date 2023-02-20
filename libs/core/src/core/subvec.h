@@ -10,6 +10,10 @@ namespace euphoria::core
     {
         using Iterator = typename std::vector<T>::iterator;
 
+        std::vector<T>* source;
+        std::size_t ibegin;
+        std::size_t iend;
+
         explicit SubVec(std::vector<T>* s)
             : source(s)
             , ibegin(0)
@@ -24,9 +28,11 @@ namespace euphoria::core
         {
         }
 
-        std::vector<T>* source;
-        std::size_t ibegin;
-        std::size_t iend;
+        SubVec<T>
+        sub(std::size_t start, std::size_t end)
+        {
+            return {source, ibegin+start, ibegin+end};
+        }
 
         Iterator
         begin() const
@@ -62,12 +68,6 @@ namespace euphoria::core
         operator[](int index) const
         {
             return (*source)[ibegin+index];
-        }
-
-        SubVec<T>
-        sub(std::size_t start, std::size_t end)
-        {
-            return {source, ibegin+start, ibegin+end};
         }
     };
 }

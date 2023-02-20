@@ -33,26 +33,6 @@ namespace euphoria::window
 
     struct Engine
     {
-        Engine();
-        ~Engine();
-
-        NONCOPYABLE(Engine);
-
-        int
-        setup(const core::argparse::NameAndArguments& args);
-
-        bool
-        create_window
-        (
-            const std::string& title,
-            int width,
-            int height,
-            bool blend_hack = false
-        );
-
-        bool
-        on_resize(SDL_Event e, int* width, int* height) const;
-
         std::unique_ptr<SdlLibrary> sdl;
         std::unique_ptr<core::vfs::FileSystem> file_system;
         std::shared_ptr<core::vfs::ReadRootCatalog> catalog;
@@ -61,5 +41,25 @@ namespace euphoria::window
         std::unique_ptr<SdlAndOpenglContext> context;
         std::unique_ptr<render::Init> init;
         std::unique_ptr<imgui::Library> imgui;
+
+        Engine();
+        ~Engine();
+
+        Engine(const Engine&) = delete;
+        Engine(Engine&&) = delete;
+        void operator=(const Engine&) = delete;
+        void operator=(Engine&&) = delete;
+
+        int setup(const core::argparse::NameAndArguments& args);
+
+        bool create_window
+        (
+            const std::string& title,
+            int width,
+            int height,
+            bool blend_hack = false
+        );
+
+        bool on_resize(SDL_Event e, int* width, int* height) const;
     };
 }

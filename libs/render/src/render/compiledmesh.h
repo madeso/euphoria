@@ -40,19 +40,27 @@ namespace euphoria::render
 
     struct CompiledMeshMaterial
     {
+        core::rgb ambient;
+        core::rgb diffuse;
+        core::rgb specular;
+        float shininess;
+        std::shared_ptr<MaterialShader> shader;
+        std::map<core::EnumValue, std::shared_ptr<Texture2>> textures;
+
+
         CompiledMeshMaterial();
 
-
-        void
-        set_texture
+        void set_texture
         (
             const core::EnumValue& name,
             std::shared_ptr<Texture2> texture
         );
 
+        /** Gets the default materials from the shader if they are null/not set.
+         */
+        void load_default_materials_from_shader(TextureCache* cache);
 
-        void
-        apply
+        void apply
         (
             const core::mat4f& model_matrix,
             const core::mat4f& projection_matrix,
@@ -61,26 +69,10 @@ namespace euphoria::render
             const Light& light
         ) const;
 
-
-        /** Gets the default materials from the shader if they are null/not set.
-         */
-        void
-        load_default_materials_from_shader(TextureCache* cache);
-
-
         /** Asks the shader if all the textures are set,
          * and if more than necessary are set.
          */
-        [[nodiscard]] bool
-        validate() const;
-
-
-        core::rgb ambient;
-        core::rgb diffuse;
-        core::rgb specular;
-        float shininess;
-        std::shared_ptr<MaterialShader> shader;
-        std::map<core::EnumValue, std::shared_ptr<Texture2>> textures;
+        [[nodiscard]] bool validate() const;
     };
 
 

@@ -41,8 +41,7 @@ namespace euphoria::core
     */
     namespace detail
     {
-        template<typename Stream>
-        Stream& operator<<(Stream& s, const CameraFrame& f)
+        std::ostream& operator<<(std::ostream& s, const CameraFrame& f)
         {
             s   << "["
                 << f.rotation_angle << " "
@@ -354,7 +353,7 @@ namespace euphoria::core
             }
 
             MouseBehaviour
-            get_mouse(EditorCamera3*) override
+            get_mouse(const EditorCamera3*) const override
             {
                 return MouseBehaviour::wrap_within_window;
             }
@@ -481,7 +480,7 @@ namespace euphoria::core
             }
 
             MouseBehaviour
-            get_mouse(EditorCamera3*) override
+            get_mouse(const EditorCamera3*) const override
             {
                 if(looking)
                 {
@@ -552,7 +551,7 @@ namespace euphoria::core
             void on_camera_start(EditorCamera3*) override {}
             void on_camera_stop(EditorCamera3*) override {}
 
-            MouseBehaviour get_mouse(EditorCamera3*) override { return MouseBehaviour::normal; }
+            MouseBehaviour get_mouse(const EditorCamera3*) const override { return MouseBehaviour::normal; }
         };
 
 
@@ -744,7 +743,7 @@ namespace euphoria::core
 
 
     MouseBehaviour
-    EditorCamera3::get_mouse()
+    EditorCamera3::get_mouse() const
     {
         if(state == nullptr) { return MouseBehaviour::normal; }
         return state->get_mouse(this);

@@ -5,7 +5,7 @@
 namespace euphoria::core
 {
     // Decompress is slighly modified code from the imgui repo, only to remove the use of global variables
-    // this is mainly here so we can use the handly compression tool from the imgui distro for files other than fonts
+    // this is mainly here so we can use the handy compression tool from the imgui distro for files other than fonts
     //
     // The following note is from imgui repo comment:
     //
@@ -18,20 +18,17 @@ namespace euphoria::core
 
     struct Decompressor
     {
-        static unsigned int stb_decompress_length(const unsigned char *input);
+        unsigned char* stb_barrier_out_e = nullptr, * stb_barrier_out_b = nullptr;
+        const unsigned char* stb_barrier_in_b = nullptr;
+        unsigned char* stb_dout = nullptr;
 
         unsigned int stb_decompress(unsigned char *output, const unsigned char *i, unsigned int /*length*/);
-
-        unsigned char *stb_barrier_out_e = nullptr, *stb_barrier_out_b = nullptr;
-        const unsigned char *stb_barrier_in_b = nullptr;
-        unsigned char *stb_dout = nullptr;
-
         void stb_match(const unsigned char *data, unsigned int length);
         void stb_lit(const unsigned char *data, unsigned int length);
-
         const unsigned char *stb_decompress_token(const unsigned char *i);
-
         unsigned int stb_adler32(unsigned int adler32, unsigned char *buffer, unsigned int buflen);
+
+        static unsigned int stb_decompress_length(const unsigned char* input);
     };
 
 }

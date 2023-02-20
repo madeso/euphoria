@@ -9,16 +9,14 @@ namespace euphoria::core
 {
     struct AxisAngle
     {
-        [[nodiscard]] static AxisAngle
-        right_hand_around(const unit3f& axis, const core::angle& angle);
-
-        /** a unit-vector.
-         */
+        /// a unit-vector
         unit3f axis;
 
-        /** rotation according to right-hand rule.
-         */
+        /// rotation according to right-hand rule
         core::angle angle;
+
+        [[nodiscard]] static AxisAngle
+        right_hand_around(const unit3f& axis, const core::angle& angle);
 
     private:
         AxisAngle(const unit3f& ax, const core::angle& ang);

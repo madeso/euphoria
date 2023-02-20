@@ -269,7 +269,7 @@ TEST_CASE("mat4-test", "[mat]")
 
     SECTION("TestRotationAxisAngle")
     {
-        const auto r = start.rotate(aa).get_transform_point(to_transform);
+        const auto r = start.get_rotated(aa).get_transform_point(to_transform);
         REQUIRE(r == approx(result));
     }
 }
@@ -278,7 +278,7 @@ TEST_CASE("mat4-test", "[mat]")
 TEST_CASE("mat4-TestCombined_RT", "[mat]")
 {
     const auto r = euco::mat4f::identity()
-        .rotate
+        .get_rotated
         (
             euco::AxisAngle::right_hand_around
             (
@@ -286,7 +286,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
                 euco::angle::from_degrees(-90)
             )
         )
-        .translate(euco::vec3f{0.0f, 0.0f, -5.0f})
+        .get_translated(euco::vec3f{0.0f, 0.0f, -5.0f})
         .get_transform_point(euco::vec3f{0.0f, 0.0f, 0.0f})
         ;
     REQUIRE(r == approx(euco::vec3f{5.0f, 0.0f, 0.0f}));
@@ -296,14 +296,14 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
 {
     const auto r =
         euco::mat4f::identity()
-        .rotate
+        .get_rotated
         (
             euco::AxisAngle::right_hand_around
             (
                 euco::unit3f::up(), euco::angle::from_degrees(90)
             )
         )
-        .translate(euco::vec3f(0, 0, -5))
+        .get_translated(euco::vec3f(0, 0, -5))
         .get_transform_point(euco::vec3f(0, 0, 0))
         ;
     REQUIRE(r == approx(euco::vec3f(-5, 0, 0)));
@@ -312,8 +312,8 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
 TEST_CASE("mat4-TestCombined_TR", "[mat]")
 {
     const auto r = euco::mat4f::identity()
-        .translate(euco::vec3f(0, 0, 5))
-        .rotate
+        .get_translated(euco::vec3f(0, 0, 5))
+        .get_rotated
         (
             euco::AxisAngle::right_hand_around
             (
@@ -329,7 +329,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
 TEST_CASE("mat4-TestTranslation", "[mat]")
 {
     const auto r = euco::mat4f::identity()
-        .translate(euco::vec3f(1, 2, 3))
+        .get_translated(euco::vec3f(1, 2, 3))
         .get_transform_point(euco::vec3f(7, 8, 9))
         ;
     REQUIRE(r == approx(euco::vec3f(8, 10, 12)));

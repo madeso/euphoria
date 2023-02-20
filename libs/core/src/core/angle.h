@@ -16,7 +16,6 @@ namespace euphoria::core
             return angle(degrees_to_radian(degrees));
         }
 
-
         [[nodiscard]] constexpr static angle
         from_radians(float radians)
         {
@@ -64,6 +63,7 @@ namespace euphoria::core
 
         [[nodiscard]] static angle random(::euphoria::core::Random* random);
 
+
         void wrap();
 
 
@@ -72,7 +72,6 @@ namespace euphoria::core
         {
             return radian_to_degrees(radians);
         }
-
 
         [[nodiscard]] constexpr float
         in_radians() const
@@ -86,14 +85,13 @@ namespace euphoria::core
             return in_radians() / (pi * 2.0f);
         }
 
+        [[nodiscard]] angle get_wrapped() const;
+
         void operator+=(const angle& rhs);
         void operator-=(const angle& rhs);
         void operator*=(float rhs);
         void operator/=(float rhs);
         angle operator-() const;
-
-        [[nodiscard]] angle get_wrapped() const;
-
 
     private:
         float radians;

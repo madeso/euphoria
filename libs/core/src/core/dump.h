@@ -30,14 +30,14 @@ namespace euphoria::core::dump2d
         std::optional<rgbi> fill_color;
         bool is_closed = false;
         float stroke_width = 1.0f;
+
         std::vector<int> stroke;
+        std::vector<vec2f> points;
 
         Poly& set_stroke(const std::vector<int>& new_stroke);
 
         Poly& close();
         Poly& fill(const rgbi& fill_color);
-
-        std::vector<vec2f> points;
     };
 
     struct Text
@@ -56,9 +56,9 @@ namespace euphoria::core::dump2d
         std::optional<rgbi> line_color;
         std::optional<rgbi> fill_color;
 
-        Circle& set_line_color(const rgbi& lc);
-
         Circle(const vec2f& p, float r, std::optional<rgbi> fill = std::nullopt);
+
+        Circle& set_line_color(const rgbi& lc);
     };
 
     struct Group;
@@ -66,16 +66,17 @@ namespace euphoria::core::dump2d
     // todo(Gustav): replace with std::variant
     struct Item
     {
-        explicit Item(const dump2d::Poly& p);
-        explicit Item(const dump2d::Text& p);
-        explicit Item(const dump2d::Group& g);
-        explicit Item(const dump2d::Circle& c);
-
         std::shared_ptr<dump2d::Poly> poly;
         std::shared_ptr<dump2d::Text> text;
         std::shared_ptr<dump2d::Group> group;
         std::shared_ptr<dump2d::Circle> circle;
+
+        explicit Item(const dump2d::Poly& p);
+        explicit Item(const dump2d::Text& p);
+        explicit Item(const dump2d::Group& g);
+        explicit Item(const dump2d::Circle& c);
     };
+
     const Poly* as_poly(const Item* item);
     const Text* as_text(const Item* item);
     const Group* as_group(const Item* item);
@@ -102,26 +103,21 @@ namespace euphoria::core::dump2d
     {
         rgbi canvas_color = NamedColor::white;
         std::vector<Item> items;
-
         bool add_axis_when_writing = false;
         int point_size = -1;
         bool point_text = false;
-
         float grid_x =-1;
         float grid_y =-1;
 
         Dumper& add_axis();
-
         Dumper& add_grid(float xy);
-
         Dumper& enable_points_rendering(int size=3);
-
         Dumper& add(const Item& item);
 
-        // calculate total area size and offset so that x+offset will never be lower than 0
-        [[nodiscard]] std::pair<vec2f,vec2f> calculate_size_and_offset() const;
-
         void write(const std::string& path, int width=1280, int height=1024, int space = 6) const;
+
+        /// calculate total area size and offset so that x+offset will never be lower than 0
+        [[nodiscard]] std::pair<vec2f, vec2f> calculate_size_and_offset() const;
     };
 }
 
@@ -129,6 +125,8 @@ namespace euphoria::core::dump3d
 {
     struct Dumper
     {
+        std::ofstream file;
+
         explicit Dumper(const std::string& path);
         ~Dumper();
 
@@ -144,8 +142,5 @@ namespace euphoria::core::dump3d
 
         void add_axis();
         void add_grid();
-
-
-        std::ofstream file;
     };
 }

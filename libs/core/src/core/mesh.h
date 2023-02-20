@@ -31,74 +31,70 @@ namespace euphoria::core
 
     struct MeshPoint
     {
+        vec3f vertex;
+        vec3f normal;
+        vec2f uv;
+
         MeshPoint
         (
             const vec3f& a_vertex,
             const vec3f& a_normal,
             const vec2f& a_uv
         );
-        vec3f vertex;
-        vec3f normal;
-        vec2f uv;
     };
 
 
     struct MeshFace
     {
-        MeshFace(int a_a, int a_b, int a_c);
         int a;
         int b;
         int c;
+
+        MeshFace(int a_a, int a_b, int a_c);
     };
 
 
     struct MeshPart
     {
-        MeshPart();
-
         unsigned int material;
         std::vector<MeshPoint> points;
         std::vector<MeshFace> faces;
 
-        [[nodiscard]] Aabb
-        calculate_aabb() const;
+        MeshPart();
+
+        [[nodiscard]] Aabb calculate_aabb() const;
     };
 
 
     struct MaterialTexture
     {
-        MaterialTexture(const vfs::FilePath& p, EnumValue t);
         vfs::FilePath path;
         EnumValue type;
+
+        MaterialTexture(const vfs::FilePath& p, EnumValue t);
     };
 
 
     struct Material
     {
-        Material();
-
-        void
-        set_texture
-        (
-            const std::string& texture_name,
-            const vfs::FilePath& texture_path
-        );
-
         std::string name;
-
         std::optional<core::vfs::FilePath> shader;
-
-        // tints
         rgb ambient;
         rgb diffuse;
         rgb specular;
-
         float shininess;
-
         float alpha;
         std::vector<MaterialTexture> textures;
         WrapMode wrap_s;
         WrapMode wrap_t;
+
+        Material();
+
+        void set_texture
+        (
+            const std::string& texture_name,
+            const vfs::FilePath& texture_path
+        );
     };
 
 
@@ -107,8 +103,7 @@ namespace euphoria::core
         std::vector<Material> materials;
         std::vector<MeshPart> parts;
 
-        [[nodiscard]] Aabb
-        calculate_aabb() const;
+        [[nodiscard]] Aabb calculate_aabb() const;
     };
 
 
@@ -121,17 +116,11 @@ namespace euphoria::core
 
     namespace meshes
     {
-        LoadedMeshOrError
-        load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path);
+        LoadedMeshOrError load_mesh(vfs::FileSystem* fs, const vfs::FilePath& path);
 
-        Mesh
-        create_cube(float size);
-
-        Mesh
-        create_sphere(float size, const std::string& texture);
-
-        Mesh
-        create_box(float width, float height, float depth);
+        Mesh create_cube(float size);
+        Mesh create_sphere(float size, const std::string& texture);
+        Mesh create_box(float width, float height, float depth);
     }
 
 }

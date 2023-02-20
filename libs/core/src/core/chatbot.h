@@ -42,7 +42,6 @@ namespace euphoria::core
 
         struct Input
         {
-            std::vector<std::string> words;
             enum LocationType
             {
                 lowest,
@@ -50,7 +49,10 @@ namespace euphoria::core
                 at_start,
                 at_end,
                 alone
-            } location;
+            };
+
+            std::vector<std::string> words;
+            LocationType location;
 
             explicit Input
             (
@@ -68,10 +70,10 @@ namespace euphoria::core
 
         struct SingleResponse
         {
-            explicit SingleResponse(const std::string& say);
-
             std::string to_say;
             std::vector<std::string> topics_mentioned;
+
+            explicit SingleResponse(const std::string& say);
         };
 
 
@@ -90,24 +92,17 @@ namespace euphoria::core
             detail::Response* response;
             explicit ResponseBuilder(detail::Response* r) : response(r) {}
 
-            ResponseBuilder&
-            input
+            ResponseBuilder& input
             (
                 const std::string& in,
                 Input::LocationType where = Input::at_start
             );
 
-            ResponseBuilder&
-            operator()(const std::string& response);
+            ResponseBuilder& add_topic(const std::string& topic);
+            ResponseBuilder& end_conversation();
 
-            ResponseBuilder&
-            operator()(const std::string& response, const std::string& topic);
-
-            ResponseBuilder&
-            add_topic(const std::string& topic);
-
-            ResponseBuilder&
-            end_conversation();
+            ResponseBuilder& operator()(const std::string& response);
+            ResponseBuilder& operator()(const std::string& response, const std::string& topic);
         };
 
 
@@ -126,11 +121,9 @@ namespace euphoria::core
 
             Database();
 
-            Response&
-            create_response();
+            Response& create_response();
 
-            ResponseBuilder
-            add_response
+            ResponseBuilder add_response
             (
                 const std::string& input,
                 Input::LocationType where = Input::at_start
@@ -142,32 +135,22 @@ namespace euphoria::core
         {
             std::vector<std::pair<std::string, std::string>> store;
 
-            Transposer&
-            add(const std::string& from, const std::string& to);
+            Transposer& add(const std::string& from, const std::string& to);
 
-            [[nodiscard]] std::string
-            transpose(const std::string& input) const;
+            [[nodiscard]] std::string transpose(const std::string& input) const;
         };
 
 
         struct ConversationTopics
         {
-            void
-            decrease_and_remove();
-
-            void
-            decrease();
-
-            void
-            remove();
-
-            void
-            add(const std::string& topic);
-
-            [[nodiscard]] bool
-            has(const std::string& topic) const;
-
             std::map<std::string, std::shared_ptr<int>> topics;
+
+            void decrease_and_remove();
+            void decrease();
+            void remove();
+            void add(const std::string& topic);
+
+            [[nodiscard]] bool has(const std::string& topic) const;
         };
 
 
@@ -196,28 +179,6 @@ namespace euphoria::core
 
     struct Chatbot
     {
-        Chatbot();
-
-        [[nodiscard]]
-        static
-        std::optional<Chatbot>
-        load_from_file(vfs::FileSystem* fs, const vfs::FilePath& path);
-
-        [[nodiscard]] std::string
-        get_response(const std::string& input);
-
-        [[nodiscard]] detail::ConversationStatus
-        get_complex_response(const std::string& input);
-
-        [[nodiscard]] std::string
-        get_sign_on_message();
-
-        [[nodiscard]] std::string
-        debug_last_response
-        (
-            const std::vector<std::string>& search = std::vector<std::string>{}
-        ) const;
-
         bool is_in_conversation;
         int last_event;
         unsigned long max_responses;
@@ -229,6 +190,24 @@ namespace euphoria::core
         std::deque<std::string> last_responses;
         std::vector<detail::ConversationStatus> history;
         std::vector<std::string> missing_input;
+
+        Chatbot();
+
+        [[nodiscard]] static std::optional<Chatbot> load_from_file
+        (
+            vfs::FileSystem* fs, const vfs::FilePath& path
+        );
+
+        [[nodiscard]] std::string get_response(const std::string& input);
+
+        [[nodiscard]] detail::ConversationStatus get_complex_response(const std::string& input);
+
+        [[nodiscard]] std::string get_sign_on_message();
+
+        [[nodiscard]] std::string debug_last_response
+        (
+            const std::vector<std::string>& search = std::vector<std::string>{}
+        ) const;
     };
 
 }

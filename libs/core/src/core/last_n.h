@@ -11,6 +11,9 @@ namespace euphoria::core
     template <typename T>
     struct LastN
     {
+        std::vector<T> d;
+        std::size_t max;
+
         explicit LastN(std::size_t s) : max(s) {}
 
         void
@@ -35,9 +38,6 @@ namespace euphoria::core
         {
             return c_sizet_to_int(d.size());
         }
-
-        std::vector<T> d;
-        std::size_t max;
     };
 }
 

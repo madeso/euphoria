@@ -36,23 +36,20 @@ namespace euphoria::core
         {
         }
 
-        Self&
-        clear()
+        Self& clear()
         {
             t = transition_ended;
             return *this;
         }
 
-        Self&
-        set(const Type& new_value)
+        Self& set(const Type& new_value)
         {
             value = new_value;
             t = transition_ended;
             return *this;
         }
 
-        void
-        set(const Type& new_value, easing::Function f, float time)
+        void set(const Type& new_value, easing::Function f, float time)
         {
             ASSERT(time >= 0.0f);
 
@@ -63,20 +60,12 @@ namespace euphoria::core
             speed = 1.0f / time;
         }
 
-        void
-        set(easing::Function f, const Type& new_value, float time)
+        void set(easing::Function f, const Type& new_value, float time)
         {
             set(new_value, f, time);
         }
 
-        [[nodiscard]] bool
-        is_active() const
-        {
-            return t < 1.0f;
-        }
-
-        void
-        update(float dt)
+        void update(float dt)
         {
             if(t >= 1.0f)
             {
@@ -95,6 +84,11 @@ namespace euphoria::core
                 const auto f = easing::apply(easing_function, t);
                 value = Transformer::transform(from, f, to);
             }
+        }
+
+        [[nodiscard]] bool is_active() const
+        {
+            return t < 1.0f;
         }
     };
 

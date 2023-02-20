@@ -1,12 +1,10 @@
 #pragma once
 
-
 #include "core/memorychunk.h"
-
 
 #include <map>
 #include <memory>
-
+#include <optional>
 
 
 namespace euphoria::core::vfs
@@ -74,6 +72,9 @@ namespace euphoria::core::vfs
 
     struct FileSystem
     {
+        std::vector<std::shared_ptr<ReadRoot>> read_roots;
+        std::shared_ptr<vfs::WriteRoot> write_root;
+
         FileSystem();
         ~FileSystem();
 
@@ -82,36 +83,19 @@ namespace euphoria::core::vfs
         void operator=(const FileSystem&) = delete;
         void operator=(FileSystem&&) = delete;
 
-        void
-        add_read_root(const std::shared_ptr<ReadRoot>& root);
-
-        void
-        set_write_root(const std::shared_ptr<vfs::WriteRoot>& root);
-
-        std::shared_ptr<MemoryChunk>
-        read_file(const FilePath& path);
-
-        void
-        write_file(const FilePath& path, std::shared_ptr<MemoryChunk> data);
-
-        std::vector<ListedFile>
-        list_files(const DirPath& path);
-
-        std::string
-        get_roots_as_string();
+        void add_read_root(const std::shared_ptr<ReadRoot>& root);
+        void set_write_root(const std::shared_ptr<vfs::WriteRoot>& root);
+        std::shared_ptr<MemoryChunk> read_file(const FilePath& path);
+        void write_file(const FilePath& path, std::shared_ptr<MemoryChunk> data);
+        std::vector<ListedFile> list_files(const DirPath& path);
+        std::string get_roots_as_string();
 
         // todo(Gustav): need to support paging too
-        bool
-        read_file_to_string(const FilePath& path, std::string* source);
+        std::optional<std::string> read_file_to_string(const FilePath& path);
 
-        // todo(Gustav): support different roots such as real file system, zip/container file
-        // etc
+        // todo(Gustav): support different roots such as real file system, zip/container file etc
         // todo(Gustav): support encryption
         // todo(Gustav): support listing/enumerating files
-
-
-        std::vector<std::shared_ptr<ReadRoot>> read_roots;
-        std::shared_ptr<vfs::WriteRoot> write_root;
     };
 
     struct ReadRootCatalog : ReadRoot

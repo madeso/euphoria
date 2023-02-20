@@ -477,19 +477,19 @@ namespace euphoria::core
     }
 
     mat4f
-    mat4f::translate(const vec3f& t) const
+    mat4f::get_translated(const vec3f& t) const
     {
         return *this * from_translation(t);
     }
 
     mat4f
-    mat4f::rotate(const AxisAngle& aa) const
+    mat4f::get_rotated(const AxisAngle& aa) const
     {
         return *this * from_axis_angle(aa);
     }
 
     mat4f
-    mat4f::scale(const Scale3f& scale) const
+    mat4f::get_scaled(const Scale3f& scale) const
     {
         return *this * from_scale(scale);
     }

@@ -556,13 +556,13 @@ load_from_filesystem_to_node_list
         return;
     }
     ASSERT(nodes);
-    std::string content;
-    if(!fs->read_file_to_string(path, &content))
+    auto content = fs->read_file_to_string(path);
+    if(!content)
     {
         error->add_error(path, 0, 0, "Failed to open {}"_format(path));
         return;
     }
-    TokenReader reader(lexer(content, error, path));
+    TokenReader reader(lexer(*content, error, path));
     parse_template_list(nodes, &reader, error, path, false, fs);
 }
 

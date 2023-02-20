@@ -19,25 +19,24 @@ namespace euphoria::core
     }
 
 
-
     ///////////////////////////////////////////////////////////////////////////////////////////////
     // Result types
 
     struct ReadErrorFileMissing
     {
-        ReadErrorFileMissing(const std::string&, const std::string&);
-
         std::string path_to_file;
         std::string error_for_debugging;
+
+        ReadErrorFileMissing(const std::string&, const std::string&);
     };
 
     struct ReadErrorFileError
     {
-        explicit ReadErrorFileError(const std::string&);
-        ReadErrorFileError(const std::string&, const std::vector<std::string>&);
-
         std::string path_to_file;
         std::vector<std::string> errors;
+
+        explicit ReadErrorFileError(const std::string&);
+        ReadErrorFileError(const std::string&, const std::vector<std::string>&);
     };
 
     template<typename T>
@@ -48,33 +47,20 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////////////////////////
     // Helper functions
 
-    std::string
-    get_string_from_path(const vfs::FilePath& p);
-
-    std::string
-    get_string_from_path_for_debugging(vfs::FileSystem* fs, const vfs::FilePath& p);
-
-    std::optional<std::string>
-    get_file_contents_or_null(vfs::FileSystem* fs, const vfs::FilePath& file_name);
-
-    std::optional<std::string>
-    read_source_or_get_error_message(const std::string& source, rapidjson::Document* doc);
-
-    std::string
-    could_be_callback(const std::string& v, const std::vector<std::string>& vv);
-
-    void
-    log_read_error(const ReadErrorFileMissing&);
-
-    void
-    log_read_error(const ReadErrorFileError&);
+    std::string get_string_from_path(const vfs::FilePath& p);
+    std::string get_string_from_path_for_debugging(vfs::FileSystem* fs, const vfs::FilePath& p);
+    std::optional<std::string> get_file_contents_or_null(vfs::FileSystem* fs, const vfs::FilePath& file_name);
+    std::optional<std::string> read_source_or_get_error_message(const std::string& source, rapidjson::Document* doc);
+    std::string could_be_callback(const std::string& v, const std::vector<std::string>& vv);
+    
+    void log_read_error(const ReadErrorFileMissing&);
+    void log_read_error(const ReadErrorFileError&);
 
     
     template<typename> inline constexpr bool always_false_v = false;
 
     template<typename T>
-    std::optional<T>
-    work_get_optional_and_log_errors(ReadResult<T>&& result, bool log_missing_file)
+    std::optional<T> work_get_optional_and_log_errors(ReadResult<T>&& result, bool log_missing_file)
     {
         try
         {
@@ -123,8 +109,7 @@ namespace euphoria::core
 
     // log all errors, only return when file loaded
     template<typename T>
-    std::optional<T>
-    get_optional_and_log_errors(ReadResult<T>&& result)
+    std::optional<T> get_optional_and_log_errors(ReadResult<T>&& result)
     {
         return work_get_optional_and_log_errors<T>(std::move(result), true);
     }
@@ -132,8 +117,7 @@ namespace euphoria::core
     // don't log error and return default when file is missing
     // log syntax error
     template<typename T>
-    std::optional<T>
-    get_optional_and_log_errors_allow_missing(ReadResult<T>&& result)
+    std::optional<T> get_optional_and_log_errors_allow_missing(ReadResult<T>&& result)
     {
         // todo(Gustav): should this return something different to indicate that file was missing?
         return work_get_optional_and_log_errors<T>(std::move(result), false);
@@ -142,8 +126,7 @@ namespace euphoria::core
     // todo(Gustav): remove all get_default and add proper error handling to callers
 
     template<typename T>
-    T
-    get_default_but_log_errors(ReadResult<T>&& result)
+    T get_default_but_log_errors(ReadResult<T>&& result)
     {
         auto r = work_get_optional_and_log_errors<T>(std::move(result), true);
         if(r)
@@ -157,8 +140,7 @@ namespace euphoria::core
     }
 
     template<typename T>
-    T
-    get_default_ignore_missing_but_log_errors(ReadResult<T>&& result)
+    T get_default_ignore_missing_but_log_errors(ReadResult<T>&& result)
     {
         auto r = work_get_optional_and_log_errors<T>(std::move(result), false);
         if(r)
@@ -175,8 +157,7 @@ namespace euphoria::core
     // Actual load functions
 
     template <typename T, typename ReadJsonElementFun>
-    ReadResult<T>
-    read_json_source_to_gaf_struct
+    ReadResult<T> read_json_source_to_gaf_struct
     (
         const std::string& path_to_file,
         const std::string& source,
@@ -229,8 +210,7 @@ namespace euphoria::core
     }
 
     template <typename T, typename ReadJsonElementFun>
-    ReadResult<T>
-    read_json_file_to_gaf_struct
+    ReadResult<T> read_json_file_to_gaf_struct
     (
         vfs::FileSystem* fs,
         const vfs::FilePath& file_name,

@@ -37,8 +37,7 @@ namespace euphoria::core::generator
     {
         std::vector<std::shared_ptr<Rule>> rules;
 
-        void
-        add_rule(int count, std::shared_ptr<Rule> rule);
+        void add_rule(int count, std::shared_ptr<Rule> rule);
     };
 
     struct CellularAutomata
@@ -50,11 +49,9 @@ namespace euphoria::core::generator
 
         CellularAutomata(generator::Rules* r, generator::World* w, const Lrud<core::OutsideRule>& fw);
 
-        [[nodiscard]] bool
-        has_more_work() const;
+        void work();
 
-        void
-        work();
+        [[nodiscard]] bool has_more_work() const;
     };
 
     using ChangeFunction = std::function

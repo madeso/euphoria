@@ -3,9 +3,6 @@
 #include <memory>
 
 
-#include "core/noncopyable.h"
-
-
 namespace euphoria::core::vfs
 {
     struct FileSystem;
@@ -20,15 +17,18 @@ namespace euphoria::render
 
     struct FontCache
     {
+        struct font_cache_pimpl;
+        std::unique_ptr<font_cache_pimpl> pimp;
+
         FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
         ~FontCache();
 
-        NONCOPYABLE(FontCache);
+        FontCache(const FontCache&) = delete;
+        FontCache(FontCache&&) = delete;
+        void operator=(const FontCache&) = delete;
+        void operator=(FontCache&&) = delete;
 
-        [[nodiscard]] std::shared_ptr<DrawableFont>
-        get_font(const core::vfs::FilePath& path) const;
-
-        struct font_cache_pimpl;
-        std::unique_ptr<font_cache_pimpl> pimp;
+        [[nodiscard]] std::shared_ptr<DrawableFont> get_font
+            (const core::vfs::FilePath& path) const;
     };
 }

@@ -12,13 +12,15 @@ namespace euphoria::core
     template<typename I, I a, I c, I modulus>
     struct RandomLcg
     {
-        explicit RandomLcg(I s) : state(s) {}
-
         I state;
 
+        explicit RandomLcg(I s)
+            : state(s)
+        {
+        }
+
         // bug: doesn't seem to return the full 0-1 range
-        float
-        get_next_float01()
+        float get_next_float01()
         {
             state = (a * state + c) % modulus;
             return static_cast<float>(state)/static_cast<float>(modulus);
@@ -33,12 +35,14 @@ namespace euphoria::core
     template<typename I, I a, I b, I c>
     struct RandomXorShift
     {
-        explicit RandomXorShift(I s) : state(s) {}
-
         I state;
 
-        I
-        get_next_integer()
+        explicit RandomXorShift(I s)
+            : state(s)
+        {
+        }
+
+        I get_next_integer()
         {
             /* Algorithm "xor" from p. 4 of Marsaglia, "Xorshift RNGs" */
             I x = state;
@@ -49,8 +53,7 @@ namespace euphoria::core
             return state;
         }
 
-        float
-        get_next_float01()
+        float get_next_float01()
         {
             const auto r = get_next_integer();
             const auto max = static_cast<float>(std::numeric_limits<I>::max());

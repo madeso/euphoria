@@ -13,67 +13,32 @@ namespace euphoria::render
 
     struct MaterialShaderDefaultTexture
     {
-    public:
+        core::EnumValue name;
+        core::vfs::FilePath path;
+
         MaterialShaderDefaultTexture
         (
             const core::EnumValue& a_name,
             const core::vfs::FilePath& a_path
         );
-
-        core::EnumValue name;
-        core::vfs::FilePath path;
     };
 
     struct MaterialShaderBinding
     {
+        ShaderUniform uniform;
+        core::EnumValue name;
+
         MaterialShaderBinding
         (
             ShaderUniform a_uniform,
             const core::EnumValue& a_name
         );
-
-        ShaderUniform uniform;
-        core::EnumValue name;
     };
 
     /** Extends a regular Shader with uniform bindings for 3d rendering
      */
     struct MaterialShader
     {
-    public:
-        MaterialShader();
-
-        bool
-        load
-        (
-            core::vfs::FileSystem* file_system,
-            const core::vfs::FilePath& path
-        );
-
-        void
-        use_shader();
-
-        void
-        set_projection(const core::mat4f& projection_data);
-
-        void
-        set_view(const core::mat4f& view_data);
-
-        void
-        set_model(const core::mat4f& model_data);
-
-        void
-        setup_light(const Light& light, const core::vec3f& camera);
-
-        void
-        set_colors
-        (
-            const core::rgb& ambient_data,
-            const core::rgb& diffuse_data,
-            const core::rgb& specular_data,
-            float shininess_data
-        );
-
         render::ShaderProgram shader;
 
         // private:
@@ -104,6 +69,28 @@ namespace euphoria::render
 
         std::vector<MaterialShaderBinding> bindings;
         std::vector<MaterialShaderDefaultTexture> default_textures;
+
+        MaterialShader();
+
+        bool load
+        (
+            core::vfs::FileSystem* file_system,
+            const core::vfs::FilePath& path
+        );
+
+        void use_shader();
+        void set_projection(const core::mat4f& projection_data);
+        void set_view(const core::mat4f& view_data);
+        void set_model(const core::mat4f& model_data);
+        void setup_light(const Light& light, const core::vec3f& camera);
+
+        void set_colors
+        (
+            const core::rgb& ambient_data,
+            const core::rgb& diffuse_data,
+            const core::rgb& specular_data,
+            float shininess_data
+        );
     };
 
 }

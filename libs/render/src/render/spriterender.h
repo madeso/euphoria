@@ -20,19 +20,15 @@ namespace euphoria::render
 
     struct DrawData
     {
-        DrawData();
         core::angle rotation;
         core::Scale2f scale;
         core::rgba tint;
 
-        DrawData&
-        set_rotation(const core::angle& r);
+        DrawData();
 
-        DrawData&
-        set_scale(const core::Scale2f& s);
-
-        DrawData&
-        set_tint(const core::rgba& t);
+        DrawData& set_rotation(const core::angle& r);
+        DrawData& set_scale(const core::Scale2f& s);
+        DrawData& set_tint(const core::rgba& t);
     };
 
 

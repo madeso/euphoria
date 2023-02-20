@@ -26,10 +26,10 @@ namespace euphoria::core
     // check if point in poly: http://geomalgorithms.com/a03-_inclusion.html
 
 
-    // anchor and control points
-    // curve passes through anchor points and control points are used for shaping the curve
-    // each point in the curve has 2 control points, except the first and last that only has one
-    
+    /** Anchor and control points.
+     * Curve passes through anchor points and control points are used for shaping the curve.
+     * Each point in the curve has 2 control points, except the first and last that only has one.
+    */
     struct BezierSegment2
     {
         vec2f a0;
@@ -39,8 +39,7 @@ namespace euphoria::core
         vec2f c1;
     };
 
-    /*
-    Composite Bézier curve or polybezier
+    /** Composite Bézier curve or polybezier
     */
     struct PolyBezier2
     {
@@ -52,53 +51,31 @@ namespace euphoria::core
 
         PolyBezier2(const vec2f& center);
 
-        [[nodiscard]] static bool
-        is_anchor_point(size_t i);
+        void add_point(const vec2f& p);
+        void move_point(int i, const vec2f& delta);
+        void set_closed(bool is_closed);
+        void toggle_closed();
+        void set_auto_set_control_points(bool is_autoset);
+        void toggle_auto_set_control_points();
 
-        [[nodiscard]] static bool
-        is_control_point(size_t i);
+        [[nodiscard]] BezierSegment2 get_segment(int i) const;
 
-        [[nodiscard]] StepIteratorCreator<size_t>
-        iterate_points() const;
+        [[nodiscard]] StepIteratorCreator<size_t> iterate_points() const;
+        [[nodiscard]] StepIteratorCreator<int> iterate_segments() const;
 
-        void
-        add_point(const vec2f& p);
-
-        void
-        move_point(int i, const vec2f& delta);
-
-        [[nodiscard]] StepIteratorCreator<int>
-        iterate_segments() const;
-
-        [[nodiscard]] BezierSegment2
-        get_segment(int i) const;
-
-        void
-        set_closed(bool is_closed);
-
-        void
-        toggle_closed();
-
-        void
-        set_auto_set_control_points(bool is_autoset);
-
-        void
-        toggle_auto_set_control_points();
+        [[nodiscard]] static bool is_anchor_point(size_t i);
+        [[nodiscard]] static bool is_control_point(size_t i);
     };
 
 
-    /*
-    wikipedia call this:
-    * polygonal chain
-    * polygonal curve
-    * polygonal path
-    * polyline
-    * piecewise linear curve
-    * broken line
-    in geographic information systems:
-    * linestring
-    * linear ring
-    */
+    /** Straight lines only.
+     * Other names according to Wikipedia are:
+     * * polygonal chain
+     * * polygonal curve
+     * * polygonal path
+     * * piecewise linear curve
+     * * broken line
+     */
     struct Polyline2
     {
         std::vector<vec2f> points;

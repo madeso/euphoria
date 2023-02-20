@@ -18,7 +18,11 @@ namespace euphoria::core
     Canvas::transform_position(const vec2f& v) const
     {
         const auto vv = transform * vec3f {v, 1};
-        return vec2f {vv.x, static_cast<float>(target_image->height) - vv.y};
+        return vec2f
+        {
+            vv.x,
+            static_cast<float>(target_image->height) - vv.y
+        };
     }
 
     Canvas::Canvas(Image* i)
@@ -34,10 +38,16 @@ namespace euphoria::core
     {
         ASSERTX(w > 0, w);
         ASSERTX(h > 0, h);
-        draw_rect(
-                target_image,
-                fill_style,
-                Recti::from_top_left_width_height(vec2i{x, target_image->height - y}, w, h));
+        draw_rect
+        (
+            target_image,
+            fill_style,
+            Recti::from_top_left_width_height
+            (
+                vec2i{x, target_image->height - y},
+                w, h
+            )
+        );
     }
 
     void

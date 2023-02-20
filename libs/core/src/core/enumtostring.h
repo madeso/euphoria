@@ -27,7 +27,6 @@ namespace euphoria::core
     {
         std::map<T, std::string> enum_to_string;
         std::map<std::string, T> string_to_enum;
-
         int size = 0;
 
         // todo(Gustav): replace with initializer list?
@@ -40,8 +39,7 @@ namespace euphoria::core
             return *this;
         }
 
-        [[nodiscard]] std::string
-        to_string(T t) const
+        [[nodiscard]] std::string to_string(T t) const
         {
             auto found = enum_to_string.find(t);
             if(found != enum_to_string.end())
@@ -50,28 +48,6 @@ namespace euphoria::core
             }
             DIE("Enum not added");
             return "???";
-        }
-
-        [[nodiscard]] std::vector<std::string>
-        get_list_of_names() const
-        {
-            std::vector<std::string> ret;
-            for(auto entry: enum_to_string)
-            {
-                ret.emplace_back(entry.second);
-            }
-            return ret;
-        }
-
-        [[nodiscard]] std::vector<T>
-        get_list_of_values() const
-        {
-            std::vector<T> ret;
-            for(auto entry: enum_to_string)
-            {
-                ret.emplace_back(entry.first);
-            }
-            return ret;
         }
 
         [[nodiscard]] MatchedEnum<T>
@@ -108,6 +84,28 @@ namespace euphoria::core
             {
                 ret.names.emplace_back(m.name);
                 ret.values.emplace_back(m.t);
+            }
+            return ret;
+        }
+
+        [[nodiscard]] std::vector<std::string>
+        get_list_of_names() const
+        {
+            std::vector<std::string> ret;
+            for(auto entry: enum_to_string)
+            {
+                ret.emplace_back(entry.second);
+            }
+            return ret;
+        }
+
+        [[nodiscard]] std::vector<T>
+        get_list_of_values() const
+        {
+            std::vector<T> ret;
+            for(auto entry: enum_to_string)
+            {
+                ret.emplace_back(entry.first);
             }
             return ret;
         }

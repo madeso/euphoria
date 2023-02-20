@@ -145,7 +145,7 @@ TEST_CASE("quat-testCombine", "[quat]")
     EXPECT_PRED_FORMAT2(
             euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
                     euco::unit3f::up(), euco::angle::from_degrees(90))),
-            euco::quatf::identity().rotate(
+            euco::quatf::identity().get_rotated(
                     euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
                             euco::unit3f::up(),
                             euco::angle::from_degrees(90)))));
@@ -156,12 +156,12 @@ TEST_CASE("quat-testCombine", "[quat]")
             euco::quatf::from_axis_angle(
                     euco::AxisAngle::right_hand_around(
                             euco::unit3f::up(), euco::angle::from_degrees(90)))
-                    .rotate(euco::quatf::identity()));
+                    .get_rotated(euco::quatf::identity()));
 
     EXPECT_PRED_FORMAT2(
             euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
                     euco::unit3f::up(), euco::angle::from_degrees(90))),
-            euco::quatf::identity().rotate(
+            euco::quatf::identity().get_rotated(
                     euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
                             euco::unit3f::up(),
                             euco::angle::from_degrees(90)))));
@@ -171,14 +171,14 @@ TEST_CASE("quat-testCombine", "[quat]")
             euco::quatf::from_axis_angle(
                     euco::AxisAngle::right_hand_around(
                             euco::unit3f::up(), euco::angle::from_degrees(-90)))
-                    .rotate(euco::quatf::from_axis_angle(
+                    .get_rotated(euco::quatf::from_axis_angle(
                             euco::AxisAngle::right_hand_around(
                                     euco::unit3f::out(),
                                     euco::angle::from_degrees(90)))),
             euco::quatf::from_axis_angle(euco::AxisAngle::right_hand_around(
                                                euco::unit3f::right(),
                                                euco::angle::from_degrees(90)))
-                    .rotate(euco::quatf::from_axis_angle(
+                    .get_rotated(euco::quatf::from_axis_angle(
                             euco::AxisAngle::right_hand_around(
                                     euco::unit3f::up(),
                                     euco::angle::from_degrees(-90)))));

@@ -34,138 +34,57 @@ namespace euphoria::core::vfs
 
     struct FilePath
     {
-        // apply only minor changes, return null on invalid
-        static
-        std::optional<FilePath>
-        from_script(const std::string& path);
-
-
-        // do everything possible to convert from dirty path to valid path
-        static
-        std::optional<FilePath>
-        from_dirty_source(const std::string& path);
-
-
-        // optional or not, log if error
-        static
-        std::optional<FilePath>
-        from_script_or_empty(const std::string& path);
-
-
-        [[nodiscard]] std::tuple<DirPath, std::string>
-        split_directories_and_file() const;
-
-
-        [[nodiscard]] DirPath
-        get_directory() const;
-
-
-        [[nodiscard]] std::string
-        get_file_with_extension() const;
-
-
-        [[nodiscard]] std::string
-        get_filename_without_extension() const;
-
-
-        [[nodiscard]] std::string
-        get_extension() const;
-
-
-        [[nodiscard]] FilePath
-        set_extension_copy(const std::string& ext) const;
-
-
-        [[nodiscard]] FilePath
-        extend_extension_copy(const std::string& ext) const;
-
+        /// contains either ./ or ~/ at the start
+        /// has a file name and possible extension
+        std::string path;
 
         explicit
         FilePath(const std::string& p);
 
+        /// apply only minor changes, return null on invalid
+        static std::optional<FilePath> from_script(const std::string& path);
 
-        template
-        <
-            typename OStream
-        >
-        friend OStream& operator<<(OStream& os, const FilePath& p)
-        {
-            os << p.path;
-            return os;
-        }
+        /// do everything possible to convert from dirty path to valid path
+        static std::optional<FilePath> from_dirty_source(const std::string& path);
 
+        /// optional or not, log if error
+        static std::optional<FilePath> from_script_or_empty(const std::string& path);
 
-        // contains either ./ or ~/ at the start
-        // has a file name and possible extension
-        std::string path;
+        [[nodiscard]] FilePath set_extension_copy(const std::string& ext) const;
+        [[nodiscard]] FilePath extend_extension_copy(const std::string& ext) const;
+
+        [[nodiscard]] std::tuple<DirPath, std::string> split_directories_and_file() const;
+        [[nodiscard]] DirPath get_directory() const;
+        [[nodiscard]] std::string get_file_with_extension() const;
+        [[nodiscard]] std::string get_filename_without_extension() const;
+        [[nodiscard]] std::string get_extension() const;
     };
+
+    std::ostream& operator<<(std::ostream& os, const FilePath& p);
 
 
     struct DirPath
     {
-        [[nodiscard]]
-        static DirPath
-        from_root();
-
-
-        [[nodiscard]]
-        static DirPath
-        from_relative();
-
-
-        [[nodiscard]]
-        static DirPath
-        from_dirs(const std::vector<std::string>& dirs);
-
-
-        [[nodiscard]] FilePath
-        get_file(const std::string& filename) const;
-
-
-        [[nodiscard]] bool
-        is_relative() const;
-
-
-        [[nodiscard]] bool
-        contains_relative() const;
-
-
-        [[nodiscard]] DirPath
-        get_parent_directory() const;
-
-
-        [[nodiscard]] std::string
-        get_directory_name() const;
-
-
-        [[nodiscard]]
-        std::vector<std::string>
-        split_directories() const;
-
-
-        [[nodiscard]]
-        DirPath
-        single_cd_copy(const std::string& single) const;
-
-
-        explicit
-        DirPath(const std::string& p);
-
-
-        template
-        <
-            typename OStream
-        >
-        friend OStream& operator<<(OStream& os, const DirPath& p)
-        {
-            os << p.path;
-            return os;
-        }
-
-
-        // contains either . or ~ at the start, / at the end
+        /// contains either . or ~ at the start, / at the end
         std::string path;
+
+        explicit DirPath(const std::string& p);
+
+        [[nodiscard]] static DirPath from_root();
+        [[nodiscard]] static DirPath from_relative();
+        [[nodiscard]] static DirPath from_dirs(const std::vector<std::string>& dirs);
+
+        [[nodiscard]] FilePath get_file(const std::string& filename) const;
+        [[nodiscard]] DirPath single_cd_copy(const std::string& single) const;
+
+        [[nodiscard]] bool is_relative() const;
+        [[nodiscard]] bool contains_relative() const;
+        [[nodiscard]] DirPath get_parent_directory() const;
+        [[nodiscard]] std::string get_directory_name() const;
+        [[nodiscard]] std::vector<std::string> split_directories() const;
     };
+
+    std::ostream& operator<<(std::ostream& os, const DirPath& p);
 
 
     std::optional<DirPath>

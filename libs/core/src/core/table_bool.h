@@ -146,9 +146,9 @@ namespace euphoria::core
 
     struct BorderSettings
     {
-        explicit BorderSettings(const rgbai& c);
-
         rgbai color;
+
+        explicit BorderSettings(const rgbai& c);
     };
 
     Image

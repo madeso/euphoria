@@ -100,9 +100,8 @@ private:
 RunResult
 run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& path)
 {
-    std::string content;
-    const bool loaded = fs->read_file_to_string(path, &content);
-    if(!loaded)
+    auto content = fs->read_file_to_string(path);
+    if(!content)
     {
         const std::string error_message = "Unable to open {} for running"_format(path);
         LOG_ERROR("{0}", error_message);
@@ -110,7 +109,7 @@ run_main_script_file(LuaState* duk, vfs::FileSystem* fs, const vfs::FilePath& pa
     }
     const auto eval = duk->state.script
     (
-        content,
+        *content,
         [](lua_State*, sol::protected_function_result pfr) { return pfr; }
     );
     if(!eval.valid())

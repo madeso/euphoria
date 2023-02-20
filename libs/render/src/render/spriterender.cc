@@ -88,10 +88,10 @@ namespace euphoria::render
         };
 
         const core::mat4f model = core::mat4f::identity()
-            .translate(core::vec3f(sprite_area.get_bottom_left(), 0.0f))
-            .translate(-rotation_anchor_displacement)
+            .get_translated(core::vec3f(sprite_area.get_bottom_left(), 0.0f))
+            .get_translated(-rotation_anchor_displacement)
             // rotate around center
-            .rotate
+            .get_rotated
             (
                 core::AxisAngle::right_hand_around
                 (
@@ -99,8 +99,8 @@ namespace euphoria::render
                     rotation_angle
                 )
             )
-            .translate(rotation_anchor_displacement)
-            .scale
+            .get_translated(rotation_anchor_displacement)
+            .get_scaled
             (
                 core::Scale3f
                 {

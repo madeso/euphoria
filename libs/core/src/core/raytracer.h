@@ -47,6 +47,11 @@ namespace euphoria::core
 
         struct HitResult
         {
+            float ray_distance;
+            vec3f position;
+            unit3f normal;
+            std::shared_ptr<raytracer::Material> material;
+
             HitResult
             (
                 float aray_distance,
@@ -54,11 +59,6 @@ namespace euphoria::core
                 const unit3f& anormal,
                 std::shared_ptr<raytracer::Material> amaterial
             );
-
-            float ray_distance;
-            vec3f position;
-            unit3f normal;
-            std::shared_ptr<raytracer::Material> material;
         };
 
 
@@ -67,15 +67,17 @@ namespace euphoria::core
             Object() = default;
             virtual ~Object() = default;
 
-            NONCOPYABLE(Object);
+            Object(const Object&) = delete;
+            Object(Object&&) = delete;
+            void operator=(const Object&) = delete;
+            void operator=(Object&&) = delete;
 
             [[nodiscard]] virtual std::optional<HitResult>
             hit(const UnitRay3f& ray, const Range<float>& range) const = 0;
         };
 
 
-        std::shared_ptr<Object>
-        create_sphere
+        std::shared_ptr<Object> create_sphere
         (
             const Sphere& sphere,
             const vec3f& position,
@@ -83,15 +85,13 @@ namespace euphoria::core
         );
 
 
-        std::shared_ptr<Material>
-        create_diffuse_material
+        std::shared_ptr<Material> create_diffuse_material
         (
             const rgb& albedo
         );
 
 
-        std::shared_ptr<Material>
-        create_metal_material
+        std::shared_ptr<Material> create_metal_material
         (
             const rgb& albedo,
             // 0-1, 0=clear
@@ -99,8 +99,7 @@ namespace euphoria::core
         );
 
 
-        std::shared_ptr<Material>
-        create_dielectric_material
+        std::shared_ptr<Material> create_dielectric_material
         (
             const rgb& albedo,
             float refractive_index

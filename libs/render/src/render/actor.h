@@ -19,7 +19,13 @@ namespace euphoria::render
 
     struct Actor : public Instance
     {
+        std::shared_ptr<CompiledMesh> mesh;
+        std::shared_ptr<MaterialOverride> overriden_materials;
+
         Actor(const std::shared_ptr<CompiledMesh>& mesh);
+
+        [[nodiscard]] std::shared_ptr<MaterialOverride>
+        create_override() const;
 
         void
         render
@@ -29,14 +35,6 @@ namespace euphoria::render
             const core::vec3f& camera,
             const Light& light
         ) override;
-
-
-        [[nodiscard]] std::shared_ptr<MaterialOverride>
-        create_override() const;
-
-
-        std::shared_ptr<CompiledMesh> mesh;
-        std::shared_ptr<MaterialOverride> overriden_materials;
     };
 
 }

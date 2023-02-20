@@ -80,17 +80,16 @@ TEST_CASE("vfs-test_catalog_with_null", "[vfs]")
     auto catalog = ReadRootCatalog::create_and_add(&fs);
     catalog->register_file_string(FilePath{"~/dog"}, "happy");
 
-    std::string content;
-
     SECTION("can read stored file")
     {
-        REQUIRE(fs.read_file_to_string(FilePath{"~/dog"}, &content));
-        REQUIRE(content == "happy");
+        auto content = fs.read_file_to_string(FilePath{ "~/dog" });
+        REQUIRE(content);
+        REQUIRE(*content == "happy");
     }
 
     SECTION("error when trying to read missing file")
     {
-        REQUIRE_FALSE(fs.read_file_to_string(FilePath{"~/cat"}, &content));
+        REQUIRE_FALSE(fs.read_file_to_string(FilePath{"~/cat"}));
     }
 }
 

@@ -65,17 +65,8 @@ namespace euphoria::core
         const vfs::FilePath& file_name
     )
     {
-        std::string source;
-        const bool file_loaded = fs->read_file_to_string(file_name, &source);
-
-        if(file_loaded)
-        {
-            return source;
-        }
-        else
-        {
-            return std::nullopt;
-        }
+        // todo(Gustav): remove this wrapper?
+        return fs->read_file_to_string(file_name);
     }
 
     struct Location

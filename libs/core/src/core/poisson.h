@@ -14,8 +14,6 @@ namespace euphoria::core
 
     struct PoissonWorker
     {
-        PoissonWorker(const Rectf& area, Random* random, float r, float bs, int k);
-
         Rectf area;
         Random* rand;
         float r;
@@ -27,20 +25,16 @@ namespace euphoria::core
         std::vector<int> active;
         std::vector<vec2f> samples;
 
-        [[nodiscard]] bool
-        is_done() const;
+        PoissonWorker(const Rectf& area, Random* random, float r, float bs, int k);
 
-        std::optional<std::tuple<vec2f, vec2f>>
-        step();
+        std::optional<std::tuple<vec2f, vec2f>> step();
+        bool can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos);
+        std::tuple<bool, vec2f> try_place(int active_index);
 
-        [[nodiscard]] vec2f random_point() const;
         [[nodiscard]] vec2i point_to_index(const vec2f& p) const;
 
-        bool
-        can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos);
-
-        std::tuple<bool, vec2f>
-        try_place(int active_index);
+        [[nodiscard]] vec2f random_point() const;
+        [[nodiscard]] bool is_done() const;
     };
 
     // r = minimum distance

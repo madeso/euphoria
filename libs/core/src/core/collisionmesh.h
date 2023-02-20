@@ -14,9 +14,12 @@ struct UnitRay3f;
 
 struct CollisionFace
 {
-    constexpr CollisionFace(int xx, int yy, int zz) : x(xx), y(yy), z(zz) {}
-    
-    int x; int y; int z;
+    int x;
+    int y;
+    int z;
+
+    constexpr CollisionFace(int xx, int yy, int zz)
+        : x(xx), y(yy), z(zz) {}
 };
 
 struct CollisionMesh

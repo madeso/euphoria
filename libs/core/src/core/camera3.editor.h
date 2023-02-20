@@ -57,7 +57,7 @@ namespace euphoria::core
             virtual void on_camera_start(EditorCamera3* owner) = 0;
             virtual void on_camera_stop(EditorCamera3* owner) = 0;
 
-            virtual MouseBehaviour get_mouse(EditorCamera3* owner) = 0;
+            virtual MouseBehaviour get_mouse(const EditorCamera3* owner) const = 0;
         };
     }
 
@@ -70,62 +70,6 @@ namespace euphoria::core
     {
         static constexpr int max_stored_index = 10;
 
-        EditorCamera3();
-        EditorCamera3(const EditorCamera3&) = delete;
-        EditorCamera3& operator=(const EditorCamera3&) = delete;
-        EditorCamera3(EditorCamera3&&) = default;
-        EditorCamera3& operator=(EditorCamera3&&) = default;
-
-        virtual ~EditorCamera3() = default;
-
-        void step
-        (
-            bool shift_state,
-            const vec2i& mouse,
-            const CompiledCamera3& camera,
-            const Viewport& viewport,
-            float dt
-        );
-
-        MouseBehaviour get_mouse();
-
-        void
-        on_mouse_move(int dx, int dy);
-
-        void
-        on_scroll(int dx, int dy);
-        
-        void
-        on_key(Key key, bool down);
-
-        void on_camera_start();
-        void on_camera_stop();
-
-        [[nodiscard]]
-        bool
-        is_camera_orbit() const;
-
-        void
-        toggle_camera_orbit();
-
-        void
-        save_camera(int id);
-
-        void
-        load_camera(int id);
-
-        void
-        focus(const SphereAndPosition& s, const Camera3& cam);
-
-        virtual
-        std::optional<vec3f>
-        raycast
-        (
-            const UnitRay3f& ray
-        ) = 0;
-
-        void apply_frame(const detail::CameraFrame& frame);
-        
         EditorCameraStyle3 style = EditorCameraStyle3::orbital;
         FpsController fps;
         float zoom_percent = 0.1f;
@@ -139,5 +83,41 @@ namespace euphoria::core
         std::unique_ptr<detail::EditorCameraState3> state;
         std::unique_ptr<detail::EditorCameraState3> next_state;
         std::vector<detail::CameraFrame> stored_cameras;
+
+
+        EditorCamera3();
+        virtual ~EditorCamera3() = default;
+
+        EditorCamera3(EditorCamera3&&) = default;
+        EditorCamera3& operator=(EditorCamera3&&) = default;
+
+        EditorCamera3(const EditorCamera3&) = delete;
+        EditorCamera3& operator=(const EditorCamera3&) = delete;
+
+        void step
+        (
+            bool shift_state,
+            const vec2i& mouse,
+            const CompiledCamera3& camera,
+            const Viewport& viewport,
+            float dt
+        );
+
+        void on_mouse_move(int dx, int dy);
+        void on_scroll(int dx, int dy);
+        void on_key(Key key, bool down);
+        void on_camera_start();
+        void on_camera_stop();
+        void toggle_camera_orbit();
+        void save_camera(int id);
+        void load_camera(int id);
+        void focus(const SphereAndPosition& s, const Camera3& cam);
+        void apply_frame(const detail::CameraFrame& frame);
+
+
+        [[nodiscard]] MouseBehaviour get_mouse() const;
+        [[nodiscard]] bool is_camera_orbit() const;
+
+        virtual std::optional<vec3f> raycast (const UnitRay3f& ray) = 0;
     };
 }

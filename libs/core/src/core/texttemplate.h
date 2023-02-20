@@ -18,32 +18,24 @@ namespace euphoria::core
 {
     struct Defines
     {
+        std::map<std::string, std::string> values;
+
         Defines();
 
-        [[nodiscard]] bool
-        is_defined(const std::string& name) const;
+        void undefine(const std::string& name);
+        void define(const std::string& name, const std::string& value);
 
-        [[nodiscard]] std::string
-        get_value(const std::string& name) const;
-
-        void
-        undefine(const std::string& name);
-
-        void
-        define(const std::string& name, const std::string& value);
-
-        std::map<std::string, std::string> values;
+        [[nodiscard]] bool is_defined(const std::string& name) const;
+        [[nodiscard]] std::string get_value(const std::string& name) const;
     };
 
     struct TemplateErrorList
     {
+        std::vector<std::string> errors;
+
         TemplateErrorList();
 
-        [[nodiscard]] bool
-        has_errors() const;
-
-        void
-        add_error
+        void add_error
         (
             const std::optional<vfs::FilePath>& file,
             int line,
@@ -51,30 +43,30 @@ namespace euphoria::core
             const std::string& error
         );
 
-        [[nodiscard]] std::string
-        get_combined_errors() const;
-
-        std::vector<std::string> errors;
+        [[nodiscard]] bool has_errors() const;
+        [[nodiscard]] std::string get_combined_errors() const;
     };
 
     struct TemplateNodeList;
 
     struct CompiledTextTemplate
     {
-        // todo(Gustav): move to a named constructor
-        explicit CompiledTextTemplate(const std::string& text);
-        CompiledTextTemplate(vfs::FileSystem* fs, const vfs::FilePath& path);
-
-        ~CompiledTextTemplate();
-
-        NONCOPYABLE(CompiledTextTemplate);
-
-        std::string
-        evaluate(const Defines& defines);
-
         // todo(Gustav): move errors to load and evaluate return values
         TemplateErrorList errors;
         std::shared_ptr<TemplateNodeList> nodes;
+
+        // todo(Gustav): move to a named constructor
+        explicit CompiledTextTemplate(const std::string& text);
+        CompiledTextTemplate(vfs::FileSystem* fs, const vfs::FilePath& path);
+        ~CompiledTextTemplate();
+
+        CompiledTextTemplate(const CompiledTextTemplate&) = delete;
+        CompiledTextTemplate(CompiledTextTemplate&&) = delete;
+        void operator=(const CompiledTextTemplate&) = delete;
+        void operator=(CompiledTextTemplate&&) = delete;
+
+        // todo(Gustav): why is this not const nodiscard?
+        std::string evaluate(const Defines& defines);
     };
 
 }

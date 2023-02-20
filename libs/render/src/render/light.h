@@ -16,16 +16,14 @@ namespace euphoria::render
 
     struct Light
     {
-        Light();
-
-        // todo(Gustav): move this to a light def file and let it be specified in a editor
-
         enum class Type
         {
             directional,
             point,
             spot
         };
+
+        // todo(Gustav): move this to a light def file and let it be specified in a editor
 
         Type light_type;
         core::vec3f position;
@@ -37,6 +35,8 @@ namespace euphoria::render
         core::angle cutoff_angle_inner;
 
         LightAttenuation attenuation;
+
+        Light();
     };
 
 }

@@ -28,13 +28,14 @@ namespace euphoria::core::ecs
         std::string_view name;
 
         ComponentArrayBase(std::string_view n);
+        virtual ~ComponentArrayBase() = default;
 
         ComponentArrayBase(const ComponentArrayBase&) = delete;
         ComponentArrayBase(ComponentArrayBase&&) = delete;
         ComponentArrayBase& operator=(const ComponentArrayBase&) = delete;
         ComponentArrayBase& operator=(ComponentArrayBase&&) = delete;
 
-        virtual ~ComponentArrayBase() = default;
+        
         virtual void remove(EntityHandle) = 0;
         [[nodiscard]] virtual bool has(EntityHandle) const= 0;
     };
@@ -43,13 +44,13 @@ namespace euphoria::core::ecs
     template<typename T>
     struct GenericComponentArray : public ComponentArrayBase
     {
+        // todo(Gustav): implement better sparse vector
+        std::vector<std::optional<T>> components;
+
         GenericComponentArray()
             : ComponentArrayBase(get_component_base_name<T>())
         {
         }
-
-        // todo(Gustav): implement better sparse vector
-        std::vector<std::optional<T>> components;
 
         void
         add(EntityHandle entity, T&& component)
@@ -62,42 +63,6 @@ namespace euphoria::core::ecs
             ASSERT(components[index].has_value() == false);
             components[index] = std::move(component);
         }
-
-
-        void
-        remove(EntityHandle entity) override
-        {
-            const auto index = c_ent(entity);
-            if(components.size() < index + 1)
-            {
-                return;
-            }
-
-            ASSERT(components[index].has_value());
-            components[index] = std::nullopt;
-        }
-
-
-        [[nodiscard]]
-        bool
-        index_has_value(std::size_t index) const
-        {
-            return false ==
-            (
-                components.size() <= index ||
-                components[index].has_value() == false
-            );
-        }
-
-
-        [[nodiscard]]
-        bool
-        has(EntityHandle entity) const override
-        {
-            const auto index = c_ent(entity);
-            return index_has_value(index);
-        }
-
 
         T&
         get(EntityHandle entity)
@@ -121,6 +86,39 @@ namespace euphoria::core::ecs
                 return nullptr;
             }
         }
+
+        [[nodiscard]]
+        bool
+        index_has_value(std::size_t index) const
+        {
+            return false ==
+            (
+                components.size() <= index ||
+                components[index].has_value() == false
+            );
+        }
+
+        
+        void
+        remove(EntityHandle entity) override
+        {
+            const auto index = c_ent(entity);
+            if(components.size() < index + 1)
+            {
+                return;
+            }
+
+            ASSERT(components[index].has_value());
+            components[index] = std::nullopt;
+        }
+
+        [[nodiscard]]
+        bool
+        has(EntityHandle entity) const override
+        {
+            const auto index = c_ent(entity);
+            return index_has_value(index);
+        }
     };
 
 
@@ -140,40 +138,20 @@ namespace euphoria::core::ecs
         Registry& operator=(const Registry&) = delete;
         Registry& operator=(Registry&&) = delete;
 
-        [[nodiscard]] int
-        get_number_of_active_entities() const;
+        EntityHandle create();
+        void destroy(EntityHandle entity);
+        ComponentIndex set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components);
 
-        EntityHandle
-        create();
-
-        [[nodiscard]] std::string
-        get_component_debug_name(ComponentIndex c) const;
-
-        void
-        destroy(EntityHandle entity);
-
-        [[nodiscard]] bool
-        has_component(EntityHandle entity, ComponentIndex comp_ind) const;
-
-        ComponentIndex
-        set_component_array(const std::string& name, std::unique_ptr<ComponentArrayBase>&& components);
-
-        [[nodiscard]]
-        std::vector<EntityHandle>
-        view(const std::vector<ComponentIndex>& matching_components) const;
-
-
+        
         template<typename T>
-        ComponentIndex
-        register_component(const std::string& name)
+        ComponentIndex register_component(const std::string& name)
         {
             return set_component_array(name, std::make_unique<GenericComponentArray<T>>());
         }
 
 
         template<typename T>
-        void
-        add_component(EntityHandle entity, ComponentIndex comp_ind, T&& component)
+        void add_component(EntityHandle entity, ComponentIndex comp_ind, T&& component)
         {
             get_components<T>(comp_ind)->add(entity, std::forward<T>(component));
             on_added_component(entity, comp_ind);
@@ -181,8 +159,7 @@ namespace euphoria::core::ecs
 
 
         template<typename T>
-        void
-        remove_component(EntityHandle entity, ComponentIndex comp_ind)
+        void remove_component(EntityHandle entity, ComponentIndex comp_ind)
         {
             on_removed_component(entity, comp_ind);
             get_components<T>(comp_ind)->remove(entity);
@@ -190,43 +167,37 @@ namespace euphoria::core::ecs
 
 
         template<typename T>
-        T&
-        get_component(EntityHandle entity, ComponentIndex comp_ind)
+        T& get_component(EntityHandle entity, ComponentIndex comp_ind)
         {
             return get_components<T>(comp_ind)->get(entity);
         }
 
-
         template<typename T>
-        T*
-        get_component_or_null(EntityHandle entity, ComponentIndex comp_ind)
+        T* get_component_or_null(EntityHandle entity, ComponentIndex comp_ind)
         {
             return get_components<T>(comp_ind)->get_or_null(entity);
         }
 
+        [[nodiscard]] std::string get_component_debug_name(ComponentIndex c) const;
+        [[nodiscard]] bool has_component(EntityHandle entity, ComponentIndex comp_ind) const;
+        [[nodiscard]] std::vector<EntityHandle> view(const std::vector<ComponentIndex>& matching_components) const;
 
-        // detail
+        [[nodiscard]] int get_number_of_active_entities() const;
     private:
-        [[nodiscard]] std::string get_component_name(ComponentIndex comp_ind) const;
+        std::unique_ptr<RegistryPimpl> pimpl;
 
         template<typename T>
-        [[nodiscard]] GenericComponentArray<T>*
-        get_components(ComponentIndex comp_ind)
+        [[nodiscard]] GenericComponentArray<T>* get_components(ComponentIndex comp_ind)
         {
             ComponentArrayBase* base = get_components_base(comp_ind);
             ASSERTX(base->name == get_component_base_name<T>(), base->name, get_component_base_name<T>(), get_component_name(comp_ind));
             return static_cast<GenericComponentArray<T>*>(base);
         }
 
-        ComponentArrayBase*
-        get_components_base(ComponentIndex comp_ind);
+        ComponentArrayBase* get_components_base(ComponentIndex comp_ind);
+        void on_added_component(EntityHandle entity, ComponentIndex comp_ind);
+        void on_removed_component(EntityHandle entity, ComponentIndex comp_ind);
 
-        void
-        on_added_component(EntityHandle entity, ComponentIndex comp_ind);
-
-        void
-        on_removed_component(EntityHandle entity, ComponentIndex comp_ind);
-
-        std::unique_ptr<RegistryPimpl> pimpl;
+        [[nodiscard]] std::string get_component_name(ComponentIndex comp_ind) const;
     };
 }
