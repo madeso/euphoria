@@ -1,0 +1,24 @@
+{
+    "accepted_types": [
+        "angle",
+        "mat2f",
+        "mat3f",
+        "mat4f",
+        "quatf",
+        "rgb",
+        "rgba",
+        "rgbai",
+        "rgbi",
+        "size2f",
+        "size2i",
+        "unit2f",
+        "unit3f",
+        "vec2f",
+        "vec2i",
+        "vec3f",
+        "vec4f"
+    ],
+    "accepted_functions": [
+        "some function or method name"
+    ]
+}
