@@ -152,3 +152,7 @@ add_custom_target(workbench_order_in_file
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/buildtools/Workbench/bin/Debug/net7.0/wb.exe order-in-file check ${CMAKE_CURRENT_SOURCE_DIR}/docs/generated/xml/
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )
+add_custom_target(workbench_check_names
+    ${CMAKE_CURRENT_SOURCE_DIR}/tools/buildtools/Workbench/bin/Debug/net7.0/wb.exe check-names check ${CMAKE_CURRENT_SOURCE_DIR}/docs/generated/xml/
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+)
