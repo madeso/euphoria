@@ -14,22 +14,22 @@ namespace euphoria::core
 
 
     // Transform should have a function Transform(T from, float zeroToOne, T to)
-    template <typename Type, typename Transformer>
+    template <typename T, typename TTransform>
     struct Interpolate
     {
-        using Self = Interpolate<Type, Transformer>;
+        using Self = Interpolate<T, TTransform>;
 
         static constexpr float transition_ended = 2.0f;
 
-        Type from;
-        Type to;
-        Type value;
+        T from;
+        T to;
+        T value;
 
         float t = 1.0f;
         float speed = 1.0f;
         easing::Function easing_function = easing::Function::linear;
 
-        explicit Interpolate(Type v)
+        explicit Interpolate(T v)
             : from(v)
             , to(v)
             , value(v)
@@ -42,14 +42,14 @@ namespace euphoria::core
             return *this;
         }
 
-        Self& set(const Type& new_value)
+        Self& set(const T& new_value)
         {
             value = new_value;
             t = transition_ended;
             return *this;
         }
 
-        void set(const Type& new_value, easing::Function f, float time)
+        void set(const T& new_value, easing::Function f, float time)
         {
             ASSERT(time >= 0.0f);
 
@@ -60,7 +60,7 @@ namespace euphoria::core
             speed = 1.0f / time;
         }
 
-        void set(easing::Function f, const Type& new_value, float time)
+        void set(easing::Function f, const T& new_value, float time)
         {
             set(new_value, f, time);
         }
@@ -82,7 +82,7 @@ namespace euphoria::core
             else
             {
                 const auto f = easing::apply(easing_function, t);
-                value = Transformer::transform(from, f, to);
+                value = TTransform::transform(from, f, to);
             }
         }
 

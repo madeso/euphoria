@@ -35,40 +35,40 @@ namespace euphoria::core
     template
     <
         typename T,
-        typename LabelFunction,
-        typename FindChildrenFunction,
-        typename PrintFunction
+        typename TLabelFunc,
+        typename TFindChildrenFunc,
+        typename TPrintFunc
     >
     void
     print_hierarchy
     (
         T item,
-        LabelFunction label_function,
-        FindChildrenFunction find_children_function,
-        PrintFunction print_function,
+        TLabelFunc label_func,
+        TFindChildrenFunc find_children_func,
+        TPrintFunc print_func,
         const TreeStyle& style = determine_style(),
         const std::string& a_indent = "",
         int index = 0,
         bool last = true
     )
     {
-        const auto children = find_children_function(item);
-        const auto label = label_function(item);
+        const auto children = find_children_func(item);
+        const auto label = label_func(item);
         const auto is_root = style.root_special && index == 0;
 
         std::string indent = a_indent;
 
         if (is_root)
         {
-            print_function(label);
+            print_func(label);
         }
         else
         {
-            print_function(indent + std::string{ last ? style.l : style.t_cross } +label);
+            print_func(indent + std::string{ last ? style.l : style.t_cross } +label);
 
             if ( style.include_space && last && children.empty())
             {
-                print_function(indent);
+                print_func(indent);
             }
 
             indent += (last ? style.space : style.down);
@@ -76,12 +76,12 @@ namespace euphoria::core
 
         for (auto it = children.begin(); it != children.end(); ++it)
         {
-            print_hierarchy<T, LabelFunction, FindChildrenFunction, PrintFunction>
+            print_hierarchy<T, TLabelFunc, TFindChildrenFunc, TPrintFunc>
             (
                 *it,
-                label_function,
-                find_children_function,
-                print_function,
+                label_func,
+                find_children_func,
+                print_func,
                 style,
                 indent,
                 index + 1,

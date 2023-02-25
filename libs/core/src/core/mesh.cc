@@ -594,7 +594,10 @@ namespace euphoria::core
         {
             vfs::FileSystem* file_system;
 
-            FilesystemForAssimp(vfs::FileSystem* fs) : file_system(fs) {}
+            FilesystemForAssimp(vfs::FileSystem* fs)
+                : file_system(fs)
+            {
+            }
 
             bool Exists(const char* file) const override
             {

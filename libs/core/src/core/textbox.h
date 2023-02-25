@@ -65,18 +65,14 @@ namespace euphoria::core
         *                     It renders the given element into an 1D string.
         *                     Note that the string must not contain multibyte characters,
         *                     because size() will be used to determine its width in columns.
-        * @param count_children A functor of type std::pair<ForwardIterator,ForwardIterator>(const T&).
+        * @param count_children_func A functor of type std::pair<ForwardIterator,ForwardIterator>(const T&).
         *                     It returns a pair of iterators representing the range of children
         *                     for the given element.
         *                     create_tree_graph will call itself recursively for each element in this range.
-        * @param oneliner_test A functor of type bool(const T&).
+        * @param oneliner_test_func A functor of type bool(const T&).
         *                      If the result is true, enables simplified horizontal topology.
-        * @param simple_test  A functor of type bool(const T&).
+        * @param simple_test_func  A functor of type bool(const T&).
         *                     If the result is true, enables very simplified horizontal topology.
-        * @param separate1st_test A functor of type bool(const T&).
-        *                     If the result is true, create_tree_graph() will always render
-        *                     the first child alone on a separate line, but the rest of them
-        *                     may get rendered horizontally.
         *
         * @param margin the spacing between children
         * @param firstx the first child offset
@@ -101,45 +97,38 @@ namespace euphoria::core
         *              element──┬───────┬───────┐
         *                       child1  child2  child3
         * ```
-        *        Very simplified horizontal:
-        * ```
-        *              element──child1
-        * ```
         * 
         * The vertical and horizontal topologies are automatically chosen
-        * depending on the situation compared to the maxwidth parameter,
-        * and according to the constraint given by separate1st_test().
+        * depending on the situation compared to the maxwidth parameter.
         *
         * Simplified topology will be used if
-        *   * oneliner_test() returns true,
-        *   * separate1st_test() returns false,
+        *   * oneliner_test_func() returns true,
         *   * all children fit on one line,
         *   * and very simplified topology is not used.
         *
         * Very simplified topology will be used if
-        *   * oneliner_test() returns true,
-        *   * separate1st_test() returns false,
-        *   * simple_test() returns true,
+        *   * oneliner_test_func() returns true,
+        *   * simple_test_func() returns true,
         *   * there is only 1 child,
         *   * and it fits on one line.
         */
         template
         <
             typename T,
-            typename ToStringFunction,
-            typename ParamCountFunc,
-            typename OneLinerFunc,
-            typename SimpleTestFunc
+            typename TToStringFunc,
+            typename TCountChildrenFunc,
+            typename TOneLinerTestFunc,
+            typename TSimpleTestFunc
         >
         static TextBox
         create_tree_graph
         (
             const T& e,
             int maxwidth,
-            ToStringFunction&& to_string,
-            ParamCountFunc&& count_children,
-            OneLinerFunc&& oneliner_test,
-            SimpleTestFunc&& simple_test,
+            TToStringFunc&& to_string,
+            TCountChildrenFunc&& count_children_func,
+            TOneLinerTestFunc&& oneliner_test_func,
+            TSimpleTestFunc&& simple_test_func,
             int margin = 4,
             int firstx = 2
         )
@@ -149,7 +138,7 @@ namespace euphoria::core
             const auto label = to_string(e);
             auto result = TextBox::from_string(label);
 
-            if(auto [begin, end] = count_children(e); begin != end)
+            if(auto [begin, end] = count_children_func(e); begin != end)
             {
                 std::vector<TextBox> boxes;
                 boxes.reserve(std::distance(begin, end));
@@ -162,9 +151,9 @@ namespace euphoria::core
                             *i,
                             std::max<int>(maxwidth - 2, 16),
                             to_string,
-                            count_children,
-                            oneliner_test,
-                            simple_test,
+                            count_children_func,
+                            oneliner_test_func,
+                            simple_test_func,
                             margin,
                             firstx
                         )
@@ -175,8 +164,8 @@ namespace euphoria::core
                     &result,
                     maxwidth,
                     boxes,
-                    oneliner_test(e),
-                    simple_test(e),
+                    oneliner_test_func(e),
+                    simple_test_func(e),
                     label,
                     margin,
                     firstx
@@ -262,6 +251,10 @@ namespace euphoria::core
         [[nodiscard]] std::pair<int, int> get_size() const;
 
     private:
+        std::vector<std::string> data;
+        
+        TextBox();
+
         void extend_to(int x, int y);
 
         [[nodiscard]] int find_left_padding(int y) const;
@@ -269,18 +262,13 @@ namespace euphoria::core
         [[nodiscard]] int find_top_padding(int x) const;
         [[nodiscard]] int find_bottom_padding(int x) const;
 
-    private:
-        std::vector<std::string> data;
-        
-        TextBox();
-
         static void sub_create_tree_graph
         (
             TextBox* result,
             int maxwidth,
             const std::vector<TextBox>& boxes,
-            bool oneliner_test,
-            bool simple_test,
+            bool oneliner_test_func,
+            bool simple_test_func,
             const std::string& label,
             int margin,
             int firstx

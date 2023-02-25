@@ -79,15 +79,15 @@ namespace euphoria::core
     <
         typename T,
         typename TContainer,
-        typename TMinFunction,
-        typename TMaxFunction
+        typename TMinFunc,
+        typename TMaxFunc
     >
     std::tuple<T, T>
     find_min_max
     (
         const TContainer& ts,
-        TMinFunction min_function,
-        TMaxFunction max_function
+        TMinFunc min_func,
+        TMaxFunc max_func
     )
     {
         ASSERT(!ts.empty());
@@ -99,8 +99,8 @@ namespace euphoria::core
 
         for(; it!=ts.end(); it+=1)
         {
-            min_value = min_function(min_value, *it);
-            max_value = max_function(max_value, *it);
+            min_value = min_func(min_value, *it);
+            max_value = max_func(max_value, *it);
         }
 
         return {min_value, max_value};

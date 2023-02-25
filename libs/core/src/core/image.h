@@ -67,8 +67,8 @@ namespace euphoria::core
             unsigned char a
         );
 
-        template <typename Func>
-        void filter(Func f)
+        template <typename TFunc>
+        void filter(TFunc f)
         {
             for(int y = 0; y < height; y += 1)
             {
@@ -79,8 +79,8 @@ namespace euphoria::core
             }
         }
 
-        template <typename Func>
-        void for_all_top_bottom(Func f)
+        template <typename TFunc>
+        void for_all_top_bottom(TFunc f)
         {
             for(int y = height; y > 0; y -= 1)
             {
@@ -91,8 +91,8 @@ namespace euphoria::core
             }
         }
 
-        template <typename Func>
-        void set_all_top_bottom(Func f)
+        template <typename TFunc>
+        void set_all_top_bottom(TFunc f)
         {
             for(int y = height; y > 0; y -= 1)
             {
@@ -103,8 +103,8 @@ namespace euphoria::core
             }
         }
 
-        template <typename Func>
-        void set_all_bottom_top(Func f)
+        template <typename TFunc>
+        void set_all_bottom_top(TFunc f)
         {
             for(int y = 0; y < height; y += 1)
             {

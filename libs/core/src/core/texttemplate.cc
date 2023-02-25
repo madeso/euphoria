@@ -5,7 +5,6 @@
 #include "assert/assert.h"
 
 #include "core/textfileparser.h"
-#include "core/noncopyable.h"
 #include "core/vfs.h"
 #include "core/vfs_path.h"
 #include "core/stringutils.h"
@@ -112,13 +111,12 @@ struct TemplateNode
     TemplateNode() = default;
     virtual ~TemplateNode() = default;
 
-    NONCOPYABLE_CONSTRUCTOR(TemplateNode);
-    NONCOPYABLE_ASSIGNMENT(TemplateNode);
-    NONCOPYABLE_MOVE_CONSTRUCTOR(TemplateNode);
-    NONCOPYABLE_MOVE_ASSIGNMENT(TemplateNode);
+    TemplateNode(const TemplateNode&) = delete;
+    TemplateNode(TemplateNode&&) = delete;
+    void operator=(const TemplateNode&) = delete;
+    void operator=(TemplateNode&&) = delete;
 
-    virtual void
-    evaluate
+    virtual void evaluate
     (
         Defines* defines,
         StringBuilder* out,
@@ -132,19 +130,18 @@ struct TemplateNode
 
 struct TemplateNodeString : TemplateNode
 {
+    std::string text;
+
     explicit TemplateNodeString(std::string t)
         : text(std::move(t))
     {
     }
 
-    void
-    evaluate(Defines* /*defines*/, StringBuilder* out, TemplateErrorList* /*error*/) override
+    void evaluate(Defines* /*defines*/, StringBuilder* out, TemplateErrorList* /*error*/) override
     {
         ASSERT(out);
         out->add_string(text);
     }
-    
-    std::string text;
 };
 
 
@@ -153,24 +150,22 @@ struct TemplateNodeString : TemplateNode
 
 struct TemplateNodeList : TemplateNode
 {
+    std::vector<std::shared_ptr<TemplateNode>> nodes;
+
     TemplateNodeList() = default;
 
-    void
-    evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
+    void add(const std::shared_ptr<TemplateNode>& node)
+    {
+        nodes.push_back(node);
+    }
+
+    void evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         for(const auto& node: nodes)
         {
             node->evaluate(defines, out, error);
         }
     }
-
-    void
-    add(const std::shared_ptr<TemplateNode>& node)
-    {
-        nodes.push_back(node);
-    }
-
-    std::vector<std::shared_ptr<TemplateNode>> nodes;
 };
 
 
@@ -196,6 +191,9 @@ struct TemplateNodeScopedList : TemplateNodeList
 
 struct TemplateNodeIfdef : TemplateNode
 {
+    std::string name;
+    std::shared_ptr<TemplateNode> node;
+
     TemplateNodeIfdef(std::string aname, std::shared_ptr<TemplateNode> anode)
         : name(std::move(aname))
         , node(std::move(anode))
@@ -211,9 +209,6 @@ struct TemplateNodeIfdef : TemplateNode
             node->evaluate(defines, out, error);
         }
     }
-
-    std::string name;
-    std::shared_ptr<TemplateNode> node;
 };
 
 
@@ -222,13 +217,14 @@ struct TemplateNodeIfdef : TemplateNode
 
 struct TemplateNodeEval : TemplateNode
 {
+    std::string name;
+
     explicit TemplateNodeEval(std::string n)
         : name(std::move(n))
     {
     }
 
-    void
-    evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
+    void evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* error) override
     {
         ASSERT(out);
         ASSERT(defines);
@@ -247,31 +243,28 @@ struct TemplateNodeEval : TemplateNode
 
         out->add_string(defines->get_value(name));
     }
-    
-    std::string name;
 };
 
 // ------------------------------------------------------------------------
 
 struct TemplateNodeSet : TemplateNode
 {
+    std::string name;
+    std::string value;
+
     TemplateNodeSet(std::string aname, std::string avalue)
         : name(std::move(aname))
         , value(std::move(avalue))
     {
     }
 
-    void
-    evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* /*error*/) override
+    void evaluate(Defines* defines, StringBuilder* out, TemplateErrorList* /*error*/) override
     {
         ASSERT(out);
         ASSERT(defines);
 
         defines->define(name, value);
     }
-    
-    std::string name;
-    std::string value;
 };
 
 
@@ -291,8 +284,7 @@ enum class TokenType
     end_of_file
 };
 
-std::string
-lex_type_to_string(TokenType t)
+std::string lex_type_to_string(TokenType t)
 {
     switch(t)
     {
@@ -315,6 +307,11 @@ lex_type_to_string(TokenType t)
 
 struct Token
 {
+    TokenType type;
+    std::string value;
+    int line;
+    int column;
+
     Token(TokenType t, int l, int c, std::string v = "")
         : type(t)
         , value(std::move(v))
@@ -328,16 +325,10 @@ struct Token
     {
         return "{}({})"_format(lex_type_to_string(type), first_chars_with_ellipsis(value));
     }
-
-    TokenType type;
-    std::string value;
-    int line;
-    int column;
 };
 
 
-std::vector<Token>
-lexer
+std::vector<Token> lexer
 (
     const std::string& content,
     TemplateErrorList* error,
@@ -464,6 +455,10 @@ lexer
 
 struct TokenReader
 {
+    std::vector<Token> tokens;
+    std::size_t next_token_index;
+    std::size_t size;
+
     explicit TokenReader(const std::vector<Token>& input)
         : tokens(input)
         , next_token_index(0)
@@ -471,14 +466,24 @@ struct TokenReader
     {
     }
 
-    [[nodiscard]] bool
-    has_more() const
+    void advance()
+    {
+        next_token_index += 1;
+    }
+
+    const Token& read()
+    {
+        const Token& lex = peek();
+        advance();
+        return lex;
+    }
+
+    [[nodiscard]] bool has_more() const
     {
         return next_token_index < size;
     }
 
-    [[nodiscard]] const Token&
-    peek() const
+    [[nodiscard]] const Token& peek() const
     {
         if(has_more())
         {
@@ -488,43 +493,22 @@ struct TokenReader
         return end_of_file;
     }
 
-    void
-    advance()
-    {
-        next_token_index += 1;
-    }
-
-    const Token&
-    read()
-    {
-        const Token& lex = peek();
-        advance();
-        return lex;
-    }
-
-    [[nodiscard]] int
-    get_line() const
+    [[nodiscard]] int get_line() const
     {
         return peek().line;
     }
 
-    [[nodiscard]] int
-    get_column() const
+    [[nodiscard]] int get_column() const
     {
         return peek().column;
     }
-
-    std::vector<Token> tokens;
-    std::size_t next_token_index;
-    std::size_t size;
 };
 
 
 ////////////////////////////////////////////////////////////////////////////////
 
 
-void
-parse_template_list
+void parse_template_list
 (
     std::shared_ptr<TemplateNodeList>* nodes,
     TokenReader* reader,
@@ -535,8 +519,7 @@ parse_template_list
 );
 
 
-void
-load_from_filesystem_to_node_list
+void load_from_filesystem_to_node_list
 (
     vfs::FileSystem* fs,
     const vfs::FilePath& path,
@@ -570,8 +553,7 @@ load_from_filesystem_to_node_list
 // ------------------------------------------------------------------------
 
 
-std::shared_ptr<TemplateNodeString>
-parse_text
+std::shared_ptr<TemplateNodeString> parse_text
 (
     TokenReader* reader,
     TemplateErrorList* /*unused*/,
@@ -589,8 +571,7 @@ parse_text
 }
 
 
-std::shared_ptr<TemplateNodeEval>
-parse_eval
+std::shared_ptr<TemplateNodeEval> parse_eval
 (
     TokenReader* reader,
     TemplateErrorList* errors,
@@ -619,8 +600,7 @@ parse_eval
 }
 
 
-std::shared_ptr<TemplateNodeSet>
-parse_set
+std::shared_ptr<TemplateNodeSet> parse_set
 (
     TokenReader* reader,
     TemplateErrorList* errors,
@@ -664,8 +644,7 @@ parse_set
 }
 
 
-std::shared_ptr<TemplateNodeIfdef>
-parse_ifdef
+std::shared_ptr<TemplateNodeIfdef> parse_ifdef
 (
     TokenReader* reader,
     TemplateErrorList* errors,
@@ -696,8 +675,7 @@ parse_ifdef
 }
 
 
-std::shared_ptr<TemplateNodeList>
-parse_include
+std::shared_ptr<TemplateNodeList> parse_include
 (
     TokenReader* reader,
     TemplateErrorList* errors,
@@ -766,8 +744,7 @@ parse_include
 }
 
 
-void
-parse_template_list
+void parse_template_list
 (
     std::shared_ptr<TemplateNodeList>* nodes,
     TokenReader* reader,
@@ -861,8 +838,7 @@ CompiledTextTemplate::CompiledTextTemplate(vfs::FileSystem* fs, const vfs::FileP
 CompiledTextTemplate::~CompiledTextTemplate() = default;
 
 
-std::string
-CompiledTextTemplate::evaluate(const core::Defines& defines)
+std::string CompiledTextTemplate::evaluate(const core::Defines& defines)
 {
     StringBuilder ss;
 

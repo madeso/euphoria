@@ -11,36 +11,37 @@ namespace euphoria::core
     // todo(Gustav): replace with a better search alghoritm, like k-d tree och oct/quad-tree
     template
     <
-        typename Vec,
-        typename Data,
-        typename DistanceFunctionType,
-        typename DistanceType
+        typename TVec,
+        typename TData,
+        typename TDistanceFunc,
+        typename TDistance
     >
     struct ClosestPointCollector
     {
-        DistanceFunctionType distance_function;
-        std::vector<std::tuple<Vec, Data>> points;
+        TDistanceFunc distance_func;
+        std::vector<std::tuple<TVec, TData>> points;
 
-        ClosestPointCollector(DistanceFunctionType a_distance_function)
-            : distance_function(a_distance_function)
-        {}
+        ClosestPointCollector(TDistanceFunc a_distance_func)
+            : distance_func(a_distance_func)
+        {
+        }
 
         void
-        add(const Vec& v, const Data& data)
+        add(const TVec& v, const TData& data)
         {
             points.emplace_back(std::make_tuple(v, data));
         }
 
-        [[nodiscard]] Data
-        find_closest(const Vec& v)
+        [[nodiscard]] TData
+        find_closest(const TVec& v)
         {
-            struct DistanceData { Data data; DistanceType distance; };
+            struct DistanceData { TData data; TDistance distance; };
             ASSERT(!points.empty());
             
             std::optional<DistanceData> result;
             for(const auto& [vec, data]: points)
             {
-                const auto this_dist = distance_function(v, vec);
+                const auto this_dist = distance_func(v, vec);
                 if(result.has_value() == false || result->distance > this_dist)
                 {
                     result = {data, this_dist};

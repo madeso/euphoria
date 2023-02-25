@@ -29,29 +29,8 @@ namespace euphoria::core
         float size;
         bool was_loaded;
         int line_height;
-
         std::vector<stbtt_kerningentry> kernings;
-
         std::map<int, int> index_to_unicode;
-
-        void define_codepoint(int cp)
-        {
-            const int index = stbtt_FindGlyphIndex(&font, cp);
-            index_to_unicode[index] = cp;
-        }
-
-        [[nodiscard]] std::optional<int> glyph_index_to_unicode(int glyph) const
-        {
-            auto found = index_to_unicode.find(glyph);
-            if(found == index_to_unicode.end())
-            {
-                return {};
-            }
-            else
-            {
-                return found->second;
-            }
-        }
 
         FontData(unsigned char* ttf_buffer, float s)
             : font()
@@ -77,6 +56,24 @@ namespace euphoria::core
             }
         }
 
+        void define_codepoint(int cp)
+        {
+            const int index = stbtt_FindGlyphIndex(&font, cp);
+            index_to_unicode[index] = cp;
+        }
+
+        [[nodiscard]] std::optional<int> glyph_index_to_unicode(int glyph) const
+        {
+            auto found = index_to_unicode.find(glyph);
+            if(found == index_to_unicode.end())
+            {
+                return {};
+            }
+            else
+            {
+                return found->second;
+            }
+        }
 
         [[nodiscard]] LoadedGlyph
         load_glyph(int code_point) const
@@ -197,13 +194,13 @@ namespace euphoria::core
     }
 
 
-    template<typename Glyphs>
+    template<typename TGlyphs>
     LoadedFont
     get_character_from_builtin8
     (
         const int start_codepoint,
         int end_codepoint,
-        Glyphs glyphs
+        TGlyphs glyphs
     )
     {
         ASSERTX(start_codepoint < end_codepoint, start_codepoint, end_codepoint);

@@ -37,15 +37,15 @@ struct Graph
 template
 <
     typename T,
-    typename LabelFunction,
-    typename FindChildrenFunction
+    typename TLabelFunc,
+    typename TFindChildrenFunc
 >
 NodeId
 fill_graph
 (
     const T& item,
-    LabelFunction label_function,
-    FindChildrenFunction find_children_function,
+    TLabelFunc label_function,
+    TFindChildrenFunc find_children_function,
     Graph* graph
 )
 {
@@ -55,7 +55,7 @@ fill_graph
     const auto children = find_children_function(item);
     for (auto it = children.begin(); it != children.end(); ++it)
     {
-        const auto child_node = fill_graph<T, LabelFunction, FindChildrenFunction>
+        const auto child_node = fill_graph<T, TLabelFunc, TFindChildrenFunc>
         (
             *it,
             label_function,
@@ -73,20 +73,20 @@ fill_graph
 template
 <
     typename T,
-    typename LabelFunction,
-    typename FindChildrenFunction
+    typename TLabelFunc,
+    typename TFindChildrenFunc
 >
 Graph
 create_graph
 (
     const T& item,
-    LabelFunction label_function,
-    FindChildrenFunction find_children_function
+    TLabelFunc label_function,
+    TFindChildrenFunc find_children_function
 )
 {
     Graph graph;
     
-    fill_graph<T, LabelFunction, FindChildrenFunction>
+    fill_graph<T, TLabelFunc, TFindChildrenFunc>
     (
         item,
         label_function,

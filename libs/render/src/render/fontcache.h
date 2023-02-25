@@ -17,8 +17,8 @@ namespace euphoria::render
 
     struct FontCache
     {
-        struct font_cache_pimpl;
-        std::unique_ptr<font_cache_pimpl> pimp;
+        struct FontCachePimpl;
+        std::unique_ptr<FontCachePimpl> pimp;
 
         FontCache(core::vfs::FileSystem* fs, TextureCache* cache);
         ~FontCache();

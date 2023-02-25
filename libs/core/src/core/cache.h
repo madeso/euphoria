@@ -10,12 +10,12 @@ namespace euphoria::core
     // todo(Gustav): rename to something better?
     // https://stackoverflow.com/questions/288400/guidelines-for-differences-between-cache-pool-cache-pool
 
-    template <typename Key, typename Data, typename Loader>
+    template <typename TKey, typename TData, typename TLoader>
     struct Cache
     {
-        std::map<Key, std::weak_ptr<Data>> store;
+        std::map<TKey, std::weak_ptr<TData>> store;
         
-        std::shared_ptr<Data> get(const Key& key)
+        std::shared_ptr<TData> get(const TKey& key)
         {
             auto found = store.find(key);
             if(found != store.end())
@@ -31,8 +31,8 @@ namespace euphoria::core
                 }
             }
 
-            std::shared_ptr<Data> data = static_cast<Loader *>(this)->create(key);
-            store.insert(std::pair<Key, std::weak_ptr<Data>>(key, data));
+            std::shared_ptr<TData> data = static_cast<TLoader *>(this)->create(key);
+            store.insert(std::pair<TKey, std::weak_ptr<TData>>(key, data));
             return data;
         }
     };

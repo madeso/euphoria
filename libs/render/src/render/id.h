@@ -1,7 +1,5 @@
 #pragma once
 
-#include "core/noncopyable.h"
-
 #include "render/gltypes.h"
 
 
@@ -9,18 +7,19 @@ namespace euphoria::render
 {
     struct Id
     {
-    public:
         Id();
         ~Id() = default;
 
-        NONCOPYABLE(Id);
+        Id(const Id&) = delete;
+        Id(Id&&) = delete;
+        void operator=(const Id&) = delete;
+        void operator=(Id&&) = delete;
 
         // todo(Gustav): remove and make id public or remove class altogether
-        [[nodiscard]] gl::Uint
-        get_id() const;
+        [[nodiscard]] gl::Uint get_id() const;
 
     protected:
         // nolint regarding protected visibility
-        gl::Uint id_; // NOLINT
+        gl::Uint id; // NOLINT
     };
 }

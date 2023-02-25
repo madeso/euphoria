@@ -8,10 +8,10 @@
 
 namespace euphoria::render
 {
-    struct TextureCache::texture_cache_pimpl
-        : core::Cache<core::vfs::FilePath, Texture2, TextureCache::texture_cache_pimpl>
+    struct TextureCache::TextureCachePimpl
+        : core::Cache<core::vfs::FilePath, Texture2, TextureCache::TextureCachePimpl>
     {
-        explicit texture_cache_pimpl(core::vfs::FileSystem* fs) : vfs(fs)
+        explicit TextureCachePimpl(core::vfs::FileSystem* fs) : vfs(fs)
         {
             ASSERT(fs);
         }
@@ -36,7 +36,7 @@ namespace euphoria::render
 
     TextureCache::TextureCache(core::vfs::FileSystem* fs)
     {
-        pimpl = std::make_unique<TextureCache::texture_cache_pimpl>(fs);
+        pimpl = std::make_unique<TextureCache::TextureCachePimpl>(fs);
     }
 
 

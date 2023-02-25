@@ -175,15 +175,7 @@ namespace euphoria::core
             {
             }
 
-            [[nodiscard]]
-            bool
-            is_panning() const
-            {
-                return shift;
-            }
-
-            void
-            update_data(EditorCamera3* owner)
+            void update_data(EditorCamera3* owner)
             {
                 if(is_panning())
                 {
@@ -212,14 +204,7 @@ namespace euphoria::core
                 }
             }
 
-            [[nodiscard]] vec3f
-            get_far_point(const vec2i& p, const CompiledCamera3& cc) const
-            {
-                return mouse_to_ray(cc, viewport, p).get_point(1.0f);
-            }
-
-            void
-            update_panning(EditorCamera3* owner)
+            void update_panning(EditorCamera3* owner)
             {
                 if(pan.has_value() == false) { return; }
                 if(pan->collision.has_value() == false) { return; }
@@ -238,8 +223,7 @@ namespace euphoria::core
                 detail::frame_to_editor(new_frame, owner);
             }
 
-            void
-            update_orbit(EditorCamera3* owner)
+            void update_orbit(EditorCamera3* owner)
             {
                 if(orbit.has_value() == false) { return; }
                 if(orbit->valid == false) { return; }
@@ -258,8 +242,7 @@ namespace euphoria::core
                 detail::frame_to_editor(new_frame, owner);
             }
 
-            void
-            update_camera(EditorCamera3* owner)
+            void update_camera(EditorCamera3* owner)
             {
                 if(is_panning())
                 {
@@ -271,8 +254,18 @@ namespace euphoria::core
                 }
             }
 
-            void
-            on_mouse_move(EditorCamera3* owner, int dx, int dy) override
+            [[nodiscard]] vec3f get_far_point(const vec2i& p, const CompiledCamera3& cc) const
+            {
+                return mouse_to_ray(cc, viewport, p).get_point(1.0f);
+            }
+
+            [[nodiscard]]
+            bool is_panning() const
+            {
+                return shift;
+            }
+
+            void on_mouse_move(EditorCamera3* owner, int dx, int dy) override
             {
                 ASSERT(owner != nullptr);
 
@@ -287,9 +280,7 @@ namespace euphoria::core
                 }
             }
 
-
-            void
-            on_scroll(EditorCamera3* owner, int dx, int dy) override
+            void on_scroll(EditorCamera3* owner, int dx, int dy) override
             {
                 // only orbit can zoom
                 if(owner->scroll_in_orbit && orbit.has_value() && orbit->valid )
@@ -302,13 +293,11 @@ namespace euphoria::core
                 }
             }
 
-            void
-            on_key(EditorCamera3*, Key, bool) override
+            void on_key(EditorCamera3*, Key, bool) override
             {
             }
 
-            void
-            step
+            void step
             (
                 EditorCamera3* owner,
                 bool shift_state,
@@ -341,19 +330,16 @@ namespace euphoria::core
                 }
             }
 
-            void
-            on_camera_start(EditorCamera3*) override
+            void on_camera_start(EditorCamera3*) override
             {
             }
 
-            void
-            on_camera_stop(EditorCamera3* owner) override
+            void on_camera_stop(EditorCamera3* owner) override
             {
                 owner->next_state = make_default_camera();
             }
 
-            MouseBehaviour
-            get_mouse(const EditorCamera3*) const override
+            MouseBehaviour get_mouse(const EditorCamera3*) const override
             {
                 return MouseBehaviour::wrap_within_window;
             }

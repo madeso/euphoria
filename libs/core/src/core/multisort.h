@@ -35,14 +35,14 @@ namespace euphoria::core
     template <typename T>
     using SortableList = std::vector<std::shared_ptr<Sortable<T>>>;
 
-    template <typename T, typename Value, typename SortFunc>
+    template <typename T, typename TValue, typename TSortFunc>
     struct SortAction : public Sortable<T>
     {
-        Value T::*member;
+        TValue T::*member;
         core::SortStyle sort_style;
-        SortFunc sort_func;
+        TSortFunc sort_func;
 
-        SortAction(Value T::*m, core::SortStyle s, SortFunc f)
+        SortAction(TValue T::*m, core::SortStyle s, TSortFunc f)
             : member(m), sort_style(s), sort_func(f)
         {}
 
@@ -65,38 +65,42 @@ namespace euphoria::core
         return lhs < rhs ? 1 : -1;
     }
 
-    // todo(Gustav): this seems weird, replace with single argument? TableGeneration needs Self?
-    template <typename T, typename Self>
+    // todo(Gustav): refactor away crtp and inheritence?
+
+    /**
+    * @param TSelf self for a CRTP reference
+    */
+    template <typename T, typename TSelf>
     struct SortBuilder
     {
         SortableList<T> sort_order;
         bool stable_sort = false;
 
-        template <typename SortFunc, typename Value>
-        Self&
+        template <typename TSortFunc, typename TValue>
+        TSelf&
         sort
         (
-            Value T::*member,
-            SortFunc sort_func,
+            TValue T::*member,
+            TSortFunc sort_func,
             SortStyle sort_style = SortStyle::ascending
         )
         {
-            auto o = std::make_shared<SortAction<T, Value, SortFunc>>
+            auto o = std::make_shared<SortAction<T, TValue, TSortFunc>>
             (
                 member, sort_style, sort_func
             );
             sort_order.emplace_back(o);
-            return static_cast<Self&>(*this);
+            return static_cast<TSelf&>(*this);
         }
 
-        template <typename Value>
-        Self&
-        sort(Value T::*member, SortStyle sort_style = SortStyle::ascending)
+        template <typename TValue>
+        TSelf&
+        sort(TValue T::*member, SortStyle sort_style = SortStyle::ascending)
         {
-            return sort(member, &default_sort_func<Value>, sort_style);
+            return sort(member, &default_sort_func<TValue>, sort_style);
         }
 
-        Self&
+        TSelf&
         use_stable_sort()
         {
             stable_sort = true;
@@ -104,12 +108,12 @@ namespace euphoria::core
         }
     };
 
-    template <typename T, typename Self>
+    template <typename T, typename TSelf>
     std::vector<size_t>
     get_sorted_indices
     (
         const std::vector<T>& data,
-        const SortBuilder<T, Self>& builder
+        const SortBuilder<T, TSelf>& builder
     )
     {
         std::vector<size_t> r(data.size());

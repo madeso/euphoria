@@ -29,7 +29,7 @@ namespace euphoria::render
         [[nodiscard]] std::shared_ptr<Texture2>
         get_texture(const std::optional<core::vfs::FilePath>& path) const;
 
-        struct texture_cache_pimpl;
-        std::unique_ptr<texture_cache_pimpl> pimpl;
+        struct TextureCachePimpl;
+        std::unique_ptr<TextureCachePimpl> pimpl;
     };
 }

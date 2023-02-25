@@ -35,16 +35,17 @@ namespace euphoria::core::tracery
 
         Result(Error t);
 
-        Result& operator<<(const std::string& t);
-
-        operator bool() const;
-
         [[nodiscard]] std::string get_text() const;
+
+        Result& operator<<(const std::string& t);
+        operator bool() const;
     };
+
 
     std::ostream& operator<<(std::ostream& o, const Result& r);
 
-    struct generator_argument;
+
+    struct GeneratorArgument;
 
 
     struct Node
@@ -57,7 +58,7 @@ namespace euphoria::core::tracery
         void operator=(const Node&) = delete;
         void operator=(Node&&) = delete;
 
-        virtual Result flatten(generator_argument* generator) const = 0;
+        virtual Result flatten(GeneratorArgument* generator) const = 0;
     };
 
 
@@ -74,6 +75,7 @@ namespace euphoria::core::tracery
         virtual Result apply_modifier(const std::string& input) = 0;
     };
 
+
     struct Rule
     {
         std::vector<std::shared_ptr<Node>> syntax;
@@ -83,8 +85,9 @@ namespace euphoria::core::tracery
         Result compile(const std::string& s);
         void add(std::shared_ptr<Node> p);
 
-        Result flatten(generator_argument* gen) const;
+        Result flatten(GeneratorArgument* gen) const;
     };
+
 
     struct Symbol
     {
@@ -94,8 +97,9 @@ namespace euphoria::core::tracery
         explicit Symbol(const std::string& k);
 
         Result add_rule(const std::string& rule);
-        Result flatten(generator_argument* gen) const;
+        Result flatten(GeneratorArgument* gen) const;
     };
+
 
     struct Grammar
     {
@@ -112,7 +116,7 @@ namespace euphoria::core::tracery
 
         Grammar& register_modifier(const std::string& name, std::shared_ptr<Modifier> m);
 
-        [[nodiscard]] Result get_string_from_symbol(const std::string& rule, generator_argument* generator) const;
+        [[nodiscard]] Result get_string_from_symbol(const std::string& rule, GeneratorArgument* generator) const;
         [[nodiscard]] Result apply_modifier(const std::string& name, const std::string& data) const;
         [[nodiscard]] Result flatten(core::Random* random, const std::string& rule) const;
     };

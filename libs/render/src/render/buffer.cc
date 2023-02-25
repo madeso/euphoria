@@ -15,13 +15,13 @@ namespace euphoria::render
 {
     VertexBuffer::VertexBuffer()
     {
-        glGenBuffers(1, &id_);
+        glGenBuffers(1, &id);
     }
 
 
     VertexBuffer::~VertexBuffer()
     {
-        glDeleteBuffers(1, &id_);
+        glDeleteBuffers(1, &id);
     }
 
 
@@ -37,7 +37,7 @@ namespace euphoria::render
     void
     VertexBuffer::bind(const VertexBuffer* vbo)
     {
-        const gl::Uint id = vbo != nullptr ? vbo->id_ : 0;
+        const gl::Uint id = vbo != nullptr ? vbo->id : 0;
         glBindBuffer(GL_ARRAY_BUFFER, id);
         get_bound() = vbo;
     }
@@ -56,13 +56,13 @@ namespace euphoria::render
 
     PointLayout::PointLayout()
     {
-        glGenVertexArrays(1, &id_);
+        glGenVertexArrays(1, &id);
     }
 
 
     PointLayout::~PointLayout()
     {
-        glDeleteVertexArrays(1, &id_);
+        glDeleteVertexArrays(1, &id);
     }
 
 
@@ -129,7 +129,7 @@ namespace euphoria::render
     void
     PointLayout::bind(const PointLayout* vao)
     {
-        const gl::Uint id = vao != nullptr ? vao->id_ : 0;
+        const gl::Uint id = vao != nullptr ? vao->id : 0;
         glBindVertexArray(id);
         get_bound() = vao;
     }
@@ -148,13 +148,13 @@ namespace euphoria::render
 
     IndexBuffer::IndexBuffer()
     {
-        glGenBuffers(1, &id_);
+        glGenBuffers(1, &id);
     }
 
 
     IndexBuffer::~IndexBuffer()
     {
-        glDeleteBuffers(1, &id_);
+        glDeleteBuffers(1, &id);
     }
 
 
@@ -215,7 +215,7 @@ namespace euphoria::render
     void
     IndexBuffer::bind(const IndexBuffer* ebo)
     {
-        const gl::Uint id = ebo != nullptr ? ebo->id_ : 0;
+        const gl::Uint id = ebo != nullptr ? ebo->id : 0;
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, id);
         get_bound() = ebo;
     }

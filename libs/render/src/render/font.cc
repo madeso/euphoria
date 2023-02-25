@@ -356,7 +356,7 @@ namespace euphoria::render
     }
 
 
-    struct ui_text_compile_visitor : public core::textparser::Visitor
+    struct UiTextCompileVisitor : public core::textparser::Visitor
     {
         const DrawableFont& font;
         float size;
@@ -367,7 +367,7 @@ namespace euphoria::render
         // return value
         ListOfTextDrawCommands* list;
 
-        ui_text_compile_visitor
+        UiTextCompileVisitor
         (
             const DrawableFont& f,
             float s,
@@ -479,7 +479,7 @@ namespace euphoria::render
     {
         ListOfTextDrawCommands list;
 
-        ui_text_compile_visitor vis {*this, size, &list};
+        UiTextCompileVisitor vis {*this, size, &list};
         text.accept(&vis);
 
         return list;

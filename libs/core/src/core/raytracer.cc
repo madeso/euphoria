@@ -428,6 +428,11 @@ namespace euphoria::core::raytracer
 
     struct Camera
     {
+        vec3f lower_left_corner;
+        vec3f horizontal;
+        vec3f vertical;
+        vec3f origin;
+
         static Camera create(const angle& vfov, float aspect)
         {
             const auto half_height = tan(vfov/2.0f);
@@ -446,11 +451,6 @@ namespace euphoria::core::raytracer
                 origin
             };
         }
-
-        vec3f lower_left_corner;
-        vec3f horizontal;
-        vec3f vertical;
-        vec3f origin;
 
         [[nodiscard]] UnitRay3f
         get_ray(float u, float v) const

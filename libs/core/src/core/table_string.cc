@@ -163,7 +163,7 @@ int
 column_width(const StringTable& t, int c)
 {
     int width = 0;
-    for(StringTable::I y = 0; y < t.get_height(); y += 1)
+    for(StringTable::Idx y = 0; y < t.get_height(); y += 1)
     {
         width = std::max<int>(width, width_of_string(t(c, y)));
     }
@@ -174,7 +174,7 @@ int
 row_height(const StringTable& t, int r)
 {
     int height = 0;
-    for(StringTable::I x = 0; x < t.get_width(); x += 1)
+    for(StringTable::Idx x = 0; x < t.get_width(); x += 1)
     {
         height = std::max<int>(height, height_of_string(t(x, r)));
     }
@@ -186,7 +186,7 @@ column_widths(const StringTable& table, int extra)
 {
     const auto number_of_cols = table.get_width();
     std::vector<int> sizes(number_of_cols);
-    for(StringTable::I i = 0; i < number_of_cols; ++i)
+    for(StringTable::Idx i = 0; i < number_of_cols; ++i)
     {
         sizes[i] = column_width(table, i) + extra;
     }
@@ -195,14 +195,14 @@ column_widths(const StringTable& table, int extra)
 
 /// Return a new table based on row, where each cell is split at newline over many rows
 StringTable
-split_table_cells_on_newline(const StringTable& table, StringTable::I row)
+split_table_cells_on_newline(const StringTable& table, StringTable::Idx row)
 {
     auto ret = StringTable::from_width_height(
             table.get_width(), row_height(table, row));
     for(int c = 0; c < table.get_width(); c += 1)
     {
         const auto rows = split(table(c, row), '\n');
-        for(StringTable::I i = 0; i < StringTable::conv(rows.size()); i += 1)
+        for(StringTable::Idx i = 0; i < StringTable::conv(rows.size()); i += 1)
         {
             ret(c, i) = rows[i];
         }
@@ -226,12 +226,12 @@ print_table_simple(std::ostream& out, const StringTable& maintable)
 
     const auto total_padding = begin_str_padding + end_space_padding;
 
-    for(StringTable::I mainrow = 0; mainrow < number_of_rows; ++mainrow)
+    for(StringTable::Idx mainrow = 0; mainrow < number_of_rows; ++mainrow)
     {
         const auto subtable = split_table_cells_on_newline(maintable, mainrow);
-        for(StringTable::I subrow = 0; subrow < subtable.get_height(); ++subrow)
+        for(StringTable::Idx subrow = 0; subrow < subtable.get_height(); ++subrow)
         {
-            for(StringTable::I col = 0; col < number_of_cols; ++col)
+            for(StringTable::Idx col = 0; col < number_of_cols; ++col)
             {
                 const auto cell = begin_str + subtable(col, subrow);
                 auto line_length = c_sizet_to_int(cell.length());
@@ -239,7 +239,7 @@ print_table_simple(std::ostream& out, const StringTable& maintable)
 
                 if(col != number_of_cols - 1)
                 {
-                    for(StringTable::I i = line_length;
+                    for(StringTable::Idx i = line_length;
                         i < sizes[col] + total_padding;
                         ++i)
                     {
@@ -251,7 +251,7 @@ print_table_simple(std::ostream& out, const StringTable& maintable)
 
             if(mainrow == 0)
             {
-                for(StringTable::I col = 0; col < number_of_cols; ++col)
+                for(StringTable::Idx col = 0; col < number_of_cols; ++col)
                 {
                     const auto row_text
                             = std::string(
@@ -295,13 +295,13 @@ print_table_grid(std::ostream& out, const StringTable& maintable)
 
     horizontal_line();
 
-    for(StringTable::I y = 0; y < maintable.get_height(); ++y)
+    for(StringTable::Idx y = 0; y < maintable.get_height(); ++y)
     {
         const auto subtable = split_table_cells_on_newline(maintable, y);
-        for(StringTable::I suby = 0; suby < subtable.get_height(); suby += 1)
+        for(StringTable::Idx suby = 0; suby < subtable.get_height(); suby += 1)
         {
             out << "|";
-            for(StringTable::I x = 0; x < subtable.get_width(); ++x)
+            for(StringTable::Idx x = 0; x < subtable.get_width(); ++x)
             {
                 const auto cell = subtable(x, suby);
                 some_space(internal_space);

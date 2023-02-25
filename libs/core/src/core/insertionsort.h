@@ -5,9 +5,9 @@
 
 namespace euphoria::core
 {
-    template <typename T, typename SortFunc>
+    template <typename T, typename TSortFunc>
     void
-    insertion_sort(std::vector<T>* pointer_to_array, SortFunc sort_func)
+    insertion_sort(std::vector<T>* pointer_to_array, TSortFunc sort_func)
     {
         auto& array = *pointer_to_array;
         const auto length = array.size();
@@ -25,9 +25,9 @@ namespace euphoria::core
         }
     }
 
-    template <typename T, typename SortFunc>
+    template <typename T, typename TSortFunc>
     std::vector<T>
-    insertion_sort(const std::vector<T>& array, SortFunc sort_func)
+    insertion_sort(const std::vector<T>& array, TSortFunc sort_func)
     {
         auto copy = array;
         insertion_sort(&copy, sort_func);

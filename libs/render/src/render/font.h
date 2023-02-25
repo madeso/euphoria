@@ -165,7 +165,7 @@ namespace euphoria::render
     };
 
 
-    struct ui_text_compile_visitor;
+    struct UiTextCompileVisitor;
 
 
     struct DrawableFont

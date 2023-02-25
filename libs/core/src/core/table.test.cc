@@ -45,9 +45,9 @@ TEST_CASE("table-section_and_rows", "[table]")
 {
     using T = euco::Table<std::string>;
     auto t = T::from_width_height(3, 2, "");
-    for(T::I y = 0; y < t.get_height(); ++y)
+    for(T::Idx y = 0; y < t.get_height(); ++y)
     {
-        for(T::I x = 0; x < t.get_width(); ++x)
+        for(T::Idx x = 0; x < t.get_width(); ++x)
         {
             t(x, y) = "{},{}"_format(x, y);
         }

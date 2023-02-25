@@ -2,10 +2,10 @@
 
 namespace euphoria::core
 {
-    template<typename Normalized, typename Length>
+    template<typename TNormalized, typename TLength>
     struct NormalizedAndLength
     {
-        Normalized normalized;
-        Length length;
+        TNormalized normalized;
+        TLength length;
     };
 }

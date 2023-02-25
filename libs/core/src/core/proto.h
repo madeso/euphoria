@@ -156,12 +156,12 @@ namespace euphoria::core
     ///////////////////////////////////////////////////////////////////////////////////////////////
     // Actual load functions
 
-    template <typename T, typename ReadJsonElementFun>
+    template <typename T, typename TReadJsonElementFunc>
     ReadResult<T> read_json_source_to_gaf_struct
     (
         const std::string& path_to_file,
         const std::string& source,
-        ReadJsonElementFun read_json_element
+        TReadJsonElementFunc read_json_element
     )
     {
         rapidjson::Document doc;
@@ -209,19 +209,19 @@ namespace euphoria::core
         }
     }
 
-    template <typename T, typename ReadJsonElementFun>
+    template <typename T, typename TReadJsonElementFunc>
     ReadResult<T> read_json_file_to_gaf_struct
     (
         vfs::FileSystem* fs,
         const vfs::FilePath& file_name,
-        ReadJsonElementFun read_json_element
+        TReadJsonElementFunc read_json_element
     )
     {
         auto source = get_file_contents_or_null(fs, file_name);
         if(source)
         {
             return read_json_source_to_gaf_struct
-            <T, ReadJsonElementFun>
+            <T, TReadJsonElementFunc>
             (
                 get_string_from_path(file_name),
                 *source,

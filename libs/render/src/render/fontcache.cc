@@ -9,10 +9,10 @@
 
 namespace euphoria::render
 {
-    struct FontCache::font_cache_pimpl
-        : core::Cache<core::vfs::FilePath, DrawableFont, FontCache::font_cache_pimpl>
+    struct FontCache::FontCachePimpl
+        : core::Cache<core::vfs::FilePath, DrawableFont, FontCache::FontCachePimpl>
     {
-        explicit font_cache_pimpl(core::vfs::FileSystem* fs, TextureCache* c)
+        explicit FontCachePimpl(core::vfs::FileSystem* fs, TextureCache* c)
             : vfs(fs)
             , cache(c)
         {
@@ -32,7 +32,7 @@ namespace euphoria::render
 
     FontCache::FontCache(core::vfs::FileSystem* fs, TextureCache* cache)
     {
-        pimp = std::make_unique<FontCache::font_cache_pimpl>(fs, cache);
+        pimp = std::make_unique<FontCache::FontCachePimpl>(fs, cache);
     }
 
     FontCache::~FontCache() = default;

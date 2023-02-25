@@ -34,8 +34,7 @@ namespace euphoria::core
         };
     }
 
-    bool
-    is_ident_start(char c);
+    bool is_ident_start(char c);
 
     /** Parses a text file in memory.
      */

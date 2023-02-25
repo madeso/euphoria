@@ -5,13 +5,13 @@
 namespace euphoria::render
 {
     Id::Id()
-        : id_(0)
+        : id(0)
     {
     }
 
     gl::Uint
     Id::get_id() const
     {
-        return id_;
+        return id;
     }
 }

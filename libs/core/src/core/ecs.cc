@@ -26,12 +26,6 @@ namespace euphoria::core::ecs
     {
         std::vector<bool> components;
 
-        [[nodiscard]] bool has_component(ComponentIndex c) const
-        {
-            if(c < components.size()) { return components[c]; }
-            else { return false; }
-        }
-
         void set_component(ComponentIndex c, bool has)
         {
             components.resize(c+1, false);
@@ -42,11 +36,20 @@ namespace euphoria::core::ecs
         {
             components.clear();
         }
+
+        [[nodiscard]] bool has_component(ComponentIndex c) const
+        {
+            if (c < components.size()) { return components[c]; }
+            else { return false; }
+        }
     };
 
     // pool of "alive" entities
     struct AliveEntities
     {
+        std::vector<Signature> signatures;
+        std::vector<EntityHandle> free_handles;
+
         EntityHandle create()
         {
             if(free_handles.empty())
@@ -69,6 +72,12 @@ namespace euphoria::core::ecs
             free_handles.emplace_back(h);
         }
 
+        void set_component(EntityHandle handle, ComponentIndex component, bool has)
+        {
+            ASSERT(handle < signatures.size());
+            signatures[handle].set_component(component, has);
+        }
+
         [[nodiscard]] std::vector<EntityHandle> view(const std::vector<ComponentIndex>& matching_components) const
         {
             ASSERT(matching_components.empty() == false);
@@ -82,12 +91,6 @@ namespace euphoria::core::ecs
                 }
             }
             return r;
-        }
-
-        void set_component(EntityHandle handle, ComponentIndex component, bool has)
-        {
-            ASSERT(handle < signatures.size());
-            signatures[handle].set_component(component, has);
         }
 
         [[nodiscard]] bool has_components(EntityHandle handle, const std::vector<ComponentIndex>& components) const
@@ -113,9 +116,6 @@ namespace euphoria::core::ecs
             ASSERT(sign_count >= free_count);
             return sign_count - free_count;
         }
-
-        std::vector<Signature> signatures;
-        std::vector<EntityHandle> free_handles;
     };
 
     // map (internal) name -> index && index -> (debug) name
@@ -150,6 +150,8 @@ namespace euphoria::core::ecs
     // contains all the components for all entities
     struct AllComponents
     {
+        std::vector<std::unique_ptr<ComponentArrayBase>> component_arrays;
+
         void set_component_array(ComponentIndex comp_ind, std::unique_ptr<ComponentArrayBase>&& components)
         {
             if(component_arrays.size() <= comp_ind)
@@ -166,8 +168,6 @@ namespace euphoria::core::ecs
                 comp->remove(entity);
             }
         }
-
-        std::vector<std::unique_ptr<ComponentArrayBase>> component_arrays;
 
         ComponentArrayBase* get_components_base(ComponentIndex comp_ind)
         {
@@ -210,14 +210,14 @@ namespace euphoria::core::ecs
             return comp_ind;
         }
 
-        std::vector<EntityHandle> view(const std::vector<ComponentIndex>& matching_components) const
-        {
-            return alive_entities.view(matching_components);
-        }
-
         ComponentArrayBase* get_components_base(ComponentIndex comp_ind)
         {
             return all_components.get_components_base(comp_ind);
+        }
+
+        std::vector<EntityHandle> view(const std::vector<ComponentIndex>& matching_components) const
+        {
+            return alive_entities.view(matching_components);
         }
     };
 

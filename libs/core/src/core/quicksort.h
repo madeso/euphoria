@@ -10,9 +10,9 @@ namespace euphoria::core
 {
     // Hoare partition scheme as described in wikipedia
     // https://en.wikipedia.org/wiki/Quicksort
-    template <typename T, typename SortFunc>
+    template <typename T, typename TSortFunc>
     int
-    get_hoare_partition(SortFunc sort_func, std::vector<T>& array, int lo, int hi)
+    get_hoare_partition(TSortFunc sort_func, std::vector<T>& array, int lo, int hi)
     {
         const auto pivot_index = lo + (hi - lo) / 2;
         const auto pivot = array[pivot_index];
@@ -38,9 +38,9 @@ namespace euphoria::core
     }
 
 
-    template <typename T, typename SortFunc>
+    template <typename T, typename TSortFunc>
     void
-    quicksort_implementation(SortFunc sort_func, std::vector<T>& array, int lo, int hi)
+    quicksort_implementation(TSortFunc sort_func, std::vector<T>& array, int lo, int hi)
     {
         if(lo < hi)
         {
@@ -50,16 +50,16 @@ namespace euphoria::core
         }
     }
 
-    template <typename T, typename SortFunc>
+    template <typename T, typename TSortFunc>
     void
-    quicksort(std::vector<T>* array, SortFunc sort_func)
+    quicksort(std::vector<T>* array, TSortFunc sort_func)
     {
-        quicksort_implementation<T, SortFunc>(sort_func, *array, 0, c_sizet_to_int(array->size()) - 1);
+        quicksort_implementation<T, TSortFunc>(sort_func, *array, 0, c_sizet_to_int(array->size()) - 1);
     }
 
-    template <typename T, typename SortFunc>
+    template <typename T, typename TSortFunc>
     std::vector<T>
-    quicksort(const std::vector<T>& arr, SortFunc sort_func)
+    quicksort(const std::vector<T>& arr, TSortFunc sort_func)
     {
         auto copy = arr;
         quicksort(&copy, sort_func);

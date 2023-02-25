@@ -16,16 +16,16 @@ namespace euphoria::core
     template <typename T>
     struct Table
     {
-        using I = int;
+        using Idx = int;
 
         Table() = default;
 
-        [[nodiscard]] static Table from_width_height(I width, I height, T d = T())
+        [[nodiscard]] static Table from_width_height(Idx width, Idx height, T d = T())
         {
             return Table(width, height, d);
         }
 
-        [[nodiscard]] static Table from_height_width(I height, I width, T d = T())
+        [[nodiscard]] static Table from_height_width(Idx height, Idx width, T d = T())
         {
             return Table(width, height, d);
         }
@@ -45,12 +45,12 @@ namespace euphoria::core
             }
         }
 
-        template <typename Func>
-        void set_all(Func f)
+        template <typename TFunc>
+        void set_all(TFunc f)
         {
-            for(I y = 0; y < height; y += 1)
+            for(Idx y = 0; y < height; y += 1)
             {
-                for(I x = 0; x < width; x += 1)
+                for(Idx x = 0; x < width; x += 1)
                 {
                     (*this)(x, y) = f(x, y);
                 }
@@ -110,16 +110,16 @@ namespace euphoria::core
          * @param new_width the new width
          * @param d the default value
          */
-        void expand_width(I new_width, T d = T())
+        void expand_width(Idx new_width, T d = T())
         {
             // todo(Gustav): only insert the columns we need
             ASSERT(width != 0);
             ASSERTX(width < new_width, width, new_width);
 
             auto t = Table<T>::from_width_height(new_width, height, d);
-            for(I x = 0; x < width; x += 1)
+            for(Idx x = 0; x < width; x += 1)
             {
-                for(I y = 0; y < height; y += 1)
+                for(Idx y = 0; y < height; y += 1)
                 {
                     t(x, y) = (*this)(x, y);
                 }
@@ -128,12 +128,12 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] bool is_inside(I x, I y) const
+        [[nodiscard]] bool is_inside(Idx x, Idx y) const
         {
             return get_indices().contains_inclusive(x, y);
         }
 
-        [[nodiscard]] size_t data_index(I x, I y) const
+        [[nodiscard]] size_t data_index(Idx x, Idx y) const
         {
             ASSERTX
             (
@@ -150,26 +150,26 @@ namespace euphoria::core
             return Recti::from_width_height(width - 1, height - 1);
         }
 
-        [[nodiscard]] I get_width() const
+        [[nodiscard]] Idx get_width() const
         {
             return width;
         }
 
-        [[nodiscard]] I get_height() const
+        [[nodiscard]] Idx get_height() const
         {
             return height;
         }
 
         
 
-        T operator()(I x, I y) const
+        T operator()(Idx x, Idx y) const
         {
             const auto index = data_index(x, y);
             ASSERTX(index < data.size(), index, data.size());
             return data[index];
         }
 
-        typename std::vector<T>::reference operator()(I x, I y)
+        typename std::vector<T>::reference operator()(Idx x, Idx y)
         {
             const auto index = data_index(x, y);
             ASSERTX(index < data.size(), index, data.size());
@@ -177,7 +177,7 @@ namespace euphoria::core
         }
 
 
-        [[nodiscard]] static constexpr I
+        [[nodiscard]] static constexpr Idx
         conv(size_t t)
         {
             return c_sizet_to_int(t);
@@ -186,23 +186,23 @@ namespace euphoria::core
     private:
         // table is stored in in place like [row, row, ...row]
         std::vector<T> data;
-        I width = 0;
-        I height = 0;
+        Idx width = 0;
+        Idx height = 0;
 
 
-        Table(I c, I r, T d = T()) : data(c * r, d), width(c), height(r)
+        Table(Idx c, Idx r, T d = T()) : data(c * r, d), width(c), height(r)
         {
             ASSERTX(width >= 0 && height >= 0, width, height);
         }
     };
 
     template <typename T>
-    std::vector<T> calc_column_as_vector(const Table<T>& t, typename Table<T>::I x)
+    std::vector<T> calc_column_as_vector(const Table<T>& t, typename Table<T>::Idx x)
     {
         ASSERTX(x < t.get_width(), x, t.get_width());
         std::vector<T> r;
         r.reserve(t.get_height());
-        for(typename Table<T>::I y = 0; y < t.get_height(); ++y)
+        for(typename Table<T>::Idx y = 0; y < t.get_height(); ++y)
         {
             r.emplace_back(t(x, y));
         }
@@ -210,13 +210,13 @@ namespace euphoria::core
     }
 
     template <typename T>
-    std::vector<T> calc_row_as_vector(const Table<T>& t, typename Table<T>::I y)
+    std::vector<T> calc_row_as_vector(const Table<T>& t, typename Table<T>::Idx y)
     {
         ASSERTX(y < t.get_height(), y, t.get_height());
 
         std::vector<T> r;
         r.reserve(t.get_width());
-        for(typename Table<T>::I x = 0; x < t.get_width(); ++x)
+        for(typename Table<T>::Idx x = 0; x < t.get_width(); ++x)
         {
             r.emplace_back(t(x, y));
         }

@@ -158,9 +158,9 @@ namespace euphoria::core
     remove_from_end(const std::string& str, const std::string& end);
 
 
-    template <typename Key, typename Value>
+    template <typename TKey, typename TValue>
     std::vector<std::string>
-    to_string_vector(const std::map<Key, Value>& map)
+    to_string_vector(const std::map<TKey, TValue>& map)
     {
         std::vector<std::string> ret;
         for(const auto& m: map)
@@ -172,9 +172,9 @@ namespace euphoria::core
     }
 
 
-    template <typename Key, typename Value>
+    template <typename TKey, typename TValue>
     std::vector<std::string>
-    key_to_string_vector(const std::map<Key, Value>& map)
+    key_to_string_vector(const std::map<TKey, TValue>& map)
     {
         std::vector<std::string> ret;
         for(const auto& m: map)

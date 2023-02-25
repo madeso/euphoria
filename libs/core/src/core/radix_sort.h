@@ -6,13 +6,13 @@
 
 namespace euphoria::core
 {
-    template <typename Int>
+    template <typename TInt>
     struct BucketBase10
     {
         constexpr static int count = 10;
 
         static int
-        get_index(Int i, int exp)
+        get_index(TInt i, int exp)
         {
             return (i / exp) % 10;
         }
@@ -24,25 +24,25 @@ namespace euphoria::core
         }
 
         static bool
-        should_keep_looping(Int max_value, int exp)
+        should_keep_looping(TInt max_value, int exp)
         {
             return max_value / exp > 0;
         }
 
         static int
-        get_next_value(Int, int exp)
+        get_next_value(TInt, int exp)
         {
             return exp * 10;
         }
     };
 
-    template <typename Int>
+    template <typename TInt>
     struct BucketBase16
     {
         constexpr static int count = 16;
 
         static int
-        get_index(Int i, int exp)
+        get_index(TInt i, int exp)
         {
             return (i >> (exp * 4)) & 0xF;
         }
@@ -54,7 +54,7 @@ namespace euphoria::core
         }
 
         static bool
-        should_keep_looping(Int max_value, int exp)
+        should_keep_looping(TInt max_value, int exp)
         {
             if(exp == 0) { return true; }
             // -1 because we need to be sure we have passed the max value
@@ -63,20 +63,20 @@ namespace euphoria::core
         }
 
         static int
-        get_next_value(Int, int exp)
+        get_next_value(TInt, int exp)
         {
             return exp + 1;
         }
     };
 
-    template <typename T, typename IdExtractor, typename Int>
-    Int
+    template <typename T, typename TIdExtractor, typename TInt>
+    TInt
     get_max(const std::vector<T>& arr)
     {
-        Int mx = IdExtractor::get_id(arr[0]);
+        TInt mx = TIdExtractor::get_id(arr[0]);
         for(const auto& i: arr)
         {
-            Int val = IdExtractor::get_id(i);
+            TInt val = TIdExtractor::get_id(i);
             if(val > mx)
             {
                 mx = val;
@@ -85,20 +85,20 @@ namespace euphoria::core
         return mx;
     }
 
-    template <typename T, typename IdExtractor, typename Bucket, typename Int>
+    template <typename T, typename TIdExtractor, typename TBucket, typename TInt>
     std::vector<T>
     count_sort(const std::vector<T>& arr, int exp)
     {
         const int size = c_sizet_to_int(arr.size());
 
-        int sum[Bucket::count] = {0,};
+        int sum[TBucket::count] = {0,};
 
         for(auto i = 0; i < size; i+=1)
         {
-            sum[Bucket::get_index(IdExtractor::get_id(arr[i]), exp)]+=1;
+            sum[TBucket::get_index(TIdExtractor::get_id(arr[i]), exp)]+=1;
         }
 
-        for(auto i = 1; i < Bucket::count; i+=1)
+        for(auto i = 1; i < TBucket::count; i+=1)
         {
             sum[i] += sum[i - 1];
         }
@@ -112,7 +112,7 @@ namespace euphoria::core
 
         for(auto i = size - 1; i >= 0; i-=1)
         {
-            auto index = Bucket::get_index(IdExtractor::get_id(arr[i]), exp);
+            auto index = TBucket::get_index(TIdExtractor::get_id(arr[i]), exp);
             auto target = sum[index] - 1;
             ret[target] = arr[i];
             sum[index] -= 1;
@@ -121,16 +121,16 @@ namespace euphoria::core
         return ret;
     }
 
-    template <typename T, typename IdExtractor, typename Bucket, typename Int>
+    template <typename T, typename TIdExtractor, typename TBucket, typename TInt>
     void
     radix_sort(std::vector<T>* arr)
     {
-        const Int max_value = get_max<T, IdExtractor, Int>(*arr);
+        const TInt max_value = get_max<T, TIdExtractor, TInt>(*arr);
 
-        for(int exp = Bucket::get_start(); Bucket::should_keep_looping(max_value, exp);
-            exp = Bucket::get_next_value(max_value, exp))
+        for(int exp = TBucket::get_start(); TBucket::should_keep_looping(max_value, exp);
+            exp = TBucket::get_next_value(max_value, exp))
         {
-            *arr = count_sort<T, IdExtractor, Bucket, Int>(*arr, exp);
+            *arr = count_sort<T, TIdExtractor, TBucket, TInt>(*arr, exp);
         }
     }
 

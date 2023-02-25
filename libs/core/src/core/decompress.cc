@@ -31,23 +31,23 @@ void Decompressor::stb_lit(const unsigned char *data, unsigned int length)
     stb_dout += length;
 }
 
-#define stb__in2(x)   ((i[x] << 8) + i[(x)+1])
-#define stb__in3(x)   ((i[x] << 16) + stb__in2((x)+1))
-#define stb__in4(x)   ((i[x] << 24) + stb__in3((x)+1))
+#define STB_IN2(x)   ((i[x] << 8) + i[(x)+1])
+#define STB_IN3(x)   ((i[x] << 16) + STB_IN2((x)+1))
+#define STB_IN4(x)   ((i[x] << 24) + STB_IN3((x)+1))
 
 const unsigned char * Decompressor::stb_decompress_token(const unsigned char *i)
 {
     if (*i >= 0x20) { // use fewer if's for cases that expand small
         if (*i >= 0x80)       stb_match(stb_dout-i[1]-1, i[0] - 0x80 + 1), i += 2;
-        else if (*i >= 0x40)  stb_match(stb_dout-(stb__in2(0) - 0x4000 + 1), i[2]+1), i += 3;
+        else if (*i >= 0x40)  stb_match(stb_dout-(STB_IN2(0) - 0x4000 + 1), i[2]+1), i += 3;
         else /* *i >= 0x20 */ stb_lit(i+1, i[0] - 0x20 + 1), i += 1 + (i[0] - 0x20 + 1);
     } else { // more ifs for cases that expand large, since overhead is amortized
-        if (*i >= 0x18)       stb_match(stb_dout-(stb__in3(0) - 0x180000 + 1), i[3]+1), i += 4;
-        else if (*i >= 0x10)  stb_match(stb_dout-(stb__in3(0) - 0x100000 + 1), stb__in2(3)+1), i += 5;
-        else if (*i >= 0x08)  stb_lit(i+2, stb__in2(0) - 0x0800 + 1), i += 2 + (stb__in2(0) - 0x0800 + 1);
-        else if (*i == 0x07)  stb_lit(i+3, stb__in2(1) + 1), i += 3 + (stb__in2(1) + 1);
-        else if (*i == 0x06)  stb_match(stb_dout-(stb__in3(1)+1), i[4]+1), i += 5;
-        else if (*i == 0x04)  stb_match(stb_dout-(stb__in3(1)+1), stb__in2(4)+1), i += 6;
+        if (*i >= 0x18)       stb_match(stb_dout-(STB_IN3(0) - 0x180000 + 1), i[3]+1), i += 4;
+        else if (*i >= 0x10)  stb_match(stb_dout-(STB_IN3(0) - 0x100000 + 1), STB_IN2(3)+1), i += 5;
+        else if (*i >= 0x08)  stb_lit(i+2, STB_IN2(0) - 0x0800 + 1), i += 2 + (STB_IN2(0) - 0x0800 + 1);
+        else if (*i == 0x07)  stb_lit(i+3, STB_IN2(1) + 1), i += 3 + (STB_IN2(1) + 1);
+        else if (*i == 0x06)  stb_match(stb_dout-(STB_IN3(1)+1), i[4]+1), i += 5;
+        else if (*i == 0x04)  stb_match(stb_dout-(STB_IN3(1)+1), STB_IN2(4)+1), i += 6;
     }
     return i;
 }
@@ -86,8 +86,8 @@ unsigned int Decompressor::stb_adler32(unsigned int adler32, unsigned char *buff
 unsigned int Decompressor::stb_decompress(unsigned char *output, const unsigned char *i, unsigned int /*length*/)
 {
     unsigned int olen;
-    if (stb__in4(0) != 0x57bC0000) return 0;
-    if (stb__in4(4) != 0)          return 0; // error! stream is > 4GB
+    if (STB_IN4(0) != 0x57bC0000) return 0;
+    if (STB_IN4(4) != 0)          return 0; // error! stream is > 4GB
     olen = stb_decompress_length(i);
     stb_barrier_in_b = i;
     stb_barrier_out_e = output + olen;
@@ -102,7 +102,7 @@ unsigned int Decompressor::stb_decompress(unsigned char *output, const unsigned 
             if (*i == 0x05 && i[1] == 0xfa) {
                 ASSERT(stb_dout == output + olen);
                 if (stb_dout != output + olen) return 0;
-                if (stb_adler32(1, output, olen) != (unsigned int) stb__in4(2))
+                if (stb_adler32(1, output, olen) != (unsigned int) STB_IN4(2))
                     return 0;
                 return olen;
             } else {
