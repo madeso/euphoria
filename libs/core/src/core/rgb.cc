@@ -4,7 +4,7 @@
 #include <map>
 #include <iomanip>
 
-#include "core/interpolate.h"
+#include "core/interpolate.default.h"
 #include "core/numeric.h"
 #include "core/stringutils.h"
 #include "core/range.h"
@@ -403,14 +403,13 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    rgb
-    RgbTransform::transform(const rgb& from, float v, const rgb& to)
+    rgb rgb_transform(const rgb& from, float v, const rgb& to)
     {
         return
         {
-            FloatTransform::transform(from.r, v, to.r),
-            FloatTransform::transform(from.g, v, to.g),
-            FloatTransform::transform(from.b, v, to.b)
+            float_transform(from.r, v, to.r),
+            float_transform(from.g, v, to.g),
+            float_transform(from.b, v, to.b)
         };
     }
 

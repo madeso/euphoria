@@ -9,7 +9,7 @@ namespace euco = euphoria::core;
 
 TEST_CASE("interpolate-do_nothing", "[interpolate]")
 {
-    euco::FloatInterpolate f {5.0f};
+    euco::Interpolate<float> f {5.0f};
     f.update(0.1f);
 
     REQUIRE(f.value == Approx(5.0f));
@@ -17,7 +17,7 @@ TEST_CASE("interpolate-do_nothing", "[interpolate]")
 
 TEST_CASE("interpolate-basic", "[interpolate]")
 {
-    euco::FloatInterpolate f {0.0f};
+    euco::Interpolate<float> f {0.0f};
     f.set(1.0f, euco::easing::Function::linear, 1.0f);
     f.update(0.1f);
 
@@ -26,7 +26,7 @@ TEST_CASE("interpolate-basic", "[interpolate]")
 
 TEST_CASE("interpolate-basic_negative", "[interpolate]")
 {
-    euco::FloatInterpolate f {1.0f};
+    euco::Interpolate<float> f {1.0f};
     f.set(0.0f, euco::easing::Function::linear, 1.0f);
     f.update(0.1f);
 
@@ -35,7 +35,7 @@ TEST_CASE("interpolate-basic_negative", "[interpolate]")
 
 TEST_CASE("interpolate-basic_with_clear", "[interpolate]")
 {
-    euco::FloatInterpolate f {0.0f};
+    euco::Interpolate<float> f {0.0f};
     f.clear().set(1.0f, euco::easing::Function::linear, 1.0f);
     f.update(0.1f);
 
@@ -44,7 +44,7 @@ TEST_CASE("interpolate-basic_with_clear", "[interpolate]")
 
 TEST_CASE("interpolate-huge_step", "[interpolate]")
 {
-    euco::FloatInterpolate f {0.0f};
+    euco::Interpolate<float> f {0.0f};
     f.set(1.0f, euco::easing::Function::linear, 1.0f);
     f.update(5.0f);
 
@@ -54,7 +54,7 @@ TEST_CASE("interpolate-huge_step", "[interpolate]")
 
 TEST_CASE("interpolate-clear_after_a_time", "[interpolate]")
 {
-    euco::FloatInterpolate f {0.0f};
+    euco::Interpolate<float> f {0.0f};
     f.set(1.0f, euco::easing::Function::linear, 1.0f);
     f.update(0.5f);
     REQUIRE(f.is_active());
@@ -66,7 +66,7 @@ TEST_CASE("interpolate-clear_after_a_time", "[interpolate]")
 
 TEST_CASE("interpolate-change_after_some_time", "[interpolate]")
 {
-    euco::FloatInterpolate f {0.0f};
+    euco::Interpolate<float> f {0.0f};
     f.set(2.0f, euco::easing::Function::linear, 1.0f); // go to 2 this time
     f.update(0.5f); // go half
     REQUIRE(f.value == Approx(1.0f));

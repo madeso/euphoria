@@ -124,7 +124,7 @@ namespace euphoria::core
             (
                 Hsl
                 {
-                    AngleTransform::transform(from, d, to),
+                    angle_transform(from, d, to),
                     saturation,
                     lightness
                 }

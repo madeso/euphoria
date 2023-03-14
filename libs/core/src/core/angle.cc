@@ -194,8 +194,7 @@ namespace euphoria::core
     }
 
 
-    angle
-    AngleTransform::transform(const angle& from, float v, const angle& to)
+    angle angle_transform(const angle& from, float v, const angle& to)
     {
         // https://gamedev.stackexchange.com/a/72364
         const auto dtheta = to - from;
@@ -208,7 +207,5 @@ namespace euphoria::core
                 from;
         
         return from + ( to - new_from ) * v;
-
-        // return angle::from_radians(lerp(from.in_radians(), v, to.in_radians()));
     }
 }

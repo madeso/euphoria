@@ -1,7 +1,7 @@
 #pragma once
 
 #include "core/rgb.h"
-#include "core/interpolate.h"
+#include "core/easing.h"
 #include "core/vfs_path.h"
 #include "core/noncopyable.h"
 

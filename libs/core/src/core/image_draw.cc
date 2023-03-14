@@ -235,7 +235,7 @@ namespace euphoria::core
                 }
 
                 const rgb paint_color = blend
-                    ? RgbTransform::transform
+                    ? rgb_transform
                     (
                         crgb(image->get_pixel(x, y)),
                         blend_factor,
@@ -381,7 +381,7 @@ namespace euphoria::core
             const bool valid_y = is_within_inclusive_as_int(0, y, image->height - 1);
             if(valid_x && valid_y)
             {
-                const rgb paint_color = RgbTransform::transform
+                const rgb paint_color = rgb_transform
                 (
                     crgb(image->get_pixel(x, y)),
                     c,

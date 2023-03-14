@@ -466,23 +466,21 @@ namespace euphoria::core
     }
     
 
-    vec2f
-    Vec2fTransform::transform(const vec2f& from, float v, const vec2f& to)
+    vec2f vec2f_transform(const vec2f& from, float v, const vec2f& to)
     {
         return vec2f
         (
-            FloatTransform::transform(from.x, v, to.x),
-            FloatTransform::transform(from.y, v, to.y)
+            float_transform(from.x, v, to.x),
+            float_transform(from.y, v, to.y)
         );
     }
 
-    vec2i
-    Vec2iTransform::transform(const vec2i& from, float v, const vec2i& to)
+    vec2i vec2i_transform(const vec2i& from, float v, const vec2i& to)
     {
         return vec2i
         (
-            static_cast<int>(FloatTransform::transform(static_cast<float>(from.x), v, static_cast<float>(to.x))),
-            static_cast<int>(FloatTransform::transform(static_cast<float>(from.y), v, static_cast<float>(to.y)))
+            static_cast<int>(float_transform(static_cast<float>(from.x), v, static_cast<float>(to.x))),
+            static_cast<int>(float_transform(static_cast<float>(from.y), v, static_cast<float>(to.y)))
         );
     }
 

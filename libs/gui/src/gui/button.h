@@ -30,10 +30,10 @@ namespace euphoria::gui
         TextData text;
         Skin* skin;
 
-        core::Interpolate<float, core::FloatTransform> scale;
-        core::Interpolate<core::rgb, core::RgbTransform> image_color;
-        core::Interpolate<core::rgb, core::RgbTransform> text_color;
-        core::Interpolate<core::vec2f, core::Vec2fTransform> position_displacement;
+        core::Interpolate<float> scale;
+        core::Interpolate<core::rgb> image_color;
+        core::Interpolate<core::rgb> text_color;
+        core::Interpolate<core::vec2f> position_displacement;
 
         Button(gui::State* state);
         ~Button() override;

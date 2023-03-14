@@ -3,6 +3,8 @@
 #include <iostream>
 
 #include "core/numeric.h"
+#include "core/interpolate.default.h"
+
 
 namespace euphoria::core
 {
@@ -180,11 +182,9 @@ namespace euphoria::core
     operator>=(const angle& lhs, const angle& rhs);
 
 
-    struct AngleTransform
-    {
-        static angle
-        transform(const angle& from, float v, const angle& to);
-    };
+    angle angle_transform(const angle& from, float v, const angle& to);
+
+    DEFAULT_INTERPOLATE(angle, angle_transform);
 }
 
 

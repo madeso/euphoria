@@ -15,7 +15,7 @@ namespace euphoria::core
 {
     angle lerp(const angle& f, float v, const angle& t)
     {
-        return AngleTransform::transform(f, v, t);
+        return angle_transform(f, v, t);
     }
 
     vec3f lerp(const vec3f& f, float v, const vec3f& t)

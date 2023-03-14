@@ -4,7 +4,7 @@
 
 #include "assert/assert.h"
 
-#include "core/interpolate.h"
+#include "core/interpolate.default.h"
 #include "core/angle.h"
 #include "core/numeric.h"
 #include "core/cint.h"
@@ -181,15 +181,11 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     /// Transform
 
-    struct Vec2fTransform
-    {
-        static vec2f transform(const vec2f& from, float v, const vec2f& to);
-    };
+    vec2f vec2f_transform(const vec2f& from, float v, const vec2f& to);
+    vec2i vec2i_transform(const vec2i& from, float v, const vec2i& to);
 
-    struct Vec2iTransform
-    {
-        static vec2i transform(const vec2i& from, float v, const vec2i& to);
-    };
+    DEFAULT_INTERPOLATE(vec2f, vec2f_transform);
+    DEFAULT_INTERPOLATE(vec2i, vec2i_transform);
 
     // todo(Gustav): add one lerp and one slerp unit transform?
 

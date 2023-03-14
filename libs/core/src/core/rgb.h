@@ -5,6 +5,7 @@
 #include "core/cint.h"
 #include "core/colors.h"
 #include "core/angle.h"
+#include "core/interpolate.default.h"
 #include "core/default_parse.h"
 
 
@@ -200,11 +201,9 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // Transforms
 
-    struct RgbTransform
-    {
-        static rgb
-        transform(const rgb& from, float v, const rgb& to);
-    };
+    rgb rgb_transform(const rgb& from, float v, const rgb& to);
+
+    DEFAULT_INTERPOLATE(rgb, rgb_transform);
 
 
     //////////////////////////////////////////////////////////////////////////

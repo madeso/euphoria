@@ -117,6 +117,7 @@ set(app_src
     src/core/helptexthover.cc src/core/helptexthover.h
     src/core/insertionsort.cc src/core/insertionsort.h
     src/core/interpolate.cc src/core/interpolate.h
+    src/core/interpolate.default.cc src/core/interpolate.default.h
     src/core/intersection.cc src/core/intersection.h
     src/core/ints.cc src/core/ints.h
     src/core/io.cc src/core/io.h

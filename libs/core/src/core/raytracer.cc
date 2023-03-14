@@ -417,7 +417,7 @@ namespace euphoria::core::raytracer
             }
         }
         const auto t = (ray.dir.y+1)/2.0f;
-        return RgbTransform::transform
+        return rgb_transform
         (
             rgb(1.0f, 1.0f, 1.0f),
             t,

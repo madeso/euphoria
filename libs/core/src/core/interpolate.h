@@ -1,23 +1,16 @@
 #pragma once
 
-#include "core/easing.h"
 #include "assert/assert.h"
 
+#include "core/easing.h"
+#include "core/interpolate.default.h"
 
 namespace euphoria::core
 {
-    struct FloatTransform
-    {
-        static float
-        transform(float from, float v, float to);
-    };
-
-
-    // Transform should have a function Transform(T from, float zeroToOne, T to)
-    template <typename T, typename TTransform>
+    template <typename T>
     struct Interpolate
     {
-        using Self = Interpolate<T, TTransform>;
+        using Self = Interpolate<T>;
 
         static constexpr float transition_ended = 2.0f;
 
@@ -65,7 +58,8 @@ namespace euphoria::core
             set(new_value, f, time);
         }
 
-        void update(float dt)
+        template<typename F>
+        void update(float dt, F transform_function)
         {
             if(t >= 1.0f)
             {
@@ -82,8 +76,13 @@ namespace euphoria::core
             else
             {
                 const auto f = easing::apply(easing_function, t);
-                value = TTransform::transform(from, f, to);
+                value = transform_function(from, f, to);
             }
+        }
+
+        void update(float dt)
+        {
+            update(dt, default_interpolate<T>);
         }
 
         [[nodiscard]] bool is_active() const
@@ -91,6 +90,4 @@ namespace euphoria::core
             return t < 1.0f;
         }
     };
-
-    using FloatInterpolate = Interpolate<float, FloatTransform>;
 }
