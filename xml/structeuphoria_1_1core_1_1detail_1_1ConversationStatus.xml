@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="188" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="188" bodyend="-1"/>
+        <location file="libs/core/src/core/chatbot.h" line="171" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a1e6bf0074a60d4c7c458f8a81028b5c2" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="189" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="189" bodyend="-1"/>
+        <location file="libs/core/src/core/chatbot.h" line="172" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="172" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a534afef0389064b60d4a410ede77b319" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="190" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="190" bodyend="-1"/>
+        <location file="libs/core/src/core/chatbot.h" line="173" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="173" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1ac22e09cdd4ff0469764a2bc2a7e27572" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry" kindref="compound">TopicEntry</ref> &gt;</type>
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="191" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="191" bodyend="-1"/>
+        <location file="libs/core/src/core/chatbot.h" line="174" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="174" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a422fa56a9c43e025845227c3a0b788b7" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1LogEntry" kindref="compound">LogEntry</ref> &gt;</type>
@@ -69,14 +69,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="192" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="192" bodyend="-1"/>
+        <location file="libs/core/src/core/chatbot.h" line="175" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="175" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/chatbot.h" line="175" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="174" bodyend="193"/>
+    <location file="libs/core/src/core/chatbot.h" line="158" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="157" bodyend="176"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1add606277ea221865ce61e425b1ef1fad" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus</scope><name>input</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1a422fa56a9c43e025845227c3a0b788b7" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus</scope><name>logs</name></member>

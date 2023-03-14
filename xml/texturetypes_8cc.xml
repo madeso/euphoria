@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="texturetypes_8cc" kind="file" language="C++">
+    <compoundname>texturetypes.cc</compoundname>
+    <includes refid="texturetypes_8h" local="yes">core/texturetypes.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>core/texturetypes.h</label>
+        <link refid="texturetypes_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>map</label>
+      </node>
+      <node id="3">
+        <label>core/enum.h</label>
+        <link refid="enum_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/texturetypes.cc</label>
+        <link refid="texturetypes_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/texturetypes.cc"/>
+  </compounddef>
+</doxygen>

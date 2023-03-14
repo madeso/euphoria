@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="timer_8cc" kind="file" language="C++">
+    <compoundname>timer.cc</compoundname>
+    <includes refid="timer_8h" local="yes">window/timer.h</includes>
+    <includes local="yes">SDL_timer.h</includes>
+    <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>SDL_timer.h</label>
+      </node>
+      <node id="7">
+        <label>cstdint</label>
+      </node>
+      <node id="5">
+        <label>core/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>SDL_types.h</label>
+      </node>
+      <node id="2">
+        <label>window/timer.h</label>
+        <link refid="timer_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>cstddef</label>
+      </node>
+      <node id="1">
+        <label>libs/window/src/window/timer.cc</label>
+        <link refid="timer_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/timer.cc"/>
+  </compounddef>
+</doxygen>

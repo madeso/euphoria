@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="14" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="14" bodyend="17"/>
+        <location file="libs/core/src/core/angle.h" line="16" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="16" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a1e5c3875e12142f09f3ab0c47a7cded0" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr static <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="21" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="21" bodyend="24"/>
+        <location file="libs/core/src/core/angle.h" line="22" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="22" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1ab0e95107162945725c40bf854e703462" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr static <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="27" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="27" bodyend="30"/>
+        <location file="libs/core/src/core/angle.h" line="28" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="28" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a49707acbcf7d2e7fe253347f2558e8ed" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr static <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="33" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="33" bodyend="36"/>
+        <location file="libs/core/src/core/angle.h" line="34" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="34" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a761816a54621ebaf76494bc570c1aad1" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr static <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="39" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="39" bodyend="42"/>
+        <location file="libs/core/src/core/angle.h" line="40" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="40" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a05556227be5731889c87c61390801295" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr static <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="46" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="46" bodyend="49"/>
+        <location file="libs/core/src/core/angle.h" line="47" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="47" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a6457ed4fcfa10953b0c6b56af17366ea" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr static <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="53" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="53" bodyend="56"/>
+        <location file="libs/core/src/core/angle.h" line="54" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="54" bodyend="57"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1afa3c6789f97d1983bfed2f11945f84a8" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr static <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -137,11 +137,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="60" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="60" bodyend="63"/>
+        <location file="libs/core/src/core/angle.h" line="61" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="61" bodyend="64"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1aaaeddf1a5c47a886c3bd8050c522207e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a0c59b3bcd700b574086c931b01e6c375" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
-        <definition>static angle euphoria::core::angle::random</definition>
+        <definition>angle euphoria::core::angle::random</definition>
         <argsstring>(::euphoria::core::Random *random)</argsstring>
         <name>random</name>
         <param>
@@ -154,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="65" column="23"/>
+        <location file="libs/core/src/core/angle.h" line="66" column="23" bodyfile="libs/core/src/core/angle.cc" bodystart="12" bodyend="15"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -169,7 +169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="67" column="14"/>
+        <location file="libs/core/src/core/angle.h" line="69" column="14" bodyfile="libs/core/src/core/angle.cc" bodystart="19" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a6b801df5232e94d32e9f9375fffc6210" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr float</type>
@@ -182,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="71" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="71" bodyend="74"/>
+        <location file="libs/core/src/core/angle.h" line="73" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="73" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1aef8d7210f1d84c30152f7c232e719a10" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr float</type>
@@ -195,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="78" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="78" bodyend="81"/>
+        <location file="libs/core/src/core/angle.h" line="79" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="79" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1ac82620f7f04e1bbb28a8d911376ec78d" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr float</type>
@@ -208,7 +208,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="84" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="84" bodyend="87"/>
+        <location file="libs/core/src/core/angle.h" line="85" column="9" bodyfile="libs/core/src/core/angle.h" bodystart="85" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a4febd5e5c75178fcecbf6aba89192a10" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::angle::get_wrapped</definition>
+        <argsstring>() const</argsstring>
+        <name>get_wrapped</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/angle.h" line="90" column="16" bodyfile="libs/core/src/core/angle.cc" bodystart="114" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1ac0057dfd71da8ea6675d1762fc7bedc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -225,7 +238,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="89" column="14"/>
+        <location file="libs/core/src/core/angle.h" line="92" column="14" bodyfile="libs/core/src/core/angle.cc" bodystart="26" bodyend="29"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1aaf74abb3ff4315b43c9f6d7fc0c97799" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -242,7 +255,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="90" column="14"/>
+        <location file="libs/core/src/core/angle.h" line="93" column="14" bodyfile="libs/core/src/core/angle.cc" bodystart="33" bodyend="36"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a29b0de40d4a1faadd16e9125108d12de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -259,7 +272,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="91" column="14"/>
+        <location file="libs/core/src/core/angle.h" line="94" column="14" bodyfile="libs/core/src/core/angle.cc" bodystart="40" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a03ad1cae5ae456c5007f1a30483b6382" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -276,7 +289,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="92" column="14"/>
+        <location file="libs/core/src/core/angle.h" line="95" column="14" bodyfile="libs/core/src/core/angle.cc" bodystart="47" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a5de2b1676724575b45953dc10d45614f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -289,20 +302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="93" column="15"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1angle_1a4febd5e5c75178fcecbf6aba89192a10" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
-        <definition>angle euphoria::core::angle::get_wrapped</definition>
-        <argsstring>() const</argsstring>
-        <name>get_wrapped</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/angle.h" line="95" column="16"/>
+        <location file="libs/core/src/core/angle.h" line="96" column="15" bodyfile="libs/core/src/core/angle.cc" bodystart="54" bodyend="57"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -364,7 +364,7 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/angle.h" line="12" column="1" bodyfile="libs/core/src/core/angle.h" bodystart="11" bodyend="114"/>
+    <location file="libs/core/src/core/angle.h" line="14" column="1" bodyfile="libs/core/src/core/angle.h" bodystart="13" bodyend="114"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1angle_1af11399cfbbf5f40e083019ba63c9cea6" prot="private" virt="non-virtual"><scope>euphoria::core::angle</scope><name>angle</name></member>
       <member refid="structeuphoria_1_1core_1_1angle_1a0e86d78bf6f8f41aeb8d2b8196f82fad" prot="private" virt="non-virtual"><scope>euphoria::core::angle</scope><name>degrees_to_radian</name></member>
@@ -386,7 +386,7 @@
       <member refid="structeuphoria_1_1core_1_1angle_1a6457ed4fcfa10953b0c6b56af17366ea" prot="public" virt="non-virtual"><scope>euphoria::core::angle</scope><name>quarter</name></member>
       <member refid="structeuphoria_1_1core_1_1angle_1ae8072369511a7f99ed09ac0915117ae3" prot="private" virt="non-virtual"><scope>euphoria::core::angle</scope><name>radian_to_degrees</name></member>
       <member refid="structeuphoria_1_1core_1_1angle_1a7ae30bf44a226d60af69f5e5ac1d99ed" prot="private" virt="non-virtual"><scope>euphoria::core::angle</scope><name>radians</name></member>
-      <member refid="structeuphoria_1_1core_1_1angle_1aaaeddf1a5c47a886c3bd8050c522207e" prot="public" virt="non-virtual"><scope>euphoria::core::angle</scope><name>random</name></member>
+      <member refid="structeuphoria_1_1core_1_1angle_1a0c59b3bcd700b574086c931b01e6c375" prot="public" virt="non-virtual"><scope>euphoria::core::angle</scope><name>random</name></member>
       <member refid="structeuphoria_1_1core_1_1angle_1a32b39a4289c98dbf67b4c12f0aca404c" prot="public" virt="non-virtual"><scope>euphoria::core::angle</scope><name>wrap</name></member>
       <member refid="structeuphoria_1_1core_1_1angle_1afa3c6789f97d1983bfed2f11945f84a8" prot="public" virt="non-virtual"><scope>euphoria::core::angle</scope><name>zero</name></member>
     </listofallmembers>

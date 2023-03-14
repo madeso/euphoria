@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="113" column="21" bodyfile="libs/core/src/core/vfs.h" bodystart="113" bodyend="-1"/>
+        <location file="libs/core/src/core/vfs.h" line="75" column="21" bodyfile="libs/core/src/core/vfs.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a284f39519a5d33d137db1e1519090e2a" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1WriteRoot" kindref="compound">vfs::WriteRoot</ref> &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="114" column="25" bodyfile="libs/core/src/core/vfs.h" bodystart="114" bodyend="-1"/>
+        <location file="libs/core/src/core/vfs.h" line="76" column="25" bodyfile="libs/core/src/core/vfs.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="77" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="78" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a3be7cfac12356772b488f532e192de68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="78" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="79" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a296ac9bd5112918482a1bbe845d76017" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="80" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="81" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1ac92bff5a6c9ffe1a41227f9314d2a4a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="81" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="82" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a95543bd754c5e16be957fe9c3b82131b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -104,7 +104,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="82" column="14"/>
+        <location file="libs/core/src/core/vfs.h" line="83" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1ad1f3542bd09a441c65b8ff8e39e4d62d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -120,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="83" column="14"/>
+        <location file="libs/core/src/core/vfs.h" line="84" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1aecf4a0a6048b1ea6d87d692f08ef84ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="86" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="86" column="14" bodyfile="libs/core/src/core/vfs.cc" bodystart="69" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1adb569d43813d28da1828324dc456ce44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -154,11 +154,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="89" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="87" column="14" bodyfile="libs/core/src/core/vfs.cc" bodystart="76" bodyend="79"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a2004537b10bbaed6e0858e93fc03e00e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a78b03de327e0ed8b7ca9a52a05d503e4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::vfs::FileSystem::read_file</definition>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; euphoria::core::vfs::FileSystem::read_file</definition>
         <argsstring>(const FilePath &amp;path)</argsstring>
         <name>read_file</name>
         <param>
@@ -171,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="92" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="88" column="25" bodyfile="libs/core/src/core/vfs.cc" bodystart="83" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a50e20024f030ffcd0237a14111af52cf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -192,11 +192,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="95" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="89" column="14" bodyfile="libs/core/src/core/vfs.cc" bodystart="113" bodyend="120"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a854600d3a2ebc8cd06ca157754ec8b73" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a82d4ece1dcf8af342a86a565d534d095" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1ListedFile" kindref="compound">ListedFile</ref> &gt;</type>
-        <definition>std::vector&lt;ListedFile&gt; euphoria::core::vfs::FileSystem::list_files</definition>
+        <definition>std::vector&lt; ListedFile &gt; euphoria::core::vfs::FileSystem::list_files</definition>
         <argsstring>(const DirPath &amp;path)</argsstring>
         <name>list_files</name>
         <param>
@@ -209,7 +209,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="98" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="90" column="21" bodyfile="libs/core/src/core/vfs.cc" bodystart="124" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1ab9ec2c44ee534fe5bd1b7727a36a541a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -222,20 +222,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="101" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="91" column="21" bodyfile="libs/core/src/core/vfs.cc" bodystart="154" bodyend="163"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1aa55d85f3c41cdcddc95b5b9361779b06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::vfs::FileSystem::read_file_to_string</definition>
-        <argsstring>(const FilePath &amp;path, std::string *source)</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1af7846fb0df800b50a8a61e8a10a3b506" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; std::string &gt;</type>
+        <definition>std::optional&lt; std::string &gt; euphoria::core::vfs::FileSystem::read_file_to_string</definition>
+        <argsstring>(const FilePath &amp;path)</argsstring>
         <name>read_file_to_string</name>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
           <declname>path</declname>
-        </param>
-        <param>
-          <type>std::string *</type>
-          <declname>source</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -243,25 +239,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="105" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="94" column="23" bodyfile="libs/core/src/core/vfs.cc" bodystart="168" bodyend="180"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vfs.h" line="76" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="75" bodyend="115"/>
+    <location file="libs/core/src/core/vfs.h" line="74" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="73" bodyend="99"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1aecf4a0a6048b1ea6d87d692f08ef84ba" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>add_read_root</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a7a60f6a96f32969a7794e682a1f2d7a4" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>FileSystem</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a296ac9bd5112918482a1bbe845d76017" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>FileSystem</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1ac92bff5a6c9ffe1a41227f9314d2a4a4" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>FileSystem</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1ab9ec2c44ee534fe5bd1b7727a36a541a" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>get_roots_as_string</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a854600d3a2ebc8cd06ca157754ec8b73" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>list_files</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a82d4ece1dcf8af342a86a565d534d095" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>list_files</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a95543bd754c5e16be957fe9c3b82131b" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1ad1f3542bd09a441c65b8ff8e39e4d62d" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>operator=</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a2004537b10bbaed6e0858e93fc03e00e" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>read_file</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1aa55d85f3c41cdcddc95b5b9361779b06" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>read_file_to_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a78b03de327e0ed8b7ca9a52a05d503e4" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>read_file</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1af7846fb0df800b50a8a61e8a10a3b506" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>read_file_to_string</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1af1e75f61356399ea496ceaea4707ddef" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>read_roots</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1adb569d43813d28da1828324dc456ce44" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>set_write_root</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem_1a50e20024f030ffcd0237a14111af52cf" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileSystem</scope><name>write_file</name></member>

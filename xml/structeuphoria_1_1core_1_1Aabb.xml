@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="17" column="9"/>
+        <location file="libs/core/src/core/aabb.h" line="17" column="9" bodyfile="libs/core/src/core/aabb.cc" bodystart="10" bodyend="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a84e652d66728b0cd1a1e61de7e04ca84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="20" column="14"/>
+        <location file="libs/core/src/core/aabb.h" line="20" column="14" bodyfile="libs/core/src/core/aabb.cc" bodystart="49" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a9f592e6d732bf484bf2d416b44ffcea4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="21" column="14"/>
+        <location file="libs/core/src/core/aabb.h" line="21" column="14" bodyfile="libs/core/src/core/aabb.cc" bodystart="58" bodyend="63"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a986fa9eff325c1173aa59bcc1dd84530" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -102,7 +102,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="22" column="14"/>
+        <location file="libs/core/src/core/aabb.h" line="22" column="14" bodyfile="libs/core/src/core/aabb.cc" bodystart="99" bodyend="103"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1aed774ece37a89cb5c57f74bf182e0ec9" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="24" column="16"/>
+        <location file="libs/core/src/core/aabb.h" line="24" column="16" bodyfile="libs/core/src/core/aabb.cc" bodystart="17" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a7ff5a7553b4f07726fc3622efa52c635" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
@@ -136,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="25" column="15"/>
+        <location file="libs/core/src/core/aabb.h" line="25" column="15" bodyfile="libs/core/src/core/aabb.cc" bodystart="107" bodyend="112"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1ad7f1bf63a320ed88d754105d19d5626b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -149,7 +149,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="27" column="16"/>
+        <location file="libs/core/src/core/aabb.h" line="27" column="16" bodyfile="libs/core/src/core/aabb.cc" bodystart="74" bodyend="78"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a5b4977549583d323f14a205d8503aab8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -162,7 +162,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="28" column="15"/>
+        <location file="libs/core/src/core/aabb.h" line="28" column="15" bodyfile="libs/core/src/core/aabb.cc" bodystart="82" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a969a515534d9eeacda85e89a32931c7a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -175,11 +175,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="29" column="16"/>
+        <location file="libs/core/src/core/aabb.h" line="29" column="16" bodyfile="libs/core/src/core/aabb.cc" bodystart="91" bodyend="95"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a6698470eb44bd0056aad49cca3ec0f8d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1ab33f0708e0eb29f9f430d762c753eebe" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
-        <definition>std::vector&lt;vec3f&gt; euphoria::core::Aabb::calculate_all_corners</definition>
+        <definition>std::vector&lt; vec3f &gt; euphoria::core::Aabb::calculate_all_corners</definition>
         <argsstring>() const</argsstring>
         <name>calculate_all_corners</name>
         <briefdescription>
@@ -188,13 +188,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="32" column="22"/>
+        <location file="libs/core/src/core/aabb.h" line="32" column="22" bodyfile="libs/core/src/core/aabb.cc" bodystart="116" bodyend="125"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a2d85fa1fe617982fd810f653124bdaba" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Aabb_1a968d009ee45fa5c4e1ee1171bc92f1d4" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
-        <definition>static Aabb euphoria::core::Aabb::create_empty</definition>
+        <definition>Aabb euphoria::core::Aabb::create_empty</definition>
         <argsstring>()</argsstring>
         <name>create_empty</name>
         <briefdescription>
@@ -203,7 +203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/aabb.h" line="18" column="22"/>
+        <location file="libs/core/src/core/aabb.h" line="18" column="22" bodyfile="libs/core/src/core/aabb.cc" bodystart="67" bodyend="70"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -227,8 +227,8 @@
     <location file="libs/core/src/core/aabb.h" line="13" column="1" bodyfile="libs/core/src/core/aabb.h" bodystart="12" bodyend="33"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a4cc91056779896a9a0eca79ac71c0779" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>Aabb</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1a6698470eb44bd0056aad49cca3ec0f8d" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>calculate_all_corners</name></member>
-      <member refid="structeuphoria_1_1core_1_1Aabb_1a2d85fa1fe617982fd810f653124bdaba" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>create_empty</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1ab33f0708e0eb29f9f430d762c753eebe" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>calculate_all_corners</name></member>
+      <member refid="structeuphoria_1_1core_1_1Aabb_1a968d009ee45fa5c4e1ee1171bc92f1d4" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>create_empty</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a84e652d66728b0cd1a1e61de7e04ca84" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>extend</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a9f592e6d732bf484bf2d416b44ffcea4" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>extend</name></member>
       <member refid="structeuphoria_1_1core_1_1Aabb_1a969a515534d9eeacda85e89a32931c7a" prot="public" virt="non-virtual"><scope>euphoria::core::Aabb</scope><name>get_offset</name></member>

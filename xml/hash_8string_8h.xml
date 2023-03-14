@@ -5,6 +5,7 @@
     <includes local="no">string_view</includes>
     <includes refid="ints_8h" local="yes">core/ints.h</includes>
     <includes refid="hash_8h" local="yes">core/hash.h</includes>
+    <includedby refid="hash_8string_8cc" local="yes">libs/core/src/core/hash.string.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/hash.string.h</label>
@@ -37,6 +38,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/hash.string.h</label>
+        <link refid="hash_8string_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/hash.string.cc</label>
+        <link refid="hash_8string_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1HashedStringView" prot="public">euphoria::core::HashedStringView</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

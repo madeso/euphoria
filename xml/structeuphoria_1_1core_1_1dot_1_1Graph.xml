@@ -32,9 +32,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1dot_1_1Graph_1a58565e2151ff7af836fd3ebf2d126457" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dot_1_1Graph_1aacdab7ab8c978b6858179d2ee1305a98" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1dot_1_1Node" kindref="compound">Node</ref> *</type>
-        <definition>Node* euphoria::core::dot::Graph::add_new_node</definition>
+        <definition>Node * euphoria::core::dot::Graph::add_new_node</definition>
         <argsstring>(const std::string &amp;name)</argsstring>
         <name>add_new_node</name>
         <param>
@@ -47,11 +47,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dotoutput.h" line="30" column="10"/>
+        <location file="libs/core/src/core/dotoutput.h" line="30" column="10" bodyfile="libs/core/src/core/dotoutput.cc" bodystart="14" bodyend="24"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1dot_1_1Graph_1a42d1199584df46a3b3dee701091a7fa1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dot_1_1Graph_1a4b223eaee9cae3b9c4148c3119525545" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1dot_1_1Edge" kindref="compound">Edge</ref> *</type>
-        <definition>Edge* euphoria::core::dot::Graph::add_new_edge</definition>
+        <definition>Edge * euphoria::core::dot::Graph::add_new_edge</definition>
         <argsstring>(NodeId from, NodeId to)</argsstring>
         <name>add_new_edge</name>
         <param>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dotoutput.h" line="31" column="10"/>
+        <location file="libs/core/src/core/dotoutput.h" line="31" column="10" bodyfile="libs/core/src/core/dotoutput.cc" bodystart="28" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dot_1_1Graph_1a9eeb5dfeabe08a9e82332b7b773882d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dotoutput.h" line="33" column="10"/>
+        <location file="libs/core/src/core/dotoutput.h" line="33" column="10" bodyfile="libs/core/src/core/dotoutput.cc" bodystart="47" bodyend="66"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -90,8 +90,8 @@
     </detaileddescription>
     <location file="libs/core/src/core/dotoutput.h" line="26" column="1" bodyfile="libs/core/src/core/dotoutput.h" bodystart="25" bodyend="34"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1dot_1_1Graph_1a42d1199584df46a3b3dee701091a7fa1" prot="public" virt="non-virtual"><scope>euphoria::core::dot::Graph</scope><name>add_new_edge</name></member>
-      <member refid="structeuphoria_1_1core_1_1dot_1_1Graph_1a58565e2151ff7af836fd3ebf2d126457" prot="public" virt="non-virtual"><scope>euphoria::core::dot::Graph</scope><name>add_new_node</name></member>
+      <member refid="structeuphoria_1_1core_1_1dot_1_1Graph_1a4b223eaee9cae3b9c4148c3119525545" prot="public" virt="non-virtual"><scope>euphoria::core::dot::Graph</scope><name>add_new_edge</name></member>
+      <member refid="structeuphoria_1_1core_1_1dot_1_1Graph_1aacdab7ab8c978b6858179d2ee1305a98" prot="public" virt="non-virtual"><scope>euphoria::core::dot::Graph</scope><name>add_new_node</name></member>
       <member refid="structeuphoria_1_1core_1_1dot_1_1Graph_1a0c2702289c6d35fcfa57b77ddc30e6fd" prot="public" virt="non-virtual"><scope>euphoria::core::dot::Graph</scope><name>edges</name></member>
       <member refid="structeuphoria_1_1core_1_1dot_1_1Graph_1a11440d2364a1dd6737946a54b326806f" prot="public" virt="non-virtual"><scope>euphoria::core::dot::Graph</scope><name>nodes</name></member>
       <member refid="structeuphoria_1_1core_1_1dot_1_1Graph_1a9eeb5dfeabe08a9e82332b7b773882d4" prot="public" virt="non-virtual"><scope>euphoria::core::dot::Graph</scope><name>print</name></member>

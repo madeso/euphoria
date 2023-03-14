@@ -19,9 +19,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/layout.h" line="21" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Layout_1a3ea5e240526f7eac902caf96b3b20581" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Layout_1a0925780fdc9b761c6491bd756234a661" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
-        <definition>virtual euphoria::gui::Layout::~Layout</definition>
+        <definition>euphoria::gui::Layout::~Layout</definition>
         <argsstring>()</argsstring>
         <name>~Layout</name>
         <briefdescription>
@@ -119,7 +119,7 @@
       <member refid="structeuphoria_1_1gui_1_1Layout_1a59f1d59f5b936e31b12c8e25c4cd91a7" prot="public" virt="pure-virtual"><scope>euphoria::gui::Layout</scope><name>do_layout</name></member>
       <member refid="structeuphoria_1_1gui_1_1Layout_1aab9118341d8c1aa1a34728681ce65402" prot="public" virt="non-virtual"><scope>euphoria::gui::Layout</scope><name>Layout</name></member>
       <member refid="structeuphoria_1_1gui_1_1Layout_1ab2d7632c9c77d5cfd4e9a3c8181e27e3" prot="public" virt="non-virtual"><scope>euphoria::gui::Layout</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Layout_1a3ea5e240526f7eac902caf96b3b20581" prot="public" virt="virtual"><scope>euphoria::gui::Layout</scope><name>~Layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1a0925780fdc9b761c6491bd756234a661" prot="public" virt="virtual"><scope>euphoria::gui::Layout</scope><name>~Layout</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

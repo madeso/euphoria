@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespace_0d178" kind="namespace" language="C++">
+    <compoundname>@178</compoundname>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="namespace_0d178_1a1eecdaa229117331b59d72718f54dbe8" prot="public" static="no" strong="yes">
+        <type></type>
+        <name>SortRange</name>
+        <enumvalue id="namespace_0d178_1a1eecdaa229117331b59d72718f54dbe8a4b43b0aee35624cd95b910189b3dc231" prot="public">
+          <name>r</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_0d178_1a1eecdaa229117331b59d72718f54dbe8ab2f5ff47436671b6e533d8dc3614845d" prot="public">
+          <name>g</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="namespace_0d178_1a1eecdaa229117331b59d72718f54dbe8a92eb5ffee6ae2fec3ad71c777531578f" prot="public">
+          <name>b</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette_extract.cc" line="37" column="1" bodyfile="libs/core/src/core/palette_extract.cc" bodystart="36" bodyend="39"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/palette_extract.cc" line="13" column="1"/>
+  </compounddef>
+</doxygen>

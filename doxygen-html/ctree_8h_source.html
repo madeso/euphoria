@@ -91,40 +91,40 @@
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">template</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    &lt;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        <span class="keyword">typename</span> T,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">typename</span> LabelFunction,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">typename</span> FindChildrenFunction,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">typename</span> PrintFunction</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        <span class="keyword">typename</span> TLabelFunc,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">typename</span> TFindChildrenFunc,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        <span class="keyword">typename</span> TPrintFunc</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    &gt;</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#aca0d3480c8d8add15f0d79a91a82fec9">print_hierarchy</a></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#aca0d3480c8d8add15f0d79a91a82fec9">   44</a></span>&#160;    (</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a5bd0f545d7019253a5a9199e06a2006c">print_hierarchy</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a5bd0f545d7019253a5a9199e06a2006c">   44</a></span>&#160;    (</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        T item,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        LabelFunction label_function,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        FindChildrenFunction find_children_function,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        PrintFunction print_function,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;        TLabelFunc label_func,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        TFindChildrenFunc find_children_func,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;        TPrintFunc print_func,</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1TreeStyle.html">TreeStyle</a>&amp; style = <a class="code" href="namespaceeuphoria_1_1core.html#a7c9218b5cbc7ed8555742dd10a461b38">determine_style</a>(),</div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">const</span> std::string&amp; a_indent = <span class="stringliteral">&quot;&quot;</span>,</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <span class="keywordtype">int</span> index = 0,</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordtype">bool</span> last = <span class="keyword">true</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    )</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> children = find_children_function(item);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a> = label_function(item);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> children = find_children_func(item);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a> = label_func(item);</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> is_root = style.root_special &amp;&amp; index == 0;</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        std::string indent = a_indent;</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        <span class="keywordflow">if</span> (is_root)</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            print_function(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;            print_func(<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>);</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        }</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            print_function(indent + std::string{ last ? style.l : style.t_cross } +<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            print_func(indent + std::string{ last ? style.l : style.t_cross } +<a class="code" href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">label</a>);</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            <span class="keywordflow">if</span> ( style.include_space &amp;&amp; last &amp;&amp; children.empty())</div>
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                print_function(indent);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                print_func(indent);</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            }</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            indent += (last ? style.space : style.down);</div>
@@ -132,12 +132,12 @@
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = children.begin(); it != children.end(); ++it)</div>
 <div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            print_hierarchy&lt;T, LabelFunction, FindChildrenFunction, PrintFunction&gt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;            print_hierarchy&lt;T, TLabelFunc, TFindChildrenFunc, TPrintFunc&gt;</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            (</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                *it,</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                label_function,</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                find_children_function,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                print_function,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                label_func,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                find_children_func,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                print_func,</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                style,</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                indent,</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                index + 1,</div>
@@ -147,19 +147,19 @@
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a45bf6b79de29d2b7ccb9d19100b5b5ab"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a45bf6b79de29d2b7ccb9d19100b5b5ab">euphoria::core::slash_style</a></div><div class="ttdeci">TreeStyle slash_style()</div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a45bf6b79de29d2b7ccb9d19100b5b5ab"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a45bf6b79de29d2b7ccb9d19100b5b5ab">euphoria::core::slash_style</a></div><div class="ttdeci">TreeStyle slash_style()</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8cc_source.html#l00028">ctree.cc:28</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1TreeStyle_html_aafe5367e8ac8fcd82a90e5e845557fe8"><div class="ttname"><a href="structeuphoria_1_1core_1_1TreeStyle.html#aafe5367e8ac8fcd82a90e5e845557fe8">euphoria::core::TreeStyle::down</a></div><div class="ttdeci">std::string_view down</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00011">ctree.h:11</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1TreeStyle_html_a9f18d1731141c842fa96501214da45c7"><div class="ttname"><a href="structeuphoria_1_1core_1_1TreeStyle.html#a9f18d1731141c842fa96501214da45c7">euphoria::core::TreeStyle::l</a></div><div class="ttdeci">std::string_view l</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00010">ctree.h:10</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1TreeStyle_html_a82872f727518cf4d30e3cedddf19728c"><div class="ttname"><a href="structeuphoria_1_1core_1_1TreeStyle.html#a82872f727518cf4d30e3cedddf19728c">euphoria::core::TreeStyle::t_cross</a></div><div class="ttdeci">std::string_view t_cross</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00009">ctree.h:9</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_aae9687e24ada7365019d6da628852eb2"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">euphoria::window::imgui::label</a></div><div class="ttdeci">void label(const std::string &amp;str)</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a7c9218b5cbc7ed8555742dd10a461b38"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a7c9218b5cbc7ed8555742dd10a461b38">euphoria::core::determine_style</a></div><div class="ttdeci">TreeStyle determine_style()</div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1window_1_1imgui_html_aae9687e24ada7365019d6da628852eb2"><div class="ttname"><a href="namespaceeuphoria_1_1window_1_1imgui.html#aae9687e24ada7365019d6da628852eb2">euphoria::window::imgui::label</a></div><div class="ttdeci">void label(const std::string &amp;str)</div><div class="ttdef"><b>Definition:</b> <a href="imgui__extra_8cc_source.html#l00066">imgui_extra.cc:66</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a7c9218b5cbc7ed8555742dd10a461b38"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a7c9218b5cbc7ed8555742dd10a461b38">euphoria::core::determine_style</a></div><div class="ttdeci">TreeStyle determine_style()</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8cc_source.html#l00064">ctree.cc:64</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1TreeStyle_html_aebcd6d0c79094e87dbf958a3fbbe1994"><div class="ttname"><a href="structeuphoria_1_1core_1_1TreeStyle.html#aebcd6d0c79094e87dbf958a3fbbe1994">euphoria::core::TreeStyle::include_space</a></div><div class="ttdeci">bool include_space</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00014">ctree.h:14</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a91e9afab2ea23e1c653819a20bea5dff"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a91e9afab2ea23e1c653819a20bea5dff">euphoria::core::utf8_tree_style</a></div><div class="ttdeci">TreeStyle utf8_tree_style()</div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a91e9afab2ea23e1c653819a20bea5dff"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a91e9afab2ea23e1c653819a20bea5dff">euphoria::core::utf8_tree_style</a></div><div class="ttdeci">TreeStyle utf8_tree_style()</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8cc_source.html#l00040">ctree.cc:40</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1TreeStyle_html_a1f456eab8f51eea736c151ac6d5179b4"><div class="ttname"><a href="structeuphoria_1_1core_1_1TreeStyle.html#a1f456eab8f51eea736c151ac6d5179b4">euphoria::core::TreeStyle::space</a></div><div class="ttdeci">std::string_view space</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00012">ctree.h:12</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_aca0d3480c8d8add15f0d79a91a82fec9"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aca0d3480c8d8add15f0d79a91a82fec9">euphoria::core::print_hierarchy</a></div><div class="ttdeci">void print_hierarchy(T item, LabelFunction label_function, FindChildrenFunction find_children_function, PrintFunction print_function, const TreeStyle &amp;style=determine_style(), const std::string &amp;a_indent=&quot;&quot;, int index=0, bool last=true)</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00044">ctree.h:44</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1TreeStyle_html_afc4e10207190320e72ca0dde9f889034"><div class="ttname"><a href="structeuphoria_1_1core_1_1TreeStyle.html#afc4e10207190320e72ca0dde9f889034">euphoria::core::TreeStyle::root_special</a></div><div class="ttdeci">bool root_special</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00015">ctree.h:15</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_af8262da5777c17a850d64e30bf4da9d4"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#af8262da5777c17a850d64e30bf4da9d4">euphoria::core::cross_style</a></div><div class="ttdeci">TreeStyle cross_style()</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8h_source.html#l00008">aabb.h:8</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_af8262da5777c17a850d64e30bf4da9d4"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#af8262da5777c17a850d64e30bf4da9d4">euphoria::core::cross_style</a></div><div class="ttdeci">TreeStyle cross_style()</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8cc_source.html#l00052">ctree.cc:52</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a5bd0f545d7019253a5a9199e06a2006c"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a5bd0f545d7019253a5a9199e06a2006c">euphoria::core::print_hierarchy</a></div><div class="ttdeci">void print_hierarchy(T item, TLabelFunc label_func, TFindChildrenFunc find_children_func, TPrintFunc print_func, const TreeStyle &amp;style=determine_style(), const std::string &amp;a_indent=&quot;&quot;, int index=0, bool last=true)</div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00044">ctree.h:44</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:8</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1TreeStyle_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1TreeStyle.html">euphoria::core::TreeStyle</a></div><div class="ttdef"><b>Definition:</b> <a href="ctree_8h_source.html#l00007">ctree.h:7</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->

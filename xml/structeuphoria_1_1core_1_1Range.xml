@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/range.h" line="38" column="11" bodyfile="libs/core/src/core/range.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/core/src/core/range.h" line="17" column="11" bodyfile="libs/core/src/core/range.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Range_1a2000ec322c4313339168b4bf31abf167" prot="public" static="no" mutable="no">
         <type>T</type>
@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/range.h" line="39" column="11" bodyfile="libs/core/src/core/range.h" bodystart="39" bodyend="-1"/>
+        <location file="libs/core/src/core/range.h" line="18" column="11" bodyfile="libs/core/src/core/range.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/range.h" line="17" column="9" bodyfile="libs/core/src/core/range.h" bodystart="17" bodyend="20"/>
+        <location file="libs/core/src/core/range.h" line="20" column="9" bodyfile="libs/core/src/core/range.h" bodystart="20" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Range_1a7bddffb0f540788ed80308d70b7b754d" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type></type>
@@ -73,20 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/range.h" line="22" column="18" bodyfile="libs/core/src/core/range.h" bodystart="22" bodyend="25"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Range_1acab8d730d4afee57b44ff0452f5a0ed6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>T</type>
-        <definition>T euphoria::core::Range&lt; T &gt;::get_distance</definition>
-        <argsstring>() const</argsstring>
-        <name>get_distance</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/range.h" line="28" column="9" bodyfile="libs/core/src/core/range.h" bodystart="28" bodyend="31"/>
+        <location file="libs/core/src/core/range.h" line="25" column="18" bodyfile="libs/core/src/core/range.h" bodystart="25" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Range_1a23c5f858931501b29d9c559b681d7365" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>constexpr</type>
@@ -110,7 +97,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/range.h" line="34" column="19" bodyfile="libs/core/src/core/range.h" bodystart="34" bodyend="36"/>
+        <location file="libs/core/src/core/range.h" line="31" column="19" bodyfile="libs/core/src/core/range.h" bodystart="31" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Range_1acab8d730d4afee57b44ff0452f5a0ed6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T euphoria::core::Range&lt; T &gt;::get_distance</definition>
+        <argsstring>() const</argsstring>
+        <name>get_distance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/range.h" line="36" column="9" bodyfile="libs/core/src/core/range.h" bodystart="36" bodyend="39"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

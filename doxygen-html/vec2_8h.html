@@ -60,7 +60,7 @@
 <div class="contents">
 <div class="textblock"><code>#include &lt;tuple&gt;</code><br />
 <code>#include &quot;<a class="el" href="assert_8h_source.html">assert/assert.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="interpolate_8h_source.html">core/interpolate.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="interpolate_8default_8h_source.html">core/interpolate.default.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="angle_8h_source.html">core/angle.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="numeric_8h_source.html">core/numeric.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="cint_8h_source.html">core/cint.h</a>&quot;</code><br />
@@ -77,11 +77,6 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1unit2f.html">euphoria::core::unit2f</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Scale2f.html">euphoria::core::Scale2f</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Vec2fTransform.html">euphoria::core::Vec2fTransform</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform.  <a href="structeuphoria_1_1core_1_1Vec2fTransform.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Vec2iTransform.html">euphoria::core::Vec2iTransform</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -128,13 +123,22 @@ Functions</h2></td></tr>
 <tr class="memitem:aec6265dbc1ffb0acd14b677a246b30cd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aec6265dbc1ffb0acd14b677a246b30cd">euphoria::core::dot</a> (const vec2f &amp;lhs, const vec2f &amp;rhs)</td></tr>
 <tr class="memdesc:aec6265dbc1ffb0acd14b677a246b30cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions.  <a href="namespaceeuphoria_1_1core.html#aec6265dbc1ffb0acd14b677a246b30cd">More...</a><br /></td></tr>
 <tr class="separator:aec6265dbc1ffb0acd14b677a246b30cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2c03ea93b1c68234facc85b0848a2485"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a2c03ea93b1c68234facc85b0848a2485">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;s, const vec2f &amp;v)</td></tr>
-<tr class="memdesc:a2c03ea93b1c68234facc85b0848a2485"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printing.  <a href="namespaceeuphoria_1_1core.html#a2c03ea93b1c68234facc85b0848a2485">More...</a><br /></td></tr>
-<tr class="separator:a2c03ea93b1c68234facc85b0848a2485"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ae1032c909ccd4883cd36815353f695"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a4ae1032c909ccd4883cd36815353f695">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;s, const unit2f &amp;v)</td></tr>
-<tr class="separator:a4ae1032c909ccd4883cd36815353f695"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0cd4bed2e20941849e1d3f3ab7c760"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a4d0cd4bed2e20941849e1d3f3ab7c760">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;s, const vec2i &amp;v)</td></tr>
-<tr class="separator:a4d0cd4bed2e20941849e1d3f3ab7c760"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63cdec4f7aaaca8b7e71aff5a5411753"><td class="memItemLeft" align="right" valign="top">vec2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a63cdec4f7aaaca8b7e71aff5a5411753">euphoria::core::vec2f_transform</a> (const vec2f &amp;from, float v, const vec2f &amp;to)</td></tr>
+<tr class="memdesc:a63cdec4f7aaaca8b7e71aff5a5411753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transform.  <a href="namespaceeuphoria_1_1core.html#a63cdec4f7aaaca8b7e71aff5a5411753">More...</a><br /></td></tr>
+<tr class="separator:a63cdec4f7aaaca8b7e71aff5a5411753"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00bf953becc86cda3bba62a550ed2c9c"><td class="memItemLeft" align="right" valign="top">vec2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a00bf953becc86cda3bba62a550ed2c9c">euphoria::core::vec2i_transform</a> (const vec2i &amp;from, float v, const vec2i &amp;to)</td></tr>
+<tr class="separator:a00bf953becc86cda3bba62a550ed2c9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa318d0337c8823f2cc4d363c4ddc5b1f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aa318d0337c8823f2cc4d363c4ddc5b1f">euphoria::core::DEFAULT_INTERPOLATE</a> (vec2f, vec2f_transform)</td></tr>
+<tr class="separator:aa318d0337c8823f2cc4d363c4ddc5b1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bdc5546ef022bb627f002afb6419f9e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a8bdc5546ef022bb627f002afb6419f9e">euphoria::core::DEFAULT_INTERPOLATE</a> (vec2i, vec2i_transform)</td></tr>
+<tr class="separator:a8bdc5546ef022bb627f002afb6419f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a9612271d408dcde85706c1439fd794"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a6a9612271d408dcde85706c1439fd794">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;s, const vec2f &amp;v)</td></tr>
+<tr class="memdesc:a6a9612271d408dcde85706c1439fd794"><td class="mdescLeft">&#160;</td><td class="mdescRight">Printing.  <a href="namespaceeuphoria_1_1core.html#a6a9612271d408dcde85706c1439fd794">More...</a><br /></td></tr>
+<tr class="separator:a6a9612271d408dcde85706c1439fd794"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed79db53955a55e66b5a148d31663de4"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#aed79db53955a55e66b5a148d31663de4">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;s, const unit2f &amp;v)</td></tr>
+<tr class="separator:aed79db53955a55e66b5a148d31663de4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af64ff4535218bca0146480293b2deb57"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#af64ff4535218bca0146480293b2deb57">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;s, const vec2i &amp;v)</td></tr>
+<tr class="separator:af64ff4535218bca0146480293b2deb57"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67af454c35be95be33b8122b0b7ec702"><td class="memItemLeft" align="right" valign="top">unit2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a67af454c35be95be33b8122b0b7ec702">euphoria::core::create_random_unit</a> (Random *random)</td></tr>
 <tr class="separator:a67af454c35be95be33b8122b0b7ec702"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>

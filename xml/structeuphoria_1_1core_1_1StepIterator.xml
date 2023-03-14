@@ -33,7 +33,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/iterate.h" line="11" column="21" bodyfile="libs/core/src/core/iterate.h" bodystart="11" bodyend="-1"/>
+        <location file="libs/core/src/core/iterate.h" line="12" column="11" bodyfile="libs/core/src/core/iterate.h" bodystart="12" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1StepIterator_1acce701897970242be484a7a984cf4173" prot="public" static="no" mutable="no">
         <type>T</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/iterate.h" line="11" column="26" bodyfile="libs/core/src/core/iterate.h" bodystart="11" bodyend="-1"/>
+        <location file="libs/core/src/core/iterate.h" line="13" column="11" bodyfile="libs/core/src/core/iterate.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1StepIterator_1aaeaf7640cb2eba8e9dd2f8044352a389" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/iterate.h" line="12" column="14" bodyfile="libs/core/src/core/iterate.h" bodystart="12" bodyend="-1"/>
+        <location file="libs/core/src/core/iterate.h" line="14" column="14" bodyfile="libs/core/src/core/iterate.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1StepIterator_1a02a92e014466eb4454b6b2aa8d9d5597" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -72,34 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/iterate.h" line="13" column="14" bodyfile="libs/core/src/core/iterate.h" bodystart="13" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1StepIterator_1a96852721935ee16c5ca7498b76e685d0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>bool</type>
-        <definition>static bool euphoria::core::StepIterator&lt; T &gt;::eval</definition>
-        <argsstring>(T c, T t, T s)</argsstring>
-        <name>eval</name>
-        <param>
-          <type>T</type>
-          <declname>c</declname>
-        </param>
-        <param>
-          <type>T</type>
-          <declname>t</declname>
-        </param>
-        <param>
-          <type>T</type>
-          <declname>s</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/iterate.h" line="15" column="21" bodyfile="libs/core/src/core/iterate.h" bodystart="15" bodyend="19"/>
+        <location file="libs/core/src/core/iterate.h" line="15" column="14" bodyfile="libs/core/src/core/iterate.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -130,7 +103,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/iterate.h" line="21" column="9" bodyfile="libs/core/src/core/iterate.h" bodystart="21" bodyend="24"/>
+        <location file="libs/core/src/core/iterate.h" line="17" column="9" bodyfile="libs/core/src/core/iterate.h" bodystart="17" bodyend="20"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StepIterator_1aea23c7928d3c1f271cb6edce21437213" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -147,7 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/iterate.h" line="27" column="9" bodyfile="libs/core/src/core/iterate.h" bodystart="27" bodyend="33"/>
+        <location file="libs/core/src/core/iterate.h" line="22" column="14" bodyfile="libs/core/src/core/iterate.h" bodystart="22" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StepIterator_1a7e95cf7d616b9fa57691e8c4d9e2afdc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>T</type>
@@ -160,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/iterate.h" line="36" column="9" bodyfile="libs/core/src/core/iterate.h" bodystart="36" bodyend="39"/>
+        <location file="libs/core/src/core/iterate.h" line="30" column="11" bodyfile="libs/core/src/core/iterate.h" bodystart="30" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StepIterator_1a3979f1c318067ea26e44aa067d4e145e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -173,14 +146,41 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/iterate.h" line="42" column="9" bodyfile="libs/core/src/core/iterate.h" bodystart="42" bodyend="50"/>
+        <location file="libs/core/src/core/iterate.h" line="35" column="14" bodyfile="libs/core/src/core/iterate.h" bodystart="35" bodyend="43"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StepIterator_1a96852721935ee16c5ca7498b76e685d0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool euphoria::core::StepIterator&lt; T &gt;::eval</definition>
+        <argsstring>(T c, T t, T s)</argsstring>
+        <name>eval</name>
+        <param>
+          <type>T</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>s</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/iterate.h" line="45" column="21" bodyfile="libs/core/src/core/iterate.h" bodystart="45" bodyend="49"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/iterate.h" line="10" column="1" bodyfile="libs/core/src/core/iterate.h" bodystart="9" bodyend="51"/>
+    <location file="libs/core/src/core/iterate.h" line="10" column="1" bodyfile="libs/core/src/core/iterate.h" bodystart="9" bodyend="50"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1StepIterator_1a809054b2fb64a58d10ba7d606c7a5c27" prot="public" virt="non-virtual"><scope>euphoria::core::StepIterator</scope><name>current</name></member>
       <member refid="structeuphoria_1_1core_1_1StepIterator_1aaeaf7640cb2eba8e9dd2f8044352a389" prot="public" virt="non-virtual"><scope>euphoria::core::StepIterator</scope><name>ended</name></member>

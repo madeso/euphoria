@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rng.h" line="36" column="18" bodyfile="libs/core/src/core/rng.h" bodystart="36" bodyend="36"/>
+        <location file="libs/core/src/core/rng.h" line="40" column="18" bodyfile="libs/core/src/core/rng.h" bodystart="40" bodyend="43"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1RandomXorShift_1aa452e6a213992efc42e7b08a2b469f99" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>I</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rng.h" line="41" column="9" bodyfile="libs/core/src/core/rng.h" bodystart="41" bodyend="50"/>
+        <location file="libs/core/src/core/rng.h" line="45" column="11" bodyfile="libs/core/src/core/rng.h" bodystart="45" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1RandomXorShift_1ade489e79586f40dd71b837cc2cdb2bdf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>float</type>
@@ -80,14 +80,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rng.h" line="53" column="9" bodyfile="libs/core/src/core/rng.h" bodystart="53" bodyend="58"/>
+        <location file="libs/core/src/core/rng.h" line="56" column="15" bodyfile="libs/core/src/core/rng.h" bodystart="56" bodyend="61"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rng.h" line="35" column="1" bodyfile="libs/core/src/core/rng.h" bodystart="34" bodyend="59"/>
+    <location file="libs/core/src/core/rng.h" line="37" column="1" bodyfile="libs/core/src/core/rng.h" bodystart="36" bodyend="62"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1RandomXorShift_1ade489e79586f40dd71b837cc2cdb2bdf" prot="public" virt="non-virtual"><scope>euphoria::core::RandomXorShift</scope><name>get_next_float01</name></member>
       <member refid="structeuphoria_1_1core_1_1RandomXorShift_1aa452e6a213992efc42e7b08a2b469f99" prot="public" virt="non-virtual"><scope>euphoria::core::RandomXorShift</scope><name>get_next_integer</name></member>

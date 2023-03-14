@@ -79,8 +79,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a605b012975c03862c2f772718ee29f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae050d276f1fdd05b3035b6d4c93319a6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1Instance.html#ae050d276f1fdd05b3035b6d4c93319a6">~Instance</a> ()=default</td></tr>
 <tr class="separator:ae050d276f1fdd05b3035b6d4c93319a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac7c94bbaa128b1d2f00ca10a346f7beb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1Instance.html#ac7c94bbaa128b1d2f00ca10a346f7beb">NONCOPYABLE</a> (<a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a>)</td></tr>
-<tr class="separator:ac7c94bbaa128b1d2f00ca10a346f7beb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad082d09a12478fbef5969f27444dbdd8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1Instance.html#ad082d09a12478fbef5969f27444dbdd8">Instance</a> (const <a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a> &amp;)=delete</td></tr>
+<tr class="separator:ad082d09a12478fbef5969f27444dbdd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5894bc9f0801a8787d35e850a26defb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1Instance.html#aa5894bc9f0801a8787d35e850a26defb">Instance</a> (<a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:aa5894bc9f0801a8787d35e850a26defb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0262d66cba6cd2363669a0c11e88b5c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1Instance.html#a0262d66cba6cd2363669a0c11e88b5c2">operator=</a> (const <a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a> &amp;)=delete</td></tr>
+<tr class="separator:a0262d66cba6cd2363669a0c11e88b5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1ea2f00363bb473dfe0d733c0649435"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1Instance.html#ae1ea2f00363bb473dfe0d733c0649435">operator=</a> (<a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:ae1ea2f00363bb473dfe0d733c0649435"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afa992d97f0c0581b85bc36dcf98e01d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1Instance.html#afa992d97f0c0581b85bc36dcf98e01d9">calculate_model_matrix</a> () const</td></tr>
 <tr class="separator:afa992d97f0c0581b85bc36dcf98e01d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa651df19e0bc5a58557bbd99f62ca02d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1render_1_1Instance.html#aa651df19e0bc5a58557bbd99f62ca02d">render</a> (const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a> &amp;projection_matrix, const <a class="el" href="structeuphoria_1_1core_1_1mat4f.html">core::mat4f</a> &amp;view_matrix, const <a class="el" href="structeuphoria_1_1core_1_1vec3f.html">core::vec3f</a> &amp;camera, const <a class="el" href="structeuphoria_1_1render_1_1Light.html">Light</a> &amp;light)=0</td></tr>
@@ -97,10 +103,10 @@ Public Attributes</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="instance_8h_source.html#l00013">13</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="instance_8h_source.html#l00012">12</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a605b012975c03862c2f772718ee29f6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a605b012975c03862c2f772718ee29f6b">&#9670;&nbsp;</a></span>Instance()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a605b012975c03862c2f772718ee29f6b">&#9670;&nbsp;</a></span>Instance() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -113,6 +119,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="instance_8cc_source.html#l00005">5</a> of file <a class="el" href="instance_8cc_source.html">instance.cc</a>.</p>
 
 </div>
 </div>
@@ -141,6 +149,58 @@ Public Attributes</h2></td></tr>
 
 </div>
 </div>
+<a id="ad082d09a12478fbef5969f27444dbdd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad082d09a12478fbef5969f27444dbdd8">&#9670;&nbsp;</a></span>Instance() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">euphoria::render::Instance::Instance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa5894bc9f0801a8787d35e850a26defb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa5894bc9f0801a8787d35e850a26defb">&#9670;&nbsp;</a></span>Instance() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">euphoria::render::Instance::Instance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="afa992d97f0c0581b85bc36dcf98e01d9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afa992d97f0c0581b85bc36dcf98e01d9">&#9670;&nbsp;</a></span>calculate_model_matrix()</h2>
@@ -157,22 +217,58 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="instance_8cc_source.html#l00012">12</a> of file <a class="el" href="instance_8cc_source.html">instance.cc</a>.</p>
+
 </div>
 </div>
-<a id="ac7c94bbaa128b1d2f00ca10a346f7beb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7c94bbaa128b1d2f00ca10a346f7beb">&#9670;&nbsp;</a></span>NONCOPYABLE()</h2>
+<a id="a0262d66cba6cd2363669a0c11e88b5c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0262d66cba6cd2363669a0c11e88b5c2">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">euphoria::render::Instance::NONCOPYABLE </td>
+          <td class="memname">void euphoria::render::Instance::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae1ea2f00363bb473dfe0d733c0649435"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1ea2f00363bb473dfe0d733c0649435">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::render::Instance::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1render_1_1Instance.html">Instance</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -240,7 +336,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="instance_8h_source.html#l00034">34</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="instance_8h_source.html#l00015">15</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -256,7 +352,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="instance_8h_source.html#l00032">32</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="instance_8h_source.html#l00014">14</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
@@ -272,12 +368,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="instance_8h_source.html#l00035">35</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="instance_8h_source.html#l00016">16</a> of file <a class="el" href="instance_8h_source.html">instance.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>libs/render/src/render/<a class="el" href="instance_8h_source.html">instance.h</a></li>
+<li>libs/render/src/render/<a class="el" href="instance_8cc_source.html">instance.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

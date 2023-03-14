@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::generator::FillSmallHolesRule</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">euphoria::core::generator::Rule</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1abbec847c0404e151133d8124ef7bebb2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::generator::FillSmallHolesRule::allow_diagonals</definition>
+        <argsstring></argsstring>
+        <name>allow_diagonals</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="70" column="14" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1a0768a79108555f8ef069ce72806aa897" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::generator::FillSmallHolesRule::min_count</definition>
+        <argsstring></argsstring>
+        <name>min_count</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="71" column="13" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1afa5c19ba51c5d0a7e27bbaa7bce1a68b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::generator::FillSmallHolesRule::FillSmallHolesRule</definition>
+        <argsstring>(bool ad, int mc)</argsstring>
+        <name>FillSmallHolesRule</name>
+        <param>
+          <type>bool</type>
+          <declname>ad</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>mc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="73" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="73" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1aa46c554ab7b16b9a1cd60b9893ada94d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::FillSmallHolesRule::step</definition>
+        <argsstring>(CellularAutomata *self) override</argsstring>
+        <name>step</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a04bde9b4d49e0a19c91b5bfd334a2e34">step</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="80" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="80" bodyend="94"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::generator::FillSmallHolesRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::Rule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::generator::FillSmallHolesRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::Rule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_cell.cc" line="69" column="1" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="68" bodyend="95"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1abbec847c0404e151133d8124ef7bebb2" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>allow_diagonals</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1afa5c19ba51c5d0a7e27bbaa7bce1a68b" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>FillSmallHolesRule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1a0768a79108555f8ef069ce72806aa897" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>min_count</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a1041138a9a1e771c027c997e4ebfe11d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a7c949b42ed60b5af4a1c5e6410410502" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1acee66f1f21e44dd69b1f3e6fb54174c5" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a0a8caf1dda89a98eeb44fd579d31da43" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a62efec702190ecb2f2dea4337fe95cba" prot="public" virt="non-virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1aa46c554ab7b16b9a1cd60b9893ada94d" prot="public" virt="virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1adcac939654ffb9fcd2bbe5879ccbe6b4" prot="public" virt="virtual"><scope>euphoria::core::generator::FillSmallHolesRule</scope><name>~Rule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

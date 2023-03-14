@@ -2,6 +2,26 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="subvec_8h" kind="file" language="C++">
     <compoundname>subvec.h</compoundname>
+    <includedby refid="palette__extract_8cc" local="yes">libs/core/src/core/palette_extract.cc</includedby>
+    <includedby refid="subvec_8cc" local="yes">libs/core/src/core/subvec.cc</includedby>
+    <invincdepgraph>
+      <node id="3">
+        <label>libs/core/src/core/subvec.cc</label>
+        <link refid="subvec_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/subvec.h</label>
+        <link refid="subvec_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/palette_extract.cc</label>
+        <link refid="palette__extract_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1SubVec" prot="public">euphoria::core::SubVec</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

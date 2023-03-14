@@ -45,9 +45,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ViewportDefinition_1a18b9cf5362f10528932a215bf0c55319" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ViewportDefinition_1adcfc369a68054618bc5833f4e51b17c0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ViewportDefinition" kindref="compound">ViewportDefinition</ref></type>
-        <definition>static ViewportDefinition euphoria::core::ViewportDefinition::fit_with_black_bars</definition>
+        <definition>ViewportDefinition euphoria::core::ViewportDefinition::fit_with_black_bars</definition>
         <argsstring>(float width, float height, int window_width, int window_height)</argsstring>
         <name>fit_with_black_bars</name>
         <param>
@@ -74,11 +74,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/viewportdef.h" line="21" column="9"/>
+        <location file="libs/core/src/core/viewportdef.h" line="21" column="9" bodyfile="libs/core/src/core/viewportdef.cc" bodystart="10" bodyend="41"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ViewportDefinition_1ac2efd50372cbfc745f4d5d435ebe66e8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ViewportDefinition_1a07bc9112aa56513d2d1cf85638bdf59c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ViewportDefinition" kindref="compound">ViewportDefinition</ref></type>
-        <definition>static ViewportDefinition euphoria::core::ViewportDefinition::extend</definition>
+        <definition>ViewportDefinition euphoria::core::ViewportDefinition::extend</definition>
         <argsstring>(float width, float height, int window_width, int window_height)</argsstring>
         <name>extend</name>
         <param>
@@ -105,11 +105,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/viewportdef.h" line="35" column="9"/>
+        <location file="libs/core/src/core/viewportdef.h" line="35" column="9" bodyfile="libs/core/src/core/viewportdef.cc" bodystart="55" bodyend="80"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ViewportDefinition_1aee7aae12e70db027f5c6318974c495c7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ViewportDefinition_1a8fdccc91cc5f86a37113c1ccbcb6c88e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ViewportDefinition" kindref="compound">ViewportDefinition</ref></type>
-        <definition>static ViewportDefinition euphoria::core::ViewportDefinition::screen_pixel</definition>
+        <definition>ViewportDefinition euphoria::core::ViewportDefinition::screen_pixel</definition>
         <argsstring>(int window_width, int window_height)</argsstring>
         <name>screen_pixel</name>
         <param>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/viewportdef.h" line="42" column="9"/>
+        <location file="libs/core/src/core/viewportdef.h" line="42" column="9" bodyfile="libs/core/src/core/viewportdef.cc" bodystart="84" bodyend="96"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -154,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/viewportdef.h" line="44" column="9"/>
+        <location file="libs/core/src/core/viewportdef.h" line="44" column="9" bodyfile="libs/core/src/core/viewportdef.cc" bodystart="99" bodyend="104"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -176,9 +176,9 @@
     </collaborationgraph>
     <location file="libs/core/src/core/viewportdef.h" line="9" column="1" bodyfile="libs/core/src/core/viewportdef.h" bodystart="8" bodyend="45"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1ac2efd50372cbfc745f4d5d435ebe66e8" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>extend</name></member>
-      <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1a18b9cf5362f10528932a215bf0c55319" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>fit_with_black_bars</name></member>
-      <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1aee7aae12e70db027f5c6318974c495c7" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>screen_pixel</name></member>
+      <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1a07bc9112aa56513d2d1cf85638bdf59c" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>extend</name></member>
+      <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1adcfc369a68054618bc5833f4e51b17c0" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>fit_with_black_bars</name></member>
+      <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1a8fdccc91cc5f86a37113c1ccbcb6c88e" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>screen_pixel</name></member>
       <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1ac268808a69d5578b5bef4309cfb2768a" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>screen_rect</name></member>
       <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1a66be303af3ffc94320f23a9a511b541b" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>ViewportDefinition</name></member>
       <member refid="structeuphoria_1_1core_1_1ViewportDefinition_1ae2d3d4be0ad6bc1b32327e99ff35ed88" prot="public" virt="non-virtual"><scope>euphoria::core::ViewportDefinition</scope><name>virtual_height</name></member>

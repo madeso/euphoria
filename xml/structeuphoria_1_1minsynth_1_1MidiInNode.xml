@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="202" column="19" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="202" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="191" column="19" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="191" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1MidiInNode_1a7268fa8156734e488f8656d0509d9a9d" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="203" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="203" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="192" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="192" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1MidiInNode_1a126cc33223401f926c94cb0ce65109af" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="204" column="14" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="204" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="193" column="14" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="193" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1MidiInNode_1a0342e1dc69fbedc7b955029fc63dab21" prot="public" static="no" mutable="no">
         <type>unsigned int</type>
@@ -59,47 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="205" column="22" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="205" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1MidiInNode_1af2b82be2ad7bc07a05fa9148290dd746" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>static bool euphoria::minsynth::MidiInNode::is_status_message</definition>
-        <argsstring>(unsigned char b)</argsstring>
-        <name>is_status_message</name>
-        <param>
-          <type>unsigned char</type>
-          <declname>b</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="208" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1MidiInNode_1afef9a9a54341794c81c02078f5314eaf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>static void euphoria::minsynth::MidiInNode::debug_callback</definition>
-        <argsstring>(double dt, const std::vector&lt; unsigned char &gt; &amp;bytes)</argsstring>
-        <name>debug_callback</name>
-        <param>
-          <type>double</type>
-          <declname>dt</declname>
-        </param>
-        <param>
-          <type>const std::vector&lt; unsigned char &gt; &amp;</type>
-          <declname>bytes</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="211" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="194" column="22" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="194" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -122,7 +82,47 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="214" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="196" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="300" bodyend="359"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1MidiInNode_1adfb066b244277b16884c868b04b897cb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::minsynth::MidiInNode::is_status_message</definition>
+        <argsstring>(unsigned char b)</argsstring>
+        <name>is_status_message</name>
+        <param>
+          <type>unsigned char</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="198" column="21" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="255" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1MidiInNode_1a1971b28fd0f3ded9e8a18fcbcc141d44" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::MidiInNode::debug_callback</definition>
+        <argsstring>(double dt, const std::vector&lt; unsigned char &gt; &amp;bytes)</argsstring>
+        <name>debug_callback</name>
+        <param>
+          <type>double</type>
+          <declname>dt</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; unsigned char &gt; &amp;</type>
+          <declname>bytes</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="199" column="21" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="263" bodyend="297"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -160,18 +160,21 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="201" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="200" bodyend="215"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="190" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="189" bodyend="200"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a919fcfb0d4f82eb4c8e52191adfde435" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>callback</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1afef9a9a54341794c81c02078f5314eaf" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>debug_callback</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1af2b82be2ad7bc07a05fa9148290dd746" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>is_status_message</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a1971b28fd0f3ded9e8a18fcbcc141d44" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>debug_callback</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1adfb066b244277b16884c868b04b897cb" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>is_status_message</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a7268fa8156734e488f8656d0509d9a9d" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>last_time</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>Node</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1Node_1aa87a484fbe760907f384f131ecdc1e5d" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1af32dcf34eb9bdc46433322309490f14f" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a804b0e11c11c8dfe98f09ab080c25d59" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>Node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a126cc33223401f926c94cb0ce65109af" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>open_virtual_port</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1af0ab491ba7edc548dcde546c2a31c920" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a5ee36fa76279fd2a7755adfe72156d2f" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1a0342e1dc69fbedc7b955029fc63dab21" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>port_number</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1MidiInNode_1acf7a830dbe03d70700a39f446d023576" prot="public" virt="non-virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>tones</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1Node_1aff997db2a2a1f2c710275f94b7d108d7" prot="public" virt="virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>update</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a7277f2c5eb010ee681eb37efa0a97283" prot="public" virt="virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>update</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a4460379974e28cc6314cf2086ab9c0e0" prot="public" virt="virtual"><scope>euphoria::minsynth::MidiInNode</scope><name>~Node</name></member>
     </listofallmembers>
   </compounddef>

@@ -3,21 +3,6 @@
   <compounddef id="structeuphoria_1_1core_1_1TimetWrapper" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::TimetWrapper</compoundname>
     <includes refid="datetime_8h" local="no">datetime.h</includes>
-      <sectiondef kind="friend">
-      <memberdef kind="friend" id="structeuphoria_1_1core_1_1TimetWrapper_1afa486c169e976516426e90aa08f4df03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>friend struct</type>
-        <definition>friend struct StructTmWrapper</definition>
-        <argsstring></argsstring>
-        <name>StructTmWrapper</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="21" column="9" bodyfile="libs/core/src/core/datetime.h" bodystart="21" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1TimetWrapper_1a6a7e492aadc76f8d2b593cc4390f81d6" prot="public" static="no" mutable="no">
         <type>time_t</type>
@@ -30,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="33" column="16" bodyfile="libs/core/src/core/datetime.h" bodystart="33" bodyend="-1"/>
+        <location file="libs/core/src/core/datetime.h" line="35" column="16" bodyfile="libs/core/src/core/datetime.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -49,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="22" column="18"/>
+        <location file="libs/core/src/core/datetime.h" line="37" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="36" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1a076511578f0d01d49c818a72e3fe6b08" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1StructTmWrapper" kindref="compound">StructTmWrapper</ref></type>
@@ -62,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="30" column="26"/>
+        <location file="libs/core/src/core/datetime.h" line="43" column="26" bodyfile="libs/core/src/core/datetime.cc" bodystart="73" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1a12227f82d55f23829b61ddcd81d4a48e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1StructTmWrapper" kindref="compound">StructTmWrapper</ref></type>
@@ -75,13 +60,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="31" column="26"/>
+        <location file="libs/core/src/core/datetime.h" line="44" column="26" bodyfile="libs/core/src/core/datetime.cc" bodystart="80" bodyend="83"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1a1da3137a33d10c3c567376228ef24ec7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1a7a8dbbfb7e27b49a0163cc0842b9d7f8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
-        <definition>static TimetWrapper euphoria::core::TimetWrapper::from_local_time</definition>
+        <definition>TimetWrapper euphoria::core::TimetWrapper::from_local_time</definition>
         <argsstring>(const StructTmWrapper &amp;dt)</argsstring>
         <name>from_local_time</name>
         <param>
@@ -94,11 +79,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="24" column="29"/>
+        <location file="libs/core/src/core/datetime.h" line="39" column="29" bodyfile="libs/core/src/core/datetime.cc" bodystart="43" bodyend="47"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1a09dad03ec51ee63b34104de0ebe144d5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1a1f16354ae1a533109ff2a14df7c91447" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
-        <definition>static TimetWrapper euphoria::core::TimetWrapper::from_gmt</definition>
+        <definition>TimetWrapper euphoria::core::TimetWrapper::from_gmt</definition>
         <argsstring>(const StructTmWrapper &amp;dt)</argsstring>
         <name>from_gmt</name>
         <param>
@@ -111,11 +96,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="25" column="29"/>
+        <location file="libs/core/src/core/datetime.h" line="40" column="29" bodyfile="libs/core/src/core/datetime.cc" bodystart="51" bodyend="56"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1a92d81af56cb54abd13dbf0eabaa032cf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1abb90c8f0c1be3cbd21b1950e95a0a294" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1TimetWrapper" kindref="compound">TimetWrapper</ref></type>
-        <definition>static TimetWrapper euphoria::core::TimetWrapper::from_current_time</definition>
+        <definition>TimetWrapper euphoria::core::TimetWrapper::from_current_time</definition>
         <argsstring>()</argsstring>
         <name>from_current_time</name>
         <briefdescription>
@@ -124,11 +109,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="26" column="29"/>
+        <location file="libs/core/src/core/datetime.h" line="41" column="29" bodyfile="libs/core/src/core/datetime.cc" bodystart="59" bodyend="62"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1a7ff7dc9ec81f8575a8be820e8d871f58" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TimetWrapper_1a854d0716702204efa4f6615fa2c31188" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>double</type>
-        <definition>static double euphoria::core::TimetWrapper::get_difference</definition>
+        <definition>double euphoria::core::TimetWrapper::get_difference</definition>
         <argsstring>(const TimetWrapper &amp;start, const TimetWrapper &amp;end)</argsstring>
         <name>get_difference</name>
         <param>
@@ -145,20 +130,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="28" column="23"/>
+        <location file="libs/core/src/core/datetime.h" line="46" column="23" bodyfile="libs/core/src/core/datetime.cc" bodystart="66" bodyend="69"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/datetime.h" line="20" column="1" bodyfile="libs/core/src/core/datetime.h" bodystart="19" bodyend="34"/>
+    <location file="libs/core/src/core/datetime.h" line="34" column="1" bodyfile="libs/core/src/core/datetime.h" bodystart="33" bodyend="47"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a92d81af56cb54abd13dbf0eabaa032cf" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>from_current_time</name></member>
-      <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a09dad03ec51ee63b34104de0ebe144d5" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>from_gmt</name></member>
-      <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a1da3137a33d10c3c567376228ef24ec7" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>from_local_time</name></member>
-      <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a7ff7dc9ec81f8575a8be820e8d871f58" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>get_difference</name></member>
-      <member refid="structeuphoria_1_1core_1_1TimetWrapper_1afa486c169e976516426e90aa08f4df03" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>StructTmWrapper</name></member>
+      <member refid="structeuphoria_1_1core_1_1TimetWrapper_1abb90c8f0c1be3cbd21b1950e95a0a294" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>from_current_time</name></member>
+      <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a1f16354ae1a533109ff2a14df7c91447" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>from_gmt</name></member>
+      <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a7a8dbbfb7e27b49a0163cc0842b9d7f8" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>from_local_time</name></member>
+      <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a854d0716702204efa4f6615fa2c31188" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>get_difference</name></member>
       <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a6a7e492aadc76f8d2b593cc4390f81d6" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>time</name></member>
       <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a3e6dbea596f3a1cfacd2ea26e064a95d" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>TimetWrapper</name></member>
       <member refid="structeuphoria_1_1core_1_1TimetWrapper_1a12227f82d55f23829b61ddcd81d4a48e" prot="public" virt="non-virtual"><scope>euphoria::core::TimetWrapper</scope><name>to_gmt</name></member>

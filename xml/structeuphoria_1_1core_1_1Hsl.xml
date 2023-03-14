@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="148" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="148" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="106" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="106" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a31087d081c8f484a5f5932ee12e70816" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="149" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="149" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="107" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="107" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a45f32a624834fdd000fb0714a0a793c9" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="150" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="150" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="108" column="15" bodyfile="libs/core/src/core/rgb.h" bodystart="108" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-attrib">
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="153" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="153" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="111" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="111" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a8a5a8cde88ce9ff0b1a736ea2d0b40ce" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="154" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="154" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="112" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="112" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1ae6364f243510d7a2848bd102400658eb" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="155" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="155" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="113" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a34a6c6ba88e89ac7d24d93ece86a144c" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="156" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="156" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="114" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="114" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a96d24e08672aa918e29a9675b8dae7b0" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="157" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="157" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="115" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="115" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Hsl_1a6854ea38a42f30308bea3c93c8d17033" prot="public" static="yes" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="158" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="158" bodyend="-1"/>
+        <location file="libs/core/src/core/rgb.h" line="116" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="116" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -153,7 +153,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/rgb.h" line="146" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="145" bodyend="159"/>
+    <location file="libs/core/src/core/rgb.h" line="104" column="1" bodyfile="libs/core/src/core/rgb.h" bodystart="103" bodyend="117"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Hsl_1a96d24e08672aa918e29a9675b8dae7b0" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>blue</name></member>
       <member refid="structeuphoria_1_1core_1_1Hsl_1a34a6c6ba88e89ac7d24d93ece86a144c" prot="public" virt="non-virtual"><scope>euphoria::core::Hsl</scope><name>cyan</name></member>

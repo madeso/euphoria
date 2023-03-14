@@ -6,6 +6,7 @@
     <includes refid="custom__parser_8h" local="yes">core/custom_parser.h</includes>
     <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
     <includes refid="default__parse_8h" local="yes">core/default_parse.h</includes>
+    <includedby refid="fourway_8cc" local="yes">libs/core/src/core/fourway.cc</includedby>
     <includedby refid="generator__cell_8h" local="yes">libs/core/src/core/generator_cell.h</includedby>
     <includedby refid="table__bool_8h" local="yes">libs/core/src/core/table_bool.h</includedby>
     <includedby refid="widget_8h" local="yes">libs/gui/src/gui/widget.h</includedby>
@@ -115,31 +116,95 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="6">
+      <node id="2">
+        <label>libs/core/src/core/fourway.cc</label>
+        <link refid="fourway_8cc"/>
+      </node>
+      <node id="15">
+        <label>libs/gui/src/gui/panelwidget.cc</label>
+        <link refid="panelwidget_8cc"/>
+      </node>
+      <node id="10">
+        <label>libs/gui/src/gui/button.cc</label>
+        <link refid="button_8cc"/>
+      </node>
+      <node id="14">
         <label>libs/gui/src/gui/panelwidget.h</label>
         <link refid="panelwidget_8h"/>
-      </node>
-      <node id="4">
-        <label>libs/gui/src/gui/widget.h</label>
-        <link refid="widget_8h"/>
-        <childnode refid="5" relation="include">
+        <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="6" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="5">
-        <label>libs/gui/src/gui/button.h</label>
-        <link refid="button_8h"/>
+        <label>libs/core/src/core/hashgen.sprator.cc</label>
+        <link refid="hashgen_8sprator_8cc"/>
       </node>
-      <node id="3">
-        <label>libs/core/src/core/table_bool.h</label>
-        <link refid="table__bool_8h"/>
-        <childnode refid="2" relation="include">
+      <node id="16">
+        <label>libs/gui/src/gui/widget.cc</label>
+        <link refid="widget_8cc"/>
+      </node>
+      <node id="8">
+        <label>libs/gui/src/gui/widget.h</label>
+        <link refid="widget_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="2">
+      <node id="9">
+        <label>libs/gui/src/gui/button.h</label>
+        <link refid="button_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>libs/core/src/core/table_bool.cc</label>
+        <link refid="table__bool_8cc"/>
+      </node>
+      <node id="4">
+        <label>libs/core/src/core/generator_cell.cc</label>
+        <link refid="generator__cell_8cc"/>
+      </node>
+      <node id="6">
+        <label>libs/core/src/core/table_bool.h</label>
+        <link refid="table__bool_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
         <label>libs/core/src/core/generator_cell.h</label>
         <link refid="generator__cell_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>libs/gui/src/gui/layout.cc</label>
+        <link refid="layout_8cc"/>
+      </node>
+      <node id="12">
+        <label>libs/gui/src/gui/container.cc</label>
+        <link refid="container_8cc"/>
+      </node>
+      <node id="11">
+        <label>libs/gui/src/gui/load.cc</label>
+        <link refid="load_8cc"/>
       </node>
       <node id="1">
         <label>libs/core/src/core/fourway.h</label>
@@ -148,7 +213,9 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="4" relation="include">
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

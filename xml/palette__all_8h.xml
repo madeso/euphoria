@@ -5,6 +5,7 @@
     <includes local="no">array</includes>
     <includes refid="enumtostring_8h" local="yes">core/enumtostring.h</includes>
     <includes refid="compiler__warning_8h" local="yes">core/compiler_warning.h</includes>
+    <includedby refid="palette__all_8cc" local="yes">libs/core/src/core/palette_all.cc</includedby>
     <incdepgraph>
       <node id="12">
         <label>core/editdistance.h</label>
@@ -84,6 +85,18 @@
         <label>algorithm</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/palette_all.cc</label>
+        <link refid="palette__all_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/palette_all.h</label>
+        <link refid="palette__all_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1palettes">euphoria::core::palettes</innernamespace>

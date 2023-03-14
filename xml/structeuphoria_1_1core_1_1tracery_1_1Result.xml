@@ -116,37 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="36" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Result_1a83e931c2d08f817d3f83be598067a2fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref> &amp;</type>
-        <definition>Result&amp; euphoria::core::tracery::Result::operator&lt;&lt;</definition>
-        <argsstring>(const std::string &amp;t)</argsstring>
-        <name>operator&lt;&lt;</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="38" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Result_1af5993d59a988dd8e86c72beb3a259504" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>euphoria::core::tracery::Result::operator bool</definition>
-        <argsstring>() const</argsstring>
-        <name>operator bool</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="41" column="9"/>
+        <location file="libs/core/src/core/tracery.h" line="36" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="198" bodyend="198"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Result_1a78911944eb238cde3346d176cc4586bf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -159,14 +129,44 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="44" column="9"/>
+        <location file="libs/core/src/core/tracery.h" line="38" column="22" bodyfile="libs/core/src/core/tracery.cc" bodystart="216" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Result_1aaed860b9c964d3b1db7590c311716c53" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref> &amp;</type>
+        <definition>Result &amp; euphoria::core::tracery::Result::operator&lt;&lt;</definition>
+        <argsstring>(const std::string &amp;t)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="40" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="202" bodyend="206"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Result_1af5993d59a988dd8e86c72beb3a259504" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::tracery::Result::operator bool</definition>
+        <argsstring>() const</argsstring>
+        <name>operator bool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="41" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="209" bodyend="212"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.h" line="20" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="19" bodyend="45"/>
+    <location file="libs/core/src/core/tracery.h" line="20" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="19" bodyend="42"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a67171a1dfa9297e43007a2a7f8ce247a" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>Error</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a117e7719e9e48c0973f65954709b6c21" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>error_type</name></member>
@@ -178,7 +178,7 @@
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a67171a1dfa9297e43007a2a7f8ce247aaf8e906e139d44e74ade18d8203a0dd0c" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>missing_rule</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a67171a1dfa9297e43007a2a7f8ce247aa00970b6275aec9dad2f0f68569e4cef4" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>no_error</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1af5993d59a988dd8e86c72beb3a259504" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>operator bool</name></member>
-      <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a83e931c2d08f817d3f83be598067a2fa" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>operator&lt;&lt;</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1aaed860b9c964d3b1db7590c311716c53" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>operator&lt;&lt;</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1af362ba87af25fd685c580b25bf619ff2" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>Result</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a67171a1dfa9297e43007a2a7f8ce247aa9064e51e426415a55463e1e73dfd7991" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>rule_eof</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Result_1a9573755eaafe92e95672ce8124589359" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Result</scope><name>text</name></member>

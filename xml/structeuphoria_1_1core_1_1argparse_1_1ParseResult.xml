@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="46" column="24" bodyfile="libs/core/src/core/argparse.h" bodystart="46" bodyend="46"/>
+        <location file="libs/core/src/core/argparse.h" line="43" column="24" bodyfile="libs/core/src/core/argparse.h" bodystart="43" bodyend="43"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="48" column="14" bodyfile="libs/core/src/core/argparse.h" bodystart="48" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="45" column="14" bodyfile="libs/core/src/core/argparse.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1ab284074c3fa432d0643d941c68dbe604" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -69,26 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="49" column="13" bodyfile="libs/core/src/core/argparse.h" bodystart="49" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1aa98ae53f29afe5b6a9a95eb469896b2d" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr int</type>
-        <definition>static constexpr int euphoria::core::argparse::ParseResult::default_return_value</definition>
-        <argsstring>(Type pr)</argsstring>
-        <name>default_return_value</name>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1a039782896831d01bbf621a88b3d6351a" kindref="member">Type</ref></type>
-          <declname>pr</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="52" column="9" bodyfile="libs/core/src/core/argparse.h" bodystart="52" bodyend="61"/>
+        <location file="libs/core/src/core/argparse.h" line="46" column="13" bodyfile="libs/core/src/core/argparse.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -107,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="63" column="28" bodyfile="libs/core/src/core/argparse.h" bodystart="63" bodyend="67"/>
+        <location file="libs/core/src/core/argparse.h" line="48" column="28" bodyfile="libs/core/src/core/argparse.h" bodystart="48" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1a36773a4ff07cb927fa55c09f35de0aed" prot="public" static="no" constexpr="yes" const="no" explicit="yes" inline="yes" virt="non-virtual">
         <type>constexpr</type>
@@ -124,14 +105,33 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="69" column="28" bodyfile="libs/core/src/core/argparse.h" bodystart="69" bodyend="73"/>
+        <location file="libs/core/src/core/argparse.h" line="54" column="28" bodyfile="libs/core/src/core/argparse.h" bodystart="54" bodyend="58"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1aa98ae53f29afe5b6a9a95eb469896b2d" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr int</type>
+        <definition>static constexpr int euphoria::core::argparse::ParseResult::default_return_value</definition>
+        <argsstring>(Type pr)</argsstring>
+        <name>default_return_value</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1a039782896831d01bbf621a88b3d6351a" kindref="member">Type</ref></type>
+          <declname>pr</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.h" line="60" column="30" bodyfile="libs/core/src/core/argparse.h" bodystart="60" bodyend="69"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/argparse.h" line="45" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="44" bodyend="74"/>
+    <location file="libs/core/src/core/argparse.h" line="42" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="41" bodyend="70"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1aa98ae53f29afe5b6a9a95eb469896b2d" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ParseResult</scope><name>default_return_value</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult_1adcfe93c1b32ab434c0bdadb89e130554" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ParseResult</scope><name>internal_type</name></member>

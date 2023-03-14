@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="395" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="395" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="366" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="366" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a837090efc5ee0db74bdcfa56fa793ea0" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="396" column="20" bodyfile="libs/core/src/core/argparse.h" bodystart="396" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="367" column="20" bodyfile="libs/core/src/core/argparse.h" bodystart="367" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a83b6d8d42314acb90aafa85eef9a10d9" prot="public" static="no" mutable="no">
         <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1SubParserContainer" kindref="compound">SubParserContainer</ref> &gt; &gt;</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="397" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="397" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="368" column="21" bodyfile="libs/core/src/core/argparse.h" bodystart="368" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="399" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="370" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="502" bodyend="509"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a6fc97de9cd25b097b6f1678da51a9fe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -80,7 +80,7 @@
           <declname>desc</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1argparse_1a1634480feea39d1ec080754169f3b2eb" kindref="member">SubParserCallback</ref></type>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1argparse_1ae6c8200dad288bd6c9d82c91d3b161b5" kindref="member">SubParserCallback</ref></type>
           <declname>sub</declname>
         </param>
         <briefdescription>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="406" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="376" column="14" bodyfile="libs/core/src/core/argparse.cc" bodystart="514" bodyend="526"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a7cf61f546fdcb7e9e5634d067337f4d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -101,7 +101,7 @@
           <declname>names</declname>
         </param>
         <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1argparse_1a1634480feea39d1ec080754169f3b2eb" kindref="member">SubParserCallback</ref></type>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1argparse_1ae6c8200dad288bd6c9d82c91d3b161b5" kindref="member">SubParserCallback</ref></type>
           <declname>sub</declname>
         </param>
         <briefdescription>
@@ -110,10 +110,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="414" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="383" column="14" bodyfile="libs/core/src/core/argparse.cc" bodystart="531" bodyend="537"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>subparsers can be grouped and this structs represents that group </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -137,7 +138,7 @@
         <link refid="structeuphoria_1_1core_1_1EnumToStringImplementation"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="394" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="393" bodyend="419"/>
+    <location file="libs/core/src/core/argparse.h" line="365" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="364" bodyend="388"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a6fc97de9cd25b097b6f1678da51a9fe4" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParserGroup</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup_1a7cf61f546fdcb7e9e5634d067337f4d2" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::SubParserGroup</scope><name>add</name></member>

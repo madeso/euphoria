@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="helptexthover_8cc" kind="file" language="C++">
+    <compoundname>helptexthover.cc</compoundname>
+    <includes refid="helptexthover_8h" local="yes">core/helptexthover.h</includes>
+    <includes refid="assert_8h" local="yes">assert/assert.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/helptexthover.cc</label>
+        <link refid="helptexthover_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="2">
+        <label>core/helptexthover.h</label>
+        <link refid="helptexthover_8h"/>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/helptexthover.cc"/>
+  </compounddef>
+</doxygen>

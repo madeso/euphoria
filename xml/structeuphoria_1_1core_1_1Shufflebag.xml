@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/shufflebag.h" line="62" column="21" bodyfile="libs/core/src/core/shufflebag.h" bodystart="62" bodyend="-1"/>
+        <location file="libs/core/src/core/shufflebag.h" line="60" column="21" bodyfile="libs/core/src/core/shufflebag.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Shufflebag_1aa3c5b2cba9cc7a34dbc8202ff94b69a2" prot="private" static="no" mutable="no">
         <type>unsigned long</type>
@@ -34,22 +34,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/shufflebag.h" line="63" column="23" bodyfile="libs/core/src/core/shufflebag.h" bodystart="63" bodyend="-1"/>
+        <location file="libs/core/src/core/shufflebag.h" line="61" column="23" bodyfile="libs/core/src/core/shufflebag.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1ac29e93ed035151bf6814cbd21152afb4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>int</type>
-        <definition>int euphoria::core::Shufflebag&lt; T &gt;::get_size</definition>
-        <argsstring>() const</argsstring>
-        <name>get_size</name>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1afebca0264d3fd81dc6bd1a957318f92a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Shufflebag&lt; T &gt;::Shufflebag</definition>
+        <argsstring>()=default</argsstring>
+        <name>Shufflebag</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/shufflebag.h" line="17" column="9" bodyfile="libs/core/src/core/shufflebag.h" bodystart="17" bodyend="20"/>
+        <location file="libs/core/src/core/shufflebag.h" line="16" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1a6a8fe6ef11ea2b2d07f3375bedc0cc26" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/shufflebag.h" line="23" column="9" bodyfile="libs/core/src/core/shufflebag.h" bodystart="23" bodyend="26"/>
+        <location file="libs/core/src/core/shufflebag.h" line="18" column="14" bodyfile="libs/core/src/core/shufflebag.h" bodystart="18" bodyend="21"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1a63f59220d80af8bc44acf488ec38be7c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/shufflebag.h" line="29" column="9" bodyfile="libs/core/src/core/shufflebag.h" bodystart="29" bodyend="39"/>
+        <location file="libs/core/src/core/shufflebag.h" line="23" column="14" bodyfile="libs/core/src/core/shufflebag.h" bodystart="23" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1a59e020059168acd1dd7e703d03bfc8cc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>const T &amp;</type>
@@ -104,14 +104,27 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/shufflebag.h" line="42" column="9" bodyfile="libs/core/src/core/shufflebag.h" bodystart="42" bodyend="59"/>
+        <location file="libs/core/src/core/shufflebag.h" line="35" column="18" bodyfile="libs/core/src/core/shufflebag.h" bodystart="35" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Shufflebag_1ac29e93ed035151bf6814cbd21152afb4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::Shufflebag&lt; T &gt;::get_size</definition>
+        <argsstring>() const</argsstring>
+        <name>get_size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/shufflebag.h" line="54" column="14" bodyfile="libs/core/src/core/shufflebag.h" bodystart="54" bodyend="57"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/shufflebag.h" line="15" column="1" bodyfile="libs/core/src/core/shufflebag.h" bodystart="14" bodyend="64"/>
+    <location file="libs/core/src/core/shufflebag.h" line="15" column="1" bodyfile="libs/core/src/core/shufflebag.h" bodystart="14" bodyend="62"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Shufflebag_1a63f59220d80af8bc44acf488ec38be7c" prot="public" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1Shufflebag_1aa3c5b2cba9cc7a34dbc8202ff94b69a2" prot="private" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>cursor</name></member>
@@ -119,6 +132,7 @@
       <member refid="structeuphoria_1_1core_1_1Shufflebag_1a59e020059168acd1dd7e703d03bfc8cc" prot="public" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>get_random_item</name></member>
       <member refid="structeuphoria_1_1core_1_1Shufflebag_1ac29e93ed035151bf6814cbd21152afb4" prot="public" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>get_size</name></member>
       <member refid="structeuphoria_1_1core_1_1Shufflebag_1a6a8fe6ef11ea2b2d07f3375bedc0cc26" prot="public" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>reserve</name></member>
+      <member refid="structeuphoria_1_1core_1_1Shufflebag_1afebca0264d3fd81dc6bd1a957318f92a" prot="public" virt="non-virtual"><scope>euphoria::core::Shufflebag</scope><name>Shufflebag</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

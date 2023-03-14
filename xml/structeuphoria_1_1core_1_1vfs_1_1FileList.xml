@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="29" column="18" bodyfile="libs/core/src/core/vfs.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/core/src/core/vfs.h" line="27" column="18" bodyfile="libs/core/src/core/vfs.h" bodystart="27" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1vfs_1_1FileList_1a264123c8c6d4fe5796c5237ac4533f83" prot="public" static="no" mutable="no">
         <type>std::map&lt; std::string, <ref refid="structeuphoria_1_1core_1_1vfs_1_1ListedFile" kindref="compound">ListedFile</ref> &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="30" column="18" bodyfile="libs/core/src/core/vfs.h" bodystart="30" bodyend="-1"/>
+        <location file="libs/core/src/core/vfs.h" line="28" column="18" bodyfile="libs/core/src/core/vfs.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="33" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="31" column="9" bodyfile="libs/core/src/core/vfs.cc" bodystart="32" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1FileList_1ad369e0db39dbc46413fe53477ec09f64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -72,14 +72,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="36" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="34" column="9" bodyfile="libs/core/src/core/vfs.cc" bodystart="44" bodyend="47"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vfs.h" line="28" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="27" bodyend="37"/>
+    <location file="libs/core/src/core/vfs.h" line="26" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="25" bodyend="35"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileList_1a44409f31fa5ce72abfa842bed9e6834e" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileList</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1FileList_1ad369e0db39dbc46413fe53477ec09f64" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::FileList</scope><name>add</name></member>

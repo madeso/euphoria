@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlwindow.h" line="20" column="9"/>
+        <location file="libs/window/src/window/sdlwindow.h" line="20" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="10" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a720b00c6038976df5630eb8a9bf8947d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlwindow.h" line="28" column="9"/>
+        <location file="libs/window/src/window/sdlwindow.h" line="28" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="34" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a2e7ab61e8416fca3a859b56e6054ac4e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -69,6 +69,7 @@
         <name>set_mouse_behaviour</name>
         <param>
           <type><ref refid="namespaceeuphoria_1_1core_1ae4c24a6a2024585c62a9b910a86d571d" kindref="member">core::MouseBehaviour</ref></type>
+          <defname>mb</defname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -76,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlwindow.h" line="31" column="9"/>
+        <location file="libs/window/src/window/sdlwindow.h" line="31" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="40" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a942c817852f1fd986030edb616fe962e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -105,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlwindow.h" line="37" column="9"/>
+        <location file="libs/window/src/window/sdlwindow.h" line="37" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="75" bodyend="84"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::tracery::LiteralStringNode</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1tracery_1_1Node" prot="public" virt="non-virtual">euphoria::core::tracery::Node</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode_1ab7162bafaba71324ca5ec722d413ff8b" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::tracery::LiteralStringNode::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="118" column="21" bodyfile="libs/core/src/core/tracery.cc" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode_1aa6b326d216939c1f0f861f4084ce21af" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::tracery::LiteralStringNode::LiteralStringNode</definition>
+        <argsstring>(const std::string &amp;t)</argsstring>
+        <name>LiteralStringNode</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="120" column="9" bodyfile="libs/core/src/core/tracery.cc" bodystart="120" bodyend="123"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode_1adf5f3d8c4c986c909ebb7fe1da9af571" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
+        <definition>Result euphoria::core::tracery::LiteralStringNode::flatten</definition>
+        <argsstring>(GeneratorArgument *) const override</argsstring>
+        <name>flatten</name>
+        <reimplements refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a1d68f8224c8bddd4c67fd6e2e02f9225">flatten</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1GeneratorArgument" kindref="compound">GeneratorArgument</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="125" column="16" bodyfile="libs/core/src/core/tracery.cc" bodystart="125" bodyend="128"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::tracery::LiteralStringNode</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::tracery::Node</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1Node"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::tracery::LiteralStringNode</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::tracery::Node</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1Node"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/tracery.cc" line="117" column="1" bodyfile="libs/core/src/core/tracery.cc" bodystart="116" bodyend="129"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode_1adf5f3d8c4c986c909ebb7fe1da9af571" prot="public" virt="virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>flatten</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode_1aa6b326d216939c1f0f861f4084ce21af" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>LiteralStringNode</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a942f7dbf74ab980899139eff519d780c" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1aac7856ed4539d3fd1253d2d7fe0bac61" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a763386e87cb4fdca13027e9ec54fddf6" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1ad4e9efb8967f9ecf46778432af94587f" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a17f517719690b935ebe8f9c01fa2498e" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode_1ab7162bafaba71324ca5ec722d413ff8b" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>text</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a64943ac46f812109bc06fbfd19373742" prot="public" virt="virtual"><scope>euphoria::core::tracery::LiteralStringNode</scope><name>~Node</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

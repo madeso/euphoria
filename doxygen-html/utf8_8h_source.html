@@ -63,8 +63,8 @@
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1core.html">euphoria::core</a></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> String, <span class="keyword">typename</span> OnCodepo<span class="keywordtype">int</span>&gt;</div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a0db9800e07c5d137f8b82939eb4d8aea">   11</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceeuphoria_1_1core.html#a0db9800e07c5d137f8b82939eb4d8aea">utf8_to_codepoints</a>(<span class="keyword">const</span> String&amp; <span class="keywordtype">string</span>, OnCodepoint on_codepoint)</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TString, <span class="keyword">typename</span> TOnCodepo<span class="keywordtype">int</span>Func&gt;</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a91daa2b869c42183935b04da74e7749a">   11</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="namespaceeuphoria_1_1core.html#a91daa2b869c42183935b04da74e7749a">utf8_to_codepoints</a>(<span class="keyword">const</span> TString&amp; <span class="keywordtype">string</span>, TOnCodepointFunc on_codepoint)</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    {</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="comment">// reference: https://en.wikipedia.org/wiki/UTF-8</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keyword">using</span> CodePointInt = int;</div>
@@ -77,7 +77,7 @@
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        constexpr <span class="keyword">auto</span> mask4 = std::byte{0b11111000}; constexpr <span class="keyword">auto</span> bit4 = std::byte{0b11110000};</div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> bits = 0;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::vector&lt;std::byte&gt; buffer;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        std::vector&lt;std::byte&gt; <a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">c</a>: <span class="keywordtype">string</span>)</div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        {</div>
@@ -90,7 +90,7 @@
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;                }</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;                <span class="keywordflow">else</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;                {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    buffer.push_back(<a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f">b</a>);</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;                    <a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>.push_back(<a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f">b</a>);</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;                    <span class="keywordflow">if</span>((mask4 &amp; <a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f">b</a>) == bit4)</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;                    {</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;                        bits = 4;</div>
@@ -122,33 +122,33 @@
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                    <span class="comment">// invalid continuation bit</span></div>
 <div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                buffer.push_back(<a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f">b</a>);</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">if</span>(buffer.size() == bits)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>.push_back(<a class="code" href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f">b</a>);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">if</span>(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>.size() == bits)</div>
 <div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                {</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                    <span class="keywordflow">switch</span>(bits)</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                    {</div>
 <div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                    <span class="keywordflow">case</span> 2:</div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                        on_codepoint</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                        (</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask2) &lt;&lt; 6) |</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 0)</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>[0] &amp; ~mask2) &lt;&lt; 6) |</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>[1] &amp; ~mask1) &lt;&lt; 0)</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                        );</div>
 <div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                    <span class="keywordflow">case</span> 3:</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                        on_codepoint</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                        (</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask3) &lt;&lt; 12) |</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 6 ) |</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 0 )</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>[0] &amp; ~mask3) &lt;&lt; 12) |</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>[1] &amp; ~mask1) &lt;&lt; 6 ) |</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>[2] &amp; ~mask1) &lt;&lt; 0 )</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                        );</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                    <span class="keywordflow">case</span> 4:</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                        on_codepoint</div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                        (</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(buffer[0] &amp; ~mask4) &lt;&lt; 18) |</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(buffer[1] &amp; ~mask1) &lt;&lt; 12) |</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(buffer[2] &amp; ~mask1) &lt;&lt; 6 ) |</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(buffer[3] &amp; ~mask1) &lt;&lt; 0 )</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>[0] &amp; ~mask4) &lt;&lt; 18) |</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>[1] &amp; ~mask1) &lt;&lt; 12) |</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>[2] &amp; ~mask1) &lt;&lt; 6 ) |</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                            ( std::to_integer&lt;CodePointInt&gt;(<a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>[3] &amp; ~mask1) &lt;&lt; 0 )</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;                        );</div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;                        <span class="keywordflow">break</span>;</div>
 <div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                    <span class="keywordflow">default</span>:</div>
@@ -157,7 +157,7 @@
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;                    }</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                    bits = 0;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    buffer.resize(0);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                    <a class="code" href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a>.resize(0);</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                }</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        }</div>
@@ -170,9 +170,10 @@
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a4a8a08f09d37b73795649038408b5f33">euphoria::core::Key::c</a></div><div class="ttdeci">@ c</div></div>
 <div class="ttc" id="aassert_8h_html_ae9328389a3cf2705a8a3f35a4a9ceca2"><div class="ttname"><a href="assert_8h.html#ae9328389a3cf2705a8a3f35a4a9ceca2">DIE</a></div><div class="ttdeci">#define DIE(message)</div><div class="ttdef"><b>Definition:</b> <a href="assert_8h_source.html#l00067">assert.h:67</a></div></div>
+<div class="ttc" id="anlp__sentence_8cc_html_ab3d71a3630661054e58116e2249c2e9e"><div class="ttname"><a href="nlp__sentence_8cc.html#ab3d71a3630661054e58116e2249c2e9e">buffer</a></div><div class="ttdeci">std::string buffer</div><div class="ttdef"><b>Definition:</b> <a href="nlp__sentence_8cc_source.html#l00087">nlp_sentence.cc:87</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a352b811085853f7ec220af1a5b92a124a92eb5ffee6ae2fec3ad71c777531578f">euphoria::core::Grayscale::b</a></div><div class="ttdeci">@ b</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8h_source.html#l00008">aabb.h:8</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a0db9800e07c5d137f8b82939eb4d8aea"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a0db9800e07c5d137f8b82939eb4d8aea">euphoria::core::utf8_to_codepoints</a></div><div class="ttdeci">bool utf8_to_codepoints(const String &amp;string, OnCodepoint on_codepoint)</div><div class="ttdef"><b>Definition:</b> <a href="utf8_8h_source.html#l00011">utf8.h:11</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:8</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a91daa2b869c42183935b04da74e7749a"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a91daa2b869c42183935b04da74e7749a">euphoria::core::utf8_to_codepoints</a></div><div class="ttdeci">bool utf8_to_codepoints(const TString &amp;string, TOnCodepointFunc on_codepoint)</div><div class="ttdef"><b>Definition:</b> <a href="utf8_8h_source.html#l00011">utf8.h:11</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

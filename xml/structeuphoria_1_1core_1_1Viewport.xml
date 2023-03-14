@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/viewport.h" line="11" column="9"/>
+        <location file="libs/core/src/core/viewport.h" line="11" column="9" bodyfile="libs/core/src/core/viewport.cc" bodystart="8" bodyend="11"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Viewport_1a0717779b6327964e334699b1f0c8ad6d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/viewport.h" line="14" column="9"/>
+        <location file="libs/core/src/core/viewport.h" line="14" column="9" bodyfile="libs/core/src/core/viewport.cc" bodystart="15" bodyend="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Viewport_1a81ea16c3c5700630c057416837d29413" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/viewport.h" line="17" column="9"/>
+        <location file="libs/core/src/core/viewport.h" line="17" column="9" bodyfile="libs/core/src/core/viewport.cc" bodystart="22" bodyend="27"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -29,14 +29,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="88" column="9" bodyfile="libs/core/src/core/dump.h" bodystart="88" bodyend="91"/>
+        <location file="libs/core/src/core/dump.h" line="89" column="9" bodyfile="libs/core/src/core/dump.h" bodystart="89" bodyend="92"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/dump.h" line="86" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="85" bodyend="92"/>
+    <location file="libs/core/src/core/dump.h" line="87" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="86" bodyend="93"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1dump2d_1_1AddWrapper_1abf0448c6f1ac034594ae65105a3626b1" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::AddWrapper</scope><name>operator&lt;&lt;</name></member>
     </listofallmembers>

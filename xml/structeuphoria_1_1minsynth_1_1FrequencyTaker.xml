@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="150" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="141" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a5b9f340369e8cf9b4b6f7019bf49d573" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -29,15 +29,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="151" column="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="142" column="17"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1FrequencyTaker_1ad401dae6ce2405c7cd84067d103076b5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a156f6787ce0afe41dbf4c46cc72ef7c4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::minsynth::FrequencyTaker::NONCOPYABLE</definition>
-        <argsstring>(FrequencyTaker)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::minsynth::FrequencyTaker::FrequencyTaker</definition>
+        <argsstring>(const FrequencyTaker &amp;)=delete</argsstring>
+        <name>FrequencyTaker</name>
         <param>
-          <type><ref refid="structeuphoria_1_1minsynth_1_1FrequencyTaker" kindref="compound">FrequencyTaker</ref></type>
+          <type>const <ref refid="structeuphoria_1_1minsynth_1_1FrequencyTaker" kindref="compound">FrequencyTaker</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -45,7 +45,55 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="153" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="144" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1FrequencyTaker_1ae213535a4b9cee5b88a6b2f05609493e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::minsynth::FrequencyTaker::FrequencyTaker</definition>
+        <argsstring>(FrequencyTaker &amp;&amp;)=delete</argsstring>
+        <name>FrequencyTaker</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1minsynth_1_1FrequencyTaker" kindref="compound">FrequencyTaker</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="145" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1FrequencyTaker_1ad8804c4f083b6c9be8cadc3a4a8d6bab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::FrequencyTaker::operator=</definition>
+        <argsstring>(const FrequencyTaker &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1minsynth_1_1FrequencyTaker" kindref="compound">FrequencyTaker</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="146" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1FrequencyTaker_1adb1c14077347ce73a4f74e9a3052599c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::FrequencyTaker::operator=</definition>
+        <argsstring>(FrequencyTaker &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1minsynth_1_1FrequencyTaker" kindref="compound">FrequencyTaker</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="147" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a1ca8b2bccefc9b10338444046b3c3dd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -71,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="156" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="149" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a605b5b628ea3c4ee4b0adcf20f6c5ef2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -97,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="159" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="150" column="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -116,12 +164,15 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="149" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="148" bodyend="160"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="140" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="139" bodyend="151"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1abdd93fab4c4febb2ae7c93583aafc2bf" prot="public" virt="non-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>FrequencyTaker</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1ad401dae6ce2405c7cd84067d103076b5" prot="public" virt="non-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a156f6787ce0afe41dbf4c46cc72ef7c4" prot="public" virt="non-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>FrequencyTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1ae213535a4b9cee5b88a6b2f05609493e" prot="public" virt="non-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>FrequencyTaker</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a1ca8b2bccefc9b10338444046b3c3dd2" prot="public" virt="pure-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>on_frequency_down</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a605b5b628ea3c4ee4b0adcf20f6c5ef2" prot="public" virt="pure-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>on_frequency_up</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1ad8804c4f083b6c9be8cadc3a4a8d6bab" prot="public" virt="non-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1adb1c14077347ce73a4f74e9a3052599c" prot="public" virt="non-virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1FrequencyTaker_1a5b9f340369e8cf9b4b6f7019bf49d573" prot="public" virt="virtual"><scope>euphoria::minsynth::FrequencyTaker</scope><name>~FrequencyTaker</name></member>
     </listofallmembers>
   </compounddef>

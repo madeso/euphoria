@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="bitfield_8cc" kind="file" language="C++">
+    <compoundname>bitfield.cc</compoundname>
+    <includes refid="bitfield_8h" local="yes">core/bitfield.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>core/bitfield.h</label>
+        <link refid="bitfield_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/bitfield.cc</label>
+        <link refid="bitfield_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>type_traits</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/bitfield.cc"/>
+  </compounddef>
+</doxygen>

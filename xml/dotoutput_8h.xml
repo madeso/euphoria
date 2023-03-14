@@ -2,6 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="dotoutput_8h" kind="file" language="C++">
     <compoundname>dotoutput.h</compoundname>
+    <includedby refid="dotoutput_8cc" local="yes">libs/core/src/core/dotoutput.cc</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/dotoutput.cc</label>
+        <link refid="dotoutput_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/dotoutput.h</label>
+        <link refid="dotoutput_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Node" prot="public">euphoria::core::dot::Node</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Edge" prot="public">euphoria::core::dot::Edge</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1dot_1_1Graph" prot="public">euphoria::core::dot::Graph</innerclass>

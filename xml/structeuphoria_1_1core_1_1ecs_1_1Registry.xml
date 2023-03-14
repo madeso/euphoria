@@ -5,7 +5,7 @@
     <includes refid="ecs_8h" local="no">ecs.h</includes>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a27d582dbaf9fe39809cadb969d8e5119" prot="private" static="no" mutable="no">
-        <type>std::unique_ptr&lt; RegistryPimpl &gt;</type>
+        <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1ecs_1_1RegistryPimpl" kindref="compound">RegistryPimpl</ref> &gt;</type>
         <definition>std::unique_ptr&lt;RegistryPimpl&gt; euphoria::core::ecs::Registry::pimpl</definition>
         <argsstring></argsstring>
         <name>pimpl</name>
@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="230" column="25" bodyfile="libs/core/src/core/ecs.h" bodystart="230" bodyend="-1"/>
+        <location file="libs/core/src/core/ecs.h" line="187" column="25" bodyfile="libs/core/src/core/ecs.h" bodystart="187" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="135" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="133" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="225" bodyend="228"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a424e5a9bb6759c4b41f7cee8728eb4cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="136" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="134" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="230" bodyend="233"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a94715b2ff2be431ab7b09fa2e4040b6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="138" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="136" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c9f695cb438a4e972250dfe93900547" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="139" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="137" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a669287319613768b9319e532b66449a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
@@ -91,7 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="140" column="18"/>
+        <location file="libs/core/src/core/ecs.h" line="138" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a9646925ed791802b5d362a4d8ec06fca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1Registry" kindref="compound">Registry</ref> &amp;</type>
@@ -107,20 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="141" column="18"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a83e8f5c3bf617236faf803d6cddc58ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>int</type>
-        <definition>int euphoria::core::ecs::Registry::get_number_of_active_entities</definition>
-        <argsstring>() const</argsstring>
-        <name>get_number_of_active_entities</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="144" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="139" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ab59822331dd0189096cbd48a26615d8f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
@@ -133,24 +120,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="147" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae806e02178f928250b46baff6a908df8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string euphoria::core::ecs::Registry::get_component_debug_name</definition>
-        <argsstring>(ComponentIndex c) const</argsstring>
-        <name>get_component_debug_name</name>
-        <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
-          <declname>c</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="150" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="141" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="241" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ad1d78e78034fe47240927cfcb1483d84" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -167,28 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="153" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1143a47c3af49882b0fbefb96668749b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::ecs::Registry::has_component</definition>
-        <argsstring>(EntityHandle entity, ComponentIndex comp_ind) const</argsstring>
-        <name>has_component</name>
-        <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
-          <declname>entity</declname>
-        </param>
-        <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
-          <declname>comp_ind</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="156" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="142" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="252" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1abca3df2fad5b2dbafe30b2866952efc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
@@ -209,24 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="159" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae645683cc6fe9e13cd6eb34f8cb5fe06" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref> &gt;</type>
-        <definition>std::vector&lt;EntityHandle&gt; euphoria::core::ecs::Registry::view</definition>
-        <argsstring>(const std::vector&lt; ComponentIndex &gt; &amp;matching_components) const</argsstring>
-        <name>view</name>
-        <param>
-          <type>const std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref> &gt; &amp;</type>
-          <declname>matching_components</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="163" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="143" column="24" bodyfile="libs/core/src/core/ecs.cc" bodystart="263" bodyend="266"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a5af3df1300a93e66d783389be4a232e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -248,7 +180,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="168" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="168" bodyend="171"/>
+        <location file="libs/core/src/core/ecs.h" line="147" column="24" bodyfile="libs/core/src/core/ecs.h" bodystart="147" bodyend="150"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c5b0d54e619036e5477a5da8543c69b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -278,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="176" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="176" bodyend="180"/>
+        <location file="libs/core/src/core/ecs.h" line="154" column="14" bodyfile="libs/core/src/core/ecs.h" bodystart="154" bodyend="158"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2ec669c09081f6beaa5b1e1f1f3595a2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -304,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="185" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="185" bodyend="189"/>
+        <location file="libs/core/src/core/ecs.h" line="162" column="14" bodyfile="libs/core/src/core/ecs.h" bodystart="162" bodyend="166"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2ef9e49514bfafbd9df74a06d8afeabf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -330,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="194" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="194" bodyend="197"/>
+        <location file="libs/core/src/core/ecs.h" line="170" column="11" bodyfile="libs/core/src/core/ecs.h" bodystart="170" bodyend="173"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2f5accedd03e2efb7b6ab7323a00994f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
@@ -356,15 +288,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="202" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="202" bodyend="205"/>
+        <location file="libs/core/src/core/ecs.h" line="176" column="11" bodyfile="libs/core/src/core/ecs.h" bodystart="176" bodyend="179"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="private-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a99add8295d9aba9b4f076cdc8dfe857d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae806e02178f928250b46baff6a908df8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>std::string euphoria::core::ecs::Registry::get_component_name</definition>
-        <argsstring>(ComponentIndex comp_ind) const</argsstring>
-        <name>get_component_name</name>
+        <definition>std::string euphoria::core::ecs::Registry::get_component_debug_name</definition>
+        <argsstring>(ComponentIndex c) const</argsstring>
+        <name>get_component_debug_name</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="181" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="247" bodyend="250"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1143a47c3af49882b0fbefb96668749b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::ecs::Registry::has_component</definition>
+        <argsstring>(EntityHandle entity, ComponentIndex comp_ind) const</argsstring>
+        <name>has_component</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
         <param>
           <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
           <declname>comp_ind</declname>
@@ -375,8 +326,40 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="210" column="22"/>
+        <location file="libs/core/src/core/ecs.h" line="182" column="15" bodyfile="libs/core/src/core/ecs.cc" bodystart="258" bodyend="261"/>
       </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a99c24a45ac285e33b4843546ce64d3fd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref> &gt;</type>
+        <definition>std::vector&lt; EntityHandle &gt; euphoria::core::ecs::Registry::view</definition>
+        <argsstring>(const std::vector&lt; ComponentIndex &gt; &amp;matching_components) const</argsstring>
+        <name>view</name>
+        <param>
+          <type>const std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref> &gt; &amp;</type>
+          <declname>matching_components</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="183" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="279" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a83e8f5c3bf617236faf803d6cddc58ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int euphoria::core::ecs::Registry::get_number_of_active_entities</definition>
+        <argsstring>() const</argsstring>
+        <name>get_number_of_active_entities</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="185" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="236" bodyend="239"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae98aa23a048894da0db20a37554b1c2d" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -397,11 +380,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="214" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="214" bodyend="219"/>
+        <location file="libs/core/src/core/ecs.h" line="190" column="32" bodyfile="libs/core/src/core/ecs.h" bodystart="190" bodyend="195"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2a4ffa395d614b0fa8a412ce17cbce2a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ace7358f086ba0030039bac5283643903" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> *</type>
-        <definition>ComponentArrayBase* euphoria::core::ecs::Registry::get_components_base</definition>
+        <definition>ComponentArrayBase * euphoria::core::ecs::Registry::get_components_base</definition>
         <argsstring>(ComponentIndex comp_ind)</argsstring>
         <name>get_components_base</name>
         <param>
@@ -414,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="222" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="197" column="28" bodyfile="libs/core/src/core/ecs.cc" bodystart="274" bodyend="277"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a3943d922c715f347ae859d7588fc7c9a" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -435,7 +418,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="225" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="198" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="285" bodyend="288"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1ad5f503379be6f31bcae8bd655dec7dea" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -456,14 +439,31 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="228" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="199" column="14" bodyfile="libs/core/src/core/ecs.cc" bodystart="291" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1Registry_1a99add8295d9aba9b4f076cdc8dfe857d" prot="private" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::ecs::Registry::get_component_name</definition>
+        <argsstring>(ComponentIndex comp_ind) const</argsstring>
+        <name>get_component_name</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>comp_ind</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="201" column="22" bodyfile="libs/core/src/core/ecs.cc" bodystart="269" bodyend="272"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/ecs.h" line="134" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="133" bodyend="231"/>
+    <location file="libs/core/src/core/ecs.h" line="132" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="131" bodyend="202"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c5b0d54e619036e5477a5da8543c69b" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>add_component</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ab59822331dd0189096cbd48a26615d8f" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>create</name></member>
@@ -473,7 +473,7 @@
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a99add8295d9aba9b4f076cdc8dfe857d" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_component_name</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2f5accedd03e2efb7b6ab7323a00994f" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_component_or_null</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae98aa23a048894da0db20a37554b1c2d" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_components</name></member>
-      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2a4ffa395d614b0fa8a412ce17cbce2a" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_components_base</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ace7358f086ba0030039bac5283643903" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_components_base</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a83e8f5c3bf617236faf803d6cddc58ed" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>get_number_of_active_entities</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1143a47c3af49882b0fbefb96668749b" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>has_component</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a3943d922c715f347ae859d7588fc7c9a" prot="private" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>on_added_component</name></member>
@@ -487,7 +487,7 @@
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a1c9f695cb438a4e972250dfe93900547" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>Registry</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a2ec669c09081f6beaa5b1e1f1f3595a2" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>remove_component</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1abca3df2fad5b2dbafe30b2866952efc3" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>set_component_array</name></member>
-      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1ae645683cc6fe9e13cd6eb34f8cb5fe06" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>view</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a99c24a45ac285e33b4843546ce64d3fd" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>view</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1Registry_1a424e5a9bb6759c4b41f7cee8728eb4cd" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::Registry</scope><name>~Registry</name></member>
     </listofallmembers>
   </compounddef>

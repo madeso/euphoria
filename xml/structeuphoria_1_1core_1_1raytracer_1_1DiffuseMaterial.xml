@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::raytracer::DiffuseMaterial</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" prot="public" virt="non-virtual">euphoria::core::raytracer::Material</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial_1af396beb7ed1baa530201209c4d329e82" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+        <definition>rgb euphoria::core::raytracer::DiffuseMaterial::albedo</definition>
+        <argsstring></argsstring>
+        <name>albedo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="144" column="13" bodyfile="libs/core/src/core/raytracer.cc" bodystart="144" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial_1a15f90669cfe3b673c58abdef9c85b6dd" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::raytracer::DiffuseMaterial::DiffuseMaterial</definition>
+        <argsstring>(const rgb &amp;aalbedo)</argsstring>
+        <name>DiffuseMaterial</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <declname>aalbedo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="146" column="18" bodyfile="libs/core/src/core/raytracer.cc" bodystart="146" bodyend="149"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial_1afcc7913cfbc0d4b26e818d946aa310d0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult" kindref="compound">ScatterResult</ref> &gt;</type>
+        <definition>std::optional&lt;ScatterResult&gt; euphoria::core::raytracer::DiffuseMaterial::scatter</definition>
+        <argsstring>(const UnitRay3f &amp;, const HitResult &amp;hit, Random *random) override</argsstring>
+        <name>scatter</name>
+        <reimplements refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a6ff9316d1365d21f77aca71034217731">scatter</reimplements>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult" kindref="compound">HitResult</ref> &amp;</type>
+          <declname>hit</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="152" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="153" bodyend="167"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::raytracer::Material</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1Material"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::raytracer::DiffuseMaterial</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::raytracer::Material</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1Material"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::rgb</label>
+        <link refid="structeuphoria_1_1core_1_1rgb"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::raytracer::DiffuseMaterial</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>albedo</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/raytracer.cc" line="143" column="1" bodyfile="libs/core/src/core/raytracer.cc" bodystart="142" bodyend="168"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial_1af396beb7ed1baa530201209c4d329e82" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DiffuseMaterial</scope><name>albedo</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial_1a15f90669cfe3b673c58abdef9c85b6dd" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DiffuseMaterial</scope><name>DiffuseMaterial</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa02c166d60c11706fbae602046b5d9d5" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DiffuseMaterial</scope><name>Material</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a501a31caec530288dc479fe8eda4558c" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::DiffuseMaterial</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial_1afcc7913cfbc0d4b26e818d946aa310d0" prot="public" virt="virtual"><scope>euphoria::core::raytracer::DiffuseMaterial</scope><name>scatter</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa7001d7b1dd2933e1d2c64ccfbeecf00" prot="public" virt="virtual"><scope>euphoria::core::raytracer::DiffuseMaterial</scope><name>~Material</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

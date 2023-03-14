@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="70" column="9"/>
+        <location file="libs/core/src/core/mesh.h" line="74" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="67" bodyend="71"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -85,7 +85,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/mesh.h" line="69" column="1" bodyfile="libs/core/src/core/mesh.h" bodystart="68" bodyend="73"/>
+    <location file="libs/core/src/core/mesh.h" line="70" column="1" bodyfile="libs/core/src/core/mesh.h" bodystart="69" bodyend="75"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1MaterialTexture_1a5f278502540f568f268bc5b49e534214" prot="public" virt="non-virtual"><scope>euphoria::core::MaterialTexture</scope><name>MaterialTexture</name></member>
       <member refid="structeuphoria_1_1core_1_1MaterialTexture_1a14b17f6a04ae27cd87ebec6543ddb5c0" prot="public" virt="non-virtual"><scope>euphoria::core::MaterialTexture</scope><name>path</name></member>

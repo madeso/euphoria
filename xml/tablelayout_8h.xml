@@ -4,6 +4,8 @@
     <compoundname>tablelayout.h</compoundname>
     <includes refid="numeric_8h" local="yes">core/numeric.h</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
+    <includedby refid="tablelayout_8cc" local="yes">libs/core/src/core/tablelayout.cc</includedby>
+    <includedby refid="scalablesprite_8cc" local="yes">libs/render/src/render/scalablesprite.cc</includedby>
     <incdepgraph>
       <node id="4">
         <label>string</label>
@@ -32,6 +34,24 @@
         <label>vector</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/tablelayout.cc</label>
+        <link refid="tablelayout_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/tablelayout.h</label>
+        <link refid="tablelayout_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/render/src/render/scalablesprite.cc</label>
+        <link refid="scalablesprite_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

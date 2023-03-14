@@ -60,14 +60,13 @@
 <div class="contents">
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &quot;<a class="el" href="numeric_8h_source.html">core/numeric.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="interpolate_8default_8h_source.html">core/interpolate.default.h</a>&quot;</code><br />
 </div>
 <p><a href="angle_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1angle.html">euphoria::core::angle</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1AngleTransform.html">euphoria::core::AngleTransform</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -105,8 +104,8 @@ Functions</h2></td></tr>
 <tr class="separator:afa710ea5f92d20401ab83334317b8e0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae44eddb7c56b8603fbb41a5967600929"><td class="memItemLeft" align="right" valign="top">angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ae44eddb7c56b8603fbb41a5967600929">euphoria::core::operator*</a> (float rhs, const angle &amp;lhs)</td></tr>
 <tr class="separator:ae44eddb7c56b8603fbb41a5967600929"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab88247b7f913d7948b6bf9ed1d609ab3"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ab88247b7f913d7948b6bf9ed1d609ab3">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;stream, const angle &amp;a)</td></tr>
-<tr class="separator:ab88247b7f913d7948b6bf9ed1d609ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ff5dc3c5fa7d286f446567b06100ce"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a65ff5dc3c5fa7d286f446567b06100ce">euphoria::core::operator&lt;&lt;</a> (std::ostream &amp;stream, const angle &amp;a)</td></tr>
+<tr class="separator:a65ff5dc3c5fa7d286f446567b06100ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a184598b68f572e4ae76dd07ea2c54440"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a184598b68f572e4ae76dd07ea2c54440">euphoria::core::operator&lt;</a> (const angle &amp;lhs, const angle &amp;rhs)</td></tr>
 <tr class="separator:a184598b68f572e4ae76dd07ea2c54440"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92e9841b9d4f736d168ba2ab1f7f475e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a92e9841b9d4f736d168ba2ab1f7f475e">euphoria::core::operator&lt;=</a> (const angle &amp;lhs, const angle &amp;rhs)</td></tr>
@@ -115,9 +114,13 @@ Functions</h2></td></tr>
 <tr class="separator:a8799fdc6e9886ddf4c92f92c3fb8a249"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcacd9988df8094772fbbd498cdf2e1e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#afcacd9988df8094772fbbd498cdf2e1e">euphoria::core::operator&gt;=</a> (const angle &amp;lhs, const angle &amp;rhs)</td></tr>
 <tr class="separator:afcacd9988df8094772fbbd498cdf2e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04b90c570e95f97f2c6bd0e57ec4ca1f"><td class="memItemLeft" align="right" valign="top">constexpr core::angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1convert.html#a04b90c570e95f97f2c6bd0e57ec4ca1f">euphoria::convert::operator&quot;&quot;_deg</a> (long double d)</td></tr>
+<tr class="memitem:ac7a234f363d3308aa887bde2b8c90f32"><td class="memItemLeft" align="right" valign="top">angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#ac7a234f363d3308aa887bde2b8c90f32">euphoria::core::angle_transform</a> (const angle &amp;from, float v, const angle &amp;to)</td></tr>
+<tr class="separator:ac7a234f363d3308aa887bde2b8c90f32"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a54eef20f2f2fcb0337baf8084784094e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1core.html#a54eef20f2f2fcb0337baf8084784094e">euphoria::core::DEFAULT_INTERPOLATE</a> (angle, angle_transform)</td></tr>
+<tr class="separator:a54eef20f2f2fcb0337baf8084784094e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04b90c570e95f97f2c6bd0e57ec4ca1f"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structeuphoria_1_1core_1_1angle.html">core::angle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1convert.html#a04b90c570e95f97f2c6bd0e57ec4ca1f">euphoria::convert::operator&quot;&quot;_deg</a> (long double d)</td></tr>
 <tr class="separator:a04b90c570e95f97f2c6bd0e57ec4ca1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aef08cba67e40452f788d35202d9fb9ac"><td class="memItemLeft" align="right" valign="top">constexpr core::angle&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1convert.html#aef08cba67e40452f788d35202d9fb9ac">euphoria::convert::operator&quot;&quot;_rad</a> (long double r)</td></tr>
+<tr class="memitem:aef08cba67e40452f788d35202d9fb9ac"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="structeuphoria_1_1core_1_1angle.html">core::angle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1convert.html#aef08cba67e40452f788d35202d9fb9ac">euphoria::convert::operator&quot;&quot;_rad</a> (long double r)</td></tr>
 <tr class="separator:aef08cba67e40452f788d35202d9fb9ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

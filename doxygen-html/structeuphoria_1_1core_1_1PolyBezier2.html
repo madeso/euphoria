@@ -62,22 +62,19 @@
 </div><!--header-->
 <div class="contents">
 
+<p>Composite Bézier curve or polybezier.  
+ <a href="structeuphoria_1_1core_1_1PolyBezier2.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="polybezier_8h_source.html">polybezier.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a54e0cec3a6556fe6f00747cfa22be3b3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a54e0cec3a6556fe6f00747cfa22be3b3">PolyBezier2</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;center)</td></tr>
 <tr class="separator:a54e0cec3a6556fe6f00747cfa22be3b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a24386354fb0da7afdc32ecd4b57f2b12"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a24386354fb0da7afdc32ecd4b57f2b12">iterate_points</a> () const</td></tr>
-<tr class="separator:a24386354fb0da7afdc32ecd4b57f2b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e449a14a74d9a1d3011bfa608ee7665"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a8e449a14a74d9a1d3011bfa608ee7665">add_point</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;p)</td></tr>
 <tr class="separator:a8e449a14a74d9a1d3011bfa608ee7665"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31d492e16951596ef930b182ce78bb1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a31d492e16951596ef930b182ce78bb1f">move_point</a> (int i, const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;delta)</td></tr>
 <tr class="separator:a31d492e16951596ef930b182ce78bb1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a096ad6d06cde8ba0a845fc418ee705ed"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a096ad6d06cde8ba0a845fc418ee705ed">iterate_segments</a> () const</td></tr>
-<tr class="separator:a096ad6d06cde8ba0a845fc418ee705ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab019a4c58980034cceef1e673e21568e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1BezierSegment2.html">BezierSegment2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#ab019a4c58980034cceef1e673e21568e">get_segment</a> (int i) const</td></tr>
-<tr class="separator:ab019a4c58980034cceef1e673e21568e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba3aeb6054e00fef032a08b8a53ef0db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#aba3aeb6054e00fef032a08b8a53ef0db">set_closed</a> (bool <a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a5cc3e64195cca411fbc6b2a6e2c65059">is_closed</a>)</td></tr>
 <tr class="separator:aba3aeb6054e00fef032a08b8a53ef0db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2c310d77d345f845f2631acad5e7c34b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a2c310d77d345f845f2631acad5e7c34b">toggle_closed</a> ()</td></tr>
@@ -86,13 +83,19 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac927b104fb9635f352d062b49539346e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d406c3c1715a24405d8c972391e8f72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a0d406c3c1715a24405d8c972391e8f72">toggle_auto_set_control_points</a> ()</td></tr>
 <tr class="separator:a0d406c3c1715a24405d8c972391e8f72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab019a4c58980034cceef1e673e21568e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1BezierSegment2.html">BezierSegment2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#ab019a4c58980034cceef1e673e21568e">get_segment</a> (int i) const</td></tr>
+<tr class="separator:ab019a4c58980034cceef1e673e21568e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90c1e9366407a8d1e07544eeff6450d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt; size_t &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a90c1e9366407a8d1e07544eeff6450d5">iterate_points</a> () const</td></tr>
+<tr class="separator:a90c1e9366407a8d1e07544eeff6450d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add4a5b4c6a9f2b6481122a2b07bbc710"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#add4a5b4c6a9f2b6481122a2b07bbc710">iterate_segments</a> () const</td></tr>
+<tr class="separator:add4a5b4c6a9f2b6481122a2b07bbc710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae6ed89f1e3a7dec738a92fca279e7029"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#ae6ed89f1e3a7dec738a92fca279e7029">is_anchor_point</a> (size_t i)</td></tr>
-<tr class="separator:ae6ed89f1e3a7dec738a92fca279e7029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa045506f35343bb0435635b0b731d060"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#aa045506f35343bb0435635b0b731d060">is_control_point</a> (size_t i)</td></tr>
-<tr class="separator:aa045506f35343bb0435635b0b731d060"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a14b80d79d53703b7ece75f2a162cbaf5"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a14b80d79d53703b7ece75f2a162cbaf5">is_anchor_point</a> (size_t i)</td></tr>
+<tr class="separator:a14b80d79d53703b7ece75f2a162cbaf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2562cfbd7fe5463912ad819ffe29a769"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1PolyBezier2.html#a2562cfbd7fe5463912ad819ffe29a769">is_control_point</a> (size_t i)</td></tr>
+<tr class="separator:a2562cfbd7fe5463912ad819ffe29a769"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -104,8 +107,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a85877b1ccaf50246ec5c40d679cae669"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="polybezier_8h_source.html#l00045">45</a> of file <a class="el" href="polybezier_8h_source.html">polybezier.h</a>.</p>
+<div class="textblock"><p>Composite Bézier curve or polybezier. </p>
+
+<p class="definition">Definition at line <a class="el" href="polybezier_8h_source.html#l00044">44</a> of file <a class="el" href="polybezier_8h_source.html">polybezier.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a54e0cec3a6556fe6f00747cfa22be3b3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a54e0cec3a6556fe6f00747cfa22be3b3">&#9670;&nbsp;</a></span>PolyBezier2()</h2>
@@ -122,6 +126,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00331">331</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
 
 </div>
 </div>
@@ -142,6 +148,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00348">348</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
+
 </div>
 </div>
 <a id="ab019a4c58980034cceef1e673e21568e"></a>
@@ -160,10 +168,12 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00379">379</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
+
 </div>
 </div>
-<a id="ae6ed89f1e3a7dec738a92fca279e7029"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6ed89f1e3a7dec738a92fca279e7029">&#9670;&nbsp;</a></span>is_anchor_point()</h2>
+<a id="a14b80d79d53703b7ece75f2a162cbaf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a14b80d79d53703b7ece75f2a162cbaf5">&#9670;&nbsp;</a></span>is_anchor_point()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -172,7 +182,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool euphoria::core::PolyBezier2::is_anchor_point </td>
+          <td class="memname">bool euphoria::core::PolyBezier2::is_anchor_point </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -186,10 +196,12 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00354">354</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
+
 </div>
 </div>
-<a id="aa045506f35343bb0435635b0b731d060"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa045506f35343bb0435635b0b731d060">&#9670;&nbsp;</a></span>is_control_point()</h2>
+<a id="a2562cfbd7fe5463912ad819ffe29a769"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2562cfbd7fe5463912ad819ffe29a769">&#9670;&nbsp;</a></span>is_control_point()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -198,7 +210,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static bool euphoria::core::PolyBezier2::is_control_point </td>
+          <td class="memname">bool euphoria::core::PolyBezier2::is_control_point </td>
           <td>(</td>
           <td class="paramtype">size_t&#160;</td>
           <td class="paramname"><em>i</em></td><td>)</td>
@@ -212,16 +224,18 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00360">360</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
+
 </div>
 </div>
-<a id="a24386354fb0da7afdc32ecd4b57f2b12"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a24386354fb0da7afdc32ecd4b57f2b12">&#9670;&nbsp;</a></span>iterate_points()</h2>
+<a id="a90c1e9366407a8d1e07544eeff6450d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90c1e9366407a8d1e07544eeff6450d5">&#9670;&nbsp;</a></span>iterate_points()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt;size_t&gt; euphoria::core::PolyBezier2::iterate_points </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt; size_t &gt; euphoria::core::PolyBezier2::iterate_points </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -229,22 +243,26 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00342">342</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
+
 </div>
 </div>
-<a id="a096ad6d06cde8ba0a845fc418ee705ed"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a096ad6d06cde8ba0a845fc418ee705ed">&#9670;&nbsp;</a></span>iterate_segments()</h2>
+<a id="add4a5b4c6a9f2b6481122a2b07bbc710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add4a5b4c6a9f2b6481122a2b07bbc710">&#9670;&nbsp;</a></span>iterate_segments()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt;int&gt; euphoria::core::PolyBezier2::iterate_segments </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1StepIteratorCreator.html">StepIteratorCreator</a>&lt; int &gt; euphoria::core::PolyBezier2::iterate_segments </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00373">373</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
 
 </div>
 </div>
@@ -274,6 +292,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00367">367</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
+
 </div>
 </div>
 <a id="ac927b104fb9635f352d062b49539346e"></a>
@@ -291,6 +311,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00398">398</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
 
 </div>
 </div>
@@ -310,6 +332,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00385">385</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
+
 </div>
 </div>
 <a id="a0d406c3c1715a24405d8c972391e8f72"></a>
@@ -326,6 +350,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00404">404</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
 
 </div>
 </div>
@@ -344,6 +370,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="polybezier_8cc_source.html#l00391">391</a> of file <a class="el" href="polybezier_8cc_source.html">polybezier.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -359,7 +387,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="polybezier_8h_source.html#l00051">51</a> of file <a class="el" href="polybezier_8h_source.html">polybezier.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="polybezier_8h_source.html#l00050">50</a> of file <a class="el" href="polybezier_8h_source.html">polybezier.h</a>.</p>
 
 </div>
 </div>
@@ -375,7 +403,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="polybezier_8h_source.html#l00048">48</a> of file <a class="el" href="polybezier_8h_source.html">polybezier.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="polybezier_8h_source.html#l00047">47</a> of file <a class="el" href="polybezier_8h_source.html">polybezier.h</a>.</p>
 
 </div>
 </div>
@@ -391,12 +419,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="polybezier_8h_source.html#l00047">47</a> of file <a class="el" href="polybezier_8h_source.html">polybezier.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="polybezier_8h_source.html#l00046">46</a> of file <a class="el" href="polybezier_8h_source.html">polybezier.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>libs/core/src/core/<a class="el" href="polybezier_8h_source.html">polybezier.h</a></li>
+<li>libs/core/src/core/<a class="el" href="polybezier_8cc_source.html">polybezier.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

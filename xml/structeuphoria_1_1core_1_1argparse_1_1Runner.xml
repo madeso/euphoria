@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="166" column="24" bodyfile="libs/core/src/core/argparse.h" bodystart="166" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="155" column="24" bodyfile="libs/core/src/core/argparse.h" bodystart="155" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1Runner_1acd6fb7c6d70c6e43c1002cfd1fef90ee" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1Printer" kindref="compound">argparse::Printer</ref> &gt;</type>
@@ -28,10 +28,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="167" column="25" bodyfile="libs/core/src/core/argparse.h" bodystart="167" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="156" column="25" bodyfile="libs/core/src/core/argparse.h" bodystart="156" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>shared data between parsing functions </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -55,7 +56,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="165" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="164" bodyend="168"/>
+    <location file="libs/core/src/core/argparse.h" line="154" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="153" bodyend="157"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Runner_1a021a90d680e3b4219a64f27e37ccc33e" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::Runner</scope><name>arguments</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Runner_1acd6fb7c6d70c6e43c1002cfd1fef90ee" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::Runner</scope><name>printer</name></member>

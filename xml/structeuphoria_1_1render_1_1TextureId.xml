@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="56" column="9"/>
+        <location file="libs/render/src/render/texture.h" line="56" column="9" bodyfile="libs/render/src/render/texture.cc" bodystart="105" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureId_1a7d305cea8e7910cfbbbb16cbffcb2bb2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="57" column="9"/>
+        <location file="libs/render/src/render/texture.h" line="57" column="9" bodyfile="libs/render/src/render/texture.cc" bodystart="111" bodyend="114"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureId_1a39e88ed9d673452e3528ccd9a1f80c25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -73,11 +73,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="62" column="9"/>
+        <location file="libs/render/src/render/texture.h" line="62" column="9" bodyfile="libs/render/src/render/texture.cc" bodystart="125" bodyend="128"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureId_1ae8095a75f77b04aff1a997b8d181ecc5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureId_1a485ab3485bec33c34e2b7a9ddb366479" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1render_1_1gl_1ad9e87e3f6176881566b2c8143f7bcf91" kindref="member">gl::Uint</ref></type>
-        <definition>gl::Uint euphoria::render::TextureId::get_id</definition>
+        <definition>GLuint euphoria::render::TextureId::get_id</definition>
         <argsstring>() const</argsstring>
         <name>get_id</name>
         <briefdescription>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.h" line="65" column="9"/>
+        <location file="libs/render/src/render/texture.h" line="65" column="9" bodyfile="libs/render/src/render/texture.cc" bodystart="118" bodyend="121"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -107,7 +107,7 @@
     </inheritancegraph>
     <location file="libs/render/src/render/texture.h" line="54" column="1" bodyfile="libs/render/src/render/texture.h" bodystart="53" bodyend="69"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1render_1_1TextureId_1ae8095a75f77b04aff1a997b8d181ecc5" prot="public" virt="non-virtual"><scope>euphoria::render::TextureId</scope><name>get_id</name></member>
+      <member refid="structeuphoria_1_1render_1_1TextureId_1a485ab3485bec33c34e2b7a9ddb366479" prot="public" virt="non-virtual"><scope>euphoria::render::TextureId</scope><name>get_id</name></member>
       <member refid="structeuphoria_1_1render_1_1TextureId_1a2d7cd205f1795142e3d70bd9b93e9f2c" prot="private" virt="non-virtual"><scope>euphoria::render::TextureId</scope><name>id</name></member>
       <member refid="structeuphoria_1_1render_1_1TextureId_1a51c94218774d30d9fcc48955bd73b0db" prot="public" virt="non-virtual"><scope>euphoria::render::TextureId</scope><name>is_currently_bound</name></member>
       <member refid="structeuphoria_1_1render_1_1TextureId_1a39e88ed9d673452e3528ccd9a1f80c25" prot="public" virt="non-virtual"><scope>euphoria::render::TextureId</scope><name>NONCOPYABLE</name></member>

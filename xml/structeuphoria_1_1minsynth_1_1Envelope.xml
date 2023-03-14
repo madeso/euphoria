@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="318" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="318" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="288" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="288" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1Envelope_1a5d8ba8ebf14b6cc0cf9b90719af89ad6" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="319" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="319" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="289" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="289" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="322" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="291" column="16" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="653" bodyend="667"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Envelope_1a7ea428c92fb793e07cd953932fcf9a62" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -82,14 +82,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="325" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="292" column="16" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="670" bodyend="684"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="317" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="316" bodyend="326"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="287" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="286" bodyend="293"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1Envelope_1a7ea428c92fb793e07cd953932fcf9a62" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Envelope</scope><name>get_dead</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Envelope_1af2af05f63e53052fd9e0dbeb6b3a4d64" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Envelope</scope><name>get_live</name></member>

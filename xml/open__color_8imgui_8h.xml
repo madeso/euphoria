@@ -4,6 +4,7 @@
     <compoundname>open_color.imgui.h</compoundname>
     <includes local="yes">open-color.h</includes>
     <includes local="yes">imgui/imgui.h</includes>
+    <includedby refid="open__color_8imgui_8cc" local="yes">libs/window/src/window/open_color.imgui.cc</includedby>
     <incdepgraph>
       <node id="3">
         <label>imgui/imgui.h</label>
@@ -20,6 +21,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/window/src/window/open_color.imgui.cc</label>
+        <link refid="open__color_8imgui_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/window/src/window/open_color.imgui.h</label>
+        <link refid="open__color_8imgui_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
     <briefdescription>

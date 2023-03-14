@@ -2,6 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="cypher_8h" kind="file" language="C++">
     <compoundname>cypher.h</compoundname>
+    <includedby refid="cypher_8cc" local="yes">libs/core/src/core/cypher.cc</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/cypher.cc</label>
+        <link refid="cypher_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/cypher.h</label>
+        <link refid="cypher_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::ecs::KnownComponentTypes</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1a16d2c5606fab77f5b3cd5b0059d51e0a" prot="public" static="no" mutable="no">
+        <type>std::unordered_map&lt; std::string, <ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref> &gt;</type>
+        <definition>std::unordered_map&lt;std::string, ComponentIndex&gt; euphoria::core::ecs::KnownComponentTypes::name_to_index</definition>
+        <argsstring></argsstring>
+        <name>name_to_index</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="124" column="28" bodyfile="libs/core/src/core/ecs.cc" bodystart="124" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1a601c3f33132ef12c1c711c4e7b276853" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::ecs::KnownComponentTypes::index_to_name</definition>
+        <argsstring></argsstring>
+        <name>index_to_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="125" column="21" bodyfile="libs/core/src/core/ecs.cc" bodystart="125" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1ab7b4476d3289590d0ce1a831c0f72e42" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+        <definition>ComponentIndex euphoria::core::ecs::KnownComponentTypes::add</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="127" column="24" bodyfile="libs/core/src/core/ecs.cc" bodystart="127" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1a9c60165f4de8367ce99fc51f7d8cb908" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+        <definition>ComponentIndex euphoria::core::ecs::KnownComponentTypes::get_index</definition>
+        <argsstring>(const std::string &amp;name)</argsstring>
+        <name>get_index</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="137" column="24" bodyfile="libs/core/src/core/ecs.cc" bodystart="137" bodyend="142"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1aa62aad09c2efd595d2f452260c3128d8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::ecs::KnownComponentTypes::get_name</definition>
+        <argsstring>(ComponentIndex c)</argsstring>
+        <name>get_name</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1a432f6f7f37f32d73c71e56370bcd97af" kindref="member">ComponentIndex</ref></type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.cc" line="144" column="21" bodyfile="libs/core/src/core/ecs.cc" bodystart="144" bodyend="147"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/ecs.cc" line="123" column="1" bodyfile="libs/core/src/core/ecs.cc" bodystart="122" bodyend="148"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1ab7b4476d3289590d0ce1a831c0f72e42" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::KnownComponentTypes</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1a9c60165f4de8367ce99fc51f7d8cb908" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::KnownComponentTypes</scope><name>get_index</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1aa62aad09c2efd595d2f452260c3128d8" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::KnownComponentTypes</scope><name>get_name</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1a601c3f33132ef12c1c711c4e7b276853" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::KnownComponentTypes</scope><name>index_to_name</name></member>
+      <member refid="structeuphoria_1_1core_1_1ecs_1_1KnownComponentTypes_1a16d2c5606fab77f5b3cd5b0059d51e0a" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::KnownComponentTypes</scope><name>name_to_index</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

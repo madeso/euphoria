@@ -40,6 +40,7 @@
           </detaileddescription>
         </enumvalue>
         <briefdescription>
+<para>enum to catch adding arguments during parsing in a callback </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
@@ -53,6 +54,7 @@
         <enumvalue id="namespaceeuphoria_1_1core_1_1argparse_1a02a654a8f750fe91f2d71b4f95d83d99a09617f816c4bb3ac285a4da6e016574b" prot="public">
           <name>greedy</name>
           <briefdescription>
+<para>parse all arguments </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
@@ -60,6 +62,7 @@
         <enumvalue id="namespaceeuphoria_1_1core_1_1argparse_1a02a654a8f750fe91f2d71b4f95d83d99a4ccb1142ebdd7ca505d88c28df648283" prot="public">
           <name>fallback</name>
           <briefdescription>
+<para>if argument is invalid, go back one step and try there </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
@@ -67,41 +70,44 @@
         <enumvalue id="namespaceeuphoria_1_1core_1_1argparse_1a02a654a8f750fe91f2d71b4f95d83d99a6995c373523132a1006975baf4079aa0" prot="public">
           <name>inherit</name>
           <briefdescription>
+<para>inherit from parent </para>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
         <briefdescription>
+<para>how the subparsing is handled, non-greedy are useful for &apos;scripting&apos; with subparsers </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="424" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="423" bodyend="433"/>
+        <location file="libs/core/src/core/argparse.h" line="393" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="392" bodyend="402"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
-      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1argparse_1a36fe00e5fd025b95df1b3f7a24288bc6" prot="public" static="no">
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1argparse_1a596a6bab2dcbfc736e94623e450d645c" prot="public" static="no">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
         </templateparamlist>
-        <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; T &gt;(const std::string &amp;value) &gt;</type>
-        <definition>using euphoria::core::argparse::ParseFunction = typedef std::function &lt; Result&lt;T&gt; ( const std::string&amp; value ) &gt;</definition>
+        <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; T &gt;(const std::string &amp;value)&gt;</type>
+        <definition>using euphoria::core::argparse::ParseFunction = typedef std::function&lt;Result&lt;T&gt; (const std::string&amp; value)&gt;</definition>
         <argsstring></argsstring>
         <name>ParseFunction</name>
         <briefdescription>
+<para>generic parse function </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="349" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="355" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="332" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="332" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1argparse_1a1634480feea39d1ec080754169f3b2eb" prot="public" static="no">
-        <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>(<ref refid="structeuphoria_1_1core_1_1argparse_1_1SubParser" kindref="compound">SubParser</ref> *) &gt;</type>
-        <definition>using euphoria::core::argparse::SubParserCallback = typedef std::function &lt; ParseResult (SubParser*) &gt;</definition>
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1argparse_1ae6c8200dad288bd6c9d82c91d3b161b5" prot="public" static="no">
+        <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>(<ref refid="structeuphoria_1_1core_1_1argparse_1_1SubParser" kindref="compound">SubParser</ref> *)&gt;</type>
+        <definition>using euphoria::core::argparse::SubParserCallback = typedef std::function&lt;ParseResult (SubParser*)&gt;</definition>
         <argsstring></argsstring>
         <name>SubParserCallback</name>
         <briefdescription>
@@ -110,11 +116,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="358" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="361" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="336" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="336" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1argparse_1ac61872bd86cf97bb81b20216df85bc52" prot="public" static="no">
-        <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>() &gt;</type>
-        <definition>using euphoria::core::argparse::CompleteFunction = typedef std::function &lt; ParseResult () &gt;</definition>
+      <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1argparse_1ac1c0d680cc59febe52e0cf4e9a0438b2" prot="public" static="no">
+        <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>()&gt;</type>
+        <definition>using euphoria::core::argparse::CompleteFunction = typedef std::function&lt;ParseResult ()&gt;</definition>
         <argsstring></argsstring>
         <name>CompleteFunction</name>
         <briefdescription>
@@ -123,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="363" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="366" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="337" column="5" bodyfile="libs/core/src/core/argparse.h" bodystart="337" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -134,12 +140,13 @@
         <name>error</name>
         <initializer>= <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>{ ParseResult::Type::error }</initializer>
         <briefdescription>
+<para>no error occurred </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="77" column="27" bodyfile="libs/core/src/core/argparse.h" bodystart="77" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="73" column="27" bodyfile="libs/core/src/core/argparse.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1argparse_1a6c906593b2124d3c819b1c5813adaf3c" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref></type>
@@ -148,12 +155,13 @@
         <name>ok</name>
         <initializer>= <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>{ ParseResult::Type::ok }</initializer>
         <briefdescription>
+<para>all ok </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="80" column="27" bodyfile="libs/core/src/core/argparse.h" bodystart="80" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="76" column="27" bodyfile="libs/core/src/core/argparse.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="namespaceeuphoria_1_1core_1_1argparse_1a91919e8b6aa84796a6c92e810877b869" prot="public" static="no" constexpr="yes" mutable="no">
         <type>constexpr <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref></type>
@@ -162,18 +170,19 @@
         <name>quit</name>
         <initializer>= <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>{ ParseResult::Type::quit }</initializer>
         <briefdescription>
+<para>all ok, but quit requested </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="83" column="27" bodyfile="libs/core/src/core/argparse.h" bodystart="83" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="79" column="27" bodyfile="libs/core/src/core/argparse.h" bodystart="79" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a4728b806eef822dc82a5962dc098f40e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a990ed9d8e4c2796782a894d2992c0f42" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
-        <definition>std::ostream&amp; euphoria::core::argparse::operator&lt;&lt;</definition>
+        <definition>std::ostream &amp; euphoria::core::argparse::operator&lt;&lt;</definition>
         <argsstring>(std::ostream &amp;o, const ParseResult &amp;pr)</argsstring>
         <name>operator&lt;&lt;</name>
         <param>
@@ -190,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="85" column="5" declfile="libs/core/src/core/argparse.h" declline="85" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="106" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="107" bodyend="111" declfile="libs/core/src/core/argparse.h" declline="81" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1ad89adeb752beb77fb0c21b42b50ac609" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -211,7 +220,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="89" column="5" declfile="libs/core/src/core/argparse.h" declline="89" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="114" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="114" bodyend="117" declfile="libs/core/src/core/argparse.h" declline="85" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a5b1a5638c30ea99f64ef66c7b9e9062a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -232,20 +241,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="93" column="5" declfile="libs/core/src/core/argparse.h" declline="93" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="121" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="121" bodyend="124" declfile="libs/core/src/core/argparse.h" declline="89" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a0e27f8aaefcb454202202db1a7dddc9b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a380297ff3f8ab6c957ac6d6294acee88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
-        <definition>std::ostream&amp; euphoria::core::argparse::operator&lt;&lt;</definition>
-        <argsstring>(std::ostream &amp;stream, const NameAndArguments &amp;arguments)</argsstring>
+        <definition>std::ostream &amp; euphoria::core::argparse::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;o, const euphoria::core::argparse::NameAndArguments &amp;args)</argsstring>
         <name>operator&lt;&lt;</name>
         <param>
           <type>std::ostream &amp;</type>
-          <declname>stream</declname>
+          <declname>o</declname>
         </param>
         <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" kindref="compound">NameAndArguments</ref> &amp;</type>
-          <declname>arguments</declname>
+          <type>const <ref refid="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments" kindref="compound">euphoria::core::argparse::NameAndArguments</ref> &amp;</type>
+          <declname>args</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -253,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="109" column="5" declfile="libs/core/src/core/argparse.h" declline="109" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="148" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="149" bodyend="162" declfile="libs/core/src/core/argparse.h" declline="105" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a257edea7fc489bdd82ec99771b975240" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -278,7 +287,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="171" column="5" declfile="libs/core/src/core/argparse.h" declline="171" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="231" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="232" bodyend="249" declfile="libs/core/src/core/argparse.h" declline="160" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a071c4e9181198c5f632ae1074f483272" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::argparse::create_default_nargs</definition>
+        <argsstring>(const Name &amp;name)</argsstring>
+        <name>create_default_nargs</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1argparse_1_1Name" kindref="compound">Name</ref> &amp;</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/argparse.cc" line="810" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="810" bodyend="814"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a1de5da41ad47b6191f28557db5333e65" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -299,12 +325,13 @@
           <array>[]</array>
         </param>
         <briefdescription>
+<para>helper function for parsing directly from main </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="656" column="5" declfile="libs/core/src/core/argparse.h" declline="656" declcolumn="5"/>
+        <location file="libs/core/src/core/argparse.cc" line="1351" column="5" bodyfile="libs/core/src/core/argparse.cc" bodystart="1351" bodyend="1356" declfile="libs/core/src/core/argparse.h" declline="585" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1a4426a067e286c7ebc4cbe8455fd4e104" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -321,7 +348,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/default_parse.h" line="11" column="5" declfile="libs/core/src/core/default_parse.h" declline="11" declcolumn="5"/>
+        <location file="libs/core/src/core/default_parse.cc" line="10" column="5" bodyfile="libs/core/src/core/default_parse.cc" bodystart="10" bodyend="20" declfile="libs/core/src/core/default_parse.h" declline="11" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1argparse_1acfe9425286b6e6ae5d598d4134dfbdf5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -402,6 +429,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/argparse.h" line="18" column="1"/>
+    <location file="libs/core/src/core/argparse.cc" line="46" column="1"/>
   </compounddef>
 </doxygen>

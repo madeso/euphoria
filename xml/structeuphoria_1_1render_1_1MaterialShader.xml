@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="77" column="31" bodyfile="libs/render/src/render/materialshader.h" bodystart="77" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="42" column="31" bodyfile="libs/render/src/render/materialshader.h" bodystart="42" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a8853d144d258cce932da11b813af480e" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="80" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="80" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="45" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a25ec1369880b71cef6f3a094d0cf9b57" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="81" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="81" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="46" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a3b198b8f251a965805e088c307908e17" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="82" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="82" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="47" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a23a1658f7dacb5ad48cc525def940d42" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="84" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="84" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="49" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="49" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a0c0ca6c8f0a925e719039c0b9fdbef7a" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="85" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="85" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="50" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="50" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a94c072f38a7664721af98f106f0a2b05" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="86" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="86" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="51" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1ab003408ae7f5016013bcb1b632ced642" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="87" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="87" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="52" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a4695efb65b45cbc269b097b252689e27" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="89" column="14" bodyfile="libs/render/src/render/materialshader.h" bodystart="89" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="54" column="14" bodyfile="libs/render/src/render/materialshader.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a8134e00f69271d04da3fa4bd873be5c1" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="90" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="90" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="55" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a308f5c11b3be1804fadf0192b0709d08" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -145,7 +145,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="91" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="91" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="56" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="56" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a5f25e32e75ef199e02036ef86468ea58" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="92" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="92" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="57" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="57" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1adb64d76a9e7ab11ba20f3dc1da9f3286" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -171,7 +171,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="93" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="93" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="58" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="58" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a6977b31b1d7eee7302c6b5ddb3e447a5" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -184,7 +184,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="94" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="94" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="59" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="59" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a3695c0f1ec3fc87f4c4ca0440d587b15" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -197,7 +197,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="95" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="95" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="60" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="60" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a487e468c36083d4be6f2cea64d52c438" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -210,7 +210,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="96" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="96" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="61" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1ad8eeee4b506cc2b32723eff2cf2cb645" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -223,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="97" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="97" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="62" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="62" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1ae44560909d018949b21986b10d8c9185" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -236,7 +236,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="98" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="98" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="63" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="63" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a1c68c4c91d735d03fa703ef4c9a3b25f" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -249,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="99" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="99" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="64" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="64" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1aec565d67571aa44ee6df7c587454b290" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -262,7 +262,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="100" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="100" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="65" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="65" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a294231a039ae5aedff320617107cb9e9" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -275,7 +275,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="102" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="102" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="67" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="67" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1a3b85c2d81673db681d1061a849f812b2" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -288,7 +288,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="103" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="103" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="68" column="23" bodyfile="libs/render/src/render/materialshader.h" bodystart="68" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1af0fa253882ea570ce5aa322d770bf16b" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1render_1_1MaterialShaderBinding" kindref="compound">MaterialShaderBinding</ref> &gt;</type>
@@ -301,7 +301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="105" column="21" bodyfile="libs/render/src/render/materialshader.h" bodystart="105" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="70" column="21" bodyfile="libs/render/src/render/materialshader.h" bodystart="70" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1MaterialShader_1aa78277950f1073b7f3c77c6d52f4b567" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1render_1_1MaterialShaderDefaultTexture" kindref="compound">MaterialShaderDefaultTexture</ref> &gt;</type>
@@ -314,7 +314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="106" column="21" bodyfile="libs/render/src/render/materialshader.h" bodystart="106" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshader.h" line="71" column="21" bodyfile="libs/render/src/render/materialshader.h" bodystart="71" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -329,7 +329,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="44" column="9"/>
+        <location file="libs/render/src/render/materialshader.h" line="73" column="9" bodyfile="libs/render/src/render/materialshader.cc" bodystart="42" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShader_1a70b830500aac9de577c55a627c0add90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -350,7 +350,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="47" column="9"/>
+        <location file="libs/render/src/render/materialshader.h" line="75" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="157" bodyend="176"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShader_1a3ab26b8c2af31c0aaa121f2678ce4379" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -363,7 +363,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="54" column="9"/>
+        <location file="libs/render/src/render/materialshader.h" line="81" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="179" bodyend="182"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShader_1a590f6711bbc5d381de062f804f6fb660" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -380,7 +380,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="57" column="9"/>
+        <location file="libs/render/src/render/materialshader.h" line="82" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="185" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShader_1a7790a35622f48b672bce649306e680f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -397,7 +397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="60" column="9"/>
+        <location file="libs/render/src/render/materialshader.h" line="83" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="191" bodyend="194"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShader_1a68333b1438d7b0ded15bd662bf5e4a29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -414,7 +414,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="63" column="9"/>
+        <location file="libs/render/src/render/materialshader.h" line="84" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="197" bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShader_1a0a3b0bb8df7adad7be0ff2de04a45c10" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -435,7 +435,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="66" column="9"/>
+        <location file="libs/render/src/render/materialshader.h" line="85" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="211" bodyend="233"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShader_1a4577a4347ccfcbdab0c5f65dad1a54dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -464,7 +464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshader.h" line="69" column="9"/>
+        <location file="libs/render/src/render/materialshader.h" line="87" column="14" bodyfile="libs/render/src/render/materialshader.cc" bodystart="237" bodyend="269"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -511,7 +511,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/materialshader.h" line="42" column="1" bodyfile="libs/render/src/render/materialshader.h" bodystart="41" bodyend="107"/>
+    <location file="libs/render/src/render/materialshader.h" line="41" column="1" bodyfile="libs/render/src/render/materialshader.h" bodystart="40" bodyend="94"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1a23a1658f7dacb5ad48cc525def940d42" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>ambient</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShader_1af0fa253882ea570ce5aa322d770bf16b" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShader</scope><name>bindings</name></member>

@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="61" column="9"/>
+        <location file="libs/core/src/core/loadedfont.h" line="61" column="9" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="140" bodyend="147"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1LoadedFont_1a69bf4223feabae42806ea26b14a2f6a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -105,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.h" line="64" column="9"/>
+        <location file="libs/core/src/core/loadedfont.h" line="64" column="9" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="151" bodyend="194"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

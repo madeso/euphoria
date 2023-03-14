@@ -22,7 +22,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="334" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="334" bodyend="339"/>
+        <location file="libs/core/src/core/rgb.h" line="242" column="22" bodyfile="libs/core/src/core/rgb.h" bodystart="242" bodyend="247"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1abd05acc65b2dcfd57af5861fd4641f56" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
@@ -39,7 +39,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="343" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="343" bodyend="346"/>
+        <location file="libs/core/src/core/rgb.h" line="249" column="22" bodyfile="libs/core/src/core/rgb.h" bodystart="249" bodyend="252"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a314c6440eb28fad6e85936ba6f4e513f" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="350" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="350" bodyend="353"/>
+        <location file="libs/core/src/core/rgb.h" line="254" column="22" bodyfile="libs/core/src/core/rgb.h" bodystart="254" bodyend="257"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1aede8682cfad87f9dbc6dc13d14c36a8d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="357" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="357" bodyend="360"/>
+        <location file="libs/core/src/core/rgb.h" line="259" column="22" bodyfile="libs/core/src/core/rgb.h" bodystart="259" bodyend="262"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1ae9349d0806bacf86f1a6e25adff63efa" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr float</type>
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="364" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="364" bodyend="367"/>
+        <location file="libs/core/src/core/rgb.h" line="264" column="25" bodyfile="libs/core/src/core/rgb.h" bodystart="264" bodyend="267"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a84535af9f8ff59f15fec6308a2ccd42d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr <ref refid="namespaceeuphoria_1_1core_1a8d5a7dabfee4ed81c44079dc769697c3" kindref="member">U8</ref></type>
@@ -107,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="371" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="371" bodyend="374"/>
+        <location file="libs/core/src/core/rgb.h" line="269" column="22" bodyfile="libs/core/src/core/rgb.h" bodystart="269" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1ad40d2c186180ddd812ebbc59dad57ef6" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr unsigned int</type>
@@ -132,7 +132,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="378" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="378" bodyend="381"/>
+        <location file="libs/core/src/core/rgb.h" line="274" column="32" bodyfile="libs/core/src/core/rgb.h" bodystart="275" bodyend="278"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a371a09384db34e68bff4391fddf74b78" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr unsigned int</type>
@@ -149,7 +149,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="385" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="385" bodyend="422"/>
+        <location file="libs/core/src/core/rgb.h" line="282" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="282" bodyend="319"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1ab9827734dba7d1259798918b9f043a86" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>constexpr unsigned int</type>
@@ -166,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="427" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="427" bodyend="441"/>
+        <location file="libs/core/src/core/rgb.h" line="324" column="9" bodyfile="libs/core/src/core/rgb.h" bodystart="324" bodyend="338"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorutil_1a65b37b26b2c682a4288377769e42adec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -183,13 +183,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rgb.h" line="444" column="9" declfile="libs/core/src/core/rgb.h" declline="444" declcolumn="9"/>
+        <location file="libs/core/src/core/rgb.h" line="341" column="9" declfile="libs/core/src/core/rgb.h" declline="341" declcolumn="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rgb.h" line="330" column="1"/>
+    <location file="libs/core/src/core/rgb.h" line="240" column="1"/>
   </compounddef>
 </doxygen>

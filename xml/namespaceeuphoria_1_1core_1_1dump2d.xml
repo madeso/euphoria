@@ -9,11 +9,29 @@
     <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Item" prot="public">euphoria::core::dump2d::Item</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Poly" prot="public">euphoria::core::dump2d::Poly</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1dump2d_1_1Text" prot="public">euphoria::core::dump2d::Text</innerclass>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1detail">euphoria::core::dump2d::detail</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes">euphoria::core::dump2d::strokes</innernamespace>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1a5c6f2660d900a9c5d2bb3a9ba843db68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1acd72d25a35a9df7d45f8749d561b6740" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::dump2d::to_html_or_none_string</definition>
+        <argsstring>(const std::optional&lt; rgbi &gt; &amp;c)</argsstring>
+        <name>to_html_or_none_string</name>
+        <param>
+          <type>const std::optional&lt; <ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref> &gt; &amp;</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="14" column="17" bodyfile="libs/core/src/core/dump.cc" bodystart="14" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1afbdfdf42d2dec21c22464bfffae62c55" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Poly" kindref="compound">Poly</ref> *</type>
-        <definition>const Poly* euphoria::core::dump2d::as_poly</definition>
+        <definition>const Poly * euphoria::core::dump2d::as_poly</definition>
         <argsstring>(const Item *item)</argsstring>
         <name>as_poly</name>
         <param>
@@ -26,11 +44,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="79" column="16" declfile="libs/core/src/core/dump.h" declline="79" declcolumn="16"/>
+        <location file="libs/core/src/core/dump.cc" line="69" column="16" bodyfile="libs/core/src/core/dump.cc" bodystart="69" bodyend="69" declfile="libs/core/src/core/dump.h" declline="80" declcolumn="16"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1a599e8d2127e43a417d0c3663d418dbd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1ac81978257348fab7e3ed0f60c1baa092" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Text" kindref="compound">Text</ref> *</type>
-        <definition>const Text* euphoria::core::dump2d::as_text</definition>
+        <definition>const Text * euphoria::core::dump2d::as_text</definition>
         <argsstring>(const Item *item)</argsstring>
         <name>as_text</name>
         <param>
@@ -43,11 +61,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="80" column="16" declfile="libs/core/src/core/dump.h" declline="80" declcolumn="16"/>
+        <location file="libs/core/src/core/dump.cc" line="70" column="16" bodyfile="libs/core/src/core/dump.cc" bodystart="70" bodyend="70" declfile="libs/core/src/core/dump.h" declline="81" declcolumn="16"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1abaaebc51be4491c3ca746a8d3148ced1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1ab7ed61ca618131541e70543973737868" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Group" kindref="compound">Group</ref> *</type>
-        <definition>const Group* euphoria::core::dump2d::as_group</definition>
+        <definition>const Group * euphoria::core::dump2d::as_group</definition>
         <argsstring>(const Item *item)</argsstring>
         <name>as_group</name>
         <param>
@@ -60,11 +78,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="81" column="17" declfile="libs/core/src/core/dump.h" declline="81" declcolumn="17"/>
+        <location file="libs/core/src/core/dump.cc" line="71" column="17" bodyfile="libs/core/src/core/dump.cc" bodystart="71" bodyend="71" declfile="libs/core/src/core/dump.h" declline="82" declcolumn="17"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1a362f89352a85a0512783b056afd2bc2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1a0c4dbf3734898c2b8336f65f656f380b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1dump2d_1_1Circle" kindref="compound">Circle</ref> *</type>
-        <definition>const Circle* euphoria::core::dump2d::as_circle</definition>
+        <definition>const Circle * euphoria::core::dump2d::as_circle</definition>
         <argsstring>(const Item *item)</argsstring>
         <name>as_circle</name>
         <param>
@@ -77,13 +95,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="82" column="18" declfile="libs/core/src/core/dump.h" declline="82" declcolumn="18"/>
+        <location file="libs/core/src/core/dump.cc" line="72" column="18" bodyfile="libs/core/src/core/dump.cc" bodystart="72" bodyend="72" declfile="libs/core/src/core/dump.h" declline="83" declcolumn="18"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/dump.h" line="21" column="1"/>
+    <location file="libs/core/src/core/dump.cc" line="13" column="1"/>
   </compounddef>
 </doxygen>

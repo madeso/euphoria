@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1detail_1_1PanData" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::detail::PanData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1PanData_1a388ecfff653bad5c8372a29da076d0df" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
+        <definition>std::optional&lt;vec3f&gt; euphoria::core::detail::PanData::collision</definition>
+        <argsstring></argsstring>
+        <name>collision</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="112" column="27" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="112" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/camera3.editor.cc" line="111" column="1" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="110" bodyend="113"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1PanData_1a388ecfff653bad5c8372a29da076d0df" prot="public" virt="non-virtual"><scope>euphoria::core::detail::PanData</scope><name>collision</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

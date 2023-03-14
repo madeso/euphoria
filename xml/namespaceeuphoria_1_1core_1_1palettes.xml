@@ -407,9 +407,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1a6eb46618fb556066b784a3328b08620a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1a012545905aca27ed9f654ddb5503e598" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1Palette" kindref="compound">Palette</ref> &amp;</type>
-        <definition>const Palette&amp; euphoria::core::palettes::dawnbringer</definition>
+        <definition>const Palette &amp; euphoria::core::palettes::dawnbringer</definition>
         <argsstring>()</argsstring>
         <name>dawnbringer</name>
         <briefdescription>
@@ -418,11 +418,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="152" column="9" declfile="libs/core/src/core/palette.h" declline="152" declcolumn="9"/>
+        <location file="libs/core/src/core/palette.cc" line="160" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="160" bodyend="183" declfile="libs/core/src/core/palette.h" declline="144" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1aae2536d5a796d34873737f09ae71adfd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1abc283e0850e26cdd3d1f5a868d674aff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1Palette" kindref="compound">Palette</ref> &amp;</type>
-        <definition>const Palette&amp; euphoria::core::palettes::named_colors</definition>
+        <definition>const Palette &amp; euphoria::core::palettes::named_colors</definition>
         <argsstring>()</argsstring>
         <name>named_colors</name>
         <briefdescription>
@@ -431,7 +431,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="155" column="9" declfile="libs/core/src/core/palette.h" declline="155" declcolumn="9"/>
+        <location file="libs/core/src/core/palette.cc" line="186" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="186" bodyend="223" declfile="libs/core/src/core/palette.h" declline="147" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1palettes_1ac1e7538a16224eccacb40d53e95f0398" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Palette" kindref="compound">Palette</ref></type>
@@ -448,13 +448,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette_all.h" line="85" column="5" declfile="libs/core/src/core/palette_all.h" declline="85" declcolumn="5"/>
+        <location file="libs/core/src/core/palette_all.cc" line="14" column="5" bodyfile="libs/core/src/core/palette_all.cc" bodystart="14" bodyend="85" declfile="libs/core/src/core/palette_all.h" declline="85" declcolumn="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/palette.h" line="149" column="1"/>
+    <location file="libs/core/src/core/palette.cc" line="158" column="1"/>
   </compounddef>
 </doxygen>

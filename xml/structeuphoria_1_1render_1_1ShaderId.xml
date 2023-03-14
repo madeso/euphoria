@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="34" column="9"/>
+        <location file="libs/render/src/render/shader.h" line="34" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="87" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1a3cd11f4df86af7c8745ad14d7f0e140a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="35" column="9"/>
+        <location file="libs/render/src/render/shader.h" line="35" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="93" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1a32764c713d855c19adc4ade935d73bcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -73,11 +73,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="40" column="9"/>
+        <location file="libs/render/src/render/shader.h" line="40" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="107" bodyend="110"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1aee41008777a4f3d005caadf0b5e0b3ed" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1a99bc7273f5e0f693933e4eee7c8cf959" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1render_1_1gl_1ad9e87e3f6176881566b2c8143f7bcf91" kindref="member">gl::Uint</ref></type>
-        <definition>gl::Uint euphoria::render::ShaderId::get_id</definition>
+        <definition>GLuint euphoria::render::ShaderId::get_id</definition>
         <argsstring>() const</argsstring>
         <name>get_id</name>
         <briefdescription>
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="43" column="9"/>
+        <location file="libs/render/src/render/shader.h" line="43" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="100" bodyend="103"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -107,7 +107,7 @@
     </inheritancegraph>
     <location file="libs/render/src/render/shader.h" line="32" column="1" bodyfile="libs/render/src/render/shader.h" bodystart="31" bodyend="47"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1render_1_1ShaderId_1aee41008777a4f3d005caadf0b5e0b3ed" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>get_id</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderId_1a99bc7273f5e0f693933e4eee7c8cf959" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>get_id</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderId_1a844d64b16b1ed179bc781666e09e423f" prot="private" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>id</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderId_1a3e99b02ed5cf775c87a48b5d5713f759" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>is_currently_bound</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderId_1a32764c713d855c19adc4ade935d73bcc" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>NONCOPYABLE</name></member>

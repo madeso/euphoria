@@ -2,6 +2,33 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="os_8h" kind="file" language="C++">
     <compoundname>os.h</compoundname>
+    <includedby refid="os_8cc" local="yes">libs/core/src/core/os.cc</includedby>
+    <includedby refid="vfs_8cc" local="yes">libs/core/src/core/vfs.cc</includedby>
+    <includedby refid="engine_8cc" local="yes">libs/window/src/window/engine.cc</includedby>
+    <invincdepgraph>
+      <node id="4">
+        <label>libs/window/src/window/engine.cc</label>
+        <link refid="engine_8cc"/>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/os.cc</label>
+        <link refid="os_8cc"/>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/vfs.cc</label>
+        <link refid="vfs_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/os.h</label>
+        <link refid="os_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1DirectoryListing" prot="public">euphoria::core::DirectoryListing</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

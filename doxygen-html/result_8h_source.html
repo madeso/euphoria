@@ -65,82 +65,71 @@
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
 <div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html">   10</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1core_1_1Result.html">Result</a></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a292cca6fd7f099d5eb4156d124a4c403">   12</a></span>&#160;        <span class="keyword">using</span> <a class="code" href="structeuphoria_1_1core_1_1Result.html">Self</a> = <a class="code" href="structeuphoria_1_1core_1_1Result.html">Result&lt;T&gt;</a>;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a174420a44f288c11bb1445cf6849dac8">   14</a></span>&#160;        <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            <span class="keywordflow">return</span> value.has_value();</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">const</span> T&amp;</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a439c8cc7541329b9f88cb1fd2c990710">   22</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Result.html#a439c8cc7541329b9f88cb1fd2c990710">operator *</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">return</span> *value;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        [[nodiscard]]</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a8048b252c45687f1c35e33a6c4d5f254">   13</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Result.html">Result&lt;T&gt;</a> <a class="code" href="structeuphoria_1_1core_1_1Result.html#a8048b252c45687f1c35e33a6c4d5f254">create_value</a>(<span class="keyword">const</span> T&amp; t)</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Result.html">Result&lt;T&gt;</a>{<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>, std::nullopt};</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        [[nodiscard]]</div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a81a7386e0028a22a2e4cedee33ccd9d0">   19</a></span>&#160;        <span class="keyword">static</span> <a class="code" href="structeuphoria_1_1core_1_1Result.html">Result&lt;T&gt;</a> <a class="code" href="structeuphoria_1_1core_1_1Result.html#a81a7386e0028a22a2e4cedee33ccd9d0">create_error</a>(<span class="keyword">const</span> std::string&amp; error = <span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="comment">// argparse is assuming a empty string here...</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            <span class="comment">// todo(Gustav): fix so we always set unknown error and let all argparse functions explcitly parse a empty string</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            <span class="comment">// or just don&#39;t have a empty error message</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Result.html">Result&lt;T&gt;</a>{std::nullopt, error};</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <span class="keyword">const</span> T&amp;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a3c215519ed426ac0371e33d86fc99667">   29</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Result.html#a3c215519ed426ac0371e33d86fc99667">get_value</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            <span class="keywordflow">return</span> *value;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;        }</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">const</span> std::string&amp;</div>
-<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#add6abd63e9c282bca2ff90bd8b6e4d2d">   36</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Result.html#add6abd63e9c282bca2ff90bd8b6e4d2d">get_error</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            <span class="keywordflow">return</span> *error;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        }</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        <span class="keyword">static</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Result.html#a292cca6fd7f099d5eb4156d124a4c403">Self</a></div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a6ca296e228991c6521c0413512a02410">   44</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Result.html#a6ca296e228991c6521c0413512a02410">create_value</a>(<span class="keyword">const</span> T&amp; t)</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Result.html">Self</a>{<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">t</a>, std::nullopt};</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        [[nodiscard]]</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Result.html#a292cca6fd7f099d5eb4156d124a4c403">Self</a></div>
-<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#accae4f62f2e533c3e9ea8191058b8281">   52</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Result.html#accae4f62f2e533c3e9ea8191058b8281">create_error</a>(<span class="keyword">const</span> std::string&amp; error = <span class="stringliteral">&quot;&quot;</span>)</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        {</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;            <span class="comment">// argparse is assuming a empty string here...</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            <span class="comment">// todo(Gustav): fix so we always set unknown error and let all argparse functions explcitly parse a empty string</span></div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="comment">// or just don&#39;t have a empty error message</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1Result.html">Self</a>{std::nullopt, error};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        }</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        std::optional&lt;T&gt; value;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        std::optional&lt;std::string&gt; error;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Result.html">Result</a></div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        (</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keyword">const</span> std::optional&lt;T&gt;&amp; v,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keyword">const</span> std::optional&lt;std::string&gt;&amp; e</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;        )</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        : value(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>)</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        , error(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">e</a>)</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;        {</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;        }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    };</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;}</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a3c215519ed426ac0371e33d86fc99667">   28</a></span>&#160;        <span class="keyword">const</span> T&amp; <a class="code" href="structeuphoria_1_1core_1_1Result.html#a3c215519ed426ac0371e33d86fc99667">get_value</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">return</span> *value;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        [[nodiscard]]</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#add6abd63e9c282bca2ff90bd8b6e4d2d">   34</a></span>&#160;        <span class="keyword">const</span> std::string&amp; <a class="code" href="structeuphoria_1_1core_1_1Result.html#add6abd63e9c282bca2ff90bd8b6e4d2d">get_error</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">return</span> *error;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a174420a44f288c11bb1445cf6849dac8">   39</a></span>&#160;        <span class="keyword">operator</span> bool()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">return</span> value.has_value();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;        }</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;        [[nodiscard]]</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Result.html#a439c8cc7541329b9f88cb1fd2c990710">   46</a></span>&#160;        <span class="keyword">const</span> T&amp; <a class="code" href="structeuphoria_1_1core_1_1Result.html#a439c8cc7541329b9f88cb1fd2c990710">operator *</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <span class="keywordflow">return</span> *value;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;        }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        std::optional&lt;T&gt; value;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        std::optional&lt;std::string&gt; error;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Result.html">Result</a></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        (</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            <span class="keyword">const</span> std::optional&lt;T&gt;&amp; v,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;            <span class="keyword">const</span> std::optional&lt;std::string&gt;&amp; e</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;        )</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        : value(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">v</a>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        , error(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">e</a>)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;        {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    };</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">euphoria::core::Key::e</a></div><div class="ttdeci">@ e</div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_accae4f62f2e533c3e9ea8191058b8281"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#accae4f62f2e533c3e9ea8191058b8281">euphoria::core::Result::create_error</a></div><div class="ttdeci">static Self create_error(const std::string &amp;error=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00052">result.h:52</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Result_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html">euphoria::core::Result</a></div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00010">result.h:10</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_add6abd63e9c282bca2ff90bd8b6e4d2d"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#add6abd63e9c282bca2ff90bd8b6e4d2d">euphoria::core::Result::get_error</a></div><div class="ttdeci">const std::string &amp; get_error() const</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00036">result.h:36</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_a3c215519ed426ac0371e33d86fc99667"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#a3c215519ed426ac0371e33d86fc99667">euphoria::core::Result::get_value</a></div><div class="ttdeci">const T &amp; get_value() const</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00029">result.h:29</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_a439c8cc7541329b9f88cb1fd2c990710"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#a439c8cc7541329b9f88cb1fd2c990710">euphoria::core::Result::operator*</a></div><div class="ttdeci">const T &amp; operator*() const</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00022">result.h:22</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_a292cca6fd7f099d5eb4156d124a4c403"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#a292cca6fd7f099d5eb4156d124a4c403">euphoria::core::Result::Self</a></div><div class="ttdeci">Result&lt; T &gt; Self</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00012">result.h:12</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_add6abd63e9c282bca2ff90bd8b6e4d2d"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#add6abd63e9c282bca2ff90bd8b6e4d2d">euphoria::core::Result::get_error</a></div><div class="ttdeci">const std::string &amp; get_error() const</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00034">result.h:34</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_a3c215519ed426ac0371e33d86fc99667"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#a3c215519ed426ac0371e33d86fc99667">euphoria::core::Result::get_value</a></div><div class="ttdeci">const T &amp; get_value() const</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00028">result.h:28</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_a8048b252c45687f1c35e33a6c4d5f254"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#a8048b252c45687f1c35e33a6c4d5f254">euphoria::core::Result::create_value</a></div><div class="ttdeci">static Result&lt; T &gt; create_value(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00013">result.h:13</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_a439c8cc7541329b9f88cb1fd2c990710"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#a439c8cc7541329b9f88cb1fd2c990710">euphoria::core::Result::operator*</a></div><div class="ttdeci">const T &amp; operator*() const</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00046">result.h:46</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9e3669d19b675bd57058fd4664205d2a">euphoria::core::Key::v</a></div><div class="ttdeci">@ v</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae358efa489f58062f10dd7316b65649e">euphoria::core::Key::t</a></div><div class="ttdeci">@ t</div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8h_source.html#l00008">aabb.h:8</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_a6ca296e228991c6521c0413512a02410"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#a6ca296e228991c6521c0413512a02410">euphoria::core::Result::create_value</a></div><div class="ttdeci">static Self create_value(const T &amp;t)</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00044">result.h:44</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Result_html_a81a7386e0028a22a2e4cedee33ccd9d0"><div class="ttname"><a href="structeuphoria_1_1core_1_1Result.html#a81a7386e0028a22a2e4cedee33ccd9d0">euphoria::core::Result::create_error</a></div><div class="ttdeci">static Result&lt; T &gt; create_error(const std::string &amp;error=&quot;&quot;)</div><div class="ttdef"><b>Definition:</b> <a href="result_8h_source.html#l00019">result.h:19</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:8</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

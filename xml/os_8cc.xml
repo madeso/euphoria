@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="os_8cc" kind="file" language="C++">
+    <compoundname>os.cc</compoundname>
+    <includes refid="os_8h" local="yes">core/os.h</includes>
+    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
+    <includes local="no">iostream</includes>
+    <includes local="no">cstdio</includes>
+    <includes local="no">utility</includes>
+    <includes local="no">dirent.h</includes>
+    <includes local="no">unistd.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>core/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>map</label>
+      </node>
+      <node id="6">
+        <label>cstdio</label>
+      </node>
+      <node id="9">
+        <label>unistd.h</label>
+      </node>
+      <node id="7">
+        <label>utility</label>
+      </node>
+      <node id="5">
+        <label>iostream</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/os.cc</label>
+        <link refid="os_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>dirent.h</label>
+      </node>
+      <node id="2">
+        <label>core/os.h</label>
+        <link refid="os_8h"/>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="os_8cc_1a7da49cee97dfd7405e8595862fd266de" prot="public" static="no">
+        <name>GET_CURRENT_DIR</name>
+        <initializer>getcwd</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/os.cc" line="28" column="9" bodyfile="libs/core/src/core/os.cc" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/os.cc"/>
+  </compounddef>
+</doxygen>

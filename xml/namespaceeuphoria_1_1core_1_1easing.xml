@@ -86,6 +86,284 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1a985099a96e851bb82c405707ac9b3d0d" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::ipow</definition>
+        <argsstring>(float t)</argsstring>
+        <name>ipow</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="20" column="28" bodyfile="libs/core/src/core/easing.cc" bodystart="20" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1a7bb7cb46b6243caa9bc1963193f9725e" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::ipow&lt; 1 &gt;</definition>
+        <argsstring>(float t)</argsstring>
+        <name>ipow&lt; 1 &gt;</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="21" column="30" bodyfile="libs/core/src/core/easing.cc" bodystart="21" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1aa06f34d49d99bae91f113f81c9286049" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::flip</definition>
+        <argsstring>(float t)</argsstring>
+        <name>flip</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="23" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="23" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1a82d063679863459a2d3e7f76d22078e9" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::blend</definition>
+        <argsstring>(float a, float b, float weight)</argsstring>
+        <name>blend</name>
+        <param>
+          <type>float</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>weight</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="25" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="25" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1aa3cc5cccea0238fa896230b2ec044053" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::fracpow</definition>
+        <argsstring>(float frac, float t)</argsstring>
+        <name>fracpow</name>
+        <param>
+          <type>float</type>
+          <declname>frac</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="28" column="28" bodyfile="libs/core/src/core/easing.cc" bodystart="28" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1ac93db68c1a4571db4d2aa016cdd79605" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::fabs</definition>
+        <argsstring>(float t)</argsstring>
+        <name>fabs</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="30" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="30" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1ab527b35f39bd464c1a0a33c4164d043c" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::bounce_clamp_top</definition>
+        <argsstring>(float t)</argsstring>
+        <name>bounce_clamp_top</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="32" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="32" bodyend="32"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1aa4d58b665af7186208235aa81af20200" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::bounce_clamp_bottom</definition>
+        <argsstring>(float t)</argsstring>
+        <name>bounce_clamp_bottom</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="34" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="34" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1ae3b0ef43d12256f0a28d18250bcb9482" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::bounce_clamp</definition>
+        <argsstring>(float t)</argsstring>
+        <name>bounce_clamp</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="36" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="36" bodyend="36"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1a1a9f2f0e0112aa625d7ccf29ef3815b2" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::core::easing::normalized_bezier_curve3</definition>
+        <argsstring>(float b, float c, float t)</argsstring>
+        <name>normalized_bezier_curve3</name>
+        <param>
+          <type>float</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="38" column="17" bodyfile="libs/core/src/core/easing.cc" bodystart="38" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1a163bf6d82306acf0e15471bb2a047122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>float</type>
+        <definition>float euphoria::core::easing::smooth_start</definition>
+        <argsstring>(float t)</argsstring>
+        <name>smooth_start</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="52" column="7" bodyfile="libs/core/src/core/easing.cc" bodystart="52" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1aa23c7c24a3d2e887b77627138bdd4945" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>float</type>
+        <definition>float euphoria::core::easing::smooth_stop</definition>
+        <argsstring>(float t)</argsstring>
+        <name>smooth_stop</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="55" column="7" bodyfile="libs/core/src/core/easing.cc" bodystart="55" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1a9cdc9c32d54a1d743dd55af60f8df4b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>steps</declname>
+            <defname>steps</defname>
+          </param>
+        </templateparamlist>
+        <type>float</type>
+        <definition>float euphoria::core::easing::smooth_step</definition>
+        <argsstring>(float t)</argsstring>
+        <name>smooth_step</name>
+        <param>
+          <type>float</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/easing.cc" line="58" column="7" bodyfile="libs/core/src/core/easing.cc" bodystart="58" bodyend="58"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1a34f47bf90accc4d6e2370ab00ca9ecd7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
         <definition>float euphoria::core::easing::apply</definition>
@@ -105,11 +383,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/easing.h" line="27" column="7" declfile="libs/core/src/core/easing.h" declline="27" declcolumn="7"/>
+        <location file="libs/core/src/core/easing.cc" line="61" column="7" bodyfile="libs/core/src/core/easing.cc" bodystart="61" bodyend="83" declfile="libs/core/src/core/easing.h" declline="27" declcolumn="7"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1a22d676208e4d74e02c0d2de990974a6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1easing_1ab563027a3aefa302d6096dc5c55e050e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::pair&lt; const char *, <ref refid="namespaceeuphoria_1_1core_1_1easing_1aaa99b0b408a1a6353f978b4f1e1852a9" kindref="member">Function</ref> &gt; &gt;</type>
-        <definition>std::vector&lt;std::pair&lt;const char*, Function&gt; &gt; euphoria::core::easing::get_all_values</definition>
+        <definition>std::vector&lt; std::pair&lt; const char *, Function &gt; &gt; euphoria::core::easing::get_all_values</definition>
         <argsstring>()</argsstring>
         <name>get_all_values</name>
         <briefdescription>
@@ -118,13 +396,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/easing.h" line="30" column="13" declfile="libs/core/src/core/easing.h" declline="30" declcolumn="13"/>
+        <location file="libs/core/src/core/easing.cc" line="87" column="13" bodyfile="libs/core/src/core/easing.cc" bodystart="87" bodyend="104" declfile="libs/core/src/core/easing.h" declline="30" declcolumn="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/easing.h" line="7" column="1"/>
+    <location file="libs/core/src/core/easing.cc" line="16" column="1"/>
   </compounddef>
 </doxygen>

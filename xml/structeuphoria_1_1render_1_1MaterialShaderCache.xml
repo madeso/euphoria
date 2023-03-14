@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshadercache.h" line="26" column="31" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="26" bodyend="-1"/>
+        <location file="libs/render/src/render/materialshadercache.h" line="13" column="31" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshadercache.h" line="13" column="9" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="13" bodyend="16"/>
+        <location file="libs/render/src/render/materialshadercache.h" line="15" column="9" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="15" bodyend="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1MaterialShaderCache_1a27cd10a2eba76ccc1ac2bc4e9c1ef685" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1MaterialShader" kindref="compound">MaterialShader</ref> &gt;</type>
@@ -52,7 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/materialshadercache.h" line="19" column="9" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="19" bodyend="24"/>
+        <location file="libs/render/src/render/materialshadercache.h" line="21" column="9" bodyfile="libs/render/src/render/materialshadercache.h" bodystart="21" bodyend="26"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -94,9 +94,9 @@
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1MaterialShaderCache_1a27cd10a2eba76ccc1ac2bc4e9c1ef685" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderCache</scope><name>create</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShaderCache_1a7fb3c9695e5ddee3bb9f82d482483d45" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderCache</scope><name>file_system</name></member>
-      <member refid="structeuphoria_1_1core_1_1Cache_1a615edd1f3a87ad70f82a1a58bfb735ee" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderCache</scope><name>get</name></member>
+      <member refid="structeuphoria_1_1core_1_1Cache_1a60fc15b9f387f876fb12f851e8ab53ed" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderCache</scope><name>get</name></member>
       <member refid="structeuphoria_1_1render_1_1MaterialShaderCache_1a5be24a8e450fa2f31d7c6272e936aa4d" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderCache</scope><name>MaterialShaderCache</name></member>
-      <member refid="structeuphoria_1_1core_1_1Cache_1a09f9515317e9fce337b4527159607a65" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderCache</scope><name>store</name></member>
+      <member refid="structeuphoria_1_1core_1_1Cache_1a530e663b62a05d210f80ac1f96302381" prot="public" virt="non-virtual"><scope>euphoria::render::MaterialShaderCache</scope><name>store</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

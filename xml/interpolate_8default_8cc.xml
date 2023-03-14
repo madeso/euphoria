@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="interpolate_8default_8cc" kind="file" language="C++">
+    <compoundname>interpolate.default.cc</compoundname>
+    <includes refid="interpolate_8default_8h" local="yes">core/interpolate.default.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/interpolate.default.cc</label>
+        <link refid="interpolate_8default_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/interpolate.default.cc"/>
+  </compounddef>
+</doxygen>

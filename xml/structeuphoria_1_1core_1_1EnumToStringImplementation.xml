@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="31" column="13" bodyfile="libs/core/src/core/enumtostring.h" bodystart="31" bodyend="-1"/>
+        <location file="libs/core/src/core/enumtostring.h" line="30" column="13" bodyfile="libs/core/src/core/enumtostring.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -70,7 +70,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="35" column="9" bodyfile="libs/core/src/core/enumtostring.h" bodystart="35" bodyend="41"/>
+        <location file="libs/core/src/core/enumtostring.h" line="34" column="9" bodyfile="libs/core/src/core/enumtostring.h" bodystart="34" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumToStringImplementation_1ae719e3ee8332b8f2a2407cb785908836" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::string</type>
@@ -87,33 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="44" column="9" bodyfile="libs/core/src/core/enumtostring.h" bodystart="44" bodyend="53"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumToStringImplementation_1a84e4703486f7b5d8aee15b1d9a2e0bc3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; euphoria::core::EnumToStringImplementation&lt; T &gt;::get_list_of_names</definition>
-        <argsstring>() const</argsstring>
-        <name>get_list_of_names</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="56" column="9" bodyfile="libs/core/src/core/enumtostring.h" bodystart="56" bodyend="64"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumToStringImplementation_1abecd8227b4c67fa0279d19e3ecda76f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>std::vector&lt; T &gt;</type>
-        <definition>std::vector&lt;T&gt; euphoria::core::EnumToStringImplementation&lt; T &gt;::get_list_of_values</definition>
-        <argsstring>() const</argsstring>
-        <name>get_list_of_values</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="67" column="9" bodyfile="libs/core/src/core/enumtostring.h" bodystart="67" bodyend="75"/>
+        <location file="libs/core/src/core/enumtostring.h" line="42" column="22" bodyfile="libs/core/src/core/enumtostring.h" bodystart="42" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumToStringImplementation_1aa42ac1e0ca40e8779a49c46984af8fd1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1MatchedEnum" kindref="compound">MatchedEnum</ref>&lt; T &gt;</type>
@@ -134,14 +108,40 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enumtostring.h" line="78" column="9" bodyfile="libs/core/src/core/enumtostring.h" bodystart="78" bodyend="113"/>
+        <location file="libs/core/src/core/enumtostring.h" line="54" column="9" bodyfile="libs/core/src/core/enumtostring.h" bodystart="54" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumToStringImplementation_1a84e4703486f7b5d8aee15b1d9a2e0bc3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::EnumToStringImplementation&lt; T &gt;::get_list_of_names</definition>
+        <argsstring>() const</argsstring>
+        <name>get_list_of_names</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enumtostring.h" line="92" column="9" bodyfile="libs/core/src/core/enumtostring.h" bodystart="92" bodyend="100"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumToStringImplementation_1abecd8227b4c67fa0279d19e3ecda76f3" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; T &gt;</type>
+        <definition>std::vector&lt;T&gt; euphoria::core::EnumToStringImplementation&lt; T &gt;::get_list_of_values</definition>
+        <argsstring>() const</argsstring>
+        <name>get_list_of_values</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enumtostring.h" line="103" column="9" bodyfile="libs/core/src/core/enumtostring.h" bodystart="103" bodyend="111"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/enumtostring.h" line="27" column="1" bodyfile="libs/core/src/core/enumtostring.h" bodystart="26" bodyend="114"/>
+    <location file="libs/core/src/core/enumtostring.h" line="27" column="1" bodyfile="libs/core/src/core/enumtostring.h" bodystart="26" bodyend="112"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1EnumToStringImplementation_1a20726b87a205a765690dfffc0d86d742" prot="public" virt="non-virtual"><scope>euphoria::core::EnumToStringImplementation</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1EnumToStringImplementation_1a1aa986755b7a4485a4b4cf64f43c62bd" prot="public" virt="non-virtual"><scope>euphoria::core::EnumToStringImplementation</scope><name>enum_to_string</name></member>

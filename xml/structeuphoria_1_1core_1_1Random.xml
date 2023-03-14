@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="42" column="13" bodyfile="libs/core/src/core/random.h" bodystart="42" bodyend="-1"/>
+        <location file="libs/core/src/core/random.h" line="22" column="13" bodyfile="libs/core/src/core/random.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Random_1a268ba7445e01a86eb5d8b851193e1dde" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1ad68af8ee03e7b07d1a8a497b960c36a6" kindref="member">U32</ref></type>
@@ -28,22 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="43" column="13" bodyfile="libs/core/src/core/random.h" bodystart="43" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1aa872d1b5ebb3c2a23a8a9c437b048c5d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1ad68af8ee03e7b07d1a8a497b960c36a6" kindref="member">U32</ref></type>
-        <definition>static U32 euphoria::core::Random::generate_time_seed</definition>
-        <argsstring>()</argsstring>
-        <name>generate_time_seed</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="23" column="9"/>
+        <location file="libs/core/src/core/random.h" line="23" column="13" bodyfile="libs/core/src/core/random.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -55,7 +40,7 @@
         <param>
           <type><ref refid="namespaceeuphoria_1_1core_1ad68af8ee03e7b07d1a8a497b960c36a6" kindref="member">U32</ref></type>
           <declname>seed</declname>
-          <defval><ref refid="structeuphoria_1_1core_1_1Random_1aa872d1b5ebb3c2a23a8a9c437b048c5d" kindref="member">generate_time_seed</ref>()</defval>
+          <defval><ref refid="structeuphoria_1_1core_1_1Random_1a433abd2a5d3b615dceb9e281cc34de87" kindref="member">generate_time_seed</ref>()</defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -63,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="25" column="18"/>
+        <location file="libs/core/src/core/random.h" line="25" column="18" bodyfile="libs/core/src/core/random.cc" bodystart="45" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1a68317df90f9f56f249833b4fb5d060f4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1ad68af8ee03e7b07d1a8a497b960c36a6" kindref="member">U32</ref></type>
@@ -76,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="28" column="9"/>
+        <location file="libs/core/src/core/random.h" line="27" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="55" bodyend="68"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1a29e0db515c4e631784ff0238ff660aa3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a9a78daf2d2b390a0bac9e43d7119d916" kindref="member">U64</ref></type>
@@ -89,7 +74,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="31" column="9"/>
+        <location file="libs/core/src/core/random.h" line="28" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="71" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1a59027fb443648e9b360e0ebf0478ed33" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -102,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="34" column="9"/>
+        <location file="libs/core/src/core/random.h" line="29" column="15" bodyfile="libs/core/src/core/random.cc" bodystart="79" bodyend="82"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1aa2ff98cbb26f74a1f80d767027e7fd23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -115,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="37" column="9"/>
+        <location file="libs/core/src/core/random.h" line="30" column="14" bodyfile="libs/core/src/core/random.cc" bodystart="122" bodyend="125"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1a3fac560735efe5054116bfb6b6201baf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -128,7 +113,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/random.h" line="40" column="9"/>
+        <location file="libs/core/src/core/random.h" line="31" column="13" bodyfile="libs/core/src/core/random.cc" bodystart="128" bodyend="131"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Random_1a433abd2a5d3b615dceb9e281cc34de87" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1ad68af8ee03e7b07d1a8a497b960c36a6" kindref="member">U32</ref></type>
+        <definition>U32 euphoria::core::Random::generate_time_seed</definition>
+        <argsstring>()</argsstring>
+        <name>generate_time_seed</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/random.h" line="33" column="21" bodyfile="libs/core/src/core/random.cc" bodystart="28" bodyend="43"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -136,9 +136,9 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/random.h" line="18" column="1" bodyfile="libs/core/src/core/random.h" bodystart="17" bodyend="44"/>
+    <location file="libs/core/src/core/random.h" line="21" column="1" bodyfile="libs/core/src/core/random.h" bodystart="20" bodyend="34"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Random_1aa872d1b5ebb3c2a23a8a9c437b048c5d" prot="public" virt="non-virtual"><scope>euphoria::core::Random</scope><name>generate_time_seed</name></member>
+      <member refid="structeuphoria_1_1core_1_1Random_1a433abd2a5d3b615dceb9e281cc34de87" prot="public" virt="non-virtual"><scope>euphoria::core::Random</scope><name>generate_time_seed</name></member>
       <member refid="structeuphoria_1_1core_1_1Random_1aa2ff98cbb26f74a1f80d767027e7fd23" prot="public" virt="non-virtual"><scope>euphoria::core::Random</scope><name>get_next_bool</name></member>
       <member refid="structeuphoria_1_1core_1_1Random_1a59027fb443648e9b360e0ebf0478ed33" prot="public" virt="non-virtual"><scope>euphoria::core::Random</scope><name>get_next_float01</name></member>
       <member refid="structeuphoria_1_1core_1_1Random_1a3fac560735efe5054116bfb6b6201baf" prot="public" virt="non-virtual"><scope>euphoria::core::Random</scope><name>get_next_sign</name></member>

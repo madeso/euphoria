@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="46" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="46" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="28" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structeuphoria_1_1core_1_1EnumType_1abcf413c9d176efc7d84f2d5e60b9499a" prot="public" static="no">
         <type>std::map&lt; std::string, size_t &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="47" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="47" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="29" column="9" bodyfile="libs/core/src/core/enum.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="52" column="21" bodyfile="libs/core/src/core/enum.h" bodystart="52" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="31" column="21" bodyfile="libs/core/src/core/enum.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EnumType_1a2881431ceebca36a2984ddfaca6e7a73" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1EnumType_1acb4181d066090c95b0282caba72ef5d3" kindref="member">ValueToNameMap</ref></type>
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="54" column="24" bodyfile="libs/core/src/core/enum.h" bodystart="54" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="32" column="24" bodyfile="libs/core/src/core/enum.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EnumType_1a31c66deb71540ee74aff9f6d079f81ee" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1EnumType_1abcf413c9d176efc7d84f2d5e60b9499a" kindref="member">NameToValueMap</ref></type>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="55" column="24" bodyfile="libs/core/src/core/enum.h" bodystart="55" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="33" column="24" bodyfile="libs/core/src/core/enum.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EnumType_1a23ea83c07a8019cc6944bfae0fc22f06" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="57" column="14" bodyfile="libs/core/src/core/enum.h" bodystart="57" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="34" column="14" bodyfile="libs/core/src/core/enum.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EnumType_1abc48e93c550230e4cae9f9cee7970c0b" prot="public" static="no" mutable="no">
         <type>size_t</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="58" column="16" bodyfile="libs/core/src/core/enum.h" bodystart="58" bodyend="-1"/>
+        <location file="libs/core/src/core/enum.h" line="35" column="16" bodyfile="libs/core/src/core/enum.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="28" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="37" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="24" bodyend="29"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1af94a9c878800a336c56871680d14870d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="29" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="38" column="9" bodyfile="libs/core/src/core/enum.cc" bodystart="32" bodyend="35"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1acef48e7cdd8c8215e76cc75e55cf5cc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="31" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="40" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1a2a12849f0a96d2e95b6946e65d8c5817" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -159,7 +159,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="32" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="41" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1a9152c81ad9c08851aeb29a70d9eea266" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -175,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="33" column="14"/>
+        <location file="libs/core/src/core/enum.h" line="42" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1a435750a950c5118d143b40e28c298122" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -191,24 +191,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="34" column="14"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1afb1e9c05debf8829c1054f09745aad5d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string euphoria::core::EnumType::to_string</definition>
-        <argsstring>(size_t v) const</argsstring>
-        <name>to_string</name>
-        <param>
-          <type>size_t</type>
-          <declname>v</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="37" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="43" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1a9e7901617729d93c7e945f25210cd8fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">EnumValue</ref></type>
@@ -225,7 +208,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="40" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="45" column="20" bodyfile="libs/core/src/core/enum.cc" bodystart="59" bodyend="75"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1a25a4718cecd70d508a34355dd8e2f76d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -242,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="43" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="46" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="79" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1a048e4f24cac2ef3a5672f1873ed32f67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -259,7 +242,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/enum.h" line="50" column="9"/>
+        <location file="libs/core/src/core/enum.h" line="47" column="14" bodyfile="libs/core/src/core/enum.cc" bodystart="110" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EnumType_1afb1e9c05debf8829c1054f09745aad5d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::EnumType::to_string</definition>
+        <argsstring>(size_t v) const</argsstring>
+        <name>to_string</name>
+        <param>
+          <type>size_t</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/enum.h" line="49" column="22" bodyfile="libs/core/src/core/enum.cc" bodystart="39" bodyend="55"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -268,7 +268,7 @@
     <detaileddescription>
 <para>Declare globally grab specific enums before or after load, and load adds new, verifies created and asserts misspelled values. Advantages over hashes: type safety, catches bad spelling, no collisions and perhaps faster to generate? </para>
     </detaileddescription>
-    <location file="libs/core/src/core/enum.h" line="27" column="1" bodyfile="libs/core/src/core/enum.h" bodystart="26" bodyend="59"/>
+    <location file="libs/core/src/core/enum.h" line="27" column="1" bodyfile="libs/core/src/core/enum.h" bodystart="26" bodyend="50"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1EnumType_1a048e4f24cac2ef3a5672f1873ed32f67" prot="public" virt="non-virtual"><scope>euphoria::core::EnumType</scope><name>add_enum</name></member>
       <member refid="structeuphoria_1_1core_1_1EnumType_1a25a4718cecd70d508a34355dd8e2f76d" prot="public" virt="non-virtual"><scope>euphoria::core::EnumType</scope><name>add_enums</name></member>

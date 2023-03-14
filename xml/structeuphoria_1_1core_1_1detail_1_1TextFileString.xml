@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1detail_1_1TextFileString" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::detail::TextFileString</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1detail_1_1Textfile" prot="public" virt="non-virtual">euphoria::core::detail::Textfile</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1TextFileString_1a0f6f1a01610229632eb60c108f7471db" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::detail::TextFileString::text</definition>
+        <argsstring></argsstring>
+        <name>text</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.cc" line="22" column="25" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1TextFileString_1a0955dbd45c74070473888c4a1f4252ec" prot="public" static="no" mutable="no">
+        <type>std::size_t</type>
+        <definition>std::size_t euphoria::core::detail::TextFileString::next_position</definition>
+        <argsstring></argsstring>
+        <name>next_position</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.cc" line="23" column="25" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1TextFileString_1a471caa3e9729ccddea9407c4e4d92651" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::detail::TextFileString::has_more</definition>
+        <argsstring>() const override</argsstring>
+        <name>has_more</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1abdff0e995dcbd3b020a93a2c622b435d">has_more</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.cc" line="27" column="13" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="27" bodyend="30"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1TextFileString_1a80ca57d91e6df2e56a76750ccaaefeef" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>char</type>
+        <definition>char euphoria::core::detail::TextFileString::peek</definition>
+        <argsstring>(int advance) override</argsstring>
+        <name>peek</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a557e2a1a1619724b81637befd0620d25">peek</reimplements>
+        <param>
+          <type>int</type>
+          <declname>advance</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.cc" line="33" column="13" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="33" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1TextFileString_1af5053f94956abeaafe192123a950175e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>char</type>
+        <definition>char euphoria::core::detail::TextFileString::read</definition>
+        <argsstring>() override</argsstring>
+        <name>read</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1aeb942d6dc86c824545a61e19017a2f49">read</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/textfileparser.cc" line="49" column="13" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="49" bodyend="59"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::detail::Textfile</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1Textfile"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::detail::TextFileString</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1TextFileString"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::detail::Textfile</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1Textfile"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::detail::TextFileString</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1TextFileString"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/textfileparser.cc" line="21" column="1" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="20" bodyend="60"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1TextFileString_1a471caa3e9729ccddea9407c4e4d92651" prot="public" virt="virtual"><scope>euphoria::core::detail::TextFileString</scope><name>has_more</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1TextFileString_1a0955dbd45c74070473888c4a1f4252ec" prot="public" virt="non-virtual"><scope>euphoria::core::detail::TextFileString</scope><name>next_position</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a90ef81cd68177c7b51cd2e23d08ec530" prot="public" virt="non-virtual"><scope>euphoria::core::detail::TextFileString</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a251de3a611350dbbcc8cdbb9e6a6d141" prot="public" virt="non-virtual"><scope>euphoria::core::detail::TextFileString</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1TextFileString_1a80ca57d91e6df2e56a76750ccaaefeef" prot="public" virt="virtual"><scope>euphoria::core::detail::TextFileString</scope><name>peek</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1afcadb5e97253072de4a18a848088aab8" prot="public" virt="non-virtual" ambiguityscope="euphoria::core::detail::Textfile::"><scope>euphoria::core::detail::TextFileString</scope><name>peek</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1TextFileString_1af5053f94956abeaafe192123a950175e" prot="public" virt="virtual"><scope>euphoria::core::detail::TextFileString</scope><name>read</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1TextFileString_1a0f6f1a01610229632eb60c108f7471db" prot="public" virt="non-virtual"><scope>euphoria::core::detail::TextFileString</scope><name>text</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1ac9f68e817a3eded3987377e856cdb950" prot="public" virt="non-virtual"><scope>euphoria::core::detail::TextFileString</scope><name>Textfile</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a90cfce3196b4eacd167f13c2f0f7e1a6" prot="public" virt="non-virtual"><scope>euphoria::core::detail::TextFileString</scope><name>Textfile</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1ac88ecfe833cfe37e8127b6d4e081807e" prot="public" virt="non-virtual"><scope>euphoria::core::detail::TextFileString</scope><name>Textfile</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Textfile_1a23705db959b135e775a49047ee41e28c" prot="public" virt="virtual"><scope>euphoria::core::detail::TextFileString</scope><name>~Textfile</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

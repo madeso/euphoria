@@ -3,6 +3,9 @@
   <compounddef id="shaderattribute2d_8h" kind="file" language="C++">
     <compoundname>shaderattribute2d.h</compoundname>
     <includes refid="shaderattribute_8h" local="yes">render/shaderattribute.h</includes>
+    <includedby refid="buffer2d_8cc" local="yes">libs/render/src/render/buffer2d.cc</includedby>
+    <includedby refid="shaderattribute2d_8cc" local="yes">libs/render/src/render/shaderattribute2d.cc</includedby>
+    <includedby refid="spriterender_8cc" local="yes">libs/render/src/render/spriterender.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>render/shaderattribute.h</label>
@@ -21,6 +24,30 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/render/src/render/buffer2d.cc</label>
+        <link refid="buffer2d_8cc"/>
+      </node>
+      <node id="3">
+        <label>libs/render/src/render/shaderattribute2d.cc</label>
+        <link refid="shaderattribute2d_8cc"/>
+      </node>
+      <node id="4">
+        <label>libs/render/src/render/spriterender.cc</label>
+        <link refid="spriterender_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/shaderattribute2d.h</label>
+        <link refid="shaderattribute2d_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1render_1_1attributes2d">euphoria::render::attributes2d</innernamespace>

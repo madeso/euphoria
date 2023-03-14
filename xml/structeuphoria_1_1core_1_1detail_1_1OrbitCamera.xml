@@ -1,0 +1,548 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::detail::OrbitCamera</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" prot="public" virt="non-virtual">euphoria::core::detail::EditorCameraState3</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a81f47d4e294308d469fbda7254f2b811" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref></type>
+        <definition>CameraFrame euphoria::core::detail::OrbitCamera::start_frame</definition>
+        <argsstring></argsstring>
+        <name>start_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="148" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="148" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1ac5776d045d36d679c0c8c0f8e4aa2f3b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref></type>
+        <definition>CompiledCamera3 euphoria::core::detail::OrbitCamera::camera</definition>
+        <argsstring></argsstring>
+        <name>camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="149" column="29" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="149" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a3564222789a26686c9875eefee288791" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref></type>
+        <definition>CompiledCamera3 euphoria::core::detail::OrbitCamera::latest_camera</definition>
+        <argsstring></argsstring>
+        <name>latest_camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="150" column="29" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="150" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a13bdf6f162643ee2b8ab701d2b611be3" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Viewport" kindref="compound">Viewport</ref></type>
+        <definition>Viewport euphoria::core::detail::OrbitCamera::viewport</definition>
+        <argsstring></argsstring>
+        <name>viewport</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="151" column="22" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="151" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a2856f46bf85ed8b8cfe53615940c3b70" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i euphoria::core::detail::OrbitCamera::start_mouse</definition>
+        <argsstring></argsstring>
+        <name>start_mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="152" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="152" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a9abad840e78de0de7189c12ac50dfd20" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i euphoria::core::detail::OrbitCamera::mouse</definition>
+        <argsstring></argsstring>
+        <name>mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="153" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a436b16a1ba51c64ef244894e27aa54d5" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::detail::OrbitCamera::shift</definition>
+        <argsstring></argsstring>
+        <name>shift</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="154" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="154" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1aa325d12826bd5406b129d807b456dc54" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1PanData" kindref="compound">PanData</ref> &gt;</type>
+        <definition>std::optional&lt;PanData&gt; euphoria::core::detail::OrbitCamera::pan</definition>
+        <argsstring></argsstring>
+        <name>pan</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="156" column="27" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="156" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a65513e981bbe50b8ff9ca27e4da791e9" prot="public" static="no" mutable="no">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1OrbitData" kindref="compound">OrbitData</ref> &gt;</type>
+        <definition>std::optional&lt;OrbitData&gt; euphoria::core::detail::OrbitCamera::orbit</definition>
+        <argsstring></argsstring>
+        <name>orbit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="157" column="27" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="157" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a7b9972a2d386d241e875ff21a28ee47d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::detail::OrbitCamera::OrbitCamera</definition>
+        <argsstring>(const CameraFrame &amp;start, const CompiledCamera3 &amp;latest_c, const Viewport &amp;latest_viewport, const vec2i &amp;latest_mouse, bool latest_shift)</argsstring>
+        <name>OrbitCamera</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref> &amp;</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref> &amp;</type>
+          <declname>latest_c</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Viewport" kindref="compound">Viewport</ref> &amp;</type>
+          <declname>latest_viewport</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>latest_mouse</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>latest_shift</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="159" column="13" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="160" bodyend="176"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a8146f20f9c8de90b9fc7eb7fb2e4fe12" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::update_data</definition>
+        <argsstring>(EditorCamera3 *owner)</argsstring>
+        <name>update_data</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="178" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="178" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a806e216b7e1f3eec07127908ad483470" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::update_panning</definition>
+        <argsstring>(EditorCamera3 *owner)</argsstring>
+        <name>update_panning</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="207" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="207" bodyend="224"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a3a3029d12b554a6123e2237255cc43bb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::update_orbit</definition>
+        <argsstring>(EditorCamera3 *owner)</argsstring>
+        <name>update_orbit</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="226" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="226" bodyend="243"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a2549cb0f58fef678015b90348e2bed69" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::update_camera</definition>
+        <argsstring>(EditorCamera3 *owner)</argsstring>
+        <name>update_camera</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="245" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="245" bodyend="255"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1afe37c72ee464e3c2b115db1198ca29bc" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::detail::OrbitCamera::get_far_point</definition>
+        <argsstring>(const vec2i &amp;p, const CompiledCamera3 &amp;cc) const</argsstring>
+        <name>get_far_point</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref> &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="257" column="20" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="257" bodyend="260"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1ac2b8ad3efaa1c4fc9b2aec9d2857b1d6" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::detail::OrbitCamera::is_panning</definition>
+        <argsstring>() const</argsstring>
+        <name>is_panning</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="263" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="263" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a2b6f1d36b1f51f8890e7648546449775" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::on_mouse_move</definition>
+        <argsstring>(EditorCamera3 *owner, int dx, int dy) override</argsstring>
+        <name>on_mouse_move</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1aa0d2868f2bc95ff9b9e502f487e242f6">on_mouse_move</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="268" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="268" bodyend="281"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a367aba69690e3b304d7d61ef74e13b96" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::on_scroll</definition>
+        <argsstring>(EditorCamera3 *owner, int dx, int dy) override</argsstring>
+        <name>on_scroll</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1af2433982016c7c0012f4b78735e46933">on_scroll</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="283" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="283" bodyend="294"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1ab95cf85f88419a248ca0dbeffcbb1e58" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::on_key</definition>
+        <argsstring>(EditorCamera3 *, Key, bool) override</argsstring>
+        <name>on_key</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1aa210997ffbbdb2d1795fabf2886e8ccf">on_key</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">Key</ref></type>
+        </param>
+        <param>
+          <type>bool</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="296" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="296" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a91ebe42b8a30691b4536a5907397d100" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::step</definition>
+        <argsstring>(EditorCamera3 *owner, bool shift_state, const vec2i &amp;m, const CompiledCamera3 &amp;cc, const Viewport &amp;, float) override</argsstring>
+        <name>step</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1ae8b9c24742fe4fc13cbe1d55faac73e6">step</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>shift_state</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>m</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref> &amp;</type>
+          <declname>cc</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Viewport" kindref="compound">Viewport</ref> &amp;</type>
+        </param>
+        <param>
+          <type>float</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="300" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="301" bodyend="331"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a9c1fe09668192f523eb4c139e27bcc18" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::on_camera_start</definition>
+        <argsstring>(EditorCamera3 *) override</argsstring>
+        <name>on_camera_start</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a1a121c2b472935eaa38bcffa67252a67">on_camera_start</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="333" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="333" bodyend="335"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1af7c1db4f4558f9cb673a38024181a39f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::OrbitCamera::on_camera_stop</definition>
+        <argsstring>(EditorCamera3 *owner) override</argsstring>
+        <name>on_camera_stop</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1aa82af4c51a9dcf4cc535f5e490e071fa">on_camera_stop</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="337" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="337" bodyend="340"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1ae201eebe7c51a8e4219e6755e42669c2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1ae4c24a6a2024585c62a9b910a86d571d" kindref="member">MouseBehaviour</ref></type>
+        <definition>MouseBehaviour euphoria::core::detail::OrbitCamera::get_mouse</definition>
+        <argsstring>(const EditorCamera3 *) const override</argsstring>
+        <name>get_mouse</name>
+        <reimplements refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1ac2acac2820014e37d7c06c9f2d1a06e6">get_mouse</reimplements>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="342" column="28" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="342" bodyend="345"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::detail::EditorCameraState3</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::detail::OrbitCamera</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::detail::EditorCameraState3</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::detail::OrbitCamera</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>latest_camera</edgelabel>
+          <edgelabel>camera</edgelabel>
+        </childnode>
+        <childnode refid="5" relation="usage">
+          <edgelabel>start_mouse</edgelabel>
+          <edgelabel>mouse</edgelabel>
+        </childnode>
+        <childnode refid="6" relation="usage">
+          <edgelabel>start_frame</edgelabel>
+        </childnode>
+        <childnode refid="9" relation="usage">
+          <edgelabel>viewport</edgelabel>
+        </childnode>
+      </node>
+      <node id="10">
+        <label>euphoria::core::Recti</label>
+        <link refid="structeuphoria_1_1core_1_1Recti"/>
+      </node>
+      <node id="9">
+        <label>euphoria::core::Viewport</label>
+        <link refid="structeuphoria_1_1core_1_1Viewport"/>
+        <childnode refid="10" relation="usage">
+          <edgelabel>bounds</edgelabel>
+        </childnode>
+      </node>
+      <node id="8">
+        <label>euphoria::core::angle</label>
+        <link refid="structeuphoria_1_1core_1_1angle"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::CompiledCamera3</label>
+        <link refid="structeuphoria_1_1core_1_1CompiledCamera3"/>
+        <childnode refid="4" relation="usage">
+          <edgelabel>combined_inverted</edgelabel>
+          <edgelabel>combined</edgelabel>
+          <edgelabel>view</edgelabel>
+          <edgelabel>projection</edgelabel>
+        </childnode>
+      </node>
+      <node id="5">
+        <label>euphoria::core::vec2i</label>
+        <link refid="structeuphoria_1_1core_1_1vec2i"/>
+      </node>
+      <node id="7">
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
+      </node>
+      <node id="4">
+        <label>euphoria::core::mat4f</label>
+        <link refid="structeuphoria_1_1core_1_1mat4f"/>
+      </node>
+      <node id="6">
+        <label>euphoria::core::detail::CameraFrame</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame"/>
+        <childnode refid="7" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="8" relation="usage">
+          <edgelabel>look_angle</edgelabel>
+          <edgelabel>rotation_angle</edgelabel>
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/camera3.editor.cc" line="147" column="1" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="146" bodyend="346"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1ac5776d045d36d679c0c8c0f8e4aa2f3b" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>camera</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a9d3c41fc785daaaf191f8db91733817a" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>EditorCameraState3</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a7edcf10f606ff0eac4a4719305cdfd69" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>EditorCameraState3</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a983434d5727cc4a6f223495f5f512b95" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>EditorCameraState3</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1afe37c72ee464e3c2b115db1198ca29bc" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>get_far_point</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1ae201eebe7c51a8e4219e6755e42669c2" prot="public" virt="virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>get_mouse</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1ac2b8ad3efaa1c4fc9b2aec9d2857b1d6" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>is_panning</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a3564222789a26686c9875eefee288791" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>latest_camera</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a9abad840e78de0de7189c12ac50dfd20" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>mouse</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a9c1fe09668192f523eb4c139e27bcc18" prot="public" virt="virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>on_camera_start</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1af7c1db4f4558f9cb673a38024181a39f" prot="public" virt="virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>on_camera_stop</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1ab95cf85f88419a248ca0dbeffcbb1e58" prot="public" virt="virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>on_key</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a2b6f1d36b1f51f8890e7648546449775" prot="public" virt="virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>on_mouse_move</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a367aba69690e3b304d7d61ef74e13b96" prot="public" virt="virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>on_scroll</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a8cdc3d6602be28a6606f89cd31b4ba08" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a17e0c9a23f959adebb7476d00b6ef153" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a65513e981bbe50b8ff9ca27e4da791e9" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>orbit</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a7b9972a2d386d241e875ff21a28ee47d" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>OrbitCamera</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1aa325d12826bd5406b129d807b456dc54" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>pan</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a436b16a1ba51c64ef244894e27aa54d5" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>shift</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a81f47d4e294308d469fbda7254f2b811" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>start_frame</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a2856f46bf85ed8b8cfe53615940c3b70" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>start_mouse</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a91ebe42b8a30691b4536a5907397d100" prot="public" virt="virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a2549cb0f58fef678015b90348e2bed69" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>update_camera</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a8146f20f9c8de90b9fc7eb7fb2e4fe12" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>update_data</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a3a3029d12b554a6123e2237255cc43bb" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>update_orbit</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a806e216b7e1f3eec07127908ad483470" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>update_panning</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera_1a13bdf6f162643ee2b8ab701d2b611be3" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>viewport</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3_1a142b1c140cc77391ab431b6c215fbc28" prot="public" virt="virtual"><scope>euphoria::core::detail::OrbitCamera</scope><name>~EditorCameraState3</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

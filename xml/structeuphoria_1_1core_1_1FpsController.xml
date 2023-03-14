@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="46" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="46" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="13" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1af7a35e695808bce79e67a16f51b7ace6" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="47" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="47" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="14" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1a7472b59ad318b6051781b2e4af3d827d" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="49" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="49" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="15" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1a6bccfff155e998b0b0b7d1fbc0ed5f8f" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="50" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="50" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="16" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="16" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1a438266b8b2b54d32fef1c0962341b074" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -70,7 +70,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="51" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="51" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="17" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1a48a3a9af0bc3b97f574b11aea02e5de9" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -84,7 +84,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="52" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="52" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="18" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1ad5d1e52d33659d644d61d24217dd63c1" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -98,7 +98,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="53" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="53" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="19" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1a23792467b5b122600e0f02f37baffa84" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="54" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="54" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="20" column="14" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1ad32bc4e0cd957ba97f75c6584d9f0658" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="56" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="56" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="21" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1a08dcf975106c8ac28e5bc6db6fdcda9b" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -139,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="57" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="57" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="22" column="15" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1FpsController_1a0878569f90542d5211c52a58412072de" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1Sensitivity" kindref="compound">Sensitivity</ref></type>
@@ -152,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="58" column="21" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="58" bodyend="-1"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="23" column="21" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -167,7 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="13" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="25" column="9" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="7" bodyend="12"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a3d8662a592d70b4f41f547e2ff3e95e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -188,7 +188,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="16" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="27" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="15" bodyend="21"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a7603bacb5da44bf6de96b45082d4c304" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -205,7 +205,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="19" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="28" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="24" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a6a4d7cf30de307ea7e842d65b87283eb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -222,7 +222,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="21" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="29" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="29" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a11be57aad5a0774ae3ecf3ecd921b97a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -239,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="23" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="30" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="34" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a49456fd3671a35194f4e8c86d601d46b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -256,7 +256,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="25" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="31" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="39" bodyend="42"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a9ac3532acf65d18b80ad717f7dec0d80" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -273,7 +273,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="27" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="32" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="44" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a7a8e230c93f1f38bc34e997bf8463502" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -290,7 +290,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="29" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="33" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a2f0943051f645deba88007f5c57a7306" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -311,7 +311,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="32" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="34" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="55" bodyend="72"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a658ca788e18d0f477730e6549cf0318b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -328,20 +328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="35" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1ac1c0a82518e966fd89c6fa752f3b4e81" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>quatf euphoria::core::FpsController::get_rotation</definition>
-        <argsstring>() const</argsstring>
-        <name>get_rotation</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="41" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="35" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="75" bodyend="128"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a6dbfe5199dacf3b5e14c93cc4831d380" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -358,13 +345,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="44" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="36" column="14" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="152" bodyend="156"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1ac1c0a82518e966fd89c6fa752f3b4e81" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
+        <definition>quatf euphoria::core::FpsController::get_rotation</definition>
+        <argsstring>() const</argsstring>
+        <name>get_rotation</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/fpscontroller.h" line="38" column="16" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="145" bodyend="148"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1ac30c8dcaa98815d540355446fc3d5b4c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1FpsController_1a662660f9a384aeaee772c7c7cbc57cee" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
-        <definition>static quatf euphoria::core::FpsController::calculate_rotation</definition>
+        <definition>quatf euphoria::core::FpsController::calculate_rotation</definition>
         <argsstring>(const angle &amp;rotation_angle, const angle &amp;look_angle)</argsstring>
         <name>calculate_rotation</name>
         <param>
@@ -381,7 +381,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/fpscontroller.h" line="38" column="9"/>
+        <location file="libs/core/src/core/fpscontroller.h" line="40" column="22" bodyfile="libs/core/src/core/fpscontroller.cc" bodystart="131" bodyend="142"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -416,9 +416,9 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/fpscontroller.h" line="12" column="1" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="11" bodyend="59"/>
+    <location file="libs/core/src/core/fpscontroller.h" line="12" column="1" bodyfile="libs/core/src/core/fpscontroller.h" bodystart="11" bodyend="42"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1FpsController_1ac30c8dcaa98815d540355446fc3d5b4c" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>calculate_rotation</name></member>
+      <member refid="structeuphoria_1_1core_1_1FpsController_1a662660f9a384aeaee772c7c7cbc57cee" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>calculate_rotation</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a3b4458f968584a0bd9b25c0ce6be5eeb" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>FpsController</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1ac1c0a82518e966fd89c6fa752f3b4e81" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>get_rotation</name></member>
       <member refid="structeuphoria_1_1core_1_1FpsController_1a48a3a9af0bc3b97f574b11aea02e5de9" prot="public" virt="non-virtual"><scope>euphoria::core::FpsController</scope><name>is_backward_down</name></member>

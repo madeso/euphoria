@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1raytracer_1_1SphereObject" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::raytracer::SphereObject</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1raytracer_1_1Object" prot="public" virt="non-virtual">euphoria::core::raytracer::Object</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a0839eadfb5b3982bd1e9f6cb3580d5cd" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Sphere" kindref="compound">core::Sphere</ref></type>
+        <definition>core::Sphere euphoria::core::raytracer::SphereObject::sphere</definition>
+        <argsstring></argsstring>
+        <name>sphere</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="34" column="22" bodyfile="libs/core/src/core/raytracer.cc" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a530eb4580f3e2fd3f85b3b054fc252ca" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::raytracer::SphereObject::position</definition>
+        <argsstring></argsstring>
+        <name>position</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="35" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a67226135bd3c6299ccfc8a8616680a89" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">raytracer::Material</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;raytracer::Material&gt; euphoria::core::raytracer::SphereObject::material</definition>
+        <argsstring></argsstring>
+        <name>material</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="36" column="25" bodyfile="libs/core/src/core/raytracer.cc" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a1b301203b93c2bc67db512d48dc03713" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::raytracer::SphereObject::SphereObject</definition>
+        <argsstring>(const core::Sphere &amp;asphere, const vec3f &amp;aposition, std::shared_ptr&lt; raytracer::Material &gt; amaterial)</argsstring>
+        <name>SphereObject</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Sphere" kindref="compound">core::Sphere</ref> &amp;</type>
+          <declname>asphere</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>aposition</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">raytracer::Material</ref> &gt;</type>
+          <declname>amaterial</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="38" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="39" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1acab56495380f02ba5875a98d9e8a5022" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult" kindref="compound">HitResult</ref> &gt;</type>
+        <definition>std::optional&lt;HitResult&gt; euphoria::core::raytracer::SphereObject::hit</definition>
+        <argsstring>(const UnitRay3f &amp;ray, const Range&lt; float &gt; &amp;range) const override</argsstring>
+        <name>hit</name>
+        <reimplements refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1a635e30c2bf8a8a78fd8df27dc8435dca">hit</reimplements>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <declname>ray</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Range" kindref="compound">Range</ref>&lt; float &gt; &amp;</type>
+          <declname>range</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="51" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="51" bodyend="75"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::raytracer::SphereObject</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::raytracer::Object</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1Object"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="4">
+        <label>euphoria::core::Sphere</label>
+        <link refid="structeuphoria_1_1core_1_1Sphere"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::raytracer::SphereObject</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>position</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>sphere</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::raytracer::Object</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1Object"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/raytracer.cc" line="33" column="1" bodyfile="libs/core/src/core/raytracer.cc" bodystart="32" bodyend="76"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1acab56495380f02ba5875a98d9e8a5022" prot="public" virt="virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>hit</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a67226135bd3c6299ccfc8a8616680a89" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>material</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1aa1ab463ec5bd8bca61e864468a06967e" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>Object</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1a227e9eb1b44ff94a92b6630b7d3b3650" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>Object</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1a497dca73ad3937c61e85097680d1e33d" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>Object</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1ae0754018fd671790a7f5b136502759e3" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1aa67167d153704c91251742449b707305" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a530eb4580f3e2fd3f85b3b054fc252ca" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>position</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a0839eadfb5b3982bd1e9f6cb3580d5cd" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>sphere</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject_1a1b301203b93c2bc67db512d48dc03713" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>SphereObject</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Object_1a28cf47489b7cc21e1e8d1572027dad84" prot="public" virt="virtual"><scope>euphoria::core::raytracer::SphereObject</scope><name>~Object</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

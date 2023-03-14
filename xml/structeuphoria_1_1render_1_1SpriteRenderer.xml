@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="76" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="76" bodyend="-1"/>
+        <location file="libs/render/src/render/spriterender.h" line="72" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="72" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1SpriteRenderer_1a75dfa02de9927979b4f00d51f0135058" prot="private" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="77" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="77" bodyend="-1"/>
+        <location file="libs/render/src/render/spriterender.h" line="73" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1SpriteRenderer_1a1b31e75193a71bec7caa300dee8ccab7" prot="private" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="78" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="78" bodyend="-1"/>
+        <location file="libs/render/src/render/spriterender.h" line="74" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1SpriteRenderer_1a824c3a9fe03e9d17028754099e12af43" prot="private" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ShaderUniform" kindref="compound">ShaderUniform</ref></type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="79" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="79" bodyend="-1"/>
+        <location file="libs/render/src/render/spriterender.h" line="75" column="23" bodyfile="libs/render/src/render/spriterender.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1SpriteRenderer_1a2708a0f1781c4988748165294f2c21d5" prot="private" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Buffer2d" kindref="compound">Buffer2d</ref> &gt;</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="80" column="25" bodyfile="libs/render/src/render/spriterender.h" bodystart="80" bodyend="-1"/>
+        <location file="libs/render/src/render/spriterender.h" line="76" column="25" bodyfile="libs/render/src/render/spriterender.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -86,7 +86,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="41" column="9"/>
+        <location file="libs/render/src/render/spriterender.h" line="37" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="53" bodyend="61"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteRenderer_1a0d167ce712eacb164786d3c9e6ed2c8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="42" column="9"/>
+        <location file="libs/render/src/render/spriterender.h" line="38" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="64" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteRenderer_1aba9cf948f4ac485475be3c5d93786703" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="44" column="9"/>
+        <location file="libs/render/src/render/spriterender.h" line="40" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteRenderer_1a07417c0b81d84646a48316bd7a80f1f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -152,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="47" column="9"/>
+        <location file="libs/render/src/render/spriterender.h" line="43" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="72" bodyend="121"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteRenderer_1a6f4033aaf852d4704e899caf258398b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="59" column="9"/>
+        <location file="libs/render/src/render/spriterender.h" line="55" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="126" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteRenderer_1a11d0b4cea50dc78a71cedbdf1d531065" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -203,7 +203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="68" column="9"/>
+        <location file="libs/render/src/render/spriterender.h" line="64" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="146" bodyend="153"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -218,14 +218,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spriterender.h" line="83" column="9"/>
+        <location file="libs/render/src/render/spriterender.h" line="79" column="9" bodyfile="libs/render/src/render/spriterender.cc" bodystart="157" bodyend="169"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/spriterender.h" line="40" column="1" bodyfile="libs/render/src/render/spriterender.h" bodystart="39" bodyend="84"/>
+    <location file="libs/render/src/render/spriterender.h" line="36" column="1" bodyfile="libs/render/src/render/spriterender.h" bodystart="35" bodyend="80"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a75dfa02de9927979b4f00d51f0135058" prot="private" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>color_uniform</name></member>
       <member refid="structeuphoria_1_1render_1_1SpriteRenderer_1a11d0b4cea50dc78a71cedbdf1d531065" prot="public" virt="non-virtual"><scope>euphoria::render::SpriteRenderer</scope><name>draw_ninepatch</name></member>

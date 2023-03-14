@@ -21,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="52" column="21" bodyfile="libs/core/src/core/ecs.h" bodystart="52" bodyend="-1"/>
+        <location file="libs/core/src/core/ecs.h" line="48" column="21" bodyfile="libs/core/src/core/ecs.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="46" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="46" bodyend="49"/>
+        <location file="libs/core/src/core/ecs.h" line="50" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1a2a99d9ce5f1101d3b5599d2f4730df79" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -57,7 +57,58 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="55" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="55" bodyend="64"/>
+        <location file="libs/core/src/core/ecs.h" line="56" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="56" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1a3777c68ea920cccaf997420d71e573f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T &amp;</type>
+        <definition>T&amp; euphoria::core::ecs::GenericComponentArray&lt; T &gt;::get</definition>
+        <argsstring>(EntityHandle entity)</argsstring>
+        <name>get</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="68" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="68" bodyend="74"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1acb13ec16a1583d0af17ad7da918f7fe4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>T *</type>
+        <definition>T* euphoria::core::ecs::GenericComponentArray&lt; T &gt;::get_or_null</definition>
+        <argsstring>(EntityHandle entity)</argsstring>
+        <name>get_or_null</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
+          <declname>entity</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="77" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="77" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1aea56a29007e44f9e296e0fb5c6dd65a2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::ecs::GenericComponentArray&lt; T &gt;::index_has_value</definition>
+        <argsstring>(std::size_t index) const</argsstring>
+        <name>index_has_value</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="92" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="92" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1a08e917c66b9d42ebda843a5eb8b32215" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -75,24 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="68" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="68" bodyend="78"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1aea56a29007e44f9e296e0fb5c6dd65a2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::ecs::GenericComponentArray&lt; T &gt;::index_has_value</definition>
-        <argsstring>(std::size_t index) const</argsstring>
-        <name>index_has_value</name>
-        <param>
-          <type>std::size_t</type>
-          <declname>index</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="83" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="83" bodyend="90"/>
+        <location file="libs/core/src/core/ecs.h" line="103" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="103" bodyend="113"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1aefcfde8986a267e1e3df625cc1c8411c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="virtual">
         <type>bool</type>
@@ -110,41 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="95" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="95" bodyend="99"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1a3777c68ea920cccaf997420d71e573f9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>T &amp;</type>
-        <definition>T&amp; euphoria::core::ecs::GenericComponentArray&lt; T &gt;::get</definition>
-        <argsstring>(EntityHandle entity)</argsstring>
-        <name>get</name>
-        <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
-          <declname>entity</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="103" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="103" bodyend="109"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1acb13ec16a1583d0af17ad7da918f7fe4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>T *</type>
-        <definition>T* euphoria::core::ecs::GenericComponentArray&lt; T &gt;::get_or_null</definition>
-        <argsstring>(EntityHandle entity)</argsstring>
-        <name>get_or_null</name>
-        <param>
-          <type><ref refid="namespaceeuphoria_1_1core_1_1ecs_1af486c8f697b0cff15048fe88a024d3eb" kindref="member">EntityHandle</ref></type>
-          <declname>entity</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="112" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="112" bodyend="123"/>
+        <location file="libs/core/src/core/ecs.h" line="117" column="9" bodyfile="libs/core/src/core/ecs.h" bodystart="117" bodyend="121"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -175,7 +175,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/ecs.h" line="45" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="44" bodyend="124"/>
+    <location file="libs/core/src/core/ecs.h" line="46" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="45" bodyend="122"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray_1a2a99d9ce5f1101d3b5599d2f4730df79" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::GenericComponentArray</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1a23543bee1646886387b64d338fb94612" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::GenericComponentArray</scope><name>ComponentArrayBase</name></member>

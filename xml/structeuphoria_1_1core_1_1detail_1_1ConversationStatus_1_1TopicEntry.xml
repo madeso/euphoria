@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="178" column="29" bodyfile="libs/core/src/core/chatbot.h" bodystart="178" bodyend="-1"/>
+        <location file="libs/core/src/core/chatbot.h" line="161" column="29" bodyfile="libs/core/src/core/chatbot.h" bodystart="161" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry_1ae7aeab394226ee17bf54c7a861b5cbeb" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -28,14 +28,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="179" column="21" bodyfile="libs/core/src/core/chatbot.h" bodystart="179" bodyend="-1"/>
+        <location file="libs/core/src/core/chatbot.h" line="162" column="21" bodyfile="libs/core/src/core/chatbot.h" bodystart="162" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/chatbot.h" line="177" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="176" bodyend="180"/>
+    <location file="libs/core/src/core/chatbot.h" line="160" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="159" bodyend="163"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry_1ae7aeab394226ee17bf54c7a861b5cbeb" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus::TopicEntry</scope><name>time</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry_1a3770c2b1864a66755060aeff47439adc" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationStatus::TopicEntry</scope><name>topic</name></member>

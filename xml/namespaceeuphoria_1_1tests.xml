@@ -6,6 +6,33 @@
     <innerclass refid="structeuphoria_1_1tests_1_1FalseString" prot="public">euphoria::tests::FalseString</innerclass>
     <innernamespace refid="namespaceeuphoria_1_1tests_1_1custom">euphoria::tests::custom</innernamespace>
       <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1aa31ebced6618577bd4d1927130165e41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool euphoria::tests::approximately_equal</definition>
+        <argsstring>(float const &amp;lhs, float const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>approximately_equal</name>
+        <param>
+          <type>float const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>float const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx.cc" line="19" column="5" bodyfile="libs/tests/src/tests/approx.cc" bodystart="20" bodyend="46" declfile="libs/tests/src/tests/approx.h" declline="28" declcolumn="5"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ab6407498a1619ecf3cc42a77976fcbd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -35,33 +62,6 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/tests/src/tests/approx.h" line="23" column="5" declfile="libs/tests/src/tests/approx.h" declline="23" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1aa31ebced6618577bd4d1927130165e41" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-        </templateparamlist>
-        <type>bool</type>
-        <definition>bool euphoria::tests::approximately_equal</definition>
-        <argsstring>(float const &amp;lhs, float const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>approximately_equal</name>
-        <param>
-          <type>float const &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>float const &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx.h" line="28" column="5" declfile="libs/tests/src/tests/approx.h" declline="28" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a64e527ea93e42dcabdfe4a618e639641" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -111,6 +111,36 @@
         </inbodydescription>
         <location file="libs/tests/src/tests/approx.h" line="129" column="5" bodyfile="libs/tests/src/tests/approx.h" bodystart="129" bodyend="132"/>
       </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a45cb83820ba85f469e31445ab0b39fc8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool euphoria::tests::vec3_approximately_equal</definition>
+        <argsstring>(T const &amp;lhs, T const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>vec3_approximately_equal</name>
+        <param>
+          <type>T const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>T const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="7" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="7" bodyend="12"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ad2449d090dda79bcab54d64c6469ccb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
         </templateparamlist>
@@ -136,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="15" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="15" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="16" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="16" bodyend="22" declfile="libs/tests/src/tests/approx_equal.h" declline="15" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1afb51a7ffdd89f91732b30152c39ec9a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -163,7 +193,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="22" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="22" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="26" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="26" bodyend="36" declfile="libs/tests/src/tests/approx_equal.h" declline="22" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1af89fa7893836f092389d02ee23f92894" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -190,34 +220,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="29" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="29" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1acfe8efcdbb5116fdb8940e9ac6091c75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <templateparamlist>
-        </templateparamlist>
-        <type>bool</type>
-        <definition>bool euphoria::tests::approximately_equal</definition>
-        <argsstring>(core::rgba const &amp;lhs, core::rgba const &amp;rhs, const ApproxData &amp;data)</argsstring>
-        <name>approximately_equal</name>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> const &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> const &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
-          <declname>data</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="36" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="36" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="40" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="40" bodyend="48" declfile="libs/tests/src/tests/approx_equal.h" declline="29" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a8442d5cb188fac1def19b1fe80e9a80a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -244,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="43" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="43" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="52" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="52" bodyend="60" declfile="libs/tests/src/tests/approx_equal.h" declline="43" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ac5a241fcd9a5beddb0770582e2c31df1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -271,7 +274,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="50" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="50" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="64" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="64" bodyend="70" declfile="libs/tests/src/tests/approx_equal.h" declline="50" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1acfe8efcdbb5116fdb8940e9ac6091c75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool euphoria::tests::approximately_equal</definition>
+        <argsstring>(core::rgba const &amp;lhs, core::rgba const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>approximately_equal</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1rgba" kindref="compound">core::rgba</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="74" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="74" bodyend="83" declfile="libs/tests/src/tests/approx_equal.h" declline="36" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ad532f0a39976620d5b180fc4274c6610" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -298,7 +328,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="57" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="57" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="88" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="88" bodyend="94" declfile="libs/tests/src/tests/approx_equal.h" declline="57" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ae19383bce0b2b34f683ac816460b0f90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -325,11 +355,38 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/approx_equal.h" line="64" column="5" declfile="libs/tests/src/tests/approx_equal.h" declline="64" declcolumn="5"/>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="98" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="98" bodyend="121" declfile="libs/tests/src/tests/approx_equal.h" declline="64" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ab08c760d0794825e3007e981f86a46e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a73973367fe15ce7276d25a35884bec62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+        </templateparamlist>
+        <type>bool</type>
+        <definition>bool euphoria::tests::approximately_equal</definition>
+        <argsstring>(core::mat4f const &amp;lhs, core::mat4f const &amp;rhs, const ApproxData &amp;data)</argsstring>
+        <name>approximately_equal</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> const &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref> const &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1tests_1_1ApproxData" kindref="compound">ApproxData</ref> &amp;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/approx_equal.cc" line="126" column="5" bodyfile="libs/tests/src/tests/approx_equal.cc" bodystart="126" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a6b0818f8fa34097174bbc3b922849796" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
-        <definition>std::ostream&amp; euphoria::tests::operator&lt;&lt;</definition>
+        <definition>std::ostream &amp; euphoria::tests::operator&lt;&lt;</definition>
         <argsstring>(std::ostream &amp;s, const FalseString &amp;f)</argsstring>
         <name>operator&lt;&lt;</name>
         <param>
@@ -346,28 +403,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/falsestring.h" line="22" column="5" declfile="libs/tests/src/tests/falsestring.h" declline="22" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ac485f57be882b0ded9d838efffc37c6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
-        <definition>FalseString euphoria::tests::string_is_equal</definition>
-        <argsstring>(const std::vector&lt; std::string &gt; &amp;lhs, const std::vector&lt; std::string &gt; &amp;rhs)</argsstring>
-        <name>string_is_equal</name>
-        <param>
-          <type>const std::vector&lt; std::string &gt; &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const std::vector&lt; std::string &gt; &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/tests/src/tests/stringeq.h" line="22" column="5" declfile="libs/tests/src/tests/stringeq.h" declline="22" declcolumn="5"/>
+        <location file="libs/tests/src/tests/falsestring.cc" line="25" column="5" bodyfile="libs/tests/src/tests/falsestring.cc" bodystart="26" bodyend="37" declfile="libs/tests/src/tests/falsestring.h" declline="19" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a7a3d00547a57de48ea4c1529e7bf841d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
@@ -388,7 +424,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/tests/src/tests/stringeq.h" line="25" column="5" declfile="libs/tests/src/tests/stringeq.h" declline="25" declcolumn="5"/>
+        <location file="libs/tests/src/tests/stringeq.cc" line="24" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="24" bodyend="46" declfile="libs/tests/src/tests/stringeq.h" declline="25" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1tests_1ac485f57be882b0ded9d838efffc37c6d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1tests_1_1FalseString" kindref="compound">FalseString</ref></type>
+        <definition>FalseString euphoria::tests::string_is_equal</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;lhs, const std::vector&lt; std::string &gt; &amp;rhs)</argsstring>
+        <name>string_is_equal</name>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>lhs</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/tests/src/tests/stringeq.cc" line="50" column="5" bodyfile="libs/tests/src/tests/stringeq.cc" bodystart="50" bodyend="99" declfile="libs/tests/src/tests/stringeq.h" declline="22" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1tests_1a1984913d1783cb5ac3e3782ee1b1a0b9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -526,6 +583,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/tests/src/tests/approx.h" line="11" column="1"/>
+    <location file="libs/tests/src/tests/approx.cc" line="16" column="1"/>
   </compounddef>
 </doxygen>

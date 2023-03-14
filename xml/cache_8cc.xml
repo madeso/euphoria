@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="cache_8cc" kind="file" language="C++">
+    <compoundname>cache.cc</compoundname>
+    <includes refid="cache_8h" local="yes">core/cache.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>map</label>
+      </node>
+      <node id="2">
+        <label>core/cache.h</label>
+        <link refid="cache_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/cache.cc</label>
+        <link refid="cache_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/cache.cc"/>
+  </compounddef>
+</doxygen>

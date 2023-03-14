@@ -5,6 +5,7 @@
     <includes local="no">algorithm</includes>
     <includes local="no">functional</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
+    <includedby refid="textbox_8cc" local="yes">libs/core/src/core/textbox.cc</includedby>
     <incdepgraph>
       <node id="3">
         <label>functional</label>
@@ -37,6 +38,18 @@
         <label>algorithm</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/textbox.cc</label>
+        <link refid="textbox_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/textbox.h</label>
+        <link refid="textbox_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1TextBoxStyle" prot="public">euphoria::core::TextBoxStyle</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1TextBox" prot="public">euphoria::core::TextBox</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>

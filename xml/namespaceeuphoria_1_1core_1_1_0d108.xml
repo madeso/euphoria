@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1core_1_1_0d108" kind="namespace" language="C++">
+    <compoundname>euphoria::core::@108</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/image_draw.cc" line="81" column="5"/>
+  </compounddef>
+</doxygen>

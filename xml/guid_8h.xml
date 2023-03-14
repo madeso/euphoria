@@ -5,6 +5,7 @@
     <includes local="no">string</includes>
     <includes local="no">optional</includes>
     <includes local="no">array</includes>
+    <includedby refid="guid_8cc" local="yes">libs/core/src/core/guid.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>string</label>
@@ -26,6 +27,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/guid.cc</label>
+        <link refid="guid_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/guid.h</label>
+        <link refid="guid_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1Guid" prot="public">euphoria::core::Guid</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

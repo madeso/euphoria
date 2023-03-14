@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.h" line="45" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="45" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.h" line="30" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1aa68c68844a1e95e1c0893e09892850cb" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">quatf</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.h" line="46" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="46" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.h" line="31" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1ac9c352fe50dcfcf314cb745c76521b9a" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.h" line="47" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="47" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.h" line="32" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1a1f876fde2327dbece58a37bb8cfe8e2f" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.h" line="48" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="48" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.h" line="33" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Camera3_1ae1e8411bfeddddac79765c6f3e67fb6b" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.h" line="49" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="49" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.h" line="34" column="15" bodyfile="libs/core/src/core/camera3.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.h" line="39" column="9"/>
+        <location file="libs/core/src/core/camera3.h" line="36" column="9" bodyfile="libs/core/src/core/camera3.cc" bodystart="41" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Camera3_1ac0e5ca0be028e273bc221b7e9f017c05" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref></type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.h" line="43" column="9"/>
+        <location file="libs/core/src/core/camera3.h" line="38" column="26" bodyfile="libs/core/src/core/camera3.cc" bodystart="74" bodyend="77"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -133,7 +133,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.h" line="38" column="1" bodyfile="libs/core/src/core/camera3.h" bodystart="37" bodyend="50"/>
+    <location file="libs/core/src/core/camera3.h" line="29" column="1" bodyfile="libs/core/src/core/camera3.h" bodystart="28" bodyend="39"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Camera3_1a80764cd51826d56fe77b374b301a7803" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>Camera3</name></member>
       <member refid="structeuphoria_1_1core_1_1Camera3_1ac0e5ca0be028e273bc221b7e9f017c05" prot="public" virt="non-virtual"><scope>euphoria::core::Camera3</scope><name>compile</name></member>

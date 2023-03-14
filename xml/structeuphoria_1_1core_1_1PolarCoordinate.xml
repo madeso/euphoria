@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/polarcoord.h" line="21" column="15" bodyfile="libs/core/src/core/polarcoord.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/core/src/core/polarcoord.h" line="13" column="15" bodyfile="libs/core/src/core/polarcoord.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PolarCoordinate_1acac2d5741d872638482cbede70e34487" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/polarcoord.h" line="22" column="15" bodyfile="libs/core/src/core/polarcoord.h" bodystart="22" bodyend="-1"/>
+        <location file="libs/core/src/core/polarcoord.h" line="14" column="15" bodyfile="libs/core/src/core/polarcoord.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/polarcoord.h" line="13" column="9"/>
+        <location file="libs/core/src/core/polarcoord.h" line="16" column="9" bodyfile="libs/core/src/core/polarcoord.cc" bodystart="10" bodyend="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1PolarCoordinate_1afb400154a4079245d5c2444626496497" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
@@ -64,13 +64,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/polarcoord.h" line="16" column="9"/>
+        <location file="libs/core/src/core/polarcoord.h" line="20" column="17" bodyfile="libs/core/src/core/polarcoord.cc" bodystart="19" bodyend="31"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolarCoordinate_1a06fd38a9afc8395b6bcbe149330bb2a3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PolarCoordinate_1a308335f8e3bec6be4d0498d7ff6dcc5e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1PolarCoordinate" kindref="compound">PolarCoordinate</ref></type>
-        <definition>static PolarCoordinate euphoria::core::PolarCoordinate::create_random</definition>
+        <definition>PolarCoordinate euphoria::core::PolarCoordinate::create_random</definition>
         <argsstring>(::euphoria::core::Random *random)</argsstring>
         <name>create_random</name>
         <param>
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/polarcoord.h" line="19" column="9"/>
+        <location file="libs/core/src/core/polarcoord.h" line="18" column="33" bodyfile="libs/core/src/core/polarcoord.cc" bodystart="34" bodyend="39"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -104,10 +104,10 @@
         <link refid="structeuphoria_1_1core_1_1angle"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/polarcoord.h" line="12" column="1" bodyfile="libs/core/src/core/polarcoord.h" bodystart="11" bodyend="23"/>
+    <location file="libs/core/src/core/polarcoord.h" line="12" column="1" bodyfile="libs/core/src/core/polarcoord.h" bodystart="11" bodyend="21"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1a289325ebce3d0a6d1de4ae269b0573a8" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>azimuthal</name></member>
-      <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1a06fd38a9afc8395b6bcbe149330bb2a3" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>create_random</name></member>
+      <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1a308335f8e3bec6be4d0498d7ff6dcc5e" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>create_random</name></member>
       <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1acac2d5741d872638482cbede70e34487" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>polar</name></member>
       <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1a6cab0193d0eeeaebc34b86649cab56b6" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>PolarCoordinate</name></member>
       <member refid="structeuphoria_1_1core_1_1PolarCoordinate_1afb400154a4079245d5c2444626496497" prot="public" virt="non-virtual"><scope>euphoria::core::PolarCoordinate</scope><name>to_unit_vector</name></member>

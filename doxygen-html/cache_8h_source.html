@@ -66,40 +66,38 @@
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <span class="comment">// todo(Gustav): rename to something better?</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="comment">// https://stackoverflow.com/questions/288400/guidelines-for-differences-between-cache-pool-cache-pool</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Key, <span class="keyword">typename</span> Data, <span class="keyword">typename</span> Loader&gt;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TKey, <span class="keyword">typename</span> TData, <span class="keyword">typename</span> TLoader&gt;</div>
 <div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Cache.html">   14</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1core_1_1Cache.html">Cache</a></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        std::shared_ptr&lt;Data&gt;</div>
-<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Cache.html#a615edd1f3a87ad70f82a1a58bfb735ee">   17</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a615edd1f3a87ad70f82a1a58bfb735ee">get</a>(<span class="keyword">const</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a>&amp; key)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        {</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            <span class="keyword">auto</span> found = <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a09f9515317e9fce337b4527159607a65">store</a>.find(key);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keywordflow">if</span>(found != <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a09f9515317e9fce337b4527159607a65">store</a>.end())</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            {</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                <span class="keyword">auto</span> cached = found-&gt;second.lock();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keywordflow">if</span>(cached)</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                {</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                    <span class="keywordflow">return</span> cached;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                }</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                    <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a09f9515317e9fce337b4527159607a65">store</a>.erase(found);</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                }</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;            }</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;            std::shared_ptr&lt;Data&gt; data = <span class="keyword">static_cast&lt;</span>Loader *<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;create(key);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a09f9515317e9fce337b4527159607a65">store</a>.insert(std::pair&lt;<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a>, std::weak_ptr&lt;Data&gt;&gt;(key, data));</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <span class="keywordflow">return</span> data;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        }</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Cache.html#a09f9515317e9fce337b4527159607a65">   38</a></span>&#160;        std::map&lt;Key, std::weak_ptr&lt;Data&gt;&gt; <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a09f9515317e9fce337b4527159607a65">store</a>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    };</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;}</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Cache.html#a530e663b62a05d210f80ac1f96302381">   16</a></span>&#160;        std::map&lt;TKey, std::weak_ptr&lt;TData&gt;&gt; <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a530e663b62a05d210f80ac1f96302381">store</a>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1Cache.html#a60fc15b9f387f876fb12f851e8ab53ed">   18</a></span>&#160;        std::shared_ptr&lt;TData&gt; <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a60fc15b9f387f876fb12f851e8ab53ed">get</a>(<span class="keyword">const</span> TKey&amp; key)</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            <span class="keyword">auto</span> found = <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a530e663b62a05d210f80ac1f96302381">store</a>.find(key);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">if</span>(found != <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a530e663b62a05d210f80ac1f96302381">store</a>.end())</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;                <span class="keyword">auto</span> cached = found-&gt;second.lock();</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;                <span class="keywordflow">if</span>(cached)</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;                {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;                    <span class="keywordflow">return</span> cached;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;                }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;                <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;                {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;                    <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a530e663b62a05d210f80ac1f96302381">store</a>.erase(found);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;                }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            }</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;            std::shared_ptr&lt;TData&gt; data = <span class="keyword">static_cast&lt;</span>TLoader *<span class="keyword">&gt;</span>(<span class="keyword">this</span>)-&gt;create(key);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1Cache.html#a530e663b62a05d210f80ac1f96302381">store</a>.insert(std::pair&lt;TKey, std::weak_ptr&lt;TData&gt;&gt;(key, data));</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            <span class="keywordflow">return</span> data;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        }</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    };</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructeuphoria_1_1core_1_1Cache_html_a615edd1f3a87ad70f82a1a58bfb735ee"><div class="ttname"><a href="structeuphoria_1_1core_1_1Cache.html#a615edd1f3a87ad70f82a1a58bfb735ee">euphoria::core::Cache::get</a></div><div class="ttdeci">std::shared_ptr&lt; Data &gt; get(const Key &amp;key)</div><div class="ttdef"><b>Definition:</b> <a href="cache_8h_source.html#l00017">cache.h:17</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Cache_html_a530e663b62a05d210f80ac1f96302381"><div class="ttname"><a href="structeuphoria_1_1core_1_1Cache.html#a530e663b62a05d210f80ac1f96302381">euphoria::core::Cache::store</a></div><div class="ttdeci">std::map&lt; TKey, std::weak_ptr&lt; TData &gt; &gt; store</div><div class="ttdef"><b>Definition:</b> <a href="cache_8h_source.html#l00016">cache.h:16</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Cache_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1Cache.html">euphoria::core::Cache</a></div><div class="ttdef"><b>Definition:</b> <a href="cache_8h_source.html#l00014">cache.h:14</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">euphoria::core::Key</a></div><div class="ttdeci">Key</div><div class="ttdef"><b>Definition:</b> <a href="core_2src_2core_2key_8h_source.html#l00025">key.h:25</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1Cache_html_a09f9515317e9fce337b4527159607a65"><div class="ttname"><a href="structeuphoria_1_1core_1_1Cache.html#a09f9515317e9fce337b4527159607a65">euphoria::core::Cache::store</a></div><div class="ttdeci">std::map&lt; Key, std::weak_ptr&lt; Data &gt; &gt; store</div><div class="ttdef"><b>Definition:</b> <a href="cache_8h_source.html#l00038">cache.h:38</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8h_source.html#l00008">aabb.h:8</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1Cache_html_a60fc15b9f387f876fb12f851e8ab53ed"><div class="ttname"><a href="structeuphoria_1_1core_1_1Cache.html#a60fc15b9f387f876fb12f851e8ab53ed">euphoria::core::Cache::get</a></div><div class="ttdeci">std::shared_ptr&lt; TData &gt; get(const TKey &amp;key)</div><div class="ttdef"><b>Definition:</b> <a href="cache_8h_source.html#l00018">cache.h:18</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:8</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

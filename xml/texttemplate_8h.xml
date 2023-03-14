@@ -6,6 +6,7 @@
     <includes local="no">memory</includes>
     <includes local="no">optional</includes>
     <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
+    <includedby refid="texttemplate_8cc" local="yes">libs/core/src/core/texttemplate.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>map</label>
@@ -33,6 +34,18 @@
         <label>memory</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/texttemplate.cc</label>
+        <link refid="texttemplate_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/texttemplate.h</label>
+        <link refid="texttemplate_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1Defines" prot="public">euphoria::core::Defines</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1TemplateErrorList" prot="public">euphoria::core::TemplateErrorList</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1CompiledTextTemplate" prot="public">euphoria::core::CompiledTextTemplate</innerclass>

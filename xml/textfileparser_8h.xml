@@ -3,7 +3,11 @@
   <compounddef id="textfileparser_8h" kind="file" language="C++">
     <compoundname>textfileparser.h</compoundname>
     <includes local="no">memory</includes>
+    <includedby refid="guid_8cc" local="yes">libs/core/src/core/guid.cc</includedby>
     <includedby refid="table__string_8h" local="yes">libs/core/src/core/table_string.h</includedby>
+    <includedby refid="textfileparser_8cc" local="yes">libs/core/src/core/textfileparser.cc</includedby>
+    <includedby refid="texttemplate_8cc" local="yes">libs/core/src/core/texttemplate.cc</includedby>
+    <includedby refid="tracery_8cc" local="yes">libs/core/src/core/tracery.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/textfileparser.h</label>
@@ -21,10 +25,40 @@
         <link refid="textfileparser_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libs/core/src/core/texttemplate.cc</label>
+        <link refid="texttemplate_8cc"/>
+      </node>
+      <node id="5">
+        <label>libs/core/src/core/textfileparser.cc</label>
+        <link refid="textfileparser_8cc"/>
       </node>
       <node id="2">
+        <label>libs/core/src/core/guid.cc</label>
+        <link refid="guid_8cc"/>
+      </node>
+      <node id="4">
+        <label>libs/core/src/core/table_string.cc</label>
+        <link refid="table__string_8cc"/>
+      </node>
+      <node id="7">
+        <label>libs/core/src/core/tracery.cc</label>
+        <link refid="tracery_8cc"/>
+      </node>
+      <node id="3">
         <label>libs/core/src/core/table_string.h</label>
         <link refid="table__string_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Textfile" prot="public">euphoria::core::detail::Textfile</innerclass>

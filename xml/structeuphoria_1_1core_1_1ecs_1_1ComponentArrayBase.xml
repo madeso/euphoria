@@ -35,7 +35,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="30" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="30" column="9" bodyfile="libs/core/src/core/ecs.cc" bodystart="18" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1ad954ef7c50decd08d7cb3d65b9891eed" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual euphoria::core::ecs::ComponentArrayBase::~ComponentArrayBase</definition>
+        <argsstring>()=default</argsstring>
+        <name>~ComponentArrayBase</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ecs.h" line="31" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1a280e8f5414c9d20fa3a0fd39879be926" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -51,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="32" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="33" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1a3b0ea5710039d4472c7d6501b05279e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -67,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="33" column="9"/>
+        <location file="libs/core/src/core/ecs.h" line="34" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1ae8bd98293d3a47a7be479603890bfcc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &amp;</type>
@@ -83,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="34" column="28"/>
+        <location file="libs/core/src/core/ecs.h" line="35" column="28"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1a67d79359502f52893b0a8032f03b3601" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" kindref="compound">ComponentArrayBase</ref> &amp;</type>
@@ -99,20 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="35" column="28"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1ad954ef7c50decd08d7cb3d65b9891eed" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
-        <type></type>
-        <definition>virtual euphoria::core::ecs::ComponentArrayBase::~ComponentArrayBase</definition>
-        <argsstring>()=default</argsstring>
-        <name>~ComponentArrayBase</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="37" column="17"/>
+        <location file="libs/core/src/core/ecs.h" line="36" column="28"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1aa4acdaa4a738e855cb63f41eeeb8c58d" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="38" column="22"/>
+        <location file="libs/core/src/core/ecs.h" line="39" column="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1ac17e4aff7bdb8397e0ce12d3f0344f44" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>bool</type>
@@ -146,7 +146,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ecs.h" line="39" column="23"/>
+        <location file="libs/core/src/core/ecs.h" line="40" column="23"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -165,7 +165,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/ecs.h" line="27" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="26" bodyend="40"/>
+    <location file="libs/core/src/core/ecs.h" line="27" column="1" bodyfile="libs/core/src/core/ecs.h" bodystart="26" bodyend="41"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1a23543bee1646886387b64d338fb94612" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::ComponentArrayBase</scope><name>ComponentArrayBase</name></member>
       <member refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase_1a280e8f5414c9d20fa3a0fd39879be926" prot="public" virt="non-virtual"><scope>euphoria::core::ecs::ComponentArrayBase</scope><name>ComponentArrayBase</name></member>

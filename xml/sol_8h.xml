@@ -5,6 +5,7 @@
     <includes local="no">limits</includes>
     <includes refid="compiler__warning_8h" local="yes">core/compiler_warning.h</includes>
     <includes local="yes">sol/sol.hpp</includes>
+    <includedby refid="sol_8cc" local="yes">libs/core/src/core/sol.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>limits</label>
@@ -27,6 +28,18 @@
         <label>sol/sol.hpp</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/sol.cc</label>
+        <link refid="sol_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/sol.h</label>
+        <link refid="sol_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structLuaState" prot="public">LuaState</innerclass>
       <sectiondef kind="define">
       <memberdef kind="define" id="sol_8h_1a41272530759e713f102cc200d1f5a484" prot="public" static="no">

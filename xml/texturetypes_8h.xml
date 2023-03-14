@@ -3,6 +3,10 @@
   <compounddef id="texturetypes_8h" kind="file" language="C++">
     <compoundname>texturetypes.h</compoundname>
     <includes refid="enum_8h" local="yes">core/enum.h</includes>
+    <includedby refid="mesh_8cc" local="yes">libs/core/src/core/mesh.cc</includedby>
+    <includedby refid="texturetypes_8cc" local="yes">libs/core/src/core/texturetypes.cc</includedby>
+    <includedby refid="compiledmesh_8cc" local="yes">libs/render/src/render/compiledmesh.cc</includedby>
+    <includedby refid="materialshader_8cc" local="yes">libs/render/src/render/materialshader.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/texturetypes.h</label>
@@ -20,6 +24,36 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>libs/render/src/render/compiledmesh.cc</label>
+        <link refid="compiledmesh_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/texturetypes.h</label>
+        <link refid="texturetypes_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/mesh.cc</label>
+        <link refid="mesh_8cc"/>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/texturetypes.cc</label>
+        <link refid="texturetypes_8cc"/>
+      </node>
+      <node id="5">
+        <label>libs/render/src/render/materialshader.cc</label>
+        <link refid="materialshader_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

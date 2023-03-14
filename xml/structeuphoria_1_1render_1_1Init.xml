@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/init.h" line="17" column="1" bodyfile="libs/render/src/render/init.h" bodystart="16" bodyend="20"/>
+        <location file="libs/render/src/render/init.h" line="15" column="1" bodyfile="libs/render/src/render/init.h" bodystart="14" bodyend="18"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/init.h" line="38" column="14" bodyfile="libs/render/src/render/init.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/render/src/render/init.h" line="20" column="14" bodyfile="libs/render/src/render/init.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/init.h" line="22" column="18"/>
+        <location file="libs/render/src/render/init.h" line="22" column="18" bodyfile="libs/render/src/render/init.cc" bodystart="13" bodyend="54"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a54658d641c69540492105d98783038d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -81,13 +81,13 @@
         </inbodydescription>
         <location file="libs/render/src/render/init.h" line="23" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a3c12150df90f70e76df488252272a3fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a94482932d08f16b24f80f461fb276fae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::render::Init::NONCOPYABLE</definition>
-        <argsstring>(Init)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::render::Init::Init</definition>
+        <argsstring>(const Init &amp;)=delete</argsstring>
+        <name>Init</name>
         <param>
-          <type><ref refid="structeuphoria_1_1render_1_1Init" kindref="compound">Init</ref></type>
+          <type>const <ref refid="structeuphoria_1_1render_1_1Init" kindref="compound">Init</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -96,6 +96,54 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/render/src/render/init.h" line="25" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1ad823d10305599532c17c0bbc3449a04e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::Init::Init</definition>
+        <argsstring>(Init &amp;&amp;)=delete</argsstring>
+        <name>Init</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Init" kindref="compound">Init</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="26" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a5413573a0673c9f512af933fee4049c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Init::operator=</definition>
+        <argsstring>(const Init &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1Init" kindref="compound">Init</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="27" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a5a13c4ce57434a0806a8c9cb50e38c48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Init::operator=</definition>
+        <argsstring>(Init &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1Init" kindref="compound">Init</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="28" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a27e0de7de1b9d5e848ef36dd80579603" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>
@@ -116,20 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/init.h" line="28" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a752934007c8d8810b78beebcee73249f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::render::Init::use_2d</definition>
-        <argsstring>() const</argsstring>
-        <name>use_2d</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/render/init.h" line="32" column="9"/>
+        <location file="libs/render/src/render/init.h" line="30" column="22" bodyfile="libs/render/src/render/init.cc" bodystart="61" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a8c72041ce56669e2840b44b28b2a2ec2" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -146,21 +181,37 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/init.h" line="36" column="9"/>
+        <location file="libs/render/src/render/init.h" line="34" column="14" bodyfile="libs/render/src/render/init.cc" bodystart="77" bodyend="83"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Init_1a752934007c8d8810b78beebcee73249f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::Init::use_2d</definition>
+        <argsstring>() const</argsstring>
+        <name>use_2d</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/init.h" line="37" column="14" bodyfile="libs/render/src/render/init.cc" bodystart="69" bodyend="73"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/init.h" line="14" column="1" bodyfile="libs/render/src/render/init.h" bodystart="13" bodyend="39"/>
+    <location file="libs/render/src/render/init.h" line="13" column="1" bodyfile="libs/render/src/render/init.h" bodystart="12" bodyend="38"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Init_1a57eb900180a4f88d666c7392a4b2be47" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>BlendHack</name></member>
       <member refid="structeuphoria_1_1render_1_1Init_1a8c72041ce56669e2840b44b28b2a2ec2" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>clear_screen</name></member>
       <member refid="structeuphoria_1_1render_1_1Init_1a27e0de7de1b9d5e848ef36dd80579603" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>get_ortho_projection</name></member>
       <member refid="structeuphoria_1_1render_1_1Init_1a21036da93a231fbbc3f41f5d8398e204" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>Init</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a94482932d08f16b24f80f461fb276fae" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>Init</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1ad823d10305599532c17c0bbc3449a04e" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>Init</name></member>
       <member refid="structeuphoria_1_1render_1_1Init_1add09b35213d1c62aa287cc9e285449dd" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>is_ok</name></member>
-      <member refid="structeuphoria_1_1render_1_1Init_1a3c12150df90f70e76df488252272a3fc" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a5413573a0673c9f512af933fee4049c9" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1Init_1a5a13c4ce57434a0806a8c9cb50e38c48" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1Init_1a752934007c8d8810b78beebcee73249f" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>use_2d</name></member>
       <member refid="structeuphoria_1_1render_1_1Init_1a54658d641c69540492105d98783038d5" prot="public" virt="non-virtual"><scope>euphoria::render::Init</scope><name>~Init</name></member>
     </listofallmembers>

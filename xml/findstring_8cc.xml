@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="findstring_8cc" kind="file" language="C++">
+    <compoundname>findstring.cc</compoundname>
+    <includes refid="findstring_8h" local="yes">core/findstring.h</includes>
+    <includes local="no">algorithm</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>core/findstring.h</label>
+        <link refid="findstring_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/findstring.cc</label>
+        <link refid="findstring_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>algorithm</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/findstring.cc"/>
+  </compounddef>
+</doxygen>

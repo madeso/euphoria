@@ -165,7 +165,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="110" column="9"/>
+        <location file="libs/core/src/core/generator_maze.h" line="110" column="9" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="229" bodyend="236"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a4502cc158f5cfc4a0ca92335c886d972" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::Drawer::draw</definition>
+        <argsstring>()</argsstring>
+        <name>draw</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.h" line="112" column="14" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="277" bodyend="332"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a64d0779c6d126c2505330a7663b395e3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgbi" kindref="compound">rgbi</ref></type>
@@ -186,20 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="112" column="15"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Drawer_1a4502cc158f5cfc4a0ca92335c886d972" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::core::generator::Drawer::draw</definition>
-        <argsstring>()</argsstring>
-        <name>draw</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="115" column="9"/>
+        <location file="libs/core/src/core/generator_maze.h" line="114" column="15" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="240" bodyend="273"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -275,7 +275,7 @@
         <link refid="structeuphoria_1_1core_1_1rgbi"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/generator_maze.h" line="93" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="92" bodyend="116"/>
+    <location file="libs/core/src/core/generator_maze.h" line="93" column="1" bodyfile="libs/core/src/core/generator_maze.h" bodystart="92" bodyend="115"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a64d0779c6d126c2505330a7663b395e3" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>calculate_cell_color</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Drawer_1a7deb4f5377f5c1093cc65e0cc5a3c0f4" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Drawer</scope><name>cell_color</name></member>

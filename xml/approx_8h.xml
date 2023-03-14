@@ -5,6 +5,7 @@
     <includes local="no">cmath</includes>
     <includes local="no">limits</includes>
     <includes local="yes">catch.hpp</includes>
+    <includedby refid="approx_8cc" local="yes">libs/tests/src/tests/approx.cc</includedby>
     <includedby refid="approx__equal_8h" local="yes">libs/tests/src/tests/approx_equal.h</includedby>
     <incdepgraph>
       <node id="4">
@@ -33,10 +34,22 @@
         <link refid="approx_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
-      <node id="2">
+      <node id="3">
         <label>libs/tests/src/tests/approx_equal.h</label>
         <link refid="approx__equal_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/tests/src/tests/approx.cc</label>
+        <link refid="approx_8cc"/>
+      </node>
+      <node id="4">
+        <label>libs/tests/src/tests/approx_equal.cc</label>
+        <link refid="approx__equal_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeuphoria_1_1tests_1_1ApproxData" prot="public">euphoria::tests::ApproxData</innerclass>

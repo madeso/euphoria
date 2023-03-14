@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/sensitivity.h" line="12" column="15" bodyfile="libs/core/src/core/sensitivity.h" bodystart="12" bodyend="-1"/>
+        <location file="libs/core/src/core/sensitivity.h" line="7" column="15" bodyfile="libs/core/src/core/sensitivity.h" bodystart="7" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Sensitivity_1ad760a375a3ee72674e19c2490d7b6cf4" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/sensitivity.h" line="13" column="14" bodyfile="libs/core/src/core/sensitivity.h" bodystart="13" bodyend="-1"/>
+        <location file="libs/core/src/core/sensitivity.h" line="8" column="14" bodyfile="libs/core/src/core/sensitivity.h" bodystart="8" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/sensitivity.h" line="7" column="18"/>
+        <location file="libs/core/src/core/sensitivity.h" line="10" column="18" bodyfile="libs/core/src/core/sensitivity.cc" bodystart="8" bodyend="11"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Sensitivity_1aaa61d4d0aeba57bd0dca496694b12e48" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -66,7 +66,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/sensitivity.h" line="9" column="15"/>
+        <location file="libs/core/src/core/sensitivity.h" line="12" column="15" bodyfile="libs/core/src/core/sensitivity.cc" bodystart="15" bodyend="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Sensitivity_1aaad35cffd24d59f4ac17e3de15989360" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/sensitivity.h" line="10" column="16"/>
+        <location file="libs/core/src/core/sensitivity.h" line="13" column="16" bodyfile="libs/core/src/core/sensitivity.cc" bodystart="22" bodyend="25"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

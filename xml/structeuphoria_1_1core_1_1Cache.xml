@@ -5,19 +5,19 @@
     <includes refid="cache_8h" local="no">cache.h</includes>
     <templateparamlist>
       <param>
-        <type>typename <ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">Key</ref></type>
+        <type>typename TKey</type>
       </param>
       <param>
-        <type>typename Data</type>
+        <type>typename TData</type>
       </param>
       <param>
-        <type>typename Loader</type>
+        <type>typename TLoader</type>
       </param>
     </templateparamlist>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Cache_1a09f9515317e9fce337b4527159607a65" prot="public" static="no" mutable="no">
-        <type>std::map&lt; <ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">Key</ref>, std::weak_ptr&lt; Data &gt; &gt;</type>
-        <definition>std::map&lt;Key, std::weak_ptr&lt;Data&gt; &gt; euphoria::core::Cache&lt; Key, Data, Loader &gt;::store</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Cache_1a530e663b62a05d210f80ac1f96302381" prot="public" static="no" mutable="no">
+        <type>std::map&lt; TKey, std::weak_ptr&lt; TData &gt; &gt;</type>
+        <definition>std::map&lt;TKey, std::weak_ptr&lt;TData&gt; &gt; euphoria::core::Cache&lt; TKey, TData, TLoader &gt;::store</definition>
         <argsstring></argsstring>
         <name>store</name>
         <briefdescription>
@@ -26,17 +26,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/cache.h" line="38" column="18" bodyfile="libs/core/src/core/cache.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/core/src/core/cache.h" line="16" column="18" bodyfile="libs/core/src/core/cache.h" bodystart="16" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Cache_1a615edd1f3a87ad70f82a1a58bfb735ee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>std::shared_ptr&lt; Data &gt;</type>
-        <definition>std::shared_ptr&lt;Data&gt; euphoria::core::Cache&lt; Key, Data, Loader &gt;::get</definition>
-        <argsstring>(const Key &amp;key)</argsstring>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Cache_1a60fc15b9f387f876fb12f851e8ab53ed" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; TData &gt;</type>
+        <definition>std::shared_ptr&lt;TData&gt; euphoria::core::Cache&lt; TKey, TData, TLoader &gt;::get</definition>
+        <argsstring>(const TKey &amp;key)</argsstring>
         <name>get</name>
         <param>
-          <type>const <ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">Key</ref> &amp;</type>
+          <type>const TKey &amp;</type>
           <declname>key</declname>
         </param>
         <briefdescription>
@@ -45,17 +45,17 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/cache.h" line="17" column="9" bodyfile="libs/core/src/core/cache.h" bodystart="17" bodyend="36"/>
+        <location file="libs/core/src/core/cache.h" line="18" column="25" bodyfile="libs/core/src/core/cache.h" bodystart="18" bodyend="37"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/cache.h" line="15" column="1" bodyfile="libs/core/src/core/cache.h" bodystart="14" bodyend="39"/>
+    <location file="libs/core/src/core/cache.h" line="15" column="1" bodyfile="libs/core/src/core/cache.h" bodystart="14" bodyend="38"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Cache_1a615edd1f3a87ad70f82a1a58bfb735ee" prot="public" virt="non-virtual"><scope>euphoria::core::Cache</scope><name>get</name></member>
-      <member refid="structeuphoria_1_1core_1_1Cache_1a09f9515317e9fce337b4527159607a65" prot="public" virt="non-virtual"><scope>euphoria::core::Cache</scope><name>store</name></member>
+      <member refid="structeuphoria_1_1core_1_1Cache_1a60fc15b9f387f876fb12f851e8ab53ed" prot="public" virt="non-virtual"><scope>euphoria::core::Cache</scope><name>get</name></member>
+      <member refid="structeuphoria_1_1core_1_1Cache_1a530e663b62a05d210f80ac1f96302381" prot="public" virt="non-virtual"><scope>euphoria::core::Cache</scope><name>store</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

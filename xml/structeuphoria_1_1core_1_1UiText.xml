@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="112" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="112" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="84" bodyend="87"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1aeb4a5222e6b8bc1392ebeba56fe6100f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="115" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="115" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="90" bodyend="93"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1a09d24331ecfd80cb54e3a2e38fea6e70" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -64,7 +64,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="118" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="118" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="96" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1a71d0a0746cc808a6b1050702dab9c472" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="121" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="121" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="102" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1ac65d6634cb1ed3cffcaa77479d0781e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -90,7 +90,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="124" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="124" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="108" bodyend="111"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1ab0c4e10d36fa33ccf20384a1109b38f1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -107,7 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="127" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="127" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="114" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1ae447ead7177fe348966db0eb26bfbc8b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="130" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="130" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="225" bodyend="251"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1a77aa2fbcd02f2a750c358236c49690be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -141,7 +141,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="136" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="136" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="262" bodyend="268"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1a7e54568529d024a4c1e554346574113a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -158,13 +158,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="139" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="139" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="271" bodyend="277"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1a598dfab5297c6853a10ecc4dfa113c4c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1UiText_1aa1f2453ee694bdffb51cb7d3cadf7702" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1UiText" kindref="compound">UiText</ref></type>
-        <definition>static UiText euphoria::core::UiText::create_from_text</definition>
+        <definition>UiText euphoria::core::UiText::create_from_text</definition>
         <argsstring>(const std::string &amp;str)</argsstring>
         <name>create_from_text</name>
         <param>
@@ -177,7 +177,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="133" column="9"/>
+        <location file="libs/core/src/core/ui_text.h" line="133" column="9" bodyfile="libs/core/src/core/ui_text.cc" bodystart="254" bodyend="259"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -196,7 +196,7 @@
       <member refid="structeuphoria_1_1core_1_1UiText_1a09d24331ecfd80cb54e3a2e38fea6e70" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>add_image</name></member>
       <member refid="structeuphoria_1_1core_1_1UiText_1aeb4a5222e6b8bc1392ebeba56fe6100f" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>add_text</name></member>
       <member refid="structeuphoria_1_1core_1_1UiText_1abb91b5f3a216c2c6ef41523e07193e8c" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>clear</name></member>
-      <member refid="structeuphoria_1_1core_1_1UiText_1a598dfab5297c6853a10ecc4dfa113c4c" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>create_from_text</name></member>
+      <member refid="structeuphoria_1_1core_1_1UiText_1aa1f2453ee694bdffb51cb7d3cadf7702" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>create_from_text</name></member>
       <member refid="structeuphoria_1_1core_1_1UiText_1ae447ead7177fe348966db0eb26bfbc8b" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>init_by_parsing_source</name></member>
       <member refid="structeuphoria_1_1core_1_1UiText_1ab0c4e10d36fa33ccf20384a1109b38f1" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>init_with_text</name></member>
       <member refid="structeuphoria_1_1core_1_1UiText_1a264643d2d7e6f9bfcc2d66ec9ce00933" prot="public" virt="non-virtual"><scope>euphoria::core::UiText</scope><name>nodes</name></member>

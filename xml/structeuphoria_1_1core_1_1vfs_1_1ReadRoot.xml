@@ -18,11 +18,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="43" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="41" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1ad1ec37316f4f6aff6af5caa18cb9fff5" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a64de6b9b05cf54d37bba9eda989b41c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
-        <definition>virtual euphoria::core::vfs::ReadRoot::~ReadRoot</definition>
+        <definition>euphoria::core::vfs::ReadRoot::~ReadRoot</definition>
         <argsstring>()</argsstring>
         <name>~ReadRoot</name>
         <briefdescription>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="44" column="17"/>
+        <location file="libs/core/src/core/vfs.h" line="42" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a5d6a3e14dd59940468c31e5ec3324f04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="46" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="44" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1abe45e228af46963457dbc478c20f9cd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="47" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="45" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a95702d13070895545269442b48485df6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="48" column="14"/>
+        <location file="libs/core/src/core/vfs.h" line="46" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a5ca9527da029d53f1e122bcc2915701c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="49" column="14"/>
+        <location file="libs/core/src/core/vfs.h" line="47" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a309bef8c8be419bb1c79b8ff26b7f2f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -115,16 +115,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="52" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="50" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1ab2d59db4d73604e54d3ac4854b1b9571" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
         <definition>virtual std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::vfs::ReadRoot::read_file</definition>
         <argsstring>(const FilePath &amp;path)=0</argsstring>
         <name>read_file</name>
-        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1aaa3118a906f289f0013a62a9e069429d">read_file</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog_1af01cdc11e2f11a08dd055bfa4b0cb0ca">read_file</reimplementedby>
-        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder_1af3db120bd71f618f81b0e9739925caf2">read_file</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a6924e116951289572034369fb28c7ce3">read_file</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog_1ac7ed939063bc25db7a11ba106e07ba3b">read_file</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootPhysicalFolder_1a8acb9762b9cc824a2ccc31af6d8c32d9">read_file</reimplementedby>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref> &amp;</type>
           <declname>path</declname>
@@ -135,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="55" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="53" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a535d13d850c46dab7e69cb14c4556f83" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileList" kindref="compound">FileList</ref></type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs.h" line="58" column="9"/>
+        <location file="libs/core/src/core/vfs.h" line="56" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -186,7 +186,7 @@
         <link refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot"/>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/vfs.h" line="42" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="41" bodyend="59"/>
+    <location file="libs/core/src/core/vfs.h" line="40" column="1" bodyfile="libs/core/src/core/vfs.h" bodystart="39" bodyend="57"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a309bef8c8be419bb1c79b8ff26b7f2f2" prot="public" virt="pure-virtual"><scope>euphoria::core::vfs::ReadRoot</scope><name>add_description</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a535d13d850c46dab7e69cb14c4556f83" prot="public" virt="pure-virtual"><scope>euphoria::core::vfs::ReadRoot</scope><name>list_files</name></member>
@@ -196,7 +196,7 @@
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1ad1bf2cd7903c25ac69a4eb1acc972f1c" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRoot</scope><name>ReadRoot</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a5d6a3e14dd59940468c31e5ec3324f04" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRoot</scope><name>ReadRoot</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1abe45e228af46963457dbc478c20f9cd0" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRoot</scope><name>ReadRoot</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1ad1ec37316f4f6aff6af5caa18cb9fff5" prot="public" virt="virtual"><scope>euphoria::core::vfs::ReadRoot</scope><name>~ReadRoot</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a64de6b9b05cf54d37bba9eda989b41c9" prot="public" virt="virtual"><scope>euphoria::core::vfs::ReadRoot</scope><name>~ReadRoot</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

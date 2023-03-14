@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/actor.h" line="38" column="25" bodyfile="libs/render/src/render/actor.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/render/src/render/actor.h" line="22" column="25" bodyfile="libs/render/src/render/actor.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Actor_1a43f88bc42b4f199808fe86d8b45e1cc4" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1MaterialOverride" kindref="compound">MaterialOverride</ref> &gt;</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/actor.h" line="39" column="25" bodyfile="libs/render/src/render/actor.h" bodystart="39" bodyend="-1"/>
+        <location file="libs/render/src/render/actor.h" line="23" column="25" bodyfile="libs/render/src/render/actor.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -48,7 +48,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/actor.h" line="22" column="9"/>
+        <location file="libs/render/src/render/actor.h" line="25" column="9" bodyfile="libs/render/src/render/actor.cc" bodystart="7" bodyend="11"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Actor_1a241501d191d4de677231057c6cd16d46" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1MaterialOverride" kindref="compound">MaterialOverride</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MaterialOverride &gt; euphoria::render::Actor::create_override</definition>
+        <argsstring>() const</argsstring>
+        <name>create_override</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/actor.h" line="28" column="9" bodyfile="libs/render/src/render/actor.cc" bodystart="15" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1Actor_1aa6193ba640674d4419aaa06181fab071" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -78,20 +91,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/actor.h" line="25" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Actor_1a5bb27d930dd988e3db7f3d6fdaf27dd7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1MaterialOverride" kindref="compound">MaterialOverride</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;MaterialOverride&gt; euphoria::render::Actor::create_override</definition>
-        <argsstring>() const</argsstring>
-        <name>create_override</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/render/actor.h" line="35" column="9"/>
+        <location file="libs/render/src/render/actor.h" line="31" column="9" bodyfile="libs/render/src/render/actor.cc" bodystart="30" bodyend="46"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -136,14 +136,17 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/actor.h" line="21" column="1" bodyfile="libs/render/src/render/actor.h" bodystart="20" bodyend="40"/>
+    <location file="libs/render/src/render/actor.h" line="21" column="1" bodyfile="libs/render/src/render/actor.h" bodystart="20" bodyend="38"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Actor_1a71ab4f2233b72805a369cd89472ccbe7" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>Actor</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1afa992d97f0c0581b85bc36dcf98e01d9" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>calculate_model_matrix</name></member>
-      <member refid="structeuphoria_1_1render_1_1Actor_1a5bb27d930dd988e3db7f3d6fdaf27dd7" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>create_override</name></member>
+      <member refid="structeuphoria_1_1render_1_1Actor_1a241501d191d4de677231057c6cd16d46" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>create_override</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1a605b012975c03862c2f772718ee29f6b" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>Instance</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1ad082d09a12478fbef5969f27444dbdd8" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>Instance</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1aa5894bc9f0801a8787d35e850a26defb" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>Instance</name></member>
       <member refid="structeuphoria_1_1render_1_1Actor_1aa2c1d4156d27f567ffbc5e7d44205270" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>mesh</name></member>
-      <member refid="structeuphoria_1_1render_1_1Instance_1ac7c94bbaa128b1d2f00ca10a346f7beb" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1a0262d66cba6cd2363669a0c11e88b5c2" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1ae1ea2f00363bb473dfe0d733c0649435" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1Actor_1a43f88bc42b4f199808fe86d8b45e1cc4" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>overriden_materials</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1a2dfbae9d4604b87fa25a1941678526b0" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>position</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1aa8b9db17cb0fb1ddc2587b0a82a2538d" prot="public" virt="non-virtual"><scope>euphoria::render::Actor</scope><name>remove_this</name></member>

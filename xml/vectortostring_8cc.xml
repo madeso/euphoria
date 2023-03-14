@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="vectortostring_8cc" kind="file" language="C++">
+    <compoundname>vectortostring.cc</compoundname>
+    <includes refid="vectortostring_8h" local="yes">tests/vectortostring.h</includes>
+    <incdepgraph>
+      <node id="3">
+        <label>core/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/tests/src/tests/vectortostring.cc</label>
+        <link refid="vectortostring_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>tests/vectortostring.h</label>
+        <link refid="vectortostring_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/tests/src/tests/vectortostring.cc"/>
+  </compounddef>
+</doxygen>

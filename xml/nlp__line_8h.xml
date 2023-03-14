@@ -3,6 +3,7 @@
   <compounddef id="nlp__line_8h" kind="file" language="C++">
     <compoundname>nlp_line.h</compoundname>
     <includes local="no">optional</includes>
+    <includedby refid="nlp__line_8cc" local="yes">libs/core/src/core/nlp_line.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>optional</label>
@@ -14,6 +15,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/nlp_line.cc</label>
+        <link refid="nlp__line_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/nlp_line.h</label>
+        <link refid="nlp__line_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

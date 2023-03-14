@@ -5,6 +5,7 @@
     <includes local="no">functional</includes>
     <includes local="no">iostream</includes>
     <includes local="no">map</includes>
+    <includedby refid="console_8cc" local="yes">libs/core/src/core/console.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>functional</label>
@@ -26,6 +27,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/console.cc</label>
+        <link refid="console_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/console.h</label>
+        <link refid="console_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1VirtualConsole" prot="public">euphoria::core::VirtualConsole</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

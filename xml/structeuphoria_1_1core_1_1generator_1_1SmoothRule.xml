@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1generator_1_1SmoothRule" kind="struct" language="C++" prot="public" final="yes">
+    <compoundname>euphoria::core::generator::SmoothRule</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">euphoria::core::generator::Rule</basecompoundref>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a1df75b7e50f63b714d00b7e215513e5f" prot="public" static="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1a870ae28eac49fdf014f885256933f2b3" kindref="member">ChangeFunction</ref></type>
+        <definition>using euphoria::core::generator::SmoothRule::SmoothFunction =  ChangeFunction</definition>
+        <argsstring></argsstring>
+        <name>SmoothFunction</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="17" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a53087bb9c37888d2244483690befd55d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a1df75b7e50f63b714d00b7e215513e5f" kindref="member">SmoothFunction</ref></type>
+        <definition>SmoothFunction euphoria::core::generator::SmoothRule::smooth_function</definition>
+        <argsstring></argsstring>
+        <name>smooth_function</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="19" column="24" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a383d2f8c99141e9a8b2a2fad9e9a0689" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::generator::SmoothRule::SmoothRule</definition>
+        <argsstring>(SmoothRule::SmoothFunction sf)</argsstring>
+        <name>SmoothRule</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a1df75b7e50f63b714d00b7e215513e5f" kindref="member">SmoothRule::SmoothFunction</ref></type>
+          <declname>sf</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="21" column="18" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="21" bodyend="24"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a3d460f0c8d41b3b1a8acc34e65c000a7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::SmoothRule::step</definition>
+        <argsstring>(CellularAutomata *self) override</argsstring>
+        <name>step</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a04bde9b4d49e0a19c91b5bfd334a2e34">step</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="27" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="27" bodyend="35"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::generator::SmoothRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::Rule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::generator::SmoothRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::Rule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_cell.cc" line="16" column="1" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="15" bodyend="36"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a1041138a9a1e771c027c997e4ebfe11d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a7c949b42ed60b5af4a1c5e6410410502" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1acee66f1f21e44dd69b1f3e6fb54174c5" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a0a8caf1dda89a98eeb44fd579d31da43" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a62efec702190ecb2f2dea4337fe95cba" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a53087bb9c37888d2244483690befd55d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>smooth_function</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a1df75b7e50f63b714d00b7e215513e5f" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>SmoothFunction</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a383d2f8c99141e9a8b2a2fad9e9a0689" prot="public" virt="non-virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>SmoothRule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a3d460f0c8d41b3b1a8acc34e65c000a7" prot="public" virt="virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1adcac939654ffb9fcd2bbe5879ccbe6b4" prot="public" virt="virtual"><scope>euphoria::core::generator::SmoothRule</scope><name>~Rule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

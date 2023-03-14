@@ -3,7 +3,9 @@
   <compounddef id="vectortostring_8h" kind="file" language="C++">
     <compoundname>vectortostring.h</compoundname>
     <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includedby refid="stringeq_8cc" local="yes">libs/tests/src/tests/stringeq.cc</includedby>
     <includedby refid="vectorequals_8h" local="yes">libs/tests/src/tests/vectorequals.h</includedby>
+    <includedby refid="vectortostring_8cc" local="yes">libs/tests/src/tests/vectortostring.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>core/stringbuilder.h</label>
@@ -17,14 +19,32 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="5">
+        <label>libs/tests/src/tests/vectortostring.cc</label>
+        <link refid="vectortostring_8cc"/>
+      </node>
       <node id="2">
+        <label>libs/tests/src/tests/stringeq.cc</label>
+        <link refid="stringeq_8cc"/>
+      </node>
+      <node id="3">
         <label>libs/tests/src/tests/vectorequals.h</label>
         <link refid="vectorequals_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libs/tests/src/tests/vectorequals.cc</label>
+        <link refid="vectorequals_8cc"/>
       </node>
       <node id="1">
         <label>libs/tests/src/tests/vectortostring.h</label>
         <link refid="vectortostring_8h"/>
         <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

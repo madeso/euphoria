@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledlines.h" line="29" column="9"/>
+        <location file="libs/render/src/render/compiledlines.h" line="29" column="9" bodyfile="libs/render/src/render/compiledlines.cc" bodystart="93" bodyend="111"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/positionedlines.h" line="12" column="9"/>
+        <location file="libs/render/src/render/positionedlines.h" line="12" column="9" bodyfile="libs/render/src/render/positionedlines.cc" bodystart="8" bodyend="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1PositionedLines_1adc5572b68a4a02ea442582e8038ce586" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -65,7 +65,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/positionedlines.h" line="15" column="9"/>
+        <location file="libs/render/src/render/positionedlines.h" line="15" column="9" bodyfile="libs/render/src/render/positionedlines.cc" bodystart="18" bodyend="31"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -114,8 +114,11 @@
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Instance_1afa992d97f0c0581b85bc36dcf98e01d9" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>calculate_model_matrix</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1a605b012975c03862c2f772718ee29f6b" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>Instance</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1ad082d09a12478fbef5969f27444dbdd8" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>Instance</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1aa5894bc9f0801a8787d35e850a26defb" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>Instance</name></member>
       <member refid="structeuphoria_1_1render_1_1PositionedLines_1ad4b4e2ab94ecdb48bfb20b40089f43c1" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>lines</name></member>
-      <member refid="structeuphoria_1_1render_1_1Instance_1ac7c94bbaa128b1d2f00ca10a346f7beb" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1a0262d66cba6cd2363669a0c11e88b5c2" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1Instance_1ae1ea2f00363bb473dfe0d733c0649435" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1a2dfbae9d4604b87fa25a1941678526b0" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>position</name></member>
       <member refid="structeuphoria_1_1render_1_1PositionedLines_1a5360792e3d8d9eac52f5974278605354" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>PositionedLines</name></member>
       <member refid="structeuphoria_1_1render_1_1Instance_1aa8b9db17cb0fb1ddc2587b0a82a2538d" prot="public" virt="non-virtual"><scope>euphoria::render::PositionedLines</scope><name>remove_this</name></member>

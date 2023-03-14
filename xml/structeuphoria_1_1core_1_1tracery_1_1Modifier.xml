@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="structeuphoria_1_1core_1_1tracery_1_1Modifier" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::tracery::Modifier</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier" prot="public" virt="non-virtual">euphoria::core::tracery::english::FunctionModifier&lt; TFunc &gt;</derivedcompoundref>
     <includes refid="tracery_8h" local="no">tracery.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab1a68ba8c1815e5fe70404ca4391b54f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -17,9 +18,9 @@
         </inbodydescription>
         <location file="libs/core/src/core/tracery.h" line="67" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ad82850298cda58889bff120eaf00d024" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a9fb8e0170116f24f3e667ac5045fd87e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
-        <definition>virtual euphoria::core::tracery::Modifier::~Modifier</definition>
+        <definition>euphoria::core::tracery::Modifier::~Modifier</definition>
         <argsstring>()</argsstring>
         <name>~Modifier</name>
         <briefdescription>
@@ -30,13 +31,13 @@
         </inbodydescription>
         <location file="libs/core/src/core/tracery.h" line="68" column="17"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a87c8fdf59525c426bac19a7b08133348" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a93cc813a77ff3c0d55f504acc6bb3868" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::core::tracery::Modifier::NONCOPYABLE</definition>
-        <argsstring>(Modifier)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::core::tracery::Modifier::Modifier</definition>
+        <argsstring>(const Modifier &amp;)=delete</argsstring>
+        <name>Modifier</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" kindref="compound">Modifier</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" kindref="compound">Modifier</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -46,11 +47,60 @@
         </inbodydescription>
         <location file="libs/core/src/core/tracery.h" line="70" column="9"/>
       </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ac0c9bd2554d99fa7e484c7990c887400" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::tracery::Modifier::Modifier</definition>
+        <argsstring>(Modifier &amp;&amp;)=delete</argsstring>
+        <name>Modifier</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" kindref="compound">Modifier</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="71" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a88450d082931881e4bf089ab99e89fe7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::tracery::Modifier::operator=</definition>
+        <argsstring>(const Modifier &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" kindref="compound">Modifier</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="72" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a253cef968f520adf2a6e419c58690266" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::tracery::Modifier::operator=</definition>
+        <argsstring>(Modifier &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" kindref="compound">Modifier</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="73" column="14"/>
+      </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab4ef585d2da1b2d4f64ac96f1e6d0bc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
         <definition>virtual Result euphoria::core::tracery::Modifier::apply_modifier</definition>
         <argsstring>(const std::string &amp;input)=0</argsstring>
         <name>apply_modifier</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1ac1bb6ee68705471a455178234eb3e8b1">apply_modifier</reimplementedby>
         <param>
           <type>const std::string &amp;</type>
           <declname>input</declname>
@@ -61,19 +111,34 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="73" column="9"/>
+        <location file="libs/core/src/core/tracery.h" line="75" column="24"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.h" line="66" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="65" bodyend="74"/>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::tracery::english::FunctionModifier&lt; TFunc &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::core::tracery::Modifier</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1Modifier"/>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/tracery.h" line="66" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="65" bodyend="76"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab4ef585d2da1b2d4f64ac96f1e6d0bc4" prot="public" virt="pure-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>apply_modifier</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab1a68ba8c1815e5fe70404ca4391b54f" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>Modifier</name></member>
-      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a87c8fdf59525c426bac19a7b08133348" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ad82850298cda58889bff120eaf00d024" prot="public" virt="virtual"><scope>euphoria::core::tracery::Modifier</scope><name>~Modifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a93cc813a77ff3c0d55f504acc6bb3868" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>Modifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ac0c9bd2554d99fa7e484c7990c887400" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>Modifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a88450d082931881e4bf089ab99e89fe7" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a253cef968f520adf2a6e419c58690266" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Modifier</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a9fb8e0170116f24f3e667ac5045fd87e" prot="public" virt="virtual"><scope>euphoria::core::tracery::Modifier</scope><name>~Modifier</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -4,16 +4,17 @@
     <compoundname>knuthshuffle.h</compoundname>
     <includes refid="random_8h" local="yes">core/random.h</includes>
     <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includedby refid="knuthshuffle_8cc" local="yes">libs/core/src/core/knuthshuffle.cc</includedby>
     <incdepgraph>
       <node id="8">
         <label>cstdint</label>
       </node>
-      <node id="16">
+      <node id="15">
         <label>core/cint.h</label>
         <link refid="cint_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -33,10 +34,10 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="17">
         <label>core/vec.base.h</label>
         <link refid="vec_8base_8h"/>
       </node>
@@ -48,10 +49,6 @@
         <childnode refid="6" relation="include">
         </childnode>
       </node>
-      <node id="12">
-        <label>core/easing.h</label>
-        <link refid="easing_8h"/>
-      </node>
       <node id="9">
         <label>core/vec2.h</label>
         <link refid="vec2_8h"/>
@@ -61,19 +58,19 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="18" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
       <node id="10">
         <label>tuple</label>
       </node>
-      <node id="15">
+      <node id="14">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
       </node>
@@ -86,52 +83,62 @@
         <childnode refid="8" relation="include">
         </childnode>
       </node>
-      <node id="14">
+      <node id="13">
         <label>iostream</label>
       </node>
-      <node id="17">
+      <node id="16">
         <label>cstddef</label>
+      </node>
+      <node id="11">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
       </node>
       <node id="1">
         <label>libs/core/src/core/knuthshuffle.h</label>
         <link refid="knuthshuffle_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="19">
-        <label>core/range.h</label>
-        <link refid="range_8h"/>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="4" relation="include">
-        </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-      </node>
-      <node id="13">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
         <childnode refid="15" relation="include">
         </childnode>
       </node>
-      <node id="20">
-        <label>type_traits</label>
-      </node>
-      <node id="11">
-        <label>core/interpolate.h</label>
-        <link refid="interpolate_8h"/>
+      <node id="18">
+        <label>core/range.h</label>
+        <link refid="range_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
         <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>core/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>type_traits</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/knuthshuffle.cc</label>
+        <link refid="knuthshuffle_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/knuthshuffle.h</label>
+        <link refid="knuthshuffle_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

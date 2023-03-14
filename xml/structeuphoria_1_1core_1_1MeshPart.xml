@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="57" column="9"/>
+        <location file="libs/core/src/core/mesh.h" line="63" column="9" bodyfile="libs/core/src/core/mesh.cc" bodystart="47" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1MeshPart_1af62a15f9976cd51b5aa1f99e7e01ecda" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Aabb" kindref="compound">Aabb</ref></type>
@@ -69,14 +69,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/mesh.h" line="64" column="9"/>
+        <location file="libs/core/src/core/mesh.h" line="65" column="15" bodyfile="libs/core/src/core/mesh.cc" bodystart="54" bodyend="64"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/mesh.h" line="56" column="1" bodyfile="libs/core/src/core/mesh.h" bodystart="55" bodyend="65"/>
+    <location file="libs/core/src/core/mesh.h" line="58" column="1" bodyfile="libs/core/src/core/mesh.h" bodystart="57" bodyend="66"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1MeshPart_1af62a15f9976cd51b5aa1f99e7e01ecda" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPart</scope><name>calculate_aabb</name></member>
       <member refid="structeuphoria_1_1core_1_1MeshPart_1a9f77407378a1f20f26e9fc2d2600c0ce" prot="public" virt="non-virtual"><scope>euphoria::core::MeshPart</scope><name>faces</name></member>

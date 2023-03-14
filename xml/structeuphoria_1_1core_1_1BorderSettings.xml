@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_bool.h" line="151" column="15" bodyfile="libs/core/src/core/table_bool.h" bodystart="151" bodyend="-1"/>
+        <location file="libs/core/src/core/table_bool.h" line="149" column="15" bodyfile="libs/core/src/core/table_bool.h" bodystart="149" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_bool.h" line="149" column="18"/>
+        <location file="libs/core/src/core/table_bool.h" line="151" column="18" bodyfile="libs/core/src/core/table_bool.cc" bodystart="451" bodyend="454"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

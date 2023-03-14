@@ -6,6 +6,7 @@
     <includes local="no">algorithm</includes>
     <includes refid="falsestring_8h" local="yes">tests/falsestring.h</includes>
     <includes refid="vectortostring_8h" local="yes">tests/vectortostring.h</includes>
+    <includedby refid="vectorequals_8cc" local="yes">libs/tests/src/tests/vectorequals.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>functional</label>
@@ -45,6 +46,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/tests/src/tests/vectorequals.h</label>
+        <link refid="vectorequals_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/tests/src/tests/vectorequals.cc</label>
+        <link refid="vectorequals_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1tests">euphoria::tests</innernamespace>
     <briefdescription>

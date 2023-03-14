@@ -9,18 +9,18 @@
       </param>
     </templateparamlist>
       <sectiondef kind="public-type">
-      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" prot="public" static="no">
+      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" prot="public" static="no">
         <type>int</type>
-        <definition>using euphoria::core::Table&lt; T &gt;::I =  int</definition>
+        <definition>using euphoria::core::Table&lt; T &gt;::Idx =  int</definition>
         <argsstring></argsstring>
-        <name>I</name>
+        <name>Idx</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="15" column="9" bodyfile="libs/core/src/core/table.h" bodystart="15" bodyend="-1"/>
+        <location file="libs/core/src/core/table.h" line="19" column="9" bodyfile="libs/core/src/core/table.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-attrib">
@@ -35,11 +35,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="205" column="21" bodyfile="libs/core/src/core/table.h" bodystart="205" bodyend="-1"/>
+        <location file="libs/core/src/core/table.h" line="188" column="21" bodyfile="libs/core/src/core/table.h" bodystart="188" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Table_1a279d92e4878efea164f1340b62691670" prot="private" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-        <definition>I euphoria::core::Table&lt; T &gt;::width</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Table_1af7202669218cdef27a06b27fb936a322" prot="private" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+        <definition>Idx euphoria::core::Table&lt; T &gt;::width</definition>
         <argsstring></argsstring>
         <name>width</name>
         <initializer>= 0</initializer>
@@ -49,11 +49,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="206" column="11" bodyfile="libs/core/src/core/table.h" bodystart="206" bodyend="-1"/>
+        <location file="libs/core/src/core/table.h" line="189" column="13" bodyfile="libs/core/src/core/table.h" bodystart="189" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Table_1a0353f86e41c4f9520b2f7ecb8ef0982b" prot="private" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-        <definition>I euphoria::core::Table&lt; T &gt;::height</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Table_1aa5d77015ea391a64e4c81d52826e7b6d" prot="private" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+        <definition>Idx euphoria::core::Table&lt; T &gt;::height</definition>
         <argsstring></argsstring>
         <name>height</name>
         <initializer>= 0</initializer>
@@ -63,78 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="207" column="11" bodyfile="libs/core/src/core/table.h" bodystart="207" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ab3bd1abc6cb37c91c1bdab39f1d44428" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-        <definition>static constexpr I euphoria::core::Table&lt; T &gt;::conv</definition>
-        <argsstring>(size_t t)</argsstring>
-        <name>conv</name>
-        <param>
-          <type>size_t</type>
-          <declname>t</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="18" column="9" bodyfile="libs/core/src/core/table.h" bodystart="18" bodyend="21"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1aa4c3bd413ee7eed86a89294ae9792195" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Table" kindref="compound">Table</ref></type>
-        <definition>static Table euphoria::core::Table&lt; T &gt;::from_width_height</definition>
-        <argsstring>(I width, I height, T d=T())</argsstring>
-        <name>from_width_height</name>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-          <declname>width</declname>
-        </param>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-          <declname>height</declname>
-        </param>
-        <param>
-          <type>T</type>
-          <declname>d</declname>
-          <defval>T()</defval>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="26" column="9" bodyfile="libs/core/src/core/table.h" bodystart="26" bodyend="29"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a240f7421b25c0c310f975535a4a1f92a" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Table" kindref="compound">Table</ref></type>
-        <definition>static Table euphoria::core::Table&lt; T &gt;::from_height_width</definition>
-        <argsstring>(I height, I width, T d=T())</argsstring>
-        <name>from_height_width</name>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-          <declname>height</declname>
-        </param>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-          <declname>width</declname>
-        </param>
-        <param>
-          <type>T</type>
-          <declname>d</declname>
-          <defval>T()</defval>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="32" column="9" bodyfile="libs/core/src/core/table.h" bodystart="32" bodyend="35"/>
+        <location file="libs/core/src/core/table.h" line="190" column="13" bodyfile="libs/core/src/core/table.h" bodystart="190" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -149,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="23" column="9"/>
+        <location file="libs/core/src/core/table.h" line="21" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ad0d8ca188b7bffe2dfd3c6e81d0c5ae0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -167,7 +96,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="38" column="9" bodyfile="libs/core/src/core/table.h" bodystart="38" bodyend="43"/>
+        <location file="libs/core/src/core/table.h" line="33" column="14" bodyfile="libs/core/src/core/table.h" bodystart="33" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a9eb3c65ca537a7a267844a012476eab2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -185,20 +114,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="46" column="9" bodyfile="libs/core/src/core/table.h" bodystart="46" bodyend="52"/>
+        <location file="libs/core/src/core/table.h" line="40" column="14" bodyfile="libs/core/src/core/table.h" bodystart="40" bodyend="46"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ac073c5a4252d28d15b26ef3f4f00f296" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ae4e464f083a15e9bfec62b581be61335" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-            <type>typename Func</type>
+            <type>typename TFunc</type>
           </param>
         </templateparamlist>
         <type>void</type>
         <definition>void euphoria::core::Table&lt; T &gt;::set_all</definition>
-        <argsstring>(Func f)</argsstring>
+        <argsstring>(TFunc f)</argsstring>
         <name>set_all</name>
         <param>
-          <type>Func</type>
+          <type>TFunc</type>
           <declname>f</declname>
         </param>
         <briefdescription>
@@ -207,41 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="56" column="9" bodyfile="libs/core/src/core/table.h" bodystart="56" bodyend="65"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a6cb8c8f1dc3e864c14f24d886a3406f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref></type>
-        <definition>Recti euphoria::core::Table&lt; T &gt;::get_indices</definition>
-        <argsstring>() const</argsstring>
-        <name>get_indices</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="68" column="9" bodyfile="libs/core/src/core/table.h" bodystart="68" bodyend="71"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1acc4ba0e83b9007a3449d6c635c2311da" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::Table&lt; T &gt;::is_inside</definition>
-        <argsstring>(I x, I y) const</argsstring>
-        <name>is_inside</name>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-          <declname>x</declname>
-        </param>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-          <declname>y</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="74" column="9" bodyfile="libs/core/src/core/table.h" bodystart="74" bodyend="77"/>
+        <location file="libs/core/src/core/table.h" line="49" column="14" bodyfile="libs/core/src/core/table.h" bodystart="49" bodyend="58"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a75bac7baf4bc3204b7bb7b891fda5909" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -282,15 +177,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="86" column="9" bodyfile="libs/core/src/core/table.h" bodystart="86" bodyend="126"/>
+        <location file="libs/core/src/core/table.h" line="66" column="14" bodyfile="libs/core/src/core/table.h" bodystart="66" bodyend="106"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ad176624314366817f1f83f4f3ee6c025" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a5bcee0aa3cb8eea63f585f31c48ad2df" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
         <definition>void euphoria::core::Table&lt; T &gt;::expand_width</definition>
-        <argsstring>(I new_width, T d=T())</argsstring>
+        <argsstring>(Idx new_width, T d=T())</argsstring>
         <name>expand_width</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>new_width</declname>
         </param>
         <param>
@@ -323,19 +218,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="134" column="9" bodyfile="libs/core/src/core/table.h" bodystart="134" bodyend="149"/>
+        <location file="libs/core/src/core/table.h" line="113" column="14" bodyfile="libs/core/src/core/table.h" bodystart="113" bodyend="128"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ac586a79201efb4c06a72cecca3b437ee" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>T</type>
-        <definition>T euphoria::core::Table&lt; T &gt;::operator()</definition>
-        <argsstring>(I x, I y) const</argsstring>
-        <name>operator()</name>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1af9af076dd551dcd88b75831180d7fa33" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::Table&lt; T &gt;::is_inside</definition>
+        <argsstring>(Idx x, Idx y) const</argsstring>
+        <name>is_inside</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>x</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>y</declname>
         </param>
         <briefdescription>
@@ -344,19 +239,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="158" column="9" bodyfile="libs/core/src/core/table.h" bodystart="158" bodyend="163"/>
+        <location file="libs/core/src/core/table.h" line="131" column="15" bodyfile="libs/core/src/core/table.h" bodystart="131" bodyend="134"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1af6d42ec30e60ddba74ccdccdd8ac9426" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>std::vector&lt; T &gt;::reference</type>
-        <definition>std::vector&lt;T&gt;::reference euphoria::core::Table&lt; T &gt;::operator()</definition>
-        <argsstring>(I x, I y)</argsstring>
-        <name>operator()</name>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1aff13b2fb39de53fedd99d7d8ecd9f56e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::Table&lt; T &gt;::data_index</definition>
+        <argsstring>(Idx x, Idx y) const</argsstring>
+        <name>data_index</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>x</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>y</declname>
         </param>
         <briefdescription>
@@ -365,11 +260,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="166" column="9" bodyfile="libs/core/src/core/table.h" bodystart="166" bodyend="171"/>
+        <location file="libs/core/src/core/table.h" line="136" column="17" bodyfile="libs/core/src/core/table.h" bodystart="136" bodyend="145"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a707aa8d060de475ae0b9e10029c3a518" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-        <definition>I euphoria::core::Table&lt; T &gt;::get_width</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a6cb8c8f1dc3e864c14f24d886a3406f1" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Recti" kindref="compound">Recti</ref></type>
+        <definition>Recti euphoria::core::Table&lt; T &gt;::get_indices</definition>
+        <argsstring>() const</argsstring>
+        <name>get_indices</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/table.h" line="148" column="16" bodyfile="libs/core/src/core/table.h" bodystart="148" bodyend="151"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a689c452066d5094b7d403fadd66c3f37" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+        <definition>Idx euphoria::core::Table&lt; T &gt;::get_width</definition>
         <argsstring>() const</argsstring>
         <name>get_width</name>
         <briefdescription>
@@ -378,11 +286,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="175" column="9" bodyfile="libs/core/src/core/table.h" bodystart="175" bodyend="178"/>
+        <location file="libs/core/src/core/table.h" line="153" column="14" bodyfile="libs/core/src/core/table.h" bodystart="153" bodyend="156"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a8f78d074a1682549c82f368adce0d9df" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
-        <definition>I euphoria::core::Table&lt; T &gt;::get_height</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ac6be94e7d0a32d6a7eb9928f14813195" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+        <definition>Idx euphoria::core::Table&lt; T &gt;::get_height</definition>
         <argsstring>() const</argsstring>
         <name>get_height</name>
         <briefdescription>
@@ -391,19 +299,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="181" column="9" bodyfile="libs/core/src/core/table.h" bodystart="181" bodyend="184"/>
+        <location file="libs/core/src/core/table.h" line="158" column="14" bodyfile="libs/core/src/core/table.h" bodystart="158" bodyend="161"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ae3eeefc2d480eb4c9ced99661036566e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>size_t</type>
-        <definition>size_t euphoria::core::Table&lt; T &gt;::data_index</definition>
-        <argsstring>(I x, I y) const</argsstring>
-        <name>data_index</name>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a397f5f6884c4d3c9df52b391e5894bba" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>T</type>
+        <definition>T euphoria::core::Table&lt; T &gt;::operator()</definition>
+        <argsstring>(Idx x, Idx y) const</argsstring>
+        <name>operator()</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>x</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>y</declname>
         </param>
         <briefdescription>
@@ -412,21 +320,113 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="187" column="9" bodyfile="libs/core/src/core/table.h" bodystart="187" bodyend="196"/>
+        <location file="libs/core/src/core/table.h" line="165" column="11" bodyfile="libs/core/src/core/table.h" bodystart="165" bodyend="170"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1ad9a91a438fa18d7e127a53405e87760d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::vector&lt; T &gt;::reference</type>
+        <definition>std::vector&lt;T&gt;::reference euphoria::core::Table&lt; T &gt;::operator()</definition>
+        <argsstring>(Idx x, Idx y)</argsstring>
+        <name>operator()</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/table.h" line="172" column="42" bodyfile="libs/core/src/core/table.h" bodystart="172" bodyend="177"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a46cd939f6d02e7308d02fef52476b6c2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Table" kindref="compound">Table</ref></type>
+        <definition>static Table euphoria::core::Table&lt; T &gt;::from_width_height</definition>
+        <argsstring>(Idx width, Idx height, T d=T())</argsstring>
+        <name>from_width_height</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>d</declname>
+          <defval>T()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/table.h" line="23" column="23" bodyfile="libs/core/src/core/table.h" bodystart="23" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a1b2a0621147844fc6e41961f6c8a6b5f" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Table" kindref="compound">Table</ref></type>
+        <definition>static Table euphoria::core::Table&lt; T &gt;::from_height_width</definition>
+        <argsstring>(Idx height, Idx width, T d=T())</argsstring>
+        <name>from_height_width</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+          <declname>height</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>T</type>
+          <declname>d</declname>
+          <defval>T()</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/table.h" line="28" column="23" bodyfile="libs/core/src/core/table.h" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a43f2001ad8ee9146504de2a84be80a36" prot="public" static="yes" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr <ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
+        <definition>static constexpr Idx euphoria::core::Table&lt; T &gt;::conv</definition>
+        <argsstring>(size_t t)</argsstring>
+        <name>conv</name>
+        <param>
+          <type>size_t</type>
+          <declname>t</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/table.h" line="181" column="9" bodyfile="libs/core/src/core/table.h" bodystart="181" bodyend="184"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1a603dc18875307468406d6f8087986786" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Table_1abd64ff82355254fd657c1ca2f582a6cc" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::Table&lt; T &gt;::Table</definition>
-        <argsstring>(I c, I r, T d=T())</argsstring>
+        <argsstring>(Idx c, Idx r, T d=T())</argsstring>
         <name>Table</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>c</declname>
         </param>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" kindref="member">I</ref></type>
+          <type><ref refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" kindref="member">Idx</ref></type>
           <declname>r</declname>
         </param>
         <param>
@@ -440,36 +440,36 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table.h" line="199" column="9" bodyfile="libs/core/src/core/table.h" bodystart="199" bodyend="202"/>
+        <location file="libs/core/src/core/table.h" line="193" column="9" bodyfile="libs/core/src/core/table.h" bodystart="193" bodyend="196"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/table.h" line="14" column="1" bodyfile="libs/core/src/core/table.h" bodystart="13" bodyend="208"/>
+    <location file="libs/core/src/core/table.h" line="18" column="1" bodyfile="libs/core/src/core/table.h" bodystart="17" bodyend="197"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Table_1a9eb3c65ca537a7a267844a012476eab2" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>clear</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1ab3bd1abc6cb37c91c1bdab39f1d44428" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>conv</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1a43f2001ad8ee9146504de2a84be80a36" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>conv</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a9d7f6d12ab62a7ff6b5b713acc1885b5" prot="private" virt="non-virtual"><scope>euphoria::core::Table</scope><name>data</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1ae3eeefc2d480eb4c9ced99661036566e" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>data_index</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1ad176624314366817f1f83f4f3ee6c025" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>expand_width</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1a240f7421b25c0c310f975535a4a1f92a" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>from_height_width</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1aa4c3bd413ee7eed86a89294ae9792195" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>from_width_height</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1a8f78d074a1682549c82f368adce0d9df" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>get_height</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1aff13b2fb39de53fedd99d7d8ecd9f56e" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>data_index</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1a5bcee0aa3cb8eea63f585f31c48ad2df" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>expand_width</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1a1b2a0621147844fc6e41961f6c8a6b5f" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>from_height_width</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1a46cd939f6d02e7308d02fef52476b6c2" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>from_width_height</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1ac6be94e7d0a32d6a7eb9928f14813195" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>get_height</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a6cb8c8f1dc3e864c14f24d886a3406f1" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>get_indices</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1a707aa8d060de475ae0b9e10029c3a518" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>get_width</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1a0353f86e41c4f9520b2f7ecb8ef0982b" prot="private" virt="non-virtual"><scope>euphoria::core::Table</scope><name>height</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1a7b49ddd32b558aebcf9b12f4ff34acb0" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>I</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1acc4ba0e83b9007a3449d6c635c2311da" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>is_inside</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1a689c452066d5094b7d403fadd66c3f37" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>get_width</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1aa5d77015ea391a64e4c81d52826e7b6d" prot="private" virt="non-virtual"><scope>euphoria::core::Table</scope><name>height</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1a8158f774e849914c5aecd89ab5c7a1f4" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>Idx</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1af9af076dd551dcd88b75831180d7fa33" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>is_inside</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1ad0d8ca188b7bffe2dfd3c6e81d0c5ae0" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>new_row</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a75bac7baf4bc3204b7bb7b891fda5909" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>new_row</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1ac586a79201efb4c06a72cecca3b437ee" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>operator()</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1af6d42ec30e60ddba74ccdccdd8ac9426" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>operator()</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1ac073c5a4252d28d15b26ef3f4f00f296" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>set_all</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1a397f5f6884c4d3c9df52b391e5894bba" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>operator()</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1ad9a91a438fa18d7e127a53405e87760d" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>operator()</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1ae4e464f083a15e9bfec62b581be61335" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>set_all</name></member>
       <member refid="structeuphoria_1_1core_1_1Table_1a0ee0f2f2eb272d563f862407a6cea254" prot="public" virt="non-virtual"><scope>euphoria::core::Table</scope><name>Table</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1a603dc18875307468406d6f8087986786" prot="private" virt="non-virtual"><scope>euphoria::core::Table</scope><name>Table</name></member>
-      <member refid="structeuphoria_1_1core_1_1Table_1a279d92e4878efea164f1340b62691670" prot="private" virt="non-virtual"><scope>euphoria::core::Table</scope><name>width</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1abd64ff82355254fd657c1ca2f582a6cc" prot="private" virt="non-virtual"><scope>euphoria::core::Table</scope><name>Table</name></member>
+      <member refid="structeuphoria_1_1core_1_1Table_1af7202669218cdef27a06b27fb936a322" prot="private" virt="non-virtual"><scope>euphoria::core::Table</scope><name>width</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

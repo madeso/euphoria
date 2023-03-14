@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="70" column="18" bodyfile="libs/core/src/core/propertytree.h" bodystart="70" bodyend="-1"/>
+        <location file="libs/core/src/core/propertytree.h" line="61" column="18" bodyfile="libs/core/src/core/propertytree.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="62" column="9"/>
+        <location file="libs/core/src/core/propertytree.h" line="63" column="9" bodyfile="libs/core/src/core/propertytree.cc" bodystart="48" bodyend="48"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1MapValue_1a4eba7070caaa477073402a6f75fc2b43" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -52,11 +52,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="65" column="9"/>
+        <location file="libs/core/src/core/propertytree.h" line="65" column="14" bodyfile="libs/core/src/core/propertytree.cc" bodystart="51" bodyend="54"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1MapValue_1ab743df337af8434ce328b83543dcf14a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1MapValue_1a5fe1e97788d64a3e4617f91a683ca289" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;Value&gt; euphoria::core::MapValue::get_or_null</definition>
+        <definition>std::shared_ptr&lt; Value &gt; euphoria::core::MapValue::get_or_null</definition>
         <argsstring>(const std::string &amp;name)</argsstring>
         <name>get_or_null</name>
         <param>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="68" column="9"/>
+        <location file="libs/core/src/core/propertytree.h" line="66" column="25" bodyfile="libs/core/src/core/propertytree.cc" bodystart="57" bodyend="68"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -100,9 +100,9 @@
         <link refid="structeuphoria_1_1core_1_1Value"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/propertytree.h" line="61" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="60" bodyend="71"/>
+    <location file="libs/core/src/core/propertytree.h" line="60" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="59" bodyend="67"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1MapValue_1ab743df337af8434ce328b83543dcf14a" prot="public" virt="non-virtual"><scope>euphoria::core::MapValue</scope><name>get_or_null</name></member>
+      <member refid="structeuphoria_1_1core_1_1MapValue_1a5fe1e97788d64a3e4617f91a683ca289" prot="public" virt="non-virtual"><scope>euphoria::core::MapValue</scope><name>get_or_null</name></member>
       <member refid="structeuphoria_1_1core_1_1MapValue_1ab9af53e724ede9e33ec43a664dd47505" prot="public" virt="non-virtual"><scope>euphoria::core::MapValue</scope><name>MapValue</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" prot="public" virt="non-virtual"><scope>euphoria::core::MapValue</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" prot="public" virt="non-virtual"><scope>euphoria::core::MapValue</scope><name>operator=</name></member>

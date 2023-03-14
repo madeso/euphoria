@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layoutdata.h" line="9" column="13" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="9" bodyend="-1"/>
+        <location file="libs/gui/src/gui/layoutdata.h" line="7" column="13" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="7" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1gui_1_1LayoutData_1aeac71e064e71ffc6cb55446e73d4b927" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layoutdata.h" line="10" column="13" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="10" bodyend="-1"/>
+        <location file="libs/gui/src/gui/layoutdata.h" line="8" column="13" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="8" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1gui_1_1LayoutData_1a85430fb77aa6f928c928fe4df58cfb33" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layoutdata.h" line="11" column="15" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="11" bodyend="-1"/>
+        <location file="libs/gui/src/gui/layoutdata.h" line="9" column="15" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="9" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1gui_1_1LayoutData_1aed3589419ff4b804a7e9d1404d5f92eb" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layoutdata.h" line="12" column="15" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="12" bodyend="-1"/>
+        <location file="libs/gui/src/gui/layoutdata.h" line="10" column="15" bodyfile="libs/gui/src/gui/layoutdata.h" bodystart="10" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layoutdata.h" line="7" column="9"/>
+        <location file="libs/gui/src/gui/layoutdata.h" line="12" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="torcurve_8cc" kind="file" language="C++">
+    <compoundname>torcurve.cc</compoundname>
+    <includes refid="torcurve_8h" local="yes">core/torcurve.h</includes>
+    <includes local="no">cmath</includes>
+    <includes refid="numeric_8h" local="yes">core/numeric.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>core/torcurve.h</label>
+        <link refid="torcurve_8h"/>
+      </node>
+      <node id="3">
+        <label>cmath</label>
+      </node>
+      <node id="4">
+        <label>core/numeric.h</label>
+        <link refid="numeric_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/torcurve.cc</label>
+        <link refid="torcurve_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/torcurve.cc"/>
+  </compounddef>
+</doxygen>

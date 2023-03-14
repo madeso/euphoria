@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="19" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="17" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1a75273635fdc9fd9eff112f6287e338d6" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="20" column="16" bodyfile="libs/core/src/core/poisson.h" bodystart="20" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="18" column="16" bodyfile="libs/core/src/core/poisson.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1a0a831efd2af2385c8fd2daea52c4c40c" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="21" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="19" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1acf24818bc7b27ea9ae6abfdabf9e170e" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="22" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="22" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="20" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1ae91ccd62f6ce9b32b83ec09487e08919" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="23" column="13" bodyfile="libs/core/src/core/poisson.h" bodystart="23" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="21" column="13" bodyfile="libs/core/src/core/poisson.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1a9de2e2e08e786ee70e2a8fc08e8146ca" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="25" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="25" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="23" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1abafd517cad81042ae58c016e160810d4" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1Table" kindref="compound">Table</ref>&lt; int &gt;</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="26" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="26" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="24" column="15" bodyfile="libs/core/src/core/poisson.h" bodystart="24" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1a2a7382cf15920bbebf087c2afa1d1c9c" prot="public" static="no" mutable="no">
         <type>std::vector&lt; int &gt;</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="27" column="21" bodyfile="libs/core/src/core/poisson.h" bodystart="27" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="25" column="21" bodyfile="libs/core/src/core/poisson.h" bodystart="25" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1PoissonWorker_1a822eb711790b9946991990c5cb68b842" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
@@ -119,7 +119,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="28" column="21" bodyfile="libs/core/src/core/poisson.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/core/src/core/poisson.h" line="26" column="21" bodyfile="libs/core/src/core/poisson.h" bodystart="26" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -154,24 +154,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="17" column="9"/>
+        <location file="libs/core/src/core/poisson.h" line="28" column="9" bodyfile="libs/core/src/core/poisson.cc" bodystart="23" bodyend="51"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1ab8cb7d572b4b48042ec4d47e6ca21780" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::PoissonWorker::is_done</definition>
-        <argsstring>() const</argsstring>
-        <name>is_done</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="31" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a81aff12f67baabb4d0a425264e86d661" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a2999de8e6364c8108b8088264bb49b67" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; std::tuple&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref>, <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt; &gt;</type>
-        <definition>std::optional&lt;std::tuple&lt;vec2f, vec2f&gt; &gt; euphoria::core::PoissonWorker::step</definition>
+        <definition>std::optional&lt; std::tuple&lt; vec2f, vec2f &gt; &gt; euphoria::core::PoissonWorker::step</definition>
         <argsstring>()</argsstring>
         <name>step</name>
         <briefdescription>
@@ -180,37 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="34" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1ab12994a2fe6904e40965c1e906331569" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
-        <definition>vec2f euphoria::core::PoissonWorker::random_point</definition>
-        <argsstring>() const</argsstring>
-        <name>random_point</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="36" column="16"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a0b544f70cf42b8be2c351ab10acd90f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
-        <definition>vec2i euphoria::core::PoissonWorker::point_to_index</definition>
-        <argsstring>(const vec2f &amp;p) const</argsstring>
-        <name>point_to_index</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
-          <declname>p</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="37" column="16"/>
+        <location file="libs/core/src/core/poisson.h" line="30" column="23" bodyfile="libs/core/src/core/poisson.cc" bodystart="133" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1ae6ca118e932c7690831e7e551b51e3c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -231,11 +188,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="40" column="9"/>
+        <location file="libs/core/src/core/poisson.h" line="31" column="14" bodyfile="libs/core/src/core/poisson.cc" bodystart="65" bodyend="85"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1aa86a420b94e504de61cb52217f741760" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a9f23a697db4ca4c0bedb0c7a501f3efc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::tuple&lt; bool, <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
-        <definition>std::tuple&lt;bool, vec2f&gt; euphoria::core::PoissonWorker::try_place</definition>
+        <definition>std::tuple&lt; bool, vec2f &gt; euphoria::core::PoissonWorker::try_place</definition>
         <argsstring>(int active_index)</argsstring>
         <name>try_place</name>
         <param>
@@ -248,7 +205,50 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/poisson.h" line="43" column="9"/>
+        <location file="libs/core/src/core/poisson.h" line="32" column="20" bodyfile="libs/core/src/core/poisson.cc" bodystart="89" bodyend="122"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1a0b544f70cf42b8be2c351ab10acd90f4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i euphoria::core::PoissonWorker::point_to_index</definition>
+        <argsstring>(const vec2f &amp;p) const</argsstring>
+        <name>point_to_index</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/poisson.h" line="34" column="16" bodyfile="libs/core/src/core/poisson.cc" bodystart="60" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1ab12994a2fe6904e40965c1e906331569" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f euphoria::core::PoissonWorker::random_point</definition>
+        <argsstring>() const</argsstring>
+        <name>random_point</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/poisson.h" line="36" column="16" bodyfile="libs/core/src/core/poisson.cc" bodystart="55" bodyend="56"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1PoissonWorker_1ab8cb7d572b4b48042ec4d47e6ca21780" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::PoissonWorker::is_done</definition>
+        <argsstring>() const</argsstring>
+        <name>is_done</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/poisson.h" line="37" column="15" bodyfile="libs/core/src/core/poisson.cc" bodystart="126" bodyend="129"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -282,7 +282,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/poisson.h" line="16" column="1" bodyfile="libs/core/src/core/poisson.h" bodystart="15" bodyend="44"/>
+    <location file="libs/core/src/core/poisson.h" line="16" column="1" bodyfile="libs/core/src/core/poisson.h" bodystart="15" bodyend="38"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a2a7382cf15920bbebf087c2afa1d1c9c" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>active</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1acca7b2f02a12af990148b61a62d5f07c" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>area</name></member>
@@ -297,8 +297,8 @@
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a75273635fdc9fd9eff112f6287e338d6" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>rand</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1ab12994a2fe6904e40965c1e906331569" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>random_point</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a822eb711790b9946991990c5cb68b842" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>samples</name></member>
-      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a81aff12f67baabb4d0a425264e86d661" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>step</name></member>
-      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1aa86a420b94e504de61cb52217f741760" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>try_place</name></member>
+      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a2999de8e6364c8108b8088264bb49b67" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a9f23a697db4ca4c0bedb0c7a501f3efc" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>try_place</name></member>
       <member refid="structeuphoria_1_1core_1_1PoissonWorker_1a9de2e2e08e786ee70e2a8fc08e8146ca" prot="public" virt="non-virtual"><scope>euphoria::core::PoissonWorker</scope><name>w</name></member>
     </listofallmembers>
   </compounddef>

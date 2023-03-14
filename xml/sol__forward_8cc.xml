@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="sol__forward_8cc" kind="file" language="C++">
+    <compoundname>sol_forward.cc</compoundname>
+    <includes refid="sol__forward_8h" local="yes">core/sol_forward.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>core/sol_forward.h</label>
+        <link refid="sol__forward_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/sol_forward.cc</label>
+        <link refid="sol__forward_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/sol_forward.cc"/>
+  </compounddef>
+</doxygen>

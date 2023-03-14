@@ -5,6 +5,7 @@
     <includes local="yes">SDL_system.h</includes>
     <includes local="yes">SDL_events.h</includes>
     <includes refid="core_2src_2core_2key_8h" local="yes">core/key.h</includes>
+    <includedby refid="window_2src_2window_2key_8cc" local="yes">libs/window/src/window/key.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/window/src/window/key.h</label>
@@ -27,6 +28,18 @@
         <link refid="core_2src_2core_2key_8h"/>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/window/src/window/key.h</label>
+        <link refid="window_2src_2window_2key_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/window/src/window/key.cc</label>
+        <link refid="window_2src_2window_2key_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>
     <briefdescription>

@@ -71,7 +71,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/console.h" line="20" column="9"/>
+        <location file="libs/core/src/core/console.h" line="20" column="9" bodyfile="libs/core/src/core/console.cc" bodystart="11" bodyend="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1VirtualConsole_1a2fc53b627efffee19dcdede6fb226f04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/console.h" line="23" column="9"/>
+        <location file="libs/core/src/core/console.h" line="23" column="9" bodyfile="libs/core/src/core/console.cc" bodystart="20" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1VirtualConsole_1acab004af3bf810fce53c5cb845291dd9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/console.h" line="26" column="9"/>
+        <location file="libs/core/src/core/console.h" line="26" column="9" bodyfile="libs/core/src/core/console.cc" bodystart="27" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1VirtualConsole_1a9746eda031ff8d5c7e9dae4f5b3f26ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/console.h" line="29" column="9"/>
+        <location file="libs/core/src/core/console.h" line="29" column="9" bodyfile="libs/core/src/core/console.cc" bodystart="54" bodyend="62"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

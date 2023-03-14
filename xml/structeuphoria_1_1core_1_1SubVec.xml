@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="27" column="21" bodyfile="libs/core/src/core/subvec.h" bodystart="27" bodyend="-1"/>
+        <location file="libs/core/src/core/subvec.h" line="13" column="21" bodyfile="libs/core/src/core/subvec.h" bodystart="13" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1SubVec_1aebc02572d4247fe22e0f52a9a375bc6a" prot="public" static="no" mutable="no">
         <type>std::size_t</type>
@@ -48,7 +48,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="28" column="21" bodyfile="libs/core/src/core/subvec.h" bodystart="28" bodyend="-1"/>
+        <location file="libs/core/src/core/subvec.h" line="14" column="21" bodyfile="libs/core/src/core/subvec.h" bodystart="14" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1SubVec_1a9137db8cea606a5c9109c817e3ed79fb" prot="public" static="no" mutable="no">
         <type>std::size_t</type>
@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="29" column="21" bodyfile="libs/core/src/core/subvec.h" bodystart="29" bodyend="-1"/>
+        <location file="libs/core/src/core/subvec.h" line="15" column="21" bodyfile="libs/core/src/core/subvec.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="13" column="18" bodyfile="libs/core/src/core/subvec.h" bodystart="13" bodyend="18"/>
+        <location file="libs/core/src/core/subvec.h" line="17" column="18" bodyfile="libs/core/src/core/subvec.h" bodystart="17" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1SubVec_1a36eaa593153f6ebff37bc86e0a4d988a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type></type>
@@ -105,7 +105,28 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="20" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="20" bodyend="25"/>
+        <location file="libs/core/src/core/subvec.h" line="24" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="24" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1SubVec_1a38b55952b7df283cc31b7ae8f60168cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1SubVec" kindref="compound">SubVec</ref>&lt; T &gt;</type>
+        <definition>SubVec&lt;T&gt; euphoria::core::SubVec&lt; T &gt;::sub</definition>
+        <argsstring>(std::size_t start, std::size_t end)</argsstring>
+        <name>sub</name>
+        <param>
+          <type>std::size_t</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>std::size_t</type>
+          <declname>end</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/subvec.h" line="32" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="32" bodyend="35"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1SubVec_1a86a23e916bcc2afd42a55959a15a13e8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1SubVec_1ab290f6fec0a408387da7e5aba0db8fc6" kindref="member">Iterator</ref></type>
@@ -118,7 +139,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="32" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="32" bodyend="35"/>
+        <location file="libs/core/src/core/subvec.h" line="38" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="38" bodyend="41"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1SubVec_1a517d18f25fe4fd65d8257b407cf11902" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1SubVec_1ab290f6fec0a408387da7e5aba0db8fc6" kindref="member">Iterator</ref></type>
@@ -131,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="38" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="38" bodyend="41"/>
+        <location file="libs/core/src/core/subvec.h" line="44" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="44" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1SubVec_1aa843422e16f66446c4d6f08f9bc78af0" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>std::size_t</type>
@@ -144,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="44" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="44" bodyend="47"/>
+        <location file="libs/core/src/core/subvec.h" line="50" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="50" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1SubVec_1a26666dbcb00bcc3cae34d86e9cc0bdd2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>bool</type>
@@ -157,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="50" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="50" bodyend="53"/>
+        <location file="libs/core/src/core/subvec.h" line="56" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="56" bodyend="59"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1SubVec_1a82d89721fbaa3a577367bde30d6b4f62" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>T &amp;</type>
@@ -174,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="56" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="56" bodyend="59"/>
+        <location file="libs/core/src/core/subvec.h" line="62" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="62" bodyend="65"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1SubVec_1aca9a1c1a0d03fbc531773e8cd518ba77" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
         <type>const T &amp;</type>
@@ -184,27 +205,6 @@
         <param>
           <type>int</type>
           <declname>index</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/subvec.h" line="62" column="9" bodyfile="libs/core/src/core/subvec.h" bodystart="62" bodyend="65"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1SubVec_1a38b55952b7df283cc31b7ae8f60168cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1SubVec" kindref="compound">SubVec</ref>&lt; T &gt;</type>
-        <definition>SubVec&lt;T&gt; euphoria::core::SubVec&lt; T &gt;::sub</definition>
-        <argsstring>(std::size_t start, std::size_t end)</argsstring>
-        <name>sub</name>
-        <param>
-          <type>std::size_t</type>
-          <declname>start</declname>
-        </param>
-        <param>
-          <type>std::size_t</type>
-          <declname>end</declname>
         </param>
         <briefdescription>
         </briefdescription>

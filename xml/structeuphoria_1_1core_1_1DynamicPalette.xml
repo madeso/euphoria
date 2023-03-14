@@ -33,19 +33,6 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a1db5c6bb11ea05a006ac651051fe42b7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Palette" kindref="compound">Palette</ref></type>
-        <definition>Palette euphoria::core::DynamicPalette::to_palette</definition>
-        <argsstring>() const</argsstring>
-        <name>to_palette</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="104" column="9"/>
-      </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1ad6011997c0bf0d27ae64ff4842490f59" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
@@ -76,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="107" column="9" bodyfile="libs/core/src/core/palette.h" bodystart="107" bodyend="111"/>
+        <location file="libs/core/src/core/palette.h" line="104" column="9" bodyfile="libs/core/src/core/palette.h" bodystart="104" bodyend="108"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a7dcf4749bf7af1a7ed18561a1dea34c9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -97,13 +84,26 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="113" column="9"/>
+        <location file="libs/core/src/core/palette.h" line="110" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="75" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a1db5c6bb11ea05a006ac651051fe42b7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Palette" kindref="compound">Palette</ref></type>
+        <definition>Palette euphoria::core::DynamicPalette::to_palette</definition>
+        <argsstring>() const</argsstring>
+        <name>to_palette</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/palette.h" line="133" column="18" bodyfile="libs/core/src/core/palette.cc" bodystart="69" bodyend="72"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1aa6bbcbe058830bd87d60e701483f03b5" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1ac12de29f33a9c8dfb6f854786de7c38a" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1DynamicPalette" kindref="compound">DynamicPalette</ref></type>
-        <definition>static DynamicPalette euphoria::core::DynamicPalette::create_empty</definition>
+        <definition>DynamicPalette euphoria::core::DynamicPalette::create_empty</definition>
         <argsstring>(const std::string &amp;name)</argsstring>
         <name>create_empty</name>
         <param>
@@ -129,11 +129,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="122" column="9"/>
+        <location file="libs/core/src/core/palette.h" line="117" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="83" bodyend="86"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1aa9517059e94fb6752708bde839d57264" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a809f71d5b2fa4143c9e56ea2c1b73458" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1DynamicPalette" kindref="compound">DynamicPalette</ref></type>
-        <definition>static DynamicPalette euphoria::core::DynamicPalette::create_rainbow</definition>
+        <definition>DynamicPalette euphoria::core::DynamicPalette::create_rainbow</definition>
         <argsstring>(int count, float saturation=0.5f, float lightness=0.5f)</argsstring>
         <name>create_rainbow</name>
         <param>
@@ -151,16 +151,17 @@
           <defval>0.5f</defval>
         </param>
         <briefdescription>
+<para>based on the r documentation <ulink url="https://rdrr.io/r/grDevices/palettes.html">https://rdrr.io/r/grDevices/palettes.html</ulink> </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="129" column="9"/>
+        <location file="libs/core/src/core/palette.h" line="121" column="9" bodyfile="libs/core/src/core/palette.cc" bodystart="90" bodyend="103"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a3950d28c92d46bdde13ff66db6318d2c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1DynamicPalette_1a74cda22fe70b945e6572d5f16ec4519f" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1DynamicPalette" kindref="compound">DynamicPalette</ref></type>
-        <definition>static DynamicPalette euphoria::core::DynamicPalette::create_rainbow</definition>
+        <definition>DynamicPalette euphoria::core::DynamicPalette::create_rainbow</definition>
         <argsstring>(int count, const angle &amp;from, const angle &amp;to, float saturation, float lightness)</argsstring>
         <name>create_rainbow</name>
         <param>
@@ -184,12 +185,13 @@
           <declname>lightness</declname>
         </param>
         <briefdescription>
+<para>based on the r documentation <ulink url="https://rdrr.io/r/grDevices/palettes.html">https://rdrr.io/r/grDevices/palettes.html</ulink> </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="134" column="9"/>
+        <location file="libs/core/src/core/palette.h" line="124" column="32" bodyfile="libs/core/src/core/palette.cc" bodystart="108" bodyend="136"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -208,19 +210,19 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/palette.h" line="144" column="18"/>
+        <location file="libs/core/src/core/palette.h" line="136" column="18" bodyfile="libs/core/src/core/palette.cc" bodystart="139" bodyend="142"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/palette.h" line="97" column="1" bodyfile="libs/core/src/core/palette.h" bodystart="96" bodyend="145"/>
+    <location file="libs/core/src/core/palette.h" line="97" column="1" bodyfile="libs/core/src/core/palette.h" bodystart="96" bodyend="137"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1DynamicPalette_1af65a9ca92d9eef169581ffc204fcc919" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>colors</name></member>
-      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1aa6bbcbe058830bd87d60e701483f03b5" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_empty</name></member>
-      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1aa9517059e94fb6752708bde839d57264" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_rainbow</name></member>
-      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a3950d28c92d46bdde13ff66db6318d2c" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_rainbow</name></member>
+      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1ac12de29f33a9c8dfb6f854786de7c38a" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_empty</name></member>
+      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a809f71d5b2fa4143c9e56ea2c1b73458" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_rainbow</name></member>
+      <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a74cda22fe70b945e6572d5f16ec4519f" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>create_rainbow</name></member>
       <member refid="structeuphoria_1_1core_1_1DynamicPalette_1ad6011997c0bf0d27ae64ff4842490f59" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>DynamicPalette</name></member>
       <member refid="structeuphoria_1_1core_1_1DynamicPalette_1a7dcf4749bf7af1a7ed18561a1dea34c9" prot="public" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>DynamicPalette</name></member>
       <member refid="structeuphoria_1_1core_1_1DynamicPalette_1aa1dcdc3eed2465d64a9412dd3dbb76ae" prot="private" virt="non-virtual"><scope>euphoria::core::DynamicPalette</scope><name>DynamicPalette</name></member>

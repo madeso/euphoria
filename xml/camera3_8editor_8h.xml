@@ -7,36 +7,37 @@
     <includes refid="fpscontroller_8h" local="yes">core/fpscontroller.h</includes>
     <includes refid="mousebehaviour_8h" local="yes">core/mousebehaviour.h</includes>
     <includes refid="easing_8h" local="yes">core/easing.h</includes>
+    <includedby refid="camera3_8editor_8cc" local="yes">libs/core/src/core/camera3.editor.cc</includedby>
     <incdepgraph>
-      <node id="24">
+      <node id="23">
         <label>core/vec4.h</label>
         <link refid="vec4_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="21">
         <label>core/axisangle.h</label>
         <link refid="axisangle_8h"/>
-        <childnode refid="14" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="17">
         <label>cstdint</label>
       </node>
-      <node id="16">
+      <node id="15">
         <label>core/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="17" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
-        <childnode refid="19" relation="include">
+        <childnode refid="18" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -44,21 +45,21 @@
         <link refid="fpscontroller_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
         </childnode>
         <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
       </node>
-      <node id="26">
+      <node id="25">
         <label>core/mat2.h</label>
         <link refid="mat2_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="5">
@@ -68,11 +69,11 @@
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -87,20 +88,20 @@
         </childnode>
         <childnode refid="4" relation="include">
         </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
         <childnode refid="30" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
       </node>
-      <node id="27">
+      <node id="26">
         <label>core/polarcoord.h</label>
         <link refid="polarcoord_8h"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="20">
+      <node id="19">
         <label>core/vec.base.h</label>
         <link refid="vec_8base_8h"/>
       </node>
@@ -112,7 +113,7 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="30">
         <label>core/easing.h</label>
         <link refid="easing_8h"/>
       </node>
@@ -125,116 +126,126 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
+        <childnode refid="19" relation="include">
         </childnode>
       </node>
       <node id="6">
         <label>tuple</label>
       </node>
-      <node id="29">
+      <node id="28">
         <label>core/sensitivity.h</label>
         <link refid="sensitivity_8h"/>
       </node>
       <node id="3">
         <label>optional</label>
       </node>
-      <node id="15">
+      <node id="14">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
       </node>
       <node id="10">
         <label>vector</label>
       </node>
-      <node id="17">
+      <node id="16">
         <label>core/ints.h</label>
         <link refid="ints_8h"/>
-        <childnode refid="18" relation="include">
+        <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="30">
+      <node id="29">
         <label>core/mousebehaviour.h</label>
         <link refid="mousebehaviour_8h"/>
       </node>
-      <node id="21">
+      <node id="20">
         <label>core/quat.h</label>
         <link refid="quat_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="15" relation="include">
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="22" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="23" relation="include">
-        </childnode>
-        <childnode refid="27" relation="include">
+        <childnode refid="26" relation="include">
         </childnode>
       </node>
-      <node id="23">
+      <node id="22">
         <label>core/mat4.h</label>
         <link refid="mat4_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="24" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
-        </childnode>
-        <childnode refid="25" relation="include">
-        </childnode>
-      </node>
-      <node id="14">
-        <label>iostream</label>
-      </node>
-      <node id="19">
-        <label>cstddef</label>
-      </node>
-      <node id="13">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-      </node>
-      <node id="28">
-        <label>core/key.h</label>
-        <link refid="core_2src_2core_2key_8h"/>
-      </node>
-      <node id="11">
-        <label>core/interpolate.h</label>
-        <link refid="interpolate_8h"/>
         <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>iostream</label>
+      </node>
+      <node id="18">
+        <label>cstddef</label>
+      </node>
+      <node id="11">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
+      </node>
+      <node id="12">
+        <label>core/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="27">
+        <label>core/key.h</label>
+        <link refid="core_2src_2core_2key_8h"/>
       </node>
       <node id="2">
         <label>memory</label>
       </node>
-      <node id="25">
+      <node id="24">
         <label>core/mat3.h</label>
         <link refid="mat3_8h"/>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="26" relation="include">
+        <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/camera3.editor.h</label>
+        <link refid="camera3_8editor_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/camera3.editor.cc</label>
+        <link refid="camera3_8editor_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" prot="public">euphoria::core::detail::CameraFrame</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" prot="public">euphoria::core::detail::EditorCameraState3</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1EditorCamera3" prot="public">euphoria::core::EditorCamera3</innerclass>

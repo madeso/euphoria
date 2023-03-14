@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rng.h" line="17" column="11" bodyfile="libs/core/src/core/rng.h" bodystart="17" bodyend="-1"/>
+        <location file="libs/core/src/core/rng.h" line="15" column="11" bodyfile="libs/core/src/core/rng.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rng.h" line="15" column="18" bodyfile="libs/core/src/core/rng.h" bodystart="15" bodyend="15"/>
+        <location file="libs/core/src/core/rng.h" line="17" column="18" bodyfile="libs/core/src/core/rng.h" bodystart="17" bodyend="20"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1RandomLcg_1a37a7694c723bcd263ea0df3008e63b08" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>float</type>
@@ -67,14 +67,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/rng.h" line="21" column="9" bodyfile="libs/core/src/core/rng.h" bodystart="21" bodyend="25"/>
+        <location file="libs/core/src/core/rng.h" line="23" column="15" bodyfile="libs/core/src/core/rng.h" bodystart="23" bodyend="27"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/rng.h" line="14" column="1" bodyfile="libs/core/src/core/rng.h" bodystart="13" bodyend="26"/>
+    <location file="libs/core/src/core/rng.h" line="14" column="1" bodyfile="libs/core/src/core/rng.h" bodystart="13" bodyend="28"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1RandomLcg_1a37a7694c723bcd263ea0df3008e63b08" prot="public" virt="non-virtual"><scope>euphoria::core::RandomLcg</scope><name>get_next_float01</name></member>
       <member refid="structeuphoria_1_1core_1_1RandomLcg_1a1b5a46b839940c24abe6df5f9b7e54a3" prot="public" virt="non-virtual"><scope>euphoria::core::RandomLcg</scope><name>RandomLcg</name></member>

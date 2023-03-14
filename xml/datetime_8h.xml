@@ -5,6 +5,7 @@
     <includes local="no">ctime</includes>
     <includes local="no">cstdint</includes>
     <includes refid="ints_8h" local="yes">core/ints.h</includes>
+    <includedby refid="datetime_8cc" local="yes">libs/core/src/core/datetime.cc</includedby>
     <incdepgraph>
       <node id="3">
         <label>cstdint</label>
@@ -29,6 +30,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/datetime.h</label>
+        <link refid="datetime_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/datetime.cc</label>
+        <link refid="datetime_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1TimetWrapper" prot="public">euphoria::core::TimetWrapper</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1StructTmWrapper" prot="public">euphoria::core::StructTmWrapper</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1DateTime" prot="public">euphoria::core::DateTime</innerclass>

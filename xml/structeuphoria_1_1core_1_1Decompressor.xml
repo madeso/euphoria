@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="25" column="23" bodyfile="libs/core/src/core/decompress.h" bodystart="25" bodyend="-1"/>
+        <location file="libs/core/src/core/decompress.h" line="21" column="23" bodyfile="libs/core/src/core/decompress.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Decompressor_1a5f2d4ac5aa91c4ed0925628ad2044363" prot="public" static="no" mutable="no">
         <type>unsigned char *</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="25" column="42" bodyfile="libs/core/src/core/decompress.h" bodystart="25" bodyend="-1"/>
+        <location file="libs/core/src/core/decompress.h" line="21" column="43" bodyfile="libs/core/src/core/decompress.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Decompressor_1a21c6dac1942609da33d844d4280605b5" prot="public" static="no" mutable="no">
         <type>const unsigned char *</type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="26" column="29" bodyfile="libs/core/src/core/decompress.h" bodystart="26" bodyend="-1"/>
+        <location file="libs/core/src/core/decompress.h" line="22" column="29" bodyfile="libs/core/src/core/decompress.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Decompressor_1acfc6e497b4dafd93c18408fcac9a0b8f" prot="public" static="no" mutable="no">
         <type>unsigned char *</type>
@@ -58,26 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="27" column="23" bodyfile="libs/core/src/core/decompress.h" bodystart="27" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Decompressor_1ace4fb507e8ffaeacac876f2ca837b98d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>unsigned int</type>
-        <definition>static unsigned int euphoria::core::Decompressor::stb_decompress_length</definition>
-        <argsstring>(const unsigned char *input)</argsstring>
-        <name>stb_decompress_length</name>
-        <param>
-          <type>const unsigned char *</type>
-          <declname>input</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="21" column="29"/>
+        <location file="libs/core/src/core/decompress.h" line="23" column="23" bodyfile="libs/core/src/core/decompress.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -103,7 +84,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="23" column="22"/>
+        <location file="libs/core/src/core/decompress.h" line="25" column="22" bodyfile="libs/core/src/core/decompress.cc" bodystart="86" bodyend="117"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Decompressor_1acb395e5ac1fe1b4ff51bf1efb68f3ada" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -124,7 +105,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="29" column="14"/>
+        <location file="libs/core/src/core/decompress.h" line="26" column="14" bodyfile="libs/core/src/core/decompress.cc" bodystart="16" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Decompressor_1a67c368282cee95e9c8820cc26dbc399c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -145,11 +126,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="30" column="14"/>
+        <location file="libs/core/src/core/decompress.h" line="27" column="14" bodyfile="libs/core/src/core/decompress.cc" bodystart="25" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Decompressor_1a098c4142242150da496d6d0b51e7a6b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Decompressor_1a1e7f6163373dbb78009df0dc05a546b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const unsigned char *</type>
-        <definition>const unsigned char* euphoria::core::Decompressor::stb_decompress_token</definition>
+        <definition>const unsigned char * euphoria::core::Decompressor::stb_decompress_token</definition>
         <argsstring>(const unsigned char *i)</argsstring>
         <name>stb_decompress_token</name>
         <param>
@@ -162,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="32" column="29"/>
+        <location file="libs/core/src/core/decompress.h" line="28" column="29" bodyfile="libs/core/src/core/decompress.cc" bodystart="38" bodyend="53"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Decompressor_1a7b896e06a842ccefa164890fd74397e3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>unsigned int</type>
@@ -187,22 +168,41 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/decompress.h" line="34" column="22"/>
+        <location file="libs/core/src/core/decompress.h" line="29" column="22" bodyfile="libs/core/src/core/decompress.cc" bodystart="55" bodyend="84"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Decompressor_1a6adb9ecbff8096d44befc8f1d7592846" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>unsigned int</type>
+        <definition>unsigned int euphoria::core::Decompressor::stb_decompress_length</definition>
+        <argsstring>(const unsigned char *input)</argsstring>
+        <name>stb_decompress_length</name>
+        <param>
+          <type>const unsigned char *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/decompress.h" line="31" column="29" bodyfile="libs/core/src/core/decompress.cc" bodystart="11" bodyend="14"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/decompress.h" line="20" column="1" bodyfile="libs/core/src/core/decompress.h" bodystart="19" bodyend="35"/>
+    <location file="libs/core/src/core/decompress.h" line="20" column="1" bodyfile="libs/core/src/core/decompress.h" bodystart="19" bodyend="32"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1a7b896e06a842ccefa164890fd74397e3" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_adler32</name></member>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1a21c6dac1942609da33d844d4280605b5" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_barrier_in_b</name></member>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1a5f2d4ac5aa91c4ed0925628ad2044363" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_barrier_out_b</name></member>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1a7c5aa49dbead1ddd613e9fec9078b4a9" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_barrier_out_e</name></member>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1a8ac86bc97c5d143fd7783d594bebf6d5" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_decompress</name></member>
-      <member refid="structeuphoria_1_1core_1_1Decompressor_1ace4fb507e8ffaeacac876f2ca837b98d" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_decompress_length</name></member>
-      <member refid="structeuphoria_1_1core_1_1Decompressor_1a098c4142242150da496d6d0b51e7a6b0" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_decompress_token</name></member>
+      <member refid="structeuphoria_1_1core_1_1Decompressor_1a6adb9ecbff8096d44befc8f1d7592846" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_decompress_length</name></member>
+      <member refid="structeuphoria_1_1core_1_1Decompressor_1a1e7f6163373dbb78009df0dc05a546b6" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_decompress_token</name></member>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1acfc6e497b4dafd93c18408fcac9a0b8f" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_dout</name></member>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1a67c368282cee95e9c8820cc26dbc399c" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_lit</name></member>
       <member refid="structeuphoria_1_1core_1_1Decompressor_1acb395e5ac1fe1b4ff51bf1efb68f3ada" prot="public" virt="non-virtual"><scope>euphoria::core::Decompressor</scope><name>stb_match</name></member>

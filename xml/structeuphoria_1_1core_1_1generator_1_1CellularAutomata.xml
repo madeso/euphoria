@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="46" column="26" bodyfile="libs/core/src/core/generator_cell.h" bodystart="46" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_cell.h" line="45" column="26" bodyfile="libs/core/src/core/generator_cell.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1ad8a2118204ba80d7b9c81fbf21db735a" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1ae38b984f0569b05ec4cbc147ae02852a" kindref="member">generator::World</ref> *</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="47" column="26" bodyfile="libs/core/src/core/generator_cell.h" bodystart="47" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_cell.h" line="46" column="26" bodyfile="libs/core/src/core/generator_cell.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a649ca23b8295b307fdeb1c1d2ec75849" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeuphoria_1_1core_1a61c5ab965bff972d561587baef8ef430" kindref="member">core::OutsideRule</ref> &gt;</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="48" column="14" bodyfile="libs/core/src/core/generator_cell.h" bodystart="48" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_cell.h" line="47" column="14" bodyfile="libs/core/src/core/generator_cell.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a31e9c09b4c09c599408491392dcb35a7" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="49" column="13" bodyfile="libs/core/src/core/generator_cell.h" bodystart="49" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_cell.h" line="48" column="13" bodyfile="libs/core/src/core/generator_cell.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -81,20 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="51" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a51c305a2d611006c5256c21c7b38d215" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::generator::CellularAutomata::has_more_work</definition>
-        <argsstring>() const</argsstring>
-        <name>has_more_work</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="54" column="9"/>
+        <location file="libs/core/src/core/generator_cell.h" line="50" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="183" bodyend="193"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a096db9378c0b2c14def58ddc456961af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -107,7 +94,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="57" column="9"/>
+        <location file="libs/core/src/core/generator_cell.h" line="52" column="14" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="204" bodyend="208"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a51c305a2d611006c5256c21c7b38d215" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::generator::CellularAutomata::has_more_work</definition>
+        <argsstring>() const</argsstring>
+        <name>has_more_work</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.h" line="54" column="15" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="197" bodyend="200"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -141,7 +141,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/generator_cell.h" line="45" column="1" bodyfile="libs/core/src/core/generator_cell.h" bodystart="44" bodyend="58"/>
+    <location file="libs/core/src/core/generator_cell.h" line="44" column="1" bodyfile="libs/core/src/core/generator_cell.h" bodystart="43" bodyend="55"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1afd8141dfb11ef6ad7b9c1b3b346ae52e" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>CellularAutomata</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata_1a51c305a2d611006c5256c21c7b38d215" prot="public" virt="non-virtual"><scope>euphoria::core::generator::CellularAutomata</scope><name>has_more_work</name></member>

@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1TemplateNodeList" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::TemplateNodeList</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1TemplateNode" prot="public" virt="non-virtual">euphoria::core::TemplateNode</basecompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1TemplateNodeScopedList" prot="public" virt="non-virtual">euphoria::core::TemplateNodeScopedList</derivedcompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1TemplateNodeList_1a191b990888f305113c57ae65577900c7" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1TemplateNode" kindref="compound">TemplateNode</ref> &gt; &gt;</type>
+        <definition>std::vector&lt;std::shared_ptr&lt;TemplateNode&gt; &gt; euphoria::core::TemplateNodeList::nodes</definition>
+        <argsstring></argsstring>
+        <name>nodes</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="153" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="153" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TemplateNodeList_1aace2ef778fb11ce643ddf8bdbbc9e4cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::TemplateNodeList::TemplateNodeList</definition>
+        <argsstring>()=default</argsstring>
+        <name>TemplateNodeList</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="155" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TemplateNodeList_1ace9120065ff2ec6135149bca342daa2a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::TemplateNodeList::add</definition>
+        <argsstring>(const std::shared_ptr&lt; TemplateNode &gt; &amp;node)</argsstring>
+        <name>add</name>
+        <param>
+          <type>const std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1TemplateNode" kindref="compound">TemplateNode</ref> &gt; &amp;</type>
+          <declname>node</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="157" column="10" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="157" bodyend="160"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TemplateNodeList_1a8eb4b285f6174cddc82a36c6c7036dae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::TemplateNodeList::evaluate</definition>
+        <argsstring>(Defines *defines, StringBuilder *out, TemplateErrorList *error) override</argsstring>
+        <name>evaluate</name>
+        <reimplements refid="structeuphoria_1_1core_1_1TemplateNode_1ab1ef82b42ab1410b952470a4ed5a13eb">evaluate</reimplements>
+        <reimplementedby refid="structeuphoria_1_1core_1_1TemplateNodeScopedList_1a4b3497459d1cddd394138d41614b5fcd">evaluate</reimplementedby>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Defines" kindref="compound">Defines</ref> *</type>
+          <declname>defines</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1StringBuilder" kindref="compound">StringBuilder</ref> *</type>
+          <declname>out</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1TemplateErrorList" kindref="compound">TemplateErrorList</ref> *</type>
+          <declname>error</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="162" column="10" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="162" bodyend="168"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::TemplateNodeList</label>
+        <link refid="structeuphoria_1_1core_1_1TemplateNodeList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::TemplateNodeScopedList</label>
+        <link refid="structeuphoria_1_1core_1_1TemplateNodeScopedList"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::TemplateNode</label>
+        <link refid="structeuphoria_1_1core_1_1TemplateNode"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::TemplateNodeList</label>
+        <link refid="structeuphoria_1_1core_1_1TemplateNodeList"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::TemplateNode</label>
+        <link refid="structeuphoria_1_1core_1_1TemplateNode"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/texttemplate.cc" line="152" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="151" bodyend="169"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1TemplateNodeList_1ace9120065ff2ec6135149bca342daa2a" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeList</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNodeList_1a8eb4b285f6174cddc82a36c6c7036dae" prot="public" virt="virtual"><scope>euphoria::core::TemplateNodeList</scope><name>evaluate</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNodeList_1a191b990888f305113c57ae65577900c7" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeList</scope><name>nodes</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNode_1a8cfc22c79241a5e955d381ddcc65be8b" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeList</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNode_1a4fbc8a79b86da351811159aef158240c" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeList</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNode_1a469fba453acad36773761ba0bcbd0ad4" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeList</scope><name>TemplateNode</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNode_1a4a9049dd51d67d3d098645ff2ac8eec9" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeList</scope><name>TemplateNode</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNode_1af1004f8239ea35d52b3bb6e4f0e442fc" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeList</scope><name>TemplateNode</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNodeList_1aace2ef778fb11ce643ddf8bdbbc9e4cb" prot="public" virt="non-virtual"><scope>euphoria::core::TemplateNodeList</scope><name>TemplateNodeList</name></member>
+      <member refid="structeuphoria_1_1core_1_1TemplateNode_1a14395eae38c093944ade83020379578f" prot="public" virt="virtual"><scope>euphoria::core::TemplateNodeList</scope><name>~TemplateNode</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

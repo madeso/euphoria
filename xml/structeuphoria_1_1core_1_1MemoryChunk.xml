@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="30" column="25" bodyfile="libs/core/src/core/memorychunk.h" bodystart="30" bodyend="-1"/>
+        <location file="libs/core/src/core/memorychunk.h" line="22" column="25" bodyfile="libs/core/src/core/memorychunk.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1MemoryChunk_1acda5ff3f329ed66f6b100bf065702d7a" prot="private" static="no" mutable="no">
         <type>int</type>
@@ -28,13 +28,45 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="31" column="13" bodyfile="libs/core/src/core/memorychunk.h" bodystart="31" bodyend="-1"/>
+        <location file="libs/core/src/core/memorychunk.h" line="23" column="13" bodyfile="libs/core/src/core/memorychunk.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a59d1b542ccc9518bc6f6c661cde5cb29" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; euphoria::core::MemoryChunk::allocate</definition>
+        <argsstring>(int size)</argsstring>
+        <name>allocate</name>
+        <param>
+          <type>int</type>
+          <declname>size</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="10" column="33" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="40" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a1c852ddfbfbf2c615918701ccfadb805" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; euphoria::core::MemoryChunk::null</definition>
+        <argsstring>()</argsstring>
+        <name>null</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/memorychunk.h" line="11" column="33" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="47" bodyend="51"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a05c8699938fb65a60f607f6304a9a214" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a16dfdb12ba42840d63810f5153d73aa5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char *</type>
-        <definition>char* euphoria::core::MemoryChunk::get_data</definition>
+        <definition>const char * euphoria::core::MemoryChunk::get_data</definition>
         <argsstring>()</argsstring>
         <name>get_data</name>
         <briefdescription>
@@ -43,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="11" column="9"/>
+        <location file="libs/core/src/core/memorychunk.h" line="13" column="15" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="12" bodyend="15"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1ac82574cd8900be822677be70f2a8c06a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const char *</type>
@@ -56,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="14" column="9"/>
+        <location file="libs/core/src/core/memorychunk.h" line="15" column="21"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a7ccadf682879b1791b9947269c7bfc0f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -69,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="17" column="9"/>
+        <location file="libs/core/src/core/memorychunk.h" line="16" column="14" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="24" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a41d36379fd2adbdf77308561ef38b670" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>char</type>
@@ -86,11 +118,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="19" column="14"/>
+        <location file="libs/core/src/core/memorychunk.h" line="18" column="14" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="29" bodyend="32"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1acc167a6c9c61ebdb4a7514896d07cb6b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a084f18bfe9633838fdd1bcea71220a1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>char &amp;</type>
-        <definition>char&amp; euphoria::core::MemoryChunk::operator[]</definition>
+        <definition>char &amp; euphoria::core::MemoryChunk::operator[]</definition>
         <argsstring>(int index)</argsstring>
         <name>operator[]</name>
         <param>
@@ -103,39 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="20" column="14"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a8b6516d3a65f79fbd005d8b312407099" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
-        <definition>static std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::MemoryChunk::allocate</definition>
-        <argsstring>(int size)</argsstring>
-        <name>allocate</name>
-        <param>
-          <type>int</type>
-          <declname>size</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="23" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1MemoryChunk_1a895282bc1ee4729fa71a432fb7e017f7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
-        <definition>static std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::MemoryChunk::null</definition>
-        <argsstring>()</argsstring>
-        <name>null</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="26" column="9"/>
+        <location file="libs/core/src/core/memorychunk.h" line="19" column="14" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="34" bodyend="37"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -154,24 +154,24 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/memorychunk.h" line="29" column="18"/>
+        <location file="libs/core/src/core/memorychunk.h" line="25" column="18" bodyfile="libs/core/src/core/memorychunk.cc" bodystart="53" bodyend="57"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/memorychunk.h" line="9" column="1" bodyfile="libs/core/src/core/memorychunk.h" bodystart="8" bodyend="32"/>
+    <location file="libs/core/src/core/memorychunk.h" line="9" column="1" bodyfile="libs/core/src/core/memorychunk.h" bodystart="8" bodyend="26"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a8b6516d3a65f79fbd005d8b312407099" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>allocate</name></member>
+      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a59d1b542ccc9518bc6f6c661cde5cb29" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>allocate</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a7b6a0b66a21911be42e7a9baa913bc06" prot="private" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>data</name></member>
-      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a05c8699938fb65a60f607f6304a9a214" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>get_data</name></member>
+      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a16dfdb12ba42840d63810f5153d73aa5" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>get_data</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1ac82574cd8900be822677be70f2a8c06a" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>get_data</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a7ccadf682879b1791b9947269c7bfc0f" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>get_size</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1afb4e93ef6e18b98f32bdc5c8033049f4" prot="private" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>MemoryChunk</name></member>
-      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a895282bc1ee4729fa71a432fb7e017f7" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>null</name></member>
+      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a1c852ddfbfbf2c615918701ccfadb805" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>null</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a41d36379fd2adbdf77308561ef38b670" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>operator[]</name></member>
-      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1acc167a6c9c61ebdb4a7514896d07cb6b" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>operator[]</name></member>
+      <member refid="structeuphoria_1_1core_1_1MemoryChunk_1a084f18bfe9633838fdd1bcea71220a1a" prot="public" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>operator[]</name></member>
       <member refid="structeuphoria_1_1core_1_1MemoryChunk_1acda5ff3f329ed66f6b100bf065702d7a" prot="private" virt="non-virtual"><scope>euphoria::core::MemoryChunk</scope><name>size</name></member>
     </listofallmembers>
   </compounddef>

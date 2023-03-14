@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="131" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="121" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1af2f3ffe41b2badea9c1e7b89321f2dcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -31,15 +31,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="132" column="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="122" column="17"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1acdf47ae10813bd9b49146f96f2fe3eac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a12fee8c6fb7ae5063243372d8a2e13d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::minsynth::ToneTaker::NONCOPYABLE</definition>
-        <argsstring>(ToneTaker)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::minsynth::ToneTaker::ToneTaker</definition>
+        <argsstring>(const ToneTaker &amp;)=delete</argsstring>
+        <name>ToneTaker</name>
         <param>
-          <type><ref refid="structeuphoria_1_1minsynth_1_1ToneTaker" kindref="compound">ToneTaker</ref></type>
+          <type>const <ref refid="structeuphoria_1_1minsynth_1_1ToneTaker" kindref="compound">ToneTaker</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -47,7 +47,55 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="134" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="124" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a0dc018b667b4b82ed81f925db3529587" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::minsynth::ToneTaker::ToneTaker</definition>
+        <argsstring>(ToneTaker &amp;&amp;)=delete</argsstring>
+        <name>ToneTaker</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1minsynth_1_1ToneTaker" kindref="compound">ToneTaker</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="125" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1aa76480f0f6d13d51226cc4c84579890e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::ToneTaker::operator=</definition>
+        <argsstring>(const ToneTaker &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1minsynth_1_1ToneTaker" kindref="compound">ToneTaker</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="126" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a14741e989c9e987289f760559541ac63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::ToneTaker::operator=</definition>
+        <argsstring>(ToneTaker &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1minsynth_1_1ToneTaker" kindref="compound">ToneTaker</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="127" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a48fc0d8fc0a2a021132a2ba9af568b0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -75,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="137" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="129" column="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -106,11 +154,14 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="130" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="129" bodyend="138"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="120" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="119" bodyend="130"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1acdf47ae10813bd9b49146f96f2fe3eac" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a48fc0d8fc0a2a021132a2ba9af568b0a" prot="public" virt="pure-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>on_tone</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1aa76480f0f6d13d51226cc4c84579890e" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a14741e989c9e987289f760559541ac63" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a5fde99ebf7bfc578705d8122d7fb2111" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>ToneTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a12fee8c6fb7ae5063243372d8a2e13d8" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>ToneTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a0dc018b667b4b82ed81f925db3529587" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>ToneTaker</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1af2f3ffe41b2badea9c1e7b89321f2dcf" prot="public" virt="virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>~ToneTaker</name></member>
     </listofallmembers>
   </compounddef>

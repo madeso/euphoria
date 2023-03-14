@@ -72,10 +72,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a20cd865af16bb63ccde6355e678f5201"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html#a20cd865af16bb63ccde6355e678f5201">TextfileParser</a> (std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1detail_1_1Textfile.html">detail::Textfile</a> &gt; afile)</td></tr>
 <tr class="separator:a20cd865af16bb63ccde6355e678f5201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e527c94ee9ae9e33e98e3c810d4ca79"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html#a7e527c94ee9ae9e33e98e3c810d4ca79">peek_char</a> (int advance=0)</td></tr>
+<tr class="memdesc:a7e527c94ee9ae9e33e98e3c810d4ca79"><td class="mdescLeft">&#160;</td><td class="mdescRight">advance = 0 - next char, 1-the one after that, negative values are not allowed  <a href="structeuphoria_1_1core_1_1TextfileParser.html#a7e527c94ee9ae9e33e98e3c810d4ca79">More...</a><br /></td></tr>
 <tr class="separator:a7e527c94ee9ae9e33e98e3c810d4ca79"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a45c9b5154df321d692e6fc1d4e912c69"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html#a45c9b5154df321d692e6fc1d4e912c69">peek_string</a> (int advance=0)</td></tr>
+<tr class="memdesc:a45c9b5154df321d692e6fc1d4e912c69"><td class="mdescLeft">&#160;</td><td class="mdescRight">like PeekChar but returns human readable strings for some chars  <a href="structeuphoria_1_1core_1_1TextfileParser.html#a45c9b5154df321d692e6fc1d4e912c69">More...</a><br /></td></tr>
 <tr class="separator:a45c9b5154df321d692e6fc1d4e912c69"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af59377a12d31d725dc5b4a8b8b563b37"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html#af59377a12d31d725dc5b4a8b8b563b37">expect_char</a> (char c)</td></tr>
+<tr class="memdesc:af59377a12d31d725dc5b4a8b8b563b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">if peekchar(0) is c then it is read and function returns true, otherwise false  <a href="structeuphoria_1_1core_1_1TextfileParser.html#af59377a12d31d725dc5b4a8b8b563b37">More...</a><br /></td></tr>
 <tr class="separator:af59377a12d31d725dc5b4a8b8b563b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a08844ac2787ad792b5f85c78ce8e9241"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html#a08844ac2787ad792b5f85c78ce8e9241">advance_char</a> ()</td></tr>
 <tr class="separator:a08844ac2787ad792b5f85c78ce8e9241"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -98,8 +101,8 @@ Public Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a281fbfbbd6ca86b9a52f75e8846f0e5e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html">TextfileParser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html#a281fbfbbd6ca86b9a52f75e8846f0e5e">from_string</a> (const std::string &amp;str)</td></tr>
-<tr class="separator:a281fbfbbd6ca86b9a52f75e8846f0e5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d3d747b04eb1e35c387dbe0e1469c05"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html">TextfileParser</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html#a0d3d747b04eb1e35c387dbe0e1469c05">from_string</a> (const std::string &amp;str)</td></tr>
+<tr class="separator:a0d3d747b04eb1e35c387dbe0e1469c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -111,7 +114,7 @@ Public Attributes</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Parses a text file in memory. </p>
 
-<p class="definition">Definition at line <a class="el" href="textfileparser_8h_source.html#l00052">52</a> of file <a class="el" href="textfileparser_8h_source.html">textfileparser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textfileparser_8h_source.html#l00041">41</a> of file <a class="el" href="textfileparser_8h_source.html">textfileparser.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a20cd865af16bb63ccde6355e678f5201"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a20cd865af16bb63ccde6355e678f5201">&#9670;&nbsp;</a></span>TextfileParser()</h2>
@@ -137,6 +140,8 @@ Public Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00090">90</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -154,6 +159,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00151">151</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
 
 </div>
 </div>
@@ -173,10 +180,14 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>if peekchar(0) is c then it is read and function returns true, otherwise false </p>
+
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00118">118</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
-<a id="a281fbfbbd6ca86b9a52f75e8846f0e5e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a281fbfbbd6ca86b9a52f75e8846f0e5e">&#9670;&nbsp;</a></span>from_string()</h2>
+<a id="a0d3d747b04eb1e35c387dbe0e1469c05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d3d747b04eb1e35c387dbe0e1469c05">&#9670;&nbsp;</a></span>from_string()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -185,7 +196,7 @@ Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html">TextfileParser</a> euphoria::core::TextfileParser::from_string </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1TextfileParser.html">TextfileParser</a> euphoria::core::TextfileParser::from_string </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>str</em></td><td>)</td>
@@ -198,6 +209,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00096">96</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
 
 </div>
 </div>
@@ -216,6 +229,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00306">306</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
 <a id="a67fbc9eb2d991d829f7c00981760320a"></a>
@@ -233,6 +248,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00300">300</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
 <a id="a20163b6f293dae2e65811f5c766b483c"></a>
@@ -249,6 +266,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00294">294</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
 
 </div>
 </div>
@@ -268,6 +287,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>advance = 0 - next char, 1-the one after that, negative values are not allowed </p>
+
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00102">102</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
 <a id="a45c9b5154df321d692e6fc1d4e912c69"></a>
@@ -286,6 +309,10 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>like PeekChar but returns human readable strings for some chars </p>
+
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00109">109</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
 <a id="a32a4d39bb8a8f890200f61caeb7f9eb1"></a>
@@ -302,6 +329,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00133">133</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
 
 </div>
 </div>
@@ -320,6 +349,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00189">189</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
 <a id="a5404edd0943a8a16cfb636728e4377a3"></a>
@@ -337,6 +368,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00202">202</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
 <a id="af757b602e1fa6b61b88eb8705425b1aa"></a>
@@ -353,6 +386,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00252">252</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
 
 </div>
 </div>
@@ -372,6 +407,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00285">285</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -387,7 +424,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textfileparser_8h_source.html#l00103">103</a> of file <a class="el" href="textfileparser_8h_source.html">textfileparser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textfileparser_8h_source.html#l00043">43</a> of file <a class="el" href="textfileparser_8h_source.html">textfileparser.h</a>.</p>
 
 </div>
 </div>
@@ -403,12 +440,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="textfileparser_8h_source.html#l00104">104</a> of file <a class="el" href="textfileparser_8h_source.html">textfileparser.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="textfileparser_8h_source.html#l00044">44</a> of file <a class="el" href="textfileparser_8h_source.html">textfileparser.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>libs/core/src/core/<a class="el" href="textfileparser_8h_source.html">textfileparser.h</a></li>
+<li>libs/core/src/core/<a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

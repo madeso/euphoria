@@ -2,22 +2,239 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="namespaceeuphoria_1_1core_1_1detail" kind="namespace" language="C++">
     <compoundname>euphoria::core::detail</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1BasicResponse" prot="public">euphoria::core::detail::BasicResponse</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" prot="public">euphoria::core::detail::CameraFrame</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus" prot="public">euphoria::core::detail::ConversationStatus</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics" prot="public">euphoria::core::detail::ConversationTopics</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Database" prot="public">euphoria::core::detail::Database</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1DefaultCamera" prot="public">euphoria::core::detail::DefaultCamera</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" prot="public">euphoria::core::detail::EditorCameraState3</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Input" prot="public">euphoria::core::detail::Input</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LerpCamera" prot="public">euphoria::core::detail::LerpCamera</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1LocationInFile" prot="public">euphoria::core::detail::LocationInFile</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1OrbitCamera" prot="public">euphoria::core::detail::OrbitCamera</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1OrbitData" prot="public">euphoria::core::detail::OrbitData</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1PanData" prot="public">euphoria::core::detail::PanData</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Response" prot="public">euphoria::core::detail::Response</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1ResponseBuilder" prot="public">euphoria::core::detail::ResponseBuilder</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse" prot="public">euphoria::core::detail::SingleResponse</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Textfile" prot="public">euphoria::core::detail::Textfile</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1detail_1_1TextFileString" prot="public">euphoria::core::detail::TextFileString</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Transposer" prot="public">euphoria::core::detail::Transposer</innerclass>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a0f474d2bb912a78f7e5955737d91c087" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a6f1ab0ff367106df6488fb9adc2c6859" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::ostream &amp;</type>
+        <definition>std::ostream&amp; euphoria::core::detail::operator&lt;&lt;</definition>
+        <argsstring>(std::ostream &amp;s, const CameraFrame &amp;f)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>std::ostream &amp;</type>
+          <declname>s</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref> &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="44" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="44" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1aadd1bca09a694e8248ad39a54cbf1ec0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::update_state</definition>
+        <argsstring>(EditorCamera3 *self)</argsstring>
+        <name>update_state</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="54" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="54" bodyend="60"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a6930f52ee4fea6681527d3bf90c69d58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a1ec03d988d6a9065ce681392a857aa94" kindref="member">EditorCameraStyle3</ref></type>
+        <definition>EditorCameraStyle3 euphoria::core::detail::next_style</definition>
+        <argsstring>(EditorCameraStyle3 current_style)</argsstring>
+        <name>next_style</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a1ec03d988d6a9065ce681392a857aa94" kindref="member">EditorCameraStyle3</ref></type>
+          <declname>current_style</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="64" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="64" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a14790c1c7a6968061060b96fed44b7ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref></type>
+        <definition>CameraFrame euphoria::core::detail::frame_from_editor</definition>
+        <argsstring>(EditorCamera3 *editor)</argsstring>
+        <name>frame_from_editor</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>editor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="77" column="21" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="77" bodyend="85"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a62e914b6b96b608203f730ad0e8d059f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::frame_to_editor</definition>
+        <argsstring>(const CameraFrame &amp;frame, EditorCamera3 *editor)</argsstring>
+        <name>frame_to_editor</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref> &amp;</type>
+          <declname>frame</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>editor</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="87" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="87" bodyend="92"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a8a602c5815b7f8a457c016f522fd5b61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">detail::EditorCameraState3</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; detail::EditorCameraState3 &gt; euphoria::core::detail::make_orbit_camera</definition>
+        <argsstring>(const CameraFrame &amp;start, const CompiledCamera3 &amp;latest_camera, const Viewport &amp;latest_viewport, const vec2i &amp;latest_mouse, bool latest_shift)</argsstring>
+        <name>make_orbit_camera</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref> &amp;</type>
+          <declname>start</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1CompiledCamera3" kindref="compound">CompiledCamera3</ref> &amp;</type>
+          <declname>latest_camera</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Viewport" kindref="compound">Viewport</ref> &amp;</type>
+          <declname>latest_viewport</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>latest_mouse</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>latest_shift</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="555" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="556" bodyend="565" declfile="libs/core/src/core/camera3.editor.cc" declline="97" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1ab6f9bb765305d68d55be8c1eb8e4115a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">detail::EditorCameraState3</ref> &gt;</type>
+        <definition>std::unique_ptr&lt; detail::EditorCameraState3 &gt; euphoria::core::detail::make_default_camera</definition>
+        <argsstring>()</argsstring>
+        <name>make_default_camera</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="568" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="568" bodyend="571" declfile="libs/core/src/core/camera3.editor.cc" declline="105" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a38950345486322f8e51404774858e43f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; float &gt;</type>
+        <definition>std::optional&lt;float&gt; euphoria::core::detail::calculate_zoom_move</definition>
+        <argsstring>(int dx, int dy, float length, EditorCamera3 *owner)</argsstring>
+        <name>calculate_zoom_move</name>
+        <param>
+          <type>int</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>dy</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>length</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="134" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="134" bodyend="143"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a8cd790f315be53ee51dffb4216a4ecf8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::detail::set_default_state</definition>
+        <argsstring>(EditorCamera3 *cam)</argsstring>
+        <name>set_default_state</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>cam</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="545" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="545" bodyend="548"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a6964b61b0e2fabf174d4b20b64f6cdc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">detail::EditorCameraState3</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;detail::EditorCameraState3&gt; euphoria::core::detail::make_lerp_camera</definition>
+        <argsstring>(EditorCamera3 *owner, const CameraFrame &amp;to, float time)</argsstring>
+        <name>make_lerp_camera</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> *</type>
+          <declname>owner</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref> &amp;</type>
+          <declname>to</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>time</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="573" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="573" bodyend="576"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1aec4fa63808986e10d5299e702cea9049" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; euphoria::core::detail::clean_input</definition>
+        <definition>std::vector&lt; std::string &gt; euphoria::core::detail::clean_input</definition>
         <argsstring>(const std::string &amp;input)</argsstring>
         <name>clean_input</name>
         <param>
@@ -30,7 +247,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="26" column="9" declfile="libs/core/src/core/chatbot.h" declline="26" declcolumn="9"/>
+        <location file="libs/core/src/core/chatbot.cc" line="22" column="5" bodyfile="libs/core/src/core/chatbot.cc" bodystart="22" bodyend="38" declfile="libs/core/src/core/chatbot.h" declline="26" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a61583e021ae4b35279a42d90e58b0340" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -51,11 +268,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="31" column="9" declfile="libs/core/src/core/chatbot.h" declline="31" declcolumn="9"/>
+        <location file="libs/core/src/core/chatbot.cc" line="41" column="5" bodyfile="libs/core/src/core/chatbot.cc" bodystart="42" bodyend="100" declfile="libs/core/src/core/chatbot.h" declline="31" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a3b9b5509d028c32be2f1ef57a0a0e99b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a8ee6d85b6283a579414435b8ff5a80bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; euphoria::core::detail::remove_from</definition>
+        <definition>std::vector&lt; std::string &gt; euphoria::core::detail::remove_from</definition>
         <argsstring>(const std::vector&lt; std::string &gt; &amp;source, const Input &amp;input)</argsstring>
         <name>remove_from</name>
         <param>
@@ -72,11 +289,179 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="40" column="9" declfile="libs/core/src/core/chatbot.h" declline="40" declcolumn="9"/>
+        <location file="libs/core/src/core/chatbot.cc" line="103" column="5" bodyfile="libs/core/src/core/chatbot.cc" bodystart="103" bodyend="127" declfile="libs/core/src/core/chatbot.h" declline="40" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a7d3bbd41f8c0cbb04e2c2af89d17bf4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1aac9e391f94b34f64cc01bb43591e3312" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1detail_1_1BasicResponse" kindref="compound">BasicResponse</ref></type>
+        <definition>BasicResponse euphoria::core::detail::add_response</definition>
+        <argsstring>(std::vector&lt; std::string &gt; *input)</argsstring>
+        <name>add_response</name>
+        <param>
+          <type>std::vector&lt; std::string &gt; *</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.cc" line="305" column="5" bodyfile="libs/core/src/core/chatbot.cc" bodystart="305" bodyend="310"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a832f2f890e8a9e13ddb30b69d8b264ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1ConversationStatus_1_1TopicEntry" kindref="compound">ConversationStatus::TopicEntry</ref> &gt;</type>
+        <definition>std::vector&lt;ConversationStatus::TopicEntry&gt; euphoria::core::detail::collect_topics</definition>
+        <argsstring>(const ConversationTopics &amp;current_topics)</argsstring>
+        <name>collect_topics</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics" kindref="compound">ConversationTopics</ref> &amp;</type>
+          <declname>current_topics</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.cc" line="314" column="5" bodyfile="libs/core/src/core/chatbot.cc" bodystart="314" bodyend="325"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a7b42b39ba25af1dda5119ad48c76f2f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt;std::string&gt; euphoria::core::detail::transpose</definition>
+        <argsstring>(const Transposer &amp;transposer, const std::vector&lt; std::string &gt; &amp;input)</argsstring>
+        <name>transpose</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1Transposer" kindref="compound">Transposer</ref> &amp;</type>
+          <declname>transposer</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.cc" line="424" column="9" bodyfile="libs/core/src/core/chatbot.cc" bodystart="425" bodyend="437"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1afc081271bd20ee20cf05da6483aa7885" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::detail::transpose_keywords</definition>
+        <argsstring>(const std::string &amp;selected_response, const Transposer &amp;transposer, const Input &amp;keywords, const std::string &amp;input)</argsstring>
+        <name>transpose_keywords</name>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>selected_response</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1Transposer" kindref="compound">Transposer</ref> &amp;</type>
+          <declname>transposer</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1Input" kindref="compound">Input</ref> &amp;</type>
+          <declname>keywords</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.cc" line="441" column="9" bodyfile="libs/core/src/core/chatbot.cc" bodystart="442" bodyend="468"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a753a9423baa0c59112b93b18a6254bb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>std::size_t</type>
+        <definition>std::size_t euphoria::core::detail::select_basic_response_index</definition>
+        <argsstring>(Chatbot *chatbot, const std::vector&lt; T &gt; &amp;responses, std::function&lt; std::string(const T &amp;t)&gt; callback)</argsstring>
+        <name>select_basic_response_index</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Chatbot" kindref="compound">Chatbot</ref> *</type>
+          <declname>chatbot</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; T &gt; &amp;</type>
+          <declname>responses</declname>
+        </param>
+        <param>
+          <type>std::function&lt; std::string(const T &amp;t)&gt;</type>
+          <declname>callback</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.cc" line="472" column="9" bodyfile="libs/core/src/core/chatbot.cc" bodystart="473" bodyend="521"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1a59d0873a1028dc6b4c7215be1c107b60" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::detail::select_basic_response</definition>
+        <argsstring>(Chatbot *chatbot, const std::vector&lt; std::string &gt; &amp;responses, const char *const name)</argsstring>
+        <name>select_basic_response</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Chatbot" kindref="compound">Chatbot</ref> *</type>
+          <declname>chatbot</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>responses</declname>
+        </param>
+        <param>
+          <type>const char *const</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.cc" line="524" column="9" bodyfile="libs/core/src/core/chatbot.cc" bodystart="525" bodyend="546"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1ab00c7e80ffe77ad4ec7851536d4d2f6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::detail::select_response</definition>
+        <argsstring>(Chatbot *chatbot, const std::vector&lt; detail::SingleResponse &gt; &amp;responses, const detail::Input &amp;keywords, const std::string &amp;input)</argsstring>
+        <name>select_response</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Chatbot" kindref="compound">Chatbot</ref> *</type>
+          <declname>chatbot</declname>
+        </param>
+        <param>
+          <type>const std::vector&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse" kindref="compound">detail::SingleResponse</ref> &gt; &amp;</type>
+          <declname>responses</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1Input" kindref="compound">detail::Input</ref> &amp;</type>
+          <declname>keywords</declname>
+        </param>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/chatbot.cc" line="549" column="9" bodyfile="libs/core/src/core/chatbot.cc" bodystart="550" bodyend="581"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1detail_1aeaa44180ce162001071b87e7dd411369" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1Textfile" kindref="compound">Textfile</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;Textfile&gt; euphoria::core::detail::create_from_string</definition>
+        <definition>std::shared_ptr&lt; Textfile &gt; euphoria::core::detail::create_from_string</definition>
         <argsstring>(const std::string &amp;str)</argsstring>
         <name>create_from_string</name>
         <param>
@@ -89,13 +474,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/textfileparser.h" line="38" column="9" declfile="libs/core/src/core/textfileparser.h" declline="38" declcolumn="9"/>
+        <location file="libs/core/src/core/textfileparser.cc" line="63" column="9" bodyfile="libs/core/src/core/textfileparser.cc" bodystart="63" bodyend="68" declfile="libs/core/src/core/textfileparser.h" declline="28" declcolumn="25"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/camera3.editor.h" line="23" column="1"/>
+    <location file="libs/core/src/core/camera3.editor.cc" line="43" column="1"/>
   </compounddef>
 </doxygen>

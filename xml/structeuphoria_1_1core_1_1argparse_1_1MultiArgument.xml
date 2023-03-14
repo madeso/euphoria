@@ -6,7 +6,7 @@
     <includes refid="argparse_8h" local="no">argparse.h</includes>
       <sectiondef kind="public-type">
       <memberdef kind="typedef" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1aedd0cb01aa1da206cd13ed735941b69d" prot="public" static="no">
-        <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>(<ref refid="structeuphoria_1_1core_1_1argparse_1_1Runner" kindref="compound">Runner</ref> *runner, const std::string &amp;name, <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *caller, const std::string &amp;value) &gt;</type>
+        <type>std::function&lt; <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref>(<ref refid="structeuphoria_1_1core_1_1argparse_1_1Runner" kindref="compound">Runner</ref> *<ref refid="argparse_8cc_1a81d86d13015636fec05a0815bd9ef510" kindref="member">runner</ref>, const std::string &amp;name, <ref refid="structeuphoria_1_1core_1_1argparse_1_1ParserBase" kindref="compound">ParserBase</ref> *caller, const std::string &amp;value) &gt;</type>
         <definition>using euphoria::core::argparse::MultiArgument::CallbackFunction =  std::function &lt; ParseResult ( Runner* runner, const std::string&amp; name, ParserBase* caller, const std::string&amp; value ) &gt;</definition>
         <argsstring></argsstring>
         <name>CallbackFunction</name>
@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="316" column="9" bodyfile="libs/core/src/core/argparse.h" bodystart="325" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="301" column="9" bodyfile="libs/core/src/core/argparse.h" bodystart="310" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1a4a47d3e209294cc570b61fc22a5c00c3" prot="public" static="no">
         <type>std::function&lt; std::optional&lt; std::string &gt;()&gt;</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="326" column="9" bodyfile="libs/core/src/core/argparse.h" bodystart="326" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="311" column="9" bodyfile="libs/core/src/core/argparse.h" bodystart="311" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="327" column="26" bodyfile="libs/core/src/core/argparse.h" bodystart="327" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="313" column="26" bodyfile="libs/core/src/core/argparse.h" bodystart="313" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1ae1c1f3aaa011f6701d5300300825f51f" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1a4a47d3e209294cc570b61fc22a5c00c3" kindref="member">DescribeFunction</ref></type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="328" column="26" bodyfile="libs/core/src/core/argparse.h" bodystart="328" bodyend="-1"/>
+        <location file="libs/core/src/core/argparse.h" line="314" column="26" bodyfile="libs/core/src/core/argparse.h" bodystart="314" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="330" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="316" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="381" bodyend="385"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1a0027146b0e353053a8391a6ce4c83c6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -94,11 +94,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="333" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="318" column="14" bodyfile="libs/core/src/core/argparse.cc" bodystart="389" bodyend="392"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1a8d020dc4f39bcf62053328e4d3e084a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1af91fa1aa97ae961eea8f35cdb7b51eeb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>std::optional&lt; std::string &gt;</type>
-        <definition>std::optional&lt;std::string&gt; euphoria::core::argparse::MultiArgument::get_second_line</definition>
+        <definition>std::optional&lt; std::string &gt; euphoria::core::argparse::MultiArgument::get_second_line</definition>
         <argsstring>() override</argsstring>
         <name>get_second_line</name>
         <reimplements refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1aa1bdc8fbfea76c96dfd331ac4b96014e">get_second_line</reimplements>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="336" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="320" column="23" bodyfile="libs/core/src/core/argparse.cc" bodystart="396" bodyend="399"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1ad918866ca207f3f118e1894ac3cfa555" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type><ref refid="structeuphoria_1_1core_1_1argparse_1_1ParseResult" kindref="compound">ParseResult</ref></type>
@@ -134,10 +134,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="339" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="322" column="21" bodyfile="libs/core/src/core/argparse.cc" bodystart="404" bodyend="426"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>a single argument, probably either a <ndash/>count 3 or positional input </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -165,7 +166,7 @@
         <link refid="structeuphoria_1_1core_1_1argparse_1_1Argument"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="315" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="314" bodyend="345"/>
+    <location file="libs/core/src/core/argparse.h" line="300" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="299" bodyend="328"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a1b4f9f68c511cbb1cd6a822793496ae9" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>allow_before_positionals</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a55815e7bcee16a6887408b3bcdd43a3b" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>Argument</name></member>
@@ -176,7 +177,7 @@
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a6ae4d2169f9651ea5690f39bbc416de6" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>default_value</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1ae1c1f3aaa011f6701d5300300825f51f" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>describe_function</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1a4a47d3e209294cc570b61fc22a5c00c3" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>DescribeFunction</name></member>
-      <member refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1a8d020dc4f39bcf62053328e4d3e084a9" prot="public" virt="virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>get_second_line</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1af91fa1aa97ae961eea8f35cdb7b51eeb" prot="public" virt="virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>get_second_line</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1a0027146b0e353053a8391a6ce4c83c6a" prot="public" virt="virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>have_nargs</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a9d0c1e19dec768b163eb6e31756b4d34" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>help</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1a7be8db0ec0cf043de250fccfe3927dac" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>MultiArgument</name></member>
@@ -184,9 +185,9 @@
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a517c6e05e82d424bc7c5e218253e3c8e" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a6d7618b3d0c90390fd05994b3c16b3b1" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1MultiArgument_1ad918866ca207f3f118e1894ac3cfa555" prot="public" virt="virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>parse_arguments</name></member>
-      <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1ae71badbc0df9b69975aae0cbabccd86d" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>set_allow_before_positionals</name></member>
-      <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1ab5282d42c5f74bc3a2cec4182b32102d" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>set_help</name></member>
-      <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1acf4295b91254e93d9740056baf842356" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>set_nargs</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a7b2309f58d669b588dd0f11b79eb5a2e" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>set_allow_before_positionals</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1ada896771a684c5e27468ff1951254439" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>set_help</name></member>
+      <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a6677031c1fcbd9e19ae17d030ced1423" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>set_nargs</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Argument_1a6d3eee5d3a18a8cabbb90c052e1c30b5" prot="public" virt="virtual"><scope>euphoria::core::argparse::MultiArgument</scope><name>~Argument</name></member>
     </listofallmembers>
   </compounddef>

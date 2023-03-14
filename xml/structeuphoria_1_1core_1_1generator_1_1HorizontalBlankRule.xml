@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::generator::HorizontalBlankRule</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">euphoria::core::generator::Rule</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1a430bb7d63696a49d3e50d3a0c98fb264" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::generator::HorizontalBlankRule::center</definition>
+        <argsstring></argsstring>
+        <name>center</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="141" column="13" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="141" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1a219cd6a6926c4dbbee5d36387ca6daab" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::generator::HorizontalBlankRule::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="142" column="13" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="142" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1aa29311560cfc9369c47675be5532d047" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::generator::HorizontalBlankRule::HorizontalBlankRule</definition>
+        <argsstring>(int c, int h)</argsstring>
+        <name>HorizontalBlankRule</name>
+        <param>
+          <type>int</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="144" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="144" bodyend="148"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1aeb52ca9a06cc4d01449bb177757a36c1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::HorizontalBlankRule::step</definition>
+        <argsstring>(CellularAutomata *self) override</argsstring>
+        <name>step</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a04bde9b4d49e0a19c91b5bfd334a2e34">step</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="151" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="151" bodyend="168"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::generator::HorizontalBlankRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::Rule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::generator::HorizontalBlankRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::Rule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_cell.cc" line="140" column="1" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="139" bodyend="169"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1a430bb7d63696a49d3e50d3a0c98fb264" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>center</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1a219cd6a6926c4dbbee5d36387ca6daab" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>height</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1aa29311560cfc9369c47675be5532d047" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>HorizontalBlankRule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a1041138a9a1e771c027c997e4ebfe11d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a7c949b42ed60b5af4a1c5e6410410502" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1acee66f1f21e44dd69b1f3e6fb54174c5" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a0a8caf1dda89a98eeb44fd579d31da43" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a62efec702190ecb2f2dea4337fe95cba" prot="public" virt="non-virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1aeb52ca9a06cc4d01449bb177757a36c1" prot="public" virt="virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1adcac939654ffb9fcd2bbe5879ccbe6b4" prot="public" virt="virtual"><scope>euphoria::core::generator::HorizontalBlankRule</scope><name>~Rule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

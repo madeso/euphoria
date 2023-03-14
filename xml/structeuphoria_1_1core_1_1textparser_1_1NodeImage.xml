@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="44" column="22"/>
+        <location file="libs/core/src/core/ui_text.h" line="44" column="22" bodyfile="libs/core/src/core/ui_text.cc" bodystart="20" bodyend="20"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1NodeImage_1a962dabc7bb8808eb3de31d0284b144df" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="47" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="47" column="13" bodyfile="libs/core/src/core/ui_text.cc" bodystart="23" bodyend="26"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

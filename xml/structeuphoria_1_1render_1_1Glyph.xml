@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="42" column="21" bodyfile="libs/render/src/render/font.h" bodystart="42" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="34" column="21" bodyfile="libs/render/src/render/font.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Glyph_1a40f9b860a5922eceb13518c883a5681f" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="43" column="21" bodyfile="libs/render/src/render/font.h" bodystart="43" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="35" column="21" bodyfile="libs/render/src/render/font.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Glyph_1adc4eb40d0f52f3198baf514180d53c68" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="44" column="13" bodyfile="libs/render/src/render/font.h" bodystart="44" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="36" column="13" bodyfile="libs/render/src/render/font.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Glyph_1ac8e18720542b32cfa722fb8d6a852b65" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="45" column="15" bodyfile="libs/render/src/render/font.h" bodystart="45" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="37" column="15" bodyfile="libs/render/src/render/font.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="34" column="9"/>
+        <location file="libs/render/src/render/font.h" line="39" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="36" bodyend="47"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

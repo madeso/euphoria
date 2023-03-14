@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="33" column="25" bodyfile="libs/render/src/render/sprite.h" bodystart="33" bodyend="-1"/>
+        <location file="libs/render/src/render/sprite.h" line="18" column="25" bodyfile="libs/render/src/render/sprite.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1a997f4f231369cdadf8d47bf7e2c863ca" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="34" column="21" bodyfile="libs/render/src/render/sprite.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/render/src/render/sprite.h" line="19" column="21" bodyfile="libs/render/src/render/sprite.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1a36c06e375b90ea32cd30439a221c7336" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="35" column="21" bodyfile="libs/render/src/render/sprite.h" bodystart="35" bodyend="-1"/>
+        <location file="libs/render/src/render/sprite.h" line="20" column="21" bodyfile="libs/render/src/render/sprite.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1a75f49d2c60f693d0a0800b583f9aae24" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1Scale2f" kindref="compound">core::Scale2f</ref></type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="36" column="23" bodyfile="libs/render/src/render/sprite.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/render/src/render/sprite.h" line="21" column="23" bodyfile="libs/render/src/render/sprite.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1a1d2a5441d0cb933de90df9c1218f7f82" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="37" column="19" bodyfile="libs/render/src/render/sprite.h" bodystart="37" bodyend="-1"/>
+        <location file="libs/render/src/render/sprite.h" line="22" column="19" bodyfile="libs/render/src/render/sprite.h" bodystart="22" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Sprite_1af1955f9600e2b0e7aa36824f8cd2b147" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="38" column="15" bodyfile="libs/render/src/render/sprite.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/render/src/render/sprite.h" line="23" column="15" bodyfile="libs/render/src/render/sprite.h" bodystart="23" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -99,7 +99,7 @@
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &amp;</type>
           <declname>position</declname>
-          <defval><ref refid="structeuphoria_1_1core_1_1vec2f_1a2439a884cb0e19150f763c46ed2fea3b" kindref="member">core::vec2f::zero</ref>()</defval>
+          <defval><ref refid="structeuphoria_1_1core_1_1vec2f_1a89a534774964e00c039cfba17ace7ecc" kindref="member">core::vec2f::zero</ref>()</defval>
         </param>
         <briefdescription>
         </briefdescription>
@@ -107,33 +107,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="18" column="18"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Sprite_1a851ad69baebf770d2bb3cafdb6a193c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>float</type>
-        <definition>float euphoria::render::Sprite::get_height</definition>
-        <argsstring>() const</argsstring>
-        <name>get_height</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="25" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1Sprite_1afe0614b1642f727489839778886dbd87" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>float</type>
-        <definition>float euphoria::render::Sprite::get_width</definition>
-        <argsstring>() const</argsstring>
-        <name>get_width</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="28" column="9"/>
+        <location file="libs/render/src/render/sprite.h" line="25" column="18" bodyfile="libs/render/src/render/sprite.cc" bodystart="14" bodyend="22"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1Sprite_1a08e39520d28b9027358dfafbb6a9e153" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -150,7 +124,33 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/sprite.h" line="31" column="9"/>
+        <location file="libs/render/src/render/sprite.h" line="31" column="14" bodyfile="libs/render/src/render/sprite.cc" bodystart="40" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Sprite_1a851ad69baebf770d2bb3cafdb6a193c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::render::Sprite::get_height</definition>
+        <argsstring>() const</argsstring>
+        <name>get_height</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="33" column="16" bodyfile="libs/render/src/render/sprite.cc" bodystart="26" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1Sprite_1afe0614b1642f727489839778886dbd87" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::render::Sprite::get_width</definition>
+        <argsstring>() const</argsstring>
+        <name>get_width</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/sprite.h" line="34" column="16" bodyfile="libs/render/src/render/sprite.cc" bodystart="33" bodyend="36"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -191,7 +191,7 @@
         <link refid="structeuphoria_1_1core_1_1Scale2f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/sprite.h" line="17" column="1" bodyfile="libs/render/src/render/sprite.h" bodystart="16" bodyend="39"/>
+    <location file="libs/render/src/render/sprite.h" line="17" column="1" bodyfile="libs/render/src/render/sprite.h" bodystart="16" bodyend="35"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1Sprite_1af1955f9600e2b0e7aa36824f8cd2b147" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>alpha</name></member>
       <member refid="structeuphoria_1_1render_1_1Sprite_1a1d2a5441d0cb933de90df9c1218f7f82" prot="public" virt="non-virtual"><scope>euphoria::render::Sprite</scope><name>color</name></member>

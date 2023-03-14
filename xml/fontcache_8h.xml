@@ -3,8 +3,24 @@
   <compounddef id="fontcache_8h" kind="file" language="C++">
     <compoundname>fontcache.h</compoundname>
     <includes local="no">memory</includes>
-    <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
+    <includedby refid="load_8cc" local="yes">libs/gui/src/gui/load.cc</includedby>
+    <includedby refid="fontcache_8cc" local="yes">libs/render/src/render/fontcache.cc</includedby>
     <incdepgraph>
+      <node id="1">
+        <label>libs/render/src/render/fontcache.h</label>
+        <link refid="fontcache_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>libs/render/src/render/fontcache.cc</label>
+        <link refid="fontcache_8cc"/>
+      </node>
       <node id="1">
         <label>libs/render/src/render/fontcache.h</label>
         <link refid="fontcache_8h"/>
@@ -13,14 +29,11 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="3">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
-      </node>
       <node id="2">
-        <label>memory</label>
+        <label>libs/gui/src/gui/load.cc</label>
+        <link refid="load_8cc"/>
       </node>
-    </incdepgraph>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1render_1_1FontCache" prot="public">euphoria::render::FontCache</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1Token" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::Token</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Token_1a4b7e181c963f7cf29b186000b58f5843" prot="public" static="no" mutable="no">
+        <type><ref refid="namespaceeuphoria_1_1core_1a15935470349ccc0f69c3476a77ac797d" kindref="member">TokenType</ref></type>
+        <definition>TokenType euphoria::core::Token::type</definition>
+        <argsstring></argsstring>
+        <name>type</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="310" column="15" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="310" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Token_1a9eb6309fcca6c1fdb0013c86a24d285a" prot="public" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::Token::value</definition>
+        <argsstring></argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="311" column="17" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="311" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Token_1a1bac15ab1f86a2d200ca23dd07e8e4aa" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::Token::line</definition>
+        <argsstring></argsstring>
+        <name>line</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="312" column="9" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="312" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1Token_1a002a9fdb2f01a292920445429af58218" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int euphoria::core::Token::column</definition>
+        <argsstring></argsstring>
+        <name>column</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="313" column="9" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="313" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Token_1ab017c99f15d8ad6481565b09b6a560de" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Token::Token</definition>
+        <argsstring>(TokenType t, int l, int c, std::string v=&quot;&quot;)</argsstring>
+        <name>Token</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1a15935470349ccc0f69c3476a77ac797d" kindref="member">TokenType</ref></type>
+          <declname>t</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>l</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>v</declname>
+          <defval>&quot;&quot;</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="315" column="5" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="315" bodyend="321"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Token_1a619f10c35d26a21cb07fc28351f7fe5c" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::Token::to_string</definition>
+        <argsstring>() const</argsstring>
+        <name>to_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/texttemplate.cc" line="324" column="5" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="324" bodyend="327"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/texttemplate.cc" line="309" column="1" bodyfile="libs/core/src/core/texttemplate.cc" bodystart="308" bodyend="328"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1Token_1a002a9fdb2f01a292920445429af58218" prot="public" virt="non-virtual"><scope>euphoria::core::Token</scope><name>column</name></member>
+      <member refid="structeuphoria_1_1core_1_1Token_1a1bac15ab1f86a2d200ca23dd07e8e4aa" prot="public" virt="non-virtual"><scope>euphoria::core::Token</scope><name>line</name></member>
+      <member refid="structeuphoria_1_1core_1_1Token_1a619f10c35d26a21cb07fc28351f7fe5c" prot="public" virt="non-virtual"><scope>euphoria::core::Token</scope><name>to_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1Token_1ab017c99f15d8ad6481565b09b6a560de" prot="public" virt="non-virtual"><scope>euphoria::core::Token</scope><name>Token</name></member>
+      <member refid="structeuphoria_1_1core_1_1Token_1a4b7e181c963f7cf29b186000b58f5843" prot="public" virt="non-virtual"><scope>euphoria::core::Token</scope><name>type</name></member>
+      <member refid="structeuphoria_1_1core_1_1Token_1a9eb6309fcca6c1fdb0013c86a24d285a" prot="public" virt="non-virtual"><scope>euphoria::core::Token</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

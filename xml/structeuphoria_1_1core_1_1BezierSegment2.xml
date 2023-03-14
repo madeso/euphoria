@@ -58,8 +58,10 @@
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>Anchor and control points. </para>
     </briefdescription>
     <detaileddescription>
+<para>Curve passes through anchor points and control points are used for shaping the curve. Each point in the curve has 2 control points, except the first and last that only has one. </para>
     </detaileddescription>
     <collaborationgraph>
       <node id="1">

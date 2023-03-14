@@ -61,6 +61,15 @@
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="textfileparser_8h_source.html">textfileparser.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for euphoria::core::detail::Textfile:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structeuphoria_1_1core_1_1detail_1_1Textfile.png" usemap="#euphoria::core::detail::Textfile_map" alt=""/>
+  <map id="euphoria::core::detail::Textfile_map" name="euphoria::core::detail::Textfile_map">
+<area href="structeuphoria_1_1core_1_1detail_1_1TextFileString.html" alt="euphoria::core::detail::TextFileString" shape="rect" coords="0,56,213,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -76,12 +85,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a90ef81cd68177c7b51cd2e23d08ec530"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a251de3a611350dbbcc8cdbb9e6a6d141"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1Textfile.html#a251de3a611350dbbcc8cdbb9e6a6d141">operator=</a> (<a class="el" href="structeuphoria_1_1core_1_1detail_1_1Textfile.html">Textfile</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a251de3a611350dbbcc8cdbb9e6a6d141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcadb5e97253072de4a18a848088aab8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1Textfile.html#afcadb5e97253072de4a18a848088aab8">peek</a> ()</td></tr>
+<tr class="separator:afcadb5e97253072de4a18a848088aab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abdff0e995dcbd3b020a93a2c622b435d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1Textfile.html#abdff0e995dcbd3b020a93a2c622b435d">has_more</a> () const =0</td></tr>
 <tr class="separator:abdff0e995dcbd3b020a93a2c622b435d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a557e2a1a1619724b81637befd0620d25"><td class="memItemLeft" align="right" valign="top">virtual char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1Textfile.html#a557e2a1a1619724b81637befd0620d25">peek</a> (int advance)=0</td></tr>
 <tr class="separator:a557e2a1a1619724b81637befd0620d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcadb5e97253072de4a18a848088aab8"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1Textfile.html#afcadb5e97253072de4a18a848088aab8">peek</a> ()</td></tr>
-<tr class="separator:afcadb5e97253072de4a18a848088aab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb942d6dc86c824545a61e19017a2f49"><td class="memItemLeft" align="right" valign="top">virtual char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1Textfile.html#aeb942d6dc86c824545a61e19017a2f49">read</a> ()=0</td></tr>
 <tr class="separator:aeb942d6dc86c824545a61e19017a2f49"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -215,6 +224,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1TextFileString.html#a471caa3e9729ccddea9407c4e4d92651">euphoria::core::detail::TextFileString</a>.</p>
+
 </div>
 </div>
 <a id="a90ef81cd68177c7b51cd2e23d08ec530"></a>
@@ -284,6 +295,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="textfileparser_8cc_source.html#l00015">15</a> of file <a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a>.</p>
+
 </div>
 </div>
 <a id="a557e2a1a1619724b81637befd0620d25"></a>
@@ -310,6 +323,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1TextFileString.html#a80ca57d91e6df2e56a76750ccaaefeef">euphoria::core::detail::TextFileString</a>.</p>
+
 </div>
 </div>
 <a id="aeb942d6dc86c824545a61e19017a2f49"></a>
@@ -335,10 +350,13 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1TextFileString.html#af5053f94956abeaafe192123a950175e">euphoria::core::detail::TextFileString</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>libs/core/src/core/<a class="el" href="textfileparser_8h_source.html">textfileparser.h</a></li>
+<li>libs/core/src/core/<a class="el" href="textfileparser_8cc_source.html">textfileparser.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

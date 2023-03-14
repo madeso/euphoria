@@ -22,11 +22,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/io.h" line="12" column="5" declfile="libs/core/src/core/io.h" declline="12" declcolumn="5"/>
+        <location file="libs/core/src/core/io.cc" line="12" column="5" bodyfile="libs/core/src/core/io.cc" bodystart="13" bodyend="25" declfile="libs/core/src/core/io.h" declline="12" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1ab4a881e9adbe98a723bdc575df4d8030" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1a7a74bf82d8072eafe22bb94f123dac9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::io::file_to_chunk</definition>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; euphoria::core::io::file_to_chunk</definition>
         <argsstring>(const std::string &amp;full_path)</argsstring>
         <name>file_to_chunk</name>
         <param>
@@ -39,11 +39,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/io.h" line="19" column="5" declfile="libs/core/src/core/io.h" declline="19" declcolumn="5"/>
+        <location file="libs/core/src/core/io.cc" line="36" column="5" bodyfile="libs/core/src/core/io.cc" bodystart="36" bodyend="64" declfile="libs/core/src/core/io.h" declline="19" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1aeea3b7b2a22dafd2d88cc84329796ac9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1io_1a357a1cc3107dc8779931f1aa2b3502b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; std::string &gt;</type>
-        <definition>std::optional&lt;std::string&gt; euphoria::core::io::file_to_string</definition>
+        <definition>std::optional&lt; std::string &gt; euphoria::core::io::file_to_string</definition>
         <argsstring>(const std::string &amp;full_path)</argsstring>
         <name>file_to_string</name>
         <param>
@@ -56,13 +56,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/io.h" line="22" column="5" declfile="libs/core/src/core/io.h" declline="22" declcolumn="5"/>
+        <location file="libs/core/src/core/io.cc" line="67" column="5" bodyfile="libs/core/src/core/io.cc" bodystart="67" bodyend="80" declfile="libs/core/src/core/io.h" declline="22" declcolumn="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/io.h" line="10" column="1"/>
+    <location file="libs/core/src/core/io.cc" line="10" column="1"/>
   </compounddef>
 </doxygen>

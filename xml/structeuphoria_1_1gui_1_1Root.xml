@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/root.h" line="38" column="18"/>
+        <location file="libs/gui/src/gui/root.h" line="38" column="18" bodyfile="libs/gui/src/gui/root.cc" bodystart="13" bodyend="16"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Root_1affca74f1174a8fea962c03225da03fba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/root.h" line="44" column="9"/>
+        <location file="libs/gui/src/gui/root.h" line="44" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="24" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Root_1a8af99b002a6732d606840c66eabb4689" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/root.h" line="53" column="9"/>
+        <location file="libs/gui/src/gui/root.h" line="53" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="43" bodyend="47"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Root_1a2d3550cd406863829858f55a78e5cee6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -195,7 +195,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/root.h" line="56" column="9"/>
+        <location file="libs/gui/src/gui/root.h" line="56" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="51" bodyend="56"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Root_1a2bb5a5822f473f3f174e2875d2ca0bd2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -212,7 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/root.h" line="59" column="9"/>
+        <location file="libs/gui/src/gui/root.h" line="59" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="60" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Root_1af5d1ae69ba49fff09f60b819991db7b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -229,7 +229,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/root.h" line="62" column="9"/>
+        <location file="libs/gui/src/gui/root.h" line="62" column="9" bodyfile="libs/gui/src/gui/root.cc" bodystart="68" bodyend="88"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -3,9 +3,9 @@
   <compounddef id="namespaceeuphoria_1_1render_1_1attributes2d" kind="namespace" language="C++">
     <compoundname>euphoria::render::attributes2d</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes2d_1a986fcff8a6b563c0473de634f2f1a31a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes2d_1a01fb2da2c64e439a22192bb6959f079f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute&amp; euphoria::render::attributes2d::vertex</definition>
+        <definition>const ShaderAttribute &amp; euphoria::render::attributes2d::vertex</definition>
         <argsstring>()</argsstring>
         <name>vertex</name>
         <briefdescription>
@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute2d.h" line="13" column="5" declfile="libs/render/src/render/shaderattribute2d.h" declline="13" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute2d.cc" line="10" column="5" bodyfile="libs/render/src/render/shaderattribute2d.cc" bodystart="10" bodyend="20" declfile="libs/render/src/render/shaderattribute2d.h" declline="13" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes2d_1a59427c67bd9aa56edfa6347622eb5c1d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -31,13 +31,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute2d.h" line="16" column="5" declfile="libs/render/src/render/shaderattribute2d.h" declline="16" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute2d.cc" line="24" column="5" bodyfile="libs/render/src/render/shaderattribute2d.cc" bodystart="24" bodyend="28" declfile="libs/render/src/render/shaderattribute2d.h" declline="16" declcolumn="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/shaderattribute2d.h" line="11" column="1"/>
+    <location file="libs/render/src/render/shaderattribute2d.cc" line="8" column="1"/>
   </compounddef>
 </doxygen>

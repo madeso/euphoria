@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlglcontext.h" line="12" column="9"/>
+        <location file="libs/window/src/window/sdlglcontext.h" line="12" column="9" bodyfile="libs/window/src/window/sdlglcontext.cc" bodystart="12" bodyend="20"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlAndOpenglContext_1a48d583ef0f80bcf1fe4500152737fcd3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlglcontext.h" line="13" column="9"/>
+        <location file="libs/window/src/window/sdlglcontext.h" line="13" column="9" bodyfile="libs/window/src/window/sdlglcontext.cc" bodystart="22" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlAndOpenglContext_1af7beeb890d31fdb6209586d5213ce94b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

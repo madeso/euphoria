@@ -15,13 +15,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="143" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="143" bodyend="-1"/>
+        <location file="libs/core/src/core/chatbot.h" line="136" column="25" bodyfile="libs/core/src/core/chatbot.h" bodystart="136" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Transposer_1a144bad5b1bc860ab56a99585ea598734" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Transposer_1aab48d08437ec40452b83c150a36ba2b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1detail_1_1Transposer" kindref="compound">Transposer</ref> &amp;</type>
-        <definition>Transposer&amp; euphoria::core::detail::Transposer::add</definition>
+        <definition>Transposer &amp; euphoria::core::detail::Transposer::add</definition>
         <argsstring>(const std::string &amp;from, const std::string &amp;to)</argsstring>
         <name>add</name>
         <param>
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="146" column="13"/>
+        <location file="libs/core/src/core/chatbot.h" line="138" column="24" bodyfile="libs/core/src/core/chatbot.cc" bodystart="218" bodyend="222"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1Transposer_1a907d7054e04937db0011bc0481ca82f0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -55,16 +55,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="149" column="13"/>
+        <location file="libs/core/src/core/chatbot.h" line="140" column="26" bodyfile="libs/core/src/core/chatbot.cc" bodystart="226" bodyend="237"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/chatbot.h" line="142" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="141" bodyend="150"/>
+    <location file="libs/core/src/core/chatbot.h" line="135" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="134" bodyend="141"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1detail_1_1Transposer_1a144bad5b1bc860ab56a99585ea598734" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Transposer</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1Transposer_1aab48d08437ec40452b83c150a36ba2b4" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Transposer</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1Transposer_1a351622d4ad989dc8adee878e0758ae81" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Transposer</scope><name>store</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1Transposer_1a907d7054e04937db0011bc0481ca82f0" prot="public" virt="non-virtual"><scope>euphoria::core::detail::Transposer</scope><name>transpose</name></member>
     </listofallmembers>

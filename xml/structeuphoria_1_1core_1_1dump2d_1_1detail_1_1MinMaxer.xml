@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::dump2d::detail::MinMaxer</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer_1ae0003cdb0d8d96bed3dc4d16bdd75a86" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f euphoria::core::dump2d::detail::MinMaxer::min</definition>
+        <argsstring></argsstring>
+        <name>min</name>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1vec2f_1a89a534774964e00c039cfba17ace7ecc" kindref="member">vec2f::zero</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="98" column="19" bodyfile="libs/core/src/core/dump.cc" bodystart="98" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer_1a02b33146f7ca2cf490166fefd7af594e" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f euphoria::core::dump2d::detail::MinMaxer::max</definition>
+        <argsstring></argsstring>
+        <name>max</name>
+        <initializer>= <ref refid="structeuphoria_1_1core_1_1vec2f_1a89a534774964e00c039cfba17ace7ecc" kindref="member">vec2f::zero</ref>()</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="99" column="19" bodyfile="libs/core/src/core/dump.cc" bodystart="99" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer_1ac09b368f8ba89428b89bcbf2259e5759" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer" kindref="compound">MinMaxer</ref> &amp;</type>
+        <definition>MinMaxer&amp; euphoria::core::dump2d::detail::MinMaxer::include</definition>
+        <argsstring>(const vec2f &amp;point, float extra=0)</argsstring>
+        <name>include</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>extra</declname>
+          <defval>0</defval>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="101" column="22" bodyfile="libs/core/src/core/dump.cc" bodystart="101" bodyend="110"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer_1a250428f8b4468d5dbc56cc66d4ab571f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer" kindref="compound">MinMaxer</ref> &amp;</type>
+        <definition>MinMaxer&amp; euphoria::core::dump2d::detail::MinMaxer::operator&lt;&lt;</definition>
+        <argsstring>(const vec2f &amp;point)</argsstring>
+        <name>operator&lt;&lt;</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>point</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dump.cc" line="112" column="13" bodyfile="libs/core/src/core/dump.cc" bodystart="112" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::dump2d::detail::MinMaxer</label>
+        <link refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>min</edgelabel>
+          <edgelabel>max</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::vec2f</label>
+        <link refid="structeuphoria_1_1core_1_1vec2f"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/dump.cc" line="97" column="1" bodyfile="libs/core/src/core/dump.cc" bodystart="96" bodyend="116"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer_1ac09b368f8ba89428b89bcbf2259e5759" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::detail::MinMaxer</scope><name>include</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer_1a02b33146f7ca2cf490166fefd7af594e" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::detail::MinMaxer</scope><name>max</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer_1ae0003cdb0d8d96bed3dc4d16bdd75a86" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::detail::MinMaxer</scope><name>min</name></member>
+      <member refid="structeuphoria_1_1core_1_1dump2d_1_1detail_1_1MinMaxer_1a250428f8b4468d5dbc56cc66d4ab571f" prot="public" virt="non-virtual"><scope>euphoria::core::dump2d::detail::MinMaxer</scope><name>operator&lt;&lt;</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

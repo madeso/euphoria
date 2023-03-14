@@ -5,6 +5,7 @@
     <includes local="no">memory</includes>
     <includes local="no">map</includes>
     <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
+    <includedby refid="tracery_8cc" local="yes">libs/core/src/core/tracery.cc</includedby>
     <incdepgraph>
       <node id="3">
         <label>map</label>
@@ -27,6 +28,18 @@
         <label>memory</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/tracery.h</label>
+        <link refid="tracery_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/tracery.cc</label>
+        <link refid="tracery_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Result" prot="public">euphoria::core::tracery::Result</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Node" prot="public">euphoria::core::tracery::Node</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" prot="public">euphoria::core::tracery::Modifier</innerclass>

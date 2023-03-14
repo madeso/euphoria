@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_bool.h" line="104" column="9"/>
+        <location file="libs/core/src/core/table_bool.h" line="104" column="9" bodyfile="libs/core/src/core/table_bool.cc" bodystart="255" bodyend="266"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1WallCounter_1af79c26fdf73fa111cdc4e6e708e14575" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -110,7 +110,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_bool.h" line="113" column="9"/>
+        <location file="libs/core/src/core/table_bool.h" line="113" column="9" bodyfile="libs/core/src/core/table_bool.cc" bodystart="306" bodyend="322"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

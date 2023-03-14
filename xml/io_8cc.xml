@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="io_8cc" kind="file" language="C++">
+    <compoundname>io.cc</compoundname>
+    <includes refid="io_8h" local="yes">core/io.h</includes>
+    <includes refid="log_8h" local="yes">log/log.h</includes>
+    <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includes local="no">fstream</includes>
+    <incdepgraph>
+      <node id="12">
+        <label>cstdint</label>
+      </node>
+      <node id="10">
+        <label>core/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>undef_windows/undef_windows.h</label>
+      </node>
+      <node id="14">
+        <label>fstream</label>
+      </node>
+      <node id="8">
+        <label>spdlog/fmt/ostr.h</label>
+      </node>
+      <node id="7">
+        <label>spdlog/spdlog.h</label>
+      </node>
+      <node id="2">
+        <label>core/io.h</label>
+        <link refid="io_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="6">
+        <label>log/log.h</label>
+        <link refid="log_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>core/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>cstddef</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/io.cc</label>
+        <link refid="io_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1io">euphoria::core::io</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/io.cc"/>
+  </compounddef>
+</doxygen>

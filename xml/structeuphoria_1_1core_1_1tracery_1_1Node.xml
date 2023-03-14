@@ -2,6 +2,8 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="structeuphoria_1_1core_1_1tracery_1_1Node" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::tracery::Node</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1tracery_1_1CallSymbolNode" prot="public" virt="non-virtual">euphoria::core::tracery::CallSymbolNode</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode" prot="public" virt="non-virtual">euphoria::core::tracery::LiteralStringNode</derivedcompoundref>
     <includes refid="tracery_8h" local="no">tracery.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1a942f7dbf74ab980899139eff519d780c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -15,11 +17,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="55" column="9"/>
+        <location file="libs/core/src/core/tracery.h" line="53" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1ae454cc4c402a16c5aa697486fefdbf1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1a64943ac46f812109bc06fbfd19373742" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
-        <definition>virtual euphoria::core::tracery::Node::~Node</definition>
+        <definition>euphoria::core::tracery::Node::~Node</definition>
         <argsstring>()</argsstring>
         <name>~Node</name>
         <briefdescription>
@@ -28,15 +30,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="56" column="17"/>
+        <location file="libs/core/src/core/tracery.h" line="54" column="17"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1a68a8044fe9dd2996bccc68bd7625ec90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1aac7856ed4539d3fd1253d2d7fe0bac61" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::core::tracery::Node::NONCOPYABLE</definition>
-        <argsstring>(Node)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::core::tracery::Node::Node</definition>
+        <argsstring>(const Node &amp;)=delete</argsstring>
+        <name>Node</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Node" kindref="compound">Node</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1tracery_1_1Node" kindref="compound">Node</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -44,15 +46,65 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="58" column="9"/>
+        <location file="libs/core/src/core/tracery.h" line="56" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1a85c7c9dfac59da26128467f508162f09" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1a763386e87cb4fdca13027e9ec54fddf6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::tracery::Node::Node</definition>
+        <argsstring>(Node &amp;&amp;)=delete</argsstring>
+        <name>Node</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Node" kindref="compound">Node</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="57" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1ad4e9efb8967f9ecf46778432af94587f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::tracery::Node::operator=</definition>
+        <argsstring>(const Node &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1tracery_1_1Node" kindref="compound">Node</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="58" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1a17f517719690b935ebe8f9c01fa2498e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::tracery::Node::operator=</definition>
+        <argsstring>(Node &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Node" kindref="compound">Node</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.h" line="59" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1Node_1a1d68f8224c8bddd4c67fd6e2e02f9225" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
         <definition>virtual Result euphoria::core::tracery::Node::flatten</definition>
-        <argsstring>(generator_argument *generator) const =0</argsstring>
+        <argsstring>(GeneratorArgument *generator) const =0</argsstring>
         <name>flatten</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode_1adf5f3d8c4c986c909ebb7fe1da9af571">flatten</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1tracery_1_1CallSymbolNode_1a3f9dc1369bc44382a0f89bc68563557c">flatten</reimplementedby>
         <param>
-          <type>generator_argument *</type>
+          <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1GeneratorArgument" kindref="compound">GeneratorArgument</ref> *</type>
           <declname>generator</declname>
         </param>
         <briefdescription>
@@ -61,19 +113,40 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.h" line="61" column="9"/>
+        <location file="libs/core/src/core/tracery.h" line="61" column="24"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/tracery.h" line="54" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="53" bodyend="62"/>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::tracery::CallSymbolNode</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1CallSymbolNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::tracery::LiteralStringNode</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1LiteralStringNode"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::core::tracery::Node</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1Node"/>
+      </node>
+    </inheritancegraph>
+    <location file="libs/core/src/core/tracery.h" line="52" column="1" bodyfile="libs/core/src/core/tracery.h" bodystart="51" bodyend="62"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a85c7c9dfac59da26128467f508162f09" prot="public" virt="pure-virtual"><scope>euphoria::core::tracery::Node</scope><name>flatten</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a1d68f8224c8bddd4c67fd6e2e02f9225" prot="public" virt="pure-virtual"><scope>euphoria::core::tracery::Node</scope><name>flatten</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a942f7dbf74ab980899139eff519d780c" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Node</scope><name>Node</name></member>
-      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a68a8044fe9dd2996bccc68bd7625ec90" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Node</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1ae454cc4c402a16c5aa697486fefdbf1e" prot="public" virt="virtual"><scope>euphoria::core::tracery::Node</scope><name>~Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1aac7856ed4539d3fd1253d2d7fe0bac61" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Node</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a763386e87cb4fdca13027e9ec54fddf6" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Node</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1ad4e9efb8967f9ecf46778432af94587f" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Node</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a17f517719690b935ebe8f9c01fa2498e" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::Node</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Node_1a64943ac46f812109bc06fbfd19373742" prot="public" virt="virtual"><scope>euphoria::core::tracery::Node</scope><name>~Node</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

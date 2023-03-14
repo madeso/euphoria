@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="87" column="14"/>
+        <location file="libs/core/src/core/generator_maze.h" line="87" column="14" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="196" bodyend="200"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a9b0aec4c5c21c81d2620db65df801ec9" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="88" column="14"/>
+        <location file="libs/core/src/core/generator_maze.h" line="88" column="14" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="211" bodyend="223"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1a26980f500e9414f8e47b848a4e578b1d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>bool</type>
@@ -89,7 +89,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_maze.h" line="89" column="15"/>
+        <location file="libs/core/src/core/generator_maze.h" line="89" column="15" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="204" bodyend="207"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

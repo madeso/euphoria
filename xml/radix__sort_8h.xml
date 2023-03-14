@@ -3,6 +3,7 @@
   <compounddef id="radix__sort_8h" kind="file" language="C++">
     <compoundname>radix_sort.h</compoundname>
     <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includedby refid="radix__sort_8cc" local="yes">libs/core/src/core/radix_sort.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/radix_sort.h</label>
@@ -31,6 +32,18 @@
         <label>cstddef</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/radix_sort.h</label>
+        <link refid="radix__sort_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/radix_sort.cc</label>
+        <link refid="radix__sort_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1BucketBase10" prot="public">euphoria::core::BucketBase10</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1BucketBase16" prot="public">euphoria::core::BucketBase16</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>

@@ -3,6 +3,7 @@
   <compounddef id="structeuphoria_1_1core_1_1textparser_1_1Visitor" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::textparser::Visitor</compoundname>
     <derivedcompoundref refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString" prot="public" virt="non-virtual">euphoria::core::textparser::VisitorDebugString</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1render_1_1UiTextCompileVisitor" prot="public" virt="non-virtual">euphoria::render::UiTextCompileVisitor</derivedcompoundref>
     <includes refid="ui__text_8h" local="no">ui_text.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb60b911945f69c8d56cb528edc8e4f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -53,6 +54,7 @@
         <argsstring>(const std::string &amp;text)=0</argsstring>
         <name>on_text</name>
         <reimplementedby refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a0c1ad0f14c1a8fa37bf264071abafa11">on_text</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1adf2c21fe3aec30691af90f3fc9af208d">on_text</reimplementedby>
         <param>
           <type>const std::string &amp;</type>
           <declname>text</declname>
@@ -70,6 +72,7 @@
         <definition>virtual void euphoria::core::textparser::Visitor::on_image</definition>
         <argsstring>(const std::string &amp;image)=0</argsstring>
         <name>on_image</name>
+        <reimplementedby refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a785f7a2c473cec0cf6359021a4a3a602">on_image</reimplementedby>
         <reimplementedby refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a0ff105ec76cd58fd1218a2e350c26f16">on_image</reimplementedby>
         <param>
           <type>const std::string &amp;</type>
@@ -89,6 +92,7 @@
         <argsstring>()=0</argsstring>
         <name>on_begin</name>
         <reimplementedby refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a17ade779771c6250f09a18fdb954ac2d">on_begin</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a0e515cbcbe0d29d47bdd4aaa9101206b">on_begin</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -103,6 +107,7 @@
         <argsstring>()=0</argsstring>
         <name>on_end</name>
         <reimplementedby refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1aa84520d3efa44b7215db67ea41cc5497">on_end</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1af7d6d14c2acc244bf7987ebba982299d">on_end</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -120,6 +125,12 @@
       <node id="2">
         <label>euphoria::core::textparser::VisitorDebugString</label>
         <link refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::render::UiTextCompileVisitor</label>
+        <link refid="structeuphoria_1_1render_1_1UiTextCompileVisitor"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>

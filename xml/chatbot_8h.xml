@@ -7,6 +7,7 @@
     <includes local="no">deque</includes>
     <includes local="no">optional</includes>
     <includes refid="random_8h" local="yes">core/random.h</includes>
+    <includedby refid="chatbot_8cc" local="yes">libs/core/src/core/chatbot.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/chatbot.h</label>
@@ -25,12 +26,12 @@
       <node id="12">
         <label>cstdint</label>
       </node>
-      <node id="20">
+      <node id="19">
         <label>core/cint.h</label>
         <link refid="cint_8h"/>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="21" relation="include">
+        <childnode refid="20" relation="include">
         </childnode>
       </node>
       <node id="9">
@@ -53,10 +54,10 @@
         </childnode>
         <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="23" relation="include">
+        <childnode refid="22" relation="include">
         </childnode>
       </node>
-      <node id="22">
+      <node id="21">
         <label>core/vec.base.h</label>
         <link refid="vec_8base_8h"/>
       </node>
@@ -68,10 +69,6 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="16">
-        <label>core/easing.h</label>
-        <link refid="easing_8h"/>
-      </node>
       <node id="13">
         <label>core/vec2.h</label>
         <link refid="vec2_8h"/>
@@ -81,13 +78,13 @@
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
         </childnode>
         <childnode refid="19" relation="include">
         </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-        <childnode refid="22" relation="include">
+        <childnode refid="21" relation="include">
         </childnode>
       </node>
       <node id="14">
@@ -96,7 +93,7 @@
       <node id="5">
         <label>optional</label>
       </node>
-      <node id="19">
+      <node id="18">
         <label>core/numeric.h</label>
         <link refid="numeric_8h"/>
       </node>
@@ -109,50 +106,60 @@
         <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="18">
+      <node id="17">
         <label>iostream</label>
       </node>
-      <node id="21">
+      <node id="20">
         <label>cstddef</label>
       </node>
       <node id="4">
         <label>deque</label>
       </node>
-      <node id="23">
+      <node id="15">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
+      </node>
+      <node id="22">
         <label>core/range.h</label>
         <link refid="range_8h"/>
-        <childnode refid="24" relation="include">
+        <childnode refid="23" relation="include">
         </childnode>
-        <childnode refid="17" relation="include">
-        </childnode>
-        <childnode refid="8" relation="include">
-        </childnode>
-        <childnode refid="20" relation="include">
-        </childnode>
-      </node>
-      <node id="17">
-        <label>core/angle.h</label>
-        <link refid="angle_8h"/>
-        <childnode refid="18" relation="include">
-        </childnode>
-        <childnode refid="19" relation="include">
-        </childnode>
-      </node>
-      <node id="24">
-        <label>type_traits</label>
-      </node>
-      <node id="15">
-        <label>core/interpolate.h</label>
-        <link refid="interpolate_8h"/>
         <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>core/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>type_traits</label>
       </node>
       <node id="3">
         <label>memory</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/chatbot.h</label>
+        <link refid="chatbot_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/chatbot.cc</label>
+        <link refid="chatbot_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Input" prot="public">euphoria::core::detail::Input</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1SingleResponse" prot="public">euphoria::core::detail::SingleResponse</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1detail_1_1Response" prot="public">euphoria::core::detail::Response</innerclass>

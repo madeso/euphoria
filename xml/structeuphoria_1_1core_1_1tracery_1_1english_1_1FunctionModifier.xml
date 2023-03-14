@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::tracery::english::FunctionModifier</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1tracery_1_1Modifier" prot="public" virt="non-virtual">euphoria::core::tracery::Modifier</basecompoundref>
+    <templateparamlist>
+      <param>
+        <type>typename TFunc</type>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1a9e0b87c19ff30833756cde2fe7bcaffd" prot="public" static="no" mutable="no">
+        <type>TFunc</type>
+        <definition>TFunc euphoria::core::tracery::english::FunctionModifier&lt; TFunc &gt;::func</definition>
+        <argsstring></argsstring>
+        <name>func</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="589" column="19" bodyfile="libs/core/src/core/tracery.cc" bodystart="589" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1a61248d6dc09ebed3e053b991fdeb86d4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::tracery::english::FunctionModifier&lt; TFunc &gt;::FunctionModifier</definition>
+        <argsstring>(TFunc f)</argsstring>
+        <name>FunctionModifier</name>
+        <param>
+          <type>TFunc</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="590" column="13" bodyfile="libs/core/src/core/tracery.cc" bodystart="590" bodyend="590"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1ac1bb6ee68705471a455178234eb3e8b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
+        <definition>Result euphoria::core::tracery::english::FunctionModifier&lt; TFunc &gt;::apply_modifier</definition>
+        <argsstring>(const std::string &amp;input) override</argsstring>
+        <name>apply_modifier</name>
+        <reimplements refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab4ef585d2da1b2d4f64ac96f1e6d0bc4">apply_modifier</reimplements>
+        <param>
+          <type>const std::string &amp;</type>
+          <declname>input</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/tracery.cc" line="592" column="20" bodyfile="libs/core/src/core/tracery.cc" bodystart="592" bodyend="596"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::tracery::english::FunctionModifier&lt; TFunc &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::tracery::Modifier</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1Modifier"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::tracery::english::FunctionModifier&lt; TFunc &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::tracery::Modifier</label>
+        <link refid="structeuphoria_1_1core_1_1tracery_1_1Modifier"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/tracery.cc" line="588" column="1" bodyfile="libs/core/src/core/tracery.cc" bodystart="587" bodyend="597"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1ac1bb6ee68705471a455178234eb3e8b1" prot="public" virt="virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>apply_modifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1a9e0b87c19ff30833756cde2fe7bcaffd" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>func</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1a61248d6dc09ebed3e053b991fdeb86d4" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>FunctionModifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ab1a68ba8c1815e5fe70404ca4391b54f" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>Modifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a93cc813a77ff3c0d55f504acc6bb3868" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>Modifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1ac0c9bd2554d99fa7e484c7990c887400" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>Modifier</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a88450d082931881e4bf089ab99e89fe7" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a253cef968f520adf2a6e419c58690266" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1tracery_1_1Modifier_1a9fb8e0170116f24f3e667ac5045fd87e" prot="public" virt="virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>~Modifier</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

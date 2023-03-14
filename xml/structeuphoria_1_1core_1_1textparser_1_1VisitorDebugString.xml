@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="85" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="85" column="13" bodyfile="libs/core/src/core/ui_text.cc" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a0ff105ec76cd58fd1218a2e350c26f16" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="88" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="88" column="13" bodyfile="libs/core/src/core/ui_text.cc" bodystart="55" bodyend="58"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a17ade779771c6250f09a18fdb954ac2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="91" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="91" column="13" bodyfile="libs/core/src/core/ui_text.cc" bodystart="61" bodyend="64"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1aa84520d3efa44b7215db67ea41cc5497" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -82,13 +82,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="94" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="94" column="13" bodyfile="libs/core/src/core/ui_text.cc" bodystart="67" bodyend="70"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a4662f57d0286f28d89b62f31f84ea635" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a790d8c48b0440514ce5546fe8b2a08ce" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>static std::string euphoria::core::textparser::VisitorDebugString::accept_all_nodes</definition>
+        <definition>std::string euphoria::core::textparser::VisitorDebugString::accept_all_nodes</definition>
         <argsstring>(UiText *visitor)</argsstring>
         <name>accept_all_nodes</name>
         <param>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="97" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="97" column="13" bodyfile="libs/core/src/core/ui_text.cc" bodystart="73" bodyend="78"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -141,7 +141,7 @@
     </collaborationgraph>
     <location file="libs/core/src/core/ui_text.h" line="81" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="80" bodyend="98"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a4662f57d0286f28d89b62f31f84ea635" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::VisitorDebugString</scope><name>accept_all_nodes</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a790d8c48b0440514ce5546fe8b2a08ce" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::VisitorDebugString</scope><name>accept_all_nodes</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb691a854b081e203bb171babe754516" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::VisitorDebugString</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1a17ade779771c6250f09a18fdb954ac2d" prot="public" virt="virtual"><scope>euphoria::core::textparser::VisitorDebugString</scope><name>on_begin</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1VisitorDebugString_1aa84520d3efa44b7215db67ea41cc5497" prot="public" virt="virtual"><scope>euphoria::core::textparser::VisitorDebugString</scope><name>on_end</name></member>

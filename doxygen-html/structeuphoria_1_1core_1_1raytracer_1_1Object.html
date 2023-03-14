@@ -61,6 +61,15 @@
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="raytracer_8h_source.html">raytracer.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for euphoria::core::raytracer::Object:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structeuphoria_1_1core_1_1raytracer_1_1Object.png" usemap="#euphoria::core::raytracer::Object_map" alt=""/>
+  <map id="euphoria::core::raytracer::Object_map" name="euphoria::core::raytracer::Object_map">
+<area href="structeuphoria_1_1core_1_1raytracer_1_1SphereObject.html" alt="euphoria::core::raytracer::SphereObject" shape="rect" coords="0,56,237,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -68,8 +77,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aa1ab463ec5bd8bca61e864468a06967e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a28cf47489b7cc21e1e8d1572027dad84"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#a28cf47489b7cc21e1e8d1572027dad84">~Object</a> ()=default</td></tr>
 <tr class="separator:a28cf47489b7cc21e1e8d1572027dad84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a477419d13cd78e181f7b301039446cfe"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#a477419d13cd78e181f7b301039446cfe">NONCOPYABLE</a> (<a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a>)</td></tr>
-<tr class="separator:a477419d13cd78e181f7b301039446cfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a227e9eb1b44ff94a92b6630b7d3b3650"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#a227e9eb1b44ff94a92b6630b7d3b3650">Object</a> (const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &amp;)=delete</td></tr>
+<tr class="separator:a227e9eb1b44ff94a92b6630b7d3b3650"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a497dca73ad3937c61e85097680d1e33d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#a497dca73ad3937c61e85097680d1e33d">Object</a> (<a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:a497dca73ad3937c61e85097680d1e33d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0754018fd671790a7f5b136502759e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#ae0754018fd671790a7f5b136502759e3">operator=</a> (const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &amp;)=delete</td></tr>
+<tr class="separator:ae0754018fd671790a7f5b136502759e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67167d153704c91251742449b707305"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#aa67167d153704c91251742449b707305">operator=</a> (<a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:aa67167d153704c91251742449b707305"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a635e30c2bf8a8a78fd8df27dc8435dca"><td class="memItemLeft" align="right" valign="top">virtual std::optional&lt; <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1HitResult.html">HitResult</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html#a635e30c2bf8a8a78fd8df27dc8435dca">hit</a> (const <a class="el" href="structeuphoria_1_1core_1_1UnitRay3f.html">UnitRay3f</a> &amp;ray, const <a class="el" href="structeuphoria_1_1core_1_1Range.html">Range</a>&lt; float &gt; &amp;range) const =0</td></tr>
 <tr class="separator:a635e30c2bf8a8a78fd8df27dc8435dca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -78,7 +93,7 @@ Public Member Functions</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="raytracer_8h_source.html#l00065">65</a> of file <a class="el" href="raytracer_8h_source.html">raytracer.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aa1ab463ec5bd8bca61e864468a06967e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa1ab463ec5bd8bca61e864468a06967e">&#9670;&nbsp;</a></span>Object()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1ab463ec5bd8bca61e864468a06967e">&#9670;&nbsp;</a></span>Object() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,6 +142,58 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a227e9eb1b44ff94a92b6630b7d3b3650"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a227e9eb1b44ff94a92b6630b7d3b3650">&#9670;&nbsp;</a></span>Object() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">euphoria::core::raytracer::Object::Object </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a497dca73ad3937c61e85097680d1e33d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a497dca73ad3937c61e85097680d1e33d">&#9670;&nbsp;</a></span>Object() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">euphoria::core::raytracer::Object::Object </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a635e30c2bf8a8a78fd8df27dc8435dca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a635e30c2bf8a8a78fd8df27dc8435dca">&#9670;&nbsp;</a></span>hit()</h2>
@@ -162,22 +229,58 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1SphereObject.html#acab56495380f02ba5875a98d9e8a5022">euphoria::core::raytracer::SphereObject</a>.</p>
+
 </div>
 </div>
-<a id="a477419d13cd78e181f7b301039446cfe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a477419d13cd78e181f7b301039446cfe">&#9670;&nbsp;</a></span>NONCOPYABLE()</h2>
+<a id="ae0754018fd671790a7f5b136502759e3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0754018fd671790a7f5b136502759e3">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">euphoria::core::raytracer::Object::NONCOPYABLE </td>
+          <td class="memname">void euphoria::core::raytracer::Object::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa67167d153704c91251742449b707305"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67167d153704c91251742449b707305">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::core::raytracer::Object::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1raytracer_1_1Object.html">Object</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

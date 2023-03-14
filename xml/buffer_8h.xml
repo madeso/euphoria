@@ -5,6 +5,8 @@
     <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
     <includes refid="id_8h" local="yes">render/id.h</includes>
     <includes refid="shaderattribute_8h" local="yes">render/shaderattribute.h</includes>
+    <includedby refid="attributebinder_8cc" local="yes">libs/render/src/render/attributebinder.cc</includedby>
+    <includedby refid="buffer_8cc" local="yes">libs/render/src/render/buffer.cc</includedby>
     <includedby refid="buffer2d_8h" local="yes">libs/render/src/render/buffer2d.h</includedby>
     <includedby refid="compiledlines_8h" local="yes">libs/render/src/render/compiledlines.h</includedby>
     <includedby refid="compiledmesh_8h" local="yes">libs/render/src/render/compiledmesh.h</includedby>
@@ -28,8 +30,6 @@
       <node id="3">
         <label>render/id.h</label>
         <link refid="id_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
@@ -43,10 +43,28 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="3">
+      <node id="5">
+        <label>libs/render/src/render/buffer2d.cc</label>
+        <link refid="buffer2d_8cc"/>
+      </node>
+      <node id="15">
+        <label>libs/render/src/render/compiledmesh.cc</label>
+        <link refid="compiledmesh_8cc"/>
+      </node>
+      <node id="14">
+        <label>libs/render/src/render/actor.cc</label>
+        <link refid="actor_8cc"/>
+      </node>
+      <node id="11">
+        <label>libs/render/src/render/positionedlines.cc</label>
+        <link refid="positionedlines_8cc"/>
+      </node>
+      <node id="8">
         <label>libs/render/src/render/compiledlines.h</label>
         <link refid="compiledlines_8h"/>
-        <childnode refid="4" relation="include">
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -56,25 +74,63 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="5" relation="include">
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
-      <node id="2">
+      <node id="4">
         <label>libs/render/src/render/buffer2d.h</label>
         <link refid="buffer2d_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
       </node>
-      <node id="4">
+      <node id="3">
+        <label>libs/render/src/render/buffer.cc</label>
+        <link refid="buffer_8cc"/>
+      </node>
+      <node id="9">
+        <label>libs/render/src/render/compiledlines.cc</label>
+        <link refid="compiledlines_8cc"/>
+      </node>
+      <node id="2">
+        <label>libs/render/src/render/attributebinder.cc</label>
+        <link refid="attributebinder_8cc"/>
+      </node>
+      <node id="10">
         <label>libs/render/src/render/positionedlines.h</label>
         <link refid="positionedlines_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
-      <node id="6">
+      <node id="7">
+        <label>libs/render/src/render/spriterender.cc</label>
+        <link refid="spriterender_8cc"/>
+      </node>
+      <node id="13">
         <label>libs/render/src/render/actor.h</label>
         <link refid="actor_8h"/>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
       </node>
-      <node id="5">
+      <node id="6">
+        <label>libs/render/src/render/scalablesprite.cc</label>
+        <link refid="scalablesprite_8cc"/>
+      </node>
+      <node id="12">
         <label>libs/render/src/render/compiledmesh.h</label>
         <link refid="compiledmesh_8h"/>
-        <childnode refid="6" relation="include">
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
     </invincdepgraph>

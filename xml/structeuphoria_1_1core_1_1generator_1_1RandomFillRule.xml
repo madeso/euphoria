@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1generator_1_1RandomFillRule" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::generator::RandomFillRule</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public" virt="non-virtual">euphoria::core::generator::Rule</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a53cdef76b16b5742f45c04cd693d7bb7" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+        <definition>Random* euphoria::core::generator::RandomFillRule::rand</definition>
+        <argsstring></argsstring>
+        <name>rand</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="41" column="16" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a9669e34144e8904309106a69caa6c3ec" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::generator::RandomFillRule::random_fill</definition>
+        <argsstring></argsstring>
+        <name>random_fill</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="42" column="15" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1ac30a841ba2378371e13206b092879652" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252" kindref="member">BorderSetupRule</ref> &gt;</type>
+        <definition>Lrud&lt;BorderSetupRule&gt; euphoria::core::generator::RandomFillRule::border_control</definition>
+        <argsstring></argsstring>
+        <name>border_control</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="43" column="14" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="43" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a483af82f84ef51f4133a70b35fad55aa" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::generator::RandomFillRule::RandomFillRule</definition>
+        <argsstring>(Random *r, float rf, Lrud&lt; BorderSetupRule &gt; bc)</argsstring>
+        <name>RandomFillRule</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>rf</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252" kindref="member">BorderSetupRule</ref> &gt;</type>
+          <declname>bc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="45" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="46" bodyend="55"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a47f937e94137814c5b3ea45c24eae10d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::RandomFillRule::step</definition>
+        <argsstring>(CellularAutomata *self) override</argsstring>
+        <name>step</name>
+        <reimplements refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a04bde9b4d49e0a19c91b5bfd334a2e34">step</reimplements>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
+          <declname>self</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_cell.cc" line="58" column="9" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="58" bodyend="64"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::generator::RandomFillRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::Rule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>euphoria::core::Random</label>
+        <link refid="structeuphoria_1_1core_1_1Random"/>
+      </node>
+      <node id="1">
+        <label>euphoria::core::generator::RandomFillRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>rand</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>border_control</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::Rule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
+      </node>
+      <node id="4">
+        <label>euphoria::core::Lrud&lt; BorderSetupRule &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Lrud"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/generator_cell.cc" line="40" column="1" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="39" bodyend="65"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1ac30a841ba2378371e13206b092879652" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>border_control</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a1041138a9a1e771c027c997e4ebfe11d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a7c949b42ed60b5af4a1c5e6410410502" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a53cdef76b16b5742f45c04cd693d7bb7" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>rand</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a9669e34144e8904309106a69caa6c3ec" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>random_fill</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a483af82f84ef51f4133a70b35fad55aa" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>RandomFillRule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1acee66f1f21e44dd69b1f3e6fb54174c5" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a0a8caf1dda89a98eeb44fd579d31da43" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a62efec702190ecb2f2dea4337fe95cba" prot="public" virt="non-virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>Rule</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a47f937e94137814c5b3ea45c24eae10d" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>step</name></member>
+      <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1adcac939654ffb9fcd2bbe5879ccbe6b4" prot="public" virt="virtual"><scope>euphoria::core::generator::RandomFillRule</scope><name>~Rule</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

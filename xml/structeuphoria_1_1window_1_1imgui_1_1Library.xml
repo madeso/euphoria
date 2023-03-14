@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imguilibrary.h" line="20" column="9"/>
+        <location file="libs/window/src/window/imguilibrary.h" line="20" column="9" bodyfile="libs/window/src/window/imguilibrary.cc" bodystart="67" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1Library_1a7dd515d32d168ad29c843522bc9f194d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imguilibrary.h" line="21" column="9"/>
+        <location file="libs/window/src/window/imguilibrary.h" line="21" column="9" bodyfile="libs/window/src/window/imguilibrary.cc" bodystart="91" bodyend="96"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1imgui_1_1Library_1a35dbf8dfeac32741e89772801e0262ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>

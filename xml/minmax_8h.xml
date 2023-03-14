@@ -5,16 +5,19 @@
     <includes local="no">tuple</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes refid="range_8h" local="yes">core/range.h</includes>
+    <includedby refid="image__draw_8cc" local="yes">libs/core/src/core/image_draw.cc</includedby>
+    <includedby refid="minmax_8cc" local="yes">libs/core/src/core/minmax.cc</includedby>
+    <includedby refid="palette__extract_8cc" local="yes">libs/core/src/core/palette_extract.cc</includedby>
     <incdepgraph>
-      <node id="13">
+      <node id="14">
         <label>cstdint</label>
       </node>
-      <node id="11">
+      <node id="12">
         <label>core/cint.h</label>
         <link refid="cint_8h"/>
-        <childnode refid="12" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="15" relation="include">
         </childnode>
       </node>
       <node id="4">
@@ -48,17 +51,21 @@
       <node id="5">
         <label>vector</label>
       </node>
-      <node id="12">
+      <node id="13">
         <label>core/ints.h</label>
         <link refid="ints_8h"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="14" relation="include">
         </childnode>
       </node>
       <node id="9">
         <label>iostream</label>
       </node>
-      <node id="14">
+      <node id="15">
         <label>cstddef</label>
+      </node>
+      <node id="11">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
       </node>
       <node id="6">
         <label>core/range.h</label>
@@ -69,7 +76,7 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
-        <childnode refid="11" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
       </node>
       <node id="8">
@@ -79,11 +86,37 @@
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
       </node>
       <node id="7">
         <label>type_traits</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/image_draw.cc</label>
+        <link refid="image__draw_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/minmax.h</label>
+        <link refid="minmax_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/minmax.cc</label>
+        <link refid="minmax_8cc"/>
+      </node>
+      <node id="4">
+        <label>libs/core/src/core/palette_extract.cc</label>
+        <link refid="palette__extract_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

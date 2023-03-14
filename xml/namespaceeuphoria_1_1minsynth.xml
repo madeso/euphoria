@@ -17,6 +17,7 @@
     <innerclass refid="structeuphoria_1_1minsynth_1_1SingleToneNode" prot="public">euphoria::minsynth::SingleToneNode</innerclass>
     <innerclass refid="structeuphoria_1_1minsynth_1_1ToneSender" prot="public">euphoria::minsynth::ToneSender</innerclass>
     <innerclass refid="structeuphoria_1_1minsynth_1_1ToneTaker" prot="public">euphoria::minsynth::ToneTaker</innerclass>
+    <innerclass refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverter" prot="public">euphoria::minsynth::ToneToFrequencyConverter</innerclass>
     <innerclass refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode" prot="public">euphoria::minsynth::ToneToFrequencyConverterNode</innerclass>
     <innerclass refid="structeuphoria_1_1minsynth_1_1VolumeNode" prot="public">euphoria::minsynth::VolumeNode</innerclass>
     <innerclass refid="structeuphoria_1_1minsynth_1_1WaveOut" prot="public">euphoria::minsynth::WaveOut</innerclass>
@@ -377,7 +378,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="396" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="396" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="346" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="346" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="namespaceeuphoria_1_1minsynth_1acb78f91aac409ef7c869063e5053da3b" prot="public" static="no" constexpr="yes" mutable="no">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::pi</definition>
+        <argsstring></argsstring>
+        <name>pi</name>
+        <initializer>= core::pi</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="30" column="21" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="30" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
@@ -396,7 +413,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="93" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="93" declcolumn="5"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="34" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="34" bodyend="48" declfile="libs/minsynth/src/minsynth/synth.h" declline="92" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a827f8d0bd29d9c9f49b5c4d3d3a3326d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -413,58 +430,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="96" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="96" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a31971bc8b88be775990bea3242853c5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string euphoria::minsynth::midi_event_to_string</definition>
-        <argsstring>(MidiEvent e)</argsstring>
-        <name>midi_event_to_string</name>
-        <param>
-          <type><ref refid="namespaceeuphoria_1_1minsynth_1a821866f9bf9aa5172fdfd845bea67d7e" kindref="member">MidiEvent</ref></type>
-          <declname>e</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="100" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="100" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a1f9fea0477db8f579df8bec5e24e9566" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string euphoria::minsynth::to_string</definition>
-        <argsstring>(ArpMode mode)</argsstring>
-        <name>to_string</name>
-        <param>
-          <type><ref refid="namespaceeuphoria_1_1minsynth_1ab8f1b36052b33e2aae71f969abfb0baa" kindref="member">ArpMode</ref></type>
-          <declname>mode</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="103" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="103" declcolumn="5"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a74538fed2b33e1754aeff67ecee5b625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string euphoria::minsynth::to_string</definition>
-        <argsstring>(OscilatorType osc)</argsstring>
-        <name>to_string</name>
-        <param>
-          <type><ref refid="namespaceeuphoria_1_1minsynth_1aeb6c8add531ef27a96638373a90cea58" kindref="member">OscilatorType</ref></type>
-          <declname>osc</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="107" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="107" declcolumn="5"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="51" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="51" bodyend="67" declfile="libs/minsynth/src/minsynth/synth.h" declline="93" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1abc7e56639fd61bbf02eea77afd601198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -481,7 +447,86 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="110" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="110" declcolumn="5"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="70" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="70" bodyend="84" declfile="libs/minsynth/src/minsynth/synth.h" declline="99" declcolumn="11"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a31971bc8b88be775990bea3242853c5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::minsynth::midi_event_to_string</definition>
+        <argsstring>(MidiEvent e)</argsstring>
+        <name>midi_event_to_string</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1minsynth_1a821866f9bf9aa5172fdfd845bea67d7e" kindref="member">MidiEvent</ref></type>
+          <declname>e</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="88" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="88" bodyend="101" declfile="libs/minsynth/src/minsynth/synth.h" declline="97" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a1f9fea0477db8f579df8bec5e24e9566" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::minsynth::to_string</definition>
+        <argsstring>(ArpMode mode)</argsstring>
+        <name>to_string</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1minsynth_1ab8f1b36052b33e2aae71f969abfb0baa" kindref="member">ArpMode</ref></type>
+          <declname>mode</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="105" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="105" bodyend="117" declfile="libs/minsynth/src/minsynth/synth.h" declline="94" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a74538fed2b33e1754aeff67ecee5b625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::minsynth::to_string</definition>
+        <argsstring>(OscilatorType osc)</argsstring>
+        <name>to_string</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1minsynth_1aeb6c8add531ef27a96638373a90cea58" kindref="member">OscilatorType</ref></type>
+          <declname>osc</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="121" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="121" bodyend="132" declfile="libs/minsynth/src/minsynth/synth.h" declline="95" declcolumn="17"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a51e00938dd1090d830e4233fd2cd189e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>int</type>
+            <declname>tones_per_octave</declname>
+            <defname>tones_per_octave</defname>
+          </param>
+        </templateparamlist>
+        <type>float</type>
+        <definition>float euphoria::minsynth::template_tone_to_frequency</definition>
+        <argsstring>(int tone, float base_frequency)</argsstring>
+        <name>template_tone_to_frequency</name>
+        <param>
+          <type>int</type>
+          <declname>tone</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>base_frequency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="180" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="180" bodyend="184"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1ae534d2024436bb44cbfec1de623b2eb6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -502,7 +547,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="113" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="113" declcolumn="5"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="187" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="187" bodyend="190" declfile="libs/minsynth/src/minsynth/synth.h" declline="101" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1ae065172f91d50bad28ea93248786e964" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -527,7 +572,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="295" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="295" declcolumn="5"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="626" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="626" bodyend="642" declfile="libs/minsynth/src/minsynth/synth.h" declline="266" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a399379e0e11eb95b282debfd0bebbb45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -552,11 +597,80 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="314" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="314" declcolumn="5"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="646" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="646" bodyend="649" declfile="libs/minsynth/src/minsynth/synth.h" declline="284" declcolumn="11"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a63a8b3b7970b4e1600a56e0ea0e644e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a85383be5ad0faddfc33b0d7690f77915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; <ref refid="structeuphoria_1_1minsynth_1_1PianoKey" kindref="compound">PianoKey</ref> &gt;</type>
+        <definition>std::vector&lt;PianoKey&gt; euphoria::minsynth::build_one_cctave_of_piano_keys</definition>
+        <argsstring>(int octave, int semitone_offset, core::Key c, core::Key d, core::Key e, core::Key f, core::Key g, core::Key a, core::Key b, core::Key c_sharp, core::Key d_sharp, core::Key f_sharp, core::Key g_sharp, core::Key a_sharp)</argsstring>
+        <name>build_one_cctave_of_piano_keys</name>
+        <param>
+          <type>int</type>
+          <declname>octave</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>semitone_offset</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>d</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>e</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>f</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>c_sharp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>d_sharp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>f_sharp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>g_sharp</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
+          <declname>a_sharp</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="826" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="827" bodyend="860"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a63505e1e7e5e73f0b1a4a4f2f86ed2dc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="namespaceeuphoria_1_1minsynth_1aa21cb3e6bd490d8774b8ae40dd142283" kindref="member">KeyboardLayout</ref> &amp;</type>
-        <definition>const KeyboardLayout&amp; euphoria::minsynth::create_qwerty_keyboard_layout</definition>
+        <definition>const KeyboardLayout &amp; euphoria::minsynth::create_qwerty_keyboard_layout</definition>
         <argsstring>()</argsstring>
         <name>create_qwerty_keyboard_layout</name>
         <briefdescription>
@@ -565,7 +679,44 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="400" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="400" declcolumn="5"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="864" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="864" bodyend="877" declfile="libs/minsynth/src/minsynth/synth.h" declline="349" declcolumn="26"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a67142eb745db7fbaa143ffbd064c06a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::minsynth::setup_one_octave_layout</definition>
+        <argsstring>(std::vector&lt; PianoKey &gt; *keys, int base_octave, int octave, const KeyboardLayout &amp;k, int start_row, int start_col)</argsstring>
+        <name>setup_one_octave_layout</name>
+        <param>
+          <type>std::vector&lt; <ref refid="structeuphoria_1_1minsynth_1_1PianoKey" kindref="compound">PianoKey</ref> &gt; *</type>
+          <declname>keys</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>base_octave</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>octave</declname>
+        </param>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1minsynth_1aa21cb3e6bd490d8774b8ae40dd142283" kindref="member">KeyboardLayout</ref> &amp;</type>
+          <declname>k</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>start_row</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>start_col</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="881" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="882" bodyend="926"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a9024fac3bc4b8af0580b378ae267d230" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -590,13 +741,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="403" column="5" declfile="libs/minsynth/src/minsynth/synth.h" declline="403" declcolumn="5"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="930" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="931" bodyend="955" declfile="libs/minsynth/src/minsynth/synth.h" declline="351" declcolumn="10"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="12" column="1"/>
+    <location file="libs/minsynth/src/minsynth/synth.cc" line="28" column="1"/>
   </compounddef>
 </doxygen>

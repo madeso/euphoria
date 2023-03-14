@@ -3,21 +3,6 @@
   <compounddef id="structeuphoria_1_1core_1_1StructTmWrapper" kind="struct" language="C++" prot="public">
     <compoundname>euphoria::core::StructTmWrapper</compoundname>
     <includes refid="datetime_8h" local="no">datetime.h</includes>
-      <sectiondef kind="friend">
-      <memberdef kind="friend" id="structeuphoria_1_1core_1_1StructTmWrapper_1a7604b57ae035915cd0309cd20353f56c" prot="protected" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>friend struct</type>
-        <definition>friend struct TimetWrapper</definition>
-        <argsstring></argsstring>
-        <name>TimetWrapper</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="43" column="9" bodyfile="libs/core/src/core/datetime.h" bodystart="43" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1StructTmWrapper_1ae7828227c2bc7164fe03628f79b6aab3" prot="public" static="no" mutable="no">
         <type>struct tm</type>
@@ -30,11 +15,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="66" column="22" bodyfile="libs/core/src/core/datetime.h" bodystart="68" bodyend="-1"/>
+        <location file="libs/core/src/core/datetime.h" line="46" column="23" bodyfile="libs/core/src/core/datetime.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="protected-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aead262543c41149637bf7e1f167aa6cb" prot="protected" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aead262543c41149637bf7e1f167aa6cb" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::StructTmWrapper::StructTmWrapper</definition>
         <argsstring>(struct tm time)</argsstring>
@@ -49,10 +34,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="44" column="18"/>
+        <location file="libs/core/src/core/datetime.h" line="54" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="89" bodyend="92"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a49957315c0fb9114e70c57cdf332800f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::StructTmWrapper::StructTmWrapper</definition>
@@ -76,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="47" column="9"/>
+        <location file="libs/core/src/core/datetime.h" line="55" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="95" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aa44c1c3c71835ef3bef8f205417384c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -118,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="48" column="9"/>
+        <location file="libs/core/src/core/datetime.h" line="56" column="9" bodyfile="libs/core/src/core/datetime.cc" bodystart="108" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a05cf3fcc727666e715e393cdeba4f524" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -135,7 +118,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="50" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="58" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="123" bodyend="126"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a27851fe644bb96cfb0bad19ebd89ab23" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -152,7 +135,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="51" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="59" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="130" bodyend="133"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a9e4f37282b8cbfff2cfdb46646c0e0f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -169,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="52" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="60" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="137" bodyend="140"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1af3a58fd29f6ed7c416a407c758dd9217" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -186,7 +169,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="53" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="61" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="144" bodyend="147"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a24a4b7daa6a6c4367388b39835b73888" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -203,7 +186,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="54" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="62" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="151" bodyend="154"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a64a9fb17d62728ab8f95cea69ca3743f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -220,7 +203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="55" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="63" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="158" bodyend="161"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aa44b3dd4fde61bdc5a6cdd793868e240" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -237,7 +220,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="56" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="64" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="165" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1ae61a45ff8d3b1639a333a7c4223fcffc" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -250,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="58" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="66" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="185" bodyend="188"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aaaa9319ad1bfd3edb3688bfd11cf4e12" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -263,7 +246,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="59" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="67" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="192" bodyend="195"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a182dee4f4587f4f75cfbb2c5576736a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -276,7 +259,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="60" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="68" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="198" bodyend="201"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aaa4bdae3267005eed13b1c6752c77bc7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -289,7 +272,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="61" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="69" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="205" bodyend="208"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1aae9f844b17d6dd746edbc1bb572fce99" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a6e9d54d933dc9e9c9314cd763a39d52a" kindref="member">Month</ref></type>
@@ -302,7 +285,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="62" column="16"/>
+        <location file="libs/core/src/core/datetime.h" line="70" column="16" bodyfile="libs/core/src/core/datetime.cc" bodystart="212" bodyend="215"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1acd57cd86262ba4c5fc0cd0f0197638ce" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -315,7 +298,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="63" column="14"/>
+        <location file="libs/core/src/core/datetime.h" line="71" column="14" bodyfile="libs/core/src/core/datetime.cc" bodystart="218" bodyend="221"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a7e0a46e3e583580d3f85c7c663984269" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1a694ea38f253fd5079cc1d7eb1acd757c" kindref="member">DstInfo</ref></type>
@@ -328,7 +311,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="64" column="18"/>
+        <location file="libs/core/src/core/datetime.h" line="72" column="18" bodyfile="libs/core/src/core/datetime.cc" bodystart="225" bodyend="239"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1StructTmWrapper_1a92d85bd49ee5b1f831b7048331ef95f5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -341,14 +324,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/datetime.h" line="66" column="22"/>
+        <location file="libs/core/src/core/datetime.h" line="74" column="22" bodyfile="libs/core/src/core/datetime.cc" bodystart="243" bodyend="262"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/datetime.h" line="41" column="1" bodyfile="libs/core/src/core/datetime.h" bodystart="40" bodyend="69"/>
+    <location file="libs/core/src/core/datetime.h" line="51" column="1" bodyfile="libs/core/src/core/datetime.h" bodystart="50" bodyend="75"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aaa4bdae3267005eed13b1c6752c77bc7" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>get_day_of_moth</name></member>
       <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a7e0a46e3e583580d3f85c7c663984269" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>get_dst</name></member>
@@ -364,11 +347,10 @@
       <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a24a4b7daa6a6c4367388b39835b73888" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_month</name></member>
       <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a05cf3fcc727666e715e393cdeba4f524" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_seconds</name></member>
       <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a64a9fb17d62728ab8f95cea69ca3743f" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>set_year</name></member>
-      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aead262543c41149637bf7e1f167aa6cb" prot="protected" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
+      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aead262543c41149637bf7e1f167aa6cb" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
       <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a49957315c0fb9114e70c57cdf332800f" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
       <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1aa44c1c3c71835ef3bef8f205417384c6" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>StructTmWrapper</name></member>
       <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1ae7828227c2bc7164fe03628f79b6aab3" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>time</name></member>
-      <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a7604b57ae035915cd0309cd20353f56c" prot="protected" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>TimetWrapper</name></member>
       <member refid="structeuphoria_1_1core_1_1StructTmWrapper_1a92d85bd49ee5b1f831b7048331ef95f5" prot="public" virt="non-virtual"><scope>euphoria::core::StructTmWrapper</scope><name>to_debug_string</name></member>
     </listofallmembers>
   </compounddef>

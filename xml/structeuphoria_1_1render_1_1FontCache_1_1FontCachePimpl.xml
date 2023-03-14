@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::render::FontCache::FontCachePimpl</compoundname>
+    <basecompoundref refid="structeuphoria_1_1core_1_1Cache" prot="public" virt="non-virtual">euphoria::core::Cache&lt; core::vfs::FilePath, DrawableFont, FontCache::FontCachePimpl &gt;</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl_1a72d28155fe18a466489933400d50acdf" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+        <definition>core::vfs::FileSystem* euphoria::render::FontCache::FontCachePimpl::vfs</definition>
+        <argsstring></argsstring>
+        <name>vfs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/fontcache.cc" line="29" column="31" bodyfile="libs/render/src/render/fontcache.cc" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl_1ae3d83e277499f996498050c384b204b2" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
+        <definition>TextureCache* euphoria::render::FontCache::FontCachePimpl::cache</definition>
+        <argsstring></argsstring>
+        <name>cache</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/fontcache.cc" line="30" column="22" bodyfile="libs/render/src/render/fontcache.cc" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl_1a1775b6d12b46057dd60f8a607e3a684c" prot="public" static="no" const="no" explicit="yes" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::FontCache::FontCachePimpl::FontCachePimpl</definition>
+        <argsstring>(core::vfs::FileSystem *fs, TextureCache *c)</argsstring>
+        <name>FontCachePimpl</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> *</type>
+          <declname>fs</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/fontcache.cc" line="15" column="18" bodyfile="libs/render/src/render/fontcache.cc" bodystart="15" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl_1a6571a10df6155510f9048dad50f1382c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1DrawableFont" kindref="compound">DrawableFont</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;DrawableFont&gt; euphoria::render::FontCache::FontCachePimpl::create</definition>
+        <argsstring>(const core::vfs::FilePath &amp;file)</argsstring>
+        <name>create</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">core::vfs::FilePath</ref> &amp;</type>
+          <declname>file</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/fontcache.cc" line="23" column="9" bodyfile="libs/render/src/render/fontcache.cc" bodystart="23" bodyend="27"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::Cache&lt; core::vfs::FilePath, DrawableFont, FontCache::FontCachePimpl &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Cache"/>
+      </node>
+      <node id="1">
+        <label>euphoria::render::FontCache::FontCachePimpl</label>
+        <link refid="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>euphoria::core::Cache&lt; core::vfs::FilePath, DrawableFont, FontCache::FontCachePimpl &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Cache"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::vfs::FileSystem</label>
+        <link refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem"/>
+      </node>
+      <node id="1">
+        <label>euphoria::render::FontCache::FontCachePimpl</label>
+        <link refid="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>vfs</edgelabel>
+        </childnode>
+        <childnode refid="4" relation="usage">
+          <edgelabel>cache</edgelabel>
+        </childnode>
+      </node>
+      <node id="4">
+        <label>euphoria::render::TextureCache</label>
+        <link refid="structeuphoria_1_1render_1_1TextureCache"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/render/src/render/fontcache.cc" line="14" column="1" bodyfile="libs/render/src/render/fontcache.cc" bodystart="12" bodyend="31"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl_1ae3d83e277499f996498050c384b204b2" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache::FontCachePimpl</scope><name>cache</name></member>
+      <member refid="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl_1a6571a10df6155510f9048dad50f1382c" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache::FontCachePimpl</scope><name>create</name></member>
+      <member refid="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl_1a1775b6d12b46057dd60f8a607e3a684c" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache::FontCachePimpl</scope><name>FontCachePimpl</name></member>
+      <member refid="structeuphoria_1_1core_1_1Cache_1a60fc15b9f387f876fb12f851e8ab53ed" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache::FontCachePimpl</scope><name>get</name></member>
+      <member refid="structeuphoria_1_1core_1_1Cache_1a530e663b62a05d210f80ac1f96302381" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache::FontCachePimpl</scope><name>store</name></member>
+      <member refid="structeuphoria_1_1render_1_1FontCache_1_1FontCachePimpl_1a72d28155fe18a466489933400d50acdf" prot="public" virt="non-virtual"><scope>euphoria::render::FontCache::FontCachePimpl</scope><name>vfs</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

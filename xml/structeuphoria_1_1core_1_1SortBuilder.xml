@@ -8,13 +8,13 @@
         <type>typename T</type>
       </param>
       <param>
-        <type>typename Self</type>
+        <type>typename TSelf</type>
       </param>
     </templateparamlist>
       <sectiondef kind="public-attrib">
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SortBuilder_1ad690c799d7ced09f3eeeb76bbc35da4f" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SortBuilder_1a32c3d4316324216029ce57f99a4fe5b0" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1aa7b5cb44c97d3860db511720967d640f" kindref="member">SortableList</ref>&lt; T &gt;</type>
-        <definition>SortableList&lt;T&gt; euphoria::core::SortBuilder&lt; T, Self &gt;::sort_order</definition>
+        <definition>SortableList&lt;T&gt; euphoria::core::SortBuilder&lt; T, TSelf &gt;::sort_order</definition>
         <argsstring></argsstring>
         <name>sort_order</name>
         <briefdescription>
@@ -23,11 +23,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/multisort.h" line="72" column="22" bodyfile="libs/core/src/core/multisort.h" bodystart="72" bodyend="-1"/>
+        <location file="libs/core/src/core/multisort.h" line="76" column="22" bodyfile="libs/core/src/core/multisort.h" bodystart="76" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SortBuilder_1a3278bb812397f81192575e1b6235b5b4" prot="public" static="no" mutable="no">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1SortBuilder_1a49408d25f88376a2d1a9239eead7a1be" prot="public" static="no" mutable="no">
         <type>bool</type>
-        <definition>bool euphoria::core::SortBuilder&lt; T, Self &gt;::stable_sort</definition>
+        <definition>bool euphoria::core::SortBuilder&lt; T, TSelf &gt;::stable_sort</definition>
         <argsstring></argsstring>
         <name>stable_sort</name>
         <initializer>= false</initializer>
@@ -37,29 +37,29 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/multisort.h" line="73" column="14" bodyfile="libs/core/src/core/multisort.h" bodystart="73" bodyend="-1"/>
+        <location file="libs/core/src/core/multisort.h" line="77" column="14" bodyfile="libs/core/src/core/multisort.h" bodystart="77" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1SortBuilder_1a9e3dec25256497ec4a283143ec7cab1d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1SortBuilder_1ac6f0b60cae620630ddecf38ed92aef3d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-            <type>typename SortFunc</type>
+            <type>typename TSortFunc</type>
           </param>
           <param>
-            <type>typename <ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref></type>
+            <type>typename TValue</type>
           </param>
         </templateparamlist>
-        <type>Self &amp;</type>
-        <definition>Self&amp; euphoria::core::SortBuilder&lt; T, Self &gt;::sort</definition>
-        <argsstring>(Value T::*member, SortFunc sort_func, SortStyle sort_style=SortStyle::ascending)</argsstring>
+        <type>TSelf &amp;</type>
+        <definition>TSelf&amp; euphoria::core::SortBuilder&lt; T, TSelf &gt;::sort</definition>
+        <argsstring>(TValue T::*member, TSortFunc sort_func, SortStyle sort_style=SortStyle::ascending)</argsstring>
         <name>sort</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref> T::*</type>
+          <type>TValue T::*</type>
           <declname>member</declname>
         </param>
         <param>
-          <type>SortFunc</type>
+          <type>TSortFunc</type>
           <declname>sort_func</declname>
         </param>
         <param>
@@ -73,20 +73,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/multisort.h" line="77" column="9" bodyfile="libs/core/src/core/multisort.h" bodystart="78" bodyend="90"/>
+        <location file="libs/core/src/core/multisort.h" line="81" column="9" bodyfile="libs/core/src/core/multisort.h" bodystart="82" bodyend="94"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1SortBuilder_1ac56b0d42319bebcc5499e6dbe8ca0e6d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1SortBuilder_1ab5196e258e79c3d1a7c3920264d04229" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <templateparamlist>
           <param>
-            <type>typename <ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref></type>
+            <type>typename TValue</type>
           </param>
         </templateparamlist>
-        <type>Self &amp;</type>
-        <definition>Self&amp; euphoria::core::SortBuilder&lt; T, Self &gt;::sort</definition>
-        <argsstring>(Value T::*member, SortStyle sort_style=SortStyle::ascending)</argsstring>
+        <type>TSelf &amp;</type>
+        <definition>TSelf&amp; euphoria::core::SortBuilder&lt; T, TSelf &gt;::sort</definition>
+        <argsstring>(TValue T::*member, SortStyle sort_style=SortStyle::ascending)</argsstring>
         <name>sort</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Value" kindref="compound">Value</ref> T::*</type>
+          <type>TValue T::*</type>
           <declname>member</declname>
         </param>
         <param>
@@ -100,11 +100,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/multisort.h" line="94" column="9" bodyfile="libs/core/src/core/multisort.h" bodystart="94" bodyend="97"/>
+        <location file="libs/core/src/core/multisort.h" line="98" column="9" bodyfile="libs/core/src/core/multisort.h" bodystart="98" bodyend="101"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1SortBuilder_1a75a6af1e56d66fad086027e6718c2b0f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type>Self &amp;</type>
-        <definition>Self&amp; euphoria::core::SortBuilder&lt; T, Self &gt;::use_stable_sort</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1SortBuilder_1a2ad5f89dd8c4f39a6866ca8318af4606" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>TSelf &amp;</type>
+        <definition>TSelf&amp; euphoria::core::SortBuilder&lt; T, TSelf &gt;::use_stable_sort</definition>
         <argsstring>()</argsstring>
         <name>use_stable_sort</name>
         <briefdescription>
@@ -113,20 +113,30 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/multisort.h" line="100" column="9" bodyfile="libs/core/src/core/multisort.h" bodystart="100" bodyend="104"/>
+        <location file="libs/core/src/core/multisort.h" line="104" column="9" bodyfile="libs/core/src/core/multisort.h" bodystart="104" bodyend="108"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>TSelf</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>self for a CRTP reference </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
     </detaileddescription>
-    <location file="libs/core/src/core/multisort.h" line="71" column="1" bodyfile="libs/core/src/core/multisort.h" bodystart="70" bodyend="105"/>
+    <location file="libs/core/src/core/multisort.h" line="75" column="1" bodyfile="libs/core/src/core/multisort.h" bodystart="74" bodyend="109"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a9e3dec25256497ec4a283143ec7cab1d" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>sort</name></member>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1ac56b0d42319bebcc5499e6dbe8ca0e6d" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>sort</name></member>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1ad690c799d7ced09f3eeeb76bbc35da4f" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>sort_order</name></member>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a3278bb812397f81192575e1b6235b5b4" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>stable_sort</name></member>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a75a6af1e56d66fad086027e6718c2b0f" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>use_stable_sort</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1ac6f0b60cae620630ddecf38ed92aef3d" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>sort</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1ab5196e258e79c3d1a7c3920264d04229" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>sort</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a32c3d4316324216029ce57f99a4fe5b0" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>sort_order</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a49408d25f88376a2d1a9239eead7a1be" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>stable_sort</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a2ad5f89dd8c4f39a6866ca8318af4606" prot="public" virt="non-virtual"><scope>euphoria::core::SortBuilder</scope><name>use_stable_sort</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

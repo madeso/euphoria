@@ -3,6 +3,7 @@
   <compounddef id="bitfield_8h" kind="file" language="C++">
     <compoundname>bitfield.h</compoundname>
     <includes local="no">type_traits</includes>
+    <includedby refid="bitfield_8cc" local="yes">libs/core/src/core/bitfield.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/bitfield.h</label>
@@ -14,6 +15,18 @@
         <label>type_traits</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/bitfield.h</label>
+        <link refid="bitfield_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/bitfield.cc</label>
+        <link refid="bitfield_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1Bitfield" prot="public">euphoria::core::Bitfield</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

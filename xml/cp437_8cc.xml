@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="cp437_8cc" kind="file" language="C++">
+    <compoundname>cp437.cc</compoundname>
+    <includes refid="cp437_8h" local="yes">core/cp437.h</includes>
+    <includes local="no">array</includes>
+    <includes refid="assert_8h" local="yes">assert/assert.h</includes>
+    <includes refid="random_8h" local="yes">core/random.h</includes>
+    <includes refid="range_8h" local="yes">core/range.h</includes>
+    <incdepgraph>
+      <node id="11">
+        <label>cstdint</label>
+      </node>
+      <node id="18">
+        <label>core/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="9">
+        <label>range/v3/view/span.hpp</label>
+      </node>
+      <node id="8">
+        <label>core/random.h</label>
+        <link refid="random_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="20">
+        <label>core/vec.base.h</label>
+        <link refid="vec_8base_8h"/>
+      </node>
+      <node id="5">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>core/cp437.h</label>
+        <link refid="cp437_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string_view</label>
+      </node>
+      <node id="12">
+        <label>core/vec2.h</label>
+        <link refid="vec2_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>tuple</label>
+      </node>
+      <node id="17">
+        <label>core/numeric.h</label>
+        <link refid="numeric_8h"/>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="4">
+        <label>array</label>
+      </node>
+      <node id="10">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>iostream</label>
+      </node>
+      <node id="19">
+        <label>cstddef</label>
+      </node>
+      <node id="14">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
+      </node>
+      <node id="21">
+        <label>core/range.h</label>
+        <link refid="range_8h"/>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>core/angle.h</label>
+        <link refid="angle_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/cp437.cc</label>
+        <link refid="cp437_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>type_traits</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/cp437.cc"/>
+  </compounddef>
+</doxygen>

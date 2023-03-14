@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="vfs__defaultshaders_8cc" kind="file" language="C++">
+    <compoundname>vfs_defaultshaders.cc</compoundname>
+    <includes refid="vfs__defaultshaders_8h" local="yes">core/vfs_defaultshaders.h</includes>
+    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
+    <includes refid="log_8h" local="yes">log/log.h</includes>
+    <includes refid="vfs__path_8h" local="yes">core/vfs_path.h</includes>
+    <incdepgraph>
+      <node id="8">
+        <label>core/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>map</label>
+      </node>
+      <node id="12">
+        <label>undef_windows/undef_windows.h</label>
+      </node>
+      <node id="11">
+        <label>spdlog/fmt/ostr.h</label>
+      </node>
+      <node id="10">
+        <label>spdlog/spdlog.h</label>
+      </node>
+      <node id="14">
+        <label>tuple</label>
+      </node>
+      <node id="7">
+        <label>optional</label>
+      </node>
+      <node id="9">
+        <label>log/log.h</label>
+        <link refid="log_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>core/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/vfs_defaultshaders.cc</label>
+        <link refid="vfs__defaultshaders_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>core/vfs.h</label>
+        <link refid="vfs_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>core/vfs_path.h</label>
+        <link refid="vfs__path_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>core/vfs_defaultshaders.h</label>
+        <link refid="vfs__defaultshaders_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>type_traits</label>
+      </node>
+      <node id="5">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1vfs">euphoria::core::vfs</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/vfs_defaultshaders.cc"/>
+  </compounddef>
+</doxygen>

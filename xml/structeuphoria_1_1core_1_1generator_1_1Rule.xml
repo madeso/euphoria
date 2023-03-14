@@ -2,6 +2,11 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="structeuphoria_1_1core_1_1generator_1_1Rule" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::generator::Rule</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles" prot="public" virt="non-virtual">euphoria::core::generator::FillAllHoles</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule" prot="public" virt="non-virtual">euphoria::core::generator::FillSmallHolesRule</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule" prot="public" virt="non-virtual">euphoria::core::generator::HorizontalBlankRule</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule" prot="public" virt="non-virtual">euphoria::core::generator::RandomFillRule</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule" prot="public" virt="non-virtual">euphoria::core::generator::SmoothRule</derivedcompoundref>
     <includes refid="generator__cell_8h" local="no">generator_cell.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1generator_1_1Rule_1acee66f1f21e44dd69b1f3e6fb54174c5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -99,6 +104,11 @@
         <definition>virtual void euphoria::core::generator::Rule::step</definition>
         <argsstring>(CellularAutomata *self)=0</argsstring>
         <name>step</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule_1a3d460f0c8d41b3b1a8acc34e65c000a7">step</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule_1a47f937e94137814c5b3ea45c24eae10d">step</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule_1aa46c554ab7b16b9a1cd60b9893ada94d">step</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles_1a9e4837d16c9b85628302d2ef5df49d1f">step</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule_1aeb52ca9a06cc4d01449bb177757a36c1">step</reimplementedby>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" kindref="compound">CellularAutomata</ref> *</type>
           <declname>self</declname>
@@ -116,6 +126,42 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>euphoria::core::generator::FillSmallHolesRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>euphoria::core::generator::RandomFillRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>euphoria::core::generator::HorizontalBlankRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::generator::FillAllHoles</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>euphoria::core::generator::SmoothRule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::core::generator::Rule</label>
+        <link refid="structeuphoria_1_1core_1_1generator_1_1Rule"/>
+      </node>
+    </inheritancegraph>
     <location file="libs/core/src/core/generator_cell.h" line="23" column="1" bodyfile="libs/core/src/core/generator_cell.h" bodystart="22" bodyend="33"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rule_1a1041138a9a1e771c027c997e4ebfe11d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Rule</scope><name>operator=</name></member>

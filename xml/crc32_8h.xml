@@ -2,6 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="crc32_8h" kind="file" language="C++">
     <compoundname>crc32.h</compoundname>
+    <includedby refid="crc32_8cc" local="yes">libs/core/src/core/crc32.cc</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/crc32.h</label>
+        <link refid="crc32_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/crc32.cc</label>
+        <link refid="crc32_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

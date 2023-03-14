@@ -2,6 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="helptexthover_8h" kind="file" language="C++">
     <compoundname>helptexthover.h</compoundname>
+    <includedby refid="helptexthover_8cc" local="yes">libs/core/src/core/helptexthover.cc</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/helptexthover.cc</label>
+        <link refid="helptexthover_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/helptexthover.h</label>
+        <link refid="helptexthover_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1HelpTextHover" prot="public">euphoria::core::HelpTextHover</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

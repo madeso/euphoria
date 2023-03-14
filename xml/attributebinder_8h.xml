@@ -3,6 +3,9 @@
   <compounddef id="attributebinder_8h" kind="file" language="C++">
     <compoundname>attributebinder.h</compoundname>
     <includes refid="shaderattribute_8h" local="yes">render/shaderattribute.h</includes>
+    <includedby refid="attributebinder_8cc" local="yes">libs/render/src/render/attributebinder.cc</includedby>
+    <includedby refid="compiledlines_8cc" local="yes">libs/render/src/render/compiledlines.cc</includedby>
+    <includedby refid="compiledmesh_8cc" local="yes">libs/render/src/render/compiledmesh.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>render/shaderattribute.h</label>
@@ -21,6 +24,30 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="4">
+        <label>libs/render/src/render/compiledmesh.cc</label>
+        <link refid="compiledmesh_8cc"/>
+      </node>
+      <node id="3">
+        <label>libs/render/src/render/compiledlines.cc</label>
+        <link refid="compiledlines_8cc"/>
+      </node>
+      <node id="2">
+        <label>libs/render/src/render/attributebinder.cc</label>
+        <link refid="attributebinder_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/attributebinder.h</label>
+        <link refid="attributebinder_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
     <briefdescription>

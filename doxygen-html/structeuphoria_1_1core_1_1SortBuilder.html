@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: euphoria::core::SortBuilder&lt; T, Self &gt; Struct Template Reference</title>
+<title>Euphoria: euphoria::core::SortBuilder&lt; T, TSelf &gt; Struct Template Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -57,7 +57,7 @@
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structeuphoria_1_1core_1_1SortBuilder-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">euphoria::core::SortBuilder&lt; T, Self &gt; Struct Template Reference</div>  </div>
+<div class="title">euphoria::core::SortBuilder&lt; T, TSelf &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -65,52 +65,100 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9e3dec25256497ec4a283143ec7cab1d"><td class="memTemplParams" colspan="2">template&lt;typename SortFunc , typename Value &gt; </td></tr>
-<tr class="memitem:a9e3dec25256497ec4a283143ec7cab1d"><td class="memTemplItemLeft" align="right" valign="top">Self &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#a9e3dec25256497ec4a283143ec7cab1d">sort</a> (<a class="el" href="structeuphoria_1_1core_1_1Value.html">Value</a> T::*member, SortFunc sort_func, <a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dc">SortStyle</a> sort_style=<a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dca9c9ab624360885fcf93b7643c93b6748">SortStyle::ascending</a>)</td></tr>
-<tr class="separator:a9e3dec25256497ec4a283143ec7cab1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac56b0d42319bebcc5499e6dbe8ca0e6d"><td class="memTemplParams" colspan="2">template&lt;typename Value &gt; </td></tr>
-<tr class="memitem:ac56b0d42319bebcc5499e6dbe8ca0e6d"><td class="memTemplItemLeft" align="right" valign="top">Self &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#ac56b0d42319bebcc5499e6dbe8ca0e6d">sort</a> (<a class="el" href="structeuphoria_1_1core_1_1Value.html">Value</a> T::*member, <a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dc">SortStyle</a> sort_style=<a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dca9c9ab624360885fcf93b7643c93b6748">SortStyle::ascending</a>)</td></tr>
-<tr class="separator:ac56b0d42319bebcc5499e6dbe8ca0e6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a75a6af1e56d66fad086027e6718c2b0f"><td class="memItemLeft" align="right" valign="top">Self &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#a75a6af1e56d66fad086027e6718c2b0f">use_stable_sort</a> ()</td></tr>
-<tr class="separator:a75a6af1e56d66fad086027e6718c2b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f0b60cae620630ddecf38ed92aef3d"><td class="memTemplParams" colspan="2">template&lt;typename TSortFunc , typename TValue &gt; </td></tr>
+<tr class="memitem:ac6f0b60cae620630ddecf38ed92aef3d"><td class="memTemplItemLeft" align="right" valign="top">TSelf &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#ac6f0b60cae620630ddecf38ed92aef3d">sort</a> (TValue T::*member, TSortFunc sort_func, <a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dc">SortStyle</a> sort_style=<a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dca9c9ab624360885fcf93b7643c93b6748">SortStyle::ascending</a>)</td></tr>
+<tr class="separator:ac6f0b60cae620630ddecf38ed92aef3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab5196e258e79c3d1a7c3920264d04229"><td class="memTemplParams" colspan="2">template&lt;typename TValue &gt; </td></tr>
+<tr class="memitem:ab5196e258e79c3d1a7c3920264d04229"><td class="memTemplItemLeft" align="right" valign="top">TSelf &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#ab5196e258e79c3d1a7c3920264d04229">sort</a> (TValue T::*member, <a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dc">SortStyle</a> sort_style=<a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dca9c9ab624360885fcf93b7643c93b6748">SortStyle::ascending</a>)</td></tr>
+<tr class="separator:ab5196e258e79c3d1a7c3920264d04229"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ad5f89dd8c4f39a6866ca8318af4606"><td class="memItemLeft" align="right" valign="top">TSelf &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#a2ad5f89dd8c4f39a6866ca8318af4606">use_stable_sort</a> ()</td></tr>
+<tr class="separator:a2ad5f89dd8c4f39a6866ca8318af4606"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ad690c799d7ced09f3eeeb76bbc35da4f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#aa7b5cb44c97d3860db511720967d640f">SortableList</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#ad690c799d7ced09f3eeeb76bbc35da4f">sort_order</a></td></tr>
-<tr class="separator:ad690c799d7ced09f3eeeb76bbc35da4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3278bb812397f81192575e1b6235b5b4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#a3278bb812397f81192575e1b6235b5b4">stable_sort</a> = false</td></tr>
-<tr class="separator:a3278bb812397f81192575e1b6235b5b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32c3d4316324216029ce57f99a4fe5b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core.html#aa7b5cb44c97d3860db511720967d640f">SortableList</a>&lt; T &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#a32c3d4316324216029ce57f99a4fe5b0">sort_order</a></td></tr>
+<tr class="separator:a32c3d4316324216029ce57f99a4fe5b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49408d25f88376a2d1a9239eead7a1be"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html#a49408d25f88376a2d1a9239eead7a1be">stable_sort</a> = false</td></tr>
+<tr class="separator:a49408d25f88376a2d1a9239eead7a1be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename T, typename Self&gt;<br />
-struct euphoria::core::SortBuilder&lt; T, Self &gt;</h3>
+<div class="textblock"><h3>template&lt;typename T, typename TSelf&gt;<br />
+struct euphoria::core::SortBuilder&lt; T, TSelf &gt;</h3>
 
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">TSelf</td><td>self for a CRTP reference </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00070">70</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00074">74</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9e3dec25256497ec4a283143ec7cab1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e3dec25256497ec4a283143ec7cab1d">&#9670;&nbsp;</a></span>sort() <span class="overload">[1/2]</span></h2>
+<a id="ab5196e258e79c3d1a7c3920264d04229"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5196e258e79c3d1a7c3920264d04229">&#9670;&nbsp;</a></span>sort() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Self &gt; </div>
+template&lt;typename T , typename TSelf &gt; </div>
 <div class="memtemplate">
-template&lt;typename SortFunc , typename Value &gt; </div>
+template&lt;typename TValue &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Self&amp; <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, Self &gt;::sort </td>
+          <td class="memname">TSelf&amp; <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, TSelf &gt;::sort </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1Value.html">Value</a> T::*&#160;</td>
+          <td class="paramtype">TValue T::*&#160;</td>
           <td class="paramname"><em>member</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">SortFunc&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dc">SortStyle</a>&#160;</td>
+          <td class="paramname"><em>sort_style</em> = <code><a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dca9c9ab624360885fcf93b7643c93b6748">SortStyle::ascending</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00098">98</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
+
+</div>
+</div>
+<a id="ac6f0b60cae620630ddecf38ed92aef3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6f0b60cae620630ddecf38ed92aef3d">&#9670;&nbsp;</a></span>sort() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename TSelf &gt; </div>
+<div class="memtemplate">
+template&lt;typename TSortFunc , typename TValue &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">TSelf&amp; <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, TSelf &gt;::sort </td>
+          <td>(</td>
+          <td class="paramtype">TValue T::*&#160;</td>
+          <td class="paramname"><em>member</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">TSortFunc&#160;</td>
           <td class="paramname"><em>sort_func</em>, </td>
         </tr>
         <tr>
@@ -132,65 +180,23 @@ template&lt;typename SortFunc , typename Value &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00078">78</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00082">82</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
 
 </div>
 </div>
-<a id="ac56b0d42319bebcc5499e6dbe8ca0e6d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac56b0d42319bebcc5499e6dbe8ca0e6d">&#9670;&nbsp;</a></span>sort() <span class="overload">[2/2]</span></h2>
+<a id="a2ad5f89dd8c4f39a6866ca8318af4606"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ad5f89dd8c4f39a6866ca8318af4606">&#9670;&nbsp;</a></span>use_stable_sort()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Self &gt; </div>
-<div class="memtemplate">
-template&lt;typename Value &gt; </div>
+template&lt;typename T , typename TSelf &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Self&amp; <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, Self &gt;::sort </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1Value.html">Value</a> T::*&#160;</td>
-          <td class="paramname"><em>member</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dc">SortStyle</a>&#160;</td>
-          <td class="paramname"><em>sort_style</em> = <code><a class="el" href="namespaceeuphoria_1_1core.html#abfc67891bba4cfcbc72a6eaaeb6371dca9c9ab624360885fcf93b7643c93b6748">SortStyle::ascending</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00094">94</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
-
-</div>
-</div>
-<a id="a75a6af1e56d66fad086027e6718c2b0f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a75a6af1e56d66fad086027e6718c2b0f">&#9670;&nbsp;</a></span>use_stable_sort()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , typename Self &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Self&amp; <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, Self &gt;::use_stable_sort </td>
+          <td class="memname">TSelf&amp; <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, TSelf &gt;::use_stable_sort </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -203,44 +209,44 @@ template&lt;typename T , typename Self &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00100">100</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00104">104</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ad690c799d7ced09f3eeeb76bbc35da4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad690c799d7ced09f3eeeb76bbc35da4f">&#9670;&nbsp;</a></span>sort_order</h2>
+<a id="a32c3d4316324216029ce57f99a4fe5b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32c3d4316324216029ce57f99a4fe5b0">&#9670;&nbsp;</a></span>sort_order</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Self &gt; </div>
+template&lt;typename T , typename TSelf &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="namespaceeuphoria_1_1core.html#aa7b5cb44c97d3860db511720967d640f">SortableList</a>&lt;T&gt; <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, Self &gt;::sort_order</td>
+          <td class="memname"><a class="el" href="namespaceeuphoria_1_1core.html#aa7b5cb44c97d3860db511720967d640f">SortableList</a>&lt;T&gt; <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, TSelf &gt;::sort_order</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00072">72</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00076">76</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
 
 </div>
 </div>
-<a id="a3278bb812397f81192575e1b6235b5b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3278bb812397f81192575e1b6235b5b4">&#9670;&nbsp;</a></span>stable_sort</h2>
+<a id="a49408d25f88376a2d1a9239eead7a1be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49408d25f88376a2d1a9239eead7a1be">&#9670;&nbsp;</a></span>stable_sort</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , typename Self &gt; </div>
+template&lt;typename T , typename TSelf &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">bool <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, Self &gt;::stable_sort = false</td>
+          <td class="memname">bool <a class="el" href="structeuphoria_1_1core_1_1SortBuilder.html">euphoria::core::SortBuilder</a>&lt; T, TSelf &gt;::stable_sort = false</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00073">73</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="multisort_8h_source.html#l00077">77</a> of file <a class="el" href="multisort_8h_source.html">multisort.h</a>.</p>
 
 </div>
 </div>

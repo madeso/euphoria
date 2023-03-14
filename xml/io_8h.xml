@@ -5,6 +5,8 @@
     <includes local="no">memory</includes>
     <includes local="no">optional</includes>
     <includes refid="memorychunk_8h" local="yes">core/memorychunk.h</includes>
+    <includedby refid="io_8cc" local="yes">libs/core/src/core/io.cc</includedby>
+    <includedby refid="vfs_8cc" local="yes">libs/core/src/core/vfs.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/io.h</label>
@@ -29,6 +31,24 @@
         <label>memory</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/io.h</label>
+        <link refid="io_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/vfs.cc</label>
+        <link refid="vfs_8cc"/>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/io.cc</label>
+        <link refid="io_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1io">euphoria::core::io</innernamespace>

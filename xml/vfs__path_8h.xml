@@ -5,12 +5,27 @@
     <includes local="no">optional</includes>
     <includes local="no">tuple</includes>
     <includes local="no">type_traits</includes>
+    <includedby refid="enum_8cc" local="yes">libs/core/src/core/enum.cc</includedby>
+    <includedby refid="image_8cc" local="yes">libs/core/src/core/image.cc</includedby>
+    <includedby refid="loadedfont_8cc" local="yes">libs/core/src/core/loadedfont.cc</includedby>
     <includedby refid="mesh_8h" local="yes">libs/core/src/core/mesh.h</includedby>
+    <includedby refid="proto_8cc" local="yes">libs/core/src/core/proto.cc</includedby>
+    <includedby refid="texttemplate_8cc" local="yes">libs/core/src/core/texttemplate.cc</includedby>
+    <includedby refid="vfs_8cc" local="yes">libs/core/src/core/vfs.cc</includedby>
+    <includedby refid="vfs__defaultshaders_8cc" local="yes">libs/core/src/core/vfs_defaultshaders.cc</includedby>
+    <includedby refid="vfs__imagegenerator_8cc" local="yes">libs/core/src/core/vfs_imagegenerator.cc</includedby>
     <includedby refid="vfs__imagegenerator_8h" local="yes">libs/core/src/core/vfs_imagegenerator.h</includedby>
+    <includedby refid="vfs__path_8cc" local="yes">libs/core/src/core/vfs_path.cc</includedby>
     <includedby refid="skin_8h" local="yes">libs/gui/src/gui/skin.h</includedby>
+    <includedby refid="compiledmesh_8cc" local="yes">libs/render/src/render/compiledmesh.cc</includedby>
+    <includedby refid="defaultfiles_8cc" local="yes">libs/render/src/render/defaultfiles.cc</includedby>
+    <includedby refid="font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
+    <includedby refid="fontcache_8cc" local="yes">libs/render/src/render/fontcache.cc</includedby>
     <includedby refid="materialshader_8h" local="yes">libs/render/src/render/materialshader.h</includedby>
     <includedby refid="materialshadercache_8h" local="yes">libs/render/src/render/materialshadercache.h</includedby>
     <includedby refid="shader_8h" local="yes">libs/render/src/render/shader.h</includedby>
+    <includedby refid="texture_8cc" local="yes">libs/render/src/render/texture.cc</includedby>
+    <includedby refid="texturecache_8cc" local="yes">libs/render/src/render/texturecache.cc</includedby>
     <incdepgraph>
       <node id="3">
         <label>tuple</label>
@@ -33,67 +48,295 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="2">
-        <label>libs/core/src/core/mesh.h</label>
-        <link refid="mesh_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
+      <node id="18">
+        <label>libs/window/src/window/engine.cc</label>
+        <link refid="engine_8cc"/>
+      </node>
+      <node id="25">
+        <label>libs/render/src/render/defaultfiles.cc</label>
+        <link refid="defaultfiles_8cc"/>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/image.cc</label>
+        <link refid="image_8cc"/>
+      </node>
+      <node id="11">
+        <label>libs/render/src/render/compiledmesh.cc</label>
+        <link refid="compiledmesh_8cc"/>
+      </node>
+      <node id="41">
+        <label>libs/render/src/render/sprite.cc</label>
+        <link refid="sprite_8cc"/>
       </node>
       <node id="10">
-        <label>libs/render/src/render/spriterender.h</label>
-        <link refid="spriterender_8h"/>
+        <label>libs/render/src/render/actor.cc</label>
+        <link refid="actor_8cc"/>
       </node>
-      <node id="7">
-        <label>libs/render/src/render/materialshader.h</label>
-        <link refid="materialshader_8h"/>
-        <childnode refid="8" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>libs/render/src/render/materialshadercache.h</label>
-        <link refid="materialshadercache_8h"/>
-      </node>
-      <node id="9">
-        <label>libs/render/src/render/shader.h</label>
-        <link refid="shader_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="1">
-        <label>libs/core/src/core/vfs_path.h</label>
-        <link refid="vfs__path_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-        <childnode refid="5" relation="include">
-        </childnode>
+      <node id="5">
+        <label>libs/core/src/core/mesh.h</label>
+        <link refid="mesh_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="9" relation="include">
-        </childnode>
+      </node>
+      <node id="27">
+        <label>libs/render/src/render/fontcache.cc</label>
+        <link refid="fontcache_8cc"/>
       </node>
       <node id="4">
-        <label>libs/render/src/render/actor.h</label>
-        <link refid="actor_8h"/>
+        <label>libs/core/src/core/loadedfont.cc</label>
+        <link refid="loadedfont_8cc"/>
       </node>
-      <node id="6">
-        <label>libs/gui/src/gui/skin.h</label>
-        <link refid="skin_8h"/>
+      <node id="23">
+        <label>libs/gui/src/gui/root.cc</label>
+        <link refid="root_8cc"/>
       </node>
-      <node id="3">
-        <label>libs/render/src/render/compiledmesh.h</label>
-        <link refid="compiledmesh_8h"/>
-        <childnode refid="4" relation="include">
+      <node id="21">
+        <label>libs/gui/src/gui/button.cc</label>
+        <link refid="button_8cc"/>
+      </node>
+      <node id="12">
+        <label>libs/core/src/core/proto.cc</label>
+        <link refid="proto_8cc"/>
+      </node>
+      <node id="24">
+        <label>libs/gui/src/gui/skin.cc</label>
+        <link refid="skin_8cc"/>
+      </node>
+      <node id="39">
+        <label>libs/render/src/render/spriterender.h</label>
+        <link refid="spriterender_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
         </childnode>
       </node>
-      <node id="5">
+      <node id="7">
+        <label>libs/core/src/core/mesh.cc</label>
+        <link refid="mesh_8cc"/>
+      </node>
+      <node id="26">
+        <label>libs/render/src/render/font.cc</label>
+        <link refid="font_8cc"/>
+      </node>
+      <node id="28">
+        <label>libs/render/src/render/materialshader.h</label>
+        <link refid="materialshader_8h"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="45">
+        <label>libs/render/src/render/texturecache.cc</label>
+        <link refid="texturecache_8cc"/>
+      </node>
+      <node id="31">
+        <label>libs/render/src/render/materialshadercache.h</label>
+        <link refid="materialshadercache_8h"/>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="34">
+        <label>libs/render/src/render/shader.h</label>
+        <link refid="shader_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>libs/render/src/render/buffer.cc</label>
+        <link refid="buffer_8cc"/>
+      </node>
+      <node id="44">
+        <label>libs/render/src/render/texture.cc</label>
+        <link refid="texture_8cc"/>
+      </node>
+      <node id="13">
+        <label>libs/core/src/core/texttemplate.cc</label>
+        <link refid="texttemplate_8cc"/>
+      </node>
+      <node id="16">
+        <label>libs/core/src/core/vfs_imagegenerator.cc</label>
+        <link refid="vfs__imagegenerator_8cc"/>
+      </node>
+      <node id="37">
+        <label>libs/render/src/render/shaderattribute2d.cc</label>
+        <link refid="shaderattribute2d_8cc"/>
+      </node>
+      <node id="29">
+        <label>libs/render/src/render/compiledlines.cc</label>
+        <link refid="compiledlines_8cc"/>
+      </node>
+      <node id="38">
+        <label>libs/render/src/render/shaderattribute3d.cc</label>
+        <link refid="shaderattribute3d_8cc"/>
+      </node>
+      <node id="32">
+        <label>libs/render/src/render/materialshadercache.cc</label>
+        <link refid="materialshadercache_8cc"/>
+      </node>
+      <node id="43">
+        <label>libs/render/src/render/viewporthandler.cc</label>
+        <link refid="viewporthandler_8cc"/>
+      </node>
+      <node id="19">
+        <label>libs/core/src/core/vfs_path.cc</label>
+        <link refid="vfs__path_8cc"/>
+      </node>
+      <node id="33">
+        <label>libs/render/src/render/world.cc</label>
+        <link refid="world_8cc"/>
+      </node>
+      <node id="15">
+        <label>libs/core/src/core/vfs_defaultshaders.cc</label>
+        <link refid="vfs__defaultshaders_8cc"/>
+      </node>
+      <node id="6">
+        <label>libs/core/src/core/collisionmesh.cc</label>
+        <link refid="collisionmesh_8cc"/>
+      </node>
+      <node id="42">
+        <label>libs/render/src/render/spriterender.cc</label>
+        <link refid="spriterender_8cc"/>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/enum.cc</label>
+        <link refid="enum_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/vfs_path.h</label>
+        <link refid="vfs__path_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="45" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>libs/render/src/render/actor.h</label>
+        <link refid="actor_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>libs/core/src/core/vfs.cc</label>
+        <link refid="vfs_8cc"/>
+      </node>
+      <node id="40">
+        <label>libs/render/src/render/scalablesprite.cc</label>
+        <link refid="scalablesprite_8cc"/>
+      </node>
+      <node id="36">
+        <label>libs/render/src/render/shader.cc</label>
+        <link refid="shader_8cc"/>
+      </node>
+      <node id="20">
+        <label>libs/gui/src/gui/skin.h</label>
+        <link refid="skin_8h"/>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>libs/render/src/render/compiledmesh.h</label>
+        <link refid="compiledmesh_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="17">
         <label>libs/core/src/core/vfs_imagegenerator.h</label>
         <link refid="vfs__imagegenerator_8h"/>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="22">
+        <label>libs/gui/src/gui/load.cc</label>
+        <link refid="load_8cc"/>
+      </node>
+      <node id="30">
+        <label>libs/render/src/render/materialshader.cc</label>
+        <link refid="materialshader_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" prot="public">euphoria::core::vfs::FilePath</innerclass>

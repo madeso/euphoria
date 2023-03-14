@@ -19,7 +19,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="372" column="17" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="372" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="320" column="17" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="320" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -39,7 +39,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="367" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="322" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="794" bodyend="802"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Effect_1ac2726b42fd6c7b514e0967416f66c169" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>float</type>
@@ -58,7 +58,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="370" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="324" column="23"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -104,13 +104,16 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="365" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="364" bodyend="373"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="319" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="318" bodyend="325"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1Effect_1a74e2ba10b4d914884c3c37815494a323" prot="public" virt="virtual"><scope>euphoria::minsynth::Effect</scope><name>get_output</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Effect_1ac23ae0faa1f4a61beae86c9c1f30f385" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Effect</scope><name>in</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a3a6463d3db858165c565fa0d7b412929" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Effect</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Effect_1ac2726b42fd6c7b514e0967416f66c169" prot="public" virt="pure-virtual"><scope>euphoria::minsynth::Effect</scope><name>on_wave</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a6213abe23d728331bfc6e91e15f034e8" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Effect</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a5b0865bbb3cac98b0ea3a24b0f01c109" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Effect</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a5b4bae5030f1aa1c8ebd733218fbb25e" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Effect</scope><name>WaveOut</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a2ed7d1de1707e2a394ae28491a1c8a45" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Effect</scope><name>WaveOut</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a22c7f869e734327d7bcd15ea791697ab" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Effect</scope><name>WaveOut</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a74f6dd617d227bcadd11ae4fd7ce9a06" prot="public" virt="virtual"><scope>euphoria::minsynth::Effect</scope><name>~WaveOut</name></member>
     </listofallmembers>
   </compounddef>

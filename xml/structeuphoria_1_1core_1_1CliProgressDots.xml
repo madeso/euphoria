@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/cli_progress_dots.h" line="17" column="9"/>
+        <location file="libs/core/src/core/cli_progress_dots.h" line="17" column="9" bodyfile="libs/core/src/core/cli_progress_dots.cc" bodystart="8" bodyend="30"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

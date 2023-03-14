@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/uistate.h" line="24" column="9"/>
+        <location file="libs/gui/src/gui/uistate.h" line="24" column="9" bodyfile="libs/gui/src/gui/uistate.cc" bodystart="7" bodyend="10"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1State_1afd73b17c4b139e3dfb8459fd57b297a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/uistate.h" line="27" column="9"/>
+        <location file="libs/gui/src/gui/uistate.h" line="27" column="9" bodyfile="libs/gui/src/gui/uistate.cc" bodystart="14" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1State_1a993184b7a18a77547366b167c0a9591a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -130,7 +130,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/uistate.h" line="30" column="9"/>
+        <location file="libs/gui/src/gui/uistate.h" line="30" column="9" bodyfile="libs/gui/src/gui/uistate.cc" bodystart="32" bodyend="35"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1State_1a388a9bf6018b0a3a7cd8a34ff7c335d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -147,7 +147,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/uistate.h" line="33" column="9"/>
+        <location file="libs/gui/src/gui/uistate.h" line="33" column="9" bodyfile="libs/gui/src/gui/uistate.cc" bodystart="39" bodyend="46"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1State_1acb65035d76edb6f4d91b9fc6a082e25a" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -160,7 +160,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/uistate.h" line="36" column="9"/>
+        <location file="libs/gui/src/gui/uistate.h" line="36" column="9" bodyfile="libs/gui/src/gui/uistate.cc" bodystart="50" bodyend="53"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

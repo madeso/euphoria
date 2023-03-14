@@ -3,6 +3,7 @@
   <compounddef id="cli__progress__dots_8h" kind="file" language="C++">
     <compoundname>cli_progress_dots.h</compoundname>
     <includes refid="timepoint_8h" local="yes">core/timepoint.h</includes>
+    <includedby refid="cli__progress__dots_8cc" local="yes">libs/core/src/core/cli_progress_dots.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>core/timepoint.h</label>
@@ -20,6 +21,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/cli_progress_dots.cc</label>
+        <link refid="cli__progress__dots_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/cli_progress_dots.h</label>
+        <link refid="cli__progress__dots_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1CliProgressDots" prot="public">euphoria::core::CliProgressDots</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

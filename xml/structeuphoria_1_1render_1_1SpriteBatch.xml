@@ -82,7 +82,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spritebatch.h" line="18" column="9"/>
+        <location file="libs/render/src/render/spritebatch.h" line="18" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="14" bodyend="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteBatch_1ae978050a907f37f0e5ad40534ff3bc6a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -124,7 +124,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spritebatch.h" line="24" column="9"/>
+        <location file="libs/render/src/render/spritebatch.h" line="24" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="25" bodyend="29"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteBatch_1a94589758c36a07de1292cc1c3a13ce12" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -161,7 +161,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spritebatch.h" line="27" column="9"/>
+        <location file="libs/render/src/render/spritebatch.h" line="27" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="34" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteBatch_1a9f4ce5cfd9a681a36b4e75313cc13c4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -174,7 +174,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spritebatch.h" line="38" column="9"/>
+        <location file="libs/render/src/render/spritebatch.h" line="38" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="110" bodyend="115"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1SpriteBatch_1a9c2498cd2216aa5a6fe215771db647d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -187,7 +187,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/spritebatch.h" line="41" column="9"/>
+        <location file="libs/render/src/render/spritebatch.h" line="41" column="9" bodyfile="libs/render/src/render/spritebatch.cc" bodystart="119" bodyend="130"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

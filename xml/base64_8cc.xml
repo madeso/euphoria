@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="base64_8cc" kind="file" language="C++">
+    <compoundname>base64.cc</compoundname>
+    <includes refid="base64_8h" local="yes">core/base64.h</includes>
+    <includes refid="assert_8h" local="yes">assert/assert.h</includes>
+    <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <includes local="no">string_view</includes>
+    <includes local="no">array</includes>
+    <incdepgraph>
+      <node id="12">
+        <label>core/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
+      </node>
+      <node id="10">
+        <label>cstdint</label>
+      </node>
+      <node id="8">
+        <label>core/cint.h</label>
+        <link refid="cint_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="5">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>string_view</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="2">
+        <label>core/base64.h</label>
+        <link refid="base64_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>array</label>
+      </node>
+      <node id="3">
+        <label>core/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>core/ints.h</label>
+        <link refid="ints_8h"/>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/base64.cc</label>
+        <link refid="base64_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+      <node id="11">
+        <label>cstddef</label>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1base64">euphoria::core::base64</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/base64.cc"/>
+  </compounddef>
+</doxygen>

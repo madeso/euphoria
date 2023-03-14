@@ -51,13 +51,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/plane.h" line="12" column="9"/>
+        <location file="libs/core/src/core/plane.h" line="12" column="9" bodyfile="libs/core/src/core/plane.cc" bodystart="5" bodyend="8"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Plane_1a3dd49cb1ae35010f19e044cfe774f1e3" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Plane_1a1289495a38106446c225578e1d104fdb" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Plane" kindref="compound">Plane</ref></type>
-        <definition>static Plane euphoria::core::Plane::from_normal_and_point</definition>
+        <definition>Plane euphoria::core::Plane::from_normal_and_point</definition>
         <argsstring>(const unit3f &amp;normal, const vec3f &amp;point)</argsstring>
         <name>from_normal_and_point</name>
         <param>
@@ -74,11 +74,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/plane.h" line="15" column="9"/>
+        <location file="libs/core/src/core/plane.h" line="15" column="9" bodyfile="libs/core/src/core/plane.cc" bodystart="12" bodyend="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Plane_1a2f3cdbc51296a069dfd09c04bd956106" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Plane_1a0dd7c5a702f8eec349583575706bc079" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Plane" kindref="compound">Plane</ref></type>
-        <definition>static Plane euphoria::core::Plane::from_points</definition>
+        <definition>Plane euphoria::core::Plane::from_points</definition>
         <argsstring>(const vec3f &amp;p0, const vec3f &amp;p1, const vec3f &amp;p2)</argsstring>
         <name>from_points</name>
         <param>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/plane.h" line="18" column="9"/>
+        <location file="libs/core/src/core/plane.h" line="18" column="9" bodyfile="libs/core/src/core/plane.cc" bodystart="19" bodyend="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -128,8 +128,8 @@
     <location file="libs/core/src/core/plane.h" line="8" column="1" bodyfile="libs/core/src/core/plane.h" bodystart="7" bodyend="19"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Plane_1a8a09500f35f32b2eaca52bf0dd9f1640" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>distance</name></member>
-      <member refid="structeuphoria_1_1core_1_1Plane_1a3dd49cb1ae35010f19e044cfe774f1e3" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>from_normal_and_point</name></member>
-      <member refid="structeuphoria_1_1core_1_1Plane_1a2f3cdbc51296a069dfd09c04bd956106" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>from_points</name></member>
+      <member refid="structeuphoria_1_1core_1_1Plane_1a1289495a38106446c225578e1d104fdb" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>from_normal_and_point</name></member>
+      <member refid="structeuphoria_1_1core_1_1Plane_1a0dd7c5a702f8eec349583575706bc079" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>from_points</name></member>
       <member refid="structeuphoria_1_1core_1_1Plane_1a9fc2c82556a8cb007845529ef8ed22b6" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>normal</name></member>
       <member refid="structeuphoria_1_1core_1_1Plane_1a33e8f5544fe955e08a202b7742e4a174" prot="public" virt="non-virtual"><scope>euphoria::core::Plane</scope><name>Plane</name></member>
     </listofallmembers>

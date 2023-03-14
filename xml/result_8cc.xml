@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="result_8cc" kind="file" language="C++">
+    <compoundname>result.cc</compoundname>
+    <includes refid="result_8h" local="yes">core/result.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>core/result.h</label>
+        <link refid="result_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>optional</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/result.cc</label>
+        <link refid="result_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/result.cc"/>
+  </compounddef>
+</doxygen>

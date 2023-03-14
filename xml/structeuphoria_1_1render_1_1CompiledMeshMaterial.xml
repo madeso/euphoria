@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="78" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="78" bodyend="-1"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="43" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a41cc4da30e3e079dcb74ac8979631231" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="79" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="79" bodyend="-1"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="44" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="44" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1ac86bc5403f6339c0028a47ddef866370" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="80" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="80" bodyend="-1"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="45" column="19" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="45" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a9aa04f91822a1b222dcbf6a9831caedb" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="81" column="15" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="81" bodyend="-1"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="46" column="15" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="46" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a6882b8beb41cac857ce5b7b265c26294" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1MaterialShader" kindref="compound">MaterialShader</ref> &gt;</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="82" column="25" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="82" bodyend="-1"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="47" column="25" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="47" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a5020f033197834ef334f8aa42a6f18bd" prot="public" static="no" mutable="no">
         <type>std::map&lt; <ref refid="structeuphoria_1_1core_1_1EnumValue" kindref="compound">core::EnumValue</ref>, std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt; &gt;</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="83" column="18" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="83" bodyend="-1"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="48" column="18" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="48" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="43" column="9"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="51" column="9" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="25" bodyend="31"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1ae91cf5acd4931d57cb74e54061074095" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -116,7 +116,25 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="47" column="9"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="53" column="14" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="36" bodyend="46"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a9904a5ae96573f8a200d538eea04b92d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::CompiledMeshMaterial::load_default_materials_from_shader</definition>
+        <argsstring>(TextureCache *cache)</argsstring>
+        <name>load_default_materials_from_shader</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
+          <declname>cache</declname>
+        </param>
+        <briefdescription>
+<para>Gets the default materials from the shader if they are null/not set. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/compiledmesh.h" line="61" column="14" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="93" bodyend="105"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a0c1e662c05652ff2f23a1338dfb67988" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -149,25 +167,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="55" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a9904a5ae96573f8a200d538eea04b92d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::render::CompiledMeshMaterial::load_default_materials_from_shader</definition>
-        <argsstring>(TextureCache *cache)</argsstring>
-        <name>load_default_materials_from_shader</name>
-        <param>
-          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> *</type>
-          <declname>cache</declname>
-        </param>
-        <briefdescription>
-<para>Gets the default materials from the shader if they are null/not set. </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="68" column="9"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="63" column="14" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="51" bodyend="89"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a8e52f936aeb2930eacb7c2027cced363" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -181,7 +181,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.h" line="75" column="9"/>
+        <location file="libs/render/src/render/compiledmesh.h" line="75" column="15" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="109" bodyend="149"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -203,7 +203,7 @@
         <link refid="structeuphoria_1_1core_1_1rgb"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/compiledmesh.h" line="42" column="1" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="41" bodyend="84"/>
+    <location file="libs/render/src/render/compiledmesh.h" line="42" column="1" bodyfile="libs/render/src/render/compiledmesh.h" bodystart="41" bodyend="76"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a1da5b86457c30c788b0dc8f252db3fcc" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>ambient</name></member>
       <member refid="structeuphoria_1_1render_1_1CompiledMeshMaterial_1a0c1e662c05652ff2f23a1338dfb67988" prot="public" virt="non-virtual"><scope>euphoria::render::CompiledMeshMaterial</scope><name>apply</name></member>

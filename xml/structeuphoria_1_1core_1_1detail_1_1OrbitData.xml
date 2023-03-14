@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1detail_1_1OrbitData" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::detail::OrbitData</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a2bbfabffa51cec638f1f0a56f05f5c72" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool euphoria::core::detail::OrbitData::valid</definition>
+        <argsstring></argsstring>
+        <name>valid</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="117" column="18" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="117" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1ad0a3ff44e9f955fd15fe06e0a4f13650" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::detail::OrbitData::center</definition>
+        <argsstring></argsstring>
+        <name>center</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="118" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="118" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a0a62ae7be0846c8ed9ff80abc662f409" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::core::detail::OrbitData::distance</definition>
+        <argsstring></argsstring>
+        <name>distance</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="119" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="119" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a03f58db0113f44f6f25ff2cff6a3b5b1" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::detail::OrbitData::rotation_angle</definition>
+        <argsstring></argsstring>
+        <name>rotation_angle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="120" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="120" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a85e891cc046158c06fbadd903cdd233d" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref></type>
+        <definition>angle euphoria::core::detail::OrbitData::look_angle</definition>
+        <argsstring></argsstring>
+        <name>look_angle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="121" column="19" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="121" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a7d71ddff1936560abbe4cf4665ef70bc" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::detail::OrbitData::OrbitData</definition>
+        <argsstring>(std::optional&lt; vec3f &gt; collision, const CameraFrame &amp;f)</argsstring>
+        <name>OrbitData</name>
+        <param>
+          <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
+          <declname>collision</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">CameraFrame</ref> &amp;</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.cc" line="123" column="13" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="123" bodyend="130"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::detail::OrbitData</label>
+        <link refid="structeuphoria_1_1core_1_1detail_1_1OrbitData"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>center</edgelabel>
+        </childnode>
+        <childnode refid="3" relation="usage">
+          <edgelabel>look_angle</edgelabel>
+          <edgelabel>rotation_angle</edgelabel>
+        </childnode>
+      </node>
+      <node id="3">
+        <label>euphoria::core::angle</label>
+        <link refid="structeuphoria_1_1core_1_1angle"/>
+      </node>
+      <node id="2">
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/camera3.editor.cc" line="116" column="1" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="115" bodyend="131"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1ad0a3ff44e9f955fd15fe06e0a4f13650" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>center</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a0a62ae7be0846c8ed9ff80abc662f409" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>distance</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a85e891cc046158c06fbadd903cdd233d" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>look_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a7d71ddff1936560abbe4cf4665ef70bc" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>OrbitData</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a03f58db0113f44f6f25ff2cff6a3b5b1" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>rotation_angle</name></member>
+      <member refid="structeuphoria_1_1core_1_1detail_1_1OrbitData_1a2bbfabffa51cec638f1f0a56f05f5c72" prot="public" virt="non-virtual"><scope>euphoria::core::detail::OrbitData</scope><name>valid</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

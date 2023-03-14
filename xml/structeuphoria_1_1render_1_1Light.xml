@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="24" column="1" bodyfile="libs/render/src/render/light.h" bodystart="23" bodyend="28"/>
+        <location file="libs/render/src/render/light.h" line="20" column="1" bodyfile="libs/render/src/render/light.h" bodystart="19" bodyend="24"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-attrib">
@@ -49,7 +49,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="30" column="14" bodyfile="libs/render/src/render/light.h" bodystart="30" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="28" column="14" bodyfile="libs/render/src/render/light.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1ae0cf4c315d5a88a50c8bee3e543e9e2f" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref></type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="31" column="21" bodyfile="libs/render/src/render/light.h" bodystart="31" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="29" column="21" bodyfile="libs/render/src/render/light.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1ac20ff1d8161ad3cd35b26f126aeed678" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">core::unit3f</ref></type>
@@ -75,7 +75,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="32" column="22" bodyfile="libs/render/src/render/light.h" bodystart="32" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="30" column="22" bodyfile="libs/render/src/render/light.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1a12b1ee3a2412d924a27ac39154e6b124" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
@@ -88,7 +88,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="33" column="19" bodyfile="libs/render/src/render/light.h" bodystart="33" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="31" column="19" bodyfile="libs/render/src/render/light.h" bodystart="31" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1a0a2a3b64d1c94aaaf97dded9d0403fed" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="34" column="19" bodyfile="libs/render/src/render/light.h" bodystart="34" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="32" column="19" bodyfile="libs/render/src/render/light.h" bodystart="32" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1a551ea1bc399a33792f9f291b47e3bbb0" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref></type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="35" column="19" bodyfile="libs/render/src/render/light.h" bodystart="35" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="33" column="19" bodyfile="libs/render/src/render/light.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1afa491a61047a5d458f0ea05a2ffa5bf5" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref></type>
@@ -127,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="36" column="21" bodyfile="libs/render/src/render/light.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="34" column="21" bodyfile="libs/render/src/render/light.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1aad16538866e0b044a6f5a8f8f7c07eb6" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">core::angle</ref></type>
@@ -140,7 +140,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="37" column="21" bodyfile="libs/render/src/render/light.h" bodystart="37" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="35" column="21" bodyfile="libs/render/src/render/light.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1Light_1abe0130509a01f6b891d3312edc3f359d" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1LightAttenuation" kindref="compound">LightAttenuation</ref></type>
@@ -153,7 +153,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="39" column="26" bodyfile="libs/render/src/render/light.h" bodystart="39" bodyend="-1"/>
+        <location file="libs/render/src/render/light.h" line="37" column="26" bodyfile="libs/render/src/render/light.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -168,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/light.h" line="19" column="9"/>
+        <location file="libs/render/src/render/light.h" line="39" column="9" bodyfile="libs/render/src/render/light.cc" bodystart="5" bodyend="15"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

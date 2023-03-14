@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1raytracer_1_1Camera" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::raytracer::Camera</compoundname>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a0e71b78b17d40f9fb0d722a910cb0f54" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::raytracer::Camera::lower_left_corner</definition>
+        <argsstring></argsstring>
+        <name>lower_left_corner</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="431" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="431" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1af6d1da0cd46f2d5dfdd5fa9db4ab5677" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::raytracer::Camera::horizontal</definition>
+        <argsstring></argsstring>
+        <name>horizontal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="432" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="432" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a8b842e616edb0eb1b1bd53810dfaa03f" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::raytracer::Camera::vertical</definition>
+        <argsstring></argsstring>
+        <name>vertical</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="433" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="433" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a5376c7bb01f0e47e110fac0c31e64028" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::raytracer::Camera::origin</definition>
+        <argsstring></argsstring>
+        <name>origin</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="434" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="434" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1ac80b0ecf96ab8824ac777e9b4e75f921" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1raytracer_1_1Camera" kindref="compound">Camera</ref></type>
+        <definition>static Camera euphoria::core::raytracer::Camera::create</definition>
+        <argsstring>(const angle &amp;vfov, float aspect)</argsstring>
+        <name>create</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1angle" kindref="compound">angle</ref> &amp;</type>
+          <declname>vfov</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>aspect</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="436" column="23" bodyfile="libs/core/src/core/raytracer.cc" bodystart="436" bodyend="453"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a7885e6e60bddbe805b3d236c9d7f2521" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref></type>
+        <definition>UnitRay3f euphoria::core::raytracer::Camera::get_ray</definition>
+        <argsstring>(float u, float v) const</argsstring>
+        <name>get_ray</name>
+        <param>
+          <type>float</type>
+          <declname>u</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="456" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="456" bodyend="459"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::raytracer::Camera</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1Camera"/>
+        <childnode refid="2" relation="usage">
+          <edgelabel>horizontal</edgelabel>
+          <edgelabel>origin</edgelabel>
+          <edgelabel>vertical</edgelabel>
+          <edgelabel>lower_left_corner</edgelabel>
+        </childnode>
+      </node>
+      <node id="2">
+        <label>euphoria::core::vec3f</label>
+        <link refid="structeuphoria_1_1core_1_1vec3f"/>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/raytracer.cc" line="430" column="1" bodyfile="libs/core/src/core/raytracer.cc" bodystart="429" bodyend="460"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1ac80b0ecf96ab8824ac777e9b4e75f921" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>create</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a7885e6e60bddbe805b3d236c9d7f2521" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>get_ray</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1af6d1da0cd46f2d5dfdd5fa9db4ab5677" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>horizontal</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a0e71b78b17d40f9fb0d722a910cb0f54" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>lower_left_corner</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a5376c7bb01f0e47e110fac0c31e64028" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>origin</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a8b842e616edb0eb1b1bd53810dfaa03f" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>vertical</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

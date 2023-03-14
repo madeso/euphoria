@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="129" column="28" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="129" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="73" column="28" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1aeb6f520ad041b409920375397d7b5970" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1FpsController" kindref="compound">FpsController</ref></type>
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="130" column="23" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="130" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="74" column="23" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1abb4fa164252abaefb73cf21b06b5f90d" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="131" column="15" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="131" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="75" column="15" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1a0c6cde128613bacc14bac6017bcfd72a" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="132" column="15" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="132" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="76" column="15" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="76" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1af5aeda04d9f77f5c0d6c21374e61d0cf" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="134" column="14" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="134" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="78" column="14" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="78" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1ada352ff0d41e63f65777f6b80b2024eb" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="135" column="15" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="135" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="79" column="15" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="79" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1af0009345d52359eaf364b5b5fd3faa96" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="136" column="14" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="136" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="80" column="14" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="80" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1a1f86c8d54c89d4cef04ad03292c89f04" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1_1easing_1aaa99b0b408a1a6353f978b4f1e1852a9" kindref="member">easing::Function</ref></type>
@@ -129,7 +129,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="137" column="26" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="137" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="81" column="26" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="81" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1a2f7fcc21845e612eaff6c8a2a5ef6679" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">detail::EditorCameraState3</ref> &gt;</type>
@@ -142,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="139" column="25" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="139" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="83" column="25" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="83" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1ad719542646c0ee25ddca57f425904ba2" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3" kindref="compound">detail::EditorCameraState3</ref> &gt;</type>
@@ -155,7 +155,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="140" column="25" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="140" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="84" column="25" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="84" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1EditorCamera3_1a8c1006c28b634c37a98b780561e75a00" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1detail_1_1CameraFrame" kindref="compound">detail::CameraFrame</ref> &gt;</type>
@@ -168,7 +168,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="141" column="21" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="141" bodyend="-1"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="85" column="21" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="85" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -183,39 +183,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="73" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="88" column="9" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="583" bodyend="595"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1abf7bcafdb691eae3be2979860a84c55b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a412fb5211afe2a45cecbc5bf3d8ce8d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
-        <definition>euphoria::core::EditorCamera3::EditorCamera3</definition>
-        <argsstring>(const EditorCamera3 &amp;)=delete</argsstring>
-        <name>EditorCamera3</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> &amp;</type>
-        </param>
+        <definition>virtual euphoria::core::EditorCamera3::~EditorCamera3</definition>
+        <argsstring>()=default</argsstring>
+        <name>~EditorCamera3</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="74" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a7ec138e0f4d28ce05bbb332e5c5b5d75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> &amp;</type>
-        <definition>EditorCamera3&amp; euphoria::core::EditorCamera3::operator=</definition>
-        <argsstring>(const EditorCamera3 &amp;)=delete</argsstring>
-        <name>operator=</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> &amp;</type>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="75" column="23"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="89" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1add68789a9f9ba716eec1bc1781afd913" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -231,7 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="76" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="91" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a7c8c49293322d397e1ff5a7fe32deb59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> &amp;</type>
@@ -247,20 +228,39 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="77" column="23"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="92" column="23"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a412fb5211afe2a45cecbc5bf3d8ce8d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1abf7bcafdb691eae3be2979860a84c55b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>virtual euphoria::core::EditorCamera3::~EditorCamera3</definition>
-        <argsstring>()=default</argsstring>
-        <name>~EditorCamera3</name>
+        <definition>euphoria::core::EditorCamera3::EditorCamera3</definition>
+        <argsstring>(const EditorCamera3 &amp;)=delete</argsstring>
+        <name>EditorCamera3</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> &amp;</type>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="79" column="17"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="94" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a7ec138e0f4d28ce05bbb332e5c5b5d75" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> &amp;</type>
+        <definition>EditorCamera3&amp; euphoria::core::EditorCamera3::operator=</definition>
+        <argsstring>(const EditorCamera3 &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1EditorCamera3" kindref="compound">EditorCamera3</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="95" column="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a5345ab4ae325ffc808cd20655f4a5652" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -293,20 +293,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="81" column="14"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1af2f3456cb992295fa6ef7a45320ff083" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1ae4c24a6a2024585c62a9b910a86d571d" kindref="member">MouseBehaviour</ref></type>
-        <definition>MouseBehaviour euphoria::core::EditorCamera3::get_mouse</definition>
-        <argsstring>()</argsstring>
-        <name>get_mouse</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="90" column="24"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="97" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="600" bodyend="611"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a53b66166a7841dad3adda26a4dc1ad9a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -327,7 +314,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="93" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="106" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="615" bodyend="620"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a91e015317487825650739b567753fb96" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -348,7 +335,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="96" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="107" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="624" bodyend="629"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1ae95fab3cca3a5e3c3ae7b4f992144297" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -369,7 +356,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="99" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="108" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="633" bodyend="638"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1abc1331c18c846b462e97a0a5783dd60b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -382,7 +369,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="101" column="14"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="109" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="642" bodyend="647"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1af8777b9fe1d78c1fc1c70bf5738aaca1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -395,20 +382,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="102" column="14"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1ac152a36757623240c797da27353843e8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::EditorCamera3::is_camera_orbit</definition>
-        <argsstring>() const</argsstring>
-        <name>is_camera_orbit</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="106" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="110" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="651" bodyend="663"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a6d4655f22c6a94a20ebeb5dc7b66dd83" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -421,7 +395,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="109" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="111" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="674" bodyend="677"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a2f2331dd932f35e3ceb8ce9131c6f44e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -438,7 +412,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="112" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="112" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="680" bodyend="687"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a27812127e7dc33052bd50b861b521036" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -455,7 +429,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="115" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="113" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="690" bodyend="697"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a16302b4efd5324f7351fbcb6fcdf7afa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -476,24 +450,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="118" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1ac9808b86a056e0f420bdbeee2286cf11" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
-        <definition>virtual std::optional&lt;vec3f&gt; euphoria::core::EditorCamera3::raycast</definition>
-        <argsstring>(const UnitRay3f &amp;ray)=0</argsstring>
-        <name>raycast</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
-          <declname>ray</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="122" column="9"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="114" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="701" bodyend="714"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1a708bdcc80a0de003b9c9ece9160d6d05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -510,7 +467,50 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/camera3.editor.h" line="127" column="14"/>
+        <location file="libs/core/src/core/camera3.editor.h" line="115" column="14" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="718" bodyend="728"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1af3a0eff3d6ebf440460ce16b6a98c7ca" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1ae4c24a6a2024585c62a9b910a86d571d" kindref="member">MouseBehaviour</ref></type>
+        <definition>MouseBehaviour euphoria::core::EditorCamera3::get_mouse</definition>
+        <argsstring>() const</argsstring>
+        <name>get_mouse</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="118" column="25" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="732" bodyend="736"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1ac152a36757623240c797da27353843e8" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::EditorCamera3::is_camera_orbit</definition>
+        <argsstring>() const</argsstring>
+        <name>is_camera_orbit</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="119" column="15" bodyfile="libs/core/src/core/camera3.editor.cc" bodystart="667" bodyend="670"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1EditorCamera3_1ac9808b86a056e0f420bdbeee2286cf11" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
+        <definition>virtual std::optional&lt;vec3f&gt; euphoria::core::EditorCamera3::raycast</definition>
+        <argsstring>(const UnitRay3f &amp;ray)=0</argsstring>
+        <name>raycast</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <declname>ray</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/camera3.editor.h" line="121" column="31"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -552,17 +552,17 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/camera3.editor.h" line="70" column="1" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="69" bodyend="142"/>
+    <location file="libs/core/src/core/camera3.editor.h" line="70" column="1" bodyfile="libs/core/src/core/camera3.editor.h" bodystart="69" bodyend="122"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1af5aeda04d9f77f5c0d6c21374e61d0cf" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>animate_camera</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a708bdcc80a0de003b9c9ece9160d6d05" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>apply_frame</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1ada352ff0d41e63f65777f6b80b2024eb" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>camera_lerp_time</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a679283199ea24f6c04071b012284d57b" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>EditorCamera3</name></member>
-      <member refid="structeuphoria_1_1core_1_1EditorCamera3_1abf7bcafdb691eae3be2979860a84c55b" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>EditorCamera3</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1add68789a9f9ba716eec1bc1781afd913" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>EditorCamera3</name></member>
+      <member refid="structeuphoria_1_1core_1_1EditorCamera3_1abf7bcafdb691eae3be2979860a84c55b" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>EditorCamera3</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a16302b4efd5324f7351fbcb6fcdf7afa" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>focus</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1aeb6f520ad041b409920375397d7b5970" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>fps</name></member>
-      <member refid="structeuphoria_1_1core_1_1EditorCamera3_1af2f3456cb992295fa6ef7a45320ff083" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>get_mouse</name></member>
+      <member refid="structeuphoria_1_1core_1_1EditorCamera3_1af3a0eff3d6ebf440460ce16b6a98c7ca" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>get_mouse</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1ac152a36757623240c797da27353843e8" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>is_camera_orbit</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a1f86c8d54c89d4cef04ad03292c89f04" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>lerp_function</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a27812127e7dc33052bd50b861b521036" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>load_camera</name></member>
@@ -574,8 +574,8 @@
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1ae95fab3cca3a5e3c3ae7b4f992144297" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>on_key</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a53b66166a7841dad3adda26a4dc1ad9a" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>on_mouse_move</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a91e015317487825650739b567753fb96" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>on_scroll</name></member>
-      <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a7ec138e0f4d28ce05bbb332e5c5b5d75" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a7c8c49293322d397e1ff5a7fe32deb59" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a7ec138e0f4d28ce05bbb332e5c5b5d75" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1ac9808b86a056e0f420bdbeee2286cf11" prot="public" virt="pure-virtual"><scope>euphoria::core::EditorCamera3</scope><name>raycast</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1a2f2331dd932f35e3ceb8ce9131c6f44e" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>save_camera</name></member>
       <member refid="structeuphoria_1_1core_1_1EditorCamera3_1af0009345d52359eaf364b5b5fd3faa96" prot="public" virt="non-virtual"><scope>euphoria::core::EditorCamera3</scope><name>scroll_in_orbit</name></member>

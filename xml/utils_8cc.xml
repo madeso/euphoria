@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="utils_8cc" kind="file" language="C++">
+    <compoundname>utils.cc</compoundname>
+    <includes refid="utils_8h" local="yes">tests/utils.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>tests/utils.h</label>
+        <link refid="utils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>catch.hpp</label>
+      </node>
+      <node id="1">
+        <label>libs/tests/src/tests/utils.cc</label>
+        <link refid="utils_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/tests/src/tests/utils.cc"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="timepoint_8cc" kind="file" language="C++">
+    <compoundname>timepoint.cc</compoundname>
+    <includes refid="timepoint_8h" local="yes">core/timepoint.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>core/timepoint.h</label>
+        <link refid="timepoint_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/timepoint.cc</label>
+        <link refid="timepoint_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>chrono</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/timepoint.cc"/>
+  </compounddef>
+</doxygen>

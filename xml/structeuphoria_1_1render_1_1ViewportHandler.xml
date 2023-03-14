@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/viewporthandler.h" line="34" column="9"/>
+        <location file="libs/render/src/render/viewporthandler.h" line="34" column="9" bodyfile="libs/render/src/render/viewporthandler.cc" bodystart="95" bodyend="99"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ViewportHandler_1a44c364a8fd6bb3bd93bd6f743c65f16d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -151,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/viewporthandler.h" line="37" column="9"/>
+        <location file="libs/render/src/render/viewporthandler.h" line="37" column="9" bodyfile="libs/render/src/render/viewporthandler.cc" bodystart="103" bodyend="106"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ViewportHandler_1a30ab5318a215cea304dde0d9b84a9f5d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/viewporthandler.h" line="40" column="9"/>
+        <location file="libs/render/src/render/viewporthandler.h" line="40" column="9" bodyfile="libs/render/src/render/viewporthandler.cc" bodystart="110" bodyend="118"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ViewportHandler_1a43183fd28df19c37d0ff8645a86cdf4e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -185,7 +185,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/viewporthandler.h" line="43" column="9"/>
+        <location file="libs/render/src/render/viewporthandler.h" line="43" column="9" bodyfile="libs/render/src/render/viewporthandler.cc" bodystart="122" bodyend="141"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ViewportHandler_1a5a79e18b0772c115947fcd42b74ca19b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Viewport" kindref="compound">core::Viewport</ref></type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/viewporthandler.h" line="46" column="9"/>
+        <location file="libs/render/src/render/viewporthandler.h" line="46" column="9" bodyfile="libs/render/src/render/viewporthandler.cc" bodystart="146" bodyend="158"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="149" column="23" bodyfile="libs/core/src/core/dump.h" bodystart="149" bodyend="-1"/>
+        <location file="libs/core/src/core/dump.h" line="128" column="23" bodyfile="libs/core/src/core/dump.h" bodystart="128" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -34,7 +34,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="132" column="18"/>
+        <location file="libs/core/src/core/dump.h" line="130" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1ab532920a924578b81770641581d6bf03" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="133" column="9"/>
+        <location file="libs/core/src/core/dump.h" line="131" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1abbf61216dcc9f456dd55ac43d1a029d3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="135" column="9"/>
+        <location file="libs/core/src/core/dump.h" line="133" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1adecaa6cfbf219bccc58ab80436401187" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="136" column="9"/>
+        <location file="libs/core/src/core/dump.h" line="134" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1a1ceec4f7750f7502b20b225c29cc590e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="137" column="14"/>
+        <location file="libs/core/src/core/dump.h" line="135" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1a7bd8dbd790856b9654ed4c7501ad5002" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -111,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="138" column="14"/>
+        <location file="libs/core/src/core/dump.h" line="136" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1a52f9922205252e13d4d4c609eebd4ef0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -136,7 +136,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="140" column="14"/>
+        <location file="libs/core/src/core/dump.h" line="138" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1a64ef34ab9211f4d424911182d5a33a57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>auto</type>
@@ -157,7 +157,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="141" column="14"/>
+        <location file="libs/core/src/core/dump.h" line="139" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1a1b2a2dd47deed48ed4366c21756da622" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="142" column="14"/>
+        <location file="libs/core/src/core/dump.h" line="140" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1a771aa98ddd82b1bafe321b12da208493" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -199,7 +199,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="143" column="14"/>
+        <location file="libs/core/src/core/dump.h" line="141" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1a69e4aa96f8f0078c779a0e3389b1498a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -212,7 +212,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="145" column="14"/>
+        <location file="libs/core/src/core/dump.h" line="143" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1aec76659b2c26e1a56e4b7dddce63ffd4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -225,14 +225,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="146" column="14"/>
+        <location file="libs/core/src/core/dump.h" line="144" column="14"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/dump.h" line="131" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="130" bodyend="150"/>
+    <location file="libs/core/src/core/dump.h" line="127" column="1" bodyfile="libs/core/src/core/dump.h" bodystart="126" bodyend="145"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1a771aa98ddd82b1bafe321b12da208493" prot="public" virt="non-virtual"><scope>euphoria::core::dump3d::Dumper</scope><name>add_arrow</name></member>
       <member refid="structeuphoria_1_1core_1_1dump3d_1_1Dumper_1a69e4aa96f8f0078c779a0e3389b1498a" prot="public" virt="non-virtual"><scope>euphoria::core::dump3d::Dumper</scope><name>add_axis</name></member>

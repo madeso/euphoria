@@ -2,6 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="ctree_8h" kind="file" language="C++">
     <compoundname>ctree.h</compoundname>
+    <includedby refid="ctree_8cc" local="yes">libs/core/src/core/ctree.cc</includedby>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/ctree.cc</label>
+        <link refid="ctree_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/ctree.h</label>
+        <link refid="ctree_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1TreeStyle" prot="public">euphoria::core::TreeStyle</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

@@ -3,9 +3,9 @@
   <compounddef id="namespaceeuphoria_1_1render_1_1attributes3d" kind="namespace" language="C++">
     <compoundname>euphoria::render::attributes3d</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1af170f13b1b6b6f428454e00ec240da44" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1ac778a32fd2d5448501d1919039ab9e63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute&amp; euphoria::render::attributes3d::vertex</definition>
+        <definition>const ShaderAttribute &amp; euphoria::render::attributes3d::vertex</definition>
         <argsstring>()</argsstring>
         <name>vertex</name>
         <briefdescription>
@@ -14,11 +14,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.h" line="20" column="5" declfile="libs/render/src/render/shaderattribute3d.h" declline="20" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute3d.cc" line="11" column="5" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="11" bodyend="21" declfile="libs/render/src/render/shaderattribute3d.h" declline="20" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1aee1a44471242f593a8de5a13427d05c2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1a4b4e240ce4f038e70e5971ea2e1e1722" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute&amp; euphoria::render::attributes3d::normal</definition>
+        <definition>const ShaderAttribute &amp; euphoria::render::attributes3d::normal</definition>
         <argsstring>()</argsstring>
         <name>normal</name>
         <briefdescription>
@@ -27,11 +27,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.h" line="24" column="5" declfile="libs/render/src/render/shaderattribute3d.h" declline="24" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute3d.cc" line="25" column="5" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="25" bodyend="35" declfile="libs/render/src/render/shaderattribute3d.h" declline="24" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1aead7e926d192f04b707c3137d9a26676" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1ab2f49fffb9136274484a18f004ee785d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute&amp; euphoria::render::attributes3d::tex_coord</definition>
+        <definition>const ShaderAttribute &amp; euphoria::render::attributes3d::tex_coord</definition>
         <argsstring>()</argsstring>
         <name>tex_coord</name>
         <briefdescription>
@@ -40,11 +40,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.h" line="28" column="5" declfile="libs/render/src/render/shaderattribute3d.h" declline="28" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute3d.cc" line="39" column="5" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="39" bodyend="49" declfile="libs/render/src/render/shaderattribute3d.h" declline="28" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1a42272b9efbb6fd7ed7f06806e95b431e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1a87d4f8cba6a6f8428882a1a70f05c59e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1render_1_1ShaderAttribute" kindref="compound">ShaderAttribute</ref> &amp;</type>
-        <definition>const ShaderAttribute&amp; euphoria::render::attributes3d::color</definition>
+        <definition>const ShaderAttribute &amp; euphoria::render::attributes3d::color</definition>
         <argsstring>()</argsstring>
         <name>color</name>
         <briefdescription>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.h" line="32" column="5" declfile="libs/render/src/render/shaderattribute3d.h" declline="32" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute3d.cc" line="53" column="5" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="53" bodyend="63" declfile="libs/render/src/render/shaderattribute3d.h" declline="32" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1_1attributes3d_1a538e89fa88d84b5ee67b30a34aa864b3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -70,13 +70,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderattribute3d.h" line="36" column="5" declfile="libs/render/src/render/shaderattribute3d.h" declline="36" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderattribute3d.cc" line="67" column="5" bodyfile="libs/render/src/render/shaderattribute3d.cc" bodystart="67" bodyend="74" declfile="libs/render/src/render/shaderattribute3d.h" declline="36" declcolumn="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/shaderattribute3d.h" line="18" column="1"/>
+    <location file="libs/render/src/render/shaderattribute3d.cc" line="9" column="1"/>
   </compounddef>
 </doxygen>

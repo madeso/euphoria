@@ -3,6 +3,7 @@
   <compounddef id="stringeq_8h" kind="file" language="C++">
     <compoundname>stringeq.h</compoundname>
     <includes refid="falsestring_8h" local="yes">tests/falsestring.h</includes>
+    <includedby refid="stringeq_8cc" local="yes">libs/tests/src/tests/stringeq.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/tests/src/tests/stringeq.h</label>
@@ -20,6 +21,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/tests/src/tests/stringeq.h</label>
+        <link refid="stringeq_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/tests/src/tests/stringeq.cc</label>
+        <link refid="stringeq_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1tests">euphoria::tests</innernamespace>
     <briefdescription>

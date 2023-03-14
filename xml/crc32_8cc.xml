@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="crc32_8cc" kind="file" language="C++">
+    <compoundname>crc32.cc</compoundname>
+    <includes refid="crc32_8h" local="yes">core/crc32.h</includes>
+    <includes refid="memorychunk_8h" local="yes">core/memorychunk.h</includes>
+    <includes local="yes">crc32/crc32.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>crc32/crc32.h</label>
+      </node>
+      <node id="3">
+        <label>core/memorychunk.h</label>
+        <link refid="memorychunk_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>core/crc32.h</label>
+        <link refid="crc32_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/crc32.cc</label>
+        <link refid="crc32_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/crc32.cc"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="insertionsort_8cc" kind="file" language="C++">
+    <compoundname>insertionsort.cc</compoundname>
+    <includes refid="insertionsort_8h" local="yes">core/insertionsort.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/insertionsort.cc</label>
+        <link refid="insertionsort_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>cstddef</label>
+      </node>
+      <node id="2">
+        <label>core/insertionsort.h</label>
+        <link refid="insertionsort_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/insertionsort.cc"/>
+  </compounddef>
+</doxygen>

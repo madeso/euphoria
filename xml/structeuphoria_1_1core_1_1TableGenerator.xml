@@ -81,20 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="27" column="18" bodyfile="libs/core/src/core/table_string.h" bodystart="27" bodyend="27"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1TableGenerator_1aaa1c80c4678ee1c7b99872a807bd0bb4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="namespaceeuphoria_1_1core_1a51bbf4c8bfd3a69ac3c1bf95b58ba5ca" kindref="member">StringTable</ref></type>
-        <definition>StringTable euphoria::core::TableGenerator&lt; T &gt;::to_table</definition>
-        <argsstring>() const</argsstring>
-        <name>to_table</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="30" column="9" bodyfile="libs/core/src/core/table_string.h" bodystart="30" bodyend="51"/>
+        <location file="libs/core/src/core/table_string.h" line="27" column="18" bodyfile="libs/core/src/core/table_string.h" bodystart="27" bodyend="30"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1TableGenerator_1af5612f638bc6b2ca805550fc50e3e482" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1TableGenerator" kindref="compound">TableGenerator</ref>&lt; T &gt; &amp;</type>
@@ -115,7 +102,20 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="54" column="9" bodyfile="libs/core/src/core/table_string.h" bodystart="54" bodyend="59"/>
+        <location file="libs/core/src/core/table_string.h" line="33" column="9" bodyfile="libs/core/src/core/table_string.h" bodystart="33" bodyend="38"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1TableGenerator_1aaa1c80c4678ee1c7b99872a807bd0bb4" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1a51bbf4c8bfd3a69ac3c1bf95b58ba5ca" kindref="member">StringTable</ref></type>
+        <definition>StringTable euphoria::core::TableGenerator&lt; T &gt;::to_table</definition>
+        <argsstring>() const</argsstring>
+        <name>to_table</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/table_string.h" line="41" column="9" bodyfile="libs/core/src/core/table_string.h" bodystart="41" bodyend="62"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -146,20 +146,20 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/table_string.h" line="20" column="1" bodyfile="libs/core/src/core/table_string.h" bodystart="19" bodyend="60"/>
+    <location file="libs/core/src/core/table_string.h" line="20" column="1" bodyfile="libs/core/src/core/table_string.h" bodystart="19" bodyend="63"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1TableGenerator_1af5612f638bc6b2ca805550fc50e3e482" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>add_column</name></member>
       <member refid="structeuphoria_1_1core_1_1TableGenerator_1aea2b568430c83e9eeee365a4de20a0fc" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>column_titles</name></member>
       <member refid="structeuphoria_1_1core_1_1TableGenerator_1a83515f3a68b783ab2e0a0271618b8f36" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>column_to_string</name></member>
       <member refid="structeuphoria_1_1core_1_1TableGenerator_1acb8bc6c93c0dc9af79e295db4044a93d" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>data</name></member>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a9e3dec25256497ec4a283143ec7cab1d" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>sort</name></member>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1ac56b0d42319bebcc5499e6dbe8ca0e6d" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>sort</name></member>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1ad690c799d7ced09f3eeeb76bbc35da4f" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>sort_order</name></member>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a3278bb812397f81192575e1b6235b5b4" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>stable_sort</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1ac6f0b60cae620630ddecf38ed92aef3d" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>sort</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1ab5196e258e79c3d1a7c3920264d04229" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>sort</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a32c3d4316324216029ce57f99a4fe5b0" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>sort_order</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a49408d25f88376a2d1a9239eead7a1be" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>stable_sort</name></member>
       <member refid="structeuphoria_1_1core_1_1TableGenerator_1aefc716a29ca51a918f0e254c1ea1760b" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>TableGenerator</name></member>
       <member refid="structeuphoria_1_1core_1_1TableGenerator_1aaa1c80c4678ee1c7b99872a807bd0bb4" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>to_table</name></member>
       <member refid="structeuphoria_1_1core_1_1TableGenerator_1ad9cd220c641b0bf5cd471d9ea950ed03" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>ToStringFunction</name></member>
-      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a75a6af1e56d66fad086027e6718c2b0f" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>use_stable_sort</name></member>
+      <member refid="structeuphoria_1_1core_1_1SortBuilder_1a2ad5f89dd8c4f39a6866ca8318af4606" prot="public" virt="non-virtual"><scope>euphoria::core::TableGenerator</scope><name>use_stable_sort</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="sensitivity_8cc" kind="file" language="C++">
+    <compoundname>sensitivity.cc</compoundname>
+    <includes refid="sensitivity_8h" local="yes">core/sensitivity.h</includes>
+    <includes refid="numeric_8h" local="yes">core/numeric.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>core/sensitivity.h</label>
+        <link refid="sensitivity_8h"/>
+      </node>
+      <node id="3">
+        <label>core/numeric.h</label>
+        <link refid="numeric_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/sensitivity.cc</label>
+        <link refid="sensitivity_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/sensitivity.cc"/>
+  </compounddef>
+</doxygen>

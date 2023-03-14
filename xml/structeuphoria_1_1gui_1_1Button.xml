@@ -3,6 +3,7 @@
   <compounddef id="structeuphoria_1_1gui_1_1Button" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::gui::Button</compoundname>
     <basecompoundref refid="structeuphoria_1_1gui_1_1Widget" prot="public" virt="non-virtual">euphoria::gui::Widget</basecompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1gui_1_1CommandButton" prot="public" virt="non-virtual">euphoria::gui::CommandButton</derivedcompoundref>
     <includes refid="button_8h" local="no">button.h</includes>
       <sectiondef kind="public-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1a4e11d474143fa0722f27c687f7ae3995" prot="public" static="no" mutable="no">
@@ -16,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="54" column="21" bodyfile="libs/gui/src/gui/button.h" bodystart="54" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="28" column="21" bodyfile="libs/gui/src/gui/button.h" bodystart="28" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1ae3cf17a83269f9e356db05dd3a192188" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1ScalableSprite" kindref="compound">render::ScalableSprite</ref> &gt;</type>
@@ -29,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="55" column="25" bodyfile="libs/gui/src/gui/button.h" bodystart="55" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="29" column="25" bodyfile="libs/gui/src/gui/button.h" bodystart="29" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1adfe63e5ea827b400962101176f1d4639" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1gui_1_1TextData" kindref="compound">TextData</ref></type>
@@ -42,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="56" column="18" bodyfile="libs/gui/src/gui/button.h" bodystart="56" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="30" column="18" bodyfile="libs/gui/src/gui/button.h" bodystart="30" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1a3fab8b278ba7217e0fe6c9272483e259" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1gui_1_1Skin" kindref="compound">Skin</ref> *</type>
@@ -55,11 +56,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="57" column="14" bodyfile="libs/gui/src/gui/button.h" bodystart="57" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="31" column="14" bodyfile="libs/gui/src/gui/button.h" bodystart="31" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1a6f644fee3b82326d9909b4b05e0cce71" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; float, <ref refid="structeuphoria_1_1core_1_1FloatTransform" kindref="compound">core::FloatTransform</ref> &gt;</type>
-        <definition>core::Interpolate&lt;float, core::FloatTransform&gt; euphoria::gui::Button::scale</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1ae61e04399e57a00313142e7fb9f8c04b" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; float &gt;</type>
+        <definition>core::Interpolate&lt;float&gt; euphoria::gui::Button::scale</definition>
         <argsstring></argsstring>
         <name>scale</name>
         <briefdescription>
@@ -68,11 +69,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="59" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="59" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="33" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="33" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1a8ddeabde3761457434a60903258c564b" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref>, <ref refid="structeuphoria_1_1core_1_1RgbTransform" kindref="compound">core::RgbTransform</ref> &gt;</type>
-        <definition>core::Interpolate&lt;core::rgb, core::RgbTransform&gt; euphoria::gui::Button::image_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1a6658694d69c0be0b37dc1068c433bb47" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &gt;</type>
+        <definition>core::Interpolate&lt;core::rgb&gt; euphoria::gui::Button::image_color</definition>
         <argsstring></argsstring>
         <name>image_color</name>
         <briefdescription>
@@ -81,11 +82,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="60" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="60" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="34" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="34" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1a0128d0871f00253f7394679819b0fbb9" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref>, <ref refid="structeuphoria_1_1core_1_1RgbTransform" kindref="compound">core::RgbTransform</ref> &gt;</type>
-        <definition>core::Interpolate&lt;core::rgb, core::RgbTransform&gt; euphoria::gui::Button::text_color</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1ac32ad499249d9792ec349bbc56a992b6" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">core::rgb</ref> &gt;</type>
+        <definition>core::Interpolate&lt;core::rgb&gt; euphoria::gui::Button::text_color</definition>
         <argsstring></argsstring>
         <name>text_color</name>
         <briefdescription>
@@ -94,11 +95,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="61" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="61" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="35" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="35" bodyend="-1"/>
       </memberdef>
-      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1a4b9fbf10ddd540b456cc9c53efc4d181" prot="public" static="no" mutable="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref>, <ref refid="structeuphoria_1_1core_1_1Vec2fTransform" kindref="compound">core::Vec2fTransform</ref> &gt;</type>
-        <definition>core::Interpolate&lt;core::vec2f, core::Vec2fTransform&gt; euphoria::gui::Button::position_displacement</definition>
+      <memberdef kind="variable" id="structeuphoria_1_1gui_1_1Button_1ab0579b89359ae6afcd5e7221ca1d45a4" prot="public" static="no" mutable="no">
+        <type><ref refid="structeuphoria_1_1core_1_1Interpolate" kindref="compound">core::Interpolate</ref>&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref> &gt;</type>
+        <definition>core::Interpolate&lt;core::vec2f&gt; euphoria::gui::Button::position_displacement</definition>
         <argsstring></argsstring>
         <name>position_displacement</name>
         <briefdescription>
@@ -107,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="62" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="62" bodyend="-1"/>
+        <location file="libs/gui/src/gui/button.h" line="36" column="27" bodyfile="libs/gui/src/gui/button.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -126,7 +127,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="28" column="10"/>
+        <location file="libs/gui/src/gui/button.h" line="38" column="9" bodyfile="libs/gui/src/gui/button.cc" bodystart="14" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1af8209f327515b9d359f42825f83c9b4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -139,15 +140,15 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="29" column="9"/>
+        <location file="libs/gui/src/gui/button.h" line="39" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1aa23c21e78b9b9043687c91255042544b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a6d5e7ecaeadc6ab4da6f65728b82d68e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::gui::Button::NONCOPYABLE</definition>
-        <argsstring>(Button)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::gui::Button::Button</definition>
+        <argsstring>(const Button &amp;)=delete</argsstring>
+        <name>Button</name>
         <param>
-          <type><ref refid="structeuphoria_1_1gui_1_1Button" kindref="compound">Button</ref></type>
+          <type>const <ref refid="structeuphoria_1_1gui_1_1Button" kindref="compound">Button</ref> &amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -155,20 +156,72 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="31" column="9"/>
+        <location file="libs/gui/src/gui/button.h" line="41" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1ab3848255bbbafee3c41a50d4edb8a30e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
-        <type>void</type>
-        <definition>virtual void euphoria::gui::Button::on_clicked</definition>
-        <argsstring>()=0</argsstring>
-        <name>on_clicked</name>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a17814f3e2fb2ab08469aa35b78c5098e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::Button::Button</definition>
+        <argsstring>(Button &amp;&amp;)=delete</argsstring>
+        <name>Button</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1Button" kindref="compound">Button</ref> &amp;&amp;</type>
+        </param>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="34" column="9"/>
+        <location file="libs/gui/src/gui/button.h" line="42" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a353436f010303a3e32a71f55d895bbad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::Button::operator=</definition>
+        <argsstring>(const Button &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1gui_1_1Button" kindref="compound">Button</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/button.h" line="43" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1acef4c059b21c87582142a76fcca47112" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::Button::operator=</definition>
+        <argsstring>(Button &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1Button" kindref="compound">Button</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/button.h" line="44" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1abb4b0ad56e62c32ed30779836e0b9ab0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::Button::set_skin</definition>
+        <argsstring>(Skin *new_skin)</argsstring>
+        <name>set_skin</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1Skin" kindref="compound">Skin</ref> *</type>
+          <declname>new_skin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/button.h" line="46" column="14" bodyfile="libs/gui/src/gui/button.cc" bodystart="174" bodyend="181"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1ac93ceb27c3b59ecbed382cde13001461" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -186,7 +239,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="37" column="9"/>
+        <location file="libs/gui/src/gui/button.h" line="48" column="14" bodyfile="libs/gui/src/gui/button.cc" bodystart="30" bodyend="92"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a9bcff32380a7aeb8a71da0cbab400963" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
@@ -200,7 +253,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="40" column="9"/>
+        <location file="libs/gui/src/gui/button.h" line="49" column="23" bodyfile="libs/gui/src/gui/button.cc" bodystart="96" bodyend="119"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a179d55ba487f0aba70ef2b1e6404230e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -218,7 +271,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="43" column="9"/>
+        <location file="libs/gui/src/gui/button.h" line="50" column="14" bodyfile="libs/gui/src/gui/button.cc" bodystart="123" bodyend="157"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a065d52d909b787511580c6f549c03b2b" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -236,38 +289,35 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="46" column="9"/>
+        <location file="libs/gui/src/gui/button.h" line="51" column="14" bodyfile="libs/gui/src/gui/button.cc" bodystart="161" bodyend="164"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1a4d824de3a4244a2961f6c5aca17a0145" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
         <definition>void euphoria::gui::Button::on_size_changed</definition>
         <argsstring>() override</argsstring>
         <name>on_size_changed</name>
-        <reimplements refid="structeuphoria_1_1gui_1_1Widget_1ae2f0af874dd22c23993e9cfa6e9f4cd0">on_size_changed</reimplements>
+        <reimplements refid="structeuphoria_1_1gui_1_1Widget_1aec3fab3e5408783b14a89283cefdd5bf">on_size_changed</reimplements>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="49" column="9"/>
+        <location file="libs/gui/src/gui/button.h" line="52" column="14" bodyfile="libs/gui/src/gui/button.cc" bodystart="168" bodyend="170"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1abb4b0ad56e62c32ed30779836e0b9ab0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Button_1ab3848255bbbafee3c41a50d4edb8a30e" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
-        <definition>void euphoria::gui::Button::set_skin</definition>
-        <argsstring>(Skin *new_skin)</argsstring>
-        <name>set_skin</name>
-        <param>
-          <type><ref refid="structeuphoria_1_1gui_1_1Skin" kindref="compound">Skin</ref> *</type>
-          <declname>new_skin</declname>
-        </param>
+        <definition>virtual void euphoria::gui::Button::on_clicked</definition>
+        <argsstring>()=0</argsstring>
+        <name>on_clicked</name>
+        <reimplementedby refid="structeuphoria_1_1gui_1_1CommandButton_1aaa07ea9eb386791400aaff983f39de39">on_clicked</reimplementedby>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/button.h" line="52" column="9"/>
+        <location file="libs/gui/src/gui/button.h" line="54" column="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -278,6 +328,12 @@
       <node id="2">
         <label>euphoria::gui::Widget</label>
         <link refid="structeuphoria_1_1gui_1_1Widget"/>
+      </node>
+      <node id="3">
+        <label>euphoria::gui::CommandButton</label>
+        <link refid="structeuphoria_1_1gui_1_1CommandButton"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
       </node>
       <node id="1">
         <label>euphoria::gui::Button</label>
@@ -294,15 +350,6 @@
       <node id="8">
         <label>euphoria::gui::TextData</label>
         <link refid="structeuphoria_1_1gui_1_1TextData"/>
-      </node>
-      <node id="15">
-        <label>euphoria::core::Interpolate&lt; euphoria::core::vec2f, euphoria::core::Vec2fTransform &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Interpolate"/>
-        <childnode refid="4" relation="usage">
-          <edgelabel>from</edgelabel>
-          <edgelabel>value</edgelabel>
-          <edgelabel>to</edgelabel>
-        </childnode>
       </node>
       <node id="2">
         <label>euphoria::gui::Widget</label>
@@ -334,26 +381,22 @@
         <label>euphoria::core::rgb</label>
         <link refid="structeuphoria_1_1core_1_1rgb"/>
       </node>
-      <node id="11">
-        <label>euphoria::gui::Interpolation</label>
-        <link refid="structeuphoria_1_1gui_1_1Interpolation"/>
-      </node>
       <node id="13">
-        <label>euphoria::core::Interpolate&lt; euphoria::core::rgb, euphoria::core::RgbTransform &gt;</label>
+        <label>euphoria::core::Interpolate&lt; euphoria::core::vec2f &gt;</label>
         <link refid="structeuphoria_1_1core_1_1Interpolate"/>
-        <childnode refid="12" relation="usage">
+        <childnode refid="4" relation="usage">
           <edgelabel>from</edgelabel>
           <edgelabel>value</edgelabel>
           <edgelabel>to</edgelabel>
         </childnode>
       </node>
+      <node id="11">
+        <label>euphoria::gui::Interpolation</label>
+        <link refid="structeuphoria_1_1gui_1_1Interpolation"/>
+      </node>
       <node id="6">
         <label>euphoria::core::Rectf</label>
         <link refid="structeuphoria_1_1core_1_1Rectf"/>
-      </node>
-      <node id="14">
-        <label>euphoria::core::Interpolate&lt; float, euphoria::core::FloatTransform &gt;</label>
-        <link refid="structeuphoria_1_1core_1_1Interpolate"/>
       </node>
       <node id="1">
         <label>euphoria::gui::Button</label>
@@ -367,8 +410,7 @@
           <edgelabel>skin</edgelabel>
         </childnode>
         <childnode refid="13" relation="usage">
-          <edgelabel>image_color</edgelabel>
-          <edgelabel>text_color</edgelabel>
+          <edgelabel>position_displacement</edgelabel>
         </childnode>
         <childnode refid="14" relation="usage">
           <edgelabel>scale</edgelabel>
@@ -377,7 +419,8 @@
           <edgelabel>last_state</edgelabel>
         </childnode>
         <childnode refid="15" relation="usage">
-          <edgelabel>position_displacement</edgelabel>
+          <edgelabel>image_color</edgelabel>
+          <edgelabel>text_color</edgelabel>
         </childnode>
       </node>
       <node id="5">
@@ -412,44 +455,60 @@
         <label>euphoria::core::vec2f</label>
         <link refid="structeuphoria_1_1core_1_1vec2f"/>
       </node>
+      <node id="14">
+        <label>euphoria::core::Interpolate&lt; float &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Interpolate"/>
+      </node>
+      <node id="15">
+        <label>euphoria::core::Interpolate&lt; euphoria::core::rgb &gt;</label>
+        <link refid="structeuphoria_1_1core_1_1Interpolate"/>
+        <childnode refid="12" relation="usage">
+          <edgelabel>from</edgelabel>
+          <edgelabel>value</edgelabel>
+          <edgelabel>to</edgelabel>
+        </childnode>
+      </node>
     </collaborationgraph>
-    <location file="libs/gui/src/gui/button.h" line="27" column="1" bodyfile="libs/gui/src/gui/button.h" bodystart="26" bodyend="63"/>
+    <location file="libs/gui/src/gui/button.h" line="27" column="1" bodyfile="libs/gui/src/gui/button.h" bodystart="26" bodyend="55"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1gui_1_1Button_1a34179a54502fb5f06c9bf3bfae7a0b9a" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>Button</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1a6d5e7ecaeadc6ab4da6f65728b82d68e" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>Button</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1a17814f3e2fb2ab08469aa35b78c5098e" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>Button</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a9bcff32380a7aeb8a71da0cbab400963" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>calculate_minimum_size</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a612b9df04f3ad944e2fbb724af8b9e3c" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_background_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aaa5ef093b28493ac7ab9d595ee32603c" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_client_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a9ca439de78ec9af54a1a153c537352b0" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_preferred_size</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1aaaa330020189ba391f262ced17969bf5" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_state</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1a51254124a46bb322060c40de2f7ff9c0" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_state_ptr</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Button_1a8ddeabde3761457434a60903258c564b" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>image_color</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1aed36d1046dff5c5cb5267669e85384a5" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_state</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1a1b4a18c1bba51825244684d59ac6a0a0" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>get_state_ptr</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1a6658694d69c0be0b37dc1068c433bb47" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>image_color</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a4935e88b3a9952a9b0d5dd29c2fb4897" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>is_active</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a7a89318c7d31e26029b2eb1aac0b340b" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>is_hot</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a4e11d474143fa0722f27c687f7ae3995" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>last_state</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a80c0faaf62ebf85fa3a5447e499204b9" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>layout</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aa2aecb7732220885a308d1d6b9939099" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>margin</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1afa8759b6e074b74103d2410bac6ac044" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>name</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Button_1aa23c21e78b9b9043687c91255042544b" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1a5da9b6c183202964e9aac2ca829fbf9d" prot="public" virt="non-virtual" ambiguityscope="euphoria::gui::Widget::"><scope>euphoria::gui::Button</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1a5da9b6c183202964e9aac2ca829fbf9d" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1ab3848255bbbafee3c41a50d4edb8a30e" prot="public" virt="pure-virtual"><scope>euphoria::gui::Button</scope><name>on_clicked</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a4d824de3a4244a2961f6c5aca17a0145" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>on_size_changed</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1a353436f010303a3e32a71f55d895bbad" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1acef4c059b21c87582142a76fcca47112" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a5c40adc17ae40f0ef94f3fe5bc961d72" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>padding</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Button_1a4b9fbf10ddd540b456cc9c53efc4d181" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>position_displacement</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1ab0579b89359ae6afcd5e7221ca1d45a4" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>position_displacement</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1adaeaa96945b0d21a6bb304a152a06e8e" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a179d55ba487f0aba70ef2b1e6404230e" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>render</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Button_1a6f644fee3b82326d9909b4b05e0cce71" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>scale</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1ae61e04399e57a00313142e7fb9f8c04b" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>scale</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1af94951932b190171b68d94bc8d4d54e0" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>set_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1abb4b0ad56e62c32ed30779836e0b9ab0" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>set_skin</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a3fab8b278ba7217e0fe6c9272483e259" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>skin</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1ae3cf17a83269f9e356db05dd3a192188" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>sprite</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1ac93ceb27c3b59ecbed382cde13001461" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>step</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1adfe63e5ea827b400962101176f1d4639" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>text</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Button_1a0128d0871f00253f7394679819b0fbb9" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>text_color</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Button_1ac32ad499249d9792ec349bbc56a992b6" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>text_color</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a327ea1ae474285039624b1452ab81631" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>ui_state</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a065d52d909b787511580c6f549c03b2b" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>visit</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a58c16afb025fc25598706c2fbb6cfaf7" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>Widget</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1af8209f327515b9d359f42825f83c9b4a" prot="public" virt="non-virtual"><scope>euphoria::gui::Button</scope><name>~Button</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1aa701685ae4c0a6517d04858adb46adba" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>~Widget</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1afd282e26e5c802550b76dafc91a0d70c" prot="public" virt="virtual"><scope>euphoria::gui::Button</scope><name>~Widget</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

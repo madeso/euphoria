@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/collisionmesh.h" line="19" column="9" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/core/src/core/collisionmesh.h" line="17" column="9" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="17" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1CollisionFace_1a723269d1915f048dab6f7304d32d7a32" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/collisionmesh.h" line="19" column="15" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/core/src/core/collisionmesh.h" line="18" column="9" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1CollisionFace_1aff678d88743012dbab33f72154159847" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/collisionmesh.h" line="19" column="21" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/core/src/core/collisionmesh.h" line="19" column="9" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -68,14 +68,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/collisionmesh.h" line="17" column="15" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="17" bodyend="17"/>
+        <location file="libs/core/src/core/collisionmesh.h" line="21" column="15" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="21" bodyend="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/collisionmesh.h" line="16" column="1" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="15" bodyend="20"/>
+    <location file="libs/core/src/core/collisionmesh.h" line="16" column="1" bodyfile="libs/core/src/core/collisionmesh.h" bodystart="15" bodyend="23"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CollisionFace_1a4d97c79733424d73689c3a3d053e12e5" prot="public" virt="non-virtual"><scope>euphoria::core::CollisionFace</scope><name>CollisionFace</name></member>
       <member refid="structeuphoria_1_1core_1_1CollisionFace_1ac8d5ae8c1d4559d6c0cd639bc6726899" prot="public" virt="non-virtual"><scope>euphoria::core::CollisionFace</scope><name>x</name></member>

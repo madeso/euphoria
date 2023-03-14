@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceeuphoria_1_1minsynth_1_1_0d330" kind="namespace" language="C++">
+    <compoundname>euphoria::minsynth::@330</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/minsynth/src/minsynth/synth.cc" line="237" column="5"/>
+  </compounddef>
+</doxygen>

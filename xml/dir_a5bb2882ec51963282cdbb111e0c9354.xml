@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="dir_a5bb2882ec51963282cdbb111e0c9354" kind="dir">
     <compoundname>libs/assert/src/assert</compoundname>
+    <innerfile refid="assert_8cc">assert.cc</innerfile>
     <innerfile refid="assert_8h">assert.h</innerfile>
     <briefdescription>
     </briefdescription>

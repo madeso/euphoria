@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="core_2src_2core_2key_8cc" kind="file" language="C++">
+    <compoundname>key.cc</compoundname>
+    <includes refid="core_2src_2core_2key_8h" local="yes">core/key.h</includes>
+    <includes local="no">map</includes>
+    <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
+    <incdepgraph>
+      <node id="4">
+        <label>core/stringutils.h</label>
+        <link refid="stringutils_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>map</label>
+      </node>
+      <node id="2">
+        <label>core/key.h</label>
+        <link refid="core_2src_2core_2key_8h"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/key.cc</label>
+        <link refid="core_2src_2core_2key_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="core_2src_2core_2key_8cc_1a005600a93be22e78bc7686f849f7709d" prot="public" static="no" mutable="no">
+        <type>std::map&lt; std::string, T &gt;</type>
+        <definition>std::map&lt;std::string, T&gt; string_to_key</definition>
+        <argsstring></argsstring>
+        <name>string_to_key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/key.cc" line="68" column="22" bodyfile="libs/core/src/core/key.cc" bodystart="68" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="core_2src_2core_2key_8cc_1a2e005857c2ad942054593f7de452ee93" prot="public" static="no" mutable="no">
+        <type>std::map&lt; T, std::string &gt;</type>
+        <definition>std::map&lt;T, std::string&gt; key_to_string</definition>
+        <argsstring></argsstring>
+        <name>key_to_string</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/key.cc" line="69" column="22" bodyfile="libs/core/src/core/key.cc" bodystart="69" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="core_2src_2core_2key_8cc_1a23f2166778fa8eb225352a4f26ef4b29" prot="public" static="no" mutable="no">
+        <type>const T</type>
+        <definition>const T invalid_key</definition>
+        <argsstring></argsstring>
+        <name>invalid_key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/key.cc" line="70" column="21" bodyfile="libs/core/src/core/key.cc" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="core_2src_2core_2key_8cc_1afd3c9ebfab2f079795cc28db93980f10" prot="public" static="no" mutable="no">
+        <type>const T</type>
+        <definition>const T unbound_key</definition>
+        <argsstring></argsstring>
+        <name>unbound_key</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/key.cc" line="71" column="21" bodyfile="libs/core/src/core/key.cc" bodystart="71" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/key.cc"/>
+  </compounddef>
+</doxygen>

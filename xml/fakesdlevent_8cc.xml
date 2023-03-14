@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="fakesdlevent_8cc" kind="file" language="C++">
+    <compoundname>fakesdlevent.cc</compoundname>
+    <includes refid="fakesdlevent_8h" local="yes">window/fakesdlevent.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/window/src/window/fakesdlevent.cc</label>
+        <link refid="fakesdlevent_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>window/fakesdlevent.h</label>
+        <link refid="fakesdlevent_8h"/>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/window/src/window/fakesdlevent.cc"/>
+  </compounddef>
+</doxygen>

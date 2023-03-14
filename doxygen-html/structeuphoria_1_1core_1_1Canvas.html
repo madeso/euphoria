@@ -61,16 +61,15 @@
 </div><!--header-->
 <div class="contents">
 
+<p>hacky layer between something that looks like the html 'canvas rendering context 2d' and the euphoria image drawing operations <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D</a>  
+ <a href="structeuphoria_1_1core_1_1Canvas.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a3e4748a2aa1fe5e01048d399279b4746"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#a3e4748a2aa1fe5e01048d399279b4746">transform_position</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;v) const</td></tr>
-<tr class="separator:a3e4748a2aa1fe5e01048d399279b4746"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63682653a9b417feb58223e930fadc88"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#a63682653a9b417feb58223e930fadc88">Canvas</a> (<a class="el" href="structeuphoria_1_1core_1_1Image.html">Image</a> *i)</td></tr>
 <tr class="separator:a63682653a9b417feb58223e930fadc88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac29ace836b24a841bbb684a76f1641ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#ac29ace836b24a841bbb684a76f1641ab">fill_rect</a> (int x, int y, int w, int h) const</td></tr>
-<tr class="separator:ac29ace836b24a841bbb684a76f1641ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a44e0d8028ee086d12b94fdcd0c58a1d5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#a44e0d8028ee086d12b94fdcd0c58a1d5">translate</a> (float x, float y)</td></tr>
 <tr class="separator:a44e0d8028ee086d12b94fdcd0c58a1d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9958b8a7941a37c13f2f14bde2ab5076"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#a9958b8a7941a37c13f2f14bde2ab5076">rotate</a> (float r)</td></tr>
@@ -83,6 +82,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac2fcbf7f3b5fcd4c7be82b3e291418c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0224f5131236196fab6f491e9aeb33b4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#a0224f5131236196fab6f491e9aeb33b4">line_to</a> (float dx, float dy)</td></tr>
 <tr class="separator:a0224f5131236196fab6f491e9aeb33b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e4748a2aa1fe5e01048d399279b4746"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#a3e4748a2aa1fe5e01048d399279b4746">transform_position</a> (const <a class="el" href="structeuphoria_1_1core_1_1vec2f.html">vec2f</a> &amp;v) const</td></tr>
+<tr class="separator:a3e4748a2aa1fe5e01048d399279b4746"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac29ace836b24a841bbb684a76f1641ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#ac29ace836b24a841bbb684a76f1641ab">fill_rect</a> (int x, int y, int w, int h) const</td></tr>
+<tr class="separator:ac29ace836b24a841bbb684a76f1641ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbe85f8b75c9c6bde274e93d4daee851"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Canvas.html#acbe85f8b75c9c6bde274e93d4daee851">fill</a> () const</td></tr>
 <tr class="separator:acbe85f8b75c9c6bde274e93d4daee851"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -100,7 +103,8 @@ Public Attributes</h2></td></tr>
 <tr class="separator:aff5d70e104ecb53a3423f3e5eb34136c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
+<div class="textblock"><p>hacky layer between something that looks like the html 'canvas rendering context 2d' and the euphoria image drawing operations <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D</a> </p>
+
 <p class="definition">Definition at line <a class="el" href="image__canvas_8h_source.html#l00015">15</a> of file <a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a63682653a9b417feb58223e930fadc88"></a>
@@ -118,6 +122,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00028">28</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
 
 </div>
 </div>
@@ -137,6 +143,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00067">67</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
+
 </div>
 </div>
 <a id="a28f5005cd17304a67ed93013a318da6f"></a>
@@ -154,6 +162,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00075">75</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
+
 </div>
 </div>
 <a id="acbe85f8b75c9c6bde274e93d4daee851"></a>
@@ -170,6 +180,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00101">101</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
 
 </div>
 </div>
@@ -211,6 +223,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00037">37</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
+
 </div>
 </div>
 <a id="a0224f5131236196fab6f491e9aeb33b4"></a>
@@ -238,6 +252,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00090">90</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
 
 </div>
 </div>
@@ -267,6 +283,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00082">82</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
+
 </div>
 </div>
 <a id="a9958b8a7941a37c13f2f14bde2ab5076"></a>
@@ -285,6 +303,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00061">61</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
+
 </div>
 </div>
 <a id="a3e4748a2aa1fe5e01048d399279b4746"></a>
@@ -302,6 +322,8 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00018">18</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
 
 </div>
 </div>
@@ -331,6 +353,8 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="image__canvas_8cc_source.html#l00054">54</a> of file <a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a>.</p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
@@ -346,7 +370,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image__canvas_8h_source.html#l00023">23</a> of file <a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="image__canvas_8h_source.html#l00020">20</a> of file <a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>.</p>
 
 </div>
 </div>
@@ -378,7 +402,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image__canvas_8h_source.html#l00024">24</a> of file <a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="image__canvas_8h_source.html#l00021">21</a> of file <a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>.</p>
 
 </div>
 </div>
@@ -394,7 +418,7 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image__canvas_8h_source.html#l00019">19</a> of file <a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="image__canvas_8h_source.html#l00018">18</a> of file <a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>.</p>
 
 </div>
 </div>
@@ -410,12 +434,13 @@ Public Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="image__canvas_8h_source.html#l00021">21</a> of file <a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="image__canvas_8h_source.html#l00019">19</a> of file <a class="el" href="image__canvas_8h_source.html">image_canvas.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>libs/core/src/core/<a class="el" href="image__canvas_8h_source.html">image_canvas.h</a></li>
+<li>libs/core/src/core/<a class="el" href="image__canvas_8cc_source.html">image_canvas.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

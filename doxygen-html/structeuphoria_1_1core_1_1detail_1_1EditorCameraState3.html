@@ -61,6 +61,17 @@
 <div class="contents">
 
 <p><code>#include &lt;<a class="el" href="camera3_8editor_8h_source.html">camera3.editor.h</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for euphoria::core::detail::EditorCameraState3:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.png" usemap="#euphoria::core::detail::EditorCameraState3_map" alt=""/>
+  <map id="euphoria::core::detail::EditorCameraState3_map" name="euphoria::core::detail::EditorCameraState3_map">
+<area href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html" alt="euphoria::core::detail::DefaultCamera" shape="rect" coords="0,56,248,80"/>
+<area href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html" alt="euphoria::core::detail::LerpCamera" shape="rect" coords="258,56,506,80"/>
+<area href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html" alt="euphoria::core::detail::OrbitCamera" shape="rect" coords="516,56,764,80"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
@@ -88,8 +99,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1a121c2b472935eaa38bcffa67252a67"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa82af4c51a9dcf4cc535f5e490e071fa"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html#aa82af4c51a9dcf4cc535f5e490e071fa">on_camera_stop</a> (<a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *owner)=0</td></tr>
 <tr class="separator:aa82af4c51a9dcf4cc535f5e490e071fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a562565e5e7932a28b4612fa4f3b28ab8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571d">MouseBehaviour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html#a562565e5e7932a28b4612fa4f3b28ab8">get_mouse</a> (<a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *owner)=0</td></tr>
-<tr class="separator:a562565e5e7932a28b4612fa4f3b28ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2acac2820014e37d7c06c9f2d1a06e6"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571d">MouseBehaviour</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1detail_1_1EditorCameraState3.html#ac2acac2820014e37d7c06c9f2d1a06e6">get_mouse</a> (const <a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *owner) const =0</td></tr>
+<tr class="separator:ac2acac2820014e37d7c06c9f2d1a06e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
@@ -198,8 +209,8 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a562565e5e7932a28b4612fa4f3b28ab8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a562565e5e7932a28b4612fa4f3b28ab8">&#9670;&nbsp;</a></span>get_mouse()</h2>
+<a id="ac2acac2820014e37d7c06c9f2d1a06e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2acac2820014e37d7c06c9f2d1a06e6">&#9670;&nbsp;</a></span>get_mouse()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -210,9 +221,9 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual <a class="el" href="namespaceeuphoria_1_1core.html#ae4c24a6a2024585c62a9b910a86d571d">MouseBehaviour</a> euphoria::core::detail::EditorCameraState3::get_mouse </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1EditorCamera3.html">EditorCamera3</a> *&#160;</td>
           <td class="paramname"><em>owner</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
   </td>
@@ -221,6 +232,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html#aa9d4f8e9b22a25c22676298068935436">euphoria::core::detail::LerpCamera</a>, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html#a10acda02751adcd421a8c70e82deb298">euphoria::core::detail::DefaultCamera</a>, and <a class="el" href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html#ae201eebe7c51a8e4219e6755e42669c2">euphoria::core::detail::OrbitCamera</a>.</p>
 
 </div>
 </div>
@@ -248,6 +261,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html#a815d48f57e39ef82ffd3b26a5e4962aa">euphoria::core::detail::DefaultCamera</a>, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html#a4e27e497deafe83312898cce0c0c337f">euphoria::core::detail::LerpCamera</a>, and <a class="el" href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html#a9c1fe09668192f523eb4c139e27bcc18">euphoria::core::detail::OrbitCamera</a>.</p>
+
 </div>
 </div>
 <a id="aa82af4c51a9dcf4cc535f5e490e071fa"></a>
@@ -273,6 +288,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html#af7c1db4f4558f9cb673a38024181a39f">euphoria::core::detail::OrbitCamera</a>, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html#a0b1de2482f71cf331ee7df0509b94f04">euphoria::core::detail::LerpCamera</a>, and <a class="el" href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html#ac43dfd8a6e7912eaf8777d0f20f68666">euphoria::core::detail::DefaultCamera</a>.</p>
 
 </div>
 </div>
@@ -316,6 +333,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html#ae944e2dd7b43fd171f491ad5e2d260e2">euphoria::core::detail::LerpCamera</a>, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html#a7f7e4c417f748e44e4c6a7b92f59dcf2">euphoria::core::detail::DefaultCamera</a>, and <a class="el" href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html#ab95cf85f88419a248ca0dbeffcbb1e58">euphoria::core::detail::OrbitCamera</a>.</p>
+
 </div>
 </div>
 <a id="aa0d2868f2bc95ff9b9e502f487e242f6"></a>
@@ -358,6 +377,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html#a47380c1cdb9ff0b9832b63a5791d7151">euphoria::core::detail::DefaultCamera</a>, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html#a2b6f1d36b1f51f8890e7648546449775">euphoria::core::detail::OrbitCamera</a>, and <a class="el" href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html#ad0ad439d37594a34a8e6dc0f050f6254">euphoria::core::detail::LerpCamera</a>.</p>
+
 </div>
 </div>
 <a id="af2433982016c7c0012f4b78735e46933"></a>
@@ -399,6 +420,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html#a8252857f29b4eed9d64ce33f671c3ad5">euphoria::core::detail::DefaultCamera</a>, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html#a367aba69690e3b304d7d61ef74e13b96">euphoria::core::detail::OrbitCamera</a>, and <a class="el" href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html#ab5a60645adefa63aef7f67d0e67e0d28">euphoria::core::detail::LerpCamera</a>.</p>
 
 </div>
 </div>
@@ -511,6 +534,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1detail_1_1LerpCamera.html#a0b88b1af1e2c0fb497c9cad26d1ee802">euphoria::core::detail::LerpCamera</a>, <a class="el" href="structeuphoria_1_1core_1_1detail_1_1OrbitCamera.html#a91ebe42b8a30691b4536a5907397d100">euphoria::core::detail::OrbitCamera</a>, and <a class="el" href="structeuphoria_1_1core_1_1detail_1_1DefaultCamera.html#ab289ec11df3ea38a326c85f26a47dbca">euphoria::core::detail::DefaultCamera</a>.</p>
 
 </div>
 </div>

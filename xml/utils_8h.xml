@@ -3,6 +3,7 @@
   <compounddef id="utils_8h" kind="file" language="C++">
     <compoundname>utils.h</compoundname>
     <includes local="yes">catch.hpp</includes>
+    <includedby refid="utils_8cc" local="yes">libs/tests/src/tests/utils.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/tests/src/tests/utils.h</label>
@@ -14,6 +15,18 @@
         <label>catch.hpp</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/tests/src/tests/utils.h</label>
+        <link refid="utils_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/tests/src/tests/utils.cc</label>
+        <link refid="utils_8cc"/>
+      </node>
+    </invincdepgraph>
       <sectiondef kind="define">
       <memberdef kind="define" id="utils_8h_1a80f361e63b05815a4a87465365d04955" prot="public" static="no">
         <name>CATCH_IS_VECTOR</name>

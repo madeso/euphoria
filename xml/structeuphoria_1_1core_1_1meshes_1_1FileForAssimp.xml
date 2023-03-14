@@ -1,0 +1,182 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::core::meshes::FileForAssimp</compoundname>
+    <basecompoundref prot="public" virt="non-virtual">IOStream</basecompoundref>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a35c62683efd9e96148be5bdeffedff10" prot="public" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::meshes::FileForAssimp::index</definition>
+        <argsstring></argsstring>
+        <name>index</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="540" column="20" bodyfile="libs/core/src/core/mesh.cc" bodystart="540" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a6343e236511ab365152f4737b956c44c" prot="public" static="no" mutable="no">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::meshes::FileForAssimp::content</definition>
+        <argsstring></argsstring>
+        <name>content</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="541" column="29" bodyfile="libs/core/src/core/mesh.cc" bodystart="541" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1ab2a52d43350dad8be33a6015cafaaddf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::meshes::FileForAssimp::Read</definition>
+        <argsstring>(void *target_buffer, size_t size, size_t count) override</argsstring>
+        <name>Read</name>
+        <param>
+          <type>void *</type>
+          <declname>target_buffer</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>size_t</type>
+          <declname>count</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="543" column="20" bodyfile="libs/core/src/core/mesh.cc" bodystart="543" bodyend="559"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a18dcfe67da19b96363556ebffd962b65" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::meshes::FileForAssimp::Write</definition>
+        <argsstring>(const void *, size_t, size_t) override</argsstring>
+        <name>Write</name>
+        <param>
+          <type>const void *</type>
+        </param>
+        <param>
+          <type>size_t</type>
+        </param>
+        <param>
+          <type>size_t</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="561" column="20" bodyfile="libs/core/src/core/mesh.cc" bodystart="561" bodyend="564"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a22b23bef1c6aab622c02cc0afd036a0c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>aiReturn</type>
+        <definition>aiReturn euphoria::core::meshes::FileForAssimp::Seek</definition>
+        <argsstring>(size_t offset, aiOrigin origin) override</argsstring>
+        <name>Seek</name>
+        <param>
+          <type>size_t</type>
+          <declname>offset</declname>
+        </param>
+        <param>
+          <type>aiOrigin</type>
+          <declname>origin</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="566" column="22" bodyfile="libs/core/src/core/mesh.cc" bodystart="566" bodyend="575"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a03fb2b219bbe8285f6a85168a5cd1939" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::meshes::FileForAssimp::Tell</definition>
+        <argsstring>() const override</argsstring>
+        <name>Tell</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="577" column="21" bodyfile="libs/core/src/core/mesh.cc" bodystart="577" bodyend="580"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a96d49b50268786b173f81cec4ba95276" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t euphoria::core::meshes::FileForAssimp::FileSize</definition>
+        <argsstring>() const override</argsstring>
+        <name>FileSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="582" column="21" bodyfile="libs/core/src/core/mesh.cc" bodystart="582" bodyend="585"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a74c0efd2408e3f7cd1f4ac8c26f1949e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::meshes::FileForAssimp::Flush</definition>
+        <argsstring>() override</argsstring>
+        <name>Flush</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/mesh.cc" line="587" column="18" bodyfile="libs/core/src/core/mesh.cc" bodystart="587" bodyend="589"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>euphoria::core::meshes::FileForAssimp</label>
+        <link refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Assimp::IOStream</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>euphoria::core::meshes::FileForAssimp</label>
+        <link refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>Assimp::IOStream</label>
+      </node>
+    </collaborationgraph>
+    <location file="libs/core/src/core/mesh.cc" line="539" column="1" bodyfile="libs/core/src/core/mesh.cc" bodystart="538" bodyend="590"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a6343e236511ab365152f4737b956c44c" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>content</name></member>
+      <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a96d49b50268786b173f81cec4ba95276" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>FileSize</name></member>
+      <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a74c0efd2408e3f7cd1f4ac8c26f1949e" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>Flush</name></member>
+      <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a35c62683efd9e96148be5bdeffedff10" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>index</name></member>
+      <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1ab2a52d43350dad8be33a6015cafaaddf" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>Read</name></member>
+      <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a22b23bef1c6aab622c02cc0afd036a0c" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>Seek</name></member>
+      <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a03fb2b219bbe8285f6a85168a5cd1939" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>Tell</name></member>
+      <member refid="structeuphoria_1_1core_1_1meshes_1_1FileForAssimp_1a18dcfe67da19b96363556ebffd962b65" prot="public" virt="non-virtual"><scope>euphoria::core::meshes::FileForAssimp</scope><name>Write</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

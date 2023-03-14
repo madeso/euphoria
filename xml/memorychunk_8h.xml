@@ -4,8 +4,11 @@
     <compoundname>memorychunk.h</compoundname>
     <includes local="no">memory</includes>
     <includedby refid="base64_8h" local="yes">libs/core/src/core/base64.h</includedby>
+    <includedby refid="crc32_8cc" local="yes">libs/core/src/core/crc32.cc</includedby>
     <includedby refid="image_8h" local="yes">libs/core/src/core/image.h</includedby>
     <includedby refid="io_8h" local="yes">libs/core/src/core/io.h</includedby>
+    <includedby refid="loadedfont_8cc" local="yes">libs/core/src/core/loadedfont.cc</includedby>
+    <includedby refid="memorychunk_8cc" local="yes">libs/core/src/core/memorychunk.cc</includedby>
     <includedby refid="vfs_8h" local="yes">libs/core/src/core/vfs.h</includedby>
     <incdepgraph>
       <node id="1">
@@ -19,97 +22,403 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
-      <node id="6">
+      <node id="14">
+        <label>libs/core/src/core/image_canvas.cc</label>
+        <link refid="image__canvas_8cc"/>
+      </node>
+      <node id="54">
+        <label>libs/window/src/window/engine.cc</label>
+        <link refid="engine_8cc"/>
+      </node>
+      <node id="23">
         <label>libs/core/src/core/loadedfont.h</label>
         <link refid="loadedfont_8h"/>
-        <childnode refid="7" relation="include">
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
         </childnode>
       </node>
-      <node id="11">
-        <label>libs/render/src/render/spriterender.h</label>
-        <link refid="spriterender_8h"/>
+      <node id="56">
+        <label>libs/render/src/render/defaultfiles.cc</label>
+        <link refid="defaultfiles_8cc"/>
       </node>
-      <node id="7">
-        <label>libs/render/src/render/font.h</label>
-        <link refid="font_8h"/>
+      <node id="13">
+        <label>libs/core/src/core/image.cc</label>
+        <link refid="image_8cc"/>
+      </node>
+      <node id="35">
+        <label>libs/render/src/render/compiledmesh.cc</label>
+        <link refid="compiledmesh_8cc"/>
+      </node>
+      <node id="40">
+        <label>libs/render/src/render/sprite.cc</label>
+        <link refid="sprite_8cc"/>
       </node>
       <node id="10">
-        <label>libs/render/src/render/texture.h</label>
-        <link refid="texture_8h"/>
-        <childnode refid="7" relation="include">
-        </childnode>
-        <childnode refid="11" relation="include">
-        </childnode>
+        <label>libs/core/src/core/hashgen.identicon.cc</label>
+        <link refid="hashgen_8identicon_8cc"/>
+      </node>
+      <node id="28">
+        <label>libs/render/src/render/fontcache.cc</label>
+        <link refid="fontcache_8cc"/>
+      </node>
+      <node id="17">
+        <label>libs/core/src/core/loadedfont.cc</label>
+        <link refid="loadedfont_8cc"/>
+      </node>
+      <node id="39">
+        <label>libs/gui/src/gui/root.cc</label>
+        <link refid="root_8cc"/>
+      </node>
+      <node id="25">
+        <label>libs/gui/src/gui/button.cc</label>
+        <link refid="button_8cc"/>
+      </node>
+      <node id="50">
+        <label>libs/core/src/core/proto.cc</label>
+        <link refid="proto_8cc"/>
+      </node>
+      <node id="6">
+        <label>libs/core/src/core/collage.cc</label>
+        <link refid="collage_8cc"/>
       </node>
       <node id="12">
+        <label>libs/core/src/core/hashgen.sprator.cc</label>
+        <link refid="hashgen_8sprator_8cc"/>
+      </node>
+      <node id="26">
+        <label>libs/gui/src/gui/skin.cc</label>
+        <link refid="skin_8cc"/>
+      </node>
+      <node id="9">
+        <label>libs/core/src/core/generator_maze.cc</label>
+        <link refid="generator__maze_8cc"/>
+      </node>
+      <node id="49">
+        <label>libs/core/src/core/mesh.cc</label>
+        <link refid="mesh_8cc"/>
+      </node>
+      <node id="38">
+        <label>libs/render/src/render/spriterender.h</label>
+        <link refid="spriterender_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="39" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+      </node>
+      <node id="43">
+        <label>libs/window/src/window/imgui_extra.cc</label>
+        <link refid="imgui__extra_8cc"/>
+      </node>
+      <node id="20">
+        <label>libs/render/src/render/font.cc</label>
+        <link refid="font_8cc"/>
+      </node>
+      <node id="30">
+        <label>libs/core/src/core/raytracer.cc</label>
+        <link refid="raytracer_8cc"/>
+      </node>
+      <node id="42">
+        <label>libs/render/src/render/texturecache.cc</label>
+        <link refid="texturecache_8cc"/>
+      </node>
+      <node id="27">
+        <label>libs/gui/src/gui/textdata.cc</label>
+        <link refid="textdata_8cc"/>
+      </node>
+      <node id="16">
+        <label>libs/core/src/core/image_draw.cc</label>
+        <link refid="image__draw_8cc"/>
+      </node>
+      <node id="33">
+        <label>libs/render/src/render/texture.cc</label>
+        <link refid="texture_8cc"/>
+      </node>
+      <node id="51">
+        <label>libs/core/src/core/texttemplate.cc</label>
+        <link refid="texttemplate_8cc"/>
+      </node>
+      <node id="24">
+        <label>libs/render/src/render/font.h</label>
+        <link refid="font_8h"/>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+      </node>
+      <node id="19">
+        <label>libs/core/src/core/vfs_imagegenerator.cc</label>
+        <link refid="vfs__imagegenerator_8cc"/>
+      </node>
+      <node id="34">
+        <label>libs/render/src/render/texture.h</label>
+        <link refid="texture_8h"/>
+        <childnode refid="35" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="44">
         <label>libs/core/src/core/io.h</label>
         <link refid="io_8h"/>
+        <childnode refid="45" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
       </node>
-      <node id="4">
+      <node id="8">
         <label>libs/core/src/core/generator_maze.h</label>
         <link refid="generator__maze_8h"/>
+        <childnode refid="9" relation="include">
+        </childnode>
       </node>
       <node id="2">
         <label>libs/core/src/core/base64.h</label>
         <link refid="base64_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
-      <node id="5">
+      <node id="15">
         <label>libs/core/src/core/image_draw.h</label>
         <link refid="image__draw_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/core/src/core/memorychunk.h</label>
         <link refid="memorychunk_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="3" relation="include">
-        </childnode>
-        <childnode refid="12" relation="include">
-        </childnode>
-        <childnode refid="13" relation="include">
-        </childnode>
-      </node>
-      <node id="8">
-        <label>libs/core/src/core/table_bool.h</label>
-        <link refid="table__bool_8h"/>
-        <childnode refid="9" relation="include">
-        </childnode>
-      </node>
-      <node id="9">
-        <label>libs/core/src/core/generator_cell.h</label>
-        <link refid="generator__cell_8h"/>
-      </node>
-      <node id="13">
-        <label>libs/core/src/core/vfs.h</label>
-        <link refid="vfs_8h"/>
-        <childnode refid="14" relation="include">
-        </childnode>
-        <childnode refid="15" relation="include">
-        </childnode>
-        <childnode refid="10" relation="include">
-        </childnode>
-      </node>
-      <node id="3">
-        <label>libs/core/src/core/image.h</label>
-        <link refid="image_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/base64.cc</label>
+        <link refid="base64_8cc"/>
+      </node>
+      <node id="53">
+        <label>libs/core/src/core/vfs_defaultshaders.cc</label>
+        <link refid="vfs__defaultshaders_8cc"/>
+      </node>
+      <node id="4">
+        <label>libs/core/src/core/crc32.cc</label>
+        <link refid="crc32_8cc"/>
+      </node>
+      <node id="22">
+        <label>libs/core/src/core/imagefilters.cc</label>
+        <link refid="imagefilters_8cc"/>
+      </node>
+      <node id="41">
+        <label>libs/render/src/render/spriterender.cc</label>
+        <link refid="spriterender_8cc"/>
+      </node>
+      <node id="18">
+        <label>libs/core/src/core/table_bool.cc</label>
+        <link refid="table__bool_8cc"/>
+      </node>
+      <node id="7">
+        <label>libs/core/src/core/generator_cell.cc</label>
+        <link refid="generator__cell_8cc"/>
+      </node>
+      <node id="31">
+        <label>libs/core/src/core/table_bool.h</label>
+        <link refid="table__bool_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="18" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>libs/core/src/core/generator_cell.h</label>
+        <link refid="generator__cell_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="48">
+        <label>libs/core/src/core/vfs.h</label>
+        <link refid="vfs_8h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="17" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+        <childnode refid="50" relation="include">
+        </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="46" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="55" relation="include">
+        </childnode>
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>libs/core/src/core/image.h</label>
+        <link refid="image_8h"/>
         <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="21" relation="include">
+        </childnode>
+        <childnode refid="22" relation="include">
+        </childnode>
+        <childnode refid="23" relation="include">
+        </childnode>
+        <childnode refid="29" relation="include">
+        </childnode>
+        <childnode refid="30" relation="include">
+        </childnode>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="20" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
       </node>
-      <node id="14">
+      <node id="46">
+        <label>libs/core/src/core/vfs.cc</label>
+        <link refid="vfs_8cc"/>
+      </node>
+      <node id="52">
         <label>libs/core/src/core/vfs_defaultshaders.h</label>
         <link refid="vfs__defaultshaders_8h"/>
+        <childnode refid="53" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
       </node>
-      <node id="15">
+      <node id="36">
+        <label>libs/render/src/render/scalablesprite.cc</label>
+        <link refid="scalablesprite_8cc"/>
+      </node>
+      <node id="37">
+        <label>libs/render/src/render/shader.cc</label>
+        <link refid="shader_8cc"/>
+      </node>
+      <node id="45">
+        <label>libs/core/src/core/io.cc</label>
+        <link refid="io_8cc"/>
+      </node>
+      <node id="11">
+        <label>libs/core/src/core/hashgen.retro.cc</label>
+        <link refid="hashgen_8retro_8cc"/>
+      </node>
+      <node id="29">
+        <label>libs/core/src/core/palette_extract.cc</label>
+        <link refid="palette__extract_8cc"/>
+      </node>
+      <node id="55">
         <label>libs/core/src/core/vfs_imagegenerator.h</label>
         <link refid="vfs__imagegenerator_8h"/>
+        <childnode refid="19" relation="include">
+        </childnode>
+        <childnode refid="54" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>libs/core/src/core/memorychunk.cc</label>
+        <link refid="memorychunk_8cc"/>
+      </node>
+      <node id="21">
+        <label>libs/core/src/core/image_to_text.cc</label>
+        <link refid="image__to__text_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1MemoryChunk" prot="public">euphoria::core::MemoryChunk</innerclass>

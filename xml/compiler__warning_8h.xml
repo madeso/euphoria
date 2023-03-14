@@ -2,12 +2,27 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="compiler__warning_8h" kind="file" language="C++">
     <compoundname>compiler_warning.h</compoundname>
+    <includedby refid="compiler__warning_8cc" local="yes">libs/core/src/core/compiler_warning.cc</includedby>
     <includedby refid="palette__all_8h" local="yes">libs/core/src/core/palette_all.h</includedby>
     <includedby refid="sol_8h" local="yes">libs/core/src/core/sol.h</includedby>
     <invincdepgraph>
-      <node id="3">
+      <node id="4">
+        <label>libs/core/src/core/palette_all.cc</label>
+        <link refid="palette__all_8cc"/>
+      </node>
+      <node id="6">
+        <label>libs/core/src/core/sol.cc</label>
+        <link refid="sol_8cc"/>
+      </node>
+      <node id="5">
         <label>libs/core/src/core/sol.h</label>
         <link refid="sol_8h"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/compiler_warning.cc</label>
+        <link refid="compiler__warning_8cc"/>
       </node>
       <node id="1">
         <label>libs/core/src/core/compiler_warning.h</label>
@@ -16,10 +31,14 @@
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
       </node>
-      <node id="2">
+      <node id="3">
         <label>libs/core/src/core/palette_all.h</label>
         <link refid="palette__all_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
       </node>
     </invincdepgraph>
       <sectiondef kind="define">

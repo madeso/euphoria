@@ -3,6 +3,7 @@
   <compounddef id="cp437_8h" kind="file" language="C++">
     <compoundname>cp437.h</compoundname>
     <includes local="no">string_view</includes>
+    <includedby refid="cp437_8cc" local="yes">libs/core/src/core/cp437.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/cp437.h</label>
@@ -14,6 +15,18 @@
         <label>string_view</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/cp437.h</label>
+        <link refid="cp437_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/cp437.cc</label>
+        <link refid="cp437_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

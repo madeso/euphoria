@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="70" column="14" bodyfile="libs/core/src/core/table_string.h" bodystart="70" bodyend="-1"/>
+        <location file="libs/core/src/core/table_string.h" line="73" column="14" bodyfile="libs/core/src/core/table_string.h" bodystart="73" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1CsvParserOptions_1a3b4c52fe8697e9c353e3a5b26215a837" prot="public" static="no" mutable="no">
         <type>char</type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="71" column="14" bodyfile="libs/core/src/core/table_string.h" bodystart="71" bodyend="-1"/>
+        <location file="libs/core/src/core/table_string.h" line="74" column="14" bodyfile="libs/core/src/core/table_string.h" bodystart="74" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1CsvParserOptions_1a434b1101101be18e4fea757b1fa04bde" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1a3b8da0f08a5f5180d7b458fac903396b" kindref="member">CsvTrim</ref></type>
@@ -44,14 +44,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/table_string.h" line="72" column="17" bodyfile="libs/core/src/core/table_string.h" bodystart="72" bodyend="-1"/>
+        <location file="libs/core/src/core/table_string.h" line="75" column="17" bodyfile="libs/core/src/core/table_string.h" bodystart="75" bodyend="-1"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/table_string.h" line="69" column="1" bodyfile="libs/core/src/core/table_string.h" bodystart="68" bodyend="73"/>
+    <location file="libs/core/src/core/table_string.h" line="72" column="1" bodyfile="libs/core/src/core/table_string.h" bodystart="71" bodyend="76"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1CsvParserOptions_1afcd5d891152cc3f6b5be93796fd79fcb" prot="public" virt="non-virtual"><scope>euphoria::core::CsvParserOptions</scope><name>delim</name></member>
       <member refid="structeuphoria_1_1core_1_1CsvParserOptions_1a3b4c52fe8697e9c353e3a5b26215a837" prot="public" virt="non-virtual"><scope>euphoria::core::CsvParserOptions</scope><name>str</name></member>

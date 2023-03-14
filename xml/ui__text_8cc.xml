@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="ui__text_8cc" kind="file" language="C++">
+    <compoundname>ui_text.cc</compoundname>
+    <includes refid="ui__text_8h" local="yes">core/ui_text.h</includes>
+    <includes refid="log_8h" local="yes">log/log.h</includes>
+    <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>core/stringbuilder.h</label>
+        <link refid="stringbuilder_8h"/>
+      </node>
+      <node id="9">
+        <label>undef_windows/undef_windows.h</label>
+      </node>
+      <node id="8">
+        <label>spdlog/fmt/ostr.h</label>
+      </node>
+      <node id="7">
+        <label>spdlog/spdlog.h</label>
+      </node>
+      <node id="2">
+        <label>core/ui_text.h</label>
+        <link refid="ui__text_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/ui_text.cc</label>
+        <link refid="ui__text_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>log/log.h</label>
+        <link refid="log_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>core/noncopyable.h</label>
+        <link refid="noncopyable_8h"/>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core_1_1textparser">euphoria::core::textparser</innernamespace>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="ui__text_8cc_1a9d2f62de9d7d3d60426eb932b6e84596" prot="public" static="no" mutable="no">
+        <type>UiText *</type>
+        <definition>UiText* nodes</definition>
+        <argsstring></argsstring>
+        <name>nodes</name>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.cc" line="132" column="20" bodyfile="libs/core/src/core/ui_text.cc" bodystart="132" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ui__text_8cc_1a259fb3f5fba9b7b18fe92f38be37bfa6" prot="public" static="no" mutable="no">
+        <type>ParserState</type>
+        <definition>ParserState state</definition>
+        <argsstring></argsstring>
+        <name>state</name>
+        <initializer>= ParserState::text</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.cc" line="134" column="25" bodyfile="libs/core/src/core/ui_text.cc" bodystart="134" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ui__text_8cc_1a147a254077ae4109b7ca44c246c0b0d2" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool escape</definition>
+        <argsstring></argsstring>
+        <name>escape</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.cc" line="135" column="18" bodyfile="libs/core/src/core/ui_text.cc" bodystart="135" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ui__text_8cc_1a30576e2b240080d4da2c9f6e08c50b10" prot="public" static="no" mutable="no">
+        <type>StringBuilder</type>
+        <definition>StringBuilder buff</definition>
+        <argsstring></argsstring>
+        <name>buff</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.cc" line="136" column="27" bodyfile="libs/core/src/core/ui_text.cc" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="ui__text_8cc_1a1d67bd6634a9002df97231d8c8dbc66c" prot="public" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool ok</definition>
+        <argsstring></argsstring>
+        <name>ok</name>
+        <initializer>= true</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.cc" line="137" column="18" bodyfile="libs/core/src/core/ui_text.cc" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/ui_text.cc"/>
+  </compounddef>
+</doxygen>

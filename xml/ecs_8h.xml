@@ -9,6 +9,7 @@
     <includes local="no">typeinfo</includes>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes refid="ecs_8id_8h" local="yes">core/ecs.id.h</includes>
+    <includedby refid="ecs_8cc" local="yes">libs/core/src/core/ecs.cc</includedby>
     <incdepgraph>
       <node id="12">
         <label>cstdint</label>
@@ -73,6 +74,18 @@
         <label>memory</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/ecs.cc</label>
+        <link refid="ecs_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/ecs.h</label>
+        <link refid="ecs_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1ComponentArrayBase" prot="public">euphoria::core::ecs::ComponentArrayBase</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1GenericComponentArray" prot="public">euphoria::core::ecs::GenericComponentArray</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ecs_1_1Registry" prot="public">euphoria::core::ecs::Registry</innerclass>

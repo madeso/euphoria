@@ -2,6 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="sol__forward_8h" kind="file" language="C++">
     <compoundname>sol_forward.h</compoundname>
+    <includedby refid="sol__forward_8cc" local="yes">libs/core/src/core/sol_forward.cc</includedby>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/sol_forward.h</label>
+        <link refid="sol__forward_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/sol_forward.cc</label>
+        <link refid="sol__forward_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespacesol">sol</innernamespace>
     <briefdescription>
     </briefdescription>

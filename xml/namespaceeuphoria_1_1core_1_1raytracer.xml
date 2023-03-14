@@ -2,12 +2,273 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="namespaceeuphoria_1_1core_1_1raytracer" kind="namespace" language="C++">
     <compoundname>euphoria::core::raytracer</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Camera" prot="public">euphoria::core::raytracer::Camera</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial" prot="public">euphoria::core::raytracer::DielectricMaterial</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial" prot="public">euphoria::core::raytracer::DiffuseMaterial</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult" prot="public">euphoria::core::raytracer::HitResult</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Material" prot="public">euphoria::core::raytracer::Material</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial" prot="public">euphoria::core::raytracer::MetalMaterial</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Object" prot="public">euphoria::core::raytracer::Object</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult" prot="public">euphoria::core::raytracer::ScatterResult</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1Scene" prot="public">euphoria::core::raytracer::Scene</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1raytracer_1_1SphereObject" prot="public">euphoria::core::raytracer::SphereObject</innerclass>
       <sectiondef kind="func">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1abfd5a9b761d81e0ebaf7341827ee23af" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Object" kindref="compound">Object</ref> &gt;</type>
+        <definition>std::shared_ptr&lt;Object&gt; euphoria::core::raytracer::create_sphere</definition>
+        <argsstring>(const Sphere &amp;sphere, const vec3f &amp;position, std::shared_ptr&lt; raytracer::Material &gt; material)</argsstring>
+        <name>create_sphere</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1Sphere" kindref="compound">Sphere</ref> &amp;</type>
+          <declname>sphere</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>position</declname>
+        </param>
+        <param>
+          <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">raytracer::Material</ref> &gt;</type>
+          <declname>material</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="80" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="81" bodyend="93"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a6fb96bb3039a1e75d4dcf381b012d96b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+        <definition>rgb euphoria::core::raytracer::crgb</definition>
+        <argsstring>(const unit3f &amp;normal)</argsstring>
+        <name>crgb</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="125" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="125" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1af41790f8067ed78ebfe5f6c3b7636779" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::raytracer::get_random_vec3_in_unit_sphere</definition>
+        <argsstring>(Random *random)</argsstring>
+        <name>get_random_vec3_in_unit_sphere</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="136" column="11" bodyfile="libs/core/src/core/raytracer.cc" bodystart="136" bodyend="139"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ae4ae9160da5d3933604b269404478ec3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
+        <definition>vec3f euphoria::core::raytracer::reflect</definition>
+        <argsstring>(const vec3f &amp;v, const unit3f &amp;normal)</argsstring>
+        <name>reflect</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="171" column="11" bodyfile="libs/core/src/core/raytracer.cc" bodystart="171" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a670080c0b34979da2d4db7920f69b825" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &gt;</type>
+        <definition>std::optional&lt;vec3f&gt; euphoria::core::raytracer::refract</definition>
+        <argsstring>(const unit3f &amp;uv, const unit3f &amp;normal, float ni)</argsstring>
+        <name>refract</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>uv</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref> &amp;</type>
+          <declname>normal</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>ni</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="231" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="232" bodyend="248"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ab6a01d76d3383e246e680f2d48cba402" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float euphoria::core::raytracer::calculate_fresnel_factor</definition>
+        <argsstring>(float cosine, float ref_idx)</argsstring>
+        <name>calculate_fresnel_factor</name>
+        <param>
+          <type>float</type>
+          <declname>cosine</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>ref_idx</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="252" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="252" bodyend="259"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1afaa38b089e3fc39a69ba2bb7dcc1c33f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Material &gt; euphoria::core::raytracer::create_diffuse_material</definition>
+        <argsstring>(const rgb &amp;albedo)</argsstring>
+        <name>create_diffuse_material</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <declname>albedo</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="332" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="333" bodyend="341" declfile="libs/core/src/core/raytracer.h" declline="88" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a256bb53fc6724684e0766eb5532ec568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Material &gt; euphoria::core::raytracer::create_metal_material</definition>
+        <argsstring>(const rgb &amp;albedo, float fuzz)</argsstring>
+        <name>create_metal_material</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <declname>albedo</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fuzz</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="345" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="346" bodyend="356" declfile="libs/core/src/core/raytracer.h" declline="94" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a40e7ae3408e08ce84920c293bc646a04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
+        <definition>std::shared_ptr&lt; Material &gt; euphoria::core::raytracer::create_dielectric_material</definition>
+        <argsstring>(const rgb &amp;albedo, float refractive_index)</argsstring>
+        <name>create_dielectric_material</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
+          <declname>albedo</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>refractive_index</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="360" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="361" bodyend="371" declfile="libs/core/src/core/raytracer.h" declline="102" declcolumn="25"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a286dfbfda49ede1c12ab66c9f7a3edca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+        <definition>rgb euphoria::core::raytracer::get_color</definition>
+        <argsstring>(const Scene &amp;scene, const UnitRay3f &amp;ray, Random *random, int depth)</argsstring>
+        <name>get_color</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Scene" kindref="compound">Scene</ref> &amp;</type>
+          <declname>scene</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
+          <declname>ray</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>depth</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="375" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="376" bodyend="426"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a70fee066bc2d8b6ba8ab7718c92c2bc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+        <definition>rgb euphoria::core::raytracer::gamma2_correct_color</definition>
+        <argsstring>(rgb color)</argsstring>
+        <name>gamma2_correct_color</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
+          <declname>color</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="464" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="464" bodyend="467"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a634651f16fd3b82293a2cf1ac367ca5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::raytracer::raytrace</definition>
+        <argsstring>(Image *aimage, const raytracer::Scene &amp;scene, int number_of_samples)</argsstring>
+        <name>raytrace</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Image" kindref="compound">Image</ref> *</type>
+          <declname>aimage</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Scene" kindref="compound">raytracer::Scene</ref> &amp;</type>
+          <declname>scene</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>number_of_samples</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.cc" line="470" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="470" bodyend="499" declfile="libs/core/src/core/raytracer.h" declline="119" declcolumn="9"/>
+      </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1aeaef9bf1f1d66a4dba5443bf2b9f2c25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Object" kindref="compound">Object</ref> &gt;</type>
         <definition>std::shared_ptr&lt;Object&gt; euphoria::core::raytracer::create_sphere</definition>
@@ -31,97 +292,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="78" column="9" declfile="libs/core/src/core/raytracer.h" declline="78" declcolumn="9"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a6cce5415d276baf0d977b3a957f40a90" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;Material&gt; euphoria::core::raytracer::create_diffuse_material</definition>
-        <argsstring>(const rgb &amp;albedo)</argsstring>
-        <name>create_diffuse_material</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
-          <declname>albedo</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="87" column="9" declfile="libs/core/src/core/raytracer.h" declline="87" declcolumn="9"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a279413f564ab322a73173fe82aceae45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;Material&gt; euphoria::core::raytracer::create_metal_material</definition>
-        <argsstring>(const rgb &amp;albedo, float fuzz)</argsstring>
-        <name>create_metal_material</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
-          <declname>albedo</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>fuzz</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="94" column="9" declfile="libs/core/src/core/raytracer.h" declline="94" declcolumn="9"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a296bc07dce3dac55f7b14b938cafee62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;Material&gt; euphoria::core::raytracer::create_dielectric_material</definition>
-        <argsstring>(const rgb &amp;albedo, float refractive_index)</argsstring>
-        <name>create_dielectric_material</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref> &amp;</type>
-          <declname>albedo</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>refractive_index</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="103" column="9" declfile="libs/core/src/core/raytracer.h" declline="103" declcolumn="9"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ad12be45e23cc4b292ddedf97b698e49a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::core::raytracer::raytrace</definition>
-        <argsstring>(Image *image, const raytracer::Scene &amp;scene, int number_of_samples)</argsstring>
-        <name>raytrace</name>
-        <param>
-          <type><ref refid="structeuphoria_1_1core_1_1Image" kindref="compound">Image</ref> *</type>
-          <declname>image</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Scene" kindref="compound">raytracer::Scene</ref> &amp;</type>
-          <declname>scene</declname>
-        </param>
-        <param>
-          <type>int</type>
-          <declname>number_of_samples</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="120" column="9" declfile="libs/core/src/core/raytracer.h" declline="120" declcolumn="9"/>
+        <location file="libs/core/src/core/raytracer.h" line="80" column="25" declfile="libs/core/src/core/raytracer.h" declline="80" declcolumn="25"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/raytracer.h" line="20" column="1"/>
+    <location file="libs/core/src/core/raytracer.cc" line="16" column="1"/>
   </compounddef>
 </doxygen>

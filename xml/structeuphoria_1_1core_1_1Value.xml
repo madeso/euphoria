@@ -19,7 +19,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="30" column="25" bodyfile="libs/core/src/core/propertytree.h" bodystart="30" bodyend="-1"/>
+        <location file="libs/core/src/core/propertytree.h" line="21" column="25" bodyfile="libs/core/src/core/propertytree.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="21" column="18" bodyfile="libs/core/src/core/propertytree.h" bodystart="21" bodyend="21"/>
+        <location file="libs/core/src/core/propertytree.h" line="23" column="18" bodyfile="libs/core/src/core/propertytree.h" bodystart="23" bodyend="23"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1ac5d2a64df6dab9d9c0fc8e008a166da1" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -51,7 +51,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="23" column="17"/>
+        <location file="libs/core/src/core/propertytree.h" line="24" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1ab17a2707af31fe9ad6705bd81b64b637" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="25" column="9"/>
+        <location file="libs/core/src/core/propertytree.h" line="26" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1acad7e8fe83ad48591ef33cfefb8283be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -83,7 +83,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="26" column="9"/>
+        <location file="libs/core/src/core/propertytree.h" line="27" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="27" column="14"/>
+        <location file="libs/core/src/core/propertytree.h" line="28" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="28" column="14"/>
+        <location file="libs/core/src/core/propertytree.h" line="29" column="14"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -152,7 +152,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/propertytree.h" line="20" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="19" bodyend="31"/>
+    <location file="libs/core/src/core/propertytree.h" line="20" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="19" bodyend="30"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" prot="public" virt="non-virtual"><scope>euphoria::core::Value</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" prot="public" virt="non-virtual"><scope>euphoria::core::Value</scope><name>operator=</name></member>

@@ -143,9 +143,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a522ca3a5a468b6408e2c17245f681fc1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a33e114058146b3a852bc9404be4b6380" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const std::vector&lt; <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &gt; &amp;</type>
-        <definition>const std::vector&lt;Colorbrewer&gt;&amp; euphoria::core::colorbrewer::get_all_palettes</definition>
+        <definition>const std::vector&lt; Colorbrewer &gt; &amp; euphoria::core::colorbrewer::get_all_palettes</definition>
         <argsstring>()</argsstring>
         <name>get_all_palettes</name>
         <briefdescription>
@@ -154,11 +154,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="65" column="9" declfile="libs/core/src/core/colorbrewer.h" declline="65" declcolumn="9"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="28" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="28" bodyend="46" declfile="libs/core/src/core/colorbrewer.h" declline="65" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ac71bec6cd721fb39ec7e4005630a3338" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a339844469fe07a968f757468cfba59b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1SinglePalette" kindref="compound">SinglePalette</ref> &gt;</type>
-        <definition>std::vector&lt;SinglePalette&gt; euphoria::core::colorbrewer::find_palette</definition>
+        <definition>std::vector&lt; SinglePalette &gt; euphoria::core::colorbrewer::find_palette</definition>
         <argsstring>(BrewerType *type, int *size)</argsstring>
         <name>find_palette</name>
         <param>
@@ -175,11 +175,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="68" column="9" declfile="libs/core/src/core/colorbrewer.h" declline="68" declcolumn="9"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="49" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="49" bodyend="79" declfile="libs/core/src/core/colorbrewer.h" declline="68" declcolumn="9"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a542380ae8d6f5efde93a7336ba880f0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a197fbf7483c102a383714450da0a48de" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_diverging_spectral</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_diverging_spectral</definition>
         <argsstring>()</argsstring>
         <name>palette_diverging_spectral</name>
         <briefdescription>
@@ -188,11 +188,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="71" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="71" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="83" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="83" bodyend="281" declfile="libs/core/src/core/colorbrewer.h" declline="71" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ad87e564f671d67299095d3027742084a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1afc49cb0a2ae8e3c8ea7798758339ec58" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_diverging_rd_yl_gn</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_diverging_rd_yl_gn</definition>
         <argsstring>()</argsstring>
         <name>palette_diverging_rd_yl_gn</name>
         <briefdescription>
@@ -201,11 +201,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="72" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="72" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="284" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="284" bodyend="483" declfile="libs/core/src/core/colorbrewer.h" declline="72" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1aa881dc5df0def1494ce7f10aa1872380" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a001fc5b92961ecc4ffa2f03b470c7ff0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_diverging_rd_bu</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_diverging_rd_bu</definition>
         <argsstring>()</argsstring>
         <name>palette_diverging_rd_bu</name>
         <briefdescription>
@@ -214,11 +214,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="73" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="73" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="486" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="486" bodyend="685" declfile="libs/core/src/core/colorbrewer.h" declline="73" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ac62e7b605d7633268062e23b16a79c37" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a74b26c9069ed709fe3aad7c94f3e232f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_diverging_pi_y_g</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_diverging_pi_y_g</definition>
         <argsstring>()</argsstring>
         <name>palette_diverging_pi_y_g</name>
         <briefdescription>
@@ -227,11 +227,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="74" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="74" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="688" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="688" bodyend="887" declfile="libs/core/src/core/colorbrewer.h" declline="74" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a0288597bce8b8d9099abd40ba0aab0f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a97e7444638eaa226c5f49946cbf3b5d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_diverging_p_r_gn</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_diverging_p_r_gn</definition>
         <argsstring>()</argsstring>
         <name>palette_diverging_p_r_gn</name>
         <briefdescription>
@@ -240,11 +240,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="75" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="75" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="890" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="890" bodyend="1089" declfile="libs/core/src/core/colorbrewer.h" declline="75" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ad5f5e4559836010811a6ca996ebe5bc9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a1acfd0854c9bf4542b0eaaa42e382f51" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_diverging_rd_yl_bu</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_diverging_rd_yl_bu</definition>
         <argsstring>()</argsstring>
         <name>palette_diverging_rd_yl_bu</name>
         <briefdescription>
@@ -253,11 +253,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="76" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="76" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="1092" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="1092" bodyend="1291" declfile="libs/core/src/core/colorbrewer.h" declline="76" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1aa5275c3ad401cc56afd514687a87ca6c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a5562948e32bf8aa29af96d31aafae4be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_diverging_br_b_g</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_diverging_br_b_g</definition>
         <argsstring>()</argsstring>
         <name>palette_diverging_br_b_g</name>
         <briefdescription>
@@ -266,11 +266,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="77" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="77" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="1294" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="1294" bodyend="1493" declfile="libs/core/src/core/colorbrewer.h" declline="77" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1af8620e04b5248a85cb569dc70ea2c567" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a0ebd6068dfe0f61f2b0f2f093882dfc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_diverging_rd_gy</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_diverging_rd_gy</definition>
         <argsstring>()</argsstring>
         <name>palette_diverging_rd_gy</name>
         <briefdescription>
@@ -279,11 +279,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="78" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="78" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="1496" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="1496" bodyend="1695" declfile="libs/core/src/core/colorbrewer.h" declline="78" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ace9ab859585dd34c5b00b82b5cbee7dd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a277dd200a14d88d1a27006196a33fad0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_diverging_pu_or</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_diverging_pu_or</definition>
         <argsstring>()</argsstring>
         <name>palette_diverging_pu_or</name>
         <briefdescription>
@@ -292,11 +292,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="79" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="79" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="1698" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="1698" bodyend="1897" declfile="libs/core/src/core/colorbrewer.h" declline="79" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a547cdca1702fb4c5ef727d85b2100d72" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a821fb509d62e3cedd6ef82a469b40273" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_qualitative_set2</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_qualitative_set2</definition>
         <argsstring>()</argsstring>
         <name>palette_qualitative_set2</name>
         <briefdescription>
@@ -305,11 +305,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="82" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="82" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="1902" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="1902" bodyend="2031" declfile="libs/core/src/core/colorbrewer.h" declline="82" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a013043acc1dd60a720a021f3c69b6e05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a9cb80f11ee3197e6c18f7537fe3aa55b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_qualitative_accent</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_qualitative_accent</definition>
         <argsstring>()</argsstring>
         <name>palette_qualitative_accent</name>
         <briefdescription>
@@ -318,11 +318,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="83" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="83" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="2034" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="2034" bodyend="2161" declfile="libs/core/src/core/colorbrewer.h" declline="83" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a7c19121772dea0c73737d956631fd578" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a0e5f2d472a09de85084310a18bd73015" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_qualitative_set1</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_qualitative_set1</definition>
         <argsstring>()</argsstring>
         <name>palette_qualitative_set1</name>
         <briefdescription>
@@ -331,11 +331,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="84" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="84" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="2164" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="2164" bodyend="2311" declfile="libs/core/src/core/colorbrewer.h" declline="84" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a94583c756b2851c78eb2e116e96824b6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a75682f80392eabfc82bfdaee8f5659a9" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_qualitative_set3</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_qualitative_set3</definition>
         <argsstring>()</argsstring>
         <name>palette_qualitative_set3</name>
         <briefdescription>
@@ -344,11 +344,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="85" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="85" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="2314" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="2314" bodyend="2539" declfile="libs/core/src/core/colorbrewer.h" declline="85" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a22d9442bd63fdd0bd43e578344619202" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ac42ad2045710dccc28fa85a410975ba2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_qualitative_dark2</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_qualitative_dark2</definition>
         <argsstring>()</argsstring>
         <name>palette_qualitative_dark2</name>
         <briefdescription>
@@ -357,11 +357,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="86" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="86" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="2542" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="2542" bodyend="2669" declfile="libs/core/src/core/colorbrewer.h" declline="86" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a7a8ff56913c2297f5cb3e150fe9c2e0b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a98545998c28c4d9a0dda32cb9811bac5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_qualitative_paired</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_qualitative_paired</definition>
         <argsstring>()</argsstring>
         <name>palette_qualitative_paired</name>
         <briefdescription>
@@ -370,11 +370,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="87" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="87" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="2672" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="2672" bodyend="2899" declfile="libs/core/src/core/colorbrewer.h" declline="87" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a60cb18fa224813efce3a3a7087487edc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1acb756bc502d0f00afff4d230cb93afb0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_qualitative_pastel2</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_qualitative_pastel2</definition>
         <argsstring>()</argsstring>
         <name>palette_qualitative_pastel2</name>
         <briefdescription>
@@ -383,11 +383,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="88" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="88" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="2902" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="2902" bodyend="3029" declfile="libs/core/src/core/colorbrewer.h" declline="88" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a931e46210227d8a6072fac23425632da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a27a29cc4213002df52a7f776eedfc3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_qualitative_pastel1</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_qualitative_pastel1</definition>
         <argsstring>()</argsstring>
         <name>palette_qualitative_pastel1</name>
         <briefdescription>
@@ -396,11 +396,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="89" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="89" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="3032" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="3032" bodyend="3182" declfile="libs/core/src/core/colorbrewer.h" declline="89" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a446c3086f46495a27de71404dfebd75b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ac2d0275b5e099286e360c097a4be22bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_or_rd</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_or_rd</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_or_rd</name>
         <briefdescription>
@@ -409,11 +409,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="92" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="92" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="3187" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="3187" bodyend="3337" declfile="libs/core/src/core/colorbrewer.h" declline="92" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a05cee5a1acfb93b2430291857c768a0d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a2269ae8f4702d689488cfb69a4826841" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_pu_bu</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_pu_bu</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_pu_bu</name>
         <briefdescription>
@@ -422,11 +422,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="93" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="93" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="3340" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="3340" bodyend="3490" declfile="libs/core/src/core/colorbrewer.h" declline="93" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a96a6017e7f04308a0e488365a82fb4ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a789ec236e090ac789890aa6838d7043c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_bu_pu</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_bu_pu</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_bu_pu</name>
         <briefdescription>
@@ -435,11 +435,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="94" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="94" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="3493" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="3493" bodyend="3643" declfile="libs/core/src/core/colorbrewer.h" declline="94" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a8b46695bdffaabcd196827db37de6dab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1acf2a8d269f79b21f618229a5ee8a54ff" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_oranges</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_oranges</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_oranges</name>
         <briefdescription>
@@ -448,11 +448,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="95" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="95" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="3646" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="3646" bodyend="3796" declfile="libs/core/src/core/colorbrewer.h" declline="95" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a5531e2628813101164e42ae0cee69eda" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1abdf8f2c9ecd8dc526f3e8c4a7ef7daea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_bu_gn</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_bu_gn</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_bu_gn</name>
         <briefdescription>
@@ -461,11 +461,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="96" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="96" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="3799" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="3799" bodyend="3949" declfile="libs/core/src/core/colorbrewer.h" declline="96" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1aba0d1b2c9cd30bdc7f1494c8dfb86ed3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a51a8b70cd888958a9d003add48cc7f9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_yl_or_br</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_yl_or_br</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_yl_or_br</name>
         <briefdescription>
@@ -474,11 +474,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="97" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="97" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="3952" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="3952" bodyend="4102" declfile="libs/core/src/core/colorbrewer.h" declline="97" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a58b777f6286338319506896cea5d9cf2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a2816f8a7d1b06564f219d80d4c78997c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_yl_gn</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_yl_gn</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_yl_gn</name>
         <briefdescription>
@@ -487,11 +487,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="98" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="98" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="4105" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="4105" bodyend="4255" declfile="libs/core/src/core/colorbrewer.h" declline="98" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a0386cd1825d1381d772ad08b2d3442d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a87a64cf37185979c9858a6510ec065fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_reds</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_reds</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_reds</name>
         <briefdescription>
@@ -500,11 +500,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="99" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="99" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="4258" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="4258" bodyend="4408" declfile="libs/core/src/core/colorbrewer.h" declline="99" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a0a4de75ba54c4525eaebf0124e065202" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a7bb2f3ca5b44847ce147fe0839f07e0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_rd_pu</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_rd_pu</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_rd_pu</name>
         <briefdescription>
@@ -513,11 +513,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="100" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="100" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="4411" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="4411" bodyend="4561" declfile="libs/core/src/core/colorbrewer.h" declline="100" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1aac4220ca3e363b6ddfc08a91b7c73574" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a93f83c937395ada6a22488ea48b359fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_greens</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_greens</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_greens</name>
         <briefdescription>
@@ -526,11 +526,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="101" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="101" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="4564" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="4564" bodyend="4714" declfile="libs/core/src/core/colorbrewer.h" declline="101" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a9493087d0efcf3d66b693f2683b3b0b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a3dbf200bf6f09877dd1e0400983d480f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_yl_gn_bu</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_yl_gn_bu</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_yl_gn_bu</name>
         <briefdescription>
@@ -539,11 +539,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="102" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="102" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="4717" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="4717" bodyend="4867" declfile="libs/core/src/core/colorbrewer.h" declline="102" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a2b27199257b0f5c2a0d77feb398538ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a53774ccd5bf0361b0879ca704126d0a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_purples</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_purples</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_purples</name>
         <briefdescription>
@@ -552,11 +552,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="103" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="103" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="4870" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="4870" bodyend="5020" declfile="libs/core/src/core/colorbrewer.h" declline="103" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ab611d5f5aeb1e3a0f75070ffa5794658" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a2213df5951bed7a3692d00678e11ff3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_gn_bu</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_gn_bu</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_gn_bu</name>
         <briefdescription>
@@ -565,11 +565,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="104" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="104" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="5023" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="5023" bodyend="5173" declfile="libs/core/src/core/colorbrewer.h" declline="104" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a769e832a7b524c90a37a6786582d6e62" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ab8644856031327c0ffe92bbb0d301f35" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_greys</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_greys</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_greys</name>
         <briefdescription>
@@ -578,11 +578,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="105" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="105" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="5176" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="5176" bodyend="5326" declfile="libs/core/src/core/colorbrewer.h" declline="105" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ad5dedd6e869d80baf92160e4fc0d954c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a87122a123f9990c7c6b3055b2e00b1d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_yl_or_rd</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_yl_or_rd</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_yl_or_rd</name>
         <briefdescription>
@@ -591,11 +591,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="106" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="106" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="5329" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="5329" bodyend="5479" declfile="libs/core/src/core/colorbrewer.h" declline="106" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ad4aaeade0efc593deb53d3752af23309" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1afe7c32d3443c623334cd2b5338373191" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_pu_rd</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_pu_rd</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_pu_rd</name>
         <briefdescription>
@@ -604,11 +604,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="107" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="107" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="5482" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="5482" bodyend="5632" declfile="libs/core/src/core/colorbrewer.h" declline="107" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ae363dd1a3d0d960d2ff2b25ec144b416" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a3196bd457da02a8e82242cacac1c3ca0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_blues</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_blues</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_blues</name>
         <briefdescription>
@@ -617,11 +617,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="108" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="108" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="5635" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="5635" bodyend="5785" declfile="libs/core/src/core/colorbrewer.h" declline="108" declcolumn="27"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1a16acff7f371430d2f26e9f23934db884" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1colorbrewer_1ac5a1f8c34d27af5613959f885a133b05" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1core_1_1colorbrewer_1_1Colorbrewer" kindref="compound">Colorbrewer</ref> &amp;</type>
-        <definition>const Colorbrewer&amp; euphoria::core::colorbrewer::palette_sequential_pu_bu_gn</definition>
+        <definition>const Colorbrewer &amp; euphoria::core::colorbrewer::palette_sequential_pu_bu_gn</definition>
         <argsstring>()</argsstring>
         <name>palette_sequential_pu_bu_gn</name>
         <briefdescription>
@@ -630,13 +630,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/colorbrewer.h" line="109" column="27" declfile="libs/core/src/core/colorbrewer.h" declline="109" declcolumn="27"/>
+        <location file="libs/core/src/core/colorbrewer.cc" line="5788" column="9" bodyfile="libs/core/src/core/colorbrewer.cc" bodystart="5788" bodyend="5938" declfile="libs/core/src/core/colorbrewer.h" declline="109" declcolumn="27"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/colorbrewer.h" line="11" column="1"/>
+    <location file="libs/core/src/core/colorbrewer.cc" line="26" column="1"/>
   </compounddef>
 </doxygen>

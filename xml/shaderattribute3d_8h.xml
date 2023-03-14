@@ -3,6 +3,10 @@
   <compounddef id="shaderattribute3d_8h" kind="file" language="C++">
     <compoundname>shaderattribute3d.h</compoundname>
     <includes refid="shaderattribute_8h" local="yes">render/shaderattribute.h</includes>
+    <includedby refid="compiledlines_8cc" local="yes">libs/render/src/render/compiledlines.cc</includedby>
+    <includedby refid="compiledmesh_8cc" local="yes">libs/render/src/render/compiledmesh.cc</includedby>
+    <includedby refid="materialshader_8cc" local="yes">libs/render/src/render/materialshader.cc</includedby>
+    <includedby refid="shaderattribute3d_8cc" local="yes">libs/render/src/render/shaderattribute3d.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>render/shaderattribute.h</label>
@@ -21,6 +25,36 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>libs/render/src/render/compiledmesh.cc</label>
+        <link refid="compiledmesh_8cc"/>
+      </node>
+      <node id="2">
+        <label>libs/render/src/render/compiledlines.cc</label>
+        <link refid="compiledlines_8cc"/>
+      </node>
+      <node id="5">
+        <label>libs/render/src/render/shaderattribute3d.cc</label>
+        <link refid="shaderattribute3d_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/shaderattribute3d.h</label>
+        <link refid="shaderattribute3d_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libs/render/src/render/materialshader.cc</label>
+        <link refid="materialshader_8cc"/>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1render_1_1attributes3d">euphoria::render::attributes3d</innernamespace>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Euphoria: euphoria::core::Cache&lt; Key, Data, Loader &gt; Struct Template Reference</title>
+<title>Euphoria: euphoria::core::Cache&lt; TKey, TData, TLoader &gt; Struct Template Reference</title>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -57,7 +57,7 @@
 <a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="structeuphoria_1_1core_1_1Cache-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">euphoria::core::Cache&lt; Key, Data, Loader &gt; Struct Template Reference</div>  </div>
+<div class="title">euphoria::core::Cache&lt; TKey, TData, TLoader &gt; Struct Template Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
@@ -65,36 +65,36 @@
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a615edd1f3a87ad70f82a1a58bfb735ee"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; Data &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Cache.html#a615edd1f3a87ad70f82a1a58bfb735ee">get</a> (const <a class="el" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a> &amp;key)</td></tr>
-<tr class="separator:a615edd1f3a87ad70f82a1a58bfb735ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60fc15b9f387f876fb12f851e8ab53ed"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; TData &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Cache.html#a60fc15b9f387f876fb12f851e8ab53ed">get</a> (const TKey &amp;key)</td></tr>
+<tr class="separator:a60fc15b9f387f876fb12f851e8ab53ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a09f9515317e9fce337b4527159607a65"><td class="memItemLeft" align="right" valign="top">std::map&lt; <a class="el" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a>, std::weak_ptr&lt; Data &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Cache.html#a09f9515317e9fce337b4527159607a65">store</a></td></tr>
-<tr class="separator:a09f9515317e9fce337b4527159607a65"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a530e663b62a05d210f80ac1f96302381"><td class="memItemLeft" align="right" valign="top">std::map&lt; TKey, std::weak_ptr&lt; TData &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1Cache.html#a530e663b62a05d210f80ac1f96302381">store</a></td></tr>
+<tr class="separator:a530e663b62a05d210f80ac1f96302381"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><h3>template&lt;typename Key, typename Data, typename Loader&gt;<br />
-struct euphoria::core::Cache&lt; Key, Data, Loader &gt;</h3>
+<div class="textblock"><h3>template&lt;typename TKey, typename TData, typename TLoader&gt;<br />
+struct euphoria::core::Cache&lt; TKey, TData, TLoader &gt;</h3>
 
 
 <p class="definition">Definition at line <a class="el" href="cache_8h_source.html#l00014">14</a> of file <a class="el" href="cache_8h_source.html">cache.h</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a615edd1f3a87ad70f82a1a58bfb735ee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a615edd1f3a87ad70f82a1a58bfb735ee">&#9670;&nbsp;</a></span>get()</h2>
+<a id="a60fc15b9f387f876fb12f851e8ab53ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60fc15b9f387f876fb12f851e8ab53ed">&#9670;&nbsp;</a></span>get()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Key , typename Data , typename Loader &gt; </div>
+template&lt;typename TKey , typename TData , typename TLoader &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;Data&gt; <a class="el" href="structeuphoria_1_1core_1_1Cache.html">euphoria::core::Cache</a>&lt; <a class="el" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a>, Data, Loader &gt;::get </td>
+          <td class="memname">std::shared_ptr&lt;TData&gt; <a class="el" href="structeuphoria_1_1core_1_1Cache.html">euphoria::core::Cache</a>&lt; TKey, TData, TLoader &gt;::get </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a> &amp;&#160;</td>
+          <td class="paramtype">const TKey &amp;&#160;</td>
           <td class="paramname"><em>key</em></td><td>)</td>
           <td></td>
         </tr>
@@ -106,26 +106,26 @@ template&lt;typename Key , typename Data , typename Loader &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cache_8h_source.html#l00017">17</a> of file <a class="el" href="cache_8h_source.html">cache.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cache_8h_source.html#l00018">18</a> of file <a class="el" href="cache_8h_source.html">cache.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a09f9515317e9fce337b4527159607a65"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09f9515317e9fce337b4527159607a65">&#9670;&nbsp;</a></span>store</h2>
+<a id="a530e663b62a05d210f80ac1f96302381"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a530e663b62a05d210f80ac1f96302381">&#9670;&nbsp;</a></span>store</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename Key , typename Data , typename Loader &gt; </div>
+template&lt;typename TKey , typename TData , typename TLoader &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">std::map&lt;<a class="el" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a>, std::weak_ptr&lt;Data&gt; &gt; <a class="el" href="structeuphoria_1_1core_1_1Cache.html">euphoria::core::Cache</a>&lt; <a class="el" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710">Key</a>, Data, Loader &gt;::store</td>
+          <td class="memname">std::map&lt;TKey, std::weak_ptr&lt;TData&gt; &gt; <a class="el" href="structeuphoria_1_1core_1_1Cache.html">euphoria::core::Cache</a>&lt; TKey, TData, TLoader &gt;::store</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="cache_8h_source.html#l00038">38</a> of file <a class="el" href="cache_8h_source.html">cache.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="cache_8h_source.html#l00016">16</a> of file <a class="el" href="cache_8h_source.html">cache.h</a>.</p>
 
 </div>
 </div>

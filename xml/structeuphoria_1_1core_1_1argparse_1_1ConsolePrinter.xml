@@ -21,7 +21,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="157" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="146" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="217" bodyend="220"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1argparse_1_1ConsolePrinter_1a1f5a7ed083f43e7289c35113a08d3176" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -39,10 +39,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/argparse.h" line="160" column="9"/>
+        <location file="libs/core/src/core/argparse.h" line="149" column="9" bodyfile="libs/core/src/core/argparse.cc" bodystart="224" bodyend="227"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>console output </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -70,7 +71,7 @@
         <link refid="structeuphoria_1_1core_1_1argparse_1_1Printer"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/argparse.h" line="155" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="154" bodyend="161"/>
+    <location file="libs/core/src/core/argparse.h" line="144" column="1" bodyfile="libs/core/src/core/argparse.h" bodystart="143" bodyend="150"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1aaed56d50e6adfa4c44401acd4d08e781" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ConsolePrinter</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1argparse_1_1Printer_1a8191a966614480994a05c00757ce4056" prot="public" virt="non-virtual"><scope>euphoria::core::argparse::ConsolePrinter</scope><name>operator=</name></member>

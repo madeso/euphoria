@@ -10,49 +10,24 @@
         <argsstring></argsstring>
         <name>path</name>
         <briefdescription>
+<para>contains either . or ~ at the start, / at the end </para>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="167" column="21" bodyfile="libs/core/src/core/vfs_path.h" bodystart="167" bodyend="-1"/>
+        <location file="libs/core/src/core/vfs_path.h" line="69" column="21" bodyfile="libs/core/src/core/vfs_path.h" bodystart="69" bodyend="-1"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ac6bea32cb47acf768ab472b2ab2ee47d" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
-        <definition>static DirPath euphoria::core::vfs::DirPath::from_root</definition>
-        <argsstring>()</argsstring>
-        <name>from_root</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="108" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a0e4bffcb0725dfa7b48c914abb8742f7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
-        <definition>static DirPath euphoria::core::vfs::DirPath::from_relative</definition>
-        <argsstring>()</argsstring>
-        <name>from_relative</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="113" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a266c2a51a19c3e37af90cae3bd8e6da0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
-        <definition>static DirPath euphoria::core::vfs::DirPath::from_dirs</definition>
-        <argsstring>(const std::vector&lt; std::string &gt; &amp;dirs)</argsstring>
-        <name>from_dirs</name>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a4994a91f064eba3c61244059e88db185" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::vfs::DirPath::DirPath</definition>
+        <argsstring>(const std::string &amp;p)</argsstring>
+        <name>DirPath</name>
         <param>
-          <type>const std::vector&lt; std::string &gt; &amp;</type>
-          <declname>dirs</declname>
+          <type>const std::string &amp;</type>
+          <declname>p</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -60,10 +35,8 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="118" column="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="71" column="18" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="343" bodyend="349"/>
       </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a79a8831ec1642374fec1509ff5e4faf6" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FilePath" kindref="compound">FilePath</ref></type>
         <definition>FilePath euphoria::core::vfs::DirPath::get_file</definition>
@@ -79,72 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="122" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a0559aca93ad21a6e93d3b9c806f19713" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::vfs::DirPath::is_relative</definition>
-        <argsstring>() const</argsstring>
-        <name>is_relative</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="126" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a3b6bf0a69a8467e13f41279123ad6a7f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>bool</type>
-        <definition>bool euphoria::core::vfs::DirPath::contains_relative</definition>
-        <argsstring>() const</argsstring>
-        <name>contains_relative</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="130" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ab9cc1c70beb888b5a6ba183479252e94" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
-        <definition>DirPath euphoria::core::vfs::DirPath::get_parent_directory</definition>
-        <argsstring>() const</argsstring>
-        <name>get_parent_directory</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="134" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aefdddd7083a7421252449f79ba2f4a30" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::string</type>
-        <definition>std::string euphoria::core::vfs::DirPath::get_directory_name</definition>
-        <argsstring>() const</argsstring>
-        <name>get_directory_name</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="138" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a6db288b0ce34f21edb38524350b33553" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type>std::vector&lt; std::string &gt;</type>
-        <definition>std::vector&lt;std::string&gt; euphoria::core::vfs::DirPath::split_directories</definition>
-        <argsstring>() const</argsstring>
-        <name>split_directories</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="143" column="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="77" column="19" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="252" bodyend="256"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ab5574ce1df2283852c8fe06961c21528" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
@@ -161,44 +69,109 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="148" column="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="78" column="18" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="336" bodyend="340"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a4994a91f064eba3c61244059e88db185" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>euphoria::core::vfs::DirPath::DirPath</definition>
-        <argsstring>(const std::string &amp;p)</argsstring>
-        <name>DirPath</name>
-        <param>
-          <type>const std::string &amp;</type>
-          <declname>p</declname>
-        </param>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a0559aca93ad21a6e93d3b9c806f19713" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::vfs::DirPath::is_relative</definition>
+        <argsstring>() const</argsstring>
+        <name>is_relative</name>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="152" column="9"/>
+        <location file="libs/core/src/core/vfs_path.h" line="80" column="15" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="260" bodyend="266"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a3b6bf0a69a8467e13f41279123ad6a7f" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::vfs::DirPath::contains_relative</definition>
+        <argsstring>() const</argsstring>
+        <name>contains_relative</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="81" column="15" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="270" bodyend="282"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ab9cc1c70beb888b5a6ba183479252e94" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
+        <definition>DirPath euphoria::core::vfs::DirPath::get_parent_directory</definition>
+        <argsstring>() const</argsstring>
+        <name>get_parent_directory</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="82" column="18" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="286" bodyend="296"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aefdddd7083a7421252449f79ba2f4a30" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::vfs::DirPath::get_directory_name</definition>
+        <argsstring>() const</argsstring>
+        <name>get_directory_name</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="83" column="22" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="300" bodyend="305"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a4af220d10fe1fb779d8236aa87a86424" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type>std::vector&lt; std::string &gt;</type>
+        <definition>std::vector&lt; std::string &gt; euphoria::core::vfs::DirPath::split_directories</definition>
+        <argsstring>() const</argsstring>
+        <name>split_directories</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="84" column="22" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="309" bodyend="319"/>
       </memberdef>
       </sectiondef>
-      <sectiondef kind="friend">
-      <memberdef kind="friend" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ac09ae19fd889c9412775bc789aae1ecb" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <templateparamlist>
-          <param>
-            <type>typename OStream</type>
-          </param>
-        </templateparamlist>
-        <type>friend OStream &amp;</type>
-        <definition>OStream&amp; operator&lt;&lt;</definition>
-        <argsstring>(OStream &amp;os, const DirPath &amp;p)</argsstring>
-        <name>operator&lt;&lt;</name>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1af4f74d8276b31645f570fdda5fafb3dc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
+        <definition>DirPath euphoria::core::vfs::DirPath::from_root</definition>
+        <argsstring>()</argsstring>
+        <name>from_root</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="73" column="25" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="218" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a5e29804ee2705c9e842d881fdeffef21" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
+        <definition>DirPath euphoria::core::vfs::DirPath::from_relative</definition>
+        <argsstring>()</argsstring>
+        <name>from_relative</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/vfs_path.h" line="74" column="25" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="225" bodyend="228"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aeab59573c52b915c2c367572660573dc" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref></type>
+        <definition>DirPath euphoria::core::vfs::DirPath::from_dirs</definition>
+        <argsstring>(const std::vector&lt; std::string &gt; &amp;dirs)</argsstring>
+        <name>from_dirs</name>
         <param>
-          <type>OStream &amp;</type>
-          <declname>os</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vfs_1_1DirPath" kindref="compound">DirPath</ref> &amp;</type>
-          <declname>p</declname>
+          <type>const std::vector&lt; std::string &gt; &amp;</type>
+          <declname>dirs</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -206,28 +179,27 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_path.h" line="159" column="16" bodyfile="libs/core/src/core/vfs_path.h" bodystart="159" bodyend="163"/>
+        <location file="libs/core/src/core/vfs_path.h" line="75" column="25" bodyfile="libs/core/src/core/vfs_path.cc" bodystart="232" bodyend="248"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/vfs_path.h" line="105" column="1" bodyfile="libs/core/src/core/vfs_path.h" bodystart="104" bodyend="168"/>
+    <location file="libs/core/src/core/vfs_path.h" line="67" column="1" bodyfile="libs/core/src/core/vfs_path.h" bodystart="66" bodyend="85"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a3b6bf0a69a8467e13f41279123ad6a7f" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>contains_relative</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a4994a91f064eba3c61244059e88db185" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>DirPath</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a266c2a51a19c3e37af90cae3bd8e6da0" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>from_dirs</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a0e4bffcb0725dfa7b48c914abb8742f7" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>from_relative</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ac6bea32cb47acf768ab472b2ab2ee47d" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>from_root</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aeab59573c52b915c2c367572660573dc" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>from_dirs</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a5e29804ee2705c9e842d881fdeffef21" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>from_relative</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1af4f74d8276b31645f570fdda5fafb3dc" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>from_root</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aefdddd7083a7421252449f79ba2f4a30" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>get_directory_name</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a79a8831ec1642374fec1509ff5e4faf6" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>get_file</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ab9cc1c70beb888b5a6ba183479252e94" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>get_parent_directory</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a0559aca93ad21a6e93d3b9c806f19713" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>is_relative</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ac09ae19fd889c9412775bc789aae1ecb" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>operator&lt;&lt;</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1aed83116aecd74e5ae7f7928506a9e130" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>path</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1ab5574ce1df2283852c8fe06961c21528" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>single_cd_copy</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a6db288b0ce34f21edb38524350b33553" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>split_directories</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1DirPath_1a4af220d10fe1fb779d8236aa87a86424" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::DirPath</scope><name>split_directories</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

@@ -61,6 +61,9 @@
 </div><!--header-->
 <div class="contents">
 
+<p>base for the parser, start with <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Parser.html" title="root parser. start argumentparsing with this one">Parser</a> and add one or more subparsers  
+ <a href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="argparse_8h_source.html">argparse.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for euphoria::core::argparse::ParserBase:</div>
@@ -68,8 +71,8 @@ Inheritance diagram for euphoria::core::argparse::ParserBase:</div>
  <div class="center">
   <img src="structeuphoria_1_1core_1_1argparse_1_1ParserBase.png" usemap="#euphoria::core::argparse::ParserBase_map" alt=""/>
   <map id="euphoria::core::argparse::ParserBase_map" name="euphoria::core::argparse::ParserBase_map">
-<area href="structeuphoria_1_1core_1_1argparse_1_1Parser.html" alt="euphoria::core::argparse::Parser" shape="rect" coords="0,56,223,80"/>
-<area href="structeuphoria_1_1core_1_1argparse_1_1SubParser.html" alt="euphoria::core::argparse::SubParser" shape="rect" coords="233,56,456,80"/>
+<area href="structeuphoria_1_1core_1_1argparse_1_1Parser.html" title="root parser. start argumentparsing with this one" alt="euphoria::core::argparse::Parser" shape="rect" coords="0,56,223,80"/>
+<area href="structeuphoria_1_1core_1_1argparse_1_1SubParser.html" title="subparser, don&#39;t create manually but add to a existing parser AddSubParsers()-&gt;Add(...." alt="euphoria::core::argparse::SubParser" shape="rect" coords="233,56,456,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -87,39 +90,40 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a1d6a606c70460ba56bcff09aebd59c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3542ffb1247a0df8e2684399dbdd1ead"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a3542ffb1247a0df8e2684399dbdd1ead">operator=</a> (<a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html">ParserBase</a> &amp;&amp;)=delete</td></tr>
 <tr class="separator:a3542ffb1247a0df8e2684399dbdd1ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc867c2b5376b9faf7d9282db8a65d04"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html">ParserBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#abc867c2b5376b9faf7d9282db8a65d04">get_parent_or_null</a> ()=0</td></tr>
-<tr class="separator:abc867c2b5376b9faf7d9282db8a65d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7ce9b9b96c3c0b74c9d54129c54df1af"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a7ce9b9b96c3c0b74c9d54129c54df1af">generate_usage_string</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments.html">NameAndArguments</a> &amp;args)</td></tr>
 <tr class="separator:a7ce9b9b96c3c0b74c9d54129c54df1af"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2beaa48126cde168c7bd09a2c9fdb2be"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a2beaa48126cde168c7bd09a2c9fdb2be">get_calling_name</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments.html">NameAndArguments</a> &amp;args)=0</td></tr>
-<tr class="separator:a2beaa48126cde168c7bd09a2c9fdb2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34e266f3e7c6de87939c8d4d49dff907"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a34e266f3e7c6de87939c8d4d49dff907">print_help</a> (std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Printer.html">Printer</a> &gt; printer, const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments.html">NameAndArguments</a> &amp;args)</td></tr>
 <tr class="separator:a34e266f3e7c6de87939c8d4d49dff907"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f4070fec0f41c488800c82d210821f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a9f4070fec0f41c488800c82d210821f5">add_argument</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &gt; argument)</td></tr>
-<tr class="separator:a9f4070fec0f41c488800c82d210821f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f72c0144102f2482488a1e82f36eeff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a4f72c0144102f2482488a1e82f36eeff">add_void_function</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, std::function&lt; void()&gt; void_function)</td></tr>
-<tr class="separator:a4f72c0144102f2482488a1e82f36eeff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a2bf061ce6292d43621e74c65bd9f1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a9a2bf061ce6292d43621e74c65bd9f1e">on_complete</a> (<a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#ac61872bd86cf97bb81b20216df85bc52">CompleteFunction</a> com)</td></tr>
+<tr class="memitem:a9a2bf061ce6292d43621e74c65bd9f1e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a9a2bf061ce6292d43621e74c65bd9f1e">on_complete</a> (<a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#ac1c0d680cc59febe52e0cf4e9a0438b2">CompleteFunction</a> com)</td></tr>
 <tr class="separator:a9a2bf061ce6292d43621e74c65bd9f1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc01c091ff6a6c49e85c297db493f3eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#acc01c091ff6a6c49e85c297db493f3eb">add_argument</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &gt; argument)</td></tr>
+<tr class="separator:acc01c091ff6a6c49e85c297db493f3eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac017b3aa9abc00c9dcadc5e97f669feb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#ac017b3aa9abc00c9dcadc5e97f669feb">add_void_function</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, std::function&lt; void()&gt; void_function)</td></tr>
+<tr class="separator:ac017b3aa9abc00c9dcadc5e97f669feb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77d0ab94cb70a5c9033fcbd617bdbc1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a77d0ab94cb70a5c9033fcbd617bdbc1b">set_true</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, bool *target)</td></tr>
+<tr class="separator:a77d0ab94cb70a5c9033fcbd617bdbc1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecaf28e592eff155e703626ff218123a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#aecaf28e592eff155e703626ff218123a">set_false</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, bool *target)</td></tr>
+<tr class="separator:aecaf28e592eff155e703626ff218123a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a177247da3e6f029032fb8ee1022e751d"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup.html">SubParserGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a177247da3e6f029032fb8ee1022e751d">add_sub_parsers</a> (const std::string &amp;name=&quot;commands&quot;)</td></tr>
+<tr class="separator:a177247da3e6f029032fb8ee1022e751d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c13d051351f3e4b78ffc6e34652a132"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParseResult.html">ParseResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a0c13d051351f3e4b78ffc6e34652a132">parse_args</a> (<a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Runner.html">Runner</a> *<a class="el" href="argparse_8cc.html#a81d86d13015636fec05a0815bd9ef510">runner</a>)</td></tr>
+<tr class="separator:a0c13d051351f3e4b78ffc6e34652a132"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a86949f269cde221d214cf4e176ffaa5e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a86949f269cde221d214cf4e176ffaa5e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a86949f269cde221d214cf4e176ffaa5e">set_const</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, T *target, T t)</td></tr>
 <tr class="separator:a86949f269cde221d214cf4e176ffaa5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b740ad02cce460213e8df2276c44f89"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a5b740ad02cce460213e8df2276c44f89">set_true</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, bool *target)</td></tr>
-<tr class="separator:a5b740ad02cce460213e8df2276c44f89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a08e5b4c3a4f6bff5074fd9a68ab006"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a9a08e5b4c3a4f6bff5074fd9a68ab006">set_false</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, bool *target)</td></tr>
-<tr class="separator:a9a08e5b4c3a4f6bff5074fd9a68ab006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9d3857c57d1114d8207aafa684a062be"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a9d3857c57d1114d8207aafa684a062be"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a9d3857c57d1114d8207aafa684a062be">add</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, T *target, <a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a36fe00e5fd025b95df1b3f7a24288bc6">ParseFunction</a>&lt; T &gt; parse_function=<a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#acfe9425286b6e6ae5d598d4134dfbdf5">default_parse_function</a>&lt; T &gt;)</td></tr>
+<tr class="memitem:a9d3857c57d1114d8207aafa684a062be"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a9d3857c57d1114d8207aafa684a062be">add</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, T *target, <a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a596a6bab2dcbfc736e94623e450d645c">ParseFunction</a>&lt; T &gt; parse_function=<a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#acfe9425286b6e6ae5d598d4134dfbdf5">default_parse_function</a>&lt; T &gt;)</td></tr>
 <tr class="separator:a9d3857c57d1114d8207aafa684a062be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf1f288b41f35166a716f7dbae935c41"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:aaf1f288b41f35166a716f7dbae935c41"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#aaf1f288b41f35166a716f7dbae935c41">add_vector</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, std::vector&lt; T &gt; *target, <a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a36fe00e5fd025b95df1b3f7a24288bc6">ParseFunction</a>&lt; T &gt; parse_function=<a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#acfe9425286b6e6ae5d598d4134dfbdf5">default_parse_function</a>&lt; T &gt;)</td></tr>
+<tr class="memitem:aaf1f288b41f35166a716f7dbae935c41"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#aaf1f288b41f35166a716f7dbae935c41">add_vector</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;name, std::vector&lt; T &gt; *target, <a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a596a6bab2dcbfc736e94623e450d645c">ParseFunction</a>&lt; T &gt; parse_function=<a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#acfe9425286b6e6ae5d598d4134dfbdf5">default_parse_function</a>&lt; T &gt;)</td></tr>
+<tr class="memdesc:aaf1f288b41f35166a716f7dbae935c41"><td class="mdescLeft">&#160;</td><td class="mdescRight">add greedy argument, currently also accepts zero  <a href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#aaf1f288b41f35166a716f7dbae935c41">More...</a><br /></td></tr>
 <tr class="separator:aaf1f288b41f35166a716f7dbae935c41"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa9251c1b2db6613a89625aed1e85c6a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup.html">SubParserGroup</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#afa9251c1b2db6613a89625aed1e85c6a">add_sub_parsers</a> (const std::string &amp;name=&quot;commands&quot;)</td></tr>
-<tr class="separator:afa9251c1b2db6613a89625aed1e85c6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2637480f48f31a45cbbe0dd3e25023a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#ad2637480f48f31a45cbbe0dd3e25023a">find_argument</a> (const std::string &amp;name) const</td></tr>
-<tr class="separator:ad2637480f48f31a45cbbe0dd3e25023a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c13d051351f3e4b78ffc6e34652a132"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParseResult.html">ParseResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a0c13d051351f3e4b78ffc6e34652a132">parse_args</a> (<a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Runner.html">Runner</a> *runner)</td></tr>
-<tr class="separator:a0c13d051351f3e4b78ffc6e34652a132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38c4ca3588be3ffe2c5d1e6f09edbcd4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a38c4ca3588be3ffe2c5d1e6f09edbcd4">find_argument</a> (const std::string &amp;name) const</td></tr>
+<tr class="separator:a38c4ca3588be3ffe2c5d1e6f09edbcd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2beaa48126cde168c7bd09a2c9fdb2be"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a2beaa48126cde168c7bd09a2c9fdb2be">get_calling_name</a> (const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1NameAndArguments.html">NameAndArguments</a> &amp;args)=0</td></tr>
+<tr class="separator:a2beaa48126cde168c7bd09a2c9fdb2be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc867c2b5376b9faf7d9282db8a65d04"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html">ParserBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#abc867c2b5376b9faf7d9282db8a65d04">get_parent_or_null</a> ()=0</td></tr>
+<tr class="separator:abc867c2b5376b9faf7d9282db8a65d04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -135,7 +139,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:a90defa7ef5295312437906d54be777be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9af0adb9c4ca6c8f6bbfeeb743016aa4"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup.html">SubParserGroup</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a9af0adb9c4ca6c8f6bbfeeb743016aa4">subparser_groups</a></td></tr>
 <tr class="separator:a9af0adb9c4ca6c8f6bbfeeb743016aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8526a9357d0535c27b697d817e050ed"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#ac61872bd86cf97bb81b20216df85bc52">CompleteFunction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#ab8526a9357d0535c27b697d817e050ed">on_complete_function</a></td></tr>
+<tr class="memitem:ab8526a9357d0535c27b697d817e050ed"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#ac1c0d680cc59febe52e0cf4e9a0438b2">CompleteFunction</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#ab8526a9357d0535c27b697d817e050ed">on_complete_function</a></td></tr>
 <tr class="separator:ab8526a9357d0535c27b697d817e050ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05e790f8103c6908938c5fd7b503023c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a0af6040d256538cb352a8314efcbd222">State</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1ParserBase.html#a05e790f8103c6908938c5fd7b503023c">parser_state</a> = <a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a0af6040d256538cb352a8314efcbd222a732f3800bc45eddf01bf0cb3cad8affb">State::adding</a></td></tr>
 <tr class="separator:a05e790f8103c6908938c5fd7b503023c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -143,8 +147,9 @@ Public Attributes</h2></td></tr>
 <tr class="separator:ab009dc29947340651409de074544e1c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00436">436</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<div class="textblock"><p>base for the parser, start with <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Parser.html" title="root parser. start argumentparsing with this one">Parser</a> and add one or more subparsers </p>
+
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00405">405</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae22daeabe6a6178a25e69424e07ebc42"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae22daeabe6a6178a25e69424e07ebc42">&#9670;&nbsp;</a></span>ParserBase() <span class="overload">[1/3]</span></h2>
@@ -169,6 +174,8 @@ Public Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00540">540</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
 
 </div>
 </div>
@@ -276,7 +283,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a36fe00e5fd025b95df1b3f7a24288bc6">ParseFunction</a>&lt; T &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a596a6bab2dcbfc736e94623e450d645c">ParseFunction</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>parse_function</em> = <code><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#acfe9425286b6e6ae5d598d4134dfbdf5">default_parse_function</a>&lt;T&gt;</code>&#160;</td>
         </tr>
         <tr>
@@ -292,18 +299,18 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00502">502</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00447">447</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
-<a id="a9f4070fec0f41c488800c82d210821f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f4070fec0f41c488800c82d210821f5">&#9670;&nbsp;</a></span>add_argument()</h2>
+<a id="acc01c091ff6a6c49e85c297db493f3eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc01c091ff6a6c49e85c297db493f3eb">&#9670;&nbsp;</a></span>add_argument()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a>&amp; euphoria::core::argparse::ParserBase::add_argument </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp; euphoria::core::argparse::ParserBase::add_argument </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -322,16 +329,18 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00818">818</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
+
 </div>
 </div>
-<a id="afa9251c1b2db6613a89625aed1e85c6a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa9251c1b2db6613a89625aed1e85c6a">&#9670;&nbsp;</a></span>add_sub_parsers()</h2>
+<a id="a177247da3e6f029032fb8ee1022e751d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a177247da3e6f029032fb8ee1022e751d">&#9670;&nbsp;</a></span>add_sub_parsers()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup.html">SubParserGroup</a>&gt; euphoria::core::argparse::ParserBase::add_sub_parsers </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1SubParserGroup.html">SubParserGroup</a> &gt; euphoria::core::argparse::ParserBase::add_sub_parsers </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em> = <code>&quot;commands&quot;</code></td><td>)</td>
@@ -339,6 +348,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00875">875</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
 
 </div>
 </div>
@@ -368,7 +379,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a36fe00e5fd025b95df1b3f7a24288bc6">ParseFunction</a>&lt; T &gt;&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#a596a6bab2dcbfc736e94623e450d645c">ParseFunction</a>&lt; T &gt;&#160;</td>
           <td class="paramname"><em>parse_function</em> = <code><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#acfe9425286b6e6ae5d598d4134dfbdf5">default_parse_function</a>&lt;T&gt;</code>&#160;</td>
         </tr>
         <tr>
@@ -384,18 +395,20 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00548">548</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p>add greedy argument, currently also accepts zero </p>
+
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00492">492</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
-<a id="a4f72c0144102f2482488a1e82f36eeff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f72c0144102f2482488a1e82f36eeff">&#9670;&nbsp;</a></span>add_void_function()</h2>
+<a id="ac017b3aa9abc00c9dcadc5e97f669feb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac017b3aa9abc00c9dcadc5e97f669feb">&#9670;&nbsp;</a></span>add_void_function()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a>&amp; euphoria::core::argparse::ParserBase::add_void_function </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp; euphoria::core::argparse::ParserBase::add_void_function </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -414,16 +427,18 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00845">845</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
+
 </div>
 </div>
-<a id="ad2637480f48f31a45cbbe0dd3e25023a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2637480f48f31a45cbbe0dd3e25023a">&#9670;&nbsp;</a></span>find_argument()</h2>
+<a id="a38c4ca3588be3ffe2c5d1e6f09edbcd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38c4ca3588be3ffe2c5d1e6f09edbcd4">&#9670;&nbsp;</a></span>find_argument()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a>&gt; euphoria::core::argparse::ParserBase::find_argument </td>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &gt; euphoria::core::argparse::ParserBase::find_argument </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>name</em></td><td>)</td>
@@ -431,6 +446,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00885">885</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
 
 </div>
 </div>
@@ -449,6 +466,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00566">566</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
 
 </div>
 </div>
@@ -503,7 +522,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Parser.html#a1771abecf8916f5aabeeeaef3932c016">euphoria::core::argparse::Parser</a>, and <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1SubParser.html#aff41682cfb92794d59604c081c0056b6">euphoria::core::argparse::SubParser</a>.</p>
+<p>Implemented in <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Parser.html#a28b7aa7adc7d0156970a7a1a9d439a41">euphoria::core::argparse::Parser</a>, and <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1SubParser.html#adc23e3694f465e04aac243109af6ba9f">euphoria::core::argparse::SubParser</a>.</p>
 
 </div>
 </div>
@@ -516,12 +535,14 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">void euphoria::core::argparse::ParserBase::on_complete </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#ac61872bd86cf97bb81b20216df85bc52">CompleteFunction</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#ac1c0d680cc59febe52e0cf4e9a0438b2">CompleteFunction</a>&#160;</td>
           <td class="paramname"><em>com</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00868">868</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
 
 </div>
 </div>
@@ -593,6 +614,8 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l01223">1223</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
+
 </div>
 </div>
 <a id="a34e266f3e7c6de87939c8d4d49dff907"></a>
@@ -620,6 +643,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00629">629</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
 
 </div>
 </div>
@@ -665,18 +690,18 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00485">485</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00437">437</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
-<a id="a9a08e5b4c3a4f6bff5074fd9a68ab006"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9a08e5b4c3a4f6bff5074fd9a68ab006">&#9670;&nbsp;</a></span>set_false()</h2>
+<a id="aecaf28e592eff155e703626ff218123a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecaf28e592eff155e703626ff218123a">&#9670;&nbsp;</a></span>set_false()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a>&amp; euphoria::core::argparse::ParserBase::set_false </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp; euphoria::core::argparse::ParserBase::set_false </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -695,16 +720,18 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00860">860</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
+
 </div>
 </div>
-<a id="a5b740ad02cce460213e8df2276c44f89"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b740ad02cce460213e8df2276c44f89">&#9670;&nbsp;</a></span>set_true()</h2>
+<a id="a77d0ab94cb70a5c9033fcbd617bdbc1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a77d0ab94cb70a5c9033fcbd617bdbc1b">&#9670;&nbsp;</a></span>set_true()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a>&amp; euphoria::core::argparse::ParserBase::set_true </td>
+          <td class="memname"><a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Argument.html">Argument</a> &amp; euphoria::core::argparse::ParserBase::set_true </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structeuphoria_1_1core_1_1argparse_1_1Name.html">Name</a> &amp;&#160;</td>
           <td class="paramname"><em>name</em>, </td>
@@ -722,6 +749,8 @@ template&lt;typename T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="argparse_8cc_source.html#l00852">852</a> of file <a class="el" href="argparse_8cc_source.html">argparse.cc</a>.</p>
 
 </div>
 </div>
@@ -738,7 +767,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00438">438</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00407">407</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
@@ -749,12 +778,12 @@ template&lt;typename T &gt; </div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::optional&lt;<a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#ac61872bd86cf97bb81b20216df85bc52">CompleteFunction</a>&gt; euphoria::core::argparse::ParserBase::on_complete_function</td>
+          <td class="memname">std::optional&lt;<a class="el" href="namespaceeuphoria_1_1core_1_1argparse.html#ac1c0d680cc59febe52e0cf4e9a0438b2">CompleteFunction</a>&gt; euphoria::core::argparse::ParserBase::on_complete_function</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00448">448</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00413">413</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
@@ -770,7 +799,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00443">443</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00410">410</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
@@ -786,7 +815,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00442">442</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00409">409</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
@@ -802,7 +831,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00449">449</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00414">414</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
@@ -818,7 +847,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00450">450</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00415">415</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
@@ -834,7 +863,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00440">440</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00408">408</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
@@ -850,7 +879,7 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00446">446</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00412">412</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
@@ -866,12 +895,13 @@ template&lt;typename T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00445">445</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="argparse_8h_source.html#l00411">411</a> of file <a class="el" href="argparse_8h_source.html">argparse.h</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<hr/>The documentation for this struct was generated from the following files:<ul>
 <li>libs/core/src/core/<a class="el" href="argparse_8h_source.html">argparse.h</a></li>
+<li>libs/core/src/core/<a class="el" href="argparse_8cc_source.html">argparse.cc</a></li>
 </ul>
 </div><!-- contents -->
 <!-- HTML footer for doxygen 1.8.17-->

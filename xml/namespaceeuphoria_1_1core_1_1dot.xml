@@ -19,32 +19,49 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dot_1a23cb82e063411571597ad2968e1fa293" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dot_1ac6bf81472c6b464cbf94654297c1dbd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>std::string</type>
+        <definition>std::string euphoria::core::dot::id_to_string</definition>
+        <argsstring>(NodeId id)</argsstring>
+        <name>id_to_string</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1dot_1a1720f1180592f245e27686f462058778" kindref="member">NodeId</ref></type>
+          <declname>id</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/dotoutput.cc" line="41" column="5" bodyfile="libs/core/src/core/dotoutput.cc" bodystart="41" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dot_1ab8379f182aff97a6e2f5ceae1c3fe550" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
           <param>
-            <type>typename LabelFunction</type>
+            <type>typename TLabelFunc</type>
           </param>
           <param>
-            <type>typename FindChildrenFunction</type>
+            <type>typename TFindChildrenFunc</type>
           </param>
         </templateparamlist>
         <type><ref refid="namespaceeuphoria_1_1core_1_1dot_1a1720f1180592f245e27686f462058778" kindref="member">NodeId</ref></type>
         <definition>NodeId euphoria::core::dot::fill_graph</definition>
-        <argsstring>(const T &amp;item, LabelFunction label_function, FindChildrenFunction find_children_function, Graph *graph)</argsstring>
+        <argsstring>(const T &amp;item, TLabelFunc label_function, TFindChildrenFunc find_children_function, Graph *graph)</argsstring>
         <name>fill_graph</name>
         <param>
           <type>const T &amp;</type>
           <declname>item</declname>
         </param>
         <param>
-          <type>LabelFunction</type>
+          <type>TLabelFunc</type>
           <declname>label_function</declname>
         </param>
         <param>
-          <type>FindChildrenFunction</type>
+          <type>TFindChildrenFunc</type>
           <declname>find_children_function</declname>
         </param>
         <param>
@@ -59,32 +76,32 @@
         </inbodydescription>
         <location file="libs/core/src/core/dotoutput.h" line="44" column="1" bodyfile="libs/core/src/core/dotoutput.h" bodystart="45" bodyend="70"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dot_1a49dc10d6d76d788deca9e935bf6baef8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dot_1a0492e1a8ec09dfa20495fffab4c7cdc4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
           <param>
             <type>typename T</type>
           </param>
           <param>
-            <type>typename LabelFunction</type>
+            <type>typename TLabelFunc</type>
           </param>
           <param>
-            <type>typename FindChildrenFunction</type>
+            <type>typename TFindChildrenFunc</type>
           </param>
         </templateparamlist>
         <type><ref refid="structeuphoria_1_1core_1_1dot_1_1Graph" kindref="compound">Graph</ref></type>
         <definition>Graph euphoria::core::dot::create_graph</definition>
-        <argsstring>(const T &amp;item, LabelFunction label_function, FindChildrenFunction find_children_function)</argsstring>
+        <argsstring>(const T &amp;item, TLabelFunc label_function, TFindChildrenFunc find_children_function)</argsstring>
         <name>create_graph</name>
         <param>
           <type>const T &amp;</type>
           <declname>item</declname>
         </param>
         <param>
-          <type>LabelFunction</type>
+          <type>TLabelFunc</type>
           <declname>label_function</declname>
         </param>
         <param>
-          <type>FindChildrenFunction</type>
+          <type>TFindChildrenFunc</type>
           <declname>find_children_function</declname>
         </param>
         <briefdescription>
@@ -100,6 +117,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/dotoutput.h" line="8" column="1"/>
+    <location file="libs/core/src/core/dotoutput.cc" line="10" column="1"/>
   </compounddef>
 </doxygen>

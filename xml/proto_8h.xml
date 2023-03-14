@@ -7,6 +7,15 @@
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes local="yes">gaf/lib_gaf.h</includes>
     <includes local="yes">rapidjson/document.h</includes>
+    <includedby refid="chatbot_8cc" local="yes">libs/core/src/core/chatbot.cc</includedby>
+    <includedby refid="enum_8cc" local="yes">libs/core/src/core/enum.cc</includedby>
+    <includedby refid="mesh_8cc" local="yes">libs/core/src/core/mesh.cc</includedby>
+    <includedby refid="proto_8cc" local="yes">libs/core/src/core/proto.cc</includedby>
+    <includedby refid="tracery_8cc" local="yes">libs/core/src/core/tracery.cc</includedby>
+    <includedby refid="load_8cc" local="yes">libs/gui/src/gui/load.cc</includedby>
+    <includedby refid="font_8cc" local="yes">libs/render/src/render/font.cc</includedby>
+    <includedby refid="materialshader_8cc" local="yes">libs/render/src/render/materialshader.cc</includedby>
+    <includedby refid="scalablesprite_8cc" local="yes">libs/render/src/render/scalablesprite.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/core/src/core/proto.h</label>
@@ -49,6 +58,66 @@
         <label>vector</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/proto.h</label>
+        <link refid="proto_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/chatbot.cc</label>
+        <link refid="chatbot_8cc"/>
+      </node>
+      <node id="5">
+        <label>libs/core/src/core/proto.cc</label>
+        <link refid="proto_8cc"/>
+      </node>
+      <node id="4">
+        <label>libs/core/src/core/mesh.cc</label>
+        <link refid="mesh_8cc"/>
+      </node>
+      <node id="8">
+        <label>libs/render/src/render/font.cc</label>
+        <link refid="font_8cc"/>
+      </node>
+      <node id="6">
+        <label>libs/core/src/core/tracery.cc</label>
+        <link refid="tracery_8cc"/>
+      </node>
+      <node id="3">
+        <label>libs/core/src/core/enum.cc</label>
+        <link refid="enum_8cc"/>
+      </node>
+      <node id="10">
+        <label>libs/render/src/render/scalablesprite.cc</label>
+        <link refid="scalablesprite_8cc"/>
+      </node>
+      <node id="7">
+        <label>libs/gui/src/gui/load.cc</label>
+        <link refid="load_8cc"/>
+      </node>
+      <node id="9">
+        <label>libs/render/src/render/materialshader.cc</label>
+        <link refid="materialshader_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1ReadErrorFileMissing" prot="public">euphoria::core::ReadErrorFileMissing</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1ReadErrorFileError" prot="public">euphoria::core::ReadErrorFileError</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>

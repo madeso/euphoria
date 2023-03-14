@@ -2,6 +2,9 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="structeuphoria_1_1core_1_1raytracer_1_1Material" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::raytracer::Material</compoundname>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial" prot="public" virt="non-virtual">euphoria::core::raytracer::DielectricMaterial</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial" prot="public" virt="non-virtual">euphoria::core::raytracer::DiffuseMaterial</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial" prot="public" virt="non-virtual">euphoria::core::raytracer::MetalMaterial</derivedcompoundref>
     <includes refid="raytracer_8h" local="no">raytracer.h</includes>
       <sectiondef kind="public-func">
       <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa02c166d60c11706fbae602046b5d9d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
@@ -51,6 +54,9 @@
         <definition>virtual std::optional&lt;ScatterResult&gt; euphoria::core::raytracer::Material::scatter</definition>
         <argsstring>(const UnitRay3f &amp;ray, const HitResult &amp;hit, Random *random)=0</argsstring>
         <name>scatter</name>
+        <reimplementedby refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial_1afcc7913cfbc0d4b26e818d946aa310d0">scatter</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial_1ab3efc74979a96bc2f634c930c1572563">scatter</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial_1abc7bcb89f843a39cbe9e6acd4a619fa0">scatter</reimplementedby>
         <param>
           <type>const <ref refid="structeuphoria_1_1core_1_1UnitRay3f" kindref="compound">UnitRay3f</ref> &amp;</type>
           <declname>ray</declname>
@@ -76,6 +82,30 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>euphoria::core::raytracer::DielectricMaterial</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1DielectricMaterial"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>euphoria::core::raytracer::Material</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1Material"/>
+      </node>
+      <node id="3">
+        <label>euphoria::core::raytracer::DiffuseMaterial</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1DiffuseMaterial"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>euphoria::core::raytracer::MetalMaterial</label>
+        <link refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
     <location file="libs/core/src/core/raytracer.h" line="32" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="31" bodyend="45"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa02c166d60c11706fbae602046b5d9d5" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Material</scope><name>Material</name></member>

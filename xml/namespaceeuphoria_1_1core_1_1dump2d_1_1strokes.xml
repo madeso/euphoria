@@ -3,9 +3,9 @@
   <compounddef id="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes" kind="namespace" language="C++">
     <compoundname>euphoria::core::dump2d::strokes</compoundname>
       <sectiondef kind="func">
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes_1a88d98d518be90cc5f5e3f861f6cb857f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1dump2d_1_1strokes_1a830d7a9e667595ff3f40dd5335c225fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; int &gt;</type>
-        <definition>std::vector&lt;int&gt; euphoria::core::dump2d::strokes::dash</definition>
+        <definition>std::vector&lt; int &gt; euphoria::core::dump2d::strokes::dash</definition>
         <argsstring>(int size)</argsstring>
         <name>dash</name>
         <param>
@@ -18,13 +18,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="24" column="21" declfile="libs/core/src/core/dump.h" declline="24" declcolumn="21"/>
+        <location file="libs/core/src/core/dump.cc" line="28" column="21" bodyfile="libs/core/src/core/dump.cc" bodystart="28" bodyend="31" declfile="libs/core/src/core/dump.h" declline="24" declcolumn="21"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/dump.h" line="23" column="1"/>
+    <location file="libs/core/src/core/dump.cc" line="27" column="1"/>
   </compounddef>
 </doxygen>

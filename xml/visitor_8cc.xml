@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="visitor_8cc" kind="file" language="C++">
+    <compoundname>visitor.cc</compoundname>
+    <includes refid="visitor_8h" local="yes">gui/visitor.h</includes>
+    <incdepgraph>
+      <node id="2">
+        <label>gui/visitor.h</label>
+        <link refid="visitor_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/gui/src/gui/visitor.cc</label>
+        <link refid="visitor_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>core/noncopyable.h</label>
+        <link refid="noncopyable_8h"/>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1gui">euphoria::gui</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/gui/src/gui/visitor.cc"/>
+  </compounddef>
+</doxygen>

@@ -3,6 +3,16 @@
   <compounddef id="gl_8h" kind="file" language="C++">
     <compoundname>gl.h</compoundname>
     <includes local="yes">glad/glad.h</includes>
+    <includedby refid="buffer_8cc" local="yes">libs/render/src/render/buffer.cc</includedby>
+    <includedby refid="debuggl_8cc" local="yes">libs/render/src/render/debuggl.cc</includedby>
+    <includedby refid="gl_8cc" local="yes">libs/render/src/render/gl.cc</includedby>
+    <includedby refid="init_8cc" local="yes">libs/render/src/render/init.cc</includedby>
+    <includedby refid="shader_8cc" local="yes">libs/render/src/render/shader.cc</includedby>
+    <includedby refid="spritebatch_8cc" local="yes">libs/render/src/render/spritebatch.cc</includedby>
+    <includedby refid="spriterender_8cc" local="yes">libs/render/src/render/spriterender.cc</includedby>
+    <includedby refid="texture_8cc" local="yes">libs/render/src/render/texture.cc</includedby>
+    <includedby refid="render_2src_2render_2viewport_8cc" local="yes">libs/render/src/render/viewport.cc</includedby>
+    <includedby refid="world_8cc" local="yes">libs/render/src/render/world.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/render/src/render/gl.h</label>
@@ -14,6 +24,72 @@
         <label>glad/glad.h</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/render/src/render/gl.h</label>
+        <link refid="gl_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>libs/render/src/render/gl.cc</label>
+        <link refid="gl_8cc"/>
+      </node>
+      <node id="10">
+        <label>libs/render/src/render/viewport.cc</label>
+        <link refid="render_2src_2render_2viewport_8cc"/>
+      </node>
+      <node id="2">
+        <label>libs/render/src/render/buffer.cc</label>
+        <link refid="buffer_8cc"/>
+      </node>
+      <node id="9">
+        <label>libs/render/src/render/texture.cc</label>
+        <link refid="texture_8cc"/>
+      </node>
+      <node id="3">
+        <label>libs/render/src/render/debuggl.cc</label>
+        <link refid="debuggl_8cc"/>
+      </node>
+      <node id="11">
+        <label>libs/render/src/render/world.cc</label>
+        <link refid="world_8cc"/>
+      </node>
+      <node id="8">
+        <label>libs/render/src/render/spriterender.cc</label>
+        <link refid="spriterender_8cc"/>
+      </node>
+      <node id="6">
+        <label>libs/render/src/render/shader.cc</label>
+        <link refid="shader_8cc"/>
+      </node>
+      <node id="7">
+        <label>libs/render/src/render/spritebatch.cc</label>
+        <link refid="spritebatch_8cc"/>
+      </node>
+      <node id="5">
+        <label>libs/render/src/render/init.cc</label>
+        <link refid="init_8cc"/>
+      </node>
+    </invincdepgraph>
     <briefdescription>
     </briefdescription>
     <detaileddescription>

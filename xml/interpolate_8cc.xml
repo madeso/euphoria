@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="interpolate_8cc" kind="file" language="C++">
+    <compoundname>interpolate.cc</compoundname>
+    <includes refid="interpolate_8h" local="yes">core/interpolate.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/interpolate.cc</label>
+        <link refid="interpolate_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="3">
+        <label>assert/assert.h</label>
+        <link refid="assert_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>core/easing.h</label>
+        <link refid="easing_8h"/>
+      </node>
+      <node id="5">
+        <label>vector</label>
+      </node>
+      <node id="7">
+        <label>core/interpolate.default.h</label>
+        <link refid="interpolate_8default_8h"/>
+      </node>
+      <node id="2">
+        <label>core/interpolate.h</label>
+        <link refid="interpolate_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/interpolate.cc"/>
+  </compounddef>
+</doxygen>

@@ -4,6 +4,7 @@
     <compoundname>nlp_sentence.h</compoundname>
     <includes local="no">functional</includes>
     <includes local="no">istream</includes>
+    <includedby refid="nlp__sentence_8cc" local="yes">libs/core/src/core/nlp_sentence.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>functional</label>
@@ -20,6 +21,18 @@
         <label>istream</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>libs/core/src/core/nlp_sentence.cc</label>
+        <link refid="nlp__sentence_8cc"/>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/nlp_sentence.h</label>
+        <link refid="nlp__sentence_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
     <briefdescription>

@@ -27,9 +27,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a2699b3d6bf36c3500396082ae05c70ee" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a46e22eddae64535b0bcad0631f089ebf" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
-        <definition>static std::string euphoria::core::CustomArgparser&lt; size2i &gt;::to_string</definition>
+        <definition>std::string euphoria::core::CustomArgparser&lt; size2i &gt;::to_string</definition>
         <argsstring>(const size2i &amp;s)</argsstring>
         <name>to_string</name>
         <param>
@@ -42,11 +42,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="71" column="28"/>
+        <location file="libs/core/src/core/size2.h" line="71" column="28" bodyfile="libs/core/src/core/size2.cc" bodystart="256" bodyend="259"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a8cd99aae2bd549e6bd7cfee4f5f79e3c" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1acb1611b3d1f010684caa5090d26fd6c0" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; <ref refid="structeuphoria_1_1core_1_1size2i" kindref="compound">size2i</ref> &gt;</type>
-        <definition>static Result&lt;size2i&gt; euphoria::core::CustomArgparser&lt; size2i &gt;::parse</definition>
+        <definition>Result&lt; size2i &gt; euphoria::core::CustomArgparser&lt; size2i &gt;::parse</definition>
         <argsstring>(const std::string &amp;value)</argsstring>
         <name>parse</name>
         <param>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/size2.h" line="72" column="23"/>
+        <location file="libs/core/src/core/size2.h" line="72" column="23" bodyfile="libs/core/src/core/size2.cc" bodystart="262" bodyend="299"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -68,8 +68,8 @@
     </detaileddescription>
     <location file="libs/core/src/core/size2.h" line="68" column="1" bodyfile="libs/core/src/core/size2.h" bodystart="67" bodyend="73"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a8cd99aae2bd549e6bd7cfee4f5f79e3c" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; size2i &gt;</scope><name>parse</name></member>
-      <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a2699b3d6bf36c3500396082ae05c70ee" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; size2i &gt;</scope><name>to_string</name></member>
+      <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1acb1611b3d1f010684caa5090d26fd6c0" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; size2i &gt;</scope><name>parse</name></member>
+      <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a46e22eddae64535b0bcad0631f089ebf" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; size2i &gt;</scope><name>to_string</name></member>
       <member refid="structeuphoria_1_1core_1_1CustomArgparser_3_01size2i_01_4_1a230322ac62d7d9beb2ce94b2eb0a8afeafcec4800d11d22ab856988c6bfccd697" prot="public" virt="non-virtual"><scope>euphoria::core::CustomArgparser&lt; size2i &gt;</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

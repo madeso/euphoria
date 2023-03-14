@@ -8,21 +8,6 @@
         <type>typename T</type>
       </param>
     </templateparamlist>
-      <sectiondef kind="public-type">
-      <memberdef kind="typedef" id="structeuphoria_1_1core_1_1Result_1a292cca6fd7f099d5eb4156d124a4c403" prot="public" static="no">
-        <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; T &gt;</type>
-        <definition>using euphoria::core::Result&lt; T &gt;::Self =  Result&lt;T&gt;</definition>
-        <argsstring></argsstring>
-        <name>Self</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="12" column="9" bodyfile="libs/core/src/core/result.h" bodystart="12" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
       <sectiondef kind="private-attrib">
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Result_1a60a6c5d96f904dde612a5071d1bba668" prot="private" static="no" mutable="no">
         <type>std::optional&lt; T &gt;</type>
@@ -35,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="61" column="23" bodyfile="libs/core/src/core/result.h" bodystart="61" bodyend="-1"/>
+        <location file="libs/core/src/core/result.h" line="51" column="23" bodyfile="libs/core/src/core/result.h" bodystart="51" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Result_1a766f87294ae29bd2f4143e07aeae8e91" prot="private" static="no" mutable="no">
         <type>std::optional&lt; std::string &gt;</type>
@@ -48,67 +33,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="62" column="23" bodyfile="libs/core/src/core/result.h" bodystart="62" bodyend="-1"/>
-      </memberdef>
-      </sectiondef>
-      <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1a174420a44f288c11bb1445cf6849dac8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type></type>
-        <definition>euphoria::core::Result&lt; T &gt;::operator bool</definition>
-        <argsstring>() const</argsstring>
-        <name>operator bool</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="14" column="9" bodyfile="libs/core/src/core/result.h" bodystart="14" bodyend="17"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1a439c8cc7541329b9f88cb1fd2c990710" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>const T &amp;</type>
-        <definition>const T&amp; euphoria::core::Result&lt; T &gt;::operator*</definition>
-        <argsstring>() const</argsstring>
-        <name>operator*</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="22" column="9" bodyfile="libs/core/src/core/result.h" bodystart="22" bodyend="25"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1a3c215519ed426ac0371e33d86fc99667" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>const T &amp;</type>
-        <definition>const T&amp; euphoria::core::Result&lt; T &gt;::get_value</definition>
-        <argsstring>() const</argsstring>
-        <name>get_value</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="29" column="9" bodyfile="libs/core/src/core/result.h" bodystart="29" bodyend="32"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1add6abd63e9c282bca2ff90bd8b6e4d2d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
-        <type>const std::string &amp;</type>
-        <definition>const std::string&amp; euphoria::core::Result&lt; T &gt;::get_error</definition>
-        <argsstring>() const</argsstring>
-        <name>get_error</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="36" column="9" bodyfile="libs/core/src/core/result.h" bodystart="36" bodyend="39"/>
+        <location file="libs/core/src/core/result.h" line="52" column="23" bodyfile="libs/core/src/core/result.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1a6ca296e228991c6521c0413512a02410" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Result_1a292cca6fd7f099d5eb4156d124a4c403" kindref="member">Self</ref></type>
-        <definition>static Self euphoria::core::Result&lt; T &gt;::create_value</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1a8048b252c45687f1c35e33a6c4d5f254" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; T &gt;</type>
+        <definition>static Result&lt;T&gt; euphoria::core::Result&lt; T &gt;::create_value</definition>
         <argsstring>(const T &amp;t)</argsstring>
         <name>create_value</name>
         <param>
@@ -121,11 +52,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="44" column="9" bodyfile="libs/core/src/core/result.h" bodystart="44" bodyend="47"/>
+        <location file="libs/core/src/core/result.h" line="13" column="23" bodyfile="libs/core/src/core/result.h" bodystart="13" bodyend="16"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1accae4f62f2e533c3e9ea8191058b8281" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1Result_1a292cca6fd7f099d5eb4156d124a4c403" kindref="member">Self</ref></type>
-        <definition>static Self euphoria::core::Result&lt; T &gt;::create_error</definition>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1a81a7386e0028a22a2e4cedee33ccd9d0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1Result" kindref="compound">Result</ref>&lt; T &gt;</type>
+        <definition>static Result&lt;T&gt; euphoria::core::Result&lt; T &gt;::create_error</definition>
         <argsstring>(const std::string &amp;error=&quot;&quot;)</argsstring>
         <name>create_error</name>
         <param>
@@ -139,7 +70,61 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="52" column="9" bodyfile="libs/core/src/core/result.h" bodystart="52" bodyend="58"/>
+        <location file="libs/core/src/core/result.h" line="19" column="23" bodyfile="libs/core/src/core/result.h" bodystart="19" bodyend="25"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1a3c215519ed426ac0371e33d86fc99667" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; euphoria::core::Result&lt; T &gt;::get_value</definition>
+        <argsstring>() const</argsstring>
+        <name>get_value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/result.h" line="28" column="17" bodyfile="libs/core/src/core/result.h" bodystart="28" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1add6abd63e9c282bca2ff90bd8b6e4d2d" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const std::string &amp;</type>
+        <definition>const std::string&amp; euphoria::core::Result&lt; T &gt;::get_error</definition>
+        <argsstring>() const</argsstring>
+        <name>get_error</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/result.h" line="34" column="27" bodyfile="libs/core/src/core/result.h" bodystart="34" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1a174420a44f288c11bb1445cf6849dac8" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::Result&lt; T &gt;::operator bool</definition>
+        <argsstring>() const</argsstring>
+        <name>operator bool</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/result.h" line="39" column="9" bodyfile="libs/core/src/core/result.h" bodystart="39" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Result_1a439c8cc7541329b9f88cb1fd2c990710" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>const T &amp;</type>
+        <definition>const T&amp; euphoria::core::Result&lt; T &gt;::operator*</definition>
+        <argsstring>() const</argsstring>
+        <name>operator*</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/result.h" line="46" column="17" bodyfile="libs/core/src/core/result.h" bodystart="46" bodyend="49"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="private-func">
@@ -162,24 +147,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/result.h" line="64" column="9" bodyfile="libs/core/src/core/result.h" bodystart="65" bodyend="72"/>
+        <location file="libs/core/src/core/result.h" line="54" column="9" bodyfile="libs/core/src/core/result.h" bodystart="55" bodyend="62"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/result.h" line="11" column="1" bodyfile="libs/core/src/core/result.h" bodystart="10" bodyend="73"/>
+    <location file="libs/core/src/core/result.h" line="11" column="1" bodyfile="libs/core/src/core/result.h" bodystart="10" bodyend="63"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1Result_1accae4f62f2e533c3e9ea8191058b8281" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>create_error</name></member>
-      <member refid="structeuphoria_1_1core_1_1Result_1a6ca296e228991c6521c0413512a02410" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>create_value</name></member>
+      <member refid="structeuphoria_1_1core_1_1Result_1a81a7386e0028a22a2e4cedee33ccd9d0" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>create_error</name></member>
+      <member refid="structeuphoria_1_1core_1_1Result_1a8048b252c45687f1c35e33a6c4d5f254" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>create_value</name></member>
       <member refid="structeuphoria_1_1core_1_1Result_1a766f87294ae29bd2f4143e07aeae8e91" prot="private" virt="non-virtual"><scope>euphoria::core::Result</scope><name>error</name></member>
       <member refid="structeuphoria_1_1core_1_1Result_1add6abd63e9c282bca2ff90bd8b6e4d2d" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>get_error</name></member>
       <member refid="structeuphoria_1_1core_1_1Result_1a3c215519ed426ac0371e33d86fc99667" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>get_value</name></member>
       <member refid="structeuphoria_1_1core_1_1Result_1a174420a44f288c11bb1445cf6849dac8" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>operator bool</name></member>
       <member refid="structeuphoria_1_1core_1_1Result_1a439c8cc7541329b9f88cb1fd2c990710" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>operator*</name></member>
       <member refid="structeuphoria_1_1core_1_1Result_1a7ea727b644a724da5673ca739df3e757" prot="private" virt="non-virtual"><scope>euphoria::core::Result</scope><name>Result</name></member>
-      <member refid="structeuphoria_1_1core_1_1Result_1a292cca6fd7f099d5eb4156d124a4c403" prot="public" virt="non-virtual"><scope>euphoria::core::Result</scope><name>Self</name></member>
       <member refid="structeuphoria_1_1core_1_1Result_1a60a6c5d96f904dde612a5071d1bba668" prot="private" virt="non-virtual"><scope>euphoria::core::Result</scope><name>value</name></member>
     </listofallmembers>
   </compounddef>

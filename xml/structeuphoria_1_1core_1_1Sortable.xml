@@ -2,7 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="structeuphoria_1_1core_1_1Sortable" kind="struct" language="C++" prot="public" abstract="yes">
     <compoundname>euphoria::core::Sortable</compoundname>
-    <derivedcompoundref refid="structeuphoria_1_1core_1_1SortAction" prot="public" virt="non-virtual">euphoria::core::SortAction&lt; T, Value, SortFunc &gt;</derivedcompoundref>
+    <derivedcompoundref refid="structeuphoria_1_1core_1_1SortAction" prot="public" virt="non-virtual">euphoria::core::SortAction&lt; T, TValue, TSortFunc &gt;</derivedcompoundref>
     <includes refid="multisort_8h" local="no">multisort.h</includes>
     <templateparamlist>
       <param>
@@ -105,7 +105,7 @@
         <definition>virtual int euphoria::core::Sortable&lt; T &gt;::sort</definition>
         <argsstring>(const T &amp;lhs, const T &amp;rhs)=0</argsstring>
         <name>sort</name>
-        <reimplementedby refid="structeuphoria_1_1core_1_1SortAction_1ab140c9c912c5c0148a7d937fbe2018d7">sort</reimplementedby>
+        <reimplementedby refid="structeuphoria_1_1core_1_1SortAction_1aa111c03082c388415c04a331a89599b1">sort</reimplementedby>
         <param>
           <type>const T &amp;</type>
           <declname>lhs</declname>

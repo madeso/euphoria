@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/helptexthover.h" line="17" column="14" bodyfile="libs/core/src/core/helptexthover.h" bodystart="17" bodyend="-1"/>
+        <location file="libs/core/src/core/helptexthover.h" line="15" column="14" bodyfile="libs/core/src/core/helptexthover.h" bodystart="15" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/helptexthover.h" line="16" column="14"/>
+        <location file="libs/core/src/core/helptexthover.h" line="17" column="14" bodyfile="libs/core/src/core/helptexthover.cc" bodystart="75" bodyend="85"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

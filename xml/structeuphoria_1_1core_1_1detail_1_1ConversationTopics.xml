@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="170" column="22" bodyfile="libs/core/src/core/chatbot.h" bodystart="170" bodyend="-1"/>
+        <location file="libs/core/src/core/chatbot.h" line="146" column="22" bodyfile="libs/core/src/core/chatbot.h" bodystart="146" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="156" column="13"/>
+        <location file="libs/core/src/core/chatbot.h" line="148" column="18" bodyfile="libs/core/src/core/chatbot.cc" bodystart="241" bodyend="245"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1aecfb23cd0ebd1e09d70f7691dbeceaa2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="159" column="13"/>
+        <location file="libs/core/src/core/chatbot.h" line="149" column="18" bodyfile="libs/core/src/core/chatbot.cc" bodystart="249" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1a34c82cbe179895952af07cd4c7a96cc3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -56,7 +56,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="162" column="13"/>
+        <location file="libs/core/src/core/chatbot.h" line="150" column="18" bodyfile="libs/core/src/core/chatbot.cc" bodystart="259" bodyend="272"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1a387865f1af6e07ca5e16553afdcbd3ba" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="165" column="13"/>
+        <location file="libs/core/src/core/chatbot.h" line="151" column="18" bodyfile="libs/core/src/core/chatbot.cc" bodystart="276" bodyend="279"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1a92e68cb7612a2dbfdb9c180149693210" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -90,14 +90,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/chatbot.h" line="168" column="13"/>
+        <location file="libs/core/src/core/chatbot.h" line="153" column="19" bodyfile="libs/core/src/core/chatbot.cc" bodystart="283" bodyend="286"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/chatbot.h" line="154" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="153" bodyend="171"/>
+    <location file="libs/core/src/core/chatbot.h" line="145" column="1" bodyfile="libs/core/src/core/chatbot.h" bodystart="144" bodyend="154"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1a387865f1af6e07ca5e16553afdcbd3ba" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationTopics</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1detail_1_1ConversationTopics_1aecfb23cd0ebd1e09d70f7691dbeceaa2" prot="public" virt="non-virtual"><scope>euphoria::core::detail::ConversationTopics</scope><name>decrease</name></member>

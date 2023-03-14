@@ -101,11 +101,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="33" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="33" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="10" bodyend="15"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1aa701685ae4c0a6517d04858adb46adba" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1afd282e26e5c802550b76dafc91a0d70c" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
-        <definition>virtual euphoria::gui::Widget::~Widget</definition>
+        <definition>euphoria::gui::Widget::~Widget</definition>
         <argsstring>()</argsstring>
         <name>~Widget</name>
         <briefdescription>
@@ -143,7 +143,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="41" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="41" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="22" bodyend="25"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a7a89318c7d31e26029b2eb1aac0b340b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -156,7 +156,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="44" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="44" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="29" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a3a1900a6e333b97253b9ef60c40364da" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -177,9 +177,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="48" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1ae2f0af874dd22c23993e9cfa6e9f4cd0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1aec3fab3e5408783b14a89283cefdd5bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
-        <definition>virtual void euphoria::gui::Widget::on_size_changed</definition>
+        <definition>void euphoria::gui::Widget::on_size_changed</definition>
         <argsstring>()</argsstring>
         <name>on_size_changed</name>
         <reimplementedby refid="structeuphoria_1_1gui_1_1PanelWidget_1ad9295e32fb11ce172e4e31d6a238b8b2">on_size_changed</reimplementedby>
@@ -190,7 +190,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="52" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="52" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="36" bodyend="38"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1aaa5ef093b28493ac7ab9d595ee32603c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
@@ -203,7 +203,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="55" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="55" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="42" bodyend="45"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a612b9df04f3ad944e2fbb724af8b9e3c" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
@@ -216,7 +216,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="58" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="58" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="49" bodyend="52"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1af94951932b190171b68d94bc8d4d54e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -233,7 +233,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="61" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="61" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="56" bodyend="67"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a9ca439de78ec9af54a1a153c537352b0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
@@ -246,7 +246,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="64" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="64" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="71" bodyend="92"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a48e7352c736424d3887d8c07ae57338d" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1size2f" kindref="compound">core::size2f</ref></type>
@@ -301,9 +301,9 @@
         </inbodydescription>
         <location file="libs/gui/src/gui/widget.h" line="76" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1aaaa330020189ba391f262ced17969bf5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1aed36d1046dff5c5cb5267669e85384a5" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1gui_1_1State" kindref="compound">gui::State</ref> &amp;</type>
-        <definition>const gui::State&amp; euphoria::gui::Widget::get_state</definition>
+        <definition>const State &amp; euphoria::gui::Widget::get_state</definition>
         <argsstring>() const</argsstring>
         <name>get_state</name>
         <briefdescription>
@@ -312,11 +312,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="79" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="79" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="96" bodyend="99"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a51254124a46bb322060c40de2f7ff9c0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Widget_1a1b4a18c1bba51825244684d59ac6a0a0" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1gui_1_1State" kindref="compound">gui::State</ref> *</type>
-        <definition>gui::State* euphoria::gui::Widget::get_state_ptr</definition>
+        <definition>State * euphoria::gui::Widget::get_state_ptr</definition>
         <argsstring>() const</argsstring>
         <name>get_state_ptr</name>
         <briefdescription>
@@ -325,7 +325,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/widget.h" line="82" column="9"/>
+        <location file="libs/gui/src/gui/widget.h" line="82" column="9" bodyfile="libs/gui/src/gui/widget.cc" bodystart="103" bodyend="106"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -337,13 +337,19 @@
         <label>euphoria::gui::Widget</label>
         <link refid="structeuphoria_1_1gui_1_1Widget"/>
       </node>
+      <node id="3">
+        <label>euphoria::gui::CommandButton</label>
+        <link refid="structeuphoria_1_1gui_1_1CommandButton"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
       <node id="2">
         <label>euphoria::gui::Button</label>
         <link refid="structeuphoria_1_1gui_1_1Button"/>
         <childnode refid="1" relation="public-inheritance">
         </childnode>
       </node>
-      <node id="3">
+      <node id="4">
         <label>euphoria::gui::PanelWidget</label>
         <link refid="structeuphoria_1_1gui_1_1PanelWidget"/>
         <childnode refid="1" relation="public-inheritance">
@@ -402,15 +408,15 @@
       <member refid="structeuphoria_1_1gui_1_1Widget_1a612b9df04f3ad944e2fbb724af8b9e3c" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_background_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aaa5ef093b28493ac7ab9d595ee32603c" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_client_rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a9ca439de78ec9af54a1a153c537352b0" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_preferred_size</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1aaaa330020189ba391f262ced17969bf5" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_state</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1a51254124a46bb322060c40de2f7ff9c0" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_state_ptr</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1aed36d1046dff5c5cb5267669e85384a5" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_state</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1a1b4a18c1bba51825244684d59ac6a0a0" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>get_state_ptr</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a4935e88b3a9952a9b0d5dd29c2fb4897" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>is_active</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a7a89318c7d31e26029b2eb1aac0b340b" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>is_hot</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a80c0faaf62ebf85fa3a5447e499204b9" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>layout</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aa2aecb7732220885a308d1d6b9939099" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>margin</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1afa8759b6e074b74103d2410bac6ac044" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>name</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a5da9b6c183202964e9aac2ca829fbf9d" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1ae2f0af874dd22c23993e9cfa6e9f4cd0" prot="public" virt="virtual"><scope>euphoria::gui::Widget</scope><name>on_size_changed</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1aec3fab3e5408783b14a89283cefdd5bf" prot="public" virt="virtual"><scope>euphoria::gui::Widget</scope><name>on_size_changed</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a5c40adc17ae40f0ef94f3fe5bc961d72" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>padding</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1adaeaa96945b0d21a6bb304a152a06e8e" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>rect</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a8b924b8bd6db63eb4703f4acf0f3b3b4" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>render</name></member>
@@ -419,7 +425,7 @@
       <member refid="structeuphoria_1_1gui_1_1Widget_1a327ea1ae474285039624b1452ab81631" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>ui_state</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aeca18aed11eae1109ab4956c2dcab16b" prot="public" virt="pure-virtual"><scope>euphoria::gui::Widget</scope><name>visit</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a58c16afb025fc25598706c2fbb6cfaf7" prot="public" virt="non-virtual"><scope>euphoria::gui::Widget</scope><name>Widget</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1aa701685ae4c0a6517d04858adb46adba" prot="public" virt="virtual"><scope>euphoria::gui::Widget</scope><name>~Widget</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1afd282e26e5c802550b76dafc91a0d70c" prot="public" virt="virtual"><scope>euphoria::gui::Widget</scope><name>~Widget</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>

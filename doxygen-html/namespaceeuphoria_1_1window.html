@@ -108,8 +108,12 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae81addd1a2085969cbf46ec76566777e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#ae81addd1a2085969cbf46ec76566777e">run_app</a> (int argc, char **argv, const std::string &amp;title, <a class="el" href="namespaceeuphoria_1_1window.html#a93d001ac258e556e4cd97af61e940aa4">CreateAppFunction</a> create)</td></tr>
-<tr class="separator:ae81addd1a2085969cbf46ec76566777e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0221c875335cf33452896ad65262884"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#ab0221c875335cf33452896ad65262884">run_app</a> (int argc, char **argv, const std::string &amp;window_title, <a class="el" href="namespaceeuphoria_1_1window.html#a93d001ac258e556e4cd97af61e940aa4">CreateAppFunction</a> create_app)</td></tr>
+<tr class="separator:ab0221c875335cf33452896ad65262884"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dfe9368adcadeaeb519d5182105d8b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a1dfe9368adcadeaeb519d5182105d8b0">do_canvas_scroll</a> (<a class="el" href="structeuphoria_1_1window_1_1Canvas.html">Canvas</a> *canvas)</td></tr>
+<tr class="separator:a1dfe9368adcadeaeb519d5182105d8b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c47c0287b57bfcca122c2c505493e8f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a2c47c0287b57bfcca122c2c505493e8f">do_canvas_zoom</a> (<a class="el" href="structeuphoria_1_1window_1_1Canvas.html">Canvas</a> *canvas, const <a class="el" href="structeuphoria_1_1window_1_1CanvasConfig.html">CanvasConfig</a> &amp;cc)</td></tr>
+<tr class="separator:a2c47c0287b57bfcca122c2c505493e8f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ef4f6fd4a0456523df3745a0d96d7c1"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a5ef4f6fd4a0456523df3745a0d96d7c1">get_base_path</a> ()</td></tr>
 <tr class="separator:a5ef4f6fd4a0456523df3745a0d96d7c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3dd01dd567bc5f9d72aec14e56c5030"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#ac3dd01dd567bc5f9d72aec14e56c5030">get_preference_path</a> ()</td></tr>
@@ -126,6 +130,8 @@ Functions</h2></td></tr>
 <tr class="separator:a8b65b003162602535796ca2553fcb785"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca9f02c32095e810841feb87e2e05ab8"><td class="memItemLeft" align="right" valign="top">constexpr <a class="el" href="namespaceeuphoria_1_1window.html#aa9994c29d8b416a8de3c17366b6a423f">Colors</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#aca9f02c32095e810841feb87e2e05ab8">oc_to_dear_imgui_color</a> (open_color::Hexs h)</td></tr>
 <tr class="separator:aca9f02c32095e810841feb87e2e05ab8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2692ae95d70565a4a7f318316cd6b41d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a2692ae95d70565a4a7f318316cd6b41d">setup_sdl_open_gl_attributes</a> ()</td></tr>
+<tr class="separator:a2692ae95d70565a4a7f318316cd6b41d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0509ff09c4415d82c51e11057cc1978a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceeuphoria_1_1window.html#a0509ff09c4415d82c51e11057cc1978a">enable_char_event</a> (bool enable)</td></tr>
 <tr class="separator:a0509ff09c4415d82c51e11057cc1978a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -191,7 +197,7 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="app_8h_source.html#l00039">39</a> of file <a class="el" href="app_8h_source.html">app.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="app_8h_source.html#l00037">37</a> of file <a class="el" href="app_8h_source.html">app.h</a>.</p>
 
 </div>
 </div>
@@ -244,6 +250,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="imgui__extra_8cc_source.html#l00027">27</a> of file <a class="el" href="imgui__extra_8cc_source.html">imgui_extra.cc</a>.</p>
+
 </div>
 </div>
 <a id="af7d69f16131fa15d643017e2c0be2c14"></a>
@@ -261,6 +269,58 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="imgui__extra_8cc_source.html#l00034">34</a> of file <a class="el" href="imgui__extra_8cc_source.html">imgui_extra.cc</a>.</p>
+
+</div>
+</div>
+<a id="a1dfe9368adcadeaeb519d5182105d8b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1dfe9368adcadeaeb519d5182105d8b0">&#9670;&nbsp;</a></span>do_canvas_scroll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::window::do_canvas_scroll </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1window_1_1Canvas.html">Canvas</a> *&#160;</td>
+          <td class="paramname"><em>canvas</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="canvas_8cc_source.html#l00126">126</a> of file <a class="el" href="canvas_8cc_source.html">canvas.cc</a>.</p>
+
+</div>
+</div>
+<a id="a2c47c0287b57bfcca122c2c505493e8f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c47c0287b57bfcca122c2c505493e8f">&#9670;&nbsp;</a></span>do_canvas_zoom()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::window::do_canvas_zoom </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1window_1_1Canvas.html">Canvas</a> *&#160;</td>
+          <td class="paramname"><em>canvas</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1window_1_1CanvasConfig.html">CanvasConfig</a> &amp;&#160;</td>
+          <td class="paramname"><em>cc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="canvas_8cc_source.html#l00135">135</a> of file <a class="el" href="canvas_8cc_source.html">canvas.cc</a>.</p>
 
 </div>
 </div>
@@ -280,6 +340,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="sdlwindow_8cc_source.html#l00062">62</a> of file <a class="el" href="sdlwindow_8cc_source.html">sdlwindow.cc</a>.</p>
+
 </div>
 </div>
 <a id="a5ef4f6fd4a0456523df3745a0d96d7c1"></a>
@@ -297,6 +359,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="filesystem_8cc_source.html#l00008">8</a> of file <a class="el" href="filesystem_8cc_source.html">filesystem.cc</a>.</p>
+
 </div>
 </div>
 <a id="ac3dd01dd567bc5f9d72aec14e56c5030"></a>
@@ -313,6 +377,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="filesystem_8cc_source.html#l00024">24</a> of file <a class="el" href="filesystem_8cc_source.html">filesystem.cc</a>.</p>
 
 </div>
 </div>
@@ -372,8 +438,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="ae81addd1a2085969cbf46ec76566777e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae81addd1a2085969cbf46ec76566777e">&#9670;&nbsp;</a></span>run_app()</h2>
+<a id="ab0221c875335cf33452896ad65262884"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0221c875335cf33452896ad65262884">&#9670;&nbsp;</a></span>run_app()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -394,13 +460,13 @@ Variables</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const std::string &amp;&#160;</td>
-          <td class="paramname"><em>title</em>, </td>
+          <td class="paramname"><em>window_title</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="namespaceeuphoria_1_1window.html#a93d001ac258e556e4cd97af61e940aa4">CreateAppFunction</a>&#160;</td>
-          <td class="paramname"><em>create</em>&#160;</td>
+          <td class="paramname"><em>create_app</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -409,6 +475,27 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="app_8cc_source.html#l00038">38</a> of file <a class="el" href="app_8cc_source.html">app.cc</a>.</p>
+
+</div>
+</div>
+<a id="a2692ae95d70565a4a7f318316cd6b41d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2692ae95d70565a4a7f318316cd6b41d">&#9670;&nbsp;</a></span>setup_sdl_open_gl_attributes()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::window::setup_sdl_open_gl_attributes </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="sdllibrary_8cc_source.html#l00010">10</a> of file <a class="el" href="sdllibrary_8cc_source.html">sdllibrary.cc</a>.</p>
 
 </div>
 </div>
@@ -428,6 +515,8 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="window_2src_2window_2key_8cc_source.html#l00008">8</a> of file <a class="el" href="window_2src_2window_2key_8cc_source.html">key.cc</a>.</p>
+
 </div>
 </div>
 <a id="ad07257e479b0c64aa3be0316228cd0f9"></a>
@@ -445,6 +534,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="window_2src_2window_2key_8cc_source.html#l00255">255</a> of file <a class="el" href="window_2src_2window_2key_8cc_source.html">key.cc</a>.</p>
 
 </div>
 </div>

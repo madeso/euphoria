@@ -4,6 +4,7 @@
     <compoundname>last_n.h</compoundname>
     <includes refid="assert_8h" local="yes">assert/assert.h</includes>
     <includes refid="cint_8h" local="yes">core/cint.h</includes>
+    <includedby refid="last__n_8cc" local="yes">libs/core/src/core/last_n.cc</includedby>
     <incdepgraph>
       <node id="7">
         <label>cstdint</label>
@@ -48,6 +49,18 @@
         <label>cstddef</label>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/core/src/core/last_n.h</label>
+        <link refid="last__n_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/core/src/core/last_n.cc</label>
+        <link refid="last__n_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1core_1_1LastN" prot="public">euphoria::core::LastN</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>

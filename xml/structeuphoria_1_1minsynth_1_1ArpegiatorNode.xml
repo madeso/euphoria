@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="273" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="273" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="251" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="251" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1aa321321727a4ec4517db77354c4850d6" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="274" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="274" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="252" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="252" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a2b33b7a46b4de7f01efd172a17c4344c" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="276" column="13" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="276" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="253" column="13" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="253" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a4a509de243a494363dac791d0a83c363" prot="public" static="no" mutable="no">
         <type>std::vector&lt; int &gt;</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="277" column="21" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="277" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="254" column="21" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="254" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a613243bd94de3e943dc421717af134b9" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1minsynth_1ab8f1b36052b33e2aae71f969abfb0baa" kindref="member">ArpMode</ref></type>
@@ -73,7 +73,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="279" column="17" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="279" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="255" column="17" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="255" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a17758a4b873a7b1cc1eea6009ae7eba2" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -87,7 +87,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="280" column="13" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="280" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="256" column="13" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="256" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a3be4905d2765978a6d721ea996057aee" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -101,7 +101,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="281" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="281" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="257" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="257" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1aefeb4b6788dce4b76ed5381371481555" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -115,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="282" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="282" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="258" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="258" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a0bd665c50975777eb542aa39a606d829" prot="public" static="no" mutable="no">
         <type>std::map&lt; int, float &gt;</type>
@@ -128,7 +128,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="284" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="284" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="259" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="259" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -137,7 +137,7 @@
         <definition>void euphoria::minsynth::ArpegiatorNode::update</definition>
         <argsstring>(float dt, float current_time) override</argsstring>
         <name>update</name>
-        <reimplements refid="structeuphoria_1_1minsynth_1_1Node_1aff997db2a2a1f2c710275f94b7d108d7">update</reimplements>
+        <reimplements refid="structeuphoria_1_1minsynth_1_1Node_1a7277f2c5eb010ee681eb37efa0a97283">update</reimplements>
         <param>
           <type>float</type>
           <declname>dt</declname>
@@ -152,7 +152,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="287" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="261" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="522" bodyend="568"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a619b88685c63d4e3419695e750a8fc41" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -178,7 +178,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="290" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="262" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="571" bodyend="622"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -236,7 +236,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="272" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="268" bodyend="291"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="250" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="246" bodyend="263"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a0bd665c50975777eb542aa39a606d829" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>active_tones</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1aa321321727a4ec4517db77354c4850d6" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>current_time_in_interval</name></member>
@@ -245,14 +245,20 @@
       <member refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a613243bd94de3e943dc421717af134b9" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>mode</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneSender_1aae1d353b99e9518d6b0e7526f3dfe101" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>next_node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>Node</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1acdf47ae10813bd9b49146f96f2fe3eac" prot="public" virt="non-virtual" ambiguityscope="euphoria::"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1Node_1aa87a484fbe760907f384f131ecdc1e5d" prot="public" virt="non-virtual" ambiguityscope="euphoria::minsynth::Node::"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1af32dcf34eb9bdc46433322309490f14f" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a804b0e11c11c8dfe98f09ab080c25d59" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>Node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a17758a4b873a7b1cc1eea6009ae7eba2" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>octaves</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a619b88685c63d4e3419695e750a8fc41" prot="public" virt="virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>on_tone</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1aa76480f0f6d13d51226cc4c84579890e" prot="public" virt="non-virtual" ambiguityscope="euphoria::"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a14741e989c9e987289f760559541ac63" prot="public" virt="non-virtual" ambiguityscope="euphoria::"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1af0ab491ba7edc548dcde546c2a31c920" prot="public" virt="non-virtual" ambiguityscope="euphoria::minsynth::Node::"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a5ee36fa76279fd2a7755adfe72156d2f" prot="public" virt="non-virtual" ambiguityscope="euphoria::minsynth::Node::"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneSender_1a99f52107cc9473c18855b51717d52011" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>send_tone</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1aefeb4b6788dce4b76ed5381371481555" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>tone_time</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a4a509de243a494363dac791d0a83c363" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>tones</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a5fde99ebf7bfc578705d8122d7fb2111" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>ToneTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a12fee8c6fb7ae5063243372d8a2e13d8" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>ToneTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a0dc018b667b4b82ed81f925db3529587" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>ToneTaker</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a3a4afecd8bc9ac6216c750e6abd74e80" prot="public" virt="virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>update</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ArpegiatorNode_1a3be4905d2765978a6d721ea996057aee" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>update_time</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a4460379974e28cc6314cf2086ab9c0e0" prot="public" virt="virtual"><scope>euphoria::minsynth::ArpegiatorNode</scope><name>~Node</name></member>

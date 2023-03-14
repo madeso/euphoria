@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="19" column="15" bodyfile="libs/core/src/core/image_canvas.h" bodystart="19" bodyend="-1"/>
+        <location file="libs/core/src/core/image_canvas.h" line="18" column="15" bodyfile="libs/core/src/core/image_canvas.h" bodystart="18" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Canvas_1aa8fd10e842de8ddf6289aefcc6aecf33" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1mat3f" kindref="compound">mat3f</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="21" column="15" bodyfile="libs/core/src/core/image_canvas.h" bodystart="21" bodyend="-1"/>
+        <location file="libs/core/src/core/image_canvas.h" line="19" column="15" bodyfile="libs/core/src/core/image_canvas.h" bodystart="19" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Canvas_1a8a557f5527263b30d2c241ee69bb180b" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="23" column="14" bodyfile="libs/core/src/core/image_canvas.h" bodystart="23" bodyend="-1"/>
+        <location file="libs/core/src/core/image_canvas.h" line="20" column="14" bodyfile="libs/core/src/core/image_canvas.h" bodystart="20" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1Canvas_1aff5d70e104ecb53a3423f3e5eb34136c" prot="public" static="no" mutable="no">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &gt;</type>
@@ -67,27 +67,10 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="24" column="21" bodyfile="libs/core/src/core/image_canvas.h" bodystart="24" bodyend="-1"/>
+        <location file="libs/core/src/core/image_canvas.h" line="21" column="21" bodyfile="libs/core/src/core/image_canvas.h" bodystart="21" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a3e4748a2aa1fe5e01048d399279b4746" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
-        <definition>vec2f euphoria::core::Canvas::transform_position</definition>
-        <argsstring>(const vec2f &amp;v) const</argsstring>
-        <name>transform_position</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
-          <declname>v</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="27" column="9"/>
-      </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a63682653a9b417feb58223e930fadc88" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
         <definition>euphoria::core::Canvas::Canvas</definition>
@@ -103,7 +86,130 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="29" column="9"/>
+        <location file="libs/core/src/core/image_canvas.h" line="23" column="9" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="28" bodyend="34"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a44e0d8028ee086d12b94fdcd0c58a1d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Canvas::translate</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>translate</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image_canvas.h" line="25" column="14" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="54" bodyend="58"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a9958b8a7941a37c13f2f14bde2ab5076" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Canvas::rotate</definition>
+        <argsstring>(float r)</argsstring>
+        <name>rotate</name>
+        <param>
+          <type>float</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image_canvas.h" line="26" column="14" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="61" bodyend="64"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a55e264aa40bbf258d8429e6f0ac56f40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Canvas::begin_path</definition>
+        <argsstring>()</argsstring>
+        <name>begin_path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image_canvas.h" line="27" column="14" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="67" bodyend="72"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a28f5005cd17304a67ed93013a318da6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Canvas::close_path</definition>
+        <argsstring>()</argsstring>
+        <name>close_path</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image_canvas.h" line="28" column="14" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="75" bodyend="79"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1ac2fcbf7f3b5fcd4c7be82b3e291418c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Canvas::move_to</definition>
+        <argsstring>(float x, float y)</argsstring>
+        <name>move_to</name>
+        <param>
+          <type>float</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image_canvas.h" line="29" column="14" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="82" bodyend="87"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a0224f5131236196fab6f491e9aeb33b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::Canvas::line_to</definition>
+        <argsstring>(float dx, float dy)</argsstring>
+        <name>line_to</name>
+        <param>
+          <type>float</type>
+          <declname>dx</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>dy</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image_canvas.h" line="30" column="14" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="90" bodyend="98"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a3e4748a2aa1fe5e01048d399279b4746" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
+        <definition>vec2f euphoria::core::Canvas::transform_position</definition>
+        <argsstring>(const vec2f &amp;v) const</argsstring>
+        <name>transform_position</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref> &amp;</type>
+          <declname>v</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/image_canvas.h" line="32" column="16" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="18" bodyend="26"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1ac29ace836b24a841bbb684a76f1641ab" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -132,113 +238,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="32" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a44e0d8028ee086d12b94fdcd0c58a1d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::core::Canvas::translate</definition>
-        <argsstring>(float x, float y)</argsstring>
-        <name>translate</name>
-        <param>
-          <type>float</type>
-          <declname>x</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>y</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="35" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a9958b8a7941a37c13f2f14bde2ab5076" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::core::Canvas::rotate</definition>
-        <argsstring>(float r)</argsstring>
-        <name>rotate</name>
-        <param>
-          <type>float</type>
-          <declname>r</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="38" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a55e264aa40bbf258d8429e6f0ac56f40" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::core::Canvas::begin_path</definition>
-        <argsstring>()</argsstring>
-        <name>begin_path</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="41" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a28f5005cd17304a67ed93013a318da6f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::core::Canvas::close_path</definition>
-        <argsstring>()</argsstring>
-        <name>close_path</name>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="44" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1ac2fcbf7f3b5fcd4c7be82b3e291418c0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::core::Canvas::move_to</definition>
-        <argsstring>(float x, float y)</argsstring>
-        <name>move_to</name>
-        <param>
-          <type>float</type>
-          <declname>x</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>y</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="47" column="9"/>
-      </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1a0224f5131236196fab6f491e9aeb33b4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>void</type>
-        <definition>void euphoria::core::Canvas::line_to</definition>
-        <argsstring>(float dx, float dy)</argsstring>
-        <name>line_to</name>
-        <param>
-          <type>float</type>
-          <declname>dx</declname>
-        </param>
-        <param>
-          <type>float</type>
-          <declname>dy</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="50" column="9"/>
+        <location file="libs/core/src/core/image_canvas.h" line="33" column="14" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="37" bodyend="51"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1Canvas_1acbe85f8b75c9c6bde274e93d4daee851" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -251,10 +251,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/image_canvas.h" line="53" column="9"/>
+        <location file="libs/core/src/core/image_canvas.h" line="35" column="14" bodyfile="libs/core/src/core/image_canvas.cc" bodystart="101" bodyend="105"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
+<para>hacky layer between something that looks like the html &apos;canvas rendering context 2d&apos; and the euphoria image drawing operations <ulink url="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D</ulink> </para>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
@@ -285,7 +286,7 @@
         <link refid="structeuphoria_1_1core_1_1rgbi"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/image_canvas.h" line="16" column="1" bodyfile="libs/core/src/core/image_canvas.h" bodystart="15" bodyend="54"/>
+    <location file="libs/core/src/core/image_canvas.h" line="16" column="1" bodyfile="libs/core/src/core/image_canvas.h" bodystart="15" bodyend="36"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1Canvas_1a55e264aa40bbf258d8429e6f0ac56f40" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>begin_path</name></member>
       <member refid="structeuphoria_1_1core_1_1Canvas_1a8a557f5527263b30d2c241ee69bb180b" prot="public" virt="non-virtual"><scope>euphoria::core::Canvas</scope><name>building_path</name></member>

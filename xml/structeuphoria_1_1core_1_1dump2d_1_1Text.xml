@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/dump.h" line="49" column="9"/>
+        <location file="libs/core/src/core/dump.h" line="49" column="9" bodyfile="libs/core/src/core/dump.cc" bodystart="52" bodyend="53"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

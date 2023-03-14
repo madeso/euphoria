@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverter" kind="struct" language="C++" prot="public">
+    <compoundname>euphoria::minsynth::ToneToFrequencyConverter</compoundname>
+    <templateparamlist>
+      <param>
+        <type>int</type>
+        <declname>steps_per_octave</declname>
+        <defname>steps_per_octave</defname>
+      </param>
+    </templateparamlist>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverter_1aab18e9ba84cfe63dbac1ed59b86cd69b" prot="private" static="no" mutable="no">
+        <type>float</type>
+        <definition>float euphoria::minsynth::ToneToFrequencyConverter&lt; steps_per_octave &gt;::step_data[steps_per_octave]</definition>
+        <argsstring>[steps_per_octave]</argsstring>
+        <name>step_data</name>
+        <initializer>= {
+                0.0f,
+        }</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="172" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverter_1a0fa40bfc625653281bbd92604a85991a" prot="public" static="no" constexpr="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr</type>
+        <definition>constexpr euphoria::minsynth::ToneToFrequencyConverter&lt; steps_per_octave &gt;::ToneToFrequencyConverter</definition>
+        <argsstring>()</argsstring>
+        <name>ToneToFrequencyConverter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="137" column="19" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="137" bodyend="145"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverter_1a34234381f3ec7cdba20f045a789299fd" prot="public" static="no" constexpr="yes" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>constexpr float</type>
+        <definition>constexpr float euphoria::minsynth::ToneToFrequencyConverter&lt; steps_per_octave &gt;::get_frequency</definition>
+        <argsstring>(int halfstep, float octave_base_frequency) const</argsstring>
+        <name>get_frequency</name>
+        <param>
+          <type>int</type>
+          <declname>halfstep</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>octave_base_frequency</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="148" column="9" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="148" bodyend="169"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/minsynth/src/minsynth/synth.cc" line="136" column="1" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="135" bodyend="175"/>
+    <listofallmembers>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverter_1a34234381f3ec7cdba20f045a789299fd" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverter</scope><name>get_frequency</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverter_1aab18e9ba84cfe63dbac1ed59b86cd69b" prot="private" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverter</scope><name>step_data</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverter_1a0fa40bfc625653281bbd92604a85991a" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverter</scope><name>ToneToFrequencyConverter</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

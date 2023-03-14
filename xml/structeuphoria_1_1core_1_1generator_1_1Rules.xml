@@ -38,14 +38,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="41" column="9"/>
+        <location file="libs/core/src/core/generator_cell.h" line="40" column="14" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="173" bodyend="179"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/generator_cell.h" line="37" column="1" bodyfile="libs/core/src/core/generator_cell.h" bodystart="36" bodyend="42"/>
+    <location file="libs/core/src/core/generator_cell.h" line="37" column="1" bodyfile="libs/core/src/core/generator_cell.h" bodystart="36" bodyend="41"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rules_1a56e91daac989d7b4f95b01bd0571389d" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Rules</scope><name>add_rule</name></member>
       <member refid="structeuphoria_1_1core_1_1generator_1_1Rules_1afdbbc30aeb2a7d99d844ab39669ae495" prot="public" virt="non-virtual"><scope>euphoria::core::generator::Rules</scope><name>rules</name></member>

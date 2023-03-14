@@ -5,10 +5,15 @@
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Algorithm" prot="public">euphoria::core::generator::Algorithm</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1CellularAutomata" prot="public">euphoria::core::generator::CellularAutomata</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Drawer" prot="public">euphoria::core::generator::Drawer</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1FillAllHoles" prot="public">euphoria::core::generator::FillAllHoles</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1FillSmallHolesRule" prot="public">euphoria::core::generator::FillSmallHolesRule</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1HorizontalBlankRule" prot="public">euphoria::core::generator::HorizontalBlankRule</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RandomFillRule" prot="public">euphoria::core::generator::RandomFillRule</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal" prot="public">euphoria::core::generator::RandomTraversal</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1RecursiveBacktracker" prot="public">euphoria::core::generator::RecursiveBacktracker</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Rule" prot="public">euphoria::core::generator::Rule</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1generator_1_1Rules" prot="public">euphoria::core::generator::Rules</innerclass>
+    <innerclass refid="structeuphoria_1_1core_1_1generator_1_1SmoothRule" prot="public">euphoria::core::generator::SmoothRule</innerclass>
     <innernamespace refid="namespaceeuphoria_1_1core_1_1generator_1_1cell">euphoria::core::generator::cell</innernamespace>
       <sectiondef kind="enum">
       <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" prot="public" static="no" strong="yes">
@@ -76,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="60" column="5" bodyfile="libs/core/src/core/generator_cell.h" bodystart="64" bodyend="-1"/>
+        <location file="libs/core/src/core/generator_cell.h" line="57" column="5" bodyfile="libs/core/src/core/generator_cell.h" bodystart="61" bodyend="-1"/>
       </memberdef>
       <memberdef kind="typedef" id="namespaceeuphoria_1_1core_1_1generator_1ac679e8d7c755ebc9dcac45eff0d0898d" prot="public" static="no">
         <type><ref refid="structeuphoria_1_1core_1_1Table" kindref="compound">Table</ref>&lt; int &gt;</type>
@@ -109,12 +114,10 @@
         <param>
           <type>float</type>
           <declname>random_fill</declname>
-          <defval>0.5</defval>
         </param>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252" kindref="member">BorderSetupRule</ref> &gt;</type>
           <declname>border_control</declname>
-          <defval><ref refid="structeuphoria_1_1core_1_1Lrud" kindref="compound">Lrud</ref>&lt; <ref refid="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252" kindref="member">BorderSetupRule</ref> &gt; { <ref refid="namespaceeuphoria_1_1core_1acb9120f582881616e08787e08654e252ad91f00fc682feeec2c90d8399d62d8ef" kindref="member">BorderSetupRule::always_wall</ref> }</defval>
         </param>
         <briefdescription>
 <para>fills the world with random data </para>
@@ -123,7 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="70" column="5" declfile="libs/core/src/core/generator_cell.h" declline="70" declcolumn="5"/>
+        <location file="libs/core/src/core/generator_cell.cc" line="212" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="213" bodyend="230" declfile="libs/core/src/core/generator_cell.h" declline="67" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a0f4240b41bc5618a82aad7f21c140ffb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -161,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="83" column="5" declfile="libs/core/src/core/generator_cell.h" declline="83" declcolumn="5"/>
+        <location file="libs/core/src/core/generator_cell.cc" line="234" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="234" bodyend="249" declfile="libs/core/src/core/generator_cell.h" declline="80" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a9a8b44e296aa81a2be7fd5aabdfd5e97" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -186,7 +189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="94" column="5" declfile="libs/core/src/core/generator_cell.h" declline="94" declcolumn="5"/>
+        <location file="libs/core/src/core/generator_cell.cc" line="253" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="254" bodyend="265" declfile="libs/core/src/core/generator_cell.h" declline="91" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a1d696256628a2829c581f3f19cfcfd06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -220,7 +223,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="103" column="5" declfile="libs/core/src/core/generator_cell.h" declline="103" declcolumn="5"/>
+        <location file="libs/core/src/core/generator_cell.cc" line="269" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="269" bodyend="285" declfile="libs/core/src/core/generator_cell.h" declline="100" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a34f66ca39c0ee89cce254f8e35e56652" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -246,7 +249,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="114" column="5" declfile="libs/core/src/core/generator_cell.h" declline="114" declcolumn="5"/>
+        <location file="libs/core/src/core/generator_cell.cc" line="289" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="289" bodyend="292" declfile="libs/core/src/core/generator_cell.h" declline="111" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1afad9f4a99cdfb245bd86473a2d55e733" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -280,7 +283,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="123" column="5" declfile="libs/core/src/core/generator_cell.h" declline="123" declcolumn="5"/>
+        <location file="libs/core/src/core/generator_cell.cc" line="296" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="296" bodyend="309" declfile="libs/core/src/core/generator_cell.h" declline="120" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1acbe34801808636ac9bf474afcd4c5bf3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -318,7 +321,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="134" column="5" declfile="libs/core/src/core/generator_cell.h" declline="134" declcolumn="5"/>
+        <location file="libs/core/src/core/generator_cell.cc" line="313" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="313" bodyend="330" declfile="libs/core/src/core/generator_cell.h" declline="131" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a689a3b1b71235fa05a31391f785ce981" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -344,7 +347,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="146" column="5" declfile="libs/core/src/core/generator_cell.h" declline="146" declcolumn="5"/>
+        <location file="libs/core/src/core/generator_cell.cc" line="334" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="334" bodyend="341" declfile="libs/core/src/core/generator_cell.h" declline="143" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1ad7da14d1a561da08bcefe7c04bfe02a1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -370,13 +373,237 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/generator_cell.h" line="150" column="5" declfile="libs/core/src/core/generator_cell.h" declline="150" declcolumn="5"/>
+        <location file="libs/core/src/core/generator_cell.cc" line="345" column="5" bodyfile="libs/core/src/core/generator_cell.cc" bodystart="345" bodyend="352" declfile="libs/core/src/core/generator_cell.h" declline="147" declcolumn="5"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a32944abbb8ef2157e42df8373fa88748" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i euphoria::core::generator::dir_to_offset</definition>
+        <argsstring>(const Direction d)</argsstring>
+        <name>dir_to_offset</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="10" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="10" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1ad4899f22a2948230b649e910efd48cf1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>const std::vector&lt; <ref refid="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" kindref="member">Direction</ref> &gt; &amp;</type>
+        <definition>const std::vector&lt;Direction&gt;&amp; euphoria::core::generator::all_dirs</definition>
+        <argsstring>()</argsstring>
+        <name>all_dirs</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="24" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="24" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1ae34d4eee6b04d4fb821bc18eb0369df8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" kindref="member">Direction</ref></type>
+        <definition>Direction euphoria::core::generator::flip_direction</definition>
+        <argsstring>(const Direction d)</argsstring>
+        <name>flip_direction</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="35" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="35" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1ae75f1f645f831713330d657a2d9b0acf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1_1cell_1ae00fbc7bfb4f0f43d7b8127e110b19a9" kindref="member">cell::Type</ref></type>
+        <definition>cell::Type euphoria::core::generator::dir_to_cell_path</definition>
+        <argsstring>(const Direction d)</argsstring>
+        <name>dir_to_cell_path</name>
+        <param>
+          <type>const <ref refid="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" kindref="member">Direction</ref></type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="49" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="49" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1ab287addc25906fb4a3edf8643d934b91" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::visit</definition>
+        <argsstring>(Maze *maze, const vec2i &amp;np)</argsstring>
+        <name>visit</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1ac679e8d7c755ebc9dcac45eff0d0898d" kindref="member">Maze</ref> *</type>
+          <declname>maze</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="63" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="63" bodyend="66"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a6a16710006b36f98b68c6b761dd45c00" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i euphoria::core::generator::add_step_to_maze</definition>
+        <argsstring>(Maze *maze, const vec2i &amp;c, Direction dir)</argsstring>
+        <name>add_step_to_maze</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1ac679e8d7c755ebc9dcac45eff0d0898d" kindref="member">Maze</ref> *</type>
+          <declname>maze</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1a5efb2bcb9c277cb08372e7a1d600e1bb" kindref="member">Direction</ref></type>
+          <declname>dir</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="70" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="70" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a656461ae5cc5123e7ab86ccfcd1a78ac" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::generator::has_visited</definition>
+        <argsstring>(Maze *maze, const vec2i &amp;np)</argsstring>
+        <name>has_visited</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1ac679e8d7c755ebc9dcac45eff0d0898d" kindref="member">Maze</ref> *</type>
+          <declname>maze</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="81" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="81" bodyend="84"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a66a18d2e69390df27a573fff17a5e256" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool euphoria::core::generator::can_visit_without_making_loop</definition>
+        <argsstring>(Maze *maze, const vec2i &amp;np)</argsstring>
+        <name>can_visit_without_making_loop</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1ac679e8d7c755ebc9dcac45eff0d0898d" kindref="member">Maze</ref> *</type>
+          <declname>maze</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>np</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="88" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="88" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a7380b858ff4c8bcddbec95db78171c48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>T</type>
+        <definition>T euphoria::core::generator::pop_random</definition>
+        <argsstring>(std::vector&lt; T &gt; *vec, Random *r)</argsstring>
+        <name>pop_random</name>
+        <param>
+          <type>std::vector&lt; T &gt; *</type>
+          <declname>vec</declname>
+        </param>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>r</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="101" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="101" bodyend="108"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a0297b2365ca9b6bdf3a07937bfa5e2c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
+        <definition>vec2i euphoria::core::generator::random_position_on_maze</definition>
+        <argsstring>(Random *random, Maze *maze)</argsstring>
+        <name>random_position_on_maze</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1Random" kindref="compound">Random</ref> *</type>
+          <declname>random</declname>
+        </param>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1ac679e8d7c755ebc9dcac45eff0d0898d" kindref="member">Maze</ref> *</type>
+          <declname>maze</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="112" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="112" bodyend="119"/>
+      </memberdef>
+      <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1generator_1a9e0b1ec07ef3d2047261d78a6bccf7df" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::generator::add_to_frontier</definition>
+        <argsstring>(Maze *maze, std::vector&lt; RandomTraversal::Entry &gt; *frontier, const vec2i &amp;p)</argsstring>
+        <name>add_to_frontier</name>
+        <param>
+          <type><ref refid="namespaceeuphoria_1_1core_1_1generator_1ac679e8d7c755ebc9dcac45eff0d0898d" kindref="member">Maze</ref> *</type>
+          <declname>maze</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; <ref refid="structeuphoria_1_1core_1_1generator_1_1RandomTraversal_1_1Entry" kindref="compound">RandomTraversal::Entry</ref> &gt; *</type>
+          <declname>frontier</declname>
+        </param>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref> &amp;</type>
+          <declname>p</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/generator_maze.cc" line="177" column="5" bodyfile="libs/core/src/core/generator_maze.cc" bodystart="178" bodyend="192"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/generator_cell.h" line="14" column="1"/>
+    <location file="libs/core/src/core/generator_cell.cc" line="14" column="1"/>
   </compounddef>
 </doxygen>

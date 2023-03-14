@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="142" column="19" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="142" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="134" column="19" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="134" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -45,7 +45,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="145" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="136" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="198" bodyend="204"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -83,7 +83,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="141" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="140" bodyend="146"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="133" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="132" bodyend="137"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1ToneSender_1aae1d353b99e9518d6b0e7526f3dfe101" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneSender</scope><name>next_node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneSender_1a99f52107cc9473c18855b51717d52011" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneSender</scope><name>send_tone</name></member>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="36" column="13" bodyfile="libs/core/src/core/propertytree.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/core/src/core/propertytree.h" line="34" column="13" bodyfile="libs/core/src/core/propertytree.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,13 +35,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="35" column="18"/>
+        <location file="libs/core/src/core/propertytree.h" line="36" column="18" bodyfile="libs/core/src/core/propertytree.cc" bodystart="10" bodyend="10"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1IntValue_1a7bdaa436810306ba52995547476fe28e" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1IntValue_1ac4ee91c4e9e734971a8308b59a84f8a7" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int &amp;</type>
-        <definition>static int&amp; euphoria::core::IntValue::cast</definition>
+        <definition>int &amp; euphoria::core::IntValue::cast</definition>
         <argsstring>(core::Value *value)</argsstring>
         <name>cast</name>
         <param>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="39" column="9"/>
+        <location file="libs/core/src/core/propertytree.h" line="38" column="21" bodyfile="libs/core/src/core/propertytree.cc" bodystart="13" bodyend="18"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -85,9 +85,9 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/propertytree.h" line="34" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="33" bodyend="40"/>
+    <location file="libs/core/src/core/propertytree.h" line="33" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="32" bodyend="39"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1IntValue_1a7bdaa436810306ba52995547476fe28e" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>cast</name></member>
+      <member refid="structeuphoria_1_1core_1_1IntValue_1ac4ee91c4e9e734971a8308b59a84f8a7" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>cast</name></member>
       <member refid="structeuphoria_1_1core_1_1IntValue_1a9dfeca259cb6684280d838c0cd995bd3" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>IntValue</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" prot="public" virt="non-virtual"><scope>euphoria::core::IntValue</scope><name>operator=</name></member>

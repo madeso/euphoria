@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imguizmo.h" line="13" column="10" declfile="libs/window/src/window/imguizmo.h" declline="13" declcolumn="10"/>
+        <location file="libs/window/src/window/imguizmo.cc" line="9" column="10" bodyfile="libs/window/src/window/imguizmo.cc" bodystart="9" bodyend="12" declfile="libs/window/src/window/imguizmo.h" declline="13" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1aa69a92892b08654f81eab99691bbd7b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -27,12 +27,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imguizmo.h" line="14" column="10" declfile="libs/window/src/window/imguizmo.h" declline="14" declcolumn="10"/>
+        <location file="libs/window/src/window/imguizmo.cc" line="15" column="10" bodyfile="libs/window/src/window/imguizmo.cc" bodystart="15" bodyend="18" declfile="libs/window/src/window/imguizmo.h" declline="14" declcolumn="10"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1a661f53b57c8573649cc3592867825716" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1a223ac6c93554e780de19a0ac03bb8efd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::window::imgui::guizmo::translate</definition>
-        <argsstring>(bool is_local, const std::optional&lt; core::vec3f &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool x, bool y, bool z, core::vec3f *new_position)</argsstring>
+        <argsstring>(bool is_local, const std::optional&lt; core::vec3f &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool tx, bool ty, bool tz, core::vec3f *new_position)</argsstring>
         <name>translate</name>
         <param>
           <type>bool</type>
@@ -56,15 +56,15 @@
         </param>
         <param>
           <type>bool</type>
-          <declname>x</declname>
+          <declname>tx</declname>
         </param>
         <param>
           <type>bool</type>
-          <declname>y</declname>
+          <declname>ty</declname>
         </param>
         <param>
           <type>bool</type>
-          <declname>z</declname>
+          <declname>tz</declname>
         </param>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">core::vec3f</ref> *</type>
@@ -76,12 +76,12 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imguizmo.h" line="17" column="5" declfile="libs/window/src/window/imguizmo.h" declline="17" declcolumn="5"/>
+        <location file="libs/window/src/window/imguizmo.cc" line="52" column="5" bodyfile="libs/window/src/window/imguizmo.cc" bodystart="53" bodyend="108" declfile="libs/window/src/window/imguizmo.h" declline="17" declcolumn="5"/>
       </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1aa6a5b032c4d1dbf7ae5db3b59ca1033c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1affe63bde57b0bdeb0e6f8a08ddd31488" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
         <definition>bool euphoria::window::imgui::guizmo::rotate</definition>
-        <argsstring>(bool is_local, const std::optional&lt; core::angle &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool y, bool p, bool r, core::quatf *new_rotation)</argsstring>
+        <argsstring>(bool is_local, const std::optional&lt; core::angle &gt; &amp;snap, const core::mat4f &amp;camera_view, const core::mat4f &amp;camera_projection, const core::mat4f &amp;model, bool rx, bool ry, bool rz, core::quatf *new_rotation)</argsstring>
         <name>rotate</name>
         <param>
           <type>bool</type>
@@ -105,15 +105,15 @@
         </param>
         <param>
           <type>bool</type>
-          <declname>y</declname>
+          <declname>rx</declname>
         </param>
         <param>
           <type>bool</type>
-          <declname>p</declname>
+          <declname>ry</declname>
         </param>
         <param>
           <type>bool</type>
-          <declname>r</declname>
+          <declname>rz</declname>
         </param>
         <param>
           <type><ref refid="structeuphoria_1_1core_1_1quatf" kindref="compound">core::quatf</ref> *</type>
@@ -125,13 +125,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imguizmo.h" line="29" column="5" declfile="libs/window/src/window/imguizmo.h" declline="29" declcolumn="5"/>
+        <location file="libs/window/src/window/imguizmo.cc" line="112" column="5" bodyfile="libs/window/src/window/imguizmo.cc" bodystart="113" bodyend="178" declfile="libs/window/src/window/imguizmo.h" declline="29" declcolumn="5"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/imguizmo.h" line="12" column="1"/>
+    <location file="libs/window/src/window/imguizmo.cc" line="8" column="1"/>
   </compounddef>
 </doxygen>

@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="18" column="9"/>
+        <location file="libs/render/src/render/buffer.h" line="17" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="16" bodyend="19"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1a91d21d0e17cb11bc739f01f578e928bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -29,15 +29,31 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="19" column="9"/>
+        <location file="libs/render/src/render/buffer.h" line="18" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="22" bodyend="25"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1a1f360d6a4fee8ac8473806d2741a1a02" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1a95d6d28200a96822caeee48b58998eb4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::render::VertexBuffer::NONCOPYABLE</definition>
-        <argsstring>(VertexBuffer)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::render::VertexBuffer::VertexBuffer</definition>
+        <argsstring>(const VertexBuffer &amp;)=delete</argsstring>
+        <name>VertexBuffer</name>
         <param>
-          <type><ref refid="structeuphoria_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref></type>
+          <type>const <ref refid="structeuphoria_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="20" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1a2cfa8f491081d8a4d06f985321d0109e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::VertexBuffer::VertexBuffer</definition>
+        <argsstring>(VertexBuffer &amp;&amp;)=delete</argsstring>
+        <name>VertexBuffer</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> &amp;&amp;</type>
         </param>
         <briefdescription>
         </briefdescription>
@@ -46,6 +62,38 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/render/src/render/buffer.h" line="21" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1aa2ceb8e03faf2bb10e85f05ae464b8bb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::VertexBuffer::operator=</definition>
+        <argsstring>(const VertexBuffer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="22" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1a88dca974a2fd8fe357775ad912bc3ac4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::VertexBuffer::operator=</definition>
+        <argsstring>(VertexBuffer &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/buffer.h" line="23" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1aa6902eaa5f9a02a2846515bda2ed943d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -62,13 +110,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="24" column="9"/>
+        <location file="libs/render/src/render/buffer.h" line="25" column="14" bodyfile="libs/render/src/render/buffer.cc" bodystart="29" bodyend="34"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1a6ffe189a0703fdd895657b4fe60b4545" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1a116335f75e6c76873baa70c275b15001" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void euphoria::render::VertexBuffer::bind</definition>
+        <definition>void euphoria::render::VertexBuffer::bind</definition>
         <argsstring>(const VertexBuffer *vbo)</argsstring>
         <name>bind</name>
         <param>
@@ -81,11 +129,11 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="27" column="9"/>
+        <location file="libs/render/src/render/buffer.h" line="27" column="21" bodyfile="libs/render/src/render/buffer.cc" bodystart="38" bodyend="43"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1aded82c13057a00436416a801a0ab50ec" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1VertexBuffer_1a9194c449dbed7886d2eee105efd85241" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>const <ref refid="structeuphoria_1_1render_1_1VertexBuffer" kindref="compound">VertexBuffer</ref> *&amp;</type>
-        <definition>static const VertexBuffer*&amp; euphoria::render::VertexBuffer::get_bound</definition>
+        <definition>const VertexBuffer *&amp; euphoria::render::VertexBuffer::get_bound</definition>
         <argsstring>()</argsstring>
         <name>get_bound</name>
         <briefdescription>
@@ -94,7 +142,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="30" column="9"/>
+        <location file="libs/render/src/render/buffer.h" line="29" column="35" bodyfile="libs/render/src/render/buffer.cc" bodystart="47" bodyend="51"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -127,17 +175,23 @@
         <link refid="structeuphoria_1_1render_1_1Id"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/buffer.h" line="16" column="1" bodyfile="libs/render/src/render/buffer.h" bodystart="15" bodyend="31"/>
+    <location file="libs/render/src/render/buffer.h" line="16" column="1" bodyfile="libs/render/src/render/buffer.h" bodystart="15" bodyend="30"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1render_1_1VertexBuffer_1a6ffe189a0703fdd895657b4fe60b4545" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>bind</name></member>
-      <member refid="structeuphoria_1_1render_1_1VertexBuffer_1aded82c13057a00436416a801a0ab50ec" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>get_bound</name></member>
+      <member refid="structeuphoria_1_1render_1_1VertexBuffer_1a116335f75e6c76873baa70c275b15001" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>bind</name></member>
+      <member refid="structeuphoria_1_1render_1_1VertexBuffer_1a9194c449dbed7886d2eee105efd85241" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>get_bound</name></member>
       <member refid="structeuphoria_1_1render_1_1Id_1a6907e9c65eb1d2d96747fa7732f7442e" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>get_id</name></member>
       <member refid="structeuphoria_1_1render_1_1Id_1aceb5abfc5bf051646e8674813cdecfe5" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>Id</name></member>
-      <member refid="structeuphoria_1_1render_1_1Id_1aa7ed76ecab54c5a51d01035a07267634" prot="protected" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>id_</name></member>
-      <member refid="structeuphoria_1_1render_1_1VertexBuffer_1a1f360d6a4fee8ac8473806d2741a1a02" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1render_1_1Id_1ada246cbffcdf9c936052aba5f1fd251e" prot="public" virt="non-virtual" ambiguityscope="euphoria::render::Id::"><scope>euphoria::render::VertexBuffer</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1Id_1a8c0a73899c5884a1f0f0b3816d338eb9" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>Id</name></member>
+      <member refid="structeuphoria_1_1render_1_1Id_1a56197b5604d4738bd5f8b77867db180d" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>Id</name></member>
+      <member refid="structeuphoria_1_1render_1_1Id_1ae0464879965d13bbdb5c4319374540d1" prot="protected" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>id</name></member>
+      <member refid="structeuphoria_1_1render_1_1VertexBuffer_1aa2ceb8e03faf2bb10e85f05ae464b8bb" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1VertexBuffer_1a88dca974a2fd8fe357775ad912bc3ac4" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1Id_1afaef44a79ecc3eb3bd4de61667fee0eb" prot="public" virt="non-virtual" ambiguityscope="euphoria::render::Id::"><scope>euphoria::render::VertexBuffer</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1Id_1aea60f04328c1cbad8d2f044f1496923d" prot="public" virt="non-virtual" ambiguityscope="euphoria::render::Id::"><scope>euphoria::render::VertexBuffer</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1VertexBuffer_1aa6902eaa5f9a02a2846515bda2ed943d" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>set_data</name></member>
       <member refid="structeuphoria_1_1render_1_1VertexBuffer_1af3622a33ddcab31e1a5a249e5c2f1133" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>VertexBuffer</name></member>
+      <member refid="structeuphoria_1_1render_1_1VertexBuffer_1a95d6d28200a96822caeee48b58998eb4" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>VertexBuffer</name></member>
+      <member refid="structeuphoria_1_1render_1_1VertexBuffer_1a2cfa8f491081d8a4d06f985321d0109e" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>VertexBuffer</name></member>
       <member refid="structeuphoria_1_1render_1_1Id_1a72d92ce120234459db28cc2516dcad3e" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>~Id</name></member>
       <member refid="structeuphoria_1_1render_1_1VertexBuffer_1a91d21d0e17cb11bc739f01f578e928bf" prot="public" virt="non-virtual"><scope>euphoria::render::VertexBuffer</scope><name>~VertexBuffer</name></member>
     </listofallmembers>

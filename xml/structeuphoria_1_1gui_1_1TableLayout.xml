@@ -69,7 +69,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layout.h" line="45" column="9"/>
+        <location file="libs/gui/src/gui/layout.h" line="45" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="24" bodyend="33"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1TableLayout_1a5ca170146ff92faacd9bb8a4ff43f003" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layout.h" line="57" column="9"/>
+        <location file="libs/gui/src/gui/layout.h" line="57" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="49" bodyend="73"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1TableLayout_1ab80b0e601533d63421a1ef312cef3793" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -138,7 +138,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layout.h" line="63" column="9"/>
+        <location file="libs/gui/src/gui/layout.h" line="63" column="9" bodyfile="libs/gui/src/gui/layout.cc" bodystart="91" bodyend="188"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -180,7 +180,7 @@
       <member refid="structeuphoria_1_1gui_1_1TableLayout_1a2dfc37ae15e540ffb4aa2415e94dddab" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1gui_1_1Layout_1ab2d7632c9c77d5cfd4e9a3c8181e27e3" prot="public" virt="non-virtual" ambiguityscope="euphoria::gui::Layout::"><scope>euphoria::gui::TableLayout</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1gui_1_1TableLayout_1a84f5286a055ffdad09edf88e65ddf085" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>TableLayout</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Layout_1a3ea5e240526f7eac902caf96b3b20581" prot="public" virt="virtual"><scope>euphoria::gui::TableLayout</scope><name>~Layout</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Layout_1a0925780fdc9b761c6491bd756234a661" prot="public" virt="virtual"><scope>euphoria::gui::TableLayout</scope><name>~Layout</name></member>
       <member refid="structeuphoria_1_1gui_1_1TableLayout_1a5ca170146ff92faacd9bb8a4ff43f003" prot="public" virt="non-virtual"><scope>euphoria::gui::TableLayout</scope><name>~TableLayout</name></member>
     </listofallmembers>
   </compounddef>

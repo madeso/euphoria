@@ -3,6 +3,7 @@
   <compounddef id="timer_8h" kind="file" language="C++">
     <compoundname>timer.h</compoundname>
     <includes local="yes">SDL_types.h</includes>
+    <includedby refid="timer_8cc" local="yes">libs/window/src/window/timer.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>SDL_types.h</label>
@@ -14,6 +15,18 @@
         </childnode>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/window/src/window/timer.h</label>
+        <link refid="timer_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/window/src/window/timer.cc</label>
+        <link refid="timer_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1window_1_1SdlTimer" prot="public">euphoria::window::SdlTimer</innerclass>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
     <innernamespace refid="namespaceeuphoria_1_1window">euphoria::window</innernamespace>

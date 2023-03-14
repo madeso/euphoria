@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="45" column="15" bodyfile="libs/core/src/core/propertytree.h" bodystart="45" bodyend="-1"/>
+        <location file="libs/core/src/core/propertytree.h" line="43" column="15" bodyfile="libs/core/src/core/propertytree.h" bodystart="43" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,13 +35,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="44" column="18"/>
+        <location file="libs/core/src/core/propertytree.h" line="45" column="18" bodyfile="libs/core/src/core/propertytree.cc" bodystart="22" bodyend="22"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1FloatValue_1a117e680c760d518fd767e6ecb1028ef8" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1FloatValue_1a480fc6cea9cbfc3c06480330e627c37b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float &amp;</type>
-        <definition>static float&amp; euphoria::core::FloatValue::cast</definition>
+        <definition>float &amp; euphoria::core::FloatValue::cast</definition>
         <argsstring>(core::Value *value)</argsstring>
         <name>cast</name>
         <param>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/propertytree.h" line="48" column="9"/>
+        <location file="libs/core/src/core/propertytree.h" line="47" column="23" bodyfile="libs/core/src/core/propertytree.cc" bodystart="25" bodyend="30"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -85,9 +85,9 @@
         <link refid="structeuphoria_1_1core_1_1Value"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/propertytree.h" line="43" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="42" bodyend="49"/>
+    <location file="libs/core/src/core/propertytree.h" line="42" column="1" bodyfile="libs/core/src/core/propertytree.h" bodystart="41" bodyend="48"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1FloatValue_1a117e680c760d518fd767e6ecb1028ef8" prot="public" virt="non-virtual"><scope>euphoria::core::FloatValue</scope><name>cast</name></member>
+      <member refid="structeuphoria_1_1core_1_1FloatValue_1a480fc6cea9cbfc3c06480330e627c37b" prot="public" virt="non-virtual"><scope>euphoria::core::FloatValue</scope><name>cast</name></member>
       <member refid="structeuphoria_1_1core_1_1FloatValue_1a84e8ad6d14f4338a3161a659a4245a6f" prot="public" virt="non-virtual"><scope>euphoria::core::FloatValue</scope><name>FloatValue</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1acde4d2b7af40524c61d4ad897b9cccb1" prot="public" virt="non-virtual"><scope>euphoria::core::FloatValue</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1Value_1abc50f659aa8eaf72075b9313cba3a29f" prot="public" virt="non-virtual"><scope>euphoria::core::FloatValue</scope><name>operator=</name></member>

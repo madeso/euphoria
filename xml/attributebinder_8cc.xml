@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="attributebinder_8cc" kind="file" language="C++">
+    <compoundname>attributebinder.cc</compoundname>
+    <includes refid="attributebinder_8h" local="yes">render/attributebinder.h</includes>
+    <includes local="no">numeric</includes>
+    <includes refid="buffer_8h" local="yes">render/buffer.h</includes>
+    <incdepgraph>
+      <node id="5">
+        <label>numeric</label>
+      </node>
+      <node id="6">
+        <label>render/buffer.h</label>
+        <link refid="buffer_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>render/shaderattribute.h</label>
+        <link refid="shaderattribute_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>render/id.h</label>
+        <link refid="id_8h"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>libs/render/src/render/attributebinder.cc</label>
+        <link refid="attributebinder_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>render/gltypes.h</label>
+        <link refid="gltypes_8h"/>
+      </node>
+      <node id="7">
+        <label>core/noncopyable.h</label>
+        <link refid="noncopyable_8h"/>
+      </node>
+      <node id="2">
+        <label>render/attributebinder.h</label>
+        <link refid="attributebinder_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1render">euphoria::render</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/render/src/render/attributebinder.cc"/>
+  </compounddef>
+</doxygen>

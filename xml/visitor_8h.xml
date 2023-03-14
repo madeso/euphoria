@@ -3,7 +3,10 @@
   <compounddef id="visitor_8h" kind="file" language="C++">
     <compoundname>visitor.h</compoundname>
     <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
+    <includedby refid="button_8cc" local="yes">libs/gui/src/gui/button.cc</includedby>
+    <includedby refid="panelwidget_8cc" local="yes">libs/gui/src/gui/panelwidget.cc</includedby>
     <includedby refid="panelwidget_8h" local="yes">libs/gui/src/gui/panelwidget.h</includedby>
+    <includedby refid="visitor_8cc" local="yes">libs/gui/src/gui/visitor.cc</includedby>
     <incdepgraph>
       <node id="1">
         <label>libs/gui/src/gui/visitor.h</label>
@@ -17,15 +20,41 @@
       </node>
     </incdepgraph>
     <invincdepgraph>
+      <node id="3">
+        <label>libs/gui/src/gui/panelwidget.cc</label>
+        <link refid="panelwidget_8cc"/>
+      </node>
       <node id="2">
+        <label>libs/gui/src/gui/button.cc</label>
+        <link refid="button_8cc"/>
+      </node>
+      <node id="4">
         <label>libs/gui/src/gui/panelwidget.h</label>
         <link refid="panelwidget_8h"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
       </node>
       <node id="1">
         <label>libs/gui/src/gui/visitor.h</label>
         <link refid="visitor_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="6">
+        <label>libs/gui/src/gui/visitor.cc</label>
+        <link refid="visitor_8cc"/>
+      </node>
+      <node id="5">
+        <label>libs/gui/src/gui/load.cc</label>
+        <link refid="load_8cc"/>
       </node>
     </invincdepgraph>
     <innerclass refid="structeuphoria_1_1gui_1_1Visitor" prot="public">euphoria::gui::Visitor</innerclass>

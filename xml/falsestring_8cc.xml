@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="falsestring_8cc" kind="file" language="C++">
+    <compoundname>falsestring.cc</compoundname>
+    <includes refid="falsestring_8h" local="yes">tests/falsestring.h</includes>
+    <incdepgraph>
+      <node id="1">
+        <label>libs/tests/src/tests/falsestring.cc</label>
+        <link refid="falsestring_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>ostream</label>
+      </node>
+      <node id="2">
+        <label>tests/falsestring.h</label>
+        <link refid="falsestring_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1tests">euphoria::tests</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/tests/src/tests/falsestring.cc"/>
+  </compounddef>
+</doxygen>

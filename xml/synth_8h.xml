@@ -5,6 +5,7 @@
     <includes local="no">map</includes>
     <includes refid="core_2src_2core_2key_8h" local="yes">core/key.h</includes>
     <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
+    <includedby refid="synth_8cc" local="yes">libs/minsynth/src/minsynth/synth.cc</includedby>
     <incdepgraph>
       <node id="2">
         <label>map</label>
@@ -28,6 +29,18 @@
         <link refid="core_2src_2core_2key_8h"/>
       </node>
     </incdepgraph>
+    <invincdepgraph>
+      <node id="1">
+        <label>libs/minsynth/src/minsynth/synth.h</label>
+        <link refid="synth_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>libs/minsynth/src/minsynth/synth.cc</label>
+        <link refid="synth_8cc"/>
+      </node>
+    </invincdepgraph>
     <innerclass refid="structeuphoria_1_1minsynth_1_1Node" prot="public">euphoria::minsynth::Node</innerclass>
     <innerclass refid="structeuphoria_1_1minsynth_1_1ToneTaker" prot="public">euphoria::minsynth::ToneTaker</innerclass>
     <innerclass refid="structeuphoria_1_1minsynth_1_1ToneSender" prot="public">euphoria::minsynth::ToneSender</innerclass>

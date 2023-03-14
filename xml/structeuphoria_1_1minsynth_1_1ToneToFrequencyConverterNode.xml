@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="178" column="26" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="178" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="171" column="26" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="171" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1a00a1d0dff3725bcc5677f3e015464df4" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1minsynth_1_1FrequencyTaker" kindref="compound">FrequencyTaker</ref> *</type>
@@ -32,7 +32,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="180" column="24" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="180" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="172" column="24" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="172" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="183" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="174" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="208" bodyend="223"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1ab219c367aa25c36e10b834a15c49336b" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="186" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="176" column="16" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="226" bodyend="234"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -127,17 +127,23 @@
         <link refid="structeuphoria_1_1minsynth_1_1ToneTaker"/>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="177" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="174" bodyend="187"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="170" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="167" bodyend="177"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1ab219c367aa25c36e10b834a15c49336b" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>calculate_frequency</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1a00a1d0dff3725bcc5677f3e015464df4" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>next</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>Node</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1acdf47ae10813bd9b49146f96f2fe3eac" prot="public" virt="non-virtual" ambiguityscope="euphoria::"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>NONCOPYABLE</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1Node_1aa87a484fbe760907f384f131ecdc1e5d" prot="public" virt="non-virtual" ambiguityscope="euphoria::minsynth::Node::"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1af32dcf34eb9bdc46433322309490f14f" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a804b0e11c11c8dfe98f09ab080c25d59" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>Node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1ab5ca243f34a0b60d5105536fafca9aed" prot="public" virt="virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>on_tone</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1aa76480f0f6d13d51226cc4c84579890e" prot="public" virt="non-virtual" ambiguityscope="euphoria::"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a14741e989c9e987289f760559541ac63" prot="public" virt="non-virtual" ambiguityscope="euphoria::"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1af0ab491ba7edc548dcde546c2a31c920" prot="public" virt="non-virtual" ambiguityscope="euphoria::minsynth::Node::"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a5ee36fa76279fd2a7755adfe72156d2f" prot="public" virt="non-virtual" ambiguityscope="euphoria::minsynth::Node::"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a5fde99ebf7bfc578705d8122d7fb2111" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>ToneTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a12fee8c6fb7ae5063243372d8a2e13d8" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>ToneTaker</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a0dc018b667b4b82ed81f925db3529587" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>ToneTaker</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneToFrequencyConverterNode_1a12feafc97b2d85a8da7795f75fb21b75" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>tuning</name></member>
-      <member refid="structeuphoria_1_1minsynth_1_1Node_1aff997db2a2a1f2c710275f94b7d108d7" prot="public" virt="virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>update</name></member>
+      <member refid="structeuphoria_1_1minsynth_1_1Node_1a7277f2c5eb010ee681eb37efa0a97283" prot="public" virt="virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>update</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a4460379974e28cc6314cf2086ab9c0e0" prot="public" virt="virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>~Node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1af2f3ffe41b2badea9c1e7b89321f2dcf" prot="public" virt="virtual"><scope>euphoria::minsynth::ToneToFrequencyConverterNode</scope><name>~ToneTaker</name></member>
     </listofallmembers>

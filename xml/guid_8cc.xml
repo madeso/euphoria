@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="guid_8cc" kind="file" language="C++">
+    <compoundname>guid.cc</compoundname>
+    <includes refid="guid_8h" local="yes">core/guid.h</includes>
+    <includes refid="textfileparser_8h" local="yes">core/textfileparser.h</includes>
+    <includes local="no">uuid/uuid.h</includes>
+    <incdepgraph>
+      <node id="6">
+        <label>core/textfileparser.h</label>
+        <link refid="textfileparser_8h"/>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>string</label>
+      </node>
+      <node id="8">
+        <label>uuid/uuid.h</label>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="1">
+        <label>libs/core/src/core/guid.cc</label>
+        <link refid="guid_8cc"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>array</label>
+      </node>
+      <node id="2">
+        <label>core/guid.h</label>
+        <link refid="guid_8h"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>
+    <innernamespace refid="namespaceeuphoria_1_1core">euphoria::core</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="libs/core/src/core/guid.cc"/>
+  </compounddef>
+</doxygen>

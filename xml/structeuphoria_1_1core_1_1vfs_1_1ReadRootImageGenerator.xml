@@ -20,9 +20,9 @@
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1ae32f4e069c5835df14105f56975821fd" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1ad7571c76aebd7ba84f8a68aadc026f43" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
-        <definition>static void euphoria::core::vfs::ReadRootImageGenerator::add</definition>
+        <definition>void euphoria::core::vfs::ReadRootImageGenerator::add</definition>
         <argsstring>(FileSystem *fs, const DirPath &amp;base)</argsstring>
         <name>add</name>
         <param>
@@ -39,13 +39,13 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_imagegenerator.h" line="11" column="9"/>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="11" column="9" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="14" bodyend="21"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1aaa3118a906f289f0013a62a9e069429d" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a6924e116951289572034369fb28c7ce3" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1MemoryChunk" kindref="compound">MemoryChunk</ref> &gt;</type>
-        <definition>std::shared_ptr&lt;MemoryChunk&gt; euphoria::core::vfs::ReadRootImageGenerator::read_file</definition>
+        <definition>std::shared_ptr&lt; MemoryChunk &gt; euphoria::core::vfs::ReadRootImageGenerator::read_file</definition>
         <argsstring>(const FilePath &amp;path) override</argsstring>
         <name>read_file</name>
         <reimplements refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1ab2d59db4d73604e54d3ac4854b1b9571">read_file</reimplements>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_imagegenerator.h" line="14" column="9"/>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="14" column="9" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="25" bodyend="55"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a0b6422b1ad2b75be351d63c6ea5c6c74" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_imagegenerator.h" line="17" column="9"/>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="17" column="9" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="59" bodyend="62"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1afff9873668da9f70c6cc4c975de40baf" prot="public" static="no" const="no" explicit="yes" inline="no" virt="non-virtual">
         <type></type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_imagegenerator.h" line="19" column="18"/>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="19" column="18" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="65" bodyend="69"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a44912a05d9aa890034049f83e9b3cc31" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vfs_1_1FileList" kindref="compound">FileList</ref></type>
@@ -112,7 +112,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vfs_imagegenerator.h" line="22" column="9"/>
+        <location file="libs/core/src/core/vfs_imagegenerator.h" line="22" column="9" bodyfile="libs/core/src/core/vfs_imagegenerator.cc" bodystart="73" bodyend="97"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -152,18 +152,18 @@
     </collaborationgraph>
     <location file="libs/core/src/core/vfs_imagegenerator.h" line="9" column="1" bodyfile="libs/core/src/core/vfs_imagegenerator.h" bodystart="8" bodyend="25"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1ae32f4e069c5835df14105f56975821fd" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>add</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1ad7571c76aebd7ba84f8a68aadc026f43" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>add</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a0b6422b1ad2b75be351d63c6ea5c6c74" prot="public" virt="virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>add_description</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a059e8ef081ac83dbac6bf21534aac9eb" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>base</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a44912a05d9aa890034049f83e9b3cc31" prot="public" virt="virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>list_files</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a95702d13070895545269442b48485df6" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a5ca9527da029d53f1e122bcc2915701c" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>operator=</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1aaa3118a906f289f0013a62a9e069429d" prot="public" virt="virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>read_file</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1a6924e116951289572034369fb28c7ce3" prot="public" virt="virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>read_file</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1ad1bf2cd7903c25ac69a4eb1acc972f1c" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>ReadRoot</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a5d6a3e14dd59940468c31e5ec3324f04" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>ReadRoot</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1abe45e228af46963457dbc478c20f9cd0" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>ReadRoot</name></member>
       <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootImageGenerator_1afff9873668da9f70c6cc4c975de40baf" prot="public" virt="non-virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>ReadRootImageGenerator</name></member>
-      <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1ad1ec37316f4f6aff6af5caa18cb9fff5" prot="public" virt="virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>~ReadRoot</name></member>
+      <member refid="structeuphoria_1_1core_1_1vfs_1_1ReadRoot_1a64de6b9b05cf54d37bba9eda989b41c9" prot="public" virt="virtual"><scope>euphoria::core::vfs::ReadRootImageGenerator</scope><name>~ReadRoot</name></member>
     </listofallmembers>
   </compounddef>
 </doxygen>
