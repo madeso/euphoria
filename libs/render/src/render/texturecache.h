@@ -1,10 +1,8 @@
 #pragma once
 
 #include <memory>
-
 #include <optional>
 
-#include "core/noncopyable.h"
 
 namespace euphoria::core::vfs
 {
@@ -21,7 +19,10 @@ namespace euphoria::render
         explicit TextureCache(core::vfs::FileSystem* fs);
         ~TextureCache();
 
-        NONCOPYABLE(TextureCache);
+        TextureCache(const TextureCache& other) = delete;
+        void operator=(const TextureCache&) = delete;
+        TextureCache(TextureCache&& other) = delete;
+        void operator=(TextureCache&&) = delete;
 
         [[nodiscard]] std::shared_ptr<Texture2>
         get_texture(const core::vfs::FilePath& path) const;

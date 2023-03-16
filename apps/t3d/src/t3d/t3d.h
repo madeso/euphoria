@@ -1,5 +1,8 @@
 #pragma once
 
+#include <memory>
+#include <optional>
+
 #include "imgui/imgui.h"
 
 #include "core/rgb.h"
@@ -8,7 +11,6 @@
 #include "core/camera3.h"
 #include "core/camera3.editor.h"
 #include "core/vfs_path.h"
-#include "core/noncopyable.h"
 #include "core/mousebehaviour.h"
 #include "core/helptexthover.h"
 
@@ -19,11 +21,6 @@
 #include "t3d/grid.h"
 #include "t3d/filelist.h"
 #include "t3d/keyboardstate.h"
-
-
-
-#include <memory>
-#include <optional>
 
 
 namespace euphoria::core
@@ -118,7 +115,10 @@ namespace euphoria::t3d
         Application();
         ~Application();
 
-        NONCOPYABLE(Application);
+        Application(const Application& other) = delete;
+        void operator=(const Application&) = delete;
+        Application(Application&& other) = delete;
+        void operator=(Application&&) = delete;
 
 
         [[nodiscard]] int

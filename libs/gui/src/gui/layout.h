@@ -2,7 +2,6 @@
 
 #include "core/rect.h"
 #include "core/size2.h"
-#include "core/noncopyable.h"
 
 
 #include <memory>
@@ -23,7 +22,10 @@ namespace euphoria::gui
         virtual
         ~Layout();
 
-        NONCOPYABLE(Layout);
+        Layout(const Layout& other) = delete;
+        void operator=(const Layout&) = delete;
+        Layout(Layout&& other) = delete;
+        void operator=(Layout&&) = delete;
 
         [[nodiscard]] virtual core::size2f
         calculate_minimum_area
@@ -51,7 +53,10 @@ namespace euphoria::gui
 
         ~TableLayout() override = default;
 
-        NONCOPYABLE(TableLayout);
+        TableLayout(const TableLayout& other) = delete;
+        void operator=(const TableLayout&) = delete;
+        TableLayout(TableLayout&& other) = delete;
+        void operator=(TableLayout&&) = delete;
 
         [[nodiscard]] core::size2f
         calculate_minimum_area
@@ -77,7 +82,10 @@ namespace euphoria::gui
 
         ~SingleRowLayout() override = default;
 
-        NONCOPYABLE(SingleRowLayout);
+        SingleRowLayout(const SingleRowLayout& other) = delete;
+        void operator=(const SingleRowLayout&) = delete;
+        SingleRowLayout(SingleRowLayout&& other) = delete;
+        void operator=(SingleRowLayout&&) = delete;
 
         [[nodiscard]] core::size2f
         calculate_minimum_area

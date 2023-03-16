@@ -5,7 +5,6 @@
 #include "core/range.h"
 #include "core/sphere.h"
 #include "core/rgb.h"
-#include "core/noncopyable.h"
 
 #include <memory>
 
@@ -33,7 +32,10 @@ namespace euphoria::core
             Material() = default;
             virtual ~Material() = default;
 
-            NONCOPYABLE(Material);
+            Material(const Material& other) = delete;
+            void operator=(const Material&) = delete;
+            Material(Material&& other) = delete;
+            void operator=(Material&&) = delete;
 
             [[nodiscard]] virtual std::optional<ScatterResult>
             scatter

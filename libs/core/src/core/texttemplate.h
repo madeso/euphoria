@@ -4,8 +4,6 @@
 #include <memory>
 #include <optional>
 
-#include "core/noncopyable.h"
-
 
 namespace euphoria::core::vfs
 {

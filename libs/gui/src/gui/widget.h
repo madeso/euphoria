@@ -1,10 +1,7 @@
 #pragma once
 
-
-
 #include "core/rect.h"
 #include "core/size2.h"
-#include "core/noncopyable.h"
 #include "core/fourway.h"
 
 #include "gui/layoutdata.h"
@@ -35,7 +32,10 @@ namespace euphoria::gui
         virtual
         ~Widget();
 
-        NONCOPYABLE(Widget);
+        Widget(const Widget& other) = delete;
+        void operator=(const Widget&) = delete;
+        Widget(Widget&& other) = delete;
+        void operator=(Widget&&) = delete;
 
         [[nodiscard]] bool
         is_active() const;

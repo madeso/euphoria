@@ -1,7 +1,5 @@
 #pragma once
 
-#include "core/noncopyable.h"
-
 #include "gui/widget.h"
 #include "gui/layoutcontainer.h"
 #include "gui/visitor.h"

@@ -1,13 +1,11 @@
 #pragma once
 
-#include "core/ecs.id.h"
-#include "core/sol_forward.h"
-#include "core/noncopyable.h"
-
-
-
 #include <memory>
 #include <map>
+
+#include "core/ecs.id.h"
+#include "core/sol_forward.h"
+
 
 namespace game
 {
@@ -46,7 +44,10 @@ namespace euphoria::runner
         ComponentCreator() = default;
         virtual ~ComponentCreator() = default;
 
-        NONCOPYABLE(ComponentCreator);
+        ComponentCreator(const ComponentCreator& other) = delete;
+        void operator=(const ComponentCreator&) = delete;
+        ComponentCreator(ComponentCreator&& other) = delete;
+        void operator=(ComponentCreator&&) = delete;
 
         virtual void
         create_component(const ObjectCreationArguments& args, core::ecs::EntityHandle id) = 0;

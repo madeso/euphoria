@@ -12,7 +12,6 @@
 
 #include "log/log.h"
 #include "assert/assert.h"
-#include "core/noncopyable.h"
 #include "core/image_draw.h"
 #include "core/utf8.h"
 #include "core/vfs.h"

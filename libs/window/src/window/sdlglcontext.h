@@ -1,6 +1,5 @@
 #pragma once
 
-#include "core/noncopyable.h"
 
 namespace euphoria::window
 {
@@ -12,7 +11,10 @@ namespace euphoria::window
         SdlAndOpenglContext(SdlWindow* window);
         ~SdlAndOpenglContext();
 
-        NONCOPYABLE(SdlAndOpenglContext);
+        SdlAndOpenglContext(const SdlAndOpenglContext& other) = delete;
+        void operator=(const SdlAndOpenglContext&) = delete;
+        SdlAndOpenglContext(SdlAndOpenglContext&& other) = delete;
+        void operator=(SdlAndOpenglContext&&) = delete;
 
         void* context;
     };

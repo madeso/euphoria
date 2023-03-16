@@ -2,9 +2,7 @@
 
 #include <memory>
 
-
 #include "core/argparse.h"
-#include "core/noncopyable.h"
 
 #include "window/fakesdlevent.h"
 

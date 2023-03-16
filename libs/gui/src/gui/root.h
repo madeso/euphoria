@@ -1,7 +1,6 @@
 #pragma once
 
 #include "core/vec2.h"
-#include "core/noncopyable.h"
 
 #include "gui/uistate.h"
 #include "gui/layoutcontainer.h"
@@ -38,7 +37,10 @@ namespace euphoria::gui
         explicit Root(const core::size2f& s);
         ~Root();
 
-        NONCOPYABLE(Root);
+        Root(const Root& other) = delete;
+        void operator=(const Root&) = delete;
+        Root(Root&& other) = delete;
+        void operator=(Root&&) = delete;
 
         [[nodiscard]] bool
         load

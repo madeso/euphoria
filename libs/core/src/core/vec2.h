@@ -39,29 +39,28 @@ namespace euphoria::core
         explicit vec2f(const std::tuple<float, float>& a);
         explicit vec2f(const unit2f& u);
 
-        [[nodiscard]] vec2i toi() const;
-
         [[nodiscard]] static vec2f zero();
         [[nodiscard]] static vec2f from_to(const vec2f& from, const vec2f& to);
+
+        float* get_data_ptr();
+        float normalize();
+
+        [[nodiscard]] vec2f get_rotated(const angle& a) const;
+
+        [[nodiscard]] const float* get_data_ptr() const;
+        [[nodiscard]] vec2i toi() const;
+        [[nodiscard]] vec2f get_flipped_y() const;
+        [[nodiscard]] float get_component_sum() const;
+        [[nodiscard]] float get_length_squared() const;
+        [[nodiscard]] float get_length() const;
+        [[nodiscard]] NormalizedAndLength<unit2f, float> get_normalized_and_length() const;
+        [[nodiscard]] unit2f get_normalized() const;
 
         void operator+=(const vec2f& rhs);
         void operator-=(const vec2f& rhs);
         vec2f operator-() const;
         void operator/=(float rhs);
         void operator*=(float rhs);
-        
-        float* get_data_ptr();
-        [[nodiscard]] const float* get_data_ptr() const;
-
-        [[nodiscard]] vec2f get_rotated(const angle& a) const;
-        [[nodiscard]] vec2f get_flipped_y() const;
-        [[nodiscard]] float get_component_sum() const;
-
-        [[nodiscard]] float get_length_squared() const;
-        [[nodiscard]] float get_length() const;
-        float normalize();
-        [[nodiscard]] NormalizedAndLength<unit2f, float> get_normalized_and_length() const;
-        [[nodiscard]] unit2f get_normalized() const;
     };
 
 
@@ -75,21 +74,20 @@ namespace euphoria::core
         explicit vec2i(const std::tuple<int, int>& a);
         explicit vec2i(const unit2i& u);
 
-        [[nodiscard]] vec2f tof() const;
-
         [[nodiscard]] static vec2i zero();
         [[nodiscard]] static vec2i from_to(const vec2i& from, const vec2i& to);
+
+        int* get_data_ptr();
+        [[nodiscard]] const int* get_data_ptr() const;
+
+        [[nodiscard]] vec2f tof() const;
+        [[nodiscard]] vec2i get_flipped_y() const;
+        [[nodiscard]] int get_component_sum() const;
 
         void operator+=(const vec2i& rhs);
         void operator-=(const vec2i& rhs);
         vec2i operator-() const;
         void operator*=(int rhs);
-
-        int* get_data_ptr();
-        [[nodiscard]] const int* get_data_ptr() const;
-
-        [[nodiscard]] vec2i get_flipped_y() const;
-        [[nodiscard]] int get_component_sum() const;
     };
 
 
@@ -103,13 +101,12 @@ namespace euphoria::core
 
         explicit unit2f(float ax, float ay);
 
-        unit2f operator-() const;
-
         float* get_data_ptr();
-        [[nodiscard]] const float* get_data_ptr() const;
 
-        [[nodiscard]] vec2f to_vec() const;
         [[nodiscard]] unit2f get_rotated(const angle& a) const;
+
+        [[nodiscard]] const float* get_data_ptr() const;
+        [[nodiscard]] vec2f to_vec() const;
         [[nodiscard]] unit2f get_flipped_y() const;
         [[nodiscard]] float get_component_sum() const;
 
@@ -117,9 +114,12 @@ namespace euphoria::core
         [[nodiscard]] float get_length_squared() const;
         [[nodiscard]] bool is_valid() const;
 
+        unit2f operator-() const;
+
     private:
-        explicit unit2f(const vec2f& v);
         friend struct vec2f;
+
+        explicit unit2f(const vec2f& v);
     };
 
 
@@ -133,16 +133,17 @@ namespace euphoria::core
 
         Scale2f(float ax, float ay);
         explicit Scale2f(const std::tuple<float, float>& a);
-
-        Scale2f operator-() const;
+        bool operator==(const Scale2f& rhs) = delete;
 
         float* get_data_ptr();
-        [[nodiscard]] const float* get_data_ptr() const;
+        
         [[nodiscard]] Scale2f get_rotated(const angle& a) const;
+
+        [[nodiscard]] const float* get_data_ptr() const;
         [[nodiscard]] Scale2f get_flipped_y() const;
         [[nodiscard]] float get_component_sum() const;
 
-        bool operator==(const Scale2f& rhs) = delete;
+        Scale2f operator-() const;
     };
 
 

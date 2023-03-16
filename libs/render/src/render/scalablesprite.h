@@ -2,9 +2,7 @@
 
 #include <memory>
 
-
 #include "core/rect.h"
-#include "core/noncopyable.h"
 
 
 namespace euphoria::core::vfs
@@ -36,7 +34,10 @@ namespace euphoria::render
         );
         ~ScalableSprite();
 
-        NONCOPYABLE(ScalableSprite);
+        ScalableSprite(const ScalableSprite& other) = delete;
+        void operator=(const ScalableSprite&) = delete;
+        ScalableSprite(ScalableSprite&& other) = delete;
+        void operator=(ScalableSprite&&) = delete;
 
         [[nodiscard]] core::size2f
         get_minimum_size() const;

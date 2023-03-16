@@ -1,15 +1,12 @@
 #pragma once
 
 
-
-
 #include "core/vec2.h"
 #include "core/vec3.h"
 #include "core/vec4.h"
 #include "core/rgb.h"
 #include "core/mat4.h"
 #include "core/rect.h"
-#include "core/noncopyable.h"
 #include "core/vfs_path.h"
 
 #include "render/gltypes.h"
@@ -34,7 +31,10 @@ namespace euphoria::render
         ShaderId();
         ~ShaderId();
 
-        NONCOPYABLE(ShaderId);
+        ShaderId(const ShaderId& other) = delete;
+        void operator=(const ShaderId&) = delete;
+        ShaderId(ShaderId&& other) = delete;
+        void operator=(ShaderId&&) = delete;
 
         [[nodiscard]] bool
         is_currently_bound() const;
@@ -53,7 +53,10 @@ namespace euphoria::render
         ShaderProgram();
         ~ShaderProgram() = default;
 
-        NONCOPYABLE(ShaderProgram);
+        ShaderProgram(const ShaderProgram& other) = delete;
+        void operator=(const ShaderProgram&) = delete;
+        ShaderProgram(ShaderProgram&& other) = delete;
+        void operator=(ShaderProgram&&) = delete;
 
         void
         pre_bind(const ShaderAttribute& attribute);

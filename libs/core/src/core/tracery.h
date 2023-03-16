@@ -5,8 +5,6 @@
 #include <memory>
 #include <map>
 
-#include "core/noncopyable.h"
-
 
 namespace euphoria::core
 {

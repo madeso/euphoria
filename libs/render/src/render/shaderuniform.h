@@ -1,9 +1,5 @@
 #pragma once
 
-
-
-#include "core/noncopyable.h"
-
 #include "render/gltypes.h"
 
 

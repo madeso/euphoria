@@ -1,13 +1,11 @@
 #pragma once
 
-
-
 #include "core/rect.h"
 #include "core/size2.h"
 #include "core/vec2.h"
 #include "core/angle.h"
 #include "core/rgb.h"
-#include "core/noncopyable.h"
+
 
 namespace euphoria::render
 {
@@ -18,7 +16,10 @@ namespace euphoria::render
         SpriteBatch();
         ~SpriteBatch();
 
-        NONCOPYABLE(SpriteBatch);
+        SpriteBatch(const SpriteBatch& other) = delete;
+        void operator=(const SpriteBatch&) = delete;
+        SpriteBatch(SpriteBatch&& other) = delete;
+        void operator=(SpriteBatch&&) = delete;
 
         void
         begin();

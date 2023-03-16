@@ -133,7 +133,6 @@ set(app_src
     src/core/multisort.cc src/core/multisort.h
     src/core/nlp_line.cc src/core/nlp_line.h
     src/core/nlp_sentence.cc src/core/nlp_sentence.h
-    src/core/noncopyable.cc src/core/noncopyable.h
     src/core/numeric.cc src/core/numeric.h
     src/core/numparse.cc src/core/numparse.h
     src/core/orbitcontroller.cc src/core/orbitcontroller.h

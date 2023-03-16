@@ -6,7 +6,6 @@
 #include "core/rgb.h"
 #include "core/angle.h"
 #include "core/rect.h"
-#include "core/noncopyable.h"
 
 #include "render/shaderuniform.h"
 #include "render/shader.h"
@@ -37,7 +36,10 @@ namespace euphoria::render
         SpriteRenderer(render::ShaderProgram* shader);
         ~SpriteRenderer();
 
-        NONCOPYABLE(SpriteRenderer);
+        SpriteRenderer(const SpriteRenderer& other) = delete;
+        void operator=(const SpriteRenderer&) = delete;
+        SpriteRenderer(SpriteRenderer&& other) = delete;
+        void operator=(SpriteRenderer&&) = delete;
 
         void
         draw_rect

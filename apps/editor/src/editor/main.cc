@@ -70,7 +70,10 @@ struct GenericWindow
     bool open = true;
 
     GenericWindow() = default;
-    NONCOPYABLE(GenericWindow);
+    GenericWindow(const GenericWindow& other) = delete;
+    void operator=(const GenericWindow&) = delete;
+    GenericWindow(GenericWindow&& other) = delete;
+    void operator=(GenericWindow&&) = delete;
 
     virtual ~GenericWindow() = default;
 
@@ -379,7 +382,10 @@ struct FileHandler
     {
     }
 
-    NONCOPYABLE(FileHandler);
+    FileHandler(const FileHandler& other) = delete;
+    void operator=(const FileHandler&) = delete;
+    FileHandler(FileHandler&& other) = delete;
+    void operator=(FileHandler&&) = delete;
 
     virtual ~FileHandler() = default;
 

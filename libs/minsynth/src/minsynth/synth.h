@@ -5,7 +5,6 @@
 #include <map>
 
 #include "core/key.h"
-#include "core/noncopyable.h"
 
 
 namespace euphoria::minsynth

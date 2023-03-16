@@ -2,7 +2,6 @@
 
 #include <memory>
 
-#include "core/noncopyable.h"
 #include "core/stringbuilder.h"
 
 
@@ -19,7 +18,10 @@ namespace euphoria::core
             Node() = default;
             virtual ~Node() = default;
 
-            NONCOPYABLE(Node);
+            Node(const Node& other) = delete;
+            void operator=(const Node&) = delete;
+            Node(Node&& other) = delete;
+            void operator=(Node&&) = delete;
 
             virtual void
             accept(Visitor* visitor) const = 0;
@@ -62,7 +64,10 @@ namespace euphoria::core
             Visitor() = default;
             virtual ~Visitor() = default;
 
-            NONCOPYABLE(Visitor);
+            Visitor(const Visitor& other) = delete;
+            void operator=(const Visitor&) = delete;
+            Visitor(Visitor&& other) = delete;
+            void operator=(Visitor&&) = delete;
 
             virtual void
             on_text(const std::string& text) = 0;
@@ -81,20 +86,12 @@ namespace euphoria::core
         {
             StringBuilder ss;
 
-            void
-            on_text(const std::string& text) override;
+            static std::string accept_all_nodes(UiText* visitor);
 
-            void
-            on_image(const std::string& img) override;
-
-            void
-            on_begin() override;
-
-            void
-            on_end() override;
-
-            static std::string
-            accept_all_nodes(UiText* visitor);
+            void on_text(const std::string& text) override;
+            void on_image(const std::string& img) override;
+            void on_begin() override;
+            void on_end() override;
         };
     }
 
@@ -108,37 +105,22 @@ namespace euphoria::core
     // id/number also should be displayed.
     struct UiText
     {
-        void
-        clear();
-
-        void
-        add_text(const std::string& str);
-
-        void
-        add_image(const std::string& img);
-
-        void
-        add_begin();
-
-        void
-        add_end();
-
-        void
-        init_with_text(const std::string& str);
-
-        bool
-        init_by_parsing_source(const std::string& str);
-
-        [[nodiscard]] static UiText
-        create_from_text(const std::string& str);
-
-        void
-        accept(textparser::Visitor* visitor);
-
-        void
-        accept(textparser::Visitor* visitor) const;
-
         std::vector<std::shared_ptr<textparser::Node>> nodes;
+
+        [[nodiscard]] static UiText create_from_text(const std::string& str);
+
+        void clear();
+
+        void add_text(const std::string& str);
+        void add_image(const std::string& img);
+        void add_begin();
+        void add_end();
+
+        void init_with_text(const std::string& str);
+        bool init_by_parsing_source(const std::string& str);
+
+        void accept(textparser::Visitor* visitor);
+        void accept(textparser::Visitor* visitor) const;
     };
 
 }

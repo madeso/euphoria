@@ -2,7 +2,7 @@
 
 #include "core/vec2.h"
 #include "core/key.h"
-#include "core/noncopyable.h"
+
 
 namespace euphoria::t3d
 {
@@ -14,7 +14,10 @@ namespace euphoria::t3d
         Tool() = default;
         virtual ~Tool() = default;
 
-        NONCOPYABLE(Tool);
+        Tool(const Tool& other) = delete;
+        void operator=(const Tool&) = delete;
+        Tool(Tool&& other) = delete;
+        void operator=(Tool&&) = delete;
 
         virtual bool
         is_busy(t3d::Editor* editor) = 0;

@@ -5,7 +5,6 @@
 #include <algorithm>
 
 #include "core/markov.h"
-#include "core/noncopyable.h"
 #include "core/argparse.h"
 #include "core/stringmerger.h"
 #include "core/stringutils.h"
@@ -107,7 +106,10 @@ struct Similar
     Similar() = default;
     virtual ~Similar() = default;
 
-    NONCOPYABLE(Similar);
+    Similar(const Similar& other) = delete;
+    void operator=(const Similar&) = delete;
+    Similar(Similar&& other) = delete;
+    void operator=(Similar&&) = delete;
 
     virtual void add(const std::string& line) = 0;
     virtual bool is_same(const std::string& generated) = 0;

@@ -2,13 +2,9 @@
 
 #include "core/aabb.h"
 #include "core/vfs_path.h"
-#include "core/noncopyable.h"
 #include "core/collisionmesh.h"
 
 #include "render/compiledmesh.h"
-
-
-
 
 
 namespace euphoria::core::vfs
@@ -23,7 +19,10 @@ namespace euphoria::t3d
         Tile();
         ~Tile();
 
-        NONCOPYABLE(Tile);
+        Tile(const Tile& other) = delete;
+        void operator=(const Tile&) = delete;
+        Tile(Tile&& other) = delete;
+        void operator=(Tile&&) = delete;
 
         core::vfs::FilePath path;
         core::Aabb aabb;

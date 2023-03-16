@@ -4,7 +4,6 @@
 #include "core/rgb.h"
 #include "core/vec2.h"
 #include "core/interpolate.h"
-#include "core/noncopyable.h"
 
 #include "gui/widget.h"
 #include "gui/textdata.h"

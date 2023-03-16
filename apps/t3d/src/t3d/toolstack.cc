@@ -1,7 +1,6 @@
 #include "t3d/toolstack.h"
 
 #include "assert/assert.h"
-#include "core/noncopyable.h"
 
 
 namespace euphoria::t3d
@@ -11,7 +10,10 @@ namespace euphoria::t3d
         tool_action() = default;
         virtual ~tool_action() = default;
 
-        NONCOPYABLE(tool_action);
+        tool_action(const tool_action& other) = delete;
+        void operator=(const tool_action&) = delete;
+        tool_action(tool_action&& other) = delete;
+        void operator=(tool_action&&) = delete;
 
         virtual void
         act(ToolStack* tools) = 0;

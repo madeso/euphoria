@@ -3,7 +3,7 @@
 #include <memory>
 
 #include "core/sol.h"
-#include "core/noncopyable.h"
+
 
 namespace euphoria::runner
 {
@@ -32,7 +32,10 @@ namespace euphoria::runner
         );
         ~ScriptIntegration();
 
-        NONCOPYABLE(ScriptIntegration);
+        ScriptIntegration(const ScriptIntegration& other) = delete;
+        void operator=(const ScriptIntegration&) = delete;
+        ScriptIntegration(ScriptIntegration&& other) = delete;
+        void operator=(ScriptIntegration&&) = delete;
 
         void
         clear();

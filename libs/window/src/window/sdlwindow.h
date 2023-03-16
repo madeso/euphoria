@@ -1,9 +1,6 @@
 #pragma once
 
-
-
 #include "core/mousebehaviour.h"
-#include "core/noncopyable.h"
 #include "core/vec2.h"
 
 
@@ -30,7 +27,10 @@ namespace euphoria::window
         void
         set_mouse_behaviour(core::MouseBehaviour) const;
 
-        NONCOPYABLE(SdlWindow);
+        SdlWindow(const SdlWindow& other) = delete;
+        void operator=(const SdlWindow&) = delete;
+        SdlWindow(SdlWindow&& other) = delete;
+        void operator=(SdlWindow&&) = delete;
 
         // 0-(size-1)
         [[nodiscard]] core::vec2i

@@ -1,12 +1,11 @@
 #pragma once
 
+#include <memory>
+
 #include "core/rect.h"
 #include "core/size2.h"
-#include "core/noncopyable.h"
 
 #include "gui/container.h"
-
-#include <memory>
 
 
 

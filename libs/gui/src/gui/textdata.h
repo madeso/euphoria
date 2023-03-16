@@ -1,7 +1,5 @@
 #pragma once
 
-#include "core/noncopyable.h"
-
 #include <memory>
 
 
@@ -19,7 +17,10 @@ namespace euphoria::gui
         TextData();
         ~TextData();
 
-        NONCOPYABLE(TextData);
+        TextData(const TextData& other) = delete;
+        void operator=(const TextData&) = delete;
+        TextData(TextData&& other) = delete;
+        void operator=(TextData&&) = delete;
 
         void
         set_font(std::shared_ptr<render::DrawableFont> font);

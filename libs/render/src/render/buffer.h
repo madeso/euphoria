@@ -1,11 +1,8 @@
 #pragma once
 
-
-
-#include "core/noncopyable.h"
-
 #include "render/id.h"
 #include "render/shaderattribute.h"
+
 
 namespace euphoria::render
 {

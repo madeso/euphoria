@@ -2,8 +2,8 @@
 
 #include "core/image.h"
 #include "render/gltypes.h"
-#include "core/noncopyable.h"
 #include "core/vfs.h"
+
 
 namespace euphoria::core
 {
@@ -56,7 +56,10 @@ namespace euphoria::render
         TextureId();
         ~TextureId();
 
-        NONCOPYABLE(TextureId);
+        TextureId(const TextureId& other) = delete;
+        void operator=(const TextureId&) = delete;
+        TextureId(TextureId&& other) = delete;
+        void operator=(TextureId&&) = delete;
 
         [[nodiscard]] bool
         is_currently_bound() const;
@@ -77,7 +80,10 @@ namespace euphoria::render
         Texture2();
         ~Texture2() = default;
 
-        NONCOPYABLE(Texture2);
+        Texture2(const Texture2& other) = delete;
+        void operator=(const Texture2&) = delete;
+        Texture2(Texture2&& other) = delete;
+        void operator=(Texture2&&) = delete;
 
         void
         load_from_pixels

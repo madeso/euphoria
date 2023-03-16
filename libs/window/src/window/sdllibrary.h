@@ -1,6 +1,5 @@
 #pragma once
 
-#include "core/noncopyable.h"
 
 namespace euphoria::window
 {
@@ -10,7 +9,10 @@ namespace euphoria::window
         SdlLibrary();
         ~SdlLibrary();
 
-        NONCOPYABLE(SdlLibrary);
+        SdlLibrary(const SdlLibrary& other) = delete;
+        void operator=(const SdlLibrary&) = delete;
+        SdlLibrary(SdlLibrary&& other) = delete;
+        void operator=(SdlLibrary&&) = delete;
 
         bool ok;
     };

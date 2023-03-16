@@ -113,7 +113,10 @@ namespace euphoria::render
         explicit DrawableText(DrawableFont* the_font);
         ~DrawableText();
 
-        NONCOPYABLE(DrawableText);
+        DrawableText(const DrawableText& other) = delete;
+        void operator=(const DrawableText&) = delete;
+        DrawableText(DrawableText&& other) = delete;
+        void operator=(DrawableText&&) = delete;
 
         void
         set_text(const core::UiText& new_text);

@@ -26,6 +26,7 @@
         "U64", "U32", "U16", "U8"
     ],
     "accepted_functions": [
-        "some function or method name"
+        // this is a macro that doxygen detects as a function
+        "DEFAULT_INTERPOLATE"
     ]
 }

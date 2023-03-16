@@ -15,7 +15,6 @@
 #include "core/stringutils.h"
 #include "core/stdutils.h"
 #include "log/log.h"
-#include "core/noncopyable.h"
 #include "core/cint.h"
 
 #include "render/init.h"
@@ -79,7 +78,10 @@ struct ApplicationBase
         setup_audio_callbacks();
     }
 
-    NONCOPYABLE(ApplicationBase);
+    ApplicationBase(const ApplicationBase& other) = delete;
+    void operator=(const ApplicationBase&) = delete;
+    ApplicationBase(ApplicationBase&& other) = delete;
+    void operator=(ApplicationBase&&) = delete;
 
     static void
     setup_window(const std::string&)

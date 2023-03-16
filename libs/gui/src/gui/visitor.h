@@ -1,7 +1,5 @@
 #pragma once
 
-#include "core/noncopyable.h"
-
 
 namespace euphoria::gui
 {
@@ -16,7 +14,10 @@ namespace euphoria::gui
     {
         Visitor() = default;
         virtual ~Visitor() = default;
-        NONCOPYABLE(Visitor);
+        Visitor(const Visitor& other) = delete;
+        void operator=(const Visitor&) = delete;
+        Visitor(Visitor&& other) = delete;
+        void operator=(Visitor&&) = delete;
 
         virtual
         void

@@ -1,9 +1,5 @@
 #pragma once
 
-
-
-#include "core/noncopyable.h"
-
 #include "window/fakesdlevent.h"
 
 
@@ -20,7 +16,10 @@ namespace euphoria::window::imgui
         Library(SDL_Window* the_window, SdlAndOpenglContext* context, const std::string& the_path);
         ~Library();
 
-        NONCOPYABLE(Library);
+        Library(const Library& other) = delete;
+        void operator=(const Library&) = delete;
+        Library(Library&& other) = delete;
+        void operator=(Library&&) = delete;
     private:
         std::string path_to_imgui_ini;
     };

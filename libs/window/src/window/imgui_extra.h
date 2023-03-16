@@ -1,16 +1,13 @@
 #pragma once
 
-#include "imgui/imgui.h"
-
-
 #include <algorithm>
 #include <utility>
-
 #include <functional>
 
 #include "core/vec2.h"
 #include "core/vec3.h"
-#include "core/noncopyable.h"
+
+#include "imgui/imgui.h"
 
 
 namespace euphoria::core
@@ -138,7 +135,10 @@ namespace euphoria::window::imgui
         VisuallyDisabledWidgets();
         ~VisuallyDisabledWidgets();
 
-        NONCOPYABLE(VisuallyDisabledWidgets);
+        VisuallyDisabledWidgets(const VisuallyDisabledWidgets& other) = delete;
+        void operator=(const VisuallyDisabledWidgets&) = delete;
+        VisuallyDisabledWidgets(VisuallyDisabledWidgets&& other) = delete;
+        void operator=(VisuallyDisabledWidgets&&) = delete;
     };
 
     bool

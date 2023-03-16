@@ -131,20 +131,19 @@ namespace euphoria::core::tracery
 
     // ----------------------------------------------------------------
 
+    struct ActionRule
+    {
+        std::string key;
+        std::string symbol;
+    };
 
     struct CallSymbolNode : public Node
     {
-        CallSymbolNode() = default;
-
-        struct ActionRule
-        {
-            std::string key;
-            std::string symbol;
-        };
-
         std::string symbol;
         std::vector<std::string> modifiers;
         std::vector<ActionRule> action_rules;
+
+        CallSymbolNode() = default;
 
         void add_action_rule
         (

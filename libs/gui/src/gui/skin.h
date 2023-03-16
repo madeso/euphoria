@@ -1,13 +1,11 @@
 #pragma once
 
+#include <memory>
+#include <optional>
+
 #include "core/rgb.h"
 #include "core/easing.h"
 #include "core/vfs_path.h"
-#include "core/noncopyable.h"
-
-
-#include <memory>
-#include <optional>
 
 
 namespace euphoria::render
@@ -43,7 +41,10 @@ namespace euphoria::gui
         Skin() = default;
         ~Skin();
 
-        NONCOPYABLE(Skin);
+        Skin(const Skin& other) = delete;
+        void operator=(const Skin&) = delete;
+        Skin(Skin&& other) = delete;
+        void operator=(Skin&&) = delete;
 
         std::string name;
 

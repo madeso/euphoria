@@ -3,9 +3,6 @@
 #include <memory>
 
 
-#include "core/noncopyable.h"
-
-
 namespace euphoria::render
 {
     struct SpriteRenderer;
