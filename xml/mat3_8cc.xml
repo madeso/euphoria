@@ -168,7 +168,7 @@
         <name>OP</name>
         <param><defname>r</defname></param>
         <param><defname>c</defname></param>
-        <initializer>component_multiply(vec3f{lhs.get_row(r)}, vec3f{rhs.get_column(c)}).get_component_sum()</initializer>
+        <initializer>vec3f{lhs.get_row(r)}.component_multiply(vec3f{rhs.get_column(c)}).get_component_sum()</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>
@@ -180,7 +180,7 @@
       <memberdef kind="define" id="mat3_8cc_1ad3fad4870192fbb33f78583fbb0cc502" prot="public" static="no">
         <name>OP</name>
         <param><defname>r</defname></param>
-        <initializer>component_multiply(vec3f{lhs.get_row(r)}, rhs).get_component_sum()</initializer>
+        <initializer>vec3f{lhs.get_row(r)}.component_multiply(rhs).get_component_sum()</initializer>
         <briefdescription>
         </briefdescription>
         <detaileddescription>

@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="62" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="64" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a07e0830a17089d8617bea079e7989157" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -30,15 +30,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="63" column="21"/>
+        <location file="libs/core/src/core/ui_text.h" line="65" column="21"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb691a854b081e203bb171babe754516" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a421159af70ff4b017bdd8bec0907d4be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::core::textparser::Visitor::NONCOPYABLE</definition>
-        <argsstring>(Visitor)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::core::textparser::Visitor::Visitor</definition>
+        <argsstring>(const Visitor &amp;other)=delete</argsstring>
+        <name>Visitor</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" kindref="compound">Visitor</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" kindref="compound">Visitor</ref> &amp;</type>
+          <declname>other</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -46,7 +47,56 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="65" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="67" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a627e972a43c43d82eeaa557108882f68" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::textparser::Visitor::operator=</definition>
+        <argsstring>(const Visitor &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" kindref="compound">Visitor</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="68" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1add224e438c0228ded45cc78dfac7d7ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::textparser::Visitor::Visitor</definition>
+        <argsstring>(Visitor &amp;&amp;other)=delete</argsstring>
+        <name>Visitor</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" kindref="compound">Visitor</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="69" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1ab04f9d14fa438bb81bb420e8b07c18b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::textparser::Visitor::operator=</definition>
+        <argsstring>(Visitor &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1textparser_1_1Visitor" kindref="compound">Visitor</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="70" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a7128c343c381606f3093f8ee8f7eaa60" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -65,7 +115,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="68" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="73" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a144ca7508eb801a16e40c9664f6e6001" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -84,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="71" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="76" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a332931d55e39bf813e97404ab087af80" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -99,7 +149,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="74" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="79" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a9524752d4e30341956e5c6aaf76462fe" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -114,7 +164,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="77" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="82" column="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -139,14 +189,17 @@
         <link refid="structeuphoria_1_1core_1_1textparser_1_1Visitor"/>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/ui_text.h" line="61" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="60" bodyend="78"/>
+    <location file="libs/core/src/core/ui_text.h" line="63" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="62" bodyend="83"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb691a854b081e203bb171babe754516" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a332931d55e39bf813e97404ab087af80" prot="public" virt="pure-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>on_begin</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a9524752d4e30341956e5c6aaf76462fe" prot="public" virt="pure-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>on_end</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a144ca7508eb801a16e40c9664f6e6001" prot="public" virt="pure-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>on_image</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a7128c343c381606f3093f8ee8f7eaa60" prot="public" virt="pure-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>on_text</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a627e972a43c43d82eeaa557108882f68" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1ab04f9d14fa438bb81bb420e8b07c18b2" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb60b911945f69c8d56cb528edc8e4f3" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>Visitor</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a421159af70ff4b017bdd8bec0907d4be" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>Visitor</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1add224e438c0228ded45cc78dfac7d7ad" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Visitor</scope><name>Visitor</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a07e0830a17089d8617bea079e7989157" prot="public" virt="virtual"><scope>euphoria::core::textparser::Visitor</scope><name>~Visitor</name></member>
     </listofallmembers>
   </compounddef>

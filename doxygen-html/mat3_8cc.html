@@ -75,9 +75,9 @@ Macros</h2></td></tr>
 <tr class="separator:a52267107dd1016c80abd3e27e445e437"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52267107dd1016c80abd3e27e445e437"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat3_8cc.html#a52267107dd1016c80abd3e27e445e437">OP</a>(i)&#160;&#160;&#160;data[i] -= rhs.data[i]</td></tr>
 <tr class="separator:a52267107dd1016c80abd3e27e445e437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c80fab70a39bdaff699abc7fd6f7c29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat3_8cc.html#a6c80fab70a39bdaff699abc7fd6f7c29">OP</a>(r,  c)&#160;&#160;&#160;component_multiply(vec3f{lhs.get_row(r)}, vec3f{rhs.get_column(c)}).get_component_sum()</td></tr>
+<tr class="memitem:a6c80fab70a39bdaff699abc7fd6f7c29"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat3_8cc.html#a6c80fab70a39bdaff699abc7fd6f7c29">OP</a>(r,  c)&#160;&#160;&#160;vec3f{lhs.get_row(r)}.component_multiply(vec3f{rhs.get_column(c)}).get_component_sum()</td></tr>
 <tr class="separator:a6c80fab70a39bdaff699abc7fd6f7c29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad3fad4870192fbb33f78583fbb0cc502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat3_8cc.html#ad3fad4870192fbb33f78583fbb0cc502">OP</a>(r)&#160;&#160;&#160;component_multiply(vec3f{lhs.get_row(r)}, rhs).get_component_sum()</td></tr>
+<tr class="memitem:ad3fad4870192fbb33f78583fbb0cc502"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mat3_8cc.html#ad3fad4870192fbb33f78583fbb0cc502">OP</a>(r)&#160;&#160;&#160;vec3f{lhs.get_row(r)}.component_multiply(rhs).get_component_sum()</td></tr>
 <tr class="separator:ad3fad4870192fbb33f78583fbb0cc502"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -141,7 +141,7 @@ Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype">&#160;</td>
           <td class="paramname">r</td><td>)</td>
-          <td>&#160;&#160;&#160;component_multiply(vec3f{lhs.get_row(r)}, rhs).get_component_sum()</td>
+          <td>&#160;&#160;&#160;vec3f{lhs.get_row(r)}.component_multiply(rhs).get_component_sum()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -169,7 +169,7 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;component_multiply(vec3f{lhs.get_row(r)}, vec3f{rhs.get_column(c)}).get_component_sum()</td>
+          <td></td><td>&#160;&#160;&#160;vec3f{lhs.get_row(r)}.component_multiply(vec3f{rhs.get_column(c)}).get_component_sum()</td>
         </tr>
       </table>
 </div><div class="memdoc">

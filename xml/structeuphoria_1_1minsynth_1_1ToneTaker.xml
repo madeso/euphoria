@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="121" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="120" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1af2f3ffe41b2badea9c1e7b89321f2dcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="122" column="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="121" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a12fee8c6fb7ae5063243372d8a2e13d8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="124" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="123" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a0dc018b667b4b82ed81f925db3529587" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -63,7 +63,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="125" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="124" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1aa76480f0f6d13d51226cc4c84579890e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -79,7 +79,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="126" column="14"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="125" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a14741e989c9e987289f760559541ac63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="127" column="14"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="126" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1ToneTaker_1a48fc0d8fc0a2a021132a2ba9af568b0a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="129" column="22"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="128" column="22"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -154,7 +154,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="120" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="119" bodyend="130"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="119" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="118" bodyend="129"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1a48fc0d8fc0a2a021132a2ba9af568b0a" prot="public" virt="pure-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>on_tone</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1ToneTaker_1aa76480f0f6d13d51226cc4c84579890e" prot="public" virt="non-virtual"><scope>euphoria::minsynth::ToneTaker</scope><name>operator=</name></member>

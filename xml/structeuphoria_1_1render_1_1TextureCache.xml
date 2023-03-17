@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texturecache.h" line="33" column="25" bodyfile="libs/render/src/render/texturecache.h" bodystart="32" bodyend="-1"/>
+        <location file="libs/render/src/render/texturecache.h" line="34" column="25" bodyfile="libs/render/src/render/texturecache.h" bodystart="33" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texturecache.h" line="21" column="18" bodyfile="libs/render/src/render/texturecache.cc" bodystart="37" bodyend="40"/>
+        <location file="libs/render/src/render/texturecache.h" line="19" column="18" bodyfile="libs/render/src/render/texturecache.cc" bodystart="37" bodyend="40"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureCache_1ad1a551325ad254fcc487ce662ffd72a3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -48,15 +48,49 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
+        <location file="libs/render/src/render/texturecache.h" line="20" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureCache_1a40e522374b21fba0319ffa83842a4754" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::TextureCache::TextureCache</definition>
+        <argsstring>(const TextureCache &amp;other)=delete</argsstring>
+        <name>TextureCache</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
         <location file="libs/render/src/render/texturecache.h" line="22" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureCache_1ae631fe16332f29997d1e8e7163c91228" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type></type>
-        <definition>euphoria::render::TextureCache::NONCOPYABLE</definition>
-        <argsstring>(TextureCache)</argsstring>
-        <name>NONCOPYABLE</name>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureCache_1afd1ad9cba3425710842ab7fa525bbc0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::TextureCache::operator=</definition>
+        <argsstring>(const TextureCache &amp;)=delete</argsstring>
+        <name>operator=</name>
         <param>
-          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref></type>
+          <type>const <ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texturecache.h" line="23" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureCache_1a92e860287ec0b2be9b8be9a066ee84be" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::TextureCache::TextureCache</definition>
+        <argsstring>(TextureCache &amp;&amp;other)=delete</argsstring>
+        <name>TextureCache</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> &amp;&amp;</type>
+          <declname>other</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -65,6 +99,22 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/render/src/render/texturecache.h" line="24" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureCache_1a1b6c4bea05b7baf8fb0ed94b3f5cc2b2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::TextureCache::operator=</definition>
+        <argsstring>(TextureCache &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1TextureCache" kindref="compound">TextureCache</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/texturecache.h" line="25" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureCache_1a4af59c8a8f655712f4c872db08363c66" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
@@ -81,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texturecache.h" line="27" column="9" bodyfile="libs/render/src/render/texturecache.cc" bodystart="47" bodyend="50"/>
+        <location file="libs/render/src/render/texturecache.h" line="28" column="9" bodyfile="libs/render/src/render/texturecache.cc" bodystart="47" bodyend="50"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1TextureCache_1ae2778c8d9d23bc3b1b569833fc7e3aa3" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
@@ -98,20 +148,23 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texturecache.h" line="30" column="9" bodyfile="libs/render/src/render/texturecache.cc" bodystart="54" bodyend="64"/>
+        <location file="libs/render/src/render/texturecache.h" line="31" column="9" bodyfile="libs/render/src/render/texturecache.cc" bodystart="54" bodyend="64"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/texturecache.h" line="20" column="1" bodyfile="libs/render/src/render/texturecache.h" bodystart="19" bodyend="34"/>
+    <location file="libs/render/src/render/texturecache.h" line="18" column="1" bodyfile="libs/render/src/render/texturecache.h" bodystart="17" bodyend="35"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1TextureCache_1a4af59c8a8f655712f4c872db08363c66" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>get_texture</name></member>
       <member refid="structeuphoria_1_1render_1_1TextureCache_1ae2778c8d9d23bc3b1b569833fc7e3aa3" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>get_texture</name></member>
-      <member refid="structeuphoria_1_1render_1_1TextureCache_1ae631fe16332f29997d1e8e7163c91228" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1TextureCache_1afd1ad9cba3425710842ab7fa525bbc0f" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1TextureCache_1a1b6c4bea05b7baf8fb0ed94b3f5cc2b2" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1TextureCache_1adad2656955ff5956fa625054b38f8a00" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>pimpl</name></member>
       <member refid="structeuphoria_1_1render_1_1TextureCache_1a194c73f89e61b94a2f3b038c94234d43" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>TextureCache</name></member>
+      <member refid="structeuphoria_1_1render_1_1TextureCache_1a40e522374b21fba0319ffa83842a4754" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>TextureCache</name></member>
+      <member refid="structeuphoria_1_1render_1_1TextureCache_1a92e860287ec0b2be9b8be9a066ee84be" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>TextureCache</name></member>
       <member refid="structeuphoria_1_1render_1_1TextureCache_1ad1a551325ad254fcc487ce662ffd72a3" prot="public" virt="non-virtual"><scope>euphoria::render::TextureCache</scope><name>~TextureCache</name></member>
     </listofallmembers>
   </compounddef>

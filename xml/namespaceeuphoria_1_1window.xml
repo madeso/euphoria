@@ -61,7 +61,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.h" line="36" column="1" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="35" bodyend="42"/>
+        <location file="libs/window/src/window/imgui_extra.h" line="33" column="1" bodyfile="libs/window/src/window/imgui_extra.h" bodystart="32" bodyend="39"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -413,7 +413,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="27" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="27" bodyend="30" declfile="libs/window/src/window/imgui_extra.h" declline="45" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="27" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="27" bodyend="30" declfile="libs/window/src/window/imgui_extra.h" declline="42" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1af7d69f16131fa15d643017e2c0be2c14" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
@@ -430,7 +430,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/imgui_extra.cc" line="34" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="34" bodyend="37" declfile="libs/window/src/window/imgui_extra.h" declline="48" declcolumn="5"/>
+        <location file="libs/window/src/window/imgui_extra.cc" line="34" column="5" bodyfile="libs/window/src/window/imgui_extra.cc" bodystart="34" bodyend="37" declfile="libs/window/src/window/imgui_extra.h" declline="45" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1window_1aa6416d230d5dfd0df0b8098e178f415c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>

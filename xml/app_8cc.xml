@@ -43,8 +43,6 @@
         </childnode>
         <childnode refid="55" relation="include">
         </childnode>
-        <childnode refid="56" relation="include">
-        </childnode>
       </node>
       <node id="11">
         <label>core/colors.h</label>
@@ -133,12 +131,10 @@
         <childnode refid="16" relation="include">
         </childnode>
       </node>
-      <node id="60">
+      <node id="59">
         <label>window/sdlwindow.h</label>
         <link refid="sdlwindow_8h"/>
-        <childnode refid="61" relation="include">
-        </childnode>
-        <childnode refid="55" relation="include">
+        <childnode refid="60" relation="include">
         </childnode>
         <childnode refid="43" relation="include">
         </childnode>
@@ -188,11 +184,11 @@
         </childnode>
         <childnode refid="54" relation="include">
         </childnode>
-        <childnode refid="57" relation="include">
+        <childnode refid="56" relation="include">
+        </childnode>
+        <childnode refid="58" relation="include">
         </childnode>
         <childnode refid="59" relation="include">
-        </childnode>
-        <childnode refid="60" relation="include">
         </childnode>
       </node>
       <node id="36">
@@ -230,12 +226,10 @@
         <childnode refid="29" relation="include">
         </childnode>
       </node>
-      <node id="59">
+      <node id="58">
         <label>window/imguilibrary.h</label>
         <link refid="imguilibrary_8h"/>
         <childnode refid="55" relation="include">
-        </childnode>
-        <childnode refid="56" relation="include">
         </childnode>
       </node>
       <node id="45">
@@ -315,14 +309,12 @@
         <childnode refid="29" relation="include">
         </childnode>
       </node>
-      <node id="57">
+      <node id="56">
         <label>window/imgui_extra.h</label>
         <link refid="imgui__extra_8h"/>
-        <childnode refid="32" relation="include">
-        </childnode>
         <childnode refid="25" relation="include">
         </childnode>
-        <childnode refid="58" relation="include">
+        <childnode refid="57" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
@@ -330,13 +322,13 @@
         </childnode>
         <childnode refid="49" relation="include">
         </childnode>
-        <childnode refid="55" relation="include">
+        <childnode refid="32" relation="include">
         </childnode>
       </node>
-      <node id="58">
+      <node id="57">
         <label>utility</label>
       </node>
-      <node id="56">
+      <node id="55">
         <label>window/fakesdlevent.h</label>
         <link refid="fakesdlevent_8h"/>
       </node>
@@ -356,7 +348,7 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="61">
+      <node id="60">
         <label>core/mousebehaviour.h</label>
         <link refid="mousebehaviour_8h"/>
       </node>
@@ -431,10 +423,6 @@
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-      </node>
-      <node id="55">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
       </node>
       <node id="16">
         <label>core/default_parse.h</label>

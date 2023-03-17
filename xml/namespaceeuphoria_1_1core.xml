@@ -7251,7 +7251,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="213" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="214" bodyend="229" declfile="libs/core/src/core/intersection.h" declline="64" declcolumn="5"/>
+        <location file="libs/core/src/core/intersection.cc" line="213" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="214" bodyend="228" declfile="libs/core/src/core/intersection.h" declline="64" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a9ebe4873553c55cb72b3407b1238e4f3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -7280,7 +7280,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="233" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="234" bodyend="242" declfile="libs/core/src/core/intersection.h" declline="72" declcolumn="5"/>
+        <location file="libs/core/src/core/intersection.cc" line="232" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="233" bodyend="241" declfile="libs/core/src/core/intersection.h" declline="72" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a8d5fe7e129cbd4df9ab64bdde69a4c3b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -7305,7 +7305,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="246" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="247" bodyend="254" declfile="libs/core/src/core/intersection.h" declline="80" declcolumn="5"/>
+        <location file="libs/core/src/core/intersection.cc" line="245" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="246" bodyend="253" declfile="libs/core/src/core/intersection.h" declline="80" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a75e1556350fc332c374a2ab81a7aa612" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -7330,7 +7330,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="258" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="259" bodyend="266" declfile="libs/core/src/core/intersection.h" declline="83" declcolumn="5"/>
+        <location file="libs/core/src/core/intersection.cc" line="257" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="258" bodyend="265" declfile="libs/core/src/core/intersection.h" declline="83" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a233c44e2450659ca12aa38341274589c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -7355,7 +7355,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="270" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="271" bodyend="288" declfile="libs/core/src/core/intersection.h" declline="92" declcolumn="5"/>
+        <location file="libs/core/src/core/intersection.cc" line="269" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="270" bodyend="287" declfile="libs/core/src/core/intersection.h" declline="92" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa31b18d304d2a917c3a35e8f99e3486d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -7376,7 +7376,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="292" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="293" bodyend="309" declfile="libs/core/src/core/intersection.h" declline="100" declcolumn="5"/>
+        <location file="libs/core/src/core/intersection.cc" line="291" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="292" bodyend="308" declfile="libs/core/src/core/intersection.h" declline="100" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a9408271f958361adb60dd0c15019fd6e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -7397,7 +7397,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="313" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="314" bodyend="324" declfile="libs/core/src/core/intersection.h" declline="103" declcolumn="5"/>
+        <location file="libs/core/src/core/intersection.cc" line="312" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="313" bodyend="323" declfile="libs/core/src/core/intersection.h" declline="103" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ab72b3a4fe3d476dee26eec030666b261" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -7426,7 +7426,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="328" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="329" bodyend="344" declfile="libs/core/src/core/intersection.h" declline="111" declcolumn="5"/>
+        <location file="libs/core/src/core/intersection.cc" line="327" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="328" bodyend="343" declfile="libs/core/src/core/intersection.h" declline="111" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a0a495f5ea85e22940dcdd355635df5ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::optional&lt; float &gt;</type>
@@ -7457,7 +7457,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="352" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="353" bodyend="393" declfile="libs/core/src/core/intersection.h" declline="120" declcolumn="5"/>
+        <location file="libs/core/src/core/intersection.cc" line="351" column="5" bodyfile="libs/core/src/core/intersection.cc" bodystart="352" bodyend="392" declfile="libs/core/src/core/intersection.h" declline="120" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a7b2f2246b3a47e7b0f4a2dbda5cf9411" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -7612,7 +7612,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="199" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="200" bodyend="247"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="198" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="199" bodyend="246"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a860dc8b5aeb88f3e1bb594045601b406" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7625,7 +7625,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="251" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="251" bodyend="288" declfile="libs/core/src/core/loadedfont.h" declline="73" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="250" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="250" bodyend="287" declfile="libs/core/src/core/loadedfont.h" declline="73" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a043050e78422181bbad906e284227577" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7638,7 +7638,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="292" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="292" bodyend="301" declfile="libs/core/src/core/loadedfont.h" declline="69" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="291" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="291" bodyend="300" declfile="libs/core/src/core/loadedfont.h" declline="69" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a6330fde1a94121abe5d2f6482bf7bfe4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7667,7 +7667,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="305" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="306" bodyend="327" declfile="libs/core/src/core/loadedfont.h" declline="77" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="304" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="305" bodyend="326" declfile="libs/core/src/core/loadedfont.h" declline="77" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a87d203b00f5d23a7b322936aa0b54d47" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7692,7 +7692,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="331" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="332" bodyend="400" declfile="libs/core/src/core/loadedfont.h" declline="87" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="330" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="331" bodyend="399" declfile="libs/core/src/core/loadedfont.h" declline="87" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a519d1ce1780e3e930f9b97a97488f748" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7733,7 +7733,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="404" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="405" bodyend="437" declfile="libs/core/src/core/loadedfont.h" declline="95" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="403" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="404" bodyend="436" declfile="libs/core/src/core/loadedfont.h" declline="95" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a5531443ba854f0eccaf25c5d391cdbbe" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1LoadedFont" kindref="compound">LoadedFont</ref></type>
@@ -7770,7 +7770,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/loadedfont.cc" line="441" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="442" bodyend="465" declfile="libs/core/src/core/loadedfont.h" declline="107" declcolumn="5"/>
+        <location file="libs/core/src/core/loadedfont.cc" line="440" column="5" bodyfile="libs/core/src/core/loadedfont.cc" bodystart="441" bodyend="464" declfile="libs/core/src/core/loadedfont.h" declline="107" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2e7cb84e85a210f990dfff1a0fc88dea" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -14301,7 +14301,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="350" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="350" bodyend="355" declfile="libs/core/src/core/vec2.h" declline="152" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="350" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="350" bodyend="355" declfile="libs/core/src/core/vec2.h" declline="153" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a0e6b6ae94a87eda854efbc6210a0c96b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -14322,7 +14322,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="357" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="357" bodyend="362" declfile="libs/core/src/core/vec2.h" declline="153" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="357" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="357" bodyend="362" declfile="libs/core/src/core/vec2.h" declline="154" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ab9b275bcfd8a47b184a8e2573d7c4222" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -14343,7 +14343,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="364" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="364" bodyend="369" declfile="libs/core/src/core/vec2.h" declline="154" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="364" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="364" bodyend="369" declfile="libs/core/src/core/vec2.h" declline="155" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1affcd959c79b4d275eabf7e59dfd4f49b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -14364,7 +14364,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="371" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="371" bodyend="376" declfile="libs/core/src/core/vec2.h" declline="155" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="371" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="371" bodyend="376" declfile="libs/core/src/core/vec2.h" declline="156" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa1948b53904ccc3889975a31913faad7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -14385,7 +14385,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="378" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="378" bodyend="383" declfile="libs/core/src/core/vec2.h" declline="156" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="378" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="378" bodyend="383" declfile="libs/core/src/core/vec2.h" declline="157" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1adcf7be56f7c4c901fd24b0c574af944b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -14406,7 +14406,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="385" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="385" bodyend="390" declfile="libs/core/src/core/vec2.h" declline="157" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="385" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="385" bodyend="390" declfile="libs/core/src/core/vec2.h" declline="158" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa1dcdb78d2bbeb8cbb2048d0547e6991" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -14427,7 +14427,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="393" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="393" bodyend="398" declfile="libs/core/src/core/vec2.h" declline="158" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="393" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="393" bodyend="398" declfile="libs/core/src/core/vec2.h" declline="159" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad2357281961eb873a23a67a17b1bf052" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -14448,7 +14448,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="401" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="401" bodyend="404" declfile="libs/core/src/core/vec2.h" declline="160" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="401" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="401" bodyend="404" declfile="libs/core/src/core/vec2.h" declline="161" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aec2d64b269b013b6100f0ab8a38a630a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
@@ -14469,7 +14469,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="408" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="408" bodyend="413" declfile="libs/core/src/core/vec2.h" declline="162" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="408" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="408" bodyend="413" declfile="libs/core/src/core/vec2.h" declline="163" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae25c09769cd9bcab2e2c36505cd11bc5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
@@ -14490,7 +14490,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="417" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="417" bodyend="422" declfile="libs/core/src/core/vec2.h" declline="163" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="417" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="417" bodyend="422" declfile="libs/core/src/core/vec2.h" declline="164" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1af0b7bbaaa9c04f82bc6ced806221f2d7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
@@ -14511,7 +14511,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="425" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="425" bodyend="430" declfile="libs/core/src/core/vec2.h" declline="164" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="425" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="425" bodyend="430" declfile="libs/core/src/core/vec2.h" declline="165" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a7a7e96f55cbc8428ab15ba05d8440d16" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
@@ -14532,7 +14532,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="433" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="433" bodyend="438" declfile="libs/core/src/core/vec2.h" declline="165" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="433" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="433" bodyend="438" declfile="libs/core/src/core/vec2.h" declline="166" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ad2392e57e6097e1a89a095cc2b1f56cb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
@@ -14553,7 +14553,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="442" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="442" bodyend="445" declfile="libs/core/src/core/vec2.h" declline="167" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="442" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="442" bodyend="445" declfile="libs/core/src/core/vec2.h" declline="168" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1afed34b14f956c40318dd4a1e15e1913d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -14575,7 +14575,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="450" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="450" bodyend="453" declfile="libs/core/src/core/vec2.h" declline="172" declcolumn="10"/>
+        <location file="libs/core/src/core/vec2.cc" line="450" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="450" bodyend="453" declfile="libs/core/src/core/vec2.h" declline="173" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1af9850d77657894a2314d5ab265348311" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -14596,7 +14596,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="456" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="456" bodyend="459" declfile="libs/core/src/core/vec2.h" declline="173" declcolumn="10"/>
+        <location file="libs/core/src/core/vec2.cc" line="456" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="456" bodyend="459" declfile="libs/core/src/core/vec2.h" declline="174" declcolumn="10"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aec6265dbc1ffb0acd14b677a246b30cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -14618,7 +14618,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="463" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="463" bodyend="466" declfile="libs/core/src/core/vec2.h" declline="179" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="463" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="463" bodyend="466" declfile="libs/core/src/core/vec2.h" declline="180" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a63cdec4f7aaaca8b7e71aff5a5411753" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">vec2f</ref></type>
@@ -14644,7 +14644,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="469" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="469" bodyend="476" declfile="libs/core/src/core/vec2.h" declline="184" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="469" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="469" bodyend="476" declfile="libs/core/src/core/vec2.h" declline="185" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a00bf953becc86cda3bba62a550ed2c9c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">vec2i</ref></type>
@@ -14669,7 +14669,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="478" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="478" bodyend="485" declfile="libs/core/src/core/vec2.h" declline="185" declcolumn="11"/>
+        <location file="libs/core/src/core/vec2.cc" line="478" column="11" bodyfile="libs/core/src/core/vec2.cc" bodystart="478" bodyend="485" declfile="libs/core/src/core/vec2.h" declline="186" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a6a9612271d408dcde85706c1439fd794" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -14691,7 +14691,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="488" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="489" bodyend="493" declfile="libs/core/src/core/vec2.h" declline="196" declcolumn="5"/>
+        <location file="libs/core/src/core/vec2.cc" line="488" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="489" bodyend="493" declfile="libs/core/src/core/vec2.h" declline="197" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aed79db53955a55e66b5a148d31663de4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -14712,7 +14712,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="495" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="496" bodyend="500" declfile="libs/core/src/core/vec2.h" declline="197" declcolumn="5"/>
+        <location file="libs/core/src/core/vec2.cc" line="495" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="496" bodyend="500" declfile="libs/core/src/core/vec2.h" declline="198" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1af64ff4535218bca0146480293b2deb57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -14733,7 +14733,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="503" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="504" bodyend="508" declfile="libs/core/src/core/vec2.h" declline="198" declcolumn="5"/>
+        <location file="libs/core/src/core/vec2.cc" line="503" column="5" bodyfile="libs/core/src/core/vec2.cc" bodystart="504" bodyend="508" declfile="libs/core/src/core/vec2.h" declline="199" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a67af454c35be95be33b8122b0b7ec702" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1unit2f" kindref="compound">unit2f</ref></type>
@@ -14750,7 +14750,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.cc" line="511" column="12" bodyfile="libs/core/src/core/vec2.cc" bodystart="511" bodyend="517" declfile="libs/core/src/core/vec2.h" declline="201" declcolumn="12"/>
+        <location file="libs/core/src/core/vec2.cc" line="511" column="12" bodyfile="libs/core/src/core/vec2.cc" bodystart="511" bodyend="517" declfile="libs/core/src/core/vec2.h" declline="202" declcolumn="12"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1aa318d0337c8823f2cc4d363c4ddc5b1f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -14769,7 +14769,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="187" column="5" declfile="libs/core/src/core/vec2.h" declline="187" declcolumn="5"/>
+        <location file="libs/core/src/core/vec2.h" line="188" column="5" declfile="libs/core/src/core/vec2.h" declline="188" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a8bdc5546ef022bb627f002afb6419f9e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -14788,7 +14788,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec2.h" line="188" column="5" declfile="libs/core/src/core/vec2.h" declline="188" declcolumn="5"/>
+        <location file="libs/core/src/core/vec2.h" line="189" column="5" declfile="libs/core/src/core/vec2.h" declline="189" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae50a586758a08e1a1b00397ff48a8662" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -14810,7 +14810,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="330" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="330" bodyend="335" declfile="libs/core/src/core/vec3.h" declline="119" declcolumn="11"/>
+        <location file="libs/core/src/core/vec3.cc" line="330" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="330" bodyend="335" declfile="libs/core/src/core/vec3.h" declline="123" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1afb2a1fc61ae18df05b8d4299aee06081" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -14831,7 +14831,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="339" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="339" bodyend="344" declfile="libs/core/src/core/vec3.h" declline="120" declcolumn="11"/>
+        <location file="libs/core/src/core/vec3.cc" line="339" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="339" bodyend="344" declfile="libs/core/src/core/vec3.h" declline="124" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a16b8820fa5243f1e424c18bb438c7321" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -14852,7 +14852,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="347" column="11" bodyfile="libs/core/src/core/vec3.cc" bodystart="347" bodyend="352" declfile="libs/core/src/core/vec3.h" declline="122" declcolumn="11"/>
+        <location file="libs/core/src/core/vec3.cc" line="347" column="11" bodyfile="libs/core/src/core/vec3.cc" bodystart="347" bodyend="352" declfile="libs/core/src/core/vec3.h" declline="126" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1af3c232ef71ab0114bd788ffba44bf367" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -14873,7 +14873,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="355" column="11" bodyfile="libs/core/src/core/vec3.cc" bodystart="355" bodyend="360" declfile="libs/core/src/core/vec3.h" declline="123" declcolumn="11"/>
+        <location file="libs/core/src/core/vec3.cc" line="355" column="11" bodyfile="libs/core/src/core/vec3.cc" bodystart="355" bodyend="360" declfile="libs/core/src/core/vec3.h" declline="127" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a773e7f5fc4c9bd355cf0ae0050de2a3c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -14894,7 +14894,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="364" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="364" bodyend="369" declfile="libs/core/src/core/vec3.h" declline="125" declcolumn="11"/>
+        <location file="libs/core/src/core/vec3.cc" line="364" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="364" bodyend="369" declfile="libs/core/src/core/vec3.h" declline="129" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1ae8552c50df9d34b3ae7d74e519461bce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -14915,71 +14915,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="373" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="373" bodyend="377" declfile="libs/core/src/core/vec3.h" declline="126" declcolumn="11"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a576b1f5585f1a0da165e99e8cb77e106" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
-        <definition>vec3f euphoria::core::component_multiply</definition>
-        <argsstring>(const vec3f &amp;lhs, const vec3f &amp;rhs)</argsstring>
-        <name>component_multiply</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="381" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="381" bodyend="384" declfile="libs/core/src/core/vec3.h" declline="128" declcolumn="11"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2d7ddae0a4bbfee5f18170603d5b4db3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type>float</type>
-        <definition>float euphoria::core::dot</definition>
-        <argsstring>(const vec3f &amp;lhs, const vec3f &amp;rhs)</argsstring>
-        <name>dot</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
-          <declname>lhs</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
-          <declname>rhs</declname>
-        </param>
-        <briefdescription>
-<para>Functions. </para>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="392" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="392" bodyend="395" declfile="libs/core/src/core/vec3.h" declline="134" declcolumn="11"/>
-      </memberdef>
-      <memberdef kind="function" id="namespaceeuphoria_1_1core_1a2de67e779d1a0b5a0bd588f3710d7db6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
-        <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
-        <definition>vec3f euphoria::core::cross</definition>
-        <argsstring>(const vec3f &amp;v, const vec3f &amp;u)</argsstring>
-        <name>cross</name>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
-          <declname>v</declname>
-        </param>
-        <param>
-          <type>const <ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref> &amp;</type>
-          <declname>u</declname>
-        </param>
-        <briefdescription>
-        </briefdescription>
-        <detaileddescription>
-        </detaileddescription>
-        <inbodydescription>
-        </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="399" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="399" bodyend="405" declfile="libs/core/src/core/vec3.h" declline="135" declcolumn="11"/>
+        <location file="libs/core/src/core/vec3.cc" line="373" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="373" bodyend="377" declfile="libs/core/src/core/vec3.h" declline="130" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a779ebe4fe2969967b3373f814a9e2c8e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -15002,7 +14938,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="419" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="420" bodyend="423" declfile="libs/core/src/core/vec3.h" declline="147" declcolumn="5"/>
+        <location file="libs/core/src/core/vec3.cc" line="419" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="420" bodyend="423" declfile="libs/core/src/core/vec3.h" declline="142" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a1b4184f4d72be5cfff6e244d010c4507" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -15023,7 +14959,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="426" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="427" bodyend="430" declfile="libs/core/src/core/vec3.h" declline="148" declcolumn="5"/>
+        <location file="libs/core/src/core/vec3.cc" line="426" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="427" bodyend="430" declfile="libs/core/src/core/vec3.h" declline="143" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a7478b2a872159226cfa1739a9beb58e5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>
@@ -15044,7 +14980,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/vec3.cc" line="433" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="434" bodyend="437" declfile="libs/core/src/core/vec3.h" declline="149" declcolumn="5"/>
+        <location file="libs/core/src/core/vec3.cc" line="433" column="5" bodyfile="libs/core/src/core/vec3.cc" bodystart="434" bodyend="437" declfile="libs/core/src/core/vec3.h" declline="144" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1a81801db31bbec0a3492540563d877580" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::ostream &amp;</type>

@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/bufferbuilder2d.h" line="32" column="9" bodyfile="libs/core/src/core/bufferbuilder2d.cc" bodystart="63" bodyend="80"/>
+        <location file="libs/core/src/core/bufferbuilder2d.h" line="32" column="9" bodyfile="libs/core/src/core/bufferbuilder2d.cc" bodystart="59" bodyend="76"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1BufferBuilder2_1a068a8bd13b72d70c1de55924f8ea2583" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -114,7 +114,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/bufferbuilder2d.h" line="39" column="9" bodyfile="libs/core/src/core/bufferbuilder2d.cc" bodystart="85" bodyend="104"/>
+        <location file="libs/core/src/core/bufferbuilder2d.h" line="39" column="9" bodyfile="libs/core/src/core/bufferbuilder2d.cc" bodystart="81" bodyend="100"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1BufferBuilder2_1a1e4649904e4b4a24c9416b03c94bd4a7" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -131,7 +131,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/bufferbuilder2d.h" line="42" column="9" bodyfile="libs/core/src/core/bufferbuilder2d.cc" bodystart="108" bodyend="133"/>
+        <location file="libs/core/src/core/bufferbuilder2d.h" line="42" column="9" bodyfile="libs/core/src/core/bufferbuilder2d.cc" bodystart="104" bodyend="129"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

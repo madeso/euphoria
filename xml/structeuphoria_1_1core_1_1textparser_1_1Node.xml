@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="19" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="18" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Node_1a5310d8999c53d524ecc20362d0dc3a68" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -31,15 +31,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="20" column="21"/>
+        <location file="libs/core/src/core/ui_text.h" line="19" column="21"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Node_1a726156ea77716a1f912e774e746fe4c6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Node_1a1ca253d4fb1c2936d62f0085563b65ad" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::core::textparser::Node::NONCOPYABLE</definition>
-        <argsstring>(Node)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::core::textparser::Node::Node</definition>
+        <argsstring>(const Node &amp;other)=delete</argsstring>
+        <name>Node</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1textparser_1_1Node" kindref="compound">Node</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1textparser_1_1Node" kindref="compound">Node</ref> &amp;</type>
+          <declname>other</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -47,7 +48,56 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="22" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="21" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Node_1a209b790249956192b92ea7e8809478ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::textparser::Node::operator=</definition>
+        <argsstring>(const Node &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1textparser_1_1Node" kindref="compound">Node</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="22" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Node_1a221f1ef2e7c47956d0b92edcf840e41b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::textparser::Node::Node</definition>
+        <argsstring>(Node &amp;&amp;other)=delete</argsstring>
+        <name>Node</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1textparser_1_1Node" kindref="compound">Node</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="23" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Node_1a0ebec11ce3c75e0dacd238265e76e96a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::textparser::Node::operator=</definition>
+        <argsstring>(Node &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1textparser_1_1Node" kindref="compound">Node</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/ui_text.h" line="24" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1Node_1a5eda5fd749d924d1a2c7f81627776706" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -67,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="25" column="13"/>
+        <location file="libs/core/src/core/ui_text.h" line="27" column="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -98,11 +148,14 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/ui_text.h" line="18" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="17" bodyend="26"/>
+    <location file="libs/core/src/core/ui_text.h" line="17" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="16" bodyend="28"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a5eda5fd749d924d1a2c7f81627776706" prot="public" virt="pure-virtual"><scope>euphoria::core::textparser::Node</scope><name>accept</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1aad5fbbcf326567a811cd9d9cd2b06da9" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Node</scope><name>Node</name></member>
-      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a726156ea77716a1f912e774e746fe4c6" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Node</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a1ca253d4fb1c2936d62f0085563b65ad" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Node</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a221f1ef2e7c47956d0b92edcf840e41b" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Node</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a209b790249956192b92ea7e8809478ca" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Node</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a0ebec11ce3c75e0dacd238265e76e96a" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::Node</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a5310d8999c53d524ecc20362d0dc3a68" prot="public" virt="virtual"><scope>euphoria::core::textparser::Node</scope><name>~Node</name></member>
     </listofallmembers>
   </compounddef>

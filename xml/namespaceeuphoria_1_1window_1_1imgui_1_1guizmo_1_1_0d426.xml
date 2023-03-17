@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
-  <compounddef id="namespaceeuphoria_1_1core_1_1_0d172" kind="namespace" language="C++">
-    <compoundname>euphoria::core::@172</compoundname>
+  <compounddef id="namespaceeuphoria_1_1window_1_1imgui_1_1guizmo_1_1_0d426" kind="namespace" language="C++">
+    <compoundname>euphoria::window::imgui::guizmo::@426</compoundname>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/palette.cc" line="12" column="5"/>
+    <location file="libs/window/src/window/imguizmo.cc" line="21" column="5"/>
   </compounddef>
 </doxygen>

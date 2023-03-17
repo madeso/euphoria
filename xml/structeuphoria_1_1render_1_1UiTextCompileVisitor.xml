@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="361" column="28" bodyfile="libs/render/src/render/font.cc" bodystart="361" bodyend="-1"/>
+        <location file="libs/render/src/render/font.cc" line="360" column="28" bodyfile="libs/render/src/render/font.cc" bodystart="360" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a36f77425c263fd123cad269fcd466013" prot="public" static="no" mutable="no">
         <type>float</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="362" column="15" bodyfile="libs/render/src/render/font.cc" bodystart="362" bodyend="-1"/>
+        <location file="libs/render/src/render/font.cc" line="361" column="15" bodyfile="libs/render/src/render/font.cc" bodystart="361" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1aac2415ee36303a130bde6433b5a1b94e" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="363" column="14" bodyfile="libs/render/src/render/font.cc" bodystart="363" bodyend="-1"/>
+        <location file="libs/render/src/render/font.cc" line="362" column="14" bodyfile="libs/render/src/render/font.cc" bodystart="362" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a93d60fd08cbaabc1016637b3eaf7e114" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="364" column="21" bodyfile="libs/render/src/render/font.cc" bodystart="364" bodyend="-1"/>
+        <location file="libs/render/src/render/font.cc" line="363" column="21" bodyfile="libs/render/src/render/font.cc" bodystart="363" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1af4f25d247a7d91cc151a23a3f33c734e" prot="public" static="no" mutable="no">
         <type>int</type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="365" column="13" bodyfile="libs/render/src/render/font.cc" bodystart="365" bodyend="-1"/>
+        <location file="libs/render/src/render/font.cc" line="364" column="13" bodyfile="libs/render/src/render/font.cc" bodystart="364" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a9bcfc9525aa23d5ff1a3d0ff18bf55ab" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands" kindref="compound">ListOfTextDrawCommands</ref> *</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="368" column="32" bodyfile="libs/render/src/render/font.cc" bodystart="368" bodyend="-1"/>
+        <location file="libs/render/src/render/font.cc" line="367" column="32" bodyfile="libs/render/src/render/font.cc" bodystart="367" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="370" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="371" bodyend="382"/>
+        <location file="libs/render/src/render/font.cc" line="369" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="370" bodyend="381"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1adf2c21fe3aec30691af90f3fc9af208d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -126,7 +126,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="386" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="386" bodyend="396"/>
+        <location file="libs/render/src/render/font.cc" line="385" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="385" bodyend="395"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a785f7a2c473cec0cf6359021a4a3a602" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -144,7 +144,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="400" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="400" bodyend="415"/>
+        <location file="libs/render/src/render/font.cc" line="399" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="399" bodyend="414"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a0e515cbcbe0d29d47bdd4aaa9101206b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -158,7 +158,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="419" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="419" bodyend="422"/>
+        <location file="libs/render/src/render/font.cc" line="418" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="418" bodyend="421"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1af7d6d14c2acc244bf7987ebba982299d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type>void</type>
@@ -172,7 +172,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="426" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="426" bodyend="429"/>
+        <location file="libs/render/src/render/font.cc" line="425" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="425" bodyend="428"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a85f22eaa81d8856138636a90ca592210" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
         <type>void</type>
@@ -189,7 +189,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="433" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="433" bodyend="473"/>
+        <location file="libs/render/src/render/font.cc" line="432" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="432" bodyend="472"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -241,22 +241,25 @@
         <link refid="structeuphoria_1_1core_1_1textparser_1_1Visitor"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/font.cc" line="360" column="1" bodyfile="libs/render/src/render/font.cc" bodystart="359" bodyend="474"/>
+    <location file="libs/render/src/render/font.cc" line="359" column="1" bodyfile="libs/render/src/render/font.cc" bodystart="358" bodyend="473"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a85f22eaa81d8856138636a90ca592210" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>add_char_index</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1aac2415ee36303a130bde6433b5a1b94e" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>apply_highlight</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1af0e73e3b60e535e34c47627d298cc85d" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>font</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1af4f25d247a7d91cc151a23a3f33c734e" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>last_char_index</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a9bcfc9525aa23d5ff1a3d0ff18bf55ab" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>list</name></member>
-      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb691a854b081e203bb171babe754516" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a0e515cbcbe0d29d47bdd4aaa9101206b" prot="public" virt="virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>on_begin</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1af7d6d14c2acc244bf7987ebba982299d" prot="public" virt="virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>on_end</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a785f7a2c473cec0cf6359021a4a3a602" prot="public" virt="virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>on_image</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1adf2c21fe3aec30691af90f3fc9af208d" prot="public" virt="virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>on_text</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a627e972a43c43d82eeaa557108882f68" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1ab04f9d14fa438bb81bb420e8b07c18b2" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a93d60fd08cbaabc1016637b3eaf7e114" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>position</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a36f77425c263fd123cad269fcd466013" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>size</name></member>
       <member refid="structeuphoria_1_1render_1_1UiTextCompileVisitor_1a0788e5eb8e0b12dccde2a39f124bca4e" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>UiTextCompileVisitor</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1abb60b911945f69c8d56cb528edc8e4f3" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>Visitor</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a421159af70ff4b017bdd8bec0907d4be" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>Visitor</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1add224e438c0228ded45cc78dfac7d7ad" prot="public" virt="non-virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>Visitor</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Visitor_1a07e0830a17089d8617bea079e7989157" prot="public" virt="virtual"><scope>euphoria::render::UiTextCompileVisitor</scope><name>~Visitor</name></member>
     </listofallmembers>
   </compounddef>

@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="73" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="307" bodyend="318"/>
+        <location file="libs/render/src/render/font.h" line="73" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="306" bodyend="317"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

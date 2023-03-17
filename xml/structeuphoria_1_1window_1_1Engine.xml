@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="36" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="36" bodyend="-1"/>
+        <location file="libs/window/src/window/engine.h" line="34" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="34" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1window_1_1Engine_1a28c5ad1f948ff9c531db2b38b970f2e7" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1FileSystem" kindref="compound">core::vfs::FileSystem</ref> &gt;</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="37" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="37" bodyend="-1"/>
+        <location file="libs/window/src/window/engine.h" line="35" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1window_1_1Engine_1a617767973242f4b5699be89bdddb0073" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1vfs_1_1ReadRootCatalog" kindref="compound">core::vfs::ReadRootCatalog</ref> &gt;</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="38" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/window/src/window/engine.h" line="36" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="36" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1window_1_1Engine_1ae043753a3f56db483f170777204e639d" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1window_1_1SdlWindow" kindref="compound">SdlWindow</ref> &gt;</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="39" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="39" bodyend="-1"/>
+        <location file="libs/window/src/window/engine.h" line="37" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="37" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1window_1_1Engine_1a4e5ce248d241984a4e762e8ffffa0c28" prot="public" static="no" mutable="no">
         <type>unsigned int</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="40" column="22" bodyfile="libs/window/src/window/engine.h" bodystart="40" bodyend="-1"/>
+        <location file="libs/window/src/window/engine.h" line="38" column="22" bodyfile="libs/window/src/window/engine.h" bodystart="38" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1window_1_1Engine_1a668e478f1725aaf8ed80a1bd79017be4" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1window_1_1SdlAndOpenglContext" kindref="compound">SdlAndOpenglContext</ref> &gt;</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="41" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="41" bodyend="-1"/>
+        <location file="libs/window/src/window/engine.h" line="39" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="39" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1window_1_1Engine_1ab5a955d5558aad2726745c81da82f9d8" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Init" kindref="compound">render::Init</ref> &gt;</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="42" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="42" bodyend="-1"/>
+        <location file="libs/window/src/window/engine.h" line="40" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="40" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1window_1_1Engine_1a6ca176fabc85debadcb6529e49358cc3" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1window_1_1imgui_1_1Library" kindref="compound">imgui::Library</ref> &gt;</type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="43" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="43" bodyend="-1"/>
+        <location file="libs/window/src/window/engine.h" line="41" column="25" bodyfile="libs/window/src/window/engine.h" bodystart="41" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -121,7 +121,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="45" column="9" bodyfile="libs/window/src/window/engine.cc" bodystart="24" bodyend="27"/>
+        <location file="libs/window/src/window/engine.h" line="43" column="9" bodyfile="libs/window/src/window/engine.cc" bodystart="24" bodyend="27"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Engine_1a4e2d0648013a29e7e1d118f9ec7336aa" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -134,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="46" column="9" bodyfile="libs/window/src/window/engine.cc" bodystart="30" bodyend="39"/>
+        <location file="libs/window/src/window/engine.h" line="44" column="9" bodyfile="libs/window/src/window/engine.cc" bodystart="30" bodyend="39"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Engine_1afa9f73385a03f5972c40e155e3ab1a17" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -150,7 +150,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="48" column="9"/>
+        <location file="libs/window/src/window/engine.h" line="46" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Engine_1aadf634341f90dc00c8a765b2d813397d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -166,7 +166,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="49" column="9"/>
+        <location file="libs/window/src/window/engine.h" line="47" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Engine_1a0b0cdeefc7bf5e7d46d840f20fcc25ed" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -182,7 +182,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="50" column="14"/>
+        <location file="libs/window/src/window/engine.h" line="48" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Engine_1a52ac7325f27921937e90f8dd0dcc5682" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -198,7 +198,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="51" column="14"/>
+        <location file="libs/window/src/window/engine.h" line="49" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Engine_1a37783845e9c66fa077c2ca42142af3f8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -215,7 +215,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="53" column="13" bodyfile="libs/window/src/window/engine.cc" bodystart="43" bodyend="88"/>
+        <location file="libs/window/src/window/engine.h" line="51" column="13" bodyfile="libs/window/src/window/engine.cc" bodystart="43" bodyend="88"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Engine_1a82f447fb34de95b62f889fa3725b3d76" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -245,7 +245,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="55" column="14" bodyfile="libs/window/src/window/engine.cc" bodystart="93" bodyend="140"/>
+        <location file="libs/window/src/window/engine.h" line="53" column="14" bodyfile="libs/window/src/window/engine.cc" bodystart="93" bodyend="140"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1Engine_1a5f489b73c2ed5e8ac17e7db3649ddf58" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -270,14 +270,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/engine.h" line="63" column="14" bodyfile="libs/window/src/window/engine.cc" bodystart="144" bodyend="162"/>
+        <location file="libs/window/src/window/engine.h" line="61" column="14" bodyfile="libs/window/src/window/engine.cc" bodystart="144" bodyend="162"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/engine.h" line="35" column="1" bodyfile="libs/window/src/window/engine.h" bodystart="34" bodyend="64"/>
+    <location file="libs/window/src/window/engine.h" line="33" column="1" bodyfile="libs/window/src/window/engine.h" bodystart="32" bodyend="62"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1Engine_1a617767973242f4b5699be89bdddb0073" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>catalog</name></member>
       <member refid="structeuphoria_1_1window_1_1Engine_1a668e478f1725aaf8ed80a1bd79017be4" prot="public" virt="non-virtual"><scope>euphoria::window::Engine</scope><name>context</name></member>

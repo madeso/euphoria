@@ -2,6 +2,7 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="namespaceeuphoria_1_1core_1_1tracery" kind="namespace" language="C++">
     <compoundname>euphoria::core::tracery</compoundname>
+    <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1ActionRule" prot="public">euphoria::core::tracery::ActionRule</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1CallSymbolNode" prot="public">euphoria::core::tracery::CallSymbolNode</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1GeneratorArgument" prot="public">euphoria::core::tracery::GeneratorArgument</innerclass>
     <innerclass refid="structeuphoria_1_1core_1_1tracery_1_1Grammar" prot="public">euphoria::core::tracery::Grammar</innerclass>
@@ -116,7 +117,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="227" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="228" bodyend="254" declfile="libs/core/src/core/tracery.h" declline="45" declcolumn="5"/>
+        <location file="libs/core/src/core/tracery.cc" line="226" column="5" bodyfile="libs/core/src/core/tracery.cc" bodystart="227" bodyend="253" declfile="libs/core/src/core/tracery.h" declline="43" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1abbcbfd903e49286189a2b8d1c79afa59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -133,7 +134,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="263" column="12" bodyfile="libs/core/src/core/tracery.cc" bodystart="263" bodyend="267"/>
+        <location file="libs/core/src/core/tracery.cc" line="262" column="12" bodyfile="libs/core/src/core/tracery.cc" bodystart="262" bodyend="266"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1tracery_1a33d808a7a77009d69143bbbebad7b155" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -150,7 +151,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="270" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="270" bodyend="284"/>
+        <location file="libs/core/src/core/tracery.cc" line="269" column="17" bodyfile="libs/core/src/core/tracery.cc" bodystart="269" bodyend="283"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

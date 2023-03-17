@@ -78,8 +78,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aab9118341d8c1aa1a34728681ce65402"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0925780fdc9b761c6491bd756234a661"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#a0925780fdc9b761c6491bd756234a661">~Layout</a> ()</td></tr>
 <tr class="separator:a0925780fdc9b761c6491bd756234a661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab2d7632c9c77d5cfd4e9a3c8181e27e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#ab2d7632c9c77d5cfd4e9a3c8181e27e3">NONCOPYABLE</a> (<a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a>)</td></tr>
-<tr class="separator:ab2d7632c9c77d5cfd4e9a3c8181e27e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaff18c0db818ae857ccf54d13661782"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#abaff18c0db818ae857ccf54d13661782">Layout</a> (const <a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a> &amp;other)=delete</td></tr>
+<tr class="separator:abaff18c0db818ae857ccf54d13661782"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85aeedeba672d94e2be787c931a1199f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#a85aeedeba672d94e2be787c931a1199f">operator=</a> (const <a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a> &amp;)=delete</td></tr>
+<tr class="separator:a85aeedeba672d94e2be787c931a1199f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d3e1f642735910b281b8f65ee4ca9ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#a3d3e1f642735910b281b8f65ee4ca9ea">Layout</a> (<a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a> &amp;&amp;other)=delete</td></tr>
+<tr class="separator:a3d3e1f642735910b281b8f65ee4ca9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f5f62207f0957b3944b4248e48c96a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#a9f5f62207f0957b3944b4248e48c96a0">operator=</a> (<a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a> &amp;&amp;)=delete</td></tr>
+<tr class="separator:a9f5f62207f0957b3944b4248e48c96a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af6fd2eb8a826c08e0add5fd78a3464d0"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="structeuphoria_1_1core_1_1size2f.html">core::size2f</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#af6fd2eb8a826c08e0add5fd78a3464d0">calculate_minimum_area</a> (const std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1gui_1_1Widget.html">Widget</a> &gt;&gt; &amp;widgets) const =0</td></tr>
 <tr class="separator:af6fd2eb8a826c08e0add5fd78a3464d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59f1d59f5b936e31b12c8e25c4cd91a7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html#a59f1d59f5b936e31b12c8e25c4cd91a7">do_layout</a> (std::vector&lt; std::shared_ptr&lt; <a class="el" href="structeuphoria_1_1gui_1_1Widget.html">Widget</a> &gt;&gt; *widgets, const <a class="el" href="structeuphoria_1_1core_1_1Rectf.html">core::Rectf</a> &amp;area) const =0</td></tr>
@@ -87,10 +93,10 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="layout_8h_source.html#l00019">19</a> of file <a class="el" href="layout_8h_source.html">layout.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="layout_8h_source.html#l00018">18</a> of file <a class="el" href="layout_8h_source.html">layout.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aab9118341d8c1aa1a34728681ce65402"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab9118341d8c1aa1a34728681ce65402">&#9670;&nbsp;</a></span>Layout()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aab9118341d8c1aa1a34728681ce65402">&#9670;&nbsp;</a></span>Layout() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,6 +139,58 @@ Public Member Functions</h2></td></tr>
   </td>
   <td class="mlabels-right">
 <span class="mlabels"><span class="mlabel">virtual</span><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="abaff18c0db818ae857ccf54d13661782"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaff18c0db818ae857ccf54d13661782">&#9670;&nbsp;</a></span>Layout() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">euphoria::gui::Layout::Layout </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a> &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3d3e1f642735910b281b8f65ee4ca9ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d3e1f642735910b281b8f65ee4ca9ea">&#9670;&nbsp;</a></span>Layout() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">euphoria::gui::Layout::Layout </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a> &amp;&amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -206,20 +264,54 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ab2d7632c9c77d5cfd4e9a3c8181e27e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab2d7632c9c77d5cfd4e9a3c8181e27e3">&#9670;&nbsp;</a></span>NONCOPYABLE()</h2>
+<a id="a85aeedeba672d94e2be787c931a1199f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85aeedeba672d94e2be787c931a1199f">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">euphoria::gui::Layout::NONCOPYABLE </td>
+          <td class="memname">void euphoria::gui::Layout::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a> &amp;&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9f5f62207f0957b3944b4248e48c96a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f5f62207f0957b3944b4248e48c96a0">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void euphoria::gui::Layout::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structeuphoria_1_1gui_1_1Layout.html">Layout</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>

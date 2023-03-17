@@ -7,7 +7,6 @@
     <includes refid="vec2_8h" local="yes">core/vec2.h</includes>
     <includes refid="angle_8h" local="yes">core/angle.h</includes>
     <includes refid="rgb_8h" local="yes">core/rgb.h</includes>
-    <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
     <includedby refid="spritebatch_8cc" local="yes">libs/render/src/render/spritebatch.cc</includedby>
     <incdepgraph>
       <node id="25">
@@ -110,8 +109,6 @@
         <childnode refid="9" relation="include">
         </childnode>
         <childnode refid="33" relation="include">
-        </childnode>
-        <childnode refid="35" relation="include">
         </childnode>
       </node>
       <node id="6">
@@ -223,10 +220,6 @@
         </childnode>
         <childnode refid="8" relation="include">
         </childnode>
-      </node>
-      <node id="35">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
       </node>
       <node id="20">
         <label>core/default_parse.h</label>

@@ -226,11 +226,12 @@
       <member refid="structeuphoria_1_1gui_1_1Widget_1a80c0faaf62ebf85fa3a5447e499204b9" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>layout</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1aa2aecb7732220885a308d1d6b9939099" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>margin</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1afa8759b6e074b74103d2410bac6ac044" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>name</name></member>
-      <member refid="structeuphoria_1_1gui_1_1Widget_1a5da9b6c183202964e9aac2ca829fbf9d" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>NONCOPYABLE</name></member>
       <member refid="structeuphoria_1_1gui_1_1CommandButton_1aaa07ea9eb386791400aaff983f39de39" prot="public" virt="virtual"><scope>euphoria::gui::CommandButton</scope><name>on_clicked</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a4d824de3a4244a2961f6c5aca17a0145" prot="public" virt="virtual"><scope>euphoria::gui::CommandButton</scope><name>on_size_changed</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a353436f010303a3e32a71f55d895bbad" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1acef4c059b21c87582142a76fcca47112" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1a33f535a1f55b9b4b5708d338b31ed44a" prot="public" virt="non-virtual" ambiguityscope="euphoria::gui::Widget::"><scope>euphoria::gui::CommandButton</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1a23aba7b51f8bea22cded9fd9a73a3978" prot="public" virt="non-virtual" ambiguityscope="euphoria::gui::Widget::"><scope>euphoria::gui::CommandButton</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a5c40adc17ae40f0ef94f3fe5bc961d72" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>padding</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1ab0579b89359ae6afcd5e7221ca1d45a4" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>position_displacement</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1adaeaa96945b0d21a6bb304a152a06e8e" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>rect</name></member>
@@ -246,6 +247,8 @@
       <member refid="structeuphoria_1_1gui_1_1Widget_1a327ea1ae474285039624b1452ab81631" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>ui_state</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1a065d52d909b787511580c6f549c03b2b" prot="public" virt="virtual"><scope>euphoria::gui::CommandButton</scope><name>visit</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1a58c16afb025fc25598706c2fbb6cfaf7" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>Widget</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1ab7d5be28d0290db4419a8c192edc43af" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>Widget</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Widget_1a9f8124d41835e23229ab3e3b1f078ce8" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>Widget</name></member>
       <member refid="structeuphoria_1_1gui_1_1Button_1af8209f327515b9d359f42825f83c9b4a" prot="public" virt="non-virtual"><scope>euphoria::gui::CommandButton</scope><name>~Button</name></member>
       <member refid="structeuphoria_1_1gui_1_1Widget_1afd282e26e5c802550b76dafc91a0d70c" prot="public" virt="virtual"><scope>euphoria::gui::CommandButton</scope><name>~Widget</name></member>
     </listofallmembers>

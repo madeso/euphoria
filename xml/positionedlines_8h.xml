@@ -90,9 +90,7 @@
         <link refid="buffer_8h"/>
         <childnode refid="28" relation="include">
         </childnode>
-        <childnode refid="29" relation="include">
-        </childnode>
-        <childnode refid="31" relation="include">
+        <childnode refid="30" relation="include">
         </childnode>
       </node>
       <node id="25">
@@ -103,16 +101,16 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="31">
+      <node id="30">
         <label>render/shaderattribute.h</label>
         <link refid="shaderattribute_8h"/>
-        <childnode refid="30" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
       </node>
-      <node id="29">
+      <node id="28">
         <label>render/id.h</label>
         <link refid="id_8h"/>
-        <childnode refid="30" relation="include">
+        <childnode refid="29" relation="include">
         </childnode>
       </node>
       <node id="19">
@@ -171,7 +169,7 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="30">
+      <node id="29">
         <label>render/gltypes.h</label>
         <link refid="gltypes_8h"/>
       </node>
@@ -224,10 +222,6 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-      </node>
-      <node id="28">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
       </node>
       <node id="2">
         <label>memory</label>

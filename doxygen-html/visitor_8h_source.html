@@ -56,44 +56,44 @@
 <div class="contents">
 <a href="visitor_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8h.html">core/noncopyable.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1gui.html">euphoria::gui</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">struct </span>Button;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">struct </span>PanelWidget;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;}</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1gui.html">euphoria::gui</a></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structeuphoria_1_1gui_1_1Visitor.html">   15</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1gui_1_1Visitor.html">Visitor</a></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#a343b59baffddb8ed4728d6a7a61f3640">Visitor</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#aae17dfafaa8b16a6266779da215b6663">~Visitor</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#ae48b9e7af5840040edc969f8c4b17f1a">NONCOPYABLE</a>(<a class="code" href="structeuphoria_1_1gui_1_1Visitor.html">Visitor</a>);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keyword">virtual</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#ad2a9d0d55210eb860d69e8e4962be8fc">visit</a>(<a class="code" href="structeuphoria_1_1gui_1_1Button.html">Button</a>* button) = 0;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        <span class="keyword">virtual</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#ad2a9d0d55210eb860d69e8e4962be8fc">visit</a>(<a class="code" href="structeuphoria_1_1gui_1_1PanelWidget.html">PanelWidget</a>* button) = 0;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1gui.html">euphoria::gui</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;    <span class="keyword">struct </span>Button;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    <span class="keyword">struct </span>PanelWidget;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;}</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1gui.html">euphoria::gui</a></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="structeuphoria_1_1gui_1_1Visitor.html">   13</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1gui_1_1Visitor.html">Visitor</a></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#a343b59baffddb8ed4728d6a7a61f3640">Visitor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#aae17dfafaa8b16a6266779da215b6663">~Visitor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#a343b59baffddb8ed4728d6a7a61f3640">Visitor</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html">Visitor</a>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#ae840755be6a8552dd154d49780606821">operator=</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html">Visitor</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#a343b59baffddb8ed4728d6a7a61f3640">Visitor</a>(<a class="code" href="structeuphoria_1_1gui_1_1Visitor.html">Visitor</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#ae840755be6a8552dd154d49780606821">operator=</a>(<a class="code" href="structeuphoria_1_1gui_1_1Visitor.html">Visitor</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        <span class="keyword">virtual</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#ad2a9d0d55210eb860d69e8e4962be8fc">visit</a>(<a class="code" href="structeuphoria_1_1gui_1_1Button.html">Button</a>* button) = 0;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">virtual</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        <a class="code" href="structeuphoria_1_1gui_1_1Visitor.html#ad2a9d0d55210eb860d69e8e4962be8fc">visit</a>(<a class="code" href="structeuphoria_1_1gui_1_1PanelWidget.html">PanelWidget</a>* button) = 0;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    };</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructeuphoria_1_1gui_1_1Button_html"><div class="ttname"><a href="structeuphoria_1_1gui_1_1Button.html">euphoria::gui::Button</a></div><div class="ttdef"><b>Definition:</b> <a href="button_8h_source.html#l00026">button.h:26</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1gui_1_1Visitor_html_ae48b9e7af5840040edc969f8c4b17f1a"><div class="ttname"><a href="structeuphoria_1_1gui_1_1Visitor.html#ae48b9e7af5840040edc969f8c4b17f1a">euphoria::gui::Visitor::NONCOPYABLE</a></div><div class="ttdeci">NONCOPYABLE(Visitor)</div></div>
-<div class="ttc" id="astructeuphoria_1_1gui_1_1PanelWidget_html"><div class="ttname"><a href="structeuphoria_1_1gui_1_1PanelWidget.html">euphoria::gui::PanelWidget</a></div><div class="ttdef"><b>Definition:</b> <a href="panelwidget_8h_source.html#l00012">panelwidget.h:12</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1gui_1_1Button_html"><div class="ttname"><a href="structeuphoria_1_1gui_1_1Button.html">euphoria::gui::Button</a></div><div class="ttdef"><b>Definition:</b> <a href="button_8h_source.html#l00025">button.h:25</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1gui_1_1PanelWidget_html"><div class="ttname"><a href="structeuphoria_1_1gui_1_1PanelWidget.html">euphoria::gui::PanelWidget</a></div><div class="ttdef"><b>Definition:</b> <a href="panelwidget_8h_source.html#l00010">panelwidget.h:10</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1gui_1_1Visitor_html_a343b59baffddb8ed4728d6a7a61f3640"><div class="ttname"><a href="structeuphoria_1_1gui_1_1Visitor.html#a343b59baffddb8ed4728d6a7a61f3640">euphoria::gui::Visitor::Visitor</a></div><div class="ttdeci">Visitor()=default</div></div>
 <div class="ttc" id="astructeuphoria_1_1gui_1_1Visitor_html_aae17dfafaa8b16a6266779da215b6663"><div class="ttname"><a href="structeuphoria_1_1gui_1_1Visitor.html#aae17dfafaa8b16a6266779da215b6663">euphoria::gui::Visitor::~Visitor</a></div><div class="ttdeci">virtual ~Visitor()=default</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1gui_html"><div class="ttname"><a href="namespaceeuphoria_1_1gui.html">euphoria::gui</a></div><div class="ttdef"><b>Definition:</b> <a href="button_8cc_source.html#l00012">button.cc:12</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1gui_1_1Visitor_html_ad2a9d0d55210eb860d69e8e4962be8fc"><div class="ttname"><a href="structeuphoria_1_1gui_1_1Visitor.html#ad2a9d0d55210eb860d69e8e4962be8fc">euphoria::gui::Visitor::visit</a></div><div class="ttdeci">virtual void visit(Button *button)=0</div></div>
-<div class="ttc" id="anoncopyable_8h_html"><div class="ttname"><a href="noncopyable_8h.html">noncopyable.h</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1gui_1_1Visitor_html"><div class="ttname"><a href="structeuphoria_1_1gui_1_1Visitor.html">euphoria::gui::Visitor</a></div><div class="ttdef"><b>Definition:</b> <a href="visitor_8h_source.html#l00015">visitor.h:15</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1gui_1_1Visitor_html"><div class="ttname"><a href="structeuphoria_1_1gui_1_1Visitor.html">euphoria::gui::Visitor</a></div><div class="ttdef"><b>Definition:</b> <a href="visitor_8h_source.html#l00013">visitor.h:13</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1gui_1_1Visitor_html_ae840755be6a8552dd154d49780606821"><div class="ttname"><a href="structeuphoria_1_1gui_1_1Visitor.html#ae840755be6a8552dd154d49780606821">euphoria::gui::Visitor::operator=</a></div><div class="ttdeci">void operator=(const Visitor &amp;)=delete</div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -11,34 +11,34 @@
     <includes refid="stringutils_8h" local="yes">core/stringutils.h</includes>
     <includes refid="stringbuilder_8h" local="yes">core/stringbuilder.h</includes>
     <incdepgraph>
-      <node id="18">
+      <node id="17">
         <label>core/stringbuilder.h</label>
         <link refid="stringbuilder_8h"/>
       </node>
-      <node id="11">
+      <node id="10">
         <label>core/textfileparser.h</label>
         <link refid="textfileparser_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="17">
+      <node id="16">
         <label>core/stringutils.h</label>
         <link refid="stringutils_8h"/>
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="9">
+      <node id="8">
         <label>string</label>
       </node>
       <node id="3">
         <label>map</label>
       </node>
-      <node id="8">
+      <node id="7">
         <label>assert/assert.h</label>
         <link refid="assert_8h"/>
-        <childnode refid="9" relation="include">
+        <childnode refid="8" relation="include">
         </childnode>
-        <childnode refid="10" relation="include">
+        <childnode refid="9" relation="include">
         </childnode>
       </node>
       <node id="1">
@@ -46,43 +46,43 @@
         <link refid="texttemplate_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
         <childnode refid="7" relation="include">
         </childnode>
-        <childnode refid="8" relation="include">
+        <childnode refid="10" relation="include">
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-        <childnode refid="12" relation="include">
+        <childnode refid="13" relation="include">
         </childnode>
-        <childnode refid="14" relation="include">
+        <childnode refid="16" relation="include">
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-        <childnode refid="18" relation="include">
-        </childnode>
       </node>
-      <node id="15">
+      <node id="14">
         <label>tuple</label>
       </node>
       <node id="5">
         <label>optional</label>
       </node>
-      <node id="10">
+      <node id="9">
         <label>vector</label>
       </node>
-      <node id="7">
+      <node id="6">
         <label>utility</label>
       </node>
-      <node id="13">
+      <node id="12">
         <label>core/memorychunk.h</label>
         <link refid="memorychunk_8h"/>
         <childnode refid="4" relation="include">
         </childnode>
       </node>
-      <node id="12">
+      <node id="11">
         <label>core/vfs.h</label>
         <link refid="vfs_8h"/>
-        <childnode refid="13" relation="include">
+        <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="3" relation="include">
         </childnode>
@@ -91,21 +91,17 @@
         <childnode refid="5" relation="include">
         </childnode>
       </node>
-      <node id="14">
+      <node id="13">
         <label>core/vfs_path.h</label>
         <link refid="vfs__path_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-        <childnode refid="16" relation="include">
-        </childnode>
       </node>
-      <node id="6">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
-      </node>
-      <node id="16">
+      <node id="15">
         <label>type_traits</label>
       </node>
       <node id="2">
@@ -116,8 +112,6 @@
         <childnode refid="4" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
-        </childnode>
-        <childnode refid="6" relation="include">
         </childnode>
       </node>
       <node id="4">

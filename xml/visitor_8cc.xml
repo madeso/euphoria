@@ -7,18 +7,12 @@
       <node id="2">
         <label>gui/visitor.h</label>
         <link refid="visitor_8h"/>
-        <childnode refid="3" relation="include">
-        </childnode>
       </node>
       <node id="1">
         <label>libs/gui/src/gui/visitor.cc</label>
         <link refid="visitor_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
-      </node>
-      <node id="3">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
       </node>
     </incdepgraph>
     <innernamespace refid="namespaceeuphoria">euphoria</innernamespace>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
-  <compounddef id="namespaceeuphoria_1_1core_1_1_0d196" kind="namespace" language="C++">
-    <compoundname>euphoria::core::@196</compoundname>
+  <compounddef id="namespace_0d368" kind="namespace" language="C++">
+    <compoundname>@368</compoundname>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/polybezier.cc" line="10" column="1"/>
+    <location file="libs/render/src/render/scalablesprite.cc" line="25" column="1"/>
   </compounddef>
 </doxygen>

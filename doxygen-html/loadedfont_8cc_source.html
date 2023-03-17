@@ -68,487 +68,486 @@
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="log_8h.html">log/log.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="assert_8h.html">assert/assert.h</a>&quot;</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8h.html">core/noncopyable.h</a>&quot;</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="image__draw_8h.html">core/image_draw.h</a>&quot;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="utf8_8h.html">core/utf8.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vfs_8h.html">core/vfs.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cint_8h.html">core/cint.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memorychunk_8h.html">core/memorychunk.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vfs__path_8h.html">core/vfs_path.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="image__draw_8h.html">core/image_draw.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="utf8_8h.html">core/utf8.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vfs_8h.html">core/vfs.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cint_8h.html">core/cint.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="memorychunk_8h.html">core/memorychunk.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="vfs__path_8h.html">core/vfs_path.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1core.html">euphoria::core</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html">   26</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1core_1_1FontData.html">FontData</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    {</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">   28</a></span>&#160;        stbtt_fontinfo <a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">   29</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">size</a>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">   30</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">was_loaded</a>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">   31</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">line_height</a>;</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">   32</a></span>&#160;        std::vector&lt;stbtt_kerningentry&gt; <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">kernings</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">   33</a></span>&#160;        std::map&lt;int, int&gt; <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">index_to_unicode</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#ad3fa304b5e99c68cbf9d5726e3333dc6">   35</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1FontData.html#ad3fa304b5e99c68cbf9d5726e3333dc6">FontData</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* ttf_buffer, <span class="keywordtype">float</span> s)</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            : <a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>()</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            , <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">size</a>(s)</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            , <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">was_loaded</a>(stbtt_InitFont(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;            , <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">line_height</a>(0)</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;        {</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">was_loaded</a>)</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;            {</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                {</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">int</span> count = stbtt_GetKerningTableLength(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">kernings</a>.reserve(count);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                    stbtt_GetKerningTable(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">kernings</a>.data(), count);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">line_height</a> = [&amp;]{</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="keywordtype">int</span> ascent = 0;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordtype">int</span> descent = 0;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    <span class="keywordtype">int</span> line_gap = 0;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    stbtt_GetFontVMetrics(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, &amp;ascent, &amp;descent, &amp;line_gap);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                    <span class="keywordflow">return</span> ascent - descent + line_gap;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;                }();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;            }</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        }</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#ac20676ded4e99f2256f627b17de18105">   59</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1FontData.html#ac20676ded4e99f2256f627b17de18105">define_codepoint</a>(<span class="keywordtype">int</span> cp)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;        {</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> index = stbtt_FindGlyphIndex(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, cp);</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">index_to_unicode</a>[index] = cp;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a90251a7c14817fdbe567a0f046ad7ff0">   65</a></span>&#160;        [[nodiscard]] std::optional&lt;int&gt; <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a90251a7c14817fdbe567a0f046ad7ff0">glyph_index_to_unicode</a>(<span class="keywordtype">int</span> glyph)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keyword">auto</span> found = <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">index_to_unicode</a>.find(glyph);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            <span class="keywordflow">if</span>(found == <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">index_to_unicode</a>.end())</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;            {</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                <span class="keywordflow">return</span> {};</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;            {</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                <span class="keywordflow">return</span> found-&gt;second;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;            }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        [[nodiscard]] <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a></div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#adade44a64f459fa58fd6e22c171cc4b0">   79</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1FontData.html#adade44a64f459fa58fd6e22c171cc4b0">load_glyph</a>(<span class="keywordtype">int</span> code_point)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">        </span>{</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordtype">int</span> width=0; <span class="keywordtype">int</span> height=0;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keywordtype">int</span> xoffset=0; <span class="keywordtype">int</span> yoffset=0;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> scale = stbtt_ScaleForPixelHeight(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">size</a>);</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *bitmap = stbtt_GetCodepointBitmap</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;            (</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                &amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>,</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1core.html">euphoria::core</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html">   25</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1core_1_1FontData.html">FontData</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">   27</a></span>&#160;        stbtt_fontinfo <a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">   28</a></span>&#160;        <span class="keywordtype">float</span> <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">size</a>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">   29</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">was_loaded</a>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">   30</a></span>&#160;        <span class="keywordtype">int</span> <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">line_height</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">   31</a></span>&#160;        std::vector&lt;stbtt_kerningentry&gt; <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">kernings</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">   32</a></span>&#160;        std::map&lt;int, int&gt; <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">index_to_unicode</a>;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#ad3fa304b5e99c68cbf9d5726e3333dc6">   34</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1FontData.html#ad3fa304b5e99c68cbf9d5726e3333dc6">FontData</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>* ttf_buffer, <span class="keywordtype">float</span> s)</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;            : <a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>()</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;            , <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">size</a>(s)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;            , <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">was_loaded</a>(stbtt_InitFont(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, ttf_buffer, stbtt_GetFontOffsetForIndex(ttf_buffer,0)) == 1)</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;            , <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">line_height</a>(0)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;            <span class="keywordflow">if</span>(<a class="code" href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">was_loaded</a>)</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;            {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;                {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">int</span> count = stbtt_GetKerningTableLength(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">kernings</a>.reserve(count);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;                    stbtt_GetKerningTable(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">kernings</a>.data(), count);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;                <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">line_height</a> = [&amp;]{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;                    <span class="keywordtype">int</span> ascent = 0;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;                    <span class="keywordtype">int</span> descent = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;                    <span class="keywordtype">int</span> line_gap = 0;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;                    stbtt_GetFontVMetrics(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, &amp;ascent, &amp;descent, &amp;line_gap);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                    <span class="keywordflow">return</span> ascent - descent + line_gap;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;                }();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;            }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#ac20676ded4e99f2256f627b17de18105">   58</a></span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1core_1_1FontData.html#ac20676ded4e99f2256f627b17de18105">define_codepoint</a>(<span class="keywordtype">int</span> cp)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;        {</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> index = stbtt_FindGlyphIndex(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, cp);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">index_to_unicode</a>[index] = cp;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#a90251a7c14817fdbe567a0f046ad7ff0">   64</a></span>&#160;        [[nodiscard]] std::optional&lt;int&gt; <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a90251a7c14817fdbe567a0f046ad7ff0">glyph_index_to_unicode</a>(<span class="keywordtype">int</span> glyph)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;            <span class="keyword">auto</span> found = <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">index_to_unicode</a>.find(glyph);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;            <span class="keywordflow">if</span>(found == <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">index_to_unicode</a>.end())</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;            {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;            }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;            {</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                <span class="keywordflow">return</span> found-&gt;second;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;            }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        [[nodiscard]] <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1FontData.html#adade44a64f459fa58fd6e22c171cc4b0">   78</a></span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1FontData.html#adade44a64f459fa58fd6e22c171cc4b0">load_glyph</a>(<span class="keywordtype">int</span> code_point)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="keyword">        </span>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;            <span class="keywordtype">int</span> width=0; <span class="keywordtype">int</span> height=0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordtype">int</span> xoffset=0; <span class="keywordtype">int</span> yoffset=0;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> scale = stbtt_ScaleForPixelHeight(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">size</a>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> *bitmap = stbtt_GetCodepointBitmap</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;            (</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                &amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                scale,</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                scale,</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                scale,</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                code_point,</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                &amp;width,</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                &amp;height,</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                &amp;xoffset,</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                &amp;yoffset</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;            );</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.code_point= code_point;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.size = <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">size</a>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.bearing_x = xoffset;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.bearing_y = yoffset;</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.valid = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;            {</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                <span class="keywordtype">int</span> advance_width = 0;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                stbtt_GetCodepointHMetrics(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, code_point, &amp;advance_width, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.advance = <a class="code" href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">c_float_to_int</a>(<a class="code" href="namespaceeuphoria_1_1core.html#abac18fdcdb2d7a94b7762d18e9a2f34c">c_int_to_float</a>(advance_width) * scale);</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            }</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <span class="keywordflow">if</span>(width == 0 &amp;&amp; height == 0)</div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;            {</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;                <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.make_invalid();</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            }</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;            {</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;                <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.setup_with_alpha_support(width, height);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> &lt; <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.height; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> += 1)</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                {</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> &lt; <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.width; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> += 1)</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                    {</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.set_pixel</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                        (</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                            <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>, <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.height-<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>-1,</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                            255, 255, 255,</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                            bitmap[<a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.width * <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> + <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>]</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                        );</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                    }</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                }</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;            }</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            <span class="keywordflow">if</span>(bitmap != <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;            {</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                stbtt_FreeBitmap(bitmap, <span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;            }</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;        }</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    };</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                code_point,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                &amp;width,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                &amp;height,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                &amp;xoffset,</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                &amp;yoffset</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;            );</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.code_point= code_point;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.size = <a class="code" href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">size</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.bearing_x = xoffset;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.bearing_y = yoffset;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;            <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.valid = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;            {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                <span class="keywordtype">int</span> advance_width = 0;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                stbtt_GetCodepointHMetrics(&amp;<a class="code" href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">font</a>, code_point, &amp;advance_width, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.advance = <a class="code" href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">c_float_to_int</a>(<a class="code" href="namespaceeuphoria_1_1core.html#abac18fdcdb2d7a94b7762d18e9a2f34c">c_int_to_float</a>(advance_width) * scale);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;            }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;            <span class="keywordflow">if</span>(width == 0 &amp;&amp; height == 0)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            {</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;                <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.make_invalid();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;            }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;            {</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;                <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.setup_with_alpha_support(width, height);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> &lt; <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.height; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> += 1)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                    <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> &lt; <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.width; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> += 1)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                    {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                        <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.set_pixel</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;                        (</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                            <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>, <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.height-<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>-1,</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;                            255, 255, 255,</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;                            bitmap[<a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>.image.width * <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> + <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>]</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                        );</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                    }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;            }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;            <span class="keywordflow">if</span>(bitmap != <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;            {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                stbtt_FreeBitmap(bitmap, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;            }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="nlp__sentence_8cc.html#a30df446d01f80e4211b2fcef8f754436">ch</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;        }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    };</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
 <div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordtype">int</span></div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">  140</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">LoadedFont::generate_new_index_from_private_use</a>(<span class="keyword">const</span> std::string&amp; alias)</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    {</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="comment">// detect existing private use alias!</span></div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> pu = <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a6d89d16cf2a8868060060590342faa75">next_private_use</a>;</div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a6d89d16cf2a8868060060590342faa75">next_private_use</a> += 1;</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a82432a6f8326753e85db7a6e853ae06d">private_use_aliases</a>[alias] = pu;</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">return</span> pu;</div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">  139</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">LoadedFont::generate_new_index_from_private_use</a>(<span class="keyword">const</span> std::string&amp; alias)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="comment">// detect existing private use alias!</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> pu = <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a6d89d16cf2a8868060060590342faa75">next_private_use</a>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a6d89d16cf2a8868060060590342faa75">next_private_use</a> += 1;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a82432a6f8326753e85db7a6e853ae06d">private_use_aliases</a>[alias] = pu;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <span class="keywordflow">return</span> pu;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
 <div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1LoadedFont.html#a69bf4223feabae42806ea26b14a2f6a6">  151</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a69bf4223feabae42806ea26b14a2f6a6">LoadedFont::combine_with</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a>&amp; fc)</div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    {</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        std::map&lt;int, int&gt; pus;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [alias, <span class="keywordtype">id</span>]: fc.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a82432a6f8326753e85db7a6e853ae06d">private_use_aliases</a>)</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;            pus[id] = <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">generate_new_index_from_private_use</a>(alias);</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        }</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; glyph_iterator: fc.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>)</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        {</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="keyword">auto</span> code_point = glyph_iterator.first;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keyword">auto</span> found_pus = pus.find(code_point);</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <span class="keywordflow">if</span>(found_pus != pus.end())</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;            {</div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                <span class="comment">// private use: move to new private use to avoid collisions</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;                code_point = found_pus-&gt;second;</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;            }</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> found = <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>.find(code_point);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            <span class="keywordflow">if</span>(found == <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>.end())</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;            {</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>[code_point] = glyph_iterator.second;</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            }</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            {</div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;                <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Multiple codepoints for {0} found when trying to combine&quot;</span>, code_point);</div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;            }</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">e</a>: fc.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae49c18ae9d1c66b5ddc4a4afa0f06223">kerning</a>)</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        {</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> found = <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae49c18ae9d1c66b5ddc4a4afa0f06223">kerning</a>.find(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">e</a>.first);</div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keywordflow">if</span>(found == <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae49c18ae9d1c66b5ddc4a4afa0f06223">kerning</a>.end())</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;            {</div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;                <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae49c18ae9d1c66b5ddc4a4afa0f06223">kerning</a>.insert(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">e</a>);</div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            }</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;            {</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Multiple kernings found when trying to combine&quot;</span>);</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;            }</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        }</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a> = <a class="code" href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">std::max</a>(<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a>, fc.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a>);</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="structeuphoria_1_1core_1_1LoadedFont.html#a69bf4223feabae42806ea26b14a2f6a6">  150</a></span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a69bf4223feabae42806ea26b14a2f6a6">LoadedFont::combine_with</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a>&amp; fc)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;        std::map&lt;int, int&gt; pus;</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; [alias, <span class="keywordtype">id</span>]: fc.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a82432a6f8326753e85db7a6e853ae06d">private_use_aliases</a>)</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;            pus[id] = <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">generate_new_index_from_private_use</a>(alias);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;        }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; glyph_iterator: fc.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>)</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;            <span class="keyword">auto</span> code_point = glyph_iterator.first;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            <span class="keyword">auto</span> found_pus = pus.find(code_point);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <span class="keywordflow">if</span>(found_pus != pus.end())</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            {</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;                <span class="comment">// private use: move to new private use to avoid collisions</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;                code_point = found_pus-&gt;second;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> found = <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>.find(code_point);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;            <span class="keywordflow">if</span>(found == <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>.end())</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;            {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;                <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>[code_point] = glyph_iterator.second;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;            }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;            {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;                <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Multiple codepoints for {0} found when trying to combine&quot;</span>, code_point);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;            }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">e</a>: fc.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae49c18ae9d1c66b5ddc4a4afa0f06223">kerning</a>)</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;        {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> found = <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae49c18ae9d1c66b5ddc4a4afa0f06223">kerning</a>.find(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">e</a>.first);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <span class="keywordflow">if</span>(found == <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae49c18ae9d1c66b5ddc4a4afa0f06223">kerning</a>.end())</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            {</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae49c18ae9d1c66b5ddc4a4afa0f06223">kerning</a>.insert(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">e</a>);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;            <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;            {</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;                <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Multiple kernings found when trying to combine&quot;</span>);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a> = <a class="code" href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">std::max</a>(<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a>, fc.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a>);</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
 <div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TGlyphs&gt;</div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a7634e155c8da955d462e53b69fc3fb48">get_character_from_builtin8</a></div>
-<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a7634e155c8da955d462e53b69fc3fb48">  200</a></span>&#160;    (</div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> start_codepoint,</div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordtype">int</span> end_codepoint,</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;        TGlyphs glyphs</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    )</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    {</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <a class="code" href="assert_8h.html#a20d93230446fc0009184336e984ab6b2">ASSERTX</a>(start_codepoint &lt; end_codepoint, start_codepoint, end_codepoint);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> number_of_glyphs = (end_codepoint+1) - start_codepoint;</div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> font;</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a> = 8;</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        <span class="keywordflow">for</span></div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        (</div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            <span class="keywordtype">int</span> glyph_index=0;</div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            glyph_index &lt; number_of_glyphs;</div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;            glyph_index+=1</div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        )</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        {</div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> code_point = glyph_index + start_codepoint;</div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> glyph;</div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a4cc53f90ce9da64964617fd6c48bf830">setup_with_alpha_support</a>(8, 8, 0);</div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
-<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> &lt; 8; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> += 1)</div>
-<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;            {</div>
-<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> &lt; 8; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> += 1)</div>
-<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                {</div>
-<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                    <span class="comment">// extract pixel from character</span></div>
-<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                    <span class="comment">// glyph is defined in &quot;y down&quot; order, fix by inverting sample point on y</span></div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    <span class="keywordtype">bool</span> pixel = 0 != (glyphs[glyph_index][7 - <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>] &amp; 1 &lt;&lt; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>);</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                    <span class="keywordflow">if</span>(pixel)</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                    {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                        <span class="comment">// glyph.image.SetPixel(x, y, Color::White);</span></div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a8c55d94ba90eb0c4ae87d05c9687f8b0">draw_square</a>(&amp;glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>, {NamedColor::white}, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>, 1);</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                    }</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;                }</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            }</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a77ca8d84793ee717d1af32c461487d38">size</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a879204999da3285e98394d38d3fa566e">height</a>);</div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a5bffa6ce40dff6e55c4b14725ebfae27">bearing_y</a> = glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a879204999da3285e98394d38d3fa566e">height</a> + 0;</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ae579292a5f08e1122442d6165c5c419e">bearing_x</a> = 0;</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ab853a1ce4dc672f756a76ae0a3875cba">advance</a> = glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a98e42aab99adc9d88ff9b50eb1af88f2">width</a> + 0;</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#aebe7ac7302d3a1e8a0882ccdff7ac968">code_point</a>= code_point;</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a26d5d49e3eadd14ab0294ee225efdcb0">valid</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;            font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>[code_point] = glyph;</div>
-<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        }</div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">return</span> font;</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    }</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> TGlyphs&gt;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a></div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a7634e155c8da955d462e53b69fc3fb48">get_character_from_builtin8</a></div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a7634e155c8da955d462e53b69fc3fb48">  199</a></span>&#160;    (</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">int</span> start_codepoint,</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordtype">int</span> end_codepoint,</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        TGlyphs glyphs</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    )</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;        <a class="code" href="assert_8h.html#a20d93230446fc0009184336e984ab6b2">ASSERTX</a>(start_codepoint &lt; end_codepoint, start_codepoint, end_codepoint);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> number_of_glyphs = (end_codepoint+1) - start_codepoint;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> font;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a> = 8;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        <span class="keywordflow">for</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        (</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;            <span class="keywordtype">int</span> glyph_index=0;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;            glyph_index &lt; number_of_glyphs;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;            glyph_index+=1</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        )</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> code_point = glyph_index + start_codepoint;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> glyph;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a4cc53f90ce9da64964617fd6c48bf830">setup_with_alpha_support</a>(8, 8, 0);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> &lt; 8; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> += 1)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> &lt; 8; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> += 1)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                    <span class="comment">// extract pixel from character</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;                    <span class="comment">// glyph is defined in &quot;y down&quot; order, fix by inverting sample point on y</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;                    <span class="keywordtype">bool</span> pixel = 0 != (glyphs[glyph_index][7 - <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>] &amp; 1 &lt;&lt; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                    <span class="keywordflow">if</span>(pixel)</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;                    {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;                        <span class="comment">// glyph.image.SetPixel(x, y, Color::White);</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a8c55d94ba90eb0c4ae87d05c9687f8b0">draw_square</a>(&amp;glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>, {NamedColor::white}, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>, 1);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                    }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;            }</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a77ca8d84793ee717d1af32c461487d38">size</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a879204999da3285e98394d38d3fa566e">height</a>);</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a5bffa6ce40dff6e55c4b14725ebfae27">bearing_y</a> = glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a879204999da3285e98394d38d3fa566e">height</a> + 0;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ae579292a5f08e1122442d6165c5c419e">bearing_x</a> = 0;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ab853a1ce4dc672f756a76ae0a3875cba">advance</a> = glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a98e42aab99adc9d88ff9b50eb1af88f2">width</a> + 0;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#aebe7ac7302d3a1e8a0882ccdff7ac968">code_point</a>= code_point;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a26d5d49e3eadd14ab0294ee225efdcb0">valid</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;            font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>[code_point] = glyph;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">return</span> font;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    LoadedFont</div>
-<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a860dc8b5aeb88f3e1bb594045601b406">  251</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a860dc8b5aeb88f3e1bb594045601b406">load_characters_from_builtin13</a>()</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    {</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> font;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a> = 13;</div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> codepoint=32; codepoint &lt; 127; codepoint+=1)</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        {</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> glyph;</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a4cc53f90ce9da64964617fd6c48bf830">setup_with_alpha_support</a>(8, 13, 0);</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> glyph_index = codepoint - 32;</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> &lt; 13; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> += 1)</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;            {</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> &lt; 8; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> += 1)</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                {</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">bool</span> pixel = 0 !=</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                    (</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                        FONT8X13_RASTERS[glyph_index * 13 + <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>] &amp; (1 &lt;&lt; (8-<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>))</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                    );</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                    <span class="keywordflow">if</span>(pixel)</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                    {</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a8c55d94ba90eb0c4ae87d05c9687f8b0">draw_square</a>(&amp;glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>, {NamedColor::white}, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>, 1);</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                    }</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                }</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;            }</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a77ca8d84793ee717d1af32c461487d38">size</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a879204999da3285e98394d38d3fa566e">height</a>);</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a5bffa6ce40dff6e55c4b14725ebfae27">bearing_y</a> = glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a879204999da3285e98394d38d3fa566e">height</a> + 0;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ae579292a5f08e1122442d6165c5c419e">bearing_x</a> = 0;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ab853a1ce4dc672f756a76ae0a3875cba">advance</a> = glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a98e42aab99adc9d88ff9b50eb1af88f2">width</a> + 0;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#aebe7ac7302d3a1e8a0882ccdff7ac968">code_point</a>= codepoint;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a26d5d49e3eadd14ab0294ee225efdcb0">valid</a> = <span class="keyword">true</span>;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;            font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>[codepoint] = glyph;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        }</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keywordflow">return</span> font;</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    LoadedFont</div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a860dc8b5aeb88f3e1bb594045601b406">  250</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a860dc8b5aeb88f3e1bb594045601b406">load_characters_from_builtin13</a>()</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    {</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> font;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;        font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">line_height</a> = 13;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> codepoint=32; codepoint &lt; 127; codepoint+=1)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        {</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> glyph;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a4cc53f90ce9da64964617fd6c48bf830">setup_with_alpha_support</a>(8, 13, 0);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> glyph_index = codepoint - 32;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> &lt; 13; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a> += 1)</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;            {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                <span class="keywordflow">for</span>(<span class="keywordtype">int</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> = 0; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> &lt; 8; <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a> += 1)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;                {</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;                    <span class="keyword">const</span> <span class="keywordtype">bool</span> pixel = 0 !=</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                    (</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                        FONT8X13_RASTERS[glyph_index * 13 + <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>] &amp; (1 &lt;&lt; (8-<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>))</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;                    );</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;                    <span class="keywordflow">if</span>(pixel)</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;                    {</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                        <a class="code" href="namespaceeuphoria_1_1core.html#a8c55d94ba90eb0c4ae87d05c9687f8b0">draw_square</a>(&amp;glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>, {NamedColor::white}, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">x</a>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">y</a>, 1);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;                    }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                }</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;            }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a77ca8d84793ee717d1af32c461487d38">size</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a879204999da3285e98394d38d3fa566e">height</a>);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a5bffa6ce40dff6e55c4b14725ebfae27">bearing_y</a> = glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a879204999da3285e98394d38d3fa566e">height</a> + 0;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ae579292a5f08e1122442d6165c5c419e">bearing_x</a> = 0;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ab853a1ce4dc672f756a76ae0a3875cba">advance</a> = glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a>.<a class="code" href="structeuphoria_1_1core_1_1Image.html#a98e42aab99adc9d88ff9b50eb1af88f2">width</a> + 0;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#aebe7ac7302d3a1e8a0882ccdff7ac968">code_point</a>= codepoint;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;            glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a26d5d49e3eadd14ab0294ee225efdcb0">valid</a> = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;            font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>[codepoint] = glyph;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        }</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        <span class="keywordflow">return</span> font;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
 <div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    LoadedFont</div>
-<div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a043050e78422181bbad906e284227577">  292</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a043050e78422181bbad906e284227577">load_characters_from_builtin8</a>()</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    {</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> font;</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        <span class="comment">// todo(Gustav): Add more characters</span></div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a69bf4223feabae42806ea26b14a2f6a6">combine_with</a></div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        (</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#a7634e155c8da955d462e53b69fc3fb48">get_character_from_builtin8</a>(0x0000, 0x007F, font8x8_basic)</div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        );</div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">return</span> font;</div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    LoadedFont</div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a043050e78422181bbad906e284227577">  291</a></span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a043050e78422181bbad906e284227577">load_characters_from_builtin8</a>()</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> font;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="comment">// todo(Gustav): Add more characters</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a69bf4223feabae42806ea26b14a2f6a6">combine_with</a></div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        (</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#a7634e155c8da955d462e53b69fc3fb48">get_character_from_builtin8</a>(0x0000, 0x007F, font8x8_basic)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        );</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        <span class="keywordflow">return</span> font;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
 <div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
-<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    LoadedFont</div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">get_characters_from_font</a></div>
-<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">  306</a></span>&#160;    (</div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">vfs::FileSystem</a>* file_system,</div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">vfs::FilePath</a>&amp; font_file,</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keywordtype">int</span> font_size,</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;        <span class="keyword">const</span> std::string&amp; chars</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    )</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    {</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keyword">auto</span> file_memory = file_system-&gt;<a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html#a78b03de327e0ed8b7ca9a52a05d503e4">read_file</a>(font_file);</div>
-<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">if</span>(file_memory == <span class="keyword">nullptr</span>)</div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        {</div>
-<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Unable to open {0}&quot;</span>, font_file);</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a>{};</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        }</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">get_characters_from_font</a></div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;        (</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            file_memory,</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            font_size,</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;            chars</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        );</div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    LoadedFont</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">get_characters_from_font</a></div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">  305</a></span>&#160;    (</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">vfs::FileSystem</a>* file_system,</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">vfs::FilePath</a>&amp; font_file,</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordtype">int</span> font_size,</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        <span class="keyword">const</span> std::string&amp; chars</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    )</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    {</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;        <span class="keyword">auto</span> file_memory = file_system-&gt;<a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html#a78b03de327e0ed8b7ca9a52a05d503e4">read_file</a>(font_file);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;        <span class="keywordflow">if</span>(file_memory == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        {</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Unable to open {0}&quot;</span>, font_file);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a>{};</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">get_characters_from_font</a></div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;        (</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;            file_memory,</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;            font_size,</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;            chars</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        );</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    }</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
-<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    LoadedFont</div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">get_characters_from_font</a></div>
-<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a87d203b00f5d23a7b322936aa0b54d47">  332</a></span>&#160;    (</div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        std::shared_ptr&lt;MemoryChunk&gt; file_memory,</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keywordtype">int</span> font_size,</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        <span class="keyword">const</span> std::string&amp; chars</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    )</div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    {</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a> = <a class="code" href="structeuphoria_1_1core_1_1FontData.html">FontData</a></div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        {</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(file_memory-&gt;get_data()),</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;                <a class="code" href="namespaceeuphoria_1_1core.html#abac18fdcdb2d7a94b7762d18e9a2f34c">c_int_to_float</a>(font_size)</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        };</div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.was_loaded == <span class="keyword">false</span>) { <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a>{}; }</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        std::vector&lt;int&gt; code_points;</div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core.html#a91daa2b869c42183935b04da74e7749a">utf8_to_codepoints</a></div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;        (</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            chars,</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;            [&amp;](<span class="keywordtype">int</span> cp){code_points.emplace_back(cp);}</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        );</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> fontchars {};</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> code_point: code_points)</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        {</div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> cc = <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.load_glyph(code_point);</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            <span class="keywordflow">if</span>(!cc.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a26d5d49e3eadd14ab0294ee225efdcb0">valid</a>)</div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;            {</div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Invalid codepoint {0}&quot;</span>, code_point);</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;                <span class="keywordflow">continue</span>;</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            }</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            fontchars.codepoint_to_glyph[code_point] = cc;</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        }</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        fontchars.line_height = <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.line_height;</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a></div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        (</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="stringliteral">&quot;Loaded {0} characters&quot;</span>,</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;            fontchars.codepoint_to_glyph.size()</div>
-<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        );</div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;kerning: {0}&quot;</span>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.kernings.empty() == <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> scale = 1 / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(font_size);</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> cp: code_points)</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        {</div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.define_codepoint(cp);</div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;        }</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; info: <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.kernings)</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;        {</div>
-<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> previous = <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.glyph_index_to_unicode(info.glyph1);</div>
-<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> current = <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.glyph_index_to_unicode(info.glyph2);</div>
-<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> dx = info.advance;</div>
-<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            <span class="keywordflow">if</span>(previous &amp;&amp; current)</div>
-<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;            {</div>
-<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                fontchars.kerning.insert</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                (</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                    KerningMap::value_type</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                    (</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;                        KerningMap::key_type(*previous, *current),</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(dx) * scale</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                    )</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;                );</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;            }</div>
-<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        }</div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
-<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        <span class="keywordflow">return</span> fontchars;</div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    LoadedFont</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">get_characters_from_font</a></div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a87d203b00f5d23a7b322936aa0b54d47">  331</a></span>&#160;    (</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;        std::shared_ptr&lt;MemoryChunk&gt; file_memory,</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;        <span class="keywordtype">int</span> font_size,</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;        <span class="keyword">const</span> std::string&amp; chars</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    )</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        <span class="keyword">auto</span> <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a> = <a class="code" href="structeuphoria_1_1core_1_1FontData.html">FontData</a></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;                <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(file_memory-&gt;get_data()),</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                <a class="code" href="namespaceeuphoria_1_1core.html#abac18fdcdb2d7a94b7762d18e9a2f34c">c_int_to_float</a>(font_size)</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        };</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <span class="keywordflow">if</span>(<a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.was_loaded == <span class="keyword">false</span>) { <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a>{}; }</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        std::vector&lt;int&gt; code_points;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        <a class="code" href="namespaceeuphoria_1_1core.html#a91daa2b869c42183935b04da74e7749a">utf8_to_codepoints</a></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        (</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;            chars,</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;            [&amp;](<span class="keywordtype">int</span> cp){code_points.emplace_back(cp);}</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        );</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> fontchars {};</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> code_point: code_points)</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        {</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;            <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> cc = <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.load_glyph(code_point);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;            <span class="keywordflow">if</span>(!cc.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a26d5d49e3eadd14ab0294ee225efdcb0">valid</a>)</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;            {</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;Invalid codepoint {0}&quot;</span>, code_point);</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;                <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;            }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            fontchars.codepoint_to_glyph[code_point] = cc;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        }</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;        fontchars.line_height = <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.line_height;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;        <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        (</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="stringliteral">&quot;Loaded {0} characters&quot;</span>,</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            fontchars.codepoint_to_glyph.size()</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;        );</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <a class="code" href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a>(<span class="stringliteral">&quot;kerning: {0}&quot;</span>, <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.kernings.empty() == <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">float</span> scale = 1 / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(font_size);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;        <span class="keywordflow">for</span>(<span class="keywordtype">int</span> cp: code_points)</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;        {</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.define_codepoint(cp);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        }</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;        <span class="keywordflow">for</span>(<span class="keyword">const</span> <span class="keyword">auto</span>&amp; info: <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.kernings)</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        {</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> previous = <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.glyph_index_to_unicode(info.glyph1);</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;            <span class="keyword">const</span> <span class="keyword">auto</span> current = <a class="code" href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">f</a>.glyph_index_to_unicode(info.glyph2);</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;            <span class="keyword">const</span> <span class="keywordtype">int</span> dx = info.advance;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;            <span class="keywordflow">if</span>(previous &amp;&amp; current)</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;            {</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;                fontchars.kerning.insert</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;                (</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                    KerningMap::value_type</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                    (</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;                        KerningMap::key_type(*previous, *current),</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;                        <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(dx) * scale</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;                    )</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;                );</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;            }</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        }</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        <span class="keywordflow">return</span> fontchars;</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    }</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    LoadedFont</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">get_characters_from_single_image</a></div>
-<div class="line"><a name="l00405"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">  405</a></span>&#160;    (</div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">vfs::FileSystem</a>* fs,</div>
-<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">vfs::FilePath</a>&amp; image_file,</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="keyword">const</span> std::string&amp; image_alias,</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keywordtype">float</span> image_scale,</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keywordtype">float</span> image_bearing_x,</div>
-<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keywordtype">float</span> image_bearing_y,</div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        <span class="keywordtype">float</span> image_advance</div>
-<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    )</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    {</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> loaded = <a class="code" href="namespaceeuphoria_1_1core.html#a86a3f88f118e3dffc1b98abd4ca6e1cd">load_image</a></div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;        (</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            fs,</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            image_file,</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#ac4d25e41b15b75088eed48e49138eea8a18ccf61d533b600bbf5a963359223fe4">AlphaLoad::keep</a></div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        );</div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
-<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keywordflow">if</span>(loaded.error.empty() == <span class="keyword">false</span>)</div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;        {</div>
-<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Failed to load font image {}&quot;</span>, image_file);</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a>{};</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;        }</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">get_characters_from_single_image</a></div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;        (</div>
-<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            loaded.image,</div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            image_alias,</div>
-<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            image_scale,</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            image_bearing_x,</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            image_bearing_y,</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;            image_advance</div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        );</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    }</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    LoadedFont</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">get_characters_from_single_image</a></div>
+<div class="line"><a name="l00404"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">  404</a></span>&#160;    (</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">vfs::FileSystem</a>* fs,</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">vfs::FilePath</a>&amp; image_file,</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        <span class="keyword">const</span> std::string&amp; image_alias,</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="keywordtype">float</span> image_scale,</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        <span class="keywordtype">float</span> image_bearing_x,</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        <span class="keywordtype">float</span> image_bearing_y,</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        <span class="keywordtype">float</span> image_advance</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    )</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    {</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> loaded = <a class="code" href="namespaceeuphoria_1_1core.html#a86a3f88f118e3dffc1b98abd4ca6e1cd">load_image</a></div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;        (</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;            fs,</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;            image_file,</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;            <a class="code" href="namespaceeuphoria_1_1core.html#ac4d25e41b15b75088eed48e49138eea8a18ccf61d533b600bbf5a963359223fe4">AlphaLoad::keep</a></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        );</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;        <span class="keywordflow">if</span>(loaded.error.empty() == <span class="keyword">false</span>)</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        {</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            <a class="code" href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a>(<span class="stringliteral">&quot;Failed to load font image {}&quot;</span>, image_file);</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a>{};</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;        }</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">get_characters_from_single_image</a></div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;        (</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;            loaded.image,</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;            image_alias,</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;            image_scale,</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;            image_bearing_x,</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;            image_bearing_y,</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;            image_advance</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;        );</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;    }</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
 <div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160; </div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    LoadedFont</div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">get_characters_from_single_image</a></div>
-<div class="line"><a name="l00442"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a5531443ba854f0eccaf25c5d391cdbbe">  442</a></span>&#160;    (</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Image.html">Image</a>&amp; image,</div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        <span class="keyword">const</span> std::string&amp; image_alias,</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        <span class="keywordtype">float</span> image_scale,</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        <span class="keywordtype">float</span> image_bearing_x,</div>
-<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        <span class="keywordtype">float</span> image_bearing_y,</div>
-<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;        <span class="keywordtype">float</span> image_advance</div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    )</div>
-<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    {</div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> font;</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> s = 1 / image_scale;</div>
-<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> glyph;</div>
-<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a77ca8d84793ee717d1af32c461487d38">size</a> = s * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(image.height);</div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a5bffa6ce40dff6e55c4b14725ebfae27">bearing_y</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">c_float_to_int</a>(s * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(image.height) + image_bearing_y);</div>
-<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ae579292a5f08e1122442d6165c5c419e">bearing_x</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">c_float_to_int</a>(image_bearing_x);</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ab853a1ce4dc672f756a76ae0a3875cba">advance</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">c_float_to_int</a>(s * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(image.width) + image_advance);</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#aebe7ac7302d3a1e8a0882ccdff7ac968">code_point</a>= font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">generate_new_index_from_private_use</a>(image_alias);</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        <span class="comment">// todo(Gustav): add ability to clip image</span></div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a> = image;</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;        font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>[glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#aebe7ac7302d3a1e8a0882ccdff7ac968">code_point</a>] = glyph;</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160; </div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;        <span class="keywordflow">return</span> font;</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    }</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
-<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;}</div>
-<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160; </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    LoadedFont</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    <a class="code" href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">get_characters_from_single_image</a></div>
+<div class="line"><a name="l00441"></a><span class="lineno"><a class="line" href="namespaceeuphoria_1_1core.html#a5531443ba854f0eccaf25c5d391cdbbe">  441</a></span>&#160;    (</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        <span class="keyword">const</span> <a class="code" href="structeuphoria_1_1core_1_1Image.html">Image</a>&amp; image,</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;        <span class="keyword">const</span> std::string&amp; image_alias,</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;        <span class="keywordtype">float</span> image_scale,</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;        <span class="keywordtype">float</span> image_bearing_x,</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        <span class="keywordtype">float</span> image_bearing_y,</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        <span class="keywordtype">float</span> image_advance</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    )</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    {</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html">LoadedFont</a> font;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; </div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> s = 1 / image_scale;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html">LoadedGlyph</a> glyph;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a77ca8d84793ee717d1af32c461487d38">size</a> = s * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(image.height);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a5bffa6ce40dff6e55c4b14725ebfae27">bearing_y</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">c_float_to_int</a>(s * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(image.height) + image_bearing_y);</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ae579292a5f08e1122442d6165c5c419e">bearing_x</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">c_float_to_int</a>(image_bearing_x);</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#ab853a1ce4dc672f756a76ae0a3875cba">advance</a> = <a class="code" href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">c_float_to_int</a>(s * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(image.width) + image_advance);</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#aebe7ac7302d3a1e8a0882ccdff7ac968">code_point</a>= font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">generate_new_index_from_private_use</a>(image_alias);</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;        <span class="comment">// todo(Gustav): add ability to clip image</span></div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;        glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">image</a> = image;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        font.<a class="code" href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">codepoint_to_glyph</a>[glyph.<a class="code" href="structeuphoria_1_1core_1_1LoadedGlyph.html#aebe7ac7302d3a1e8a0882ccdff7ac968">code_point</a>] = glyph;</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        <span class="keywordflow">return</span> font;</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;    }</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160; </div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;}</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a8c55d94ba90eb0c4ae87d05c9687f8b0"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a8c55d94ba90eb0c4ae87d05c9687f8b0">euphoria::core::draw_square</a></div><div class="ttdeci">void draw_square(Image *image, const rgbai &amp;color, int x, int y, int size)</div><div class="ttdef"><b>Definition:</b> <a href="image__draw_8cc_source.html#l00067">image_draw.cc:67</a></div></div>
 <div class="ttc" id="aloadedfont_8h_html"><div class="ttname"><a href="loadedfont_8h.html">loadedfont.h</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_afaed0cb32b0ec40a284024420fc2fe45"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">euphoria::core::FontData::font</a></div><div class="ttdeci">stbtt_fontinfo font</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00028">loadedfont.cc:28</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_afaed0cb32b0ec40a284024420fc2fe45"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#afaed0cb32b0ec40a284024420fc2fe45">euphoria::core::FontData::font</a></div><div class="ttdeci">stbtt_fontinfo font</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00027">loadedfont.cc:27</a></div></div>
 <div class="ttc" id="avfs__path_8h_html"><div class="ttname"><a href="vfs__path_8h.html">vfs_path.h</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedFont_html_ae49c18ae9d1c66b5ddc4a4afa0f06223"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedFont.html#ae49c18ae9d1c66b5ddc4a4afa0f06223">euphoria::core::LoadedFont::kerning</a></div><div class="ttdeci">KerningMap kerning</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00055">loadedfont.h:55</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a4a9c9c153a137b6a8f3953e4a57a1ff0"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a4a9c9c153a137b6a8f3953e4a57a1ff0">euphoria::core::c_float_to_int</a></div><div class="ttdeci">constexpr int c_float_to_int(float f)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8h_source.html#l00046">cint.h:46</a></div></div>
 <div class="ttc" id="acint_8h_html"><div class="ttname"><a href="cint_8h.html">cint.h</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710ae1671797c52e15f763380b45e841ec32">euphoria::core::Key::e</a></div><div class="ttdeci">@ e</div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a09c46c42d984b73a3def0ce0eaf82f8e"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">euphoria::core::FontData::index_to_unicode</a></div><div class="ttdeci">std::map&lt; int, int &gt; index_to_unicode</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00033">loadedfont.cc:33</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1LoadedFont_html_a69bf4223feabae42806ea26b14a2f6a6"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedFont.html#a69bf4223feabae42806ea26b14a2f6a6">euphoria::core::LoadedFont::combine_with</a></div><div class="ttdeci">void combine_with(const LoadedFont &amp;fc)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00151">loadedfont.cc:151</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a09c46c42d984b73a3def0ce0eaf82f8e"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a09c46c42d984b73a3def0ce0eaf82f8e">euphoria::core::FontData::index_to_unicode</a></div><div class="ttdeci">std::map&lt; int, int &gt; index_to_unicode</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00032">loadedfont.cc:32</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1LoadedFont_html_a69bf4223feabae42806ea26b14a2f6a6"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedFont.html#a69bf4223feabae42806ea26b14a2f6a6">euphoria::core::LoadedFont::combine_with</a></div><div class="ttdeci">void combine_with(const LoadedFont &amp;fc)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00150">loadedfont.cc:150</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedGlyph_html_aebe7ac7302d3a1e8a0882ccdff7ac968"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedGlyph.html#aebe7ac7302d3a1e8a0882ccdff7ac968">euphoria::core::LoadedGlyph::code_point</a></div><div class="ttdeci">int code_point</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00038">loadedfont.h:38</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1vfs_1_1FileSystem_html_a78b03de327e0ed8b7ca9a52a05d503e4"><div class="ttname"><a href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html#a78b03de327e0ed8b7ca9a52a05d503e4">euphoria::core::vfs::FileSystem::read_file</a></div><div class="ttdeci">std::shared_ptr&lt; MemoryChunk &gt; read_file(const FilePath &amp;path)</div><div class="ttdef"><b>Definition:</b> <a href="vfs_8cc_source.html#l00083">vfs.cc:83</a></div></div>
 <div class="ttc" id="alog_8h_html_a378e28bfcb78d17285210d6bbb70a083"><div class="ttname"><a href="log_8h.html#a378e28bfcb78d17285210d6bbb70a083">LOG_INFO</a></div><div class="ttdeci">#define LOG_INFO(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_8h_source.html#l00013">log.h:13</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedFont_html_a8324954a72bd2c3ba0847572a6a47e08"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedFont.html#a8324954a72bd2c3ba0847572a6a47e08">euphoria::core::LoadedFont::codepoint_to_glyph</a></div><div class="ttdeci">std::map&lt; int, LoadedGlyph &gt; codepoint_to_glyph</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00054">loadedfont.h:54</a></div></div>
 <div class="ttc" id="aassert_8h_html"><div class="ttname"><a href="assert_8h.html">assert.h</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1LoadedFont_html_ae5b666a67fae6eb5ce81c32e61c2970f"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">euphoria::core::LoadedFont::generate_new_index_from_private_use</a></div><div class="ttdeci">int generate_new_index_from_private_use(const std::string &amp;alias)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00140">loadedfont.cc:140</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1LoadedFont_html_ae5b666a67fae6eb5ce81c32e61c2970f"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedFont.html#ae5b666a67fae6eb5ce81c32e61c2970f">euphoria::core::LoadedFont::generate_new_index_from_private_use</a></div><div class="ttdeci">int generate_new_index_from_private_use(const std::string &amp;alias)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00139">loadedfont.cc:139</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedGlyph_html_ae579292a5f08e1122442d6165c5c419e"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedGlyph.html#ae579292a5f08e1122442d6165c5c419e">euphoria::core::LoadedGlyph::bearing_x</a></div><div class="ttdeci">int bearing_x</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00039">loadedfont.h:39</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_ad3fa304b5e99c68cbf9d5726e3333dc6"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#ad3fa304b5e99c68cbf9d5726e3333dc6">euphoria::core::FontData::FontData</a></div><div class="ttdeci">FontData(unsigned char *ttf_buffer, float s)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00035">loadedfont.cc:35</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a519d1ce1780e3e930f9b97a97488f748"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">euphoria::core::get_characters_from_single_image</a></div><div class="ttdeci">LoadedFont get_characters_from_single_image(vfs::FileSystem *fs, const vfs::FilePath &amp;image_file, const std::string &amp;image_alias, float image_scale, float image_bearing_x, float image_bearing_y, float image_advance)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00405">loadedfont.cc:405</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html">euphoria::core::FontData</a></div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00026">loadedfont.cc:26</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_ad3fa304b5e99c68cbf9d5726e3333dc6"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#ad3fa304b5e99c68cbf9d5726e3333dc6">euphoria::core::FontData::FontData</a></div><div class="ttdeci">FontData(unsigned char *ttf_buffer, float s)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00034">loadedfont.cc:34</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a519d1ce1780e3e930f9b97a97488f748"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a519d1ce1780e3e930f9b97a97488f748">euphoria::core::get_characters_from_single_image</a></div><div class="ttdeci">LoadedFont get_characters_from_single_image(vfs::FileSystem *fs, const vfs::FilePath &amp;image_file, const std::string &amp;image_alias, float image_scale, float image_bearing_x, float image_bearing_y, float image_advance)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00404">loadedfont.cc:404</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html">euphoria::core::FontData</a></div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00025">loadedfont.cc:25</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_abac18fdcdb2d7a94b7762d18e9a2f34c"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#abac18fdcdb2d7a94b7762d18e9a2f34c">euphoria::core::c_int_to_float</a></div><div class="ttdeci">constexpr float c_int_to_float(int i)</div><div class="ttdef"><b>Definition:</b> <a href="cint_8h_source.html#l00060">cint.h:60</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a3088b13ec1be6b21ae1c8b7e9a132b85"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">euphoria::core::FontData::kernings</a></div><div class="ttdeci">std::vector&lt; stbtt_kerningentry &gt; kernings</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00032">loadedfont.cc:32</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a3088b13ec1be6b21ae1c8b7e9a132b85"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a3088b13ec1be6b21ae1c8b7e9a132b85">euphoria::core::FontData::kernings</a></div><div class="ttdeci">std::vector&lt; stbtt_kerningentry &gt; kernings</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00031">loadedfont.cc:31</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Image_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1Image.html">euphoria::core::Image</a></div><div class="ttdef"><b>Definition:</b> <a href="image_8h_source.html#l00028">image.h:28</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedFont_html_aa8e65510ffc06551bb7eefc606f52d14"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedFont.html#aa8e65510ffc06551bb7eefc606f52d14">euphoria::core::LoadedFont::line_height</a></div><div class="ttdeci">int line_height</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00058">loadedfont.h:58</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Image_html_a98e42aab99adc9d88ff9b50eb1af88f2"><div class="ttname"><a href="structeuphoria_1_1core_1_1Image.html#a98e42aab99adc9d88ff9b50eb1af88f2">euphoria::core::Image::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition:</b> <a href="image_8h_source.html#l00032">image.h:32</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_adade44a64f459fa58fd6e22c171cc4b0"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#adade44a64f459fa58fd6e22c171cc4b0">euphoria::core::FontData::load_glyph</a></div><div class="ttdeci">LoadedGlyph load_glyph(int code_point) const</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00079">loadedfont.cc:79</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_adade44a64f459fa58fd6e22c171cc4b0"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#adade44a64f459fa58fd6e22c171cc4b0">euphoria::core::FontData::load_glyph</a></div><div class="ttdeci">LoadedGlyph load_glyph(int code_point) const</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00078">loadedfont.cc:78</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedFont_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedFont.html">euphoria::core::LoadedFont</a></div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00052">loadedfont.h:52</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedGlyph_html_a26d5d49e3eadd14ab0294ee225efdcb0"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedGlyph.html#a26d5d49e3eadd14ab0294ee225efdcb0">euphoria::core::LoadedGlyph::valid</a></div><div class="ttdeci">bool valid</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00037">loadedfont.h:37</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedGlyph_html_a5bffa6ce40dff6e55c4b14725ebfae27"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedGlyph.html#a5bffa6ce40dff6e55c4b14725ebfae27">euphoria::core::LoadedGlyph::bearing_y</a></div><div class="ttdeci">int bearing_y</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00040">loadedfont.h:40</a></div></div>
@@ -556,23 +555,22 @@
 <div class="ttc" id="aimage__draw_8h_html"><div class="ttname"><a href="image__draw_8h.html">image_draw.h</a></div></div>
 <div class="ttc" id="alog_8h_html_ad4a9117ce894e3319e903142347a0f63"><div class="ttname"><a href="log_8h.html#ad4a9117ce894e3319e903142347a0f63">LOG_ERROR</a></div><div class="ttdeci">#define LOG_ERROR(...)</div><div class="ttdef"><b>Definition:</b> <a href="log_8h_source.html#l00015">log.h:15</a></div></div>
 <div class="ttc" id="amemorychunk_8h_html"><div class="ttname"><a href="memorychunk_8h.html">memorychunk.h</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a87648a781cb547e7123ca442619cc69e"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">euphoria::core::FontData::line_height</a></div><div class="ttdeci">int line_height</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00031">loadedfont.cc:31</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_ac20676ded4e99f2256f627b17de18105"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#ac20676ded4e99f2256f627b17de18105">euphoria::core::FontData::define_codepoint</a></div><div class="ttdeci">void define_codepoint(int cp)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00059">loadedfont.cc:59</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a87648a781cb547e7123ca442619cc69e"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a87648a781cb547e7123ca442619cc69e">euphoria::core::FontData::line_height</a></div><div class="ttdeci">int line_height</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00030">loadedfont.cc:30</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_ac20676ded4e99f2256f627b17de18105"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#ac20676ded4e99f2256f627b17de18105">euphoria::core::FontData::define_codepoint</a></div><div class="ttdeci">void define_codepoint(int cp)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00058">loadedfont.cc:58</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a9dd4e461268c8034f5c8564e155c67a6">euphoria::core::Key::x</a></div><div class="ttdeci">@ x</div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedGlyph_html_ab853a1ce4dc672f756a76ae0a3875cba"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedGlyph.html#ab853a1ce4dc672f756a76ae0a3875cba">euphoria::core::LoadedGlyph::advance</a></div><div class="ttdeci">int advance</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00041">loadedfont.h:41</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a90251a7c14817fdbe567a0f046ad7ff0"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a90251a7c14817fdbe567a0f046ad7ff0">euphoria::core::FontData::glyph_index_to_unicode</a></div><div class="ttdeci">std::optional&lt; int &gt; glyph_index_to_unicode(int glyph) const</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00065">loadedfont.cc:65</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a34a9e1160fd8c56e4c15d5c420f82913"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">euphoria::core::FontData::was_loaded</a></div><div class="ttdeci">bool was_loaded</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00030">loadedfont.cc:30</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a90251a7c14817fdbe567a0f046ad7ff0"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a90251a7c14817fdbe567a0f046ad7ff0">euphoria::core::FontData::glyph_index_to_unicode</a></div><div class="ttdeci">std::optional&lt; int &gt; glyph_index_to_unicode(int glyph) const</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00064">loadedfont.cc:64</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a34a9e1160fd8c56e4c15d5c420f82913"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a34a9e1160fd8c56e4c15d5c420f82913">euphoria::core::FontData::was_loaded</a></div><div class="ttdeci">bool was_loaded</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00029">loadedfont.cc:29</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1Image_html_a879204999da3285e98394d38d3fa566e"><div class="ttname"><a href="structeuphoria_1_1core_1_1Image.html#a879204999da3285e98394d38d3fa566e">euphoria::core::Image::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition:</b> <a href="image_8h_source.html#l00033">image.h:33</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a6330fde1a94121abe5d2f6482bf7bfe4"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">euphoria::core::get_characters_from_font</a></div><div class="ttdeci">LoadedFont get_characters_from_font(vfs::FileSystem *file_system, const vfs::FilePath &amp;font_file, int font_size, const std::string &amp;chars)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00306">loadedfont.cc:306</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a1ff207eff0baeb257bbfb66cca11942b"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">euphoria::core::FontData::size</a></div><div class="ttdeci">float size</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00029">loadedfont.cc:29</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a6330fde1a94121abe5d2f6482bf7bfe4"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a6330fde1a94121abe5d2f6482bf7bfe4">euphoria::core::get_characters_from_font</a></div><div class="ttdeci">LoadedFont get_characters_from_font(vfs::FileSystem *file_system, const vfs::FilePath &amp;font_file, int font_size, const std::string &amp;chars)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00305">loadedfont.cc:305</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1core_1_1FontData_html_a1ff207eff0baeb257bbfb66cca11942b"><div class="ttname"><a href="structeuphoria_1_1core_1_1FontData.html#a1ff207eff0baeb257bbfb66cca11942b">euphoria::core::FontData::size</a></div><div class="ttdeci">float size</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00028">loadedfont.cc:28</a></div></div>
 <div class="ttc" id="alog_8h_html"><div class="ttname"><a href="log_8h.html">log.h</a></div></div>
 <div class="ttc" id="autf8_8h_html"><div class="ttname"><a href="utf8_8h.html">utf8.h</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedGlyph_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedGlyph.html">euphoria::core::LoadedGlyph</a></div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00020">loadedfont.h:20</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_ac4d25e41b15b75088eed48e49138eea8a18ccf61d533b600bbf5a963359223fe4"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#ac4d25e41b15b75088eed48e49138eea8a18ccf61d533b600bbf5a963359223fe4">euphoria::core::AlphaLoad::keep</a></div><div class="ttdeci">@ keep</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a8fa14cdd754f91cc6554c9e71929cce7">euphoria::core::Key::f</a></div><div class="ttdeci">@ f</div></div>
-<div class="ttc" id="anoncopyable_8h_html"><div class="ttname"><a href="noncopyable_8h.html">noncopyable.h</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1vfs_1_1FileSystem_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1vfs_1_1FileSystem.html">euphoria::core::vfs::FileSystem</a></div><div class="ttdef"><b>Definition:</b> <a href="vfs_8h_source.html#l00073">vfs.h:73</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a043050e78422181bbad906e284227577"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a043050e78422181bbad906e284227577">euphoria::core::load_characters_from_builtin8</a></div><div class="ttdeci">LoadedFont load_characters_from_builtin8()</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00292">loadedfont.cc:292</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a043050e78422181bbad906e284227577"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a043050e78422181bbad906e284227577">euphoria::core::load_characters_from_builtin8</a></div><div class="ttdeci">LoadedFont load_characters_from_builtin8()</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00291">loadedfont.cc:291</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedFont_html_a6d89d16cf2a8868060060590342faa75"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedFont.html#a6d89d16cf2a8868060060590342faa75">euphoria::core::LoadedFont::next_private_use</a></div><div class="ttdeci">int next_private_use</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00057">loadedfont.h:57</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedGlyph_html_a77ca8d84793ee717d1af32c461487d38"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedGlyph.html#a77ca8d84793ee717d1af32c461487d38">euphoria::core::LoadedGlyph::size</a></div><div class="ttdeci">float size</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00043">loadedfont.h:43</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a86a3f88f118e3dffc1b98abd4ca6e1cd"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a86a3f88f118e3dffc1b98abd4ca6e1cd">euphoria::core::load_image</a></div><div class="ttdeci">ImageLoadResult load_image(vfs::FileSystem *fs, const vfs::FilePath &amp;path, AlphaLoad alpha)</div><div class="ttdef"><b>Definition:</b> <a href="image_8cc_source.html#l00294">image.cc:294</a></div></div>
@@ -580,8 +578,8 @@
 <div class="ttc" id="astructeuphoria_1_1core_1_1LoadedGlyph_html_a70bcd33dbc04a4ff856766f6e8de5d9a"><div class="ttname"><a href="structeuphoria_1_1core_1_1LoadedGlyph.html#a70bcd33dbc04a4ff856766f6e8de5d9a">euphoria::core::LoadedGlyph::image</a></div><div class="ttdeci">core::Image image</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8h_source.html#l00042">loadedfont.h:42</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html"><div class="ttname"><a href="namespaceeuphoria_1_1core.html">euphoria::core</a></div><div class="ttdef"><b>Definition:</b> <a href="aabb_8cc_source.html#l00008">aabb.cc:8</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1core_1_1vfs_1_1FilePath_html"><div class="ttname"><a href="structeuphoria_1_1core_1_1vfs_1_1FilePath.html">euphoria::core::vfs::FilePath</a></div><div class="ttdef"><b>Definition:</b> <a href="vfs__path_8h_source.html#l00035">vfs_path.h:35</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a7634e155c8da955d462e53b69fc3fb48"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a7634e155c8da955d462e53b69fc3fb48">euphoria::core::get_character_from_builtin8</a></div><div class="ttdeci">LoadedFont get_character_from_builtin8(const int start_codepoint, int end_codepoint, TGlyphs glyphs)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00200">loadedfont.cc:200</a></div></div>
-<div class="ttc" id="anamespaceeuphoria_1_1core_html_a860dc8b5aeb88f3e1bb594045601b406"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a860dc8b5aeb88f3e1bb594045601b406">euphoria::core::load_characters_from_builtin13</a></div><div class="ttdeci">LoadedFont load_characters_from_builtin13()</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00251">loadedfont.cc:251</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a7634e155c8da955d462e53b69fc3fb48"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a7634e155c8da955d462e53b69fc3fb48">euphoria::core::get_character_from_builtin8</a></div><div class="ttdeci">LoadedFont get_character_from_builtin8(const int start_codepoint, int end_codepoint, TGlyphs glyphs)</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00199">loadedfont.cc:199</a></div></div>
+<div class="ttc" id="anamespaceeuphoria_1_1core_html_a860dc8b5aeb88f3e1bb594045601b406"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a860dc8b5aeb88f3e1bb594045601b406">euphoria::core::load_characters_from_builtin13</a></div><div class="ttdeci">LoadedFont load_characters_from_builtin13()</div><div class="ttdef"><b>Definition:</b> <a href="loadedfont_8cc_source.html#l00250">loadedfont.cc:250</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_a91daa2b869c42183935b04da74e7749a"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#a91daa2b869c42183935b04da74e7749a">euphoria::core::utf8_to_codepoints</a></div><div class="ttdeci">bool utf8_to_codepoints(const TString &amp;string, TOnCodepointFunc on_codepoint)</div><div class="ttdef"><b>Definition:</b> <a href="utf8_8h_source.html#l00011">utf8.h:11</a></div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1core_html_aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d"><div class="ttname"><a href="namespaceeuphoria_1_1core.html#aa9db03a38fd9999446a4ebf0584cd710a415290769594460e2e485922904f345d">euphoria::core::Key::y</a></div><div class="ttdeci">@ y</div></div>
 <div class="ttc" id="avfs_8h_html"><div class="ttname"><a href="vfs_8h.html">vfs.h</a></div></div>

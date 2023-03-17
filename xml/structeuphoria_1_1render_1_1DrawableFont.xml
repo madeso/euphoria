@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="173" column="15" bodyfile="libs/render/src/render/font.h" bodystart="173" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="176" column="15" bodyfile="libs/render/src/render/font.h" bodystart="176" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableFont_1ad5a6dcb6d24f24d1df61dec3447453fc" prot="public" static="no" mutable="no">
         <type>std::unique_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
@@ -29,7 +29,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="174" column="25" bodyfile="libs/render/src/render/font.h" bodystart="174" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="177" column="25" bodyfile="libs/render/src/render/font.h" bodystart="177" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableFont_1afd3cde8963d63d358e5ffc8d6fa85e4e" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1Texture2" kindref="compound">Texture2</ref> &gt;</type>
@@ -42,7 +42,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="175" column="25" bodyfile="libs/render/src/render/font.h" bodystart="175" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="178" column="25" bodyfile="libs/render/src/render/font.h" bodystart="178" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableFont_1a7fba96b838c16b062848c33c52eee13e" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1render_1af7f86a7a1790af35383bbf9c57c5fbcf" kindref="member">CharToGlyphMap</ref></type>
@@ -55,7 +55,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="176" column="24" bodyfile="libs/render/src/render/font.h" bodystart="176" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="179" column="24" bodyfile="libs/render/src/render/font.h" bodystart="179" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableFont_1a6cea3504895c43a8c53f26e7abcfc197" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1a82ac3ebd0dd8ae0ce4a3f6f532117579" kindref="member">core::KerningMap</ref></type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="177" column="26" bodyfile="libs/render/src/render/font.h" bodystart="177" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="180" column="26" bodyfile="libs/render/src/render/font.h" bodystart="180" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableFont_1a6f40e6090590453fec526ea154feae0c" prot="public" static="no" mutable="no">
         <type>std::map&lt; std::string, int &gt;</type>
@@ -81,7 +81,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="178" column="18" bodyfile="libs/render/src/render/font.h" bodystart="178" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="181" column="18" bodyfile="libs/render/src/render/font.h" bodystart="181" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="180" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="128" bodyend="283"/>
+        <location file="libs/render/src/render/font.h" line="183" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="127" bodyend="282"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableFont_1a84023863d54b1ae42910982b1666c778" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="189" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="288" bodyend="303"/>
+        <location file="libs/render/src/render/font.h" line="192" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="287" bodyend="302"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableFont_1a2e480d0a90949b25c92513267b67d6ba" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands" kindref="compound">ListOfTextDrawCommands</ref></type>
@@ -154,14 +154,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="196" column="33" bodyfile="libs/render/src/render/font.cc" bodystart="478" bodyend="486"/>
+        <location file="libs/render/src/render/font.h" line="199" column="33" bodyfile="libs/render/src/render/font.cc" bodystart="477" bodyend="485"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/font.h" line="172" column="1" bodyfile="libs/render/src/render/font.h" bodystart="171" bodyend="198"/>
+    <location file="libs/render/src/render/font.h" line="175" column="1" bodyfile="libs/render/src/render/font.h" bodystart="174" bodyend="201"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1DrawableFont_1afd3cde8963d63d358e5ffc8d6fa85e4e" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableFont</scope><name>background</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableFont_1a7fba96b838c16b062848c33c52eee13e" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableFont</scope><name>char_to_glyph</name></member>

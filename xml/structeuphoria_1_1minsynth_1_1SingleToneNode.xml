@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="238" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="238" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="237" column="18" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="237" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="240" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="458" bodyend="490"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="239" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="458" bodyend="490"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1SingleToneNode_1a4d1bd65214ec214b0c8163016f380b44" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>int</type>
@@ -59,7 +59,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="242" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="493" bodyend="518"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="241" column="14" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="493" bodyend="518"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -117,7 +117,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="237" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="233" bodyend="243"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="236" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="232" bodyend="242"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1SingleToneNode_1acc3bef31ed5c9f56977450ca6626d386" prot="public" virt="non-virtual"><scope>euphoria::minsynth::SingleToneNode</scope><name>down_tones</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1SingleToneNode_1a4d1bd65214ec214b0c8163016f380b44" prot="public" virt="non-virtual"><scope>euphoria::minsynth::SingleToneNode</scope><name>get_current_tone</name></member>

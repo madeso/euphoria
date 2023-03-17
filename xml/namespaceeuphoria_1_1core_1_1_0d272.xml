@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
-  <compounddef id="namespaceeuphoria_1_1core_1_1_0d274" kind="namespace" language="C++">
-    <compoundname>euphoria::core::@274</compoundname>
+  <compounddef id="namespaceeuphoria_1_1core_1_1_0d272" kind="namespace" language="C++">
+    <compoundname>euphoria::core::@272</compoundname>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1_0d274_1a4a4aea46f9a788522e4f43787a5cdf79" prot="public" static="no" strong="yes">
+      <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1_0d272_1adfc65c29e0cb9bf46aa8f559c7928342" prot="public" static="no" strong="yes">
         <type></type>
         <name>ParserState</name>
-        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d274_1a4a4aea46f9a788522e4f43787a5cdf79a1cb251ec0d568de6a929b520c4aed8d1" prot="public">
+        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d272_1adfc65c29e0cb9bf46aa8f559c7928342a1cb251ec0d568de6a929b520c4aed8d1" prot="public">
           <name>text</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d274_1a4a4aea46f9a788522e4f43787a5cdf79a78805a221a988e79ef3f42d7c5bfd418" prot="public">
+        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d272_1adfc65c29e0cb9bf46aa8f559c7928342a78805a221a988e79ef3f42d7c5bfd418" prot="public">
           <name>image</name>
           <briefdescription>
           </briefdescription>

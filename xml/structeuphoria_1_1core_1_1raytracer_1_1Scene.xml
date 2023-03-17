@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="111" column="25" bodyfile="libs/core/src/core/raytracer.h" bodystart="111" bodyend="-1"/>
+        <location file="libs/core/src/core/raytracer.h" line="113" column="25" bodyfile="libs/core/src/core/raytracer.h" bodystart="113" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,14 +38,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="114" column="13" bodyfile="libs/core/src/core/raytracer.cc" bodystart="97" bodyend="121"/>
+        <location file="libs/core/src/core/raytracer.h" line="116" column="13" bodyfile="libs/core/src/core/raytracer.cc" bodystart="97" bodyend="121"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/core/src/core/raytracer.h" line="110" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="109" bodyend="115"/>
+    <location file="libs/core/src/core/raytracer.h" line="112" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="111" bodyend="117"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Scene_1a4fddd117ba0f9c27cb2ce22a2bd9b723" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Scene</scope><name>hit</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Scene_1af5ad43710549fdccdcd1676f378679fb" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Scene</scope><name>objects</name></member>

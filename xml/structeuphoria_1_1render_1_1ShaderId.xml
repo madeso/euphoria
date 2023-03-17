@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="34" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="87" bodyend="90"/>
+        <location file="libs/render/src/render/shader.h" line="31" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="87" bodyend="90"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1a3cd11f4df86af7c8745ad14d7f0e140a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -44,15 +44,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="35" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="93" bodyend="96"/>
+        <location file="libs/render/src/render/shader.h" line="32" column="9" bodyfile="libs/render/src/render/shader.cc" bodystart="93" bodyend="96"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1a32764c713d855c19adc4ade935d73bcc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1aca62e29ac4763e6a063d4089f0e35ca0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::render::ShaderId::NONCOPYABLE</definition>
-        <argsstring>(ShaderId)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::render::ShaderId::ShaderId</definition>
+        <argsstring>(const ShaderId &amp;other)=delete</argsstring>
+        <name>ShaderId</name>
         <param>
-          <type><ref refid="structeuphoria_1_1render_1_1ShaderId" kindref="compound">ShaderId</ref></type>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderId" kindref="compound">ShaderId</ref> &amp;</type>
+          <declname>other</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -60,7 +61,56 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.h" line="37" column="9"/>
+        <location file="libs/render/src/render/shader.h" line="34" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1a79fcdcccfb7b47601badaddbc73ce9bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::ShaderId::operator=</definition>
+        <argsstring>(const ShaderId &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1ShaderId" kindref="compound">ShaderId</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="35" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1a4b64361b957f69f9804ae6fb646375a4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::ShaderId::ShaderId</definition>
+        <argsstring>(ShaderId &amp;&amp;other)=delete</argsstring>
+        <name>ShaderId</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1ShaderId" kindref="compound">ShaderId</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="36" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1a629ec60be7b194404124817ce52df606" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::ShaderId::operator=</definition>
+        <argsstring>(ShaderId &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1ShaderId" kindref="compound">ShaderId</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/shader.h" line="37" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1ShaderId_1a3e99b02ed5cf775c87a48b5d5713f759" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -105,13 +155,16 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/render/src/render/shader.h" line="32" column="1" bodyfile="libs/render/src/render/shader.h" bodystart="31" bodyend="47"/>
+    <location file="libs/render/src/render/shader.h" line="29" column="1" bodyfile="libs/render/src/render/shader.h" bodystart="28" bodyend="47"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1ShaderId_1a99bc7273f5e0f693933e4eee7c8cf959" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>get_id</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderId_1a844d64b16b1ed179bc781666e09e423f" prot="private" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>id</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderId_1a3e99b02ed5cf775c87a48b5d5713f759" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>is_currently_bound</name></member>
-      <member refid="structeuphoria_1_1render_1_1ShaderId_1a32764c713d855c19adc4ade935d73bcc" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderId_1a79fcdcccfb7b47601badaddbc73ce9bd" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderId_1a629ec60be7b194404124817ce52df606" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderId_1a08195ece39d114b3fae620904f38ebcc" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>ShaderId</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderId_1aca62e29ac4763e6a063d4089f0e35ca0" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>ShaderId</name></member>
+      <member refid="structeuphoria_1_1render_1_1ShaderId_1a4b64361b957f69f9804ae6fb646375a4" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>ShaderId</name></member>
       <member refid="structeuphoria_1_1render_1_1ShaderId_1a3cd11f4df86af7c8745ad14d7f0e140a" prot="public" virt="non-virtual"><scope>euphoria::render::ShaderId</scope><name>~ShaderId</name></member>
     </listofallmembers>
   </compounddef>

@@ -30,7 +30,7 @@
       <node id="34">
         <label>queue</label>
       </node>
-      <node id="52">
+      <node id="51">
         <label>limits</label>
       </node>
       <node id="28">
@@ -47,7 +47,7 @@
         <childnode refid="10" relation="include">
         </childnode>
       </node>
-      <node id="47">
+      <node id="46">
         <label>core/size2.h</label>
         <link refid="size2_8h"/>
         <childnode refid="5" relation="include">
@@ -86,7 +86,7 @@
         <childnode refid="31" relation="include">
         </childnode>
       </node>
-      <node id="53">
+      <node id="52">
         <label>cmath</label>
       </node>
       <node id="23">
@@ -137,10 +137,10 @@
       <node id="31">
         <label>map</label>
       </node>
-      <node id="50">
+      <node id="49">
         <label>range/v3/view/span.hpp</label>
       </node>
-      <node id="51">
+      <node id="50">
         <label>core/polarcoord.h</label>
         <link refid="polarcoord_8h"/>
         <childnode refid="10" relation="include">
@@ -153,29 +153,29 @@
         <link refid="raytracer_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
-        <childnode refid="44" relation="include">
+        <childnode refid="43" relation="include">
         </childnode>
-        <childnode refid="48" relation="include">
+        <childnode refid="47" relation="include">
         </childnode>
         <childnode refid="26" relation="include">
         </childnode>
-        <childnode refid="49" relation="include">
+        <childnode refid="48" relation="include">
         </childnode>
-        <childnode refid="51" relation="include">
+        <childnode refid="50" relation="include">
         </childnode>
         <childnode refid="12" relation="include">
         </childnode>
         <childnode refid="10" relation="include">
         </childnode>
+        <childnode refid="51" relation="include">
+        </childnode>
         <childnode refid="52" relation="include">
         </childnode>
-        <childnode refid="53" relation="include">
-        </childnode>
       </node>
-      <node id="49">
+      <node id="48">
         <label>core/random.h</label>
         <link refid="random_8h"/>
-        <childnode refid="50" relation="include">
+        <childnode refid="49" relation="include">
         </childnode>
         <childnode refid="6" relation="include">
         </childnode>
@@ -258,8 +258,6 @@
         </childnode>
         <childnode refid="42" relation="include">
         </childnode>
-        <childnode refid="43" relation="include">
-        </childnode>
         <childnode refid="40" relation="include">
         </childnode>
       </node>
@@ -276,10 +274,10 @@
         <label>core/sphere.h</label>
         <link refid="sphere_8h"/>
       </node>
-      <node id="45">
+      <node id="44">
         <label>core/memorychunk.h</label>
         <link refid="memorychunk_8h"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
       </node>
       <node id="14">
@@ -305,7 +303,7 @@
       <node id="11">
         <label>iostream</label>
       </node>
-      <node id="48">
+      <node id="47">
         <label>core/intersection.h</label>
         <link refid="intersection_8h"/>
         <childnode refid="40" relation="include">
@@ -334,16 +332,16 @@
         <childnode refid="13" relation="include">
         </childnode>
       </node>
-      <node id="44">
+      <node id="43">
         <label>core/image.h</label>
         <link refid="image_8h"/>
-        <childnode refid="43" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
         <childnode refid="27" relation="include">
         </childnode>
-        <childnode refid="45" relation="include">
+        <childnode refid="44" relation="include">
         </childnode>
-        <childnode refid="46" relation="include">
+        <childnode refid="45" relation="include">
         </childnode>
       </node>
       <node id="30">
@@ -360,14 +358,14 @@
         <childnode refid="37" relation="include">
         </childnode>
       </node>
-      <node id="46">
+      <node id="45">
         <label>core/rect.h</label>
         <link refid="rect_8h"/>
         <childnode refid="6" relation="include">
         </childnode>
         <childnode refid="5" relation="include">
         </childnode>
-        <childnode refid="47" relation="include">
+        <childnode refid="46" relation="include">
         </childnode>
         <childnode refid="24" relation="include">
         </childnode>
@@ -381,10 +379,6 @@
         </childnode>
         <childnode refid="9" relation="include">
         </childnode>
-      </node>
-      <node id="42">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
       </node>
       <node id="29">
         <label>core/default_parse.h</label>
@@ -402,7 +396,7 @@
       <node id="35">
         <label>algorithm</label>
       </node>
-      <node id="43">
+      <node id="42">
         <label>memory</label>
       </node>
       <node id="22">

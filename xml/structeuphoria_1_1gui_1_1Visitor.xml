@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/visitor.h" line="17" column="9"/>
+        <location file="libs/gui/src/gui/visitor.h" line="15" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1aae17dfafaa8b16a6266779da215b6663" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -28,15 +28,49 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/visitor.h" line="18" column="17"/>
+        <location file="libs/gui/src/gui/visitor.h" line="16" column="17"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1ae48b9e7af5840040edc969f8c4b17f1a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1a88761ccc3f4a54272200601d6c5f877f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::gui::Visitor::NONCOPYABLE</definition>
-        <argsstring>(Visitor)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::gui::Visitor::Visitor</definition>
+        <argsstring>(const Visitor &amp;other)=delete</argsstring>
+        <name>Visitor</name>
         <param>
-          <type><ref refid="structeuphoria_1_1gui_1_1Visitor" kindref="compound">Visitor</ref></type>
+          <type>const <ref refid="structeuphoria_1_1gui_1_1Visitor" kindref="compound">Visitor</ref> &amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/visitor.h" line="17" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1ae840755be6a8552dd154d49780606821" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::Visitor::operator=</definition>
+        <argsstring>(const Visitor &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1gui_1_1Visitor" kindref="compound">Visitor</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/visitor.h" line="18" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1ae5579a5ee45652f8ad0d7808583e974b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::gui::Visitor::Visitor</definition>
+        <argsstring>(Visitor &amp;&amp;other)=delete</argsstring>
+        <name>Visitor</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1Visitor" kindref="compound">Visitor</ref> &amp;&amp;</type>
+          <declname>other</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -45,6 +79,22 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/gui/src/gui/visitor.h" line="19" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1adc08ebfcbe29d58bbfd12875b63b2b28" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::gui::Visitor::operator=</definition>
+        <argsstring>(Visitor &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1gui_1_1Visitor" kindref="compound">Visitor</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/gui/src/gui/visitor.h" line="20" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1ad2a9d0d55210eb860d69e8e4962be8fc" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -61,7 +111,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/visitor.h" line="23" column="9"/>
+        <location file="libs/gui/src/gui/visitor.h" line="24" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1gui_1_1Visitor_1a0f0cbf3ce477d5f7c89710f370177ead" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>void</type>
@@ -78,19 +128,22 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/visitor.h" line="27" column="9"/>
+        <location file="libs/gui/src/gui/visitor.h" line="28" column="9"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/gui/src/gui/visitor.h" line="16" column="1" bodyfile="libs/gui/src/gui/visitor.h" bodystart="15" bodyend="28"/>
+    <location file="libs/gui/src/gui/visitor.h" line="14" column="1" bodyfile="libs/gui/src/gui/visitor.h" bodystart="13" bodyend="29"/>
     <listofallmembers>
-      <member refid="structeuphoria_1_1gui_1_1Visitor_1ae48b9e7af5840040edc969f8c4b17f1a" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Visitor_1ae840755be6a8552dd154d49780606821" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Visitor_1adc08ebfcbe29d58bbfd12875b63b2b28" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1gui_1_1Visitor_1ad2a9d0d55210eb860d69e8e4962be8fc" prot="public" virt="pure-virtual"><scope>euphoria::gui::Visitor</scope><name>visit</name></member>
       <member refid="structeuphoria_1_1gui_1_1Visitor_1a0f0cbf3ce477d5f7c89710f370177ead" prot="public" virt="pure-virtual"><scope>euphoria::gui::Visitor</scope><name>visit</name></member>
       <member refid="structeuphoria_1_1gui_1_1Visitor_1a343b59baffddb8ed4728d6a7a61f3640" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>Visitor</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Visitor_1a88761ccc3f4a54272200601d6c5f877f" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>Visitor</name></member>
+      <member refid="structeuphoria_1_1gui_1_1Visitor_1ae5579a5ee45652f8ad0d7808583e974b" prot="public" virt="non-virtual"><scope>euphoria::gui::Visitor</scope><name>Visitor</name></member>
       <member refid="structeuphoria_1_1gui_1_1Visitor_1aae17dfafaa8b16a6266779da215b6663" prot="public" virt="virtual"><scope>euphoria::gui::Visitor</scope><name>~Visitor</name></member>
     </listofallmembers>
   </compounddef>

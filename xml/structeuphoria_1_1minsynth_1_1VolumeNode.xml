@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="331" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="331" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="330" column="15" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="330" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -38,7 +38,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="333" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="806" bodyend="809"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="332" column="15" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="806" bodyend="809"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -96,7 +96,7 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="330" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="327" bodyend="334"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="329" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="326" bodyend="333"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1Effect_1a74e2ba10b4d914884c3c37815494a323" prot="public" virt="virtual"><scope>euphoria::minsynth::VolumeNode</scope><name>get_output</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Effect_1ac23ae0faa1f4a61beae86c9c1f30f385" prot="public" virt="non-virtual"><scope>euphoria::minsynth::VolumeNode</scope><name>in</name></member>

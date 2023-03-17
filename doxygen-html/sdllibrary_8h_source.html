@@ -56,29 +56,30 @@
 <div class="contents">
 <a href="sdllibrary_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160; </div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="noncopyable_8h.html">core/noncopyable.h</a>&quot;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1window.html">euphoria::window</a></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;{</div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="structeuphoria_1_1window_1_1SdlLibrary.html">    7</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html">SdlLibrary</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    {</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a99f8603310d9c0b312171ffba9cb1c54">SdlLibrary</a>();</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a16efafe7022d674fdff035f6255a65c1">~SdlLibrary</a>();</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a7da78c61fe5b5a8b744cf82cf1cf08fe">NONCOPYABLE</a>(<a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html">SdlLibrary</a>);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="structeuphoria_1_1window_1_1SdlLibrary.html#a6bfa2c25ea7b4775ea6e704fb7446846">   15</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a6bfa2c25ea7b4775ea6e704fb7446846">ok</a>;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    };</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;}</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceeuphoria_1_1window.html">euphoria::window</a></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;{</div>
+<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="structeuphoria_1_1window_1_1SdlLibrary.html">    6</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html">SdlLibrary</a></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;    {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a99f8603310d9c0b312171ffba9cb1c54">SdlLibrary</a>();</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a16efafe7022d674fdff035f6255a65c1">~SdlLibrary</a>();</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160; </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a99f8603310d9c0b312171ffba9cb1c54">SdlLibrary</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html">SdlLibrary</a>&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a3ff078b80bd0ff1bc51d050c4974449a">operator=</a>(<span class="keyword">const</span> <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html">SdlLibrary</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a99f8603310d9c0b312171ffba9cb1c54">SdlLibrary</a>(<a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html">SdlLibrary</a>&amp;&amp; other) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a3ff078b80bd0ff1bc51d050c4974449a">operator=</a>(<a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html">SdlLibrary</a>&amp;&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structeuphoria_1_1window_1_1SdlLibrary.html#a6bfa2c25ea7b4775ea6e704fb7446846">   17</a></span>&#160;        <span class="keywordtype">bool</span> <a class="code" href="structeuphoria_1_1window_1_1SdlLibrary.html#a6bfa2c25ea7b4775ea6e704fb7446846">ok</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    };</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;}</div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructeuphoria_1_1window_1_1SdlLibrary_html_a6bfa2c25ea7b4775ea6e704fb7446846"><div class="ttname"><a href="structeuphoria_1_1window_1_1SdlLibrary.html#a6bfa2c25ea7b4775ea6e704fb7446846">euphoria::window::SdlLibrary::ok</a></div><div class="ttdeci">bool ok</div><div class="ttdef"><b>Definition:</b> <a href="sdllibrary_8h_source.html#l00015">sdllibrary.h:15</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1window_1_1SdlLibrary_html_a6bfa2c25ea7b4775ea6e704fb7446846"><div class="ttname"><a href="structeuphoria_1_1window_1_1SdlLibrary.html#a6bfa2c25ea7b4775ea6e704fb7446846">euphoria::window::SdlLibrary::ok</a></div><div class="ttdeci">bool ok</div><div class="ttdef"><b>Definition:</b> <a href="sdllibrary_8h_source.html#l00017">sdllibrary.h:17</a></div></div>
+<div class="ttc" id="astructeuphoria_1_1window_1_1SdlLibrary_html_a3ff078b80bd0ff1bc51d050c4974449a"><div class="ttname"><a href="structeuphoria_1_1window_1_1SdlLibrary.html#a3ff078b80bd0ff1bc51d050c4974449a">euphoria::window::SdlLibrary::operator=</a></div><div class="ttdeci">void operator=(const SdlLibrary &amp;)=delete</div></div>
 <div class="ttc" id="anamespaceeuphoria_1_1window_html"><div class="ttname"><a href="namespaceeuphoria_1_1window.html">euphoria::window</a></div><div class="ttdef"><b>Definition:</b> <a href="app_8cc_source.html#l00018">app.cc:18</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1window_1_1SdlLibrary_html"><div class="ttname"><a href="structeuphoria_1_1window_1_1SdlLibrary.html">euphoria::window::SdlLibrary</a></div><div class="ttdef"><b>Definition:</b> <a href="sdllibrary_8h_source.html#l00007">sdllibrary.h:7</a></div></div>
-<div class="ttc" id="astructeuphoria_1_1window_1_1SdlLibrary_html_a7da78c61fe5b5a8b744cf82cf1cf08fe"><div class="ttname"><a href="structeuphoria_1_1window_1_1SdlLibrary.html#a7da78c61fe5b5a8b744cf82cf1cf08fe">euphoria::window::SdlLibrary::NONCOPYABLE</a></div><div class="ttdeci">NONCOPYABLE(SdlLibrary)</div></div>
+<div class="ttc" id="astructeuphoria_1_1window_1_1SdlLibrary_html"><div class="ttname"><a href="structeuphoria_1_1window_1_1SdlLibrary.html">euphoria::window::SdlLibrary</a></div><div class="ttdef"><b>Definition:</b> <a href="sdllibrary_8h_source.html#l00006">sdllibrary.h:6</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1window_1_1SdlLibrary_html_a16efafe7022d674fdff035f6255a65c1"><div class="ttname"><a href="structeuphoria_1_1window_1_1SdlLibrary.html#a16efafe7022d674fdff035f6255a65c1">euphoria::window::SdlLibrary::~SdlLibrary</a></div><div class="ttdeci">~SdlLibrary()</div><div class="ttdef"><b>Definition:</b> <a href="sdllibrary_8cc_source.html#l00048">sdllibrary.cc:48</a></div></div>
 <div class="ttc" id="astructeuphoria_1_1window_1_1SdlLibrary_html_a99f8603310d9c0b312171ffba9cb1c54"><div class="ttname"><a href="structeuphoria_1_1window_1_1SdlLibrary.html#a99f8603310d9c0b312171ffba9cb1c54">euphoria::window::SdlLibrary::SdlLibrary</a></div><div class="ttdeci">SdlLibrary()</div><div class="ttdef"><b>Definition:</b> <a href="sdllibrary_8cc_source.html#l00035">sdllibrary.cc:35</a></div></div>
-<div class="ttc" id="anoncopyable_8h_html"><div class="ttname"><a href="noncopyable_8h.html">noncopyable.h</a></div></div>
 <!-- HTML footer for doxygen 1.8.17-->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

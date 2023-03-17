@@ -1,19 +1,19 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
-  <compounddef id="namespaceeuphoria_1_1core_1_1_0d248" kind="namespace" language="C++">
-    <compoundname>euphoria::core::@248</compoundname>
+  <compounddef id="namespaceeuphoria_1_1core_1_1_0d246" kind="namespace" language="C++">
+    <compoundname>euphoria::core::@246</compoundname>
       <sectiondef kind="enum">
-      <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1_0d248_1a39a1c7990e8c3340ceaee19bed7e4518" prot="public" static="no" strong="yes">
+      <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1_0d246_1a9cf1e01149d09ff1657418e3adf7df1a" prot="public" static="no" strong="yes">
         <type></type>
         <name>AddEmpty</name>
-        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d248_1a39a1c7990e8c3340ceaee19bed7e4518a7fa3b767c460b54a2be4d49030b349c7" prot="public">
+        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d246_1a9cf1e01149d09ff1657418e3adf7df1aa7fa3b767c460b54a2be4d49030b349c7" prot="public">
           <name>no</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d248_1a39a1c7990e8c3340ceaee19bed7e4518aa6105c0a611b41b08f1209506350279e" prot="public">
+        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d246_1a9cf1e01149d09ff1657418e3adf7df1aaa6105c0a611b41b08f1209506350279e" prot="public">
           <name>yes</name>
           <briefdescription>
           </briefdescription>
@@ -28,17 +28,17 @@
         </inbodydescription>
         <location file="libs/core/src/core/stringutils.cc" line="373" column="1" bodyfile="libs/core/src/core/stringutils.cc" bodystart="372" bodyend="375"/>
       </memberdef>
-      <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1_0d248_1abec5c0bddce802d66b864f47a4db24b2" prot="public" static="no" strong="yes">
+      <memberdef kind="enum" id="namespaceeuphoria_1_1core_1_1_0d246_1a24ab94a57e67909b2578bec2dd4b3675" prot="public" static="no" strong="yes">
         <type></type>
         <name>AddEmptyLast</name>
-        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d248_1abec5c0bddce802d66b864f47a4db24b2a7fa3b767c460b54a2be4d49030b349c7" prot="public">
+        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d246_1a24ab94a57e67909b2578bec2dd4b3675a7fa3b767c460b54a2be4d49030b349c7" prot="public">
           <name>no</name>
           <briefdescription>
           </briefdescription>
           <detaileddescription>
           </detaileddescription>
         </enumvalue>
-        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d248_1abec5c0bddce802d66b864f47a4db24b2aa6105c0a611b41b08f1209506350279e" prot="public">
+        <enumvalue id="namespaceeuphoria_1_1core_1_1_0d246_1a24ab94a57e67909b2578bec2dd4b3675aa6105c0a611b41b08f1209506350279e" prot="public">
           <name>yes</name>
           <briefdescription>
           </briefdescription>

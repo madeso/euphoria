@@ -2,23 +2,10 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="visitor_8h" kind="file" language="C++">
     <compoundname>visitor.h</compoundname>
-    <includes refid="noncopyable_8h" local="yes">core/noncopyable.h</includes>
     <includedby refid="button_8cc" local="yes">libs/gui/src/gui/button.cc</includedby>
     <includedby refid="panelwidget_8cc" local="yes">libs/gui/src/gui/panelwidget.cc</includedby>
     <includedby refid="panelwidget_8h" local="yes">libs/gui/src/gui/panelwidget.h</includedby>
     <includedby refid="visitor_8cc" local="yes">libs/gui/src/gui/visitor.cc</includedby>
-    <incdepgraph>
-      <node id="1">
-        <label>libs/gui/src/gui/visitor.h</label>
-        <link refid="visitor_8h"/>
-        <childnode refid="2" relation="include">
-        </childnode>
-      </node>
-      <node id="2">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
-      </node>
-    </incdepgraph>
     <invincdepgraph>
       <node id="3">
         <label>libs/gui/src/gui/panelwidget.cc</label>

@@ -72,7 +72,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="57" column="1" bodyfile="libs/render/src/render/buffer.h" bodystart="56" bodyend="60"/>
+        <location file="libs/render/src/render/buffer.h" line="54" column="1" bodyfile="libs/render/src/render/buffer.h" bodystart="53" bodyend="57"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518e" prot="public" static="no" strong="yes">
         <type></type>
@@ -553,7 +553,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/compiledmesh.cc" line="216" column="5" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="216" bodyend="227"/>
+        <location file="libs/render/src/render/compiledmesh.cc" line="216" column="9" bodyfile="libs/render/src/render/compiledmesh.cc" bodystart="216" bodyend="227"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1a1bcad2172be9b1e0644b15ac21863fbc" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1render_1_1CompiledMesh" kindref="compound">CompiledMesh</ref> &gt;</type>
@@ -714,7 +714,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="51" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="52" bodyend="75"/>
+        <location file="libs/render/src/render/font.cc" line="50" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="51" bodyend="74"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1ad7c773ce7bdfed44cc39d2ff50a3b977" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::pair&lt; <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref>, <ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref> &gt;</type>
@@ -743,7 +743,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="79" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="80" bodyend="121"/>
+        <location file="libs/render/src/render/font.cc" line="78" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="79" bodyend="120"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1aad9e7ba73959c58dc50d9a1f992d88f5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2f" kindref="compound">core::vec2f</ref></type>
@@ -764,7 +764,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.cc" line="550" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="550" bodyend="571"/>
+        <location file="libs/render/src/render/font.cc" line="549" column="5" bodyfile="libs/render/src/render/font.cc" bodystart="549" bodyend="570"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1a1c09c5a0e9b680744d32503b9caa1a86" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1mat4f" kindref="compound">core::mat4f</ref></type>
@@ -827,7 +827,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.cc" line="114" column="5" bodyfile="libs/render/src/render/shader.cc" bodystart="114" bodyend="125" declfile="libs/render/src/render/shader.h" declline="126" declcolumn="5"/>
+        <location file="libs/render/src/render/shader.cc" line="114" column="5" bodyfile="libs/render/src/render/shader.cc" bodystart="114" bodyend="125" declfile="libs/render/src/render/shader.h" declline="129" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1a9c0a015a5a07178fe7c606d044748acb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -940,7 +940,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shader.cc" line="485" column="5" bodyfile="libs/render/src/render/shader.cc" bodystart="486" bodyend="498" declfile="libs/render/src/render/shader.h" declline="129" declcolumn="5"/>
+        <location file="libs/render/src/render/shader.cc" line="485" column="5" bodyfile="libs/render/src/render/shader.cc" bodystart="486" bodyend="498" declfile="libs/render/src/render/shader.h" declline="132" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1ab39a678913470bf93462a4444d76e09d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>bool</type>
@@ -982,7 +982,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/shaderuniform.cc" line="34" column="5" bodyfile="libs/render/src/render/shaderuniform.cc" bodystart="34" bodyend="40" declfile="libs/render/src/render/shaderuniform.h" declline="40" declcolumn="5"/>
+        <location file="libs/render/src/render/shaderuniform.cc" line="34" column="5" bodyfile="libs/render/src/render/shaderuniform.cc" bodystart="34" bodyend="40" declfile="libs/render/src/render/shaderuniform.h" declline="36" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1ab55a76b5c59fb46879691f74362ee6e7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -999,7 +999,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/texture.cc" line="132" column="5" bodyfile="libs/render/src/render/texture.cc" bodystart="132" bodyend="139" declfile="libs/render/src/render/texture.h" declline="72" declcolumn="5"/>
+        <location file="libs/render/src/render/texture.cc" line="132" column="5" bodyfile="libs/render/src/render/texture.cc" bodystart="132" bodyend="139" declfile="libs/render/src/render/texture.h" declline="75" declcolumn="5"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1render_1ad04c12ef06239399250c99266a7a53c7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -1024,6 +1024,6 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/gui/src/gui/button.h" line="16" column="1"/>
+    <location file="libs/gui/src/gui/button.h" line="15" column="1"/>
   </compounddef>
 </doxygen>

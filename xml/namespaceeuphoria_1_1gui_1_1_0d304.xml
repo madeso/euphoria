@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' standalone='no'?>
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
-  <compounddef id="namespace_0d398" kind="namespace" language="C++">
-    <compoundname>@398</compoundname>
+  <compounddef id="namespaceeuphoria_1_1gui_1_1_0d304" kind="namespace" language="C++">
+    <compoundname>euphoria::gui::@304</compoundname>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/tests/src/tests/approx.cc" line="4" column="1"/>
+    <location file="libs/gui/src/gui/layout.cc" line="37" column="5"/>
   </compounddef>
 </doxygen>

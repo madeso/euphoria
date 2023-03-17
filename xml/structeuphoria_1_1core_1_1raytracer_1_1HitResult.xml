@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="50" column="19" bodyfile="libs/core/src/core/raytracer.h" bodystart="50" bodyend="-1"/>
+        <location file="libs/core/src/core/raytracer.h" line="52" column="19" bodyfile="libs/core/src/core/raytracer.h" bodystart="52" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a2e1704fd3b692e3d7bc07926bfc9af6f" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="51" column="19" bodyfile="libs/core/src/core/raytracer.h" bodystart="51" bodyend="-1"/>
+        <location file="libs/core/src/core/raytracer.h" line="53" column="19" bodyfile="libs/core/src/core/raytracer.h" bodystart="53" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a4598340edfc341db5859585bdb473578" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1unit3f" kindref="compound">unit3f</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="52" column="20" bodyfile="libs/core/src/core/raytracer.h" bodystart="52" bodyend="-1"/>
+        <location file="libs/core/src/core/raytracer.h" line="54" column="20" bodyfile="libs/core/src/core/raytracer.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a1c53a5319c5776ad819ca1a61c2ec0b1" prot="public" static="no" mutable="no">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">raytracer::Material</ref> &gt;</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="53" column="29" bodyfile="libs/core/src/core/raytracer.h" bodystart="53" bodyend="-1"/>
+        <location file="libs/core/src/core/raytracer.h" line="55" column="29" bodyfile="libs/core/src/core/raytracer.h" bodystart="55" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -85,7 +85,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="55" column="13" bodyfile="libs/core/src/core/raytracer.cc" bodystart="18" bodyend="29"/>
+        <location file="libs/core/src/core/raytracer.h" line="57" column="13" bodyfile="libs/core/src/core/raytracer.cc" bodystart="18" bodyend="29"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -114,7 +114,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/raytracer.h" line="49" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="48" bodyend="62"/>
+    <location file="libs/core/src/core/raytracer.h" line="51" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="50" bodyend="64"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1aae14d7570e86873c3fafd93ad14eeac1" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>HitResult</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1HitResult_1a1c53a5319c5776ad819ca1a61c2ec0b1" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::HitResult</scope><name>material</name></member>

@@ -18,7 +18,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="33" column="13"/>
+        <location file="libs/core/src/core/raytracer.h" line="32" column="13"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa7001d7b1dd2933e1d2c64ccfbeecf00" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -31,15 +31,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="34" column="21"/>
+        <location file="libs/core/src/core/raytracer.h" line="33" column="21"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Material_1a501a31caec530288dc479fe8eda4558c" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Material_1ae8ca734fb0e9d9dc81fbc1b2a1b9c528" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::core::raytracer::Material::NONCOPYABLE</definition>
-        <argsstring>(Material)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::core::raytracer::Material::Material</definition>
+        <argsstring>(const Material &amp;other)=delete</argsstring>
+        <name>Material</name>
         <param>
-          <type><ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref></type>
+          <type>const <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &amp;</type>
+          <declname>other</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -47,7 +48,56 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="36" column="13"/>
+        <location file="libs/core/src/core/raytracer.h" line="35" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Material_1ab1ef89ecd7cc6e7b2e318bb0dbb1a98f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::raytracer::Material::operator=</definition>
+        <argsstring>(const Material &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="36" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Material_1aec295529dd52b9cee0adbcba438ea1fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::core::raytracer::Material::Material</definition>
+        <argsstring>(Material &amp;&amp;other)=delete</argsstring>
+        <name>Material</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="37" column="13"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Material_1a5ee921957b078c9d32c2b9bf807527b1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::core::raytracer::Material::operator=</definition>
+        <argsstring>(Material &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/core/src/core/raytracer.h" line="38" column="18"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1raytracer_1_1Material_1a6ff9316d1365d21f77aca71034217731" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>std::optional&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1ScatterResult" kindref="compound">ScatterResult</ref> &gt;</type>
@@ -75,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="39" column="13"/>
+        <location file="libs/core/src/core/raytracer.h" line="41" column="13"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -106,10 +156,13 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/core/src/core/raytracer.h" line="32" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="31" bodyend="45"/>
+    <location file="libs/core/src/core/raytracer.h" line="31" column="1" bodyfile="libs/core/src/core/raytracer.h" bodystart="30" bodyend="47"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa02c166d60c11706fbae602046b5d9d5" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Material</scope><name>Material</name></member>
-      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a501a31caec530288dc479fe8eda4558c" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Material</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ae8ca734fb0e9d9dc81fbc1b2a1b9c528" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Material</scope><name>Material</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aec295529dd52b9cee0adbcba438ea1fd" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Material</scope><name>Material</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ab1ef89ecd7cc6e7b2e318bb0dbb1a98f" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Material</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a5ee921957b078c9d32c2b9bf807527b1" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Material</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a6ff9316d1365d21f77aca71034217731" prot="public" virt="pure-virtual"><scope>euphoria::core::raytracer::Material</scope><name>scatter</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa7001d7b1dd2933e1d2c64ccfbeecf00" prot="public" virt="virtual"><scope>euphoria::core::raytracer::Material</scope><name>~Material</name></member>
     </listofallmembers>

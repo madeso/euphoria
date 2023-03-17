@@ -47,7 +47,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlwindow.h" line="20" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="10" bodyend="32"/>
+        <location file="libs/window/src/window/sdlwindow.h" line="17" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="10" bodyend="32"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a720b00c6038976df5630eb8a9bf8947d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlwindow.h" line="28" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="34" bodyend="37"/>
+        <location file="libs/window/src/window/sdlwindow.h" line="25" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="34" bodyend="37"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a2e7ab61e8416fca3a859b56e6054ac4e" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -77,15 +77,16 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlwindow.h" line="31" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="40" bodyend="59"/>
+        <location file="libs/window/src/window/sdlwindow.h" line="28" column="9" bodyfile="libs/window/src/window/sdlwindow.cc" bodystart="40" bodyend="59"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a942c817852f1fd986030edb616fe962e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a5fe3809560124e389a27b1f3399cb7bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::window::SdlWindow::NONCOPYABLE</definition>
-        <argsstring>(SdlWindow)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::window::SdlWindow::SdlWindow</definition>
+        <argsstring>(const SdlWindow &amp;other)=delete</argsstring>
+        <name>SdlWindow</name>
         <param>
-          <type><ref refid="structeuphoria_1_1window_1_1SdlWindow" kindref="compound">SdlWindow</ref></type>
+          <type>const <ref refid="structeuphoria_1_1window_1_1SdlWindow" kindref="compound">SdlWindow</ref> &amp;</type>
+          <declname>other</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -93,7 +94,56 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/window/src/window/sdlwindow.h" line="33" column="9"/>
+        <location file="libs/window/src/window/sdlwindow.h" line="30" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1aca790463893f2c9c1c2ed237dbff7e36" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::SdlWindow::operator=</definition>
+        <argsstring>(const SdlWindow &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1window_1_1SdlWindow" kindref="compound">SdlWindow</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlwindow.h" line="31" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a7b65a08e96fb7dfeae49f36a431cd070" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::window::SdlWindow::SdlWindow</definition>
+        <argsstring>(SdlWindow &amp;&amp;other)=delete</argsstring>
+        <name>SdlWindow</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1window_1_1SdlWindow" kindref="compound">SdlWindow</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlwindow.h" line="32" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1adbb5717e5c682cd4b048a9a058e34927" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::window::SdlWindow::operator=</definition>
+        <argsstring>(SdlWindow &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1window_1_1SdlWindow" kindref="compound">SdlWindow</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/window/src/window/sdlwindow.h" line="33" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1window_1_1SdlWindow_1a015fc0f764ceaedf1037faae15f9bbbf" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1vec2i" kindref="compound">core::vec2i</ref></type>
@@ -113,11 +163,14 @@
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/window/src/window/sdlwindow.h" line="19" column="1" bodyfile="libs/window/src/window/sdlwindow.h" bodystart="18" bodyend="40"/>
+    <location file="libs/window/src/window/sdlwindow.h" line="16" column="1" bodyfile="libs/window/src/window/sdlwindow.h" bodystart="15" bodyend="40"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1window_1_1SdlWindow_1a015fc0f764ceaedf1037faae15f9bbbf" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>get_mouse_position</name></member>
-      <member refid="structeuphoria_1_1window_1_1SdlWindow_1a942c817852f1fd986030edb616fe962e" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlWindow_1aca790463893f2c9c1c2ed237dbff7e36" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlWindow_1adbb5717e5c682cd4b048a9a058e34927" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1window_1_1SdlWindow_1a09e1f5bca12c3f85f24ec2cffe66d2d0" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>SdlWindow</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlWindow_1a5fe3809560124e389a27b1f3399cb7bf" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>SdlWindow</name></member>
+      <member refid="structeuphoria_1_1window_1_1SdlWindow_1a7b65a08e96fb7dfeae49f36a431cd070" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>SdlWindow</name></member>
       <member refid="structeuphoria_1_1window_1_1SdlWindow_1a2e7ab61e8416fca3a859b56e6054ac4e" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>set_mouse_behaviour</name></member>
       <member refid="structeuphoria_1_1window_1_1SdlWindow_1a02918c7072067f03ab307ff2310b5e70" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>window</name></member>
       <member refid="structeuphoria_1_1window_1_1SdlWindow_1a720b00c6038976df5630eb8a9bf8947d" prot="public" virt="non-virtual"><scope>euphoria::window::SdlWindow</scope><name>~SdlWindow</name></member>

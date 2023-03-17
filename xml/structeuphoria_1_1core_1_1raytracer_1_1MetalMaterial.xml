@@ -77,7 +77,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="192" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="193" bodyend="226"/>
+        <location file="libs/core/src/core/raytracer.cc" line="192" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="193" bodyend="222"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -115,13 +115,16 @@
         </childnode>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/raytracer.cc" line="177" column="1" bodyfile="libs/core/src/core/raytracer.cc" bodystart="176" bodyend="227"/>
+    <location file="libs/core/src/core/raytracer.cc" line="177" column="1" bodyfile="libs/core/src/core/raytracer.cc" bodystart="176" bodyend="223"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial_1ab36d247240fbcf23e94c7d28013c32b7" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>albedo</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial_1aaa53f350b54d4c8962897076243393cd" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>fuzz</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa02c166d60c11706fbae602046b5d9d5" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>Material</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ae8ca734fb0e9d9dc81fbc1b2a1b9c528" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>Material</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aec295529dd52b9cee0adbcba438ea1fd" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>Material</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial_1a03751823cac9f69740af25c339c43ae8" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>MetalMaterial</name></member>
-      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a501a31caec530288dc479fe8eda4558c" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1ab1ef89ecd7cc6e7b2e318bb0dbb1a98f" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1a5ee921957b078c9d32c2b9bf807527b1" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1MetalMaterial_1ab3efc74979a96bc2f634c930c1572563" prot="public" virt="virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>scatter</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Material_1aa7001d7b1dd2933e1d2c64ccfbeecf00" prot="public" virt="virtual"><scope>euphoria::core::raytracer::MetalMaterial</scope><name>~Material</name></member>
     </listofallmembers>

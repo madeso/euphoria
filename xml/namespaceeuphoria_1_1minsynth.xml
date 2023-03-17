@@ -95,7 +95,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="14" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="13" bodyend="24"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="13" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="12" bodyend="23"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1minsynth_1aee10cea23ecabd9a04546ec391f6a68c" prot="public" static="no" strong="yes">
         <type></type>
@@ -183,7 +183,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="28" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="27" bodyend="40"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="27" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="26" bodyend="39"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1minsynth_1a821866f9bf9aa5172fdfd845bea67d7e" prot="public" static="no" strong="yes">
         <type></type>
@@ -250,7 +250,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="44" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="43" bodyend="52"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="43" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="42" bodyend="51"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1minsynth_1ab8f1b36052b33e2aae71f969abfb0baa" prot="public" static="no" strong="yes">
         <type></type>
@@ -310,7 +310,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="56" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="55" bodyend="64"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="55" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="54" bodyend="63"/>
       </memberdef>
       <memberdef kind="enum" id="namespaceeuphoria_1_1minsynth_1aeb6c8add531ef27a96638373a90cea58" prot="public" static="no" strong="yes">
         <type></type>
@@ -363,7 +363,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="68" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="67" bodyend="75"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="67" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="66" bodyend="74"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="typedef">
@@ -378,7 +378,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="346" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="346" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="345" column="5" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="345" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="var">
@@ -413,7 +413,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="34" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="34" bodyend="48" declfile="libs/minsynth/src/minsynth/synth.h" declline="92" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="34" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="34" bodyend="48" declfile="libs/minsynth/src/minsynth/synth.h" declline="91" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a827f8d0bd29d9c9f49b5c4d3d3a3326d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -430,7 +430,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="51" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="51" bodyend="67" declfile="libs/minsynth/src/minsynth/synth.h" declline="93" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="51" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="51" bodyend="67" declfile="libs/minsynth/src/minsynth/synth.h" declline="92" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1abc7e56639fd61bbf02eea77afd601198" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -447,7 +447,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="70" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="70" bodyend="84" declfile="libs/minsynth/src/minsynth/synth.h" declline="99" declcolumn="11"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="70" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="70" bodyend="84" declfile="libs/minsynth/src/minsynth/synth.h" declline="98" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a31971bc8b88be775990bea3242853c5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -464,7 +464,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="88" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="88" bodyend="101" declfile="libs/minsynth/src/minsynth/synth.h" declline="97" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="88" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="88" bodyend="101" declfile="libs/minsynth/src/minsynth/synth.h" declline="96" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a1f9fea0477db8f579df8bec5e24e9566" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -481,7 +481,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="105" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="105" bodyend="117" declfile="libs/minsynth/src/minsynth/synth.h" declline="94" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="105" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="105" bodyend="117" declfile="libs/minsynth/src/minsynth/synth.h" declline="93" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a74538fed2b33e1754aeff67ecee5b625" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::string</type>
@@ -498,7 +498,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="121" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="121" bodyend="132" declfile="libs/minsynth/src/minsynth/synth.h" declline="95" declcolumn="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="121" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="121" bodyend="132" declfile="libs/minsynth/src/minsynth/synth.h" declline="94" declcolumn="17"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a51e00938dd1090d830e4233fd2cd189e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <templateparamlist>
@@ -547,7 +547,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="187" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="187" bodyend="190" declfile="libs/minsynth/src/minsynth/synth.h" declline="101" declcolumn="11"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="187" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="187" bodyend="190" declfile="libs/minsynth/src/minsynth/synth.h" declline="100" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1ae065172f91d50bad28ea93248786e964" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -572,7 +572,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="626" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="626" bodyend="642" declfile="libs/minsynth/src/minsynth/synth.h" declline="266" declcolumn="11"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="626" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="626" bodyend="642" declfile="libs/minsynth/src/minsynth/synth.h" declline="265" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a399379e0e11eb95b282debfd0bebbb45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -597,7 +597,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="646" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="646" bodyend="649" declfile="libs/minsynth/src/minsynth/synth.h" declline="284" declcolumn="11"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="646" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="646" bodyend="649" declfile="libs/minsynth/src/minsynth/synth.h" declline="283" declcolumn="11"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a85383be5ad0faddfc33b0d7690f77915" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::vector&lt; <ref refid="structeuphoria_1_1minsynth_1_1PianoKey" kindref="compound">PianoKey</ref> &gt;</type>
@@ -679,7 +679,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="864" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="864" bodyend="877" declfile="libs/minsynth/src/minsynth/synth.h" declline="349" declcolumn="26"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="864" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="864" bodyend="877" declfile="libs/minsynth/src/minsynth/synth.h" declline="348" declcolumn="26"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1minsynth_1a67142eb745db7fbaa143ffbd064c06a2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -741,7 +741,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.cc" line="930" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="931" bodyend="955" declfile="libs/minsynth/src/minsynth/synth.h" declline="351" declcolumn="10"/>
+        <location file="libs/minsynth/src/minsynth/synth.cc" line="930" column="5" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="931" bodyend="955" declfile="libs/minsynth/src/minsynth/synth.h" declline="350" declcolumn="10"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

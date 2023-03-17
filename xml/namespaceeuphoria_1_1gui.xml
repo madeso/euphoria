@@ -43,7 +43,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layoutcontainer.cc" line="9" column="5" bodyfile="libs/gui/src/gui/layoutcontainer.cc" bodystart="10" bodyend="26" declfile="libs/gui/src/gui/layoutcontainer.h" declline="18" declcolumn="21"/>
+        <location file="libs/gui/src/gui/layoutcontainer.cc" line="9" column="5" bodyfile="libs/gui/src/gui/layoutcontainer.cc" bodystart="10" bodyend="26" declfile="libs/gui/src/gui/layoutcontainer.h" declline="17" declcolumn="21"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1gui_1af4781b7c12dbf2f88f780e2f0ac6280d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Layout" kindref="compound">Layout</ref> &gt;</type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/gui/src/gui/layoutcontainer.cc" line="30" column="5" bodyfile="libs/gui/src/gui/layoutcontainer.cc" bodystart="30" bodyend="34" declfile="libs/gui/src/gui/layoutcontainer.h" declline="25" declcolumn="21"/>
+        <location file="libs/gui/src/gui/layoutcontainer.cc" line="30" column="5" bodyfile="libs/gui/src/gui/layoutcontainer.cc" bodystart="30" bodyend="34" declfile="libs/gui/src/gui/layoutcontainer.h" declline="24" declcolumn="21"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1gui_1aabd0ba90a7b03458ce4fc6bd2c00a6bd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1gui_1_1Layout" kindref="compound">Layout</ref> &gt;</type>

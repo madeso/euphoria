@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="38" column="21" bodyfile="libs/render/src/render/buffer.h" bodystart="38" bodyend="-1"/>
+        <location file="libs/render/src/render/buffer.h" line="35" column="21" bodyfile="libs/render/src/render/buffer.h" bodystart="35" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -31,7 +31,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="40" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="57" bodyend="60"/>
+        <location file="libs/render/src/render/buffer.h" line="37" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="57" bodyend="60"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1PointLayout_1a1aa4c8a0fcdbd11c6bb50f9c8f83e5fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -44,7 +44,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="41" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="63" bodyend="66"/>
+        <location file="libs/render/src/render/buffer.h" line="38" column="9" bodyfile="libs/render/src/render/buffer.cc" bodystart="63" bodyend="66"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1PointLayout_1ab6b5194243eea88209e3decb730bf240" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -60,7 +60,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="43" column="9"/>
+        <location file="libs/render/src/render/buffer.h" line="40" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1PointLayout_1a580e32523a1c50eb83f157de2b78149e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="44" column="9"/>
+        <location file="libs/render/src/render/buffer.h" line="41" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1PointLayout_1ab2c3dd6e09854e7fe055215c0de1bf04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -92,7 +92,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="45" column="14"/>
+        <location file="libs/render/src/render/buffer.h" line="42" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1PointLayout_1af43a4c03ec540c62297aa022dd16cb06" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -108,7 +108,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="46" column="14"/>
+        <location file="libs/render/src/render/buffer.h" line="43" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1PointLayout_1a9094fe7573d0631e45dadcc89f15b2f2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -133,7 +133,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="50" column="14" bodyfile="libs/render/src/render/buffer.cc" bodystart="110" bodyend="126"/>
+        <location file="libs/render/src/render/buffer.h" line="47" column="14" bodyfile="libs/render/src/render/buffer.cc" bodystart="110" bodyend="126"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -148,7 +148,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="48" column="34" bodyfile="libs/render/src/render/buffer.cc" bodystart="139" bodyend="143"/>
+        <location file="libs/render/src/render/buffer.h" line="45" column="34" bodyfile="libs/render/src/render/buffer.cc" bodystart="139" bodyend="143"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1PointLayout_1ac04a3652285de1256e377f213a04ce8b" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -165,7 +165,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/buffer.h" line="52" column="21" bodyfile="libs/render/src/render/buffer.cc" bodystart="130" bodyend="135"/>
+        <location file="libs/render/src/render/buffer.h" line="49" column="21" bodyfile="libs/render/src/render/buffer.cc" bodystart="130" bodyend="135"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -197,7 +197,7 @@
         <link refid="structeuphoria_1_1render_1_1Id"/>
       </node>
     </collaborationgraph>
-    <location file="libs/render/src/render/buffer.h" line="37" column="1" bodyfile="libs/render/src/render/buffer.h" bodystart="36" bodyend="53"/>
+    <location file="libs/render/src/render/buffer.h" line="34" column="1" bodyfile="libs/render/src/render/buffer.h" bodystart="33" bodyend="50"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1PointLayout_1aec70d66e18006dc39794ce6391a57794" prot="public" virt="non-virtual"><scope>euphoria::render::PointLayout</scope><name>attributes</name></member>
       <member refid="structeuphoria_1_1render_1_1PointLayout_1ac04a3652285de1256e377f213a04ce8b" prot="public" virt="non-virtual"><scope>euphoria::render::PointLayout</scope><name>bind</name></member>

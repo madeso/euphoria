@@ -23,7 +23,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="108" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="107" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Node_1a4460379974e28cc6314cf2086ab9c0e0" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -36,7 +36,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="109" column="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="108" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Node_1af32dcf34eb9bdc46433322309490f14f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -52,7 +52,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="111" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="110" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Node_1a804b0e11c11c8dfe98f09ab080c25d59" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -68,7 +68,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="112" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="111" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Node_1af0ab491ba7edc548dcde546c2a31c920" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -84,7 +84,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="113" column="14"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="112" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Node_1a5ee36fa76279fd2a7755adfe72156d2f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -100,7 +100,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="114" column="14"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="113" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1Node_1a7277f2c5eb010ee681eb37efa0a97283" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -123,7 +123,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="116" column="22" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="193" bodyend="195"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="115" column="22" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="193" bodyend="195"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -184,7 +184,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="107" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="106" bodyend="117"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="106" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="105" bodyend="116"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1a343fb3f85c00808d9fa1a0e47db176b0" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Node</scope><name>Node</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1Node_1af32dcf34eb9bdc46433322309490f14f" prot="public" virt="non-virtual"><scope>euphoria::minsynth::Node</scope><name>Node</name></member>

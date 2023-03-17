@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="154" column="28" bodyfile="libs/render/src/render/font.h" bodystart="154" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="157" column="28" bodyfile="libs/render/src/render/font.h" bodystart="157" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableText_1a82f7babfea43171c1b89dcb095fdcf24" prot="private" static="no" mutable="no">
         <type>float</type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="155" column="15" bodyfile="libs/render/src/render/font.h" bodystart="155" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="158" column="15" bodyfile="libs/render/src/render/font.h" bodystart="158" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableText_1ae1b0bf680fdee7375213452eb912e5ca" prot="private" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1UiText" kindref="compound">core::UiText</ref></type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="156" column="22" bodyfile="libs/render/src/render/font.h" bodystart="156" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="159" column="22" bodyfile="libs/render/src/render/font.h" bodystart="159" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableText_1a9f8f019a88004b105d90134be0e03a14" prot="private" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1render_1a6bbb739173cb83658bb8fe1a8a06518e" kindref="member">Align</ref></type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="157" column="15" bodyfile="libs/render/src/render/font.h" bodystart="157" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="160" column="15" bodyfile="libs/render/src/render/font.h" bodystart="160" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableText_1afd06f93f9939e2e99964af957166414e" prot="private" static="no" mutable="no">
         <type>bool</type>
@@ -67,7 +67,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="159" column="14" bodyfile="libs/render/src/render/font.h" bodystart="159" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="162" column="14" bodyfile="libs/render/src/render/font.h" bodystart="162" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableText_1a4d1dbf3c4a6e5990207bc197fd4e8ffc" prot="private" static="no" mutable="no">
         <type>float</type>
@@ -80,7 +80,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="160" column="15" bodyfile="libs/render/src/render/font.h" bodystart="160" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="163" column="15" bodyfile="libs/render/src/render/font.h" bodystart="163" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableText_1a0915f5bb471345b85d12ddce8db03166" prot="private" static="no" mutable="yes">
         <type>bool</type>
@@ -93,7 +93,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="163" column="22" bodyfile="libs/render/src/render/font.h" bodystart="163" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="166" column="22" bodyfile="libs/render/src/render/font.h" bodystart="166" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1render_1_1DrawableText_1a7f97923b7c4aa713be1c2463244db50a" prot="private" static="no" mutable="yes">
         <type><ref refid="structeuphoria_1_1render_1_1ListOfTextDrawCommands" kindref="compound">ListOfTextDrawCommands</ref></type>
@@ -106,7 +106,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="164" column="40" bodyfile="libs/render/src/render/font.h" bodystart="164" bodyend="-1"/>
+        <location file="libs/render/src/render/font.h" line="167" column="40" bodyfile="libs/render/src/render/font.h" bodystart="167" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -125,7 +125,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="113" column="18" bodyfile="libs/render/src/render/font.cc" bodystart="501" bodyend="509"/>
+        <location file="libs/render/src/render/font.h" line="113" column="18" bodyfile="libs/render/src/render/font.cc" bodystart="500" bodyend="508"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1aa37d21a50b8f610c50226d10b011fda1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -140,13 +140,14 @@
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="114" column="9"/>
       </memberdef>
-      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1af22d2e2ec2c76d88ee18b5c03f556549" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1af4fe57ef681854e152bc4a8f9537c292" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
-        <definition>euphoria::render::DrawableText::NONCOPYABLE</definition>
-        <argsstring>(DrawableText)</argsstring>
-        <name>NONCOPYABLE</name>
+        <definition>euphoria::render::DrawableText::DrawableText</definition>
+        <argsstring>(const DrawableText &amp;other)=delete</argsstring>
+        <name>DrawableText</name>
         <param>
-          <type><ref refid="structeuphoria_1_1render_1_1DrawableText" kindref="compound">DrawableText</ref></type>
+          <type>const <ref refid="structeuphoria_1_1render_1_1DrawableText" kindref="compound">DrawableText</ref> &amp;</type>
+          <declname>other</declname>
         </param>
         <briefdescription>
         </briefdescription>
@@ -155,6 +156,55 @@
         <inbodydescription>
         </inbodydescription>
         <location file="libs/render/src/render/font.h" line="116" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1a03927b6a544bb12cb0029d6fd258c896" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::DrawableText::operator=</definition>
+        <argsstring>(const DrawableText &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structeuphoria_1_1render_1_1DrawableText" kindref="compound">DrawableText</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="117" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1a6b18afc6dc817fbd990b6ae1e2eedea7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>euphoria::render::DrawableText::DrawableText</definition>
+        <argsstring>(DrawableText &amp;&amp;other)=delete</argsstring>
+        <name>DrawableText</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1DrawableText" kindref="compound">DrawableText</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="118" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1abe8c6d07e015235e7e9be91f907a84d5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void euphoria::render::DrawableText::operator=</definition>
+        <argsstring>(DrawableText &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="structeuphoria_1_1render_1_1DrawableText" kindref="compound">DrawableText</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="libs/render/src/render/font.h" line="119" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1ae447f2d2258635bcea2f507e78ecad1e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -171,7 +221,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="119" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="516" bodyend="520"/>
+        <location file="libs/render/src/render/font.h" line="122" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="515" bodyend="519"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1a1f2b44fc5f7ab52ee2462eed829b91f7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -193,7 +243,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="122" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="524" bodyend="528"/>
+        <location file="libs/render/src/render/font.h" line="125" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="523" bodyend="527"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1afd1cb8b258dbea111739db4bfa279da7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -210,7 +260,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="125" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="532" bodyend="535"/>
+        <location file="libs/render/src/render/font.h" line="128" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="531" bodyend="534"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1a76ecf509fbdb615d46c16dfb3d4f6426" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -227,7 +277,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="128" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="539" bodyend="546"/>
+        <location file="libs/render/src/render/font.h" line="131" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="538" bodyend="545"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1aa09e67a758f7ed7bf062f8e15e7a14fd" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -252,7 +302,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="131" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="576" bodyend="583"/>
+        <location file="libs/render/src/render/font.h" line="134" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="575" bodyend="582"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1a4c019ce1c1aff7911cddbdd64b775831" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -281,7 +331,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="139" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="588" bodyend="615"/>
+        <location file="libs/render/src/render/font.h" line="142" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="587" bodyend="614"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1acc9972f627b86f453ce41b58f0db5beb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1Rectf" kindref="compound">core::Rectf</ref></type>
@@ -294,7 +344,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="148" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="630" bodyend="635"/>
+        <location file="libs/render/src/render/font.h" line="151" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="629" bodyend="634"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1render_1_1DrawableText_1a6e56450079331e299ccec80cc8e61cbb" prot="public" static="no" const="yes" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -307,14 +357,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/render/src/render/font.h" line="151" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="619" bodyend="626"/>
+        <location file="libs/render/src/render/font.h" line="154" column="9" bodyfile="libs/render/src/render/font.cc" bodystart="618" bodyend="625"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/render/src/render/font.h" line="111" column="1" bodyfile="libs/render/src/render/font.h" bodystart="110" bodyend="165"/>
+    <location file="libs/render/src/render/font.h" line="111" column="1" bodyfile="libs/render/src/render/font.h" bodystart="110" bodyend="168"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a9f8f019a88004b105d90134be0e03a14" prot="private" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>alignment</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a4d1dbf3c4a6e5990207bc197fd4e8ffc" prot="private" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>background_alpha</name></member>
@@ -323,10 +373,13 @@
       <member refid="structeuphoria_1_1render_1_1DrawableText_1aa09e67a758f7ed7bf062f8e15e7a14fd" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>draw</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a4c019ce1c1aff7911cddbdd64b775831" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>draw</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1ac8a61d2a9d0f13cf159180861c7e5a31" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>DrawableText</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawableText_1af4fe57ef681854e152bc4a8f9537c292" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>DrawableText</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawableText_1a6b18afc6dc817fbd990b6ae1e2eedea7" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>DrawableText</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1ac7a678b2d5bd1c92df295b23c532aea7" prot="private" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>font</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1acc9972f627b86f453ce41b58f0db5beb" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>get_extents</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a0915f5bb471345b85d12ddce8db03166" prot="private" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>is_dirty</name></member>
-      <member refid="structeuphoria_1_1render_1_1DrawableText_1af22d2e2ec2c76d88ee18b5c03f556549" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawableText_1a03927b6a544bb12cb0029d6fd258c896" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1render_1_1DrawableText_1abe8c6d07e015235e7e9be91f907a84d5" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1afd1cb8b258dbea111739db4bfa279da7" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>set_alignment</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a1f2b44fc5f7ab52ee2462eed829b91f7" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>set_background</name></member>
       <member refid="structeuphoria_1_1render_1_1DrawableText_1a76ecf509fbdb615d46c16dfb3d4f6426" prot="public" virt="non-virtual"><scope>euphoria::render::DrawableText</scope><name>set_size</name></member>

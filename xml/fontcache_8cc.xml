@@ -15,7 +15,7 @@
       <node id="30">
         <label>queue</label>
       </node>
-      <node id="46">
+      <node id="45">
         <label>core/stringbuilder.h</label>
         <link refid="stringbuilder_8h"/>
       </node>
@@ -161,7 +161,7 @@
         </childnode>
         <childnode refid="44" relation="include">
         </childnode>
-        <childnode refid="47" relation="include">
+        <childnode refid="46" relation="include">
         </childnode>
       </node>
       <node id="7">
@@ -172,16 +172,14 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="47">
+      <node id="46">
         <label>render/texture.h</label>
         <link refid="texture_8h"/>
         <childnode refid="15" relation="include">
         </childnode>
+        <childnode refid="47" relation="include">
+        </childnode>
         <childnode refid="48" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="49" relation="include">
         </childnode>
       </node>
       <node id="39">
@@ -214,8 +212,6 @@
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="46" relation="include">
         </childnode>
       </node>
       <node id="11">
@@ -252,7 +248,7 @@
         <childnode refid="19" relation="include">
         </childnode>
       </node>
-      <node id="48">
+      <node id="47">
         <label>render/gltypes.h</label>
         <link refid="gltypes_8h"/>
       </node>
@@ -266,7 +262,7 @@
         <label>core/interpolate.default.h</label>
         <link refid="interpolate_8default_8h"/>
       </node>
-      <node id="49">
+      <node id="48">
         <label>core/vfs.h</label>
         <link refid="vfs_8h"/>
         <childnode refid="37" relation="include">
@@ -347,10 +343,6 @@
         </childnode>
         <childnode refid="25" relation="include">
         </childnode>
-      </node>
-      <node id="45">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
       </node>
       <node id="26">
         <label>core/default_parse.h</label>

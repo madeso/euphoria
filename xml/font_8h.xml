@@ -24,7 +24,7 @@
       <node id="23">
         <label>queue</label>
       </node>
-      <node id="42">
+      <node id="41">
         <label>core/stringbuilder.h</label>
         <link refid="stringbuilder_8h"/>
       </node>
@@ -150,19 +150,17 @@
         </childnode>
         <childnode refid="40" relation="include">
         </childnode>
-        <childnode refid="43" relation="include">
+        <childnode refid="42" relation="include">
         </childnode>
       </node>
-      <node id="43">
+      <node id="42">
         <label>render/texture.h</label>
         <link refid="texture_8h"/>
         <childnode refid="5" relation="include">
         </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
         <childnode refid="44" relation="include">
-        </childnode>
-        <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="45" relation="include">
         </childnode>
       </node>
       <node id="33">
@@ -195,8 +193,6 @@
         <childnode refid="3" relation="include">
         </childnode>
         <childnode refid="41" relation="include">
-        </childnode>
-        <childnode refid="42" relation="include">
         </childnode>
       </node>
       <node id="34">
@@ -233,7 +229,7 @@
         <childnode refid="9" relation="include">
         </childnode>
       </node>
-      <node id="44">
+      <node id="43">
         <label>render/gltypes.h</label>
         <link refid="gltypes_8h"/>
       </node>
@@ -247,7 +243,7 @@
         <label>core/interpolate.default.h</label>
         <link refid="interpolate_8default_8h"/>
       </node>
-      <node id="45">
+      <node id="44">
         <label>core/vfs.h</label>
         <link refid="vfs_8h"/>
         <childnode refid="31" relation="include">
@@ -318,10 +314,6 @@
         </childnode>
         <childnode refid="15" relation="include">
         </childnode>
-      </node>
-      <node id="41">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
       </node>
       <node id="16">
         <label>core/default_parse.h</label>

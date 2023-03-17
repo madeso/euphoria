@@ -160,8 +160,6 @@
     <innerfile refid="nlp__line_8h">nlp_line.h</innerfile>
     <innerfile refid="nlp__sentence_8cc">nlp_sentence.cc</innerfile>
     <innerfile refid="nlp__sentence_8h">nlp_sentence.h</innerfile>
-    <innerfile refid="noncopyable_8cc">noncopyable.cc</innerfile>
-    <innerfile refid="noncopyable_8h">noncopyable.h</innerfile>
     <innerfile refid="numeric_8cc">numeric.cc</innerfile>
     <innerfile refid="numeric_8h">numeric.h</innerfile>
     <innerfile refid="numparse_8cc">numparse.cc</innerfile>

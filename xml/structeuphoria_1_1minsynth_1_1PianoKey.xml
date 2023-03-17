@@ -15,7 +15,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="181" column="13" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="181" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="180" column="13" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="180" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1PianoKey_1a900b24d9604e96db55a561758f9cc647" prot="public" static="no" mutable="no">
         <type><ref refid="namespaceeuphoria_1_1core_1aa9db03a38fd9999446a4ebf0584cd710" kindref="member">core::Key</ref></type>
@@ -28,7 +28,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="182" column="19" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="182" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="181" column="19" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="181" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1PianoKey_1ac740c107aad080bf67351ccf1370da7d" prot="public" static="no" mutable="no">
         <type>std::string</type>
@@ -41,7 +41,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="183" column="21" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="183" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="182" column="21" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="182" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1minsynth_1_1PianoKey_1a291b795819a7440c690274d83fbf96ad" prot="public" static="no" mutable="no">
         <type>bool</type>
@@ -54,7 +54,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="184" column="14" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="184" bodyend="-1"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="183" column="14" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="183" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -85,14 +85,14 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="186" column="9" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="245" bodyend="251"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="185" column="9" bodyfile="libs/minsynth/src/minsynth/synth.cc" bodystart="245" bodyend="251"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
     </briefdescription>
     <detaileddescription>
     </detaileddescription>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="180" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="179" bodyend="187"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="179" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="178" bodyend="186"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1PianoKey_1a900b24d9604e96db55a561758f9cc647" prot="public" virt="non-virtual"><scope>euphoria::minsynth::PianoKey</scope><name>keycode</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1PianoKey_1ac740c107aad080bf67351ccf1370da7d" prot="public" virt="non-virtual"><scope>euphoria::minsynth::PianoKey</scope><name>name</name></member>

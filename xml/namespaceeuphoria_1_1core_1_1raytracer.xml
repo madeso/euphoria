@@ -116,7 +116,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="231" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="232" bodyend="248"/>
+        <location file="libs/core/src/core/raytracer.cc" line="227" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="228" bodyend="244"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1ab6a01d76d3383e246e680f2d48cba402" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>float</type>
@@ -137,7 +137,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="252" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="252" bodyend="259"/>
+        <location file="libs/core/src/core/raytracer.cc" line="248" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="248" bodyend="255"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1afaa38b089e3fc39a69ba2bb7dcc1c33f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
@@ -154,7 +154,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="332" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="333" bodyend="341" declfile="libs/core/src/core/raytracer.h" declline="88" declcolumn="25"/>
+        <location file="libs/core/src/core/raytracer.cc" line="328" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="329" bodyend="337" declfile="libs/core/src/core/raytracer.h" declline="90" declcolumn="25"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a256bb53fc6724684e0766eb5532ec568" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
@@ -175,7 +175,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="345" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="346" bodyend="356" declfile="libs/core/src/core/raytracer.h" declline="94" declcolumn="25"/>
+        <location file="libs/core/src/core/raytracer.cc" line="341" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="342" bodyend="352" declfile="libs/core/src/core/raytracer.h" declline="96" declcolumn="25"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a40e7ae3408e08ce84920c293bc646a04" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Material" kindref="compound">Material</ref> &gt;</type>
@@ -196,7 +196,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="360" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="361" bodyend="371" declfile="libs/core/src/core/raytracer.h" declline="102" declcolumn="25"/>
+        <location file="libs/core/src/core/raytracer.cc" line="356" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="357" bodyend="367" declfile="libs/core/src/core/raytracer.h" declline="104" declcolumn="25"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a286dfbfda49ede1c12ab66c9f7a3edca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
@@ -225,7 +225,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="375" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="376" bodyend="426"/>
+        <location file="libs/core/src/core/raytracer.cc" line="371" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="372" bodyend="422"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a70fee066bc2d8b6ba8ab7718c92c2bc2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type><ref refid="structeuphoria_1_1core_1_1rgb" kindref="compound">rgb</ref></type>
@@ -242,7 +242,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="464" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="464" bodyend="467"/>
+        <location file="libs/core/src/core/raytracer.cc" line="460" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="460" bodyend="463"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1a634651f16fd3b82293a2cf1ac367ca5f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -267,7 +267,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="470" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="470" bodyend="499" declfile="libs/core/src/core/raytracer.h" declline="119" declcolumn="9"/>
+        <location file="libs/core/src/core/raytracer.cc" line="466" column="5" bodyfile="libs/core/src/core/raytracer.cc" bodystart="466" bodyend="495" declfile="libs/core/src/core/raytracer.h" declline="121" declcolumn="9"/>
       </memberdef>
       <memberdef kind="function" id="namespaceeuphoria_1_1core_1_1raytracer_1aeaef9bf1f1d66a4dba5443bf2b9f2c25" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>std::shared_ptr&lt; <ref refid="structeuphoria_1_1core_1_1raytracer_1_1Object" kindref="compound">Object</ref> &gt;</type>
@@ -292,7 +292,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.h" line="80" column="25" declfile="libs/core/src/core/raytracer.h" declline="80" declcolumn="25"/>
+        <location file="libs/core/src/core/raytracer.h" line="82" column="25" declfile="libs/core/src/core/raytracer.h" declline="82" declcolumn="25"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

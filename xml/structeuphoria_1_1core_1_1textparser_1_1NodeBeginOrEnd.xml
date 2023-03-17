@@ -16,7 +16,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="52" column="18" bodyfile="libs/core/src/core/ui_text.h" bodystart="52" bodyend="-1"/>
+        <location file="libs/core/src/core/ui_text.h" line="54" column="18" bodyfile="libs/core/src/core/ui_text.h" bodystart="54" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -35,7 +35,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="54" column="22" bodyfile="libs/core/src/core/ui_text.cc" bodystart="28" bodyend="28"/>
+        <location file="libs/core/src/core/ui_text.h" line="56" column="22" bodyfile="libs/core/src/core/ui_text.cc" bodystart="28" bodyend="28"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1abe6ed38d6a0c0e62d45ab5acbb2a3449" prot="public" static="no" const="yes" explicit="no" inline="no" virt="virtual">
         <type>void</type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/ui_text.h" line="57" column="13" bodyfile="libs/core/src/core/ui_text.cc" bodystart="31" bodyend="41"/>
+        <location file="libs/core/src/core/ui_text.h" line="59" column="13" bodyfile="libs/core/src/core/ui_text.cc" bodystart="31" bodyend="41"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -84,13 +84,16 @@
         <link refid="structeuphoria_1_1core_1_1textparser_1_1Node"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/ui_text.h" line="51" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="50" bodyend="58"/>
+    <location file="libs/core/src/core/ui_text.h" line="53" column="1" bodyfile="libs/core/src/core/ui_text.h" bodystart="52" bodyend="60"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1abe6ed38d6a0c0e62d45ab5acbb2a3449" prot="public" virt="virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>accept</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1a620c45dd7f3e16c6f4fa9c77d201e281" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>begin</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1aad5fbbcf326567a811cd9d9cd2b06da9" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a1ca253d4fb1c2936d62f0085563b65ad" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>Node</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a221f1ef2e7c47956d0b92edcf840e41b" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>Node</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1NodeBeginOrEnd_1af8ebb471bd8ca0fc0b6b26b4202315e9" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>NodeBeginOrEnd</name></member>
-      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a726156ea77716a1f912e774e746fe4c6" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>NONCOPYABLE</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a209b790249956192b92ea7e8809478ca" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>operator=</name></member>
+      <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a0ebec11ce3c75e0dacd238265e76e96a" prot="public" virt="non-virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>operator=</name></member>
       <member refid="structeuphoria_1_1core_1_1textparser_1_1Node_1a5310d8999c53d524ecc20362d0dc3a68" prot="public" virt="virtual"><scope>euphoria::core::textparser::NodeBeginOrEnd</scope><name>~Node</name></member>
     </listofallmembers>
   </compounddef>

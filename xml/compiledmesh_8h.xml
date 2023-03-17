@@ -139,9 +139,7 @@
         <link refid="buffer_8h"/>
         <childnode refid="44" relation="include">
         </childnode>
-        <childnode refid="45" relation="include">
-        </childnode>
-        <childnode refid="47" relation="include">
+        <childnode refid="46" relation="include">
         </childnode>
       </node>
       <node id="34">
@@ -150,16 +148,16 @@
         <childnode refid="3" relation="include">
         </childnode>
       </node>
-      <node id="47">
+      <node id="46">
         <label>render/shaderattribute.h</label>
         <link refid="shaderattribute_8h"/>
-        <childnode refid="46" relation="include">
+        <childnode refid="45" relation="include">
         </childnode>
       </node>
-      <node id="45">
+      <node id="44">
         <label>render/id.h</label>
         <link refid="id_8h"/>
-        <childnode refid="46" relation="include">
+        <childnode refid="45" relation="include">
         </childnode>
       </node>
       <node id="19">
@@ -226,7 +224,7 @@
         <childnode refid="17" relation="include">
         </childnode>
       </node>
-      <node id="46">
+      <node id="45">
         <label>render/gltypes.h</label>
         <link refid="gltypes_8h"/>
       </node>
@@ -293,10 +291,6 @@
         </childnode>
         <childnode refid="11" relation="include">
         </childnode>
-      </node>
-      <node id="44">
-        <label>core/noncopyable.h</label>
-        <link refid="noncopyable_8h"/>
       </node>
       <node id="23">
         <label>core/default_parse.h</label>

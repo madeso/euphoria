@@ -226,7 +226,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/intersection.cc" line="321" column="17"/>
+        <location file="libs/core/src/core/intersection.cc" line="320" column="17"/>
       </memberdef>
       </sectiondef>
     <briefdescription>

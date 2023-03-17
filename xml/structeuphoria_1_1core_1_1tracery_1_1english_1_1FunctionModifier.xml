@@ -20,7 +20,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="589" column="19" bodyfile="libs/core/src/core/tracery.cc" bodystart="589" bodyend="-1"/>
+        <location file="libs/core/src/core/tracery.cc" line="588" column="19" bodyfile="libs/core/src/core/tracery.cc" bodystart="588" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -39,7 +39,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="590" column="13" bodyfile="libs/core/src/core/tracery.cc" bodystart="590" bodyend="590"/>
+        <location file="libs/core/src/core/tracery.cc" line="589" column="13" bodyfile="libs/core/src/core/tracery.cc" bodystart="589" bodyend="589"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1ac1bb6ee68705471a455178234eb3e8b1" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
         <type><ref refid="structeuphoria_1_1core_1_1tracery_1_1Result" kindref="compound">Result</ref></type>
@@ -57,7 +57,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/tracery.cc" line="592" column="20" bodyfile="libs/core/src/core/tracery.cc" bodystart="592" bodyend="596"/>
+        <location file="libs/core/src/core/tracery.cc" line="591" column="20" bodyfile="libs/core/src/core/tracery.cc" bodystart="591" bodyend="595"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -88,7 +88,7 @@
         <link refid="structeuphoria_1_1core_1_1tracery_1_1Modifier"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/tracery.cc" line="588" column="1" bodyfile="libs/core/src/core/tracery.cc" bodystart="587" bodyend="597"/>
+    <location file="libs/core/src/core/tracery.cc" line="587" column="1" bodyfile="libs/core/src/core/tracery.cc" bodystart="586" bodyend="596"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1ac1bb6ee68705471a455178234eb3e8b1" prot="public" virt="virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>apply_modifier</name></member>
       <member refid="structeuphoria_1_1core_1_1tracery_1_1english_1_1FunctionModifier_1a9e0b87c19ff30833756cde2fe7bcaffd" prot="public" virt="non-virtual"><scope>euphoria::core::tracery::english::FunctionModifier</scope><name>func</name></member>

@@ -17,7 +17,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="155" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="154" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1a74f6dd617d227bcadd11ae4fd7ce9a06" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
         <type></type>
@@ -30,7 +30,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="156" column="17"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="155" column="17"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1a2ed7d1de1707e2a394ae28491a1c8a45" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -46,7 +46,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="158" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="157" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1a22c7f869e734327d7bcd15ea791697ab" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type></type>
@@ -62,7 +62,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="159" column="9"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="158" column="9"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1a6213abe23d728331bfc6e91e15f034e8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -78,7 +78,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="160" column="14"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="159" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1a5b0865bbb3cac98b0ea3a24b0f01c109" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
         <type>void</type>
@@ -94,7 +94,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="161" column="14"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="160" column="14"/>
       </memberdef>
       <memberdef kind="function" id="structeuphoria_1_1minsynth_1_1WaveOut_1aa21b9ddec334bedf2c91e637ea7f6a13" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
         <type>float</type>
@@ -113,7 +113,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/minsynth/src/minsynth/synth.h" line="163" column="23"/>
+        <location file="libs/minsynth/src/minsynth/synth.h" line="162" column="23"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -150,7 +150,7 @@
         </childnode>
       </node>
     </inheritancegraph>
-    <location file="libs/minsynth/src/minsynth/synth.h" line="154" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="153" bodyend="164"/>
+    <location file="libs/minsynth/src/minsynth/synth.h" line="153" column="1" bodyfile="libs/minsynth/src/minsynth/synth.h" bodystart="152" bodyend="163"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1aa21b9ddec334bedf2c91e637ea7f6a13" prot="public" virt="pure-virtual"><scope>euphoria::minsynth::WaveOut</scope><name>get_output</name></member>
       <member refid="structeuphoria_1_1minsynth_1_1WaveOut_1a6213abe23d728331bfc6e91e15f034e8" prot="public" virt="non-virtual"><scope>euphoria::minsynth::WaveOut</scope><name>operator=</name></member>

@@ -14,7 +14,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="431" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="431" bodyend="-1"/>
+        <location file="libs/core/src/core/raytracer.cc" line="427" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="427" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1af6d1da0cd46f2d5dfdd5fa9db4ab5677" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -27,7 +27,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="432" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="432" bodyend="-1"/>
+        <location file="libs/core/src/core/raytracer.cc" line="428" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="428" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a8b842e616edb0eb1b1bd53810dfaa03f" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -40,7 +40,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="433" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="433" bodyend="-1"/>
+        <location file="libs/core/src/core/raytracer.cc" line="429" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="429" bodyend="-1"/>
       </memberdef>
       <memberdef kind="variable" id="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a5376c7bb01f0e47e110fac0c31e64028" prot="public" static="no" mutable="no">
         <type><ref refid="structeuphoria_1_1core_1_1vec3f" kindref="compound">vec3f</ref></type>
@@ -53,7 +53,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="434" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="434" bodyend="-1"/>
+        <location file="libs/core/src/core/raytracer.cc" line="430" column="15" bodyfile="libs/core/src/core/raytracer.cc" bodystart="430" bodyend="-1"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-static-func">
@@ -76,7 +76,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="436" column="23" bodyfile="libs/core/src/core/raytracer.cc" bodystart="436" bodyend="453"/>
+        <location file="libs/core/src/core/raytracer.cc" line="432" column="23" bodyfile="libs/core/src/core/raytracer.cc" bodystart="432" bodyend="449"/>
       </memberdef>
       </sectiondef>
       <sectiondef kind="public-func">
@@ -99,7 +99,7 @@
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="libs/core/src/core/raytracer.cc" line="456" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="456" bodyend="459"/>
+        <location file="libs/core/src/core/raytracer.cc" line="452" column="9" bodyfile="libs/core/src/core/raytracer.cc" bodystart="452" bodyend="455"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -122,7 +122,7 @@
         <link refid="structeuphoria_1_1core_1_1vec3f"/>
       </node>
     </collaborationgraph>
-    <location file="libs/core/src/core/raytracer.cc" line="430" column="1" bodyfile="libs/core/src/core/raytracer.cc" bodystart="429" bodyend="460"/>
+    <location file="libs/core/src/core/raytracer.cc" line="426" column="1" bodyfile="libs/core/src/core/raytracer.cc" bodystart="425" bodyend="456"/>
     <listofallmembers>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1ac80b0ecf96ab8824ac777e9b4e75f921" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>create</name></member>
       <member refid="structeuphoria_1_1core_1_1raytracer_1_1Camera_1a7885e6e60bddbe805b3d236c9d7f2521" prot="public" virt="non-virtual"><scope>euphoria::core::raytracer::Camera</scope><name>get_ray</name></member>
