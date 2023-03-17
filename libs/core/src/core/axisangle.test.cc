@@ -6,7 +6,7 @@ namespace euco = euphoria::core;
 
 TEST_CASE("aa-righthand", "[aa]")
 {
-    const auto aa = euco::AxisAngle::right_hand_around(
+    const auto aa = euco::AxisAngle::from_right_hand_around(
             euco::unit3f::x_axis(), euco::angle::from_degrees(12.0f));
     REQUIRE(aa.angle.in_degrees() == Approx(12.0f));
 

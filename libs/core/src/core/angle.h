@@ -15,7 +15,7 @@ namespace euphoria::core
         [[nodiscard]] constexpr static angle
         from_degrees(float degrees)
         {
-            return angle(degrees_to_radian(degrees));
+            return angle(c_degrees_to_radian(degrees));
         }
 
         [[nodiscard]] constexpr static angle
@@ -72,7 +72,7 @@ namespace euphoria::core
         [[nodiscard]] constexpr float
         in_degrees() const
         {
-            return radian_to_degrees(radians);
+            return c_radian_to_degrees(radians);
         }
 
         [[nodiscard]] constexpr float
@@ -101,13 +101,13 @@ namespace euphoria::core
         constexpr explicit angle(float r) : radians(r) {}
 
         [[nodiscard]] static constexpr float
-        radian_to_degrees(float radians)
+        c_radian_to_degrees(float radians)
         {
             return (180.0f / pi) * radians;
         }
 
         [[nodiscard]] static constexpr float
-        degrees_to_radian(float degrees)
+        c_degrees_to_radian(float degrees)
         {
             return pi / 180.0f * degrees;
         }

@@ -40,7 +40,7 @@ namespace euphoria::window
     }
 
     void
-    Canvas::vertical_line(float rx, ImU32 grid_color) const
+    Canvas::draw_vertical_line(float rx, ImU32 grid_color) const
     {
         const auto x = view.scroll.x + rx * view.scale;
         const auto size = ImGui::GetWindowSize();
@@ -54,7 +54,7 @@ namespace euphoria::window
     }
 
     void
-    Canvas::horizontal_line(float ry, ImU32 grid_color) const
+    Canvas::draw_horizontal_line(float ry, ImU32 grid_color) const
     {
         const auto y = view.scroll.y + ry * view.scale;
         const auto size = ImGui::GetWindowSize();

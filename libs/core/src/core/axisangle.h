@@ -16,7 +16,7 @@ namespace euphoria::core
         core::angle angle;
 
         [[nodiscard]] static AxisAngle
-        right_hand_around(const unit3f& axis, const core::angle& angle);
+        from_right_hand_around(const unit3f& axis, const core::angle& angle);
 
     private:
         AxisAngle(const unit3f& ax, const core::angle& ang);

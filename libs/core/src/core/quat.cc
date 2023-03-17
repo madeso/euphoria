@@ -76,7 +76,7 @@ namespace euphoria::core
         const auto axis = get_random_unit3(random);
         const auto angle = angle::random(random);
 
-        return quatf::from_axis_angle(AxisAngle::right_hand_around(axis, angle));
+        return quatf::from_axis_angle(AxisAngle::from_right_hand_around(axis, angle));
     }
 
 
@@ -95,7 +95,7 @@ namespace euphoria::core
         const auto sin_a = get_default_if_close_to_zero<float>(
                 sqrt(1.0f - cos_a * cos_a), 1, 0.0005f);
         // todo(Gustav): do we need to normalize here?
-        return AxisAngle::right_hand_around(
+        return AxisAngle::from_right_hand_around(
                 (get_vec_part() / sin_a).get_normalized(), angle);
     }
 
@@ -396,7 +396,7 @@ namespace euphoria::core
         const auto rot_axis = in.cross(dir).get_normalized();
         return quatf::from_axis_angle
         (
-            AxisAngle::right_hand_around(rot_axis, rot_angle)
+            AxisAngle::from_right_hand_around(rot_axis, rot_angle)
         );
     }
 

@@ -259,7 +259,7 @@ TEST_CASE("mat4-TestIn", "[mat]")
 TEST_CASE("mat4-test", "[mat]")
 {
     const euco::mat4f start = euco::mat4f::identity();
-    const euco::AxisAngle aa = euco::AxisAngle::right_hand_around
+    const euco::AxisAngle aa = euco::AxisAngle::from_right_hand_around
     (
         euco::unit3f::up(),
         euco::angle::from_degrees(-90)
@@ -280,7 +280,7 @@ TEST_CASE("mat4-TestCombined_RT", "[mat]")
     const auto r = euco::mat4f::identity()
         .get_rotated
         (
-            euco::AxisAngle::right_hand_around
+            euco::AxisAngle::from_right_hand_around
             (
                 euco::unit3f::up(),
                 euco::angle::from_degrees(-90)
@@ -298,7 +298,7 @@ TEST_CASE("mat4-TestCombined2_RT", "[mat]")
         euco::mat4f::identity()
         .get_rotated
         (
-            euco::AxisAngle::right_hand_around
+            euco::AxisAngle::from_right_hand_around
             (
                 euco::unit3f::up(), euco::angle::from_degrees(90)
             )
@@ -315,7 +315,7 @@ TEST_CASE("mat4-TestCombined_TR", "[mat]")
         .get_translated(euco::vec3f(0, 0, 5))
         .get_rotated
         (
-            euco::AxisAngle::right_hand_around
+            euco::AxisAngle::from_right_hand_around
             (
                 euco::unit3f::up(),
                 euco::angle::from_degrees(-90)

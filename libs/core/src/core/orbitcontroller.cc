@@ -17,7 +17,7 @@ namespace euphoria::core
         const auto hor =
             quatf::from_axis_angle
             (
-                AxisAngle::right_hand_around
+                AxisAngle::from_right_hand_around
                 (
                     unit3f::up(),
                     -horizontal_rotation
@@ -26,7 +26,7 @@ namespace euphoria::core
         const auto vert =
             quatf::from_axis_angle
             (
-                AxisAngle::right_hand_around
+                AxisAngle::from_right_hand_around
                 (
                     unit3f::right(),
                     -vertical_rotation

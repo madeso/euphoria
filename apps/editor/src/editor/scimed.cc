@@ -392,7 +392,7 @@ namespace euphoria::editor
             canvas,
             [&](int position)
             {
-                canvas->vertical_line(core::c_int_to_float(position), scc.split_color);
+                canvas->draw_vertical_line(core::c_int_to_float(position), scc.split_color);
             },
             [](const ImVec2 &p) -> float
             {
@@ -406,7 +406,7 @@ namespace euphoria::editor
             canvas,
             [&](int position)
             {
-                canvas->horizontal_line(core::c_int_to_float(position), scc.split_color);
+                canvas->draw_horizontal_line(core::c_int_to_float(position), scc.split_color);
             },
             [](const ImVec2 &p) -> float
             {
