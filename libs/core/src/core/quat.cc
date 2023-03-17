@@ -381,7 +381,7 @@ namespace euphoria::core
     quatf quatf::look_in_direction(const unit3f& dir, const unit3f& up)
     {
         const vec3f in = unit3f::in();
-        float dot_value = dot(in, dir);
+        float dot_value = in.dot(dir);
 
         if (abs(dot_value - (-1.0f)) < 0.000001f)
         {
@@ -393,7 +393,7 @@ namespace euphoria::core
         }
 
         const auto rot_angle = acos(dot_value);
-        const auto rot_axis = cross(in, dir).get_normalized();
+        const auto rot_axis = in.cross(dir).get_normalized();
         return quatf::from_axis_angle
         (
             AxisAngle::right_hand_around(rot_axis, rot_angle)

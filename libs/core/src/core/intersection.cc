@@ -100,7 +100,7 @@ namespace euphoria::core
         const Plane& p
     )
     {
-        return -(dot(r.from, p.normal) + p.distance)/dot(r.dir, p.normal);
+        return -(r.from.dot(p.normal) + p.distance) / r.dir.dot(p.normal);
     }
 
 
@@ -181,7 +181,7 @@ namespace euphoria::core
         const vec3f& p
     )
     {
-        return dot(plane.normal, p) + plane.distance;
+        return plane.normal.dot(p) + plane.distance;
     }
 
     vec3f
@@ -191,7 +191,7 @@ namespace euphoria::core
         const vec3f& point
     )
     {
-        const auto distance = dot(plane.normal, point) - plane.distance;
+        const auto distance = plane.normal.dot(point) - plane.distance;
         return point - distance * plane.normal;
     }
 
@@ -205,7 +205,7 @@ namespace euphoria::core
     {
         const auto new_normalized = (point - ray.from).get_normalized();
 
-        const auto d = dot(new_normalized, ray.dir);
+        const auto d = new_normalized.dot(ray.dir);
         return abs(1.0f - d);
     }
 
@@ -216,11 +216,10 @@ namespace euphoria::core
         const vec3f& c
     )
     {
-        const auto ab = ray;
+        const auto& ab = ray;
         const auto a = ray.from;
-        // const auto b = ray.GetPoint(1);
 
-        auto t = dot(c - a, ab.dir) / dot(ab.dir, ab.dir);
+        auto t = (c - a).dot(ab.dir) / ab.dir.dot(ab.dir);
 
         t = max(t, 0.0f);
 
@@ -275,9 +274,9 @@ namespace euphoria::core
     )
     {
         const vec3f oc = ray.from - sphere_center;
-        const auto a = dot(ray.dir, ray.dir);
-        const auto b = 2.0f * dot(oc, ray.dir);
-        const auto c = dot(oc, oc) - sphere.radius*sphere.radius;
+        const auto a = ray.dir.dot(ray.dir);
+        const auto b = 2.0f * oc.dot(ray.dir);
+        const auto c = oc.dot(oc) - sphere.radius*sphere.radius;
         const auto discriminant = b*b - 4*a*c;
         if (discriminant < 0) {
             return -1.0f;
@@ -359,8 +358,8 @@ namespace euphoria::core
         
         const auto edge1 = v1 - v0;
         const auto edge2 = v2 - v0;
-        const auto h = cross(ray.dir, edge2);
-        const auto a = dot(edge1, h);
+        const auto h = ray.dir.cross(edge2);
+        const auto a = edge1.dot(h);
         if (a > -epsilon && a < epsilon)
         {
             return std::nullopt;
@@ -368,20 +367,20 @@ namespace euphoria::core
         
         const auto f = 1.0f/a;
         const auto s = ray.from - v0;
-        const auto u = f * dot(s, h);
+        const auto u = f * s.dot(h);
         if (u < 0.0f || u > 1.0f)
         {
             return std::nullopt;
         }
         
-        const auto q = cross(s, edge1);
-        const auto v = f * dot(ray.dir, q);
+        const auto q = s.cross(edge1);
+        const auto v = f * ray.dir.dot(q);
         if (v < 0.0f || u + v > 1.0f)
         {
             return std::nullopt;
         }
         
-        const auto t = f * dot(edge2, q);
+        const auto t = f * edge2.dot(q);
         if (t > epsilon)
         {
             return t;

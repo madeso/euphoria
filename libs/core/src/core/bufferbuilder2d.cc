@@ -48,11 +48,7 @@ namespace euphoria::core
             const auto va = vec3f{data[a*4], data[a*4+1], 0};
             const auto vb = vec3f{data[b*4], data[b*4+1], 0};
             const auto vc = vec3f{data[c*4], data[c*4+1], 0};
-            const auto cr = cross
-            (
-                vec3f::from_to(va, vb),
-                vec3f::from_to(va, vc)
-            );
+            const auto cr = vec3f::from_to(va, vb).cross(vec3f::from_to(va, vc));
             return cr.z < 0;
         }
     }

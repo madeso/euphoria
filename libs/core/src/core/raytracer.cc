@@ -169,7 +169,7 @@ namespace euphoria::core::raytracer
 
 
     vec3f reflect(const vec3f& v, const unit3f& normal) {
-        return v - 2*dot(v,normal)*normal;
+        return v - 2 * v.dot(normal) * normal;
     }
 
 
@@ -206,11 +206,7 @@ namespace euphoria::core::raytracer
                 hit.position,
                 reflected + fuzz * get_random_vec3_in_unit_sphere(random)
             );
-            const auto scatter_dot = dot
-            (
-                scattered.dir,
-                hit.normal
-            );
+            const auto scatter_dot = scattered.dir.dot(hit.normal);
             if(scatter_dot > 0)
             {
                 return ScatterResult
@@ -235,7 +231,7 @@ namespace euphoria::core::raytracer
         float ni
     )
     {
-        const auto dt = dot(uv, normal);
+        const auto dt = uv.dot(normal);
         const auto discriminant = 1.0f - ni*ni*(1.0f-dt*dt);
         if (discriminant > 0)
         {
@@ -282,7 +278,7 @@ namespace euphoria::core::raytracer
             Random* random
         ) override
         {
-            const auto dr = dot(ray.dir, hit.normal);
+            const auto dr = ray.dir.dot(hit.normal);
             const auto dot_result = dr > 0.0f;
 
             const auto outward_normal = dot_result ? -hit.normal : hit.normal;

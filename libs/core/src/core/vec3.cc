@@ -378,9 +378,9 @@ namespace euphoria::core
 
 
     vec3f
-    component_multiply(const vec3f& lhs, const vec3f& rhs)
+    vec3f::component_multiply(const vec3f& rhs) const
     {
-        return vec3f(lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z);
+        return vec3f(x * rhs.x, y * rhs.y, z * rhs.z);
     }
 
 
@@ -389,19 +389,19 @@ namespace euphoria::core
 
 
     float
-    dot(const vec3f& lhs, const vec3f& rhs)
+    vec3f::dot(const vec3f& rhs) const
     {
-        return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z;
+        return x * rhs.x + y * rhs.y + z * rhs.z;
     }
 
 
     vec3f
-    cross(const vec3f& v, const vec3f& u)
+    vec3f::cross(const vec3f& u) const
     {
         return vec3f(
-                (v.y * u.z) - (v.z * u.y),
-                (v.z * u.x) - (v.x * u.z),
-                (v.x * u.y) - (v.y * u.x));
+                (y * u.z) - (z * u.y),
+                (z * u.x) - (x * u.z),
+                (x * u.y) - (y * u.x));
     }
 
 

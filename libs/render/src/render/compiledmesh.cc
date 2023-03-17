@@ -213,7 +213,7 @@ namespace euphoria::render
 
 
     void
-    convert_tris_to_index_buffer(const std::vector<core::MeshFace>& faces, IndexBuffer* b)
+        convert_tris_to_index_buffer(const std::vector<core::MeshFace>& faces, IndexBuffer* b)
     {
         std::vector<unsigned int> data;
         data.reserve(faces.size() * 3);

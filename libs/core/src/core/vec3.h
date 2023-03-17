@@ -61,6 +61,10 @@ namespace euphoria::core
         static vec3f from_to(const vec3f& from, const vec3f& to);
         static vec3f zero();
 
+        vec3f component_multiply(const vec3f& rhs) const;
+        float dot(const vec3f& rhs) const;
+        vec3f cross(const vec3f& u) const;
+
         void operator+=(const vec3f& rhs);
         void operator-=(const vec3f& rhs);
         void operator/=(float rhs);
@@ -124,15 +128,6 @@ namespace euphoria::core
 
     vec3f operator/(const vec3f& lhs, float rhs);
     vec3f operator/(float lhs, const vec3f& rhs);
-
-    vec3f component_multiply(const vec3f& lhs, const vec3f& rhs);
-
-
-    ////////////////////////////////////////////////////////////////////////////////
-    /// Functions
-
-    float dot(const vec3f& lhs, const vec3f& rhs);
-    vec3f cross(const vec3f& v, const vec3f& u);
 
 
     ////////////////////////////////////////////////////////////////////////////////
