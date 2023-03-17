@@ -17,26 +17,18 @@ jobs:
           with:
             submodules: recursive
 
-        - uses: actions/setup-python@v2
-          with:
-            python-version: '3.x'
-
         - name: Debug
           run: |
                 cmake --help
 
-        - name: Install python dependencies
-          run: |
-                python.exe -m pip install requests
-
         - name: Install cpp dependencies
           run: |
-                python.exe ${{github.workspace}}\tools\windows.py install --compiler ${{matrix.os}} --platform ${{matrix.platform}}
+                dotnet run --project .\tools\buildtools\Workbench\ -- build install --compiler ${{matrix.os}} --platform ${{matrix.platform}}
 
         - name: Configure
           working-directory: ${{github.workspace}}
           run: |
-                python.exe ${{github.workspace}}\tools\windows.py cmake --compiler ${{matrix.os}} --platform ${{matrix.platform}}
+                dotnet run --project .\tools\buildtools\Workbench\ -- build cmake --compiler ${{matrix.os}} --platform ${{matrix.platform}}
 
         - name: Build
           shell: bash
