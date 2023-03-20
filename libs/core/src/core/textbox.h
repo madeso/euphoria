@@ -1,7 +1,7 @@
 #pragma once
 
 
-
+#include <array>
 #include <algorithm>
 #include <functional>
 
@@ -10,39 +10,128 @@
 namespace euphoria::core
 {
     // bitmasks
-    constexpr unsigned char bit_up      = 1 << 0;
-    constexpr unsigned char bit_down    = 1 << 1;
-    constexpr unsigned char bit_left    = 1 << 2;
-    constexpr unsigned char bit_right   = 1 << 3;
+    constexpr unsigned char bit_up = 1 << 0;
+    constexpr unsigned char bit_down = 1 << 1;
+    constexpr unsigned char bit_left = 1 << 2;
+    constexpr unsigned char bit_right = 1 << 3;
     constexpr unsigned char bit_no_line = static_cast<unsigned char>(~(bit_up | bit_down | bit_left | bit_right));
 
     struct TextBoxStyle
     {
-        static TextBoxStyle create(std::function<std::string(char)> connections_func);
+        template<typename F>
+        constexpr explicit TextBoxStyle(F&& connections_func)
+        {
+            for (char c = 0; c < 15; c += 1)
+            {
+                connections[c] = connections_func(static_cast<char>(c + 1));
+            }
+        }
 
-        [[nodiscard]] std::string get_string(char s) const;
+        [[nodiscard]] std::string_view get_string(char s) const;
 
     private:
-        std::vector<std::string> connections;
+        std::array<std::string_view, 15> connections;
 
-        TextBoxStyle();
+        constexpr TextBoxStyle() = default;
     };
 
+    TextBoxStyle get_terminal_style();
 
-    TextBoxStyle
-    get_terminal_style();
+    constexpr TextBoxStyle utf8_straight_style = TextBoxStyle{ [](char c) {
+        switch (c)
+        {
+        case bit_left:
+        case bit_right:
+        case bit_left | bit_right:                     return "─";
+        case bit_up:
+        case bit_down:
+        case bit_up | bit_down:                        return "│";
+        case bit_left | bit_up:                         return "┘";
+        case bit_left | bit_down:                      return "┐";
+        case bit_right | bit_up:                       return "└";
+        case bit_right | bit_down:                     return "┌";
+        case bit_left | bit_right | bit_up:            return "┴";
+        case bit_left | bit_right | bit_down:          return "┬";
+        case bit_left | bit_up | bit_down:             return "┤";
+        case bit_right | bit_up | bit_down:            return "├";
+        case bit_left | bit_right | bit_up | bit_down: return "┼";
+        default:
+            DIE("Invalid combination");
+            return "X";
+        }
+    }};
 
-    TextBoxStyle
-    utf8_straight_style();
+    constexpr TextBoxStyle utf8_rounded_style = TextBoxStyle{ [](char c) {
+        switch (c)
+        {
+        case bit_left:
+        case bit_right:
+        case bit_left | bit_right:                     return "─";
+        case bit_up:
+        case bit_down:
+        case bit_up | bit_down:                        return "│";
+        case bit_left | bit_up:                         return "╯";
+        case bit_left | bit_down:                      return "╮";
+        case bit_right | bit_up:                       return "╰";
+        case bit_right | bit_down:                     return "╭";
+        case bit_left | bit_right | bit_up:            return "┴";
+        case bit_left | bit_right | bit_down:          return "┬";
+        case bit_left | bit_up | bit_down:             return "┤";
+        case bit_right | bit_up | bit_down:            return "├";
+        case bit_left | bit_right | bit_up | bit_down: return "┼";
+        default:
+            DIE("Invalid combination");
+            return "X";
+        }
+    }};
 
-    TextBoxStyle
-    utf8_rounded_style();
+    constexpr TextBoxStyle utf_8double_line_style = TextBoxStyle{ [](char c) {
+        switch (c)
+        {
+        case bit_left:
+        case bit_right:
+        case bit_left | bit_right:                     return "═";
+        case bit_up:
+        case bit_down:
+        case bit_up | bit_down:                        return "║";
+        case bit_left | bit_up:                         return "╝";
+        case bit_left | bit_down:                      return "╗";
+        case bit_right | bit_up:                       return "╚";
+        case bit_right | bit_down:                     return "╔";
+        case bit_left | bit_right | bit_up:            return "╩";
+        case bit_left | bit_right | bit_down:          return "╦";
+        case bit_left | bit_up | bit_down:             return "╣";
+        case bit_right | bit_up | bit_down:            return "╠";
+        case bit_left | bit_right | bit_up | bit_down: return "╬";
+        default:
+            DIE("Invalid combination");
+            return "X";
+        }
+    }};
 
-    TextBoxStyle
-    utf_8double_line_style();
-
-    TextBoxStyle
-    ascii_style();
+    constexpr TextBoxStyle ascii_style = TextBoxStyle { [](char c) {
+        switch (c)
+        {
+        case bit_left:
+        case bit_right:
+        case bit_left | bit_right:                     return "-";
+        case bit_up:
+        case bit_down:
+        case bit_up | bit_down:                        return "|";
+        case bit_left | bit_up:                         return "'";
+        case bit_left | bit_down:                      return ".";
+        case bit_right | bit_up:                       return "`";
+        case bit_right | bit_down:                     return ",";
+        case bit_left | bit_right | bit_up:
+        case bit_left | bit_right | bit_down:
+        case bit_left | bit_up | bit_down:
+        case bit_right | bit_up | bit_down:
+        case bit_left | bit_right | bit_up | bit_down: return "+";
+        default:
+            DIE("Invalid combination");
+            return "X";
+        }
+    }};
 
     /* TextBox: Abstraction for 2-dimensional text strings with linedrawing support
     Copyright (c) 2017 Joel Yliluoma - http://iki.fi/bisqwit/

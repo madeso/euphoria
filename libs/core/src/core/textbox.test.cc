@@ -63,7 +63,7 @@ TEST_CASE("tb_print")
     SECTION("empty")
     {
         CHECK(box.get_size() == create_size(0, 0));
-        CHECK(is_string_equal(box.to_string(ascii_style()), {}));
+        CHECK(is_string_equal(box.to_string(ascii_style), {}));
     }
 
     SECTION("putchar")
@@ -73,7 +73,7 @@ TEST_CASE("tb_print")
             box.put_char(0, 0, 'x');
 
             CHECK(box.get_size() == create_size(1, 1));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {"x"}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {"x"}));
         }
 
         SECTION("offset")
@@ -81,7 +81,7 @@ TEST_CASE("tb_print")
             box.put_char(2, 1, 'x');
 
             CHECK(box.get_size() == create_size(3, 2));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {"", "  x"}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {"", "  x"}));
         }
     }
 
@@ -92,7 +92,7 @@ TEST_CASE("tb_print")
             box.mod_char(0, 0, [](char& c){c = 'd';});
 
             CHECK(box.get_size() == create_size(1, 1));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {"d"}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {"d"}));
         }
 
         SECTION("offset")
@@ -100,7 +100,7 @@ TEST_CASE("tb_print")
             box.mod_char(2, 1, [](char& c){c = 'd';});
 
             CHECK(box.get_size() == create_size(3, 2));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {"", "  d"}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {"", "  d"}));
         }
     }
 
@@ -111,7 +111,7 @@ TEST_CASE("tb_print")
             box.put_string(0, 0, "dog");
 
             CHECK(box.get_size() == create_size(3, 1));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {"dog"}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {"dog"}));
         }
 
         SECTION("offset")
@@ -119,7 +119,7 @@ TEST_CASE("tb_print")
             box.put_string(1, 1, "dog");
 
             CHECK(box.get_size() == create_size(4, 2));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {"", " dog"}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {"", " dog"}));
         }
 
         SECTION("collision")
@@ -128,7 +128,7 @@ TEST_CASE("tb_print")
             box.put_string(1, 0, "dog");
 
             CHECK(box.get_size() == create_size(5, 1));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {"ddogo"}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {"ddogo"}));
         }
     }
 
@@ -141,7 +141,7 @@ TEST_CASE("tb_print")
             box.trim();
 
             CHECK(box.get_size() == create_size(0, 0));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {}));
         }
 
         SECTION("no change")
@@ -150,7 +150,7 @@ TEST_CASE("tb_print")
             box.trim();
 
             CHECK(box.get_size() == create_size(3, 2));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {"", "  a"}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {"", "  a"}));
         }
 
         SECTION("change")
@@ -159,22 +159,22 @@ TEST_CASE("tb_print")
             box.trim();
 
             CHECK(box.get_size() == create_size(3, 2));
-            CHECK(is_string_equal(box.to_string(ascii_style()), {"", "  a"}));
+            CHECK(is_string_equal(box.to_string(ascii_style), {"", "  a"}));
         }
     }
 }
 
 TEST_CASE("tb_arrows")
 {
-    const auto abc_style = TextBoxStyle::create([](char c) {
-        switch(c) {
+    const auto abc_style = TextBoxStyle{ [](char c) {
+        switch (c) {
         case bit_left:                                 return "a";
         case bit_right:                                return "b";
         case bit_left | bit_right:                     return "c";
         case bit_up:                                   return "d";
         case bit_down:                                 return "e";
         case bit_up | bit_down:                        return "f";
-        case bit_left| bit_up:                         return "g";
+        case bit_left | bit_up:                         return "g";
         case bit_left | bit_down:                      return "h";
         case bit_right | bit_up:                       return "i";
         case bit_right | bit_down:                     return "j";
@@ -187,7 +187,7 @@ TEST_CASE("tb_arrows")
             DIE("Invalid combination");
             return "?";
         }
-    });
+    }};
 
     auto box = TextBox::create_empty();
 
@@ -202,7 +202,7 @@ TEST_CASE("tb_arrows")
         (
             is_string_equal
             (
-                box.to_string(ascii_style()),
+                box.to_string(ascii_style),
                 {
                     " |||",
                     "-'.+",
@@ -299,24 +299,24 @@ TEST_CASE("tb_line on text")
 {
     auto text = TextBox::create_empty();
     text.put_string(1, 0, "d g");
-    CHECK(is_string_equal(text.to_string(ascii_style()), {" d g"}));
+    CHECK(is_string_equal(text.to_string(ascii_style), {" d g"}));
 
     auto line = TextBox::create_empty();
     line.put_horizontal_line(0, 0, 5, true, true);
-    CHECK(is_string_equal(line.to_string(ascii_style()), {"-----"}));
+    CHECK(is_string_equal(line.to_string(ascii_style), {"-----"}));
 
     /// hrm... this is a weird behaviour...
 
     SECTION("text on line")
     {
         const auto r = text.put_box_copy(0, 0, line);
-        CHECK(is_string_equal(r.to_string(ascii_style()), {"-----"}));
+        CHECK(is_string_equal(r.to_string(ascii_style), {"-----"}));
     }
 
     SECTION("line on text")
     {
         const auto r = line.put_box_copy(0, 0, text);
-        CHECK(is_string_equal(r.to_string(ascii_style()), {"-d-g-"}));
+        CHECK(is_string_equal(r.to_string(ascii_style), {"-d-g-"}));
     }
 }
 
@@ -324,22 +324,22 @@ TEST_CASE("tb_line on line")
 {
     auto hor = TextBox::create_empty();
     hor.put_horizontal_line(0, 0, 1, true, true);
-    CHECK(is_string_equal(hor.to_string(ascii_style()), {"-"}));
+    CHECK(is_string_equal(hor.to_string(ascii_style), {"-"}));
 
     auto vert = TextBox::create_empty();
     vert.put_vertical_line(0, 0, 1, true, true);
-    CHECK(is_string_equal(vert.to_string(ascii_style()), {"|"}));
+    CHECK(is_string_equal(vert.to_string(ascii_style), {"|"}));
 
     SECTION("hor on vert")
     {
         const auto r = vert.put_box_copy(0, 0, hor);
-        CHECK(is_string_equal(r.to_string(ascii_style()), {"+"}));
+        CHECK(is_string_equal(r.to_string(ascii_style), {"+"}));
     }
 
     SECTION("vert on hor")
     {
         const auto r = hor.put_box_copy(0, 0, vert);
-        CHECK(is_string_equal(r.to_string(ascii_style()), {"+"}));
+        CHECK(is_string_equal(r.to_string(ascii_style), {"+"}));
     }
 }
 
@@ -355,12 +355,12 @@ TEST_CASE("tb_box")
 
     SECTION("putbox")
     {
-        CHECK(is_string_equal(empty.put_box_copy(0, 0, empty).to_string(ascii_style()), {}));
-        CHECK(is_string_equal(empty.put_box_copy(0, 0, x).to_string(ascii_style()), x_data));
-        CHECK(is_string_equal(empty.put_box_copy(0, 0, abc).to_string(ascii_style()), abc_data));
-        CHECK(is_string_equal(empty.put_box_copy(1, 1, empty).to_string(ascii_style()), {}));
-        CHECK(is_string_equal(empty.put_box_copy(1, 1, x).to_string(ascii_style()), {"", "    ", "  x ", "    "}));
-        CHECK(is_string_equal(empty.put_box_copy(1, 1, empty).to_string(ascii_style()), {}));
+        CHECK(is_string_equal(empty.put_box_copy(0, 0, empty).to_string(ascii_style), {}));
+        CHECK(is_string_equal(empty.put_box_copy(0, 0, x).to_string(ascii_style), x_data));
+        CHECK(is_string_equal(empty.put_box_copy(0, 0, abc).to_string(ascii_style), abc_data));
+        CHECK(is_string_equal(empty.put_box_copy(1, 1, empty).to_string(ascii_style), {}));
+        CHECK(is_string_equal(empty.put_box_copy(1, 1, x).to_string(ascii_style), {"", "    ", "  x ", "    "}));
+        CHECK(is_string_equal(empty.put_box_copy(1, 1, empty).to_string(ascii_style), {}));
     }
 
     SECTION("empty")
@@ -470,7 +470,7 @@ TEST_CASE("tb_create_tree_graph")
                 },
                 [](const Node &) { return false; },
                 [](const Node &) { return false; }
-            ).to_string(ascii_style()),
+            ).to_string(ascii_style),
             simple_three_row
         )
     );
@@ -490,7 +490,7 @@ TEST_CASE("tb_create_tree_graph")
                 },
                 [](const Node &) { return false; },
                 [](const Node &) { return true; }
-            ).to_string(ascii_style()),
+            ).to_string(ascii_style),
             simple_three_row
         )
     );
@@ -511,7 +511,7 @@ TEST_CASE("tb_create_tree_graph")
                 },
                 [](const Node &) { return true; },
                 [](const Node &) { return false; }
-            ).to_string(ascii_style()),
+            ).to_string(ascii_style),
             simple_two_row
         )
     );
@@ -531,7 +531,7 @@ TEST_CASE("tb_create_tree_graph")
                 },
                 [](const Node &) { return true; },
                 [](const Node &) { return true; }
-            ).to_string(ascii_style()),
+            ).to_string(ascii_style),
 simple_two_row
 )
 );
@@ -603,7 +603,7 @@ TEST_CASE("tb_tolkien")
                 },
                 [](const Node &e) { return !e.children.empty(); },
                 [](const Node &) { return true; }
-            ).to_string(ascii_style()),
+            ).to_string(ascii_style),
             {
                 "Tolkien characters",
                 "`-+----------------------------------------------------------------------------------.",

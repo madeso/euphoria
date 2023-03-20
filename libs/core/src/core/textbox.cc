@@ -43,7 +43,7 @@ namespace
 
 namespace euphoria::core
 {
-    std::string
+    std::string_view
     TextBoxStyle::get_string(char c) const
     {
         ASSERTX(c>0, c);
@@ -58,164 +58,20 @@ namespace euphoria::core
 
 
     TextBoxStyle
-    TextBoxStyle::create(std::function<std::string(char)> connections_func)
-    {
-        euphoria::core::TextBoxStyle style;
-        for(char c=1; c<16; c+=1)
-        {
-            ASSERTX
-            (
-                c-1 < c_sizet_to_int(style.connections.size()),
-                from_char_to_string(c, CharToStringStyle::include_hex),
-                style.connections.size()
-            );
-            style.connections[c-1] = connections_func(c);
-        }
-        return style;
-    }
-
-
-    TextBoxStyle
     get_terminal_style()
     {
         if(is_terminal_supporting_utf8())
         {
             // return Utf8StraightStyle();
-            return utf8_rounded_style();
+            return utf8_rounded_style;
         }
         else
         {
-            return ascii_style();
+            return ascii_style;
         }
     }
 
-
-    TextBoxStyle::TextBoxStyle()
-    {
-        connections.resize(15);
-    }
-
-    // todo(Gustav): make constexpr
-
-    TextBoxStyle
-    utf8_straight_style()
-    {
-        return TextBoxStyle::create([](char c)
-        {
-            switch(c)
-            {
-            case bit_left:
-            case bit_right:
-            case bit_left | bit_right:                     return "─";
-            case bit_up:
-            case bit_down:
-            case bit_up | bit_down:                        return "│";
-            case bit_left| bit_up:                         return "┘";
-            case bit_left | bit_down:                      return "┐";
-            case bit_right | bit_up:                       return "└";
-            case bit_right | bit_down:                     return "┌";
-            case bit_left | bit_right | bit_up:            return "┴";
-            case bit_left | bit_right | bit_down:          return "┬";
-            case bit_left | bit_up | bit_down:             return "┤";
-            case bit_right | bit_up | bit_down:            return "├";
-            case bit_left | bit_right | bit_up | bit_down: return "┼";
-            default:
-                DIE("Invalid combination");
-                return "X";
-            }
-        });
-    }
-
-    TextBoxStyle
-    utf8_rounded_style()
-    {
-        return TextBoxStyle::create([](char c)
-        {
-            switch(c)
-            {
-            case bit_left:
-            case bit_right:
-            case bit_left | bit_right:                     return "─";
-            case bit_up:
-            case bit_down:
-            case bit_up | bit_down:                        return "│";
-            case bit_left| bit_up:                         return "╯";
-            case bit_left | bit_down:                      return "╮";
-            case bit_right | bit_up:                       return "╰";
-            case bit_right | bit_down:                     return "╭";
-            case bit_left | bit_right | bit_up:            return "┴";
-            case bit_left | bit_right | bit_down:          return "┬";
-            case bit_left | bit_up | bit_down:             return "┤";
-            case bit_right | bit_up | bit_down:            return "├";
-            case bit_left | bit_right | bit_up | bit_down: return "┼";
-            default:
-                DIE("Invalid combination");
-                return "X";
-            }
-        });
-    }
-
-    TextBoxStyle
-    utf_8double_line_style()
-    {
-        return TextBoxStyle::create([](char c)
-        {
-            switch(c)
-            {
-            case bit_left:
-            case bit_right:
-            case bit_left | bit_right:                     return "═";
-            case bit_up:
-            case bit_down:
-            case bit_up | bit_down:                        return "║";
-            case bit_left| bit_up:                         return "╝";
-            case bit_left | bit_down:                      return "╗";
-            case bit_right | bit_up:                       return "╚";
-            case bit_right | bit_down:                     return "╔";
-            case bit_left | bit_right | bit_up:            return "╩";
-            case bit_left | bit_right | bit_down:          return "╦";
-            case bit_left | bit_up | bit_down:             return "╣";
-            case bit_right | bit_up | bit_down:            return "╠";
-            case bit_left | bit_right | bit_up | bit_down: return "╬";
-            default:
-                DIE("Invalid combination");
-                return "X";
-            }
-        });
-    }
-
-    TextBoxStyle
-    ascii_style()
-    {
-        return TextBoxStyle::create([](char c)
-        {
-            switch(c)
-            {
-            case bit_left:
-            case bit_right:
-            case bit_left | bit_right:                     return "-";
-            case bit_up:
-            case bit_down:
-            case bit_up | bit_down:                        return "|";
-            case bit_left| bit_up:                         return "'";
-            case bit_left | bit_down:                      return ".";
-            case bit_right | bit_up:                       return "`";
-            case bit_right | bit_down:                     return ",";
-            case bit_left | bit_right | bit_up:
-            case bit_left | bit_right | bit_down:
-            case bit_left | bit_up | bit_down:
-            case bit_right | bit_up | bit_down:
-            case bit_left | bit_right | bit_up | bit_down: return "+";
-            default:
-                DIE("Invalid combination");
-                return "X";
-            }
-        });
-    }
-
-
     TextBox::TextBox() = default;
-
 
     TextBox
     TextBox::create_empty()
