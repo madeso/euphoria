@@ -15,17 +15,38 @@ namespace euphoria::core
         bool root_special = true;
     };
 
+
     // todo(Gustav): make constexpr
-    TreeStyle
-    slash_style();
 
+    constexpr TreeStyle slash_style =
+    {
+        .t_cross = "|-",
+        .l = "\\-",
+        .down = "| ",
+        .space = "  ",
+        .include_space = true,
+        .root_special = true
+    };
 
-    TreeStyle
-    cross_style();
+    constexpr TreeStyle utf8_tree_style =
+    {
+        .t_cross = "├╴",
+        .l = "└╴",
+        .down = "│ ",
+        .space = "  ",
+        .include_space = true,
+        .root_special = true
+    };
 
-
-    TreeStyle
-    utf8_tree_style();
+    constexpr TreeStyle cross_style
+    {
+        .t_cross = "+- ",
+        .l = "+- ",
+        .down = "|  ",
+        .space = "   ",
+        .include_space = false,
+        .root_special = false
+    };
 
 
     TreeStyle

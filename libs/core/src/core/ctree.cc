@@ -25,53 +25,16 @@ namespace
 namespace euphoria::core
 {
 
-// todo(Gustav): make constexpr
-
-TreeStyle slash_style()
-{
-    auto r = TreeStyle{};
-    r.t_cross = "|-";
-    r.l = "\\-";
-    r.down = "| ";
-    r.space = "  ";
-    r.include_space = true;
-    r.root_special = true;
-    return r;
-}
-
-TreeStyle utf8_tree_style()
-{
-    auto r = TreeStyle{};
-    r.t_cross = "├╴";
-    r.l = "└╴";
-    r.down = "│ ";
-    r.space = "  ";
-    r.include_space = true;
-    r.root_special = true;
-    return r;
-}
-
-TreeStyle cross_style()
-{
-    auto r = TreeStyle{};
-    r.t_cross = "+- ";
-    r.l = "+- ";
-    r.down = "|  ";
-    r.space = "   ";
-    r.include_space = false;
-    r.root_special = false;
-    return r;
-}
 
 TreeStyle determine_style()
 {
     if(is_terminal_supporting_utf8())
     {
-        return utf8_tree_style();
+        return utf8_tree_style;
     }
     else
     {
-        return cross_style();
+        return cross_style;
     }
 }
 
