@@ -550,8 +550,8 @@ namespace euphoria::editor
             const auto space_index_y = find_space_index_or_null(scaling->rows, mouse_popup.y, texture->height);
             const auto space_index_x = find_space_index_or_null(scaling->cols, mouse_popup.x, texture->width);
 
-            constexpr auto label_x = ICON_MDI_VIEW_SPLIT_HORIZONTAL " New Horizontal divider";
-            constexpr auto label_y = ICON_MDI_VIEW_SPLIT_VERTICAL " New Vertical divider";
+            constexpr auto label_x = ICON_MD_HORIZONTAL_SPLIT " New Horizontal divider";
+            constexpr auto label_y = ICON_MD_VERTICAL_SPLIT " New Vertical divider";
 
             if (window::imgui::imgui_selectable_or_disabled(space_index_y.has_value(), label_x))
             {

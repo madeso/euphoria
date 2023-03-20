@@ -69,36 +69,36 @@ namespace euphoria::editor
     }
 
     std::string
-    determine_icon_string(const core::vfs::ListedFile& f, bool outline = false)
+    determine_icon_string(const core::vfs::ListedFile& f)
     {
         if(f.is_file)
         {
             const auto x = vfs::FilePath{"./" + f.name}.get_extension();
             if(x == "png")
             {
-                return outline? ICON_MDI_FILE_IMAGE_OUTLINE : ICON_MDI_FILE_IMAGE;
+                return ICON_MD_IMAGE;
             }
             if(x == "js" || x=="frag" || x=="vert")
             {
-                return outline? ICON_MDI_FILE_CODE_OUTLINE : ICON_MDI_FILE_CODE;
+                return ICON_MD_SOURCE;
             }
             if(x == "json")
             {
-                return outline? ICON_MDI_FILE_DOCUMENT_OUTLINE : ICON_MDI_FILE_DOCUMENT;
+                return ICON_MD_SUBJECT;
             }
             if(x == "mp4")
             {
-                return outline? ICON_MDI_FILE_VIDEO_OUTLINE : ICON_MDI_FILE_VIDEO;
+                return ICON_MD_MOVIE;
             }
             if(x == "mp3")
             {
-                return outline? ICON_MDI_FILE_MUSIC_OUTLINE : ICON_MDI_FILE_MUSIC;
+                return ICON_MD_MUSIC_NOTE;
             }
-            return outline? ICON_MDI_FILE_OUTLINE : ICON_MDI_FILE;
+            return ICON_MD_DESCRIPTION;
         }
         else
         {
-            return outline? ICON_MDI_FOLDER_OUTLINE : ICON_MDI_FOLDER;
+            return ICON_MD_FOLDER;
         }
 
     }

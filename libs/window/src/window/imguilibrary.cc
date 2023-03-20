@@ -6,7 +6,7 @@
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_opengl3.h"
 
-#include "font_material_design_icons.h"
+#include "font_material_icons.h"
 
 #include "font_noto_sans_display.h"
 
@@ -32,8 +32,8 @@ namespace euphoria::window::imgui
             16
         );
 
-        const uint64_t min_mdi = ICON_MIN_MDI;
-        const uint64_t max_mdi = ICON_MAX_MDI;
+        const uint64_t min_mdi = ICON_MIN_MD;
+        const uint64_t max_mdi = ICON_MAX_MD;
         constexpr const auto min_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::min());
         constexpr const auto max_imgui = static_cast<uint64_t>(std::numeric_limits<ImWchar>::max());
         const auto max_arg = static_cast<ImWchar>(std::min(max_mdi, max_imgui));
@@ -47,7 +47,7 @@ namespace euphoria::window::imgui
         }
 
 
-        static const ImWchar icons_ranges[] = {ICON_MIN_MDI, max_arg, 0};
+        static const ImWchar icons_ranges[] = {ICON_MIN_MD, max_arg, 0};
         ImFontConfig icons_config;
         icons_config.MergeMode = true;
         icons_config.PixelSnapH = true;
@@ -55,8 +55,8 @@ namespace euphoria::window::imgui
 
         io.Fonts->AddFontFromMemoryCompressedTTF
         (
-            MaterialDesignIcons_compressed_data,
-            MaterialDesignIcons_compressed_size,
+            MaterialIcons_compressed_data,
+            MaterialIcons_compressed_size,
             13.0f,
             &icons_config,
             icons_ranges

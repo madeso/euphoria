@@ -117,8 +117,8 @@ namespace euphoria::t3d
             ImGui::Button
             (
                 global_space
-                ? ICON_MDI_EARTH " global"
-                : ICON_MDI_ARROW_DOWN " local"
+                ?   ICON_MD_PUBLIC " global"
+                : ICON_MD_DOWNLOAD " local"
             )
         )
         {
@@ -126,31 +126,31 @@ namespace euphoria::t3d
         }
         app->show_help("Toggle the global/local space");
 
-        if (toggle(ICON_MDI_ARROW_ALL, is_translate == true))
+        if (toggle(ICON_MD_TRANSLATE, is_translate == true))
         {
             is_translate = true;
         }
         ImGui::SameLine();
-        if (toggle(ICON_MDI_ROTATE_ORBIT, is_translate == false))
+        if (toggle(ICON_MD_ROTATE_LEFT, is_translate == false))
         {
             is_translate = false;
         }
 
         if (is_translate)
         {
-            toggle(ICON_MDI_AXIS_X_ARROW, &translate_x);
+            toggle("X", &translate_x);
             ImGui::SameLine();
-            toggle(ICON_MDI_AXIS_Y_ARROW, &translate_y);
+            toggle("Y", &translate_y);
             ImGui::SameLine();
-            toggle(ICON_MDI_AXIS_Z_ARROW, &translate_z);
+            toggle("Z", &translate_z);
         }
         else
         {
-            toggle(ICON_MDI_AXIS_X_ROTATE_CLOCKWISE, &rotate_x);
+            toggle("X", &rotate_x);
             ImGui::SameLine();
-            toggle(ICON_MDI_AXIS_Y_ROTATE_CLOCKWISE, &rotate_y);
+            toggle("Y", &rotate_y);
             ImGui::SameLine();
-            toggle(ICON_MDI_AXIS_Z_ROTATE_CLOCKWISE, &rotate_z);
+            toggle("Z", &rotate_z);
         }
 
         app->guizmo

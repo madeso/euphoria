@@ -2,8 +2,6 @@
 # window project
 
 set(app_src
-    data/NotoSansDisplay-Regular.ttf
-    data/material_design_icons.ttf
     src/window/canvas.cc src/window/canvas.h
     src/window/engine.cc src/window/engine.h
     src/window/fakesdlevent.h src/window/fakesdlevent.cc
@@ -28,7 +26,7 @@ source_group("" FILES ${app_src})
 add_custom_command(
   OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/font_material_design_icons.h"
   COMMAND  binary_to_compressed_c
-  ARGS ${CMAKE_CURRENT_SOURCE_DIR}/data/material_design_icons.ttf MaterialDesignIcons > font_material_design_icons.h
+  ARGS ${CMAKE_CURRENT_SOURCE_DIR}/data/MaterialIcons-Regular.ttf MaterialIcons > font_material_icons.h
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
   COMMENT "Generating binary font"
   )

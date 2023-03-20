@@ -133,11 +133,11 @@ struct PixelApp : App
                     current_tool = t;
                 }
             };
-            toolbar_button(ICON_MDI_FORMAT_COLOR_HIGHLIGHT, Tool::pen);
+            toolbar_button(ICON_MD_BRUSH, Tool::pen);
             imgui::add_help_text_for_previous_widget("Pen");
 
             ImGui::SameLine();
-            toolbar_button(ICON_MDI_FORMAT_COLOR_FILL, Tool::fill);
+            toolbar_button(ICON_MD_FORMAT_COLOR_FILL, Tool::fill);
             imgui::add_help_text_for_previous_widget("Fill");
         }
         ImGui::End();

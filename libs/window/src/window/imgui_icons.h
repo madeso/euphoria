@@ -1,3 +1,3 @@
 #pragma once
 
-#include "IconsMaterialDesignIcons.h"
+#include "IconsMaterialDesign.h"

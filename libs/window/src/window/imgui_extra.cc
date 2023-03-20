@@ -43,7 +43,7 @@ namespace euphoria::window::imgui
     add_help_marker_for_previous_widget(const char* desc)
     {
         ImGui::SameLine();
-        ImGui::TextDisabled( ICON_MDI_HELP_CIRCLE );
+        ImGui::TextDisabled(ICON_MD_INFO);
         add_help_text_for_previous_widget(desc);
     }
 

@@ -518,7 +518,7 @@ namespace euphoria::t3d
             window::imgui::begin_fixed_overlay(window::Corner::top_right, "camera overlay", 10.0f, 30.0f);
 
             constexpr auto popup_camera = "popup_camera";
-            if(ImGui::Button(ICON_MDI_VIDEO_VINTAGE))
+            if(ImGui::Button(ICON_MD_VIDEOCAM))
             {
                 ImGui::OpenPopup(popup_camera);
             }
@@ -531,8 +531,8 @@ namespace euphoria::t3d
 
             ImGui::SameLine();
 
-            constexpr auto camera_orbit = ICON_MDI_ROTATE_3D;
-            constexpr auto camera_fps = ICON_MDI_VIDEO;
+            constexpr auto camera_orbit = ICON_MD_3D_ROTATION;
+            constexpr auto camera_fps = ICON_MD_VIDEOCAM;
 
             if(ImGui::Button( editor_camera.is_camera_orbit() ? camera_orbit : camera_fps))
             {
@@ -754,8 +754,8 @@ namespace euphoria::t3d
             ImGui::Button
             (
                 grid_data.visible
-                    ? ICON_MDI_GRID
-                    : ICON_MDI_GRID_OFF
+                    ? ICON_MD_GRID_ON
+                    : ICON_MD_GRID_OFF
             )
         )
         {
@@ -769,8 +769,8 @@ namespace euphoria::t3d
             ImGui::Button
             (
                 grid_data.snap_enabled
-                    ? ICON_MDI_AXIS_ARROW_LOCK
-                    : ICON_MDI_AXIS_ARROW
+                    ? ICON_MD_NEAR_ME
+                    : ICON_MD_NEAR_ME_DISABLED
             )
         )
         {
@@ -830,7 +830,7 @@ namespace euphoria::t3d
     Application::on_tile_window()
     {
         // if(!tile_library->tiles.empty())
-        if(ImGui::Button(ICON_MDI_PLUS) && !editor->is_busy())
+        if(ImGui::Button(ICON_MD_ADD) && !editor->is_busy())
         {
             if(editor->selected_tile == nullptr)
             {
@@ -862,7 +862,7 @@ namespace euphoria::t3d
 
         ImGui::SameLine();
 
-        if(ImGui::Button(ICON_MDI_PLUS_BOX_MULTIPLE))
+        if(ImGui::Button(ICON_MD_CONTENT_COPY))
         {
             auto selected = editor->get_first_selected_or_null();
             if(selected != nullptr && !editor->is_busy())
@@ -888,7 +888,7 @@ namespace euphoria::t3d
 
         ImGui::SameLine();
 
-        if(ImGui::Button(ICON_MDI_ARROW_COLLAPSE_DOWN))
+        if(ImGui::Button(ICON_MD_PIN_DROP))
         {
             auto placed = editor->get_first_selected_or_null();
             if(placed != nullptr && !editor->is_busy())
