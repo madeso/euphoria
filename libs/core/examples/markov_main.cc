@@ -65,7 +65,7 @@ markov_sentence(const std::string& file, int memory, int count)
     for(int i = 0; i < count; i += 1)
     {
         auto s = b.generate(&rnd);
-        std::cout << core::sentence_to_string(s) << "\n\n";
+        std::cout << core::from_sentence_to_string(s) << "\n\n";
     }
 }
 
@@ -161,8 +161,8 @@ struct SimilarEditDistance : public Similar
             existing_lines.begin(), existing_lines.end(),
             [&](const auto& line)
             {
-                const auto shortened = core::first_chars(line, count);
-                const int edits = core::fast_edit_distance(shortened, generated);
+                const auto shortened = core::get_first_chars(line, count);
+                const int edits = core::calc_edit_distance_fast(shortened, generated);
                 if(edits < 10)
                 {
                     rejected.emplace(generated);
@@ -219,7 +219,7 @@ markov_line(const std::string& file, int memory, int count, bool also_existing, 
 
     for(int i = 0; i < count+skipped; i += 1)
     {
-        const auto generated = core::line_to_string(b.generate(&rnd));
+        const auto generated = core::from_sentence_to_string(b.generate(&rnd));
         if(!also_existing && existing_lines->is_same(core::to_lower(generated)))
         {
             skipped += 1;

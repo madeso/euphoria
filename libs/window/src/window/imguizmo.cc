@@ -141,7 +141,7 @@ namespace euphoria::window::imgui::guizmo
 
         auto model_to_modify = model;
 
-        const auto snap_degrees = snap.value_or(core::angle::zero()).in_degrees();
+        const auto snap_degrees = snap.value_or(core::no_rotation).as_degrees();
 
         const auto was_modified = ImGuizmo::Manipulate
         (

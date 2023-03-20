@@ -64,8 +64,8 @@ namespace euphoria::t3d
         {
             if(mesh->is_selected)
             {
-                const auto mm = mesh->actor->calculate_model_matrix();
-                const auto corners = mesh->tile->aabb.calculate_all_corners();
+                const auto mm = mesh->actor->calc_model_matrix();
+                const auto corners = mesh->tile->aabb.calc_all_corners();
                 for(const auto& c: corners)
                 {
                     points.emplace_back(mm.get_transform_point(c));
@@ -85,7 +85,7 @@ namespace euphoria::t3d
 
         for (auto mesh : placed_meshes)
         {
-            const auto transformed_ray = ray.get_transform(mesh->actor->calculate_model_matrix().get_inverted());
+            const auto transformed_ray = ray.get_transform(mesh->actor->calc_model_matrix().get_inverted());
             const auto collision = core::get_intersection(transformed_ray, mesh->tile->aabb);
 
             // todo(Gustav): only interested about intersection here so provide a simpler algorithm?
@@ -112,7 +112,7 @@ namespace euphoria::t3d
 
         for (auto mesh : placed_meshes)
         {
-            const auto transformed_ray = ray.get_transform(mesh->actor->calculate_model_matrix().get_inverted());
+            const auto transformed_ray = ray.get_transform(mesh->actor->calc_model_matrix().get_inverted());
             const auto collision = core::get_intersection(transformed_ray, mesh->tile->aabb);
 
             if (collision.intersected)
@@ -256,7 +256,7 @@ namespace euphoria::t3d
                     get_position_snap(grid),
                     cc.view,
                     cc.projection,
-                    mesh->actor->calculate_model_matrix(),
+                    mesh->actor->calc_model_matrix(),
                     translate_x, translate_y, translate_z,
                     &mesh->actor->position
                 );
@@ -269,7 +269,7 @@ namespace euphoria::t3d
                     get_angle_snap(grid),
                     cc.view,
                     cc.projection,
-                    mesh->actor->calculate_model_matrix(),
+                    mesh->actor->calc_model_matrix(),
                     rotate_x, rotate_y, rotate_z,
                     &mesh->actor->rotation
                 );
@@ -359,7 +359,7 @@ namespace euphoria::t3d
                 get_position_snap(grid),
                 cc.view,
                 cc.projection,
-                render::calculate_model_matrix(position, rotation),
+                render::calc_model_matrix(position, rotation),
                 translate_x, translate_y, translate_z,
                 &position
             );
@@ -396,7 +396,7 @@ namespace euphoria::t3d
                 get_angle_snap(grid),
                 cc.view,
                 cc.projection,
-                render::calculate_model_matrix(position, rotation),
+                render::calc_model_matrix(position, rotation),
                 rotate_x, rotate_y, rotate_z,
                 &rotation
             );

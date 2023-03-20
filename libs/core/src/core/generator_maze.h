@@ -111,6 +111,6 @@ namespace euphoria::core::generator
 
         void draw();
 
-        [[nodiscard]] rgbi calculate_cell_color(int x, int y) const;
+        [[nodiscard]] rgbi calc_cell_color(int x, int y) const;
     };
 }

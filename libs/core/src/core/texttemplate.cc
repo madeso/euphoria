@@ -284,7 +284,7 @@ enum class TokenType
     end_of_file
 };
 
-std::string lex_type_to_string(TokenType t)
+std::string to_string(TokenType t)
 {
     switch(t)
     {
@@ -323,7 +323,7 @@ struct Token
     [[nodiscard]] std::string
     to_string() const
     {
-        return "{}({})"_format(lex_type_to_string(type), first_chars_with_ellipsis(value));
+        return "{}({})"_format(core::to_string(type), get_first_chars_with_ellipsis(value));
     }
 };
 

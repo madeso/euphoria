@@ -20,10 +20,9 @@ namespace euphoria::render::attributes2d
     }
 
 
-    void
-    prebind_shader(ShaderProgram* shader)
+    void add_attributes_to_shader(ShaderProgram* shader)
     {
         ASSERT(shader);
-        shader->pre_bind(vertex());
+        shader->add_attribute(vertex());
     }
 }

@@ -18,7 +18,7 @@
 namespace euphoria::core
 {
     Recti
-    whole_image(const Image& image)
+    on_whole_image(const Image& image)
     {
         return Recti::from_top_left_width_height
         (
@@ -32,7 +32,7 @@ namespace euphoria::core
     clear(Image* image, const rgbai& color)
     {
         ASSERT(image);
-        return draw_rect(image, color, whole_image(*image));
+        return draw_rect(image, color, on_whole_image(*image));
     }
 
     void
@@ -235,7 +235,7 @@ namespace euphoria::core
                 }
 
                 const rgb paint_color = blend
-                    ? rgb_transform
+                    ? lerp_rgb
                     (
                         crgb(image->get_pixel(x, y)),
                         blend_factor,
@@ -381,7 +381,7 @@ namespace euphoria::core
             const bool valid_y = is_within_inclusive_as_int(0, y, image->height - 1);
             if(valid_x && valid_y)
             {
-                const rgb paint_color = rgb_transform
+                const rgb paint_color = lerp_rgb
                 (
                     crgb(image->get_pixel(x, y)),
                     c,
@@ -489,7 +489,7 @@ namespace euphoria::core
     }
 
     void
-    simple_image_blend
+    blend_image
     (
         Image* dst,
         const vec2i& p,
@@ -527,7 +527,7 @@ namespace euphoria::core
         ASSERT(image);
 
         vec2i pos = start_pos;
-        utf8_to_codepoints(text, [&](int cp)
+        calc_utf8_to_codepoints(text, [&](int cp)
         {
             if(cp == '\n')
             {
@@ -541,7 +541,7 @@ namespace euphoria::core
                 if(glyph_found != font.codepoint_to_glyph.end())
                 {
                     const auto& glyph = glyph_found->second;
-                    simple_image_blend(image, pos, glyph.image, color);
+                    blend_image(image, pos, glyph.image, color);
                     pos.x += glyph.advance;
                 }
             }

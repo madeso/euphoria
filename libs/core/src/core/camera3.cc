@@ -13,7 +13,7 @@ namespace euphoria::core
     }
 
     vec3f
-    CompiledCamera3::world_to_clip(const vec3f& in_world) const
+    CompiledCamera3::from_world_to_clip(const vec3f& in_world) const
     {
         const vec4f v = combined * vec4f {in_world, 1};
 
@@ -22,7 +22,7 @@ namespace euphoria::core
     }
 
     vec3f
-    CompiledCamera3::clip_to_world(const vec3f& in_clip) const
+    CompiledCamera3::from_clip_to_world(const vec3f& in_clip) const
     {
         const vec4f v = combined_inverted * vec4f {in_clip, 1};
 
@@ -31,10 +31,10 @@ namespace euphoria::core
     }
 
     Ray3f
-    CompiledCamera3::clip_to_world_ray(const vec2f& p) const
+    CompiledCamera3::from_clip_to_world_ray(const vec2f& p) const
     {
-        const auto from = clip_to_world(vec3f {p, -1.0f});
-        const auto to = clip_to_world(vec3f {p, 1.0f});
+        const auto from = from_clip_to_world(vec3f {p, -1.0f});
+        const auto to = from_clip_to_world(vec3f {p, 1.0f});
         return Ray3f::from_to(from, to);
     }
 

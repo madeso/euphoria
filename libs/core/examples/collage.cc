@@ -25,7 +25,7 @@ load_images(const std::vector<std::string>& files)
 
     for(const auto& f: files)
     {
-        auto chunk = io::file_to_chunk(f);
+        auto chunk = io::read_file_to_chunk(f);
         if(chunk == nullptr)
         {
             std::cerr << "failed to read " << f << "\n";
@@ -67,7 +67,7 @@ handle_grid
             files.end(),
             [](const std::string& lhs, const std::string& rhs)
             {
-                return string_compare(lhs, rhs) < 0;
+                return compare_string(lhs, rhs) < 0;
             }
         );
     }
@@ -80,7 +80,7 @@ handle_grid
     }
 
     // draw new image
-    auto composed_image = grid_layout
+    auto composed_image = lay_out_in_a_grid
     (
         images,
         padding,
@@ -90,7 +90,7 @@ handle_grid
 
     // save image to out
     auto saved_chunk = composed_image.write(ImageWriteFormat::png);
-    io::chunk_to_file(saved_chunk, output_file);
+    io::write_chunk_to_file(saved_chunk, output_file);
 
     return true;
 }
@@ -148,7 +148,7 @@ handle_pack
 
     // save image to out
     auto saved_chunk = composed_image.write(ImageWriteFormat::png);
-    io::chunk_to_file(saved_chunk, output_file);
+    io::write_chunk_to_file(saved_chunk, output_file);
 
     return true;
 }

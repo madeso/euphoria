@@ -382,7 +382,7 @@ public:
         // keyboard input
         if(ImGui::Begin("Keyboard"))
         {
-            if(imgui::canvas_begin(ImVec4(0, 0, 0, 0.5f), "canvas_piano"))
+            if(imgui::begin_canvas_widget(ImVec4(0, 0, 0, 0.5f), "canvas_piano"))
             {
                 const auto p = ImGui::GetCursorScreenPos();
                 constexpr float keysize = 30;
@@ -397,7 +397,7 @@ public:
                     3
                 );
             }
-            imgui::canvas_end();
+            imgui::end_canvas_widget();
         }
         ImGui::End();
 
@@ -431,7 +431,7 @@ public:
 
             imgui::knob("Master", &master.volume, 0.0f, 1.0f);
 
-            imgui::custom_dropdown
+            imgui::imgui_custom_dropdown
             (
                 "tuning", &ttf.tuning, Tuning::max_value,
                 [](auto t)
@@ -457,7 +457,7 @@ public:
                 1.0f
             );
 
-            imgui::custom_dropdown
+            imgui::imgui_custom_dropdown
             (
                 "Oscilator",
                 &oscilator.oscilator,
@@ -468,7 +468,7 @@ public:
                 }
             );
 
-            imgui::custom_dropdown
+            imgui::imgui_custom_dropdown
             (
                 "Chord emulation",
                 &piano.chords_emulation,
@@ -482,7 +482,7 @@ public:
             ImGui::InputInt("Times", &scaler.times, 1, 5);
 
             ImGui::InputInt("Arp octaves", &arp.octaves);
-            imgui::custom_dropdown
+            imgui::imgui_custom_dropdown
             (
                 "Arp mode", &arp.mode, ArpMode::max_value,
                 [](auto t)
@@ -577,7 +577,7 @@ main(int argc, char** argv)
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
-            imgui::process_imgui_events(&e);
+            imgui::send_events_to_imgui(&e);
 
             if(engine.on_resize(e, &window_width, &window_height))
             {
@@ -608,7 +608,7 @@ main(int argc, char** argv)
 
         app.update(dt);
 
-        imgui::start_new_frame();
+        imgui::begin_new_frame();
 
         if(ImGui::BeginMainMenuBar())
         {

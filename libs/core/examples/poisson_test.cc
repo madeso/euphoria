@@ -19,7 +19,7 @@ svg_dump()
     const auto area = Rectf::from_width_height(100, 100);
     const auto radius = 5.0f;
 
-    const auto points = poisson_sample(area, &random, radius*2, radius);
+    const auto points = calc_poisson_samples(area, &random, radius*2, radius);
 
     auto svg = Dumper{};
 
@@ -94,7 +94,7 @@ png_dump(int extra_images)
                 2
             );
         }
-        io::chunk_to_file(result.write(ImageWriteFormat::png), frames.get_next_file());
+        io::write_chunk_to_file(result.write(ImageWriteFormat::png), frames.get_next_file());
     };
 
     if(!frames.single)

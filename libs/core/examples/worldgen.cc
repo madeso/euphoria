@@ -52,7 +52,7 @@ find_differences(const Table<bool>& src, const Table<bool>& dst)
 void
 print_maze_to_console(const generator::Drawer& drawer)
 {
-    const auto table = image_to_string_table
+    const auto table = from_image_to_string_table
     (
         drawer.image,
         {
@@ -134,7 +134,7 @@ handle_maze_command
         if(!output.single)
         {
             drawer.draw();
-            io::chunk_to_file
+            io::write_chunk_to_file
             (
                 drawer.image.write(ImageWriteFormat::png),
                 output.get_next_file()
@@ -160,7 +160,7 @@ handle_maze_command
     {
         if(output.single)
         {
-            io::chunk_to_file
+            io::write_chunk_to_file
             (
                 drawer.image.write(ImageWriteFormat::png),
                 output.file
@@ -170,7 +170,7 @@ handle_maze_command
         {
             for(int i = 0; i < 5; i += 1)
             {
-                io::chunk_to_file
+                io::write_chunk_to_file
                 (
                     drawer.image.write(ImageWriteFormat::png),
                     output.get_next_file()
@@ -225,7 +225,7 @@ struct CellWriter
         if(!output.single)
         {
             auto img = generate_world_image(*world);
-            io::chunk_to_file(img.write(ImageWriteFormat::png), output.get_next_file());
+            io::write_chunk_to_file(img.write(ImageWriteFormat::png), output.get_next_file());
         }
 
         world_copy = *world;
@@ -238,7 +238,7 @@ struct CellWriter
         if(output.single)
         {
             auto img = generate_world_image(*world);
-            io::chunk_to_file(img.write(ImageWriteFormat::png), output.file);
+            io::write_chunk_to_file(img.write(ImageWriteFormat::png), output.file);
         }
         else
         {
@@ -253,7 +253,7 @@ struct CellWriter
         if (debug)
         {
             const auto img = generate_world_image(*world);
-            io::chunk_to_file
+            io::write_chunk_to_file
             (
                 img.write(ImageWriteFormat::png),
                 output.get_next_file()
@@ -269,7 +269,7 @@ struct CellWriter
     shuffle_draw()
     {
         auto diffs = find_differences(*world, world_copy);
-        knuth_shuffle(&diffs, &shuffle_random);
+        shuffle(&diffs, &shuffle_random);
         const auto diffs_per_write = std::max<decltype(diffs.size())>
         (
             2,
@@ -282,7 +282,7 @@ struct CellWriter
             if ((write_index % diffs_per_write) == 0)
             {
                 const auto img = generate_world_image(world_copy);
-                io::chunk_to_file
+                io::write_chunk_to_file
                 (
                     img.write(ImageWriteFormat::png),
                     output.get_next_file()
@@ -294,7 +294,7 @@ struct CellWriter
         for (int i = 0; i < 5; i += 1)
         {
             const auto img = generate_world_image(world_copy);
-            io::chunk_to_file
+            io::write_chunk_to_file
             (
                 img.write(ImageWriteFormat::png),
                 output.get_next_file()

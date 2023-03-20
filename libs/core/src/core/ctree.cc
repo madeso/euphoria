@@ -25,6 +25,8 @@ namespace
 namespace euphoria::core
 {
 
+// todo(Gustav): make constexpr
+
 TreeStyle slash_style()
 {
     auto r = TreeStyle{};

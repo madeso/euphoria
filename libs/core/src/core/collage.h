@@ -65,15 +65,17 @@ namespace euphoria::core
 
 
     std::pair<std::vector<vec2i>, size2i>
-    grid_layout
+    lay_out_in_a_grid
     (
         const std::vector<Image>& images,
         int padding,
         bool top_to_bottom
     );
 
+
+    // todo(Gustav): rename to lay_out_on_a_image
     Image
-    grid_layout
+    lay_out_in_a_grid
     (
         const std::vector<Image>& images,
         int padding,

@@ -25,10 +25,10 @@ namespace euphoria::window::imgui
     };
 
     void
-    process_imgui_events(const SDL_Event*);
+    send_events_to_imgui(const SDL_Event*);
 
     void
-    start_new_frame();
+    begin_new_frame();
 
     void
     imgui_render();

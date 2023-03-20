@@ -350,7 +350,7 @@ main(int argc, char* argv[])
 
 
     ShaderProgram shader;
-    attributes2d::prebind_shader(&shader);
+    attributes2d::add_attributes_to_shader(&shader);
     shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache font_cache {engine.file_system.get(), &cache};
@@ -413,7 +413,7 @@ main(int argc, char* argv[])
 
             if(show_imgui)
             {
-                imgui::process_imgui_events(&e);
+                imgui::send_events_to_imgui(&e);
             }
 
             if(engine.on_resize(e, &window_width, &window_height))
@@ -502,7 +502,7 @@ main(int argc, char* argv[])
         // imgui
         if(show_imgui)
         {
-            imgui::start_new_frame();
+            imgui::begin_new_frame();
 
             ImGui::Begin("Gui");
             imgui_widget(&root);

@@ -43,7 +43,7 @@ main(int, char*[])
     ctx.close_path();
     ctx.fill();
 
-    io::chunk_to_file(image.write(ImageWriteFormat::png), "house.png");
+    io::write_chunk_to_file(image.write(ImageWriteFormat::png), "house.png");
     return 0;
 }
 

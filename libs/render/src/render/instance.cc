@@ -9,13 +9,13 @@ namespace euphoria::render
     }
 
     core::mat4f
-    Instance::calculate_model_matrix() const
+    Instance::calc_model_matrix() const
     {
-        return render::calculate_model_matrix(position, rotation);
+        return render::calc_model_matrix(position, rotation);
     }
 
     [[nodiscard]] core::mat4f
-    calculate_model_matrix
+    calc_model_matrix
     (
         const core::vec3f& position,
         const core::quatf& rotation

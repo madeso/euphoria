@@ -41,7 +41,7 @@ namespace euphoria::core
         to_table() const
         {
             StringTable ret;
-            ret.new_row(column_titles);
+            ret.add_row(column_titles);
 
             const auto s = column_titles.size();
 
@@ -55,7 +55,7 @@ namespace euphoria::core
                 {
                     row_strings.emplace_back(column_to_string[i](d));
                 }
-                ret.new_row(row_strings);
+                ret.add_row(row_strings);
             }
 
             return ret;
@@ -75,7 +75,7 @@ namespace euphoria::core
         CsvTrim trim = CsvTrim::dont_trim;
     };
 
-    StringTable table_from_csv
+    StringTable parse_csv
     (
         const std::string& data,
         const CsvParserOptions& options = CsvParserOptions()

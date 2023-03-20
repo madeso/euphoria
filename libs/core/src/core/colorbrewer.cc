@@ -30,17 +30,17 @@ namespace euphoria::core
             static const std::vector<Colorbrewer> all =
             {
                 /*** Diverging ***/
-                palette_diverging_spectral(), palette_diverging_rd_yl_gn(), palette_diverging_rd_bu(), palette_diverging_pi_y_g(), palette_diverging_p_r_gn(), palette_diverging_rd_yl_bu(),
-                palette_diverging_br_b_g(), palette_diverging_rd_gy(), palette_diverging_pu_or(),
+                get_palette_diverging_spectral(), get_palette_diverging_rd_yl_gn(), get_palette_diverging_rd_bu(), get_palette_diverging_pi_y_g(), get_palette_diverging_p_r_gn(), get_palette_diverging_rd_yl_bu(),
+                get_palette_diverging_br_b_g(), get_palette_diverging_rd_gy(), get_palette_diverging_pu_or(),
 
                 /*** Qualitative ***/
-                palette_qualitative_set2(), palette_qualitative_accent(), palette_qualitative_set1(), palette_qualitative_set3(), palette_qualitative_dark2(), palette_qualitative_paired(),
-                palette_qualitative_pastel2(), palette_qualitative_pastel1(),
+                get_palette_qualitative_set2(), get_palette_qualitative_accent(), get_palette_qualitative_set1(), get_palette_qualitative_set3(), get_palette_qualitative_dark2(), get_palette_qualitative_paired(),
+                get_palette_qualitative_pastel2(), get_palette_qualitative_pastel1(),
 
                 /*** Sequential ***/
-                palette_sequential_or_rd(), palette_sequential_pu_bu(), palette_sequential_bu_pu(), palette_sequential_oranges(), palette_sequential_bu_gn(), palette_sequential_yl_or_br(), palette_sequential_yl_gn(),
-                palette_sequential_reds(), palette_sequential_rd_pu(), palette_sequential_greens(), palette_sequential_yl_gn_bu(), palette_sequential_purples(), palette_sequential_gn_bu(), palette_sequential_greys(),
-                palette_sequential_yl_or_rd(), palette_sequential_pu_rd(), palette_sequential_blues(), palette_sequential_pu_bu_gn()
+                get_palette_sequential_or_rd(), get_palette_sequential_pu_bu(), get_palette_sequential_bu_pu(), get_palette_sequential_oranges(), get_palette_sequential_bu_gn(), get_palette_sequential_yl_or_br(), get_palette_sequential_yl_gn(),
+                get_palette_sequential_reds(), get_palette_sequential_rd_pu(), get_palette_sequential_greens(), get_palette_sequential_yl_gn_bu(), get_palette_sequential_purples(), get_palette_sequential_gn_bu(), get_palette_sequential_greys(),
+                get_palette_sequential_yl_or_rd(), get_palette_sequential_pu_rd(), get_palette_sequential_blues(), get_palette_sequential_pu_bu_gn()
             };
             return all;
         }
@@ -80,7 +80,7 @@ namespace euphoria::core
 
         /*** Diverging ***/
         const Colorbrewer&
-        palette_diverging_spectral()
+        get_palette_diverging_spectral()
         {
             static const Colorbrewer cb = Colorbrewer
             {
@@ -281,7 +281,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_diverging_rd_yl_gn()
+        get_palette_diverging_rd_yl_gn()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "RdYlGn",
@@ -483,7 +483,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_diverging_rd_bu()
+        get_palette_diverging_rd_bu()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "RdBu",
@@ -685,7 +685,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_diverging_pi_y_g()
+        get_palette_diverging_pi_y_g()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "PiYG",
@@ -887,7 +887,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_diverging_p_r_gn()
+        get_palette_diverging_p_r_gn()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "PRGn",
@@ -1089,7 +1089,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_diverging_rd_yl_bu()
+        get_palette_diverging_rd_yl_bu()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "RdYlBu",
@@ -1291,7 +1291,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_diverging_br_b_g()
+        get_palette_diverging_br_b_g()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "BrBG",
@@ -1493,7 +1493,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_diverging_rd_gy()
+        get_palette_diverging_rd_gy()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "RdGy",
@@ -1695,7 +1695,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_diverging_pu_or()
+        get_palette_diverging_pu_or()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "PuOr",
@@ -1899,7 +1899,7 @@ namespace euphoria::core
 
         /*** Qualitative ***/
         const Colorbrewer&
-        palette_qualitative_set2()
+        get_palette_qualitative_set2()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Set2",
@@ -2031,7 +2031,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_qualitative_accent()
+        get_palette_qualitative_accent()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Accent",
@@ -2161,7 +2161,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_qualitative_set1()
+        get_palette_qualitative_set1()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Set1",
@@ -2311,7 +2311,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_qualitative_set3()
+        get_palette_qualitative_set3()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Set3",
@@ -2539,7 +2539,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_qualitative_dark2()
+        get_palette_qualitative_dark2()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Dark2",
@@ -2669,7 +2669,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_qualitative_paired()
+        get_palette_qualitative_paired()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Paired",
@@ -2899,7 +2899,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_qualitative_pastel2()
+        get_palette_qualitative_pastel2()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Pastel2",
@@ -3029,7 +3029,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_qualitative_pastel1()
+        get_palette_qualitative_pastel1()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Pastel1",
@@ -3184,7 +3184,7 @@ namespace euphoria::core
 
         /*** Sequential ***/
         const Colorbrewer&
-        palette_sequential_or_rd()
+        get_palette_sequential_or_rd()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "OrRd",
@@ -3337,7 +3337,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_pu_bu()
+        get_palette_sequential_pu_bu()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "PuBu",
@@ -3490,7 +3490,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_bu_pu()
+        get_palette_sequential_bu_pu()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "BuPu",
@@ -3643,7 +3643,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_oranges()
+        get_palette_sequential_oranges()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Oranges",
@@ -3796,7 +3796,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_bu_gn()
+        get_palette_sequential_bu_gn()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "BuGn",
@@ -3949,7 +3949,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_yl_or_br()
+        get_palette_sequential_yl_or_br()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "YlOrBr",
@@ -4102,7 +4102,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_yl_gn()
+        get_palette_sequential_yl_gn()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "YlGn",
@@ -4255,7 +4255,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_reds()
+        get_palette_sequential_reds()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Reds",
@@ -4408,7 +4408,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_rd_pu()
+        get_palette_sequential_rd_pu()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "RdPu",
@@ -4561,7 +4561,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_greens()
+        get_palette_sequential_greens()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Greens",
@@ -4714,7 +4714,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_yl_gn_bu()
+        get_palette_sequential_yl_gn_bu()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "YlGnBu",
@@ -4867,7 +4867,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_purples()
+        get_palette_sequential_purples()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Purples",
@@ -5020,7 +5020,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_gn_bu()
+        get_palette_sequential_gn_bu()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "GnBu",
@@ -5173,7 +5173,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_greys()
+        get_palette_sequential_greys()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Greys",
@@ -5326,7 +5326,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_yl_or_rd()
+        get_palette_sequential_yl_or_rd()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "YlOrRd",
@@ -5479,7 +5479,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_pu_rd()
+        get_palette_sequential_pu_rd()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "PuRd",
@@ -5632,7 +5632,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_blues()
+        get_palette_sequential_blues()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "Blues",
@@ -5785,7 +5785,7 @@ namespace euphoria::core
         }
 
         const Colorbrewer&
-        palette_sequential_pu_bu_gn()
+        get_palette_sequential_pu_bu_gn()
         {
             static const Colorbrewer cb = Colorbrewer {
                     "PuBuGn",

@@ -23,7 +23,7 @@ namespace euphoria::render
         void operator=(const Instance&) = delete;
         void operator=(Instance&&) = delete;
 
-        [[nodiscard]] core::mat4f calculate_model_matrix() const;
+        [[nodiscard]] core::mat4f calc_model_matrix() const;
 
         virtual void render
         (
@@ -34,7 +34,7 @@ namespace euphoria::render
         ) = 0;
     };
 
-    [[nodiscard]] core::mat4f calculate_model_matrix
+    [[nodiscard]] core::mat4f calc_model_matrix
     (
         const core::vec3f& position,
         const core::quatf& rotation

@@ -29,7 +29,7 @@ namespace euphoria::core
         [[nodiscard]] vec3f get_offset() const;
 
 
-        [[nodiscard]] std::vector<vec3f> calculate_all_corners() const;
+        [[nodiscard]] std::vector<vec3f> calc_all_corners() const;
     };
 
     std::ostream& operator<<(std::ostream& stream, const Aabb& a);

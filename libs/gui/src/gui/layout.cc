@@ -45,7 +45,7 @@ namespace euphoria::gui
 
 
     core::size2f
-    TableLayout::calculate_minimum_area
+    TableLayout::calc_minimum_area
     (
         const std::vector<std::shared_ptr<Widget>>& widgets
     ) const
@@ -76,7 +76,7 @@ namespace euphoria::gui
     namespace
     {
         std::string
-        vector_to_string(const std::vector<float>& float_vector)
+        from_vector_to_string(const std::vector<float>& float_vector)
         {
             const auto string_vector = core::to_string_vector
             (
@@ -87,7 +87,7 @@ namespace euphoria::gui
     }
 
     void
-    TableLayout::do_layout
+    TableLayout::lay_out
     (
         std::vector<std::shared_ptr<Widget>>* widgets,
         const core::Rectf& area
@@ -107,8 +107,8 @@ namespace euphoria::gui
             update_max(&height[d.row], s.height);
         }
 
-        LOG_INFO("Table widths: {0}", vector_to_string(width));
-        LOG_INFO("Table heights: {0}", vector_to_string(height));
+        LOG_INFO("Table widths: {0}", from_vector_to_string(width));
+        LOG_INFO("Table heights: {0}", from_vector_to_string(height));
 
         const float total_width = std::accumulate(width.begin(), width.end(), 0.0f);
         const float total_height = std::accumulate(height.begin(), height.end(), 0.0f);
@@ -195,7 +195,7 @@ namespace euphoria::gui
 
 
     core::size2f
-    SingleRowLayout::calculate_minimum_area
+    SingleRowLayout::calc_minimum_area
     (
         const std::vector<std::shared_ptr<Widget>>& widgets
     ) const
@@ -223,7 +223,7 @@ namespace euphoria::gui
 
 
     void
-    SingleRowLayout::do_layout
+    SingleRowLayout::lay_out
     (
         std::vector<std::shared_ptr<Widget>>* widgets,
         const core::Rectf& area

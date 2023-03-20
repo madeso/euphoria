@@ -22,7 +22,7 @@ namespace euphoria::gui
         void render(render::SpriteRenderer* renderer) const override;
         void visit(Visitor* visitor) override;
         void on_size_changed() override;
-        [[nodiscard]] core::size2f calculate_minimum_size() const override;
+        [[nodiscard]] core::size2f calc_minimum_size() const override;
         void step(float dt) override;
     };
 }

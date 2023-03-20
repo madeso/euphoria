@@ -70,7 +70,7 @@ namespace euphoria::gui
     core::size2f
     Widget::get_preferred_size() const
     {
-        const auto min = calculate_minimum_size();
+        const auto min = calc_minimum_size();
         const auto padding_width = padding.left + padding.right;
         const auto padding_height = padding.up + padding.down;
         const auto margin_width = margin.left + margin.right;

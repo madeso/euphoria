@@ -9,9 +9,7 @@ namespace euphoria::render
 
 namespace euphoria::render::attributes2d
 {
-    const ShaderAttribute&
-    vertex();
+    const ShaderAttribute& vertex();
 
-    void
-    prebind_shader(ShaderProgram* shader);
+    void add_attributes_to_shader(ShaderProgram* shader);
 }

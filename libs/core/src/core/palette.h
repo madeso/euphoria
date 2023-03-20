@@ -144,7 +144,7 @@ namespace euphoria::core
         dawnbringer();
 
         const Palette&
-        named_colors();
+        get_named_colors();
     }
 
 }

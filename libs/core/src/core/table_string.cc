@@ -12,13 +12,13 @@ namespace euphoria::core
 
 
 StringTable
-table_from_csv(const std::string& csv_data, const CsvParserOptions& options)
+parse_csv(const std::string& csv_data, const CsvParserOptions& options)
 {
     const auto add_row_to_table =
         [](StringTable* table, const std::vector<std::string>& row)
         {
             if(row.empty()) { return; }
-            table->new_row(row);
+            table->add_row(row);
         };
     auto file = TextfileParser::from_string(csv_data);
 
@@ -125,7 +125,7 @@ table_from_csv(const std::string& csv_data, const CsvParserOptions& options)
 }
 
 int
-width_of_string(const std::string& t)
+calc_width_of_string(const std::string& t)
 {
     // todo(Gustav): bugfix longstring\nshort will return length of short, not longstring
     int w = 0;
@@ -146,7 +146,7 @@ width_of_string(const std::string& t)
 }
 
 int
-height_of_string(const std::string& t)
+calc_height_of_string(const std::string& t)
 {
     int h = 1;
     for(auto c: t)
@@ -160,35 +160,35 @@ height_of_string(const std::string& t)
 }
 
 int
-column_width(const StringTable& t, int c)
+calc_single_column_width(const StringTable& t, int c)
 {
     int width = 0;
     for(StringTable::Idx y = 0; y < t.get_height(); y += 1)
     {
-        width = std::max<int>(width, width_of_string(t(c, y)));
+        width = std::max<int>(width, calc_width_of_string(t(c, y)));
     }
     return width;
 }
 
 int
-row_height(const StringTable& t, int r)
+calc_single_row_height(const StringTable& t, int r)
 {
     int height = 0;
     for(StringTable::Idx x = 0; x < t.get_width(); x += 1)
     {
-        height = std::max<int>(height, height_of_string(t(x, r)));
+        height = std::max<int>(height, calc_height_of_string(t(x, r)));
     }
     return height;
 }
 
 std::vector<int>
-column_widths(const StringTable& table, int extra)
+calc_all_column_widths(const StringTable& table, int extra)
 {
     const auto number_of_cols = table.get_width();
     std::vector<int> sizes(number_of_cols);
     for(StringTable::Idx i = 0; i < number_of_cols; ++i)
     {
-        sizes[i] = column_width(table, i) + extra;
+        sizes[i] = calc_single_column_width(table, i) + extra;
     }
     return sizes;
 }
@@ -198,7 +198,7 @@ StringTable
 split_table_cells_on_newline(const StringTable& table, StringTable::Idx row)
 {
     auto ret = StringTable::from_width_height(
-            table.get_width(), row_height(table, row));
+            table.get_width(), calc_single_row_height(table, row));
     for(int c = 0; c < table.get_width(); c += 1)
     {
         const auto rows = split(table(c, row), '\n');
@@ -222,7 +222,7 @@ print_table_simple(std::ostream& out, const StringTable& maintable)
     const auto number_of_cols = maintable.get_width();
     const auto number_of_rows = maintable.get_height();
 
-    const std::vector<int> sizes = column_widths(maintable, 1);
+    const std::vector<int> sizes = calc_all_column_widths(maintable, 1);
 
     const auto total_padding = begin_str_padding + end_space_padding;
 
@@ -268,7 +268,7 @@ print_table_simple(std::ostream& out, const StringTable& maintable)
 void
 print_table_grid(std::ostream& out, const StringTable& maintable)
 {
-    const std::vector<int> sizes = column_widths(maintable, 0);
+    const std::vector<int> sizes = calc_all_column_widths(maintable, 0);
 
     // prefer enum since vs2017 requires one to capture constexpr (weird I know)
     enum

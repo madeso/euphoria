@@ -16,22 +16,11 @@ and the actual values are dynamically created in script.
 */
 namespace euphoria::render::attributes3d
 {
-    const ShaderAttribute&
-    vertex();
+    const ShaderAttribute& vertex();
+    const ShaderAttribute& normal();
+    const ShaderAttribute& tex_coord();
+    const ShaderAttribute& color();
 
 
-    const ShaderAttribute&
-    normal();
-
-
-    const ShaderAttribute&
-    tex_coord();
-
-
-    const ShaderAttribute&
-    color();
-
-
-    void
-    prebind_shader(ShaderProgram* shader);
+    void add_attributes_to_shader(ShaderProgram* shader);
 }

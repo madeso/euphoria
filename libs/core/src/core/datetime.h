@@ -76,8 +76,8 @@ namespace euphoria::core
 
     // unix date time format, 64 bit
     // todo(Gustav): test 2038 problem
-    uint64_t date_time_to_int64(const TimetWrapper& dt);
-    TimetWrapper int64_to_date_time(uint64_t i);
+    uint64_t c_date_time_to_int64(const TimetWrapper& dt);
+    TimetWrapper c_int64_to_date_time(uint64_t i);
 
     // public interface
     // util class to make stuff nice to use

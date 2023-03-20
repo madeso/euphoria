@@ -163,13 +163,13 @@ namespace euphoria::core
     std::string
     get_extension(const std::string& path)
     {
-        return last_strings(path, '.').second;
+        return get_last_string(path, '.').second;
     }
 
     std::string
     get_file_name_including_extension(const std::string& path)
     {
-        const auto r = last_strings(path, path_separator).second;
+        const auto r = get_last_string(path, path_separator).second;
         if(r.empty())
         {
             return r;
@@ -184,7 +184,7 @@ namespace euphoria::core
     std::string
     get_file_name_without_extension(const std::string& path)
     {
-        return last_strings(get_file_name_including_extension(path), '.').first;
+        return get_last_string(get_file_name_including_extension(path), '.').first;
     }
 
 }

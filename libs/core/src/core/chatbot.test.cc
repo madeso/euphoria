@@ -22,44 +22,44 @@ TEST_CASE("chatbot-matches-input", "[chatbot]")
     SECTION("match middle")
     {
         const auto where = Input::in_middle;
-        CHECK(index_of_matched_input(sentence, Input{start_animal, where}) == 0);
-        CHECK(index_of_matched_input(sentence, Input{middle_animal, where}) == 1);
-        CHECK(index_of_matched_input(sentence, Input{end_animal, where}) == 2);
-        CHECK(index_of_matched_input(sentence, Input{full_sentence, where}) == 0);
-        CHECK(index_of_matched_input(sentence, Input{non_animal, where}) == -1);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{start_animal, where}) == 0);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{middle_animal, where}) == 1);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{end_animal, where}) == 2);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{full_sentence, where}) == 0);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{non_animal, where}) == -1);
     }
 
     SECTION("match start")
     {
         const auto where = Input::at_start;
-        CHECK(index_of_matched_input(sentence, Input{start_animal, where}) == 0);
-        CHECK(index_of_matched_input(sentence, Input{middle_animal, where})
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{start_animal, where}) == 0);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{middle_animal, where})
               == -1);
-        CHECK(index_of_matched_input(sentence, Input{end_animal, where}) == -1);
-        CHECK(index_of_matched_input(sentence, Input{full_sentence, where}) == 0);
-        CHECK(index_of_matched_input(sentence, Input{non_animal, where}) == -1);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{end_animal, where}) == -1);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{full_sentence, where}) == 0);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{non_animal, where}) == -1);
     }
 
     SECTION("match end")
     {
         const auto where = Input::at_end;
-        CHECK(index_of_matched_input(sentence, Input{start_animal, where}) == -1);
-        CHECK(index_of_matched_input(sentence, Input{middle_animal, where})
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{start_animal, where}) == -1);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{middle_animal, where})
               == -1);
-        CHECK(index_of_matched_input(sentence, Input{end_animal, where}) == 2);
-        CHECK(index_of_matched_input(sentence, Input{full_sentence, where}) == 0);
-        CHECK(index_of_matched_input(sentence, Input{non_animal, where}) == -1);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{end_animal, where}) == 2);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{full_sentence, where}) == 0);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{non_animal, where}) == -1);
     }
 
     SECTION("alone")
     {
         const auto where = Input::alone;
-        CHECK(index_of_matched_input(sentence, Input{start_animal, where}) == -1);
-        CHECK(index_of_matched_input(sentence, Input{middle_animal, where})
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{start_animal, where}) == -1);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{middle_animal, where})
               == -1);
-        CHECK(index_of_matched_input(sentence, Input{end_animal, where}) == -1);
-        CHECK(index_of_matched_input(sentence, Input{full_sentence, where}) == 0);
-        CHECK(index_of_matched_input(sentence, Input{non_animal, where}) == -1);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{end_animal, where}) == -1);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{full_sentence, where}) == 0);
+        CHECK(find_get_palette_sequential_pu_bu_gn(sentence, Input{non_animal, where}) == -1);
     }
 
     SECTION("remove from middle")

@@ -14,14 +14,14 @@ namespace euphoria::gui
     void
     PanelWidget::on_size_changed()
     {
-        container.do_layout(get_client_rect());
+        container.lay_out(get_client_rect());
     }
 
 
     core::size2f
-    PanelWidget::calculate_minimum_size() const
+    PanelWidget::calc_minimum_size() const
     {
-        return container.calculate_minimum_area();
+        return container.calc_minimum_area();
     }
 
 

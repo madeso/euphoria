@@ -93,7 +93,7 @@ namespace euphoria::gui
 
 
     core::size2f
-    Button::calculate_minimum_size() const
+    Button::calc_minimum_size() const
     {
         auto size = core::size2f::create_from_width_height(0, 0);
         if(sprite != nullptr)

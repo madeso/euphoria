@@ -28,7 +28,7 @@ namespace euphoria::core
 
         // return -1 if no matches are found
         int
-        index_of_matched_input
+        find_get_palette_sequential_pu_bu_gn
         (
             const std::vector<std::string>& input,
             const detail::Input& keywords

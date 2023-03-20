@@ -4,7 +4,7 @@
 
 namespace euco = euphoria::core;
 
-TEST_CASE("num-string_is_equal", "[numeric]")
+TEST_CASE("num-is_string_equal", "[numeric]")
 {
     REQUIRE(euco::is_equal(1.2f, 1.2f));
     REQUIRE(euco::is_equal(21.12f, 21.12f));
@@ -18,10 +18,10 @@ TEST_CASE("num-is_zero", "[numeric]")
     REQUIRE_FALSE(euco::is_zero(1.2f));
 }
 
-TEST_CASE("num-zero_or_value", "[numeric]")
+TEST_CASE("num-clamp_zero", "[numeric]")
 {
-    REQUIRE(euco::zero_or_value(0.000001f) == 0.0f);
-    REQUIRE(euco::zero_or_value(12.0f) == 12.0f);
+    REQUIRE(euco::clamp_zero(0.000001f) == 0.0f);
+    REQUIRE(euco::clamp_zero(12.0f) == 12.0f);
 }
 
 TEST_CASE("num-sign", "[numeric]")

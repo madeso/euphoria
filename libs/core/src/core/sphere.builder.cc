@@ -9,7 +9,7 @@
 namespace euphoria::core
 {
     vec3f
-    calculate_center(const std::vector<vec3f>& positions)
+    calc_center(const std::vector<vec3f>& positions)
     {
         ASSERT(positions.empty() == false);
 
@@ -28,7 +28,7 @@ namespace euphoria::core
     {
         ASSERT(positions.empty() == false);
 
-        const auto center = calculate_center(positions);
+        const auto center = calc_center(positions);
         float radius_squared = 0;
 
         for(const auto& p: positions)

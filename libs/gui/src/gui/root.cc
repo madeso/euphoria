@@ -32,7 +32,7 @@ namespace euphoria::gui
 
         if(result)
         {
-            container.do_layout(core::Rectf::from_width_height(size));
+            container.lay_out(core::Rectf::from_width_height(size));
         }
 
         return result;
@@ -60,7 +60,7 @@ namespace euphoria::gui
     Root::resize(const core::size2f& new_size)
     {
         size = new_size;
-        container.do_layout(core::Rectf::from_width_height(size));
+        container.lay_out(core::Rectf::from_width_height(size));
     }
 
 

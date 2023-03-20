@@ -96,13 +96,13 @@ namespace euphoria::window::imgui
     }
 
     void
-    process_imgui_events(const SDL_Event* event)
+    send_events_to_imgui(const SDL_Event* event)
     {
         ImGui_ImplSDL2_ProcessEvent(event);
     }
 
     void
-    start_new_frame()
+    begin_new_frame()
     {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplSDL2_NewFrame();

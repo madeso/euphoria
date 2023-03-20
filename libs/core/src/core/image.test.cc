@@ -136,7 +136,7 @@ TEST_CASE("image draw", "[img]")
 
     SECTION("draw size is image size")
     {
-        const auto size = euco::whole_image(img);
+        const auto size = euco::on_whole_image(img);
         CHECK(size.bottom == 0);
         CHECK(size.left == 0);
         CHECK(size.get_width() == width);
@@ -152,7 +152,7 @@ TEST_CASE("image draw", "[img]")
         CHECK_FALSE(img.get_pixel(3, 3) == colora);
         CHECK_FALSE(img.get_pixel(width - 1, height - 1) == colora);
 
-        euco::draw_rect(&img, color, euco::whole_image(img));
+        euco::draw_rect(&img, color, euco::on_whole_image(img));
         REQUIRE(img.get_pixel(0, 0) == colora);
         REQUIRE(img.get_pixel(3, 3) == colora);
         REQUIRE(img.get_pixel(width - 1, height - 1) == colora);
@@ -221,7 +221,7 @@ TEST_CASE("image text")
     {
         euco::Image image;
         image.setup_no_alpha_support(width, height);
-        euco::draw_rect(&image, {euco::NamedColor::white}, euco::whole_image(image));
+        euco::draw_rect(&image, {euco::NamedColor::white}, euco::on_whole_image(image));
         euco::draw_text
         (
             &image,
@@ -230,7 +230,7 @@ TEST_CASE("image text")
             {euco::NamedColor::black},
             euco::load_characters_from_builtin8()
         );
-        const auto table = euco::image_to_string_table_exact
+        const auto table = euco::from_image_to_string_table_exact
         (
             image,
             {
@@ -243,7 +243,7 @@ TEST_CASE("image text")
         return strings;
     };
 
-    CHECK(string_is_equal(draw_text("dog !", 8 * 6, 8),
+    CHECK(is_string_equal(draw_text("dog !", 8 * 6, 8),
                           {
                                   "   ###                             ##           ",
                                   "    ##                            ####          ",
@@ -255,7 +255,7 @@ TEST_CASE("image text")
                                   "                #####                           "
                           }));
 
-    CHECK(string_is_equal(draw_text("CAT", 8, 8 + 1),
+    CHECK(is_string_equal(draw_text("CAT", 8, 8 + 1),
                           {
                                   "  ####  ",
                                   " ##  ## ",
@@ -268,7 +268,7 @@ TEST_CASE("image text")
                                   "        "
                           }));
 
-    CHECK(string_is_equal(draw_text("c\na\nt", 8, 8 * 3),
+    CHECK(is_string_equal(draw_text("c\na\nt", 8, 8 * 3),
                           {
                                   "        ",
                                   "        ",

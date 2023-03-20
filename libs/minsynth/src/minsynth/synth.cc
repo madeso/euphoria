@@ -67,7 +67,7 @@ namespace euphoria::minsynth
     }
 
     float
-    tuning_to_base_frequency(Tuning t)
+    from_tuning_to_base_frequency(Tuning t)
     {
         switch(t)
         {
@@ -85,7 +85,7 @@ namespace euphoria::minsynth
 
 
     std::string
-    midi_event_to_string(MidiEvent e)
+    from_midi_event_to_string(MidiEvent e)
     {
         switch(e)
         {
@@ -177,16 +177,16 @@ namespace euphoria::minsynth
 
     template <int tones_per_octave>
     float
-    template_tone_to_frequency(int tone, float base_frequency)
+    from_tone_to_frequency_impl(int tone, float base_frequency)
     {
         const static auto converter = ToneToFrequencyConverter<tones_per_octave>();
         return converter.get_frequency(tone, base_frequency);
     }
 
     float
-    tone_to_frequency(int tone, float base_frequency)
+    from_tone_to_frequency(int tone, float base_frequency)
     {
-        return template_tone_to_frequency<12>(tone, base_frequency);
+        return from_tone_to_frequency_impl<12>(tone, base_frequency);
     }
 
     void
@@ -214,21 +214,21 @@ namespace euphoria::minsynth
 
         if(down)
         {
-            next->on_frequency_down(tone, calculate_frequency(tone), time);
+            next->on_frequency_down(tone, calc_frequency(tone), time);
         }
         else
         {
-            next->on_frequency_up(tone, calculate_frequency(tone), time);
+            next->on_frequency_up(tone, calc_frequency(tone), time);
         }
     }
 
     float
-    ToneToFrequencyConverterNode::calculate_frequency(int semitone) const
+    ToneToFrequencyConverterNode::calc_frequency(int semitone) const
     {
-        const float base_freq = tuning_to_base_frequency(tuning);
+        const float base_freq = from_tuning_to_base_frequency(tuning);
         const int tone = semitone - 9; // hrm.... why?
 
-        const float freq = tone_to_frequency(tone, base_freq);
+        const float freq = from_tone_to_frequency(tone, base_freq);
 
         return freq;
     }
@@ -282,7 +282,7 @@ namespace euphoria::minsynth
                 (
                 "STAT ({0}) {1}",
                 static_cast<unsigned int>(channel),
-                midi_event_to_string(static_cast<MidiEvent>(message))
+                from_midi_event_to_string(static_cast<MidiEvent>(message))
                 );
             }
             else
@@ -354,7 +354,7 @@ namespace euphoria::minsynth
             break;
         }
 
-        default: LOG_ERROR("todo: handle {0}", midi_event_to_string(event)); return;
+        default: LOG_ERROR("todo: handle {0}", from_midi_event_to_string(event)); return;
         }
     }
 
@@ -630,7 +630,7 @@ namespace euphoria::minsynth
         {
         case OscilatorType::sine: return sine;
         case OscilatorType::square: return sine > 0.0f ? 1.0f : -1.0f;
-        case OscilatorType::triangle: return core::asin(sine).in_radians() * (2.0f / pi);
+        case OscilatorType::triangle: return core::asin(sine).as_radians() * (2.0f / pi);
         case OscilatorType::sawtooth:
             return (2 / pi) * (frequency * pi * fmodf(time, 1 / frequency) - pi / 2);
         case OscilatorType::noise:

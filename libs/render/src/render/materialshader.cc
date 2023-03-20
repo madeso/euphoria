@@ -159,7 +159,7 @@ namespace euphoria::render
         const core::vfs::FilePath& path
     )
     {
-        attributes3d::prebind_shader(&shader);
+        attributes3d::add_attributes_to_shader(&shader);
         const bool shader_compile = shader.load(file_system, path);
         // if (!shader_compile) { return false; }
 

@@ -26,7 +26,7 @@ namespace euphoria::core::generator
         void
         step(CellularAutomata* self) override
         {
-            smooth_map
+            make_smoother
             (
                 self->world,
                 self->outside_rule,

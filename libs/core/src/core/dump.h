@@ -117,7 +117,7 @@ namespace euphoria::core::dump2d
         void write(const std::string& path, int width=1280, int height=1024, int space = 6) const;
 
         /// calculate total area size and offset so that x+offset will never be lower than 0
-        [[nodiscard]] std::pair<vec2f, vec2f> calculate_size_and_offset() const;
+        [[nodiscard]] std::pair<vec2f, vec2f> calc_size_and_offset() const;
     };
 }
 

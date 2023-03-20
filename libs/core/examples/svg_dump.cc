@@ -21,7 +21,7 @@ using namespace euphoria::core::dump2d;
 Poly
 make_star(const vec2f& origo, float radius, const angle& rotation, int number_of_points=5, float inner_scale=0.5f)
 {
-    auto angle_step = angle::one_turn() / (static_cast<float>(number_of_points)*2.0f);
+    auto angle_step = one_turn / (static_cast<float>(number_of_points)*2.0f);
 
     auto poly = ::Poly{};
 

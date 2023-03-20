@@ -125,7 +125,7 @@ main(int argc, char* argv[])
     const auto random_points =
         point_generation == PointGeneration::random
         ? generate_random_points(number_of_points, area, &rand)
-        : poisson_sample(area, &rand, poisson_radius*2, poisson_radius);
+        : calc_poisson_samples(area, &rand, poisson_radius*2, poisson_radius);
 
     const auto rainbow = DynamicPalette::create_rainbow(c_sizet_to_int(random_points.size()));
     auto pal = use_colorblind
@@ -165,7 +165,7 @@ main(int argc, char* argv[])
     });
 
 
-    io::chunk_to_file(image.write(ImageWriteFormat::png), output_path);
+    io::write_chunk_to_file(image.write(ImageWriteFormat::png), output_path);
 
     return 0;
 }

@@ -20,7 +20,7 @@ TEST_CASE("vfspath-dir-root", "[vfspath]")
     SECTION("sub")
     {
         const auto folder =
-            vfs::DirPath::from_root().single_cd_copy("dog");
+            vfs::DirPath::from_root().get_directory("dog");
         REQUIRE_FALSE(folder.is_relative());
         REQUIRE("~/dog/" == folder.path);
     }
@@ -39,7 +39,7 @@ TEST_CASE("vfspath-dir-relative", "[vfspath]")
     SECTION("sub")
     {
         const auto folder =
-            vfs::DirPath::from_relative().single_cd_copy("dog");
+            vfs::DirPath::from_relative().get_directory("dog");
         REQUIRE(folder.is_relative());
         REQUIRE("./dog/" == folder.path);
     }
@@ -154,7 +154,7 @@ TEST_CASE("vfspath-dir-resolve", "[vfspath]")
 
     SECTION("absolute_root_sub")
     {
-        const auto odir = vfs::resolve_relative(root.single_cd_copy("dog"));
+        const auto odir = vfs::resolve_relative(root.get_directory("dog"));
         REQUIRE(odir.has_value());
         const auto dir = odir.value();
         CHECK(dir.path == "~/dog/");
@@ -172,7 +172,7 @@ TEST_CASE("vfspath-dir-resolve", "[vfspath]")
     {
         const auto odir = vfs::resolve_relative
         (
-            relative.single_cd_copy("dog"),
+            relative.get_directory("dog"),
             root
         );
         REQUIRE(odir.has_value());
@@ -184,8 +184,8 @@ TEST_CASE("vfspath-dir-resolve", "[vfspath]")
     {
         const auto odir = vfs::resolve_relative
         (
-            relative.single_cd_copy("grumpy"),
-            root.single_cd_copy("cat")
+            relative.get_directory("grumpy"),
+            root.get_directory("cat")
         );
         REQUIRE(odir.has_value());
         const auto dir = odir.value();
@@ -203,7 +203,7 @@ TEST_CASE("vfspath-dir-resolve", "[vfspath]")
         const auto odir = vfs::resolve_relative
         (
             one_back,
-            root.single_cd_copy("sub")
+            root.get_directory("sub")
         );
         REQUIRE(odir.has_value());
         const auto dir = odir.value();

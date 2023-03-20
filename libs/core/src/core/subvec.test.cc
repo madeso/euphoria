@@ -16,7 +16,7 @@ namespace
         const std::vector<int>& rhs
     )
     {
-        return euphoria::tests::vector_is_equal
+        return euphoria::tests::is_vector_equal
         (
             lhs,
             rhs,

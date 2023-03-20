@@ -63,7 +63,7 @@ namespace euphoria::core
             -dy * rotate_dy.get_multiplier_with_sign()
         );
 
-        const auto r = make_range(-angle::quarter(), angle::quarter());
+        const auto r = make_range(-quarter_turn, quarter_turn);
         vertical_rotation = keep_within(r, vertical_rotation);
     }
 

@@ -3,7 +3,7 @@
 namespace euphoria::core
 {
     TimePoint
-    time_point_now()
+    get_current_timepoint()
     {
         return std::chrono::steady_clock::now();
     }

@@ -10,7 +10,7 @@
 namespace euphoria::core
 {
     Table<char>
-    image_to_string_table(const Image& img, const std::vector<ImageMapAction>& map)
+    from_image_to_string_table(const Image& img, const std::vector<ImageMapAction>& map)
     {
         auto pal = DynamicPalette::create_empty("");
         for(const auto m: map)
@@ -38,7 +38,7 @@ namespace euphoria::core
     }
 
     Table<char>
-    image_to_string_table_exact(
+    from_image_to_string_table_exact(
             const Image& img,
             const std::vector<ImageMapAction>& map, char missing)
     {
@@ -67,7 +67,7 @@ namespace euphoria::core
     }
 
     Table<char>
-    image_to_string_table(const Image& img, bool shorter, Grayscale grayscale)
+    from_image_to_string_table(const Image& img, bool shorter, Grayscale grayscale)
     {
         auto ret = Table<char>::from_width_height(
                 img.width, img.height, ' ');

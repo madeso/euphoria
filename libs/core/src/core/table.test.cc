@@ -31,9 +31,9 @@ TEST_CASE("table-size", "[table]")
 
     SECTION("verify data layout")
     {
-        CHECK(t.data_index(0, 0) == 0);
-        CHECK(t.data_index(2, 0) == 2);
-        CHECK(t.data_index(0, 1) == 3);
+        CHECK(t.get_data_index(0, 0) == 0);
+        CHECK(t.get_data_index(2, 0) == 2);
+        CHECK(t.get_data_index(0, 1) == 3);
     }
 
     CHECK(t(0, 0) == 0);
@@ -95,12 +95,12 @@ TEST_CASE("table-test_add", "[table]")
 
     SECTION("basic usage")
     {
-        t.new_row(std::vector<int> {1, 2, 3});
+        t.add_row(std::vector<int> {1, 2, 3});
 
         REQUIRE(3 == t.get_width());
         REQUIRE(1 == t.get_height());
 
-        t.new_row();
+        t.add_row();
         t(0, 1) = 4;
         t(1, 1) = 5;
         t(2, 1) = 6;
@@ -108,7 +108,7 @@ TEST_CASE("table-test_add", "[table]")
         REQUIRE(3 == t.get_width());
         REQUIRE(2 == t.get_height());
 
-        t.new_row(std::vector<int> {7, 8, 9});
+        t.add_row(std::vector<int> {7, 8, 9});
 
         const auto r0 = std::vector<int> {1, 2, 3};
         CHECK(euco::calc_row_as_vector(t, 0) == r0);
@@ -129,8 +129,8 @@ TEST_CASE("table-test_add", "[table]")
 
         SECTION("1 then 2")
         {
-            t.new_row(r1d, d);
-            t.new_row(r12, d);
+            t.add_row(r1d, d);
+            t.add_row(r12, d);
             REQUIRE(2 == t.get_width());
             REQUIRE(2 == t.get_height());
             CHECK(euco::calc_row_as_vector(t, 0) == r10);
@@ -139,8 +139,8 @@ TEST_CASE("table-test_add", "[table]")
 
         SECTION("2 then 1")
         {
-            t.new_row(r12, d);
-            t.new_row(r1d, d);
+            t.add_row(r12, d);
+            t.add_row(r1d, d);
             REQUIRE(2 == t.get_width());
             REQUIRE(2 == t.get_height());
             CHECK(euco::calc_row_as_vector(t, 0) == r12);

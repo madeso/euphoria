@@ -7,7 +7,7 @@ namespace euphoria::core
     void
     CliProgressDots::update()
     {
-        const auto now = time_point_now();
+        const auto now = get_current_timepoint();
         if(has_printed)
         {
             if(get_seconds_between(last, now) < 0.2f)

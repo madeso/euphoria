@@ -17,7 +17,7 @@ namespace euphoria::core::search
 
         Match(const std::string& str, const std::string& input)
             : name(str)
-            , changes(core::edit_distance(str, input))
+            , changes(core::calc_edit_distance(str, input))
         {
         }
 

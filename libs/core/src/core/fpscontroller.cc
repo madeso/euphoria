@@ -128,7 +128,7 @@ namespace euphoria::core
     }
 
     quatf
-    FpsController::calculate_rotation(const angle& rotation_angle, const angle& look_angle)
+    FpsController::calc_rotation(const angle& rotation_angle, const angle& look_angle)
     {
         const auto rotation = quatf::from_axis_angle
         (
@@ -144,7 +144,7 @@ namespace euphoria::core
     quatf
     FpsController::get_rotation() const
     {
-        return calculate_rotation(rotation_angle, look_angle);
+        return calc_rotation(rotation_angle, look_angle);
     }
 
 

@@ -187,7 +187,7 @@ namespace euphoria::core
 
     std::string to_string(const Hsl& v)
     {
-        return "({:.0f}°, {:.0f}%, {:.0f}%)"_format(v.h.in_degrees(), v.s * 100, v.l * 100);
+        return "({:.0f}°, {:.0f}%, {:.0f}%)"_format(v.h.as_degrees(), v.s * 100, v.l * 100);
     }
 
     std::ostream& operator<<(std::ostream& stream, const rgbi& v)  { stream << to_string(v); return stream; }
@@ -275,9 +275,9 @@ namespace euphoria::core
                                         : hsl.l + hsl.s - hsl.l * hsl.s;
             const auto p = 2.0f * hsl.l - q;
 
-            const auto r = hue2rgb(p, q, hsl.h.in_percent_of_360() + 1.0f / 3.0f);
-            const auto g = hue2rgb(p, q, hsl.h.in_percent_of_360());
-            const auto b = hue2rgb(p, q, hsl.h.in_percent_of_360() - 1.0f / 3.0f);
+            const auto r = hue2rgb(p, q, hsl.h.from_percent_of_360() + 1.0f / 3.0f);
+            const auto g = hue2rgb(p, q, hsl.h.from_percent_of_360());
+            const auto b = hue2rgb(p, q, hsl.h.from_percent_of_360() - 1.0f / 3.0f);
             return {r, g, b};
         }
     }
@@ -403,7 +403,7 @@ namespace euphoria::core
 
     ////////////////////////////////////////////////////////////////////////////////
 
-    rgb rgb_transform(const rgb& from, float v, const rgb& to)
+    rgb lerp_rgb(const rgb& from, float v, const rgb& to)
     {
         return
         {
@@ -498,7 +498,6 @@ namespace euphoria::core
     rgb
     shade_color(const rgb& color, float percentage)
     {
-        // //
         // https://stackoverflow.com/questions/5560248/programmatically-lighten-or-darken-a-hex-color-or-rgb-and-blend-colors
         const float t = percentage < 0 ? 0.0f : 1.0f;
         const float p = percentage < 0 ? -percentage : percentage;
@@ -643,7 +642,7 @@ namespace euphoria::core
         }
         else
         {
-            const auto match = string_to_enum<NamedColor>(value);
+            const auto match = from_string_to_enum<NamedColor>(value);
             if(match.single_match) { return R::create_value(crgbi(match.values[0])); }
             return R::create_error
             (

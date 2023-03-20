@@ -28,14 +28,14 @@ namespace euphoria::gui
         void operator=(Layout&&) = delete;
 
         [[nodiscard]] virtual core::size2f
-        calculate_minimum_area
+        calc_minimum_area
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
         ) const = 0;
 
         virtual
         void
-        do_layout
+        lay_out
         (
             std::vector<std::shared_ptr<Widget>>* widgets,
             const core::Rectf& area
@@ -59,13 +59,13 @@ namespace euphoria::gui
         void operator=(TableLayout&&) = delete;
 
         [[nodiscard]] core::size2f
-        calculate_minimum_area
+        calc_minimum_area
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
         ) const override;
 
         void
-        do_layout
+        lay_out
         (
             std::vector<std::shared_ptr<Widget>>* widgets,
             const core::Rectf& area
@@ -88,13 +88,13 @@ namespace euphoria::gui
         void operator=(SingleRowLayout&&) = delete;
 
         [[nodiscard]] core::size2f
-        calculate_minimum_area
+        calc_minimum_area
         (
             const std::vector<std::shared_ptr<Widget>>& widgets
         ) const override;
 
         void
-        do_layout
+        lay_out
         (
             std::vector<std::shared_ptr<Widget>>* widgets,
             const core::Rectf& area

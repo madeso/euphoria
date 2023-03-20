@@ -16,7 +16,7 @@ namespace euphoria::tests
 {
     template <>
     bool
-    approximately_equal
+    is_approximately_equal
     (
         float const& lhs,
         float const& rhs,

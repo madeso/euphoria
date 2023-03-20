@@ -35,10 +35,10 @@ namespace euphoria::core
     match_palette_dither(Image* image, const Palette& palette);
 
     void
-    edge_detection(Image* image, float r);
+    filter_edge_detection(Image* image, float r);
 
     void
-    color_detection(Image* image, rgb color, float r);
+    filter_color_detection(Image* image, rgb color, float r);
 
     void
     change_brightness(Image* image, int change);

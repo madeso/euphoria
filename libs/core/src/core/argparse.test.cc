@@ -99,7 +99,7 @@ namespace
         const std::vector<std::string>& rhs
     )
     {
-        return euphoria::tests::vector_is_equal
+        return euphoria::tests::is_vector_equal
         (
             lhs,
             rhs,
@@ -109,7 +109,7 @@ namespace
             },
             [](const std::string &alhs, const std::string &arhs) -> FalseString
             {
-                return string_is_equal(alhs, arhs);
+                return is_string_equal(alhs, arhs);
             }
         );
     }
@@ -121,7 +121,7 @@ namespace
         const std::vector<Message>& rhs
     )
     {
-        return euphoria::tests::vector_is_equal
+        return euphoria::tests::is_vector_equal
         (
             lhs,
             rhs,
@@ -131,7 +131,7 @@ namespace
             },
             [](const Message &alhs, const Message &arhs) -> FalseString
             {
-                const auto str = string_is_equal(alhs.text, arhs.text);
+                const auto str = is_string_equal(alhs.text, arhs.text);
                 if (str == false)
                 { return str; }
                 if (alhs.error == arhs.error)
@@ -156,7 +156,7 @@ namespace
     std::ostream&
     operator<<(std::ostream& o, const Animal& m)
     {
-        o << euphoria::core::enum_to_string(m);
+        o << euphoria::core::from_enum_to_string(m);
         return o;
     }
 }

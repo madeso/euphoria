@@ -182,11 +182,11 @@ namespace euphoria::core
     ////////////////////////////////////////////////////////////////////////////////
     /// Transform
 
-    vec2f vec2f_transform(const vec2f& from, float v, const vec2f& to);
-    vec2i vec2i_transform(const vec2i& from, float v, const vec2i& to);
+    vec2f lerp_vec2f(const vec2f& from, float v, const vec2f& to);
+    vec2i lerp_vec2i(const vec2i& from, float v, const vec2i& to);
 
-    DEFAULT_INTERPOLATE(vec2f, vec2f_transform);
-    DEFAULT_INTERPOLATE(vec2i, vec2i_transform);
+    DEFAULT_INTERPOLATE(vec2f, lerp_vec2f);
+    DEFAULT_INTERPOLATE(vec2i, lerp_vec2i);
 
     // todo(Gustav): add one lerp and one slerp unit transform?
 

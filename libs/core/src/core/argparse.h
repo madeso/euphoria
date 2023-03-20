@@ -47,7 +47,7 @@ namespace euphoria::core::argparse
 
         constexpr explicit ParseResult(Type t)
             : internal_type(t)
-            , return_value(default_return_value(t))
+            , return_value(get_default_return_value(t))
         {
         }
 
@@ -57,7 +57,7 @@ namespace euphoria::core::argparse
         {
         }
 
-        static constexpr int default_return_value(Type pr)
+        static constexpr int get_default_return_value(Type pr)
         {
             switch (pr)
             {
@@ -481,7 +481,7 @@ namespace euphoria::core::argparse
                 const std::optional<std::string> str = default_describe<T>();
                 return str;
             });
-            arg->default_value = default_value_to_string(*target);
+            arg->default_value = from_default_value_to_string(*target);
             return add_argument(name, arg);
         }
 
@@ -529,7 +529,7 @@ namespace euphoria::core::argparse
             std::vector<std::string> values;
             for(const auto& t: *target)
             {
-                values.emplace_back(default_value_to_string(t));
+                values.emplace_back(from_default_value_to_string(t));
             }
             arg->default_value = string_mergers::array.merge(values);
             return add_argument(name, arg);

@@ -15,7 +15,7 @@ namespace euphoria::core
 {
     angle lerp(const angle& f, float v, const angle& t)
     {
-        return angle_transform(f, v, t);
+        return lerp_angle(f, v, t);
     }
 
     vec3f lerp(const vec3f& f, float v, const vec3f& t)
@@ -61,7 +61,7 @@ namespace euphoria::core
 
 
         EditorCameraStyle3
-        next_style(EditorCameraStyle3 current_style)
+        get_next_style(EditorCameraStyle3 current_style)
         {
             switch(current_style)
             {
@@ -74,7 +74,7 @@ namespace euphoria::core
 
         ///////////////////////////////////////////////////////////////////////////////////////////////
 
-        CameraFrame frame_from_editor(EditorCamera3* editor)
+        CameraFrame get_frame_from_editor(EditorCamera3* editor)
         {
             return
             {
@@ -84,7 +84,7 @@ namespace euphoria::core
             };
         }
 
-        void frame_to_editor(const CameraFrame& frame, EditorCamera3* editor)
+        void set_frame_for_editor(const CameraFrame& frame, EditorCamera3* editor)
         {
             editor->fps.rotation_angle = frame.rotation_angle;
             editor->fps.look_angle = frame.look_angle;
@@ -131,7 +131,7 @@ namespace euphoria::core
         };
 
         std::optional<float>
-        calculate_zoom_move(int dx, int dy, float length, EditorCamera3* owner)
+        calc_zoom_move(int dx, int dy, float length, EditorCamera3* owner)
         {
             const auto change = dx+dy;
             if (change == 0) { return std::nullopt; }
@@ -182,7 +182,7 @@ namespace euphoria::core
                     orbit.reset();
                     if(pan.has_value() == false)
                     {
-                        const auto ray = mouse_to_unit_ray(camera, viewport, start_mouse);
+                        const auto ray = from_mouse_to_unit_ray(camera, viewport, start_mouse);
                         pan = PanData
                         {
                             owner->raycast(ray)
@@ -194,7 +194,7 @@ namespace euphoria::core
                     pan.reset();
                     if(orbit.has_value() == false)
                     {
-                        const auto ray = camera.clip_to_world_ray(vec2f{0.0f, 0.0f}).get_normalized();
+                        const auto ray = camera.from_clip_to_world_ray(vec2f{0.0f, 0.0f}).get_normalized();
                         orbit = OrbitData
                         {
                             owner->raycast(ray),
@@ -220,7 +220,7 @@ namespace euphoria::core
                 
                 auto new_frame = start_frame;
                 new_frame.position += offset;
-                detail::frame_to_editor(new_frame, owner);
+                detail::set_frame_for_editor(new_frame, owner);
             }
 
             void update_orbit(EditorCamera3* owner)
@@ -228,7 +228,7 @@ namespace euphoria::core
                 if(orbit.has_value() == false) { return; }
                 if(orbit->valid == false) { return; }
 
-                const auto out = FpsController::calculate_rotation
+                const auto out = FpsController::calc_rotation
                 (
                     orbit->rotation_angle, orbit->look_angle
                 ).create_from_right_up_in(vec3f{0.0f, 0.0f, -1.0f});
@@ -239,7 +239,7 @@ namespace euphoria::core
                     orbit->look_angle,
                     orbit->center + orbit->distance * out
                 };
-                detail::frame_to_editor(new_frame, owner);
+                detail::set_frame_for_editor(new_frame, owner);
             }
 
             void update_camera(EditorCamera3* owner)
@@ -256,7 +256,7 @@ namespace euphoria::core
 
             [[nodiscard]] vec3f get_far_point(const vec2i& p, const CompiledCamera3& cc) const
             {
-                return mouse_to_ray(cc, viewport, p).get_point(1.0f);
+                return from_mouse_to_ray(cc, viewport, p).get_point(1.0f);
             }
 
             [[nodiscard]]
@@ -285,7 +285,7 @@ namespace euphoria::core
                 // only orbit can zoom
                 if(owner->scroll_in_orbit && orbit.has_value() && orbit->valid )
                 {
-                    const auto move = calculate_zoom_move(dx, dy, orbit->distance, owner); 
+                    const auto move = calc_zoom_move(dx, dy, orbit->distance, owner); 
                     if(move)
                     {
                         orbit->distance += *move;
@@ -389,7 +389,7 @@ namespace euphoria::core
                 if(latest_viewport.bounds.get_width() == 0) { return;  }
                 if(latest_viewport.bounds.get_height() == 0) { return; }
 
-                const auto ray = mouse_to_unit_ray(latest_camera, latest_viewport, latest_mouse);
+                const auto ray = from_mouse_to_unit_ray(latest_camera, latest_viewport, latest_mouse);
                 const auto collision = owner->raycast(ray);
 
                 // todo(Gustav): implement basic zoom if no collision
@@ -399,7 +399,7 @@ namespace euphoria::core
                 const auto length = dir.get_length();
                 const auto unit = dir.get_normalized();
 
-                const auto move = calculate_zoom_move(dx, dy, length, owner);
+                const auto move = calc_zoom_move(dx, dy, length, owner);
 
                 if(move)
                 {
@@ -448,7 +448,7 @@ namespace euphoria::core
                 {
                     owner->next_state = make_orbit_camera
                     (
-                        detail::frame_from_editor(owner),
+                        detail::get_frame_from_editor(owner),
                         latest_camera,
                         latest_viewport,
                         latest_mouse,
@@ -488,7 +488,7 @@ namespace euphoria::core
             float timer;
 
             LerpCamera(EditorCamera3* owner, const CameraFrame& ato, float atime)
-                : from(frame_from_editor(owner))
+                : from(get_frame_from_editor(owner))
                 , to(ato)
                 , total_time(atime)
                 , timer(0.0f)
@@ -517,7 +517,7 @@ namespace euphoria::core
                 timer += dt;
                 if(timer >= total_time)
                 {
-                    frame_to_editor(to, owner);
+                    set_frame_for_editor(to, owner);
                     owner->next_state = make_default_camera();
                     return;
                 }
@@ -530,7 +530,7 @@ namespace euphoria::core
                     lerp(from.position, factor, to.position)
                 };
 
-                frame_to_editor(frame, owner);
+                set_frame_for_editor(frame, owner);
             }
 
             void on_scroll(EditorCamera3*, int, int) override {}
@@ -587,7 +587,7 @@ namespace euphoria::core
         fps.look_angle = angle::from_degrees(-30.0f);
         detail::set_default_state(this);
 
-        const auto default_frame = detail::frame_from_editor(this);
+        const auto default_frame = detail::get_frame_from_editor(this);
         for(int i=0; i<EditorCamera3::max_stored_index; i+=1)
         {
             stored_cameras.emplace_back(default_frame);
@@ -673,7 +673,7 @@ namespace euphoria::core
     void
     EditorCamera3::toggle_camera_orbit()
     {
-        style = detail::next_style(style);
+        style = detail::get_next_style(style);
     }
 
     void
@@ -681,7 +681,7 @@ namespace euphoria::core
     {
         ASSERTX(id < EditorCamera3::max_stored_index, id, EditorCamera3::max_stored_index);
         const auto index = c_int_to_sizet(id);
-        const auto frame = detail::frame_from_editor(this);
+        const auto frame = detail::get_frame_from_editor(this);
         stored_cameras[index] = frame;
         // LOG_INFO("Saved frame {} to {}", id, frame);
     }
@@ -700,7 +700,7 @@ namespace euphoria::core
     void
     EditorCamera3::focus(const SphereAndPosition& s, const Camera3& cam)
     {
-        const auto from = detail::frame_from_editor(this);
+        const auto from = detail::get_frame_from_editor(this);
 
         // algorithm: https://stackoverflow.com/a/32836605
         fps.look_in_direction(vec3f::from_to(fps.position, s.center).get_normalized());
@@ -708,8 +708,8 @@ namespace euphoria::core
         fps.position = s.center  + fps.get_rotation().out() * distance;
         
         
-        const auto to = detail::frame_from_editor(this);
-        detail::frame_to_editor(from, this);
+        const auto to = detail::get_frame_from_editor(this);
+        detail::set_frame_for_editor(from, this);
         apply_frame(to);
     }
 
@@ -723,7 +723,7 @@ namespace euphoria::core
         }
         else
         {
-            detail::frame_to_editor(frame, this);
+            detail::set_frame_for_editor(frame, this);
         }
     }
 

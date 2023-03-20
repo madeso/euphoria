@@ -54,7 +54,7 @@ struct CanvasWithControls
     {
         const auto radius = 6.0f;
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
-        const auto screen_position = canvas.world_to_screen(p);
+        const auto screen_position = canvas.from_world_to_screen(p);
         const auto mouse = ImGui::GetMousePos();
         const auto sq_dist_to_mouse = vec2f::from_to(con(mouse), con(screen_position)).get_length_squared();
         const auto is_over = sq_dist_to_mouse < radius * radius;
@@ -80,7 +80,7 @@ struct CanvasWithControls
 
     void line(const vec2f& from, const vec2f& to, ImU32 line_color) const
     {
-        ::line(canvas.world_to_screen(con(from)), canvas.world_to_screen(con(to)), line_color);
+        ::line(canvas.from_world_to_screen(con(from)), canvas.from_world_to_screen(con(to)), line_color);
     }
 
     void bezier_cubic(const vec2f& a0, const vec2f& c0, const vec2f& c1, const vec2f& a1, ImU32 curve_color, float thickness = 1.0f) const
@@ -88,10 +88,10 @@ struct CanvasWithControls
         auto* dl = ImGui::GetWindowDrawList();
         dl->AddBezierCubic
         (
-            canvas.world_to_screen(con(a0)),
-            canvas.world_to_screen(con(c0)),
-            canvas.world_to_screen(con(c1)),
-            canvas.world_to_screen(con(a1)),
+            canvas.from_world_to_screen(con(a0)),
+            canvas.from_world_to_screen(con(c0)),
+            canvas.from_world_to_screen(con(c1)),
+            canvas.from_world_to_screen(con(a1)),
             curve_color,
             thickness
         );
@@ -208,7 +208,7 @@ handle_polybezier_rightclick(const CanvasWithControls& canvas, PolyBezier2& path
 
     if(ImGui::BeginPopup("context_menu"))
     {
-        const auto p = canvas.canvas.screen_to_world(ImGui::GetMousePosOnOpeningCurrentPopup());
+        const auto p = canvas.canvas.from_screen_to_world(ImGui::GetMousePosOnOpeningCurrentPopup());
         if(ImGui::MenuItem("Add"))
         {
             path.add_point(con(p));

@@ -597,7 +597,7 @@ namespace euphoria::core::tracery
 
 
         template <typename T>
-        std::shared_ptr<Modifier> new_modifier(T func)
+        std::shared_ptr<Modifier> make_modifier(T func)
         {
             return std::shared_ptr<Modifier>{new FunctionModifier<T>(func)};
         }
@@ -605,11 +605,11 @@ namespace euphoria::core::tracery
 
         void register_on_grammar(Grammar* g)
         {
-            g->register_modifier("capitalizeAll", new_modifier(capitalize_all));
-            g->register_modifier("capitalize", new_modifier(capitalize));
-            g->register_modifier("a", new_modifier(a));
-            g->register_modifier("s", new_modifier(s));
-            g->register_modifier("ed", new_modifier(ed));
+            g->register_modifier("capitalizeAll", make_modifier(capitalize_all));
+            g->register_modifier("capitalize", make_modifier(capitalize));
+            g->register_modifier("a", make_modifier(a));
+            g->register_modifier("s", make_modifier(s));
+            g->register_modifier("ed", make_modifier(ed));
         }
     }
 

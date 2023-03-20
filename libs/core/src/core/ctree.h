@@ -15,7 +15,7 @@ namespace euphoria::core
         bool root_special = true;
     };
 
-
+    // todo(Gustav): make constexpr
     TreeStyle
     slash_style();
 

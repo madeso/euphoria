@@ -128,17 +128,17 @@ struct PixelApp : App
         {
             auto toolbar_button = [this](const char* label, ::Tool t)
             {
-                if(imgui::toggle_button(label, current_tool == t, toolbar_button_size))
+                if(imgui::imgui_toggle_button(label, current_tool == t, toolbar_button_size))
                 {
                     current_tool = t;
                 }
             };
             toolbar_button(ICON_MDI_FORMAT_COLOR_HIGHLIGHT, Tool::pen);
-            imgui::help_text("Pen");
+            imgui::add_help_text_for_previous_widget("Pen");
 
             ImGui::SameLine();
             toolbar_button(ICON_MDI_FORMAT_COLOR_FILL, Tool::fill);
-            imgui::help_text("Fill");
+            imgui::add_help_text_for_previous_widget("Fill");
         }
         ImGui::End();
 
@@ -150,7 +150,7 @@ struct PixelApp : App
             const auto big_offset = 0.20f;
             const auto max_pal_size = tile_size * 5;
 
-            if(imgui::canvas_begin(ImVec4(0.3f, 0.3f, 0.3f, 1.0f), "palette"))
+            if(imgui::begin_canvas_widget(ImVec4(0.3f, 0.3f, 0.3f, 1.0f), "palette"))
             {
                 const auto p = ImGui::GetCursorScreenPos();
                 const auto size = ImGui::GetContentRegionAvail();
@@ -214,7 +214,7 @@ struct PixelApp : App
                     draw_list->AddRectFilled(p + foreground_pos, p + foreground_pos + bs, con(palette.get_safe_index(foreground)));
                 }
 
-                imgui::canvas_end();
+                imgui::end_canvas_widget();
             }
         }
         ImGui::End();
@@ -241,8 +241,8 @@ struct PixelApp : App
                     const auto pixel_size = 5;
                     const auto p = ImVec2(core::c_int_to_float(x * pixel_size), core::c_int_to_float(y*pixel_size));
                     const auto s = ImVec2(pixel_size, pixel_size);
-                    const auto ps = canvas.world_to_screen(p);
-                    const auto pss = canvas.world_to_screen(p + s);
+                    const auto ps = canvas.from_world_to_screen(p);
+                    const auto pss = canvas.from_world_to_screen(p + s);
                     const auto m = ImGui::GetMousePos();
                     if(ps.x <= m.x && ps.y <= m.y && pss.x >= m.x && pss.y >= m.y)
                     {

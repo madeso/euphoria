@@ -38,7 +38,7 @@ namespace euphoria::core::dot
     }
 
     std::string
-    id_to_string(NodeId id)
+    from_id_to_string(NodeId id)
     {
         return "node_{}"_format(core::base_cast(id));
     }
@@ -54,13 +54,13 @@ namespace euphoria::core::dot
         for(const auto& node: nodes)
         {
             // todo(Gustav): escape label
-            out << i << id_to_string(node.id) << "[" << "label=\"" << node.label << "\"];\n";
+            out << i << from_id_to_string(node.id) << "[" << "label=\"" << node.label << "\"];\n";
         }
 
         // todo(Gustav): sort edges?
         for(const auto& e: edges)
         {
-            out << i << id_to_string(e.from) << " -> " << id_to_string(e.to) << ";\n";
+            out << i << from_id_to_string(e.from) << " -> " << from_id_to_string(e.to) << ";\n";
         }
         out << "}\n";
     }

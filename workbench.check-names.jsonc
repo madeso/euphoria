@@ -27,6 +27,121 @@
     ],
     "accepted_functions": [
         // this is a macro that doxygen detects as a function
-        "DEFAULT_INTERPOLATE"
+        "DEFAULT_INTERPOLATE",
+        
+        // not a verb function
+        "base_cast",
+    ],
+
+    "known_function_prefixes": [
+        "palette", "stb", "default", "locale",
+    ],
+
+    "bad_function_verbs": {
+        // for X prefer any of Y
+        "start": ["begin"],
+        "calculate": ["calc"],
+        "new": ["create", "make"],
+
+        // https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/l/lay-out-laid-out-layout
+        "layout": ["lay_out"],
+
+        "blit": ["paste"],
+    },
+
+    "known_function_verbs": [
+        // This is not really a verb but all imgui widgets should have this prefix
+        // to signify they both render and interact with the event system.
+        // Neither add nor interact fit super well so until we can figure out
+        // a good verb, imgui it is
+        "imgui",
+
+        // converter functions
+        // todo(Gustav): reduce the number of convert functions
+        "c", "convert", "as",
+        "from", "to",
+        
+        "get", "set",
+        "add", "remove",
+        "create", "destroy",
+        "begin", "end",
+        "read", "write",
+
+        // common math names
+        "floor", "ceil", "clamp", "lerp", "slerp", "blend", "filter", "join",
+        "lay", // _out
+        
+        // bool functions
+        "is", "has", "contains", "can", "should", "have", "could", "match",
+        "ends", // _with
+        
+        // actual event handler
+        "on",
+
+        // function to trigger and handle events
+        "react", // "_to"
+
+        // I'm going to remap this value from A to B
+        "remap",
+
+        // for eample: I will debug this tomorrow
+        "debug",
+
+        // increase, decrease a value
+        "decrease",
+
+        // compress or decompress
+        "decompress",
+
+        // calculate
+        "calc",
+
+        // todo(Gustav): prefer another name? read? or parse?
+        "load", "save",
+
+        // todo(Gustav): come up with a better name
+        // this is too close to clear for my comfort
+        // suggestions: purify, cleanse, tidy
+        // invert function name, instead of clean say remove_x
+        "clean",
+
+        // todo(Gustav): prefer create? or should create always be matched with destroy
+        "make",
+        
+        // todo(Gustav): add disable?
+        "enable",
+
+        // todo(Gustav): block one or both... use constructor?
+        "init", "setup", 
+
+        // this should always be followed with a verb...
+        // todo(Gustav): move to a prefix even though this is a verb?
+        "try",
+
+        // vague verbs...
+        // todo(Gustav): replace?
+        "apply", "use", "run", "build",
+        "determine", "change", "perform",
+
+        // todo(Gustav): rename function to from_look...
+        "look",
+
+        // short for modify...
+        // todo(Gustav): just use modify?
+        "mod",
+        
+
+
+        "define", "expect", "advance", "skip", "send", "fit", "accept", "zip",
+        "copy", "extract", "keep", "quicksort", "swap", "strip", "flip", "pop",
+        "capitalize", "construct", "post", "close", "transform", "undo",
+        "paste", "transpose", "sort", "find", "parse", "draw", "print", "move",
+        "update", "offset", "register", "put", "extend", "fill", "split",
+        "toggle", "inset", "render", "count", "resolve", "show", "compile",
+        "list",  "generate", "combine", "bind", "expand", "pack", "replace",
+        "select", "report", "clear", "center", "shade", "compare", "scale",
+        "peek", "collect", "tint", "log", "trim", "bounce", "clip", "iterate",
+        "rotate",
     ]
 }
+

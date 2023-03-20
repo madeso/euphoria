@@ -77,16 +77,16 @@ namespace euphoria::window::imgui
     };
 
     void
-    help_marker(const char* desc);
+    add_help_marker_for_previous_widget(const char* desc);
 
     void
-    help_text(const char* desc);
+    add_help_text_for_previous_widget(const char* desc);
 
     void
     label(const std::string& str);
 
     bool
-    angle_slider
+    imgui_angle_slider
     (
         const char* name,
         core::angle* angle,
@@ -95,14 +95,14 @@ namespace euphoria::window::imgui
     );
 
     bool
-    angle_slider
+    imgui_angle_slider
     (
         const char* name,
         core::angle* angle
     );
 
     bool
-    toggle_button(const char* label, bool down, const ImVec2& size);
+    imgui_toggle_button(const char* label, bool down, const ImVec2& size);
 
 
     ImTextureID
@@ -113,13 +113,13 @@ namespace euphoria::window::imgui
     image(render::Texture2* texture);
 
     bool
-    color_edit(const char* name, core::rgb* rgb);
+    imgui_color_edit(const char* name, core::rgb* rgb);
 
     bool
-    color_edit(const char* name, core::rgba* rgb);
+    imgui_color_edit(const char* name, core::rgba* rgb);
 
     bool
-    color_edit(const char* name, core::rgbai* rgb);
+    imgui_color_edit(const char* name, core::rgbai* rgb);
 
     bool
     begin_fixed_overlay
@@ -142,7 +142,7 @@ namespace euphoria::window::imgui
     };
 
     bool
-    selectable_or_disabled(bool enabled, const char* label);
+    imgui_selectable_or_disabled(bool enabled, const char* label);
 
     bool
     knob
@@ -155,17 +155,17 @@ namespace euphoria::window::imgui
     );
 
     bool
-    canvas_begin(const ImVec4& background_color, const char* title);
+    begin_canvas_widget(const ImVec4& background_color, const char* title);
 
     void
-    canvas_end();
+    end_canvas_widget();
 
     // wrappers over dear imgui functions to avoid exposing the whole dear imgui header
     bool
     begin_combo(const char* label, const char* preview);
 
     bool
-    selectable(const char* label, bool is_selected);
+    imgui_selectable(const char* label, bool is_selected);
 
     void
     end_combo();
@@ -196,7 +196,7 @@ namespace euphoria::window::imgui
         {
             for(const auto& v: values)
             {
-                if(selectable(v.first, v.second == *data))
+                if(imgui_selectable(v.first, v.second == *data))
                 {
                     *data = v.second;
                     was_changed = true;
@@ -210,14 +210,14 @@ namespace euphoria::window::imgui
 
     template <typename T, typename F>
     void
-    custom_dropdown(const char* name, T* current, T max, F to_string)
+    imgui_custom_dropdown(const char* name, T* current, T max, F to_string)
     {
         if(begin_combo(name, to_string(*current).c_str()))
         {
             for(int i = 0; i < static_cast<int>(max); i += 1)
             {
                 const auto o = static_cast<T>(i);
-                if(selectable(to_string(o).c_str(), *current == o))
+                if(imgui_selectable(to_string(o).c_str(), *current == o))
                 {
                     *current = o;
                 }

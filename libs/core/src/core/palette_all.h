@@ -17,7 +17,7 @@ namespace euphoria::core::palettes
     {
         // standard
         dawnbringer,
-        named_colors,
+        get_named_colors,
 
         // cubehelix
         classic,
@@ -92,7 +92,7 @@ namespace euphoria::core::palettes
     {
         // standard
         Name::dawnbringer,
-        Name::named_colors,
+        Name::get_named_colors,
 
         // cubehelix
         Name::classic,

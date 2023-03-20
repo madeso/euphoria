@@ -18,7 +18,7 @@ namespace
     {
         auto ret = T{};
 
-        const auto r = utf8_to_codepoints(str, [&](unsigned int cp) { ret.push_back(cp); });
+        const auto r = calc_utf8_to_codepoints(str, [&](unsigned int cp) { ret.push_back(cp); });
 
         return std::make_pair(r, ret);
     }

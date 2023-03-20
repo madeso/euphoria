@@ -27,14 +27,14 @@ namespace euphoria::core
     }
 
 
-    core::Ray3f mouse_to_ray
+    core::Ray3f from_mouse_to_ray
     (
         const core::CompiledCamera3& camera,
         const core::Viewport& viewport,
         const core::vec2i& position
     )
     {
-        return camera.clip_to_world_ray
+        return camera.from_clip_to_world_ray
         (
             viewport.to_clip_coord
             (
@@ -44,14 +44,14 @@ namespace euphoria::core
     }
 
 
-    core::UnitRay3f mouse_to_unit_ray
+    core::UnitRay3f from_mouse_to_unit_ray
     (
         const core::CompiledCamera3& camera,
         const core::Viewport& viewport,
         const core::vec2i& position
     )
     {
-        const auto ray = mouse_to_ray(camera, viewport, position);
+        const auto ray = from_mouse_to_ray(camera, viewport, position);
         return ray.get_normalized();
     }
 }

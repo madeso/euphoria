@@ -15,7 +15,7 @@ namespace euphoria::core
 
     template <typename T>
     void
-    knuth_shuffle(std::vector<T>* v, Random* r)
+    shuffle(std::vector<T>* v, Random* r)
     {
         for(int i = c_sizet_to_int(v->size()) - 1; i > 0; --i)
         {

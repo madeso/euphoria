@@ -62,7 +62,7 @@ namespace euphoria::core
 
         MeshPart();
 
-        [[nodiscard]] Aabb calculate_aabb() const;
+        [[nodiscard]] Aabb calc_aabb() const;
     };
 
 
@@ -103,7 +103,7 @@ namespace euphoria::core
         std::vector<Material> materials;
         std::vector<MeshPart> parts;
 
-        [[nodiscard]] Aabb calculate_aabb() const;
+        [[nodiscard]] Aabb calc_aabb() const;
     };
 
 

@@ -9,7 +9,7 @@
 namespace euphoria::core::io
 {
     void
-    chunk_to_file
+    write_chunk_to_file
     (
         std::shared_ptr<MemoryChunk> chunk,
         const std::string& full_path
@@ -33,7 +33,7 @@ namespace euphoria::core::io
     }
 
     std::shared_ptr<MemoryChunk>
-    file_to_chunk(const std::string& full_path)
+    read_file_to_chunk(const std::string& full_path)
     {
         std::ifstream is(full_path, std::ifstream::binary);
         if(!is)
@@ -64,7 +64,7 @@ namespace euphoria::core::io
     }
 
     std::optional<std::string>
-    file_to_string(const std::string& full_path)
+    read_file_to_string(const std::string& full_path)
     {
         std::ifstream in(full_path, std::ios::in | std::ios::binary);
         if (!in) { return std::nullopt; }

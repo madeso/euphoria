@@ -26,6 +26,6 @@ namespace euphoria::core
   * @param b defines the midpoint location
   * @param c defines the flatness of the curve at the midpoint/ends
   */
-float tor_curve(float x, float a, float b, float c);
+float calc_tor_curve(float x, float a, float b, float c);
 
 }

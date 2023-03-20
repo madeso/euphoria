@@ -36,7 +36,7 @@ main(int argc, char* argv[])
     
     Table<std::string> table;
     {
-        const auto contents = io::file_to_string(file);
+        const auto contents = io::read_file_to_string(file);
         if(!contents)
         {
             std::cerr << "Failed to load " << file << "\n";
@@ -46,7 +46,7 @@ main(int argc, char* argv[])
         options.delim = format[0];
         options.str = format[1];
         options.trim = trim;
-        table = table_from_csv(*contents, options);
+        table = parse_csv(*contents, options);
     }
 
     switch(type)

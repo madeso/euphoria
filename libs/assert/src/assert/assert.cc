@@ -117,7 +117,7 @@ namespace euphoria::assertlib
     }
 
     void
-    start_throwing()
+    begin_throwing()
     {
         should_throw_variable() = true;
     }

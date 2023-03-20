@@ -60,21 +60,21 @@ namespace euphoria::core
     float
     sin(const angle& ang)
     {
-        return std::sin(ang.in_radians());
+        return std::sin(ang.as_radians());
     }
 
 
     float
     cos(const angle& ang)
     {
-        return std::cos(ang.in_radians());
+        return std::cos(ang.as_radians());
     }
 
 
     float
     tan(const angle& ang)
     {
-        return std::tan(ang.in_radians());
+        return std::tan(ang.as_radians());
     }
 
 
@@ -162,49 +162,49 @@ namespace euphoria::core
     std::ostream&
     operator<<(std::ostream& stream, const angle& a)
     {
-        return stream << a.in_degrees() << " deg";
+        return stream << a.as_degrees() << " deg";
     }
 
 
     bool
     operator<(const angle& lhs, const angle& rhs)
     {
-        return lhs.in_radians() < rhs.in_radians();
+        return lhs.as_radians() < rhs.as_radians();
     }
 
 
     bool
     operator<=(const angle& lhs, const angle& rhs)
     {
-        return lhs.in_radians() <= rhs.in_radians();
+        return lhs.as_radians() <= rhs.as_radians();
     }
 
 
     bool
     operator>(const angle& lhs, const angle& rhs)
     {
-        return lhs.in_radians() > rhs.in_radians();
+        return lhs.as_radians() > rhs.as_radians();
     }
 
 
     bool
     operator>=(const angle& lhs, const angle& rhs)
     {
-        return lhs.in_radians() >= rhs.in_radians();
+        return lhs.as_radians() >= rhs.as_radians();
     }
 
 
-    angle angle_transform(const angle& from, float v, const angle& to)
+    angle lerp_angle(const angle& from, float v, const angle& to)
     {
         // https://gamedev.stackexchange.com/a/72364
         const auto dtheta = to - from;
 
-        const auto new_from = 
-            dtheta > angle::half()?
-                from + angle::one_turn():
-            dtheta < -angle::half()?
-                from - angle::one_turn():
-                from;
+        const auto new_from = dtheta > half_turn
+            ? from + one_turn
+            : dtheta < -half_turn
+                ? from - one_turn
+                : from
+            ;
         
         return from + ( to - new_from ) * v;
     }

@@ -7,7 +7,7 @@
 namespace euphoria::core::generator
 {
     vec2i
-    dir_to_offset(const Direction d)
+    from_dir_to_offset(const Direction d)
     {
         switch(d)
         {
@@ -21,7 +21,7 @@ namespace euphoria::core::generator
 
 
     const std::vector<Direction>&
-    all_dirs()
+    get_all_directions()
     {
         const static auto dirs = std::vector<Direction>
         {
@@ -46,7 +46,7 @@ namespace euphoria::core::generator
 
 
     cell::Type
-    dir_to_cell_path(const Direction d)
+    from_dir_to_cell_path(const Direction d)
     {
         switch(d)
         {
@@ -69,10 +69,10 @@ namespace euphoria::core::generator
     vec2i
     add_step_to_maze(Maze* maze, const vec2i& c, Direction dir)
     {
-        const auto o = dir_to_offset(dir);
+        const auto o = from_dir_to_offset(dir);
         const auto np = c + o;
-        (*maze)(np.x, np.y) |= cell::visited | dir_to_cell_path(flip_direction(dir));
-        (*maze)(c.x, c.y) |= dir_to_cell_path(dir);
+        (*maze)(np.x, np.y) |= cell::visited | from_dir_to_cell_path(flip_direction(dir));
+        (*maze)(c.x, c.y) |= from_dir_to_cell_path(dir);
         return np;
     }
 
@@ -109,7 +109,7 @@ namespace euphoria::core::generator
 
 
     vec2i
-    random_position_on_maze(Random* random, Maze* maze)
+    calc_random_position_on_maze(Random* random, Maze* maze)
     {
         return
         {
@@ -126,7 +126,7 @@ namespace euphoria::core::generator
     {
         maze->clear(cell::none);
 
-        const auto random_position = random_position_on_maze(random, maze);
+        const auto random_position = calc_random_position_on_maze(random, maze);
 
         stack.push(random_position);
         (*maze)(random_position.x, random_position.y) = cell::visited;
@@ -148,9 +148,9 @@ namespace euphoria::core::generator
 
         std::vector<Direction> neighbours;
 
-        for(auto d: all_dirs())
+        for(auto d: get_all_directions())
         {
-            const auto np = c + dir_to_offset(d);
+            const auto np = c + from_dir_to_offset(d);
             if(can_visit_without_making_loop(maze, np))
             {
                 neighbours.push_back(d);
@@ -182,9 +182,9 @@ namespace euphoria::core::generator
     )
     {
         visit(maze, p);
-        for(auto d: all_dirs())
+        for(auto d: get_all_directions())
         {
-            if(can_visit_without_making_loop(maze, p + dir_to_offset(d)))
+            if(can_visit_without_making_loop(maze, p + from_dir_to_offset(d)))
             {
                 frontier->push_back({p, d});
             }
@@ -196,7 +196,7 @@ namespace euphoria::core::generator
     RandomTraversal::setup()
     {
         maze->clear(cell::none);
-        add_to_frontier(maze, &frontier, random_position_on_maze(random, maze));
+        add_to_frontier(maze, &frontier, calc_random_position_on_maze(random, maze));
     }
 
 
@@ -211,7 +211,7 @@ namespace euphoria::core::generator
     RandomTraversal::work()
     {
         auto f = pop_random(&frontier, random);
-        const auto np = f.position + dir_to_offset(f.direction);
+        const auto np = f.position + from_dir_to_offset(f.direction);
 
         if(!can_visit_without_making_loop(maze, np))
         {
@@ -237,7 +237,7 @@ namespace euphoria::core::generator
 
 
     rgbi
-    Drawer::calculate_cell_color(int x, int y) const
+    Drawer::calc_cell_color(int x, int y) const
     {
         const auto cell_value = (*maze)(x, y);
 
@@ -254,7 +254,7 @@ namespace euphoria::core::generator
         {
             for(auto e: traversal->frontier)
             {
-                auto p = e.position + dir_to_offset(e.direction);
+                auto p = e.position + from_dir_to_offset(e.direction);
                 if(p.x == x && p.y == y)
                 {
                     return unit_color;
@@ -296,7 +296,7 @@ namespace euphoria::core::generator
                 draw_square
                 (
                     &image,
-                    calculate_cell_color(x, y),
+                    calc_cell_color(x, y),
                     px,
                     py,
                     cell_size

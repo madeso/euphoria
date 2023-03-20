@@ -7,7 +7,7 @@
 namespace euphoria::core::argparse
 {
     std::string
-    quote_and_combine_english_or(const std::vector<std::string>& matches)
+    add_quotes_and_combine_with_english_or(const std::vector<std::string>& matches)
     {
         const auto quoted_names =
             map<std::string>(matches, [](const std::string& s)

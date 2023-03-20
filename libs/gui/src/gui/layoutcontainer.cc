@@ -41,17 +41,17 @@ namespace euphoria::gui
 
 
     void
-    LayoutContainer::do_layout(core::Rectf area)
+    LayoutContainer::lay_out(core::Rectf area)
     {
         ASSERT(layout);
-        layout->do_layout(&widgets, area);
+        layout->lay_out(&widgets, area);
     }
 
 
     core::size2f
-    LayoutContainer::calculate_minimum_area() const
+    LayoutContainer::calc_minimum_area() const
     {
         ASSERT(layout);
-        return layout->calculate_minimum_area(widgets);
+        return layout->calc_minimum_area(widgets);
     }
 }

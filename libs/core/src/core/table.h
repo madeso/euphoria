@@ -30,7 +30,7 @@ namespace euphoria::core
             return Table(width, height, d);
         }
 
-        void new_row(T d = T())
+        void add_row(T d = T())
         {
             ASSERT(width > 0);
             data.resize(data.size() + width, d);
@@ -63,7 +63,7 @@ namespace euphoria::core
          * @param row the new row
          * @param d the default value (if needed)
          */
-        void new_row(const std::vector<T>& row, T d = T())
+        void add_row(const std::vector<T>& row, T d = T())
         {
             // do nothing on empty rows
             if(row.empty())
@@ -133,7 +133,7 @@ namespace euphoria::core
             return get_indices().contains_inclusive(x, y);
         }
 
-        [[nodiscard]] size_t data_index(Idx x, Idx y) const
+        [[nodiscard]] size_t get_data_index(Idx x, Idx y) const
         {
             ASSERTX
             (
@@ -164,14 +164,14 @@ namespace euphoria::core
 
         T operator()(Idx x, Idx y) const
         {
-            const auto index = data_index(x, y);
+            const auto index = get_data_index(x, y);
             ASSERTX(index < data.size(), index, data.size());
             return data[index];
         }
 
         typename std::vector<T>::reference operator()(Idx x, Idx y)
         {
-            const auto index = data_index(x, y);
+            const auto index = get_data_index(x, y);
             ASSERTX(index < data.size(), index, data.size());
             return data[index];
         }

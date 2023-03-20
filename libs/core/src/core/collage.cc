@@ -202,7 +202,7 @@ namespace euphoria::core
 
 
     std::pair<std::vector<vec2i>, size2i>
-    grid_layout
+    lay_out_in_a_grid
     (
         const std::vector<Image>& images,
         int padding,
@@ -231,7 +231,7 @@ namespace euphoria::core
         int column = 0;
         int max_x = 0;
 
-        auto new_row = [&]
+        auto add_row = [&]
         {
             max_x = max(max_x, x);
             column = 0;
@@ -256,13 +256,13 @@ namespace euphoria::core
 
             if(column >= images_per_row)
             {
-                new_row();
+                add_row();
             }
         }
 
         if(column != 0)
         {
-            new_row();
+            add_row();
         }
 
         const auto image_width = max_x;
@@ -290,7 +290,7 @@ namespace euphoria::core
 
 
     Image
-    grid_layout
+    lay_out_in_a_grid
     (
         const std::vector<Image>& images,
         int padding,
@@ -299,7 +299,7 @@ namespace euphoria::core
     )
     {
         // layout images in grid and calculate image size from grid
-        const auto [image_grid, size] = grid_layout(images, padding, top_to_bottom);
+        const auto [image_grid, size] = lay_out_in_a_grid(images, padding, top_to_bottom);
 
         // draw new image
         auto composed_image = draw_image(image_grid, images, size, background_color);

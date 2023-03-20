@@ -36,7 +36,7 @@ namespace euphoria::render
     {
         mesh->render
         (
-            calculate_model_matrix(),
+            calc_model_matrix(),
             projection_matrix,
             view_matrix,
             camera,

@@ -30,7 +30,7 @@ namespace euphoria::core
 
 
     TextBoxStyle
-    terminal_style();
+    get_terminal_style();
 
     TextBoxStyle
     utf8_straight_style();
@@ -159,7 +159,7 @@ namespace euphoria::core
                         )
                     );
                 }
-                sub_create_tree_graph
+                create_tree_graph_impl
                 (
                     &result,
                     maxwidth,
@@ -229,7 +229,7 @@ namespace euphoria::core
 
 
         [[nodiscard]] TextBox put_box_copy(int x, int y, const TextBox& b) const;
-        [[nodiscard]] std::vector<std::string> to_string(const TextBoxStyle& style = terminal_style()) const;
+        [[nodiscard]] std::vector<std::string> to_string(const TextBoxStyle& style = get_terminal_style()) const;
 
         /** Calculate the earliest X coordinate where the given box could be placed.
         without colliding with existing content in this box. Guaranteed to be <= width().
@@ -262,7 +262,7 @@ namespace euphoria::core
         [[nodiscard]] int find_top_padding(int x) const;
         [[nodiscard]] int find_bottom_padding(int x) const;
 
-        static void sub_create_tree_graph
+        static void create_tree_graph_impl
         (
             TextBox* result,
             int maxwidth,

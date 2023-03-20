@@ -8,7 +8,7 @@
 namespace euphoria::core::argparse
 {
     std::string
-    quote_and_combine_english_or(const std::vector<std::string>& matches);
+    add_quotes_and_combine_with_english_or(const std::vector<std::string>& matches);
 
 
     template
@@ -22,7 +22,7 @@ namespace euphoria::core::argparse
         const std::string& value
     )
     {
-        auto r = custom_argparser_parse<T>(value);
+        auto r = parse_for_custom_argparser<T>(value);
         return r;
     }
 
@@ -86,14 +86,14 @@ namespace euphoria::core::argparse
         const std::string& value
     )
     {
-        auto matches = core::string_to_enum<T>(value);
+        auto matches = core::from_string_to_enum<T>(value);
         if (matches.single_match)
         {
             return Result<T>::create_value(matches.values[0]);
         }
         else
         {
-            return Result<T>::create_error("did you mean {}?"_format(quote_and_combine_english_or(matches.names)));
+            return Result<T>::create_error("did you mean {}?"_format(add_quotes_and_combine_with_english_or(matches.names)));
         }
     }
 
@@ -119,9 +119,9 @@ namespace euphoria::core::argparse
     default_describe()
     {
         const std::string r = "can be either {}"_format(
-            quote_and_combine_english_or
+            add_quotes_and_combine_with_english_or
             (
-                enum_to_string<T>()
+                get_all_names_from_enum<T>()
             )
         );
 
@@ -134,9 +134,9 @@ namespace euphoria::core::argparse
         std::enable_if_t<CustomArgparser<T>::value != 0, int> = 0
     >
     std::string
-    default_value_to_string(const T& t)
+    from_default_value_to_string(const T& t)
     {
-        return custom_argparser_to_string(t);
+        return to_string_for_custom_argparser(t);
     }
 
 
@@ -151,7 +151,7 @@ namespace euphoria::core::argparse
         > = 0
     >
     std::string
-    default_value_to_string(const T& t)
+    from_default_value_to_string(const T& t)
     {
         return fmt::format("{}", t);
     }
@@ -167,8 +167,8 @@ namespace euphoria::core::argparse
         > = 0
     >
     std::string
-    default_value_to_string(const T& t)
+    from_default_value_to_string(const T& t)
     {
-        return core::enum_to_string(t);
+        return core::from_enum_to_string(t);
     }
 }

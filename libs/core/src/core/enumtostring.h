@@ -112,8 +112,7 @@ namespace euphoria::core
     };
 
     template <typename T>
-    [[nodiscard]] std::string
-    enum_to_string(T t)
+    [[nodiscard]] std::string from_enum_to_string(T t)
     {
         return std::string{ magic_enum::enum_name(t) };
     }
@@ -127,7 +126,7 @@ namespace euphoria::core
         EnumToStringImplementation<T> r;
         for (const auto v : values)
         {
-            r.add(enum_to_string(v), v);
+            r.add(from_enum_to_string(v), v);
         }
 
         return r;
@@ -136,7 +135,7 @@ namespace euphoria::core
 
     template <typename T>
     MatchedEnum<T>
-    string_to_enum(const std::string& input, size_t max_size = 5)
+    from_string_to_enum(const std::string& input, size_t max_size = 5)
     {
         return get_enum_to_string_implementation_from_enum<T>().match(input, max_size);
     }
@@ -144,12 +143,12 @@ namespace euphoria::core
 
     template <typename T>
     [[nodiscard]] std::vector<std::string>
-    enum_to_string(const std::vector<T>& ts)
+    from_enum_to_string(const std::vector<T>& ts)
     {
         std::vector<std::string> ret;
         for(auto t: ts)
         {
-            ret.emplace_back(enum_to_string<T>(t));
+            ret.emplace_back(from_enum_to_string<T>(t));
         }
         return ret;
     }
@@ -157,14 +156,14 @@ namespace euphoria::core
 
     template <typename T>
     [[nodiscard]] std::vector<std::string>
-    enum_to_string()
+    get_all_names_from_enum()
     {
         return get_enum_to_string_implementation_from_enum<T>().get_list_of_names();
     }
 
     template <typename T>
     [[nodiscard]] std::vector<T>
-    enum_values()
+    get_all_values_from_enum()
     {
         const auto values = magic_enum::enum_values<T>();
         return values;

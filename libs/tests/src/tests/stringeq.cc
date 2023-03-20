@@ -21,7 +21,7 @@ namespace
 namespace euphoria::tests
 {
     FalseString
-    string_is_equal(const std::string& lhs, const std::string& rhs)
+    is_string_equal(const std::string& lhs, const std::string& rhs)
     {
         const auto s = core::find_first_index_of_mismatch(lhs, rhs);
         ASSERTX((s==std::string::npos && lhs == rhs) || (s != std::string::npos && lhs != rhs), s, lhs, rhs);
@@ -35,9 +35,9 @@ namespace euphoria::tests
                     escape_string(lhs), escape_string(rhs),
                     lhs.size(), rhs.size(),
                     s,
-                    core::char_to_string(lhs[s]),
-                    core::char_to_string(rhs[s]),
-                    core::edit_distance(lhs, rhs)
+                    core::from_char_to_string(lhs[s]),
+                    core::from_char_to_string(rhs[s]),
+                    core::calc_edit_distance(lhs, rhs)
                 )
             );
         }
@@ -47,7 +47,7 @@ namespace euphoria::tests
 
 
     FalseString
-    string_is_equal(const std::vector<std::string>& lhs, const std::vector<std::string>& rhs)
+    is_string_equal(const std::vector<std::string>& lhs, const std::vector<std::string>& rhs)
     {
         auto size_equal = FalseString::create_true();
         if(lhs.size() != rhs.size())
@@ -58,8 +58,8 @@ namespace euphoria::tests
                 (
                     lhs.size(),
                     rhs.size(),
-                    vector_to_string(lhs, escape_string),
-                    vector_to_string(rhs, escape_string)
+                    from_vector_to_string(lhs, escape_string),
+                    from_vector_to_string(rhs, escape_string)
                 )
             );
         }
@@ -67,15 +67,15 @@ namespace euphoria::tests
         const auto size = std::min(lhs.size(), rhs.size());
         for(size_t i =0; i < size; i+=1)
         {
-            const FalseString equals = string_is_equal(lhs[i], rhs[i]);
+            const FalseString equals = is_string_equal(lhs[i], rhs[i]);
             if(!equals)
             {
                 const auto first_invalid = !size_equal
                     ? "{}, and first invalid"_format(size_equal.str)
                     : "{}vs{} First invalid"_format
                     (
-                        vector_to_string(lhs, escape_string),
-                        vector_to_string(rhs, escape_string)
+                        from_vector_to_string(lhs, escape_string),
+                        from_vector_to_string(rhs, escape_string)
                     );
 
                 return FalseString::create_false

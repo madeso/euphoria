@@ -20,12 +20,12 @@ namespace euphoria::tests
 
     template <typename T>
     bool
-    approximately_equal(const T& lhs, const T& rhs, const ApproxData& data);
+    is_approximately_equal(const T& lhs, const T& rhs, const ApproxData& data);
 
 
     template <>
     bool
-    approximately_equal(
+    is_approximately_equal(
             float const& lhs,
             float const& rhs,
             const ApproxData& data);
@@ -85,7 +85,7 @@ namespace euphoria::tests
                 data.epsilon = rhs.epsilon;
                 data.scale = rhs.scale;
                 data.margin = rhs.margin;
-                return approximately_equal(lhs, rhs.value, data);
+                return is_approximately_equal(lhs, rhs.value, data);
             }
 
             friend bool

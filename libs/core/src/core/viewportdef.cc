@@ -6,7 +6,7 @@
 namespace euphoria::core
 {
     ViewportDefinition
-    ViewportDefinition::fit_with_black_bars
+    ViewportDefinition::from_fit_with_black_bars
     (
         float width,
         float height,
@@ -51,7 +51,7 @@ namespace euphoria::core
 
 
     ViewportDefinition
-    ViewportDefinition::extend
+    ViewportDefinition::from_extend
     (
         float width,
         float height,
@@ -81,7 +81,7 @@ namespace euphoria::core
 
 
     ViewportDefinition
-    ViewportDefinition::screen_pixel(int window_width, int window_height)
+    ViewportDefinition::from_screen_pixel(int window_width, int window_height)
     {
         ASSERTX(window_width >= 0, window_width);
         ASSERTX(window_height >= 0, window_height);

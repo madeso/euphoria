@@ -24,7 +24,7 @@ namespace euphoria::render
     {
         lines->render
         (
-            calculate_model_matrix(),
+            calc_model_matrix(),
             projection_matrix,
             view_matrix
         );

@@ -11,7 +11,7 @@
 namespace euphoria::core
 {
     int
-    edit_distance(const std::string& source, const std::string& target)
+    calc_edit_distance(const std::string& source, const std::string& target)
     {
         const int n = c_sizet_to_int(source.length());
         const int m = c_sizet_to_int(target.length());
@@ -83,7 +83,7 @@ namespace euphoria::core
     }
 
     int
-    fast_edit_distance(const std::string& the_row, const std::string& the_col)
+    calc_edit_distance_fast(const std::string& the_row, const std::string& the_col)
     {
         const int row_length = c_sizet_to_int(the_row.length());
         const int col_length = c_sizet_to_int(the_col.length());

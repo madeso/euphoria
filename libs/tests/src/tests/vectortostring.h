@@ -11,7 +11,7 @@ namespace euphoria::tests
         typename TConverter
     >
     std::string
-    vector_to_string_impl
+    from_vector_to_string_impl
     (
         const std::vector<T>& v,
         bool one_line,
@@ -46,9 +46,9 @@ namespace euphoria::tests
         typename TConverter
     >
     std::pair<std::string, bool>
-    vector_to_string_ex(const std::vector<T>& v, TConverter converter)
+    from_vector_to_string_ex(const std::vector<T>& v, TConverter converter)
     {
-        const auto oneline = vector_to_string_impl(v, true, converter);
+        const auto oneline = from_vector_to_string_impl(v, true, converter);
         if( oneline.size() <20)
         {
             return std::make_pair(oneline, true);
@@ -57,7 +57,7 @@ namespace euphoria::tests
         {
             return std::make_pair
             (
-                    vector_to_string_impl(v, false, converter),
+                    from_vector_to_string_impl(v, false, converter),
                     false
             );
         }
@@ -69,8 +69,8 @@ namespace euphoria::tests
         typename TConverter
     >
     std::string
-    vector_to_string(const std::vector<T>& v, TConverter converter)
+    from_vector_to_string(const std::vector<T>& v, TConverter converter)
     {
-        return vector_to_string_ex(v, converter).first;
+        return from_vector_to_string_ex(v, converter).first;
     }
 }

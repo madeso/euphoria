@@ -30,7 +30,7 @@ namespace euphoria::t3d
     ToolPlaceMeshOnAPlane::step(Editor* editor)
     {
         auto ray = editor->camera
-            .clip_to_world_ray
+            .from_clip_to_world_ray
             (
                 editor->viewport.to_clip_coord
                 (

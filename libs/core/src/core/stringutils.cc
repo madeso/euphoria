@@ -14,7 +14,7 @@ namespace euphoria::core
 {
 
 std::pair<std::string, std::string>
-last_strings(const std::string& str, char sep)
+get_last_string(const std::string& str, char sep)
 {
     auto result = str.find(sep);
     if(result == std::string::npos)
@@ -29,7 +29,7 @@ last_strings(const std::string& str, char sep)
 
 
 std::string
-first_chars(const std::string& str, std::size_t count)
+get_first_chars(const std::string& str, std::size_t count)
 {
     if(str.length() < count) { return str; }
     else { return str.substr(0, count); }
@@ -37,7 +37,7 @@ first_chars(const std::string& str, std::size_t count)
 
 
 std::string
-first_chars_with_ellipsis(const std::string& str, unsigned int count)
+get_first_chars_with_ellipsis(const std::string& str, unsigned int count)
 {
     if (str.length() > count)
     {
@@ -83,7 +83,7 @@ trim(const std::string& string_to_trim, const std::string& trim_characters)
 
 
 bool
-starts_with(const std::string& string_to_test, const std::string& start)
+begins_width(const std::string& string_to_test, const std::string& start)
 {
     const std::string::size_type length = start.length();
     const std::string::size_type other_length = string_to_test.length();
@@ -164,7 +164,7 @@ to_upper(const std::string& str)
 
 
 std::string
-char_to_string(char c, CharToStringStyle style)
+from_char_to_string(char c, CharToStringStyle style)
 {
     const auto name = [&]() -> std::string
     {
@@ -453,7 +453,7 @@ split_on_spaces(const std::string& string)
 
 
 std::string
-optional_string(bool b, const std::string& str)
+get_string_or_empty(bool b, const std::string& str)
 {
     if(b)
     {
@@ -494,7 +494,7 @@ parse_number(const char** aa)
 
 
 int
-string_compare(const std::string& lhs, const std::string& rhs)
+compare_string(const std::string& lhs, const std::string& rhs)
 {
     const char* a = lhs.c_str();
     const char* b = rhs.c_str();

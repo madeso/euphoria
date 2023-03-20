@@ -38,7 +38,7 @@ namespace euphoria::core
 
 
     float
-    zero_or_value(float r)
+    clamp_zero(float r)
     {
         if(is_zero(r)) { return 0; }
         else { return r; }

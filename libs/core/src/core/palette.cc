@@ -124,7 +124,7 @@ namespace euphoria::core
             (
                 Hsl
                 {
-                    angle_transform(from, d, to),
+                    lerp_angle(from, d, to),
                     saturation,
                     lightness
                 }
@@ -183,7 +183,7 @@ namespace euphoria::core
         }
 
         const Palette&
-        named_colors()
+        get_named_colors()
         {
             static const auto p = make_static_palette
             (

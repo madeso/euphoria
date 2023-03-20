@@ -47,7 +47,7 @@ bool print_char
 
     // todo(Gustav): ImageToStringTable might not convert corectly,
     // consider extending :)
-    const auto img = image_to_string_table(glyph.image, true, Grayscale::a);
+    const auto img = from_image_to_string_table(glyph.image, true, Grayscale::a);
 
     for(auto y=0; y<img.get_height(); y+=1)
     {
@@ -78,7 +78,7 @@ bool print_string
     int y = sy;
     bool status = true;
 
-    const auto r = utf8_to_codepoints(str, [&](int codepoint)
+    const auto r = calc_utf8_to_codepoints(str, [&](int codepoint)
     {
         status = print_char(dst, font, &x, y, codepoint) && status;
     });
@@ -121,7 +121,7 @@ get_font
     // todo(gustav): check file name
     if(font_file.empty() == false)
     {
-        auto file = io::file_to_chunk(font_file);
+        auto file = io::read_file_to_chunk(font_file);
         if(file == nullptr)
         {
             std::cerr << "Failed to open file: '" << font_file << "'\n";

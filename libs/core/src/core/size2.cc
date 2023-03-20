@@ -57,7 +57,7 @@ namespace euphoria::core
     }
 
     vec2f
-    size2f::calculate_center_offset_for(const size2f& o) const
+    size2f::calc_center_offset_for(const size2f& o) const
     {
         const float x = (width - o.width) / 2;
         const float y = (height - o.height) / 2;
@@ -235,7 +235,7 @@ namespace euphoria::core
     }
 
     vec2i
-    size2i::calculate_center_offset_for(const size2i& o) const
+    size2i::calc_center_offset_for(const size2i& o) const
     {
         const int x = (width - o.width) / 2;
         const int y = (height - o.height) / 2;

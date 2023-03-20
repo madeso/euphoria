@@ -15,7 +15,7 @@ namespace euphoria::core
 
     // get a Rect encompassing the whole image
     Recti
-    whole_image(const Image& image);
+    on_whole_image(const Image& image);
 
     void
     clear(Image* image, const rgbai& color);

@@ -109,7 +109,7 @@ namespace euphoria::core
     TextfileParser::peek_string(int advance)
     {
         const auto c = peek_char(advance);
-        return char_to_string(c, CharToStringStyle::smart);
+        return from_char_to_string(c, CharToStringStyle::smart);
     }
 
     // if peekchar(0) is c then it is read and function returns true,

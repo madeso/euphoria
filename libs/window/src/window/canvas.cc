@@ -123,7 +123,7 @@ namespace euphoria::window
     }
 
     void
-    do_canvas_scroll(Canvas* canvas)
+    react_to_canvas_scroll_events(Canvas* canvas)
     {
         if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive() && ImGui::IsMouseDragging(2, 0.0f))
         {
@@ -132,7 +132,7 @@ namespace euphoria::window
     }
 
     void
-    do_canvas_zoom(Canvas* canvas, const CanvasConfig& cc)
+    react_to_canvas_zoom_events(Canvas* canvas, const CanvasConfig& cc)
     {
         if(ImGui::IsWindowHovered() && !ImGui::IsAnyItemActive())
         {
@@ -145,8 +145,8 @@ namespace euphoria::window
     void
     Canvas::end(const CanvasConfig& cc)
     {
-        do_canvas_scroll(this);
-        do_canvas_zoom(this, cc);
+        react_to_canvas_scroll_events(this);
+        react_to_canvas_zoom_events(this, cc);
 
         ImGui::EndChild();
 
@@ -155,21 +155,21 @@ namespace euphoria::window
     }
 
     ImVec2
-    Canvas::world_to_screen(const ImVec2& v) const
+    Canvas::from_world_to_screen(const ImVec2& v) const
     {
-        return con(view.world_to_screen(con(v))) + position;
+        return con(view.from_world_to_screen(con(v))) + position;
     }
 
     ImVec2
-    Canvas::world_to_screen_size(const ImVec2& v) const
+    Canvas::from_world_to_screen_size(const ImVec2& v) const
     {
         return v * view.scale;
     }
 
     ImVec2
-    Canvas::screen_to_world(const ImVec2& v) const
+    Canvas::from_screen_to_world(const ImVec2& v) const
     {
-        return con(view.screen_to_world(con(v - position)));
+        return con(view.from_screen_to_world(con(v - position)));
     }
 
     ImVec2

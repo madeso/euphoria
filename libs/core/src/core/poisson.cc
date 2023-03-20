@@ -29,7 +29,7 @@ namespace euphoria::core
         , w(r / sqrt(2))
         , grid(Table<int>::from_width_height(floor_to_int(area.get_width()/w), floor_to_int(area.get_height()/w), -1))
     {
-        auto p = random_point();
+        auto p = get_random_point_in_area();
         if(bounds_check > 0)
         {
             for(int i=0; i<k; i+=1)
@@ -40,11 +40,11 @@ namespace euphoria::core
                 }
                 else
                 {
-                    p = random_point();
+                    p = get_random_point_in_area();
                 }
             }
         }
-        const auto i = point_to_index(p);
+        const auto i = c_point_to_index(p);
         active.emplace_back(0);
         samples.emplace_back(p);
         grid(i.x, i.y) = 0;
@@ -52,12 +52,12 @@ namespace euphoria::core
 
 
     vec2f
-    PoissonWorker::random_point() const
+    PoissonWorker::get_random_point_in_area() const
     { return get_random_point(rand, area); }
 
 
     vec2i
-    PoissonWorker::point_to_index(const vec2f& p) const
+    PoissonWorker::c_point_to_index(const vec2f& p) const
     { return vec2i{ floor_to_int(p.x/w), floor_to_int(p.y/w) }; }
 
 
@@ -95,7 +95,7 @@ namespace euphoria::core
             const auto unit = create_random_unit(rand);
             const auto random_range = get_random_in_range(rand, r, 2*r);
             const auto sample = base_sample + unit * random_range;
-            const auto sample_pos = point_to_index(sample);
+            const auto sample_pos = c_point_to_index(sample);
 
             if(!grid.is_inside(sample_pos.x, sample_pos.y)) { try_index -=1; continue;}
 
@@ -155,7 +155,7 @@ namespace euphoria::core
 
 
     std::vector<vec2f>
-    poisson_sample(const Rectf& area, Random* random, float r, float bs, int k)
+    calc_poisson_samples(const Rectf& area, Random* random, float r, float bs, int k)
     {
         auto worker = PoissonWorker{area, random, r, bs, k};
         while(!worker.is_done())

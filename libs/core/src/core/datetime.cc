@@ -16,16 +16,16 @@ namespace euphoria::core
 {
 
     int
-    month_to_int(Month month)
+    c_month_to_int(Month month)
     {
         return static_cast<int>(month);
     }
 
 
     Month
-    int_to_month(int m)
+    c_int_to_month(int m)
     {
-        ASSERT(m >= month_to_int(Month::january) && m <= month_to_int(Month::december));
+        ASSERT(m >= c_month_to_int(Month::january) && m <= c_month_to_int(Month::december));
         return static_cast<Month>(m);
     }
 
@@ -150,7 +150,7 @@ namespace euphoria::core
     void
     StructTmWrapper::set_month(Month month)
     {
-        time.tm_mon = month_to_int(month);
+        time.tm_mon = c_month_to_int(month);
     }
 
 
@@ -211,7 +211,7 @@ namespace euphoria::core
     Month
     StructTmWrapper::get_month() const
     {
-        return int_to_month(time.tm_mon);
+        return c_int_to_month(time.tm_mon);
     }
 
 
@@ -278,7 +278,7 @@ namespace euphoria::core
     tm_yday  int   days since January 1      0 - 365
     */
 
-    U64 date_time_to_int64(const TimetWrapper& dt)
+    U64 c_date_time_to_int64(const TimetWrapper& dt)
     {
         const auto diff = TimetWrapper::get_difference
         (
@@ -289,7 +289,7 @@ namespace euphoria::core
     }
 
 
-    TimetWrapper int64_to_date_time(U64 total_seconds)
+    TimetWrapper c_int64_to_date_time(U64 total_seconds)
     {
         const int actual_seconds = c_u64_to_int(total_seconds % 60);
         const U64 total_minutes = (total_seconds - (total_seconds % 60)) / 60;

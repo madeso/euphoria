@@ -39,7 +39,7 @@ load_images(const std::vector<std::string>& files)
 
     for(const auto& f: files)
     {
-        auto chunk = io::file_to_chunk(f);
+        auto chunk = io::read_file_to_chunk(f);
         if(chunk == nullptr)
         {
             std::cerr << "failed to read image file " << f << "\n";
@@ -156,12 +156,12 @@ handle_image
         return false;
     }
 
-    const auto start = time_point_now();
+    const auto start = get_current_timepoint();
 
     // extract colors
     auto colors = extract_palette_median_cut(images[0].image, depth, middle_split);
 
-    const auto end = time_point_now();
+    const auto end = get_current_timepoint();
 
     const auto seconds = get_seconds_between(start, end);
     std::cout << "Palette extraction took " << seconds << " seconds.\n";
@@ -190,7 +190,7 @@ handle_image
         );
     }
 
-    io::chunk_to_file(image.write(ImageWriteFormat::png), file);
+    io::write_chunk_to_file(image.write(ImageWriteFormat::png), file);
     return true;
 }
 

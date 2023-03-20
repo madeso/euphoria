@@ -35,8 +35,8 @@ namespace euphoria::gui
         void operator=(const LayoutContainer&) = delete;
         void operator=(LayoutContainer&&) = delete;
 
-        void do_layout(core::Rectf area);
+        void lay_out(core::Rectf area);
 
-        [[nodiscard]] core::size2f calculate_minimum_area() const;
+        [[nodiscard]] core::size2f calc_minimum_area() const;
     };
 }

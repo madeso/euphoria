@@ -93,11 +93,11 @@ namespace euphoria::minsynth
     std::string to_string(ArpMode mode);
     std::string to_string(OscilatorType osc);
 
-    std::string midi_event_to_string(MidiEvent e);
+    std::string from_midi_event_to_string(MidiEvent e);
 
-    float tuning_to_base_frequency(Tuning t);
+    float from_tuning_to_base_frequency(Tuning t);
 
-    float tone_to_frequency(int tone, float base_frequency);
+    float from_tone_to_frequency(int tone, float base_frequency);
 
     // nodes
 
@@ -172,7 +172,7 @@ namespace euphoria::minsynth
 
         void on_tone(int tone, bool down, float time) override;
 
-        [[nodiscard]] float calculate_frequency(int semitone) const;
+        [[nodiscard]] float calc_frequency(int semitone) const;
     };
 
     struct PianoKey

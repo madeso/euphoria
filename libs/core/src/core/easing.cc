@@ -90,12 +90,15 @@ std::vector<std::pair<const char*, Function>> get_all_values()
     {
 #define VALUE(x) {#x, Function::x}
         {"Linear", Function::linear},
+
         {"Smooth Start 2", Function::smooth_start2},
         {"Smooth Start 3", Function::smooth_start3},
         {"Smooth Start 4", Function::smooth_start4},
+
         {"Smooth Stop 2", Function::smooth_stop2},
         {"Smooth Stop 3", Function::smooth_stop3},
         {"Smooth Stop 4", Function::smooth_stop4},
+
         {"Smooth Step 2", Function::smooth_step2},
         {"Smooth Step 3", Function::smooth_step3},
         {"Smooth Step 4", Function::smooth_step4}

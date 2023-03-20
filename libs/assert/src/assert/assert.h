@@ -100,7 +100,7 @@ namespace euphoria::assertlib
     };
 
     void
-    start_throwing();
+    begin_throwing();
 
     bool
     is_throwing();

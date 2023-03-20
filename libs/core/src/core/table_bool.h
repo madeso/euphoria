@@ -115,7 +115,7 @@ namespace euphoria::core
 
 
     void
-    smooth_map
+    make_smoother
     (
         BoolTable* world,
         Lrud<OutsideRule> outside_rule,

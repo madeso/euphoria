@@ -240,7 +240,7 @@ main(int argc, char* argv[])
     }
 
     ShaderProgram shader;
-    attributes2d::prebind_shader(&shader);
+    attributes2d::add_attributes_to_shader(&shader);
     shader.load(engine.file_system.get(), vfs::FilePath{"~/shaders/sprite"});
     SpriteRenderer renderer(&shader);
     FontCache font_cache {engine.file_system.get(), &cache};
@@ -361,7 +361,7 @@ main(int argc, char* argv[])
 
             if(has_crashed)
             {
-                imgui::process_imgui_events(&e);
+                imgui::send_events_to_imgui(&e);
                 if(e.type == SDL_KEYUP)
                 {
                     const auto key = to_key(e.key.keysym);
@@ -410,7 +410,7 @@ main(int argc, char* argv[])
         const float dt = euphoria::core::c_u64_to_float(now - last) / euphoria::core::c_u64_to_float(SDL_GetPerformanceFrequency());
 
         handle_events();
-        imgui::start_new_frame();
+        imgui::begin_new_frame();
 
         if(!has_crashed)
         {

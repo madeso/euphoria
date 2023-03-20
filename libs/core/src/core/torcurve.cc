@@ -10,7 +10,7 @@ namespace euphoria::core
 
 
 
-float tor_curve(float x, float a, float b, float c)
+float calc_tor_curve(float x, float a, float b, float c)
 {
     // pinch c near 0.5, smoothing out its effect
     c = c < 0.5f

@@ -28,9 +28,9 @@ namespace euphoria::window
         void show_ruler(float ruler_interval, ImU32 ruler_color, float length) const;
         void show_ruler(const CanvasConfig& cc) const;
 
-        [[nodiscard]] ImVec2 world_to_screen(const ImVec2& v) const;
-        [[nodiscard]] ImVec2 world_to_screen_size(const ImVec2& v) const;
-        [[nodiscard]] ImVec2 screen_to_world(const ImVec2& v) const;
+        [[nodiscard]] ImVec2 from_world_to_screen(const ImVec2& v) const;
+        [[nodiscard]] ImVec2 from_world_to_screen_size(const ImVec2& v) const;
+        [[nodiscard]] ImVec2 from_screen_to_world(const ImVec2& v) const;
 
         [[nodiscard]] ImVec2 get_mouse() const;
     };

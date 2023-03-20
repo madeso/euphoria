@@ -397,6 +397,7 @@ namespace euphoria::core
         return r;
     }
 
+    // todo(Gustav): replace with a local function for matrix
     vec2f
     component_multiply(const vec2f& lhs, const vec2f& rhs)
     {
@@ -437,7 +438,7 @@ namespace euphoria::core
         return r;
     }
 
-
+    // todo(Gustav): replace with a local function for matrix
     vec2i
     component_multiply(const vec2i& lhs, const vec2i& rhs)
     {
@@ -466,7 +467,7 @@ namespace euphoria::core
     }
     
 
-    vec2f vec2f_transform(const vec2f& from, float v, const vec2f& to)
+    vec2f lerp_vec2f(const vec2f& from, float v, const vec2f& to)
     {
         return vec2f
         (
@@ -475,7 +476,7 @@ namespace euphoria::core
         );
     }
 
-    vec2i vec2i_transform(const vec2i& from, float v, const vec2i& to)
+    vec2i lerp_vec2i(const vec2i& from, float v, const vec2i& to)
     {
         return vec2i
         (

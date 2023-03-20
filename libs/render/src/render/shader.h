@@ -58,14 +58,11 @@ namespace euphoria::render
         ShaderProgram(ShaderProgram&& other) = delete;
         void operator=(ShaderProgram&&) = delete;
 
-        void
-        pre_bind(const ShaderAttribute& attribute);
+        void add_attribute(const ShaderAttribute& attribute);
 
-        bool
-        load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path);
+        bool load(core::vfs::FileSystem* fs, const core::vfs::FilePath& file_path);
 
-        bool
-        compile
+        bool compile
         (
             const gl::Char* vertex_source,
             const gl::Char* fragment_source,
@@ -73,35 +70,17 @@ namespace euphoria::render
         );
 
         // uniform = shader global
-        ShaderUniform
-        get_uniform(const std::string& name);
+        ShaderUniform get_uniform(const std::string& name);
 
-        void
-        set_uniform(const ShaderUniform& attribute, gl::Int val);
-
-        void
-        set_uniform(const ShaderUniform& attribute, float val);
-
-        void
-        set_uniform(const ShaderUniform& attribute, const core::rgb& val);
-
-        void
-        set_uniform(const ShaderUniform& attribute, const core::rgba& val);
-
-        void
-        set_uniform(const ShaderUniform& attribute, const core::vec3f& val);
-
-        void
-        set_uniform(const ShaderUniform& attribute, const core::vec4f& val);
-
-        void
-        set_uniform(const ShaderUniform& attribute, const core::mat3f& val);
-
-        void
-        set_uniform(const ShaderUniform& attribute, const core::mat4f& val);
-
-        void
-        set_uniform(const ShaderUniform& attribute, const core::Rectf& val);
+        void set_uniform(const ShaderUniform& attribute, gl::Int val);
+        void set_uniform(const ShaderUniform& attribute, float val);
+        void set_uniform(const ShaderUniform& attribute, const core::rgb& val);
+        void set_uniform(const ShaderUniform& attribute, const core::rgba& val);
+        void set_uniform(const ShaderUniform& attribute, const core::vec3f& val);
+        void set_uniform(const ShaderUniform& attribute, const core::vec4f& val);
+        void set_uniform(const ShaderUniform& attribute, const core::mat3f& val);
+        void set_uniform(const ShaderUniform& attribute, const core::mat4f& val);
+        void set_uniform(const ShaderUniform& attribute, const core::Rectf& val);
 
         // debug
         [[nodiscard]] static const ShaderProgram*

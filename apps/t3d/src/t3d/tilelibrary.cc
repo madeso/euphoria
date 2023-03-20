@@ -83,7 +83,7 @@ namespace euphoria::t3d
         auto tile = std::make_shared<t3d::Tile>();
         tile->path = path;
         tile->name = path.get_filename_without_extension();
-        tile->aabb = loaded_mesh_result.loaded_mesh.calculate_aabb();
+        tile->aabb = loaded_mesh_result.loaded_mesh.calc_aabb();
         tile->collison.add(loaded_mesh_result.loaded_mesh);
         tile->mesh = compile_mesh
         (

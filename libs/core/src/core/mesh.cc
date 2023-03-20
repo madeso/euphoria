@@ -51,7 +51,7 @@ namespace euphoria::core
 
 
     Aabb
-    MeshPart::calculate_aabb() const
+    MeshPart::calc_aabb() const
     {
         Aabb aabb = core::Aabb::create_empty();
 
@@ -98,13 +98,13 @@ namespace euphoria::core
 
 
     Aabb
-    Mesh::calculate_aabb() const
+    Mesh::calc_aabb() const
     {
         Aabb aabb = core::Aabb::create_empty();
 
         for(const auto& part: parts)
         {
-            aabb.extend(part.calculate_aabb());
+            aabb.extend(part.calc_aabb());
         }
 
         return aabb;

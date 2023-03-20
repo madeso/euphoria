@@ -124,10 +124,10 @@ namespace euphoria::core
             (
                 "{1}{0}{2}{0}{3}{0}{4}",
                 separator,
-                argparse::default_value_to_string(fw.up),
-                argparse::default_value_to_string(fw.right),
-                argparse::default_value_to_string(fw.down),
-                argparse::default_value_to_string(fw.left)
+                argparse::from_default_value_to_string(fw.up),
+                argparse::from_default_value_to_string(fw.right),
+                argparse::from_default_value_to_string(fw.down),
+                argparse::from_default_value_to_string(fw.left)
             );
         }
 

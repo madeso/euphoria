@@ -473,7 +473,7 @@ struct FileHandlerList
         {
             if
             (
-                imgui::selectable_or_disabled
+                imgui::imgui_selectable_or_disabled
                 (
                     path.has_value(),
                     handler->context_menu.c_str()
@@ -665,7 +665,7 @@ main(int argc, char** argv)
         SDL_Event e;
         while(SDL_PollEvent(&e) != 0)
         {
-            imgui::process_imgui_events(&e);
+            imgui::send_events_to_imgui(&e);
 
             if(engine.on_resize(e, &window_width, &window_height))
             {
@@ -686,7 +686,7 @@ main(int argc, char** argv)
     {
         handle_events();
 
-        imgui::start_new_frame();
+        imgui::begin_new_frame();
 
         if(ImGui::BeginMainMenuBar())
         {

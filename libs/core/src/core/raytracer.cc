@@ -245,7 +245,7 @@ namespace euphoria::core::raytracer
 
 
     float
-    calculate_fresnel_factor(float cosine, float ref_idx)
+    calc_fresnel_factor(float cosine, float ref_idx)
     {
         const float r0 = square
         (
@@ -292,7 +292,7 @@ namespace euphoria::core::raytracer
                     ? refractive_index * dr
                     : -dr
                     ;
-                const auto reflection_probability = calculate_fresnel_factor(cosine, refractive_index);
+                const auto reflection_probability = calc_fresnel_factor(cosine, refractive_index);
                 if( random->get_next_float01() >= reflection_probability )
                 {
                     return ScatterResult
@@ -413,7 +413,7 @@ namespace euphoria::core::raytracer
             }
         }
         const auto t = (ray.dir.y+1)/2.0f;
-        return rgb_transform
+        return lerp_rgb
         (
             rgb(1.0f, 1.0f, 1.0f),
             t,
@@ -457,7 +457,7 @@ namespace euphoria::core::raytracer
 
 
     rgb
-    gamma2_correct_color(rgb color)
+    correct_color_using_gamma2(rgb color)
     {
         return {sqrt(color.r), sqrt(color.g), sqrt(color.b)};
     }
@@ -486,7 +486,7 @@ namespace euphoria::core::raytracer
                     color += sample_color;
                 }
                 color = color/static_cast<float>(number_of_samples);
-                color = gamma2_correct_color(color);
+                color = correct_color_using_gamma2(color);
                 img.set_pixel(x,y, crgbi(color));
             }
         }

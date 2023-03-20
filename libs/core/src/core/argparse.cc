@@ -106,7 +106,7 @@ namespace euphoria::core::argparse
     std::ostream&
     operator<<(std::ostream& o, const ParseResult& pr)
     {
-        o << enum_to_string(pr.internal_type) << "(" << pr.return_value << ")";
+        o << from_enum_to_string(pr.internal_type) << "(" << pr.return_value << ")";
         return o;
     }
 
@@ -642,10 +642,10 @@ namespace euphoria::core::argparse
         )
         {
             const auto values = std::vector<std::string>{name, desc};
-            table->new_row(values);
+            table->add_row(values);
             if(second_line)
             {
-                table->new_row({"", *second_line});
+                table->add_row({"", *second_line});
             }
 
             max_name_length = std::min
@@ -683,7 +683,7 @@ namespace euphoria::core::argparse
                 const auto rows = zip_longest(names, helps);
                 for(auto [name,help]: rows)
                 {
-                    t.new_row({name, help});
+                    t.add_row({name, help});
                 }
             }
             for(int y=0; y<t.get_height(); y+=1)
@@ -1060,7 +1060,7 @@ namespace euphoria::core::argparse
                         return argparse::error;
                     }
 
-                    const auto names = quote_and_combine_english_or(match.names);
+                    const auto names = add_quotes_and_combine_with_english_or(match.names);
 
                     // todo(Gustav): switch between 'did you mean' and
                     // 'could be either' depending on how big the
@@ -1135,8 +1135,8 @@ namespace euphoria::core::argparse
                             )
                             {
                                 // return true if lhs < rhs
-                                return edit_distance(arg, lhs.first) <
-                                       edit_distance(arg, rhs.first) ;
+                                return calc_edit_distance(arg, lhs.first) <
+                                       calc_edit_distance(arg, rhs.first) ;
                             }
                         );
 

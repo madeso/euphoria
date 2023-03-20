@@ -58,7 +58,7 @@ write_palettes_to_files(int image_size)
 
         const std::string file = "palette_{}.png"_format(pal.name);
         
-        io::chunk_to_file(image.write(ImageWriteFormat::png), file);
+        io::write_chunk_to_file(image.write(ImageWriteFormat::png), file);
     }
 }
 

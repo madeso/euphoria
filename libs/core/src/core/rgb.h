@@ -201,9 +201,9 @@ namespace euphoria::core
     //////////////////////////////////////////////////////////////////////////
     // Transforms
 
-    rgb rgb_transform(const rgb& from, float v, const rgb& to);
+    rgb lerp_rgb(const rgb& from, float v, const rgb& to);
 
-    DEFAULT_INTERPOLATE(rgb, rgb_transform);
+    DEFAULT_INTERPOLATE(rgb, lerp_rgb);
 
 
     //////////////////////////////////////////////////////////////////////////

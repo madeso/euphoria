@@ -15,7 +15,7 @@ namespace
     FalseString
     vector_is_same(const std::vector<unsigned int> lhs, const std::vector<unsigned int>& rhs)
     {
-        return euphoria::tests::vector_is_equal
+        return euphoria::tests::is_vector_equal
         (
             lhs,
             rhs,
@@ -41,7 +41,7 @@ namespace
     FalseString
     vector_is_same(const std::vector<float> lhs, const std::vector<float>& rhs)
     {
-        return euphoria::tests::vector_is_equal
+        return euphoria::tests::is_vector_equal
         (
             lhs,
             rhs,

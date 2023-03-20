@@ -7,8 +7,8 @@
 
 namespace euphoria::render::attributes3d
 {
-    const ShaderAttribute&
-    vertex()
+    // todo(Gustav): make constexpr
+    const ShaderAttribute& vertex()
     {
         static const auto attribute = ShaderAttribute
         {
@@ -21,8 +21,7 @@ namespace euphoria::render::attributes3d
     }
 
 
-    const ShaderAttribute&
-    normal()
+    const ShaderAttribute& normal()
     {
         static const auto attribute = ShaderAttribute
         {
@@ -35,8 +34,7 @@ namespace euphoria::render::attributes3d
     }
 
 
-    const ShaderAttribute&
-    tex_coord()
+    const ShaderAttribute& tex_coord()
     {
         static const auto attribute = ShaderAttribute
         {
@@ -49,8 +47,7 @@ namespace euphoria::render::attributes3d
     }
 
 
-    const ShaderAttribute&
-    color()
+    const ShaderAttribute& color()
     {
         static const auto attribute = ShaderAttribute
         {
@@ -63,13 +60,12 @@ namespace euphoria::render::attributes3d
     }
 
 
-    void
-    prebind_shader(ShaderProgram* shader)
+    void add_attributes_to_shader(ShaderProgram* shader)
     {
         ASSERT(shader);
-        shader->pre_bind(vertex());
-        shader->pre_bind(normal());
-        shader->pre_bind(tex_coord());
-        shader->pre_bind(color());
+        shader->add_attribute(vertex());
+        shader->add_attribute(normal());
+        shader->add_attribute(tex_coord());
+        shader->add_attribute(color());
     }
 }

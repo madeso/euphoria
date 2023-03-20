@@ -243,7 +243,7 @@ namespace euphoria::t3d
             viewport_handler->set_size(window_width, window_height);
         }
         
-        window::imgui::process_imgui_events(&e);
+        window::imgui::send_events_to_imgui(&e);
 
         auto& io = ImGui::GetIO();
         const auto forward_keyboard = io.WantCaptureKeyboard == false;
@@ -688,9 +688,9 @@ namespace euphoria::t3d
             reinterpret_cast<int*>(&world->light.light_type),
             "Directional\0Point\0Spot\0\0"
         );
-        window::imgui::color_edit("Ambient", &world->light.ambient);
-        window::imgui::color_edit("Diffuse", &world->light.diffuse);
-        window::imgui::color_edit("Specular", &world->light.specular);
+        window::imgui::imgui_color_edit("Ambient", &world->light.ambient);
+        window::imgui::imgui_color_edit("Diffuse", &world->light.diffuse);
+        window::imgui::imgui_color_edit("Specular", &world->light.specular);
     }
 
 
@@ -736,12 +736,12 @@ namespace euphoria::t3d
                 uimax
             ) || dirty;
 
-            dirty = window::imgui::angle_slider
+            dirty = window::imgui::imgui_angle_slider
             (
                 "angle snap",
                 &grid_data.angle_snap,
-                core::angle::zero(),
-                core::angle::one_turn()
+                core::no_rotation,
+                core::one_turn
             ) || dirty;
 
             dirty = ImGui::DragInt("lines on grid", &grid_data.size) || dirty;
@@ -789,17 +789,17 @@ namespace euphoria::t3d
     void
     Application::on_camera_window()
     {
-        window::imgui::angle_slider
+        window::imgui::imgui_angle_slider
         (
             "Rotation (left/right)",
             &editor_camera.fps.rotation_angle
         );
-        window::imgui::angle_slider
+        window::imgui::imgui_angle_slider
         (
             "Look (up/down)",
             &editor_camera.fps.look_angle,
-            -core::angle::quarter(),
-            core::angle::quarter()
+            -core::quarter_turn,
+            core::quarter_turn
         );
         ImGui::DragFloat3("Position", editor_camera.fps.position.get_data_ptr());
         ImGui::Spacing();
@@ -964,7 +964,7 @@ namespace euphoria::t3d
             tile_library->add_file(file, material_shader_cache.get(), texture_cache.get());
         }
 
-        window::imgui::start_new_frame();
+        window::imgui::begin_new_frame();
         process_imgui(!immersive_mode);
 
         camera.position = editor_camera.fps.position;
@@ -987,15 +987,15 @@ namespace euphoria::t3d
         case 0:
             return;
         case 1:
-            window::imgui::help_text(desc);
+            window::imgui::add_help_text_for_previous_widget(desc);
             break;
         case 2:
-            window::imgui::help_marker(desc);
+            window::imgui::add_help_marker_for_previous_widget(desc);
             break;
         case 3:
             if(help_hover.display_hover)
             {
-                window::imgui::help_text(desc);
+                window::imgui::add_help_text_for_previous_widget(desc);
             }
             break;
         default:

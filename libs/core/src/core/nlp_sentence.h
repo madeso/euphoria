@@ -17,6 +17,6 @@ parse_sentences(std::istream& data, OnSentenceFunction on_sentence);
 
 
 std::string
-sentence_to_string(const TextSentence& s);
+from_sentence_to_string(const TextSentence& s);
 
 }

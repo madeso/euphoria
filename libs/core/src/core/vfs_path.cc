@@ -53,13 +53,13 @@ namespace euphoria::core::vfs
         {
             return std::nullopt;
         }
-        if(starts_with(p, "~/") || starts_with(p, "./"))
+        if(begins_width(p, "~/") || begins_width(p, "./"))
         {
             return FilePath{p};
         }
         else
         {
-            if(starts_with(p, "/"))
+            if(begins_width(p, "/"))
             {
                 return FilePath{"." + p};
             }
@@ -297,7 +297,7 @@ namespace euphoria::core::vfs
 
 
     std::string
-    DirPath::get_directory_name() const
+    DirPath::get_name() const
     {
         const auto dirs = split_directories();
         ASSERTX(dirs.size() > 1, string_mergers::array.merge(dirs));
@@ -333,7 +333,7 @@ namespace euphoria::core::vfs
 
 
     DirPath
-    DirPath::single_cd_copy(const std::string& single) const
+    DirPath::get_directory(const std::string& single) const
     {
         ASSERTX(is_valid_directory_name(single), single);
         return DirPath{path + single + "/"};
@@ -431,7 +431,7 @@ namespace euphoria::core::vfs
         auto ret = lhs;
         for(size_t index = 1; index < dirs.size(); index +=1 )
         {
-            ret = ret.single_cd_copy(dirs[index]);
+            ret = ret.get_directory(dirs[index]);
         }
 
         return ret;

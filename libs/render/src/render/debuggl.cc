@@ -55,7 +55,7 @@ namespace
 namespace euphoria::render
 {
     std::string
-    opengl_error_to_string(GLenum error_code)
+    from_opengl_error_to_string(GLenum error_code)
     {
         switch(error_code)
         {
@@ -81,7 +81,7 @@ namespace euphoria::render
         GLenum error_code = 0;
         while((error_code = glGetError()) != GL_NO_ERROR)
         {
-            const std::string error = opengl_error_to_string(error_code);
+            const std::string error = from_opengl_error_to_string(error_code);
             LOG_ERROR("{0} | {1}({2})", error, file, line);
         }
     }

@@ -113,7 +113,7 @@ namespace euphoria::core
 
 
     [[nodiscard]] std::vector<vec3f>
-    Aabb::calculate_all_corners() const
+    Aabb::calc_all_corners() const
     {
         return
         {

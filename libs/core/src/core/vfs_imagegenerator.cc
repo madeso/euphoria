@@ -32,7 +32,7 @@ namespace euphoria::core::vfs
 
         const auto color_name = to_lower(command);
 
-        const auto found_color = string_to_enum<NamedColor>(color_name);
+        const auto found_color = from_string_to_enum<NamedColor>(color_name);
 
         if(!found_color.single_match)
         {
@@ -41,7 +41,7 @@ namespace euphoria::core::vfs
                 "Invalid color name: {0} for path {1} closest matches are {2}",
                 color_name,
                 path,
-                string_mergers::english_or.merge(enum_to_string(found_color.values))
+                string_mergers::english_or.merge(from_enum_to_string(found_color.values))
             );
             return MemoryChunk::null();
         }
@@ -80,13 +80,13 @@ namespace euphoria::core::vfs
         {
             if(path == base.get_parent_directory())
             {
-                ret.add(base.get_directory_name() + "/", true, false);
+                ret.add(base.get_name() + "/", true, false);
             }
         }
 
         if(path == base)
         {
-            const auto names = enum_to_string<NamedColor>();
+            const auto names = get_all_names_from_enum<NamedColor>();
             for(const auto& n: names)
             {
                 ret.add(n, true, true);

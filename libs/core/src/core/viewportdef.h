@@ -16,9 +16,7 @@ namespace euphoria::core
          * Fits the viewport, scaling it, keeping the aspect ratio. Black bars may appear if the aspect ration doesnt match
          */
         [[nodiscard]]
-        static
-        ViewportDefinition
-        fit_with_black_bars
+        static ViewportDefinition from_fit_with_black_bars
         (
             float width,
             float height,
@@ -30,16 +28,21 @@ namespace euphoria::core
          * Fits the viewport, scaling it to the max and then fits the viewport without stretching. This means that the viewport isnt the same size as requested.
          */
         [[nodiscard]]
-        static
-        ViewportDefinition
-        extend(float width, float height, int window_width, int window_height);
+        static ViewportDefinition from_extend
+        (
+            float width,
+            float height,
+            int window_width,
+            int window_height
+        );
 
         /** The viewport matches the screen pixel by pixel.
          */
-        [[nodiscard]]
-        static
-        ViewportDefinition
-        screen_pixel(int window_width, int window_height);
+        [[nodiscard]] static ViewportDefinition from_screen_pixel
+        (
+            int window_width,
+            int window_height
+        );
 
         ViewportDefinition(const Recti& screen, float w, float h);
     };

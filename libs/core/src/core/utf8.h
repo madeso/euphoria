@@ -8,7 +8,7 @@
 namespace euphoria::core
 {
     template<typename TString, typename TOnCodepointFunc>
-    bool utf8_to_codepoints(const TString& string, TOnCodepointFunc on_codepoint)
+    bool calc_utf8_to_codepoints(const TString& string, TOnCodepointFunc on_codepoint)
     {
         // reference: https://en.wikipedia.org/wiki/UTF-8
         using CodePointInt = int;

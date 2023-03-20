@@ -56,7 +56,7 @@ namespace euphoria::core
 
     template <typename T>
     int
-    default_sort_func(T lhs, T rhs)
+    sort_using_less(T lhs, T rhs)
     {
         if(lhs == rhs)
         {
@@ -97,7 +97,7 @@ namespace euphoria::core
         TSelf&
         sort(TValue T::*member, SortStyle sort_style = SortStyle::ascending)
         {
-            return sort(member, &default_sort_func<TValue>, sort_style);
+            return sort(member, &sort_using_less<TValue>, sort_style);
         }
 
         TSelf&

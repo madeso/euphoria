@@ -95,7 +95,7 @@ main(int argc, char** argv)
 
     Image image;
     image.setup_no_alpha_support(256, 256);
-    const auto wi = whole_image(image);
+    const auto wi = on_whole_image(image);
     clear(&image, {NamedColor::red});
     auto rand = core::Random{42};
 
@@ -270,9 +270,9 @@ main(int argc, char** argv)
                 {"Spot", Light::Type::spot}
             }
         );
-        imgui::color_edit("Ambient", &world.light.ambient);
-        imgui::color_edit("Diffuse", &world.light.diffuse);
-        imgui::color_edit("Specular", &world.light.specular);
+        imgui::imgui_color_edit("Ambient", &world.light.ambient);
+        imgui::imgui_color_edit("Diffuse", &world.light.diffuse);
+        imgui::imgui_color_edit("Specular", &world.light.specular);
         ImGui::Combo
         (
             "Update",
@@ -280,19 +280,19 @@ main(int argc, char** argv)
             "Do nothing\0Follow actor\0Follow camera\0\0"
         );
 
-        imgui::angle_slider
+        imgui::imgui_angle_slider
         (
             "Cutoff angle Inner",
             &world.light.cutoff_angle_inner,
-            angle::zero(),
-            angle::quarter() / 2
+            no_rotation,
+            quarter_turn / 2
         );
-        imgui::angle_slider
+        imgui::imgui_angle_slider
         (
             "Cutoff angle Outer",
             &world.light.cutoff_angle_outer,
-            angle::zero(),
-            angle::quarter()
+            no_rotation,
+            quarter_turn
         );
 
         imgui::image(debug_texture.get());
@@ -367,7 +367,7 @@ main(int argc, char** argv)
         {
             if(show_imgui)
             {
-                imgui::process_imgui_events(&e);
+                imgui::send_events_to_imgui(&e);
             }
             {
                 int window_width = 800;
@@ -457,7 +457,7 @@ main(int argc, char** argv)
 
         if(show_imgui)
         {
-            imgui::start_new_frame();
+            imgui::begin_new_frame();
             run_imgui();
         }
 

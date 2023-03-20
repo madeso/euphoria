@@ -75,12 +75,12 @@ namespace euphoria::core::vfs
         [[nodiscard]] static DirPath from_dirs(const std::vector<std::string>& dirs);
 
         [[nodiscard]] FilePath get_file(const std::string& filename) const;
-        [[nodiscard]] DirPath single_cd_copy(const std::string& single) const;
+        [[nodiscard]] DirPath get_directory(const std::string& single) const;
 
         [[nodiscard]] bool is_relative() const;
         [[nodiscard]] bool contains_relative() const;
         [[nodiscard]] DirPath get_parent_directory() const;
-        [[nodiscard]] std::string get_directory_name() const;
+        [[nodiscard]] std::string get_name() const;
         [[nodiscard]] std::vector<std::string> split_directories() const;
     };
 

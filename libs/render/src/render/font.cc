@@ -384,7 +384,7 @@ namespace euphoria::render
         void
         on_text(const std::string& text) override
         {
-            core::utf8_to_codepoints
+            core::calc_utf8_to_codepoints
             (
                 text,
                 [this](int cp)

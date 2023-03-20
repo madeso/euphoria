@@ -97,7 +97,7 @@ void run_main
                 std::cout << "Writing " << file_name << "\n";
             }
 
-            io::chunk_to_file(image.write(ImageWriteFormat::png), file_name);
+            io::write_chunk_to_file(image.write(ImageWriteFormat::png), file_name);
         }
     }
 
@@ -105,9 +105,9 @@ void run_main
     {
         std::cout << "writing collage...\n";
         int padding = 20;
-        auto collage_image = grid_layout(images, padding, NamedColor::gray, true);
+        auto collage_image = lay_out_in_a_grid(images, padding, NamedColor::gray, true);
         std::string file_name = "identicon.png";
-        io::chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
+        io::write_chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
     }
 }
 
@@ -154,13 +154,13 @@ void run_sprator_collage
 
         std::cout << "writing collage...\n";
         int padding = 20;
-        auto collage_image = grid_layout(images, padding, NamedColor::gray, true);
+        auto collage_image = lay_out_in_a_grid(images, padding, NamedColor::gray, true);
         std::string file_name = "identicon.png";
         if(frames > 1)
         {
             file_name = "identicon_{}.png"_format(anim_index);
         }
-        io::chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
+        io::write_chunk_to_file(collage_image.write(ImageWriteFormat::png), file_name);
     }
 }
 

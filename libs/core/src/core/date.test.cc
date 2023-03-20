@@ -26,7 +26,7 @@ TEST_CASE("datetime", "[datetime]")
     {
         StructTmWrapper dt(2001, Month::december, 1, 11, 12, 13);
         auto r = TimetWrapper::from_local_time(dt);
-        REQUIRE(dt.to_debug_string() == int64_to_date_time(date_time_to_int64(r)).to_local_time().to_debug_string());
+        REQUIRE(dt.to_debug_string() == c_int64_to_date_time(c_date_time_to_int64(r)).to_local_time().to_debug_string());
     }
 
     //////////////////////////////////////////////////////////////////////////

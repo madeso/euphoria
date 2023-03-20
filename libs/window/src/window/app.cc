@@ -63,7 +63,7 @@ namespace euphoria::window
             SDL_Event e;
             while(SDL_PollEvent(&e) != 0)
             {
-                imgui::process_imgui_events(&e);
+                imgui::send_events_to_imgui(&e);
 
                 if(engine.on_resize(e, &window_width, &window_height))
                 {
@@ -81,7 +81,7 @@ namespace euphoria::window
                 }
             }
 
-            imgui::start_new_frame();
+            imgui::begin_new_frame();
             
             app->on_gui();
 

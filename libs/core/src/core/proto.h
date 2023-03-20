@@ -60,7 +60,7 @@ namespace euphoria::core
     template<typename> inline constexpr bool always_false_v = false;
 
     template<typename T>
-    std::optional<T> work_get_optional_and_log_errors(ReadResult<T>&& result, bool log_missing_file)
+    std::optional<T> get_optional_and_log_errors_impl(ReadResult<T>&& result, bool log_missing_file)
     {
         try
         {
@@ -111,7 +111,7 @@ namespace euphoria::core
     template<typename T>
     std::optional<T> get_optional_and_log_errors(ReadResult<T>&& result)
     {
-        return work_get_optional_and_log_errors<T>(std::move(result), true);
+        return get_optional_and_log_errors_impl<T>(std::move(result), true);
     }
 
     // don't log error and return default when file is missing
@@ -120,7 +120,7 @@ namespace euphoria::core
     std::optional<T> get_optional_and_log_errors_allow_missing(ReadResult<T>&& result)
     {
         // todo(Gustav): should this return something different to indicate that file was missing?
-        return work_get_optional_and_log_errors<T>(std::move(result), false);
+        return get_optional_and_log_errors_impl<T>(std::move(result), false);
     }
 
     // todo(Gustav): remove all get_default and add proper error handling to callers
@@ -128,7 +128,7 @@ namespace euphoria::core
     template<typename T>
     T get_default_but_log_errors(ReadResult<T>&& result)
     {
-        auto r = work_get_optional_and_log_errors<T>(std::move(result), true);
+        auto r = get_optional_and_log_errors_impl<T>(std::move(result), true);
         if(r)
         {
             return std::move(*r);
@@ -142,7 +142,7 @@ namespace euphoria::core
     template<typename T>
     T get_default_ignore_missing_but_log_errors(ReadResult<T>&& result)
     {
-        auto r = work_get_optional_and_log_errors<T>(std::move(result), false);
+        auto r = get_optional_and_log_errors_impl<T>(std::move(result), false);
         if(r)
         {
             return std::move(*r);

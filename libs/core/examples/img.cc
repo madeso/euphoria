@@ -36,7 +36,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    auto file = io::file_to_chunk(input);
+                    auto file = io::read_file_to_chunk(input);
                     if(file == nullptr)
                     {
                         std::cerr
@@ -75,7 +75,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    io::chunk_to_file
+                    io::write_chunk_to_file
                     (
                         image.write(ImageWriteFormat::png),
                         output
@@ -193,7 +193,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    edge_detection(&image, edge_r);
+                    filter_edge_detection(&image, edge_r);
                     return argparse::ok;
                 }
             );
@@ -213,7 +213,7 @@ main(int argc, char* argv[])
             (
                 [&]
                 {
-                    color_detection(&image, color_color, edge_r);
+                    filter_color_detection(&image, color_color, edge_r);
                     return argparse::ok;
                 }
             );

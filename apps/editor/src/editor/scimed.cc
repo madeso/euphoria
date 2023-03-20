@@ -187,8 +187,8 @@ namespace euphoria::editor
     draw_line(const Canvas& canvas, int x, int y, int tx, int ty, ImU32 color)
     {
         ImDrawList* draw_list = ImGui::GetWindowDrawList();
-        const auto from = canvas.world_to_screen(ImVec2{static_cast<float>(x), static_cast<float>(y)});
-        const auto to = canvas.world_to_screen(ImVec2{static_cast<float>(tx), static_cast<float>(ty)});
+        const auto from = canvas.from_world_to_screen(ImVec2{static_cast<float>(x), static_cast<float>(y)});
+        const auto to = canvas.from_world_to_screen(ImVec2{static_cast<float>(tx), static_cast<float>(ty)});
         draw_list->AddLine(from, to, color);
     }
 
@@ -227,8 +227,8 @@ namespace euphoria::editor
     draw_horizontal_centered_text(const Canvas& canvas, int left_p, int right_p, int y_p, const std::string& s, int id)
     {
         const auto size = ImGui::CalcTextSize(s.c_str());
-        const auto left = canvas.world_to_screen(ImVec2{static_cast<float>(left_p), static_cast<float>(y_p)});
-        const auto right = canvas.world_to_screen(ImVec2{static_cast<float>(right_p), static_cast<float>(y_p)});
+        const auto left = canvas.from_world_to_screen(ImVec2{static_cast<float>(left_p), static_cast<float>(y_p)});
+        const auto right = canvas.from_world_to_screen(ImVec2{static_cast<float>(right_p), static_cast<float>(y_p)});
         const auto y = left.y;
         auto x = left.x + (right.x - left.x) / 2 - size.x / 2;
         const auto p = ImVec2 {x, y - size.y};
@@ -240,8 +240,8 @@ namespace euphoria::editor
     draw_vertical_centered_text(const Canvas& canvas, int top_p, int bottom_p, int x_p, const std::string& s, int id)
     {
         const auto size = ImGui::CalcTextSize(s.c_str());
-        const auto top = canvas.world_to_screen(ImVec2{static_cast<float>(x_p), static_cast<float>(top_p)});
-        const auto bottom = canvas.world_to_screen(ImVec2{static_cast<float>(x_p), static_cast<float>(bottom_p)});
+        const auto top = canvas.from_world_to_screen(ImVec2{static_cast<float>(x_p), static_cast<float>(top_p)});
+        const auto bottom = canvas.from_world_to_screen(ImVec2{static_cast<float>(x_p), static_cast<float>(bottom_p)});
         const auto x = bottom.x;
         const auto y = top.y + (bottom.y - top.y) / 2 - size.y / 2;
         const auto p = ImVec2 {x - size.x, y};
@@ -364,7 +364,7 @@ namespace euphoria::editor
         for(auto s: splits)
         {
             line_function(s.position);
-            const auto p = canvas->world_to_screen
+            const auto p = canvas->from_world_to_screen
             (
                 ImVec2{static_cast<float>(s.position), static_cast<float>(s.position)}
             );
@@ -496,8 +496,8 @@ namespace euphoria::editor
 
         // draw texture
         ImTextureID tex_id = imgui::c_texture_to_imgui(texture.get()); // NOLINT: auto is preferred but a texture is a hidden pointer
-        const auto pos = canvas.world_to_screen(ImVec2{0, 0});
-        const auto size = canvas.world_to_screen
+        const auto pos = canvas.from_world_to_screen(ImVec2{0, 0});
+        const auto size = canvas.from_world_to_screen
         (
             ImVec2{static_cast<float>(texture->width), static_cast<float>(texture->height)}
         );
@@ -522,7 +522,7 @@ namespace euphoria::editor
             {
                 set_mouse_cursor_from_hover(hover);
 
-                const auto me = canvas.screen_to_world(ImGui::GetMousePos());
+                const auto me = canvas.from_screen_to_world(ImGui::GetMousePos());
 
                 move_split(hover.horizontal_index, &scaling->rows, me.y);
                 move_split(hover.vertical_index, &scaling->cols, me.x);
@@ -541,7 +541,7 @@ namespace euphoria::editor
         if(ImGui::IsItemHovered() && ImGui::IsMouseClicked(1))
         {
             ImGui::OpenPopup("asd");
-            const auto w = canvas.screen_to_world(ImGui::GetMousePos());
+            const auto w = canvas.from_screen_to_world(ImGui::GetMousePos());
             mouse_popup = vec2i {static_cast<int>(w.x), static_cast<int>(w.y)};
         }
 
@@ -553,12 +553,12 @@ namespace euphoria::editor
             constexpr auto label_x = ICON_MDI_VIEW_SPLIT_HORIZONTAL " New Horizontal divider";
             constexpr auto label_y = ICON_MDI_VIEW_SPLIT_VERTICAL " New Vertical divider";
 
-            if (window::imgui::selectable_or_disabled(space_index_y.has_value(), label_x))
+            if (window::imgui::imgui_selectable_or_disabled(space_index_y.has_value(), label_x))
             {
                 split_space_in_two(&scaling->rows, space_index_y.value(), mouse_popup.y);
             }
 
-            if(window::imgui::selectable_or_disabled(space_index_x.has_value(), label_y))
+            if(window::imgui::imgui_selectable_or_disabled(space_index_x.has_value(), label_y))
             {
                 split_space_in_two(&scaling->cols, space_index_x.value(), mouse_popup.x);
             }

@@ -13,14 +13,14 @@ namespace euphoria::tests
 
     using namespace euphoria::tests;
 
-    CHECK(string_is_equal(foo(), "string"));
-    CHECK(string_is_equal(bar(), {"some", "strings"}));
+    CHECK(is_string_equal(foo(), "string"));
+    CHECK(is_string_equal(bar(), {"some", "strings"}));
 
     */
 
     FalseString
-    string_is_equal(const std::vector<std::string>& lhs, const std::vector<std::string>& rhs);
+    is_string_equal(const std::vector<std::string>& lhs, const std::vector<std::string>& rhs);
 
     FalseString
-    string_is_equal(const std::string& lhs, const std::string& rhs);
+    is_string_equal(const std::string& lhs, const std::string& rhs);
 }

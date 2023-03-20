@@ -36,33 +36,6 @@ namespace euphoria::core
             return angle::from_radians(percent * pi);
         }
 
-        [[nodiscard]] constexpr static angle
-        one_turn()
-        {
-            return angle::from_radians(pi * 2.0f);
-        }
-
-
-        [[nodiscard]] constexpr static angle
-        half()
-        {
-            return angle::from_radians(pi);
-        }
-
-
-        [[nodiscard]] constexpr static angle
-        quarter()
-        {
-            return angle::from_radians(pi / 2.0f);
-        }
-
-
-        [[nodiscard]] constexpr static angle
-        zero()
-        {
-            return angle::from_radians(0.0f);
-        }
-
         [[nodiscard]] static angle random(::euphoria::core::Random* random);
 
 
@@ -70,21 +43,21 @@ namespace euphoria::core
 
 
         [[nodiscard]] constexpr float
-        in_degrees() const
+        as_degrees() const
         {
             return c_radian_to_degrees(radians);
         }
 
         [[nodiscard]] constexpr float
-        in_radians() const
+        as_radians() const
         {
             return radians;
         }
 
         [[nodiscard]] constexpr float
-        in_percent_of_360() const
+        from_percent_of_360() const
         {
-            return in_radians() / (pi * 2.0f);
+            return as_radians() / (pi * 2.0f);
         }
 
         [[nodiscard]] angle get_wrapped() const;
@@ -112,6 +85,11 @@ namespace euphoria::core
             return pi / 180.0f * degrees;
         }
     };
+
+    constexpr angle one_turn = angle::from_radians(pi * 2.0f);
+    constexpr angle half_turn = angle::from_radians(pi);
+    constexpr angle quarter_turn = angle::from_radians(pi / 2.0f);
+    constexpr angle no_rotation = angle::from_radians(0.0f);
 
 
     float
@@ -182,9 +160,9 @@ namespace euphoria::core
     operator>=(const angle& lhs, const angle& rhs);
 
 
-    angle angle_transform(const angle& from, float v, const angle& to);
+    angle lerp_angle(const angle& from, float v, const angle& to);
 
-    DEFAULT_INTERPOLATE(angle, angle_transform);
+    DEFAULT_INTERPOLATE(angle, lerp_angle);
 }
 
 

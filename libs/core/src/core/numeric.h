@@ -20,7 +20,7 @@ namespace euphoria::core
     is_zero(int r);
 
     float
-    zero_or_value(float r);
+    clamp_zero(float r);
 
     float
     floor(float v);

@@ -40,7 +40,7 @@ namespace euphoria::t3d
         if (down) { return; }
         if (button != core::MouseButton::left) { return; }
 
-        const auto ray = core::mouse_to_unit_ray(editor->camera, editor->viewport, editor->mouse);
+        const auto ray = core::from_mouse_to_unit_ray(editor->camera, editor->viewport, editor->mouse);
 
         active_selection_click.meshes = editor->raycast(ray);
         active_selection_click.ctrl_down = state.ctrl;

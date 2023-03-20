@@ -67,6 +67,7 @@ namespace euphoria::core
             unsigned char a
         );
 
+        // todo(Gustav): add a run_ prefix
         template <typename TFunc>
         void filter(TFunc f)
         {
@@ -79,6 +80,7 @@ namespace euphoria::core
             }
         }
 
+        // todo(Gustav): add a run_ prefix
         template <typename TFunc>
         void for_all_top_bottom(TFunc f)
         {

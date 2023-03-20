@@ -20,7 +20,7 @@ namespace euphoria::tests
         typename TCompare
     >
     FalseString
-    vector_is_equal
+    is_vector_equal
     (
         const std::vector<T>& lhs,
         const std::vector<T>& rhs,
@@ -36,8 +36,8 @@ namespace euphoria::tests
                 "Size mismatch: {} vs {}{} {}"_format
                 (
                     lhs.size(), rhs.size(),
-                    vector_to_string(lhs, to_string_functor),
-                    vector_to_string(rhs, to_string_functor)
+                    from_vector_to_string(lhs, to_string_functor),
+                    from_vector_to_string(rhs, to_string_functor)
                 )
             );
         }
@@ -52,11 +52,11 @@ namespace euphoria::tests
                     ? "{}, and first invalid"_format(size_equal.str)
                     : ([&]()
                     {
-                        const auto alhs = vector_to_string_ex(lhs, to_string_functor);
-                        const auto arhs = vector_to_string_ex(rhs, to_string_functor);
+                        const auto alhs = from_vector_to_string_ex(lhs, to_string_functor);
+                        const auto arhs = from_vector_to_string_ex(rhs, to_string_functor);
                         const auto same = alhs.second == arhs.second;
-                        const auto lhsstr = same || alhs.second==false? alhs.first : vector_to_string_impl(lhs, false, to_string_functor);
-                        const auto rhsstr = same || arhs.second==false? arhs.first : vector_to_string_impl(rhs, false, to_string_functor);
+                        const auto lhsstr = same || alhs.second==false? alhs.first : from_vector_to_string_impl(lhs, false, to_string_functor);
+                        const auto rhsstr = same || arhs.second==false? arhs.first : from_vector_to_string_impl(rhs, false, to_string_functor);
                         const auto oneliner = same && alhs.second == true;
                         
                         if(oneliner)

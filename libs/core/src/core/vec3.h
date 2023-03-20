@@ -61,7 +61,10 @@ namespace euphoria::core
         static vec3f from_to(const vec3f& from, const vec3f& to);
         static vec3f zero();
 
+        // todo(Gustav): move to free function and to matrix class
         vec3f component_multiply(const vec3f& rhs) const;
+        [[nodiscard]] float get_component_sum() const;
+
         float dot(const vec3f& rhs) const;
         vec3f cross(const vec3f& u) const;
 
@@ -70,8 +73,6 @@ namespace euphoria::core
         void operator/=(float rhs);
         void operator*=(float rhs);
         vec3f operator-() const;
-
-        [[nodiscard]] float get_component_sum() const;
         
         float* get_data_ptr();
         [[nodiscard]] const float* get_data_ptr() const;
@@ -99,6 +100,7 @@ namespace euphoria::core
         [[nodiscard]] bool
         is_valid() const;
 
+        // todo(Gustav): make constexpr and move to a common namespace?
         static unit3f x_axis();
         static unit3f y_axis();
         static unit3f z_axis();

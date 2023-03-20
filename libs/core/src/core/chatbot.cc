@@ -38,7 +38,7 @@ namespace euphoria::core::detail
     }
 
     int
-    index_of_matched_input
+    find_get_palette_sequential_pu_bu_gn
     (
         const std::vector<std::string>& input,
         const detail::Input& keywords
@@ -102,7 +102,7 @@ namespace euphoria::core::detail
     std::vector<std::string>
     remove_from(const std::vector<std::string>& source, const Input& input)
     {
-        const auto index = index_of_matched_input(source, input);
+        const auto index = find_get_palette_sequential_pu_bu_gn(source, input);
 
         if(index == -1)
         {
@@ -691,8 +691,8 @@ namespace euphoria::core
                         (
                             std::vector<std::string>
                             {
-                                optional_string(longer_keyword, "longer"),
-                                optional_string(same_size_but_better, "same size but better")
+                                get_string_or_empty(longer_keyword, "longer"),
+                                get_string_or_empty(same_size_but_better, "same size but better")
                             }
                         )
                     )
@@ -704,7 +704,7 @@ namespace euphoria::core
                 }
                 if(should_check_keyword)
                 {
-                    const auto matched_index = detail::index_of_matched_input
+                    const auto matched_index = detail::find_get_palette_sequential_pu_bu_gn
                     (
                         input,
                         keyword

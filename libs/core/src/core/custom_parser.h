@@ -20,14 +20,14 @@ namespace euphoria::core
 
     template<typename T>
     std::string
-    custom_argparser_to_string(const T& t)
+    to_string_for_custom_argparser(const T& t)
     {
         return CustomArgparser<T>::to_string(t);
     }
 
     template<typename T>
     Result<T>
-    custom_argparser_parse(const std::string& value)
+    parse_for_custom_argparser(const std::string& value)
     {
         return CustomArgparser<T>::parse(value);
     }

@@ -65,7 +65,7 @@ namespace euphoria::gui
 
         [[nodiscard]] virtual
         core::size2f
-        calculate_minimum_size() const = 0;
+        calc_minimum_size() const = 0;
 
         virtual
         void

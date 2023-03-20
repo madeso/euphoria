@@ -24,20 +24,21 @@ namespace euphoria::core
     const std::string space_characters = " \n\r\t";
 
 
-    // for a hello.dog and . gets hello
+    /// for hello.dog and . gets hello
     std::string
     strip_last_string(const std::string& str, char sep);
 
 
+    /// for hello.dog gets .dog
     std::pair<std::string, std::string>
-    last_strings(const std::string& str, char sep);
+    get_last_string(const std::string& str, char sep);
 
 
     std::string
-    first_chars(const std::string& str, std::size_t count);
+    get_first_chars(const std::string& str, std::size_t count);
 
     std::string
-    first_chars_with_ellipsis(const std::string& str, unsigned int count = 10);
+    get_first_chars_with_ellipsis(const std::string& str, unsigned int count = 10);
 
 
     /** Remove characters from the right, stops at a invalid character.
@@ -73,7 +74,7 @@ namespace euphoria::core
     @returns true if the start match, false if not.
     */
     bool
-    starts_with(const std::string& string_to_test, const std::string& start);
+    begins_width(const std::string& string_to_test, const std::string& start);
 
 
     /** Tests if a string ends with another string.
@@ -115,7 +116,7 @@ namespace euphoria::core
 
 
     std::string
-    char_to_string(char c, CharToStringStyle style=CharToStringStyle::smart);
+    from_char_to_string(char c, CharToStringStyle style=CharToStringStyle::smart);
 
 
     std::string::size_type
@@ -174,7 +175,7 @@ namespace euphoria::core
 
     template <typename TKey, typename TValue>
     std::vector<std::string>
-    key_to_string_vector(const std::map<TKey, TValue>& map)
+    from_key_to_string_vector(const std::map<TKey, TValue>& map)
     {
         std::vector<std::string> ret;
         for(const auto& m: map)
@@ -234,12 +235,12 @@ namespace euphoria::core
 
 
     std::string
-    optional_string(bool b, const std::string& str);
+    get_string_or_empty(bool b, const std::string& str);
 
 
     // http://stereopsis.com/strcmp4humans.html
     int
-    string_compare(const std::string& lhs, const std::string& rhs);
+    compare_string(const std::string& lhs, const std::string& rhs);
     /** @} */
 
 }

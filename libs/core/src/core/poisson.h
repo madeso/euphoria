@@ -31,13 +31,13 @@ namespace euphoria::core
         bool can_place_at(const vec2f& potential_sample, const vec2i& potential_sample_pos);
         std::tuple<bool, vec2f> try_place(int active_index);
 
-        [[nodiscard]] vec2i point_to_index(const vec2f& p) const;
+        [[nodiscard]] vec2i c_point_to_index(const vec2f& p) const;
 
-        [[nodiscard]] vec2f random_point() const;
+        [[nodiscard]] vec2f get_random_point_in_area() const;
         [[nodiscard]] bool is_done() const;
     };
 
     // r = minimum distance
-    std::vector<vec2f> poisson_sample(const Rectf& area, Random* random, float r, float bs=-1.0f, int k=30);
+    std::vector<vec2f> calc_poisson_samples(const Rectf& area, Random* random, float r, float bs=-1.0f, int k=30);
 }
 

@@ -19,7 +19,7 @@ namespace
         switch(handler.type)
         {
         case euphoria::render::ViewportType::fit_with_black_bars:
-            return core::ViewportDefinition::fit_with_black_bars
+            return core::ViewportDefinition::from_fit_with_black_bars
             (
                 handler.virtual_width,
                 handler.virtual_height,
@@ -27,13 +27,13 @@ namespace
                 handler.window_height
             );
         case euphoria::render::ViewportType::screen_pixel:
-            return core::ViewportDefinition::screen_pixel
+            return core::ViewportDefinition::from_screen_pixel
             (
                 handler.window_width,
                 handler.window_height
             );
         case euphoria::render::ViewportType::extend:
-            return core::ViewportDefinition::extend
+            return core::ViewportDefinition::from_extend
             (
                 handler.virtual_width,
                 handler.virtual_height,
@@ -42,7 +42,7 @@ namespace
             );
         default:
             DIE("Unhandled viewport case");
-            return core::ViewportDefinition::screen_pixel
+            return core::ViewportDefinition::from_screen_pixel
             (
                 handler.window_width,
                 handler.window_height
@@ -126,7 +126,7 @@ namespace euphoria::render
         apply_viewport
         (
             this,
-            core::ViewportDefinition::screen_pixel(window_width, window_height),
+            core::ViewportDefinition::from_screen_pixel(window_width, window_height),
             false
         );
 

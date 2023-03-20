@@ -50,7 +50,7 @@ namespace euphoria::core
         ASSERTX
         (
             c-1 < c_sizet_to_int(connections.size()),
-            char_to_string(c, CharToStringStyle::include_hex),
+            from_char_to_string(c, CharToStringStyle::include_hex),
             connections.size()
         );
         return connections[c-1];
@@ -66,7 +66,7 @@ namespace euphoria::core
             ASSERTX
             (
                 c-1 < c_sizet_to_int(style.connections.size()),
-                char_to_string(c, CharToStringStyle::include_hex),
+                from_char_to_string(c, CharToStringStyle::include_hex),
                 style.connections.size()
             );
             style.connections[c-1] = connections_func(c);
@@ -76,7 +76,7 @@ namespace euphoria::core
 
 
     TextBoxStyle
-    terminal_style()
+    get_terminal_style()
     {
         if(is_terminal_supporting_utf8())
         {
@@ -94,6 +94,8 @@ namespace euphoria::core
     {
         connections.resize(15);
     }
+
+    // todo(Gustav): make constexpr
 
     TextBoxStyle
     utf8_straight_style()
@@ -632,7 +634,7 @@ namespace euphoria::core
 
 
     void
-    TextBox::sub_create_tree_graph
+    TextBox::create_tree_graph_impl
     (
         TextBox* result,
         int maxwidth,

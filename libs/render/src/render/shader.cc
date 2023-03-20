@@ -181,7 +181,7 @@ namespace euphoria::render
 
 
     void
-    ShaderProgram::pre_bind(const ShaderAttribute& attribute)
+    ShaderProgram::add_attribute(const ShaderAttribute& attribute)
     {
         glBindAttribLocation(get_id(), attribute.id, attribute.name.c_str());
         bound_attributes.push_back(attribute);

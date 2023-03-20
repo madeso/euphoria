@@ -89,7 +89,7 @@ namespace euphoria::gui
 
 
     core::Lrud<float>
-    lrtb_from_gaf(const ::gui::Lrtb& lrtd)
+    from_gaf_to_lrud(const ::gui::Lrtb& lrtd)
     {
         return core::Lrud<float>::from_lrud
         (
@@ -179,8 +179,8 @@ namespace euphoria::gui
 
         // load basic widget data
         ret->name = w.name;
-        ret->padding = lrtb_from_gaf(w.padding);
-        ret->margin = lrtb_from_gaf(w.margin);
+        ret->padding = from_gaf_to_lrud(w.padding);
+        ret->margin = from_gaf_to_lrud(w.margin);
 
         setup_layout(&ret->layout, w);
 

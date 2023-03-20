@@ -23,7 +23,7 @@ namespace euphoria::core
 
     // todo(Gustav): add dithering support
     Table<char>
-    image_to_string_table
+    from_image_to_string_table
     (
         const Image& img,
         const std::vector<ImageMapAction>& map
@@ -31,7 +31,7 @@ namespace euphoria::core
 
 
     Table<char>
-    image_to_string_table_exact
+    from_image_to_string_table_exact
     (
         const Image& img,
         const std::vector<ImageMapAction>& map, char missing
@@ -39,7 +39,7 @@ namespace euphoria::core
 
 
     Table<char>
-    image_to_string_table(const Image& img, bool shorter, Grayscale grayscale = Grayscale::r);
+    from_image_to_string_table(const Image& img, bool shorter, Grayscale grayscale = Grayscale::r);
 
 
     std::vector<std::string>

@@ -81,12 +81,12 @@ main(int argc, char* argv[])
         )
     );
 
-    const auto start = time_point_now();
+    const auto start = get_current_timepoint();
     raytracer::raytrace(&image, scene, number_of_samples);
-    const auto end = time_point_now();
+    const auto end = get_current_timepoint();
     const auto seconds = get_seconds_between(start, end);
     std::cout << "Rendering took " << seconds << " seconds.\n";
-    io::chunk_to_file(image.write(ImageWriteFormat::png), "raytracer.png");
+    io::write_chunk_to_file(image.write(ImageWriteFormat::png), "raytracer.png");
 
     return 0;
 }

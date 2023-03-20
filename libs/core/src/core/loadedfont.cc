@@ -61,7 +61,7 @@ namespace euphoria::core
             index_to_unicode[index] = cp;
         }
 
-        [[nodiscard]] std::optional<int> glyph_index_to_unicode(int glyph) const
+        [[nodiscard]] std::optional<int> from_glyph_index_to_unicode(int glyph) const
         {
             auto found = index_to_unicode.find(glyph);
             if(found == index_to_unicode.end())
@@ -343,7 +343,7 @@ namespace euphoria::core
         if(f.was_loaded == false) { return LoadedFont{}; }
 
         std::vector<int> code_points;
-        utf8_to_codepoints
+        calc_utf8_to_codepoints
         (
             chars,
             [&](int cp){code_points.emplace_back(cp);}
@@ -379,8 +379,8 @@ namespace euphoria::core
 
         for(const auto& info: f.kernings)
         {
-            const auto previous = f.glyph_index_to_unicode(info.glyph1);
-            const auto current = f.glyph_index_to_unicode(info.glyph2);
+            const auto previous = f.from_glyph_index_to_unicode(info.glyph1);
+            const auto current = f.from_glyph_index_to_unicode(info.glyph2);
             const int dx = info.advance;
             if(previous && current)
             {

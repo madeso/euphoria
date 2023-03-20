@@ -43,7 +43,7 @@ int_equals_hex
     {
         return "{:x}"_format(t);
     };
-    return vector_is_equal<T>
+    return is_vector_equal<T>
     (
         lhs,
         rhs,
@@ -66,7 +66,7 @@ int_equals_bin
     {
         return "{0>2:x}"_format(static_cast<U8>(t));
     };
-    return vector_is_equal<T>
+    return is_vector_equal<T>
     (
         lhs,
         rhs,
@@ -110,7 +110,7 @@ TEST_CASE("drunken bishop strings", "[drunken-bishop]")
         const auto table = drunken_bishop(codes, width, height);
         const auto res = collapse(table, get_ssh_characters());
 
-        return string_is_equal(res, correct_result);
+        return is_string_equal(res, correct_result);
     };
 
     CHECK(test({

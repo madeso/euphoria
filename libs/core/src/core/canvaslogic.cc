@@ -35,13 +35,13 @@ namespace euphoria::core
     }
 
     vec2f
-    CanvasLogic::world_to_screen(const vec2f& p) const
+    CanvasLogic::from_world_to_screen(const vec2f& p) const
     {
         return scroll + p * scale;
     }
 
     vec2f
-    CanvasLogic::screen_to_world(const vec2f& p) const
+    CanvasLogic::from_screen_to_world(const vec2f& p) const
     {
         return (p - scroll) / scale;
     }

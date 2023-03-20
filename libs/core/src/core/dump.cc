@@ -279,7 +279,7 @@ namespace euphoria::core::dump2d
     }
 
     // calculate total area size and offset so that x+offset will never be lower than 0
-    std::pair<vec2f,vec2f> Dumper::calculate_size_and_offset() const
+    std::pair<vec2f,vec2f> Dumper::calc_size_and_offset() const
     {
         detail::MinMaxer minmax;
 
@@ -307,7 +307,7 @@ namespace euphoria::core::dump2d
         // todo(Gustav): attach string->string properties
         // todo(Gustav): option to replace string with polylines so we can measure and layout text
 
-        const auto r = calculate_size_and_offset();
+        const auto r = calc_size_and_offset();
         const auto size = r.first;
         const auto offset = r.second;
         const auto scale = std::min(static_cast<float>(width-space*2) / size.x, static_cast<float>(height-space*2) / size.y);

@@ -236,7 +236,7 @@ namespace euphoria::core::vfs
     void
     ReadRootCatalog::add_description(std::vector<std::string>* strings)
     {
-        const auto keys = key_to_string_vector(catalog);
+        const auto keys = from_key_to_string_vector(catalog);
         strings->insert(strings->end(), keys.begin(), keys.end());
     }
 
@@ -299,7 +299,7 @@ namespace euphoria::core::vfs
     ReadRootPhysicalFolder::read_file(const FilePath& path)
     {
         const std::string& full_path = combine_folder_and_path(folder, path);
-        return io::file_to_chunk(full_path);
+        return io::read_file_to_chunk(full_path);
     }
 
 
@@ -376,7 +376,7 @@ namespace euphoria::core::vfs
     )
     {
         const auto full_path = combine_folder_and_path(folder, path);
-        io::chunk_to_file(data, full_path);
+        io::write_chunk_to_file(data, full_path);
     }
 }
 

@@ -16,7 +16,7 @@ parse_line(const std::string& line);
 
 
 std::string
-line_to_string(const TextLine& s);
+from_line_to_string(const TextLine& s);
 
 }
 

@@ -19,7 +19,7 @@ namespace euphoria::core
         [[nodiscard]] static size2f create_from_height_width(float h, float w);
         [[nodiscard]] static size2f create_from_square(float s);
 
-        [[nodiscard]] vec2f calculate_center_offset_for(const size2f& o) const;
+        [[nodiscard]] vec2f calc_center_offset_for(const size2f& o) const;
 
         void operator+=(const size2f& rhs);
         void operator-=(const size2f& rhs);
@@ -42,7 +42,7 @@ namespace euphoria::core
         [[nodiscard]] static size2i create_from_height_width(int h, int w);
         [[nodiscard]] static size2i create_from_square(int s);
 
-        [[nodiscard]] vec2i calculate_center_offset_for(const size2i& o) const;
+        [[nodiscard]] vec2i calc_center_offset_for(const size2i& o) const;
 
         void operator+=(const size2i& rhs);
         void operator-=(const size2i& rhs);

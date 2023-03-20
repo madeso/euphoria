@@ -165,7 +165,7 @@ namespace euphoria::core
     }
 
     void
-    edge_detection(Image* image, float r)
+    filter_edge_detection(Image* image, float r)
     {
         *image = create_new_image_from(*image, [&](int x, int y) {
             const auto pixel = c_vec3(image->get_pixel(x, y));
@@ -188,7 +188,7 @@ namespace euphoria::core
 
 
     void
-    color_detection(Image* image, rgb color, float r)
+    filter_color_detection(Image* image, rgb color, float r)
     {
         const auto basis = c_vec3(color);
         image->filter([&](const rgbai pixel) {

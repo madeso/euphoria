@@ -37,7 +37,7 @@ namespace euphoria::core
 
         [[nodiscard]] quatf get_rotation() const;
 
-        static quatf calculate_rotation
+        static quatf calc_rotation
             (const angle& rotation_angle, const angle& look_angle);
     };
 

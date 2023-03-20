@@ -40,16 +40,16 @@ namespace euphoria::window
 namespace euphoria::window::imgui
 {
     void
-    help_marker(const char* desc)
+    add_help_marker_for_previous_widget(const char* desc)
     {
         ImGui::SameLine();
         ImGui::TextDisabled( ICON_MDI_HELP_CIRCLE );
-        help_text(desc);
+        add_help_text_for_previous_widget(desc);
     }
 
 
     void
-    help_text(const char* desc)
+    add_help_text_for_previous_widget(const char* desc)
     {
         if (ImGui::IsItemHovered())
         {
@@ -62,6 +62,7 @@ namespace euphoria::window::imgui
     }
 
 
+    // todo(Gustav): rename to imgui_label
     void
     label(const std::string& str)
     {
@@ -70,7 +71,7 @@ namespace euphoria::window::imgui
 
 
     bool
-    angle_slider
+    imgui_angle_slider
     (
         const char* name,
         core::angle* angle,
@@ -80,13 +81,13 @@ namespace euphoria::window::imgui
     {
         ASSERT(angle);
 
-        float degrees = angle->in_degrees();
+        float degrees = angle->as_degrees();
         const auto value_was_changed = ImGui::SliderFloat
         (
             name,
             &degrees,
-            mindeg.in_degrees(),
-            maxdeg.in_degrees()
+            mindeg.as_degrees(),
+            maxdeg.as_degrees()
         );
 
         if(value_was_changed)
@@ -99,7 +100,7 @@ namespace euphoria::window::imgui
 
 
     bool
-    angle_slider
+    imgui_angle_slider
     (
         const char* name,
         core::angle* angle
@@ -107,7 +108,7 @@ namespace euphoria::window::imgui
     {
         ASSERT(angle);
 
-        float degrees = angle->in_degrees();
+        float degrees = angle->as_degrees();
         const auto value_was_changed = ImGui::DragFloat
         (
             name,
@@ -125,7 +126,7 @@ namespace euphoria::window::imgui
 
 
     bool
-    toggle_button(const char* label, bool down, const ImVec2& size)
+    imgui_toggle_button(const char* label, bool down, const ImVec2& size)
     {
         if (down)
         {
@@ -143,19 +144,19 @@ namespace euphoria::window::imgui
     }
 
     bool
-    color_edit(const char* name, core::rgb* c)
+    imgui_color_edit(const char* name, core::rgb* c)
     {
         return ImGui::ColorEdit3(name, &c->r);
     }
 
     bool
-    color_edit(const char* name, core::rgba* c)
+    imgui_color_edit(const char* name, core::rgba* c)
     {
         return ImGui::ColorEdit4(name, &c->r);
     }
 
     bool
-    color_edit(const char* name, core::rgbai* c)
+    imgui_color_edit(const char* name, core::rgbai* c)
     {
         auto cc = crgba(*c);
         const auto changed = ImGui::ColorEdit4(name, &cc.r);
@@ -182,6 +183,7 @@ namespace euphoria::window::imgui
     }
 
 
+    // todo(Gustav): rename to imgui_image
     void
     image(render::Texture2* texture)
     {
@@ -301,7 +303,7 @@ namespace euphoria::window::imgui
 
 
     bool
-    selectable_or_disabled(bool enabled, const char* label)
+    imgui_selectable_or_disabled(bool enabled, const char* label)
     {
         if(enabled)
         {
@@ -538,7 +540,7 @@ namespace euphoria::window::imgui
     }
 
     bool
-    canvas_begin(const ImVec4& background_color, const char* title)
+    begin_canvas_widget(const ImVec4& background_color, const char* title)
     {
         ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, ImVec2(1, 1));
         ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
@@ -554,7 +556,7 @@ namespace euphoria::window::imgui
     }
 
     void
-    canvas_end()
+    end_canvas_widget()
     {
         ImGui::EndChild();
 
@@ -569,7 +571,7 @@ namespace euphoria::window::imgui
     }
 
     bool
-    selectable(const char* label, bool is_selected)
+    imgui_selectable(const char* label, bool is_selected)
     {
         return ImGui::Selectable(label, is_selected);
     }
