@@ -62,11 +62,11 @@ namespace euphoria::core
         static vec3f zero();
 
         // todo(Gustav): move to free function and to matrix class
-        vec3f component_multiply(const vec3f& rhs) const;
+        [[nodiscard]] vec3f component_multiply(const vec3f& rhs) const;
         [[nodiscard]] float get_component_sum() const;
 
-        float dot(const vec3f& rhs) const;
-        vec3f cross(const vec3f& u) const;
+        [[nodiscard]] float dot(const vec3f& rhs) const;
+        [[nodiscard]] vec3f cross(const vec3f& u) const;
 
         void operator+=(const vec3f& rhs);
         void operator-=(const vec3f& rhs);
