@@ -2,19 +2,19 @@
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
   <compounddef id="imgui__icons_8h" kind="file" language="C++">
     <compoundname>imgui_icons.h</compoundname>
-    <includes local="yes">IconsMaterialDesignIcons.h</includes>
+    <includes local="yes">IconsMaterialDesign.h</includes>
     <includedby refid="imgui__extra_8cc" local="yes">libs/window/src/window/imgui_extra.cc</includedby>
     <includedby refid="imgui__icons_8cc" local="yes">libs/window/src/window/imgui_icons.cc</includedby>
     <includedby refid="imguilibrary_8cc" local="yes">libs/window/src/window/imguilibrary.cc</includedby>
     <incdepgraph>
-      <node id="2">
-        <label>IconsMaterialDesignIcons.h</label>
-      </node>
       <node id="1">
         <label>libs/window/src/window/imgui_icons.h</label>
         <link refid="imgui__icons_8h"/>
         <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="2">
+        <label>IconsMaterialDesign.h</label>
       </node>
     </incdepgraph>
     <invincdepgraph>

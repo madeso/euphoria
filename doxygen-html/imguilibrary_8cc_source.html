@@ -62,7 +62,7 @@
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &quot;imgui_impl_sdl.h&quot;</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;imgui_impl_opengl3.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;font_material_design_icons.h&quot;</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;font_material_icons.h&quot;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;font_noto_sans_display.h&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
@@ -88,8 +88,8 @@
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;            16</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;        );</div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">const</span> uint64_t min_mdi = ICON_MIN_MDI;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">const</span> uint64_t max_mdi = ICON_MAX_MDI;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;        <span class="keyword">const</span> uint64_t min_mdi = ICON_MIN_MD;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;        <span class="keyword">const</span> uint64_t max_mdi = ICON_MAX_MD;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;        constexpr <span class="keyword">const</span> <span class="keyword">auto</span> min_imgui = <span class="keyword">static_cast&lt;</span>uint64_t<span class="keyword">&gt;</span>(<a class="code" href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">std::numeric_limits&lt;ImWchar&gt;::min</a>());</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;        constexpr <span class="keyword">const</span> <span class="keyword">auto</span> max_imgui = <span class="keyword">static_cast&lt;</span>uint64_t<span class="keyword">&gt;</span>(<a class="code" href="namespaceeuphoria_1_1core.html#ab6fb5580825e85e2a19488ec6ec33c7f">std::numeric_limits&lt;ImWchar&gt;::max</a>());</div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> max_arg = <span class="keyword">static_cast&lt;</span>ImWchar<span class="keyword">&gt;</span>(<a class="code" href="namespaceeuphoria_1_1core.html#a601920b359719cbc0731466fd734c3cd">std::min</a>(max_mdi, max_imgui));</div>
@@ -103,7 +103,7 @@
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;        }</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> ImWchar icons_ranges[] = {ICON_MIN_MDI, max_arg, 0};</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> ImWchar icons_ranges[] = {ICON_MIN_MD, max_arg, 0};</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;        ImFontConfig icons_config;</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        icons_config.MergeMode = <span class="keyword">true</span>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        icons_config.PixelSnapH = <span class="keyword">true</span>;</div>
@@ -111,8 +111,8 @@
 <div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        io.Fonts-&gt;AddFontFromMemoryCompressedTTF</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        (</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            MaterialDesignIcons_compressed_data,</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            MaterialDesignIcons_compressed_size,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;            MaterialIcons_compressed_data,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;            MaterialIcons_compressed_size,</div>
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;            13.0f,</div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;            &amp;icons_config,</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;            icons_ranges</div>

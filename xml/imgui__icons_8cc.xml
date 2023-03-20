@@ -4,9 +4,6 @@
     <compoundname>imgui_icons.cc</compoundname>
     <includes refid="imgui__icons_8h" local="yes">window/imgui_icons.h</includes>
     <incdepgraph>
-      <node id="3">
-        <label>IconsMaterialDesignIcons.h</label>
-      </node>
       <node id="2">
         <label>window/imgui_icons.h</label>
         <link refid="imgui__icons_8h"/>
@@ -18,6 +15,9 @@
         <link refid="imgui__icons_8cc"/>
         <childnode refid="2" relation="include">
         </childnode>
+      </node>
+      <node id="3">
+        <label>IconsMaterialDesign.h</label>
       </node>
     </incdepgraph>
     <briefdescription>

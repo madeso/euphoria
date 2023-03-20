@@ -148,9 +148,6 @@
         <childnode refid="52" relation="include">
         </childnode>
       </node>
-      <node id="47">
-        <label>IconsMaterialDesignIcons.h</label>
-      </node>
       <node id="19">
         <label>core/vec.base.h</label>
         <link refid="vec_8base_8h"/>
@@ -363,6 +360,9 @@
       </node>
       <node id="3">
         <label>algorithm</label>
+      </node>
+      <node id="47">
+        <label>IconsMaterialDesign.h</label>
       </node>
       <node id="38">
         <label>memory</label>

@@ -7,7 +7,7 @@
     <includes local="yes">imgui/imgui.h</includes>
     <includes local="yes">imgui_impl_sdl.h</includes>
     <includes local="yes">imgui_impl_opengl3.h</includes>
-    <includes local="yes">font_material_design_icons.h</includes>
+    <includes local="yes">font_material_icons.h</includes>
     <includes local="yes">font_noto_sans_display.h</includes>
     <includes refid="log_8h" local="yes">log/log.h</includes>
     <includes refid="sdlglcontext_8h" local="yes">window/sdlglcontext.h</includes>
@@ -94,6 +94,9 @@
       <node id="23">
         <label>string</label>
       </node>
+      <node id="8">
+        <label>font_material_icons.h</label>
+      </node>
       <node id="38">
         <label>core/polarcoord.h</label>
         <link refid="polarcoord_8h"/>
@@ -130,9 +133,6 @@
         </childnode>
         <childnode refid="17" relation="include">
         </childnode>
-      </node>
-      <node id="16">
-        <label>IconsMaterialDesignIcons.h</label>
       </node>
       <node id="2">
         <label>window/imguilibrary.h</label>
@@ -271,8 +271,8 @@
         <childnode refid="25" relation="include">
         </childnode>
       </node>
-      <node id="8">
-        <label>font_material_design_icons.h</label>
+      <node id="16">
+        <label>IconsMaterialDesign.h</label>
       </node>
       <node id="35">
         <label>core/mat3.h</label>
