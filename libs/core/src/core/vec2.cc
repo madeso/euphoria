@@ -471,8 +471,8 @@ namespace euphoria::core
     {
         return vec2f
         (
-            float_transform(from.x, v, to.x),
-            float_transform(from.y, v, to.y)
+            lerp_float(from.x, v, to.x),
+            lerp_float(from.y, v, to.y)
         );
     }
 
@@ -480,8 +480,8 @@ namespace euphoria::core
     {
         return vec2i
         (
-            static_cast<int>(float_transform(static_cast<float>(from.x), v, static_cast<float>(to.x))),
-            static_cast<int>(float_transform(static_cast<float>(from.y), v, static_cast<float>(to.y)))
+            static_cast<int>(lerp_float(static_cast<float>(from.x), v, static_cast<float>(to.x))),
+            static_cast<int>(lerp_float(static_cast<float>(from.y), v, static_cast<float>(to.y)))
         );
     }
 

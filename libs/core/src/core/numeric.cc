@@ -98,7 +98,7 @@ namespace euphoria::core
 
 
     float
-    lerp(float f, float scale, float t)
+    lerp_float(float f, float scale, float t)
     {
         return f + (t - f) * scale;
     }

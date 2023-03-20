@@ -407,9 +407,9 @@ namespace euphoria::core
     {
         return
         {
-            float_transform(from.r, v, to.r),
-            float_transform(from.g, v, to.g),
-            float_transform(from.b, v, to.b)
+            lerp_float(from.r, v, to.r),
+            lerp_float(from.g, v, to.g),
+            lerp_float(from.b, v, to.b)
         };
     }
 

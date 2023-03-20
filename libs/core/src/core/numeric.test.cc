@@ -33,9 +33,9 @@ TEST_CASE("num-sign", "[numeric]")
 
 TEST_CASE("num-lerp", "[numeric]")
 {
-    REQUIRE(euco::lerp(0.0f, 0.5f, 2.0f) == Approx(1.0f));
-    REQUIRE(euco::lerp(-1.0f, 0.5f, 1.0f) == Approx(0.0f));
-    REQUIRE(euco::lerp(0.0f, 0.25f, 4.0f) == Approx(1.0f));
+    REQUIRE(euco::lerp_float(0.0f, 0.5f, 2.0f) == Approx(1.0f));
+    REQUIRE(euco::lerp_float(-1.0f, 0.5f, 1.0f) == Approx(0.0f));
+    REQUIRE(euco::lerp_float(0.0f, 0.25f, 4.0f) == Approx(1.0f));
 }
 
 TEST_CASE("num-square", "[numeric]")

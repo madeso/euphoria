@@ -344,7 +344,7 @@ main(int argc, char** argv)
                     anim.move_speed = get_random_in_range(&rand, 0.2f, 3.0f);
                 }
                 ASSERT(count < 2);
-                quatf q = quatf::slerp_shortway(anim.from, anim.timer, anim.to);
+                quatf q = slerp_shortway(anim.from, anim.timer, anim.to);
                 anim.actor->rotation = q;
                 const auto movement = q.in() * anim.move_speed * delta;
                 const auto new_pos = box_extents.wrap

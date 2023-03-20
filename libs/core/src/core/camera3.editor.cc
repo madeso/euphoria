@@ -13,22 +13,6 @@
 
 namespace euphoria::core
 {
-    angle lerp(const angle& f, float v, const angle& t)
-    {
-        return lerp_angle(f, v, t);
-    }
-
-    vec3f lerp(const vec3f& f, float v, const vec3f& t)
-    {
-        return vec3f
-        {
-            lerp(f.x, v, t.x),
-            lerp(f.y, v, t.y),
-            lerp(f.z, v, t.z)
-        };
-    }
-
-
     /*
     todo:
         tweak zoom factor:
@@ -525,9 +509,9 @@ namespace euphoria::core
                 const auto factor = easing::apply(owner->lerp_function, timer / total_time);
                 const auto frame = CameraFrame
                 {
-                    lerp(from.rotation_angle, factor, to.rotation_angle),
-                    lerp(from.look_angle, factor, to.look_angle),
-                    lerp(from.position, factor, to.position)
+                    lerp_angle(from.rotation_angle, factor, to.rotation_angle),
+                    lerp_angle(from.look_angle, factor, to.look_angle),
+                    lerp_vec3f(from.position, factor, to.position)
                 };
 
                 set_frame_for_editor(frame, owner);

@@ -1,5 +1,7 @@
 #pragma once
 
+#include "core/interpolate.default.h"
+
 
 namespace euphoria::core
 {
@@ -53,7 +55,9 @@ namespace euphoria::core
 
 
     float
-    lerp(float f, float scale, float t);
+    lerp_float(float f, float scale, float t);
+
+    DEFAULT_INTERPOLATE(float, lerp_float);
 
     /** Performs a single interpolating step to transform a old value to a new value.
     Larger smoothing values result in a smoother but less resposive path.

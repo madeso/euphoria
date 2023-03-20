@@ -3,8 +3,6 @@
 namespace euphoria::core
 {
 
-float float_transform(float from, float v, float to);
-
 // todo(Gustav): change to a function instead of a struct
 
 template<typename T>
@@ -22,6 +20,5 @@ T default_interpolate(const T& from, float t, const T& to)
     static TYPE interpolate(const TYPE& from, float v, const TYPE& to) { return FUNCTION(from, v, to); }\
 }
 
-DEFAULT_INTERPOLATE(float, float_transform);
 
 }

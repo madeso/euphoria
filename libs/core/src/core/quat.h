@@ -6,6 +6,7 @@
 #include "core/angle.h"
 #include "core/mat4.h"
 #include "core/polarcoord.h"
+#include "core/interpolate.default.h"
 
 
 namespace euphoria::core
@@ -26,9 +27,6 @@ namespace euphoria::core
         [[nodiscard]] static quatf identity();
         [[nodiscard]] static quatf look_at(const vec3f& from, const vec3f& to, const unit3f& up);
         [[nodiscard]] static quatf look_in_direction(const unit3f& dir, const unit3f& up);
-        [[nodiscard]] static quatf lerp(const quatf& f, float scale, const quatf& t);
-        [[nodiscard]] static quatf slerp_fast(const quatf& qa, float t, const quatf& qb);
-        [[nodiscard]] static quatf slerp_shortway(const quatf& from, float scale, const quatf& to);
 
         float* get_data_ptr();
         void normalize();
@@ -65,6 +63,11 @@ namespace euphoria::core
         void operator*=(const quatf& rhs);
     };
 
+    quatf lerp_quatf(const quatf& f, float scale, const quatf& t);
+    quatf slerp_fast(const quatf& qa, float t, const quatf& qb);
+    quatf slerp_shortway(const quatf& from, float scale, const quatf& to);
+
+    DEFAULT_INTERPOLATE(quatf, slerp_shortway);
 
     float dot(const quatf& lhs, const quatf& rhs);
     

@@ -388,6 +388,17 @@ namespace euphoria::core
     /// Functions
 
 
+    vec3f lerp_vec3f(const vec3f& f, float v, const vec3f& t)
+    {
+        return vec3f
+        {
+            lerp_float(f.x, v, t.x),
+            lerp_float(f.y, v, t.y),
+            lerp_float(f.z, v, t.z)
+        };
+    }
+
+
     float
     vec3f::dot(const vec3f& rhs) const
     {
